@@ -1,12 +1,12 @@
 ---
 title: Installare il server di Backup di Azure v2 | Microsoft Docs
-description: "Il server di Backup di Azure v2 offre funzionalità avanzate di backup per la protezione di VM, file e cartelle, carichi di lavoro e altro ancora. Informazioni su come installare o eseguire l'aggiornamento del server di Backup di Azure v2."
+description: Il server di Backup di Azure v2 offre funzionalità avanzate di backup per la protezione di VM, file e cartelle, carichi di lavoro e altro ancora. Informazioni su come installare o eseguire l'aggiornamento del server di Backup di Azure v2.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd7b76d9e06bc82ffd75f12131c2c247da05cc91
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-backup-server-v2"></a>Installare il server di Backup di Azure v2
 
@@ -36,7 +36,7 @@ Le funzionalità aggiuntive nel server di backup v2 rappresentano un aggiornamen
 ## <a name="upgrade-backup-server-to-v2"></a>Aggiornare il server di Backup di Azure alla v2
 Per eseguire l'aggiornamento dal server di backup v1 al server di backup v2, assicurarsi che l'installazione presenti gli aggiornamenti necessari:
 
-- [Aggiornare gli agenti protezione](backup-mabs-upgrade-to-v2.md#update-the-dpm-protection-agent) nei server protetti.
+- [Aggiornare gli agenti protezione](backup-mabs-upgrade-to-v2.md#update-the-data-protection-manager-protection-agent) nei server protetti.
 - Aggiornare Windows Server 2012 R2 a Windows Server 2016.
 - Aggiornare Azure Backup Server Remote Administrator in tutti i server di produzione.
 - Verificare che i backup siano configurati per continuare senza dover riavviare il server di produzione.

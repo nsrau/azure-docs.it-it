@@ -1,11 +1,11 @@
 ---
-title: "Novità della gestione delle applicazioni aziendali in Azure Active Directory | Microsoft Docs"
-description: "Informazioni sulle novità della gestione delle applicazioni aziendali in Azure Active Directory."
+title: Novità della gestione delle applicazioni aziendali in Azure Active Directory | Microsoft Docs
+description: Informazioni sulle novità della gestione delle applicazioni aziendali in Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 949eae51c469205489153c271a7c20fcc843ad46
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Novità della gestione delle applicazioni aziendali in Azure Active Directory 
 
@@ -147,7 +147,7 @@ Dopo aver aggiunto un numero elevato di nuove applicazioni, può essere opportun
 1. Per iniziare è possibile selezionare l'opzione **Self-service** dal menu di navigazione a sinistra dell'applicazione e impostare l'opzione **Consentire agli utenti di richiedere l'accesso a questa applicazione?** su '**Sì**'. 
 2. Sarà così possibile definire i responsabili dell'approvazione dell'accesso all'applicazione e il gruppo al quale verranno aggiunti gli utenti self-service. Se l'applicazione è configurata per l'accesso Single Sign-On con password, verrà visualizzata anche un'altra opzione che consente eventualmente di autorizzare tali responsabili dell'approvazione alla gestione delle password assegnate all'applicazione.
 
-##<a name="feedback"></a>Commenti e suggerimenti
+## <a name="feedback"></a>Commenti e suggerimenti
 
 Speriamo che gli utenti usino il nuovo Azure AD e inviino commenti e suggerimenti. È possibile inviare commenti e idee per apportare miglioramenti nella sezione **Portale di amministrazione** del [forum dei commenti](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Microsoft accoglie i suggerimenti degli utenti per definire nuove funzionalità ogni giorno.
 

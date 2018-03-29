@@ -3,8 +3,9 @@ title: Come aumentare la concorrenza di un servizio Web di Azure Machine Learnin
 description: Informazioni su come aumentare la concorrenza di un servizio Web di Azure Machine Learning aggiungendo altri endpoint.
 services: machine-learning
 documentationcenter: ''
-author: aashishb
-manager: srikants
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 keywords: azure machine learning, servizi Web, messa in funzione, scalabilità, endpoint, concorrenza
 ms.assetid: c2c51d7f-fd2d-4f03-bc51-bf47e6969296
@@ -14,12 +15,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: aashishb
-ms.openlocfilehash: bec69a273a9996782376196b193686ab8cfe1eaa
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 946e13c42213090fff0cd8648687ee523af51c42
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Ridimensionamento di un servizio Web di Azure Machine Learning con l'aggiunta di altri endpoint
 > [!NOTE]

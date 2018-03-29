@@ -5,7 +5,7 @@ services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8bdda6a2-5ff1-45e3-b696-c553768f1090
 ms.service: event-hubs
 ms.devlang: tbd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 09345b32e80008d4afe61078bd4d272fafe631d2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c241b8c38aab355729cd1bea318e70e85cf4ff1f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Creare uno spazio dei nomi con l'hub eventi e abilitare l'acquisizione usando un modello
 
@@ -177,7 +177,7 @@ Intervallo di dimensioni in cui la funzionalità di acquisizione avvia l'acquisi
 }
 ```
 
-###<a name="capturenameformat"></a>captureNameFormat
+### <a name="capturenameformat"></a>captureNameFormat
 
 Formato di nome usato dalla funzionalità di acquisizione di Hub eventi per scrivere i file Avro. Si noti che il formato del nome file di acquisizione deve contenere i campi `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}` e `{Second}`. Questi campi possono essere disposti in qualsiasi ordine, con o senza delimitatori.
  
@@ -236,7 +236,7 @@ Contenitore BLOB in cui acquisire i dati degli eventi.
 
 Se si sceglie Azure Data Lake Store come destinazione, usare i parametri seguenti. È necessario impostare le autorizzazioni per il percorso di Data Lake Store in cui si vuole acquisire l'evento. Per impostare le autorizzazioni, vedere [questo articolo](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account).
 
-###<a name="subscriptionid"></a>subscriptionId
+### <a name="subscriptionid"></a>subscriptionId
 
 ID sottoscrizione per lo spazio dei nomi di Hub eventi e Azure Data Lake Store. Entrambe queste risorse devono essere incluse nello stesso ID sottoscrizione.
 
@@ -249,7 +249,7 @@ ID sottoscrizione per lo spazio dei nomi di Hub eventi e Azure Data Lake Store. 
  }
 ```
 
-###<a name="datalakeaccountname"></a>dataLakeAccountName
+### <a name="datalakeaccountname"></a>dataLakeAccountName
 
 Nome di Azure Data Lake Store per gli eventi acquisiti.
 
@@ -262,7 +262,7 @@ Nome di Azure Data Lake Store per gli eventi acquisiti.
 }
 ```
 
-###<a name="datalakefolderpath"></a>dataLakeFolderPath
+### <a name="datalakefolderpath"></a>dataLakeFolderPath
 
 Percorso della cartella di destinazione per gli eventi acquisiti. Si tratta della cartella di Data Lake Store in cui verrà eseguito il push degli eventi durante l'operazione di acquisizione. Per impostare le autorizzazioni per questa cartella, vedere [Usare Azure Data Lake Store per acquisire dati da Hub eventi](../data-lake-store/data-lake-store-archive-eventhub-capture.md).
 

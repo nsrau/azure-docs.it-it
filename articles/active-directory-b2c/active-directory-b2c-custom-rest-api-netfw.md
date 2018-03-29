@@ -1,24 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell''input utente'
+title: "Azure Active Directory B2C: integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente"
 description: Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/30/2017
-ms.author: yoelh
-ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: 9429f690940e1282d94b4d67ad1c618a24655cb5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente
 Con il framework dell'esperienza di gestione delle identità, che è alla base di Azure Active Directory B2C (Azure AD B2C), è possibile eseguire un'integrazione con un'API RESTful in un percorso utente. In questa procedura dettagliata verrà illustrato come Azure AD B2C interagisce con i servizi RESTful di .NET Framework (API Web).

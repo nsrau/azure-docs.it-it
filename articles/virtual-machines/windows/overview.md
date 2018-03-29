@@ -2,10 +2,10 @@
 title: Panoramica delle macchine virtuali Windows | Microsoft Docs
 description: Informazioni sulla creazione e gestione di macchine virtuali Windows in Azure.
 services: virtual-machines-windows
-documentationcenter: 
-author: davidmu1
-manager: timlt
-editor: tysonn
+documentationcenter: ''
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: davidmu
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e33186b189394172cba6cf550c01954db941c19
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 6ab964760ea06c2e82d0c9f69f89fe62dec8ceac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Panoramica delle macchine virtuali Windows in Azure
 
@@ -145,7 +145,7 @@ Per [avviare una sessione di Desktop remoto (RDP)](connect-logon.md?toc=%2fazure
 ### <a name="manage-availability"></a>Gestire la disponibilità
 È importante comprendere come [garantire disponibilità elevata](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per un'applicazione. Questa configurazione prevede la creazione di più VM per assicurarsi che almeno una sia in esecuzione.
 
-Per qualificarsi per la garanzia del contratto di servizio del 99,95% per le VM, devono essere distribuite due o più VM che eseguono il carico di lavoro in un [set di disponibilità](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). In questo modo le VM vengono distribuite tra più domini di errore e anche in host con finestre di manutenzione diverse. La versione completa del [contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) descrive la disponibilità garantita di Azure nel suo complesso.
+Per qualificarsi per la garanzia del contratto di servizio del 99,95% per le VM, devono essere distribuite due o più VM che eseguono il carico di lavoro in un [set di disponibilità](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). In questo modo le VM vengono distribuite tra più domini di errore e anche in host con finestre di manutenzione diverse. La versione completa del [contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) descrive la disponibilità garantita di Azure nel suo complesso.
 
 ### <a name="back-up-the-vm"></a>Eseguire il backup della VM
 Un [ insieme di credenziali di Servizi di ripristino](../../backup/backup-introduction-to-azure-backup.md) è usato per proteggere dati e asset nei servizi di Backup di Azure e di Azure Site Recovery. È possibile usare tale insieme per [distribuire e gestire i backup per le macchine virtuali distribuite con Resource Manager utilizzando PowerShell](../../backup/backup-azure-vms-automation.md). 

@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/15/2017
 ms.openlocfilehash: 6bae66a5cd349b64b7f96bf7d6c71f4ce13678bf
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="sprint-2-qfe---december-2017"></a>Sprint 2 QFE - Dicembre 2017 
 

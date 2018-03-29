@@ -2,11 +2,12 @@
 title: Come scegliere gli algoritmi di Machine Learning | Microsoft Docs
 description: Come scegliere gli algoritmi di Azure Machine Learning per l'apprendimento supervisionato e non supervisionato negli esperimenti di clustering, classificazione o regressione.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: pakalra
+ms.author: pakalra
+manager: cgronlun
 editor: cgronlun
-tags: 
+tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.devlang: na
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Come scegliere gli algoritmi di Microsoft Azure Machine Learning
 La risposta alla domanda "Quale algoritmo di Machine Learning devo usare" è sempre "Dipende". Dipende dalla dimensione, dalla qualità e dalla natura dei dati. Dipende da cosa si vuole fare con la risposta. Dipende da come i calcoli dell'algoritmo sono stati convertiti in istruzioni per il computer in uso. E dipende dal tempo a disposizione. Nemmeno gli scienziati dei dati più esperti possono stabilire quale algoritmo funzionerà meglio prima di provarlo.
@@ -187,7 +187,7 @@ Le macchine a vettori di supporto (SVM) consentono di individuare il limite che 
 
 ***Un limite di classe tipico della macchina a vettore di supporto ottimizza il margine separando due classi***
 
-Un altro prodotto di Microsoft Research, la [SVM localmente approfondita a due classi](https://msdn.microsoft.com/library/azure/dn913070.aspx) è una variante non lineare di SVM che mantiene la maggior parte della velocità e dell'efficienza della memoria della versione non lineare. È ideale per i casi in cui l'approccio lineare non fornisce risposte sufficientemente precise. Gli sviluppatori l’hanno mantenuta rapida per scomporre il problema in una serie di piccoli problemi di SVM lineare. Leggere la [descrizione completa](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf) per i dettagli su come hanno ottenuto questo risultato.
+Un altro prodotto di Microsoft Research, la [SVM localmente approfondita a due classi](https://msdn.microsoft.com/library/azure/dn913070.aspx) è una variante non lineare di SVM che mantiene la maggior parte della velocità e dell'efficienza della memoria della versione non lineare. È ideale per i casi in cui l'approccio lineare non fornisce risposte sufficientemente precise. Gli sviluppatori l’hanno mantenuta rapida per scomporre il problema in una serie di piccoli problemi di SVM lineare. Leggere la [descrizione completa](http://proceedings.mlr.press/v28/jose13.html) per i dettagli su come hanno ottenuto questo risultato.
 
 Usando un'estensione intelligente delle SVM non lineari, la [SVM a una classe](https://msdn.microsoft.com/library/azure/dn913103.aspx) consente di tracciare un limite che delinea strettamente l'intero set di dati. È utile per il rilevamento delle anomalie. Eventuali nuovi punti dati che superano di molto tale limite sono sufficientemente insoliti da essere degni di nota.
 

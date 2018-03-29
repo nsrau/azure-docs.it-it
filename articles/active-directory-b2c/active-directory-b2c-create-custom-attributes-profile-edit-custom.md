@@ -1,24 +1,21 @@
 ---
 title: 'Azure Active Directory B2C: Aggiungere attributi a criteri personalizzati e usarli nella modifica del profilo | Microsoft Docs'
-description: "Procedura dettagliata che illustra come usare proprietà di estensione e attributi personalizzati e includerli nell'interfaccia utente"
+description: Procedura dettagliata che illustra come usare proprietà di estensione e attributi personalizzati e includerli nell'interfaccia utente
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: joroja
-ms.openlocfilehash: 33c9e4322444895a3affc16e11af5443f2db6b6d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: davidmu
+ms.openlocfilehash: e0595a67b90e1be7bb992ef7bda4343e692d8957
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Creazione e utilizzo di attributi personalizzati in criteri personalizzati di modifica del profilo
 
@@ -289,7 +286,7 @@ extension_<app-guid>_ActivationStatus via the Graph API.
 ```
 
 
-## <a name="reference"></a>riferimento
+## <a name="reference"></a>Riferimenti
 
 * Un **profilo tecnico** è un tipo di elemento che può essere considerato una *funzione* che definisce il nome di un endpoint, i relativi metadati, il protocollo e i dettagli dello scambio di attestazioni che deve essere eseguito dal Framework dell'esperienza di gestione delle identità.  Quando questa *funzione* viene chiamata in un passaggio di orchestrazione o da un altro TechnicalProfile, gli elementi InputClaims e OutputClaims vengono forniti come parametri dal chiamante.
 

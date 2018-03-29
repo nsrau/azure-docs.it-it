@@ -1,24 +1,18 @@
 ---
-title: Rimuovere ruoli di lavoro ibridi per runbook di Automazione di Azure | Microsoft Docs
+title: Rimuovere ruoli di lavoro ibridi di Automazione di Azure
 description: Questo articolo fornisce informazioni sulla gestione di un ruolo di lavoro ibrido per runbook di Automazione di Azure distribuito che consente di eseguire i runbook sui computer nel data center locale o nell'ambiente cloud.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: 
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/07/2017
-ms.author: magoedte
-ms.openlocfilehash: 602b868073da6bd1f64099c0f344c9b492abaff0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: carmonm
+ms.openlocfilehash: 0b8f951bbd9712e3d20c3286ef3571e287499c68
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="remove-azure-automation-hybrid-runbook-workers"></a>Rimuovere ruoli di lavoro ibridi di Automazione di Azure
 

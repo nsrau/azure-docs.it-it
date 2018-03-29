@@ -2,10 +2,10 @@
 title: 'Procedura dettagliata: offuscare i volti con Analisi Servizi multimediali di Azure | Documentazione Microsoft'
 description: Questo argomento fornisce istruzioni dettagliate su come eseguire un flusso di lavoro di offuscamento completo usando Azure Media Services Explorer (AMSE) e Azure Media Redactor Visualizer (strumento open source).
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: 0bd385ba78028a722c52cdf1508f3348ff90f05f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b33da21a32373196d86ec8c93f180b3d40b1c6e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Procedura dettagliata: offuscare i volti con Analisi Servizi multimediali di Azure
 
@@ -59,7 +59,7 @@ L'output includerà un file JSON di annotazioni contenente i dati relativi alla 
 
 ![Offuscamento dei volti](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
-###<a name="second-pass--redact-mode"></a>Secondo passaggio: modalità offuscamento
+### <a name="second-pass--redact-mode"></a>Secondo passaggio: modalità offuscamento
 
 1. Caricare l'asset video originale nell'output del primo passaggio e impostarlo come asset principale. 
 
@@ -78,7 +78,7 @@ L'output includerà un file JSON di annotazioni contenente i dati relativi alla 
 
     ![Offuscamento dei volti](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
-##<a name="azure-media-redactor-visualizer-open-source-tool"></a>Strumento open source Azure Media Redactor Visualizer
+## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Strumento open source Azure Media Redactor Visualizer
 
 Il [visualizzatore](https://github.com/Microsoft/azure-media-redactor-visualizer) open source ha lo scopo di introdurre gli sviluppatori al formato delle annotazioni con l'analisi e l'uso dell'output.
 

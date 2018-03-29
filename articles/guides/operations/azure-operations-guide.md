@@ -1,25 +1,25 @@
 ---
 title: Guida introduttiva per gli operatori IT di Azure | Microsoft Docs
 description: Guida introduttiva per gli operatori IT di Azure
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
-ms.devlang: 
-ms.topic: 
-ms.tgt_pltfrm: 
+ms.devlang: ''
+ms.topic: ''
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0be60fff3d49ff39691f19cb1013e023f9f984e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introduzione al cloud computing e a Microsoft Azure
 
@@ -148,7 +148,7 @@ Uno dei vantaggi dell'uso di Azure è la possibilità di distribuire le applicaz
 ### <a name="azure-portal"></a>Portale di Azure
 
 
-Il portale di Azure è un'applicazione basata sul Web che può essere usata per creare, gestire e rimuovere risorse e servizi di Azure. Il Portale di Azure, disponibile all'indirizzo https://portal.azure.com, include un dashboard personalizzabile e gli strumenti per la gestione delle risorse di Azure e fornisce le informazioni relative alla fatturazione e alla sottoscrizione. Per altre informazioni, vedere [Panoramica del portale di Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [Gestire le risorse di Azure mediante il portale](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+Il portale di Azure è un'applicazione basata sul Web che può essere usata per creare, gestire e rimuovere risorse e servizi di Azure. Il portale di Azure si trova in https://portal.azure.com. include un dashboard personalizzabile e gli strumenti per la gestione delle risorse di Azure e fornisce le informazioni relative alla fatturazione e alla sottoscrizione. Per altre informazioni, vedere [Panoramica del portale di Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [Gestire le risorse di Azure mediante il portale](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
 ### <a name="resources"></a>Risorse
 
@@ -485,7 +485,7 @@ Per impostazione predefinita, una rete virtuale di Azure è accessibile solo per
 
 Poiché la rete virtuale di Azure è connessa alla rete locale, le reti virtuali cross-premise devono usare una parte univoca dello spazio indirizzi usato dall'organizzazione. Nello stesso modo in cui sedi aziendali diverse vengono assegnate a una subnet IP specifica, con l'estensione della rete Azure diventa un'altra sede.
 
-###<a name="deploying-a-virtual-network"></a>Distribuzione di una rete virtuale
+### <a name="deploying-a-virtual-network"></a>Distribuzione di una rete virtuale
 
 Per la distribuzione di una rete virtuale sono disponibili diverse opzioni.
 

@@ -1,12 +1,12 @@
 ---
-title: 'Servizio di sincronizzazione Azure AD Connect: modifica dell''account del servizio di sincronizzazione Azure AD Connect | Microsoft Docs'
+title: "Servizio di sincronizzazione Azure AD Connect: modifica dell'account del servizio di sincronizzazione Azure AD Connect | Microsoft Docs"
 description: Questo argomento descrive la chiave di crittografia e come abbandonarla dopo la modifica della password.
 services: active-directory
 keywords: Account del servizio Azure AD Sync, password
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: faa6d667b514563516c23e0484437ac9572e52b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Modifica della password dell'account del servizio di sincronizzazione Azure AD Connect
 Se si modifica la password dell'account del servizio di sincronizzazione Azure AD Connect, il servizio di sincronizzazione non verrà avviato correttamente finché non si abbandona la chiave di crittografia e non si reinizializza la password dell'account del servizio. 
@@ -30,7 +30,7 @@ La chiave di crittografia usata viene protetta con [Windows Data Protection (DPA
 
 Se è necessario modificare la password dell'account del servizio, è possibile usare le procedure contenute in [Abbandono della chiave di crittografia del servizio di sincronizzazione Azure AD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key).  Queste procedure devono essere usate anche se è necessario abbandonare la chiave di crittografia per qualsiasi altro motivo.
 
-##<a name="issues-that-arise-from-changing-the-password"></a>Problemi derivati dalla modifica della password
+## <a name="issues-that-arise-from-changing-the-password"></a>Problemi derivati dalla modifica della password
 Quando si modifica la password dell'account del servizio, è necessario eseguire due operazioni.
 
 Prima di tutto, è necessario modificare la password in Gestione controllo servizi di Windows.  Finché non si risolve questo problema, verranno visualizzati gli errori seguenti:

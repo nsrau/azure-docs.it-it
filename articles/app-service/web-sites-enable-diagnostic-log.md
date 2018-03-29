@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: e82bbff908ea5499765edc71e52caa573c816a62
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c39a8fafef9a45f5e80d00f8cbc75833201df150
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure
 ## <a name="overview"></a>Panoramica
@@ -120,7 +120,7 @@ In questo modo i log dell'app Web specificata dal parametro **-Name** vengono sa
 ### <a name="download-with-azure-command-line-interface"></a>Download con l'interfaccia della riga di comando di Azure
 Per scaricare i file di log mediante l'interfaccia della riga di comando di Azure, aprire un nuovo prompt dei comandi o una sessione di PowerShell, bash o terminal e immettere il comando seguente:
 
-    azure site log download webappname
+    az webapp log download --name webappname
 
 In questo modo i log dell'app Web denominata 'webappname' vengono salvati in un file denominato **diagnostics.zip** nella directory corrente.
 

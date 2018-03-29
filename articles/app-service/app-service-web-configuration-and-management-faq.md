@@ -1,11 +1,11 @@
 ---
 title: Domande frequenti sulla configurazione per App Web di Azure | Microsoft Docs
-description: "È possibile ottenere risposte alle domande frequenti sui problemi di configurazione e gestione per la funzionalità App Web del servizio app di Azure."
+description: È possibile ottenere risposte alle domande frequenti sui problemi di configurazione e gestione per la funzionalità App Web del servizio app di Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -251,7 +251,7 @@ Per altre informazioni sui processi Web pianificati, vedere [Creare un processo 
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Come si esegue il test di penetrazione per l'app del servizio app?
 
-Per eseguire il test di penetrazione, [inviare una richiesta](https://security-forms.azure.com/penetration-testing/terms).
+Per eseguire il test di penetrazione, [inviare una richiesta](https://portal.msrc.microsoft.com/en-us/engage/pentest).
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Come si configura un nome di dominio personalizzato per un app We del servizio app che utilizza Gestione traffico?
 

@@ -1,5 +1,5 @@
 ---
-title: Visualizzare i dati delle app di Azure Application Insights | Microsoft Docs
+title: Visualizza i dati delle app Azure Application Insights | Microsoft Docs
 description: È possibile usare la soluzione Connettore di Application Insights per diagnosticare problemi di prestazioni e comprendere in che modo gli utenti usano le app con il monitoraggio di Application Insights.
 services: log-analytics
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 1556e91710990351d6723325789201afa99b1943
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 854ec70c897b6a561fdec056228f82ccec3ae16c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Soluzione di gestione Connettore di Application Insights (anteprima)
 
@@ -37,14 +37,14 @@ Quando si usa la soluzione, è possibile:
 
 A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per Connettore di Application Insights non vengono raccolti dagli agenti. Tutti i dati usati dalla soluzione provengono direttamente da Azure.
 
-| Origine connessa | Supportato | Descrizione |
+| Origine connessa | Supportato | DESCRIZIONE |
 | --- | --- | --- |
 | [Agenti di Windows](log-analytics-windows-agent.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
 | [Agenti Linux](log-analytics-linux-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
 | [Gruppo di gestione SCOM](log-analytics-om-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
 | [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No  | La soluzione non raccoglie le informazioni da Archiviazione di Azure. |
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Per accedere alle informazioni relative a Connettore di Application Insights, è necessaria una sottoscrizione Azure
 - È necessario disporre di almeno una risorsa Application Insights configurata.
@@ -55,7 +55,7 @@ A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per
 1. Abilitare la soluzione Analisi app Web di Azure da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).
 2. Nel portale OMS fare clic su **Impostazioni** &gt; **Dati** &gt; **Application Insights**.
 3. In **Selezionare una sottoscrizione**, selezionare una sottoscrizione con risorse Application Insights e quindi, in **Nome applicazione**, selezionare una o più applicazioni.
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
 Dopo circa 30 minuti, i dati diverranno disponibili e il riquadro Application Insights verrà aggiornato con alcuni dati, come nell'immagine seguente:
 
@@ -88,12 +88,12 @@ Il dashboard include i pannelli mostrati nella tabella. Ogni panello elenca fino
 
 | **Colonna** | **Descrizione** |
 | --- | --- |
-| Applications - Number of applications (Applicazioni - Numero di applicazioni) | Mostra il numero di applicazioni nelle risorse Applications (Applicazioni). Sono anche elencati i nomi delle applicazioni e, per ognuna, il numero di record. Fare clic sul numero per eseguire una ricerca log di <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by ApplicationName</code> <br><br>  Fare clic sul nome di un'applicazione per eseguire una ricerca log dell'applicazione che mostri i record dell'applicazione per host e tipo di telemetria e tutti i dati per tipo (in base all'ultimo giorno). |
-| Data Volume – Hosts sending data (Volume dati - Host che inviano dati) | Mostra il numero di host computer che inviano dati. Elenca anche gli host computer e il numero di record per ogni host. Fare clic sul numero per eseguire una ricerca log di <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by Host</code> <br><br> Fare clic sul nome di un computer per eseguire una ricerca log dell'host che mostri i record dell'applicazione per host e tipo di telemetria e tutti i dati per tipo (in base all'ultimo giorno). |
-| Availability – Webtest results (Disponibilità - Risultati test Web) | Mostra un grafico ad anello per i risultati dei test Web, con indicazione di esito positivo o negativo. Fare clic sul grafico per eseguire una ricerca log di <code>Type=ApplicationInsights TelemetryType=Availability &#124; measure sum(SampledCount) by AvailabilityResult</code> <br><br> I risultati indicano il numero di esiti positivi e negativi per tutti i test. Mostra tutte le app Web con traffico nell'ultimo minuto. Fare clic su un nome di applicazione per visualizzare una ricerca log che mostri i dettagli dei test Web non riusciti. |
-| Server Requests – Requests per hour (Richieste server - Richieste per ora) | Mostra un grafico a linee delle richieste server per ora per diverse applicazioni. Passare il mouse su una riga nel grafico per visualizzare le prime 3 applicazioni che ricevono richieste per un punto nel tempo. Mostra anche un elenco delle applicazioni che ricevono richieste e il numero di richieste per il periodo selezionato. <br><br>Fare clic sul grafo per eseguire una ricerca log di <code>Type=ApplicationInsights TelemetryType=Request &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> che mostri un grafico a linee più dettagliato delle richieste server per ora per diverse applicazioni. <br><br> Fare clic su un'applicazione nell'elenco per eseguire una ricerca log di <code>Type=ApplicationInsights  ApplicationName=yourapplicationname  TelemetryType=Request</code> che mostri un elenco di richieste, grafici per le richieste nel tempo e durata delle richieste, nonché un elenco dei codici di risposta delle richieste.   |
-| Failures – Failed requests per hour (Errori - Richieste non riuscite per ora) | Mostra un grafico a linee di richieste di applicazione non riuscite per ora. Passare il mouse sul grafico per visualizzare le prime 3 applicazioni con richieste non riuscite per un punto nel tempo. Mostra anche un elenco di applicazioni con il numero di richieste non riuscite per ognuna. Fare clic sul grafico per eseguire una ricerca log di <code>Type=ApplicationInsights TelemetryType=Request  RequestSuccess = false &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> che mostri un grafico a linee più dettagliato delle richieste di applicazione non riuscite. <br><br>Fare clic su un elemento nell'elenco per eseguire una ricerca log di <code>Type=ApplicationInsights ApplicationName=yourapplicationname TelemetryType=Request  RequestSuccess=false</code> che mostri richieste non riuscite, grafici per le richieste non riuscite nel tempo e durata delle richieste, nonché un elenco dei codici di risposta delle richieste non riuscite. |
-| Exceptions – Exceptions per hour (Eccezioni - Eccezioni per ora) | Mostra un grafico a linee di eccezioni per ora. Passare il mouse sul grafico per visualizzare le prime 3 applicazioni con eccezioni per un punto nel tempo. Mostra anche un elenco di applicazioni con il numero di eccezioni per ognuna. Fare clic sul grafico per eseguire una ricerca log di <code>Type=ApplicationInsights TelemetryType=Exception &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> che mostri un grafico a linee più dettagliato delle eccezioni. <br><br>Fare clic su un elemento nell'elenco per eseguire una ricerca log di <code>Type=ApplicationInsights  ApplicationName=yourapplicationname TelemetryType=Exception</code> che mostri un elenco di eccezioni, grafici per le eccezioni nel tempo e richieste non riuscite, nonché un elenco dei tipi di eccezione.  |
+| Applications - Number of applications (Applicazioni - Numero di applicazioni) | Mostra il numero di applicazioni nelle risorse Applications (Applicazioni). Sono anche elencati i nomi delle applicazioni e, per ognuna, il numero di record. Fare clic sul numero per eseguire una ricerca log di <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  Fare clic sul nome di un'applicazione per eseguire una ricerca log dell'applicazione che mostri i record dell'applicazione per host e tipo di telemetria e tutti i dati per tipo (in base all'ultimo giorno). |
+| Data Volume – Hosts sending data (Volume dati - Host che inviano dati) | Mostra il numero di host computer che inviano dati. Elenca anche gli host computer e il numero di record per ogni host. Fare clic sul numero per eseguire una ricerca log di <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> Fare clic sul nome di un computer per eseguire una ricerca log dell'host che mostri i record dell'applicazione per host e tipo di telemetria e tutti i dati per tipo (in base all'ultimo giorno). |
+| Availability – Webtest results (Disponibilità - Risultati test Web) | Mostra un grafico ad anello per i risultati dei test Web, con indicazione di esito positivo o negativo. Fare clic sul grafico per eseguire una ricerca log di <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code> <br><br> I risultati indicano il numero di esiti positivi e negativi per tutti i test. Mostra tutte le app Web con traffico nell'ultimo minuto. Fare clic su un nome di applicazione per visualizzare una ricerca log che mostri i dettagli dei test Web non riusciti. |
+| Server Requests – Requests per hour (Richieste server - Richieste per ora) | Mostra un grafico a linee delle richieste server per ora per diverse applicazioni. Passare il mouse su una riga nel grafico per visualizzare le prime 3 applicazioni che ricevono richieste per un punto nel tempo. Mostra anche un elenco delle applicazioni che ricevono richieste e il numero di richieste per il periodo selezionato. <br><br>Fare clic sul grafo per eseguire una ricerca log di <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> che mostri un grafico a linee più dettagliato delle richieste server per ora per diverse applicazioni. <br><br> Fare clic su un'applicazione nell'elenco per eseguire una ricerca log di <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> che mostri un elenco di richieste, grafici per le richieste nel tempo e durata delle richieste, nonché un elenco dei codici di risposta delle richieste.   |
+| Failures – Failed requests per hour (Errori - Richieste non riuscite per ora) | Mostra un grafico a linee di richieste di applicazione non riuscite per ora. Passare il mouse sul grafico per visualizzare le prime 3 applicazioni con richieste non riuscite per un punto nel tempo. Mostra anche un elenco di applicazioni con il numero di richieste non riuscite per ognuna. Fare clic sul grafico per eseguire una ricerca log di <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> che mostri un grafico a linee più dettagliato delle richieste di applicazione non riuscite. <br><br>Fare clic su un elemento nell'elenco per eseguire una ricerca log di <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> che mostri richieste non riuscite, grafici per le richieste non riuscite nel tempo e durata delle richieste, nonché un elenco dei codici di risposta delle richieste non riuscite. |
+| Exceptions – Exceptions per hour (Eccezioni - Eccezioni per ora) | Mostra un grafico a linee di eccezioni per ora. Passare il mouse sul grafico per visualizzare le prime 3 applicazioni con eccezioni per un punto nel tempo. Mostra anche un elenco di applicazioni con il numero di eccezioni per ognuna. Fare clic sul grafico per eseguire una ricerca log di <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> che mostri un grafico a linee più dettagliato delle eccezioni. <br><br>Fare clic su un elemento nell'elenco per eseguire una ricerca log di <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code> che mostri un elenco di eccezioni, grafici per le eccezioni nel tempo e richieste non riuscite, nonché un elenco dei tipi di eccezione.  |
 
 ### <a name="view-the-application-insights-perspective-with-log-search"></a>Visualizzare la prospettiva di Application Insights con ricerca log
 
@@ -145,7 +145,7 @@ Application Insights offre *[dati con correzione di campionamento](../applicatio
 Di seguito è riportato un esempio di correzione di campionamento in una query di ricerca log:
 
 ```
-Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
+ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by TelemetryType
 ```
 
 Il campo **SampledCount** è presente in tutte le voci e mostra il numero di punti dati rappresentati dalla voce. Se si attiva il campionamento per l'app di Application Insights, **SampledCount** è maggiore di 1. Per calcolare il numero effettivo di voci generati dall'applicazione, sommare i campi **SampledCount**.
@@ -170,9 +170,9 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="generic-fields"></a>Campi generici
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
-| Type | ApplicationInsights |
+| type | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Ora del record |
 | ApplicationId | Chiave di strumentazione dell'app Application Insights |
@@ -181,9 +181,9 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 | DeviceType | Dispositivo client |
 | ScreenResolution |   |
 | Continent | Continente in cui ha origine la richiesta |
-| Country | Paese in cui ha origine la richiesta |
+| Paese | Paese in cui ha origine la richiesta |
 | Province | Provincia, stato o impostazioni locali in cui ha origine la richiesta |
-| City | Città o paese in cui ha origine la richiesta |
+| city | Città o paese in cui ha origine la richiesta |
 | isSynthetic | Indica se la richiesta è stata creata da un utente o dal metodo automatizzato. True = generata dall'utente o false = metodo automatizzato |
 | SamplingRate | Percentuale di telemetria generata dall'SDK inviato al portale. L'intervallo è 0,0-100,0. |
 | SampledCount | 100/(SamplingRate). Ad esempio, 4 =&gt; 25% |
@@ -196,7 +196,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="availability-specific-fields"></a>Campi specifici di disponibilità
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | TelemetryType | Disponibilità |
 | AvailabilityTestName | Nome del test Web |
@@ -221,7 +221,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="exception-specific-fields"></a>Campi specifici di eccezione
 
-| Tipo | ApplicationInsights |
+| type | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Eccezione |
 | ExceptionType | Tipo di eccezione |
@@ -238,9 +238,9 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="request-specific-fields"></a>Campi specifici di richiesta
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
-| Type | ApplicationInsights |
+| type | ApplicationInsights |
 | TelemetryType | Richiesta |
 | ResponseCode | Risposta HTTP inviata al client |
 | RequestSuccess | Indica l'esito positivo o negativo. True o false. |

@@ -2,29 +2,26 @@
 title: Panoramica di Istanza gestita di database SQL di Azure | Microsoft Docs
 description: Questo argomento descrive un'istanza gestita di Azure SQL Database e spiega come funziona e in cosa differisce da un database singolo nel database SQL di Azure.
 services: sql-database
-documentationcenter: na
 author: bonova
 ms.reviewer: carlrab
-manager: cguyer
-editor: ''
-ms.assetid: ''
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: bonova
-ms.openlocfilehash: dc3c93a1a13f3e10f9159d26411d6337c0269722
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: bc9c16462f28d129efa8c47183c6325e69bb64f3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Informazioni su Istanza gestita (anteprima)
 
 Istanza gestita di database SQL di Azure (anteprima) è una nuova funzionalità del database SQL di Azure, che offre quasi il 100% di compatibilità con SQL Server in locale, fornendo un'implementazione della [rete virtuale](../virtual-network/virtual-networks-overview.md) nativa che risolve problemi di sicurezza comuni e un [modello aziendale](https://azure.microsoft.com/pricing/details/sql-database/) favorevole per i clienti di SQL Server locali. Istanza gestita consente ai clienti di SQL Server esistenti di spostare nel cloud le proprie applicazioni locali con modifiche minime nelle applicazioni e nel database. Allo stesso tempo, consente di mantenere tutte le funzionalità PaaS (applicazione automatica di patch e aggiornamenti di versione, backup, disponibilità elevata), che riducono drasticamente il carico di gestione e il TCO.
+
+> [!IMPORTANT]
+> Per un elenco delle aree geografiche in cui è attualmente disponibile Istanza gestita, vedere [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Eseguire la migrazione dei database a un servizio completamente gestito con Istanza gestita di database SQL di Azure).
  
 Nel diagramma seguente vengono descritte le funzionalità principali di Istanza gestita:
 
@@ -42,7 +39,7 @@ La tabella seguente riassume le differenze principali e gli scenari di utilizzo 
 | | Scenario di utilizzo | 
 | --- | --- | 
 |Istanza gestita |Per i clienti che desiderano eseguire la migrazione di un numero maggiore di app da un ambiente locale o IaaS, creato personalmente o fornito da un ISV, con il minor numero di operazioni di migrazione possibile, proporre Istanza gestita. Tramite il [Servizio Migrazione del database (DMS)](/sql/dma/dma-overview) completamente automatico di Azure, i clienti possono trasferire il proprio server SQL locale in un'istanza gestita che garantisce la compatibilità con SQL Server in locale e il completo isolamento delle istanze del cliente con il supporto delle reti virtuali native.  Con Software Assurance, è possibile scambiare le licenze esistenti con tariffe scontate per un'istanza gestita di database SQL tramite l'[offerta per uso ibrido di Azure per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Istanza gestita di database SQL è la destinazione di migrazione migliore nel cloud per le istanze di SQL Server che richiedono un livello di sicurezza elevato e una superficie di programmazione avanzata. |
-|database SQL di Azure |Per i clienti che sviluppano nuove applicazioni SaaS multi-tenant o che intendono trasformare le proprie app locali esistenti in app SaaS multi-tenant, è possibile proporre i pool elastici. I vantaggi di questo modello sono i seguenti: <br><ul><li>Conversione del modello aziendale dalla vendita di licenze alla vendita di abbonamenti a un servizio (per gli ISV)</li></ul><ul><li>Isolamento dei tenant semplice e valido</li></ul><ul><li>Modello di programmazione incentrato sul database semplificato</li></ul><ul><li>Possibilità di scalare orizzontalmente senza raggiungere un limite rigido</li></ul>Per i clienti che sviluppano nuove app diverse da servizi SaaS multi-tenant, il cui carico di lavoro è stabile e prevedibile, è possibile proporre i database singoli. I vantaggi di questo modello sono i seguenti:<ul><li>Modello di programmazione incentrato sul database semplificato</li></ul>  <ul><li>Prestazioni prevedibili per ogni database</li></ul>|
+|database SQL di Azure |**Pool elastici**: per i clienti che sviluppano nuove applicazioni SaaS multi-tenant o che intendono trasformare le proprie app locali esistenti in app SaaS multi-tenant, è possibile proporre i pool elastici. I vantaggi di questo modello sono i seguenti: <br><ul><li>Conversione del modello aziendale dalla vendita di licenze alla vendita di abbonamenti a un servizio (per gli ISV)</li></ul><ul><li>Isolamento dei tenant semplice e valido</li></ul><ul><li>Modello di programmazione incentrato sul database semplificato</li></ul><ul><li>Possibilità di scalare orizzontalmente senza raggiungere un limite rigido</li></ul>**Database singoli**: per i clienti che sviluppano nuove app diverse da servizi SaaS multi-tenant, il cui carico di lavoro è stabile e prevedibile, è possibile proporre i database singoli. I vantaggi di questo modello sono i seguenti:<ul><li>Modello di programmazione incentrato sul database semplificato</li></ul>  <ul><li>Prestazioni prevedibili per ogni database</li></ul>|
 |IaaS SQL |Per i clienti che necessitano di personalizzare il sistema operativo o il server di database, nonché per i clienti con requisiti specifici in termini di esecuzione di app di terze parti insieme a SQL Server (nella stessa macchina virtuale), è possibile proporre macchine virtuali SQL/IaaS come soluzione ottimale|
 |||
 

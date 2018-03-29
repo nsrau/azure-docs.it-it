@@ -8,15 +8,15 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ba05308039e9743dd207333476e61a45c0ca166a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 7e06cdba7c9c9f7e5c1d621e7421a18c342c0fdb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limiti del Database di Azure per PostgreSQL
-Il servizio Database di Azure per PostgreSQL è in anteprima pubblica. Nelle sezioni seguenti vengono descritti i limiti delle capacità e funzionali nel servizio del database.
+Nelle sezioni seguenti vengono descritti i limiti delle capacità e funzionali nel servizio del database.
 
 ## <a name="pricing-tier-maximums"></a>Valori massimi del piano tariffario
 Il Database di Azure per PostgreSQL ha più piani tariffari tra cui è possibile scegliere durante la creazione di un server. Per altre informazioni, vedere [Piani tariffari di Database di Azure per PostgreSQL](concepts-pricing-tiers.md).  
@@ -43,7 +43,6 @@ Esiste una quantità massima di connessioni, unità di calcolo e spazio di archi
 |Con ottimizzazione per la memoria| Generazione 5| 4| 250|
 |Con ottimizzazione per la memoria| Generazione 5| 8| 480|
 |Con ottimizzazione per la memoria| Generazione 5| 16| 950|
-|Con ottimizzazione per la memoria| Generazione 5| 32| 1900|
 
 Quando le connessioni superano il limite, è possibile che venga visualizzato l'errore seguente:
 > FATAL: sorry, too many clients already (ERRORE IRREVERSIBILE: ci sono già troppi client)

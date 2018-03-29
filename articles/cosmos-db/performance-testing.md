@@ -1,12 +1,12 @@
 ---
-title: "Test delle prestazioni e della scalabilità in Azure Cosmos DB | Microsoft Docs"
-description: "Informazioni sull'esecuzione di test delle prestazioni e della scalabilità con Azure Cosmos DB"
+title: Test delle prestazioni e della scalabilità in Azure Cosmos DB | Microsoft Docs
+description: Informazioni sull'esecuzione di test delle prestazioni e della scalabilità con Azure Cosmos DB
 keywords: test delle prestazioni
 services: cosmos-db
 author: arramac
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: f4c96ebd-f53c-427d-a500-3f28fe7b11d0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,15 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 36665c0c26dad4e3b667b341b63c5859ece7605b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test delle prestazioni e della scalabilità con Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Il test delle prestazioni e della scalabilità è un passaggio chiave nello sviluppo di un'applicazione. Per molte applicazioni, il livello di database ha un impatto significativo sulla scalabilità e sulle prestazioni complessive. È pertanto considerato un componente fondamentale nel test delle prestazioni. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) è studiato appositamente per offrire scalabilità elastica e prestazioni prevedibili. Queste funzionalità lo rendono ideale per le applicazioni che richiedono un livello di database ad alte prestazioni. 
 

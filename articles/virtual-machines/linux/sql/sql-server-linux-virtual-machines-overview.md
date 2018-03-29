@@ -2,7 +2,7 @@
 title: Panoramica di SQL Server in macchine virtuali Linux di Azure | Microsoft Docs
 description: Informazioni su come eseguire edizioni complete di SQL Server in macchine virtuali Linux di Azure, con collegamenti diretti a tutte le immagini di VM Linux di SQL Server e ai contenuti correlati.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: jhubbard
 tags: azure-service-management
@@ -10,13 +10,13 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
-ms.date: 10/02/2017
+ms.date: 03/22/2018
 ms.author: jroth
-ms.openlocfilehash: f044fcba92eb7aa7f4ac44608571fab3db0e03f5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: e752ad844a6efe572564e7081ebac87193e9c2a7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Panoramica di SQL Server in macchine virtuali di Azure (Linux)
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/18/2017
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 > * [Linux](sql-server-linux-virtual-machines-overview.md)
 
-Questo argomento descrive le opzioni disponibili per eseguire SQL Server in macchine virtuali (VM) Linux di Azure, con collegamenti alle [immagini del portale](#option-1-create-a-sql-vm-with-per-minute-licensing).
+Questo argomento descrive le opzioni disponibili per eseguire SQL Server in macchine virtuali (VM) Linux di Azure, con collegamenti alle [immagini del portale](#create).
 
 > [!NOTE]
 > Se si ha già familiarità con SQL Server e si vuole solo sapere come distribuire una VM Linux di SQL Server, vedere [Effettuare il provisioning di una macchina virtuale Linux di SQL Server nel portale di Azure](provision-sql-server-linux-virtual-machine.md). Se invece si vuole creare una VM Windows con SQL Server, vedere [Effettuare il provisioning di una macchina virtuale Windows di SQL Server nel portale di Azure](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md).

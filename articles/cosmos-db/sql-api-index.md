@@ -1,10 +1,10 @@
 ---
-title: 'Azure Cosmos DB: articoli sull''API SQL | Microsoft Docs'
+title: "Azure Cosmos DB: articoli sull'API SQL | Microsoft Docs"
 description: Elenco di tutti gli articoli specifici sulla creazione di database di documenti con l'API SQL in Azure Cosmos DB.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 82bec99a-ac2b-474e-b41f-d2fb296c8feb
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8faa8a08d4a5bc323951a594049002fc61eb56b8
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 0ad80ce15769cfe823925cf36bbd47f2ddadec21
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB: documentazione dell'API SQL
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Questo articolo contiene i collegamenti a tutto il contenuto di Azure Cosmos DB specifico dell'API SQL.
 
@@ -34,7 +32,7 @@ I seguenti sono argomenti e risorse indispensabili per apprendere le nozioni di 
 - [Introduzione all'API SQL](sql-api-introduction.md)
 - [Modello di risorsa di database](sql-api-resources.md)
 - Sito Web: [Query Playground](https://www.documentdb.com/sql/demo)
-- Foglio informativo: [Grammatica SQL](sql-api-sql-query-cheat-sheet.md)
+- Foglio informativo: [Grammatica SQL](query-cheat-sheet.md)
 
 ## <a name="quickstarts"></a>Guide introduttive
 
@@ -62,7 +60,7 @@ Queste esercitazioni sono più approfondite delle guide introduttive. Nelle eser
 - [.NET](sql-api-get-started.md)
 - [.NET Core](sql-api-dotnetcore-get-started.md) 
 - [Java](sql-api-java-get-started.md) 
-- [Node.js](sql-api-nodejs-get-started.md) 
+- [Node.JS](sql-api-nodejs-get-started.md) 
 - [C++](sql-api-cpp-get-started.md)
 
 ### <a name="create-a-mobile-app"></a>Creare un'app per dispositivi mobili
@@ -102,7 +100,7 @@ Azure Cosmos DB offre diversi SDK per abilitare lo sviluppo di applicazioni lato
 - [Node.js](sql-api-sdk-node.md)
 - [Python](sql-api-sdk-python.md)
 
-## <a name="reference"></a>riferimento
+## <a name="reference"></a>Riferimenti
 
 - [REST](/rest/api/documentdb/)
 - [Provider di risorse REST](/rest/api/documentdbresourceprovider/)

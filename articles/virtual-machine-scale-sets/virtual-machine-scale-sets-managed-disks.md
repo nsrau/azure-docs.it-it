@@ -1,11 +1,11 @@
 ---
-title: "Uso dei dischi gestiti con i set di scalabilità delle macchine virtuali di Azure | Microsoft Docs"
-description: "Informazioni su come e perché usare dischi gestiti con i set di scalabilità delle macchine virtuali"
+title: Uso dei dischi gestiti con i set di scalabilità delle macchine virtuali di Azure | Microsoft Docs
+description: Informazioni su come e perché usare dischi gestiti con i set di scalabilità delle macchine virtuali
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
 ms.openlocfilehash: 82fa518e6c0498a13f950ce33c51be8581918f9b
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Set di scalabilità VM di Azure e dischi gestiti
 

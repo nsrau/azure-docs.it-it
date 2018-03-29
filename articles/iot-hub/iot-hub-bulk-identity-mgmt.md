@@ -1,11 +1,11 @@
 ---
-title: "Importare o esportare le identità dei dispositivi dell'hub IoT di Azure | Microsoft Docs"
-description: "Come usare Azure IoT SDK per servizi per eseguire operazioni in blocco sul registro delle identità per importare ed esportare le identità dei dispositivi. Le operazioni di importazione consentono di creare, aggiornare ed eliminare in blocco le identità dei dispositivi."
+title: Importare o esportare le identità dei dispositivi dell'hub IoT di Azure | Microsoft Docs
+description: Come usare Azure IoT SDK per servizi per eseguire operazioni in blocco sul registro delle identità per importare ed esportare le identità dei dispositivi. Le operazioni di importazione consentono di creare, aggiornare ed eliminare in blocco le identità dei dispositivi.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2ade1494-45ea-46a7-ade7-cf6e11ce62da
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 699237c68258243b5f654f5dc57e616e3a22177a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 74645f3fdece14790311592a0fdd4ce6570a5bae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Gestire in blocco le identità dei dispositivi dell'hub IoT
 
@@ -193,9 +193,6 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
   }
 }
 ```
-
-> [!NOTE]
-> È anche possibile usare il metodo **GetDevicesAsync** della classe **RegistryManager** per recuperare un elenco dei dispositivi. Questo approccio presenta tuttavia un limite rigido pari a un numero di 1000 oggetti dispositivo restituiti. Il caso d'uso previsto per il metodo **GetDevicesAsync** è destinato a scenari di sviluppo per facilitare il debug e non è consigliabile per i carichi di lavoro di produzione.
 
 ## <a name="import-devices"></a>Importare dispositivi
 

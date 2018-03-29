@@ -1,11 +1,12 @@
 ---
 title: 'Infografica: Nozioni fondamentali di Machine Learning - Esempi di algoritmi | Microsoft Docs'
 description: Una panoramica di facile comprensione delle nozioni fondamentali di Machine Learning che include esempi di algoritmi. L'infografica scaricabile tratta molte domande di Machine Learning.
-keywords: "nozioni fondamentali di Machine learning, esempi di algoritmi, machine learning per principianti, domande di machine learning, algoritmi più diffusi, infografica degli algoritmi"
+keywords: nozioni fondamentali di Machine learning, esempi di algoritmi, machine learning per principianti, domande di machine learning, algoritmi più diffusi, infografica degli algoritmi
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 8c392740eb0c06b7a3c47e07e5beb667b17117ae
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 4f07defd3df3a7933a69463729240d856f6282d4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infografica scaricabile: nozioni fondamentali di Machine Learning con esempi di algoritmi
 Scaricare questa panoramica infografica di facile comprensione delle nozioni fondamentali di Machine Learning per ottenere altre informazioni sugli algoritmi comuni usati per rispondere a domande frequenti su Machine Learning. Algoritmi di esempio aiutano i principianti di Machine Learning a capire gli algoritmi usare e lo scopo per cui usarli.
