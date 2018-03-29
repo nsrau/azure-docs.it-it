@@ -9,7 +9,6 @@
 
 # Attività iniziali
 ## [Uso del portale](data-lake-store-get-started-portal.md)
-## [Uso di Data Lake Store in Storage Explorer](data-lake-store-in-storage-explorer.md)
 ## [Tramite PowerShell](data-lake-store-get-started-powershell.md)
 ## [Uso dell'interfaccia della riga di comando di Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 
@@ -17,7 +16,7 @@
 # Procedure
 ## Caricare e spostare dati
 ### [Uso di Data factory di Azure](../data-factory/load-azure-data-lake-store.md)
-### [Uso di Data Lake Store in Storage Explorer](data-lake-store-in-storage-explorer.md)
+### [Con Storage Explorer](data-lake-store-in-storage-explorer.md)
 ### [Con AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Con DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Uso di Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -83,7 +82,7 @@
 ### [Accedere ai log di diagnostica](data-lake-store-diagnostic-logs.md)
 ### [Pianificare la disponibilità elevata](data-lake-store-disaster-recovery-guidance.md)
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)

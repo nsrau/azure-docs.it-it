@@ -13,9 +13,9 @@
       href: quick-setup-auto-provision.md
     - name: Configurare il provisioning automatico - Modello
       href: quick-setup-auto-provision-rm.md
-    - name: Creare un dispositivo simulato
+    - name: Effettuare il provisioning automatico di un dispositivo simulato
       items:
-        - name: TPM
+        - name: Attestazione TPM
           items:
             - name: C
               href: quick-create-simulated-device.md
@@ -27,7 +27,7 @@
               href: quick-create-simulated-device-tpm-node.md
             - name: Python
               href: quick-create-simulated-device-tpm-python.md
-        - name: X.509
+        - name: Attestazione X.509
           items:
             - name: C
               href: quick-create-simulated-device-x509.md
@@ -39,9 +39,9 @@
               href: quick-create-simulated-device-x509-node.md
             - name: Python
               href: quick-create-simulated-device-x509-python.md
-    - name: Registrare un dispositivo
+    - name: Registrazione dei dispositivi con le API del servizio di provisioning
       items:
-        - name: TPM
+        - name: Attestazione TPM
           items:
             - name: Java
               href: quick-enroll-device-tpm-java.md
@@ -51,7 +51,7 @@
               href: quick-enroll-device-tpm-node.md
             - name: Python
               href: quick-enroll-device-tpm-python.md
-        - name: X.509
+        - name: Attestazione X.509
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
@@ -79,12 +79,14 @@
       href: tutorial-group-enrollments.md
 - name: Concetti
   items:
-    - name: Concetti relativi ai dispositivi
+    - name: Provisioning automatico
+      href: concepts-auto-provisioning.md
+    - name: Dispositivi
       href: concepts-device.md
-    - name: Concetti relativi ai servizi
-      href: concepts-service.md
-    - name: Concetti relativi alla sicurezza
+    - name: Sicurezza
       href: concepts-security.md
+    - name: Service
+      href: concepts-service.md
 - name: Guide alle procedure
   items:
     - name: Gestire le registrazioni dei dispositivi

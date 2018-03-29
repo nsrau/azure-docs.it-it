@@ -19,12 +19,16 @@
       href: tutorial-simulate-device-windows.md
     - name: 'Sviluppare un modulo C#'
       href: tutorial-csharp-module.md
+    - name: Sviluppare un modulo Python
+      href: tutorial-python-module.md
     - name: Distribuire Analisi di flusso di Azure
       href: tutorial-deploy-stream-analytics.md
     - name: Distribuire Azure Machine Learning
       href: tutorial-deploy-machine-learning.md
     - name: Distribuire Funzioni di Azure
       href: tutorial-deploy-function.md
+    - name: Usare più moduli in Visual Studio Code
+      href: tutorial-multiple-modules-in-vscode.md
 - name: Guide alle procedure
   items:
     - name: Creare gateway

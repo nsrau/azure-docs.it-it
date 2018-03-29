@@ -16,7 +16,7 @@
 
 # Procedure
 ## Configurare connessioni da sito a sito
-### [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+### [Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Interfaccia della riga di comando di Azure](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Portale di Azure (classico)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -25,7 +25,7 @@
 
 ## Configurare connessioni da punto a sito - autenticazione del certificato nativa di Azure
 ### Configurare una VPN P2S
-#### [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+#### [Portale di Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 #### [Azure PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 #### [Portale di Azure (classico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 ### Generare certificati autofirmati
@@ -41,17 +41,17 @@
 ### [Integrare l'autenticazione RADIUS VPN da punto a sito con il Server dei criteri di rete](vpn-gateway-radiuis-mfa-nsp.md)
 
 ## Configurare connessioni tra reti virtuali
-### [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+### [Portale di Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Interfaccia della riga di comando di Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Portale di Azure (classico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Configurare una connessione da rete virtuale a rete virtuale tra modelli di distribuzione
-### [Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
+### [Portale di Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [Azure PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 ## Configurare connessioni coesistenti da sito a sito ed ExpressRoute
 ### [Azure PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Configurare connessioni multiple da sito a sito
-### [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+### [Portale di Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell (classico)](vpn-gateway-multi-site.md)
 ## Connettere più dispositivi VPN basati su criteri
 ### [Azure PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
@@ -66,13 +66,13 @@
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [Azure PowerShell (classico)](vpn-gateway-about-forced-tunneling.md)
 ## Modificare le impostazioni del gateway di rete locale
-### [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)
+### [Portale di Azure](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [Interfaccia della riga di comando di Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Verificare una connessione di Gateway VPN](vpn-gateway-verify-connection-resource-manager.md)
 ## [Reimpostare un gateway VPN](vpn-gateway-resetgw-classic.md)
 ## Eliminare un gateway VPN
-### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+### [Portale di Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [Azure PowerShell (classico)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Configurare un gateway VPN (versione classica)](vpn-gateway-configure-vpn-gateway-mp.md)
@@ -84,12 +84,13 @@
 ## [Risolvere i problemi](vpn-gateway-troubleshoot.md)
 ### [Convalidare la velocità effettiva della VPN verso una rete virtuale](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Impostazioni di un dispositivo firewall o una VPN suggerita dalla community](vpn-gateway-third-party-settings.md)
-### [Problema di connessione da punto a sito](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-### [Disconnessione intermittente della connessione da sito a sito](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
-### [La connessione da sito a sito non riesce a connettersi](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
+### [Problemi di connessione da punto a sito](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+#### [Problemi di connessione da punto a sito - Client VPN in Mac OS X](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+### [Problemi di connessione da sito a sito](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
+#### [Disconnessione intermittente della connessione da sito a sito](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Configurare e convalidare le connessioni VPN o alla rete virtuale](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
-# riferimento
+# Riferimenti
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
 ## [Azure PowerShell (classico)](/powershell/module/azure/?view=azuresmps-3.7.0#networking)
 ## [REST](/rest/api/network/virtualnetworkgateways)

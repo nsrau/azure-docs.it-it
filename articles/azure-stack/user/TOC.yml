@@ -27,6 +27,8 @@
   items:
     - name: Usare il portale di Azure Stack
       href: azure-stack-use-portal.md
+    - name: Utilizzare l'API dello Stack di Azure
+      href: azure-stack-rest-api-use.md
     - name: Sicurezza e conformità
       items:
         - name: Gestire il controllo degli accessi in base al ruolo
