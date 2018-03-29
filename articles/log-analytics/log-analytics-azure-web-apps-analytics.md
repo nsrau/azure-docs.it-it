@@ -1,24 +1,24 @@
 ---
 title: Visualizzare i dati di analisi di App Web di Azure | Microsoft Docs
-description: "È possibile usare la soluzione Analisi app Web di Azure per ottenere informazioni dettagliate su App Web di Azure, raccogliendo metriche diverse in tutte le risorse app Web di Azure."
+description: È possibile usare la soluzione Analisi app Web di Azure per ottenere informazioni dettagliate su App Web di Azure, raccogliendo metriche diverse in tutte le risorse app Web di Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 7c22950c391707cdfe14ca242ea82a317be0e46e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b70b626ca618fbfb7cbe25a4fcbc9aae797ce157
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visualizzare i dati di analisi per le metriche di tutte le risorse app Web di Azure
 
@@ -90,19 +90,18 @@ Quando si aggiunge la soluzione Analisi app Web di Azure all'area di lavoro, il 
 
 Fare clic sul riquadro **Analisi app Web di Azure** per aprire il dashboard di **Analisi app Web di Azure**. Il dashboard include i pannelli nella tabella seguente. Ogni panello elenca fino a dieci elementi corrispondenti ai criteri del pannello per l'ambito e l'intervallo di tempo specificati. È possibile eseguire una ricerca log per ottenere tutti i record facendo clic su **Vedi tutto** nella parte inferiore del pannello o facendo clic sull'intestazione del pannello.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Colonna | DESCRIZIONE |
 | --- | --- |
 | App Web di Azure |   |
-| Tendenze richieste app Web | Mostra un grafico a linee relativo alla tendenza delle richieste delle app Web per l'intervallo di date selezionato e un elenco delle prime dieci richieste Web. Fare clic sul grafico a linee per eseguire una ricerca log per <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Fare clic su una voce di richiesta Web per eseguire una ricerca log per la tendenza delle metriche per la richiesta Web. |
-| Tempo di risposta app Web | Mostra un grafico a linee relativo al tempo di risposta delle app Web per l'intervallo di date selezionato. Mostra anche un elenco dei primi dieci tempi di risposta delle app Web. Fare clic sul grafico per eseguire una ricerca log di <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code><br> Fare clic su un'app Web per eseguire una ricerca log che restituisce i tempi di risposta per l'app Web. |
-| Traffico app Web | Mostra un grafico a linee relativo al traffico delle app Web, in MB, ed elenca le app Web con più traffico. Fare clic sul grafico per eseguire una ricerca log di <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> Mostra tutte le app Web con traffico nell'ultimo minuto. Fare clic su un'app Web per eseguire una ricerca log che mostra i byte ricevuti e inviati per l'app Web. |
+| Tendenze richieste app Web | Mostra un grafico a linee relativo alla tendenza delle richieste delle app Web per l'intervallo di date selezionato e un elenco delle prime dieci richieste Web. Fare clic sul grafico a linee per eseguire una ricerca log per <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and (MetricName == "Requests" or MetricName startswith_cs "Http") &#124; summarize AggregatedValue = avg(Average) by MetricName, bin(TimeGenerated, 1h)</code> <br>Fare clic su una voce di richiesta Web per eseguire una ricerca log per la tendenza delle metriche per la richiesta Web. |
+| Tempo di risposta app Web | Mostra un grafico a linee relativo al tempo di risposta delle app Web per l'intervallo di date selezionato. Mostra anche un elenco dei primi dieci tempi di risposta delle app Web. Fare clic sul grafico per eseguire una ricerca log di <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and MetricName == "AverageResponseTime" &#124; summarize AggregatedValue = avg(Average) by Resource, bin(TimeGenerated, 1h)</code><br> Fare clic su un'app Web per eseguire una ricerca log che restituisce i tempi di risposta per l'app Web. |
+| Traffico app Web | Mostra un grafico a linee relativo al traffico delle app Web, in MB, ed elenca le app Web con più traffico. Fare clic sul grafico per eseguire una ricerca log di <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and (MetricName == "BytesSent" or MetricName == "BytesReceived") &#124; summarize AggregatedValue = sum(Average) by Resource, bin(TimeGenerated, 1h)</code><br> Mostra tutte le app Web con traffico nell'ultimo minuto. Fare clic su un'app Web per eseguire una ricerca log che mostra i byte ricevuti e inviati per l'app Web. |
 | Piani di servizio app di Azure |   |
-| Piani di servizio app con utilizzo della CPU &gt; 80% | Mostra il numero totale di piani di servizio app che presentano un utilizzo della CPU superiore all'80% ed elenca i primi dieci piani di servizio app in base all'utilizzo della CPU. Fare clic sull'area del totale per eseguire una ricerca log per <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code><br> Mostra un elenco dei piani di servizio app con l'utilizzo medio della CPU. Fare clic su un piano di servizio app per eseguire una ricerca log che mostra il relativo utilizzo medio della CPU. |
-| Piani di servizio app con utilizzo della memoria &gt; 80% | Mostra il numero totale di piani di servizio app che presentano un utilizzo della memoria superiore all'80% ed elenca i primi dieci piani di servizio app in base all'utilizzo della memoria. Fare clic sull'area del totale per eseguire una ricerca log per <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code><br> Mostra un elenco dei piani di servizio app con l'utilizzo medio della memoria. Fare clic su un piano di servizio app per eseguire una ricerca log che mostra il relativo utilizzo medio della memoria. |
+| Piani di servizio app con utilizzo della CPU &gt; 80% | Mostra il numero totale di piani di servizio app che presentano un utilizzo della CPU superiore all'80% ed elenca i primi dieci piani di servizio app in base all'utilizzo della CPU. Fare clic sull'area del totale per eseguire una ricerca log per <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SERVERFARMS/" and MetricName == "CpuPercentage" &#124; summarize AggregatedValue = avg(Average) by Resource</code><br> Mostra un elenco dei piani di servizio app con l'utilizzo medio della CPU. Fare clic su un piano di servizio app per eseguire una ricerca log che mostra il relativo utilizzo medio della CPU. |
+| Piani di servizio app con utilizzo della memoria &gt; 80% | Mostra il numero totale di piani di servizio app che presentano un utilizzo della memoria superiore all'80% ed elenca i primi dieci piani di servizio app in base all'utilizzo della memoria. Fare clic sull'area del totale per eseguire una ricerca log per <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SERVERFARMS/" and MetricName == "MemoryPercentage" &#124; summarize AggregatedValue = avg(Average) by Resource</code><br> Mostra un elenco dei piani di servizio app con l'utilizzo medio della memoria. Fare clic su un piano di servizio app per eseguire una ricerca log che mostra il relativo utilizzo medio della memoria. |
 | Log attività di App Web di Azure |   |
-| Audit attività di App Web di Azure | Indica il numero totale di app Web con [log attività](log-analytics-activity.md) ed elenca le prime dieci operazioni del log attività. Fare clic sull'area del totale per eseguire una ricerca log per <code>Type=AzureActivity ResourceProvider= "Azure Web Sites" &#124; measure count() by OperationName</code><br> Mostra un elenco di operazioni del log attività. Fare clic su un'operazione del log attività per eseguire una ricerca log che elenca i record per l'operazione. |
+| Audit attività di App Web di Azure | Indica il numero totale di app Web con [log attività](log-analytics-activity.md) ed elenca le prime dieci operazioni del log attività. Fare clic sull'area del totale per eseguire una ricerca log per <code>AzureActivity #124; where ResourceProvider == "Azure Web Sites" #124; summarize AggregatedValue = count() by OperationName</code><br> Mostra un elenco di operazioni del log attività. Fare clic su un'operazione del log attività per eseguire una ricerca log che elenca i record per l'operazione. |
 
 
 

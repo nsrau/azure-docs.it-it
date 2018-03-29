@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: f92af44df9863bbf48abb4afcf9b1505c843fadc
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -135,10 +135,6 @@ I probe personalizzati non supportano caratteri jolly o regex nei dati di rispos
 **D. Come vengono elaborate le regole?**
 
 Le regole vengono elaborate nell'ordine in cui sono configurate. È consigliabile che le regole multisito siano configurate prima delle regole di base per ridurre le probabilità che il traffico sia indirizzato a un back-end inappropriato, in quanto la regola di base selezionarebbe il traffico in base alla porta prima che venga valutata la regola multisito.
-
-**D. Come vengono elaborate le regole?**
-
-Le regole vengono elaborate nell'ordine in cui sono create. È consigliabile configurare le regole multisito prima delle regole di base. Configurando prima i listener multisito, la configurazione riduce le probabilità che il traffico venga instradato al back-end non appropriato. Questo problema di routing può verificarsi se la regola di base corrisponde al traffico in base alla porta prima che venga valutata la regola multisito.
 
 **D. Cosa indica il campo Host per i probe personalizzati?**
 

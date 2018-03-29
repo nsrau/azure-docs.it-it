@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 83bdc6eba35f0deaaf541f2042854764ae513fb9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: c1acb568598184974b65d666075032e74aa49eb3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Guida introduttiva: Creare un server Database di Azure per PostgreSQL nel portale di Azure
 
@@ -184,13 +184,13 @@ pgAdmin è uno strumento open source usato con PostgreSQL. È possibile installa
 
     ![Scheda "General" (Generale)](./media/quickstart-create-database-portal/9-pgadmin-create-server.png)
 
-4. Nella finestra di dialogo **Create - Server** (Creazione server), compilare la tabella delle impostazioni nella scheda **Connection** (Connessione).
+4. Nella finestra di dialogo **Create - Server** (Creazione server) compilare la tabella delle impostazioni nella scheda **Connection** (Connessione).
 
    ![Scheda "Connection" (Connessione)](./media/quickstart-create-database-portal/10-pgadmin-create-server.png)
 
     Parametro di pgAdmin |Valore|DESCRIZIONE
     ---|---|---
-    Host Name/Address (Nome host/indirizzo) | Nome server | Nome del server usato in precedenza al momento della creazione del database di Azure per il server PostgreSQL. Il server di esempio è **mydemoserver.postgres.database.azure.com**. Usare il nome di dominio completo (**\*.postgres.database.azure.com**) come nell'esempio. Se non si ricorda il nome del server, seguire la procedura descritta nella sezione precedente per ottenere le informazioni di connessione. 
+    Host name/address (Nome host/indirizzo) | Nome server | Nome del server usato in precedenza al momento della creazione del database di Azure per il server PostgreSQL. Il server di esempio è **mydemoserver.postgres.database.azure.com**. Usare il nome di dominio completo (**\*.postgres.database.azure.com**) come nell'esempio. Se non si ricorda il nome del server, seguire la procedura descritta nella sezione precedente per ottenere le informazioni di connessione. 
     Porta | 5432 | Porta da usare quando ci si connette al database di Azure per il server PostgreSQL. 
     Maintenance Database (Database manutenzione) | *postgres* | Nome del database predefinito generato dal sistema.
     Username | Nome di accesso amministratore server | Nome utente di accesso amministratore del server specificato in precedenza al momento della creazione del database di Azure per il server PostgreSQL. Se non si ricorda il nome utente, seguire la procedura descritta nella sezione precedente per ottenere le informazioni di connessione. Il formato è *username@servername*.
@@ -208,9 +208,9 @@ pgAdmin è uno strumento open source usato con PostgreSQL. È possibile installa
 
 9. Digitare un nome di database a scelta nel campo **Database**, ad esempio **mypgsqldb2**.
 
-10. Selezionare il **proprietario** del database nella casella di riepilogo. Scegliere il nome di accesso amministratore server, ad esempio **my admin**.
+10. Selezionare il **proprietario** del database nella casella di riepilogo. Scegliere il nome di accesso amministratore server, ad esempio **myadmin**.
 
-   ![Creare un database in pgadmin](./media/quickstart-create-database-portal/11-pgadmin-database.png)
+   ![Creare un database in pgAdmin](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 11. Selezionare **Save** (Salva) per creare un nuovo database vuoto.
 

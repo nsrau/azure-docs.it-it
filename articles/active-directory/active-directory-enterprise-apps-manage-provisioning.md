@@ -2,10 +2,10 @@
 title: Gestione del provisioning di utenti per le app aziendali con Azure Active Directory | Microsoft Docs
 description: Informazioni su come gestire il provisioning degli account utente per le app aziendali usando Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 846ec63d47ebc787fa1edbf1968f1a843e96ac9d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bded73b4a335dc85a84691f5edabac5055f43cca
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestione del provisioning degli account utente per le app aziendali nel portale di Azure
 Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per gestire il provisioning e il deprovisioning automatici degli account per le applicazioni che li supportano, in particolare per le applicazioni aggiunte dalla categoria "In primo piano" della [raccolta di applicazioni di Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Per altre informazioni sul provisioning automatico degli account utente e sul relativo funzionamento, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -38,16 +38,16 @@ Le impostazioni del provisioning degli account utente possono essere gestite sel
 ## <a name="provisioning-modes"></a>Modalità di provisioning
 Il riquadro **Provisioning** inizia con un menu **Modalità**, che mostra le modalità di provisioning supportate per un'applicazione aziendale e ne consente la configurazione. Le opzioni disponibili includono:
 
-* **Automatico**: questa opzione viene visualizzata se Azure AD supporta il provisioning e/o il deprovisioning automatico basato su API di account utente in questa applicazione. Se si seleziona questa modalità, viene visualizzata un'interfaccia che fornisce agli amministratori informazioni dettagliate sulla configurazione di Azure AD per la connessione all'API di gestione degli utenti dell'applicazione, sulla creazione di mapping di account e flussi di lavoro che definiscono il modo in cui i dati relativi agli account utente devono essere trasmessi tra Azure AD e l'app e sulla gestione del servizio di provisioning di Azure AD.
-* **Manuale**: questa opzione viene visualizzata se Azure AD non supporta il provisioning automatico di account utente in questa applicazione. Questa opzione indica che i record relativi agli account utente archiviati nell'applicazione devono essere gestiti usando un processo esterno, in base alle funzionalità di gestione degli utenti e di provisioning fornite dall'applicazione, che possono includere il provisioning just-in-time SAML.
+* **Automatico** : questa opzione viene visualizzata se Azure AD supporta il provisioning e/o il deprovisioning automatico basato su API di account utente in questa applicazione. Se si seleziona questa modalità, viene visualizzata un'interfaccia che fornisce agli amministratori informazioni dettagliate sulla configurazione di Azure AD per la connessione all'API di gestione degli utenti dell'applicazione, sulla creazione di mapping di account e flussi di lavoro che definiscono il modo in cui i dati relativi agli account utente devono essere trasmessi tra Azure AD e l'app e sulla gestione del servizio di provisioning di Azure AD.
+* **Manuale** : questa opzione viene visualizzata se Azure AD non supporta il provisioning automatico di account utente in questa applicazione. Questa opzione indica che i record relativi agli account utente archiviati nell'applicazione devono essere gestiti usando un processo esterno, in base alle funzionalità di gestione degli utenti e di provisioning fornite dall'applicazione, che possono includere il provisioning just-in-time SAML.
 
 ## <a name="configuring-automatic-user-account-provisioning"></a>Configurazione del provisioning automatico degli account utente
-Se si seleziona l'opzione **Automatico**, viene visualizzata una schermata suddivisa in quattro sezioni:
+Se si seleziona l'opzione **Automatico** , viene visualizzata una schermata suddivisa in quattro sezioni:
 
 ### <a name="admin-credentials"></a>Credenziali di amministratore
 In questa sezione vengono immesse le credenziali necessarie ad Azure AD per la connessione all'API di gestione degli utenti dell'applicazione. L'input necessario dipende dall'applicazione. Per informazioni sui tipi di credenziali e sui requisiti per applicazioni specifiche, vedere l' [esercitazione sulla configurazione per l'applicazione specifica](active-directory-saas-app-provisioning.md).
 
-Se si seleziona il pulsante **Test connessione**, è possibile testare le credenziali mediante un tentativo di connessione di Azure AD all'app di provisioning dell'app con le credenziali fornite.
+Se si seleziona il pulsante **Test connessione** , è possibile testare le credenziali mediante un tentativo di connessione di Azure AD all'app di provisioning dell'app con le credenziali fornite.
 
 ### <a name="mappings"></a>Mapping
 In questa sezione gli amministratori possono visualizzare e modificare gli attributi utente trasmessi tra Azure AD e l'applicazione di destinazione durante il provisioning o l'aggiornamento degli account utente.
@@ -76,7 +76,7 @@ Questa sezione fornisce dettagli aggiuntivi sul funzionamento del servizio di pr
 
 Sono disponibili collegamenti al **report dell'attività di provisioning**, che fornisce un log di tutti gli utenti e di tutti i gruppi creati, aggiornati e rimossi tra Azure AD e l'applicazione di destinazione, e al **report degli errori di provisioning**, che fornisce messaggi di errore più dettagliati per oggetti utente e gruppo che non è stato possibile leggere, creare, aggiornare o rimuovere. 
 
-##<a name="feedback"></a>Commenti e suggerimenti
+## <a name="feedback"></a>Commenti e suggerimenti
 
 Speriamo che gli utenti apprezzino Azure AD e inviino commenti e suggerimenti. È possibile inviare commenti e idee per apportare miglioramenti nella sezione **Portale di amministrazione** del [forum dei commenti](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Microsoft accoglie i suggerimenti degli utenti per definire nuove funzionalità ogni giorno.
 

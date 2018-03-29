@@ -2,23 +2,23 @@
 title: Soluzione DNS Analytics in Azure Log Analytics | Microsoft Docs
 description: Configurare e usare la soluzione DNS Analytics in Log Analytics per raccogliere informazioni dettagliate nell'infrastruttura DNS relative a sicurezza, prestazioni e operazioni.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 8ead058108f39eca8682eccc296760d4b756d336
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 6a59cf8b9444fe7cb197501c51d10dae81acb027
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione DNS Analytics (anteprima)
 
@@ -145,7 +145,6 @@ Le informazioni consentono di identificare quanto segue:
 
 **Query DDI Analytics di esempio**. Contiene un elenco delle query di ricerca più comuni che recuperano direttamente dati di analisi non elaborati.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Query di esempio](./media/log-analytics-dns/queries.png)
 
@@ -166,7 +165,7 @@ Le informazioni consentono di identificare quanto segue:
 
 Nella pagina Ricerca log è possibile creare una query. È possibile filtrare i risultati usando i controlli facet. È anche possibile creare query avanzate per trasformare, filtrare e creare report sui risultati. Per iniziare, usare le query seguenti:
 
-1. Nella **casella della query di ricerca** digitare `Type=DnsEvents` per visualizzare tutti gli eventi DNS generati dai server DNS gestiti dalla soluzione. Nei risultati sono elencati i dati di log per tutti gli eventi relativi a query di ricerca, registrazioni dinamiche e modifiche di configurazione.
+1. Nella **casella della query di ricerca** digitare `DnsEvents` per visualizzare tutti gli eventi DNS generati dai server DNS gestiti dalla soluzione. Nei risultati sono elencati i dati di log per tutti gli eventi relativi a query di ricerca, registrazioni dinamiche e modifiche di configurazione.
 
     ![Ricerca log: eventi DNS](./media/log-analytics-dns/log-search-dnsevents.png)  
 
@@ -176,7 +175,7 @@ Nella pagina Ricerca log è possibile creare una query. È possibile filtrare i 
 
     c. Per visualizzare i dati di log per modifiche di configurazione, selezionare **ConfigurationChange** come filtro **sottotipo** nel controllo facet sul lato sinistro. Viene visualizzata una tabella contenente tutti gli eventi relativi a modifiche di configurazione per il periodo di tempo selezionato.
 
-2. Nella **casella della query di ricerca** digitare `Type=DnsInventory` per visualizzare tutti i dati relativi all'inventario DNS per i server DNS gestiti dalla soluzione. Nei risultati vengono elencati i dati di log relativi ai server DNS, alle zone DNS e ai record di risorse.
+2. Nella **casella della query di ricerca** digitare `DnsInventory` per visualizzare tutti i dati relativi all'inventario DNS per i server DNS gestiti dalla soluzione. Nei risultati vengono elencati i dati di log relativi ai server DNS, alle zone DNS e ai record di risorse.
 
     ![Ricerca log: inventario DNS](./media/log-analytics-dns/log-search-dnsinventory.png)
 

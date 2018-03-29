@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 5245e53429278f2a346077cdb70426aaca339488
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 92445ffa7954d42ec1a864264fbfc7555986ad58
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Esercitazione: Distribuire un'applicazione Java in un cluster di Service Fabric in Azure
 Questa esercitazione è la terza parte di una serie e illustra come distribuire un'applicazione di Service Fabric in un cluster in Azure.
@@ -106,7 +106,7 @@ La procedura seguente crea le risorse necessarie per distribuire l'applicazione 
 8. Copiare l'URL di firma di accesso condiviso dell'account e conservarlo per usarlo durante la creazione del cluster di Service Fabric. L'URL sarà simile al seguente:
 
     ```
-    https://teststorageaccount.table.core.windows.net/?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
+    ?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
     ```
 
 9. Creare un gruppo di risorse contenente le risorse di Hub eventi. Hub eventi viene usato per inviare messaggi da Service Fabric al server che esegue le risorse ELK.
@@ -163,10 +163,10 @@ La procedura seguente crea le risorse necessarie per distribuire l'applicazione 
     Copiare il valore del campo **sr** nell'output JSON restituito. Il valore del campo **sr** è il token di firma di accesso condiviso per Hub eventi. L'URL seguente è un esempio di campo **sr**:
 
     ```bash
-    https%3A%2F%2Ftesteventhubs.servicebus.windows.net%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=<policy_name>
+    https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    L'URL di firma di accesso condiviso per Hub eventi segue la struttura https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. Ad esempio: https://testeventhubs.servicebus.windows.net/testeventhubs?sr=https%3A%2F%2Ftesteventhubs.servicebus.windows.net%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
+    L'URL di firma di accesso condiviso per Hub eventi segue la struttura https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. Ad esempio: https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
 12. Aprire il file *sfdeploy.parameters.json* e sostituire il contenuto seguente dei passaggi precedenti 
 

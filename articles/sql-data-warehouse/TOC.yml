@@ -41,8 +41,8 @@
           href: what-is-a-data-warehouse-unit-dwu-cdwu.md
         - name: 'Aumentare il numero di istanze, sospendere e riprendere'
           href: sql-data-warehouse-manage-compute-overview.md
-        - name: Backup del data warehouse
-          href: sql-data-warehouse-backups.md
+        - name: Backup e ripristino
+          href: backup-and-restore.md
         - name: Controllo
           href: sql-data-warehouse-auditing-overview.md
         - name: Limiti di capacità
@@ -195,7 +195,7 @@
       items:
         - name: Automatizzare i livelli di calcolo
           href: manage-compute-with-azure-functions.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: T-SQL
       items:

@@ -1,8 +1,8 @@
 ---
 title: Soluzione Gestione avvisi in Azure Log Analytics | Microsoft Azure
-description: La soluzione Gestione avvisi in Log Analytics consente di analizzare tutti gli avvisi nell'ambiente.  Oltre a consolidare gli avvisi generati in Log Analytics, importa gli avvisi dai gruppi di gestione di System Center Operations Manager connessi in Log Analytics.
+description: La soluzione Alert Management in Log Analytics consente di analizzare tutti gli avvisi nell'ambiente.  Oltre a consolidare gli avvisi generati in Log Analytics, importa gli avvisi dai gruppi di gestione di System Center Operations Manager connessi in Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0d9028b821e4c488186143311c81bfa6d17908ff
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Soluzione Gestione avvisi in Log Analytics
 
-![Icona di Gestione avvisi](media/log-analytics-solution-alert-management/icon.png)
+![Icona di Alert Management](media/log-analytics-solution-alert-management/icon.png)
 
-La soluzione Gestione avvisi in Log Analytics consente di analizzare tutti gli avvisi nel repository di Log Analytics.  Questi avvisi possono provenire da diverse origini, incluse le fonti [create da Log Analytics](log-analytics-alerts.md) o [importate da Nagios o Zabbix](log-analytics-linux-agents.md).  La soluzione importa anche gli avvisi da qualsiasi [gruppo di gestione di System Center Operations Manager collegato](log-analytics-om-agents.md).
+La soluzione Alert Management in Log Analytics consente di analizzare tutti gli avvisi nel repository di Log Analytics.  Questi avvisi possono provenire da diverse origini, incluse le fonti [create da Log Analytics](log-analytics-alerts.md) o [importate da Nagios o Zabbix](log-analytics-linux-agents.md).  La soluzione importa anche gli avvisi da qualsiasi [gruppo di gestione di System Center Operations Manager collegato](log-analytics-om-agents.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 La soluzione funziona con i record presenti nel repository di Log Analytics con un tipo di **avviso**, pertanto è necessario eseguire qualsiasi configurazione necessaria per raccogliere questi record.
@@ -61,7 +61,7 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 ## <a name="using-the-solution"></a>Uso della soluzione
 Quando si aggiunge la soluzione Gestione avvisi all'area di lavoro di Log Analytics, il riquadro **Gestione avvisi** viene aggiunto al dashboard.  Il riquadro visualizza un conteggio e la rappresentazione grafica del numero di avvisi attivi generati nelle ultime 24 ore.  Non è possibile modificare questo intervallo di tempo.
 
-![Riquadro di Gestione avvisi](media/log-analytics-solution-alert-management/tile.png)
+![Riquadro di Alert Management](media/log-analytics-solution-alert-management/tile.png)
 
 Fare clic su sul riquadro **Gestione avvisi** per aprire il **relativo** dashboard.  Il dashboard include le colonne nella tabella seguente.  Ogni colonna elenca i primi 10 avvisi per numero corrispondente ai criteri della colonna per l'ambito e l'intervallo di tempo specificati.  È possibile eseguire una ricerca di log che fornisce l'intero elenco facendo clic su **Visualizza tutto** nella parte inferiore della colonna o facendo clic sull'intestazione di colonna.
 
@@ -74,11 +74,11 @@ Fare clic su sul riquadro **Gestione avvisi** per aprire il **relativo** dashboa
 
 Se si scorre verso destra, il dashboard elenca diverse query comuni che è possibile selezionare per eseguire una [ricerca log](log-analytics-log-searches.md) per dati di avviso:
 
-![Dashboard di Gestione avvisi](media/log-analytics-solution-alert-management/dashboard.png)
+![Dashboard di Alert Management](media/log-analytics-solution-alert-management/dashboard.png)
 
 
 ## <a name="log-analytics-records"></a>Record di Log Analytics
-La soluzione Gestione avvisi consente di analizzare qualsiasi record con un tipo di **Avviso**.  Gli avvisi creati da Log Analytics o raccolti da Nagios o Zabbix non vengono raccolti direttamente dalla soluzione.
+La soluzione Alert Management consente di analizzare qualsiasi record con un tipo di **Avviso**.  Gli avvisi creati da Log Analytics o raccolti da Nagios o Zabbix non vengono raccolti direttamente dalla soluzione.
 
 La soluzione non importa avvisi da Operations Manager e crea un record corrispondente per ciascuno di essi con un tipo di **Avviso** e un SourceSystem di **OpsManager**.  Questi record includono le proprietà elencate nella tabella seguente:  
 
@@ -109,20 +109,6 @@ La soluzione non importa avvisi da Operations Manager e crea un record corrispon
 La tabella seguente fornisce ricerche di log di esempio per i record degli avvisi raccolti da questa soluzione. 
 
 | Query | DESCRIZIONE |
-|:--- |:--- |
-| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR |Avvisi critici generati durante le ultime 24 ore |
-| Type=Alert AlertSeverity=warning TimeRaised>NOW-24HOUR |Avvertenze generate durante le ultime 24 ore |
-| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR &#124; measure count() as Count by SourceDisplayName |Origini con avvisi critici generati durante le ultime 24 ore |
-| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR AlertState!=Closed |Avvisi critici generati durante le ultime 24 ore che sono ancora attivi |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed |Avvisi generati durante le ultime 24 ore che sono ora chiusi |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity |Avvisi generati durante l'ultimo giorno raggruppati in base alla relativa gravità |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc |Avvisi generati durante l'ultimo giorno raggruppati in base al relativo valore di conteggio |
-
-
->[!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), allora le query precedenti verranno sostituite da quelle seguenti:
->
->| Query | DESCRIZIONE |
 |:---|:---|
 | Avviso &#124; dove SourceSystem == "OpsManager" e AlertSeverity == "error" e TimeRaised > ago(24h) |Avvisi critici generati durante le ultime 24 ore |
 | Avviso &#124; dove AlertSeverity == "warning" e TimeRaised > ago(24h) |Avvertenze generate durante le ultime 24 ore |
@@ -131,6 +117,7 @@ La tabella seguente fornisce ricerche di log di esempio per i record degli avvis
 | Avviso &#124; dove SourceSystem == "OpsManager" e TimeRaised > ago(24h) e AlertState == "Closed" |Avvisi generati durante le ultime 24 ore che sono ora chiusi |
 | Avviso &#124; dove SourceSystem == "OpsManager" e TimeRaised > ago(1d) &#124; summarize Count = count() by AlertSeverity |Avvisi generati durante l'ultimo giorno raggruppati in base alla relativa gravità |
 | Avviso &#124; dove SourceSystem == "OpsManager" e TimeRaised > ago(1d) &#124; ordina per RepeatCount desc |Avvisi generati durante l'ultimo giorno raggruppati in base al relativo valore di conteggio |
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

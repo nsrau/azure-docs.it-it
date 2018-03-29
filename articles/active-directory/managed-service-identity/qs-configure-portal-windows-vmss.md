@@ -1,11 +1,11 @@
 ---
-title: "Configurare l'identità del servizio gestito in un set di scalabilità di macchine virtuali di Azure tramite il portale di Azure"
-description: "Istruzioni dettagliate per la configurazione dell'identità del servizio gestito in un set di scalabilità di macchine virtuali di Azure tramite il portale di Azure."
+title: Configurare l'identità del servizio gestito in un set di scalabilità di macchine virtuali di Azure tramite il portale di Azure
+description: Istruzioni dettagliate per la configurazione dell'identità del servizio gestito in un set di scalabilità di macchine virtuali di Azure tramite il portale di Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 4d308d9cdc0405ee0041c877f5678647343631ab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d9b493203a78aebdfadef15cf53d9cc023bb66f8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-an-azure-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Configurare un'identità del servizio gestito in un set di scalabilità di macchine virtuali di Azure tramite il portale di Azure
 
@@ -35,7 +35,7 @@ In questo articolo si apprende come abilitare e rimuovere l'identità del serviz
 
 Al momento della redazione del presente documento, l'abilitazione dell'identità del servizio gestito durante la creazione di un set di scalabilità di macchine virtuali nel portale di Azure non è supportata. Fare invece riferimento all'articolo seguente della guida introduttiva relativo alla creazione del set di scalabilità di macchine virtuali di Azure per creare un set di scalabilità di macchine virtuali di Azure:
 
-- [Creare un set di scalabilità di macchine virtuali nel portale di Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-create-portal.md)  
+- [Creare un set di scalabilità di macchine virtuali nel portale di Azure](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
 Procedere quindi alla sezione successiva per informazioni dettagliate sull'abilitazione dell'identità del servizio gestito nel set di scalabilità di macchine virtuali.
 

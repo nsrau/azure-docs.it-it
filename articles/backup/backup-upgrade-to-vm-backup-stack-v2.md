@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/08/2018
-ms.author: trinadhk
-ms.openlocfilehash: b7e9f45c61d2af1940be50a368b87cd35c85b1dd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: trinadhk, sogup
+ms.openlocfilehash: 6d214072bccb8b2b42828ee003dcf349985b4f43
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-to-vm-backup-stack-v2"></a>Eseguire l'aggiornamento allo stack di backup di macchine virtuali V2
 L'aggiornamento allo stack di backup di macchine virtuali (VM) V2 offre i miglioramenti delle funzionalità seguenti:
@@ -49,7 +49,6 @@ Per impostazione predefinita, gli snapshot verranno conservati per sette giorni.
 * Poiché questo è un aggiornamento unidirezionale dello stack di backup di macchine virtuali, tutti i backup futuri verranno inseriti in questo flusso. Poiché **viene abilitato a livello di sottoscrizione, tutte le VM verranno inserite in questo flusso**. Tutte le aggiunte di nuove funzionalità si baseranno sullo stesso stack. Nelle versioni future sarà possibile avere il controllo a livello di criteri. 
 * Per le VM con dischi Premium, durante il primo backup, verificare che nell'account di archiviazione sia disponibile uno spazio di archiviazione equivalente alle dimensioni della VM fino al termine del primo backup. 
 * Poiché gli snapshot vengono archiviati in locale per supportare la creazione del punto di ripristino e anche per velocizzare il ripristino, si osserveranno costi di archiviazione corrispondenti agli snapshot durante il periodo di sette giorni.
-Per i dischi gestiti, *non sono previsti aumenti di prezzo* perché gli elementi restorePointCollection sono gratuiti. 
 * Se si esegue un ripristino da un punto di ripristino di uno snapshot per una VM Premium, si noterà che viene usata una posizione di archiviazione temporanea mentre la VM viene creata durante il ripristino. 
 
 ## <a name="how-to-upgrade"></a>Come eseguire l'aggiornamento

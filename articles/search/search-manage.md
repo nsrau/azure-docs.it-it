@@ -2,10 +2,10 @@
 title: Amministrazione del servizio per Ricerca di Azure nel portale di Azure
 description: Gestire Ricerca di Azure, un servizio di ricerca cloud ospitato in Microsoft Azure, usando il portale di Azure.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-portal
 ms.assetid: c87d1fdd-b3b8-4702-a753-6d7e29dbe0a2
 ms.service: search
@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d19683291e001c3c3f2a7bfc5c203b5121a8a418
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Amministrazione del servizio per Ricerca di Azure nel portale di Azure
 > [!div class="op_single_selector"]
@@ -44,26 +44,12 @@ Tenere presente che l'*aggiornamento* non è un'attività amministrativa. Poich�
 ## <a name="administrator-rights"></a>Diritti di amministratore
 Il provisioning o il ritiro delle autorizzazioni per il servizio in sé può essere effettuato da un amministratore o da un coamministratore della sottoscrizione di Azure.
 
-All'interno di un servizio, chiunque disponga dell'accesso all'URL del servizio e una chiave API di amministrazione ha accesso in lettura/scrittura al servizio. L'accesso in lettura-scrittura offre la possibilità di aggiungere, eliminare o modificare gli oggetti del server, incluse le chiavi API, gli indici, gli indicizzatori, le origini dati, le pianificazioni e le assegnazioni di ruolo implementate tramite i [ruoli definiti dal controllo degli accessi in base al ruolo](#rbac).
+All'interno di un servizio, chiunque disponga dell'accesso all'URL del servizio e una chiave API di amministrazione ha accesso in lettura/scrittura al servizio. L'accesso in lettura-scrittura offre la possibilità di aggiungere, eliminare o modificare gli oggetti del server, incluse le chiavi API, gli indici, gli indicizzatori, le origini dati, le pianificazioni e le assegnazioni di ruolo implementate tramite i [ruoli definiti dal controllo degli accessi in base al ruolo](search-security-rbac.md).
 
-Ogni interazione dell'utente con Ricerca di Azure rientra in una di queste modalità: accesso in lettura/scrittura al servizio (diritti di amministratore) o accesso di sola lettura al servizio (diritti di query). Per altre informazioni, vedere [Gestire le chiavi API](#manage-keys).
+Ogni interazione dell'utente con Ricerca di Azure rientra in una di queste modalità: accesso in lettura/scrittura al servizio (diritti di amministratore) o accesso di sola lettura al servizio (diritti di query). Per altre informazioni, vedere [Gestire le chiavi API](search-security-api-keys.md).
 
 <a id="sys-info"></a>
 
-## <a name="set-rbac-roles-for-administrative-access"></a>Impostare i ruoli RBAC per l'accesso amministrativo
-Azure offre un [modello di autorizzazione basata sui ruoli globali](../active-directory/role-based-access-control-configure.md) per tutti i servizi gestiti tramite il portale o le API di Resource Manager. I ruoli Proprietario, Collaboratore e Lettore determinano il livello di amministrazione del servizio per gli utenti, i gruppi e le entità di sicurezza di Active Directory assegnati a ogni ruolo. 
-
-Per Ricerca di Azure, le autorizzazioni del controllo degli accessi in base al ruolo determinano le attività amministrative seguenti:
-
-| Ruolo | Attività |
-| --- | --- |
-| Proprietario |Creare o eliminare il servizio o qualsiasi oggetto nel servizio, inclusi chiavi API, indici, indicizzatori, origini dati di un indicizzatore e pianificazioni di indicizzatore.<p>Visualizzare lo stato del servizio, inclusi conteggi e dimensioni.<p>Aggiunta o eliminazione dell'appartenenza al ruolo, che può essere gestita solo da un Proprietario.<p>Gli amministratori delle sottoscrizioni e i proprietari del servizio vengono aggiunti automaticamente al ruolo proprietario. |
-| Collaboratore |Stesso livello di accesso del Proprietario, tranne la gestione dei ruoli Controllo degli accessi in base al ruolo. Ad esempio, un Collaboratore può visualizzare e rigenerare `api-key`, ma non può modificare le appartenenze ai ruoli. |
-| Reader |Può visualizzare lo stato e le chiavi di query. I membri di questo ruolo non possono modificare la configurazione del servizio né visualizzare le chiavi amministratore. |
-
-I ruoli non concedono diritti di accesso all'endpoint di servizio. Le operazioni del servizio di ricerca, ad esempio la gestione e il popolamento degli indici e le query sui dati di ricerca, sono controllate tramite le chiavi API, non tramite i ruoli. Per altre informazioni, vedere "Autorizzazioni per le operazioni di gestione e per le operazioni di dati" in [Che cos'è il controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md).
-
-<a id="secure-keys"></a>
 ## <a name="logging-and-system-information"></a>Informazioni di sistema e registrazione
 Ricerca di Azure non espone i file di log di un singolo servizio né tramite il portale né tramite interfacce programmatiche. Nel piano Basic Microsoft monitora tutti i servizi di Ricerca di Azure per verificare la disponibilità del 99,9% per ogni contratto di servizio. Se il servizio è lento o la velocità effettiva delle richieste è al di sotto delle soglie dei contratti di servizio, i team di supporto esaminano i file di log disponibili e risolvono il problema.
 
@@ -72,38 +58,6 @@ In termini di informazioni generali sul servizio, è possibile ottenere informaz
 * Nel portale tramite notifiche, proprietà e messaggi di stato nel dashboard del servizio.
 * Uso di [PowerShell](search-manage-powershell.md) o dell'interfaccia [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/) per [ottenere le proprietà del servizio](https://docs.microsoft.com/rest/api/searchmanagement/services) oppure lo stato nell'uso della risorsa dell'indice.
 * Tramite l' [analisi del traffico di ricerca](search-traffic-analytics.md), come indicato prima.
-
-<a id="manage-keys"></a>
-
-## <a name="manage-api-keys"></a>Gestire le chiavi API
-Tutte le richieste indirizzate a un servizio di ricerca necessitano di una chiave API generata specificamente per il proprio servizio. Questa chiave API è l'unico meccanismo di autenticazione dell'accesso all'endpoint di servizio di ricerca. 
-
-Una chiave API è una stringa composta da lettere e numeri generati casualmente. Tramite le [autorizzazioni del controllo degli accessi in base al ruolo](#rbac), è possibile eliminare o leggere le chiavi, ma non è possibile sostituire una chiave con una password definita dall'utente. 
-
-Per accedere al servizio di ricerca vengono usati due tipi di chiavi:
-
-* Amministratore (valida per qualsiasi operazione in lettura/scrittura sul servizio)
-* Di query (valida per operazioni di sola lettura, ad esempio le query su un indice)
-
-Una chiave API amministratore viene creata quando viene effettuato il provisioning del servizio. Esistono due chiavi amministratore, designate come *primaria* e *secondaria* per distinguerle, ma di fatto sono intercambiabili. Ogni servizio ha due chiavi amministratore in modo che sia possibile eseguire il rollover di una senza perdere l'accesso al servizio. È possibile rigenerare qualsiasi delle due chiavi amministrative ma non è possibile aggiungere chiavi al totale delle chiavi amministrative disponibili. È consentito un massimo di due chiavi amministratore per ogni servizio di ricerca.
-
-Le chiavi di query sono progettate per le applicazioni client che chiamano il servizio di ricerca direttamente. È possibile creare fino a 50 chiavi di query. Nel codice dell'applicazione si specificano l'URL di ricerca e una chiave API di query per consentire l'accesso di sola lettura al servizio. Il codice dell'applicazione specifica anche l'indice usato dall'applicazione. L'endpoint, una chiave API per l'accesso di sola lettura e un indice di destinazione definiscono insieme l'ambito e il livello di accesso della connessione dall'applicazione client.
-
-Per ottenere o rigenerare le chiavi API, aprire il Dashboard servizi. Fare clic su **CHIAVI** per aprire la pagina di gestione delle chiavi con effetto scorrimento. I comandi per rigenerare o creare le chiavi sono visualizzati nella parte superiore della pagina. Per impostazione predefinita, vengono create solo le chiavi amministratore. Le chiavi API di query devono essere create manualmente.
-
- ![][9]
-
-<a id="rbac"></a>
-
-## <a name="secure-api-keys"></a>Proteggere le chiavi API
-La sicurezza delle chiavi viene garantita limitando l'accesso tramite il portale o le interfacce di Resource Manager (PowerShell o interfaccia della riga di comando). Come indicato, gli amministratori delle sottoscrizioni possono visualizzare e rigenerare tutte le chiavi API. Per precauzione, esaminare le assegnazioni di ruolo per sapere chi ha accesso alle chiavi amministratore.
-
-1. Nel dashboard del servizio fare clic sull'icona Accesso per aprire il pannello Utenti con effetto scorrimento.
-   ![][7]
-2. In Utenti esaminare le assegnazioni di ruoli esistenti. Come previsto, gli amministratori della sottoscrizione hanno già accesso completo al servizio tramite il ruolo Proprietario.
-3. Per altre informazioni, fare clic su **Amministratori della sottoscrizione** e quindi espandere l'elenco di assegnazioni di ruolo per visualizzare chi ha diritti di coamministrazione sul servizio di ricerca.
-
-Per visualizzare le autorizzazioni di accesso, è anche possibile fare clic su **Ruoli** nel pannello Utenti. In questo modo vengono visualizzati i ruoli disponibili e il numero di utenti o gruppi assegnati a ogni ruolo.
 
 <a id="sub-5"></a>
 
@@ -184,9 +138,6 @@ Dopo aver appreso i concetti relativi all'amministrazione del servizio, è consi
 Si consiglia anche di guardare il video indicato nella sezione precedente che offre un approfondimento sulle tecniche indicate in questa sezione.
 
 <!--Image references-->
-[7]: ./media/search-manage/rbac-icon.png
-[8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
-[9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
 
 

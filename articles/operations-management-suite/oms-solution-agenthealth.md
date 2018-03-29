@@ -1,24 +1,24 @@
 ---
-title: "Soluzione Integrità agente in OMS | Microsoft Docs"
-description: "Questo articolo fornisce informazioni su come usare questa soluzione per monitorare l'integrità degli agenti che inviano report direttamente a OMS o System Center Operations Manager."
+title: Soluzione Integrità agente in OMS | Microsoft Docs
+description: Questo articolo fornisce informazioni su come usare questa soluzione per monitorare l'integrità degli agenti che inviano report direttamente a OMS o System Center Operations Manager.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 939bf5ae6ee306008567ce62ddf8a6d1f05da60a
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: d7eb1550a21e66d4ae4cc4932b30a90956c60d1e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="agent-health-solution-in-oms"></a>Soluzione Integrità agente in OMS
 La soluzione Integrità agente in OMS consente di individuare gli agenti che non rispondono e quelli che inviano dati operativi tra tutti gli agenti che inviano report direttamente all'area di lavoro di OMS o a un gruppo di gestione di System Center Operations Manager connesso a OMS.  È anche possibile tenere traccia del numero di agenti distribuiti, della rispettiva ubicazione ed eseguire altre query per rimanere aggiornati sulla distribuzione degli agenti distribuiti in Azure, in altri ambienti cloud o in locale.    
@@ -98,25 +98,6 @@ Ogni agente che invia report a un server di gestione di Operations Manager invie
 La tabella seguente contiene esempi di ricerche nei log per i record raccolti da questa soluzione.
 
 | Query | DESCRIZIONE |
-| --- | --- |
-| Type=Heartbeat &#124; distinct Computer |Numero totale di agenti |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Conteggio degli agenti che non hanno risposto nelle ultime 24 ore |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-15MINUTES |Conteggio degli agenti che non hanno risposto negli ultimi 15 minuti |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Computer online (nelle ultime 24 ore) |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Totale degli agenti offline negli ultimi 30 minuti (per le ultime 24 ore) |
-| Type=Heartbeat &#124; measure countdistinct(Computer) by OSType |Tendenza del numero di agenti nel tempo per OSType|
-| Type=Heartbeat&#124;measure countdistinct(Computer) by OSType |Distribuzione per tipo di sistema operativo |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by Version |Distribuzione per versione dell'agente |
-| Type=Heartbeat&#124;measure count() by Category |Distribuzione per categoria dell'agente |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by ManagementGroupName | Distribuzione per gruppo di gestione |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by RemoteIPCountry |Posizione geografica degli agenti |
-| Type=Heartbeat IsGatewayInstalled=true&#124;Distinct Computer |Numero di gateway OMS installati |
-
-
->[!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), le query precedenti verranno sostituite dalle seguenti.
->
->| Query | DESCRIZIONE |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Numero totale di agenti |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Conteggio degli agenti che non hanno risposto nelle ultime 24 ore |
@@ -130,6 +111,9 @@ La tabella seguente contiene esempi di ricerche nei log per i record raccolti da
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by ManagementGroupName | Distribuzione per gruppo di gestione |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Posizione geografica degli agenti |
 | Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Numero di gateway OMS installati |
+
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

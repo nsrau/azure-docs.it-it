@@ -10,15 +10,15 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: fa263a4b6f41e2b31328f46b8d1341d0d74c9a85
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-cost-management-reports"></a>Usare i report di Gestione costi
 
-Questo articolo descrive come usare i diversi report di Gestione costi nel portale di Cloudyn. La maggior parte dei report Cloudyn presenta le informazioni in modo intuitivo e con un aspetto grafico uniforme. Per una panoramica sui report Cloudyn, vedere [Informazioni sui report dei costi](understading-cost-reports.md). L'articolo descrive anche varie opzioni e diversi campi usati nella maggior parte dei report.
+Questo articolo descrive come usare i diversi report di Gestione costi nel portale di Cloudyn. La maggior parte dei report Cloudyn presenta le informazioni in modo intuitivo e con un aspetto grafico uniforme. Per una panoramica sui report Cloudyn, vedere [Informazioni sui report dei costi](understanding-cost-reports.md). L'articolo descrive anche varie opzioni e diversi campi usati nella maggior parte dei report.
 
 ## <a name="cost-analysis-reports"></a>Report di analisi dei costi
 

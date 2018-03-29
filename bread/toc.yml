@@ -248,6 +248,9 @@
     - name: Hub IoT
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
+    - name: Servizio Device Provisioning in hub IoT
+      tocHref: /azure/iot-dps/
+      topicHref: /azure/iot-dps/
     - name: IoT Suite
       tocHref: /azure/iot-suite/
       topicHref: /azure/iot-suite/
