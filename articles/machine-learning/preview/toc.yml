@@ -197,7 +197,7 @@
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Prezzi
-      href: aml-services-pricing.md
+      href: aml-pricing.md
     - name: Aree di disponibilità
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Processo di analisi scientifica dei dati per i team

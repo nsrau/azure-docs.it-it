@@ -56,7 +56,7 @@
 ## Gestire il Servizio di sincronizzazione Azure AD Connect
 ### [Conformità con GDPR e Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [Impedire eliminazioni accidentali](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
-### [Sincronizzazione delle password](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [Sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Account del servizio Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Installazione guidata](active-directory-aadconnectsync-installation-wizard.md)
 ### [Modalità di popolamento di UserPrincipalName](active-directory-aadconnect-userprincipalname.md)
@@ -86,11 +86,11 @@
 ### [Errori durante la sincronizzazione](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Oggetto non sincronizzato](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Sincronizzazione di oggetti tramite le attività di risoluzione dei problemi](active-directory-aadconnect-troubleshoot-objectsync.md)
-### [Sincronizzazione delle password](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [Sincronizzazione dell'hash delle password](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md)
 ### [Errore LargeObject provocato da userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Come eseguire il ripristino dal limite di 10 GB per LocalDB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Sincronizzazione delle identità e resilienza degli attributi duplicati](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Porte e protocolli necessari per la soluzione ibrida di gestione delle identità](active-directory-aadconnect-ports.md)
