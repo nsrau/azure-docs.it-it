@@ -49,7 +49,7 @@
 ## Integrare con Spring Boot
 ###[Usare un'app di inizializzazione Spring Boot con Cache Redis](cache-java-spring-boot-initializer-with-redis-cache.md)
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=redis-cache)
 ## [Azure PowerShell](/powershell/module/azurerm.rediscache)
 ## [Anteprima dell'interfaccia della riga di comando di Azure](/cli/azure/redis)

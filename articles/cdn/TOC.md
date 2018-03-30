@@ -62,7 +62,7 @@
 ### [Stato 404](cdn-troubleshoot-endpoint.md)
 ### [Compressione dei file](cdn-troubleshoot-compression.md)
 
-# riferimento
+# Riferimenti
 ##  [Informazioni di riferimento sul motore regole](cdn-rules-engine-reference.md)
 ### [Espressioni condizionali del motore regole](cdn-rules-engine-reference-conditional-expressions.md)
 ### [Condizioni di corrispondenza del motore regole](cdn-rules-engine-reference-match-conditions.md)
