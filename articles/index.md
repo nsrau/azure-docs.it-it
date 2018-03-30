@@ -1,6 +1,6 @@
 ---
 layout: HubPage
-hide_bc: ''
+hide_bc: true
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
 ms.topic: hub-page
