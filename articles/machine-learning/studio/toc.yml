@@ -3,8 +3,6 @@
 - name: Panoramica
   expanded: true
   items:
-    - name: Definizione di Machine Learning
-      href: what-is-machine-learning.md
     - name: Machine Learning Studio
       href: what-is-ml-studio.md
     - name: Funzionalità di ML Studio
