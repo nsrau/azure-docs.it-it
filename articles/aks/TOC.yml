@@ -59,6 +59,8 @@
       items:
         - name: Indirizzo IP statico
           href: static-ip.md
+        - name: Servizio di bilanciamento del carico interno
+          href: internal-lb.md
         - name: Traffico in ingresso e TLS
           href: ingress.md
     - name: Sicurezza e autenticazione
@@ -91,7 +93,7 @@
           href: aks-ssh.md
         - name: Ottenere i log di kubelet
           href: kubelet-logs.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/aks

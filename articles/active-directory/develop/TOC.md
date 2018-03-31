@@ -45,7 +45,7 @@
 ### [Eseguire il debug di Single Sign-On basato su SAML](active-directory-saml-debugging.md)
 ### [Protocollo SAML per Single Sign-On](active-directory-single-sign-on-protocol-reference.md)
 ### [Protocollo SAML per Single Sign-Out](active-directory-single-sign-out-protocol-reference.md)
-### [Creare un tenant](active-directory-howto-tenant.md)
+## [Creare un tenant](active-directory-howto-tenant.md)
 ## [Linee guida sulla personalizzazione](active-directory-branding-guidelines.md)
 ## Accesso Single Sign-On per dispositivi mobili e desktop
 ### [Abilitare l'accesso Single Sign-On in Android](active-directory-sso-android.md)
@@ -67,7 +67,7 @@
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 ## [Migrazione del servizio di controllo di accesso](active-directory-acs-migration.md)
 ## [Procedure consigliate per la gestione degli errori di ADAL](active-directory-devhowto-adal-error-handling.md)
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Librerie di autenticazione (ADAL)](active-directory-authentication-libraries.md)
 ## [Articolo sugli esempi di codice](active-directory-code-samples.md)
@@ -103,7 +103,7 @@
 #### [App Web NodeJS](active-directory-v2-devquickstarts-node-web.md)
 ## Guide
 ### [Registrare un'app](active-directory-v2-app-registration.md)
-## riferimento
+## Riferimenti
 ### [Librerie di autenticazione](active-directory-v2-libraries.md)
 ### [Protocolli di autenticazione v2.0](active-directory-v2-protocols.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
