@@ -5,20 +5,24 @@ services: mobile-engagement
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: mobile-engagement
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 5f682ba16b52b9a084505b8212c4b6f043bb94c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 874b40e0e1407be9f546c5a5f57cee2d1034a840
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="mobile-engagement-documentation"></a>Documentazione di Mobile Engagement
+
+> [!IMPORTANT]
+> Azure Mobile Engagement verrà ritirato il 31/03/2018. Questa pagina verrà eliminata subito dopo.
+> 
 
 Informazioni su come incrementare l'uso, la conservazione e la monetizzazione delle app per dispositivi mobili con Mobile Engagement. Esercitazioni, SDK e altri documenti mostrano su come ottenere informazioni approfondite sull'uso delle app e sulla segmentazione degli utenti in tempo reale, oltre che su come abilitare le notifiche push contestualizzate e la messaggistica in-app.
 

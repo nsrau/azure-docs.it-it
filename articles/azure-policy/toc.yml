@@ -25,7 +25,11 @@
   items:
     - name: Struttura delle definizioni di criteri di Azure
       href: policy-definition.md
-- name: riferimento
+- name: Guide alle procedure
+  items:
+    - name: Creare criteri a livello di programmazione
+      href: policy-insights.md
+- name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/policy
