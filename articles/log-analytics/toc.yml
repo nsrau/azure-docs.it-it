@@ -37,8 +37,6 @@
           href: log-analytics-log-search-faq.md
     - name: Domande frequenti su Log Analytics
       href: log-analytics-faq.md
-    - name: Utilizzo dei dati
-      href: log-analytics-usage.md
     - name: Sicurezza dei dati
       href: log-analytics-data-security.md
     - name: Gestire l'accesso
@@ -156,7 +154,11 @@
         - name: Gestione dell'agente
           href: log-analytics-agent-manage.md
         - name: Gestire il costo dell'area di lavoro
-          href: log-analytics-manage-cost-storage.md
+          items:
+            - name: Volume e conservazione dei dati
+              href: log-analytics-manage-cost-storage.md
+            - name: Monitorare l'utilizzo
+              href: log-analytics-usage.md
         - name: Eliminazione di un'area di lavoro
           href: log-analytics-manage-del-workspace.md
     - name: Risolvere problemi
@@ -263,7 +265,7 @@
           href: log-analytics-template-workspace-configuration.md
         - name: API degli avvisi
           href: log-analytics-api-alerts.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Informazioni di riferimento sul linguaggio
       href: 'https://docs.loganalytics.io/docs/Language-Reference'
