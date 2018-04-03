@@ -3,7 +3,7 @@ title: Azure requisiti dei certificati di infrastruttura a chiave pubblica dello
 description: Descrive i requisiti di distribuzione del certificato PKI dello Stack di Azure per i sistemi Azure Stack integrato.
 services: azure-stack
 documentationcenter: ''
-author: mabriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,16 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
-ms.author: mabrigg
+ms.date: 03/29/2018
+ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: a5712e556d7b3bdcce38b8b8d39a08414ce0fd2f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 583f827fe77ef7721b3098dee01c418c9e5cccd8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisiti dei certificati di infrastruttura a chiave pubblica Stack Azure
+
 Stack Azure dispone di una rete pubblica infrastruttura utilizzano accessibile dall'esterno indirizzi IP pubblici assegnati a un piccolo set di servizi di Azure Stack ed eventualmente macchine virtuali tenant. I certificati PKI con i nomi DNS appropriati per questi endpoint infrastruttura pubblica Azure Stack sono necessari durante la distribuzione di Azure Stack. In questo articolo contiene informazioni su:
 
 - I certificati sono necessari per distribuire Azure Stack
@@ -37,7 +38,7 @@ L'elenco seguente descrive i requisiti del certificato che sono necessari per di
 - L'infrastruttura di Azure Stack deve avere accesso alla rete per l'autorità di certificazione usata per firmare i certificati
 - Quando la rotazione di certificati, certificati devono essere che uno rilasciato dall'autorità di certificazione interna stesso utilizzato per firmare i certificati nella distribuzione o qualsiasi autorità di certificazione pubblica sopra
 - L'utilizzo di certificati autofirmati non sono supportati
-- Il certificato può essere un certificato con caratteri jolly singolo che coprono tutti spazi dei nomi nel campo nome alternativo soggetto (SAN). In alternativa, è possibile utilizzare i singoli certificati con caratteri jolly per gli endpoint, ad esempio acs e l'insieme di credenziali chiave in cui sono necessarie. 
+- Il certificato può essere un certificato con caratteri jolly singolo che coprono tutti spazi dei nomi nel campo nome alternativo soggetto (SAN). In alternativa, è possibile utilizzare certificati singoli utilizzando i caratteri jolly per gli endpoint, ad esempio **acs** e insieme di credenziali chiave in cui sono necessarie. 
 - L'algoritmo di firma del certificato non può essere SHA1, deve essere maggiore. 
 - Il formato del certificato deve essere PFX, come le chiavi pubbliche e private sono necessari per l'installazione dello Stack di Azure. 
 - Il file pfx del certificato devono avere un valore "Firma digitale" e "KeyEncipherment" nel campo "Key Usage".
@@ -58,6 +59,23 @@ Nella tabella in questa sezione vengono descritti i certificati PKI endpoint pub
 I certificati con i nomi DNS appropriati per ogni endpoint infrastruttura pubblica Azure Stack sono necessari. Nome DNS dell'endpoint di ogni tipo viene espresso nel formato:  *&lt;prefisso >.&lt; area >. &lt;fqdn >*. 
 
 Per la distribuzione, [region] e [externalfqdn] i valori devono corrispondere i nomi di dominio esterno scelto per il sistema Azure Stack e l'area. Ad esempio, se il nome dell'area stato *Redmond* e il nome di dominio esterno è *contoso.com*, i nomi DNS potrebbero avere il formato *&lt;prefisso >. redmond.contoso.com*. Il  *&lt;prefisso >* valori sono prestabiliti da Microsoft per descrivere l'endpoint protetto mediante il certificato. Inoltre, il  *&lt;prefisso >* i valori degli endpoint infrastruttura esterno dipendono dal servizio Azure Stack che utilizza l'endpoint specifico. 
+
+> [!note]  
+> Certificati possono essere fornite come un certificato con caratteri jolly singolo copertura di tutti gli spazi dei nomi nei campi del soggetto e nome alternativo soggetto (SAN) copiati in tutte le directory o certificati individuali per ogni endpoint copiato nella directory del corrispondente. Tenere presente che entrambe le opzioni è necessario utilizzare certificati con caratteri jolly per gli endpoint, ad esempio **acs** e insieme di credenziali chiave in cui sono necessarie. 
+
+| Cartella di distribuzione | Soggetto certificato richiesto e nomi alternativi del soggetto (SAN) | Ambito (per regione) | Spazio dei nomi di sottodominio |
+|-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
+| Portale pubblico | portal.&lt;region>.&lt;fqdn> | Portali | &lt;region>.&lt;fqdn> |
+| Portale di amministrazione | adminportal.&lt;region>.&lt;fqdn> | Portali | &lt;region>.&lt;fqdn> |
+| Pubblico di gestione risorse di Azure | management.&lt;region>.&lt;fqdn> | Gestione risorse di Azure | &lt;region>.&lt;fqdn> |
+| Amministrazione di gestione risorse di Azure | adminmanagement.&lt;region>.&lt;fqdn> | Gestione risorse di Azure | &lt;region>.&lt;fqdn> |
+| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) | Archiviazione BLOB | blob.&lt;region>.&lt;fqdn> |
+| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) | Archiviazione tabelle | table.&lt;region>.&lt;fqdn> |
+| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) | Archiviazione di accodamento | queue.&lt;region>.&lt;fqdn> |
+| Insieme di credenziali delle chiavi | *.vault.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) | Insieme di credenziali di chiave | vault.&lt;region>.&lt;fqdn> |
+| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) |  Keyvault interno |  adminvault.&lt;region>.&lt;fqdn> |
+
+### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Per ambiente dello Stack di Azure sul versioni Pre-1803
 
 |Cartella di distribuzione|Soggetto certificato richiesto e nomi alternativi del soggetto (SAN)|Ambito (per regione)|Spazio dei nomi di sottodominio|
 |-----|-----|-----|-----|
@@ -93,7 +111,7 @@ La tabella seguente descrive gli endpoint e i certificati necessari per gli adap
 |Ambito (per regione)|Certificate|Soggetto certificato richiesto e i nomi di soggetto alternativo (SAN)|Spazio dei nomi di sottodominio|
 |-----|-----|-----|-----|
 |SQL, MySQL|SQL e MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>(Certificato SSL con carattere jolly)|dbadapter.*&lt;region>.&lt;fqdn>*|
-|Servizio app|Certificato SSL predefinito di traffico Web|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificato SSL con carattere jolly multidominio<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|Servizio app|Certificato SSL predefinito di traffico Web|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificato SSL con carattere jolly multidominio<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |Servizio app|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificato SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |Servizio app|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificato SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |Servizio app|SSO|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificato SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|

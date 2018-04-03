@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 799651caf937ca2bafc79dc76f99ae43e700673a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: df4a5a17ad034ae5d6ab82791c020634a8758b71
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-administration-basics"></a>Nozioni fondamentali di amministrazione Azure Stack
 Ci sono vari aspetti, che è necessario sapere se si ha familiarità con amministrazione dello Stack di Azure. Questa guida fornisce una panoramica del ruolo operatore di Stack di Azure e cosa è necessario indicare agli utenti per loro di diventare rapidamente produttivi.
@@ -31,9 +31,9 @@ Se si utilizza un sistema integrato dello Stack di Azure, le versioni aggiornate
  
 ### <a name="development-kit"></a>Kit di sviluppo
 
-Se si utilizza il Kit di sviluppo dello Stack di Azure, esaminare il [che cos'è Azure Stack?](azure-stack-poc.md) articolo per assicurarsi comprendere lo scopo del kit di sviluppo e le relative limitazioni. È necessario utilizzare il kit di sviluppo come una "sandbox", in cui è possibile valutare Stack di Azure e sviluppare e testare le App in un ambiente non di produzione. (Per informazioni sulla distribuzione, vedere il [distribuzione Azure Stack Development Kit](azure-stack-deploy-overview.md) Guida introduttiva.)
+Se si utilizza il Kit di sviluppo dello Stack di Azure, esaminare il [che cos'è Azure Stack?](.\asdk\asdk-what-is.md) articolo per assicurarsi comprendere lo scopo del kit di sviluppo e le relative limitazioni. È necessario utilizzare il kit di sviluppo come una "sandbox", in cui è possibile valutare Stack di Azure e sviluppare e testare le App in un ambiente non di produzione. (Per informazioni sulla distribuzione, vedere la [distribuzione di Azure Stack Development Kit](.\asdk\asdk-deploy.md) esercitazione.)
 
-Come Azure, è innovazione rapidamente. Si verrà regolarmente nuovi le build di rilascio. Se si esegue il kit di sviluppo e si desidera spostare la build più recente, è necessario [ridistribuire Azure Stack](azure-stack-redeploy.md). Non è possibile applicare i pacchetti di aggiornamento. Questo processo richiede tempo, ma il vantaggio è che è possibile provare le funzionalità più recenti. La documentazione del kit di sviluppo del sito riflette la build di versione più recente.
+Come Azure, è innovazione rapidamente. Si verrà regolarmente nuovi le build di rilascio. Se si esegue il kit di sviluppo e si desidera spostare la build più recente, è necessario [ridistribuire Azure Stack](.\asdk\asdk-redeploy.md). Non è possibile applicare i pacchetti di aggiornamento. Questo processo richiede tempo, ma il vantaggio è che è possibile provare le funzionalità più recenti. La documentazione del kit di sviluppo del sito riflette la build di versione più recente.
 
 ## <a name="learn-about-available-services"></a>Informazioni sui servizi disponibili
 
@@ -63,6 +63,18 @@ Questi servizi richiedono un'ulteriore configurazione prima di renderli disponib
 **Guida di orientamento per servizio**
 
 Stack Azure continuerà aggiungere supporto per servizi di Azure. Per la Guida di orientamento previsto, vedere il [dello Stack di Azure: un'estensione di Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) white paper. È inoltre possibile monitorare il [post di blog di Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) per gli annunci di nuove.
+
+## <a name="what-account-should-i-use"></a>Quale account si deve usare?
+Esistono alcune considerazioni sull'account che è necessario essere consapevoli di durante la gestione dello Stack di Azure. In particolare nelle distribuzioni con Windows Server Active Directory Federation Services (ADFS) come provider di identità invece di Azure Active Directory (Azure AD). Per i sistemi Azure Stack integrata e le distribuzioni ASDK si applicano le considerazioni sull'account seguente:
+
+
+|Account|Azure AD|AD FS|
+|-----|-----|-----|
+|Amministratore locale (. \Administrator)|Amministratore di host ASDK|Amministratore di host ASDK|
+|AzureStack\AzureStackAdmin|Amministratore di host ASDK<br><br>Può essere usato per accedere al portale di amministrazione di Azure Stack<br><br>Accesso per visualizzare e amministrare anelli di Service Fabric|Amministratore di host ASDK<br><br>Nessun accesso al portale di amministrazione di Azure Stack<br><br>Accesso per visualizzare e amministrare anelli di Service Fabric<br><br>Non è più proprietario del Provider di sottoscrizione predefinito (dp)|
+|AzureStack\CloudAdmin|Può accedere ed eseguire i comandi consentiti all'interno dell'Endpoint con privilegi|Può accedere ed eseguire i comandi consentiti all'interno dell'Endpoint con privilegi<br><br>Non può accedere all'host ASDK<br><br>Proprietario della sottoscrizione del Provider predefinito (dp)|
+|Amministratore globale di Azure AD|Utilizzato durante l'installazione<br><br>Proprietario della sottoscrizione del Provider predefinito (dp)|Non applicabile|
+|
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Quali strumenti utilizzare per gestire?
  

@@ -1,11 +1,11 @@
 ---
 title: Aggiornamento di Azure Stack 1712 | Documenti Microsoft
-description: "Informazioni sulle novità nell'aggiornamento 1712 per Azure Stack integrate di sistemi, i problemi noti e come scaricare l'aggiornamento."
+description: Informazioni sulle novità nell'aggiornamento 1712 per Azure Stack integrate di sistemi, i problemi noti e come scaricare l'aggiornamento.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: b14f79ad-025f-45d8-9e1d-e53d2b420bb1
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: brenduns
-ms.openlocfilehash: 0456a202990d383370051d99112f829533b1b101
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: c3cb8ab8a838a3f831ece617fcf3e218a9510ea5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1712-update"></a>Aggiornamento dello Stack 1712 Azure
 
@@ -73,19 +73,19 @@ Questo aggiornamento include i seguenti miglioramenti e correzioni per lo Stack 
 
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Correzioni e nuove funzionalità di Windows Server 2016
 
-- [Il 3 gennaio - 2018: KB4056890 (Build del sistema operativo 14393.2007)](https://support.microsoft.com/help/4056890/windows-10-update-kb4056890)
+- [3 gennaio - 2018: KB4056890 (Build del sistema operativo 14393.2007)](https://support.microsoft.com/help/4056890/windows-10-update-kb4056890)
     - Questo aggiornamento include le correzioni di software per il problema di sicurezza del settore descritto da [MSRC Security Advisory ADV 180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002).
 
 ### <a name="known-issues-with-the-update-process"></a>Problemi noti con il processo di aggiornamento
 
 In questa sezione contiene i problemi noti che possono verificarsi durante l'installazione dell'aggiornamento 1712.
 
-1. **Sintomo:** operatori Stack Azure è possibile che venga visualizzato il seguente errore durante il processo di aggiornamento: *"tipo 'CheckHealth' del ruolo 'VirtualMachines' generato un'eccezione: \n\nVirtual controllo integrità del computer per - ACS01 generati gli errori seguenti. \nThere è verificato un errore durante il recupero di informazioni macchina virtuale dall'host. Dettagli eccezione: \nGet-VM: l'operazione sul computer 'Node03' non è riuscita: servizio di WS-Management non è in grado di elaborare la richiesta. Il \nservice WMI o il provider WMI ha restituito un errore sconosciuto: HRESULT 0x8004106c. "*
-    1. **Causa:** questo problema è causato da un problema di Windows Server che deve essere esaminati e risolti successivi aggiornamenti di server di finestra.
+1. **Sintomo:** operatori Stack Azure è possibile che venga visualizzato l'errore seguente durante il processo di aggiornamento: *"tipo 'CheckHealth' del ruolo 'VirtualMachines' generato un'eccezione: \n\nVirtual controllo integrità del computer per - ACS01 generati gli errori seguenti. \nThere è verificato un errore durante il recupero informazioni macchina virtuale dagli host. Dettagli eccezione: \nGet-VM: l'operazione sul computer 'Node03' non è riuscita: servizio di WS-Management non è in grado di elaborare la richiesta. Il \nservice WMI o il provider WMI ha restituito un errore sconosciuto: HRESULT 0x8004106c. "*
+    1. **Causa:** questo problema è causato da un problema di Windows Server che dovrà essere esaminati e risolti successivi aggiornamenti di server di finestra.
     2. **Risoluzione:** contattare il servizio clienti e supporto tecnico per assistenza.
 <br><br>
-2. **Sintomo:** operatori Stack Azure è possibile che venga visualizzato il seguente errore durante il processo di aggiornamento:*"Abilitazione dell'anello di valore di inizializzazione VM non è riuscita nel nodo Host Node03 con errore: [Host Node03] connessione al server remoto, Host Node03 non riuscita con il messaggio di errore seguente: il client WinRM ha ricevuto lo stato di errore server HTTP (500), ma il servizio remoto non include eventuali altre informazioni sulla causa dell'errore. "*
-    1. **Causa:** questo problema è causato da un problema di Windows Server che deve essere esaminati e risolti successivi aggiornamenti di server di finestra. 
+2. **Sintomo:** operatori Stack Azure è possibile che venga visualizzato l'errore seguente durante il processo di aggiornamento:*"Abilitazione dell'anello di valore di inizializzazione VM non è riuscito nel nodo Node03 Host con un errore: [Host-Node03] connessione al server remoto Node03 Host non è riuscita con il seguente messaggio di errore: il client WinRM ha ricevuto lo stato di errore server HTTP (500), ma il servizio remoto non è stata inclusa qualsiasi altra informazione sulla causa dell'errore. "*
+    1. **Causa:** questo problema è causato da un problema di Windows Server che dovrà essere esaminati e risolti successivi aggiornamenti di server di finestra. 
     2. **Risoluzione:** contattare il servizio clienti e supporto tecnico per assistenza.
 <br><br>
 
@@ -109,6 +109,7 @@ In questa sezione contiene i problemi noti di post-installazione con compilazion
 
 - Se si elimina utente sottoscrizioni nelle risorse orfane. In alternativa, eliminare prima le risorse utente o l'intero gruppo di risorse e quindi eliminare le sottoscrizioni dell'utente.
 - Non è in grado di visualizzare le autorizzazioni per la sottoscrizione utilizzando i portali di Stack di Azure. In alternativa, è possibile verificare le autorizzazioni tramite PowerShell.
+- Il **servizio integrità** blade non riesce a caricare. Quando si apre il pannello di integrità del servizio nel portale di amministrazione o di utente, Azure Stack viene visualizzato un errore e non caricare le informazioni. Si tratta di un comportamento previsto. Sebbene sia possibile selezionare e aprire l'integrità del servizio, questa funzionalità non è ancora disponibile, ma verrà implementata in una versione futura dello Stack di Azure.
 
 #### <a name="health-and-monitoring"></a>Monitoraggio dell'integrità e
 
@@ -131,7 +132,7 @@ In questa sezione contiene i problemi noti di post-installazione con compilazion
 - Gli operatori di Azure Stack potrebbero non essere possibile distribuire, eliminare, modificare le reti virtuali o i gruppi di sicurezza di rete. Questo problema si verifica principalmente sui tentativi di aggiornamento successive dello stesso pacchetto. Ciò è causato da un problema di creazione di pacchetti con un aggiornamento che è attualmente in corso il controllo.
 - Bilanciamento di carico interno (ILB) gestisce correttamente gli indirizzi MAC per macchine virtuali di back-end che interrompe le istanze di Linux.
 
-#### <a name="sqlmysql"></a>SQL o MySQL
+#### <a name="sqlmysql"></a>SQL/MySQL
 - È possibile richiedere un'ora prima che i tenant possono creare database in un nuovo SQL o MySQL SKU.
 - Creazione di elementi direttamente nel server che non vengono eseguite dal provider di risorse di hosting MySQL e SQL Server non è supportata e può comportare uno stato non corrispondente.
 
@@ -141,7 +142,7 @@ In questa sezione contiene i problemi noti di post-installazione con compilazion
 #### <a name="app-service"></a>Servizio app
 - Un utente deve registrare il provider di risorse di archiviazione prima di creare la prima funzione di Azure nella sottoscrizione.
 
-#### <a name="identity"></a>Identity
+#### <a name="identity"></a>Identità
 
 Ambienti, distribuiti in Azure Active Directory Federation Services (ADFS) di **azurestack\azurestackadmin** account non è più proprietario della sottoscrizione del Provider predefinito. Anziché la registrazione nel **portale di amministrazione / endpoint adminmanagement** con il **azurestack\azurestackadmin**, è possibile utilizzare il **azurestack\cloudadmin** account, questa operazione che è possibile gestire e usare la sottoscrizione di Provider predefinito.
 

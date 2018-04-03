@@ -2,25 +2,25 @@
 title: In questa esercitazione, si crea un'offerta di Azure Stack | Documenti Microsoft
 description: Informazioni su come creare un'offerta di Azure Stack incluse piani e le quote.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 03/27/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 083b5e20b89f22cb8e523926858fe9ffb1441319
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 8bcc2f3077e79ff83ac2e90db0bb0fa53ae83adc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-offer-azure-stack-iaas-services"></a>Esercitazione: offrono servizi IaaS di Azure Stack
 Un amministratore di cloud di Azure Stack, è possibile creare offerte che possono sottoscrivere gli utenti (talvolta detto tenant). Con la sottoscrizione, gli utenti potranno quindi utilizzare i servizi di Azure Stack.
@@ -112,14 +112,24 @@ Offerte possono essere:
 > Le modifiche per l'offerta non sono immediatamente visibili agli utenti. Per visualizzare le modifiche, gli utenti potrebbe essere necessario disconnettersi e ripetere l'accesso per il [portale per gli utenti](https://portal.local.azurestack.external) per visualizzare la nuova offerta.
 
 Per impostare la nuova offerta su public: 
+   - Versione 1803 e versioni successive: 
+     1. Scegliere il menu del dashboard, **offre** e quindi scegliere l'offerta è stato creato.
 
-1. Scegliere il menu del dashboard, **offre** e quindi scegliere l'offerta è stato creato.
+     2. Fare clic su **lo stato di accesso facilitato**, quindi fare clic su **pubblica**.
 
-2. Fare clic su **modifica dello stato**, quindi fare clic su **pubblica**.
+        ![Cambia stato](media/asdk-offer-services/change-state.png)
 
-   ![Stato pubblico](media/asdk-offer-services/set-public.png)
+     3. L'offerta saranno ora disponibile nel portale per gli utenti dello Stack di Azure.
 
-3. L'offerta saranno ora disponibile nel portale per gli utenti dello Stack di Azure.
+
+   - Prima della versione 1803:  
+     1. Scegliere il menu del dashboard, **offre** e quindi scegliere l'offerta è stato creato.
+
+     2. Fare clic su **modifica dello stato**, quindi fare clic su **pubblica**.
+
+        ![Stato pubblico](media/asdk-offer-services/set-public.png)
+
+     3. L'offerta saranno ora disponibile nel portale per gli utenti dello Stack di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

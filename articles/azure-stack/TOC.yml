@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Note sulla versione
       items:
+        - name: aggiornamento 1803
+          href: azure-stack-update-1803.md
         - name: aggiornamento 1802
           href: azure-stack-update-1802.md
         - name: aggiornamento 1712
           href: azure-stack-update-1712.md
         - name: aggiornamento 1711
           href: azure-stack-update-1711.md
-        - name: aggiornamento 1710
-          href: azure-stack-update-1710.md
 - name: Guide introduttive
   expanded: true
   items:
@@ -58,9 +58,9 @@
             - name: Ottenere i certificati di infrastruttura a chiave pubblica di Azure Stack
               href: azure-stack-get-pki-certs.md
             - name: Preparare i certificati di infrastruttura a chiave pubblica di Azure Stack
-              href: prepare-pki-certs.md
+              href: azure-stack-prepare-pki-certs.md
             - name: La convalida dei certificati di infrastruttura a chiave pubblica di Azure Stack
-              href: validate-pki-certs.md
+              href: azure-stack-validate-pki-certs.md
         - name: Integrazione di identità
           href: azure-stack-integrate-identity.md
         - name: Monitoraggio esterno

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: dadb443f8b7739e3a18c0d3beb558d8c42e9d19c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c195cc0bacd9eea7e75fa35cd155845f03dd21cf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Preparare i certificati di infrastruttura a chiave pubblica di Azure dello Stack per la distribuzione
 I file di certificato [ottenuto dalla CA di scelta](azure-stack-get-pki-certs.md) deve importare ed esportare con proprietà corrispondenti requisiti dei certificati di Azure dello Stack.
@@ -79,4 +79,4 @@ Utilizzare questi passaggi per preparare e convalidare i certificati di infrastr
   k.    Ripetere questo processo per tutti i certificati importati per la distribuzione nel precedente passaggio 2.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[La convalida dei certificati di infrastruttura a chiave pubblica](validate-pki-certs.md)
+[La convalida dei certificati di infrastruttura a chiave pubblica](azure-stack-validate-pki-certs.md)

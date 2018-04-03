@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/02/2018
 ms.author: mabrigg
-ms.openlocfilehash: f495ca12e7cdb1bf61f09bd2d4a8a21654745d8a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2c10dcf185c62f3672be80ad2e3d049eae82fe6b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack di manutenzione dei criteri
 Questo articolo descrive i criteri di manutenzione per i sistemi Azure Stack integrato e le operazioni da eseguire per mantenere il sistema in uno stato supportato. 
@@ -41,10 +41,11 @@ Un pacchetto di aggiornamento Microsoft è la seguente convenzione di denominazi
 Ad esempio, un aggiornamento del software Microsoft ha rilasciato il 15 giugno 2017 avrebbe la versione "1.0.170615.1".
 
 ## <a name="keep-your-system-under-support"></a>Mantenere il sistema di supporto
+Per continuare a ricevere supporto, è necessario mantenere la distribuzione di Azure Stack corrente. I criteri di rinvio degli aggiornamenti sono che Azure Stack deve rimanere nel supporto, deve eseguire la versione rilasciata di recente di aggiornamento o eseguire uno dei due versioni di aggiornamento principale precedente.  Gli aggiornamenti rapidi non vengono considerati le versioni di aggiornamento principale.  Se il cloud di Azure Stack si trova dietro dal *più di due aggiornamenti*, è considerata non conforme e si deve aggiornare almeno la versione minima supportata per ricevere assistenza. 
 
-Per ricevere supporto per il sistema, è necessario mantenere lo Stack di Azure aggiornato entro un intervallo di tempo specifico. I criteri di rinvio degli aggiornamenti software Microsoft sono tre mesi. Se il sistema è aggiornati più di tre mesi, è considerata non conforme. È necessario aggiornare il sistema con almeno la versione di ricevere supporto minima supportata. 
+Ad esempio, se la versione dell'aggiornamento più recente disponibile è 1805 e due pacchetti di aggiornamento precedente sono stati versioni 1804 e 1803, 1803 sia 1804 rimangono in modalità di supporto. Tuttavia, 1802 è più supportata. I criteri vale quando non si verifica alcuna versione per un mese o due. Ad esempio, se la versione corrente è 1805 e si è verificato alcun versione 1804, precedente due pacchetti di aggiornamento di 1803 e 1802 rimarrebbero in modalità di supporto.
 
-Pacchetti di aggiornamento software Microsoft sono non è cumulativo e richiedono il pacchetto di aggiornamento precedente come prerequisito. Se si decide di rinviare gli aggiornamenti di uno o più, prendere in considerazione il runtime complessivo se si desidera ottenere la versione più recente.
+I pacchetti di aggiornamento software Microsoft sono non cumulativi e richiedono che il pacchetto di aggiornamento precedente come prerequisito. Se si decide di rinviare gli aggiornamenti di uno o più, prendere in considerazione la fase di esecuzione complessivo se si vuole ottenere la versione più recente. 
 
 La tabella seguente illustra l'esempio aggiornamento pacchetto versioni, i relativi prerequisiti e la versione minima supportata del sistema deve essere in per gestire il supporto. La tabella è basata sulla versione iniziale dei sistemi Azure Stack integrata (build 1708), con il primo aggiornamento pacchetto rilascio (1709) nel mese di settembre 2017. 
 
@@ -53,11 +54,12 @@ La tabella seguente illustra l'esempio aggiornamento pacchetto versioni, i relat
 | 1710 | 1709 | N/D |
 | 1711 | 1710 | 1709 |
 | 1712 | 1711 | 1710 |
-| 1802 | 1801 | 1712 |
-| 1803 | 1802 | 1801 |
+| 1802 | 1712 | 1711 |
+| 1803 | 1802 | 1712 |
 | 1804 | 1803 | 1802 |
 | 1805 | 1804 | 1803 |
 | | | 
+Nella tabella precedente, non vi è nessuna versione di rilascio 1801.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
