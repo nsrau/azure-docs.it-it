@@ -4,9 +4,9 @@ title: Documentazione di Azure Cosmos DB
 metadata:
   document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
   title: 'Documentazione di Azure Cosmos DB: esercitazioni e informazioni di riferimento sulle API'
-  description: "Informazioni su come usare Azure Cosmos DB per compilare database a più modelli distribuiti a livello globale. Le esercitazioni mostrano come compilare ed eseguire query su documenti, coppie chiave/valore e database a grafi."
+  description: Informazioni su come usare Azure Cosmos DB per compilare database a più modelli distribuiti a livello globale. Le esercitazioni mostrano come compilare ed eseguire query su documenti, coppie chiave/valore e database a grafi.
   services: cosmos-db
-  author: mimig
+  author: mimig1
   manager: jhubbard
   ms.service: cosmos-db
   ms.tgt_pltfrm: na
@@ -14,13 +14,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/14/2018
   ms.author: mimig
-  ms.openlocfilehash: 556b60d6489f51e23d09290906b3e0d24b72cbdc
-  ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+  ms.openlocfilehash: 871160c2d4e6619fe2e79d15b5098ed05e8404ec
+  ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/02/2018
+  ms.lasthandoff: 03/29/2018
 abstract:
-  description: "Azure Cosmos DB è un servizio di database multimodello e distribuito a livello globale. Usare queste guide introduttive, le esercitazioni e gli esempi per sviluppare database di documenti, con coppie chiave-valore, con colonna ampia e con elementi grafici usando le API e i modelli di programmazione più diffusi. È possibile ottenere informazioni su come replicare i dati in qualsiasi area di Azure e ridimensionare la velocità effettiva indipendentemente dalle risorse di archiviazione, sfruttando al tempo stesso i vantaggi dei contratti di servizio completi."
+  description: Azure Cosmos DB è un servizio di database multimodello e distribuito a livello globale. Usare queste guide introduttive, le esercitazioni e gli esempi per sviluppare database di documenti, con coppie chiave-valore, con colonna ampia e con elementi grafici usando le API e i modelli di programmazione più diffusi. È possibile ottenere informazioni su come replicare i dati in qualsiasi area di Azure e ridimensionare la velocità effettiva indipendentemente dalle risorse di archiviazione, sfruttando al tempo stesso i vantaggi dei contratti di servizio completi.
   aside:
     image:
       alt: 
@@ -28,7 +28,7 @@ abstract:
       src: media/index/video.png
       width: 250
     title: Creare app per dispositivi mobili su scala mondiale in pochi minuti (16:17)
-    href: https://azure.microsoft.com/en-us/resources/videos/build-2017-azure-cosmos-db-build-planet-scale-mobile-apps-in-minutes/
+    href: https://azure.microsoft.com/resources/videos/build-2017-azure-cosmos-db-build-planet-scale-mobile-apps-in-minutes/
     width: 250
 sections:
 - title: Guide introduttive di 5 minuti
@@ -91,10 +91,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Sviluppare un'app con Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Tabelle</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Graph</a> | <a href="https://aka.ms/cassandratutorial">Cassandra</a>
-    - html: Importare dati in Cosmos DB&#58; <a href="import-data">SQL</a> | <a href="mongodb-migrate">MongoDB</a> | <a href="https://aka.ms/tableapiimporttool">Tabelle</a> | <a href="https://aka.ms/cassandraimport">Cassandra</a>
-    - html: Eseguire query sui dati con Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Tabelle</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Graph</a>
-    - html: Replica del database globale con Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Tabelle</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Graph</a>
+    - html: Sviluppare un'app con Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Tabelle</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Graph</a> | <a href="https://aka.ms/cassandratutorial">Cassandra</a>
+    - html: Importare dati in Azure Cosmos DB&#58; <a href="import-data">SQL</a> | <a href="mongodb-migrate">MongoDB</a> | <a href="https://aka.ms/tableapiimporttool">Tabelle</a> | <a href="https://aka.ms/cassandraimport">Cassandra</a>
+    - html: Eseguire query sui dati con Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Tabelle</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Graph</a>
+    - html: Replica del database globale con Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Tabelle</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Graph</a>
     - html: <a href="local-emulator">Sviluppare l'applicazione in locale usando l'emulatore</a>
     - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Creare un trigger HTTP con un'associazione di input di Azure Cosmos DB</a>
 - title: Esempi
@@ -105,7 +105,7 @@ sections:
     items:
     - html: <a href="/azure/cosmos-db/cli-samples">Interfaccia della riga di comando di Azure</a>
     - html: <a href="/azure/cosmos-db/powershell-samples">Azure PowerShell</a>
-- title: riferimento
+- title: Riferimenti
   items:
   - type: list
     style: cards

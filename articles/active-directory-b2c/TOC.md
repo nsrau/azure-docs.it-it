@@ -24,7 +24,7 @@
 ### [Autenticare gli utenti in ASP.NET](active-directory-b2c-tutorials-web-app.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
-### [Node.JS](active-directory-b2c-devquickstarts-web-node.md)
+### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
 ## App a singola pagina
 ### [Overview](active-directory-b2c-reference-spa.md)
 ### [JavaScript con MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
@@ -33,7 +33,7 @@
 ### [Proteggere un'API ASP.NET](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+### [Node.JS](active-directory-b2c-devquickstarts-api-node.md)
 ### [Chiamare un'API Web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # Guide
@@ -67,6 +67,7 @@
 ## [Criteri personalizzati](active-directory-b2c-overview-custom.md)
 ## Guide
 ### [Introduzione](active-directory-b2c-get-started-custom.md)
+### [Starter pack](active-directory-b2c-reference-custom-policies-understanding-contents.md)
 ### Configurare i provider OIDC/OAUTH
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Account Microsoft](active-directory-b2c-custom-setup-msa-idp.md)
@@ -94,7 +95,7 @@
 ### Risoluzione dei problemi e log eventi
 #### [Creare eventi personalizzati con Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md)
 #### [Raccogliere i log tramite Application Insights](active-directory-b2c-troubleshoot-custom.md)
-## Riferimenti
+## riferimento
 ### [Note sulla versione](active-directory-b2c-developer-notes-custom.md)
 ### [Provider di sessioni SSO](active-directory-b2c-reference-sso-custom.md)
 ### [Personalizzazione della lingua](active-directory-b2c-language-customization-custom.md)
