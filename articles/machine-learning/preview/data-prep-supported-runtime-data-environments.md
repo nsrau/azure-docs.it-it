@@ -8,8 +8,8 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: bdd1c51c915787d9e9522f6691ae0ff06d546484
@@ -25,16 +25,16 @@ Quando il codice carica i dati usando le origini dati o la preparazione dati di 
 |---------|---------|---------|---------|---------|
 |Python in locale    |     Supportato    |Non supportate         | Non supportate        |         |
 |Python di Docker (macchina virtuale Linux)     |Supportato solo nei file di progetto*         | Non supportate        |        Non supportate |         |
-|PySpark di Docker (macchina virtuale Linux)     |Supportato solo nei file di progetto*     |Supportato         | Supportato**        |         |
+|PySpark di Docker (macchina virtuale Linux)     |Supportato solo nei file di progetto*     |Supportato         | Supportato\**        |         |
 |Python della macchina virtuale per data science di Azure     |Supportato solo nei file di progetto*         |Non supportate         |Non supportate         |         |
 |PySPark della macchina virtuale per data science di Azure     | Supportato solo nei file di progetto*        |Non supportate         |Non supportate         |         |
-|PySPark HDInsight di Azure     | Non supportate        |Supportato         |Supportato**         |         |
+|PySPark HDInsight di Azure     | Non supportate        |Supportato         |Supportato\**         |         |
 |Python HDInsight di Azure     | Non supportate        | Non supportate        | Non supportate        |         |
 
 Azure Data Lake Store non è attualmente supportato per le destinazioni di calcolo.
 
 *Quando vengono usati percorsi di file locali, i file all'interno del progetto vengono copiati nell'ambiente di calcolo e quindi vengono letti qui. I file esterni al progetto non vengono copiati e i percorsi non saranno più risolvibili nell'ambiente di calcolo. È consigliabile usare la sostituzione dell'origine dati in modo che il codice possa usare un file locale durante l'esecuzione in locale. Passare a un BLOB di Archiviazione di Microsoft Azure per una configurazione di esecuzione diversa. È anche possibile usare il supporto di campionamento sulle origini dati per gestire le esecuzioni solo per dati di grandi dimensioni in determinate configurazioni di esecuzione.
 
-**Usa il driver SQL Server JDBC di Maven 6.2.1. È necessario assicurarsi che questo pacchetto, o un pacchetto compatibile, sia incluso nel file spark_dependencies.yml per l'ambiente di calcolo.
+\**Usa il driver SQL Server JDBC di Maven 6.2.1. È necessario assicurarsi che questo pacchetto, o un pacchetto compatibile, sia incluso nel file spark_dependencies.yml per l'ambiente di calcolo.
 
 ***Supporta il database SQL di Azure o SQL Server, a condizione che il database possa essere raggiunto dall'ambiente di calcolo. 
