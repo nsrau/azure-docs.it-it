@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 1754d4b121fdaf4f7b8e4c1954dfd4202ba344b1
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d0b287eb61087e90c898aad5273ab5be8c1f98b2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Utilizzare i database SQL nello Stack di Microsoft Azure
 
@@ -71,7 +71,7 @@ Il provider di risorse è costituito da tre componenti:
     | 1710: 1.0.171028.1 | [RP SQL versione 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
   
 
-4. Fornire il certificato richiesto. Per il SDK di Stack di Azure, come parte di questo processo viene creato un certificato autofirmato, è necessario alcun certificato aggiuntivo. Per i sistemi integrati, è necessario fornire un certificato appropriato.
+4. Per il SDK di Stack di Azure, viene creato un certificato autofirmato come parte di questo processo. Per i sistemi integrati, è necessario fornire un certificato appropriato.
 
    Per fornire il proprio certificato, inserire un file con estensione pfx nel **DependencyFilesLocalPath** come indicato di seguito:
 

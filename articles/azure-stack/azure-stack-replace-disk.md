@@ -2,23 +2,23 @@
 title: Sostituire un disco fisico nello Stack di Azure | Documenti Microsoft
 description: Viene descritto il processo per informazioni su come sostituire un disco fisico nello Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: a95617a8dd2a8f296164c672e2b4b2628574ce5a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f168c005c729ae75a5369b80b3dc5eab03ee0243
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Sostituire un disco fisico nello Stack di Azure
 
@@ -40,6 +40,9 @@ Se si apre l'avviso, la descrizione dell'avviso contiene il nodo di unità di sc
  ## <a name="replace-the-disk"></a>Sostituire il disco
 
 Seguire le istruzioni FRU del produttore dell'hardware OEM per la sostituzione del disco effettivo.
+
+> [!note]
+> Sostituire dischi per un nodo di unità di scala alla volta. Attendere che i processi di ripristino disco virtuale da completare prima di passare al successivo nodo di unità di scala
 
 Per evitare l'utilizzo di un disco non supportato in un sistema integrato, il sistema blocca i dischi che non sono supportati dal fornitore del sistema. Se si tenta di utilizzare un disco non supportato, un nuovo avviso indica che un disco è stato messo in quarantena a causa di un modello non supportato o del firmware.
 

@@ -6,7 +6,6 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -15,39 +14,41 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b38e3cc45d14645611c0cd804f2bfa66047810f0
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 1f234c2529213dfa7f42d6ee11b840236488065d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>La convalida dei certificati di infrastruttura a chiave pubblica di Azure Stack
-Lo strumento di controllo di Azure Stack certificato descritto in questo articolo viene fornito dall'OEM incluso con il file deploymentdata.json per convalidare che il [generati certificati PKI](azure-stack-get-pki-certs.md) adatti per la pre-distribuzione. Con un tempo sufficiente per testare e ottenere i certificati emessi nuovamente se necessario, è necessario convalidare i certificati. 
+
+Lo strumento di controllo di Azure Stack certificato descritto in questo articolo viene fornito dall'OEM incluso con il file deploymentdata.json per convalidare che il [generati certificati PKI](azure-stack-get-pki-certs.md) adatti per la pre-distribuzione. Con un tempo sufficiente per testare e ottenere i certificati emessi nuovamente se necessario, è necessario convalidare i certificati.
 
 Lo strumento di controllo di certificato (Certchecker) esegue i controlli seguenti:
 
 - **Leggere PFX**. Verifica la presenza di file PFX valido, la password corretta e genera un avviso se informazioni pubblico non protetto da password. 
-- **Algoritmo di firma**. Controlla che l'algoritmo di firma non è SHA1 
+- **Algoritmo di firma**. Controlla che l'algoritmo di firma non è SHA1.
 - **Chiave privata**. Controlla la chiave privata è presente e viene esportata con l'attributo del computer locale. 
 - **Catena di certificazione**. Controlla la catena di certificati è di per i certificati autofirmati, tra cui pulsante. 
 - **I nomi DNS**. Controlla la SAN contiene i nomi DNS pertinenti per ogni endpoint o un supporto con caratteri jolly non è presente. 
-- **Utilizzo chiave**. Verifica utilizzo chiavi avanzato contiene firma digitale e la crittografia della chiave e l'utilizzo chiavi avanzato include autenticazione Server e Client. 
-- **Dimensione chiave**. Controlla che le dimensioni di chiave è 2048 o superiore 
-- **Concatenare ordine**. Controlla l'ordine dei certificati effettua la catena è corretto. 
-- **Altri certificati**. Verificare che altri certificati non sono state incluse in PFX diverso dal certificato foglia pertinenti e la catena. 
-- **Nessun profilo**. Verifica di che un nuovo utente può caricare i dati PFX senza un profilo utente caricato, simulando il comportamento di account gMSA durante la manutenzione di certificato.   
+- **Utilizzo chiave**. Verifica utilizzo chiavi avanzato contiene firma digitale e la crittografia della chiave e l'utilizzo chiavi avanzato include autenticazione Server e Client.
+- **Dimensione chiave**. Controlla che le dimensioni di chiave è 2048 o superiori.
+- **Concatenare ordine**. Controlla l'ordine dei certificati effettua la catena è corretto.
+- **Altri certificati**. Verificare che altri certificati non sono state incluse in PFX diverso dal certificato foglia pertinenti e la catena.
+- **Nessun profilo**. Verifica di che un nuovo utente può caricare i dati PFX senza un profilo utente caricato, simulando il comportamento di account gMSA durante la manutenzione di certificato.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Il file PFX del certificato PKI e la password devono essere considerate come informazioni riservate.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Il sistema deve soddisfare i prerequisiti seguenti prima di convalidare i certificati PKI per la distribuzione di Azure Stack:
-- CertChecker (in PartnerToolKit in \utils\certchecker)
+- CertChecker (in **PartnerToolKit** sotto **\utils\certchecker**)
 - I certificati SSL esportato seguendo il [istruzioni relative alla preparazione](prepare-pki-certs.md)
 - DeploymentData.json
 - Windows 10 o Windows Server 2016
 
 ## <a name="perform-certificate-validation"></a>Eseguire la convalida dei certificati
+
 Utilizzare questi passaggi per preparare e convalidare i certificati di infrastruttura a chiave pubblica di Azure dello Stack: 
 
 1. Estrarre il contenuto del <partnerToolkit>\utils\certchecker in una nuova directory, ad esempio, **c:\certchecker**.

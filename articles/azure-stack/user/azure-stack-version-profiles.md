@@ -1,118 +1,82 @@
 ---
 title: Gestire i profili di versione API nello Stack di Azure | Documenti Microsoft
-description: Informazioni sui profili versione API nello Stack di Azure
+description: Informazioni sui profili di versione API nello Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 6B749785-DCF5-4AD8-B808-982E7C6BBA0E
+editor: ''
+ms.assetid: 8A336052-8520-41D2-AF6F-0CCE23F727B4
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 03/27/2018
 ms.author: mabrigg
-ms.openlocfilehash: d86a54ea9e165269131eb961df7f74703f0ec6ff
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.reviewer: sijuman
+ms.openlocfilehash: 452ed1de0588b380747edaa44dd0cc3805c51392
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gestire i profili di versione API in Azure Stack
 
-La funzionalità di API di profili di versione del servizio App di Azure fornisce un modo per gestire le differenze di versione tra Azure e Azure Stack. Un profilo di versione API è un set di moduli AzureRM PowerShell con le versioni API specifiche. Ogni piattaforma cloud dispone di un set di profili di versione API supportati. Ad esempio, Stack di Azure supporta una versione di profilo specifico, con data di validità, ad esempio **2017-03-09-profilo**, e Azure supporta il *più recente* profilo versione API. Quando si installa un profilo, vengono installati i moduli AzureRM PowerShell che corrispondono al profilo specificato.
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-## <a name="install-the-powershell-module-required-to-use-api-version-profiles"></a>Installare il modulo di PowerShell, è necessario utilizzare i profili della versione API
+I profili di API specificano il provider di risorse di Azure e la versione dell'API per gli endpoint REST di Azure. È possibile creare client personalizzati in lingue diverse usando i profili di API. Ogni client utilizza un profilo di API per contattare il provider di risorse a destra e la versione API per lo Stack di Azure. 
 
-Il **AzureRM.Bootstrapper** modulo che è disponibile tramite la raccolta di PowerShell fornisce cmdlet di PowerShell necessari per lavorare con i profili di versione API. Utilizzare il cmdlet seguente per installare il **AzureRM.Bootstrapper** modulo:
+È possibile creare un'app per funzionare con i provider di risorse di Azure senza la necessità di ordinare gli esattamente quale versione di ogni API del provider di risorse è compatibile con lo Stack di Azure. Allinea semplicemente l'applicazione a un profilo; il SDK viene ripristinata per le versioni corrette di API.
 
-```PowerShell
-Install-Module -Name AzureRm.BootStrapper
-```
-Il **AzureRM.Bootstrapper** modulo è un'anteprima, i dettagli e funzionalità sono soggette a modifiche. Per scaricare e installare la versione più recente di questo modulo da PowerShell Gallery, eseguire il cmdlet seguente:
 
-```PowerShell
-Update-Module -Name "AzureRm.BootStrapper"
-```
+In questo argomento contribuisce di:
+ - Comprendere i profili di API per lo Stack di Azure.
+ - Come è possibile utilizzare i profili di API per sviluppare le soluzioni.
+ - Posizione in cui cercare informazioni aggiuntive specifiche di codice.
 
-## <a name="install-a-profile"></a>Installare un profilo
+## <a name="summary-of-api-profiles"></a>Riepilogo dei profili di API
 
-Utilizzare il **installazione AzureRmProfile** cmdlet con il **2017-03-09-profilo** profilo versione API per installare i moduli di Azure Resource Manager necessari dallo Stack di Azure. 
+- API profili vengono utilizzati per rappresentare un set di provider di risorse di Azure e le relative versioni API.
+- Sono stati creati profili API consente agli sviluppatori di creare modelli tra più cloud di Azure. Essi sono progettati per soddisfare esigenze specifiche di interfacce compatibile e stabile.
+- I profili vengono rilasciati quattro volte all'anno.
+- Sono tre convenzioni di denominazione di profilo:
+    - **latest**  
+        Versioni API più recenti rilasciate in Azure.
+    - **yyyy-mm-dd-hybrid**  
+    Rilasciato a un ritmo dilazionato, questa versione illustri coerenza e la stabilità attraverso più cloud.
+    - **yyyy-mm-dd-profile**  
+    Si trova tra stabilità ottimali e le funzionalità più recenti.
 
->[!NOTE]
->I moduli di amministratore di cloud di Azure Stack non sono installati con questo profilo versione API. I moduli di amministrazione devono essere installati separatamente, come specificato nel passaggio 3 del [installare PowerShell per Azure Stack](azure-stack-powershell-install.md) articolo.
+## <a name="azure-resource-manager-api-profiles"></a>Profili di API di gestione risorse di Azure
 
-```PowerShell 
-Install-AzureRMProfile -Profile 2017-03-09-profile
-```
-## <a name="install-and-import-modules-in-a-profile"></a>Installare e importare i moduli in un profilo
+Stack di Azure non utilizza la versione più recente delle versioni API disponibile in Azure globale. Creazione di una soluzione personalizzata, è necessario trovare la versione dell'API per ogni provider di risorse in Azure che è compatibile con lo Stack di Azure.
 
-Utilizzare il **utilizzare AzureRmProfile** cmdlet per installare e importare i moduli che sono associati a un profilo di versione API. È possibile importare solo un profilo di versione API in una sessione di PowerShell. Per importare un profilo di versione API diverso, è necessario aprire una nuova sessione di PowerShell. Il **utilizzare AzureRMProfile** cmdlet esegue le seguenti attività:  
-1. Controlla se i moduli di PowerShell associati al profilo di versione API specificato vengono installati nell'ambito corrente.  
-2. Scarica e installa i moduli se non sono già installati.   
-3. Importa i moduli nella sessione corrente di PowerShell. 
+Invece di ricerche ogni provider di risorse e la versione specifica supportata dallo Stack di Azure, è possibile utilizzare un profilo di API. Il profilo specifica un set di provider di risorse e le versioni dell'API. il SDK o uno strumento compilata con il SDK, verrà ripristinata la versione dell'api destinazione specificata nel profilo. Con i profili di API, è possibile specificare una versione del profilo che si applica a un modello intero e, in fase di esecuzione, Gestione risorse di Azure consente di selezionare la versione corretta della risorsa.
 
-```PowerShell
-# Installs and imports the specified API version profile into the current PowerShell session.
-Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser
+I profili di API funzionano con gli strumenti che usa Azure Resource Manager, ad esempio di codice fornito nel SDK di Microsoft Visual Studio, Azure CLI, PowerShell. SDK e gli strumenti possono usare i profili per leggere la versione dei moduli e delle librerie da includere quando si compila un'applicazione.
 
-# Installs and imports the specified API version profile into the current PowerShell session without any prompts.
-Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser -Force
-```
+Se, ad esempio, utilizzare PowerShell per creare uno spazio di archiviazione account tramite il **appartenga** provider di risorse, che supporta l'api-version 2016-03-30 e una macchina virtuale tramite il provider di risorse Microsoft. COMPUTE con api-version 2015-12-01 , è necessario cercare che supporta il modulo PowerShell 2016-03-30 per l'archiviazione e il modulo che supporta 2015-02-01 per il calcolo e installarli. Al contrario, è possibile utilizzare un profilo. Usare il cmdlet * * Installa profilo * profilename * * *, PowerShell e carica la versione corretta dei moduli.
 
-Per installare e importare i moduli di Azure Resource Manager selezionati da un profilo di versione API, eseguire il **utilizzare AzureRMProfile** cmdlet con il *modulo* parametro:
+Analogamente, quando si utilizza il SDK di Python per compilare un'applicazione basata su Python, è possibile specificare il profilo. il SDK di carica i moduli a destra per i provider di risorse che è stato specificato nello script.
 
-```PowerShell
-# Installs and imports the Compute, Storage, and Network modules from the specified API version profile into your current PowerShell session.
-Use-AzureRmProfile -Profile 2017-03-09-profile -Module AzureRM.Compute, AzureRM.Storage, AzureRM.Network
-```
+Gli sviluppatori, è possibile concentrarsi sulla scrittura di soluzione. Anziché la ricerca di quali versioni api, il provider di risorse, quali cloud assicura una collaborazione appropriata e si utilizza un profilo e si sa che il codice funzionerà su tutti i cloud che supportano tale profilo.
 
-## <a name="get-the-installed-profiles"></a>Ottenere l'elenco dei profili installati
+## <a name="api-profile-code-samples"></a>Esempi di codice API di profilo
 
-Utilizzare il **Get AzureRmProfile** per ottenere l'elenco dei profili di versione API disponibili: 
+È possibile trovare esempi di codice che consentono di integrare la soluzione con la lingua preferita con lo Stack di Azure usando i profili. Attualmente, è possibile trovare istruzioni ed esempi per le lingue seguenti:
 
-```PowerShell
-# Lists all API version profiles provided by the AzureRM.BootStrapper module.
-Get-AzureRmProfile -ListAvailable 
-
-# Lists the API version profiles that are installed on your machine.
-Get-AzureRmProfile
-```
-## <a name="update-profiles"></a>Aggiornare i profili
-
-Utilizzare il **aggiornamento AzureRmProfile** cmdlet per aggiornare i moduli in un profilo di versione API per la versione più recente dei moduli che sono disponibili in PowerShell Gallery. È consigliabile eseguire il **aggiornamento AzureRmProfile** cmdlet in una nuova sessione di PowerShell per evitare conflitti, quando si importano moduli. Il **aggiornamento AzureRmProfile** cmdlet esegue le seguenti attività:
-
-1. Controlla se le versioni più recenti dei moduli installate nel profilo versione API specificato per l'ambito corrente.  
-2. Viene richiesto di installare i moduli se non sono già installati.  
-3. Installa e Importa i moduli aggiornati nella sessione di PowerShell corrente.  
-
-```PowerShell
-Update-AzureRmProfile -Profile 2017-03-09-profile
-```
-
-Per rimuovere le versioni dei moduli installate in precedenza prima di aggiornare alla versione più recente disponibile, utilizzare il **aggiornamento AzureRmProfile** cmdlet con il *- RemovePreviousVersions* parametro:
-
-```PowerShell 
-Update-AzureRmProfile -Profile 2017-03-09-profile -RemovePreviousVersions
-```
-
-Questo cmdlet esegue le seguenti attività:  
-
-1. Controlla se le versioni più recenti dei moduli installate nel profilo versione API specificato per l'ambito corrente.  
-2. Rimuove le versioni precedenti dei moduli dal profilo versione API corrente e nella sessione di PowerShell corrente.  
-3. Viene richiesto di installare la versione più recente dei moduli.  
-4. Installa e Importa i moduli aggiornati nella sessione di PowerShell corrente.  
- 
-## <a name="uninstall-profiles"></a>Disinstallare i profili
-
-Utilizzare il **Disinstalla AzureRmProfile** cmdlet per disinstallare il profilo di versione API specificato:
-
-```PowerShell 
-Uninstall-AzureRmProfile -Profile 2017-03-09-profile
-```
+- **PowerShell**  
+È possibile usare il **AzureRM.Bootstrapper** modulo disponibile tramite la raccolta di PowerShell per ottenere i cmdlet di PowerShell necessari per lavorare con i profili di versione API.  
+Per informazioni, vedere [profili della versione di utilizzare l'API per PowerShell](azure-stack-version-profiles-powershell.md).
+- **Interfaccia della riga di comando di Azure 2.0**  
+È possibile aggiornare la configurazione dell'ambiente per utilizzare il profilo di versione API specifico dello Stack di Azure.  
+Per informazioni, vedere [profili di utilizzare l'API della versione per Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
+- **GO**  
+Nel SDK di GO, un profilo è una combinazione di diversi tipi di risorse con versioni diverse da servizi diversi. i profili sono disponibili con i profili / percorso con la versione nel **AAAA-MM-GG** formato.  
+Per informazioni, vedere [profili della versione di utilizzare l'API di GO](azure-stack-version-profiles-go.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Installare PowerShell per Azure Stack](azure-stack-powershell-install.md)
-* [Configurare l'ambiente di PowerShell dell'utente Azure Stack](azure-stack-powershell-configure-user.md)  
+* [Configurare l'ambiente di PowerShell dell'utente Azure Stack](azure-stack-powershell-configure-user.md)
+* [Esaminare i dettagli sul versioni API del provider di risorse supportate per i profili](azure-stack-profiles-azure-resource-manager-versions.md).

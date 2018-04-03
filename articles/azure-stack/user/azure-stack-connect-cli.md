@@ -2,10 +2,10 @@
 title: Connettersi a Azure Stack con CLI | Documenti Microsoft
 description: Informazioni su come utilizzare l'interfaccia della riga di comando multipiattaforma (CLI) per gestire e distribuire le risorse sullo Stack di Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/26/2018
 ms.author: mabrigg
 ms.openlocfilehash: ad258cf6c73b2c1ea5f208ebef9906a0e3d35ea4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/02/2018
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Installare e configurare CLI per l'utilizzo con Azure Stack
 
@@ -89,7 +89,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
 
 ## <a name="get-the-virtual-machine-aliases-endpoint"></a>Ottenere l'endpoint di alias di macchina virtuale
 
-Prima che gli utenti possono creare macchine virtuali tramite l'interfaccia CLI, è necessario contattare l'operatore di Stack di Azure e ottenere l'URI dell'endpoint alias macchina virtuale. Ad esempio, Azure Usa il seguente URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. L'amministratore del cloud deve configurare un endpoint simile per lo Stack di Azure con le immagini che sono disponibili sul mercato di Stack di Azure. Gli utenti devono passare l'URI dell'endpoint per il `endpoint-vm-image-alias-doc` parametro per il `az cloud register` come indicato nella sezione successiva. 
+Prima che gli utenti possono creare macchine virtuali tramite l'interfaccia CLI, è necessario contattare l'operatore di Stack di Azure e ottenere l'URI dell'endpoint alias macchina virtuale. Ad esempio, Azure Usa l'URI seguente: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. L'amministratore del cloud deve configurare un endpoint simile per lo Stack di Azure con le immagini che sono disponibili sul mercato di Stack di Azure. Gli utenti devono passare l'URI dell'endpoint per il `endpoint-vm-image-alias-doc` parametro per il `az cloud register` come indicato nella sezione successiva. 
    
 
 ## <a name="connect-to-azure-stack"></a>Connettersi ad Azure Stack
