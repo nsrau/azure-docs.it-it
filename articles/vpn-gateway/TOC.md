@@ -6,6 +6,11 @@
 ## [Sottoscrizione e limiti del servizio](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Attività iniziali
+## [Creare un gateway VPN basato su route - Portale di Azure](create-routebased-vpn-gateway-portal.md)
+## [Creare un gateway VPN basato su route - PowerShell](create-routebased-vpn-gateway-powershell.md)
+## [Creare un gateway VPN basato su route - Interfaccia della riga di comando](create-routebased-vpn-gateway-cli.md)
+
+# Concetti
 ## [Pianificazione e progettazione per il gateway VPN](vpn-gateway-plan-design.md)
 ## [Informazioni sulle impostazioni del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md)
 ## [Informazioni sui dispositivi VPN](vpn-gateway-about-vpn-devices.md)
@@ -90,7 +95,7 @@
 #### [Disconnessione intermittente della connessione da sito a sito](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Configurare e convalidare le connessioni VPN o alla rete virtuale](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
-# Riferimenti
+# riferimento
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
 ## [Azure PowerShell (classico)](/powershell/module/azure/?view=azuresmps-3.7.0#networking)
 ## [REST](/rest/api/network/virtualnetworkgateways)

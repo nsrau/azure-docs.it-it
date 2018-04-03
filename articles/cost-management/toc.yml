@@ -39,6 +39,8 @@
       href: connect-google-account.md
     - name: Collegare un account AWS
       href: connect-aws-account.md
+    - name: Configurare gli account di archiviazione
+      href: storage-accounts.md
     - name: Usare i report di Gestione costi
       href: use-reports.md
 - name: Risorse
