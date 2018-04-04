@@ -1,6 +1,6 @@
 ---
-title: "Creare un gateway applicazione con un set di scalabilità di macchine virtuali - Azure PowerShell | Microsoft Docs"
-description: "Informazioni su come creare un gateway applicazione con un set di scalabilità di macchine virtuali tramite Azure PowerShell."
+title: Creare un gateway applicazione con un set di scalabilità di macchine virtuali - Azure PowerShell | Microsoft Docs
+description: Informazioni su come creare un gateway applicazione con un set di scalabilità di macchine virtuali tramite Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt

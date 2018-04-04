@@ -1,11 +1,11 @@
 ---
 title: Ottenere assistenza durante l'accesso e l'uso del portale delle app personali in Azure Active Directory | Microsoft Docs
-description: "Ottenere assistenza durante l'accesso e l'esecuzione di attività comuni nel riquadro di accesso."
+description: Ottenere assistenza durante l'accesso e l'esecuzione di attività comuni nel riquadro di accesso.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
 ms.workload: identity

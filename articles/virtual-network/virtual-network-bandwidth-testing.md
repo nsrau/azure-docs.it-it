@@ -1,12 +1,12 @@
 ---
-title: "Test della velocità effettiva di rete della macchina virtuale di Azure | Microsoft Docs"
-description: "Informazioni su come testare la velocità effettiva di rete della macchina virtuale di Azure."
+title: Test della velocità effettiva di rete della macchina virtuale di Azure | Microsoft Docs
+description: Informazioni su come testare la velocità effettiva di rete della macchina virtuale di Azure.
 services: virtual-network
 documentationcenter: na
 author: steveesp
 manager: Gerald DeGrace
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

@@ -57,7 +57,7 @@ L'esempio seguente illustra la creazione di un set di record con il nome relativ
 New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
-Per creare un set di record nel vertice di una zona, in questo caso "contoso.com", usare il nome del set di record '@', escluse le virgolette:
+Per creare un set di record nel vertice di una zona, in questo caso "contoso.com", usare il nome del set di record \'\@\', escluse le virgolette:
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "@" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
@@ -118,7 +118,7 @@ New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -ZoneName "contoso.
 
 ### <a name="create-an-mx-record-set-with-a-single-record"></a>Creare un set di record MX con un singolo record
 
-In questo esempio viene usato il nome del set di record '@' per creare un record MX al vertice della zona, in questo caso "contoso.com".
+In questo esempio viene usato il nome del set di record \'\@\' per creare un record MX al vertice della zona, in questo caso "contoso.com".
 
 
 ```powershell
@@ -141,7 +141,7 @@ New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -R
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>Creare un set di record SRV con un singolo record
 
-Quando si crea un [set di record SRV](dns-zones-records.md#srv-records), specificare il *\_servizio* e il *\_protocollo* nel nome del set di record. Non è necessario includere '@' nel nome del set di record durante la creazione di un set di record SRV nel dominio radice della zona.
+Quando si crea un [set di record SRV](dns-zones-records.md#srv-records), specificare il *\_servizio* e il *\_protocollo* nel nome del set di record. Non è necessario includere \'\@\' nel nome del set di record durante la creazione di un set di record SRV nel dominio radice della zona.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 

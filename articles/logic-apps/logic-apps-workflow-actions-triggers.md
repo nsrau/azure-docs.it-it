@@ -1121,7 +1121,7 @@ Ecco alcuni esempi che mostrano come è possibile usare espressioni nelle condiz
 | `"expression": "@greater(actions('action1').output.value, parameters('threshold'))"` | Supporta le funzioni di confronto. Per questo esempio, l'azione viene eseguita solo quando l'output di action1 è maggiore del valore soglia. | 
 | `"expression": "@or(greater(actions('action1').output.value, parameters('threshold')), less(actions('action1').output.value, 100))"` | Supporta le funzioni logiche per la creazione di espressioni booleane annidate. In questo esempio l'azione viene eseguita quando l'output di action1 è maggiore della soglia o minore di 100. | 
 | `"expression": "@equals(length(actions('action1').outputs.errors), 0))"` | Per controllare se una matrice contiene elementi, è possibile usare funzioni di matrice. In questo esempio l'azione viene eseguita quando la matrice di errori è vuota. | 
-| `"expression": "parameters('hasSpecialAction')"` | Questa espressione provoca un errore e non è una condizione valida. Le condizioni devono usare il simbolo "@". | 
+| `"expression": "parameters('hasSpecialAction')"` | Questa espressione provoca un errore e non è una condizione valida. Le condizioni devono usare il simbolo \"\@\". | 
 ||| 
 
 ## <a name="switch-action"></a>Azione switch

@@ -3,7 +3,7 @@ title: Configurare la verifica in due passaggi per l'account aziendale o dell'is
 description: "Quando l'azienda configura Azure Multi-Factor Authentication, verrà chiesto di effettuare l'iscrizione per la verifica in due passaggi. Informazioni su come eseguire la configurazione. "
 services: multi-factor-authentication
 keywords: come usare directory di azure, active directory nel cloud, esercitazione di active directory
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi

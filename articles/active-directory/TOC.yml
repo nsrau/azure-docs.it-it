@@ -5,12 +5,18 @@
 - name: Controllo degli accessi in base al ruolo
   href: role-based-access-control-what-is.md
   items:
-    - name: Gestire le assegnazioni di accesso
+    - name: Gestire le assegnazioni di ruoli
       items:
         - name: Per utente
           href: role-based-access-control-manage-assignments.md
         - name: Per risorsa
           href: role-based-access-control-configure.md
+        - name: Con l'interfaccia della riga di comando di Azure
+          href: role-based-access-control-manage-access-azure-cli.md
+        - name: Con PowerShell
+          href: role-based-access-control-manage-access-powershell.md
+        - name: Con REST
+          href: role-based-access-control-manage-access-rest.md
     - name: Ruoli predefiniti
       href: role-based-access-built-in-roles.md
     - name: Ruoli personalizzati
@@ -19,14 +25,6 @@
       href: role-based-access-control-create-custom-roles-for-internal-external-users.md
     - name: Creazione di report
       href: role-based-access-control-access-change-history-report.md
-    - name: Altri modi per gestire i ruoli
-      items:
-        - name: Con l'interfaccia della riga di comando di Azure
-          href: role-based-access-control-manage-access-azure-cli.md
-        - name: Con PowerShell
-          href: role-based-access-control-manage-access-powershell.md
-        - name: Con REST
-          href: role-based-access-control-manage-access-rest.md
     - name: Elevare l'accesso al tenant con privilegi di amministratore
       href: role-based-access-control-tenant-admin-access.md
     - name: Risolvere problemi

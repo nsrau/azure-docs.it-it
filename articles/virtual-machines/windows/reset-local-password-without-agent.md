@@ -1,11 +1,11 @@
 ---
 title: Reimpostare una password di Windows locale senza l'agente di Azure | Documentazione Microsoft
-description: "Come reimpostare la password di un account utente di Windows locale quando l'agente guest di Azure non è installato o funzionante in una VM"
+description: Come reimpostare la password di un account utente di Windows locale quando l'agente guest di Azure non è installato o funzionante in una VM
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cf353dd3-89c9-47f6-a449-f874f0957013
 ms.service: virtual-machines-windows
 ms.devlang: na

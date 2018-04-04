@@ -5,7 +5,7 @@ services: dns
 documentationcenter: na
 author: georgewallace
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 18ed44a1-7bfe-454f-964e-922ad978264a
 ms.service: dns
@@ -106,7 +106,7 @@ I record NS e SOA creati automaticamente vengono gestiti in modo diverso rispett
 
 ### <a name="modify-soa-records"></a>Modificare i record SOA
 
-Non è possibile aggiungere o rimuovere record dal set di record SOA creato automaticamente al vertice della zona (name = "@"). È tuttavia possibile modificare i parametri all'interno del record SOA, ad eccezione di "Host", e la durata (TTL) del set di record.
+Non è possibile aggiungere o rimuovere record dal set di record SOA creato automaticamente al vertice della zona (name = \"\@\"). È tuttavia possibile modificare i parametri all'interno del record SOA, ad eccezione di "Host", e la durata (TTL) del set di record.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modificare i record NS al vertice della zona
 
@@ -118,7 +118,7 @@ Notare che questo si applica solo al set di record NS al vertice della zona. Gli
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Eliminare set di record SOA o NS
 
-Non è possibile eliminare i set di record SOA e NS al vertice della zona (name = "@") che vengono creati automaticamente quando viene creata la zona. Vengono eliminate automaticamente quando si elimina la zona.
+Non è possibile eliminare i set di record SOA e NS al vertice della zona (name = \"\@\") che vengono creati automaticamente quando viene creata la zona. Vengono eliminate automaticamente quando si elimina la zona.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

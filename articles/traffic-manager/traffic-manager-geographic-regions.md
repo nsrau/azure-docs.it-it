@@ -2,11 +2,11 @@
 title: Gerarchia di paesi/aree geografiche usata nel tipo di routing Geografico di Gestione traffico di Azure| Microsoft Docs
 description: In questo articolo viene riportata la gerarchia di paesi/aree geografiche usata nel tipo di routing Geografico di Gestione traffico di Azure
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
