@@ -35,9 +35,11 @@
       href: container-instances-multi-container-group.md
     - name: Eseguire la distribuzione dal Registro contenitori di Azure
       href: container-instances-using-azure-container-registry.md
+    - name: Eseguire un comando (exec)
+      href: container-instances-exec.md
     - name: Eseguire attività in contenitori
       href: container-instances-restart-policy.md
-    - name: Impostare le variabili di ambiente
+    - name: Impostare le variabili di ambiente (env)
       href: container-instances-environment-variables.md
     - name: Risolvere i problemi delle distribuzioni
       href: container-instances-troubleshooting.md

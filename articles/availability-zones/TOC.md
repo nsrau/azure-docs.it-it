@@ -25,9 +25,15 @@
 ### Bilanciamento del carico
 #### [Che cos'è il servizio di bilanciamento del carico?](../load-balancer/load-balancer-standard-overview.md)
 #### [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md)
-#### [Creare uno standard del bilanciamento del carico pubblico con ridondanza della zona con il portale di Azure](../load-balancer/load-balancer-get-started-internet-az-portal.md)
-#### [Creare uno standard del bilanciamento del carico con ridondanza della zona con PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
-#### [Creare uno standard del bilanciamento del carico pubblico con ridondanza della zona con l'interfaccia della riga di comando](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+
+#### [Creare un'istanza di Load Balancer Standard pubblica con ridondanza della zona](../load-balancer/load-balancer-get-started-internet-az-portal.md)
+##### [Creare un'istanza di Load Balancer Standard pubblica con ridondanza della zona (PowerShell)](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
+##### [Creare un'istanza di Load Balancer Standard pubblica con ridondanza della zona (interfaccia della riga di comando)](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+#### [Creare un'istanza di Load Balancer Standard pubblica a livello di zona](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+##### [Creare un'istanza di Load Balancer Standard pubblica a livello di zona (PowerShell)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+##### [Creare un'istanza di Load Balancer Standard pubblica a livello di zona (interfaccia della riga di comando)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+#### [Bilanciare il carico delle macchine virtuali tra zone di disponibilità](../load-balancer/load-balancer-standard-public-availability-zones-portal.md)
+##### [Bilanciare il carico delle macchine virtuali tra zone di disponibilità con Azure (interfaccia della riga di comando)](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 
 ### [Indirizzo IP pubblico](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
@@ -35,7 +41,7 @@
 #### [Zone di disponibilità con il database SQL](../sql-database/sql-database-high-availability.md#availability-zones)
 
 ### Archiviazione
-#### [Archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage)
+#### [Archiviazione con ridondanza della zona](../storage/common/storage-redundancy-zrs.md)
 
 # Ripristino di emergenza
 ## [Usare Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)

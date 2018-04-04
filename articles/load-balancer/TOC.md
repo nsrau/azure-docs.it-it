@@ -20,13 +20,19 @@
 
 # Procedure
 
+## [Creare un'istanza di Load Balancer Standard pubblica con ridondanza della zona](load-balancer-get-started-internet-az-portal.md)
+### [Creare un'istanza di Load Balancer Standard pubblica con ridondanza della zona (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Creare un'istanza di Load Balancer Standard pubblica con ridondanza della zona (interfaccia della riga di comando)](load-balancer-get-started-internet-az-cli.md)
+## [Creare un'istanza di Load Balancer Standard pubblica a livello di zona](load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+### [Creare un'istanza di Load Balancer Standard pubblica a livello di zona (PowerShell)](load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+### [Creare un'istanza di Load Balancer Standard pubblica a livello di zona (interfaccia della riga di comando)](load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+## [Bilanciare il carico delle macchine virtuali tra zone di disponibilità](load-balancer-standard-public-availability-zones-portal.md)
+###  [Bilanciare il carico delle macchine virtuali tra zone di disponibilità (interfaccia della riga di comando)](load-balancer-standard-public-zone-redundant-cli.md)
+##  [Bilanciare il carico delle macchine virtuali entro una zona (interfaccia della riga di comando)](load-balancer-standard-public-zonal-cli.md)   
+## [Creare un'istanza di Load Balancer Basic (modello)](load-balancer-get-started-internet-arm-template.md)
 ## [Creare il servizio di bilanciamento del carico pubblico con IPv6](load-balancer-ipv6-internet-ps.md)
 ### [Creare il servizio di bilanciamento del carico pubblico con IPv6 (interfaccia della riga di comando)](load-balancer-ipv6-internet-cli.md)
 ### [Creare il servizio di bilanciamento del carico pubblico con IPv6 (modello)](load-balancer-ipv6-internet-template.md)
-## [Creare uno standard di servizio di bilanciamento del carico pubblico con ridondanza della zona](load-balancer-get-started-internet-az-portal.md)
-### [Creare uno standard di servizio di bilanciamento del carico pubblico con ridondanza della zona (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
-### [Creare uno standard di servizio di bilanciamento del carico pubblico con ridondanza della zona (interfaccia della riga di comando)](load-balancer-get-started-internet-az-cli.md)
-## [Creare un'istanza di Load Balancer Basic (modello)](load-balancer-get-started-internet-arm-template.md)
 ## [Configurare il servizio di bilanciamento del carico interno](load-balancer-get-started-ilb-arm-portal.md)
 ### [Configurare il servizio di bilanciamento del carico interno (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
 ### [Configurare il servizio di bilanciamento del carico interno (interfaccia della riga di comando)](load-balancer-get-started-ilb-arm-cli.md)

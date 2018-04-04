@@ -1,3 +1,4 @@
+
 # [Documentazione sulla fatturazione di Azure](index.md)
 
 # Attività iniziali
@@ -41,6 +42,7 @@
 ### [Modificare il profilo](billing-how-to-change-azure-account-profile.md)
 ### [Aggiornare le informazioni di pagamento](billing-how-to-change-credit-card.md)
 ### [Pagare le sottoscrizioni con fattura](billing-how-to-pay-by-invoice.md)
+### [Collegare l'ID partner](billing-partner-admin-link-started.md)
 ## [Gestire le istanze di macchina virtuale riservate](billing-manage-reserved-vm-instance.md)
 ## Risolvere problemi
 ### [Problemi di iscrizione](https://support.microsoft.com/en-us/help/4042959)
