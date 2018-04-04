@@ -2,10 +2,10 @@
 title: Timestamp e sequenze di messaggi del bus di servizio di Azure | Microsoft Docs
 description: Mantenere l'ordine e la sequenza dei messaggi del bus di servizio con i timestamp
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na

@@ -1,11 +1,11 @@
 ---
 title: Risolvere i problemi relativi alle connessioni con Azure Network Watcher - Interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
-description: "Informazioni su come usare la funzionalità di risoluzione dei problemi di connessione di Azure Network Watcher con l'interfaccia della riga di comando di Azure 2.0."
+description: Informazioni su come usare la funzionalità di risoluzione dei problemi di connessione di Azure Network Watcher con l'interfaccia della riga di comando di Azure 2.0.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article

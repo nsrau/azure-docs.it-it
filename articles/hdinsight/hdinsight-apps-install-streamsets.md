@@ -2,12 +2,12 @@
 title: Installare un'applicazione pubblicata - StreamSets Data Collector - HDInsight di Azure | Microsoft Docs
 description: Installare e usare l'applicazione Hadoop di terze parti StreamSets Data Collector.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na

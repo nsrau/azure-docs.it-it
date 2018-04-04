@@ -1,8 +1,8 @@
 ---
 title: App Microsoft Authenticator per telefoni cellulari | Documentazione Microsoft
-description: "Informazioni su come effettuare l'aggiornamento alla versione più recente di Azure Authenticator."
+description: Informazioni su come effettuare l'aggiornamento alla versione più recente di Azure Authenticator.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba

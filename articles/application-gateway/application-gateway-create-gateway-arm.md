@@ -4,7 +4,7 @@ description: Informazioni su come creare un gateway applicazione usando Azure Po
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.devlang: azurepowershell

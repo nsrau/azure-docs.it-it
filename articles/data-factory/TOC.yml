@@ -118,6 +118,8 @@
   items:
     - name: Creare data factory con strumenti visivi
       href: author-visually.md
+    - name: Integrazione e distribuzione continue
+      href: continuous-integration-deployment.md
     - name: Copiare i dati
       items:
         - name: Copiare dati con l'attività di copia
