@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: cdce5ad971e345971aa5de9a9bb79379fb1ead48
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b91cfdfe89f1f15354595400ed9547496fdcd796
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elementi del Marketplace Azure disponibili per lo Stack di Azure
 
@@ -220,4 +220,5 @@ Stack di Microsoft Azure supporta le seguenti macchine virtuali di Azure Marketp
 | ![Firewall applicazione PT](media/azure-stack-marketplace-azure-items/pt.png) | [Firewall applicazione PT](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | Firewall applicazione PT rileva vulnerabilità note & sconosciuta e impedisce gli attacchi sulle App web. <b>Scaricare entrambi gli elementi Marketplace PT.</b> | Tecnologie positivo |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise consente di automatizzare l'intero ciclo di vita dell'infrastruttura di Azure Stack. <b>Scaricare entrambi gli elementi Puppet Marketplace.</b> | Puppet |
 | ![Proxy gestione 3.0 SUSE (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [Proxy gestione 3.0 SUSE (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Gestione dell'infrastruttura di open source Best-in-class. | SUSE |
+| ![Backup Veeam e replica](media/azure-stack-marketplace-azure-items/veeam.png) | [Backup Veeam e replica ](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication) | Backup Veeam & replica 9,5. | Veeam |
 | ![Strumento Software ZeroDown](media/azure-stack-marketplace-azure-items/zerodown.png) | [Strumento Software ZeroDown ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | V 7.1 strumento Software ZeroDown - eseguire la migrazione + a disponibilità elevata. | Software ZeroDown |

@@ -1,11 +1,11 @@
 ---
-title: "Uso di Azure Media Packager per eseguire attività di creazione statica dei pacchetti | Microsoft Docs"
-description: "Questo argomento descrive varie attività eseguite con Azure Media Packager."
+title: Uso di Azure Media Packager per eseguire attività di creazione statica dei pacchetti | Microsoft Docs
+description: Questo argomento descrive varie attività eseguite con Azure Media Packager.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 0582628e-a525-4a78-90ac-9f7fc1cd909f
 ms.service: media-services
 ms.workload: media
