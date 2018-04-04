@@ -238,6 +238,9 @@
       items:
         - name: Gestire i prezzi e il volume dati
           href: app-insights-pricing.md
+          items:
+            - name: Dettagli del piano Enterprise
+              href: app-insights-pricing-enterprise-details.md
         - name: Application Performance Monitoring con Application Insights per SCOM
           href: app-insights-scom.md
     - name: Esportazione
@@ -279,7 +282,7 @@
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Linguaggio di query di Analytics
       href: 'https://docs.loganalytics.io/'

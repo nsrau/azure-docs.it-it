@@ -6,11 +6,11 @@ description: Informazioni su come compilare e gestire applicazioni avanzate usan
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: f344bf3062add621dc7d0a4cb6f7ed37e6d28d57
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c2e4559092a9269e4e640b7ed29cf3b84b9f945a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -2752,6 +2752,37 @@ Terraform </a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />Ricerca immagini Bing</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Lab</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-gesture"><img src="media/index/labs-hand-gesture.svg" alt="" />Movimento</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-event-tracking"><img src="media/index/labs-event-tracker.svg" alt="" />Registrazione degli eventi</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge"><img src="media/index/API_Know_Academic.svg" alt="" />Academic Knowledge</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-local-insights"><img src="media/index/labs-local-insight.svg" alt="" />Informazioni dettagliate locali</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration"><img src="media/index/API_KnowledgeExploration.svg" alt="" /><span>Knowledge Exploration Service</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-entity-linking"><img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" /><span>Collegamento delle entità</a>
                                                             </li>
                                                         </ul>
                                                     </div>

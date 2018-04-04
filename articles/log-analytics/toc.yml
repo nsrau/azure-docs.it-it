@@ -61,6 +61,10 @@
           items:
             - name: Agenti di Windows
               href: log-analytics-agent-windows.md
+            - name: Estensione macchina virtuale per Windows
+              href: ../virtual-machines/windows/extensions-oms.md
+            - name: Estensione macchina virtuale per Linux
+              href: ../virtual-machines/linux/extensions-oms.md
             - name: Risorse di Azure
               href: log-analytics-azure-storage.md
             - name: Risorse PaaS di Azure
@@ -265,7 +269,7 @@
           href: log-analytics-template-workspace-configuration.md
         - name: API degli avvisi
           href: log-analytics-api-alerts.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Informazioni di riferimento sul linguaggio
       href: 'https://docs.loganalytics.io/docs/Language-Reference'

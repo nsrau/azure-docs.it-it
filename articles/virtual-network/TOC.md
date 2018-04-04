@@ -29,11 +29,11 @@
 ## Distribuire
 
 ### Gruppi di sicurezza di rete
-#### [Portale di Azure](virtual-networks-create-nsg-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [Interfaccia della riga di comando di Azure](virtual-networks-create-nsg-arm-cli.md)
-#### [Modello](virtual-networks-create-nsg-arm-template.md)
-#### [Gruppi di sicurezza delle applicazioni](create-network-security-group-preview.md)
+#### [Azure PowerShell](tutorial-filter-network-traffic.md)
+#### [Interfaccia della riga di comando di Azure](tutorial-filter-network-traffic-cli.md)
+#### Senza gruppi di sicurezza delle applicazioni
+##### [Portale di Azure](virtual-networks-create-nsg-arm-pportal.md)
+##### [Modello](virtual-networks-create-nsg-arm-template.md)
 #### Classico
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Interfaccia della riga di comando di Azure 1.0](virtual-networks-create-nsg-classic-cli.md)

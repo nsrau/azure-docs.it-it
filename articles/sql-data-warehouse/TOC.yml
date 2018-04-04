@@ -141,13 +141,15 @@
       href: sql-data-warehouse-troubleshoot.md
 - name: Guide alle procedure
   items:
-    - name: Funzionalità del servizio
+    - name: Aggiornamento
+      href: upgrade-to-latest-generation.md
+    - name: Restore
       items:
-        - name: Ripristinare un data warehouse - Portale
+        - name: Portale
           href: sql-data-warehouse-restore-database-portal.md
-        - name: Ripristinare un data warehouse - PowerShell
+        - name: PowerShell
           href: sql-data-warehouse-restore-database-powershell.md
-        - name: Ripristinare un data warehouse - API REST
+        - name: API REST
           href: sql-data-warehouse-restore-database-rest-api.md
     - name: Sicurezza
       items:
@@ -195,7 +197,7 @@
       items:
         - name: Automatizzare i livelli di calcolo
           href: manage-compute-with-azure-functions.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: T-SQL
       items:

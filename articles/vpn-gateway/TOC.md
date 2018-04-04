@@ -6,9 +6,10 @@
 ## [Sottoscrizione e limiti del servizio](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Attività iniziali
-## [Creare un gateway VPN basato su route - Portale di Azure](create-routebased-vpn-gateway-portal.md)
-## [Creare un gateway VPN basato su route - PowerShell](create-routebased-vpn-gateway-powershell.md)
-## [Creare un gateway VPN basato su route - Interfaccia della riga di comando](create-routebased-vpn-gateway-cli.md)
+## Creare un gateway VPN basato su route
+### [Portale di Azure](create-routebased-vpn-gateway-portal.md)
+### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
+### [Interfaccia della riga di comando di Azure](create-routebased-vpn-gateway-cli.md)
 
 # Concetti
 ## [Pianificazione e progettazione per il gateway VPN](vpn-gateway-plan-design.md)
@@ -87,13 +88,16 @@
 ### [Esempio: dispositivo Cisco ASA (IKEv2/senza BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## [Migrazione dal modello classico al modello Resource Manager](vpn-gateway-classic-resource-manager-migration.md)
 ## [Risolvere i problemi](vpn-gateway-troubleshoot.md)
-### [Convalidare la velocità effettiva della VPN verso una rete virtuale](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Impostazioni di un dispositivo firewall o una VPN suggerita dalla community](vpn-gateway-third-party-settings.md)
-### [Problemi di connessione da punto a sito](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-#### [Problemi di connessione da punto a sito - Client VPN in Mac OS X](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
-### [Problemi di connessione da sito a sito](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
-#### [Disconnessione intermittente della connessione da sito a sito](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Configurare e convalidare le connessioni VPN o alla rete virtuale](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
+### [Convalidare la velocità effettiva della VPN verso una rete virtuale](vpn-gateway-validate-throughput-to-vnet.md)
+### Problemi della connessione da punto a sito
+#### [Problemi di connessione da punto a sito](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+#### [Problemi di connessione da punto a sito - Client VPN in Mac OS X](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+### Problemi della connessione da sito a sito
+#### [Problemi di connessione da sito a sito](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
+#### [Disconnessione intermittente della connessione da sito a sito](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
+
 
 # riferimento
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
