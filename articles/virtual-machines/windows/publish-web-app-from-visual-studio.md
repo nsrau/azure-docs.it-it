@@ -2,12 +2,10 @@
 title: Pubblicare un'app Web in una macchina virtuale di Azure da Visual Studio| Microsoft Docs
 description: Pubblicare un'applicazione Web ASP.NET in una macchina virtuale di Azure da Visual Studio
 services: virtual-machines-windows
-documentationcenter: 
-author:
-- kraigb
-- justcla
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 tags: azure-service-management
 ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
 ms.service: virtual-machines-windows
@@ -16,14 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2017
-ms.author:
-- kraigb
-- justcla
-ms.openlocfilehash: 74ac1f27620e4871c3c6972baa949c64d850fe4c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: ghogen
+ms.openlocfilehash: f236a00ef86f58d4d266a19d74485984d9ddb691
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Pubblicare un'app Web ASP.NET in una macchina virtuale di Azure da Visual Studio
 

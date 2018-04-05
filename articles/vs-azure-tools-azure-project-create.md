@@ -3,9 +3,9 @@ title: Creare un progetto di servizio cloud di Azure con Visual Studio | Microso
 description: Informazioni su come creare un progetto di servizio cloud di Azure con Visual Studio
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: ec580df7-3dcc-45a9-a1d9-8c110678dfb5
 ms.service: multiple
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2017
-ms.author: kraigb
-ms.openlocfilehash: 1f6ded87b551f660853ea4eb0548f3d942e28fa8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 41c2bd0dc1f609b6b7b9cfda43c2378feb1c3b6c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="creating-an-azure-cloud-service-project-with-visual-studio"></a>Creazione di un progetto di servizio cloud di Azure con Visual Studio
 Gli strumenti di Azure per Visual Studio offrono un modello del progetto che consente di creare un servizio cloud di Azure. Dopo aver creato il progetto, Visual Studio consente di configurare, eseguire il debug e distribuire il servizio cloud in Azure.

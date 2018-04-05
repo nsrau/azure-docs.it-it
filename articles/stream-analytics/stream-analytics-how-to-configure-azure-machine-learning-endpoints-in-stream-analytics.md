@@ -1,12 +1,11 @@
 ---
 title: Usare gli endpoint di Azure Machine Learning in Analisi di flusso | Documentazione Microsoft
 description: Funzioni definite dall'utente di Machine Learning in Analisi di flusso
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: 406b258f-b8c2-4e55-953c-b7f84e8e5354
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: ca656ce11f267340872f4b8566d0ee21791f29d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 5638071e667c5777138f7c25add8b5f60bee21fe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integrazione di Machine Learning in Analisi di flusso
 Analisi di flusso supporta funzioni definite dall'utente che chiamano gli endpoint di Azure Machine Learning. Il supporto dell'API REST per questa funzionalità è illustrato in dettaglio nella [libreria delle API REST di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx). Questo articolo fornisce le informazioni supplementari necessarie per la corretta implementazione di questa funzionalità in Analisi di flusso. È stata pubblicata anche un'esercitazione che è disponibile [qui](stream-analytics-machine-learning-integration-tutorial.md).

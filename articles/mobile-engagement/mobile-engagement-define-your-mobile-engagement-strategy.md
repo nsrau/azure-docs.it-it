@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7533e318-81b9-4360-aace-b7be8225985b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: db68bd3ebf7efde1d23820445f07c83c8c27dc20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 494dd27acfd59eb79da13dae9bbbe0f80ee41370
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="define-your-mobile-engagement-strategy"></a>Definire la strategia di Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement verrà ritirato il 31/03/2018. Questa pagina verrà eliminata subito dopo.
+> 
+
 *Le app vengono scritte per un motivo ben preciso: essere usate dagli utenti.*
 
 È certamente necessario molto impegno per riuscire a realizzare un'app di qualità che piaccia ai propri utenti. È anche probabile che sia stata investita una parte considerevole del budget di marketing disponibile per acquisire il maggior numero possibile di utenti. Ma, dopo un incoraggiante picco iniziale, è facile assistere a una graduale diminuzione degli utenti dell'app. *Mobile Engagement serve proprio a evitare queste situazioni*: con questo servizio, gli autori possono promuovere l'uso di app e migliorarne le funzionalità grazie a test e informazioni sull'utilizzo.

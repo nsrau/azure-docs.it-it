@@ -2,11 +2,10 @@
 title: Introduzione alle funzioni finestra di Analisi di flusso | Documentazione Microsoft
 description: Informazioni sulle tre funzioni finestra in Analisi di flusso (finestra a cascata, finestra di salto, finestra temporale scorrevole).
 keywords: finestra a cascata, finestra temporale scorrevole, finestra di salto
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 2a6559551f608cf435e89997392a6a0ba995c583
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 3757834ff816fffc4571aeef8c164c2230c0f7c2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Introduzione alle funzioni finestra di Analisi di flusso
 In molti scenari di flusso in tempo reale è necessario eseguire operazioni solo sui dati contenuti in finestre temporali. Il supporto nativo delle funzioni finestra è una funzionalità cruciale di Analisi di flusso di Azure che pone l'accento sulla produttività degli sviluppatori per la creazione di processi di elaborazione di flussi complessi. Analisi di flusso consente agli sviluppatori di usare finestre [**a cascata**](https://msdn.microsoft.com/library/dn835055.aspx), [**di salto**](https://msdn.microsoft.com/library/dn835041.aspx) e [**temporali scorrevoli**](https://msdn.microsoft.com/library/dn835051.aspx) per eseguire operazioni temporali sui dati di flusso. Vale la pena di sottolineare che tutte le operazioni [finestra](https://msdn.microsoft.com/library/dn835019.aspx) restituiscono i risultati alla **fine** della finestra. L'output della finestra sarà un singolo evento basato sulla funzione di aggregazione usata. All'evento sarà associato il timestamp di fine della finestra e tutte le funzioni finestra sono definite con una lunghezza fissa. Infine, è importante segnalare che tutte le funzioni finestra devono essere usate in una clausola [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx).

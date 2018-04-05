@@ -1,10 +1,10 @@
 ---
-title: Debug di un servizio cloud o di una macchina virtuale di Azure in Visual Studio | Microsoft Docs
+title: Debug di un servizio cloud o di una macchina virtuale di Azure in Visual Studio | Documentazione Microsoft
 description: Debug di un servizio cloud o di una macchina virtuale in Visual Studio
 services: visual-studio-online
 documentationcenter: na
 author: mikejo
-manager: ghogen
+manager: douge
 editor: ''
 ms.assetid: 945e06e0-2100-41af-b218-72347367ddab
 ms.service: visual-studio-online
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: mikejo
-ms.openlocfilehash: 32f8ba565904682b3bcb9860c641bac18705ad5f
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d230632fe49874385e3c337a7b07d1f1acec585e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>Debug di un servizio cloud o di una macchina virtuale di Azure in Visual Studio
 
@@ -134,7 +134,7 @@ Da Azure SDK 2.3, il debug remoto presenta le limitazioni seguenti:
 
 ## <a name="create-a-web-project-and-a-virtual-machine-for-debugging"></a>Creare un progetto Web e una macchina virtuale per il debug
 
-Prima di pubblicare il progetto Azure, può risultare utile eseguirne il test in un ambiente indipendente che supporti scenari di debug e di test e in cui sia possibile installare programmi di test e di controllo. Per avviare tale test, eseguire il debug remoto dell'app in una macchina virtuale.
+Prima di pubblicare il progetto Azure, può risultare utile per eseguire il test in un ambiente indipendente che supporti scenari di debug e di test e in cui sia possibile installare programmi di test e di controllo. Per avviare tale test, eseguire il debug remoto dell'app in una macchina virtuale.
 
 I progetti ASP.NET di Visual Studio offrono un'opzione per creare una macchina virtuale utile che è possibile usare per il test delle applicazioni. La macchina virtuale include endpoint comunemente necessari, come PowerShell, Desktop remoto e WebDeploy.
 

@@ -6,7 +6,6 @@ documentationcenter: ''
 services: stream-analytics
 author: su-jie
 manager: ''
-editor: ''
 ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/13/2018
 ms.author: sujie
-ms.openlocfilehash: 9362b201fbabc9f8f43647dfd8ac62986b5b6790
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c6e1d0693035ef343e20cee4b09f0669e089afee
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="develop-stream-analytics-edge-jobs-by-using-visual-studio-tools"></a>Sviluppare processi Edge di analisi di flusso usando gli strumenti di Visual Studio
 

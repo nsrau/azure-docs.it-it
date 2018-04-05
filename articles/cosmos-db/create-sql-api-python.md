@@ -15,17 +15,17 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/29/2017
 ms.author: mimig
-ms.openlocfilehash: 666202340848627b5e8a53e369e0233ce2e5db16
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 24517c2ece15991c3e31b77ac633bf6bd0174048
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: Creare un'app per le API SQL con Python e il portale di Azure
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
-Questa guida di avvio rapido mostra come creare un account, un database di documenti e una raccolta di Azure Cosmos DB tramite il portale di Azure. Quindi, si creerà ed eseguirà un'app console basata sull'[API Python SQL](sql-api-sdk-python.md).
+Questa guida introduttiva mostra come creare un account [API SQL](sql-api-introduction.md), un database di documenti e una raccolta di Azure Cosmos DB usando il portale di Azure. Quindi, si creerà ed eseguirà un'app console basata sull'[API Python SQL](sql-api-sdk-python.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 

@@ -3,10 +3,9 @@ title: 'Output di Analisi di flusso: opzioni per archiviazione, analisi | Micros
 description: Informazioni sulla destinazione di opzioni di output dei dati di Analisi di flusso tra cui Power BI per i risultati dell'analisi.
 keywords: trasformazione dei dati, risultati dell'analisi, opzioni di archiviazione dati
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/18/2017
 ms.author: sngun
-ms.openlocfilehash: 6df9a3fafea97638d63c0dc4601c5ced357c410d
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a641c7e5e792b020be54a2ebc4bac63b545ce71e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Output di Analisi di flusso: opzioni per archiviazione, analisi
 Quando si crea un processo di Analisi di flusso di Azure, una considerazione da fare riguarda l'uso dei dati risultanti. Come è possibile visualizzare i risultati del processo di Analisi di flusso di Azure e dove è possibile archiviarli?
