@@ -1,79 +1,114 @@
 ---
-title: Come gestire File di Azure dal portale di Azure | Microsoft Docs
+title: Gestione di condivisioni file di Azure con il portale di Azure
 description: Informazioni su come usare il portale di Azure per gestire File di Azure.
 services: storage
-documentationcenter: 
-author: RenaShahMSFT
-manager: aungoo
-editor: tysonn
-ms.assetid: 
+documentationcenter: ''
+author: wmgries
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
-ms.author: renash
-ms.openlocfilehash: e56f8bf1057a8bc2cfcde841f69022104bafff27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/26/2018
+ms.author: wgries
+ms.openlocfilehash: 588d260bb939c8f6439ca66828296ea455f1524a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="how-to-use-azure-files-from-the-azure-portal"></a>Come usare File di Azure dal portale di Azure
-Il [portale di Azure](https://portal.azure.com) fornisce un'interfaccia utente per la gestione di File di Azure. Dal Web browser è possibile eseguire le azioni seguenti:
+# <a name="managing-azure-file-shares-with-the-azure-portal"></a>Gestione di condivisioni file di Azure con il portale di Azure 
+[File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate in Windows, Linux e macOS. Questa guida contiene tutte le informazioni essenziali sull'uso delle condivisioni file di Azure con il [portale di Azure](https://portal.azure.com/). È possibile passare agli argomenti seguenti:
 
-* Creare una condivisione file
-* Caricare i file nella condivisione file e scaricarli.
-* Monitorare l'uso effettivo di ogni condivisione file.
-* Rettificare la quota delle dimensioni della condivisione file.
-* Copiare i comandi di montaggio da usare per montare la condivisione file da un client Windows o Linux.
+> [!div class="checklist"]
+> * Creare un gruppo di risorse e un account di archiviazione
+> * Creare una condivisione file di Azure 
+> * Creare una directory
+> * Caricare un file 
+> * Scaricare un file
+> * Creare e usare uno snapshot di condivisione
 
-## <a name="create-file-share"></a>Creare la condivisione file
-1. Accedere al portale di Azure.
-2. Nel menu di navigazione fare clic su **Account di archiviazione** o su **Account di archiviazione (versione classica)**.
-    
-    ![Schermata che illustra come creare una condivisione file nel portale](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share1.png)
+Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-3. Scegliere l'account di archiviazione.
+## <a name="create-a-storage-account"></a>Creare un account di archiviazione
+[!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
 
-    ![Schermata che illustra come creare una condivisione file nel portale](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share2.png)
+## <a name="create-a-file-share"></a>Creare una condivisione file
+Per creare una condivisione file:
 
-4. Scegliere il servizio "File".
+1. Selezionare l'account di archiviazione dal proprio dashboard.
+2. Nella sezione **Servizi** della pagina dell'account di archiviazione selezionare **File**.
+    ![Screenshot della sezione Servizi dell'account di archiviazione; selezionare il servizio File](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-    ![Schermata che illustra come creare una condivisione file nel portale](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share3.png)
+3. Nel menu in alto nella pagina **Servizio file** fare clic su **+ Condivisione file**. Verrà visualizzata la pagina **Nuova condivisione file**.
+4. In **Nome** digitare *myshare*.
+5. Fare clic su **OK** per creare la condivisione file di Azure.
 
-5. Fare clic su "Condivisioni file" e selezionare il collegamento per creare la prima condivisione file.
+## <a name="manipulating-the-contents-of-the-azure-file-share"></a>Modifica dei contenuti della condivisione file di Azure
+Dopo avere creato una condivisione file di Azure, è possibile montare la condivisione file con SMB in [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) o [macOS](storage-how-to-use-files-mac.md). In alternativa, è possibile modificare la condivisione file di Azure con il portale di Azure. Tutte le richieste effettuate tramite il portale di Azure vengono eseguite con l'API REST di File, che consente di creare, modificare ed eliminare file e directory nei client senza accesso SMB.
 
-    ![Schermata che illustra come creare una condivisione file nel portale](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share4.png)
+### <a name="create-directory"></a>Creare la directory
+Per creare una nuova directory denominata *myDirectory* nella radice della condivisione file di Azure:
 
-6. Immettere il nome della condivisione e le dimensioni, fino a 5120 GB, per creare la prima condivisione file. Dopo che la condivisione file è stata creata, è possibile montarla da qualsiasi file system che supporti SMB 2.1 o SMB 3.0. È possibile fare clic su **Quota** nella condivisione file per modificare le dimensioni del file fino a 5120 GB. Vedere [Calcolatore prezzi di Azure](https://azure.microsoft.com/pricing/calculator/) per un preventivo dei costi di archiviazione relativi all'uso di File di Azure.
+1. Nella pagina **Servizio file** selezionare la condivisione file **myshare**. Verrà visualizzata la pagina della condivisione file.
+2. Dal menu nella parte superiore della pagina selezionare **Aggiungi directory**. Verrà visualizzata la pagina **Nuova directory**.
+3. Digitare *myDirectory* e quindi fare clic su **OK**.
 
-    ![Schermata che illustra come creare una condivisione file nel portale](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share5.png)
+### <a name="upload-a-file"></a>Caricare un file 
+Per illustrare il caricamento di un file, è prima di tutto necessario creare o selezionare un file da caricare. È possibile farlo in qualsiasi modo desiderato. Dopo aver selezionato il file da caricare:
 
-## <a name="upload-and-download-files"></a>Caricare e scaricare file
-1. Scegliere una condivisione file già creata.
+1. Fare clic sulla directory **myDirectory**. Si aprirà il pannello **myDirectory**.
+2. Scegliere **Upload** (Carica) dal menu in alto. Si aprirà il pannello **Carica file**.  
+    ![Screenshot del pannello di caricamento file](media/storage-how-to-use-files-portal/upload-file-1.png)
 
-    ![Schermata che illustra come caricare e scaricare file nel portale](./media/storage-how-to-use-files-portal/use-files-portal-upload-file1.png)
+3. Fare clic sull'icona della cartella per aprire una finestra per esplorare i file locali. 
+4. Selezionare un file e fare clic su **Apri**. 
+5. Nella pagina **Carica file** verificare il nome del file e quindi fare clic su **Upload** (Carica).
+6. Al termine, il file sarà visualizzato nell'elenco nella pagina **myDirectory**.
 
-2. Fare clic su **Carica** per aprire l'interfaccia utente per il caricamento dei file.
+### <a name="download-a-file"></a>Scaricare un file
+È possibile scaricare una copia del file caricato facendo clic con il pulsante destro del mouse sul file. Dopo aver fatto clic sul pulsante di download, i passaggi successivi varieranno in base al sistema operativo e al browser in uso.
 
-    ![Schermata che illustra come caricare file nel portale](./media/storage-how-to-use-files-portal/use-files-portal-upload-file2.png)
+## <a name="create-and-modify-share-snapshots"></a>Creare e modificare gli snapshot di condivisione
+Un'altra utile attività da eseguire con una condivisione file di Azure è la creazione degli snapshot di condivisione. Uno snapshot mantiene una copia di una condivisione file di Azure eseguita in un momento specifico. Gli snapshot di condivisione sono simili alle tecnologie del sistema operativo con cui probabilmente si ha già familiarità, ad esempio:
+- [Servizio Copia Shadow del volume](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) per i file system Windows come NTFS e ReFS
+- Snapshot [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) per i sistemi Linux
+- Snapshot [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) per macOS. 
 
-## <a name="connect-to-file-share"></a>Connettersi alla condivisione file
--  Fare clic su **Connetti** per ottenere la riga di comando per montare la condivisione file da Windows e Linux. Gli utenti Linux possono vedere anche [Come usare File di Azure con Linux](../storage-how-to-use-files-linux.md) per altre istruzioni sul montaggio per le altre distribuzioni Linux.
+Per creare uno snapshot di condivisione:
 
-    ![Schermata che illustra come montare la condivisione file](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
--  È possibile copiare i comandi per il montaggio della condivisione file in Windows o Linux ed eseguirla dalla VM di Azure o dal computer locale.
+1. Aprire la pagina della condivisione file accedendo all'account di archiviazione dal dashboard e selezionando **File** > **myshare**. 
+2. Nella pagina della condivisione file fare clic sul pulsante **Snapshot** nel menu in alto nella pagina e quindi selezionare **Create a snapshot** (Crea snapshot).  
+    ![Screenshot che illustra come trovare il pulsante di creazione snapshot](media/storage-how-to-use-files-portal/create-snapshot-1.png)
 
-    ![Screenshot che illustra i comandi di montaggio per Windows e Linux](./media/storage-how-to-use-files-portal/use-files-portal-show-mount-commands.png)
+### <a name="list-and-browse-share-snapshots"></a>Elencare ed esplorare gli snapshot di condivisione
+Dopo la creazione dello snapshot, è possibile fare nuovamente clic su **Snapshot** e quindi selezionare **Visualizza snapshot** per elencare gli snapshot della condivisione. Verrà visualizzato un riquadro contenente gli snapshot di questa condivisione. Fare clic su uno snapshot di condivisione per esplorarlo.
 
-**Suggerimento:**  
-Per trovare la chiave di accesso dell'account di archiviazione per il montaggio, fare clic su **Visualizza chiavi di accesso per questo account di archiviazione** nella parte inferiore della pagina della connessione.
+### <a name="restore-from-a-share-snapshot"></a>Eseguire il ripristino da snapshot di condivisione
+Per illustrare il ripristino di un file da uno snapshot di condivisione, è prima di tutto necessario eliminare un file dalla condivisione file di Azure attiva. Passare alla cartella *myDirectory*, fare clic con il pulsante destro del mouse sul file caricato e quindi scegliere **Elimina**. Quindi, per ripristinare il file dallo snapshot di condivisione:
 
-## <a name="see-also"></a>Vedere anche 
-Per altre informazioni su File di Azure, vedere i collegamenti seguenti.
+1. Fare clic su **Snapshot** nel menu in alto e scegliere **Visualizza snapshot**. 
+2. Fare clic sullo snapshot creato in precedenza per aprirne il contenuto in una nuova pagina. 
+3. Fare clic su **myDirectory** nello snapshot. Verrà visualizzato il file che era stato eliminato. 
+4. Fare clic con il pulsante destro del mouse sul file eliminato e scegliere **Restore** (Ripristina).
+5. Verrà visualizzata una finestra popup che consente di scegliere tra il ripristino del file come copia e la sovrascrittura del file originale. Poiché il file originale era stato eliminato, è possibile selezionare **Sovrascrivi file originale** per ripristinare il file nello stato in cui si trovava prima dell'eliminazione. Fare clic su **OK** per ripristinare il file nella condivisione file di Azure.  
+    ![Screenshot della finestra di dialogo di ripristino file](media/storage-how-to-use-files-portal/restore-snapshot-1.png)
 
-* [DOMANDE FREQUENTI](../storage-files-faq.md)
-* [Risoluzione dei problemi in Windows](storage-troubleshoot-windows-file-connection-problems.md)      
-* [Risoluzione dei problemi in Linux](storage-troubleshoot-linux-file-connection-problems.md)    
+6. Al termine del ripristino del file, chiudere la pagina dello snapshot e tornare a **myshare** > **myDirectory**. Il file sarà nuovamente nella posizione originale.
+
+### <a name="delete-a-share-snapshot"></a>Eliminare uno snapshot di condivisione
+Per eliminare uno snapshot di condivisione, [passare all'elenco degli snapshot di condivisione](#list-and-browse-a-share-snapshot). Fare clic sulla casella di controllo accanto al nome dello snapshot di condivisione e quindi fare clic sul pulsante **Elimina**.
+
+![Screenshot dell'eliminazione di uno snapshot di condivisione](media/storage-how-to-use-files-portal/delete-snapshot-1.png)
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+[!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
+
+## <a name="next-steps"></a>Passaggi successivi
+- [Gestione di condivisioni file con Azure PowerShell](storage-how-to-use-files-powershell.md)
+- [Gestione di condivisioni file con l'interfaccia della riga di comando di Azure](storage-how-to-use-files-cli.md)
+- [Gestione di condivisioni file con Azure Storage Explorer](storage-how-to-use-files-storage-explorer.md)
+- [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md)
