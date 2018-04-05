@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: d9d03d35aa5d78d83e0f195c804cfe09fece3c07
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a84393c5c53b8f8e4a8b688a462f433b2d611b0e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Usare lo scuotimento per recuperare un messaggio di Twitter con Funzioni di Azure
 
@@ -33,7 +33,7 @@ Completare la [Guida introduttiva](https://docs.microsoft.com/azure/iot-hub/iot-
 
 Una sottoscrizione di Azure attiva. Se non è disponibile, è possibile registrarsi tramite uno di questi metodi:
 
-* Attivare una [versione di prova gratuita di 30 giorni dell'account di Microsoft Azure](https://azureinfo.microsoft.com/us-freetrial.html)
+* Attivare una [versione di prova gratuita di 30 giorni dell'account di Microsoft Azure](https://azure.microsoft.com/en-us/free/)
 * Richiedere il [credito Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se si ha un abbonamento a MSDN o una sottoscrizione di Visual Studio
 
 ## <a name="open-the-project-folder"></a>Aprire la cartella del progetto

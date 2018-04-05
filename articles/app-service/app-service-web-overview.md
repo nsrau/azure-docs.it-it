@@ -2,10 +2,10 @@
 title: Panoramica di App Web | Documentazione Microsoft
 description: Informazioni sul modo in cui il Servizio app di Azure semplifica lo sviluppo e l'hosting di applicazioni Web
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f8510bb6b412e9af8aad30ba32bc74206c22042f
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: e789d3c6e10399491eb055b850a590ae10aacd11
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="web-apps-overview"></a>Panoramica di App Web
 
@@ -29,17 +29,12 @@ Le app Web non si limitano ad aggiungere la potenza di Microsoft Azure all'appli
 
 Il servizio app permette di pagare solo le risorse di calcolo di Azure usate. La quantità di risorse di calcolo usate è determinata dal _piano di servizio app_ in cui vengono eseguite le app Web. Per altre informazioni, vedere [Panoramica approfondita dei piani del servizio app di Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-Il video di 5 minuti disponibile di seguito illustra App Web del servizio app di Azure.
-
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Web-Apps-with-Yochay-Kiriaty/player]
->
->
-
 ## <a name="why-use-web-apps"></a>Vantaggi dell'uso di app Web
+
 Ecco alcune delle funzionalità principali delle app Web del servizio app:
 
 * **Più linguaggi e framework**: l'app Web offrono un supporto eccellente per ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP o Python. È anche possibile eseguire [PowerShell e altri script o eseguibili](web-sites-create-web-jobs.md) come servizi in background.
-* **Ottimizzazione della metodologia DevOps**: è possibile configurare l'[integrazione e la distribuzione continua](app-service-continuous-deployment.md) con Visual Studio Team Services, GitHub, BitBucket, Hub Docker o il servizio contenitore di Azure. alzare di livello gli aggiornamenti tramite [ambienti di testing e di staging](web-sites-staged-publishing.md), Gestire le app Web con [Azure PowerShell](/powershell/azureps-cmdlets-docs) o l'[interfaccia della riga di comando multipiattaforma](/cli/azure/install-azure-cli).
+* **Ottimizzazione della metodologia DevOps**: è possibile configurare [integrazione e distribuzione continua](app-service-continuous-deployment.md) con Visual Studio Team Services, GitHub, BitBucket, l'hub Docker o Registro contenitori di Azure, alzare di livello gli aggiornamenti tramite [ambienti di testing e di staging](web-sites-staged-publishing.md), Gestire le app Web con [Azure PowerShell](/powershell/azureps-cmdlets-docs) o l'[interfaccia della riga di comando multipiattaforma](/cli/azure/install-azure-cli).
 * **Scalabilità globale con disponibilità elevata**: è possibile [aumentare le prestazioni](web-sites-scale.md) o il [numero di istanze](../monitoring-and-diagnostics/insights-how-to-scale.md) manualmente o automaticamente. Le app possono essere ospitate ovunque nell'infrastruttura globale di data center Microsoft e il [contratto di servizio](https://azure.microsoft.com/support/legal/sla/app-service/) per il servizio app assicura disponibilità elevata.
 * **Connessioni a piattaforme SaaS e dati locali**: è possibile scegliere tra oltre 50 [connettori](../connectors/apis-list.md) per sistemi aziendali (come SAP), servizi SaaS (come Salesforce) e servizi Internet (come Facebook), nonché accedere ai dati locali con [connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md) e [reti virtuali di Azure](web-sites-integrate-with-vnet.md).
 * **Sicurezza e conformità** : il servizio app è [conforme a ISO, SOC e PCI](https://www.microsoft.com/TrustCenter/). Autenticare gli utenti con [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) o con l'account di accesso ai social, ad esempio [Google](app-service-mobile-how-to-configure-google-authentication.md), [Facebook](app-service-mobile-how-to-configure-facebook-authentication.md), [Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) o [ Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md). Creare [restrizioni per gli indirizzi IP](app-service-ip-restrictions.md) e [gestire le identità del servizio](app-service-managed-service-identity.md).
@@ -61,7 +56,7 @@ Creare la prima app Web.
 > [PHP](app-service-web-get-started-php.md)
 
 > [!div class="nextstepaction"]
-> [Node.JS](app-service-web-get-started-nodejs.md)
+> [Node.js](app-service-web-get-started-nodejs.md)
 
 > [!div class="nextstepaction"]
 > [Java](app-service-web-get-started-java.md)
@@ -71,4 +66,3 @@ Creare la prima app Web.
 
 > [!div class="nextstepaction"]
 > [HTML](app-service-web-get-started-html.md)
-

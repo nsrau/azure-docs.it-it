@@ -2,7 +2,7 @@
 title: 'Azure AD Connect: introduzione alle impostazioni rapide | Documentazione Microsoft'
 description: Informazioni su come scaricare, installare e configurare la procedura guidata per Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2018
+ms.date: 03/21/2018
 ms.author: billmath
-ms.openlocfilehash: 15101e1edb483f49c7570a5d4eab66865bbceb87
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 46fc01bfd7fada529ff1416e8ad46d2ea34792bd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introduzione alle impostazioni rapide per Azure AD Connect
 La funzione **Impostazioni rapide** di Azure AD Connect viene usata quando è presente una topologia a singola foresta e si usa la [sincronizzazione password](active-directory-aadconnectsync-implement-password-synchronization.md) per l'autenticazione. **Impostazioni rapide** è l'opzione predefinita e viene usata nello scenario distribuito più comune. Questa opzione richiede solo pochi clic per estendere la directory locale nel cloud.
@@ -45,6 +45,7 @@ Se le impostazioni rapide non corrispondono alla topologia, vedere la [documenta
    Se viene visualizzata questa pagina, verificare ogni dominio contrassegnato come **Non aggiunto** e **Non verificato**. Assicurarsi che i domini usati siano stati verificati in Azure AD. Fare clic sul simbolo Aggiorna dopo avere verificato tutti i domini.
 8. Nella schermata Pronto per la configurazione fare clic su **Installa**.
    * Nella pagina Pronto per la configurazione è possibile deselezionare la casella di controllo **Start the synchronization process as soon as configuration completes** (Avvia il processo di sincronizzazione non appena viene completata la configurazione). È necessario deselezionare questa casella di controllo per eseguire una configurazione aggiuntiva, ad esempio il [filtro](active-directory-aadconnectsync-configure-filtering.md). Se si deseleziona questa opzione, la procedura guidata configura la sincronizzazione ma lascia disabilitata l'utilità di pianificazione, che non viene eseguita finché non la si abilita manualmente [eseguendo una seconda volta l'installazione guidata](active-directory-aadconnectsync-installation-wizard.md).
+   * Lasciando la casella di controllo **Avvia il processo di sincronizzazione al termine della configurazione** selezionata, verrà immediatamente attivata una sincronizzazione completa con Azure AD di tutti gli utenti, i gruppi e i contatti. 
    * Se Exchange è presente nell'istanza locale di Active Directory, è disponibile anche un'opzione per abilitare la [**distribuzione ibrida di Exchange**](https://technet.microsoft.com/library/jj200581.aspx). Abilitare questa opzione se si prevede di avere cassette postali di Exchange contemporaneamente nel cloud e in locale.
      ![Pronto per la configurazione di Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
 9. Al termine dell'installazione, fare clic su **Esci**.

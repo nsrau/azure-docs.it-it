@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6d85dd5d-ac07-43ba-bbe4-e91c3a17690b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: cb9454212c94cf65093219c3d24c71277ede7877
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c0f666a0dd3441dfe3de0e82953b78c139091672
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="advanced-configuration-for-windows-universal-apps-engagement-sdk"></a>Configurazione avanzata per Engagement SDK per app universali di Windows
+> [!IMPORTANT]
+> Azure Mobile Engagement verrà ritirato il 31/03/2018. Questa pagina verrà eliminata subito dopo.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows universale](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)

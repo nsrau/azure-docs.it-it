@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ea26a2d4214c41faa5d63b7c72667955a43d6a2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1f31af4fcc7ef70889ad8bc021bea0796721e5f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>Distribuire un cluster del servizio contenitore di Azure
+# <a name="tutorial-deploy-an-azure-container-service-aks-cluster"></a>Esercitazione: Distribuire un cluster del servizio contenitore di Azure (AKS)
 
 Kubernetes fornisce una piattaforma distribuita per applicazioni in contenitori. Con il servizio contenitore di Azure, il provisioning di un cluster Kubernetes pronto per la produzione è semplice e rapido. In questa esercitazione, la terza parte di otto, viene distribuito un cluster di Kubernetes nel servizio contenitore di Azure. I passaggi completati comprendono:
 
@@ -24,7 +24,7 @@ Kubernetes fornisce una piattaforma distribuita per applicazioni in contenitori.
 > * Installazione dell'interfaccia della riga di comando Kubernetes (kubectl)
 > * Configurazione di kubectl
 
-Nelle esercitazioni successive, l'applicazione Azure Vote viene distribuita nel cluster, ridimensionata, aggiornata e Operations Management Suite viene configurato per monitorare il cluster Kubernetes.
+Nelle esercitazioni successive, l'applicazione Azure Vote viene distribuita nel cluster, ridimensionata e aggiornata e Log Analytics viene configurato per monitorare il cluster Kubernetes.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

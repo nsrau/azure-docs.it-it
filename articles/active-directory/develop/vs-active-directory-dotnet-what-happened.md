@@ -3,8 +3,8 @@ title: Modifiche apportate a un progetto MVC quando ci si connette ad Azure AD |
 description: Viene descritto cosa succede al progetto MVC quando ci si connette ad Azure AD mediante i servizi relazionati di Visual Studio.
 services: active-directory
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: kraigb
+ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: b17c5fe500f3e2a8370ec5c4a09b62737d9afb84
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1925a32ce5745673c08af3f9cfe63090d4adfa23
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Cosa è successo a un progetto MVC (servizio connesso a Visual Studio Azure Active Directory)?
 
@@ -35,7 +35,7 @@ Per informazioni sull'uso del servizio connesso, vedere l'[introduzione](vs-acti
 
 Interessa il file di progetto (riferimenti *.NET) e `packages.config` (riferimenti NuGet).
 
-| type | Riferimenti |
+| type | riferimento |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -64,7 +64,7 @@ Riferimenti aggiuntivi se è stata selezionata l'opzione **Lettura dati director
 
 I seguenti riferimenti vengono rimossi (solo 4 progetti ASP.NET, come in Visual Studio 2015):
 
-| type | Riferimenti |
+| type | riferimento |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |

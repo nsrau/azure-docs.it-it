@@ -2,11 +2,11 @@
 title: Aggiungere un input di dati ai processi di analisi di flusso | Microsoft Docs
 description: Informazioni su come associare un'origine dati al processo di analisi di flusso come input di dati di streaming proveniente dall'hub eventi o dati di riferimento provenienti dall'archiviazione BLOB.
 keywords: input di dati, flusso di dati
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: 
+author: jseb225
+manager: ryanw
+editor: ''
 ms.assetid: 9e59bd24-2a80-4ecb-b6b2-309a07c70bcd
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 7a4eb8642a0496e126b79724b4048bae7cc15a68
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: jeanb
+ms.openlocfilehash: 441cc2d1c6d2cdc6ce4bbd14306ec8ae71c38c55
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Aggiungere un input di dati di streaming o dati di riferimento a un processo di analisi di flusso
 Informazioni su come associare un'origine dati al processo di Analisi di flusso come input di dati di streaming provenienti da Hub eventi o dati di riferimento provenienti dall'archivio BLOB.

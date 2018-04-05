@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: bb481b1aade29130e01a9d15c6dcf4a3a68e194e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ac0b15f120071093fd81de1d83cf2067ecbac269
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Creare, modificare o eliminare una rete virtuale
 
@@ -43,7 +43,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 
 1. Selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
 2. Immettere o selezionare i valori per le impostazioni seguenti e quindi selezionare **Crea**:
-    - **Nome**: il nome deve essere univoco nell'ambito del [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) selezionato per la creazione della rete virtuale al suo interno. Dopo la creazione della rete virtuale non è possibile modificarne il nome. È possibile creare più reti virtuali in momenti diversi. Per alcuni suggerimenti sull'assegnazione del nome, vedere [Naming conventions](/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions) (Convenzioni di denominazione). Il rispetto di una convenzione di denominazione consente una gestione più semplice di più reti virtuali.
+    - **Nome**: il nome deve essere univoco nell'ambito del [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) selezionato per la creazione della rete virtuale al suo interno. Dopo la creazione della rete virtuale non è possibile modificarne il nome. È possibile creare più reti virtuali in momenti diversi. Per alcuni suggerimenti sull'assegnazione del nome, vedere [Naming conventions](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) (Convenzioni di denominazione). Il rispetto di una convenzione di denominazione consente una gestione più semplice di più reti virtuali.
     - **Spazio indirizzi**: lo spazio indirizzi per una rete virtuale è costituito da uno o più intervalli di indirizzi non sovrapposti, specificati con la notazione CIDR. L'intervallo di indirizzi definito può essere pubblico o privato (RFC 1918). Indipendentemente dalla sua definizione come pubblico o privato, l'intervallo di indirizzi è raggiungibile solo all'interno della rete virtuale, da reti virtuali interconnesse e da eventuali reti locali connesse alla rete virtuale. Non è possibile aggiungere gli intervalli di indirizzi seguenti:
         - 224.0.0.0/4 (multicast)
         - 255.255.255.255/32 (broadcast)

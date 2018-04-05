@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 8a91960f150e9298515cd52fe192ec1abdd89f9c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c34293796860e0ab72eecedab9cd8b023237050d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Accesso Single Sign-On facile di Azure Active Directory: domande frequenti
 
@@ -38,16 +38,23 @@ di serie L'accesso Single Sign-On facile è disponibile solo nell'istanza di Azu
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Quali applicazioni possono sfruttare le capacità dei parametri `domain_hint` o `login_hint` dell'accesso SSO facile?
 
-Di seguito è riportato un elenco non completo delle applicazioni che inviano questi parametri ad Azure AD, consentendo agli utenti un'esperienza di accesso automatico tramite l'accesso Single Sign-On facile:
+Di seguito è riportato un elenco non completo delle applicazioni che inviano questi parametri ad Azure AD, consentendo agli utenti un'esperienza di accesso automatico tramite l'accesso Single Sign-On facile (ad esempio, senza che agli utenti sia richiesto di immettere il proprio username):
 
 | Nome dell'applicazione | URL applicazione da usare |
 | -- | -- |
 | Pannello di accesso | myapps.microsoft.com/contoso.com |
 | Outlook nel Web | outlook.office365.com/contoso.com |
 
-Nella tabella precedente sostituire "contoso.com" con il nome di dominio per ottenere gli URL dell'applicazione corretti per il tenant.
+In aggiunta, gli utenti possono usufruire di un'esperienza di accesso automatico nei casi in cui l'applicazione invia le richieste di accesso agli endpoint con tenant di Azure AD, ovvero https://login.microsoftonline.com/contoso.com/<..> o https://login.microsoftonline.com/<tenant_ID>/<..>, anziché all'endpoint comune di Azure AD (https://login.microsoftonline.com/common/<...>). Di seguito viene fornito un elenco, non completo, di applicazioni che generano questi tipi di richieste di accesso.
 
-Se si è interessati ad altre applicazioni, segnalarlo nella sezione dei commenti.
+| Nome dell'applicazione | URL applicazione da usare |
+| -- | -- |
+| SharePoint Online | contoso.sharepoint.com |
+| Portale di Azure | portal.azure.com/contoso.com |
+
+Nelle tabelle precedenti sostituire "contoso.com" con il nome di dominio per ottenere gli URL dell'applicazione corretti per il tenant.
+
+Se si desidera che altre applicazioni utilizzino la nostra esperienza di accesso automatico, si prega di segnalarlo nella sezione commenti e suggerimenti.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L'accesso SSO facile supporta `Alternate ID` come nome utente, anziché `userPrincipalName`?
 

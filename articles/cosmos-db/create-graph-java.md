@@ -13,13 +13,13 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/08/2018
+ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: e336546526c8ae5ee04dd9737f828685f8c4c009
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a5c3a0cdef488e4c4788a22976d78db72bdd55fc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Creare un database a grafo con Java e il portale di Azure
 
@@ -62,7 +62,7 @@ Prima di potere creare un database a grafo, è necessario creare un account data
     ---|---|---
     ID database|sample-database|Immettere *sample-database* come nome del nuovo database. I nomi dei database devono avere una lunghezza compresa tra 1 e 255 caratteri e non possono contenere `/ \ # ?` o spazi finali.
     ID grafo|sample-graph|Immettere *sample-graph* come nome della nuova raccolta. I nomi dei grafi presentano gli stessi requisiti relativi ai caratteri degli ID di database.
-    Capacità di archiviazione|Fissa (10 GB)|Modificare il valore in **Fissa (10 GB)**. Questo valore indica la capacità di archiviazione del database.
+    Capacità di archiviazione|Fissa (10 GB)|Lasciare il valore predefinito **Fissa (10 GB)**. Questo valore indica la capacità di archiviazione del database.
     Velocità effettiva|400 UR/s|Modificare la velocità effettiva in 400 unità richiesta al secondo (UR/sec). Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento.
 
 3. Dopo aver compilato il modulo, fare clic su **OK**.
@@ -91,9 +91,11 @@ Si può ora passare a usare il codice. È possibile clonare ora un'app API Graph
 
 ## <a name="review-the-code"></a>Esaminare il codice
 
-Questo passaggio è facoltativo. Per scoprire in che modo le risorse del database vengono create nel codice, è possibile esaminare i frammenti di codice seguenti. I frammenti di codice derivano tutti dal file `Program.java` che si trova nella cartella C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted. In alternativa, è possibile passare ad [Aggiornare la stringa di connessione](#update-your-connection-information). 
+Questo passaggio è facoltativo. Per scoprire in che modo le risorse del database vengono create nel codice, è possibile esaminare i frammenti di codice seguenti. In alternativa, è possibile passare ad [Aggiornare la stringa di connessione](#update-your-connection-information).
 
-* Viene inizializzato `Client` di Gremlin dalla configurazione in `src/remote.yaml`.
+I frammenti seguenti provengono tutti dal file C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java.
+
+* Il `Client` Gremlin viene inizializzato dalla configurazione contenuta nel file C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml.
 
     ```java
     cluster = Cluster.build(new File("src/remote.yaml")).create();
@@ -123,7 +125,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
     Copiare la prima parte del valore dell'URI.
 
     ![Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure](./media/create-graph-java/keys.png)
-2. Aprire il file src/remote.yaml e incollare il valore su `$name$` in `hosts: [$name$.graphs.azure.com]`.
+2. Aprire il file src/remote.yaml e incollare il valore di ID univoco sopra `$name$` in `hosts: [$name$.graphs.azure.com]`.
 
     La riga 1 del file remote.yaml si presenta ora nel modo seguente: 
 
@@ -148,6 +150,8 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
     to 
 
     `username: /dbs/sample-database/colls/sample-graph`
+
+    Se per il grafo o il database di esempio è stato usato un nome univoco, aggiornare i valori nel modo appropriato.
 
 6. Salvare il file remote.yaml.
 
@@ -194,7 +198,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
    ![Creare nuovi documenti in Esplora dati nel portale di Azure](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
-4. Immettere un'etichetta di *persona*.
+4. Nella casella dell'etichetta immettere *person*.
 
 5. Fare clic su **Add property** (Aggiungi proprietà) per aggiungere ognuna delle proprietà seguenti. Si noti che è possibile creare proprietà univoche per ogni persona del grafo. È necessaria solo la chiave id.
 
@@ -227,7 +231,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
     Quando si aggiungono altri dati, è possibile usare i filtri per limitare i risultati visualizzati. Per impostazione predefinita, Esplora dati usa `g.V()` per recuperare tutti i vertici di un grafo. È possibile modificarlo in un'altra [query di grafo](tutorial-query-graph.md), ad esempio `g.V().count()`, per restituire un conteggio di tutti i vertici del grafo in formato JSON. Se è stato modificato il filtro, reimpostarlo su `g.V()` e fare clic su **Applica filtro** per visualizzare di nuovo tutti i risultati.
 
-12. È ora possibile connettere rakesh e ashley. Assicurarsi che il valore **ashley** sia selezionato nell'elenco **Risultati**, quindi fare clic sul pulsante di modifica accanto a **Destinazioni** in basso a destra. Potrebbe essere necessario allargare la finestra per visualizzare l'area **Proprietà**.
+12. È ora possibile connettere rakesh e ashley. Assicurarsi che nell'elenco **Risultati** sia selezionato il valore **ashley** e quindi fare clic su ![Modificare la destinazione di un vertice in un grafo](./media/create-graph-java/edit-pencil-button.png) accanto a **Destinazioni** in basso a destra. Per visualizzare il pulsante potrebbe essere necessario allargare la finestra.
 
    ![Cambiare la destinazione di un vertice in un grafo](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 

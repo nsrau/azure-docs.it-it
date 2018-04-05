@@ -1,12 +1,12 @@
 ---
 title: 'Schema progettuale di Azure Cosmos DB: app di social media | Microsoft Docs'
-description: "Informazioni su uno schema progettuale per social network che sfrutta la flessibilità di archiviazione di Azure Cosmos DB e altri servizi di Azure."
+description: Informazioni su uno schema progettuale per social network che sfrutta la flessibilità di archiviazione di Azure Cosmos DB e altri servizi di Azure.
 keywords: app di social media
 services: cosmos-db
 author: ealsur
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.openlocfilehash: c89b2db6d5a80f184ca98ef757605272d385a81c
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: d223187ab1f8338c57e6aa32903ea9b762393ab5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Integrazione con i social con Azure Cosmos DB
 Vivere in una società profondamente interconnessa porta, prima o poi, ad avere a che fare con i **social network**. I social network vengono usati per rimanere in contatto con amici, colleghi e familiari, ma anche per condividere passioni con persone con interessi simili.
@@ -229,7 +229,7 @@ Cosmos DB supporta il [partizionamento dinamico](https://azure.microsoft.com/blo
 
 Un aspetto interessante da sottolineare è che Cosmos DB eseguirà le query (incluse le [aggregazioni](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) in tutte le partizioni in modo trasparente, senza dover aggiungere una logica con l'aumento dei dati.
 
-Con il tempo, aumenterà il traffico e di conseguenza aumenterà il consumo di risorse (misurato in [UR](request-units.md) o unità richiesta). Le operazioni di lettura e scrittura verranno eseguite con una frequenza maggiore man mano che cresce la base di utenti e le operazioni di creazione e lettura del contenuto aumenteranno. La capacità di **ridimensionare la velocità effettiva** è quindi fondamentale. Aumentare le RU è molto semplice: è possibile farlo con pochi clic nel portale di Azure o [inviando i comandi tramite l'API](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer).
+Con il tempo, aumenterà il traffico e di conseguenza aumenterà il consumo di risorse (misurato in [UR](request-units.md) o unità richiesta). Le operazioni di lettura e scrittura verranno eseguite con una frequenza maggiore man mano che cresce la base di utenti e le operazioni di creazione e lettura del contenuto aumenteranno. La capacità di **ridimensionare la velocità effettiva** è quindi fondamentale. Aumentare le RU è molto semplice: è possibile farlo con pochi clic nel portale di Azure o [inviando i comandi tramite l'API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
 
 ![Aumento delle prestazioni e definizione di una chiave di partizione](./media/social-media-apps/social-media-apps-scaling.png)
 

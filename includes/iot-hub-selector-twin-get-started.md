@@ -7,6 +7,8 @@
 
 I dispositivi gemelli sono documenti JSON nei quali vengono archiviate informazioni sullo stato dei dispositivi (metadati, configurazioni e condizioni). L'hub IoT rende permanente un dispositivo gemello per ogni dispositivo che si connette.
 
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
+
 Usare i dispositivi gemelli per:
 
 * Archiviare i metadati dei dispositivi dal back-end della soluzione.
@@ -14,8 +16,7 @@ Usare i dispositivi gemelli per:
 * Sincronizzare lo stato dei flussi di lavoro a esecuzione prolungata (come gli aggiornamenti del firmware e della configurazione) tra un'app per dispositivi e un'app di back-end.
 * Eseguire query sui metadati, la configurazione o lo stato dei dispositivi.
 
-> [!NOTE]
-> I dispositivi gemelli sono progettati per la sincronizzazione e per l'esecuzione di query sulle configurazioni e le condizioni dei dispositivi. Altre informazioni su quando usare i dispositivi gemelli sono reperibili in [Informazioni sui dispositivi gemelli][lnk-twins].
+I dispositivi gemelli sono progettati per la sincronizzazione e per l'esecuzione di query sulle configurazioni e le condizioni dei dispositivi. Altre informazioni su quando usare i dispositivi gemelli sono reperibili in [Informazioni sui dispositivi gemelli][lnk-twins].
 
 I dispositivi gemelli vengono archiviati in un hub IoT e contengono gli elementi seguenti.
 

@@ -2,7 +2,7 @@
 title: Come monitorare un account di archiviazione di Azure | Microsoft Docs
 description: Informazioni su come monitorare un account di archiviazione in Azure usando il portale di Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ffc7d46bbfa4db47a47e416c395efdfc451cadc1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorare un account di archiviazione nel portale di Azure
 
@@ -28,8 +28,6 @@ ms.lasthandoff: 01/24/2018
 > All'esame dei dati di monitoraggio nel portale di Azure sono associati costi. Per altre informazioni, vedere [Analisi archiviazione e fatturazione](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > File di Azure attualmente supporta la metrica di Analisi archiviazione, ma non supporta ancora la registrazione.
->
-> Gli account di archiviazione con il tipo di replica archiviazione con ridondanza della zona (ZRS) supportano le metriche e la registrazione. Gli account dell'archiviazione con ridondanza della zona precedenti, rinominati versione classica dell'archiviazione con ridondanza della zona, non supportano le metriche o la registrazione. Per altre informazioni su ZRS, vedere [Archiviazione con ridondanza della zona](storage-redundancy.md#zone-redundant-storage). 
 > 
 > Per una guida dettagliata sull'utilizzo di Analisi archiviazione e di altri strumenti per identificare, diagnosticare e risolvere i problemi relativi ad Archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting.md).
 >

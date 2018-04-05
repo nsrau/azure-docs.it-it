@@ -1,8 +1,8 @@
 ---
 title: Domande frequenti su Azure Active Directory Connect Healtht | Microsoft Docs
-description: "Di seguito sono elencate le domande frequenti e le relative risposte su Azure AD Connect Health. In questa sezione sono contenute le domande sull'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto."
+description: Di seguito sono elencate le domande frequenti e le relative risposte su Azure AD Connect Health. In questa sezione sono contenute le domande sull'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 312980ded8fad84f2ea4a41078597dd3a6cb8ca7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b4c977b54c87276bd4b168bc56e70f3b918e6634
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Domande frequenti su Azure AD Connect Health
 Questo articolo include risposte alle domande frequenti su Azure Active Directory (Azure AD) Connect Health. Le domande sono relative all'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
@@ -175,6 +175,9 @@ CheckForMS17-010
 
 ```
 
+**D: Perché nei risultati del cmdlet di PowerShell <i>Get-MsolDirSyncProvisioningError</i> ci sono meno errori di sincronizzazione?**
+
+<i>Get-MsolDirSyncProvisioningError</i> restituisce solo errori di provisioning DirSync. Oltre a questo, il portale Connect Health mostra altri tipi di errore di sincronizzazione, ad esempio errori di esportazione, in conformità con i risultati Delta di Azure AD Connect. Ulteriori informazioni sugli [errori di sincronizzazione di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
 
 
 ## <a name="related-links"></a>Collegamenti correlati

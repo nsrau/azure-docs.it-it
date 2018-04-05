@@ -2,10 +2,10 @@
 title: Introduzione a PowerShell per Azure Batch | Microsoft Docs
 description: Breve introduzione ai cmdlet di Azure PowerShell da usare per gestire le risorse Batch.
 services: batch
-documentationcenter: 
-author: tamram
-manager: timlt
-editor: 
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: f9ad62c5-27bf-4e6b-a5bf-c5f5914e6199
 ms.service: batch
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e33be6ed658e00250ea1e80cd7da4d348fb18296
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6767257a540e4f29bb5445a718ad65a31e1f373e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gestire le risorse Batch con i cmdlet di PowerShell
 

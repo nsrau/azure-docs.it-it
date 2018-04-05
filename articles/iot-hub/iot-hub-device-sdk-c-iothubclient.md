@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: yizhon
-ms.openlocfilehash: 6efd2980ce4dde99d934b3fe174d341fb68fac03
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 0fa07b2a785bd7d1a26924918e4428fd420e1547
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Azure IoT SDK per dispositivi per C: altre informazioni su IoTHubClient
 Il [primo articolo](iot-hub-device-sdk-c-intro.md) di questa serie ha introdotto **Azure IoT SDK per dispositivi per C**. e spiegato che l'SDK comprende due livelli architetturali. Al livello di base è presente la libreria **IoTHubClient** che gestisce direttamente la comunicazione con l'hub IoT. È inclusa anche libreria **serializer**, che si basa sulla libreria IoTHubClient per fornire i servizi di serializzazione. In questo articolo sono forniti dettagli aggiuntivi sulla libreria **IoTHubClient**.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 L'articolo precedente descrive come usare la libreria **IoTHubClient** per inviare eventi all'hub IoT e ricevere messaggi. Questo articolo estende la discussione, spiegando come gestire con più precisione *quando* inviare e ricevere dati, introducendo le **API di livello inferiore**. Viene illustrato anche come associare le proprietà agli eventi, e recuperarle dai messaggi, usando le funzionalità di gestione delle proprietà nella libreria **IoTHubClient** . Saranno infine descritti diversi metodi aggiuntivi per gestire i messaggi ricevuti dall'hub IoT.
 

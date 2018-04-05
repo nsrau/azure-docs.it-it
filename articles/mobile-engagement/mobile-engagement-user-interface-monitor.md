@@ -2,10 +2,10 @@
 title: Interfaccia utente di Azure Mobile Engagement - Monitoraggio
 description: Informazioni su come monitorare in tempo reale i dati dell'applicazione usando Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b91ad89a-b89d-4377-abb0-cc2d16a2836d
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 5f8a02e35db93585e0fe46d77b3ad18b94c99597
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b370a5db1acee37ce234f5ec3f004be20719cfea
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-monitor-real-time-data-about-your-application"></a>Come monitorare in tempo reale i dati relativi all'applicazione
+> [!IMPORTANT]
+> Azure Mobile Engagement verrà ritirato il 31/03/2018. Questa pagina verrà eliminata subito dopo.
+> 
+
 In questo articolo viene descritta la scheda **MONITORAGGIO** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement** . 
 
 Nella sezione Monitoraggio dell'interfaccia utente vengono fornite informazioni di analisi in tempo reale ed è possibile impostare gli avvisi quando vengono raggiunte le soglie per la maggior parte delle informazioni cronologicamente disponibili anche nella sezione [ANALISI](mobile-engagement-user-interface-analytics.md) dell'interfaccia utente. Nella sezione **Glossario** nell'argomento [Concetti](http://go.microsoft.com/fwlink/?LinkId=525555) sono riportate le definizioni dei termini e delle abbreviazioni usati in Analisi e Monitoraggio, ad esempio: utente attivo, nuovo utente, utente assorbito, sessione, grafico percorso utenti, mapping utenti, URL di rilevamento, tendenze, attività, evento, processo, errore, informazioni supplementari, arresto anomalo e informazioni sull'app.

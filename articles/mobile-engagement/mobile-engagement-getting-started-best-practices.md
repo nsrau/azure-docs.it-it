@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dfce1183-6398-466e-aa7e-ed702fb52818
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf9dc5febeae27473d2adb8a024536b945bb9d13
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - Guida introduttiva con procedure consigliate
+> [!IMPORTANT]
+> Azure Mobile Engagement verrà ritirato il 31/03/2018. Questa pagina verrà eliminata subito dopo.
+> 
+
 ## <a name="overview"></a>Panoramica
 **Lo schermo del dispositivo mobile è uno spazio molto affollato:** Uno studio del 2013 ha evidenziato che in un dispositivo mobile sono installate in media 27 applicazioni. Gli utenti in genere hanno dedicato alle app 30 ore al mese, la maggior parte delle quali al social networking e ai giochi (circa 20 ore). Alla fine del 2014, gli utenti del mercato Android potevano scegliere tra circa 1,5 milioni di applicazioni. L'Apple Store conteneva circa 1,2 milioni di app. L'uso di app per dispositivi mobili continua ad aumentare grazie alla competizione tra gli sviluppatori in questo mercato in crescita. 
 

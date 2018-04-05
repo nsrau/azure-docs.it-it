@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c38223674061aa8c257e47b6208f890b7aef378d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrare il traffico di rete con gruppi di sicurezza di rete
 
@@ -123,10 +123,10 @@ A seconda del modello di distribuzione usato, è possibile associare un gruppo d
 
 | Documentazione di distribuzione | Classico | Gestione risorse |
 | --- | --- | --- |
-| Portale di Azure   | No  | [Sì](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell     | [Sì](virtual-networks-create-nsg-classic-ps.md) | [Sì](virtual-networks-create-nsg-arm-ps.md) |
-| Interfaccia della riga di comando di Azure **versione 1**   | [Sì](virtual-networks-create-nsg-classic-cli.md) | [Sì](virtual-networks-create-nsg-arm-cli.md) |
-| Interfaccia della riga di comando di Azure **versione 2**   | No  | [Sì](virtual-networks-create-nsg-arm-cli.md) |
+| Portale di Azure   | Sì | [Sì](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [Sì](virtual-networks-create-nsg-classic-ps.md) | [Sì](tutorial-filter-network-traffic.md) |
+| Interfaccia della riga di comando di Azure **versione 1**   | [Sì](virtual-networks-create-nsg-classic-cli.md) | [Sì](tutorial-filter-network-traffic-cli.md) |
+| Interfaccia della riga di comando di Azure **versione 2**   | No  | [Sì](tutorial-filter-network-traffic-cli.md) |
 | Modello di Azure Resource Manager   | No   | [Sì](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Pianificazione

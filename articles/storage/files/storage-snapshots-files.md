@@ -1,6 +1,6 @@
 ---
 title: Panoramica degli snapshot di condivisione per File di Azure (anteprima) | Microsoft Docs
-description: "Uno snapshot di condivisione è una versione di sola lettura di una condivisione di File di Azure, acquisita in un determinato momento per creare un backup della condivisione stessa."
+description: Uno snapshot di condivisione è una versione di sola lettura di una condivisione di File di Azure, acquisita in un determinato momento per eseguire un backup della condivisione stessa.
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c309804f33fc0e5b2091e18dfe5fe3c9849a2709
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 671e3737a620d85c732a091d5a62f35f35c1d515
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="overview-of-share-snapshots-for-azure-files-preview"></a>Panoramica degli snapshot di condivisione per File di Azure (anteprima)
-File di Azure consente di acquisire snapshot di condivisione delle condivisioni file. Gli snapshot di condivisione (anteprima) acquisiscono lo stato di condivisione nel momento specifico. In questo articolo vengono descritte le funzionalità offerte dagli snapshot di condivisione e come trarne vantaggio in un caso d'uso personalizzato.
+# <a name="overview-of-share-snapshots-for-azure-files"></a>Panoramica degli snapshot di condivisione per File di Azure 
+File di Azure consente di acquisire snapshot di condivisione delle condivisioni file. Gli snapshot di condivisione acquisiscono lo stato di condivisione in un momento specifico. In questo articolo vengono descritte le funzionalità offerte dagli snapshot di condivisione e come trarne vantaggio in un caso d'uso personalizzato.
 
 
 ## <a name="when-to-use-share-snapshots"></a>Quando usare gli snapshot di condivisione
@@ -48,7 +48,7 @@ Dopo aver creato uno snapshot di condivisione è possibile leggerlo, copiarlo o 
 
 La funzionalità snapshot di condivisione è disponibile a livello di condivisione di file. Il recupero è disponibile a livello di singolo file, per consentire il ripristino di file singoli. È possibile ripristinare una condivisione file completa usando SMB, l'API REST, il portale, la libreria client o gli strumenti di PowerShell o dell'interfaccia della riga di comando.
 
-Uno snapshot di una condivisione file è identico alla condivisione file di base. L'unica differenza sta nel fatto che all'URI della condivisione viene aggiunto un valore **DateTime** indicante l'ora di creazione dello snapshot di condivisione. Se ad esempio l'URI di una condivisione file è http://storagesample.core.file.windows.net/myshare, l'URI dello snapshot di condivisione è simile al seguente:
+Uno snapshot di una condivisione file è identico alla condivisione file di base. L'unica differenza sta nel fatto che all'URI della condivisione viene aggiunto un valore **DateTime** indicante l'ora di creazione dello snapshot di condivisione. Ad esempio, se l'URI di una condivisione file è http://storagesample.core.file.windows.net/myshare, l'URI dello snapshot di condivisione sarà simile al seguente:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -98,5 +98,5 @@ Gli snapshot di condivisione offrono solo la protezione a livello di file. Gli s
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Usare gli snapshot di condivisione](storage-how-to-use-files-snapshots.md)
-* [Domande frequenti sugli snapshot di condivisione](storage-files-faq.md)
+* [Domande frequenti sugli snapshot di condivisione](storage-files-faq.md#share-snapshots)
 

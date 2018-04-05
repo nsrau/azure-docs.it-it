@@ -1,11 +1,11 @@
 ---
 title: Gestione dei dispositivi con l'hub IoT di Azure | Documentazione Microsoft
-description: 'Panoramica della gestione dei dispositivi nell''hub IoT di Azure: modelli di gestione del ciclo di vita dei dispositivi aziendali, ad esempio riavvio, ripristino delle impostazioni predefinite, aggiornamento del firmware, configurazione, dispositivi gemelli, query e processi.'
+description: "Panoramica della gestione dei dispositivi nell'hub IoT di Azure: modelli di gestione del ciclo di vita dei dispositivi aziendali, ad esempio riavvio, ripristino delle impostazioni predefinite, aggiornamento del firmware, configurazione, dispositivi gemelli, query e processi."
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: bzurcher
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a367e715-55f6-4593-bd68-7863cbf0eb81
 ms.service: iot-hub
 ms.devlang: na
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 458b316ba76ff7cace56eb21eaf105233e508741
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 4fe4328314e23bbd1ace13e935f82336e1e602a9
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Panoramica della gestione dei dispositivi con l'hub IoT
-## <a name="introduction"></a>Introduzione
+
 L'hub IoT di Azure fornisce le funzionalità e un modello di estendibilità che consentono agli sviluppatori di dispositivi e sistemi di back-end di creare soluzioni affidabili per la gestione dei dispositivi. I dispositivi spaziano da sensori vincolati e microcontroller a scopo singolo, a potenti gateway che instradano le comunicazioni per gruppi di dispositivi.  Inoltre, i casi d'uso e i requisiti per gli operatori IoT variano notevolmente all'interno dei diversi settori.  Nonostante questa variabilità, la gestione dei dispositivi con l'hub IoT fornisce le funzionalità, i modelli e le librerie di codice necessari per soddisfare un insieme eterogeneo di dispositivi e utenti finali.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Una parte essenziale della creazione di una soluzione IoT enterprise è offrire una strategia per la gestione continuativa della raccolta di dispositivi da parte degli operatori. Gli operatori IoT necessitano di strumenti e applicazioni semplici e affidabili che consentano di concentrarsi sugli aspetti più strategici del loro lavoro. Questo articolo include:
 

@@ -2,21 +2,21 @@
 title: Effettuare il provisioning di un dispositivo X.509 simulato nell'hub IoT di Azure usando Node.js | Microsoft Docs
 description: Guida introduttiva di Azure - Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando Node.js Device SDK per il servizio Device Provisioning in hub IoT di Azure
 services: iot-dps
-keywords: 
+keywords: ''
 author: msebolt
 ms.author: v-masebo
 ms.date: 01/29/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a9ec0690467fa787fc1ef1bd95685a119c6eb6fb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8295ffe14446423ae2cc3de31616aa375a91e96c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando l'SDK per dispositivi Node.js per il servizio Device Provisioning in hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -27,6 +27,7 @@ Il provisioning dei dispositivi è costituito da due passaggi. Il primo consiste
 
 Questi passaggi illustrano come creare una voce di registrazione nel servizio Device Provisioning, simulare un dispositivo X.509 nel computer di sviluppo, connettere il dispositivo simulato al servizio Device Provisioning e registrare il dispositivo nell'hub IoT usando [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node).
 
+[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
 ## <a name="prepare-the-environment"></a>Preparare l'ambiente 
 

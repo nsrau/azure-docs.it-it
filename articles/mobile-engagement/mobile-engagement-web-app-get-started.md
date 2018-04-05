@@ -1,11 +1,11 @@
 ---
 title: Introduzione ad Azure Mobile Engagement per app Web | Documentazione Microsoft
-description: "Informazioni sull'uso di Azure Mobile Engagement con le funzionalità di analisi e notifiche push per le app Web."
+description: Informazioni sull'uso di Azure Mobile Engagement con le funzionalità di analisi e notifiche push per le app Web.
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 04afe53a-4caf-4c80-bd75-20cc630cd75c
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb7a0e61b6d29c292642fd950aed7617de9b340d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Introduzione ad Azure Mobile Engagement per app Web
+> [!IMPORTANT]
+> Azure Mobile Engagement verrà ritirato il 31/03/2018. Questa pagina verrà eliminata subito dopo.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Questo argomento illustra come usare Azure Mobile Engagement per conoscere l'utilizzo delle app Web.

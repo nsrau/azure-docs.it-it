@@ -1,11 +1,11 @@
 ---
 title: Cloud Cruiser e integrazione delle API di fatturazione di Microsoft Azure | Documentazione Microsoft
-description: "Fornisce un punto di vista unico del partner di fatturazione di Microsoft Azure, Cloud Cruiser, sulle esperienze di integrazione delle API di fatturazione di Azure nel prodotto.  Ciò è particolarmente utile per i clienti di Azure e Cloud Cruiser che sono interessati a utilizzare/provare Cloud Cruiser per Microsoft Azure Pack."
-services: 
-documentationcenter: 
-author: BryanLa
+description: Fornisce un punto di vista unico del partner di fatturazione di Microsoft Azure, Cloud Cruiser, sulle esperienze di integrazione delle API di fatturazione di Azure nel prodotto.  Ciò è particolarmente utile per i clienti di Azure e Cloud Cruiser che sono interessati a utilizzare/provare Cloud Cruiser per Microsoft Azure Pack.
+services: ''
+documentationcenter: ''
+author: tonguyen
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: mobandyo;sirishap;bryanla
-ms.openlocfilehash: 7d66cac98afa72c807f597403b1e2bd278e45cec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ddb81078e8019284c0481d4ea8d72253d3f0a5a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Cloud Cruiser e integrazione delle API di fatturazione di Microsoft Azure
 In questo articolo viene descritto in che modo le informazioni raccolte dalle nuove API di fatturazione di Microsoft Azure possono essere utilizzate in Cloud Cruiser per l'analisi e la simulazione dei costi e l’analisi dei flussi di lavoro.

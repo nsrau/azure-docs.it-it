@@ -2,10 +2,10 @@
 title: Eseguire il backup di file e cartelle da Windows in Azure (Resource Manager) | Microsoft Docs
 description: Informazioni su come eseguire il backup di file e cartelle di Windows in Azure in una distribuzione Resource Manager.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 keywords: come eseguire il backup; procedura di backup; backup di file e cartelle
 ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.openlocfilehash: bb631eff77932b6bdcf858256c47c9d7381a58c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 55f83bda1a9de9274194ec220fa9a4a5c8b7f0fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Primi passi: eseguire il backup di file e cartelle in una distribuzione Resource Manager
 Questo articolo illustra come eseguire il backup di file e cartelle di Windows Server o di un computer Windows in Azure usando una distribuzione Resource Manager. Si tratta di un'esercitazione che illustra le informazioni di base, l'ideale per iniziare a usare Backup di Azure.
@@ -33,7 +33,7 @@ Per eseguire il backup dei file e delle cartelle, è necessario creare un insiem
 
 ### <a name="to-create-a-recovery-services-vault"></a>Per creare un insieme di credenziali di Servizi di ripristino
 1. Se questa operazione non è già stata eseguita, accedere al [portale di Azure](https://portal.azure.com/) , tramite la sottoscrizione di Azure.
-2. Fare clic su **Tutti i servizi** nel menu Hub e nell'elenco di risorse digitare **Servizi di ripristino**, quindi fare clic su **Insiemi di credenziali di Servizi di ripristino**.
+2. Fare clic su **Tutti i servizi** nel menu Hub e nell'elenco di risorse digitare **Servizi di ripristino**, quindi fare clic su **Insiemi di credenziali dei servizi di ripristino**.
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -87,7 +87,7 @@ Quando si crea un insieme di credenziali dei Servizi di ripristino, assicurarsi 
 
     ![opzioni di configurazione dell'archiviazione](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Per impostazione predefinita, l'insieme di credenziali prevede l'archiviazione con ridondanza geografica. Se si usa Azure come endpoint di archiviazione di backup primario, continuare a usare l'opzione **Con ridondanza geografica**. Se non si usa Azure come endpoint di archiviazione di backup primario, scegliere l'opzione **Con ridondanza locale**, che riduce i costi di archiviazione di Azure. Per altre informazioni sulle opzioni di archiviazione [con ridondanza geografica](../storage/common/storage-redundancy.md#geo-redundant-storage) e [con ridondanza locale](../storage/common/storage-redundancy.md#locally-redundant-storage), vedere [Panoramica della ridondanza di archiviazione](../storage/common/storage-redundancy.md).
+    Per impostazione predefinita, l'insieme di credenziali prevede l'archiviazione con ridondanza geografica. Se si usa Azure come endpoint di archiviazione di backup primario, continuare a usare l'opzione **Con ridondanza geografica**. Se non si usa Azure come endpoint di archiviazione di backup primario, scegliere l'opzione **Con ridondanza locale**, che riduce i costi di archiviazione di Azure. Per altre informazioni sulle opzioni di archiviazione [con ridondanza geografica](../storage/common/storage-redundancy-grs.md) e [con ridondanza locale](../storage/common/storage-redundancy-lrs.md), vedere [Panoramica della ridondanza di archiviazione](../storage/common/storage-redundancy.md).
 
 Dopo aver creato un insieme di credenziali, configurarlo per il backup di file e cartelle.
 

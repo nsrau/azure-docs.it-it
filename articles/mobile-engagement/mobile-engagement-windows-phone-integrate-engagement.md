@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 447fea8d-f4e3-4ad4-8ec0-8e3cf1ad3ab0
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 72a581643ccde55f8b849c511c3365e029d7cbcb
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: f041f19ceff366a34b1761bfdca12242f4bdf9b8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-phone-silverlight-engagement-sdk-integration"></a>Integrazione di Mobile Engagement SDK per Windows Phone Silverlight
+> [!IMPORTANT]
+> Azure Mobile Engagement verrà ritirato il 31/03/2018. Questa pagina verrà eliminata subito dopo.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
@@ -72,7 +76,7 @@ Se si desidera specificarla in fase di esecuzione, è possibile chiamare il meto
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(engagementConfiguration);
 
-La stringa di connessione per l'applicazione viene visualizzata sul portale di Azure.
+La stringa di connessione per l'applicazione viene visualizzata nel portale di Azure.
 
 ### <a name="engagement-initialization"></a>Inizializzazione di Engagement
 Quando si crea un nuovo progetto, viene generato un file `App.xaml.cs` . Questa classe eredita da `Application` e contiene molti metodi importanti. Verrà inoltre usata per inizializzare Engagement SDK.

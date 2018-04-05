@@ -3,11 +3,11 @@ title: Creare una definizione OpenAPI per una funzione | Microsoft Docs
 description: Creare una definizione OpenAPI che consente ad altri servizi e app di chiamare la funzione in Azure.
 services: functions
 keywords: OpenAPI, Swagger, app cloud, servizi cloud
-documentationcenter: 
+documentationcenter: ''
 author: mgblythe
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: mblythe; glenga
-ms.custom: mvc
-ms.openlocfilehash: 29e78bbb8e3d4d4feb3f7d32cf0a5ef1b02a6268
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.custom: mvc, cc996988-fb4f-47
+ms.openlocfilehash: 8caea30196a7ecdd4226b18963cd8b2040dc7e35
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Creare una definizione OpenAPI per una funzione
 Le API REST vengono spesso descritte usando una definizione OpenAPI (detta in precedenza file [Swagger](http://swagger.io/)). Questa definizione contiene informazioni sulle operazioni disponibili in un'API e su come devono essere strutturati i dati della richiesta e della risposta per l'API.
@@ -40,8 +40,6 @@ In questa esercitazione si apprenderà come:
 Per ospitare l'esecuzione delle funzioni è necessaria un'app per le funzioni. Un'app per le funzioni consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione, il ridimensionamento e la condivisione delle risorse. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 
 ## <a name="create-the-function"></a>Creare la funzione

@@ -3,10 +3,9 @@ title: Creare un monitoraggio dei processi di Analisi di flusso a livello di cod
 description: Informazioni su come monitorare a livello di programmazione i processi di analisi di flusso creati tramite le API REST, Azure SDK o PowerShell.
 keywords: monitoraggio .net, monitoraggio processi, monitoraggio app
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 2ec02cc9-4ca5-4a25-ae60-c44be9ad4835
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: 7e9d2f6f03fd539c59b105108fb46697bcd60f1c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: a619120b2d30284633ba5248edd0b82bb1bf656b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Creare un monitoraggio dei processi di Analisi di flusso a livello di codice
 

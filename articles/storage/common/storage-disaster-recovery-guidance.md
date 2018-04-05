@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: 66406ed327f496dce7e77bb9ff650e0eec44bbdd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3c313025917bba06675d3b2d844a6740fab89fbc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Cosa fare se si verifica un'interruzione di Archiviazione di Azure
 Microsoft si impegna costantemente per verificare che i servizi siano sempre disponibili. A volte si verificano eventi al di fuori del controllo di Microsoft, che causano interruzioni non pianificate dei servizi in una o più aree. Per riuscire a gestire questi sporadici avvenimenti, viene fornita la guida generale seguente per i servizi di Archiviazione di Azure.
@@ -42,10 +42,10 @@ Se uno o più servizi di archiviazione sono temporaneamente non disponibili in u
 In tal caso, non è necessaria alcuna azione da parte dell'utente. Si sta lavorando per ripristinare la disponibilità dei servizi di Azure. È possibile monitorare lo stato dei servizi nel [Dashboard per l'integrità dei servizi di Azure](https://azure.microsoft.com/status/).
 
 ### <a name="option-2-copy-data-from-secondary"></a>Opzione 2: Copiare i dati dall'area secondaria
-Se si è scelto [Archiviazione con ridondanza geografica e accesso in lettura](storage-redundancy.md#read-access-geo-redundant-storage) (consigliato) per gli account di archiviazione, si avrà l'accesso in lettura ai dati dall'area secondaria. È possibile usare strumenti come [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) e la [libreria di spostamento dei dati di Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) per copiare i dati dall'area secondaria in un altro account di archiviazione in un'area non interessata e quindi indirizzare le applicazioni a tale account di archiviazione per la disponibilità sia in lettura che in scrittura.
+Se si è scelto [Archiviazione con ridondanza geografica e accesso in lettura](storage-redundancy-grs.md#read-access-geo-redundant-storage) (consigliato) per gli account di archiviazione, si avrà l'accesso in lettura ai dati dall'area secondaria. È possibile usare strumenti come [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) e la [libreria di spostamento dei dati di Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) per copiare i dati dall'area secondaria in un altro account di archiviazione in un'area non interessata e quindi indirizzare le applicazioni a tale account di archiviazione per la disponibilità sia in lettura che in scrittura.
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Cosa aspettarsi se si verifica un failover dell'archiviazione
-Se si è scelta l'opzione [Archiviazione con ridondanza geografica](storage-redundancy.md#geo-redundant-storage) o [Archiviazione con ridondanza geografica e accesso in lettura](storage-redundancy.md#read-access-geo-redundant-storage) (consigliato), Archiviazione di Azure manterrà i dati persistenti in due aree (primaria e secondaria). In entrambe le aree Archiviazione di Azure mantiene costantemente più repliche dei dati.
+Se si è scelta l'opzione [Archiviazione con ridondanza geografica](storage-redundancy-grs.md) o [Archiviazione con ridondanza geografica e accesso in lettura](storage-redundancy-grs.md#read-access-geo-redundant-storage) (consigliato), Archiviazione di Azure manterrà i dati persistenti in due aree (primaria e secondaria). In entrambe le aree Archiviazione di Azure mantiene costantemente più repliche dei dati.
 
 Quando un'emergenza locale colpisce l'area primaria, per prima cosa si cercherà di ripristinare il servizio in tale area. A seconda della natura e delle conseguenze dell'emergenza, in alcuni rari casi potrebbe non essere possibile ripristinare l'area primaria. A quel punto, verrà eseguito un failover geografico. La replica dei dati tra aree è un processo asincrono che può comportare un ritardo, quindi è possibile che le modifiche non ancora replicate nell'area secondaria vadano perse. È possibile effettuare una query del valore ["Ora ultima sincronizzazione" dell'account di archiviazione](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) per ottenere i dettagli sullo stato di replica.
 

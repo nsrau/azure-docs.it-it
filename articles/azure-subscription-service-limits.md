@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 3218778640acc5d08cef94849e25323650c42c6c
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f8b97aeb4c37578b884c924bd1919a59fa0f1cf8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo l'elenco verrà ampliato e aggiornato in modo da coprire un maggior numero di servizi della piattaforma.
@@ -71,7 +71,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Hub IoT](#iot-hub-limits)
 * [Servizio Device Provisioning in hub IoT](#iot-hub-device-provisioning-service-limits)
 * [Insieme di credenziali di chiave](#key-vault-limits)
-* [Log Analytics/Operational Insights](#log-analytics-limits)
+* [Log Analytics](#log-analytics-limits)
 * [Servizi multimediali](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Servizi mobili](#mobile-services-limits)

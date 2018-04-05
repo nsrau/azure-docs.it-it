@@ -2,7 +2,7 @@
 title: 'Python: Operazioni di gestione di account in Azure Data Lake Store | Microsoft Docs'
 description: Informazioni su come usare Python SDK con le operazioni di gestione di account di Data Lake Store.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 834dbc93348e00b0a0821bcbca989b0c2d539056
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 5f060dfd061af07f220576f17110afccd01fdae5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Operazioni di gestione di account in Azure Data Lake Store con Python
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Informazioni su come usare Python SDK per Azure Data Lake Store per eseguire ope
 Per gestire Data Lake Store usando Python, è necessario installare tre moduli.
 
 * Il modulo `azure-mgmt-resource` che include i moduli di Azure per Active Directory e così via.
-* Il modulo `azure-mgmt-datalake-store` che include le operazioni di gestione di account di Azure Data Lake Store. Per altre informazioni su questo modulo, vedere la [documentazione di riferimento al modulo di gestione di Azure Data Lake Store](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
+* Il modulo `azure-mgmt-datalake-store` che include le operazioni di gestione di account di Azure Data Lake Store. Per altre informazioni su questo modulo, vedere la [documentazione di riferimento al modulo di gestione di Azure Data Lake Store](http://azure-sdk-for-python.readthedocs.io/sample_azure-mgmt-datalake-store.html).
 * Il modulo `azure-datalake-store` che include le operazioni di gestione del file system di Azure Data Lake Store. Per altre informazioni su questo modulo, vedere la [documentazione di riferimento al modulo del file system di Azure Data Lake Store](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Per installare i moduli, usare i comandi seguenti.

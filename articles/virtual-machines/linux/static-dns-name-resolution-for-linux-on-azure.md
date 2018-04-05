@@ -1,5 +1,5 @@
 ---
-title: Usare il DNS interno per la risoluzione dei nomi di VM con l'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
+title: Usare il DNS interno per la risoluzione dei nomi di VM con l'interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
 description: Come creare schede di interfaccia di rete virtuale e usare DNS interni per la risoluzione dei nomi di VM in Azure con l'interfaccia della riga di comando di Azure 2.0
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: bb7234b6b046963a6b3a649cc521655b88cd9875
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a17a82aa9bc31997d52aa41f387f95d7a8ae4ae2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Creare schede di interfaccia di rete virtuale e usare DNS interni per la risoluzione dei nomi di VM in Azure
 Questo articolo illustra come impostare nomi DNS interni statici per VM Linux usando schede di interfaccia di rete virtuale (vNic) e nomi di etichette DNS con l'interfaccia della riga di comando di Azure 2.0. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Si ricorre ai nomi DNS statici per i servizi di infrastruttura permanenti, ad esempio per un server di compilazione Jenkins, usato per questo documento, o un server Git.
@@ -90,7 +90,7 @@ az network vnet create \
 ```
 
 ## <a name="create-the-network-security-group"></a>Creare il gruppo di sicurezza di rete
-I gruppi di sicurezza di rete di Azure sono analoghi a un firewall a livello di rete. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Come creare gruppi di sicurezza di rete nell'interfaccia della riga di comando di Azure](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+I gruppi di sicurezza di rete di Azure sono analoghi a un firewall a livello di rete. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Come creare gruppi di sicurezza di rete nell'interfaccia della riga di comando di Azure](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 Creare il gruppo di sicurezza di rete con [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). Nell'esempio seguente viene creato un gruppo di sicurezza di rete denominato `myNetworkSecurityGroup`:
 

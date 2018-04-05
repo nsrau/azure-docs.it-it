@@ -2,19 +2,19 @@
 title: Informazioni sull'archiviazione su dischi non gestiti (BLOB di pagine) e gestiti per le VM Windows di Microsoft Azure | Microsoft Docs
 description: Informazioni di base sull'archiviazione su dischi non gestiti (BLOB di pagine) e gestiti per le macchine virtuali Windows in Azure.
 services: virtual-machines
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 ms.service: virtual-machines
 ms.workload: storage
 ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: iainfou
-ms.openlocfilehash: bf5c5cc0637b9a515bf567ff8933170d7fc1a8ba
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.author: rogarana
+ms.openlocfilehash: 3d82416b7382b8e09706fd7fb8af9e1d3fe79f01
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Informazioni sull'archiviazione su dischi per le VM Windows di Azure
 Analogamente a qualsiasi altro computer, le macchine virtuali in Azure utilizzano i dischi come posizioni per archiviare un sistema operativo, le applicazioni e i dati. Tutte le macchine virtuali di Azure dispongono di almeno due dischi: un disco del sistema operativo Windows e un disco temporaneo. Il disco del sistema operativo viene creato da un'immagine e sia il disco del sistema operativo sia l'immagine sono dischi rigidi virtuali archiviati in un account di archiviazione di Azure. Anche le macchine virtuali possono disporre di uno o più dischi dati archiviati in dischi rigidi virtuali. 

@@ -7,15 +7,15 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/24/2018
 ms.author: sujayt
-ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 30ee269b3f484256001af211181a517821d79617
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica da Azure ad Azure
+# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice di supporto per la replica da un'area di Azure a un'altra
 
 
 >[!NOTE]
@@ -148,7 +148,7 @@ Macchine virtuali migrate tramite Site Recovery | Supportato | Se si tratta di u
 --- | --- | ---
 Dimensioni massime del disco del sistema operativo | 2048 GB | Vedere [Dischi usati dalle VM.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Dimensioni massime del disco dati | 4095 GB | Vedere [Dischi usati dalle VM.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
-Numero di dischi dati | Fino a 64 come supportato da una dimensione specifica di una macchina virtuale di Azure | Vedere [Dimensioni delle macchine virtuali di Azure](../virtual-machines/windows/sizes.md)
+Numero di dischi dati | Fino a 64 a seconda del numero massimo di dischi supportato in base alle specifiche dimensioni della macchina virtuale di Azure | Vedere [Dimensioni delle macchine virtuali di Azure](../virtual-machines/windows/sizes.md)
 Disco temporaneo | Sempre escluso dalla replica | Il disco temporaneo è sempre escluso dalla replica. Non è opportuno inserire dati persistenti su un disco temporaneo in base alle indicazioni di Azure. Vedere [Disco temporaneo sulle macchine virtuali di Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) per ulteriori dettagli.
 Frequenza di modifica dei dati sul disco | Un massimo di 10 MBps per disco per l'archiviazione Premium e di 2 MBps per disco per l'archiviazione Standard | Se la frequenza media di modifica dei dati nel disco supera costantemente 10 MBps (Premium) e 2 MBps (Standard), la replica non viene aggiornata. Se invece si tratta di un picco di dati occasionale e la frequenza di modifica dei dati supera i 10 MBps (Premium) e 2 MBps (Standard) solo per un breve intervallo, la replica viene aggiornata. In questo caso, potrebbero verificarsi punti di ripristino leggermente ritardati.
 Dischi su account di archiviazione standard | Supportato |
@@ -174,12 +174,12 @@ Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) 
 ## <a name="support-for-network-configuration"></a>Supporto per la configurazione di rete
 **Configurazione** | **Supportato/Non supportato** | **Osservazioni:**
 --- | --- | ---
-Interfaccia di rete (NIC) | Fino al numero massimo di schede di rete supportato da dimensioni specifiche delle macchine virtuali di Azure | Le schede di rete vengono create quando viene creata la macchina virtuale nell'ambito dell'operazione di failover o del failover di test. Il numero di schede di rete sulla macchina virtuale di failover dipende dal numero di schede di rete di cui dispone la macchina virtuale quando viene abilitata la replica. Eventuali aggiunte o rimozioni di schede di rete dopo aver abilitato la replica non influiscono sul numero di schede di rete sulla macchina virtuale di failover.
+Interfaccia di rete (NIC) | Fino al numero massimo di schede di rete supportato in base alle specifiche dimensioni della macchina virtuale di Azure | Le schede di rete vengono create quando viene creata la macchina virtuale nell'ambito dell'operazione di failover o del failover di test. Il numero di schede di rete sulla macchina virtuale di failover dipende dal numero di schede di rete di cui dispone la macchina virtuale quando viene abilitata la replica. Eventuali aggiunte o rimozioni di schede di rete dopo aver abilitato la replica non influiscono sul numero di schede di rete sulla macchina virtuale di failover.
 Servizio di bilanciamento del carico Internet | Supportato | È necessario associare il servizio di bilanciamento del carico preconfigurato tramite uno script di automazione di Azure in un piano di ripristino.
 Servizio di bilanciamento del carico interno | Supportato | È necessario associare il servizio di bilanciamento del carico preconfigurato tramite uno script di automazione di Azure in un piano di ripristino.
 IP pubblico| Supportato | È necessario associare un IP pubblico esistente alla scheda di rete o crearne uno e associarlo alla scheda di rete tramite uno script di automazione di Azure in un piano di ripristino.
 Gruppo di sicurezza di rete (NSG) sulla scheda di rete (Resource Manager)| Supportato | È necessario associare il gruppo di sicurezza di rete alla scheda di rete tramite uno script di automazione di Azure in un piano di ripristino.  
-Gruppo di sicurezza di rete (NSG) sulla subnet (Resource Manager e classica)| Supportato | È necessario associare il gruppo di sicurezza di rete alla scheda di rete tramite uno script di automazione di Azure in un piano di ripristino.
+Gruppo di sicurezza di rete (NSG) sulla subnet (Resource Manager e classica)| Supportato | È necessario associare il gruppo di sicurezza di rete alla subnet tramite uno script di automazione di Azure in un piano di ripristino.
 Gruppo di sicurezza di rete (NSG) sulla macchina virtuale (classica)| Supportato | È necessario associare il gruppo di sicurezza di rete alla scheda di rete tramite uno script di automazione di Azure in un piano di ripristino.
 IP riservato (IP statico) / Mantieni IP di origine | Supportato | Se la scheda di rete sulla macchina virtuale di origine presenta una configurazione di IP statico e la subnet di destinazione dispone dello stesso IP, viene assegnato alla macchina virtuale di failover. Se la subnet di destinazione non dispone dello stesso IP, uno degli IP disponibili nella subnet viene riservato per questa macchina virtuale. È possibile specificare un IP fisso a scelta in 'Elemento replicato > Impostazioni > Calcolo e rete > Interfacce di rete'. È possibile selezionare la scheda di rete e specificare la subnet e l'IP di propria scelta.
 IP dinamico| Supportato | Se la scheda di rete nella macchina virtuale di origine presenta una configurazione di IP dinamico, anche la scheda di rete sulla macchina virtuale di failover è dinamica per impostazione predefinita. È possibile specificare un IP fisso a scelta in 'Elemento replicato > Impostazioni > Calcolo e rete > Interfacce di rete'. È possibile selezionare la scheda di rete e specificare la subnet e l'IP di propria scelta.

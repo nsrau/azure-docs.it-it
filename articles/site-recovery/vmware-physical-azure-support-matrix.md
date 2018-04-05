@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/20/2018
 ms.author: raynew
-ms.openlocfilehash: c4fb466443e2f29fb79c3707ce142895f140f9a7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6f2f28b36fdb3751a469d66f242f9fa2119f9ae8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrice di supporto per la replica di VM VMware e server fisici in Azure
 
@@ -175,7 +175,7 @@ Architettura del sistema operativo guest | 64 bit. | Il controllo ha esito negat
 Dimensioni disco del sistema operativo | Fino a 2.048 GB. | Il controllo ha esito negativo se non supportato. 
 Conteggio dischi del sistema operativo | 1 | Il controllo ha esito negativo se non supportato.  
 Conteggio dischi dati | 64 o un numero inferiore. | Il controllo ha esito negativo se non supportato.  
-Dimensioni VHD dischi dati | Fino a 4.095 GB | Il controllo ha esito negativo se non supportato. 
+Dimensioni del disco dati | Fino a 4.095 GB | Il controllo ha esito negativo se non supportato. 
 Schede di rete | Sono supportate più schede. | 
 VHD condiviso | Non supportati. | Il controllo ha esito negativo se non supportato. 
 Disco FC | Non supportati. | Il controllo ha esito negativo se non supportato. 

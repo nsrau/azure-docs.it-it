@@ -8,14 +8,14 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 7607a3e60eec39de61c785b8ff75a9f11fa02d0c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 04/01/2018
+ms.openlocfilehash: 0d67bf5625ee9037c5ec152c8ce8564235018e8e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per PostgreSQL usando il portale di Azure
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per PostgreSQL usando il portale di Azure
 
 ## <a name="backup-happens-automatically"></a>Il backup viene eseguito automaticamente
 Il backup dei server Database di Azure per PostgreSQL viene eseguito periodicamente per abilitare le funzionalità di ripristino. L'uso di questa funzionalità consente di ripristinare il server e tutti i suoi database a un momento precedente nel nuovo server.
@@ -45,7 +45,7 @@ Nello screenshot seguente, il periodo è stato aumentato a 34 giorni.
 
 Il periodo di conservazione dei backup determina quanto è possibile tornare indietro nel tempo con un ripristino temporizzato, essendo il ripristino basato sui backup disponibili. Il ripristino temporizzato è descritto con altri dettagli nella sezione seguente. 
 
-## <a name="point-in-time-restore-in-the-azure-portal"></a>Ripristino temporizzato nel portale di Azure
+## <a name="point-in-time-restore"></a>Ripristino temporizzato
 Database di Azure per PostgreSQL consente di ripristinare il server a un momento specifico e in una nuova copia del server. È possibile usare questo nuovo server per ripristinare i dati oppure configurare le applicazioni perché puntino al nuovo server.
 
 Ad esempio, se oggi una tabella è stata accidentalmente eliminata a mezzogiorno, è possibile eseguire il ripristino a un'ora prima di mezzogiorno per recuperare la tabella e i dati mancanti dalla nuova copia del server. Il ripristino temporizzato viene eseguito a livello di server, non a livello di database.
@@ -71,6 +71,22 @@ La procedura seguente consente di ripristinare il server di esempio a un momento
 
 >[!Note]
 >Il nuovo server creato con il ripristino temporizzato ha il nome e la password di accesso dell'amministratore validi per il server esistente nel momento scelto per il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
+
+## <a name="geo-restore"></a>Ripristino geografico
+Se il server è stato configurato per backup con ridondanza geografica, è possibile creare un nuovo server dal backup di quel server esistente. Questo nuovo server può essere creato in qualsiasi area in cui è disponibile Database di Azure per PostgreSQL.  
+
+1. Selezionare il pulsante **Crea una risorsa** (+) nell'angolo superiore sinistro del portale. Selezionare **Database** > **Database di Azure per PostgreSQL**.
+
+   ![Opzione "Database di Azure per PostgreSQL"](./media/howto-restore-server-portal/1-navigate-to-postgres.png)
+
+2. Nell'elenco a discesa **Seleziona origine** scegliere **Backup**. Questa azione consente di caricare un elenco di server per i quali è stato abilitato il backup con ridondanza geografica. Selezionare uno di questi backup come origine del nuovo server.
+   ![Opzione Seleziona origine: Backup ed elenco di backup con ridondanza geografica](./media/howto-restore-server-portal/2-georestore.png)
+
+3. Compilare il resto del modulo con le proprie preferenze. È possibile selezionare qualsiasi **posizione**. Dopo aver selezionato la posizione è possibile selezionare **Piano tariffario**. Per impostazione predefinita vengono visualizzati i parametri del server esistente dal quale si esegue il ripristino. È possibile fare clic su **OK** senza apportare alcuna modifica per ereditare tali impostazioni. In alternativa è possibile modificare la **generazione di calcolo** (se disponibile nell'area selezionata), il numero di **vCore**, il **periodo di conservazione dei backup** e l'**opzione di ridondanza dei backup**. La modifica del **piano tariffario** (Basic, Utilizzo generico o Con ottimizzazione per la memoria) o delle dimensioni della **risorsa di archiviazione** non è supportata durante il ripristino.
+
+>[!Note]
+>Il nuovo server creato con il ripristino geografico ha il nome e la password di accesso dell'amministratore validi per il server esistente al momento dell'avvio del ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sui [backup](concepts-backup.md) del servizio.

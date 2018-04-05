@@ -3,10 +3,9 @@ title: 'Connessione dati: input di flussi di dati da un flusso di eventi | Micro
 description: Informazioni sulla configurazione di una connessione dati ad Analisi di flusso denominata 'input'. Gli input includono un flusso di dati dagli eventi, oltre a dati di riferimento.
 keywords: flusso di dati, connessione dati, flusso di eventi
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/11/2017
 ms.author: sngun
-ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 0ddc3187e9fc0664838dd07f781f4d7e2e4a7fe0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Connessione dati: informazioni sugli input del flusso di dati dagli eventi ad Analisi di flusso
 La connessione dati a un processo di Analisi di flusso è un flusso di eventi da un'origine dati, definito *input* del processo. Analisi di flusso si integra perfettamente con le origini del flusso dei dati di Azure, come [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), [Hub IoT di Azure](https://azure.microsoft.com/services/iot-hub/) e [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/). Queste origini di input possono appartenere alla stessa sottoscrizione di Azure del processo di analisi o a un'altra sottoscrizione.

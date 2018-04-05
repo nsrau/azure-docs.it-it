@@ -2,10 +2,10 @@
 title: Creare un'app Azure Mobile Engagement | Documentazione Microsoft
 description: Descrive come creare una nuova Raccolta di app di Mobile Engagement in Azure e iniziare a gestire le app tramite il portale di Mobile Engagement.
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b8aa1798-28c6-424c-a5b5-8a264d5a0ff0
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
-ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f47133a466f00de43ebfb2652eaf9058899f140
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>Creare un'app Azure Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement verrà ritirato il 31/03/2018. Questa pagina verrà eliminata subito dopo.
+> 
+
 Questo articolo descrive come usare il metodo **Creazione rapida** per creare una nuova app **Azure Mobile Engagement**. Illustra inoltre come accedere al portale di **Mobile Engagement** per iniziare a monitorare e gestire le app. 
 
 Tenere presente che è necessario aggiungere un set minimo di "integrazione di base" per poter raccogliere i dati necessari per l'app e per inviare notifiche push. La documentazione completa relativa all'integrazione è disponibile nell'articolo [Integrazione di Mobile Engagement](mobile-engagement-windows-store-integrate-engagement.md).

@@ -13,15 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: d265d35c7d5a394afa0e59f40ff1a5741e0ec35c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 670cf45a48ca4b72576cedddd4678c0d569401cd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Inviare messaggi da cloud a dispositivo dall'hub IoT
 
 Per inviare notifiche unidirezionali all'app del dispositivo dal back-end della soluzione, inviare messaggi da cloud a dispositivo dall'hub IoT al dispositivo. Per una descrizione delle altre opzioni da cloud a dispositivo supportate dall'hub IoT, vedere [Indicazioni sulle comunicazioni da cloud a dispositivo][lnk-c2d-guidance].
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 È possibile inviare messaggi da cloud a dispositivo tramite un endpoint per il servizio (**/messages/servicebound**). Il dispositivo li riceve tramite un endpoint specifico per il dispositivo (**/devices/{deviceId}/messages/devicebound**).
 

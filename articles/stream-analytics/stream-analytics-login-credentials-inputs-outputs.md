@@ -1,12 +1,11 @@
 ---
 title: 'Analisi di flusso: Ruotare le credenziali di accesso per input e output | Microsoft Docs'
-description: Informazioni su come aggiornare le credenziali di input e output di Analisi di flusso.
+description: Informazioni su come aggiornare le credenziali di input e output di Analisi dei flussi.
 keywords: credenziali di accesso
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: 42ae83e1-cd33-49bb-a455-a39a7c151ea4
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/11/2018
 ms.author: sngun
-ms.openlocfilehash: c1aded8fefc7b56acd2e9ff36bb2c9641665db76
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: d01e5d9f0bbfe6ca3ef8511aeb813cead3809f04
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Ruotare le credenziali di accesso per input e output in un processo di Analisi di flusso
 
@@ -87,8 +86,8 @@ Se è necessario connettersi al database SQL per aggiornare le credenziali di ac
    ![Avviare il processo](media/stream-analytics-login-credentials-inputs-outputs/image5.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Introduzione ad Analisi di flusso di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)
-* [Ridimensionare i processi di Analisi di flusso di Azure](stream-analytics-scale-jobs.md)
+* [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
+* [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

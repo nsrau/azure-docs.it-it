@@ -1,22 +1,22 @@
 ---
-title: "Evento di avvio attività di Azure Batch | Microsoft Docs"
-description: "Riferimento per l'evento di avvio dell'attività batch."
+title: Evento di avvio attività di Azure Batch | Microsoft Docs
+description: Riferimento per l'evento di avvio dell'attività batch.
 services: batch
-author: tamram
-manager: timlt
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: tamram
-ms.openlocfilehash: c47ab36c99dddd46a14c15018a2a46bf7f873ffa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: 0ad0f87df9db39088769579d538b919b42634c4b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="task-start-event"></a>Evento di avvio attività
 

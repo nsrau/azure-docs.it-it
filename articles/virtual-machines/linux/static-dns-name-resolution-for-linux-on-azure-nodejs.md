@@ -1,5 +1,5 @@
 ---
-title: Uso del DNS interno per la risoluzione dei nomi di macchine virtuali in Azure | Microsoft Docs
+title: Uso del DNS interno per la risoluzione dei nomi di macchine virtuali in Azure | Documentazione Microsoft
 description: Uso del DNS interno per la risoluzione dei nomi di macchine virtuali in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
 ms.author: v-livech
-ms.openlocfilehash: e73e780123f4582c9fa78975324e7904c85f87be
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6072374cd7a37df6d7cc75479e24996dff3ee667
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>Uso del DNS interno per la risoluzione dei nomi di macchine virtuali in Azure
 
@@ -105,7 +105,7 @@ azure network vnet create myVNet \
 
 ## <a name="create-the-nsg"></a>Creare il gruppo di sicurezza di rete
 
-La subnet è protetta da un gruppo di sicurezza di rete esistente che viene creato prima della subnet.  I gruppi di sicurezza di rete di Azure sono analoghi ai firewall a livello di rete.  Per altre informazioni sui gruppi di sicurezza di Azure, vedere [Come creare gruppi di sicurezza di rete nell'interfaccia della riga di comando di Azure](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+La subnet è protetta da un gruppo di sicurezza di rete esistente che viene creato prima della subnet.  I gruppi di sicurezza di rete di Azure sono analoghi ai firewall a livello di rete.  Per altre informazioni sui gruppi di sicurezza di Azure, vedere [Come creare gruppi di sicurezza di rete nell'interfaccia della riga di comando di Azure](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ```azurecli
 azure network nsg create myNSG \

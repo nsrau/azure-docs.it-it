@@ -1,12 +1,12 @@
 ---
 title: Impostare come scaduti i dati in Cosmos DB usando la durata (TTL) | Microsoft Docs
-description: "Con l'impostazione TTL, Microsoft Azure Cosmos DB offre la possibilità di eliminare automaticamente i documenti dal sistema dopo un periodo di tempo determinato."
+description: Con l'impostazione TTL, Microsoft Azure Cosmos DB offre la possibilità di eliminare automaticamente i documenti dal sistema dopo un periodo di tempo determinato.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 keywords: Durata (TTL)
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 3737a240d92d9420bac7d42475622182fb425a2b
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 6f8ce4e270b94bf1043c27ba879878e20372ffe7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Impostare automaticamente come scaduti i dati nelle raccolte di Cosmos DB usando la durata (TTL)
 Le applicazioni posso produrre e archiviare grandi quantità di dati. Alcuni di questi, come i dati eventi generati da computer, i registri e le informazioni sulle sessioni utente sono utili per un periodo di tempo limitato. Quando i dati eccedono le esigenze dell'applicazione è possibile eliminarli e ridurre le risorse di archiviazione necessarie per l'applicazione.

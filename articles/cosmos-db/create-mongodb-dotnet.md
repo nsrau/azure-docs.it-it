@@ -1,57 +1,57 @@
 ---
-title: 'Azure Cosmos DB: Creare un''app Web con .NET e l''API MongoDB | Microsoft Docs'
+title: "Azure Cosmos DB: Creare un'app Web con .NET e l'API MongoDB | Microsoft Docs"
 description: Presenta un esempio di codice .NET che permette di connettersi all'API MongoDB di Azure Cosmos DB ed eseguire query su di essa
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/10/2017
+ms.date: 03/19/2018
 ms.author: mimig
-ms.openlocfilehash: c92d970783ae0fb36e5761e4f35af7d4d6718121
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90b1ec66007302ed02032e04e7f3d771012ad02d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Creare un'app Web per le API MongoDB con .NET e il portale di Azure
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
-Questa guida di avvio rapido mostra come creare un account, un database di documenti e una raccolta di Azure Cosmos DB tramite il portale di Azure. Si creerà e distribuirà quindi un'app Web di tipo elenco attività basata sul [driver .NET MongoDB](https://docs.mongodb.com/ecosystem/drivers/csharp/). 
+Questa guida introduttiva illustra come creare un account, un database di documenti e una raccolta di Azure Cosmos DB con il portale di Azure. Si creerà e distribuirà quindi un'app Web di tipo elenco attività basata sul [driver .NET MongoDB](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites-to-run-the-sample-app"></a>Prerequisiti per eseguire l'app di esempio
 
-Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
+Per eseguire l'esempio, sono necessari [Visual Studio](https://www.visualstudio.com/downloads/) e un account Azure CosmosDB valido.
+
+Se non si ha già Visual Studio, scaricare [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web** installato con il programma di installazione.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Creare un account di database
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## <a name="clone-the-sample-application"></a>Clonare l'applicazione di esempio
+## <a name="clone-the-sample-app"></a>Clonare l'app di esempio
 
-Clonare ora un'app per le API MongoDB da GitHub, impostare la stringa di connessione ed eseguirla. Come si noterà, è facile usare i dati a livello di codice. 
+Per prima cosa, scaricare l'app per le API MongoDB di esempio da GitHub. L'app implementa un elenco attività con il modello di archiviazione dei documenti di MongoDB.
 
-1. Aprire una finestra del terminale Git, ad esempio Git Bash, ed eseguire il comando `cd` per passare a una directory di lavoro.  
-
+1. Aprire una finestra del terminale Git, ad esempio Git Bash, ed eseguire il comando `cd` per passare a una directory di lavoro.
 2. Eseguire il comando seguente per clonare l'archivio di esempio. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.git
     ```
 
-3. Aprire quindi il file della soluzione in Visual Studio. 
+Se non si vuole usare Git, è anche possibile [scaricare il progetto come file ZIP](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started/archive/master.zip).
 
 ## <a name="review-the-code"></a>Esaminare il codice
 

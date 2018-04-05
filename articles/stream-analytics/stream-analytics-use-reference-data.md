@@ -5,8 +5,7 @@ keywords: tabella di ricerca, dati di riferimento
 services: stream-analytics
 documentationcenter: ''
 author: jseb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 06103be5-553a-4da1-8a8d-3be9ca2aff54
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: f7366b4b7d78add47ebab4a6fc72717107814f1f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 77a4a9a28060206a30c658216156d7339bddc398
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Uso dei dati di riferimento o delle tabelle di ricerca in un flusso di input di Analisi di flusso
 I dati di riferimento (noti anche come tabella di ricerca) sono un set di dati limitato di natura statica o che cambiano molto lentamente, usati per eseguire una ricerca o la correlazione con il flusso di dati. Per usare i dati di riferimento in un processo di Analisi di flusso di Azure, si usa in genere un [JOIN dei dati di riferimento](https://msdn.microsoft.com/library/azure/dn949258.aspx) nella query. Analisi di flusso usa l'archivio BLOB di Azure come livello di archiviazione per i dati di riferimento e Azure Data Factory consente di trasformare e/o copiare nell'archivio BLOB di Azure i dati da usare come dati di riferimento da [qualsiasi numero di archivi dati locali e basati sul cloud](../data-factory/copy-activity-overview.md). I dati di riferimento sono modellati come una sequenza di BLOB (definiti nella configurazione di input) in ordine crescente in base alla data/ora specificata nel nome di BLOB. Supporta **solo** l'aggiunta alla fine della sequenza usando una data/ora **successiva** rispetto a quella specificata dall'ultimo BLOB nella sequenza.

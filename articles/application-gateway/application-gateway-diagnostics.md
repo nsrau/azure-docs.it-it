@@ -1,5 +1,5 @@
 ---
-title: "Monitorare i log di accesso e delle prestazioni, l'integrità back-end e le metriche per il gateway applicazione | Microsoft Docs"
+title: Monitorare i log di accesso e delle prestazioni, l'integrità back-end e le metriche per il gateway applicazione | Microsoft Docs
 description: Informazioni su come abilitare e gestire i log di accesso e delle prestazioni per il gateway applicazione
 services: application-gateway
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 3/23/2018
 ms.author: amitsriva
-ms.openlocfilehash: 12c252340b82aba5ee69b12db83353750782e7c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Integrità back-end, log di diagnostica e metriche per il gateway applicazione
 
@@ -27,7 +27,7 @@ Il gateway applicazione di Azure consente di monitorare le risorse nei modi segu
 
 * [Integrità back-end](#back-end-health): il gateway applicazione consente di monitorare l'integrità dei server nei pool back-end tramite il portale di Azure e PowerShell. L'integrità dei pool back-end è disponibile anche tramite i log di diagnostica delle prestazioni.
 
-* [Log](#diagnostic-logs): i log consentono di salvare o usare i dati delle prestazioni, di accesso e di altre tipologie da una risorsa a fini di monitoraggio.
+* [Log](#diagnostic-logging): i log consentono di salvare o usare i dati delle prestazioni, di accesso e di altre tipologie da una risorsa a fini di monitoraggio.
 
 * [Metriche](#metrics): il gateway applicazione include attualmente una sola metrica. Questa metrica misura la velocità effettiva del gateway applicazione in byte al secondo.
 
@@ -152,9 +152,9 @@ Registrazione attività viene abilitata automaticamente per tutte le risorse di 
 
    ![Avvio del processo di configurazione][2]
 
-4. Scegliere un'area di lavoro di Operations Management Suite (OMS) oppure crearne una nuova. Questo esempio usa un'area di lavoro esistente.
+4. Scegliere un'area di lavoro di Log Analytics esistente oppure crearne una nuova. Questo esempio usa un'area di lavoro esistente.
 
-   ![Opzioni per le aree di lavoro OMS][3]
+   ![Opzioni disponibili per le aree di lavoro di Log Analytics][3]
 
 5. Confermare le impostazioni e fare clic su **Salva**.
 
@@ -176,7 +176,7 @@ Il log di accesso viene generato solo se è stato abilitato in ogni istanza del 
 |clientPort     | Porta di origine della richiesta.       |
 |httpMethod     | Metodo HTTP usato dalla richiesta.       |
 |requestUri     | URI della richiesta ricevuta.        |
-|RequestQuery     | **Server-Routed**: istanza del pool back-end a cui è stata inviata la richiesta. </br> **X-AzureApplicationGateway-LOG-ID**: ID correlazione usato per la richiesta. Può essere usato per risolvere i problemi di traffico nei server back-end. </br>**SERVER-STATUS**: codice di risposta HTTP ricevuto dal gateway applicazione dal back-end.       |
+|RequestQuery     | **Server-Routed**: istanza del pool back-end a cui è stata inviata la richiesta.</br>**X-AzureApplicationGateway-LOG-ID**: ID correlazione usato per la richiesta. Può essere usato per risolvere i problemi di traffico nei server back-end. </br>**SERVER-STATUS**: codice di risposta HTTP ricevuto dal gateway applicazione dal back-end.       |
 |UserAgent     | Agente utente dell'intestazione della richiesta HTTP.        |
 |httpStatus     | Codice di stato HTTP restituito al client dal gateway applicazione.       |
 |httpVersion     | Versione HTTP della richiesta.        |
@@ -316,9 +316,21 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 
 ## <a name="metrics"></a>Metriche
 
-Le metriche sono una funzionalità di alcune risorse di Azure che consente di visualizzare i contatori delle prestazioni nel portale. Per il gateway applicazione è ora disponibile una sola metrica. Questa metrica è la velocità effettiva e può essere visualizzata nel portale. Passare a un gateway applicazione e fare clic su **Metriche**. Per visualizzare i valori, selezionare Velocità effettiva nella sezione **Metriche disponibili**. La figura seguente include un esempio con i filtri che è possibile usare per visualizzare i dati in intervalli di tempo diversi.
+Le metriche sono una funzionalità di alcune risorse di Azure che consente di visualizzare i contatori delle prestazioni nel portale. Per il gateway applicazione sono disponibili le metriche seguenti:
 
-![Visualizzazione della metrica con filtri][5]
+- Current Connections (Connessioni correnti)
+- Richieste non riuscite
+- Healthy Host Count (Numero di host integri)
+- Stato della risposta
+- Velocità effettiva
+- Totale richieste
+- Unhealthy Host count (Numero di host non integri)
+
+Passare a un gateway applicazione e in **Monitoraggio** fare clic su **Metriche**. Per visualizzare i valori disponibili, selezionare l'elenco a discesa **METRICA**.
+
+Nella figura seguente è illustrato un esempio con tre metriche visualizzate per gli ultimi 30 minuti:
+
+[![](media/application-gateway-diagnostics/figure5.png "Visualizzazione delle metriche")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 Per un elenco delle metriche correnti, vedere [Metriche supportate con il monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
@@ -336,7 +348,7 @@ L'esempio seguente illustra la creazione di una regola di avviso per l'invio di 
 
    * Nel selettore **Condizione** selezionare uno dei quattro valori seguenti: **Maggiore di**, **Maggiore di o uguale a**, **Minore di** o **Minore o uguale a**.
 
-   * Nel selettore **Periodo** selezionare un periodo compreso tra 5 minuti e 6 ore.
+   * Nel selettore **Periodo** selezionare un periodo compreso tra cinque minuti e sei ore.
 
    * Se si seleziona **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori**, il messaggio di posta elettronica può essere dinamico basato sugli utenti che hanno accesso alla risorsa. In alternativa, è possibile inserire un elenco di utenti separato da virgole nella casella **Indirizzi di posta elettronica aggiuntivi dell'amministratore**.
 

@@ -15,58 +15,67 @@ ms.topic: article
 ms.date: 02/26/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: 88995b1f3350fe485e28efccc93779ae0a42eb97
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 15b9b0b69f3805b3e3af1d3973fd3a77bea62ab9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="near-real-time-metric-alerts-preview"></a>Avvisi metriche near real time (anteprima)
-Monitoraggio di Azure supporta un nuovo tipo di avvisi delle metriche denominati avvisi delle metriche near real time (anteprima). Questa funzionalità è attualmente in anteprima pubblica.
+# <a name="use-the-newer-metric-alerts-for-azure-services-in-azure-portal"></a>Usare gli avvisi metrica più recenti per i servizi di Azure sul portale di Azure
+Monitoraggio di Azure supporta un nuovo tipo di avvisi denominati avvisi delle metriche quasi in tempo reale. 
 
-Gli avvisi delle metriche near real time sono diversi dai normali avvisi delle metriche per alcuni aspetti:
+Gli avvisi delle metriche quasi in tempo reale sono diversi dai [normali avvisi metrica](insights-alerts-portal.md) per alcuni aspetti:
 
-- **Migliore latenza**: gli avvisi delle metriche near real time possono monitorare le modifiche in valori di metrica con una frequenza minima di un minuto.
-- **Maggiore controllo delle condizioni delle metriche**: è possibile definire regole di avviso più dettagliate negli avvisi delle metriche near real time. Gli avvisi supportano il monitoraggio dei valori massimo, minimo, medio e totale delle metriche.
-- **Metriche dai log**: dai comuni dati di log in arrivo in [Log Analytics](../log-analytics/log-analytics-overview.md) è possibile estrarre le metriche in Monitoraggio di Azure e ricevere avvisi quasi in tempo reale.
+- **Latenza migliorata**: gli avvisi delle metriche quasi in tempo reale sono eseguibili con una frequenza di un minuto. Gli avvisi metrica meno recenti sono sempre eseguibili con una frequenza di 5 minuti.
+- **Supporto delle metriche multidimensionali**: è possibile inviare un avviso per le metriche multidimensionali, in modo da monitorare un segmento interessante della metrica.
+- **Maggiore controllo delle condizioni delle metriche**: è possibile di definire regole di avviso più dettagliate negli avvisi delle metriche near real time. Gli avvisi supportano il monitoraggio dei valori massimo, minimo, medio e totale delle metriche.
 - **Monitoraggio combinato di più metriche**: gli avvisi delle metriche near real time possono monitorare più metriche (attualmente un massimo di due) con una singola regola. Viene attivato un avviso se entrambe le metriche violano le rispettive soglie per il periodo di tempo specificato.
 - **Sistema di notifica modulare**: gli avvisi delle metriche near real time usano i [gruppi di azioni](monitoring-action-groups.md). È possibile usare i gruppi di azioni per creare azioni modulari. È possibile riutilizzare i gruppi di azioni per più regole di avviso.
+- **Metriche dai log**: dai comuni dati di log in arrivo in [Log Analytics](../log-analytics/log-analytics-overview.md) è possibile estrarre le metriche in Monitoraggio di Azure e ricevere avvisi quasi in tempo reale.
 
-> [!NOTE]
-> Gli avvisi delle metriche near real time sono attualmente disponibili in anteprima pubblica. Le metriche dalle funzionalità di log sono disponibili in anteprima pubblica *limitata*. L'esperienza utente e la funzionalità sono soggette a modifiche.
->
 
 ## <a name="metrics-and-dimensions-supported"></a>Metriche e dimensioni supportate
 Gli avvisi delle metriche near real time supportano gli avvisi per le metriche con dimensioni. Le dimensioni possono essere usate per filtrare le metriche al livello corretto. Tutte le metriche supportate e le dimensioni applicabili possono essere esplorate e visualizzate da [Monitoraggio di Azure - Esplora metriche (anteprima)](monitoring-metric-charts.md).
 
 Ecco l'elenco completo delle origini delle metriche basate su Monitoraggio di Azure supportate dagli avvisi delle metriche near real time:
 
-|Nome metrica/Dettagli  |Dimensioni supportate  |
-|---------|---------|
-|Microsoft.ApiManagement/service     | Sì        |
-|Microsoft.Automation/automationAccounts     |     N/D    |
-|Microsoft.Automation/automationAccounts     |   N/D      |
-|Microsoft.Cache/Redis     |    N/D     |
-|Microsoft.Compute/virtualMachines     |    N/D     |
-|Microsoft.Compute/virtualMachineScaleSets     |   N/D      |
-|Microsoft.DataFactory/factories     |   N/D      |
-|Microsoft.DBforMySQL/servers     |   N/D      |
-|Microsoft.DBforPostgreSQL/servers     |    N/D     |
-|Microsoft.EventHub/namespaces     |   N/D      |
-|Microsoft.Logic/workflows     |     N/D    |
-|Microsoft.Network/applicationGateways     |    N/D     |
-|Microsoft.Network/publicipaddresses     |  N/D       |
-|Microsoft.Search/searchServices     |   N/D      |
-|Microsoft.ServiceBus/namespaces     |  N/D       |
-|Microsoft.Storage/storageAccounts     |    Sì     |
-|Microsoft.Storage/storageAccounts/services     |     Sì    |
-|Microsoft.StreamAnalytics/streamingjobs     |  N/D       |
-|Microsoft.CognitiveServices/accounts     |    N/D     |
+|Tipo di risorsa  |Dimensioni supportate  | Metriche disponibili|
+|---------|---------|----------------|
+|Microsoft.ApiManagement/service     | Sì        | [Gestione API](monitoring-supported-metrics.md#microsoftapimanagementservice)|
+|Microsoft.Automation/automationAccounts     |     Sì   | [Account di automazione](monitoring-supported-metrics.md#microsoftautomationautomationaccounts)|
+|Microsoft.Batch/batchAccounts | N/D| [Account Batch](monitoring-supported-metrics.md#microsoftbatchbatchaccounts)|
+|Microsoft.Cache/Redis     |    N/D     |[Cache Redis](monitoring-supported-metrics.md#microsoftcacheredis)|
+|Microsoft.Compute/virtualMachines     |    N/D     | [Macchine virtuali](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
+|Microsoft.Compute/virtualMachineScaleSets     |   N/D      |[Set di scalabilità di macchine virtuali](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.DataFactory/factories     |   Sì     |[Data factory V2](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
+|Microsoft.DBforMySQL/servers     |   N/D      |[Database per MySQL](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
+|Microsoft.DBforPostgreSQL/servers     |    N/D     | [Database per PostgreSQL](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
+|Microsoft.EventHub/namespaces     |  Sì      |[Hub eventi](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
+|Microsoft.Logic/workflows     |     N/D    |[App per la logica](monitoring-supported-metrics.md#microsoftlogicworkflows) |
+|Microsoft.Network/applicationGateways     |    N/D     | [Gateway applicazione](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/publicipaddresses     |  N/D       |[Indirizzi IP pubblici](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.Search/searchServices     |   N/D      |[Servizi di ricerca](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
+|Microsoft.ServiceBus/namespaces     |  Sì       |[Bus di servizio](monitoring-supported-metrics.md#microsoftservicebusnamespaces)|
+|Microsoft.Storage/storageAccounts     |    Sì     | [Account di archiviazione](monitoring-supported-metrics.md#microsoftstoragestorageaccounts)|
+|Microsoft.Storage/storageAccounts/services     |     Sì    | [Servizi BLOB](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [servizi file](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [servizi di accodamento](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) e [servizi tabelle](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
+|Microsoft.StreamAnalytics/streamingjobs     |  N/D       | [Analisi dei flussi](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
+|Microsoft.CognitiveServices/accounts     |    N/D     | [Servizi cognitivi](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
+|Microsoft.OperationalInsights/workspaces (anteprima) | Sì|[Aree di lavoro di Log Analytics](#support-for-oms-logs-as-metrics-for-alerting)|
 
 
-Le metriche dai log supportano attualmente i log OMS comuni seguenti:
+## <a name="create-a-newer-metric-alert"></a>Creare un avviso metrica più recente
+Al momento è possibile creare avvisi metrica più recenti solo nel portale di Azure o nell'API REST. Il supporto per la configurazione degli avvisi delle metriche quasi in tempo reale tramite PowerShell, l'interfaccia della riga di comando di Azure (Azure CLI), sarà presto disponibile.
+
+Per informazioni su come creare un avviso metrica più recente sul portale di Azure, vedere [Creare una regola di avviso nel portale di Azure](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
+
+## <a name="manage-newer-metric-alerts"></a>Gestione degli avvisi metrica più recenti
+Dopo aver creato un avviso delle metriche near real time, è possibile gestirlo seguendo i passaggi descritti in [Gestire gli avvisi nel portale di Azure](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
+
+## <a name="support-for-oms-logs-as-metrics-for-alerting"></a>Supporto per i log OMS come metriche per gli avvisi
+
+È possibile usare gli avvisi delle metriche quasi in tempo reale anche nei log OMS più comuni estratti come metriche nel quadro dell'anteprima delle metriche dei log.  
 - [Contatori delle prestazioni](../log-analytics/log-analytics-data-sources-performance-counters.md) per i computer Windows e Linux
-- Record di heartbeat per computer
+- [Record di heartbeat per l'Integrità agente](../operations-management-suite/oms-solution-agenthealth.md)
 - Record di [Gestione aggiornamenti](../operations-management-suite/oms-solution-update-management.md)
 
 Ecco l'elenco completo delle origini delle metriche basate su log OMS supportate dagli avvisi delle metriche near real time:
@@ -143,17 +152,8 @@ Nome metrica/Dettagli  |Dimensioni supportate  | Tipo di log  |
 |    Aggiornamento |     Sì - Computer, Product, Classification, UpdateState, Optional e Approved    |   Gestione degli aggiornamenti |
 
 > [!NOTE]
-> Metriche e/o dimensioni specifiche verranno visualizzate solo se i relativi dati esistono nel periodo scelto
+> Metriche e/o dimensioni specifiche verranno visualizzate solo se i relativi dati esistono nel periodo scelto. Tali metriche sono disponibili per i clienti con aree di lavoro negli Stati Uniti orientali, negli Stati Uniti centro-occidentali e in Europa occidentale che hanno acconsentito esplicitamente all'anteprima. Per registrarsi all'anteprima, iscriversi tramite [il sondaggio](https://aka.ms/MetricLogPreview).
 
-## <a name="create-a-near-real-time-metric-alert"></a>Creare un avviso delle metriche near real time
-Al momento è possibile creare avvisi delle metriche near real time solo nel portale di Azure. Il supporto per la configurazione degli avvisi delle metriche near real time tramite PowerShell, l'interfaccia della riga di comando di Azure (Azure CLI) e le API REST di Monitoraggio di Azure saranno presto disponibili.
-
-L'esperienza di creazione di avvisi delle metriche near real time è passata nella nuova pagina **Avvisi (anteprima)**. Anche se la pagina Avvisi corrente visualizza **Aggiungi avviso metriche near real time**, l'utente viene reindirizzato alla pagina **Avvisi (anteprima)**.
-
-Per informazioni su come creare un avviso delle metriche near real time, vedere [Creare una regola di avviso nel portale di Azure](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
-
-## <a name="manage-near-real-time-metric-alerts"></a>Gestire gli avvisi delle metriche near real time
-Dopo aver creato un avviso delle metriche near real time, è possibile gestirlo seguendo i passaggi descritti in [Gestire gli avvisi nel portale di Azure](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
 ## <a name="payload-schema"></a>Schema del payload
 
@@ -209,6 +209,6 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sulla nuova [esperienza di Avvisi (anteprima)](monitoring-overview-unified-alerts.md).
-* Informazioni sugli [avvisi del log in Avvisi di Azure (anteprima)](monitor-alerts-unified-log.md).
+* Altre informazioni sulla nuova [esperienza di avvisi](monitoring-overview-unified-alerts.md).
+* Per altre informazioni, fare riferimento agli [avvisi di log in Azure](monitor-alerts-unified-log.md).
 * Informazioni sugli [avvisi in Azure](monitoring-overview-alerts.md).

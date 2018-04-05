@@ -1,11 +1,11 @@
 ---
 title: Gestione dei dispositivi Azure IoT con iothub-explorer | Microsoft Docs
-description: "Usare lo strumento dell'interfaccia della riga di comando iothub-explorer per la gestione dei dispositivi dell'hub IoT di Azure, con opzioni di gestione come i metodi diretti e le proprietà desiderate in dispositivi gemelli."
+description: Usare lo strumento dell'interfaccia della riga di comando iothub-explorer per la gestione dei dispositivi dell'hub IoT di Azure, con opzioni di gestione come i metodi diretti e le proprietà desiderate in dispositivi gemelli.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
+tags: ''
 keywords: gestione dispositivi iot azure, gestione dispositivi hub iot azure, gestione dispositivi iot, gestione dispositivi hub iot
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
 ms.service: iot-hub
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: 02d3241ae4ae515a8c2deaa14f50b5b7dbd4766f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e22c321e896abe8d5eb659866256942099cac2d9
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Usare iothub-explorer per la gestione di dispositivi hub IoT di Azure
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 01/18/2018
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) è uno strumento dell'interfaccia della riga di comando eseguito in un computer host che consente di gestire le identità dei dispositivi nel registro dell'hub IoT. Include opzioni di gestione che consentono di eseguire varie attività.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 | Opzione di gestione          | Attività                                                                                                                            |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------|
@@ -40,8 +42,7 @@ ms.lasthandoff: 01/18/2018
 
 Per altre informazioni sulle differenze e sull'uso di queste opzioni, vedere [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md) (Indicazioni sulla comunicazione da dispositivo a cloud) e [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.md) (Indicazioni sulla comunicazione da cloud a dispositivo).
 
-> [!NOTE]
-> I dispositivi gemelli sono documenti JSON nei quali vengono archiviate informazioni sullo stato dei dispositivi (metadati, configurazioni e condizioni). L'hub IoT rende permanente un dispositivo gemello per ogni dispositivo che si connette. Per altre informazioni sui dispositivi gemelli, vedere [Introduzione ai dispositivi gemelli](iot-hub-node-node-twin-getstarted.md).
+I dispositivi gemelli sono documenti JSON nei quali vengono archiviate informazioni sullo stato dei dispositivi (metadati, configurazioni e condizioni). L'hub IoT rende permanente un dispositivo gemello per ogni dispositivo che si connette. Per altre informazioni sui dispositivi gemelli, vedere [Introduzione ai dispositivi gemelli](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione
 

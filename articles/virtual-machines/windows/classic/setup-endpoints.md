@@ -2,10 +2,10 @@
 title: Configurare gli endpoint su una VM Windows classica | Microsoft Docs
 description: Informazioni su come configurare gli endpoint per una macchina virtuale Windows classica nel portale di Azure per consentire la comunicazione con una macchina virtuale Windows in Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 8afc21c2-d3fb-43a3-acce-aa06be448bb6
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 34bfad1e41037f38e950db085c0c13b7066b3e96
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d64feff341e389df4079c0603a414f0d40b754e7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>Come configurare gli endpoint in una macchina virtuale Windows classica in Azure
 Tutte le macchine virtuali Windows create in Azure con il modello di distribuzione classico possono comunicare automaticamente mediante un canale di rete privato con altre macchine virtuali dello stesso servizio cloud o nella stessa rete virtuale. Tuttavia, i computer in Internet o altre reti virtuali richiedono gli endpoint per indirizzare il traffico di rete in ingresso a una macchina virtuale. Questo articolo è disponibile anche per le [macchine virtuali Linux](../../linux/classic/setup-endpoints.md).
@@ -37,4 +37,4 @@ Quando si crea una macchina virtuale Windows nel portale di Azure, gli endpoint 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per usare un cmdlet di Azure PowerShell per impostare un endpoint di VM, vedere [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
 * Per usare un cmdlet di Azure PowerShell per gestire un ACL in un endpoint, vedere [Come gestire gli elenchi di controllo di accesso per gli endpoint tramite PowerShell](../../../virtual-network/virtual-networks-acl-powershell.md).
-* Se una macchina virtuale è stata creata nel modello di distribuzione Resource Manager, è possibile usare Azure PowerShell per [creare gruppi di sicurezza di rete](../../../virtual-network/virtual-networks-create-nsg-arm-ps.md) per controllare il traffico verso la VM.
+* Se una macchina virtuale è stata creata nel modello di distribuzione Resource Manager, è possibile usare Azure PowerShell per [creare gruppi di sicurezza di rete](../../../virtual-network/tutorial-filter-network-traffic.md) per controllare il traffico verso la VM.

@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8a87d5ac-d8b7-4a0d-bdee-414dbcc561b2
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-ms.openlocfilehash: 54c22ce6a03e382b1bbde102bccc97deec249b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d2ae75b384b60d0383c1682a00a4fc0d19d0f43
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-the-azure-mobile-engagement-api-in-a-web-application"></a>Usare l'API di Azure Mobile Engagement in un'applicazione Web
+> [!IMPORTANT]
+> Azure Mobile Engagement verrà ritirato il 31/03/2018. Questa pagina verrà eliminata subito dopo.
+> 
+
 Questo documento è un'aggiunta al documento [Integrare Azure Mobile Engagement in un'applicazione Web](mobile-engagement-web-integrate-engagement.md). Offre informazioni approfondite su come usare l'API di Azure Mobile Engagement per segnalare le statistiche dell'applicazione.
 
 L'API di Mobile Engagement viene messa a disposizione dall'oggetto `engagement.agent` . L'alias predefinito di Azure Mobile Engagement Web SDK è `engagement`. È possibile ridefinire l'alias dalla configurazione dell'SDK.

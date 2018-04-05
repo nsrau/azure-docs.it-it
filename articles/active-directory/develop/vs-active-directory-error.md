@@ -3,8 +3,8 @@ title: Come diagnosticare gli errori con il servizio connesso di Azure Active Di
 description: Il servizio connesso di Active Directory ha rilevato un tipo di autenticazione incompatibile.
 services: active-directory
 documentationcenter: ''
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: kraigb
+ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: ab81c3385479a96fbfa7e68c4e81129ff327ed4b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c3494102703b68d6861e8755ca9dafe19c7fa6d6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnosi degli errori con il servizio connesso di Azure Active Directory
 

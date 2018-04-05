@@ -1,12 +1,11 @@
 ---
 title: Ridimensionamento dei processi con Analisi di flusso di Azure e funzioni di Azure Machine Learning | Microsoft Docs
-description: "Informazioni su come ridimensionare correttamente i processi di Analisi di flusso, con il partizionamento, le unità di streaming e altro ancora, quando si usano funzioni di Azure Machine Learning."
-keywords: 
-documentationcenter: 
+description: Informazioni su come ridimensionare correttamente i processi di Analisi di flusso, con il partizionamento, le unità di streaming e altro ancora, quando si usano funzioni di Azure Machine Learning.
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: 47ce7c5e-1de1-41ca-9a26-b5ecce814743
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 1e1c3724462a4d2a67eab3ef42867d2aeb5d3fa1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: dd6effab3ba0b411131414bd757ffe8cc54e49d2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Ridimensionare il processo di Analisi di flusso con funzioni di Azure Machine Learning
 Spesso è semplice impostare un processo di Analisi di flusso e usarlo per analizzare alcuni dati di esempio. Cosa fare quando è necessario eseguire lo stesso processo con volume di dati più elevato? Bisogna capire come configurare il processo di Analisi di flusso per il ridimensionamento. Questo documento illustra in particolare gli aspetti specifici del ridimensionamento di processi di Analisi di flusso con funzioni di Machine Learning. Per informazioni su come ridimensionare processi di Analisi di flusso in generale, vedere l'articolo relativo al [ridimensionamento dei processi](stream-analytics-scale-jobs.md).

@@ -1,11 +1,11 @@
 ---
-title: "Panoramica di Integrità risorse di Azure | Microsoft Docs"
-description: "Panoramica su Integrità risorse di Azure"
+title: Panoramica di Integrità risorse di Azure | Microsoft Docs
+description: Panoramica su Integrità risorse di Azure
 services: Resource health
-documentationcenter: 
+documentationcenter: ''
 author: shawntabrizi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/01/2017
 ms.author: shawn.tabrizi
-ms.openlocfilehash: 50a173a3d3a10ed59492b4a1d64173913f331639
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 661faf8560295dd037364f9509d21719362ae727
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-resource-health-overview"></a>Panoramica di Integrità risorse di Azure
  
@@ -65,7 +65,7 @@ Se si verificano problemi con la risorsa, lo stato di integrità **Sconosciuto**
 
 ![Stato "Sconosciuto" per una macchina virtuale](./media/resource-health-overview/Unknown.png)
 
-### <a name="degraded"></a>Danneggiato
+### <a name="degraded"></a>Degraded
 Lo stato di integrità **Danneggiato** indica che la risorsa ha rilevato una riduzione delle prestazioni, sebbene sia ancora disponibile per l'utilizzo.
 Diverse risorse dispongono di propri criteri per specificare se una risorsa è danneggiata.
 
@@ -77,7 +77,7 @@ Se si ritiene che lo stato di integrità corrente non sia corretto, è possibile
 ![Casella per l'invio di informazioni su uno stato non corretto](./media/resource-health-overview/incorrect-status.png)
 
 ## <a name="historical-information"></a>Informazioni cronologiche
-È possibile accedere a un massimo di 14 giorni di cronologia di informazioni sull'integrità selezionando **Visualizza cronologia** in Integrità risorse. 
+È possibile accedere a un massimo di 14 giorni di cronologia di informazioni sull'integrità nella sezione relativa alla **cronologia integrità** in Integrità risorse. 
 
 ![Elenco di eventi di Integrità risorse nelle ultime due settimane](./media/resource-health-overview/history-blade.png)
 

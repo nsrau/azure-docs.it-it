@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2cafc044-4902-4058-8037-49399bf6bf7f
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0ca35a3d634db8eb5c63afacba046a35b8a3e7ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96e827b57e804cc91798859bc906e49046decede
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="implement-mobile-engagement-with-gaming-app"></a>Implementare Mobile Engagement con app di gioco
 ## <a name="overview"></a>Panoramica
+> [!IMPORTANT]
+> Azure Mobile Engagement verrà ritirato il 31/03/2018. Questa pagina verrà eliminata subito dopo.
+> 
+
 Una startup del settore gaming ha lanciato una nuova app di gioco di ruolo e strategia ispirata al mondo della pesca. Il gioco è operativo da sei mesi. Sta registrando un grande successo, con milioni di download, e il tasso di conservazione è molto alto rispetto alle app di gioco di altre startup. Durante la riunione di revisione trimestrale, le parti interessate concordano sulla necessità di aumentare i ricavi medi per utente (ARPU). All'interno del gioco sono disponibili pacchetti Premium come offerte speciali. Questi pacchetti permettono agli utenti di migliorare l'aspetto e le prestazioni delle lenze, delle esche o dell'attrezzatura da pesca all'interno del gioco. Le vendite di pacchetti, però, sono molto basse. Si decide quindi di analizzare prima di tutto l'esperienza degli utenti con uno strumento di analisi e di sviluppare poi un programma di engagement per aumentare le vendite attraverso la segmentazione avanzata.
 
 Sulla base dell'articolo [Azure Mobile Engagement - Guida introduttiva con procedure consigliate](mobile-engagement-getting-started-best-practices.md) , viene costruita una strategia di engagement.

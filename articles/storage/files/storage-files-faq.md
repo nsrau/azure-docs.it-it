@@ -2,22 +2,22 @@
 title: Domande frequenti per File di Azure | Microsoft Docs
 description: Risposte ad alcune domande frequenti sul servizio File di Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: 8762b2cca03f4c95f7543803a024bff4573927a1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e203787bffa80b324508f7df8f8e7a8c62355695
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard del settore, anche noto come CIFS o Common Internet File System. È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure (anteprima) per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -232,7 +232,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 ## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **Come è possibile eseguire il backup nella condivisione file di Azure?**  
-    È possibile usare [snapshot di condivisione (anteprima)](storage-how-to-use-files-snapshots.md) periodici per la protezione da eliminazioni accidentali. È anche possibile usare AzCopy, RoboCopy o uno strumento di backup di terze parti per eseguire il backup di una condivisione file montata. 
+    È possibile usare [snapshot di condivisione](storage-snapshots-files.md) periodici per la protezione da eliminazioni accidentali. È anche possibile usare AzCopy, RoboCopy o uno strumento di backup di terze parti per eseguire il backup di una condivisione file montata. 
 
 ## <a name="share-snapshots"></a>Snapshot di condivisione
 ### <a name="share-snapshots-general"></a>Snapshot di condivisione: informazioni generali
@@ -255,6 +255,10 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 * <a id="snapshot-limits"></a>
 **Esistono limiti al numero degli snapshot di condivisione che è possibile usare?**  
     Sì. File di Azure consente di mantenere al massimo 200 snapshot di condivisione. Gli snapshot di condivisione non vengono inclusi nel conteggio per la quota di condivisione, pertanto non esiste alcun limite per condivisione dello spazio totale usato da tutti gli snapshot di condivisione. Si applicano i limiti dell'account di archiviazione. Dopo 200 snapshot di condivisione, è necessario eliminare gli snapshot meno recenti per crearne di nuovi.
+* <a id="snapshot-cost"></a>
+**Qual è il costo dello snapshot di condivisione?**  
+    Allo snapshot si applica il costo di transazione e archiviazione Standard. Gli snapshot sono di tipo incrementale. Lo snapshot di base corrisponde alla condivisione stessa. Tutti gli snapshot successivi sono incrementali e archiviano solo le differenze rispetto allo snapshot precedente. Questo significa che le modifiche differenziali visibili in fattura saranno minime se la varianza del carico di lavoro è molto limitata. Per informazioni sui prezzi Standard di File di Azure, vedere la [pagina dei prezzi](https://azure.microsoft.com/en-us/pricing/details/storage/files/). Attualmente, per sapere le dimensioni utilizzate dallo snapshot di condivisione è necessario confrontare la capacità fatturata con quella usata. Sono in fase di sviluppo strumenti utili per creare report più dettagliati.
+
 
 ### <a name="create-share-snapshots"></a>Creare snapshot di condivisione
 * <a id="file-snaphsots"></a>

@@ -6,7 +6,7 @@ documentationcenter: na
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5d6d81678d1b3c63b52b34e79979d06fdc981ad0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montare una condivisione file di Azure e accedere alla condivisione in Windows
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate in Windows e Windows Server. Questo articolo illustra tre diversi modi per montare una condivisione file di Azure in Windows: con l'interfaccia utente di Esplora file, tramite PowerShell e tramite il prompt dei comandi. 
@@ -50,6 +50,31 @@ Per montare una condivisione file di Azure al di fuori dell'area di Azure in cui
 * **Chiave dell'account di archiviazione**: per montare una condivisione file di Azure, sarà necessaria la chiave dell'account primaria (o secondaria). Le chiavi di firma di accesso condiviso non sono attualmente supportate per il montaggio.
 
 * **Assicurarsi che la porta 445 sia aperta**: File di Azure usa il protocollo SMB. SMB comunica tramite la porta TCP 445: verificare che il firewall non blocchi le porte TCP 445 dal computer client.
+
+## <a name="persisting-connections-across-reboots"></a>Rendere le connessioni persistenti tra un riavvio e l'altro
+### <a name="cmdkey"></a>CmdKey
+Il modo più semplice per stabilire connessioni persistenti consiste nel salvare le credenziali dell'account di archiviazione in Windows con l'utilità della riga di comando "CmdKey". Di seguito è riportata una riga di comando di esempio per rendere persistenti le credenziali dell'account di archiviazione nella VM:
+```
+C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
+```
+> [!Note]
+> Il nome di dominio in questo caso sarà "AZURE".
+
+CmdKey consentirà anche di visualizzare l'elenco delle credenziali archiviate:
+
+```
+C:\>cmdkey /list
+```
+L'output sarà il seguente:
+
+```
+Currently stored credentials:
+
+Target: Domain:target=<yourstorageaccountname>.file.core.windows.net
+Type: Domain Password
+User: AZURE\<yourstorageaccountname>
+```
+Dopo che le credenziali sono state rese persistenti, non è più necessario fornirle al momento della connessione alla condivisione ed è possibile connettersi senza specificare alcuna credenziale.
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>Montare la condivisione file di Azure con Esplora file
 > [!Note]  
@@ -142,6 +167,6 @@ Per altre informazioni su File di Azure, vedere i collegamenti seguenti.
 * [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Migrating data to Azure File (Migrazione dei dati in File di Azure)](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 
-### <a name="reference"></a>riferimento
+### <a name="reference"></a>Riferimenti
 * [Informazioni di riferimento sulla libreria client di archiviazione per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Riferimento API REST del servizio File](http://msdn.microsoft.com/library/azure/dn167006.aspx)

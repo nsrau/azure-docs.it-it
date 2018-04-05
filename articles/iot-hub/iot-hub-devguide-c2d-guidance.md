@@ -1,11 +1,11 @@
 ---
 title: Opzioni da cloud a dispositivo dell'hub IoT di Azure | Documentazione Microsoft
-description: "Guida per gli sviluppatori: indicazioni su quando usare i metodi diretti, le proprietà desiderate del dispositivo gemello o i messaggi da cloud a dispositivo per le comunicazioni da cloud a dispositivo."
+description: 'Guida per gli sviluppatori: indicazioni su quando usare i metodi diretti, le proprietà desiderate del dispositivo gemello o i messaggi da cloud a dispositivo per le comunicazioni da cloud a dispositivo.'
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: dc8256022aca37823245ecb9a9326240f1c449c2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 144bd8e0a954e54cf17fb88105759d0e000454fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Indicazioni sulle comunicazioni da cloud a dispositivo
 L'hub IoT fornisce tre opzioni per le app per dispositivo che consentono di esporre le funzionalità a un'app back-end:
@@ -26,6 +26,8 @@ L'hub IoT fornisce tre opzioni per le app per dispositivo che consentono di espo
 * [Metodi diretti][lnk-methods] per le comunicazioni che richiedono la conferma immediata del risultato. I metodi diretti vengono spesso usati per il controllo interattivo dei dispositivi, ad esempio l'accensione di una ventola.
 * [Proprietà desiderate del dispositivo gemello][lnk-twins], per comandi a esecuzione prolungata che consentono di impostare uno stato specifico per il dispositivo, ad esempio per impostare l'intervallo di invio dei dati di telemetria su 30 minuti.
 * [Messaggi da cloud a dispositivo][lnk-c2d], per le notifiche unidirezionali verso l'app per dispositivo.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Ecco un confronto dettagliato delle diverse opzioni di comunicazione da cloud a dispositivo.
 

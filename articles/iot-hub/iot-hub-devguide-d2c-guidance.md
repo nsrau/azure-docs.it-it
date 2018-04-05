@@ -1,11 +1,11 @@
 ---
 title: Opzioni da dispositivo a cloud dell'hub IoT di Azure | Documentazione Microsoft
-description: "Guida per gli sviluppatori: indicazioni su quando usare i messaggi da dispositivo a cloud, le proprietà segnalate o il caricamento di file per le comunicazioni da cloud a dispositivo."
+description: 'Guida per gli sviluppatori: indicazioni su quando usare i messaggi da dispositivo a cloud, le proprietà segnalate o il caricamento di file per le comunicazioni da cloud a dispositivo.'
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: a9a062ebb8d6e3b37d917064209eda618d0dd308
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a870852d937732bb38f08420a07bfe696860e08b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Indicazioni sulle comunicazioni da dispositivo a cloud
 Durante l'invio di informazioni dall'app per dispositivo al back-end della soluzione, l'hub IoT espone tre opzioni:
@@ -26,6 +26,8 @@ Durante l'invio di informazioni dall'app per dispositivo al back-end della soluz
 * [Messaggi da dispositivo a cloud][lnk-d2c] per dati di telemetria e avvisi relativi alle serie temporali.
 * [Proprietà segnalate del dispositivo gemello][lnk-twins] per segnalare informazioni sullo stato del dispositivo, ad esempio le funzionalità disponibili, le condizioni e lo stato dei flussi di lavoro a esecuzione prolungata. come aggiornamenti della configurazione e del software.
 * [Caricamenti di file][lnk-fileupload], per i file multimediali e batch di telemetria di grandi dimensioni caricati da dispositivi con connessione intermittente o compressi per risparmiare la larghezza di banda.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Ecco un confronto dettagliato delle diverse opzioni di comunicazione da dispositivo a cloud.
 

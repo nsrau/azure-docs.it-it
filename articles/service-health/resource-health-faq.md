@@ -1,24 +1,24 @@
 ---
-title: "Domande frequenti su Integrità risorse di Azure | Microsoft Docs"
-description: "Panoramica su Integrità risorse di Azure"
+title: Domande frequenti su Integrità risorse di Azure | Microsoft Docs
+description: Panoramica su Integrità risorse di Azure
 services: Resource health
 documentationcenter: dev-center-name
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 07/05/2017
+ms.date: 03/27/2018
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2a0758f5db381f721120cbc1c018a491c018aa8d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-resource-health-faq"></a>Domande frequenti su Integrità risorse di Azure
 Risposte alle domande comuni su Integrità risorse di Azure.
@@ -81,12 +81,12 @@ Integrità risorse è disponibile in tutte le aree geografiche di Azure, ad ecce
 - Germania centrale
 - Germania nord-orientale
 
-## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>In che modo Integrità risorse differisce dal dashboard per l'integrità dei servizi o dalle notifiche sui servizi del portale di Azure?
-Le informazioni messe a disposizione da Integrità risorse sono più specifiche di quelle messe a disposizione dal dashboard per l'integrità dei servizi di Azure.
+## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>In che modo Integrità risorse differisce dallo Stato di Azure o dal dashboard per l'integrità dei servizi?
+Le informazioni messe a disposizione da Integrità risorse sono più specifiche di quelle messe a disposizione da Stato di Azure o dal dashboard per l'integrità dei servizi di Azure.
 
-Diversamente dallo [stato di Azure](https://status.azure.com) e dalle notifiche sui servizi del portale che segnalano la presenza di problemi che interessano un elevato numero di clienti, ad esempio quelli di una determinata area di Azure, Integrità risorse espone eventi più granulari rilevanti solo per la risorsa specifica. Se, ad esempio, un host viene riavviato in modo imprevisto, Integrità risorse avvisa solo i clienti le cui macchine virtuali sono in esecuzione nell'host.
+Diversamente dallo [Stato di Azure](https://status.azure.com) e dal dashboard per l'integrità dei servizi che segnalano la presenza di problemi che interessano un elevato numero di clienti, ad esempio quelli di una determinata area di Azure, Integrità risorse espone eventi più granulari rilevanti solo per la risorsa specifica. Se, ad esempio, un host viene riavviato in modo imprevisto, Integrità risorse avvisa solo i clienti le cui macchine virtuali sono in esecuzione nell'host.
 
-È importante notare che per garantire la visibilità completa degli eventi che incidono sulle risorse, Integrità risorse segnala anche gli eventi pubblicati nelle notifiche dei servizi e sul dashboard per l'integrità dei servizi.
+È importante notare che per garantire la visibilità completa degli eventi che incidono sulle risorse, Integrità risorse segnala anche gli eventi pubblicati sul dashboard per l'integrità dei servizi.
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>È necessario attivare Integrità risorse per ogni risorsa?
 No, le informazioni di integrità sono disponibili per tutti i tipi di risorse supportati da Integrità risorse. 

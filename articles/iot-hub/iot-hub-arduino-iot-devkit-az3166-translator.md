@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: 5f74e43d20b5954ae4808f82a34372d1e2190481
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d17f117d71eb0616201df18aea6dc48749ae24a8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>Usare IoT DevKit AZ3166 con Funzioni di Azure e Servizi cognitivi per creare un traduttore di lingue
 
@@ -35,7 +35,7 @@ Completare la [Guida introduttiva](https://docs.microsoft.com/azure/iot-hub/iot-
 
 Una sottoscrizione di Azure attiva. Se non è disponibile, è possibile registrarsi tramite uno di questi metodi:
 
-* Attivare una [versione di prova gratuita di 30 giorni dell'account di Microsoft Azure](https://azureinfo.microsoft.com/us-freetrial.html)
+* Attivare una [versione di prova gratuita di 30 giorni dell'account di Microsoft Azure](https://azure.microsoft.com/en-us/free/)
 * Richiedere il [credito Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se si ha un abbonamento a MSDN o una sottoscrizione di Visual Studio
 
 ## <a name="step-1-open-the-project-folder"></a>Passaggio 1. Aprire la cartella del progetto
