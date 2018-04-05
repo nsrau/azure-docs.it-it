@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 1f234c2529213dfa7f42d6ee11b840236488065d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0bdadadb1f4ee5f76cde9d05b11e8d57b99ac191
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>La convalida dei certificati di infrastruttura a chiave pubblica di Azure Stack
 
@@ -43,7 +43,7 @@ Lo strumento di controllo di certificato (Certchecker) esegue i controlli seguen
 ## <a name="prerequisites"></a>Prerequisiti
 Il sistema deve soddisfare i prerequisiti seguenti prima di convalidare i certificati PKI per la distribuzione di Azure Stack:
 - CertChecker (in **PartnerToolKit** sotto **\utils\certchecker**)
-- I certificati SSL esportato seguendo il [istruzioni relative alla preparazione](prepare-pki-certs.md)
+- I certificati SSL esportato seguendo il [istruzioni relative alla preparazione](azure-stack-prepare-pki-certs.md)
 - DeploymentData.json
 - Windows 10 o Windows Server 2016
 

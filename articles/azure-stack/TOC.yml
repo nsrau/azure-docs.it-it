@@ -124,7 +124,7 @@
             - name: Gestire la capacità di archiviazione
               href: azure-stack-manage-storage-shares.md
             - name: Gestire la capacità di archiviazione fisica per lo Stack di Azure
-              href: azure-stack-manage-storage-physical-capacity.md
+              href: azure-stack-manage-storage-physical-memory-capacity.md
         - name: Sostituire l'hardware
           items:
             - name: Azioni del nodo
