@@ -227,4 +227,3 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 
 > [!div class="nextstepaction"]
 > [Importare i dati di MongoDB in Azure Cosmos DB](mongodb-migrate.md)
-
