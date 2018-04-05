@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4a4f2c6734de211cd20ee4b9f6815bdefefb25bc
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Introduzione ad Apache Kafka in HDInsight
 
@@ -31,7 +31,7 @@ Kafka in HDInsight offre le funzionalità seguenti:
 
 * __Contratto di servizio con tempo di attività del 99,9% per Kafka__: per altre informazioni, vedere il documento contenente le [informazioni sul contratto di servizio per HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
-* __Tolleranza di errore e riconoscimento del rack__: Kafka è stato progettato con una vista unidimensionale di un rack che funziona perfettamente in alcuni ambienti. In ambienti come Azure, tuttavia, un rack viene separato in due dimensioni: i domini di aggiornamento e i domini di errore. Microsoft offre strumenti che garantiscono il ribilanciamento delle partizioni e delle repliche Kafka tra domini di aggiornamento e domini di errore. 
+* __Tolleranza di errore__: Kafka è stato progettato con una visualizzazione a una dimensione di un rack che funziona perfettamente in alcuni ambienti. In ambienti come Azure, tuttavia, un rack viene separato in due dimensioni: i domini di aggiornamento e i domini di errore. Microsoft offre strumenti che consentono il ribilanciamento delle partizioni e delle repliche Kafka tra domini di aggiornamento e domini di errore. 
 
     Per altre informazioni, vedere l'articolo relativo alla [disponibilità elevata con Kafka in HDInsight](apache-kafka-high-availability.md).
 

@@ -2,10 +2,10 @@
 title: Introduzione ad Archiviazione BLOB di Azure e a Servizi connessi di Visual Studio (ASP.NET) | Microsoft Docs
 description: Informazioni su come iniziare a usare Archiviazione BLOB di Azure in un progetto ASP.NET in Visual Studio dopo la connessione a un account di archiviazione con Servizi connessi di Visual Studio
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: b3497055-bef8-4c95-8567-181556b50d95
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: kraig
-ms.openlocfilehash: cb406e528568dafd1e142943f5273ad58e550609
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: ghogen
+ms.openlocfilehash: 657eff077f9a72bad97e8bea3ad3efc0da1420d5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Introduzione ad Archiviazione BLOB di Azure e a Servizi connessi di Visual Studio (ASP.NET)
 
@@ -32,7 +32,7 @@ Questa esercitazione illustra come scrivere codice ASP.NET per alcuni scenari co
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 
@@ -71,7 +71,7 @@ Un contenitore BLOB è una gerarchia nidificata di BLOB e cartelle. Il resto del
 
 La procedura seguente crea un metodo per eseguire la connessione all'account di archiviazione usando la stringa di connessione in **Web.config**. La procedura crea anche un riferimento a un contenitore.  L'impostazione della stringa di connessione in **Web.config** viene espressa con il formato `<storageaccountname>_AzureStorageConnectionString`. 
 
-1. Aprire il file `BlobsController.cs`.
+1. Aprire il file `BlobsController.cs` .
 
 1. Aggiungere un metodo denominato **GetCloudBlobContainer** che restituisce un elemento **CloudBlobContainer**.  Assicurarsi di sostituire `<storageaccountname>_AzureStorageConnectionString` con il nome effettivo della chiave in **Web.config**.
     
@@ -175,7 +175,7 @@ I passaggi seguenti illustrano come creare un contenitore BLOB:
 
 Dopo aver [creato il contenitore BLOB](#create-a-blob-container), caricarvi i file. Questa sezione illustra dettagliatamente come caricare un file locale in un contenitore BLOB. Nella procedura si presume che sia stato creato un contenitore BLOB denominato *test-blob-container*. 
 
-1. Aprire il file `BlobsController.cs`.
+1. Aprire il file `BlobsController.cs` .
 
 1. Aggiungere un metodo denominato `UploadBlob` che restituisce una stringa.
 
@@ -243,7 +243,7 @@ Dopo aver [creato il contenitore BLOB](#create-a-blob-container), caricarvi i fi
 
 Questa sezione illustra come elencare i BLOB in un contenitore BLOB. Il codice di esempio fa riferimento al *test-blob-container* creato nella sezione [Creare un contenitore BLOB](#create-a-blob-container).
 
-1. Aprire il file `BlobsController.cs`.
+1. Aprire il file `BlobsController.cs` .
 
 1. Aggiungere un metodo denominato `ListBlobs` che restituisce un elemento `ActionResult`.
 
@@ -384,7 +384,7 @@ Questa sezione illustra come elencare i BLOB in un contenitore BLOB. Il codice d
 
 Questa sezione illustra come scaricare un BLOB. È possibile renderlo persistente nell'archivio locale o leggere il contenuto in una stringa. Il codice di esempio fa riferimento al *test-blob-container* creato nella sezione [Creare un contenitore BLOB](#create-a-blob-container).
 
-1. Aprire il file `BlobsController.cs`.
+1. Aprire il file `BlobsController.cs` .
 
 1. Aggiungere un metodo denominato `DownloadBlob` che restituisce una stringa.
 
@@ -447,7 +447,7 @@ Questa sezione illustra come scaricare un BLOB. È possibile renderlo persistent
 
 I passaggi seguenti illustrano come eliminare un BLOB:
 
-1. Aprire il file `BlobsController.cs`.
+1. Aprire il file `BlobsController.cs` .
 
 1. Aggiungere un metodo denominato `DeleteBlob` che restituisce una stringa.
 

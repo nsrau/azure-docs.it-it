@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 0ad80ce15769cfe823925cf36bbd47f2ddadec21
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 20b8cabded739335e9615d001138bde16e6308e5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB: documentazione dell'API SQL
 
@@ -97,13 +97,13 @@ Azure Cosmos DB offre diversi SDK per abilitare lo sviluppo di applicazioni lato
 - [.NET](sql-api-sdk-dotnet.md)
 - [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
 - [.NET Core](sql-api-sdk-dotnet-core.md)
-- [Node.js](sql-api-sdk-node.md)
+- [Node.JS](sql-api-sdk-node.md)
 - [Python](sql-api-sdk-python.md)
 
 ## <a name="reference"></a>Riferimenti
 
-- [REST](/rest/api/documentdb/)
-- [Provider di risorse REST](/rest/api/documentdbresourceprovider/)
+- [REST](/rest/api/cosmos-db/)
+- [Provider di risorse REST](/rest/api/cosmos-db-resource-provider/)
 - [Informazioni di riferimento sulle query SQL](sql-api-sql-query-reference.md)
 - [Informazioni di riferimento su Funzioni di Azure](../azure-functions/functions-bindings-cosmosdb.md)
 
@@ -112,5 +112,5 @@ Azure Cosmos DB offre diversi SDK per abilitare lo sviluppo di applicazioni lato
 Queste pagine di esempi contengono collegamenti al codice di esempio e ai contenuti di riferimento per le API per le attività più comuni dell'API SQL.
 
 - [.NET](sql-api-dotnet-samples.md)
-- [Node.js](sql-api-nodejs-samples.md)
+- [Node.JS](sql-api-nodejs-samples.md)
 - [Python](sql-api-python-samples.md) 

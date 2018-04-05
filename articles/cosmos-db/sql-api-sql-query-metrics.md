@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: a92d2ed1686765a54812ff82066bc30c1d48848d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c0ba9934afef6cb4d546e315c271cc19b6d3fa02
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ottimizzazione delle prestazioni delle query con Azure Cosmos DB
 
@@ -138,7 +138,7 @@ Di seguito sono elencate le principali intestazioni di risposta restituite dalla
 | `x-ms-documentdb-query-metrics` | Le statistiche della query per l'esecuzione. Si tratta di una stringa delimitata contenente le statistiche relative al tempo impiegato nelle varie fasi di esecuzione della query. Viene restituita se `x-ms-documentdb-populatequerymetrics` è impostato su `True`. | 
 | `x-ms-request-charge` | Il numero di [unità richiesta](request-units.md) usate dalla query. | 
 
-Per informazioni dettagliate sulle intestazioni e le opzioni delle richieste API REST, vedere [Querying resources using the DocumentDB REST API](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api) (Esecuzione di query su risorse con l'API REST).
+Per informazioni dettagliate sulle intestazioni e le opzioni delle richieste API REST, vedere [Querying resources using the DocumentDB REST API](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api) (Esecuzione di query su risorse con l'API REST).
 
 ## <a name="best-practices-for-query-performance"></a>Procedure consigliate per le prestazioni delle query
 Di seguito sono indicati i fattori più comuni che influiscono sulle prestazioni delle query di Azure Cosmos DB. In questo articolo verrà esaminato in modo approfondito ognuno di questi argomenti.
