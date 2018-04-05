@@ -1,24 +1,24 @@
 ---
-title: "Configurare le notifiche di integrità per i sistemi di gestione dei problemi esistenti usando un webhook | Microsoft Docs"
-description: "Inviare notifiche personalizzate sugli eventi di integrità al sistema di gestione dei problemi esistente."
+title: Configurare le notifiche di integrità per i sistemi di gestione dei problemi esistenti usando un webhook | Microsoft Docs
+description: Inviare notifiche personalizzate sugli eventi di integrità al sistema di gestione dei problemi esistente.
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 3/27/2018
 ms.author: shtabriz
-ms.openlocfilehash: b6a5f61f61675b825dcfe9c706c80944f5890538
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8535caf482b10912e6f7bc6df445756094d7603f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configurare le notifiche di integrità per i sistemi di gestione dei problemi esistenti usando un webhook
 
@@ -36,7 +36,7 @@ Se si desidera usare una funzionalità di integrazione preconfigurata, vedere la
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>Configurazione di una notifica personalizzata usando il payload di webhook di integrità del servizio
 Se si desidera configurare una propria integrazione di webhook personalizzata, è necessario analizzare il payload JSON che viene inviato durante le notifiche di integrità del servizio.
 
-Consultare [questo articolo per vedere un esempio](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) di come si presenta il payload webhook `Service Health`.
+Consultare [questo articolo per vedere un esempio](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) di come si presenta il payload webhook `ServiceHealth`.
 
 È possibile rilevare che si tratta di un avviso di integrità del servizio osservando `context.eventSource == "ServiceHealth"`. Da qui, le proprietà più importanti da inserire sono:
  * `data.context.activityLog.status`
@@ -48,13 +48,13 @@ Consultare [questo articolo per vedere un esempio](../monitoring-and-diagnostics
  * `data.context.activityLog.properties.impactedServices`
  * `data.context.activityLog.properties.trackingId`
 
-## <a name="creating-a-direct-link-to-azure-service-health-for-an-incident"></a>Creazione di un collegamento diretto a integrità del servizio di Azure per un evento imprevisto
-È possibile creare un collegamento diretto all'evento imprevisto di integrità del servizio di Azure personalizzato sul desktop o sul cellulare tramite la generazione di un URL specifico. Usare il `trackingId`, oltre alle prime e ultime tre cifre del proprio `subscriptionId`, in modo da formare:
+## <a name="creating-a-direct-link-to-the-service-health-dashboard-for-an-incident"></a>Creazione di un collegamento diretto al dashboard per l'integrità dei servizi di Azure per un evento imprevisto
+È possibile creare un collegamento diretto al dashboard per l'integrità dei servizi di Azure sul desktop o sul cellulare tramite la generazione di un URL specifico. Usare il `trackingId`, oltre alle prime e ultime tre cifre del proprio `subscriptionId`, in modo da formare:
 ```
 https://app.azure.com/h/<trackingId>/<first and last three digits of subscriptionId>
 ```
 
-Ad esempio, se il proprio `subscriptionId` è `bba14129-e895-429b-8809-278e836ecdb3` e il `trackingId` è `0DET-URB`, l'URL di integrità del servizio di Azure personalizzato è:
+Ad esempio, se il proprio `subscriptionId` è `bba14129-e895-429b-8809-278e836ecdb3` e il `trackingId` è `0DET-URB`, l'URL di integrità dei servizi di Azure è:
 
 ```
 https://app.azure.com/h/0DET-URB/bbadb3
@@ -110,7 +110,7 @@ Ciò indica che ci sono problemi con "avvisi e metriche" sia nell'area Australia
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. Si riceverà una risposta `2XX - Successful`.
 

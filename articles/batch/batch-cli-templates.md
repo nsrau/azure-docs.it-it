@@ -1,21 +1,21 @@
 ---
 title: Eseguire processi di Azure Batch end-to-end senza scrivere codice (anteprima) | Microsoft Docs
-description: "Creare file modello per l'interfaccia della riga di comando di Azure per creare pool, processi e attività di Batch."
+description: Creare file modello per l'interfaccia della riga di comando di Azure per creare pool, processi e attività di Batch.
 services: batch
 author: mscurrell
-manager: timlt
-ms.assetid: 
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
 ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: c2d4a33cd6c4c9db608a76b24935b474b551b291
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: c991a1535b82a76a3d0b9bdbf4ede8f3e22bc866
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch (anteprima)
 

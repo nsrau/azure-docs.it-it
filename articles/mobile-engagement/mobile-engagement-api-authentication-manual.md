@@ -1,11 +1,11 @@
 ---
-title: 'Eseguire l''autenticazione con le API REST di Mobile Engagement: configurazione manuale'
+title: "Eseguire l'autenticazione con le API REST di Mobile Engagement: configurazione manuale"
 description: Descrive come configurare manualmente l'autenticazione per le API REST di Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2e79f9c9-41e4-45ac-b427-3b8338675163
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0b4a999c6778040e71f862d3a010b6635e84b26e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 0d71908b34ddf8313aa45014420c9e63a00078c9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="authenticate-with-mobile-engagement-rest-apis-manual-setup"></a>Eseguire l'autenticazione con le API REST di Mobile Engagement: configurazione manuale
+# <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Eseguire l'autenticazione con le API REST di Mobile Engagement - installazione manuale
+> [!IMPORTANT]
+> Azure Mobile Engagement verrà ritirato il 31/03/2018. Questa pagina verrà eliminata subito dopo.
+> 
+
 Questa documentazione è un'appendice a [Eseguire l'autenticazione con le API REST di Mobile Engagement](mobile-engagement-api-authentication.md). Assicurarsi di leggere prima questo articolo per capire il contesto. Descrive inoltre un modo alternativo per eseguire la configurazione una tantum dell'autenticazione per le API REST di Mobile Engagement tramite il portale di Azure.
 
 > [!NOTE]

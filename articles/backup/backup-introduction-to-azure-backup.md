@@ -2,10 +2,10 @@
 title: Informazioni su Backup di Azure | Microsoft Docs
 description: Usare Backup di Azure per eseguire il backup e il ripristino di dati e carichi di lavoro da server e workstation Windows, server System Center DPM e macchine virtuali di Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 keywords: backup e ripristino; servizi di ripristino; soluzioni di backup
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
 ms.service: backup
@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: mvc
-ms.openlocfilehash: 600c4a29d7d7daabbbf6d1825671d109ea499c4b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 00ed2a64c672e1d2ae9a0037905a544b6c4424b7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Panoramica delle funzionalità di Backup di Azure
 Backup di Azure è il servizio basato su Azure che consente di eseguire il backup, la protezione e il ripristino dei dati in Microsoft Cloud. Backup di Azure sostituisce la soluzione di backup locale o esterna esistente con una soluzione basata sul cloud affidabile, sicura e conveniente. Backup di Azure offre più componenti che vengono scaricati e distribuiti nel computer o server appropriato o nel cloud. Il componente o l'agente distribuito dipende da ciò che si intende proteggere. Tutti i componenti di Backup di Azure consentono di eseguire il backup dei dati in un insieme di credenziali di Servizi di ripristino, a prescindere che i dati da proteggere si trovino in locale o nel cloud. Vedere la [tabella dei componenti di Backup di Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) più avanti in questo articolo per informazioni sul componente da usare per proteggere dati, applicazioni o carichi di lavoro specifici.
@@ -34,7 +34,7 @@ Le soluzioni di backup tradizionali si sono evolute e considerano ora il cloud c
 
 **Scalabilità illimitata**. Backup di Azure usa le potenzialità e la scalabilità illimitata del cloud di Azure per offrire disponibilità elevata, senza costi generali di manutenzione o monitoraggio. È possibile impostare avvisi per fornire informazioni sugli eventi, ma non è necessario preoccuparsi della disponibilità elevata dei dati nel cloud.
 
-**Più opzioni di archiviazione**. Un aspetto della disponibilità elevata è la replica di archiviazione. Backup di Azure offre due tipi di replica: [archiviazione con ridondanza locale](../storage/common/storage-redundancy.md#locally-redundant-storage) e [archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md#geo-redundant-storage). Scegliere l'opzione di archiviazione di backup in base alle esigenze:
+**Più opzioni di archiviazione**. Un aspetto della disponibilità elevata è la replica di archiviazione. Backup di Azure offre due tipi di replica: [archiviazione con ridondanza locale](../storage/common/storage-redundancy-lrs.md) e [archiviazione con ridondanza geografica](../storage/common/storage-redundancy-grs.md). Scegliere l'opzione di archiviazione di backup in base alle esigenze:
 
 * L'archiviazione con ridondanza locale replica i dati tre volte (crea tre copie dei dati) in un'unità di scala di archiviazione in un data center. Tutte le copie dei dati si trovano nella stessa area geografica. L'archiviazione con ridondanza locale è un'opzione a costo contenuto per la protezione dei dati da errori hardware locali.
 
@@ -219,7 +219,7 @@ Alcuni esempi comuni di istanze protette sono macchine virtuali, server applicaz
 
 
 ## <a name="what-is-a-recovery-services-vault"></a>Informazioni sull'insieme di credenziali di Servizi di ripristino
-Un insieme di credenziali di Servizi di ripristino è un'entità di archiviazione online in Azure usata per contenere dati, ad esempio copie di backup, punti di ripristino e criteri di backup. È possibile usare gli insiemi di credenziali di Servizi di ripristino per contenere i dati di backup per servizi di Azure e server e workstation locali. Gli insiemi di credenziali di Servizi di ripristino semplificano l'organizzazione dei dati di backup, riducendo al minimo l'overhead di gestione. Nell'ambito di ogni sottoscrizione di Azure è possibile creare un massimo di 25 insiemi di credenziali di Servizi di ripristino per area di Azure. Per quanto riguarda la posizione in cui archiviare i dati, non tutte le aree geografiche sono uguali. Per informazioni sulle associazioni di aree e considerazioni aggiuntive sulle risorse di archiviazione, vedere [Archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md#geo-redundant-storage).
+Un insieme di credenziali di Servizi di ripristino è un'entità di archiviazione online in Azure usata per contenere dati, ad esempio copie di backup, punti di ripristino e criteri di backup. È possibile usare gli insiemi di credenziali di Servizi di ripristino per contenere i dati di backup per servizi di Azure e server e workstation locali. Gli insiemi di credenziali di Servizi di ripristino semplificano l'organizzazione dei dati di backup, riducendo al minimo l'overhead di gestione. Nell'ambito di ogni sottoscrizione di Azure è possibile creare un massimo di 25 insiemi di credenziali di Servizi di ripristino per area di Azure. Per quanto riguarda la posizione in cui archiviare i dati, non tutte le aree geografiche sono uguali. Per informazioni sulle associazioni di aree e considerazioni aggiuntive sulle risorse di archiviazione, vedere [Archiviazione con ridondanza geografica](../storage/common/storage-redundancy-grs.md).
 
 Gli insiemi di credenziali di backup, basati su Azure Service Manager, sono stati la prima versione dell'insieme di credenziali. Gli insiemi di credenziali di Servizi di ripristino, che aggiungono le funzionalità del modello di Azure Resource Manager, sono la seconda versione dell'insieme di credenziali. Vedere [Recovery Services vaults overview](backup-azure-recovery-services-vault-overview.md) (Panoramica degli insiemi di credenziali di Servizi di ripristino) per una descrizione completa delle differenze di funzionalità. Non è più possibile creare insiemi di credenziali di backup e tutti gli insiemi di credenziali di backup esistenti sono stati aggiornati a insiemi di credenziali dei Servizi di ripristino. È possibile usare il portale di Azure per gestire gli insiemi di credenziali aggiornati agli insiemi di credenziali dei Servizi di ripristino.
 

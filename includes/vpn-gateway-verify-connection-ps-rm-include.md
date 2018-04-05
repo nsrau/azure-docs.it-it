@@ -5,21 +5,21 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 03/29/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: da682e3e947c3f8643610e42ad22fb9d742796f5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 508685954e23a357fa5fc48b0e89c5e7daedb5c6
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 Per verificare l'esito positivo della connessione è possibile usare il cmdlet 'Get-AzureRmVirtualNetworkGatewayConnection' con o senza '-Debug'. 
 
 1. Per configurare i valori in modo che corrispondano ai propri, usare l'esempio di cmdlet seguente. Quando richiesto, selezionare "A" per eseguire "Tutti". Il valore " -Name" nell'esempio fa riferimento al nome della connessione che si vuole testare.
 
-  ```powershell
-  Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
+  ```azurepowershell-interactive
+  Get-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1
   ```
 2. Al termine dell'esecuzione del cmdlet, visualizzare i valori. Nell'esempio seguente lo stato di connessione risulta "Connesso" ed è possibile visualizzare i byte in ingresso e in uscita.
    

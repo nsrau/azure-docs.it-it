@@ -2,18 +2,18 @@
 title: Distribuire Analisi di flusso di Azure con Azure IoT Edge | Microsoft Docs
 description: Distribuire Analisi di flusso di Azure come modulo in un dispositivo Edge
 services: iot-edge
-keywords: 
-author: msebolt
+keywords: ''
+author: kgremban
 manager: timlt
-ms.author: v-masebo
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Distribuire Analisi di flusso di Azure come modulo IoT Edge: anteprima
 
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 > * Connettere il nuovo processo di Analisi di flusso di Azure con altri moduli IoT Edge.
 > * Distribuire il processo di Analisi di flusso di Azure in un dispositivo IoT Edge.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un hub IoT. 
 * Il dispositivo creato e configurato nella guida introduttiva o negli articoli sulla distribuzione di Azure IoT Edge in un dispositivo simulato in [Windows][lnk-tutorial1-win] o in [Linux][lnk-tutorial1-lin]. È necessario conoscere la chiave di connessione del dispositivo e l'ID del dispositivo. 

@@ -1,11 +1,11 @@
 ---
-title: "Gestire la capacità di memoria fisica per lo Stack di Azure | Documenti Microsoft"
+title: Gestire la capacità di memoria fisica per lo Stack di Azure | Documenti Microsoft
 description: Monitorare e gestire lo spazio di archiviazione disponibile per lo Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 84518E90-75E1-4037-8D4E-497EAC72AAA1
 ms.service: azure-stack
 ms.workload: na
@@ -16,10 +16,10 @@ ms.date: 03/13/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
 ms.openlocfilehash: b922790d51c7028c37bb5863d43e99e19790488c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Gestire la capacità di memoria fisica per lo Stack di Azure
 

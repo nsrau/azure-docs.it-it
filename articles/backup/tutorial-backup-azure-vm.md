@@ -1,13 +1,13 @@
 ---
 title: Backup di macchine virtuali in Azure su larga scala | Microsoft Docs
-description: "Questa esercitazione descrive in dettaglio l'esecuzione di backup tra più macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino."
+description: Questa esercitazione descrive in dettaglio l'esecuzione di backup tra più macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 keywords: backup di macchine virtuali; back up di macchine virtuali; backup e ripristino di emergenza
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 09/06/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: mvc
-ms.openlocfilehash: 01609c00c6f0585eff4843932b9eb7a090a59c19
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 62cc623dc3130119c5ec803933012c5545d703e5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Backup di macchine virtuali di Azure su larga scala
 
@@ -46,7 +46,7 @@ Creare un insieme di credenziali di Servizi di ripristino tramite il comando **N
 New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
-Molti cmdlet di Backup di Azure richiedono l'oggetto dell'insieme di credenziali dei servizi di ripristino come input. Per questo motivo, è utile archiviare l'oggetto dell'insieme di credenziali dei servizi di ripristino di Backup in una variabile. Usare quindi il comando **Set-AzureRmRecoveryServicesBackupProperties** per impostare l'opzione **-BackupStorageRedundancy** su [Archiviazione con ridondanza geografica (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). 
+Molti cmdlet di Backup di Azure richiedono l'oggetto dell'insieme di credenziali dei servizi di ripristino come input. Per questo motivo, è utile archiviare l'oggetto dell'insieme di credenziali dei servizi di ripristino di Backup in una variabile. Usare quindi il comando **Set-AzureRmRecoveryServicesBackupProperties** per impostare l'opzione **-BackupStorageRedundancy** su [Archiviazione con ridondanza geografica (GRS)](../storage/common/storage-redundancy-grs.md). 
 
 ```powershell
 $vault1 = Get-AzureRmRecoveryServicesVault –Name myRSVault

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 0f51b52d9f4d5c8979ba636311e63089c11cd114
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 030c6fbfb5eb76a745a1089acab54e74ce7a01e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Esercitazione: Monitorare e diagnosticare un'applicazione ASP.NET Core in Service Fabric
 Questa è la quarta di una serie di esercitazioni. Analizza i passaggi per configurare il monitoraggio e la diagnostica per un'applicazione ASP.NET Core in esecuzione in un cluster di Service Fabric con Application Insights. Verranno raccolti i dati di telemetria dall'applicazione sviluppata nella prima parte dell'esercitazione, [Creare un'applicazione di Service Fabric .NET](service-fabric-tutorial-create-dotnet-app.md). 
@@ -83,7 +83,7 @@ Assicurarsi di eseguire i passaggi precedenti per **entrambi** i servizi dell'ap
 
 ## <a name="add-the-microsoftapplicationinsightsservicefabricnative-nuget-to-the-services"></a>Aggiungere Microsoft.ApplicationInsights.ServiceFabric.Native NuGet ai servizi
 
-Application Insights dispone di due NuGets specifici di Service Fabric, che possono essere usati a seconda dello scenario. Uno viene usato con i servizi nativi di Service Fabric e l'altro con i contenitori e i file eseguibili guest. In questo caso, verrà usato NuGet di Microsoft.ApplicationInsights.ServiceFabric.Native per sfruttare la comprensione del contesto di esecuzione del servizio che offre. Per altre informazioni su Application Insights SDK e NuGets specifici di Service Fabric, vedere [Microsoft Application Insights for Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/develop/README.md) (Microsoft Application Insights per Service Fabric). 
+Application Insights dispone di due NuGets specifici di Service Fabric, che possono essere usati a seconda dello scenario. Uno viene usato con i servizi nativi di Service Fabric e l'altro con i contenitori e i file eseguibili guest. In questo caso, verrà usato NuGet di Microsoft.ApplicationInsights.ServiceFabric.Native per sfruttare la comprensione del contesto di esecuzione del servizio che offre. Per altre informazioni su Application Insights SDK e NuGets specifici di Service Fabric, vedere [Microsoft Application Insights for Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md) (Microsoft Application Insights per Service Fabric). 
 
 Di seguito sono riportati i passaggi per configurare NuGet:
 1. Fare clic con il pulsante destro del mouse sulla **soluzione "Voting"** nella parte superiore di Esplora soluzioni e fare clic su **Gestisci pacchetti NuGet per la soluzione...**.

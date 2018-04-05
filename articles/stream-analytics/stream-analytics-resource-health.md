@@ -1,25 +1,24 @@
 ---
-title: "Usare il pannello Integrità risorse nella funzionalità di analisi di flusso di Azure | Microsoft Docs"
+title: Usare il pannello Integrità risorse nella funzionalità di analisi di flusso di Azure | Microsoft Docs
 description: Informazioni su come individuare i problemi durante la risoluzione dei processi di analisi di flusso.
 keywords: diagramma di flusso della risoluzione dei problemi, pannello delle risorse
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/01/2017
-ms.author: samacha
-ms.openlocfilehash: 554dec5fbbe5c98585f8be58f5d4e8203d788a00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 598f858c22494bc511ef0e2f04f3c3a6baad1ae8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-resource-health-blade"></a>Pannello Integrità risorse della funzionalità di analisi di flusso
 

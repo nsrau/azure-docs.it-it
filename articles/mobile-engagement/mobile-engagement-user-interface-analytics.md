@@ -2,10 +2,10 @@
 title: Interfaccia utente di Azure Mobile Engagement - Analytics
 description: Informazioni su come analizzare i dati storici sull'applicazione usando Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6b2533ac-b8ec-4e35-872c-d563895bdc0c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ad05676919d6c254d60fd010c3f589f663c4745d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fceae1ffff40fc525170121181e21726fe2bd3f7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-analyze-historical-data-about-your-application"></a>Come analizzare i dati cronologici sull'applicazione
+> [!IMPORTANT]
+> Azure Mobile Engagement verrà ritirato il 31/03/2018. Questa pagina verrà eliminata subito dopo.
+> 
+
 In questo articolo viene descritta la scheda **ANALISI** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement** .
 
 La sezione Analytics dell'interfaccia utente fornisce informazioni aggregate sull'applicazione, tratte dai dati cronologici che vengono aggiornati ogni 24 ore. Le informazioni vengono visualizzate in dashboard diversi, composti da grafici a linee/barre/torta, griglie e mappe. I dati possono anche essere scaricati come file con estensione csv. La maggior parte di queste informazioni è disponibile in tempo reale nella sezione Monitoraggio dell'interfaccia utente. Inoltre, è possibile accedervi dall'API Analytics.

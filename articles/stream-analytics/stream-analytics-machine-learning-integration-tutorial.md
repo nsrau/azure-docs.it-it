@@ -1,12 +1,11 @@
 ---
-title: Integrazione di Analisi di flusso di Azure e Machine Learning | Microsoft Docs
+title: Integrazione di Analisi di flusso di Azure e Machine Learning | Documentazione Microsoft
 description: Come usare una funzione definita dall'utente e Machine Learning in un processo di analisi di flusso
 keywords: ''
 documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
-manager: jhubbard
-editor: cgronlun
+manager: kfile
 ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/01/2018
 ms.author: sngun
-ms.openlocfilehash: 10d514aeb50dcd24f28ed879875b23b25578cebb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e5661f9f3871619201ff9106e87785de802e8933
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Analisi del sentiment con Analisi di flusso di Azure e Azure Machine Learning
 Questo articolo descrive come configurare rapidamente un semplice processo di Analisi di flusso di Azure che integra Azure Machine Learning. Verrà usato un modello di Machine Learning per l'analisi del sentiment proveniente dalla raccolta Cortana Intelligence per analizzare il flusso di dati di testo e determinare il punteggio del sentiment in tempo reale. Cortana Intelligence Suite consente di eseguire questa operazione senza doversi preoccupare delle complessità della creazione di un modello di analisi del sentiment.
@@ -41,7 +40,7 @@ La figura seguente illustra questa configurazione. Come indicato, per uno scenar
 
 ![Panoramica dell'integrazione di Machine Learning in Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 * Una sottoscrizione di Azure attiva.
@@ -150,7 +149,7 @@ Il processo ottiene l'input dal file CSV caricato in precedenza nell'archivio BL
 
    ![Impostazioni per il nuovo input del processo](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
 ### <a name="configure-the-job-output"></a>Configurare l'output del processo
 Il processo invia i risultati allo stesso archivio BLOB da cui ottiene l'input. 
@@ -170,7 +169,7 @@ Il processo invia i risultati allo stesso archivio BLOB da cui ottiene l'input.
 
    ![Impostazioni per il nuovo output del processo](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
 
-4. Fare clic su **Salva**.   
+4. Fare clic su **Save**.   
 
 
 ### <a name="add-the-machine-learning-function"></a>Aggiungere la funzione di Machine Learning 
@@ -192,7 +191,7 @@ In questa sezione dell'esercitazione si definisce una funzione nel processo di A
   
    ![Impostazioni per l'aggiunta di una funzione di Machine Learning al processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
     
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
 ### <a name="create-a-query-to-transform-the-data"></a>Creare una query per trasformare i dati
 

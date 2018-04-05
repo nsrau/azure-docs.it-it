@@ -1,6 +1,6 @@
 ---
-title: "Gruppi di disponibilità di SQL Server: Macchine virtuali di Azure: esercitazione | Microsoft Docs"
-description: "Questa esercitazione illustra come creare un gruppo di disponibilità SQL Server AlwaysOn in Macchine virtuali di Azure."
+title: 'Gruppi di disponibilità di SQL Server: Macchine virtuali di Azure: esercitazione | Microsoft Docs'
+description: Questa esercitazione illustra come creare un gruppo di disponibilità SQL Server AlwaysOn in Macchine virtuali di Azure.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurare manualmente un gruppo di disponibilità AlwaysOn in VM di Azure
 
@@ -32,13 +32,13 @@ Il diagramma illustra le operazioni di compilazione nell'esercitazione.
 
 ![Gruppo di disponibilità](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Nell'esercitazione si presuppone una conoscenza di base dei gruppi di disponibilità di SQL Server AlwaysOn. Se sono necessarie altre informazioni, vedere [Panoramica di Gruppi di disponibilità AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
 
 La tabella seguente elenca i prerequisiti da completare prima di iniziare l'esercitazione:
 
-|  |Requisito |DESCRIZIONE |
+|  |Requisito |Descrizione |
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Due istanze di SQL Server | - In un set di disponibilità di Azure <br/> - In un dominio singolo <br/> - Con la funzionalità Clustering di failover installata |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Controllo di condivisione file per il cluster |  
@@ -356,7 +356,7 @@ Nelle macchine virtuali di Azure un gruppo di disponibilità SQL Server richiede
    | **Rete virtuale** |Usare il nome della rete virtuale di Azure. |
    | **Subnet** |Usare il nome della subnet in cui si trova la macchina virtuale.  |
    | **Assegnazione indirizzi IP** |statico |
-   | **Indirizzo IP** |Usare un indirizzo disponibile nella subnet. |
+   | **Indirizzo IP** |Usare un indirizzo disponibile nella subnet. Si noti che questo indirizzo è diverso dall'indirizzo IP del cluster. |
    | **Sottoscrizione** |Usare la stessa sottoscrizione della macchina virtuale. |
    | **Posizione** |Usare la stessa posizione della macchina virtuale. |
 
@@ -376,7 +376,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
 1. Fare clic sul servizio di bilanciamento del carico, quindi su **Pool back-end** e infine su **+Aggiungi**. Impostare il pool back-end come segue:
 
-   | Impostazione | DESCRIZIONE | Esempio
+   | Impostazione | Descrizione | Esempio
    | --- | --- |---
    | **Nome** | Digitare un nome in formato testo | SQLLBBE
    | **Associato a** | Selezionare dall'elenco | Set di disponibilità
@@ -399,7 +399,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
 1. Impostare il probe di integrità nel modo seguente:
 
-   | Impostazione | DESCRIZIONE | Esempio
+   | Impostazione | Descrizione | Esempio
    | --- | --- |---
    | **Nome** | Text | SQLAlwaysOnEndPointProbe |
    | **Protocollo** | Scegliere TCP | TCP |
@@ -414,7 +414,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 1. Fare clic sul servizio di bilanciamento del carico, quindi su **Regole di bilanciamento del carico** e infine su **+Aggiungi**.
 
 1. Impostare le regole di bilanciamento del carico come segue.
-   | Impostazione | DESCRIZIONE | Esempio
+   | Impostazione | Descrizione | Esempio
    | --- | --- |---
    | **Nome** | Text | SQLAlwaysOnEndPointListener |
    | **Indirizzo IP front-end IP** | Scegliere un indirizzo |Usare l'indirizzo creato quando si è creato il servizio di bilanciamento del carico. |
