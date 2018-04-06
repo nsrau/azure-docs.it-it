@@ -1,11 +1,11 @@
 ---
 title: Configurare un ambiente di sviluppo Windows per i microservizi di Azure | Microsoft Docs
-description: "Installare il runtime, l'SDK e gli strumenti e creare un cluster di sviluppo locale. Al termine della configurazione, sarà possibile iniziare a creare applicazioni in Windows."
+description: Installare il runtime, l'SDK e gli strumenti e creare un cluster di sviluppo locale. Al termine della configurazione, sarà possibile iniziare a creare applicazioni in Windows.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/20/2018
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 730753efb6efaad659e1a713b0b68329032b3983
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8e0898cf8046443728f92a8e05f17e51221fe60a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparare l'ambiente di sviluppo in Windows
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/09/2018
 > 
 > 
 
- Per compilare ed eseguire [applicazioni di Azure Service Fabric][1] nel computer di sviluppo Windows, installare il runtime, l'SDK e gli strumenti. È anche necessario abilitare l'esecuzione di script Windows PowerShell inclusi nell'SDK.
+Per compilare ed eseguire [applicazioni di Azure Service Fabric][1] nel computer di sviluppo Windows, installare il runtime di Service Fabric, l'SDK e gli strumenti. È anche necessario [abilitare l'esecuzione di script Windows PowerShell](#enable-powershell-script-execution) inclusi nell'SDK.
 
 ## <a name="prerequisites"></a>prerequisiti
 ### <a name="supported-operating-system-versions"></a>Versioni del sistema operativo supportate
@@ -49,12 +49,12 @@ Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 ## <a name="install-the-sdk-and-tools"></a>Installare l'SDK e gli strumenti
 ### <a name="to-use-visual-studio-2017"></a>Per usare Visual Studio 2017
 Gli strumenti di Service Fabric fanno parte del carico di lavoro di sviluppo di Azure in Visual Studio 2017. Abilitare questo carico di lavoro durante l'installazione di Visual Studio.
-È anche necessario installare Microsoft Azure Service Fabric SDK, usando Installazione guidata piattaforma Web.
+È anche necessario installare Microsoft Azure Service Fabric SDK e il runtime usando Installazione guidata piattaforma Web.
 
 * [Installare Microsoft Azure Service Fabric SDK][core-sdk]
 
 ### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Per usare Visual Studio 2015 (è necessario Visual Studio 2015 Update 2 o versioni successive)
-Per Visual Studio 2015, gli strumenti di Service Fabric vengono installati con l'SDK, usando Installazione guidata piattaforma Web:
+Per Visual Studio 2015, gli strumenti di Service Fabric vengono installati con l'SDKe il runtime usando Installazione guidata piattaforma Web:
 
 * [Installare Microsoft Azure Service Fabric SDK e gli strumenti][full-bundle-vs2015]
 

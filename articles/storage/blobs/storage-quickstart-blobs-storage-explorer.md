@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 72503dd0216d9d987d1222491c6e11d46a4d38a3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f44d42b949eae0d017e3bba218234fd1e2ead78e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Azure Storage Explorer
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 02/24/2018
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Questa guida introduttiva richiede l'installazione di Azure Storage Explorer. Se è necessario installarlo, vedere [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per scaricarlo per Windows, Macintosh o Linux.
+La guida rapida richiede l'installazione di Azure Storage Explorer. Se è necessario installarlo, vedere [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per scaricarlo per Windows, Macintosh o Linux.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
@@ -47,7 +47,7 @@ Al termine della connessione, Azure Storage Explorer viene caricato con la sched
 
 Gli elementi BLOB vengono sempre caricati in un contenitore. Ciò consente di organizzare i gruppi di BLOB come si organizzano i file in cartelle sul computer.
 
-Per creare un contenitore, espandere l'account di archiviazione creato nel passaggio precedente. Selezionare **Contenitori BLOB**, fare clic con il pulsante destro del mouse e scegliere **Crea contenitore BLOB**. Immettere il nome per il contenitore BLOB. Per un elenco di regole e restrizioni relative alla denominazione dei contenitori BLOB, vedere [Regole di denominazione dei contenitori](storage-dotnet-how-to-use-blobs.md#create-a-container). Al termine, premere **INVIO** per creare il contenitore BLOB. Dopo la creazione, il contenitore BLOB viene visualizzato sotto la cartella **Contenitori BLOB** per l'account di archiviazione selezionato.
+Per creare un contenitore, espandere l'account di archiviazione creato nel passaggio precedente. Selezionare **Contenitori BLOB**, fare clic con il pulsante destro del mouse e scegliere **Crea contenitore BLOB**. Immettere il nome per il contenitore BLOB. Vedere la sezione [Creare il contenitore e impostare le autorizzazioni](storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) per un elenco di regole e restrizioni relative alla denominazione dei contenitori BLOB. Al termine, premere **INVIO** per creare il contenitore BLOB. Dopo la creazione, il contenitore BLOB viene visualizzato sotto la cartella **Contenitori BLOB** per l'account di archiviazione selezionato.
 
 ## <a name="upload-blobs-to-the-container"></a>Caricare i BLOB nel contenitore
 

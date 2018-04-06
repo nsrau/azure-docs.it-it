@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0bbb7d7036c18675a64171a8bbf5c7fa46d53336
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Ricevere una notifica quando un valore della metrica soddisfa una condizione
 
@@ -30,24 +30,24 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-logic-app"></a>Creare un'app per la logica
 
-1. Fare clic sul pulsante **Crea una risorsa** visualizzato nell'angolo superiore sinistro del portale di Azure.
+1. Fare clic sul pulsante **Crea una risorsa** visualizzato nell'angolo in alto a sinistra nel portale di Azure.
 
 2. Cercare e selezionare **App per la logica**. Selezionare il pulsante **Create** .
 
-3. Immettere le informazioni sull'app per la logica mostrate nell'immagine seguente.  Usare la località predefinita. Selezionare l'opzione **Aggiungi al dashboard**.  Al termine, fare clic su **Crea**. 
+3. Immettere il nome myLogicApp e il gruppo di risorse myResourceGroup. Usare la sottoscrizione.  Usare la località predefinita. Selezionare l'opzione **Aggiungi al dashboard**.  Al termine, fare clic su **Crea**. 
 
-    ![Immettere le informazioni di base sull'app per la logica nel portale](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
+    ![Immettere le informazioni di base sull'app per la logica nel portale](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
 
 4. L'app per la logica deve essere aggiunta al dashboard. Passare all'app per la logica facendo clic su di essa.
 
 5. Nel pannello App per la logica, selezionare **Progettazione app per la logica**
 
-     ![Creazione di un trigger di ricorrenza nella finestra di progettazione di app per la logica nel pannello del portale](./media/monitoring-quick-resource-metric-alert-portal/logic-app-designer.png)  
+     ![Creazione di un trigger di ricorrenza nella finestra di progettazione di app per la logica nel pannello del portale](./media/monitor-quick-resource-metric-alert-portal/logic-app-designer.png)  
 
 6. Impostare i valori, come illustrato nel diagramma seguente.
 
-    ![Configurare il trigger di app per la logica nel pannello del portale](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![Configurare il trigger di app per la logica nel pannello del portale](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
 
 7. Nella finestra di progettazione, selezionare il trigger **Ricorrenza**.
 
@@ -75,7 +75,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 5. Viene ora visualizzato un grafico che traccia il numero totale di esecuzioni avviate dall'app per la logica nell'ora precedente. Se non viene visualizzato alcun grafico, assicurarsi di aver atteso almeno cinque minuti dal passaggio precedente. Aggiornare quindi il browser. 
 
-    ![Tracciare un grafico della metrica per la risorsa dell'app per la logica](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
+    ![Tracciare un grafico della metrica per la risorsa dell'app per la logica](./media/monitor-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 
 ## <a name="create-a-metric-alert-for-your-logic-app"></a>Creare un avviso metrica per l'app per la logica
 
@@ -87,7 +87,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 4. Infine, in **Indirizzi di posta elettronica aggiuntivi dell'amministratore** immettere l'indirizzo di posta elettronica. Questo avviso garantisce la ricezione di un messaggio di posta elettronica nel caso in cui l'app per la logica abbia più di 10 esecuzioni non riuscite in un periodo di 5 minuti.
 
-    ![Configurare l'avviso dell'app per la logica nel pannello del portale](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
+    ![Configurare l'avviso dell'app per la logica nel pannello del portale](./media/monitor-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
 
 ## <a name="receive-metric-alert-notifications-for-your-logic-app"></a>Ricevere notifiche di avviso della metrica per l'app per la logica
 1. In pochi minuti, si dovrebbe ricevere un messaggio di posta elettronica da "Avvisi di Microsoft Azure" per informare l'utente dell'attivazione dell'avviso.

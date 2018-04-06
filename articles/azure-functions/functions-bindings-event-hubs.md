@@ -3,7 +3,7 @@ title: Associazioni di Hub eventi di Azure per Funzioni di Azure
 description: Informazioni su come usare le associazioni di Hub eventi di Azure in Funzioni di Azure.
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,12 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
-ms.author: wesmc
-ms.openlocfilehash: 87a7d25e1095fe1511c86dc56375c02f06f51b73
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: tdykstra
+ms.openlocfilehash: 44dbe4c3157b1b765004975a6f04e3a96b477846
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Associazioni di Hub eventi di Azure per Funzioni di Azure
 
@@ -30,7 +30,7 @@ Questo articolo illustra come usare le associazioni di [Hub eventi di Azure](../
 
 ## <a name="packages"></a>Pacchetti
 
-Le associazioni di Hub eventi sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus). Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/).
+Per Funzioni di Azure versione 1.x, le associazioni di Hub eventi sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus). Per Funzioni 2.x, usare il pacchetto [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs). Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -203,6 +203,34 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
+Per ricevere gli eventi in un batch, impostare `cardinality` su `many` nel file *function.json*:
+
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "eventHubMessages",
+  "direction": "in",
+  "path": "MyEventHub",
+  "cardinality": "many",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
+Ecco il codice JavaScript:
+
+```javascript
+module.exports = function (context, eventHubMessages) {
+    context.log(`JavaScript eventhub trigger function called for message array ${eventHubMessages}`);
+    
+    eventHubMessages.forEach(message => {
+        context.log(`Processed message ${message}`);
+    });
+
+    context.done();
+};
+```
+
 ## <a name="trigger---attributes"></a>Trigger - attributi
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs).
@@ -230,6 +258,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**nome** | n/d | Nome della variabile che rappresenta l'elemento evento nel codice della funzione. | 
 |**path** |**EventHubName** | Nome di Hub eventi. | 
 |**consumerGroup** |**ConsumerGroup** | Proprietà facoltativa usata per impostare il [gruppo di consumer](../event-hubs/event-hubs-features.md#event-consumers) usato per effettuare la sottoscrizione agli eventi nell'hub. Se omessa, al suo posto viene usato il gruppo di consumer `$Default`. | 
+|**cardinality** | n/d | Per JavaScript. Impostare su `many` per abilitare l'invio in batch.  Se omesso o impostato su `one`, singolo messaggio passato alla funzione. | 
 |**connessione** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione per lo spazio dei nomi di Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo [spazio dei nomi](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), non per lo stesso Hub eventi. Per attivare il trigger, questa stringa di connessione deve disporre almeno delle autorizzazioni Read.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -414,7 +443,7 @@ In JavaScript accedere all'evento di output usando `context.bindings.<name>`. `<
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione | riferimento |
+| Associazione | Riferimenti |
 |---|---|
 | Hub eventi | [Operations Guide](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) (Guida operativa) |
 

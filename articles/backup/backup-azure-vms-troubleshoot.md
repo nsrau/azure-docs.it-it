@@ -2,10 +2,10 @@
 title: Risolvere i problemi relativi al backup di una macchina virtuale di Azure | Microsoft Docs
 description: Risolvere i problemi relativi al backup e al ripristino delle macchine virtuali di Azure
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -13,38 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/21/2018
-ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: d8840d2561e6102fe1679c36e981de6614b84d54
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.author: trinadhk;markgal;jpallavi;sogup
+ms.openlocfilehash: 89535fc22faccfb184d9b56a6138337877957829
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Risolvere i problemi relativi al backup delle macchine virtuali di Azure
 È possibile risolvere gli errori rilevati durante l'uso di Backup di Azure con le informazioni elencate nella tabella seguente.
 
-## <a name="backup"></a>Backup
-
-### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Errore: la configurazione di disco specificata non è supportata
-
-> [!NOTE]
-> È disponibile un'anteprima privata per il supporto di backup per macchine virtuali con dischi di dimensioni superiori a 1 TB. Per informazioni dettagliate, vedere l'[anteprima privata per il supporto di backup di macchine virtuali con dischi di grandi dimensioni](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
->
->
-
-Attualmente Backup di Azure non supporta dischi di dimensioni [maggiori di 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- Se la dimensione dei dischi è maggiore di 1 TB, [collegare nuovi dischi](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) di dimensione inferiore a 1 TB <br>
-- Copiare quindi i dati dal disco di dimensione superiore a 1 TB nei dischi appena creati di dimensione inferiore a 1 TB. <br>
-- Verificare che tutti i dati siano stati copiati e rimuovere i dischi di dimensione superiore a 1 TB
-- Avviare il backup.
-
 | Dettagli errore | Soluzione alternativa |
 | --- | --- |
-| Impossibile eseguire l'operazione perché la VM non esiste più. Arrestare la protezione della macchina virtuale senza eliminare i dati del backup. Per altre informazioni visitare la pagina Web http://go.microsoft.com/fwlink/?LinkId=808124 |Questo si verifica quando la macchina virtuale primaria viene eliminata, ma i criteri di backup continuano a cercare una macchina virtuale per il backup. Per correggere l'errore:  <ol><li> Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse [nome del servizio cloud],<br>OPPURE</li><li> Interrompere la protezione della macchina virtuale cancellando o senza eliminare i dati del backup. [Altre informazioni](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
-| Operazione di creazione snapshot non riuscita a causa dell'assenza della connettività di rete nella macchina virtuale. Assicurarsi che la VM abbia accesso alla rete. Per la corretta creazione dello snapshot, aggiungere all'elenco elementi consentiti gli intervalli IP del data center di Azure oppure configurare un server proxy per l'accesso di rete. Per altri dettagli, vedere http://go.microsoft.com/fwlink/?LinkId=800034. Se si usa già il server proxy, assicurarsi che le impostazioni del server proxy siano configurate correttamente. | Questo errore viene generato quando si nega la connettività Internet in uscita nella macchina virtuale. La connettività Internet è necessaria per consentire all'estensione snapshot della VM di creare uno snapshot dei dischi sottostanti della macchina virtuale. [Altre informazioni](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine) su come risolvere gli errori degli snapshot dovuti all'accesso di rete bloccato. |
+| Impossibile eseguire l'operazione perché la VM non esiste più. Arrestare la protezione della macchina virtuale senza eliminare i dati del backup. Per altre informazioni: http://go.microsoft.com/fwlink/?LinkId=808124. |Questo si verifica quando la macchina virtuale primaria viene eliminata, ma i criteri di backup continuano a cercare una macchina virtuale per il backup. Per correggere l'errore:  <ol><li> Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse [nome del servizio cloud],<br>OPPURE</li><li> Interrompere la protezione della macchina virtuale cancellando o senza eliminare i dati del backup. [Altre informazioni](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
+| Operazione di creazione snapshot non riuscita a causa dell'assenza della connettività di rete nella macchina virtuale. Assicurarsi che la VM abbia accesso alla rete. Per la corretta creazione dello snapshot, aggiungere all'elenco elementi consentiti gli intervalli IP del data center di Azure oppure configurare un server proxy per l'accesso di rete. Per altre informazioni, vedere http://go.microsoft.com/fwlink/?LinkId=800034. Se si usa già il server proxy, assicurarsi che le impostazioni del server proxy siano configurate correttamente. | Questo errore viene generato quando si nega la connettività Internet in uscita nella macchina virtuale. La connettività Internet è necessaria per consentire all'estensione snapshot della VM di creare uno snapshot dei dischi sottostanti della macchina virtuale. [Altre informazioni](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine) su come risolvere gli errori degli snapshot dovuti all'accesso di rete bloccato. |
 | L'agente di macchine virtuali non riesce a comunicare con il servizio Backup di Azure. Verificare la connettività di rete della macchina virtuale e che l'agente di macchine virtuali sia in esecuzione con la versione più recente. Per altre informazioni, vedere http://go.microsoft.com/fwlink/?LinkId=800034. |Questo errore viene generato se si verifica un problema con l'agente di VM o se l'accesso di rete all'infrastruttura di Azure è bloccato in qualche modo. Vedere [altre informazioni](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) sul debug dei problemi di snapshot della VM.<br> Se l'agente di macchine virtuali non causa alcun problema, riavviare la macchina virtuale. Talvolta, uno stato della macchina virtuale non corretto genera problemi che vengono corretti riavviando la macchina virtuale. |
 | Lo stato di provisioning della macchina virtuale è Non riuscito. Riavviare la macchina virtuale e assicurarsi che lo stato della macchina virtuale sia In esecuzione o Arresto per il backup. | Questo errore si verifica quando gli errori di una delle estensioni provocano lo stato non riuscito del provisioning della VM. Passare all'elenco di estensioni e verificare se è presente un'estensione con errore, rimuoverla e provare a riavviare la macchina virtuale. Se tutte le estensioni sono in stato di esecuzione, verificare se è in esecuzione il servizio agente di macchine virtuali. In caso contrario, riavviare il servizio agente di macchine virtuali. | 
-| L'operazione dell'estensione VMSnapshot non è riuscita per i dischi gestiti. Ripetere l'operazione di backup. Se il problema si ripete, seguire le istruzioni illustrate nell'articolo 'http://go.microsoft.com/fwlink/?LinkId=800034'. Se il problema continua a persistere, contattare il supporto tecnico Microsoft. | Questo errore viene visualizzato quando il servizio Backup di Azure non riesce ad attivare uno snapshot. [Altre informazioni](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed) sul debug dei problemi delle VM relativi agli snapshot. |
+| L'operazione dell'estensione VMSnapshot non è riuscita per i dischi gestiti. Ripetere l'operazione di backup. Se il problema persiste, seguire le istruzioni in 'http://go.microsoft.com/fwlink/?LinkId=800034'. Se il problema continua a persistere, contattare il supporto tecnico Microsoft. | Questo errore viene visualizzato quando il servizio Backup di Azure non riesce ad attivare uno snapshot. [Altre informazioni](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed) sul debug dei problemi delle VM relativi agli snapshot. |
 | Non è stato possibile copiare lo snapshot della macchina virtuale a causa dello spazio disponibile insufficiente nell'account di archiviazione. Assicurarsi che lo spazio disponibile nell'account di archiviazione sia equivalente ai dati presenti nei dischi di archiviazione Premium collegati alla macchina virtuale. | Nel caso delle VM Premium, lo snapshot deve essere copiato nell'account di archiviazione, in modo da assicurare che il traffico di gestione dei backup, che funziona sullo snapshot, non limiti il numero di IOPS disponibili all'applicazione che usa i dischi Premium. Microsoft consiglia di allocare solo il 50% dello spazio totale dell'account di archiviazione, in modo che il servizio Backup di Azure possa copiare lo snapshot nell'account di archiviazione e trasferire i dati da questa posizione copiata nell'account di archiviazione all'insieme di credenziali. | 
 | Non è possibile eseguire l'operazione perché l'agente di macchine virtuali non risponde |Questo errore viene generato se si verifica un problema con l'agente di VM o se l'accesso di rete all'infrastruttura di Azure è bloccato in qualche modo. Per le macchine virtuali di Windows, controllare lo stato del servizio agente di macchine virtuali nella sezione dei servizi e verificare che l'agente venga visualizzato tra i programmi nel pannello di controllo. Provare a rimuovere il programma dal pannello di controllo e a reinstallare l'agente come indicato di [seguito](#vm-agent). Dopo aver reinstallato l'agente, attivare un backup adhoc per verificare. |
 | Operazione di estensione dei servizi di ripristino non riuscita. Assicurarsi che nella macchina virtuale sia presente l'agente di macchine virtuali più recente e che il servizio agente sia in esecuzione. Ripetere l'operazione di backup e, in caso di esito negativo, contattare il supporto tecnico Microsoft. |Questo errore viene generato quando l'agente VM non è aggiornato. Per aggiornare l'agente VM, fare riferimento alla sezione "Aggiornamento dell'agente VM" riportata di seguito. |

@@ -1,8 +1,8 @@
 ---
-title: Sviluppo di azioni script con HDInsight basato su Linux - Azure | Documentazione Microsoft
-description: "Informazioni su come usare script Bash per personalizzare cluster HDInsight basati su Linux. La funzionalità di azione script in HDInsight consente di eseguire script durante o dopo la creazione del cluster. Gli script possono essere usati per modificare le impostazioni di configurazione del cluster o per installare software aggiuntivo."
+title: Sviluppo di azioni script con HDInsight basato su Linux - Azure | Microsoft Docs
+description: Informazioni su come usare script Bash per personalizzare cluster HDInsight basati su Linux. La funzionalità di azione script in HDInsight consente di eseguire script durante o dopo la creazione del cluster. Gli script possono essere usati per modificare le impostazioni di configurazione del cluster o per installare software aggiuntivo.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: ddf5db3e61633c45e388e161e165637521803094
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5074345533f0fdb0c72bf319646ad614632d1940
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="script-action-development-with-hdinsight"></a>Sviluppo di azioni script con HDInsight
 
@@ -103,7 +103,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-Lo script completo contenente questi frammenti è disponibile all'indirizzo https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
+È possibile trovare lo script completo contenente i frammenti di codice in https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
 
 Per la versione di Ubuntu usata da HDInsight, vedere il documento sulle [versioni dei componenti HDInsight](hdinsight-component-versioning.md).
 
@@ -317,7 +317,7 @@ fi
 Di seguito sono indicati i passaggi effettuati durante la preparazione della distribuzione degli script:
 
 * Inserire i file che contengono gli script personalizzati in un percorso accessibile per i nodi del cluster durante la distribuzione, ad esempio la risorsa di archiviazione predefinita per il cluster. I file possono essere archiviati anche in servizi di hosting leggibili pubblicamente.
-* Verificare che lo script sia idempotente, in modo che possa essere eseguito più volte nello stesso nodo.
+* Verificare che lo script sia idempotente. in modo che possa essere eseguito più volte nello stesso nodo.
 * Usare una directory di file temporanei /tmp per conservare i file scaricati usati dagli script e quindi eliminarli dopo aver eseguito gli script.
 * Nel caso in cui vengano modificate le impostazioni a livello di sistema operativo o i file di configurazione del servizio Hadoop, può essere opportuno riavviare i servizi HDInsight.
 

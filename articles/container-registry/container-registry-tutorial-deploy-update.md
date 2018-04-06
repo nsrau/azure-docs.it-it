@@ -1,6 +1,6 @@
 ---
 title: Esercitazione Registro contenitori di Azure - Eseguire il push di un'immagine aggiornata nelle distribuzioni regionali
-description: "Eseguire il push di un'immagine Docker modificata nel registro contenitori di Azure con replica geografica e quindi visualizzare le modifiche distribuite automaticamente alle app Web in esecuzione in più aree. Terza parte di una serie in tre parti."
+description: Eseguire il push di un'immagine Docker modificata nel registro contenitori di Azure con replica geografica e quindi visualizzare le modifiche distribuite automaticamente alle app Web in esecuzione in più aree. Terza parte di una serie in tre parti.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 359fdcabd579d277e40f02eba2d4603ebd9f5f1f
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f8eab93d1e6633ae4f17c5bb4836d96629d55cd4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="push-an-updated-image-to-regional-deployments"></a>Eseguire il push di un'immagine aggiornata nelle distribuzioni regionali
+# <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Esercitazione: Eseguire il push di un'immagine aggiornata nelle distribuzioni regionali
 
 Questa è la terza parte di un'esercitazione in tre parti. Nell'[esercitazione precedente](container-registry-tutorial-deploy-app.md) è stata configurata la replica geografica per due diverse distribuzioni regionali di app Web. In questa esercitazione, verrà prima di tutto modificata l'applicazione, poi si compilerà una nuova immagine del contenitore e si eseguirà il push di tale immagine nel registro con replica geografica. Infine, si visualizzerà la modifica, distribuita automaticamente dai webhook di Registro contenitori di Azure, in entrambe le istanze delle app Web.
 

@@ -1,24 +1,18 @@
 ---
-title: Gestione dei dati di Automazione di Azure | Microsoft Docs
-description: "Questo articolo contiene più argomenti per la gestione di un ambiente di Automazione di Azure.  Include attualmente conservazione dei dati e backup del ripristino di emergenza di Automazione di Azure in Automazione di Azure."
+title: Gestione dei dati di Automazione di Azure
+description: Questo articolo contiene più argomenti per la gestione di un ambiente di Automazione di Azure.  Include attualmente conservazione dei dati e backup del ripristino di emergenza di Automazione di Azure in Automazione di Azure.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: stevenka
-editor: tysonn
-ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/02/201
-ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 2afcf918ffa104bd0e13048c152e04992f55ffe1
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+manager: carmonm
+ms.openlocfilehash: c71807a14c8a7f1edff60411a84f7d0d6f70fd23
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-azure-automation-data"></a>Gestione dei dati di Automazione di Azure
 Questo articolo contiene più argomenti per la gestione di un ambiente di Automazione di Azure.
@@ -43,7 +37,7 @@ La tabella seguente riepiloga i criteri di conservazione per diverse risorse.
 
 I criteri di conservazione sono applicabili a tutti gli utenti e non è attualmente possibile personalizzarli.
 
-Tuttavia, se si desidera conservare i dati per un periodo di tempo più lungo, è possibile trasferire i log del processo runbook a Log Analytics.  Per maggiori informazioni, consultare i [dati dei processi di Automazione di Azure trasferiti a OMS Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
+Tuttavia, se si desidera conservare i dati per un periodo di tempo più lungo, è possibile trasferire i log del processo runbook a Log Analytics.  Per maggiori informazioni, consultare [Inoltrare lo stato e i flussi del processo da Automazione a Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Backup di Automazione di Azure
 Quando si elimina un account di automazione in Microsoft Azure, vengono eliminati tutti gli oggetti presenti nell'account, ad esempio Runbook, moduli, configurazioni, impostazioni, processi e asset. Non sarà possibile ripristinare gli oggetti dopo l'eliminazione dell'account.  È possibile usare le informazioni seguenti per eseguire il backup dei contenuti dell'account di Automazione prima di eliminarlo. 

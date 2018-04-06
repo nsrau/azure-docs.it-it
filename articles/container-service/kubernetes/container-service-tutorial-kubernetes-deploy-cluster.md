@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ef789bc017e670566d25dd9d167698515e88349
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb7bdbaf095cefa72d1de302d90afeebbdb9d027
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>Distribuire un cluster Kubernetes nel servizio contenitore di Azure
 
@@ -26,7 +26,7 @@ Kubernetes fornisce una piattaforma distribuita per applicazioni in contenitori.
 > * Installazione dell'interfaccia della riga di comando Kubernetes (kubectl)
 > * Configurazione di kubectl
 
-Nelle esercitazioni successive, l'applicazione Azure Vote viene distribuita nel cluster, ridimensionata, aggiornata e Operations Management Suite viene configurato per monitorare il cluster Kubernetes.
+Nelle esercitazioni successive, l'applicazione Azure Vote viene distribuita nel cluster, ridimensionata, e aggiornata e Log Analytics viene configurato per monitorare il cluster Kubernetes.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

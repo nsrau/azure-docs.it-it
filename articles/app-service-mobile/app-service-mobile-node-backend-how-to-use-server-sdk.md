@@ -2,10 +2,10 @@
 title: Come usare l'SDK del server back-end Node.js per App per dispositivi mobili | Microsoft Docs
 description: Informazioni su come usare l'SDK del server back-end Node.js per App per dispositivi mobili del servizio app di Azure.
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: elamalani
 manager: elamalani
-editor: 
+editor: ''
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bd423d6fb62b2ace16832f665c8834b4aea7e26f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Come usare Node.js SDK per App per dispositivi mobili
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -119,7 +119,7 @@ Visual Studio 2015 richiede un'estensione per lo sviluppo di applicazioni Node.j
         app.use(mobile);
 
    Salvare il file.
-10. Eseguire l'applicazione in locale, ovvero l'API viene eseguita in http://localhost:3000, o pubblicarla in Azure.
+10. Eseguire l'applicazione in locale, ovvero l'API viene eseguita in http://localhost:3000), o pubblicarla in Azure.
 
 ### <a name="create-node-backend-portal"></a>Creare un back-end Node.js usando il portale di Azure
 È possibile creare un back-end di App per dispositivi mobili direttamente nel [portale di Azure]. È possibile completare i passaggi seguenti o creare un client e un server seguendo l'esercitazione [Creare un'app per dispositivi mobili](app-service-mobile-ios-get-started.md). L'esercitazione contiene una versione semplificata di queste istruzioni ed è ideale per progetti di prova.
@@ -135,7 +135,7 @@ Quando si crea un back-end Node.js per App per dispositivi mobili usando il pann
 La procedura seguente usa un repository Git per scaricare il codice del progetto di avvio rapido:
 
 1. Se non è già stato fatto, installare Git. I passaggi necessari per installare Git variano a seconda del sistema operativo. Vedere [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) (Installazione di Git) per istruzioni di installazione e distribuzione specifiche per i sistemi operativi.
-2. Seguire i passaggi in [Abilitare il repository dell'app del servizio app](../app-service/app-service-deploy-local-git.md#Step3) per abilitare il repository Git per il sito di back-end. Prendere nota del nome utente e della password della distribuzione.
+2. Vedere [Preparare il repository](../app-service/app-service-deploy-local-git.md#prepare-your-repository) per abilitare il repository Git per il sito di back-end. Prendere nota del nome utente e della password della distribuzione.
 3. Nel riquadro del back-end di App per dispositivi mobili annotare l'impostazione **URL clone Git**.
 4. Eseguire il comando `git clone` usando l'URL clone Git. Immettere la password quando richiesto, come nell'esempio seguente:
 

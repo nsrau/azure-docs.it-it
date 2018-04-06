@@ -1,24 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Personalizzare l''interfaccia utente di Azure AD B2C dinamicamente usando criteri personalizzati'
-description: "Supportare più esperienze di personalizzazione con contenuto HTML5/CSS che cambia in modo dinamico in fase di esecuzione."
+title: "Azure Active Directory B2C: Personalizzare l'interfaccia utente di Azure AD B2C dinamicamente usando criteri personalizzati"
+description: Supportare più esperienze di personalizzazione con contenuto HTML5/CSS che cambia in modo dinamico in fase di esecuzione.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/20/2017
-ms.author: yoelh
-ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: d8aaf0ef8cefdc0cb1c4ff3dec656d31c32f664f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati
 I criteri personalizzati di Azure Active Directory B2C (Azure AD B2C) consentono di inviare un parametro in una stringa di query. Passando il parametro all'endpoint HTML, è possibile modificare dinamicamente il contenuto della pagina. È ad esempio possibile modificare l'immagine di sfondo della pagina di accesso o di iscrizione ad Azure AD B2C in base a un parametro passato dall'applicazione Web o per dispositivi mobili. 

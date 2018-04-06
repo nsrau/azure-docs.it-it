@@ -2,10 +2,10 @@
 title: Gestione traffico di Azure - Metodi di routing del traffico | Microsoft Docs
 description: Questo articolo fornisce informazioni sui diversi metodi di routing del traffico usati da Gestione traffico
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: db1efbf6-6762-4c7a-ac99-675d4eeb54d0
 ms.service: traffic-manager
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: kumud
-ms.openlocfilehash: fe776e24a4f78b389c6096694055b38befa3c419
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9bd9b4913e38ed5c1f7f4ec8ee7e3210fa3be8f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-manager-routing-methods"></a>Metodi di routing di Gestione traffico
 
@@ -50,7 +50,7 @@ Il metodo di routing del traffico "Ponderato" consente di distribuire il traffic
 
 ![Metodo di routing del traffico "Ponderato" di Gestione traffico di Azure][2]
 
-Nel metodo di routing del traffico "Ponderato" viene assegnato un peso a ogni endpoint come parte della configurazione del profilo di Gestione traffico. Ogni peso è un numero intero compreso tra 1 e 1000. Questo parametro è facoltativo e, se omesso, viene usato il valore di peso predefinito "1".
+Nel metodo di routing del traffico "Ponderato" viene assegnato un peso a ogni endpoint come parte della configurazione del profilo di Gestione traffico. Ogni peso è un numero intero compreso tra 1 e 1000. Questo parametro è facoltativo e, se omesso, viene usato il valore di peso predefinito "1". Maggiore è il peso, maggiore è la priorità.
 
 Per ogni query DNS ricevuta, viene scelto un endpoint disponibile in modo casuale, con una probabilità di scelta basata sul peso assegnato a tutti gli endpoint disponibili. L'uso dello stesso peso in tutti gli endpoint comporta una distribuzione uniforme del traffico. Se vengono usati pesi superiori o inferiori in specifici endpoint, questi verranno restituiti più o meno frequentemente nelle risposte DNS.
 

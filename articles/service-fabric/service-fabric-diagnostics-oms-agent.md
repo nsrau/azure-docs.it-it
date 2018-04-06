@@ -5,27 +5,27 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/31/2017
+ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: 095db20e7d22bd517337f24fc9a81b84988d1465
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 4b0845cbb25d160b53b483641e242422c98029ee
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="add-the-oms-agent-to-a-cluster"></a>Aggiungere l'agente di OMS a un cluster
 
-In questo articolo vengono illustrati i passaggi necessari per aggiungere l'agente di OMS come estensione del set di scalabilità di macchine virtuali al cluster e connetterlo all'area di lavoro di Log Analytics di OMS esistente. Ciò consente la raccolta dei dati di diagnostica relativi a contenitori, applicazioni e monitoraggio delle prestazioni. Aggiungendolo come un'estensione, Azure Resource Manager ne garantisce l'installazione su ogni nodo, anche in caso di ridimensionamento del cluster.
+Questo articolo illustra i passaggi necessari per aggiungere l'agente di OMS come estensione del set di scalabilità di macchine virtuali al cluster e connetterlo all'area di lavoro di Log Analytics di Azure esistente. Ciò consente la raccolta dei dati di diagnostica relativi a contenitori, applicazioni e monitoraggio delle prestazioni. Aggiungendolo come un'estensione, Azure Resource Manager ne garantisce l'installazione su ogni nodo, anche in caso di ridimensionamento del cluster.
 
 > [!NOTE]
-> In questo articolo si presuppone che sia già stata configurata un'area di lavoro di Log Analytics di OMS. In caso contrario, vedere [Configurare Log Analytics di OMS](service-fabric-diagnostics-oms-setup.md)
+> Questo articolo presuppone che sia già stata configurata un'area di lavoro di Log Analytics di Azure. In caso contrario, vedere [Configurare Log Analytics di Azure](service-fabric-diagnostics-oms-setup.md)
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Aggiungere l'estensione dell'agente tramite l'interfaccia della riga di comando di Azure
 
@@ -33,9 +33,9 @@ Il modo migliore per aggiungere l'agente di OMS al cluster è tramite le API del
 
 1. Dopo aver eseguito la richiesta per Cloud Shell, assicurarsi di usare la stessa sottoscrizione della risorsa. A tale scopo, usare `az account show` e assicurarsi che il valore "name" corrisponda a quello della sottoscrizione del cluster.
 
-2. Nel portale passare al gruppo di risorse in cui si trova l'area di lavoro di OMS. Fare clic nella risorsa di Log Analytics (il tipo della risorsa sarà Log Analytics) nel riquadro di spostamento a destra, scorrere verso il basso e fare clic su **Proprietà**.
+2. Nel portale passare al gruppo di risorse in cui si trova l'area di lavoro di Log Analytics di Azure. Fare clic nella risorsa di Log Analytics (il tipo della risorsa sarà Log Analytics) nel riquadro di spostamento a destra, scorrere verso il basso e fare clic su **Proprietà**.
 
-    ![Pagina delle proprietà di OMS](media/service-fabric-diagnostics-oms-agent/oms-properties.png)
+    ![Pagina delle proprietà di Log Analytics](media/service-fabric-diagnostics-oms-agent/oms-properties.png)
 
     Prendere nota del valore di `workspaceId`. 
 
@@ -59,6 +59,12 @@ Il modo migliore per aggiungere l'agente di OMS al cluster è tramite le API del
 
     ![Comando dell'interfaccia della riga di comando dell'agente di OMS](media/service-fabric-diagnostics-oms-agent/cli-command.png)
  
+5. Eseguire il comando per applicare questa configurazione alle istanze di macchina virtuale già esistenti:  
+
+    ```sh
+    az vmss update-instances
+    ```
+
     L'operazione di aggiunta dell'agente ai nodi dovrebbe richiedere meno di 15 minuti. Per verificare l'esito dell'aggiunta degli agenti, usare l'API `az vmss extension list`:
 
     ```sh
@@ -67,11 +73,11 @@ Il modo migliore per aggiungere l'agente di OMS al cluster è tramite le API del
 
 ## <a name="add-the-agent-via-the-resource-manager-template"></a>Aggiungere l'agente tramite il modello di Resource Manager
 
-È disponibile un modello di Resource Manager per [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) o [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) che distribuisce un'area di lavoro di Log Analytics di OMS e aggiunge un agente a ogni nodo.
+È disponibile un modello di Resource Manager per [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) o [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) che distribuisce un'area di lavoro di Log Analytics di Azure e aggiunge un agente a ogni nodo.
 
 È possibile scaricare e modificare questo modello per distribuire un cluster più adatto alle proprie esigenze.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Raccogliere i [contatori delle prestazioni](service-fabric-diagnostics-event-generation-perf.md) rilevanti. Per configurare l'agente di OMS affinché acquisisca contatori delle prestazioni specifici, passare al portale di OMS (il relativo collegamento è disponibile nella parte superiore della risorsa di Log Analytics di OMS). Fare clic su **Home > Impostazioni > Dati > Contatori delle prestazioni di Windows** o **Contatori delle prestazioni di Linux** e scegliere i contatori per i quali raccogliere i dati.
-* Configurare OMS per gli [avvisi automatizzati](../log-analytics/log-analytics-alerts.md) per semplificare il rilevamento e la diagnostica
+* Raccogliere i [contatori delle prestazioni](service-fabric-diagnostics-event-generation-perf.md) rilevanti. Per configurare l'agente OMS affinché raccolga contatori di prestazioni specifici, vedere [Configurazione delle origini dati](../log-analytics/log-analytics-data-sources.md#configuring-data-sources).
+* Configurare Log Analytics per impostare gli [avvisi automatizzati](../log-analytics/log-analytics-alerts.md) per semplificare il rilevamento e la diagnostica.

@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 03/23/2018
+ms.date: 03/29/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: d6e0637974d8076fc610d7154ad507f4e7af0cfa
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e10d4046f543fbcc479421f4ca8f10221abc806f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-container-instances"></a>Istanze di contenitore di Azure
 
@@ -25,6 +25,10 @@ Istanze di contenitore di Azure è un'ottima soluzione per qualsiasi scenario e 
 
 I contenitori offrono notevoli vantaggi in termini di avvio rispetto alle macchine virtuali. Istanze di contenitore di Azure consente di avviare contenitori in Azure in pochi secondi, senza dover gestire VM né doverne effettuare il provisioning.
 
+## <a name="public-ip-connectivity-and-dns-name"></a>Connettività tramite indirizzo IP pubblico e nome DNS
+
+Istanze di contenitore di Azure consente di esporre i contenitori direttamente in Internet con un indirizzo IP e un nome di dominio completo. Quando si crea un'istanza di contenitore, è possibile specificare un'etichetta personalizzata per il nome DNS, in modo che l'applicazione sia raggiungibile tramite *etichettapersonalizzata*.*areaazure*.contenitoreazure.io.
+
 ## <a name="hypervisor-level-security"></a>Sicurezza a livello di hypervisor
 
 In passato i contenitori offrivano l'isolamento di dipendenze delle applicazioni e la governance delle risorse, ma non erano considerati sufficientemente protetti per l'uso di multi-tenant ostili. Istanze di contenitore di Azure garantisce all'applicazione in un contenitore lo stesso livello di isolamento di cui usufruirebbe in una VM.
@@ -32,10 +36,6 @@ In passato i contenitori offrivano l'isolamento di dipendenze delle applicazioni
 ## <a name="custom-sizes"></a>Dimensioni personalizzate
 
 I contenitori sono in genere ottimizzati per l'esecuzione di un'applicazione singola, ma le esigenze specifiche di tale applicazione possono variare notevolmente. Istanze di contenitore di Azure supporta un utilizzo ottimale consentendo di specificare esattamente memoria e core CPU. Si paga in base alle risorse necessarie con fatturazione al secondo ed è così possibile ottimizzare la spesa in base alle esigenze effettive.
-
-## <a name="public-ip-connectivity"></a>Connettività tramite indirizzo IP pubblico
-
-Istanze di contenitore di Azure consente di esporre i contenitori direttamente in Internet con un indirizzo IP pubblico e un'etichetta del nome DNS. In futuro, le funzionalità di rete verranno estese all'integrazione con reti virtuali, servizi di bilanciamento del carico e altre componenti essenziali dell'infrastruttura di rete di Azure.
 
 ## <a name="persistent-storage"></a>Archiviazione permanente
 
@@ -53,4 +53,7 @@ Istanze di contenitore di Azure supporta la pianificazione di [gruppi multi-cont
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare a distribuire un contenitore in Azure con un comando singolo, seguendo le indicazioni della [guida introduttiva](container-instances-quickstart.md).
+Provare a distribuire un contenitore in Azure con un comando singolo, seguendo le indicazioni della guida introduttiva:
+
+> [!div class="nextstepaction"]
+> [Guida introduttiva di Istanze di contenitore di Azure](container-instances-quickstart.md)

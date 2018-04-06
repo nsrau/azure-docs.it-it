@@ -3,6 +3,6 @@ Analisi Data Lake semplifica l'impegnativa attività di gestione di infrastruttu
 | **Risorsa** | **Limite predefinito** | **Commenti** |
 | --- | --- | --- |
 | Numero massimo di processi simultanei |20 | |
-| Numero massimo di unità di analisi per account |250 | Usare qualsiasi combinazione fino a un massimo di 250 unità di analisi in 20 processi. |
+| Numero massimo di unità di analisi per account |250 | Usare qualsiasi combinazione fino a un massimo di 250 unità di analisi in 20 processi.  Per aumentare questo limite, contattare il supporto tecnico Microsoft. |
 | Dimensioni massime degli script per l'invio di processi | 3 MB | |
-
+| Numero massimo di account di ADLA per area per sottoscrizione | 5 | Per aumentare questo limite, contattare il supporto tecnico Microsoft. |

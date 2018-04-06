@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="collector-appliance"></a>Appliance Agente di raccolta
 
@@ -172,6 +172,15 @@ La tabella seguente contiene un elenco dei contatori delle prestazioni raccolti 
 Agente di raccolta si limita a individuare i dati sui computer e inviarli al progetto. Il progetto potrebbe richiedere ulteriore tempo prima che i dati individuati vengano visualizzati nel portale e sia possibile avviare la creazione di una valutazione.
 
 In base al numero di macchine virtuali nell'ambito selezionato, sono necessari fino a 15 minuti per l'invio dei metadati statici al progetto. Quando i metadati statici sono disponibili nel portale, è possibile visualizzare l'elenco dei computer nel portale e avviare la creazione di gruppi. Non è possibile creare una valutazione finché il processo di raccolta non viene completato e il progetto non ha elaborato i dati. Una volta completato il processo di raccolta in Agente di raccolta, perché i dati sulle prestazioni siano disponibili nel portale può essere necessaria fino a un'ora, in base al numero di macchine virtuali nell'ambito selezionato.
+
+## <a name="locking-down-the-collector-appliance"></a>Blocco dell'appliance dell'agente di raccolta
+È consigliabile eseguire aggiornamenti continui di Windows sull'appliance dell'agente di raccolta. Se un agente di raccolta non viene aggiornato per 45 giorni, avvierà l'arresto automatico del computer. Qualora sia in corso un processo di individuazione, anche se viene superato il periodo di 45 giorni, il computer non si spegnerà. Al termine del processo, verrà tuttavia spento. Se si usa l'agente di raccolta per più di 45 giorni, è consigliabile mantenere sempre aggiornato il computer eseguendo Windows Update.
+
+È inoltre consigliabile adottare le seguenti misure per proteggere l'appliance
+1. Non condividere le password di amministratore con parti non autorizzate, né smarrirle.
+2. Arrestare l'appliance quando non è in uso.
+3. Collegare l'appliance in una rete protetta.
+4. Al termine dell'operazione di migrazione, eliminare l'istanza dell'appliance. Assicurarsi di eliminare anche i file di supporto dei dischi (file VMDK), poiché i dischi potrebbero contenere credenziali di vCenter memorizzate nella cache.
 
 ## <a name="how-to-upgrade-collector"></a>Come eseguire l'aggiornamento dell'agente di raccolta
 

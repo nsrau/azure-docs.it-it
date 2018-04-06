@@ -1,12 +1,12 @@
 ---
-title: Azioni webhook per gli avvisi di log in Avvisi di Azure (anteprima) | Microsoft Docs
+title: Azioni webhook per gli avvisi di log in Avvisi di Azure | Microsoft Docs
 description: Questo articolo descrive come una regola di avviso relativa ai log di Log Analytics o Application Insights esegue il push dei dati come webhook HTTP e illustra le diverse personalizzazioni possibili.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 5852eb099f6620656aa69e5085447c2a8b4e0c01
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Azioni webhook per le regole di avviso relative ai log
-Quando [viene creato un avviso in Avvisi (anteprima) di Azure](monitor-alerts-unified-usage.md), è possibile scegliere di [configurarlo con gruppi di azioni](monitoring-action-groups.md) in modo da eseguire una o più azioni.  Questo articolo descrive le diverse azioni webhook disponibili e spiega come configurare un webhook personalizzato basato su JSON.
+Quando [viene creato un avviso in Avvisi di Azure](monitor-alerts-unified-usage.md), è possibile scegliere di [configurarlo con gruppi di azioni](monitoring-action-groups.md) in modo da eseguire una o più azioni.  Questo articolo descrive le diverse azioni webhook disponibili e spiega come configurare un webhook personalizzato basato su JSON.
 
 
 ## <a name="webhook-actions"></a>Azioni webhook
@@ -33,7 +33,7 @@ Le azioni webhook includono le proprietà elencate nella tabella seguente:
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | URL webhook |URL del webhook. |
-| Payload JSON personalizzato |Payload personalizzato da inviare con il webhook, quando si sceglie questa opzione durante la creazione di avvisi. Per informazioni, vedere [Gestire gli avvisi tramite Avvisi di Azure (anteprima)](monitor-alerts-unified-usage.md). |
+| Payload JSON personalizzato |Payload personalizzato da inviare con il webhook, quando si sceglie questa opzione durante la creazione di avvisi. Per informazioni, vedere [Gestire gli avvisi tramite Avvisi di Azure](monitor-alerts-unified-usage.md) |
 
 > [!NOTE]
 > Il pulsante Test del webhook, insieme all'opzione *Includi payload JSON personalizzato per il webhook* per l'avviso di log, attiva una chiamata fittizia per testare l'URL del webhook. Non contiene dati effettivi e rappresentativi dello schema JSON usato per gli avvisi dei log. 
@@ -157,6 +157,8 @@ Di seguito è riportato un payload di esempio per un'azione webhook standard *se
     }
     }
 
+> [!NOTE]
+> Gli avvisi di log per Application Insights sono attualmente disponibili in anteprima pubblica. Le funzionalità e l'esperienza utente sono soggette a modifiche.
 
 #### <a name="log-alert-with-custom-json-payload"></a>Avviso di log con payload JSON personalizzato
 Per creare un payload personalizzato che includa solo il nome dell'avviso e i risultati della ricerca, è ad esempio possibile usare il codice seguente: 
@@ -194,7 +196,7 @@ Di seguito è riportato un esempio di payload per un'azione webhook personalizza
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni sugli [avvisi di log in Avvisi di Azure (anteprima)](monitor-alerts-unified-log.md)
+- Informazioni sugli [avvisi di log in Avvisi di Azure](monitor-alerts-unified-log.md)
 - Creare e gestire [gruppi di azioni in Azure](monitoring-action-groups.md)
 - Altre informazioni su [Application Insights](../application-insights/app-insights-analytics.md)
 - Altre informazioni su [Log Analytics](../log-analytics/log-analytics-overview.md). 

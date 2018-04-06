@@ -2,30 +2,30 @@
 title: Registrazione diagnostica per Azure Analysis Services | Microsoft Docs
 description: Informazioni sulla configurazione della registrazione diagnostica per Azure Analysis Services.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: cadd47d2e5f490f82846ea562803fcd60f5405a7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 20e2e76e8df9421ee97671000f9557f5db34f1b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Configurare la registrazione diagnostica
 
-Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito dal monitoraggio delle prestazioni dei server. I [log di diagnostica delle risorse di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) consentono di monitorare e inviare log ad [Archiviazione di Microsoft Azure](https://azure.microsoft.com/services/storage/), trasmetterli agli [hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) ed esportarli in [Log Analytics](https://azure.microsoft.com/services/log-analytics/), che è una funzionalità di [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito dal monitoraggio delle prestazioni dei server. I [log di diagnostica delle risorse di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) consentono di monitorare e inviare log ad [Archiviazione di Microsoft Azure](https://azure.microsoft.com/services/storage/), trasmetterli ad [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) ed esportarli in [Log Analytics](https://azure.microsoft.com/services/log-analytics/), che è un servizio di [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
 
-![Registrazione diagnostica in Archiviazione, hub eventi oppure Operations Management Suite mediante Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
+![Registrazione diagnostica in Archiviazione, Hub eventi o Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
 
 
 ## <a name="whats-logged"></a>Informazioni registrate
@@ -171,7 +171,7 @@ In **Tipo** fare clic su **AzureDiagnostics** e quindi su **Applica**. AzureDiag
 
 Fare clic su **EventClass\_s** o su uno dei nomi di evento per consentire a Log Analytics di proseguire con la creazione della query. Assicurarsi di salvare le query per un successivo riutilizzo.
 
-Vedere Operations Management Suite, che fornisce al sito Web funzionalità avanzate di query, dashboard e avvisi sui dati di Log Analytics.
+Vedere Log Analytics, che fornisce al sito Web funzionalità avanzate di query, dashboard e avvisi sui dati raccolti.
 
 ### <a name="queries"></a>Query
 

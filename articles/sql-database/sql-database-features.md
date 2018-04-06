@@ -6,14 +6,14 @@ author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/21/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 4c50adeef0d6e811af6e144aa7351d9b65c1bd76
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 842c65987dc97872751071dbcf138794a14940e2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Confronto tra le funzionalità: database SQL di Azure e SQL Server 
 
@@ -34,7 +34,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [Gruppi di disponibilità AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | La [disponibilità elevata](sql-database-high-availability.md) è inclusa in ogni database. Il ripristino di emergenza è trattato in [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md) | La [disponibilità elevata](sql-database-high-availability.md) è inclusa in ogni database. Il ripristino di emergenza è trattato in [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md) |
 | [Collegamento di un database](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | No  | No  |
 | [Ruoli applicazione](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Sì | Sì |
-|[Controllo](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Sì](sql-database-auditing.md)| Sì, vedere le [differenze relative al controllo](sql-database-managed-instance-transact-sql-information.md#auditing) |
+|[Controllo](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Sì](sql-database-auditing.md)| [Sì](sql-database-managed-instance-auditing.md) |
 | [Backup automatici](sql-database-automated-backups.md) | Sì | Sì |
 | [Ottimizzazione automatica (uso forzato del piano)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Sì](sql-database-automatic-tuning.md)| [Sì](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [Ottimizzazione automatica (indici)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Sì](sql-database-automatic-tuning.md)| No  |
@@ -45,7 +45,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [Change Data Capture](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | No  | Sì |
 | [Rilevamento modifiche](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Sì |Sì |
 | [Istruzioni sulle regole di confronto](https://docs.microsoft.com/sql/t-sql/statements/collations) | Sì | Sì |
-| [Indici columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sì. [Solo edizione Premium](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Sì |
+| [Indici columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sì - [piano Premium e piano Standard, S3 e superiore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Sì |
 | [Common Language Runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No  | Sì, vedere le [differenze relative a CLR](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Database indipendenti](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Sì | Sì |
 | [Utenti indipendenti](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Sì | Sì |
@@ -91,6 +91,11 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [Registrazione minima nell'importazione bulk](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | No  | No  |
 | [Modifica dei dati di sistema](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | No  | Sì |
 | [Operazioni online sugli indici](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | Sì | Sì |
+| [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql)|No |Sì, vedere le [differenze relative a T-SQL](sql-database-managed-instance-transact-sql-information.md)|
+| [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql)|Sì|Sì|
+| [OPENQUERY](https://docs.microsoft.com/sql/t-sql/functions/openquery-transact-sql)|No |Sì, vedere le [differenze relative a T-SQL](sql-database-managed-instance-transact-sql-information.md)|
+| [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)|No |Sì, vedere le [differenze relative a T-SQL](sql-database-managed-instance-transact-sql-information.md)|
+| [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql)|Sì|Sì|
 | [Operatori](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | Supportati per la maggior parte. Vedere i singoli operatori |Sì, vedere le [differenze relative a T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Partizionamento](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Sì | Sì |
 | [Ripristino temporizzato di un database](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Sì. Vedere [Ripristino di un database SQL](sql-database-recovery-using-backups.md#point-in-time-restore) | Sì. Vedere [Ripristino di un database SQL](sql-database-recovery-using-backups.md#point-in-time-restore) |
@@ -128,6 +133,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [Viste del catalogo di sistema](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Supportate in alcuni casi. Vedere le singole viste | Sì, vedere le [differenze relative a T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Tabelle temporanee](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) | Tabelle temporanee locali e globali in ambito database | Tabelle temporanee locali e globali in ambito istanza |
 | [Tabelle temporali](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | Sì | Sì |
+|Introduzione al rilevamento delle minacce|  [Sì](sql-database-threat-detection.md)|[Sì](sql-database-managed-instance-threat-detection.md)|
 | [Flag di traccia](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | No  | No  |
 | [Variabili](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Sì | Sì |
 | [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Sì | No, non in anteprima pubblica |

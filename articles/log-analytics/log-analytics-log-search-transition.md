@@ -1,8 +1,8 @@
 ---
 title: Informazioni di riepilogo per il linguaggio di query di Azure Log Analytics | Microsoft Docs
-description: "Questo articolo offre informazioni utili per la transizione al nuovo linguaggio di query per Log Analytics se si ha già familiarità con il linguaggio legacy."
+description: Questo articolo offre informazioni utili per la transizione al nuovo linguaggio di query per Log Analytics se si ha già familiarità con il linguaggio legacy.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: bwren
 ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Transizione al nuovo linguaggio di query di Azure Log Analytics
 Log Analytics ha recentemente implementato un nuovo linguaggio di query.  Questo articolo offre informazioni utili per la transizione a questo linguaggio di Log Analytics se si ha già familiarità con il linguaggio legacy ma è comunque necessaria assistenza.
@@ -52,7 +52,7 @@ La tabella seguente mette a confronto i comandi equivalenti di svariate query co
 | Confronto di date        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
 |                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &amp;#124; where TimeGenerated between (datetime(2017-05-01) . datetime(2017-05-31)) |
 | Confronto booleano     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| where IsGatewayInstalled == false |
-| Ordinamento                   | Type=Event &#124; sort Computer asc, EventLog desc, EventLevelName asc | Event \| sort by Computer asc, EventLog desc, EventLevelName asc |
+| Ordina                   | Type=Event &#124; sort Computer asc, EventLog desc, EventLevelName asc | Event \| sort by Computer asc, EventLog desc, EventLevelName asc |
 | Distinzione               | Type=Event &#124; dedup Computer \| select Computer | Event &#124; summarize by Computer, EventLog |
 | Estensione di colonne         | Type=Perf CounterName="% Processor Time" &#124; EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION | Perf &#124; where CounterName == "% Processor Time" \| extend Utilization = iff(CounterValue > 50, "HIGH", "LOW") |
 | Aggregazione            | Type=Event &#124; measure count() as Count by Computer | Event &#124; summarize Count = count() by Computer |

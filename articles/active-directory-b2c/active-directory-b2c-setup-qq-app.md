@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: configurazione di QQ | Documentazione Microsoft'
 description: Fornire l'iscrizione e l'accesso agli utenti con account QQ nelle applicazioni protette da Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 18c2cf94-8004-4de1-81c2-e45be65ce12d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
-ms.author: parakhj
-ms.openlocfilehash: d4cc26d4f206baf9137feae0825b1f9fa5a7c8d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 12daed5f90e2b073a7520c061f18761baaed5c03
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-qq-accounts"></a>Azure Active Directory B2C: fornire l'iscrizione e l'accesso agli utenti con account QQ
 
@@ -28,12 +25,12 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="create-a-qq-application"></a>Creare un'applicazione QQ
 
-Per usare QQ come provider di identità in Azure Active Directory (Azure AD) B2C, è necessario creare un'applicazione QQ e inserire i parametri corretti. Per eseguire questa operazione è necessario disporre di un account QQ. Se non si ha un account, è possibile ottenerne uno nel sito [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
+Per usare QQ come provider di identità in Azure Active Directory (Azure AD) B2C, è necessario creare un'applicazione QQ e inserire i parametri corretti. Per eseguire questa operazione è necessario disporre di un account QQ. Se non si ha un account, è possibile crearne uno nel sito [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
 
 ### <a name="register-for-the-qq-developer-program"></a>Registrazione per il programma per sviluppatori QQ
 
 1. Passare al [portale per sviluppatori QQ](http://open.qq.com) e accedere con le credenziali dell'account QQ.
-2. Dopo l'accesso, passare a [http://open.qq.com/reg](http://open.qq.com/reg) per registrarsi come sviluppatore.
+2. Dopo l'accesso passare a [http://open.qq.com/reg](http://open.qq.com/reg) per registrarsi come sviluppatore.
 3. Nel menu selezionare**个人** (Singolo sviluppatore).
 4. Immettere le informazioni necessarie nel modulo e fare clic su**下一步** (Passaggio successivo).
 5. Questa operazione completerà il processo di verifica email.

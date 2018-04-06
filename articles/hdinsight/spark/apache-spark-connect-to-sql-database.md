@@ -2,7 +2,7 @@
 title: Usare Apache Spark per leggere e scrivere dati nel database SQL di Azure | Microsoft Docs
 description: Informazioni su come configurare una connessione tra un cluster HDInsight Spark e un database SQL di Azure per leggere dati, scrivere dati e trasmettere dati in un database SQL
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/29/2018
+ms.date: 03/28/2018
 ms.author: nitinme
-ms.openlocfilehash: 28ed6b9774bb85c7ec806c7775c34f8bc3d66bde
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 011471224d79ae326ccc33fc23fd6fada347497b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Usare un cluster HDInsight Spark per leggere e scrivere dati nel database SQL di Azure
 
 Informazioni su come connettere un cluster Apache Spark in HDInsight di Azure con un database SQL di Azure e quindi leggere, scrivere e trasmettere dati nel database SQL. Le istruzioni riportate in questo articolo usano un notebook Jupyter per eseguire i frammenti di codice Scala. È possibile tuttavia creare un'applicazione autonoma in Scala o Python ed eseguire le stesse attività. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * **Cluster Azure HDInsight Spark**.  Seguire le istruzioni riportate in [Creare un cluster Apache Spark in HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -234,7 +234,7 @@ In questa sezione si trasmetteranno dati all'oggetto **hvactable** creato nel da
         
          var streamingQuery = WriteToSQLQuery.start()
 
-6. Verificare che i dati vengano trasmessi nell'oggetto **hvactable** eseguendo la query seguente. Ogni volta che si esegue la query, il numero di righe nella tabella aumenta.
+6. Verificare che i dati vengano trasmessi nell'oggetto **hvactable** eseguendo la query seguente in SQL Server Management Studio (SSMS). Ogni volta che si esegue la query, il numero di righe nella tabella aumenta.
 
         SELECT COUNT(*) FROM hvactable
 

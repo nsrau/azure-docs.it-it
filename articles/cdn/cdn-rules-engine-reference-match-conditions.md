@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: e4b7113f27e5e15d69dfdd1efd13e255ef4a8ab7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condizioni di corrispondenza del motore regole della rete CDN di Azure 
 Questo articolo fornisce descrizioni dettagliate delle condizioni di corrispondenza disponibili per il [motore regole](cdn-rules-engine.md) della rete per la distribuzione di contenuti (rete CDN) di Azure.
@@ -526,15 +526,15 @@ Informazioni chiave:
 
      Ad esempio: https:\//&lt;endpoint&gt;.azureedge.net/**cartella**/index.htm 
 
-     Questo URL punta a questo nome host della rete CDN Verizon: http:\//wpc.0001.&lt;Dominio&gt;/800001/myorigin/**cartella**/index.htm
+     Questo URL punta a questo nome host della rete CDN Verizon: http:\//wpc.0001.&lt;dominio&gt;/800001/myorigin/**cartella**/index.htm
 
 - Un URL CNAME perimetrale viene riscritto in un URL della rete CDN prima del confronto degli URL.
 
     Ad esempio, entrambi gli URL seguenti puntano allo stesso asset e di conseguenza hanno lo stesso percorso URL.
-    - URL della rete CDN: http:\//wpc.0001.&lt;Dominio&gt;/800001/CustomerOrigin/path/asset.htm
+    - URL della rete CDN: http:\//wpc.0001.&lt;dominio&gt;/800001/CustomerOrigin/path/asset.htm
     
     - URL CNAME perimetrale: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
+    
     Informazioni aggiuntive:
     - Dominio personalizzato: https:\//my.domain.com/path/asset.htm
     
@@ -640,21 +640,21 @@ Informazioni chiave:
     Per l'opzione **Relative to** (Relativo a) sono disponibili i valori seguenti:
      - **Radice**: indica che il punto di confronto degli URL deve iniziare dopo il nome host della rete CDN.
 
-       Ad esempio: http:\//wpc.0001.&lt;Dominio&gt;/**800001/myorigin/cartella/index.htm**
+       Ad esempio: http:\//wpc.0001.&lt;dominio&gt;/**800001/myorigin/cartella/index.htm**
 
      - **Origine**: indica che il punto di confronto degli URL deve iniziare dopo il punto di accesso al contenuto, ad esempio /000001 o /800001/myorigin. Poiché per impostazione predefinita l'URL CNAME \*.azureedge.net viene creato relativamente alla directory di origine nel nome host della rete CDN Verizon, gli utenti della rete CDN di Azure devono usare il valore **Origine**. 
 
        Ad esempio: https:\//&lt;endpoint&gt;.azureedge.net/**cartella/index.htm**
 
-     Questo URL punta a questo nome host della rete CDN Verizon: http:\//wpc.0001.&lt;Dominio&gt;/800001/myorigin/**cartella/index.htm**
+     Questo URL punta a questo nome host della rete CDN Verizon: http:\//wpc.0001.&lt;dominio&gt;/800001/myorigin/**cartella/index.htm**
 
 - Un URL CNAME perimetrale viene riscritto in un URL della rete CDN prima del confronto degli URL.
 
-   Ad esempio, entrambi gli URL seguenti puntano allo stesso asset e di conseguenza hanno lo stesso percorso URL:
-    - URL della rete CDN: http:\//wpc.0001.&lt;Dominio&gt;/800001/CustomerOrigin/path/asset.htm
+    Ad esempio, entrambi gli URL seguenti puntano allo stesso asset e di conseguenza hanno lo stesso percorso URL:
+    - URL della rete CDN: http:\//wpc.0001.&lt;dominio&gt;/800001/CustomerOrigin/path/asset.htm
     - URL CNAME perimetrale: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
-   Informazioni aggiuntive:
+    
+    Informazioni aggiuntive:
     
     - Percorso URL (relativo alla radice): /800001/CustomerOrigin/path/asset.htm
    
@@ -662,7 +662,7 @@ Informazioni chiave:
 
 - Le stringhe di query nell'URL vengono ignorate.
 - Usare l'opzione **Ignore Case** (Ignora maiuscole/minuscole) per determinare se effettuare un controllo tenendo conto o meno della distinzione tra maiuscole e minuscole.
-- Il valore specificato per questa condizione di corrispondenza verrà confrontato rispetto al percorso relativo della richiesta esatta effettuata dal client.
+- Il valore specificato per questa condizione di corrispondenza viene confrontato al percorso relativo della richiesta esatta eseguita dal client.
 
 - Per trovare la corrispondenza di tutte le richieste effettuate in una directory particolare, usare la condizione di corrispondenza [URL Path Directory](#url-path-directory) (Directory percorso URL) o [URL Path Wildcard](#url-path-wildcard) (Carattere jolly percorso URL).
 
@@ -681,13 +681,13 @@ L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determi
 Informazioni chiave:
 - Un URL CNAME perimetrale viene riscritto in un URL della rete CDN prima del confronto degli URL. 
  
-   Ad esempio, entrambi gli URL puntano allo stesso asset e di conseguenza hanno lo stesso percorso URL.
+    Ad esempio, entrambi gli URL puntano allo stesso asset e di conseguenza hanno lo stesso percorso URL.
 
-     - URL della rete CDN: http:\//wpc.0001.&lt;Dominio&gt;/800001/CustomerOrigin/path/asset.htm
+     - URL della rete CDN: http:\//wpc.0001.&lt;dominio&gt;/800001/CustomerOrigin/path/asset.htm
 
      - URL CNAME perimetrale: http:\//my.domain.com/path/asset.htm
-
-   Informazioni aggiuntive:
+    
+    Informazioni aggiuntive:
     
      - Percorso URL: /800001/CustomerOrigin/path/asset.htm
 
@@ -715,21 +715,21 @@ Informazioni chiave:
    L'opzione può avere i valori seguenti:
      - **Radice**: indica che il punto di confronto degli URL deve iniziare dopo il nome host della rete CDN.
 
-       Ad esempio: http:\//wpc.0001.&lt;Dominio&gt;/**800001/myorigin/cartella/index.htm**
+       Ad esempio: http:\//wpc.0001.&lt;dominio&gt;/**800001/myorigin/cartella/index.htm**
 
      - **Origine**: indica che il punto di confronto degli URL deve iniziare dopo il punto di accesso al contenuto, ad esempio /000001 o /800001/myorigin. Poiché per impostazione predefinita l'URL CNAME \*.azureedge.net viene creato relativamente alla directory di origine nel nome host della rete CDN Verizon, gli utenti della rete CDN di Azure devono usare il valore **Origine**. 
 
        Ad esempio: https:\//&lt;endpoint&gt;.azureedge.net/**cartella/index.htm**
 
-     Questo URL punta a questo nome host della rete CDN Verizon: http:\//wpc.0001.&lt;Dominio&gt;/800001/myorigin/**cartella/index.htm**
+     Questo URL punta a questo nome host della rete CDN Verizon: http:\//wpc.0001.&lt;dominio&gt;/800001/myorigin/**cartella/index.htm**
 
 - Un URL CNAME perimetrale viene riscritto in un URL della rete CDN prima del confronto degli URL.
 
-   Ad esempio, entrambi gli URL seguenti puntano allo stesso asset e di conseguenza hanno lo stesso percorso URL:
-     - URL della rete CDN: http://wpc.0001.&lt;Dominio&gt;/800001/CustomerOrigin/path/asset.htm
+    Ad esempio, entrambi gli URL seguenti puntano allo stesso asset e di conseguenza hanno lo stesso percorso URL:
+     - URL della rete CDN: http://wpc.0001.&lt;dominio&gt;/800001/CustomerOrigin/path/asset.htm
      - URL CNAME perimetrale: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
-   Informazioni aggiuntive:
+    
+    Informazioni aggiuntive:
     
      - Percorso URL (relativo alla radice): /800001/CustomerOrigin/path/asset.htm
     
@@ -737,7 +737,7 @@ Informazioni chiave:
     
 - Specificare più percorsi URL delimitandoli con uno spazio singolo.
 
-   Ad esempio: /marketing/asset.\* /sales/\*.htm
+   Ad esempio: /marketing/asset.* /sales/*.htm
 
 - Le stringhe di query nell'URL vengono ignorate.
     
@@ -757,7 +757,7 @@ Valore                   | Relative to (Relativo a)    | Risultato
 /80ABCD/origin/text/*   | Radice           | L'asset richiesto corrisponde a questo modello quando soddisfa i criteri seguenti: <br />- Si trova in un'origine cliente denominata "origin". <br />- Il percorso relativo inizia con una cartella denominata "text". Questo significa che l'asset richiesto può trovarsi nella cartella "text" o in una delle sottocartelle ricorsive.
 */css/* */js/*          | Radice o Origine | Tutti gli URL CNAME perimetrali che contengono una cartella css o js soddisfano la corrispondenza a questo modello.
 *.jpg *.gif *.png       | Radice o Origine | Tutti gli URL CNAME perimetrali o di rete CDN che terminano con .jpg, .gif o .png. soddisfano la corrispondenza a questo modello. Un metodo alternativo per specificare questo modello è la condizione di corrispondenza [URL Path Extension](#url-path-extension) (Estensione percorso URL).
-/images/\* /media/\*      | Origine         | Gli URL CNAME perimetrali o di rete CDN il cui percorso relativo inizia con una cartella "images" o "media" soddisfano la corrispondenza a questo modello. <br />- URL della rete CDN: http:\//wpc.0001.&lt;Dominio&gt;/800001/myorigin/images/sales/event1.png<br />- URL CNAME perimetrale di esempio: http:\//cdn.mydomain.com/images/sales/event1.png
+/images/\* /media/\*      | Origine         | Gli URL CNAME perimetrali o di rete CDN il cui percorso relativo inizia con una cartella "images" o "media" soddisfano la corrispondenza a questo modello. <br />- URL della rete CDN: http:\//wpc.0001.&lt;dominio&gt;/800001/myorigin/images/sales/event1.png<br />- URL CNAME perimetrale di esempio: http:\//cdn.mydomain.com/images/sales/event1.png
 
 [Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -867,11 +867,11 @@ Informazioni chiave:
 #### <a name="sample-scenarios"></a>Scenari di esempio
 L'esempio seguente mostra il funzionamento di questa opzione in situazioni specifiche:
 
-NOME      | Valore |  Risultato
-----------|-------|--------
-Utente      | Joe   | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto è "?user=joe".
-Utente      | *     | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto contiene un parametro User.
-Email Joe | *     | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto contiene un parametro Email che inizia con "Joe".
+NOME  | Valore |  Risultato
+------|-------|--------
+Utente  | Joe   | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto è "?user=joe".
+Utente  | *     | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto contiene un parametro User.
+Email | Joe\* | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto contiene un parametro Email che inizia con "Joe".
 
 [Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -908,7 +908,7 @@ Informazioni chiave:
    Valore | Interpretato come 
    ------|---------------
    \\+    | +
-   \\\+   | \\+
+   \\\\+   | \\+
 
 - In base al modo in cui vengono monitorate le impostazioni della cache, è possibile che questa condizione di corrispondenza sia incompatibile con le funzionalità seguenti:
    - Completa riempimento cache

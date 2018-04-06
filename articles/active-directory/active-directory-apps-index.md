@@ -2,7 +2,7 @@
 title: Indice di articoli per la gestione di applicazioni in Azure Active Directory | Microsoft Azure
 description: Informazioni su come personalizzare la data di scadenza per i certificati di federazione e su come rinnovare i certificati con scadenza imminente.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ccbe48e4c7fdb25e003aedc048194e041865710e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ffb8e822644ba8f0bccc3e81edc4da6085ff3ec7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Indice di articoli per la gestione di applicazioni in Azure Active Directory
 Questa pagina fornisce un elenco completo di tutti i documenti scritti sulle diverse funzionalità relative alle applicazioni in Azure Active Directory (Azure AD).
@@ -43,7 +43,7 @@ Questa sezione fornisce un accesso rapido alle guide rilevanti per la risoluzion
 | Single Sign-On federato |[Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](active-directory-saml-debugging.md) |
 | Single Sign-On basato su password |[Risoluzione dei problemi dell’estensione del pannello di accesso per Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Proxy dell'applicazione |[Guida alla risoluzione dei problemi del proxy di applicazione](active-directory-application-proxy-troubleshoot.md) |
-| Single Sign-On tra AD locale e Azure AD |[Risoluzione dei problemi di sincronizzazione delle password](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)<br /><br />[Risoluzione dei problemi di writeback delle password](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Single Sign-On tra AD locale e Azure AD |[Risolvere i problemi di sincronizzazione dell'hash delle password](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Risoluzione dei problemi di writeback delle password](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Appartenenze dinamiche a gruppi |[Risoluzione dei problemi di appartenenza dinamica ai gruppi](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>Accesso Single Sign-On (SSO)
@@ -95,7 +95,7 @@ Se l'organizzazione ha un'istanza locale di Windows Server Active Directory oltr
 |:---:| --- |
 | Panoramica delle opzioni relative all'accesso Single Sign-On disponibili in Azure AD Connect, oltre a informazioni sulla gestione di ambienti ibridi. |[Opzioni di accesso utente di Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Indicazioni generali per la gestione di ambienti con Active Directory locale e Azure Active Directory. |[Considerazioni di progettazione dell'identità ibrida di Azure Active Directory](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md) |
-| Indicazioni sull'uso della sincronizzazione delle password per abilitare l'accesso Single Sign-On |[Implementare la sincronizzazione password con Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Risolvere i problemi di sincronizzazione delle password](https://support.microsoft.com/en-us/kb/2855271) |
+| Indicazioni sull'uso della sincronizzazione delle password per abilitare l'accesso Single Sign-On |[Implementare la sincronizzazione password con Azure AD Connect](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Risolvere i problemi di sincronizzazione delle password](https://support.microsoft.com/en-us/kb/2855271) |
 | Indicazioni sull'uso del writeback delle password per abilitare l'accesso Single Sign-On |[Introduzione alla gestione delle password in Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Risolvere i problemi relativi al writeback delle password](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Indicazioni sull'uso di provider di identità di terze parti per abilitare l'accesso Single Sign-On |[Elenco di provider di identità di terze parti compatibili che possono essere usati per abilitare l'accesso Single Sign-On](https://aka.ms/ssoproviders) |
 | Informazioni su come gli utenti di Windows 10 possono sfruttare i vantaggi dell'accesso Single Sign-On tramite l'aggiunta ad Azure AD. |[Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite l'aggiunta ad Azure Active Directory](active-directory-azureadjoin-overview.md) |

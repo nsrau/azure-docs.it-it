@@ -2,10 +2,10 @@
 title: 'Servizio di sincronizzazione Azure AD Connect: configurare il filtro | Documentazione Microsoft'
 description: Illustra come configurare i filtri nel servizio di sincronizzazione Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5af82e889a80994dd47d4fc3b89f8eece2201355
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 0b4b306d1224b5521774b05a110c862b58450eb3
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Servizio di sincronizzazione Azure AD Connect: Configurare il filtro
 L'applicazione di un filtro consente di controllare quali oggetti vengono visualizzati in Azure Active Directory (Azure AD) dalla directory locale. La configurazione predefinita considera tutti gli oggetti in tutti i domini delle foreste configurate. In generale, questa è la configurazione consigliata. Gli utenti che usano i carichi di lavoro di Office 365, come Exchange Online e Skype for Business, hanno a disposizione un elenco indirizzi globale completo per inviare messaggi di posta elettronica e chiamare chiunque. Con la configurazione predefinita possono usufruire della stessa esperienza resa disponibile da un'implementazione locale di Exchange o Lync.
@@ -44,7 +44,7 @@ Poiché il filtro può rimuovere molti oggetti contemporaneamente, prima di iniz
 
 Per evitare che si elimino numerosi oggetti per errore, la funzionalità che [impedisce eliminazioni accidentali](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) è attiva per impostazione predefinita. Se si eliminano molti oggetti a causa del filtro (500, per impostazione predefinita), è necessario seguire i passaggi di questo articolo per consentire alle eliminazioni di giungere ad Azure AD.
 
-Se si usa una build precedente a quella di novembre 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), si apporta una modifica a una configurazione di filtro e si usa il servizio di sincronizzazione delle password, è necessario attivare una sincronizzazione completa di tutte le password al termine della configurazione. Per informazioni su come attivare una sincronizzazione completa di tutte le password, vedere [Attivare una sincronizzazione completa di tutte le password](active-directory-aadconnectsync-troubleshoot-password-synchronization.md#trigger-a-full-sync-of-all-passwords). Se si usa la build 1.0.9125 o versione successiva, la normale azione di **sincronizzazione completa** consente anche di stabilire se le password devono essere sincronizzate e se questo passaggio aggiuntivo non è più necessario.
+Se si usa una build precedente a quella di novembre 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), si apporta una modifica a una configurazione di filtro e si usa il servizio di sincronizzazione dell'hash delle password, è necessario attivare una sincronizzazione completa di tutte le password al termine della configurazione. Per informazioni su come attivare una sincronizzazione completa di tutte le password, vedere [Attivare una sincronizzazione completa di tutte le password](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Se si usa la build 1.0.9125 o versione successiva, la normale azione di **sincronizzazione completa** consente anche di stabilire se le password devono essere sincronizzate e se questo passaggio aggiuntivo non è più necessario.
 
 Se in Azure AD sono stati eliminati inavvertitamente oggetti **utente** a causa di un errore di filtro, è possibile ricrearli in Azure AD rimuovendo le configurazioni di filtro e successivamente sincronizzare nuovamente le directory. Questa azione ripristina gli utenti dal Cestino in Azure AD. Non è tuttavia possibile annullare l'eliminazione di altri tipi di oggetto. Se ad esempio si elimina accidentalmente un gruppo di sicurezza usato per inserire una risorsa in un elenco di controllo di accesso, il gruppo e gli elenchi di controllo di accesso relativi non possono essere ripristinati.
 

@@ -4,20 +4,20 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2017
+ms.date: 03/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 3fbfd8839b1a45c6927753a48d1ac617f2d34427
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c7f74d3bd8a2f0173f8f3cc69c611696044875a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Esercitazione: Integrazione di Azure Active Directory con Domo
 
@@ -167,7 +167,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
    ![Configure Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_domo_configure.png) 
 
-9. Per configurare l'accesso Single Sign-On sul lato **Domo** è necessario inviare il file **Certificato** scaricato e i valori **SAML Entity ID** (ID entità SAML), **SAML Single Sign-On Service URL** (URL servizio Single Sign-On SAML) e **Sign-Out URL** (URL di disconnessione) al [team di supporto di Domo](mailto:support@domo.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+9. Per configurare l'accesso Single Sign-On sul lato **Domo**, passare all'articolo della Knowledge Base di Domo disponibile [qui](http://knowledge.domo.com?cid=azuread) e seguire le istruzioni.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -250,8 +250,6 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

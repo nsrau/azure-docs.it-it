@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b39c22fb45b0e20a3aa7a6dcf59619a87df32ca1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
 La pianificazione della capacità è un passaggio importante per qualsiasi distribuzione di produzione. Ecco alcuni aspetti da considerare nell'ambito di tale processo.
@@ -69,7 +69,7 @@ Il livello di durabilità viene usato per indicare al sistema i privilegi delle 
 
 Questo privilegio viene espresso con i valori seguenti:
 
-* Gold: i processi dell'infrastruttura possono essere sospesi per una durata di due ore per ogni dominio di aggiornamento. La durabilità Gold può essere abilitata solo per gli SKU di VM con tutti i nodi come L32s, GS5, G5, DS15_v2, D15_v2 e così via (in generale tutte le dimensioni di macchine virtuali elencate all'indirizzo http://aka.ms/vmspecs e contrassegnate nella nota come "L'istanza è isolata e prevede hardware dedicato per un singolo cliente" sono VM con tutti i nodi).
+* Gold: i processi dell'infrastruttura possono essere sospesi per una durata di due ore per ogni dominio di aggiornamento. La durabilità Gold può essere abilitata solo per gli SKU di VM con tutti i nodi come L32s, GS5, G5, DS15_v2, D15_v2 e così via. In generale, tutte le dimensioni di macchine virtuali elencate all'indirizzo http://aka.ms/vmspecs e contrassegnate nella nota come "L'istanza è isolata e prevede hardware dedicato per un singolo cliente" sono VM con tutti i nodi.
 * Silver: i processi dell'infrastruttura possono essere sospesi per una durata di 10 minuti per ogni dominio di aggiornamento. È disponibile per tutte le VM standard a core singolo e superiori.
 * Bronze: nessun privilegio. Questa è la modalità predefinita. Usare solo questo livello di durabilità per i tipi di nodi che eseguono _solo_ carichi di lavoro senza stato. 
 
@@ -87,7 +87,7 @@ Questo privilegio viene espresso con i valori seguenti:
 **Svantaggi dell'uso di livelli di durabilità Silver o Gold**
  
 1. Le distribuzioni nel set di scalabilità di macchine virtuali e in altre risorse di Azure correlate possono subire ritardi o timeout oppure essere interamente bloccate da problemi nel cluster o a livello di infrastruttura. 
-2. Le disattivazioni automatizzate dei nodi durante le operazioni sull'infrastruttura di Azure aumentano il numero di [eventi del ciclo di vita della replica](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ), ad esempio di scambi di nodi primari.
+2. Le disattivazioni automatizzate dei nodi durante le operazioni sull'infrastruttura di Azure aumentano il numero di [eventi del ciclo di vita della replica](service-fabric-reliable-services-lifecycle.md), ad esempio di scambi di nodi primari.
 3. Accetta nodi fuori servizio per determinati periodi di tempo durante le attività di manutenzione dell'hardware o gli aggiornamenti del software della piattaforma Azure. Quando queste attività sono in corso, possono essere visibili nodi con stato Disabilitazione in corso o Disabilitato. Ciò riduce temporaneamente la capacità del cluster, ma non dovrebbe influire sulla disponibilità del cluster o delle applicazioni.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Raccomandazioni su quando usare livelli di durabilità Silver o Gold
@@ -101,10 +101,10 @@ Usare la durabilità Silver o Gold per tutti i tipi di nodo che ospitano servizi
 
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Raccomandazioni operative per il tipo di nodo impostato sul livello di durabilità Silver o Gold
 
-1. Mantenere sempre integri il cluster e le applicazioni e verificare che le applicazioni rispondano in modo tempestivo a tutti gli [eventi del ciclo di vita della replica del servizio](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle), ad esempio al blocco della replica in compilazione.
+1. Mantenere sempre integri il cluster e le applicazioni e verificare che le applicazioni rispondano in modo tempestivo a tutti gli [eventi del ciclo di vita della replica del servizio](service-fabric-reliable-services-lifecycle.md), ad esempio al blocco della replica in compilazione.
 2. Adottare modi più sicuri per eseguire una modifica di uno SKU di VM (aumento/riduzione delle prestazioni): la modifica dello SKU di VM di un set di scalabilità di macchine virtuali è un'operazione intrinsecamente non sicura, pertanto dovrebbe essere evitata, se possibile. Di seguito è illustrato il processo che è possibile seguire per evitare i problemi comuni.
     - **Per i tipi di nodo non primari:** è consigliabile creare un nuovo set di scalabilità di macchine virtuali, modificare il vincolo di posizionamento del servizio per poter includere il nuovo tipo di nodo/set di scalabilità di macchine virtuali e quindi ridurre il numero di istanze del set di scalabilità di macchine virtuali precedente a 0, un nodo alla volta (perché la rimozione dei nodi non influisca sull'affidabilità del cluster).
-    - **Per il tipo di nodo primario:** è consigliabile non modificare il relativo SKU di VM. La modifica dello SKU del tipo di nodo primario non è supportata. Se lo scopo del nuovo SKU è la capacità, è consigliabile aggiungere altre istanze. Se non è possibile, creare un nuovo cluster e [ripristinare lo stato dell'applicazione](service-fabric-reliable-services-backup-restore.md) (se applicabile) dal cluster precedente. Non è necessario ripristinare lo stato dei servizi di sistema, perché verrà ricreato quando si distribuiscono le applicazioni nel nuovo cluster. Se nel cluster venivano eseguite solo applicazioni senza stato, è sufficiente distribuire le applicazioni nel nuovo cluster, non sono necessarie operazioni di ripristino. Se si opta per la modalità non supportata e si vuole modificare lo SKU di VM, apportare le modifiche alla definizione del modello di set di scalabilità di macchine virtuali per riflettere il nuovo SKU. Se il cluster include un solo tipo di nodo, verificare che tutte le applicazioni con stato rispondano in modo tempestivo a tutti gli [eventi del ciclo di vita della replica del servizio](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle), ad esempio al blocco della replica in compilazione, e che la durata della ricompilazione della replica del servizio sia inferiore a cinque minuti (per il livello di durabilità Silver). 
+    - **Per il tipo di nodo primario:** è consigliabile non modificare il relativo SKU di VM. La modifica dello SKU del tipo di nodo primario non è supportata. Se lo scopo del nuovo SKU è la capacità, è consigliabile aggiungere altre istanze. Se non è possibile, creare un nuovo cluster e [ripristinare lo stato dell'applicazione](service-fabric-reliable-services-backup-restore.md) (se applicabile) dal cluster precedente. Non è necessario ripristinare lo stato dei servizi di sistema, perché verrà ricreato quando si distribuiscono le applicazioni nel nuovo cluster. Se nel cluster venivano eseguite solo applicazioni senza stato, è sufficiente distribuire le applicazioni nel nuovo cluster, non sono necessarie operazioni di ripristino. Se si opta per la modalità non supportata e si vuole modificare lo SKU di VM, apportare le modifiche alla definizione del modello di set di scalabilità di macchine virtuali per riflettere il nuovo SKU. Se il cluster include un solo tipo di nodo, verificare che tutte le applicazioni con stato rispondano in modo tempestivo a tutti gli [eventi del ciclo di vita della replica del servizio](service-fabric-reliable-services-lifecycle.md), ad esempio al blocco della replica in compilazione, e che la durata della ricompilazione della replica del servizio sia inferiore a cinque minuti (per il livello di durabilità Silver). 
 
 
 > [!WARNING]

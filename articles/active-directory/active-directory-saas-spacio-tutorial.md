@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/22/2018
 ms.author: jeedes
-ms.openlocfilehash: faf4b2ff24ef733b740a5b65864941a10de64ed8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 604249151f3c1ca206f64a178b25ea1dae5b5023
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Esercitazione: Integrazione di Azure Active Directory con Spacio
 
@@ -112,18 +112,32 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     > [!NOTE] 
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team del supporto clienti di Spacio](mailto:support@spac.io). 
- 
 
-
-4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
-
-    ![Collegamento di download del certificato](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_certificate.png) 
-
-5. Fare clic sul pulsante **Salva** .
+4. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-spacio-tutorial/tutorial_general_400.png)
 
-6. Per configurare l'accesso Single Sign-On sul lato **Spacio**, è necessario inviare il file **XML dei metadati** scaricato al [team di supporto di Spacio](mailto:support@spac.io). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+5. Per generare l'**URL dei metadati**, seguire questa procedura:
+
+    a. Fare clic su **Registrazioni per l'app**.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appregistrations.png)
+   
+    b. Fare clic su **Endpoint** per aprire la finestra di dialogo **Endpoint**.  
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpointicon.png)
+
+    c. Selezionare il pulsante **Copia** per copiare l'URL del **DOCUMENTO METADATI FEDERAZIONE** e incollarlo nel Blocco note.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpoint.png)
+     
+    d. Passare ora alla pagina delle proprietà di **Spacio**, copiare il valore di **ID applicazione** usando il pulsante **Copia** e incollarlo nel Blocco note.
+ 
+    ![Configure Single Sign-On](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appid.png)
+
+    e. Generare l'**URL dei metadati** usando il modello seguente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
+
+6. Per configurare l'accesso Single Sign-On sul lato **Spacio**, è necessario inviare l'**URL dei metadati** generato al [team di supporto di Spacio](mailto:support@spac.io). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).

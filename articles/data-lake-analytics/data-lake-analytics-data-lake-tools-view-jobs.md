@@ -2,7 +2,7 @@
 title: Usare Job Browser e Job View (Visualizzazione processo) per i processi di Azure Data Lake Analytics | Microsoft Docs
 description: 'Informazioni su come usare Job Browser e Job View (Visualizzazione processo) per i processi di Azure Data Lake Analytics. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/02/2017
 ms.author: jgao
-ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc9048566dd58733cd86aac0f9836763fa095843
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Usare Job Browser e Job View (Visualizzazione processo) per i processi di Azure Data Lake Analytics
 Il servizio Azure Data Lake Analytics archivia i processi inviati in un [archivio query](#query-store). Questo articolo contiene informazioni su come usare Job Browser e Job View (Visualizzazione processo) in Azure Data Lake Tools per Visual Studio per trovare informazioni sulla cronologia di processi. 
 
 Per impostazione predefinita, il servizio Data Lake Analytics archivia i processi per 30 giorni. È possibile configurare il periodo di scadenza nel portale di Azure configurando un criterio di scadenza personalizzato. Non sarà possibile accedere alle informazioni sui processi dopo la scadenza. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Vedere [Prerequisiti di Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Aprire Job Browser

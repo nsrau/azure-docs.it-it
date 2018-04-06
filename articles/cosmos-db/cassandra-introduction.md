@@ -1,10 +1,10 @@
 ---
 title: Introduzione all'API Cassandra di Azure Cosmos DB | Microsoft Docs
-description: "Informazioni su come usare Azure Cosmos DB per trasferire in modalità lift-and-shift le applicazioni esistenti e sviluppare nuove applicazioni che usano l'API Cassandra tramite il driver Cassandra e CQL."
+description: Informazioni su come usare Azure Cosmos DB per trasferire in modalità lift-and-shift le applicazioni esistenti e sviluppare nuove applicazioni che usano l'API Cassandra tramite il driver Cassandra e CQL.
 services: cosmos-db
 author: govindk
 manager: jhubbard
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 73839abf-5af5-4ae0-a852-0f4159bc00a0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 62e56a611d3f720172ace83a4b407a962ec69ea8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 88364cecc1fa1ad7318cb28c9708a42e6a807347
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Introduzione all'API Apache Cassandra per Azure Cosmos DB
+# <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Introduzione ad Azure Cosmos DB: API Apache Cassandra
 
 Azure Cosmos DB offre l'API Cassandra (anteprima) per applicazioni scritte per Apache Cassandra che necessitano di funzionalità Premium, come:
 

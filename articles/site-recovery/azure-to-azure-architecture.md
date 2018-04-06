@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 126f5c4db355af19a7151a267115127757b17599
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 111217e9335b16659c93da88731e0b7ce6d5fecd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Architettura della replica da Azure ad Azure
 
@@ -28,7 +28,7 @@ Questo articolo descrive l'architettura usata per la replica, il failover e il r
 ## <a name="architectural-components"></a>Componenti dell'architettura
 
 Il grafico seguente offre una visualizzazione generale di un ambiente di macchine virtuali di Azure in un'area specifica, in questo esempio l'area Stati Uniti orientali. In un ambiente di VM di Azure:
-- Le app possono essere in esecuzione in macchine virtuali con dischi distribuiti tra gli account di archiviazione.
+- Le app possono essere in esecuzione in VM con dischi gestiti o non gestiti distribuiti tra gli account di archiviazione.
 - Le VM possono essere incluse in una o più subnet in una rete virtuale.
 
 
@@ -49,7 +49,8 @@ Quando si abilita la replica delle macchine virtuali di Azure, nell'area di dest
 **Gruppo di risorse di destinazione** | Gruppo di risorse a cui appartengono le VM replicate dopo il failover.
 **Rete virtuale di destinazione** | Rete virtuale in cui si trovano le VM replicate dopo il failover. Un mapping di rete viene creato tra le reti virtuali di origine e di destinazione e viceversa.
 **Account di archiviazione della cache** | Prima che le modifiche apportate alle macchine virtuali di origine vengano replicate in un account di archiviazione di destinazione, vengono registrate e inviate all'account di archiviazione della cache nella posizione di origine. Questo passaggio assicura un impatto minimo sulle applicazioni di produzione in esecuzione nella macchina virtuale.
-**Account di archiviazione di destinazione**  | Account di archiviazione nel percorso di destinazione in cui vengono replicati i dati.
+**Account di archiviazione di destinazione (se la VM di origine non usa dischi gestiti)**  | Account di archiviazione nel percorso di destinazione in cui vengono replicati i dati.
+** Dischi gestiti di replica (se la VM di origine si trova in dischi gestiti)**  | Dischi gestiti nel percorso di destinazione in cui vengono replicati i dati.
 **Set di disponibilità di destinazione**  | Set di disponibilità in cui si trovano le VM replicate dopo il failover.
 
 ### <a name="step-2"></a>Passaggio 2
@@ -76,7 +77,7 @@ Se le VM Linux devono far parte di un gruppo di replica, verificare che il traff
 
 ### <a name="step-3"></a>Passaggio 3
 
-Una volta attivata la replica continua, le operazioni di scrittura nei dischi vengono immediatamente trasferite nell'account di archiviazione della cache. Site Recovery elabora i dati e li invia all'account di archiviazione di destinazione. Dopo l'elaborazione dei dati, vengono generati punti di ripristino nell'account di archiviazione di destinazione a intervalli di pochi minuti.
+Una volta attivata la replica continua, le operazioni di scrittura nei dischi vengono immediatamente trasferite nell'account di archiviazione della cache. Site Recovery elabora i dati e li invia all'account di archiviazione di destinazione o ai dischi gestiti di replica. Dopo l'elaborazione dei dati, vengono generati punti di ripristino nell'account di archiviazione di destinazione a intervalli di pochi minuti.
 
 ## <a name="failover-process"></a>Processo di failover
 

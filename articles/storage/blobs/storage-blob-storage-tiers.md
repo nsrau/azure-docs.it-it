@@ -2,10 +2,10 @@
 title: Livelli di archiviazione di Azure ad accesso frequente, ad accesso sporadico e archivio per i BLOB | Microsoft Docs
 description: Livelli di archiviazione ad accesso frequente, ad accesso sporadico e archivio per account di archiviazione di Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kuhussai
 manager: jwillis
-editor: 
+editor: ''
 ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: 2adb301f1d047c7762a35880da6e6094a5afbd75
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c62f3a92e6199f6467556054c9f58c20b6ceba2c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente, ad accesso sporadico e archivio
 
@@ -79,7 +79,7 @@ In tutti e tre i livelli di archiviazione i BLOB possono coesistere nello stesso
 
 ### <a name="blob-level-tiering-billing"></a>Fatturazione per l'organizzazione a livello di BLOB
 
-Quando un BLOB viene spostato in un livello ad accesso più sporadico (frequente -> sporadico, frequente -> archivio o sporadico -> archivio), l'operazione viene fatturata come operazione di scrittura nel livello di destinazione e vengono applicati i costi per le operazioni di scrittura (ogni 10.000) e la scrittura dati (per GB). Se un BLOB viene spostato in un livello ad accesso più frequente (archivio -> sporadico, archivio -> frequente o sporadico -> frequente), l'operazione viene fatturata come un'operazione di lettura nel livello di origine e vengono applicati i costi per le operazioni di lettura (ogni 10.000) e il recupero dati (per GB).
+Quando un BLOB viene spostato in un livello ad accesso più sporadico (frequente -> sporadico, frequente -> archivio o sporadico -> archivio), l'operazione viene fatturata come operazione di scrittura del livello di destinazione, dove vengono applicati i costi per le operazioni di scrittura (ogni 10.000) e la scrittura dati (per GB). Se un BLOB viene spostato in un livello ad accesso più frequente (archivio -> sporadico, archivio -> frequente o sporadico -> frequente), l'operazione viene fatturata come un'operazione di lettura nel livello di origine, dove vengono applicati i costi per le operazioni di lettura (ogni 10.000) e il recupero dati (per GB).
 
 Se si attiva il livello di account da accesso frequente ad accesso sporadico, verrà addebitato l'importo per le operazioni di scrittura (ogni 10.000) per tutti i BLOB senza un livello impostato solo negli account per utilizzo generico v2. Non è previsto alcun addebito negli account di archiviazione BLOB. Verranno addebitate sia le operazioni di lettura (ogni 10.000) che il recupero dati (per GB) quando si attiva l'account di archiviazione BLOB o per utilizzo generico v2 dal livello accesso sporadico al livello accesso frequente. Possono essere addebitati anche i costi delle eliminazioni anticipate per i BLOB spostati al di fuori del livello di accesso sporadico o archivio.
 

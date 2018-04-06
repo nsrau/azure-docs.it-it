@@ -1,9 +1,9 @@
 ---
 title: Query SQL per Azure Cosmos DB | Microsoft Docs
-description: "Informazioni sulla sintassi SQL, sui concetti relativi ai database e sulle query SQL per Cosmos DB. SQL può essere usato come linguaggio di query JSON in Cosmos DB."
+description: Informazioni sulla sintassi SQL, sui concetti relativi ai database e sulle query SQL per Cosmos DB. SQL può essere usato come linguaggio di query JSON in Cosmos DB.
 keywords: sintassi sql, query sql, linguaggio di query json, concetti relativi ai database e query sql, funzioni di aggregazione
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: LalithaMV
 manager: jhubbard
 editor: monicar
@@ -13,17 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a79b1a97909a38b4bfba06186db875d0c0c25f03
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Query SQL per Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Microsoft Azure Cosmos DB supporta l'esecuzione di query di documenti mediante SQL (Structured Query Language) come linguaggio di query JSON sugli account API SQL. Azure Cosmos DB è effettivamente privo di schema. Grazie all'impegno nei confronti del modello di dati JSON direttamente nel motore del database, fornisce l'indicizzazione automatica dei documenti JSON senza richiedere schemi espliciti o la creazione di indici secondari.
 
@@ -34,11 +32,17 @@ Nella progettazione del linguaggio di query per Cosmos DB sono stati tenuti in c
 
 Queste capacità costituiscono la chiave per la riduzione dell'attrito tra l'applicazione e il database e sono di importanza critica per la produttività degli sviluppatori.
 
-Si consiglia di iniziare guardando il video seguente, in cui Aravind Ramachandran mostra le funzionalità di query di Cosmos DB, e visitando la pagina [Query Playground](http://www.documentdb.com/sql/demo), in cui è possibile provare Cosmos DB ed eseguire query SQL rispetto a un set di dati predefinito.
+Si consiglia di iniziare guardando il video seguente in cui Andrew Liu, Program Manager di Azure Cosmos DB, mostra le funzionalità di query di Azure Cosmos DB e illustra la pagina [Query Playground](http://www.documentdb.com/sql/demo), in cui è possibile provare Azure Cosmos DB ed eseguire query SQL rispetto a un set di dati predefinito, come illustrato nel video.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
-> 
-> 
+> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
+>
+>
+
+In questo video di approfondimento vengono illustrate tecniche di query più avanzate:
+
+> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
+>
+>
 
 Tornare quindi a questo articolo, dove inizia un'esercitazione sulle query SQL in cui verranno illustrati alcuni semplici documenti JSON e comandi SQL.
 
@@ -2258,9 +2262,9 @@ L'esempio seguente mostra come usare queryDocuments nell'API del server JavaScri
 4. [Livelli di coerenza di Azure Cosmos DB][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [http://json.org/](http://json.org/)
-7. Specifiche Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+7. Specifiche JavaScript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. Tecniche di valutazione delle query per database di grandi dimensioni [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+9. Tecniche di valutazione di query per database di grandi dimensioni [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: un linguaggio non così estraneo per l'elaborazione dati, SIGMOD 2008.

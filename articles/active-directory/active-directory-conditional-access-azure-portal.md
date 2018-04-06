@@ -3,10 +3,10 @@ title: Accesso condizionale di Azure Active Directory | Microsoft Docs
 description: Informazioni sul modo in cui l'accesso condizionale in Azure Active Directory consente di gestire il controllo di accesso da una posizione centrale.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 7e4a65d81a7dade9ae63a24657d15a97a3a588b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 74a87065416b397b4eebbcaa54c769711176708d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accesso condizionale in Azure Active Directory
 
@@ -49,7 +49,7 @@ Di seguito sono indicate alcune problematiche di accesso comuni per cui l'access
 
 - **[Percorso di rete](active-directory-conditional-access-locations.md)**: Azure AD è accessibile da qualsiasi posizione. Cosa accade se si esegue un tentativo di accesso da un percorso di rete al di fuori del controllo del reparto IT? L'uso di una combinazione di nome utente e password potrebbe essere sufficiente come identificazione per i tentativi di accesso alle risorse dalla rete aziendale. Cosa accade se è necessario un livello superiore di identificazione per i tentativi di accesso avviati da altri paesi o regioni non previsti del mondo? Cosa accade se si intende addirittura bloccare i tentativi di accesso da alcune posizioni?  
 
-- **[Gestione dei dispositivi](active-directory-conditional-access-conditions.md#device-platforms)**: in Azure AD gli utenti possono accedere alle app cloud da una vasta gamma di dispositivi, inclusi i dispositivi mobili e i dispositivi personali. Cosa accade se si richiede che il tentativo di accesso venga eseguito solo da un utente che usa i dispositivi gestiti dal reparto IT? Cosa accade se si intende addirittura impedire a determinati tipi di dispositivi l'accesso alle applicazioni cloud nell'ambiente in uso? 
+- **[Gestione dei dispositivi](active-directory-conditional-access-conditions.md#device-platforms)**: in Azure AD gli utenti possono accedere alle app cloud da una vasta gamma di dispositivi, inclusi i dispositivi mobili e i dispositivi personali. Cosa accade se si richiede che i tentativi di accesso vengano eseguiti solo usando i dispositivi gestiti dal reparto IT? Cosa accade se si intende addirittura impedire a determinati tipi di dispositivi l'accesso alle app cloud nell'ambiente in uso? 
 
 - **[Applicazione client](active-directory-conditional-access-conditions.md#client-apps)**: oggi è possibile accedere a molte app cloud con tipi di app diversi, ad esempio app basate sul Web, app per dispositivi mobili o app desktop. Cosa accade se un tentativo di accesso viene eseguito usando un tipo di app client che causa problemi noti? Cosa accade se è necessario un dispositivo gestito dal reparto IT per determinati tipi di app? 
 

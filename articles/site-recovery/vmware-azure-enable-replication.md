@@ -8,18 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: asgang
-ms.openlocfilehash: 17cd6a931563c7d33576749453d742aca253526b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 48d84f59a80ea14c2b40821d886fc410c7e3f2c3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Abilitare la replica per le macchine virtuali VMware in Azure
 
 
 Questo articolo descrive come abilitare la replica delle macchine virtuali VMware locali in Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che l'utente abbia:
 
@@ -112,15 +112,15 @@ Successivamente, verificare le proprietà del computer di origine. Tenere presen
     Ad esempio, se una macchina di origine ha due schede di rete e le dimensioni della macchina di destinazione ne supportano quattro, la macchina di destinazione avrà due schede. Se la macchina di origine ha due schede, ma le dimensioni di destinazione supportate ne consentono solo una, la macchina di destinazione avrà una sola scheda.
     - Se la macchina virtuale ha più schede di rete, si connetteranno tutte alla stessa rete. Inoltre, la prima nell'elenco diventa la scheda di rete *predefinita* nella macchina virtuale di Azure.
 
-### <a name="azure-hybrid-use-benefit"></a>Vantaggio Azure Hybrid Use
+### <a name="azure-hybrid-benefit"></a>Vantaggio Azure Hybrid
 
-I clienti di Microsoft Software Assurance possono usare il Vantaggio Azure Hybrid Use per risparmiare sui costi di licenza per i computer Windows Server di cui viene eseguita la migrazione ad Azure o usare Azure per il ripristino di emergenza. Se si ha diritto a usare il Vantaggio Azure Hybrid Use, è possibile specificare che questo vantaggio dovrà essere assegnato alla macchina virtuale creata da Azure Site Recovery in Azure in caso di failover. A tale scopo, effettuare l'operazione seguente:
+I clienti di Microsoft Software Assurance possono usare il Vantaggio Azure Hybrid per risparmiare sui costi di licenza per i computer Windows Server di cui viene eseguita la migrazione ad Azure o per usare Azure per il ripristino di emergenza. Se si ha diritto a usare il Vantaggio Azure Hybrid, è possibile specificare che questo vantaggio dovrà essere assegnato alla macchina virtuale creata da Azure Site Recovery in Azure in caso di failover. A tale scopo, effettuare l'operazione seguente:
 - Passare alla sezione delle proprietà Calcolo e rete della macchina virtuale replicata.
-- Rispondere alla domanda che chiede se si ha una licenza di Windows Server in virtù della quale si è idonei per il Vantaggio Azure Hybrid Use.
-- Selezionare la casella di controllo per confermare che si ha una licenza di Windows Server con Software Assurance idonea che consente di applicare il Vantaggio Hybrid Use nel computer che verrà creato con il failover.
+- Rispondere alla domanda che chiede se si ha una licenza di Windows Server in virtù della quale si è idonei per il Vantaggio Azure Hybrid.
+- Selezionare la casella di controllo per confermare che si ha una licenza di Windows Server con Software Assurance idonea che consente di applicare il Vantaggio Azure Hybrid nel computer che verrà creato con il failover.
 - Salvare le impostazioni per il computer replicato.
 
-Altre informazioni sul [Vantaggio Azure Hybrid Use](https://aka.ms/azure-hybrid-use-benefit-pricing).
+Altre informazioni sul [Vantaggio Azure Hybrid](https://aka.ms/azure-hybrid-benefit-pricing).
 
 ## <a name="common-issues"></a>Problemi comuni
 

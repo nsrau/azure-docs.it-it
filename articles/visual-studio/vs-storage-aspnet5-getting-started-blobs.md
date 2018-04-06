@@ -2,10 +2,10 @@
 title: Introduzione all'archiviazione BLOB e ai servizi connessi di Visual Studio (ASP.NET Core) | Microsoft Docs
 description: Informazioni su come iniziare a usare l'archiviazione BLOB di Azure in un progetto ASP.NET Core in Visual Studio dopo aver creato un account di archiviazione con i servizi connessi di Visual Studio
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
 manager: ghogen
-editor: 
+editor: ''
 ms.assetid: 094b596a-c92c-40c4-a0f5-86407ae79672
 ms.service: storage
 ms.workload: web
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: kraigb
-ms.openlocfilehash: afd73bd0fd041a53fbe31aa3a5c23b3e27d7a9ec
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e3814533b955d5b6444692a7b565219d28002262
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Introduzione all'archiviazione BLOB di Azure e ai relativi servizi di Visual Studio (ASP.NET Core)
 
@@ -28,7 +28,7 @@ Questo articolo descrive come iniziare a usare l'archiviazione BLOB di Azure in 
 
 L'archiviazione BLOB di Azure è un servizio per l'archiviazione di quantità elevate di dati non strutturati a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Un singolo BLOB può avere qualsiasi dimensione. I BLOB possono essere costituiti da immagini, file audio e video, dati non elaborati e file di documento. Questo articolo descrive come iniziare a usare l'archiviazione BLOB dopo aver creato un account di archiviazione di Azure usando **Servizi connessi** di Visual Studio in un progetto ASP.NET Core.
 
-I BLOB di archiviazione si trovano nei contenitori esattamente come i file si trovano nelle cartelle. Dopo aver creato un BLOB, è possibile creare uno o più contenitori nel BLOB. Ad esempio, in un BLOB denominato "Raccoglitore" è possibile creare contenitori denominati "immagini" per archiviare immagini e un altro contenitore denominato "audio" per archiviare file audio. Dopo aver creato i contenitori, è possibile caricarvi singoli file. Per altre informazioni sulla modifica dei BLOB a livello di codice, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) .
+I BLOB di archiviazione si trovano nei contenitori esattamente come i file si trovano nelle cartelle. Dopo aver creato un BLOB, è possibile creare uno o più contenitori nel BLOB. Ad esempio, in un BLOB denominato "Raccoglitore" è possibile creare contenitori denominati "immagini" per archiviare immagini e un altro contenitore denominato "audio" per archiviare file audio. Dopo aver creato i contenitori, è possibile caricarvi singoli file. Per altre informazioni sulla modifica dei BLOB a livello di codice, vedere [Guida introduttiva: Caricare, scaricare ed elencare BLOB con .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 Alcune API di Archiviazione di Azure sono asincrone e il codice riportato in questo articolo presuppone che vengano usati metodi asincroni. Per altre informazioni, vedere [Programmazione asincrona](https://docs.microsoft.com/dotnet/csharp/async).
 
@@ -141,7 +141,7 @@ do
 } while (token != null);
 ```
 
-Per altri modi di elencare il contenuto di un contenitore BLOB, vedere [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
+Per informazioni su altri modi per elencare il contenuto di un contenitore BLOB, vedere [Guida introduttiva: Caricare, scaricare ed elencare BLOB con .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container).
 
 ## <a name="download-a-blob"></a>Scaricare un BLOB
 
@@ -158,7 +158,7 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 }
 ```
 
-Per altri modi di salvare i BLOB come file, vedere [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).
+Per informazioni su altri modi per salvare i BLOB come file, vedere [Guida introduttiva: Caricare, scaricare ed elencare BLOB con .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
 
 ## <a name="delete-a-blob"></a>Eliminare un BLOB
 

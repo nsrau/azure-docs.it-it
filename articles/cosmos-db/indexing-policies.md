@@ -3,8 +3,8 @@ title: Criteri di indicizzazione di Azure Cosmos DB | Microsoft Docs
 description: Informazioni sull'indicizzazione in Azure Cosmos DB. Informazioni su come configurare e modificare i criteri di indicizzazione per l'indicizzazione automatica e per ottenere prestazioni migliori.
 keywords: funzionamento dell'indicizzazione, indicizzazione automatica, indicizzazione del database
 services: cosmos-db
-documentationcenter: 
-author: arramac
+documentationcenter: ''
+author: rafats
 manager: jhubbard
 editor: monicar
 ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/17/2017
-ms.author: arramac
-ms.openlocfilehash: b09f5323f0378721412baade9be9926ebd0c171e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 03/26/2018
+ms.author: rafats
+ms.openlocfilehash: 5610c5fdc6a04f9ef13d2e4592f0d7e5d8eba30c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Come vengono indicizzati i dati da Azure Cosmos DB?
 
 Per impostazione predefinita, tutti i dati di Azure Cosmos DB sono indicizzati. Benché per molti clienti sia utile lasciare ad Azure Cosmos DB la gestione automatica di tutti gli aspetti dell'indicizzazione, è possibile specificare *criteri di indicizzazione* personalizzati per le raccolte durante la creazione in Azure Cosmos DB. I criteri di indicizzazione in Azure Cosmos DB sono più flessibili e potenti rispetto agli indici secondari disponibili in altre piattaforme di database. In Azure Cosmos DB è possibile progettare e personalizzare la forma dell'indice senza sacrificare la flessibilità dello schema. 
 
 Per informazioni sul funzionamento dell'indicizzazione in Azure Cosmos DB, è importante ricordare che la gestione dei criteri di indicizzazione permette di raggiungere un buon equilibrio tra overhead di archiviazione dell'indice, velocità effettiva di scrittura e di query e coerenza delle query.  
+
+Nel video seguente Andrew Liu, Program Manager di Azure Cosmos DB, illustra le funzionalità di indicizzazione automatica del programma e spiega come ottimizzare e configurare i criteri di indicizzazione nel contenitore di Azure Cosmos DB. 
+
+>[!VIDEO https://www.youtube.com/embed/uFu2D-GscG0]
 
 In questo articolo vengono esaminati i criteri di indicizzazione di Azure Cosmos DB, le modalità di personalizzazione di questi criteri e i compromessi associati. 
 
@@ -122,7 +126,7 @@ L'esempio di codice seguente mostra come creare una raccolta di Azure Cosmos DB 
 ### <a name="index-paths"></a>Percorsi di indice
 Azure Cosmos DB modella i documenti JSON e l'indice come alberi. È possibile usare i criteri per i percorsi all'interno dell'albero. All'interno dei documenti è possibile scegliere i percorsi da includere o escludere nell'indicizzazione. Questo permette di migliorare le prestazioni di scrittura e ridurre lo spazio di archiviazione dell'indice per gli scenari in cui i modelli di query sono già noti.
 
-I percorsi di indice iniziano con la radice (/) e terminano in genere con il carattere jolly ? come operatore. Questo operatore indica che per il prefisso esistono più valori possibili. Ad esempio, per usare SELECT * FROM Families F WHERE F.familyName = "Andersen", è necessario includere un percorso di indice per /"familyName"/? nei criteri di indicizzazione della raccolta.
+I percorsi di indice iniziano con la radice (/) e terminano in genere con il carattere jolly ?, come operatore. Questo operatore indica che per il prefisso esistono più valori possibili. Ad esempio, per usare SELECT * FROM Families F WHERE F.familyName = "Andersen", è necessario includere un percorso di indice per /"familyName"/? nei criteri di indicizzazione della raccolta.
 
 I percorsi di indice possono anche usare il carattere jolly \* per specificare un comportamento ricorsivo al di sotto del prefisso. È ad esempio possibile usare /payload/* per escludere dall'indicizzazione qualsiasi elemento al di sotto della proprietà payload.
 

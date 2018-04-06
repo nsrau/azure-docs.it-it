@@ -2,10 +2,9 @@
 title: Confrontare le versioni 1 e 2 di Azure Data Factory | Microsoft Docs
 description: Questo articolo mette a confronto Azure Data Factory versione 1 e Azure Data Factory versione 2.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: kromerm
-manager: jhubbard
-editor: spelluru
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9aed1e903b5af3e5bcf53987ba80c1dcdb06f202
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Confrontare le versioni 1 e 2 di Azure Data Factory
 Questo articolo mette a confronto le versioni 1 e 2 di Azure Data Factory. Per un'introduzione alla versione 1, vedere [Introduzione ad Azure Data Factory](v1/data-factory-introduction.md). Per un'introduzione alla versione 2, vedere l'[introduzione a Data Factory relativa alla versione 2 (anteprima)](introduction.md).
@@ -112,7 +111,7 @@ Nella versione 1, il codice di un'attività DotNet (personalizzata) viene implem
 
 In un'attività personalizzata della versione 2 non è necessario implementare un'interfaccia .NET. È possibile eseguire direttamente comandi, script e codice personalizzato compilato come eseguibile. 
 
-Per altre informazioni, vedere [Differenza tra l'attività personalizzata nelle versioni V1 e V2](transform-data-using-dotnet-custom-activity.md#difference-between-custom-activity-in-azure-data-factory-v2-and-custom-dotnet-activity-in-azure-data-factory-v1).
+Per altre informazioni, vedere [Differenza tra l'attività personalizzata nelle versioni V1 e V2](transform-data-using-dotnet-custom-activity.md#compare-v2-v1).
 
 ## <a name="sdks"></a>SDK
  Data Factory versione 2 offre un set più ampio di SDK utilizzabili per creare, gestire e monitorare le pipeline.
@@ -138,6 +137,13 @@ Gli SDK aggiornati per la versione 2 non sono compatibili con i client versione 
 | Python SDK | [Sì](quickstart-create-data-factory-python.md) | No  |
 | Modello di Resource Manager | [Sì](quickstart-create-data-factory-resource-manager-template.md) | [Sì](data-factory-build-your-first-pipeline-using-arm.md) | 
 
+## <a name="roles-and-permissions"></a>Ruoli e autorizzazioni
+
+Per creare e gestire le risorse figlio per Data Factory versione 2:
+
+-   Per creare e gestire le risorse della versione 2 non è possibile usare il ruolo Collaboratore di Data Factory versione 1.
+-   Il ruolo Collaboratore di Azure Resource Manager standard, creato nella risorsa di Data Factory, è sufficiente per creare e gestire le risorse figlio per un'istanza di Data Factory versione 2 distribuita con PowerShell o gli SDK. Non è sufficiente per creare e gestire le risorse figlio per un'istanza di Data Factory versione 2 distribuita dal portale di Azure o con un modello di Azure Resource Manager.
+-   Per creare e gestire le risorse figlio per un'istanza di Data Factory versione 2 distribuita dal portale di Azure o con un modello di Azure Resource Manager, è necessario essere membri del ruolo "Operatore processo di automazione" a livello di gruppo di risorse o di sottoscrizione. L'organizzazione può anche creare un ruolo personalizzato contenente "Microsoft.Resources/deployments/*" nell'elenco "Actions", come descritto in [Creare ruoli personalizzati per il controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-custom-roles.md).
 
 ## <a name="monitoring-experience"></a>Esperienza di monitoraggio
 Nella versione V2 è anche possibile eseguire il monitoraggio di data factory con [Monitoraggio di Azure](monitor-using-azure-monitor.md). I nuovi cmdlet di PowerShell supportano il monitoraggio delle istanze di [Integration Runtime](monitor-integration-runtime.md). Sia la versione 1 che la versione 2 supportano il monitoraggio visivo tramite un'applicazione di monitoraggio che può essere avviata dal portale di Azure.

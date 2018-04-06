@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 11bb34939e5fa3699973051664e85f9ef2147ff7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Distribuire un'applicazione .NET in un contenitore Windows in Azure Service Fabric
 
@@ -49,13 +49,6 @@ Le applicazioni Service Fabric sono eseguite in un cluster, un set di macchine v
 Un cluster di Service Fabric è ora in esecuzione in Azure, perciò è possibile creare e distribuire un'applicazione in un contenitore. Per avviare l'esecuzione dell'applicazione in un contenitore, è necessario aggiungere il **supporto per Docker** al progetto in Visual Studio. Quando si aggiunge il **supporto per Docker** all'applicazione, si verifica quanto segue. Per prima cosa, un _Dockerfile_ viene aggiunto al progetto. Questo nuovo file descrive il modo in cui l'immagine del contenitore deve essere compilata. In secondo luogo, alla soluzione viene aggiunto un nuovo progetto _docker-compose_. Il nuovo progetto contiene alcuni file docker-compose. I file docker-compose possono essere usati per descrivere le modalità di esecuzione del contenitore.
 
 Per altre informazioni, vedere [Visual Studio Container Tools][link-visualstudio-container-tools].
-
->[!NOTE]
->Se questa è la prima volta che si eseguono immagini del contenitori Windows sul computer in uso, è necessario che Docker CE ottenga le immagini di base per i contenitori. Le immagini usate in questa esercitazione sono pari a 14 GB. Procedere ed eseguire il comando seguente per ottenere le immagini di base:
->```cmd
->docker pull microsoft/mssql-server-windows-developer
->docker pull microsoft/aspnet:4.6.2
->```
 
 ### <a name="add-docker-support"></a>Aggiungere il supporto di Docker
 

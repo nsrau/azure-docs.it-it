@@ -1,11 +1,12 @@
 ---
 title: Domande frequenti su Azure Machine Learning | Documentazione Microsoft
-description: "Introduzione ad Azure Machine Learning; domande frequenti su fatturazione, funzionalità e limitazioni di un servizio cloud per la modellazione predittiva semplificata."
-keywords: "introduzione al machine learning, modellazione predittiva, cos’è il machine learning"
+description: Introduzione ad Azure Machine Learning; domande frequenti su fatturazione, funzionalità e limitazioni di un servizio cloud per la modellazione predittiva semplificata.
+keywords: introduzione al machine learning, modellazione predittiva, cos’è il machine learning
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: paulettm
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.author: garye
-ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: ceec69ee822e118adfa3825620a31575109894ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Domande frequenti su Azure Machine Learning: fatturazione, funzionalità, limitazioni e supporto
 Di seguito sono riportate alcune domande frequenti e le corrispondenti risposte su Azure Machine Learning, un servizio cloud che consente di sviluppare modelli predittivi e rendere operative le soluzioni tramite servizi Web. Questo articolo contiene domande sull'uso del servizio, includendo il modello di fatturazione, le funzionalità, le limitazioni e il supporto.

@@ -1,6 +1,6 @@
 ---
 title: Usare l'insieme di credenziali delle chiavi di Azure da un'applicazione Web | Microsoft Docs
-description: "In questa esercitazione si apprenderà a usare l'insieme di credenziali chiave di Azure da un'applicazione Web."
+description: In questa esercitazione si apprenderà a usare l'insieme di credenziali chiave di Azure da un'applicazione Web.
 services: key-vault
 author: adhurwit
 manager: mbaldwin
@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 93ef76729123c7187c3dd616419b5771324fe2cb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Usare l'insieme di credenziali chiave di Azure da un'applicazione Web
 
@@ -151,7 +151,7 @@ makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Prendere nota della data finale e della password per il formato con estensione pfx (in questo esempio: 07/31/2017 e test123). Saranno necessarie più avanti.
+Prendere nota della data finale e della password per il formato con estensione pfx (in questo esempio: 07/31/2018 e test123). Saranno necessarie più avanti.
 
 Per ulteriori informazioni sulla creazione di un certificato di prova, vedere [Procedura: creare il proprio certificato di prova](https://msdn.microsoft.com/library/ff699202.aspx)
 

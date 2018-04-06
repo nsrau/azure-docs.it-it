@@ -2,25 +2,25 @@
 title: Servizio connesso di Visual Studio per Azure Cosmos DB
 description: Consente agli sviluppatori di connettere facilmente l'account Azure Cosmos DB e di gestire le risorse tramite Servizi connessi di Visual Studio
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
 manager: DJ
 +tags: cosmos-db
 editor: Jenny Jiang
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: f63c20831a2700f1024507bef614a5a7cc87d00e
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 93be368d34f02e64d11abe9a04b11272ce18124d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: servizio connesso di Visual Studio (anteprima)
 
@@ -36,11 +36,13 @@ Assicurarsi di avere quanto segue:
 * Account Azure Cosmos DB. Se non è già presente, seguire la procedura illustrata in [Creazione di un account Azure Cosmos DB](create-sql-api-dotnet.md) per crearne uno nel portale di Azure o vedere [Creare un account Azure Cosmos DB nello strumento di servizio connesso](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool). 
 * Per usare un ambiente locale a fini di sviluppo, è possibile usare l'[emulatore di Azure Cosmos DB](local-emulator.md). L'ambiente emula il servizio Azure Cosmos DB.
 * [Visual Studio](http://www.visualstudio.com/).
-* Bit più recenti del servizio connesso Azure Cosmos DB. È possibile scaricare il servizio connesso Azure Cosmos DB dal marketplace di Visual Studio, come illustrato nello screenshot seguente. Aprire **Visual Studio** nel computer. Scegliere **Estensioni e aggiornamenti** dal menu **Strumenti** e quindi scegliere **Online** / **Visual Studio Marketplace**. Immettere **cosmosdb** per cercare i bit.
+* Bit più recenti del servizio connesso Azure Cosmos DB. È possibile scaricare il servizio connesso Azure Cosmos DB dal marketplace di Visual Studio, come illustrato nello screenshot seguente. Aprire **Visual Studio** nel computer. Dal menu **Strumenti** scegliere **Estensioni e aggiornamenti**, quindi **Online** / **Visual Studio Marketplace**. Immettere **cosmosdb** per cercare i bit.
 
     È anche possibile installare il servizio connesso Azure Cosmos DB da [Visual Studio Marketplace](https://go.microsoft.com/fwlink/?linkid=858709).
 
     ![Screenshot del download del servizio connesso (bits.png)](./media/connected-service/connected-service-downloadbits.png) 
+
+Dopo il download dell'estensione servizio connesso per Azure Cosmos DB, chiudere Visual Studio per installare l'estensione.
 
 ## <a id="SetupVS"></a>Configurare la soluzione di Visual Studio
 1. Aprire **Visual Studio** nel computer.

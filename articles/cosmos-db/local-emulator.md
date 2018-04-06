@@ -1,12 +1,12 @@
 ---
 title: Eseguire lo sviluppo in locale con l'emulatore di Azure Cosmos DB | Microsoft Docs
-description: "Usare l'emulatore di Azure Cosmos DB, è possibile sviluppare e testare gratuitamente l'applicazione in locale, senza creare una sottoscrizione di Azure."
+description: Usare l'emulatore di Azure Cosmos DB, è possibile sviluppare e testare gratuitamente l'applicazione in locale, senza creare una sottoscrizione di Azure.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 keywords: Emulatore di Azure Cosmos DB
 author: David-Noble-at-work
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: danoble
-ms.openlocfilehash: 1991157330f6607efcf42ad42694c6b4d19fe609
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4a393887d8e82e833b0c956666bf36e5adb19e70
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Usare l'emulatore di Azure Cosmos DB per sviluppo e test locali
 
@@ -105,7 +105,7 @@ Per impostazione predefinita, l'emulatore di Azure Cosmos DB viene installato ne
 
 ## <a name="start-data-explorer"></a>Avviare Esplora dati
 
-Quando l'emulatore di Azure Cosmos DB viene avviato, apre automaticamente Esplora dati di Azure Cosmos DB nel browser. L'indirizzo visualizzato è [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Se si chiude lo strumento di esplorazione e lo si vuole riaprire in seguito, è possibile aprire l'URL nel browser o avviarlo dall'emulatore di Azure Cosmos DB usando l'icona dell'area di notifica di Windows, come illustrato sotto.
+Quando l'emulatore di Azure Cosmos DB viene avviato, apre automaticamente Esplora dati di Azure Cosmos DB nel browser. L'indirizzo viene visualizzato come [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Se si chiude lo strumento di esplorazione e lo si vuole riaprire in seguito, è possibile aprire l'URL nel browser o avviarlo dall'emulatore di Azure Cosmos DB usando l'icona dell'area di notifica di Windows, come illustrato sotto.
 
 ![Utilità di avvio di Esplora dati dell'emulatore locale di Azure Cosmos DB](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
@@ -312,7 +312,7 @@ Se si tenta di creare una raccolta dopo il superamento di questi limiti, l'emula
     Sorry, we are currently experiencing high demand in this region, 
     and cannot fulfill your request at this time. We work continuously 
     to bring more and more capacity online, and encourage you to try again. 
-    Please do not hesitate to email docdbswat@microsoft.com at any time or 
+    Please do not hesitate to email askcosmosdb@microsoft.com at any time or
     for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
 
 Per modificare il numero di raccolte disponibili nell'emulatore di Azure Cosmos DB, procedere come segue:

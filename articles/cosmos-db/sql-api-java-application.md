@@ -15,22 +15,20 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 8507b772c537ac50bd40367fbde260a8d72375ca
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 816ea6e575759186973e23c6adfccd389c6920d9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Creare un'applicazione Web Java con Azure Cosmos DB e l'API di SQL
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Node.js](sql-api-nodejs-application.md)
+> * [Node.JS](sql-api-nodejs-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Questa esercitazione sull'applicazione Web Java illustra come usare il servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) per archiviare i dati e accedervi da un'applicazione Java ospitata in app Web del servizio app di Azure. In questo argomento, si apprenderà:
 
@@ -739,7 +737,7 @@ Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https:
 3. In Eclipse scegliere **Import** (Importa) dal menu **File**.
 4. Nella finestra **Import** (Importa) fare clic su **Git**, su **Projects from Git** (Progetti da Git) e quindi su **Next** (Avanti).
 5. Nella schermata **Select Repository Source** (Seleziona origine repository) fare clic su **Clone URI** (Clona URI).
-6. Nella schermata **Source Git Repository** (Repository Git di origine), nella casella **URI**, immettere https://github.com/Azure-Samples/java-todo-app.git e quindi scegliere **Next** (Avanti).
+6. Nella schermata **Source Git Repository** (Repository Git di origine), nella casella **URI**, immettere https://github.com/Azure-Samples/java-todo-app.git e quindi fare clic su **Next** (Avanti).
 7. Nella schermata **Branch Selection** (Selezione ramo) assicurarsi che sia selezionata l'opzione **master** e quindi fare clic su **Next** (Avanti).
 8. Nella schermata **Local Destination** (Destinazione locale) fare clic su **Browse** (Sfoglia) per selezionare una cartella in cui sia possibile copiare il repository e quindi fare clic su **Next** (Avanti).
 9. Nella schermata **Select a wizard to use for importing projects** (Selezionare una procedura guidata per l'importazione di progetti) assicurarsi che l'opzione **Import existing projects** (Importa progetti esistenti) sia selezionata e quindi fare clic su **Next** (Avanti).
@@ -754,6 +752,6 @@ Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https:
 18. Nella scheda **Servers** (Server) nella parte inferiore della schermata fare clic con il pulsante destro del mouse su **Tomcat v7.0 Server at localhost** (Server Tomcat v7.0 in localhost) e quindi fare clic su **Add and Remove** (Aggiungi e rimuovi).
 19. Nella finestra **Add and Remove** (Aggiungi e rimuovi) spostare **azure-documentdb-java-sample** nella casella **Configured** (Configurato) e quindi fare clic su **Finish** (Fine).
 20. Nella scheda **Server** fare clic con il pulsante destro del mouse su **Tomcat v7.0 Server at localhost** (Server Tomcat v7.0 in localhost) e quindi fare clic su **Restart** (Riavvia).
-21. In un browser, passare a http://localhost:8080/azure-documentdb-java-sample/ e iniziare ad aggiungere all'elenco attività. Si noti che se sono stati modificati i valori di porta predefiniti, è necessario modificare la porta 8080 con il valore selezionato.
+21. In un browser passare a http://localhost:8080/azure-documentdb-java-sample/ e iniziare ad aggiungere voci all'elenco attività. Si noti che se sono stati modificati i valori di porta predefiniti, è necessario modificare la porta 8080 con il valore selezionato.
 22. Per distribuire il progetto in un sito web di Azure, vedere il [passaggio 6. Distribuire l'applicazione in Siti Web di Azure](#Deploy).
 

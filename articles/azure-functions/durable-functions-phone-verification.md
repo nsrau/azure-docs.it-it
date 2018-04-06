@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 071a9ffb8305a30b0fedeaa49c4a95d91fbce6c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interazione umana in Funzioni permanenti - Esempio di verifica telefonica
 
@@ -28,8 +28,8 @@ L'esempio implementa un sistema di verifica telefonica basata su SMS. Questi tip
 
 ## <a name="prerequisites"></a>prerequisiti
 
-* Seguire le istruzioni in [Install Durable Functions](durable-functions-install.md) (Installare Funzioni permanenti) per impostare l'esempio.
-* Questo articolo presuppone che l'utente abbia già eseguito la procedura dettagliata di esempio descritta in [Hello Sequence](durable-functions-sequence.md) (Sequenza di Hello).
+* [Installare Funzioni permanenti](durable-functions-install.md).
+* Completare la procedura dettagliata di esempio [Sequenza di Hello](durable-functions-sequence.md).
 
 ## <a name="scenario-overview"></a>Panoramica dello scenario
 
@@ -50,7 +50,7 @@ L'articolo illustra le funzioni seguenti nell'app di esempio:
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-Le sezioni seguenti illustrano la configurazione e il codice usati per lo sviluppo nel portale di Azure. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
+Le sezioni seguenti illustrano la configurazione e il codice usati per gli script in C#. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
  
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>L'orchestrazione di verifica SMS (Visual Studio Code e codice di esempio del portale di Azure) 
 

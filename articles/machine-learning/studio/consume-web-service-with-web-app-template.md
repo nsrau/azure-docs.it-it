@@ -3,9 +3,10 @@ title: Utilizzare un servizio Web di Machine Learning con un modello di app Web 
 description: Usare un modello di app Web in Azure Marketplace per utilizzare un servizio Web predittivo in Azure Machine Learning.
 keywords: servizio Web,messa in funzione,API REST,Machine Learning
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: e0d71683-61b9-4675-8df5-09ddc2f0d92d
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: raymondl
-ms.openlocfilehash: f7efa647fa6afc247509cd4a52066c0459f75ca3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 81b89a1f8a053fd3b1d0d6a0a1bcc5c67d2ba728
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>Utilizzare un servizio Web di Azure Machine Learning con un modello di app Web
 
@@ -77,7 +77,7 @@ Seguire questa procedura per usare il modello di app Web di RRS, come illustrato
 2. Selezionare **Nuovo**, cercare e selezionare **Azure ML Request-Response Service Web App** (App Web del Servizio di richiesta-risposta di Azure ML) e quindi fare clic su **Crea**. 
 3. Nel riquadro **Crea**:
    
-   * Assegnare all'app Web un nome univoco. L'URL dell'app Web sarà il nome seguito da **.azurewebsites.net**. Ad esempio **http://carprediction.azurewebsites.net**.
+   * Assegnare all'app Web un nome univoco. L'URL dell'app Web sarà il nome seguito da **.azurewebsites.net**. Ad esempio, **http://carprediction.azurewebsites.net**.
    * Selezionare la sottoscrizione di Azure e servizi in cui è in esecuzione il servizio Web.
    * Selezionare **Create**.
      

@@ -5,20 +5,20 @@ services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 45631e70-865b-4e06-bb1d-aae1175a52ba
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: 4f75c5725046fb5e0348c405092edcc65c2d8129
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e7e45a6af0857520eec27263281a0f0a43b30013
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Controllare l'accesso all'hub IoT
 
@@ -206,12 +206,12 @@ public static string generateSasToken(string resourceUri, string key, string pol
     TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
     string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
 
-    string stringToSign = WebUtility.UrlEncode(resourceUri).ToLower() + "\n" + expiry;
+    string stringToSign = WebUtility.UrlEncode(resourceUri) + "\n" + expiry;
 
     HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(key));
     string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
 
-    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri).ToLower(), WebUtility.UrlEncode(signature), expiry);
+    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri), WebUtility.UrlEncode(signature), expiry);
 
     if (!String.IsNullOrEmpty(policyName))
     {
@@ -338,13 +338,17 @@ Il risultato, che concede l'accesso in lettura a tutte le identità dispositivo,
 
 ## <a name="supported-x509-certificates"></a>Certificati X.509 supportati
 
-È possibile usare qualsiasi certificato X.509 per autenticare un dispositivo con hub IoT. I certificati inclusi sono i seguenti:
+È possibile usare qualsiasi certificato X.509 per autenticare un dispositivo con l'hub IoT caricando un'identificazione personale del certificato o un'autorità di certificazione (CA) nell'hub IoT di Azure. L'autenticazione tramite identificazioni personali del certificato verifica solo che l'identificazione personale presentata corrisponda all'identificazione personale configurata. L'autenticazione tramite l'autorità di certificazione convalida la catena di certificati. 
 
-* **Un certificato X.509 esistente**. Un dispositivo potrebbe già avere un certificato X.509 associato. Il dispositivo può usare questo certificato per autenticarsi con hub IoT.
-* **Un certificato X-509 auto-generato e auto-firmato**. Un produttore di dispositivi o un distributore interno può generare questi certificati e archiviare la chiave privata corrispondente (e il certificato) nel dispositivo. È possibile usare strumenti come [OpenSSL][lnk-openssl] e l'utilità [Windows SelfSignedCertificate][lnk-selfsigned] per questo scopo.
-* **Certificato X.509 firmato da un'autorità di certificazione**. Per identificare un dispositivo e autenticarlo con l'hub IoT, è possibile usare un certificato X.509 generato e firmato da un'autorità di certificazione (CA). L'hub IoT verifica solo che l'identificazione personale presentata corrisponda all'identificazione personale configurata. IoTHub non convalida la catena di certificati.
+I certificati supportati includono:
+
+* **Un certificato X.509 esistente**. Un dispositivo potrebbe già avere un certificato X.509 associato. Il dispositivo può usare questo certificato per autenticarsi con hub IoT. È compatibile sia con l'autenticazione tramite identificazione personale che con l'autenticazione tramite autorità di certificazione. 
+* **Certificato X.509 firmato da un'autorità di certificazione**. Per identificare un dispositivo e autenticarlo con l'hub IoT, è possibile usare un certificato X.509 generato e firmato da un'autorità di certificazione (CA). È compatibile sia con l'autenticazione tramite identificazione personale che con l'autenticazione tramite autorità di certificazione.
+* **Un certificato X-509 auto-generato e auto-firmato**. Un produttore di dispositivi o un distributore interno può generare questi certificati e archiviare la chiave privata corrispondente (e il certificato) nel dispositivo. È possibile usare strumenti come [OpenSSL][lnk-openssl] e l'utilità [Windows SelfSignedCertificate][lnk-selfsigned] per questo scopo. È compatibile solo con l'autenticazione tramite identificazione personale. 
 
 Un dispositivo può usare un certificato X.509 o un token di sicurezza per l'autenticazione, ma non per entrambi.
+
+Per altre informazioni sull'autenticazione tramite autorità di certificazione, vedere [Comprensione concettuale dei certificati X.509 dell'autorità di certificazione](iot-hub-x509ca-concept.md).
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Registrare un certificato X.509 per un dispositivo
 
@@ -354,10 +358,7 @@ Il componente [Azure IoT SDK per servizi per C#][lnk-service-sdk] (versione 1.0.
 
 La classe **RegistryManager** offre un modo di registrare un dispositivo a livello di codice. In particolare, i metodi **AddDeviceAsync** e **UpdateDeviceAsync** consentono di registrare e aggiornare un dispositivo nel registro delle identità dell'hub IoT. Questi due metodi accettano un'istanza **Device** come input. La classe **Device** include una proprietà **Authentication** che consente di specificare le identificazioni primarie e secondarie del certificato X.509. L'identificazione personale rappresenta un hash SHA-1 del certificato X.509 archiviato usando la codifica DER binaria. Gli utenti hanno la possibilità di specificare un'identificazione personale primaria, una secondaria o entrambe. Le identificazioni personali primarie e secondarie sono supportate per gestire scenari di rollover dei certificati.
 
-> [!NOTE]
-> L'hub IoT non richiede o archivia l'intero certificato X.509 ma solo l'identificazione personale.
-
-Ecco un frammento di codice C\# di esempio per registrare un dispositivo usando un certificato X.509:
+Ecco un frammento di codice C\# di esempio per registrare un dispositivo usando l'identificazione personale di un certificato X.509:
 
 ```csharp
 var device = new Device(deviceId)

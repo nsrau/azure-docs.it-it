@@ -1,9 +1,9 @@
 ---
-title: Introduzione alle API Graph di Azure Cosmos DB | Documentazione Microsoft
+title: Introduzione alle API Graph di Azure Cosmos DB | Microsoft Docs
 description: Informazioni su come usare Azure Cosmos DB per archiviare, eseguire query e attraversare grafi di grandi dimensioni con bassa latenza usando il linguaggio di query per grafi Gremlin di Apache TinkerPop.
 services: cosmos-db
-author: luisbosquez
-documentationcenter: 
+author: LuisBosquez
+documentationcenter: ''
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
 ms.workload: data-services
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: ba58377614326a10405be4a64d4b39f116b75bfe
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 50030434f3b2e59ba97efca2946be1a5115bc145
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introduzione ad Azure Cosmos DB: API Graph
 
@@ -111,8 +111,8 @@ La tabella seguente illustra i driver Gremlin noti che è possibile usare in Azu
 | --- | --- | --- |
 | [.NET](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET su GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Creare un'app Graph con .NET](create-graph-dotnet.md) |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [JavaDoc Gremlin](http://tinkerpop.apache.org/javadocs/current/full/) | [Creare un'app Graph con Java](create-graph-java.md) |
-| [Node.JS](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript in Github](https://github.com/jbmusso/gremlin-javascript) | [Creare un'app Graph con Node.js](create-graph-nodejs.md) |
-| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python su Github](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Creare un'app Graph con Python](create-graph-python.md) |
+| [Node.JS](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript in GitHub](https://github.com/jbmusso/gremlin-javascript) | [Creare un'app Graph con Node.js](create-graph-nodejs.md) |
+| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python in GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Creare un'app Graph con Python](create-graph-python.md) |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP su GitHub](https://github.com/PommeVerte/gremlin-php) | [Creare un'app Graph con PHP](create-graph-php.md) |
 | [Console Gremlin](https://tinkerpop.apache.org/downloads.html) | [Documenti TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Creare un'app Graph con la console Gremlin](create-graph-gremlin-console.md) |
 

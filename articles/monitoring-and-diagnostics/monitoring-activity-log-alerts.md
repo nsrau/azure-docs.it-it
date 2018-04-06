@@ -1,33 +1,32 @@
 ---
-title: "Creare avvisi del log attività | Microsoft Docs"
-description: "Ricevere una notifica tramite SMS, webhook e posta elettronica quando si verificano determinati eventi nel log attività."
+title: Creare avvisi in versione classica del log attività | Microsoft Docs
+description: Ricevere una notifica tramite SMS, webhook e posta elettronica quando si verificano determinati eventi nel log attività.
 author: johnkemnetz
-manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 03/18/2017
 ms.author: johnkem
-ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0d92fcd6d3cbd50a2bcb8166b27b11bc86aad83
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-activity-log-alerts"></a>Creare avvisi del log attività
+# <a name="create-activity-log-alerts-classic"></a>Creare avvisi del log attività (versione classica)
 
 ## <a name="overview"></a>Panoramica
 Gli avvisi del log attività vengono attivati quando si verifica un nuovo evento del log attività che corrisponde alle condizioni specificate nell'avviso. Si tratta di risorse di Azure e possono essere create usando un modello di Azure Resource Manager. Possono essere create, aggiornate o eliminate anche nel portale di Azure. In questo articolo vengono presentati i concetti alla base degli avvisi del log attività. Questo articolo illustra come usare il portale di Azure per configurare un avviso sugli eventi del log attività.
 
 > [!NOTE]
 
->  [Avvisi (anteprima)](monitoring-overview-unified-alerts.md) offre attualmente un'esperienza ottimizzata per la creazione e la gestione dei log attività.  [Altre informazioni](monitoring-activity-log-alerts-new-experience.md).
+>  Questa procedura è stata sostituita dalla nuova esperienza [Avvisi](monitoring-overview-unified-alerts.md). Questo articolo è offerto come riferimento per l'esperienza precedente. [Altre informazioni](monitoring-activity-log-alerts-new-experience.md).
 
 In genere, si creano avvisi del log attività per ricevere notifiche quando:
 
@@ -59,11 +58,11 @@ Per altre informazioni sui gruppi di azione, vedere [Creare e gestire gruppi di 
 
 Per altre informazioni sulle notifiche sull'integrità del servizio, vedere [Ricevere gli avvisi del log attività per le notifiche sull'integrità del servizio](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Creare un avviso per un evento del log attività con un nuovo gruppo di azione usando il portale di Azure
+## <a name="create-an-alert-classic-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Creare un avviso (versione classica) per un evento del log attività con un nuovo gruppo di azione usando il portale di Azure
 1. Nel [portale](https://portal.azure.com)selezionare **Monitoraggio**.
 
     ![Servizio "Monitoraggio"](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. Nella sezione **Log attività** selezionare **Avvisi**.
+2. Nella sezione **Log attività** selezionare **Avvisi (versione classica)**.
 
     ![Scheda "Avvisi"](./media/monitoring-activity-log-alerts/alerts-blades.png)
 3. Selezionare il comando **Aggiungi avviso del log attività** e compilare i campi.

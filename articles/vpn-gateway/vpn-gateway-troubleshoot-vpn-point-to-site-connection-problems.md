@@ -5,8 +5,8 @@ services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 51076c225167accaf386190eeda4ec159cb5657d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Risoluzione dei problemi: problemi di connessione da punto a sito di Azure
 
@@ -289,7 +289,7 @@ Il client VPN da punto a sito usa i server DNS di Azure che vengono configurati 
 
 ### <a name="solution"></a>Soluzione
 
-Per risolvere il problema, assicurarsi che i server DNS di Azure usati nella rete virtuale di Azure siano in grado di risolvere i record DNS per le risorse locali. A tale scopo, è possibile usare server di inoltro DNS o server di inoltro condizionali. Per altre informazioni, vedere [Risoluzione dei nomi usando il server DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+Per risolvere il problema, assicurarsi che i server DNS di Azure usati nella rete virtuale di Azure siano in grado di risolvere i record DNS per le risorse locali. A tale scopo, è possibile usare server di inoltro DNS o server di inoltro condizionali. Per altre informazioni, vedere [Risoluzione dei nomi usando il server DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 ## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>La connessione VPN da punto a sito viene stabilita, ma non è possibile connettersi alle risorse di Azure 
 
@@ -304,11 +304,11 @@ Per risolvere questo problema, [reimpostare il gateway VPN di Azure](vpn-gateway
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Errore: "La funzione di revoca non è in grado di completare il controllo di revoca perché il server di revoca è offline (errore 0x80092013)"
 
 ### <a name="causes"></a>Cause
-Questo messaggio di errore si verifica se il client non è in grado di accedere a http://crl3.digicert.com/ssca-sha2-g1.crl e http://crl4.digicert.com/ssca-sha2-g1.cr.  La verifica delle revoche richiede l'accesso a questi due siti.  Questo problema si verifica in genere nel client che ha un server proxy configurato. In alcuni ambienti se le richieste non passano attraverso il server proxy, verranno rifiutate a livello di firewall di confine.
+Questo messaggio di errore viene visualizzato se il client non può accedere a http://crl3.digicert.com/ssca-sha2-g1.crl e http://crl4.digicert.com/ssca-sha2-g1.cr.  La verifica delle revoche richiede l'accesso a questi due siti.  Questo problema si verifica in genere nel client che ha un server proxy configurato. In alcuni ambienti se le richieste non passano attraverso il server proxy, verranno rifiutate a livello di firewall di confine.
 
 ### <a name="solution"></a>Soluzione
 
-Controllare le impostazioni del server proxy, assicurarsi che il client sia in grado di accedere a http://crl3.digicert.com/ssca-sha2-g1.crl e http://crl4.digicert.com/ssca-sha2-g1.cr.
+Controllare le impostazioni del server proxy, assicurarsi che il client possa accedere a http://crl3.digicert.com/ssca-sha2-g1.crl e http://crl4.digicert.com/ssca-sha2-g1.cr.
 
 ## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Errore del client VPN: Impossibile stabilire la connessione a causa di un criterio configurato nel server RAS/VPN (errore 812)
 

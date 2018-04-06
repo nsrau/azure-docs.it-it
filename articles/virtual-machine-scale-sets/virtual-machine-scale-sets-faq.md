@@ -16,15 +16,55 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4dd908908877a222c708c9b2ab6255ab9a4b414a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
 Risposte alle domande frequenti sui set di scalabilità di macchine virtuali in Azure.
+
+## <a name="top-frequently-asked-questions-for-scale-sets"></a>Principali domande frequenti sui set di scalabilità
+**D.** Quante VM si possono includere in un set di scalabilità?
+
+**R.** Un set di scalabilità può includere da 0 a 1.000 VM basate su immagini della piattaforma oppure da 0 a 300 VM basate su immagini personalizzate. 
+
+**D.** I dischi dati sono supportati nei set di scalabilità?
+
+**R.** Sì. Un set di scalabilità può definire una configurazione dei dischi dati collegati che si applica a tutte le VM del set. Per altre informazioni, vedere l'articolo relativo a [set di scalabilità di Azure e dischi dati collegati](virtual-machine-scale-sets-attached-disks.md). Le altre opzioni per l'archiviazione dei dati includono:
+
+* File di Azure (unità condivise SMB)
+* Unità del sistema operativo
+* Unità temporanea (locale, non supportata da Archiviazione di Azure)
+* Servizio dati di Azure (ad esempio, tabelle di Azure e BLOB di Azure)
+* Servizio dati esterno (ad esempio, un database remoto)
+
+**D.** Quali aree di Azure supportano i set di scalabilità?
+
+**R.** Tutte le aree supportano i set di scalabilità.
+
+**D.** Come si crea un set di scalabilità con un'immagine personalizzata?
+
+**R.** Creare un disco gestito basato sul disco rigido virtuale dell'immagine personalizzata e fare riferimento a tale disco gestito nel modello del set di scalabilità. Per un esempio, vedere [qui](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os).
+
+**D.** Se si riduce la capacità del set di scalabilità da 20 a 15, quali VM vengono rimosse?
+
+**R.** Le macchine virtuali vengono rimosse dal set di scalabilità in modo uniforme tra domini di aggiornamento e domini di errore per ottimizzare la disponibilità. Le VM con ID più elevato vengono rimosse per prime.
+
+**D.** Cosa accade se successivamente si aumenta la capacità da 15 a 18?
+
+**R.** Se si aumenta la capacità a 18, vengono create 3 nuove VM. Ogni volta, l'ID istanza della VM viene ottenuto incrementando il valore più elevato precedente (ad esempio 20, 21, 22). Le VM vengono bilanciate tra domini di errore e domini di aggiornamento.
+
+**D.** Quando si usano più estensioni in un set di scalabilità, è possibile imporre una sequenza di esecuzione?
+
+**R.** Non direttamente. Per l'estensione customScript, tuttavia, lo script potrebbe attendere il completamento di un'altra estensione. Indicazioni aggiuntive per la sequenziazione delle estensioni sono disponibili nel post di blog [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Sequenziazione delle estensioni nei set di scalabilità di macchine virtuali di Azure).
+
+**D.** I set di scalabilità si integrano con i set di disponibilità di Azure?
+
+**R.** Sì. Un set di scalabilità è un set di disponibilità implicito con cinque domini di errore e cinque domini di aggiornamento. I set di scalabilità di più di 100 VM si estendono su più *gruppi di posizionamento*, equivalenti a più set di disponibilità. Per altre informazioni sui gruppi di posizionamento, vedere [Uso di set di scalabilità di macchine virtuali di grandi dimensioni](virtual-machine-scale-sets-placement-groups.md). Un set di disponibilità di macchine virtuali può trovarsi nella stessa rete virtuale di un set di scalabilità di macchine virtuali. Una configurazione comune consiste nell'inserire le VM del nodo di controllo, che spesso richiedono una configurazione univoca, in un set di disponibilità e i nodi di dati nel set di scalabilità.
+
 
 ## <a name="autoscale"></a>Autoscale
 
@@ -558,7 +598,7 @@ Per creare un set di scalabilità di macchine virtuali con una configurazione DN
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Come è possibile configurare un set di scalabilità per assegnare un indirizzo IP pubblico a ogni VM?
 
-Per creare un set di scalabilità di macchine virtuali che assegni un indirizzo IP pubblico a ogni VM, verificare che la versione API della risorsa Microsoft.Compute/virtualMAchineScaleSets sia 2017-03-30 e aggiungere un pacchetto JSON _publicipaddressconfiguration_ alla sezione ipConfigurations del set di scalabilità. Esempio:
+Per creare un set di scalabilità di macchine virtuali che assegni un indirizzo IP pubblico a ogni VM, verificare che la versione API della risorsa Microsoft.Compute/virtualMachineScaleSets sia 2017-03-30 e aggiungere un pacchetto JSON _publicipaddressconfiguration_ alla sezione ipConfigurations del set di scalabilità. Esempio:
 
 ```json
     "publicipaddressconfiguration": {

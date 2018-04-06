@@ -2,25 +2,29 @@
 title: Panoramica dello streaming live con Servizi multimediali di Azure | Documentazione Microsoft
 description: Questo argomento offre una panoramica dello streaming live con Servizi multimediali di Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 6f500f25129470a679c75cae6cd1abc9d71b72a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 451513c364978348eba922f5cf42b6e6c79f8700
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Panoramica dello streaming live con Servizi multimediali di Azure
+
+> [!NOTE]
+> A partire dal 12 maggio 2018 i canali live non supporteranno più il protocollo di inserimento del flusso di trasporto RTP/MPEG-2. Eseguire la migrazione da RTP/MPEG-2 ai protocolli di inserimento RTMP o MP4 frammentato (Smooth Streaming).
+
 ## <a name="overview"></a>Panoramica
 Quando si distribuiscono eventi Live Streaming con Servizi multimediali di Azure, sono generalmente necessari i componenti seguenti:
 

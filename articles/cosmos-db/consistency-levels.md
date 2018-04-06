@@ -1,31 +1,35 @@
 ---
 title: Livelli di coerenza in Azure Cosmos DB | Microsoft Docs
-description: "Cosmos DB ha cinque livelli di coerenza per consentire di compensare scompensi di coerenza, disponibilità e latenza finale."
+description: Cosmos DB ha cinque livelli di coerenza per consentire di compensare scompensi di coerenza, disponibilità e latenza finale.
 keywords: coerenza finale, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: cgronlun
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/27/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5b0e46eb001e0b100ad1e181b02c18cfe67648f9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza dei dati ottimizzabili in Azure Cosmos DB
 Azure Cosmos DB è stato progettato da zero pensando alla distribuzione globale di tutti i modelli di dati. È pensato per offrire garanzie di bassa latenza stimabile e più modelli di coerenza meno rigidi e ben definiti. Azure Cosmos DB offre attualmente cinque livelli di coerenza: assoluta, decadimento ristretto, sessione, prefisso coerente e finale. I modelli di coerenza con obsolescenza associata, sessione, finale e con prefisso coerente vengono definiti "modelli di coerenza meno rigidi" in quanto forniscono un livello di coerenza inferiore alla coerenza assoluta, ovvero il modello di coerenza massima disponibile. 
 
 Oltre ai modelli di **coerenza assoluta** e **finale** offerti in genere dai database distribuiti, Azure Cosmos DB offre altri tre modelli di coerenza attentamente codificati e operativi, ovvero i modelli **con obsolescenza associata**, **sessione** e **con prefisso coerente**. L'utilità di ognuno di questi livelli di coerenza è stata convalidata per casi d'uso reali. Questi cinque livelli di coerenza, collettivamente, consentono di bilanciare in modo informato coerenza, disponibilità e latenza. 
+
+Nel video seguente Andrew Liu, Program Manager di Azure Cosmos DB, illustra le funzionalità di distribuzione globale chiavi in mano.
+
+>[!VIDEO https://www.youtube.com/embed/-4FsGysVD14]
 
 ## <a name="distributed-databases-and-consistency"></a>Coerenza e database distribuiti
 I database distribuiti a livello commerciale rientrano in due categorie: database che non offrono opzioni di coerenza comprovabili e ben definite e database che offrono due opzioni di programmabilità estreme (coerenza assoluta e coerenza finale). 
@@ -60,6 +64,7 @@ L'ambito di granularità della coerenza è limitato alla richiesta del singolo u
 ## <a name="consistency-levels"></a>Livelli di coerenza
 È possibile configurare un livello di coerenza predefinito per l'account del database che si applica a tutte le raccolte e in tutti i database nel proprio account di Cosmos DB. Per impostazione predefinita, tutte le operazioni di lettura e le query eseguite sulle risorse definite dall'utente useranno il livello di coerenza predefinito che è stato specificato nell'account del database. È possibile ridurre il livello di coerenza di una richiesta di lettura/query specifica usato in ognuna delle API supportate. Esistono cinque tipi di livelli di coerenza supportati dal protocollo di replica di Azure Cosmos DB che offrono un chiaro compromesso tra garanzie di coerenza specifiche e prestazioni, come descritto in questa sezione.
 
+<a id="strong"></a>
 **Assoluta**: 
 
 * la coerenza assoluta offre una garanzia di [linearità](https://aphyr.com/posts/313-strong-consistency-models) ovvero la garanzia che le letture restituiscano la versione più recente di un elemento. 
@@ -67,7 +72,8 @@ L'ambito di granularità della coerenza è limitato alla richiesta del singolo u
 * Gli account Azure Cosmos DB configurati per usare la coerenza assoluta non possono associare più di un'area di Azure con il loro account Azure Cosmos DB.  
 * Il costo di un'operazione di lettura (in termini di [unità richiesta](request-units.md) consumate) con il livello di coerenza assoluta è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello con decadimento ristretto.
 
-**Obsolescenza associata**: 
+<a id="bounded-staleness"></a>
+**Decadimento ristretto**: 
 
 * La coerenza con decadimento ristretto garantisce che il ritardo delle letture sulle scritture sia al massimo pari a *K* versioni o prefissi di un elemento o all'intervallo di tempo *t*. 
 * Pertanto, quando si sceglie il decadimento ristretto, il "decadimento" può essere configurato in due modi: numero di versioni *K* dell'elemento del ritardo delle operazioni di lettura sulle operazioni di scrittura e l'intervallo di tempo *t* 
@@ -76,9 +82,10 @@ L'ambito di granularità della coerenza è limitato alla richiesta del singolo u
 * Gli account Azure Cosmos DB configurati con la coerenza con decadimento ristretto possono associare qualsiasi numero di aree di Azure con il proprio account Azure Cosmos DB. 
 * Il costo di un'operazione di lettura (in termini di unità richiesta consumate) con il decadimento ristretto è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello assoluto.
 
+<a id="session"></a>
 **Sessione**: 
 
-* a differenza dei modelli di coerenza globale offerti dai livelli di coerenza assoluta e con obsolescenza associata, la coerenza di "sessione" ha come ambito una sessione del client. 
+* a differenza dei modelli di coerenza globale offerti dai livelli di coerenza assoluta e con decadimento ristretto, la coerenza di "sessione" ha come ambito una sessione del client. 
 * La coerenza di sessione è ideale per tutti gli scenari in cui è coinvolto un dispositivo o una sessione utente poiché garantisce letture monotone, scritture monotone e garanzie di lettura di ciò che si scrive (RYW). 
 * La coerenza di sessione offre una coerenza prevedibile per una sessione e la massima velocità di scrittura, con latenza minima per scrittura e lettura. 
 * Gli account Azure Cosmos DB configurati con la coerenza sessione possono associare qualsiasi numero di aree di Azure con il proprio account Azure Cosmos DB. 
@@ -91,6 +98,7 @@ L'ambito di granularità della coerenza è limitato alla richiesta del singolo u
 * Il prefisso coerente garantisce che le operazioni di lettura non vedano mai il fuori sequenza delle operazioni di scrittura. Se queste sono state eseguite nell'ordine `A, B, C`, il client vede `A`, `A,B` o `A,B,C`, ma mai il fuori sequenza ad esempio `A,C` o `B,A,C`.
 * Gli account Azure Cosmos DB configurati con la coerenza con prefisso coerente possono associare qualsiasi numero di aree di Azure con il proprio account Azure Cosmos DB. 
 
+<a id="eventual"></a>
 **Finale**: 
 
 * la coerenza finale garantisce che, in assenza di altre scritture, alla fine le repliche all'interno del gruppo convergeranno. 
@@ -125,19 +133,12 @@ Azure Cosmos DB implementa attualmente la versione 3.4 di MongoDB, che include d
 ## <a name="next-steps"></a>Passaggi successivi
 Se si desidera eseguire ulteriori informazioni sui livelli di coerenza e i compromessi, è consigliabile che le risorse seguenti:
 
-* Doug Terry. Video: Replicated Data Consistency explained through baseball (La coerenza dei dati replicati illustrata attraverso il baseball).   
-  [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
-* Doug Terry. Replicated Data Consistency explained through baseball.   
-  [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
-* Doug Terry. Session Guarantees for Weakly Consistent Replicated Data.   
-  [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
-* Daniel Abadi. Svantaggi della coerenza nella Progettazione moderna distribuita di sistemi di Database: CAP è solo una parte del brano".   
-  [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums.   
-  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
-* Werner Vogels. Coerente Finale - Revisited.    
-  [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
-* Moni Naor , Avishai Wool, The Load, Capacity, and Availability of Quorum Systems, SIAM Journal on Computing, v.27 n.2, p.423-447, April 1998.
-  [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
-* Sebastian Burckhardt, Chris Dern, Macanal Musuvathi, Roy Tan, Line-up: a complete and automatic linearizability checker, Proceedings of the 2010 ACM SIGPLAN conference on Programming language design and implementation, June 05-10, 2010, Toronto, Ontario, Canada [doi>10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein , Ion Stoica, Probabilistically bounded staleness for practical partial quorums, Proceedings of the VLDB Endowment, v.5 n.8, p.776-787, April 2012 [http://dl.acm.org/citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)
+* [Video: Replicated Data Consistency explained through baseball di Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I) (La coerenza dei dati replicati illustrata attraverso il baseball)
+* [White paper: Replicated Data Consistency explained through baseball di Doug Terry](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf) (La coerenza dei dati replicati illustrata attraverso il baseball)
+* [Session Guarantees for Weakly Consistent Replicated Data](http://dl.acm.org/citation.cfm?id=383631) (Garanzie di sessione per i dati replicati con coerenza debole)
+* [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) (Compromessi sulla coerenza nella progettazione di sistemi di database distribuiti moderni: CAP è solo una parte della storia)
+* [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf) (Decadimento ristretto probabilistico per quorum parziali pratici)
+* [Eventual Consistent - Revisited](http://allthingsdistributed.com/2008/12/eventually_consistent.html) (Coerenza finale - Rivisitato)
+* [The Load, Capacity, and Availability of Quorum Systems, SIAM Journal on Computing](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232) (Carico, capacità e disponibilità nei sistemi di quorum)
+* [Line-up: a complete and automatic linearizability checker (Un controllo completo e automatico della linearità), Procedimenti della conferenza ACM SIGPLAN del 2010 sulla progettazione e l'implementazione dei linguaggi di programmazione](http://dl.acm.org/citation.cfm?id=1806634)
+* [Probabilistic bounded staleness for practical partial quorums](http://dl.acm.org/citation.cfm?id=2212359) (Decadimento ristretto probabilistico per quorum parziali pratici)

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 36c5586f79cf127ec069fd3c6ef95dd073fdbdb6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ea64f9c52dc89dc8eb75a39afbb087a5127505f1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Scalare i pod e l'infrastruttura Kubernetes
 
@@ -28,7 +28,7 @@ In questa esercitazione, la quinta di sette, si aumenterà il numero di istanze 
 > * Configurazione della scalabilità automatica di pod che eseguono il front-end dell'app
 > * Scalare i nodi agente Azure in Kubernetes
 
-Nelle esercitazioni successive l'applicazione Azure Vote viene aggiornata e Operations Management Suite viene configurato per monitorare il cluster Kubernetes.
+Nelle esercitazioni successive l'applicazione Azure Vote viene aggiornata e Log Analytics viene configurato per monitorare il cluster Kubernetes.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

@@ -1,8 +1,8 @@
 ---
-title: Modellazione ed esplorazione dei dati con Spark | Documentazione Microsoft
-description: "Illustra le funzionalità di modellazione ed esplorazione dei dati del toolkit MLlib di Spark su Azure."
+title: Modellazione ed esplorazione dei dati con Spark | Microsoft Docs
+description: Illustra le funzionalità di modellazione ed esplorazione dei dati del toolkit MLlib di Spark su Azure.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 078e1d209d0472051e2ec2804e67518a92285413
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.author: bradsev
+ms.openlocfilehash: c796cc5f19ac3a30d2cdf72b8fea2813a1586c1b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Modellazione ed esplorazione dei dati con Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -42,7 +42,7 @@ La procedura di modellazione include anche codice che illustra come eseguire il 
 > 
 > 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per completare questa procedura dettagliata sono necessari un account Azure e un cluster HDInsight Spark 1.6 o 2.0. Per istruzioni su come soddisfare questi requisiti, vedere [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](spark-overview.md). Questo argomento contiene inoltre una descrizione dei dati dei taxi di NYC per il 2013 usati qui e istruzioni su come eseguire il codice da un notebook Jupyter nel cluster Spark. 
 
 ## <a name="spark-clusters-and-notebooks"></a>Notebook e cluster Spark
@@ -64,9 +64,9 @@ Le attività di classificazione e regressione implementate con un cluster Spark 
 > [!NOTE]
 > Il set di dati della compagnia aerea è stato aggiunto ai notebook Spark 2.0 per illustrare al meglio l'uso degli algoritmi di classificazione. Vedere i collegamenti seguenti per informazioni sul set di dati delle partenze puntuali dei voli della compagnia aerea e sul set di dati delle condizioni atmosferiche:
 
->- Dati sulle partenze puntuali dei voli della compagnia aerea: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
+>- Dati delle partenze puntuali della compagnia aerea: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
 
->- Dati sulle condizioni atmosferiche dell'aeroporto: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
+>- Dati delle condizioni atmosferiche in aeroporto: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 > 
 > 
 

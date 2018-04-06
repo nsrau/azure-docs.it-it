@@ -1,23 +1,23 @@
 ---
-title: "Attività del responsabile del team nel processo di data science per i team - Azure | Microsoft Docs"
-description: "Descrizione delle attività di un responsabile del team in un progetto team di data science."
-documentationcenter: 
+title: Attività del responsabile del team nel processo di data science per i team - Azure | Microsoft Docs
+description: Descrizione delle attività di un responsabile del team in un progetto team di data science.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: 58e8bfeb547fbcd7f472fbed50073b1ca3176b72
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 85589dfd60a32a28cecf427a7f5668dc36f8f5f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="team-lead-tasks"></a>Attività del responsabile del team
 
@@ -64,7 +64,7 @@ I nomi specificati per i repository e le directory in questa esercitazione sono 
 I responsabili dei team devono, in ogni caso, indicare ai membri dei rispettivi team quali repository di modelli e di utilità adottare quando configurano e clonano i repository del progetto e delle utilità. I responsabili di progetto devono eseguire le [attività di responsabile di progetto per un team di data science](project-lead-tasks.md) per creare i repository del progetto, indipendentemente che si sia scelto di usare progetti team separati o un progetto team singolo. 
 
 
-## <a name="0-prerequisites"></a>0. prerequisiti
+## <a name="0-prerequisites"></a>0. Prerequisiti
 
 I prerequisiti vengono soddisfatti completando le attività assegnate al responsabile del gruppo delineate in [Attività del responsabile del gruppo per un team di data science](group-manager-tasks.md). Di seguito vengono riepilogati i prerequisiti che è necessario soddisfare prima di iniziare le attività di responsabile del team: 
 
@@ -208,7 +208,7 @@ Dopo la clonazione, le due directory **MyTeamProjectTemplate** (D3) e **MyTeamUt
 
 Per copiare il contenuto della cartella **GroupProjectTemplate** (D1) locale nella cartella **MyTeamProjectTemplate** (D3) locale, eseguire uno degli script della shell seguenti: 
 
-####<a name="from-the-powershell-command-line-for-windows"></a>Dalla riga di comando di PowerShell per Windows        
+#### <a name="from-the-powershell-command-line-for-windows"></a>Dalla riga di comando di PowerShell per Windows       
 
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
     .\tdsp_local_copy_win.ps1 2
@@ -216,7 +216,7 @@ Per copiare il contenuto della cartella **GroupProjectTemplate** (D1) locale nel
     
 ![16](./media/team-lead-tasks/team-leads-16-local_copy_team_lead_new.png)
 
-####<a name="from-the-linux-shell-for-the-linux-dsvm"></a>Dalla shell di Linux per **DSVM per Linux**
+#### <a name="from-the-linux-shell-for-the-linux-dsvm"></a>Dalla shell di Linux per **DSVM per Linux**
     
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
     bash tdsp_local_copy_linux.sh 2
@@ -388,7 +388,7 @@ Verificare che una nuova unità F sia stata montata nel computer in uso.
 
 **Come immettere manualmente le informazioni nella risorsa di archiviazione file di Azure:** se non si dispone di un file di testo con le informazioni sulla risorsa di archiviazione file di Azure, è possibile seguire le istruzioni visualizzate nella schermata seguente per immettere le necessarie informazioni sulla sottoscrizione, l'account di archiviazione e la risorsa di archiviazione file di Azure:
 
-- Immettere **n**.
+- Digitare **n**.
 - Selezionare l'indice del nome della sottoscrizione in cui è stata creata la risorsa di archiviazione file di Azure nel passaggio precedente:
 
     ![41](./media/team-lead-tasks/team-leads-41-attach-s5-linux.png)

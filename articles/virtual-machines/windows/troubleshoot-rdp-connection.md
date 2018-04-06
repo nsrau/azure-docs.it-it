@@ -1,12 +1,12 @@
 ---
-title: "Non è possibile connettersi tramite RDP a una macchina virtuale Windows in Azure | Documentazione Microsoft"
+title: Non è possibile connettersi tramite RDP a una macchina virtuale Windows in Azure | Microsoft Docs
 description: Risoluzione dei problemi di connessione con Desktop remoto di una macchina virtuale Windows in Azure
 keywords: Errore di desktop remoto, errore di connessione al desktop remoto, impossibile connettersi alla macchina virtuale, risoluzione dei problemi di desktop remoto
 services: virtual-machines-windows
-documentationcenter: 
-author: genlin
+documentationcenter: ''
+author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 0d740f8e-98b8-4e55-bb02-520f604f5b18
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
-ms.author: genli
-ms.openlocfilehash: 4731a34d143d402372aaff7c03f95dbf0bb508a4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.date: 03/23/2018
+ms.author: danis
+ms.openlocfilehash: e2b792743f1b4ba458cff111ab6dd888b0c26d93
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Risolvere i problemi di connessione con Desktop remoto di una macchina virtuale di Azure
 La mancata connessione Remote Desktop Protocol (RDP) alla macchina virtuale di Azure basata su Windows può avere varie cause, impedendo l'accesso alla VM. Il problema può dipendere dal servizio di desktop remoto nella VM, dalla connessione di rete o dal client di desktop remoto nel computer host. Questo articolo illustra alcuni dei metodi più comuni per risolvere i problemi di connessione RDP. 
@@ -77,7 +77,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di co
     Selezionare la macchina virtuale nel portale di Azure. Scorrere verso il basso nel riquadro delle impostazioni fino alla sezione **Supporto e risoluzione dei problemi**, nella parte inferiore dell'elenco. Fare clic sul pulsante **Integrità delle risorse**. Una macchina virtuale integra viene indicata come **Disponibile**:
    
     ![Controllare l'integrità della risorsa VM nel portale di Azure](./media/troubleshoot-rdp-connection/check-resource-health.png)
-6. **Reimpostare le credenziali utente**. Questa procedura di risoluzione dei problemi consente di reimpostare la password di un account amministratore locale se non si è sicuri o si sono dimenticate le credenziali.
+6. **Reimpostare le credenziali utente**. Questa procedura di risoluzione dei problemi consente di reimpostare la password di un account amministratore locale se non si è sicuri o si sono dimenticate le credenziali.  Dopo aver eseguito l'accesso alla VM, è necessario reimpostare la password per l'utente.
    
     Selezionare la macchina virtuale nel portale di Azure. Scorrere verso il basso nel riquadro delle impostazioni fino alla sezione **Supporto e risoluzione dei problemi**, nella parte inferiore dell'elenco. Fare clic sul pulsante **Reimposta password**. Verificare che la **Modalità** sia impostata su **Reimpostazione password**, quindi immettere il nome utente e una nuova password. Infine fare clic sul pulsante **Aggiorna**:
    
@@ -207,7 +207,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, tentare la rico
     Selezionare la macchina virtuale nel portale di Azure. Scorrere verso il basso nel riquadro delle impostazioni fino alla sezione **Supporto e risoluzione dei problemi**, nella parte inferiore dell'elenco. Fare clic sul pulsante **Integrità delle risorse**. Una macchina virtuale integra viene indicata come **Disponibile**:
    
     ![Controllare l'integrità della risorsa VM nel portale di Azure](./media/troubleshoot-rdp-connection/classic-check-resource-health.png)
-5. **Reimpostare le credenziali utente**. Questa procedura consente di reimpostare la password dell'account amministratore locale specificata se non si è sicuri o si sono dimenticate le credenziali.
+5. **Reimpostare le credenziali utente**. Questa procedura consente di reimpostare la password dell'account amministratore locale specificata se non si è sicuri o si sono dimenticate le credenziali.  Dopo aver eseguito l'accesso alla VM, è necessario reimpostare la password per l'utente.
    
     Selezionare la macchina virtuale nel portale di Azure. Scorrere verso il basso nel riquadro delle impostazioni fino alla sezione **Supporto e risoluzione dei problemi**, nella parte inferiore dell'elenco. Fare clic sul pulsante **Reimposta password**. Immettere il nome utente e una nuova password. Infine fare clic sul pulsante **Salva**:
    

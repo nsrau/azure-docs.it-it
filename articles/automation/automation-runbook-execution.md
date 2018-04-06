@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: edfd317e7d3f7595f656c6c24ad65f3d87fea14c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 18059ef1e0efba4f030a6e99198f0b7c72b7daf3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 Quando si avvia un runbook in Automazione di Azure, viene creato un processo. Un processo è una singola istanza di esecuzione di un runbook. Per eseguire ogni processo, viene assegnato un computer di lavoro di Automazione di Azure. I computer di lavoro sono condivisi da più account Azure, mentre i processi di account di automazione diversi sono isolati l'uno dall'altro. Non si dispone di alcun controllo sul computer di lavoro che gestisce la richiesta per il processo. In un singolo runbook possono venire eseguiti più processi contemporaneamente.  È possibile riusare l'ambiente di esecuzione per i processi dallo stesso account di automazione. Quando si visualizza l'elenco dei runbook nel portale di Azure, è visibile lo stato di tutti i processi avviati per ogni runbook. È possibile visualizzare l'elenco dei processi per il singolo runbook per tenere traccia dello stato di ognuno. Per una descrizione dei diversi stati dei processi, vedere [Stati dei processi](#job-statuses).
@@ -46,7 +46,7 @@ La tabella seguente descrive i diversi stati possibili per un processo.
 | Suspending |Il sistema sta tentando di sospendere il processo su richiesta dell'utente. Il runbook deve raggiungere il checkpoint successivo prima di poter essere sospeso. Se ha già superato l'ultimo checkpoint, il processo viene completato prima di poter essere sospeso.  Si applica solo a [Runbook grafico e al flusso di lavoro PowerShell](automation-runbook-types.md) . |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Visualizzazione dello stato del processo dal portale di Azure
-È possibile visualizzare lo stato riassuntivo di tutti i processi del Runbook oppure esaminare i dettagli di uno specifico processo del Runbook nel portale di Azure o configurando l'integrazione con l'area di lavoro di Log Analytics di Microsoft Operations Management Suite (OMS) per inoltrare i flussi e lo stato del processo del Runbook.  Per altre informazioni sull'integrazione con Log Analytics di OMS, vedere [Inoltrare lo stato e i flussi del processo da Automazione a Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).  
+È possibile visualizzare lo stato riassuntivo di tutti i processi del runbook oppure esaminare i dettagli di uno specifico processo del runbook nel portale di Azure o configurando l'integrazione con l'area di lavoro di Log Analytics per inoltrare i flussi e lo stato del processo del runbook.  Per altre informazioni sull'integrazione con Log Analytics, vedere [Inoltrare lo stato e i flussi del processo da Automazione a Log Analytics](automation-manage-send-joblogs-log-analytics.md).  
 
 ### <a name="automation-runbook-jobs-summary"></a>Riepilogo dei processi del Runbook di Automazione
 A destra dell'account di Automazione selezionato, è possibile visualizzare tutti i processi del Runbook relativi a un account di Automazione selezionato sotto al riquadro **Statistiche processi**.<br><br> ![Riquadro Statistiche processi](./media/automation-runbook-execution/automation-account-job-status-summary.png).<br> Questo riquadro visualizza un conteggio e una rappresentazione grafica dello stato dei processi per tutti i processi eseguiti.  

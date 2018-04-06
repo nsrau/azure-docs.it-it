@@ -1,32 +1,32 @@
 ---
-title: "Configurare le porte a disponibilità elevata per Azure Load Balancer| Microsoft Docs"
-description: "Informazioni su come usare le porte a disponibilità elevata per il bilanciamento del carico del traffico interno su tutte le porte"
+title: Configurare le porte a disponibilità elevata per Azure Load Balancer| Microsoft Docs
+description: Informazioni su come usare le porte a disponibilità elevata per il bilanciamento del carico del traffico interno su tutte le porte
 services: load-balancer
 documentationcenter: na
 author: rdhillon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2017
+ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 36bc3d7a35f41384706cbc7101457d00848639b2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurare le porte a disponibilità elevata per un servizio di bilanciamento del carico interno
 
 Questo articolo fornisce una distribuzione di esempio delle porte a disponibilità elevata in un servizio di bilanciamento del carico interno. Per altre informazioni sulle configurazioni specifiche delle appliance virtuali di rete, vedere i siti Web dei provider corrispondenti.
 
 >[!NOTE]
-> La funzionalità Porte a disponibilità elevata è attualmente disponibile come versione di anteprima. Durante l'anteprima, la funzionalità potrebbe non avere lo stesso livello di disponibilità e affidabilità delle funzionalità presenti nella versione con disponibilità generale. Per altre informazioni, vedere [Condizioni Supplementari di Microsoft Azure le Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Azure Load Balancer supporta due tipi diversi: Basic e Standard. Questo articolo illustra Load Balancer Standard. Per altre informazioni su Load Balancer Basic, vedere la [panoramica di Load Balancer](load-balancer-overview.md).
 
 La figura mostra la configurazione dell'esempio di distribuzione descritto in questo articolo:
 

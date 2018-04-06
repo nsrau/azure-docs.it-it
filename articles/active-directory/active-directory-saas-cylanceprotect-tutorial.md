@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 3b0afd52ccfa3aa637a64e57601cd5f43fe8df10
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a4b8cbbe3d75702f38b5060957aff9f5c30e1daa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Esercitazione: Integrazione di Azure Active Directory con CylancePROTECT
 
@@ -138,7 +138,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configurazione di CylancePROTECT](./media/active-directory-saas-cylanceprotect-tutorial/tutorial_cylanceprotect_configure.png) 
 
-7. Per configurare l'accesso Single Sign-On sul lato **CylancePROTECT**, è necessario inviare il **certificato (Base64) scaricato, l'URL di disconnessione, l'ID entità SAML e l'URL del servizio Single Sign-On SAML** al [team di supporto di CylancePROTECT](mailto:Ibrahim.nafea@toyota.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+7. Per configurare l'accesso Single Sign-On sul lato **CylancePROTECT**, è necessario inviare il **certificato (Base64) scaricato, l'URL di disconnessione, l'ID entità SAML e l'URL del servizio Single Sign-On SAML** all'amministratore della console. La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -177,7 +177,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
   
 ### <a name="create-a-cylanceprotect-test-user"></a>Creare un utente di test di CylancePROTECT
 
-In questa sezione viene creato un utente di nome Britta Simon in CylancePROTECT. Collaborare con il [team di supporto di CylancePROTECT](mailto:Ibrahim.nafea@toyota.com) per aggiungere gli utenti nella piattaforma CylancePROTECT. Il titolare dell'account Azure Active Directory riceverà un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
+In questa sezione viene creato un utente di nome Britta Simon in CylancePROTECT. Collaborare con l'amministratore della console per aggiungere gli utenti nella piattaforma CylancePROTECT. Il titolare dell'account Azure Active Directory riceverà un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

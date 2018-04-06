@@ -1,25 +1,21 @@
 ---
 title: Autenticazione, registrazione e reimpostazione della password ASP.NET - Azure Active Directory B2C
-description: "Come compilare un'applicazione Web con funzionalità di registrazione, accesso, modifica del profilo e reimpostazione della password usando Azure Active Directory B2C."
+description: Come compilare un'applicazione Web con funzionalità di registrazione, accesso, modifica del profilo e reimpostazione della password usando Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: barbaraselden
-ms.assetid: 30261336-d7a5-4a6d-8c1a-7943ad76ed25
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: parakhj
-ms.custom: seohack1
-ms.openlocfilehash: ffc46f4348a2ac3cae51c859a24c609756a710fe
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: davidmu
+ms.openlocfilehash: f7b7cce84f8ff7be14120568e710432be639ce8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Creare un'app Web ASP.NET con criteri di iscrizione, accesso, modifica del profilo e reimpostazione della password di Azure Active Directory B2C
 
@@ -30,7 +26,7 @@ Questa esercitazione illustra come:
 > * Registrare l'app Web nella directory Azure AD B2C
 > * Creare criteri di iscrizione/accesso, modifica del profilo e reimpostazione della password per l'app Web
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - È necessario connettere il tenant B2C a un account Azure. È possibile creare un account Azure gratuito [qui](https://azure.microsoft.com/en-us/).
 - Per visualizzare e modificare il codice di esempio, è necessario [Microsoft Visual Studio](https://www.visualstudio.com/) o un programma simile.

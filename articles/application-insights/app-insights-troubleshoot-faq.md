@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 721799703923339d397113fc278cdeb6c6dbb88f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: domande frequenti
 
@@ -121,7 +121,7 @@ Da altre origini, se sono configurate:
 * [Diagnostica di Azure](app-insights-azure-diagnostics.md)
 * [Contenitori Docker](app-insights-docker.md)
 * [Tabelle di importazione per Analytics](app-insights-analytics-import.md)
-* [OMS (Log Analytics)](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
+* [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
 * [Logstash](app-insights-analytics-import.md)
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>È possibile filtrare o modificare alcuni dati di telemetria?
@@ -250,7 +250,7 @@ Di seguito vengono illustrati due metodi:
 
 ### <a name="firewall-door"></a>Porta firewall
 
-Consentire al server Web di inviare dati di telemetria agli endpoint https://dc.services.visualstudio.com:443 e https://rt.services.visualstudio.com:443. 
+Consentire al server Web di inviare la telemetria agli endpoint https://dc.services.visualstudio.com:443 e https://rt.services.visualstudio.com:443. 
 
 ### <a name="proxy"></a>Proxy
 

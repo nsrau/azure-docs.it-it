@@ -1,11 +1,11 @@
 ---
 title: Streaming live con codificatori locali che creano flussi a bitrate multipli - Azure| Microsoft Docs
-description: "Questo argomento descrive come configurare un canale che riceve un flusso live a bitrate multipli da un codificatore locale. Il flusso può essere quindi distribuito alle applicazioni di riproduzione client tramite uno o più endpoint di streaming, usando uno dei protocolli di flusso adattivo seguenti: HLS, Smooth Streaming o DASH."
+description: 'Questo argomento descrive come configurare un canale che riceve un flusso live a bitrate multipli da un codificatore locale. Il flusso può essere quindi distribuito alle applicazioni di riproduzione client tramite uno o più endpoint di streaming, usando uno dei protocolli di flusso adattivo seguenti: HLS, Smooth Streaming o DASH.'
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services
 ms.workload: media
@@ -14,13 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: fae123d2cc594bb741fb1cdb0da62bef05a2a8c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming live con codificatori locali che creano flussi a bitrate multipli
+
+> [!NOTE]
+> A partire dal 12 maggio 2018 i canali live non supporteranno più il protocollo di inserimento del flusso di trasporto RTP/MPEG-2. Eseguire la migrazione da RTP/MPEG-2 ai protocolli di inserimento RTMP o MP4 frammentato (Smooth Streaming).
+
 ## <a name="overview"></a>Panoramica
 In Servizi multimediali di Azure un *canale* rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Un canale riceve i flussi di input live in uno dei due modi seguenti:
 

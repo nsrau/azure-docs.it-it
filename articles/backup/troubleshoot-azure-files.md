@@ -1,6 +1,6 @@
 ---
 title: Risolvere i problemi del backup di file di Azure
-description: Questo articolo contiene informazioni per la risoluzione dei problemi che si verificano quando si proteggono i file di Azure (condivisioni file) in Azure.
+description: Questo articolo contiene informazioni per la risoluzione dei problemi che si verificano quando si proteggono le condivisioni file di Azure.
 services: backup
 ms.service: backup
 keywords: Non aggiungere o modificare parole chiave senza consultare l'esperto SEO.
@@ -10,21 +10,20 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 3bc259245df86406e23418bac598c8b1e062d512
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c803118ccdafa8db0e8f8ddee608f60311f65e05
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Risolvere i problemi del backup di file di Azure
-
 È possibile risolvere i problemi e gli errori rilevati durante l'uso del backup di file di Azure con le informazioni elencate nelle tabelle seguenti.
 
 ## <a name="preview-boundaries"></a>Limiti dell'anteprima
 Il backup di file di Azure è disponibile in anteprima. Gli scenari di backup seguenti non sono supportati nelle condivisioni file di Azure:
-- Protezione di condivisioni file negli account di archiviazione con replica di [archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) o [archiviazione con ridondanza geografica e accesso in lettura](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS).
-- Protezione delle condivisioni file negli account di archiviazione con reti virtuali abilitate.
-- Backup di file di Azure con PowerShell o l'interfaccia della riga di comando.
+- Protezione di condivisioni file di Azure negli account di archiviazione con replica di [archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) o [archiviazione con ridondanza geografica e accesso in lettura](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS).
+- Protezione delle condivisioni file di Azure negli account di archiviazione con reti virtuali abilitate.
+- Backup delle condivisioni file di Azure con PowerShell o con l'interfaccia della riga di comando.
 
 ### <a name="limitations"></a>Limitazioni
 - Il numero massimo di backup pianificati al giorno è 1.

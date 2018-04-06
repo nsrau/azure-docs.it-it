@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 71576e65d20d7e8cb7f5ff1c5f19c82439bb6807
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 > [!div class="op_single_selector"]
@@ -325,9 +325,33 @@ public class Function {
 }
 ```
 
+## <a name="environment-variables"></a>Variabili di ambiente
+
+Spesso, per motivi di sicurezza, è consigliabile estrarre informazioni segrete dal codice sorgente. Ciò consente la pubblicazione del codice in repository di codice sorgente senza fornire accidentalmente credenziali ad altri sviluppatori. Questo è possibile usando semplicemente le variabili di ambiente, sia quando si eseguono le funzioni di Azure in locale che durante la distribuzione delle funzioni in Azure.
+
+Per impostare facilmente le variabili di ambiente quando si eseguono funzioni di Azure in locale è possibile aggiungere tali variabili al file local.settings.json. Se una di esse non è presente nella directory radice del progetto funzione, è possibile crearne una. Il file sarà simile al seguente:
+
+```xml
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "AzureWebJobsDashboard": ""
+  }
+}
+```
+
+Ogni chiave/valore di mapping nel mapping `values` verrà reso disponibile in fase di esecuzione come variabile di ambiente, accessibile tramite una chiamata `System.getenv("<keyname>")`, ad esempio `System.getenv("AzureWebJobsStorage")`. L'aggiunta di coppie di chiavi/valori aggiuntive non solo è permessa, ma è anche auspicabile.
+
+> [!NOTE]
+> Se si adotta questo approccio, valutare l'aggiunta del file local.settings.json al comando Ignora file del repository, in modo che non ne venga eseguito il commit.
+
+Con il codice ora basato su queste variabili di ambiente è possibile accedere al portale di Azure per impostare le stesse coppie di chiavi/valori nelle impostazioni dell'app per le funzioni, in modo che il codice funzioni allo stesso modo sia nel test in locale che nella distribuzione in Azure.
+
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, vedere le seguenti risorse:
 
 * [Procedure consigliate per Funzioni di Azure](functions-best-practices.md)
 * [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
+* [Eseguire il debug remoto di funzioni di Azure in Java con Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)

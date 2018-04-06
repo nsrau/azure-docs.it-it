@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ca8a34c0a29ffad21e6384feac055d7a292311a5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8f9eb95f49e0d2bd01d9ead7eda7d13288bfd573
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-token-reference"></a>Riferimento al token di Azure AD
 Azure Active Directory (Azure AD) rilascia tipi diversi di token di sicurezza durante l'elaborazione di ogni flusso di autenticazione. Questo documento descrive il formato, le caratteristiche di sicurezza e i contenuti di ogni tipo di token.
@@ -321,3 +321,4 @@ Oltre alle attestazioni, il token include un numero di versione **ver** e **appi
 ## <a name="related-content"></a>Contenuti correlati
 * Per altre informazioni sulla gestione dei criteri di durata dei token tramite l'API Graph di Azure AD, vedere gli articoli relativi alle [operazioni sui criteri](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) e all'[entità dei criteri](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) di Azure AD Graph.
 * Per altre informazioni ed esempi sulla gestione dei criteri tramite i cmdlet PowerShell, vedere [Configurable token lifetimes in Azure AD](../active-directory-configurable-token-lifetimes.md) (Durata dei token configurabile in Azure AD). 
+* Aggiungere [attestazioni personalizzate e facoltative](active-directory-optional-claims.md) ai token per l'applicazione. 

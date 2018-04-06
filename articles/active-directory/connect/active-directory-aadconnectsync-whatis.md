@@ -1,11 +1,11 @@
 ---
-title: 'Servizio di sincronizzazione Azure AD Connect: comprendere e personalizzare la sincronizzazione | Documentazione Microsoft'
+title: 'Servizio di sincronizzazione Azure AD Connect: comprendere e personalizzare la sincronizzazione | Microsoft Docs'
 description: Spiega come funziona il servizio di sincronizzazione Azure AD Connect e come personalizzarlo.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: d58baa89c9d11b6b7a6bbb3b53974184ef1903b5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a808f929dcd27b53821f59ed8fd3ab67af81a273
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione
 Il servizio di sincronizzazione Azure Active Directory Connect (servizio di sincronizzazione Azure AD Connect) è un componente importante di Azure AD Connect. Si occupa di tutte le operazioni che riguardano la sincronizzazione dei dati relativi alle identità tra l'ambiente locale e Azure AD. Il servizio di sincronizzazione Azure AD Connect è il successore di DirSync, Azure AD Sync e Forefront Identity Manager con il connettore Azure Active Directory configurato.
@@ -46,7 +46,7 @@ Il servizio di sincronizzazione è costituito da due componenti: la **sincronizz
 | **Funzionalità e scenari** | |
 | [Impedire eliminazioni accidentali](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |Illustra la funzionalità che *impedisce le eliminazioni accidentali* e spiega come configurarla. |
 | [Utilità di pianificazione](active-directory-aadconnectsync-feature-scheduler.md) |Illustra l'utilità di pianificazione predefinita, che importa, sincronizza ed esporta i dati. |
-| [Implementare la sincronizzazione password](active-directory-aadconnectsync-implement-password-synchronization.md) |Illustra il funzionamento della sincronizzazione password, spiega come implementarla, usarla e risolverne i problemi. |
+| [Implementare la sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |Illustra il funzionamento della sincronizzazione password, spiega come implementarla, usarla e risolverne i problemi. |
 | [Writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md) |Illustra il funzionamento del writeback dei dispositivi in Azure AD Connect. |
 | [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md) |Illustra come estendere lo schema di Azure AD con i propri attributi personalizzati. |
 | [PreferredDataLocation di Office 365](active-directory-aadconnectsync-feature-preferreddatalocation.md) |Descrive come inserire le risorse di Office 365 dell'utente nella stessa area dell'utente. |

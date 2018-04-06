@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: fd97e0ca7615691c537dcb1dc18643627046742d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 01d5150bff8642a1a3fe9b7ac063923916f191c0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -29,10 +29,22 @@ ms.lasthandoff: 03/09/2018
     - Log dei flussi dei gruppi di sicurezza di rete abilitati per i gruppi di sicurezza di rete da monitorare
     - Un account di archiviazione di Azure per archiviare i log dei flussi non elaborati
     - Un'area di lavoro Log Analytics (OMS) con accesso in lettura e scrittura
+    - All'account devono essere assegnate le azioni seguenti nel provider di Microsoft. Network:
+
+        - Microsoft.Network/applicationGateways/read
+        - Microsoft.Network/connections/read
+        - Microsoft.Network/loadBalancers/read 
+        - Microsoft.Network/localNetworkGateways/read 
+        - Microsoft.Network/networkInterfaces/read 
+        - Microsoft.Network/networkSecurityGroups/read 
+        - Microsoft.Network/publicIPAddresses/read
+        - Microsoft.Network/routeTables/read
+        - Microsoft.Network/virtualNetworkGateways/read 
+        - Microsoft.Network/virtualNetworks/read
 
 2.  In quali aree è disponibile Analisi del traffico?
 
-    Nella versione di anteprima è possibile usare Analisi del traffico per i gruppi di sicurezza di rete in tutte le **aree supportate** seguenti: Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali,Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti occidentali 2, Europa occidentale, Europa settentrionale, Regno Unito occidentale, Regno Unito meridionale, Australia orientale e Australia sud-orientale. L'area di lavoro Log Analytics deve esistere nell'area Stati Uniti centro-occidentali, Stati Uniti orientali, Europa occidentale, Australia sud-orientale o Regno Unito meridionale.
+    Nella versione di anteprima è possibile usare Analisi del traffico per i gruppi di sicurezza di rete in ognuna delle seguenti **aree supportate**: Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti occidentali 2, Europa occidentale, Europa settentrionale, Regno Unito occidentale, Regno Unito meridionale, Australia orientale e Australia sud-orientale. L'area di lavoro Log Analytics deve esistere nell'area Stati Uniti centro-occidentali, Stati Uniti orientali, Europa occidentale, Australia sud-orientale o Regno Unito meridionale.
 
 3.  I gruppi di sicurezza di rete per cui vengono abilitati i log dei flussi possono trovarsi in aree differenti dalla propria area di lavoro OMS?
 
@@ -52,7 +64,7 @@ ms.lasthandoff: 03/09/2018
 
 7.  È possibile archiviare i log non elaborati in un altro account di archiviazione di una sottoscrizione differente?
 
-    No. È possibile archiviare i log non elaborati in qualsiasi account di archiviazione in cui un gruppo di sicurezza di rete è abilitato per i log dei flussi, tuttavia sia l'account di archiviazione che i log non elaborati devono essere nella stessa sottoscrizione e area.
+    di serie È possibile archiviare i log non elaborati in qualsiasi account di archiviazione in cui un gruppo di sicurezza di rete è abilitato per i log dei flussi, tuttavia sia l'account di archiviazione che i log non elaborati devono essere nella stessa sottoscrizione e area.
 
 8.  Se si riceve un errore "Non trovato" durante la configurazione di un gruppo di sicurezza di rete per Analisi del traffico, come risolvere il problema?
 
@@ -94,7 +106,7 @@ ms.lasthandoff: 03/09/2018
 
 14.  Come viene determinato il prezzo di Analisi del traffico?
 
-        Finché Analisi del traffico sarà in anteprima pubblica, non verrà effettuato alcun addebito. La generazione dei log dei flussi dei gruppi di sicurezza di rete e la conservazione dei dati in un'area di lavoro OMS sono addebitate in base alle tariffe pubblicate.
+        Analisi del traffico è a consumo per il miglioramento della riduzione log e l'archiviazione dei registri avanzati in un'area di lavoro Log Analytics. Mentre in anteprima, Analisi del traffico non viene fatturato per migliorare i registri ridotti, tuttavia la conservazione dei dati in un'area di lavoro è soggetta a fatturazione in base alle tariffe pubblicate. Questa risposta verrà aggiornata una volta disponibili i prezzi per Analisi del traffico.
 
 15.  Come è possibile spostarsi con la tastiera nella visualizzazione mappa geografica?
 

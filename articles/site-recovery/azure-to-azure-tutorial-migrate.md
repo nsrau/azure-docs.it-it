@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/24/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8de067ece55e13d32af6822e114cb9dab000bdff
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Eseguire la migrazione di VM di Azure a un'altra area
 
@@ -33,9 +33,17 @@ Per questa esercitazione si presuppone che sia già disponibile una sottoscrizio
 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per completare questa esercitazione, sono necessarie macchine virtuali di Azure un'area di Azure da cui si vuole eseguire la migrazione. Prima di iniziare è inoltre necessario verificare un certo numero di impostazioni.
+- Assicurarsi di disporre di macchine virtuali di Azure nell'area di Azure da cui si vuole eseguire la migrazione.
+- Assicurarsi di aver compreso i [componenti e l'architettura dello scenario](azure-to-azure-architecture.md).
+- Rivedere le [limitazioni e i requisiti del supporto](azure-to-azure-support-matrix.md).
+
+
+
+## <a name="before-you-start"></a>Prima di iniziare
+
+Prima di configurare la replica, completare questi passaggi.
 
 
 ### <a name="verify-target-resources"></a>Verificare le risorse di destinazione
@@ -114,9 +122,7 @@ Site Recovery recupera un elenco delle macchine virtuali associate alla sottoscr
 
     ![abilitare la replica](media/tutorial-migrate-azure-to-azure/settings.png)
 
->[!NOTE]
-  >
-  > La replica di macchine virtuali di Azure con dischi gestiti non è attualmente supportata. 
+ 
 
 ## <a name="run-a-failover"></a>Eseguire un failover
 

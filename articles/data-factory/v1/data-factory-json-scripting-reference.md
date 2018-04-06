@@ -4,7 +4,7 @@ description: Questo articolo fornisce gli schemi JSON per le entità di Data Fac
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
+manager: craigg
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 519a762e5f89533f4425d38e4a1ca76d8e3dd40f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 198fa15b7ee8cce6781e6a2575844a9666185be9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Informazioni di riferimento sugli script JSON
 > [!NOTE]
@@ -493,13 +493,13 @@ Per definire un set di dati BLOB di Azure, impostare il **tipo** del set di dati
 Per altre informazioni, vedere [Connettore BLOB di Azure](data-factory-azure-blob-connector.md#dataset-properties).
 
 ### <a name="blobsource-in-copy-activity"></a>BlobSource in attività di copia
-Se si copiano dati da Archiviazione BLOB di Azure, impostare il **tipo di origine** dell'attività di copia su **BlobSource**e specificare le proprietà seguenti nella sezione **source**:
+Se si copiano dati da Archiviazione BLOB di Azure, impostare il **tipo di origine** dell'attività di copia su **BlobSource** e specificare le proprietà seguenti nella sezione **source**:
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True (valore predefinito), False |No  |
 
-#### <a name="example-blobsource"></a>Esempio: BlobSource**
+#### <a name="example-blobsource"></a>Esempio: **BlobSource**
 ```json
 {
     "name": "SamplePipeline",
@@ -3325,8 +3325,8 @@ Per altre informazioni, vedere [Connettore Amazon S3](data-factory-amazon-simple
 #### <a name="sample-folder-path-definitions"></a>Definizioni del percorso della cartella di esempio 
 | Scenario | Host nella definizione del servizio collegato | folderPath nella definizione del set di dati |
 | --- | --- | --- |
-| Cartella locale nel computer del gateway di gestione dati:  <br/><br/>Esempi: D:\\\* o D:\cartella\sottocartella\\\* |D:\\\\ (per Gateway di gestione dati versione 2.0 e successive) <br/><br/> localhost (per le versioni precedenti alla versione 2.0 di Gateway di gestione dati) |.\\\\ o cartella\\\\sottocartella (per Gateway di gestione dati 2.0 e versioni successive) <br/><br/>D:\\\\ o D:\\\\cartella\\\\sottocartella (per la versione del gateway precedente a 2.0) |
-| Cartella condivisa remota:  <br/><br/>Esempi: \\\\myserver\\share\\\* o \\\\myserver\\share\\cartella\\sottocartella\\\* |\\\\\\\\myserver\\\\share |.\\\\ o cartella\\\\sottocartella |
+| Cartella locale nel computer del gateway di gestione dati:  <br/><br/>Esempi: D:\\\* o D:\cartella\sottocartella\\* |D:\\\\ (per Gateway di gestione dati versione 2.0 e successive) <br/><br/> localhost (per le versioni precedenti alla versione 2.0 di Gateway di gestione dati) |.\\\\ o cartella\\\\sottocartella (per Gateway di gestione dati 2.0 e versioni successive) <br/><br/>D:\\\\ o D:\\\\cartella\\\\sottocartella (per la versione del gateway precedente a 2.0) |
+| Cartella condivisa remota:  <br/><br/>Esempi: \\\\myserver\\share\\\* o \\\\myserver\\share\\cartella\\sottocartella\\* |\\\\\\\\myserver\\\\share |.\\\\ o cartella\\\\sottocartella |
 
 
 #### <a name="example-using-username-and-password-in-plain-text"></a>Esempio: Uso di nome utente e password in testo normale
@@ -3898,7 +3898,7 @@ Per usare l'autenticazione di base, impostare `authenticationType` come `Basic` 
 }
 ```
 
-#### <a name="example-basic-authentication-with-encrypted-credential"></a>Esempio: autenticazione di base con credenziali crittografate**
+#### <a name="example-basic-authentication-with-encrypted-credential"></a>Esempio: **autenticazione di base con credenziali crittografate**
 
 ```json
 {
@@ -3919,7 +3919,7 @@ Per usare l'autenticazione di base, impostare `authenticationType` come `Basic` 
 }
 ```
 
-#### <a name="using-ssh-public-key-authentication"></a>Esempio: uso dell'autenticazione con chiave pubblica SSH:**
+#### <a name="using-ssh-public-key-authentication"></a>**Uso dell'autenticazione con chiave pubblica SSH:**
 
 Per usare l'autenticazione di base, impostare `authenticationType` come `SshPublicKey` e specificare le proprietà seguenti oltre a quelle generiche del connettore SFTP introdotte nell'ultima sezione:
 
@@ -3949,7 +3949,7 @@ Per usare l'autenticazione di base, impostare `authenticationType` come `SshPubl
 }
 ```
 
-#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Esempio: autenticazione SshPublicKey con contenuto della chiave privata**
+#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Esempio: **autenticazione SshPublicKey con contenuto della chiave privata**
 
 ```json
 {
@@ -4591,7 +4591,7 @@ Per definire un servizio collegato di Salesforce, impostare il **tipo** di servi
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- |
-| environmentUrl | Specificare l'URL dell'istanza di Salesforce. <br><br> - Il valore predefinito è "https://login.salesforce.com". <br> - Per copiare i dati dalla sandbox, specificare "https://test.salesforce.com". <br> - Per copiare i dati dal dominio personalizzato, specificare ad esempio "https://[dominio].my.salesforce.com". |No  |
+| environmentUrl | Specificare l'URL dell'istanza di Salesforce. <br><br> - Il valore predefinito è "https://login.salesforce.com". <br> - Per copiare dati dalla sandbox, specificare "https://test.salesforce.com". <br> - Per copiare i dati dal dominio personalizzato, specificare ad esempio "https://[dominio].my.salesforce.com". |No  |
 | username |Specificare un nome utente per l'account utente. |Sì |
 | password |Specificare la password per l'account utente. |Sì |
 | securityToken |Specificare un token di sicurezza per l'account utente. Per istruzioni su come ottenere o reimpostare un token di sicurezza, vedere [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Ottenere un token di sicurezza). Per informazioni generali sui token di sicurezza, vedere [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sicurezza e API). |Sì |

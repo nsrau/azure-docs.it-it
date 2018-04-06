@@ -2,10 +2,10 @@
 title: Monitorare a livello di codice una data factory di Azure | Microsoft Docs
 description: Informazioni su come monitorare una pipeline in una data factory con diversi Software Development Kit (SDK).
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,17 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 95934de9b84270ff112489a7b67f622dad609970
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 87e69349245c5f67e23022e3a45ed798400e6a2c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Monitorare a livello di codice una data factory di Azure
 Informazioni su come monitorare una pipeline in una data factory con diversi Software Development Kit (SDK). 
 
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale (GA), vedere [Monitorare e gestire le pipeline di Azure Data Factory con il portale di Azure e PowerShell](v1/data-factory-monitor-manage-pipelines.md).
+
+## <a name="data-range"></a>Intervallo di dati
+
+Data Factory memorizza i dati di esecuzione della pipeline solo per 45 giorni. Quando si eseguono query a livello di codice relative ai dati delle esecuzioni della pipeline di Data Factory, ad esempio con il comando di PowerShell `Get-AzureRmDataFactoryV2PipelineRun` non sono presenti date massime per i parametri facoltativi `LastUpdatedAfter` e `LastUpdatedBefore`. Se, invece, si eseguono query sui dati dell'anno precedente, la query non restituisce un errore ma solo i dati di esecuzione della pipeline degli ultimi 45 giorni.
+
+Per rendere permanenti i dati di esecuzione della pipeline per più di 45 giorni, impostare la registrazione diagnostica con [Monitoraggio di Azure](monitor-using-azure-monitor.md).
 
 ## <a name="net"></a>.NET
 Per una descrizione completa di creazione e monitoraggio di una pipeline con .NET SDK, vedere [Creare una data factory e una pipeline con .NET SDK](quickstart-create-data-factory-dot-net.md).

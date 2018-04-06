@@ -2,11 +2,11 @@
 title: Risoluzione dei problemi relativi a un oggetto che non esegue la sincronizzazione in Azure AD | Microsoft Docs
 description: Risoluzione dei problemi per cui un oggetto non esegue la sincronizzazione in Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: e68b70ce87a6fedab1b85bf2800a50e512910dea
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 05b60b091fe87620c88ad9eb761f1028c24d5730
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Risoluzione dei problemi relativi a un oggetto che non esegue la sincronizzazione in Azure AD
 
@@ -110,7 +110,7 @@ Si può esaminare l'oggetto e individuare la regola applicata per un particolare
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
 
 ### <a name="log"></a>Log
-La pagina Log consente di visualizzare lo stato e la cronologia di sincronizzazione della password. Per altre informazioni, vedere [Risolvere i problemi di sincronizzazione delle password](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+La pagina Log consente di visualizzare lo stato e la cronologia di sincronizzazione della password. Per altre informazioni, vedere [Risolvere i problemi di sincronizzazione dell'hash delle password](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 
 ## <a name="metaverse-object-properties"></a>Proprietà dell'oggetto Metaverse
 In genere è preferibile iniziare la ricerca dallo [spazio connettore](#connector-space) di origine di Active Directory. Ma è anche possibile avviare la ricerca da metaverse.

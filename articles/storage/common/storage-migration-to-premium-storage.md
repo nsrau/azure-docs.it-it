@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.openlocfilehash: 36ff73d36c752fb342dcfff2360b4f6f7013740e
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrazione in Archiviazione Premium di Azure (dischi non gestiti)
 
@@ -163,7 +163,7 @@ Creare un account di archiviazione per mantenere i dischi rigidi virtuali. Consi
 Per i dischi dati, è possibile scegliere di mantenerne alcuni in un account di archiviazione Standard, ad esempio, i dischi che dispongono di un'archiviazione meno problematica, ma è consigliabile spostare tutti i dati affinché il carico di lavoro di produzione usi l'archiviazione Premium.
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>Passaggio 3. Copia del disco rigido virtuale con AzCopy o PowerShell
-Per elaborare una di queste due opzioni è necessario individuare il percorso del container e la chiave dell'account di archiviazione. Il percorso del contenitore e la chiave dell'account di archiviazione sono reperibili in **Portale di Azure** > **Archiviazione**. L'URL del contenitore è simile a: "https://myaccount.blob.core.windows.net/mycontainer/".
+Per elaborare una di queste due opzioni è necessario individuare il percorso del container e la chiave dell'account di archiviazione. Il percorso del contenitore e la chiave dell'account di archiviazione sono reperibili in **Portale di Azure** > **Archiviazione**. L'URL del contenitore sarà simile a "https://myaccount.blob.core.windows.net/mycontainer/".
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Opzione 1: copia di un disco rigido virtuale con AzCopy (copia asincrona)
 Tramite AzCopy è possibile caricare facilmente il disco rigido virtuale in Internet. A seconda della dimensione dei dischi rigidi virtuali, tale operazione potrebbe richiedere tempo. Ricordarsi di verificare i limiti di ingresso/uscita dell’account di archiviazione quando si utilizza questa opzione. Vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md) per i dettagli.
@@ -257,7 +257,7 @@ Dopo avere creato il disco rigido virtuale nella directory locale, è possibile 
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-Un esempio <Uri> potrebbe essere ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. Un esempio <FileInfo> potrebbe essere ***"C:\path\to\upload.vhd"***.
+Ad esempio <Uri> può essere ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. Un esempio <FileInfo> potrebbe essere ***"C:\path\to\upload.vhd"***.
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Opzione 2: uso di AzCopy per caricare il file con estensione vhd
 Tramite AzCopy è possibile caricare facilmente il disco rigido virtuale in Internet. A seconda della dimensione dei dischi rigidi virtuali, tale operazione potrebbe richiedere tempo. Ricordarsi di verificare i limiti di ingresso/uscita dell’account di archiviazione quando si utilizza questa opzione. Vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md) per i dettagli.

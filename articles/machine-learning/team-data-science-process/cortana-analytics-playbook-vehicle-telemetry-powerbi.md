@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 085ce90311d4d89b365f7fe51a95c00c1a734196
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Istruzioni di configurazione del dashboard di Power BI per il modello di soluzione per l'analisi dei dati di telemetria del veicolo
 Questo menu contiene i collegamenti alle sezioni dello studio: 
@@ -27,7 +27,7 @@ Questo menu contiene i collegamenti alle sezioni dello studio:
 
 La soluzione per l'analisi dei dati di telemetria del veicolo illustra come le concessionarie, i produttori di automobili e le compagnie assicurative possono sfruttare le funzionalità di Cortana Intelligence per ottenere informazioni dettagliate predittive e in tempo reale sull'integrità del veicolo e sulle abitudini di guida in modo da migliorare l'esperienza cliente, la ricerca e lo sviluppo e le campagne di marketing. Queste istruzioni dettagliate mostrano come configurare i report e il dashboard di Power BI dopo la distribuzione della soluzione nella sottoscrizione. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Distribuire la soluzione per l'[analisi dei dati di telemetria del veicolo](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90). 
 * [Installare Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
 * Ottenere una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/). Se non si dispone di una sottoscrizione di Azure, iniziare con la sottoscrizione gratuita di Azure.
@@ -308,7 +308,7 @@ Il report in tempo reale "Veicoli che richiedono manutenzione" è stato configur
 
     ![Aree Dettagli, Legenda, Asse e Dimensioni](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
-25. Modificare il campo **Titolo** del grafico in **Medie per carburante, temperatura del motore e conteggio di vin in base al modello e modello**.
+25. Modificare il campo **Titolo** del grafico in **Medie per carburante, temperatura del motore e conteggio di vin in base al modello**.
 
     ![Titolo del grafico a dispersione](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ii.png)
 

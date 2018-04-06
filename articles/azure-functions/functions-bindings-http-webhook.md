@@ -3,7 +3,7 @@ title: Associazioni HTTP e webhook in Funzioni di Azure
 description: Informazioni su come usare trigger e associazioni HTTP e webhookin Funzioni di Azure.
 services: functions
 documentationcenter: na
-author: mattchenderson
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: mahender
-ms.openlocfilehash: a46177183035a53128c5341a3ce4c63dbc3a7497
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: tdykstra
+ms.openlocfilehash: 94a039ab1973cbd4112ddd0cd7548baa69924d26
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Associazioni HTTP e webhook in Funzioni di Azure
 
@@ -387,7 +387,7 @@ Per un esempio completo, vedere [Trigger - esempio in C#](#trigger---c-example).
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `HttpTrigger`.
 
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 | **type** | n/d| Obbligatoria. Deve essere impostata su `httpTrigger`. |
 | **direction** | n/d| Obbligatoria. Deve essere impostata su `in`. |
@@ -536,7 +536,7 @@ L'autorizzazione webhook viene gestita dal componente ricevitore dei webhook, ch
 
 ## <a name="trigger---limits"></a>Trigger - Limiti
 
-La lunghezza della richiesta HTTP è limitata a 100 KB (102.400 byte) e la lunghezza dell'URL è limitata a 4 KB (4.096 byte). Questi limiti vengono specificati dall'elemento `httpRuntime` del [file web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) del runtime.
+La lunghezza della richiesta HTTP è limitata a 100 MB (104.857.600 byte) e la lunghezza dell'URL è limitata a 4 kB (4096 byte). Questi limiti vengono specificati dall'elemento `httpRuntime` del [file web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) del runtime.
 
 Se una funzione che usa il trigger HTTP non viene completata entro 2,5 minuti circa, il gateway raggiungerà il timeout e restituirà un errore HTTP 502. La funzione rimarrà in esecuzione, ma non riuscirà a restituire una risposta HTTP. Per le funzioni con esecuzione prolungata, è consigliabile seguire modelli asincroni e restituire una posizione in cui è possibile effettuare il ping dello stato della richiesta. Per informazioni su quanto tempo può durare l'esecuzione di una funzione, vedere [Scalabilità e hosting - Piano a consumo](functions-scale.md#consumption-plan). 
 
@@ -566,11 +566,11 @@ Per gli altri linguaggi un binding di output HTTP è definito come un oggetto JS
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*.
 
-|Proprietà  |DESCRIZIONE  |
+|Proprietà  |Descrizione  |
 |---------|---------|
 | **type** |Il valore deve essere impostato su `http`. |
 | **direction** | Il valore deve essere impostato su `out`. |
-|**nome** | Nome della variabile usato nel codice della funzione per la risposta. |
+|**name** | Nome della variabile usato nel codice della funzione per la risposta. |
 
 ## <a name="output---usage"></a>Output - uso
 

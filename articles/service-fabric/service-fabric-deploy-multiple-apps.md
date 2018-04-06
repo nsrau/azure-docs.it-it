@@ -1,24 +1,24 @@
 ---
-title: Distribuire un'applicazione Node.js che usa MongoDB | Documentazione Microsoft
-description: "Procedura dettagliata sulla creazione di pacchetti di più eseguibili guest da distribuire in un cluster di Azure Service Fabric"
+title: Distribuire un'applicazione Node.js che usa MongoDB in Azure Service Fabric | Microsoft Docs
+description: Procedura dettagliata sulla creazione di pacchetti di più eseguibili guest da distribuire in un cluster di Azure Service Fabric
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
-ms.author: msfussell;mikhegn
-ms.openlocfilehash: d7a37d7c04f85e9031cab52fa86026e56315c882
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.date: 02/23/2018
+ms.author: mikhegn
+ms.openlocfilehash: 4987cc271a3e3d8a1a69c4c7fbd213d73ca2eb96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-multiple-guest-executables"></a>Distribuire più eseguibili guest
 Questo articolo descrive come creare pacchetti di più eseguibili guest e in che modo distribuirli in Azure Service Fabric. Per la creazione e la distribuzione di un pacchetto di Service Fabric, consultare l'articolo [Distribuire un eseguibile guest in Service Fabric](service-fabric-deploy-existing-app.md).
@@ -32,7 +32,7 @@ Questa procedura dettagliata illustra come distribuire un'applicazione con un fr
 * [Esempio di due eseguibili guest (C# e nodejs) che comunicano tramite il servizio Naming usando REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Creare manualmente i pacchetti dell'applicazione eseguibile guest multipla
-In alternativa, è possibile distribuire manualmente l'eseguibile guest. Per quanto riguarda la creazione di pacchetti manuale, l'articolo descrive l'uso dello strumento di packaging di Service Fabric, disponibile all'indirizzo [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
+In alternativa, è possibile distribuire manualmente l'eseguibile guest. Per quanto riguarda la creazione di pacchetti manuale, l'articolo descrive l'uso dello strumento per la creazione di pacchetti di Service Fabric, disponibile all'indirizzo [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
 
 ### <a name="packaging-the-nodejs-application"></a>Creazione di un pacchetto dell'applicazione Node.js
 Questo articolo presuppone che Node.js non sia installato nei nodi del cluster di Service Fabric. Sarà quindi necessario aggiungere Node.exe alla directory radice dell'applicazione nodo prima della creazione del pacchetto. La struttura di directory dell'applicazione Node.js (che usa il framework Web Express e il motore per la creazione di modelli Jade) dovrebbe essere simile alla seguente:

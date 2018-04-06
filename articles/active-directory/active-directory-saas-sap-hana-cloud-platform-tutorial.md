@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 309415a68308943f638195303ceb236569519472
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a578a732efa3d2b91240ef0f4c02670aea8e547f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Esercitazione: Integrazione di Azure Active Directory con SAP Cloud Platform
 
@@ -155,7 +155,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_general_400.png)
 
-6. In una diversa finestra del Web browser accedere al pannello di controllo di SAP Cloud Platform all'indirizzo `https://account.<landscape host>.ondemand.com/cockpit` (ad esempio https://account.hanatrial.ondemand.com/cockpit).
+6. In un'altra finestra del Web browser accedere al pannello di controllo di SAP Cloud Platform all'indirizzo `https://account.<landscape host>.ondemand.com/cockpit` (ad esempio https://account.hanatrial.ondemand.com/cockpit).
 
 7. Scegliere la scheda **Trust** .
    
@@ -228,7 +228,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
     c. I nomi e i valori per l'**attributo di entità** illustrati nella schermata dipendono dal modo in cui viene sviluppata l'applicazione. È possibile che l'applicazione richieda mapping diversi.
 
-###<a name="assertion-based-groups"></a>Gruppi basati su asserzione
+### <a name="assertion-based-groups"></a>Gruppi basati su asserzione
 
 Come passaggio facoltativo, è possibile configurare gruppi basati su asserzione per il provider di identità Azure Active Directory.
 

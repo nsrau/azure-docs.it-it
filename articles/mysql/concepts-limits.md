@@ -8,20 +8,20 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 85e57170c1cbd977d2de6e7e614916333c79e047
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limiti di Database di Azure per MySQL
-Il servizio Database di Azure per MySQL è in anteprima pubblica. Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database. Vedere anche le [limitazioni generali](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicabili al motore di database MySQL.
+Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database. Vedere anche le [limitazioni generali](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicabili al motore di database MySQL.
 
 ## <a name="service-tier-maximums"></a>Valori massimi del livello di servizio
 Database di Azure per MySQL offre più livelli di servizio tra cui è possibile scegliere durante la creazione di un server. Per altre informazioni, vedere [Piano tariffario di Database di Azure per MySQL](concepts-pricing-tiers.md).  
 
-Esiste una quantità massima di connessioni, unità di calcolo e spazio di archiviazione in ogni livello di servizio durante l'anteprima del servizio, come indicato di seguito: 
+Esiste un numero massimo di connessioni, unità di calcolo e spazio di archiviazione in ogni livello di servizio, come indicato di seguito: 
 
 |**Piano tariffario**| **Generazione di calcolo**|**vCore**| **Numero massimo di connessioni**|
 |---|---|---|---|
@@ -29,21 +29,20 @@ Esiste una quantità massima di connessioni, unità di calcolo e spazio di archi
 |Basic| Generazione 4| 2| 100|
 |Basic| Generazione 5| 1| 50|
 |Basic| Generazione 5| 2| 100|
-|Utilizzo generico| Generazione 4| 2| 200|
-|Utilizzo generico| Generazione 4| 4| 400|
-|Utilizzo generico| Generazione 4| 8| 800|
-|Utilizzo generico| Generazione 4| 16| 1600|
-|Utilizzo generico| Generazione 4| 32| 3200|
-|Utilizzo generico| Generazione 5| 2| 200|
-|Utilizzo generico| Generazione 5| 4| 400|
-|Utilizzo generico| Generazione 5| 8| 800|
-|Utilizzo generico| Generazione 5| 16| 1600|
-|Utilizzo generico| Generazione 5| 32| 3200|
+|Utilizzo generico| Generazione 4| 2| 300|
+|Utilizzo generico| Generazione 4| 4| 625|
+|Utilizzo generico| Generazione 4| 8| 1250|
+|Utilizzo generico| Generazione 4| 16| 2500|
+|Utilizzo generico| Generazione 4| 32| 5000|
+|Utilizzo generico| Generazione 5| 2| 300|
+|Utilizzo generico| Generazione 5| 4| 625|
+|Utilizzo generico| Generazione 5| 8| 1250|
+|Utilizzo generico| Generazione 5| 16| 2500|
+|Utilizzo generico| Generazione 5| 32| 5000|
 |Con ottimizzazione per la memoria| Generazione 5| 2| 600|
 |Con ottimizzazione per la memoria| Generazione 5| 4| 1250|
 |Con ottimizzazione per la memoria| Generazione 5| 8| 2500|
 |Con ottimizzazione per la memoria| Generazione 5| 16| 5000|
-|Con ottimizzazione per la memoria| Generazione 5| 32| 10000| 
 
 Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si riceva l'errore seguente:
 > ERROR 1040 (08004): Too many connections (ERRORE 1040 (08004): numero eccessivo di connessioni)
@@ -74,7 +73,7 @@ Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si r
 ### <a name="unsupported"></a>Non supportato
 - SELECT... INTO OUTFILE
 
-## <a name="preview-functional-limitations"></a>Limiti funzionali dell'anteprima
+## <a name="functional-limitations"></a>Limitazioni funzionali
 
 ### <a name="scale-operations"></a>Operazioni di scalabilità
 - Non è attualmente supportata la scalabilità dinamica dei server tra i piani tariffari, ovvero il passaggio tra i piani Basic, Utilizzo generico e Con ottimizzazione per la memoria.

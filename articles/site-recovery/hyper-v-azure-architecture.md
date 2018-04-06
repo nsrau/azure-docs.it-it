@@ -4,13 +4,13 @@ description: Questo articolo fornisce una panoramica dei componenti e dell'archi
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/194/2018
 ms.author: raynew
-ms.openlocfilehash: dd3dcf325ed5a628c98ac63683440e1796aa8c3f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 978d290287a4ff8875eea7e93f003c78e7177dae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Architettura della replica da Hyper-V ad Azure
 
@@ -28,7 +28,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 **Componente** | **Requisito** | **Dettagli**
 --- | --- | ---
 **Azure** | Sono necessari una sottoscrizione di Azure, un account di archiviazione di Azure e una rete di Azure. | I dati replicati da carichi di lavoro di macchine virtuali locali vengono archiviati nell'account di archiviazione. Le macchine virtuali di Azure vengono create con i dati dei carichi di lavoro replicati durante il failover dal sito locale.<br/><br/> Le VM di Azure si connettono alla rete virtuale di Azure quando vengono create.
-**Hyper-V** | Durante la distribuzione di Site Recovery, è necessario raccogliere gli host e i cluster Hyper-V in siti Hyper-V. È necessario installare il provider di Azure Site Recovery e l'agente di Servizi di ripristino in ogni computer Hyper-V. | Il provider orchestra la replica con Site Recovery su Internet. L'agente di Servizi di ripristino gestisce la replica dei dati.<br/><br/> Le comunicazioni dal provider e dall'agente sono protette e crittografate. I dati replicati nell'archiviazione di Azure vengono anche crittografati.
+**Hyper-V** | Durante la distribuzione di Site Recovery, è necessario raccogliere gli host e i cluster Hyper-V in siti Hyper-V. È necessario installare il provider di Azure Site Recovery e l'agente di Servizi di ripristino in ogni host Hyper-V autonomo o in ogni nodo del cluster Hyper-V. | Il provider orchestra la replica con Site Recovery su Internet. L'agente di Servizi di ripristino gestisce la replica dei dati.<br/><br/> Le comunicazioni dal provider e dall'agente sono protette e crittografate. I dati replicati nell'archiviazione di Azure vengono anche crittografati.
 **VM Hyper-V** | Una o più macchine virtuali in esecuzione in Hyper-V. | Non è necessario installare in modo esplicito alcun componente nelle macchine virtuali.
 
 
@@ -46,7 +46,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 --- | --- | ---
 **Azure** | Sono necessari una sottoscrizione di Azure, un account di archiviazione di Azure e una rete di Azure. | I dati replicati da carichi di lavoro di macchine virtuali locali vengono archiviati nell'account di archiviazione. Quando si verifica un failover dal sito locale, vengono create le VM di Azure con i dati replicati.<br/><br/> Le VM di Azure si connettono alla rete virtuale di Azure quando vengono create.
 **Server VMM** | Il server VMM ha uno o più cloud contenenti host Hyper-V. | È necessario installare il provider di Site Recovery nel server VMM per orchestrare la replica con Site Recovery e registrare il server nell'insieme di credenziali di Servizi di ripristino.
-**Host Hyper-V** | Uno o più host/cluster Hyper-V gestiti da VMM. |  L'agente di Servizi di ripristino viene installato in ogni host o membro del cluster.
+**Host Hyper-V** | Uno o più host/cluster Hyper-V gestiti da VMM. |  L'agente di Servizi di ripristino viene installato in ogni host o nodo del cluster Hyper-V.
 **VM Hyper-V** | Una o più macchine virtuali in esecuzione in un server host Hyper-V. | Non è necessario installare esplicitamente alcun componente nelle macchine virtuali.
 **Rete** | Reti VM e logiche configurate nel server VMM. La rete delle macchine virtuali deve essere collegata a una rete logica associata al cloud. | Viene eseguito il mapping delle reti delle macchine virtuali alle reti virtuali di Azure. Quando le macchine virtuali di Azure vengono create dopo il failover, vengono aggiunte alla rete di Azure di cui è stato eseguito il mapping alla rete delle macchine virtuali.
 

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 7b481fb3287b8ee2c22e5f25f8cf1935eed05428
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 5211fa29af1d8cba17049b69974189990d30f34a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Distribuzione di un modello di Machine Learning come un servizio Web
 
@@ -22,10 +22,17 @@ Gestione modelli di Azure Machine Learning fornisce interfacce per distribuire i
 
 Questo documento illustra i passaggi per distribuire i modelli come servizi Web tramite l'interfaccia della riga di comando (CLI) di Gestione modelli di Azure Machine Learning.
 
+## <a name="what-you-need-to-get-started"></a>Elementi necessari per iniziare
+
+Per sfruttare al meglio questa guida, è necessario disporre dell'accesso come collaboratore ad una sottoscrizione di Azure o a un gruppo di risorse in cui è possibile distribuire i modelli.
+L'interfaccia della riga di comando preinstallata in Azure Machine Learning Workbench e in [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) (DSVM di Azure).  Può anche essere installato come un pacchetto autonomo.
+
+Inoltre, è necessario configurare preventivamente un modello di gestione dell’account e di ambiente di distribuzione.  Per altre informazioni sulla configurazione di un modello di gestione dell’account e dell'ambiente per la distribuzione locale e di cluster, vedere [Model Management configuration](deployment-setup-configuration.md) (Configurazione della Gestione modelli).
+
 ## <a name="deploying-web-services"></a>Distribuzione dei servizi Web
 Usando le interfacce della riga di comando è possibile distribuire servizi Web per l'esecuzione nel computer locale o in un cluster.
 
-È consigliabile iniziare con una distribuzione locale. Per prima cosa confermare che il modello e il codice funzionino e quindi eseguire la distribuzione del servizio Web in un cluster per l'uso a livello di produzione. Per altre informazioni sulla configurazione dell'ambiente per la distribuzione di cluster, vedere [Model Management configuration](deployment-setup-configuration.md) (Configurazione della Gestione modelli). 
+È consigliabile iniziare con una distribuzione locale. Per prima cosa confermare che il modello e il codice funzionino e quindi eseguire la distribuzione del servizio Web in un cluster per l'uso a livello di produzione.
 
 Di seguito sono indicati i passaggi di distribuzione:
 1. Usare il modello di Machine Learning salvato e sottoposto a training
@@ -49,7 +56,8 @@ saved_model = pickle.dumps(clf)
 ```
 
 ### <a name="2-create-a-schemajson-file"></a>2. Creare un file schema.json
-Questo passaggio è facoltativo. 
+
+Nonostante la generazione dello schema sia facoltativa, si consiglia di definire il formato variabile della richiesta e dell'input per una migliore gestione.
 
 Creare uno schema per convalidare automaticamente l'input e output del servizio Web. Le interfacce della riga di comando usano lo schema anche per generare un documento Swagger per il servizio Web.
 
@@ -77,6 +85,13 @@ L'esempio seguente usa un frame di dati PANDAS:
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
+```
+
+L'esempio seguente usa un formato generico JSON:
+
+```python
+inputs = {"input_json": SampleDefinition(DataTypes.STANDARD, yourinputjson)}
 generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
@@ -147,10 +162,13 @@ az ml manifest create --manifest-name [your new manifest name] -f [path to score
 az ml image create -n [image name] --manifest-id [the manifest ID]
 ```
 
-Oppure è possibile creare il manifesto e l'immagine con un unico comando. 
+>[!NOTE] 
+>È inoltre possibile utilizzare un unico comando per eseguire la registrazione, il manifesto e la creazione del modello. Usare -h con il comando di creazione del servizio per altri dettagli.
+
+In alternativa, è presente un singolo comando per registrare un modello, creare un manifesto e creare un'immagine (ma non ancora per creare e distribuire il servizio Web) come passaggio unico come indicato di seguito.
 
 ```
-az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]
+az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime e.g. spark-py which is the Docker container image base]
 ```
 
 >[!NOTE]
@@ -166,6 +184,13 @@ az ml service create realtime --image-id <image id> -n <service name>
 
 >[!NOTE] 
 >È anche possibile usare un singolo comando per eseguire i quattro passaggi precedenti. Usare -h con il comando di creazione del servizio per altri dettagli.
+
+In alternativa, è presente un singolo comando per registrare un modello e creare un manifesto e un’immagine (nonché per generare e distribuire il sito web) come passaggio unico, come indicato in seguito.
+
+```azurecli
+az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
+```
+
 
 ### <a name="8-test-the-service"></a>8. Testare il servizio
 Usare il comando seguente per ottenere informazioni su come chiamare il servizio:

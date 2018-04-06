@@ -5,7 +5,7 @@ services: dns
 documentationcenter: na
 author: KumuD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
 ms.service: dns
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: kumud
-ms.openlocfilehash: 76782ac1e78cd0f7da4bc1aad8eff00d79865ed7
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d24eaa4974f8bff09b337384e4fd139edb6ebd70
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Introduzione a DNS Azure con l'interfaccia della riga di comando di Azure 2.0
 
 > [!div class="op_single_selector"]
-> * [Azure portal](dns-getstarted-portal.md)
+> * [Portale di Azure](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
 > * [Interfaccia della riga di comando di Azure 2.0](dns-getstarted-cli.md)
 
@@ -33,6 +33,8 @@ Questo articolo illustra i passaggi per creare la prima zona e il primo record D
 Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Per iniziare a ospitare il dominio in DNS di Azure, è necessario creare una zona DNS per il nome di dominio. Ogni record DNS per il dominio viene quindi creato all'interno di questa zona DNS. Per pubblicare infine la zona DNS su Internet, è necessario configurare i server dei nomi per il dominio. Ogni passaggio è illustrato di seguito.
 
 Queste istruzioni presuppongono che l'interfaccia della riga di comando di Azure 2.0 sia già stata installata e che sia già stato eseguito l'accesso. Per informazioni, vedere [Come gestire le zone DNS usando l'interfaccia della riga di comando di Azure 2.0](dns-operations-dnszones-cli.md).
+
+DNS di Azure supporta ora anche le zone DNS private, attualmente disponibili in anteprima pubblica. Per altre informazioni sulle zone DNS private, vedere [Using Azure DNS for private domains](private-dns-overview.md) (Uso di Azure DNS per domini privati). Per un esempio di come creare una zona DNS privata, vedere [Introduzione alle Zone private di DNS di Azure con l'interfaccia della riga di comando](./private-dns-getstarted-cli.md).
 
 ## <a name="create-the-resource-group"></a>Creare il gruppo di risorse.
 
@@ -52,7 +54,6 @@ L'esempio seguente crea una zona DNS denominata *contoso.com* nel gruppo di riso
 az network dns zone create -g MyResourceGroup -n contoso.com
 ```
 
-
 ## <a name="create-a-dns-record"></a>Creare un record DNS
 
 Per creare un record DNS, usare il comando `az network dns record-set [record type] add-record`. Per informazioni, ad esempio per i record A, vedere `azure network dns record-set A add-record -h`.
@@ -65,7 +66,6 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 
 Per altri tipi di record, per set di record con più di un record, per valori TTL alternativi e per modificare i record esistenti, vedere [Gestire record e set di record DNS con l'interfaccia della riga di comando di Azure 2.0](dns-operations-recordsets-cli.md).
 
-
 ## <a name="view-records"></a>Visualizzare i record
 
 Per elencare i record DNS nella zona, usare:
@@ -73,7 +73,6 @@ Per elencare i record DNS nella zona, usare:
 ```azurecli
 az network dns record-set list -g MyResourceGroup -z contoso.com
 ```
-
 
 ## <a name="update-name-servers"></a>Aggiornare i server dei nomi
 

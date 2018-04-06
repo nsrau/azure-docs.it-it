@@ -1,31 +1,31 @@
 ---
-title: 'Azure Cosmos DB: Creare un''app Web Flask con Python e l''API MongoDB di Azure Cosmos DB | Microsoft Docs'
+title: "Azure Cosmos DB: Creare un'app Web Flask con Python e l'API MongoDB di Azure Cosmos DB | Microsoft Docs"
 description: Presenta un esempio di codice Python Flask che permette di connettersi all'API MongoDB di Azure Cosmos DB ed eseguire query su di essa
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: hshapiro
 manager: scicoria
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/2/2017
 ms.author: hshapiro
-ms.openlocfilehash: f86c6cce82812e02f373d7307c76ace26ea3e99b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ea6920c179bfee22c0aa545ccc3d0386940205e4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: compilare un'app Flask con l'API MongoDB
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB.
 
-Questa guida introduttiva usa l'[esempio di Flask](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) seguente e illustra come compilare una semplice applicazione Flask To-Do con l'[emulatore di Azure Cosmos DB](/local-emulator.md) invece che con MongoDB.
+Questa guida introduttiva usa l'[esempio di Flask](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) seguente e illustra come compilare una semplice app Flask To-Do con l'[emulatore di Azure Cosmos DB](/local-emulator.md) e l'[API di MongoDB](mongodb-introduction.md) in Azure Cosmos DB invece che con MongoDB.
 
 ## <a name="prerequisites"></a>prerequisiti
 

@@ -2,21 +2,20 @@
 title: Eseguire il test drive di un'app desktop abilitata per Azure AD B2C
 description: Guida introduttiva per la prova di un'app desktop ASP.NET di esempio che usa Azure Active Directory B2C per fornire l'accesso utente.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
-ms.author: patricka
-ms.openlocfilehash: 18c378f82255df3a999703bc319d551af4b2705c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.author: davidmu
+ms.openlocfilehash: 8726a5816623d42deb495aa062ef82f1f95b76b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-desktop-app"></a>Guida introduttiva: Eseguire il test drive di un'app desktop abilitata per Azure AD B2C
 

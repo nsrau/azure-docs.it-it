@@ -10,25 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 6146e1ce98144a05bef2ca29705f451aa3f5fb50
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 864e9ff5551637a93b957e5011a8857072c6eaaf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Domande frequenti su Azure Machine Learning
 
+Azure Machine Learning è un servizio completamente gestito che consente di creare, testare, gestire e distribuire modelli di Machine Learning e Al. I servizi e l'applicazione scaricabile si basano su un approccio di tipo code-first che sfrutta il cloud, il livello locale e il nodo perimetrale per offrire modelli di training, distribuzione, gestione e monitoraggio con velocità, potenza e flessibilità. Azure Machine Learning Studio è invece un ambiente di creazione visivo con trascinamento della selezione e accessibile da browser, dove la scrittura di codice non è necessaria. 
+
 ## <a name="general-product-questions"></a>Domande generiche sul prodotto
-
-**Cos'è Azure Machine Learning?**
-
-Azure Machine Learning è un servizio completamente gestito che consente di creare, testare, gestire e distribuire modelli di Machine Learning e Al. I nuovi servizi e l'applicazione scaricabile si basano su un approccio di tipo code-first che sfrutta il cloud, il locale e il nodo perimetrale per offrire modelli di training, distribuzione, gestione e monitoraggio con velocità, potenza e flessibilità. Azure Machine Learning Studio è invece un ambiente di creazione visivo con trascinamento della selezione e accessibile da browser, dove la scrittura di codice non è necessaria. 
-
-**In quali aree sono disponibili i nuovi servizi?**
-
-Per individuare le aree di Azure che supportano i servizi di sperimentazione e gestione dei modelli in Azure Machine Learning, visitare la pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
-
-Altre aree verranno aggiunte di pari passo allo sviluppo del prodotto.  È possibile contribuire a classificare in ordine di priorità le aree di distribuzione inviando i propri [commenti e suggerimenti su Azure Machine Learning](https://feedback.azure.com/forums/257792-machine-learning). 
 
 **Quali altri servizi Azure sono necessari?**
 

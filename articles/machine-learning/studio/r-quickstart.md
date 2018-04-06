@@ -1,11 +1,12 @@
 ---
-title: Esercitazione con guida rapida per il linguaggio R per Azure Machine Learning | Documentazione Microsoft
+title: Esercitazione con guida rapida per il linguaggio R per Azure Machine Learning | Microsoft Docs
 description: Usare questa esercitazione sulla programmazione R per iniziare a usare rapidamente il linguaggio R con Azure Machine Learning Studio per creare una soluzione di previsione.
 keywords: guida introduttiva, linguaggio r, linguaggio di programmazione r, esercitazione di programmazione r
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: garye
-ms.openlocfilehash: 40cc3728d1361b9304896bf0cc4ceed439291d45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 231d505e91fc036b30344e2fd9971db8ba2fdf05
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Esercitazione con guida rapida per il linguaggio di programmazione R per Azure Machine Learning
 
@@ -127,7 +127,7 @@ Se il linguaggio di programmazione R non è installato nel computer desktop, ese
 
 Se non si ha familiarità con RStudio, è consigliabile scaricare e installare la versione desktop. I download di RStudio per Windows, Mac OS e Linux/UNIX sono disponibili all'indirizzo http://www.rstudio.com/products/RStudio/. Seguire le indicazioni fornite per installare RStudio sul proprio desktop.  
 
-Un'esercitazione introduttiva a RStudio è disponibile all'indirizzo https://support.rstudio.com/hc/sections/200107586-Using-RStudio.
+L'introduzione all'esercitazione su RStudio è disponibile all'indirizzo https://support.rstudio.com/hc/sections/200107586-Using-RStudio.
 
 Altre informazioni sull'uso di RStudio sono disponibili nell'[Appendice A][appendixa].  
 
@@ -1213,7 +1213,7 @@ RStudio viene fornito con una documentazione molto dettagliata. In questa append
 
 1. Creazione di progetti
    
-   È possibile organizzare e gestire il codice R nei progetti usando RStudio. La documentazione sull'uso dei progetti è disponibile all'indirizzo https://support.rstudio.com/hc/articles/200526207-Using-Projects.
+   È possibile organizzare e gestire il codice R nei progetti usando RStudio. La documentazione che usa i progetti è disponibile all'indirizzo https://support.rstudio.com/hc/articles/200526207-Using-Projects.
    
    Consiglio di seguire queste indicazioni e creare un progetto per gli esempi di codice R riportati in questo documento.  
 2. Modifica ed esecuzione di codice R
@@ -1221,21 +1221,21 @@ RStudio viene fornito con una documentazione molto dettagliata. In questa append
    RStudio offre un ambiente integrato per la modifica e l'esecuzione di codice R. La documentazione è disponibile all'indirizzo https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code.
 3. Debug
    
-   RStudio include avanzate funzionalità di debug. La documentazione su queste funzionalità è disponibile all'indirizzo https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio.
+   RStudio include avanzate funzionalità di debug. La documentazione per queste funzionalità è disponibile all'indirizzo https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio.
    
-   La documentazione sulle funzionalità di risoluzione dei problemi relativi ai punti di interruzione è disponibile all'indirizzo https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
+   Le funzionalità di risoluzione dei problemi del punto di interruzione sono documentate all'indirizzo https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
 ## <a id="appendixb"></a>APPENDICE B: Letture di approfondimento
 Questa esercitazione sulla programmazione R illustra le nozioni di base sull'ambito di utilizzo del linguaggio R con Azure Machine Learning Studio. Se non si ha familiarità con R, in CRAN sono disponibili due introduzioni:
 
-* "R for Beginners" di Emmanuel Paradis, un ottimo punto di inizio: http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
-* An Introduction to R di W. N. Venables et. al. fornisce informazioni più approfondite all'indirizzo http://cran.r-project.org/doc/manuals/R-intro.html.
+* R for Beginners di Emmanuel Paradis è un buon punto partenza, disponibile all'indirizzo http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
+* An Introduction to R di W. N. Venables et. al. tratta l'argomento in modo un po' più approfondito, all'indirizzo http://cran.r-project.org/doc/manuals/R-intro.html.
 
 Sono disponibili molti libri con informazioni introduttive su R. Di seguito sono elencati quelli che ritengo più utili:
 
 * The Art of R Programming: A Tour of Statistical Software Design di Norman Matloff, un'eccellente introduzione alla programmazione in R.  
 * R Cookbook di Paul Teetor, che offre un approccio problema-soluzione all'uso di R.  
-* R in Action di Robert Kabacoff, un altro libro introduttivo valido. Il sito Web Quick R costituisce inoltre una risorsa di grande utilità: http://www.statmethods.net/.
+* R in Action di Robert Kabacoff, un altro libro introduttivo valido. Il sito Web Quick R costituisce inoltre una risorsa di grande utilità all'indirizzo http://www.statmethods.net/.
 * R Inferno di Patrick Burns è un libro sorprendentemente divertente che si occupa di diversi argomenti complessi in cui ci si può imbattere durante la programmazione in R. Il libro è disponibile gratuitamente all'indirizzo http://www.burns-stat.com/documents/books/the-r-inferno/.
 * Per informazioni più dettagliate sugli argomenti avanzati relativi a R, vedere il libro Advanced R di Hadley Wickham. La versione online del libro è disponibile all'indirizzo http://adv-r.had.co.nz/.
 
@@ -1245,10 +1245,10 @@ Il libro Introductory Time Series with R di Paul Cowpertwait e Andrew Metcalfe f
 
 Alcune importanti risorse su Internet:
 
-* DataCamp: DataCamp insegna a usare R dal proprio browser con lezioni video ed esercizi sulla codifica. Sono disponibili anche esercitazioni interattive sulle ultime tecniche e pacchetti di R. È possibile partecipare alle esercitazioni interattive e gratuite su R all'indirizzo https://www.datacamp.com/courses/introduction-to-r
-* Una Guida introduttiva alla programmazione con R da Programiz https://www.programiz.com/r-programming
+* DataCamp: DataCamp insegna a usare R dal proprio browser con lezioni video ed esercizi sulla codifica. Sono disponibili anche esercitazioni interattive sulle ultime tecniche e pacchetti di R. Richiedere l'esercitazione R interattiva gratuita disponibile all'indirizzo https://www.datacamp.com/courses/introduction-to-r
+* Una Guida introduttiva a R di Programiz https://www.programiz.com/r-programming
 * Una rapida esercitazione su R di Kelly Black della Clarkson University è disponibile all'indirizzo http://www.cyclismo.org/tutorial/R/
-* Oltre 60 risorse su R sono elencate all'indirizzo http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
+* Più di 60 risorse di R elencate all'indirizzo http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
 <!--Image references-->
 [1]: ./media/r-quickstart/fig1.png

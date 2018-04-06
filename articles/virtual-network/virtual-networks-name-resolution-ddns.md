@@ -5,7 +5,7 @@ services: dns
 documentationcenter: na
 author: GarethBradshawMSFT
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c315961a-fa33-45cf-82b9-4551e70d32dd
 ms.service: dns
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: garbrad
-ms.openlocfilehash: 440a062e5fff73526b2d77d7d0a7c52ca72a66f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d62c40bfc909915fa222db12413634aa7ce7158
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Uso di DNS dinamico per registrare i nomi host nel proprio server DNS
 [Azure offre la risoluzione dei nomi](virtual-networks-name-resolution-for-vms-and-role-instances.md) per le macchine virtuali e le istanze del ruolo. Tuttavia, quando la risoluzione dei nomi offerta da Azure non è sufficiente, è possibile usare i propri server DNS. In questo modo è possibile personalizzare la soluzione DNS in base alle esigenze specifiche. Ad esempio, può essere necessario accedere a risorse locali tramite il controller di dominio Active Directory.
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 Quando i server DNS personalizzati vengono ospitati come VM di Azure è possibile inoltrare le query di nome host per la stessa rete virtuale in Azure per risolvere i nomi host. Se non si desidera usare questa route, è possibile registrare i nomi host delle VM nel server DNS tramite DNS dinamico.  Poiché Azure non è in grado (ad esempio, non offre le credenziali) di creare direttamente i record nei server DNS, è spesso necessario ricorrere a soluzioni alternative. Di seguito sono riportati alcuni scenari comuni con alternative.
 
 ## <a name="windows-clients"></a>Client Windows
-I client Windows non di dominio cercano di eseguire aggiornamenti DNS dinamici non protetti (DDNS) all'avvio o alla modifica dell'indirizzo IP. Il nome DNS è il nome host unito al suffisso DNS primario. Azure lascia vuoto il suffisso DNS primario, ma può essere impostato nella VM tramite l'[interfaccia utente](https://technet.microsoft.com/library/cc794784.aspx) o [con l'automazione](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).
+I client Windows non di dominio cercano di eseguire aggiornamenti DNS dinamici non protetti (DDNS) all'avvio o alla modifica dell'indirizzo IP. Il nome DNS è il nome host unito al suffisso DNS primario. Azure lascia vuoto il suffisso DNS primario, ma può essere impostato nella macchina virtuale tramite l'[interfaccia utente](https://technet.microsoft.com/library/cc794784.aspx) o [con l'automazione, come descritto qui ](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).
 
 I client Windows appartenenti a un dominio registrano i relativi indirizzi IP con il controller di dominio usando DNS dinamico protetto. Il processo appartenente a un dominio imposta il suffisso DNS primario nel client e crea e gestisce la relazione di trust.
 

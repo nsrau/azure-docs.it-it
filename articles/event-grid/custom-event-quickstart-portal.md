@@ -2,84 +2,117 @@
 title: Eventi personalizzati per Griglia di eventi di Azure con il portale di Azure | Microsoft Docs
 description: Usare Griglia di eventi di Azure e PowerShell per pubblicare un argomento e sottoscrivere l'evento.
 services: event-grid
-keywords: 
+keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 01/30/2018
+ms.date: 03/23/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: f37d496d43bb24c51d6e1c11b77d9ceba48b7b23
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f1185c0b2d5d320cd712642f422408348bee7a37
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Creare e instradare eventi personalizzati con il portale di Azure e Griglia di eventi
 
-La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. In questo articolo viene usato il portale di Azure per creare un argomento personalizzato, sottoscrivere l'argomento e attivare l'evento per visualizzare il risultato. In genere, si inviano eventi a un endpoint che risponde all'evento, ad esempio un webhook o una funzione di Azure. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un URL che si limita a raccoglie i messaggi. È possibile creare questo URL usando strumenti di terze parti da [RequestBin](https://requestb.in/) o [Hookbin](https://hookbin.com/).
-
->[!NOTE]
->**RequestBin** e **Hookbin** non sono destinati all'utilizzo con velocità effettiva elevata. Questi strumenti vengono usati esclusivamente per scopi dimostrativi. Se si esegue il push di più di un evento alla volta, è possibile che non vengano visualizzati tutti gli eventi nello strumento.
-
-Al termine, i dati dell'evento vengono inviati a un endpoint.
-
-![Dati dell'evento](./media/custom-event-quickstart-portal/request-result.png)
+La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. In questo articolo viene usato il portale di Azure per creare un argomento personalizzato, sottoscrivere l'argomento e attivare l'evento per visualizzare il risultato. Si invia l'evento a una funzione di Azure che registra i dati dell'evento. Al termine, i dati dell'evento vengono inviati a un endpoint e registrati.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
-
-Gli argomenti della griglia di eventi sono risorse di Azure e devono essere inseriti in un gruppo di risorse di Azure. Un gruppo di risorse è una raccolta logica in cui le risorse di Azure vengono distribuite e gestite.
-
-1. Nel riquadro di spostamento a sinistra selezionare **Gruppi di risorse**. Quindi selezionare **Aggiungi**.
-
-   ![Creare un gruppo di risorse](./media/custom-event-quickstart-portal/create-resource-group.png)
-
-1. Impostare il nome del gruppo di risorse su *gridResourceGroup* e la posizione su *westus2*. Selezionare **Create**.
-
-   ![Specificare i valori del gruppo di risorse](./media/custom-event-quickstart-portal/provide-resource-group-values.png)
-
 ## <a name="create-a-custom-topic"></a>Creare un argomento personalizzato
 
-Un argomento fornisce un endpoint definito dall'utente in cui vengono pubblicati gli eventi. 
+Un argomento di Griglia di eventi fornisce un endpoint definito dall'utente in cui vengono pubblicati gli eventi. 
 
-1. Per creare un argomento nel gruppo di risorse, selezionare **Tutti i servizi** e cercare *Griglia di eventi*. Selezionare **Argomenti di Griglia di eventi** tra le opzioni disponibili.
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-   ![Creare un argomento di Griglia di eventi](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
+1. Per creare un argomento personalizzato, selezionare **Crea una risorsa**. 
 
-1. Selezionare **Aggiungi**.
+   ![Creare una risorsa](./media/custom-event-quickstart-portal/create-resource.png)
 
-   ![Aggiungere un argomento di Griglia di eventi](./media/custom-event-quickstart-portal/add-topic.png)
+1. Cercare *Argomento di Griglia di eventi* e selezionare tale voce nelle opzioni disponibili.
 
-1. Specificare un nome per l'argomento. Il nome dell'argomento deve essere univoco perché è rappresentato da una voce DNS. Selezionare una delle [aree supportate](overview.md). Selezionare il gruppo di risorse creato in precedenza. Selezionare **Create**.
+   ![Cercare l'argomento di Griglia di eventi](./media/custom-event-quickstart-portal/search-event-grid.png)
 
-   ![Creare valori dell'argomento di Griglia di eventi](./media/custom-event-quickstart-portal/provide-topic-values.png)
+1. Selezionare **Create**.
 
-1. Dopo aver creato l'argomento, selezionare **Aggiorna** per visualizzarlo.
+   ![Passaggi iniziali](./media/custom-event-quickstart-portal/select-create.png)
 
-   ![Visualizzare l'argomento di Griglia di eventi](./media/custom-event-quickstart-portal/see-topic.png)
+1. Specificare un nome univoco per l'argomento personalizzato. Il nome dell'argomento deve essere univoco perché è rappresentato da una voce DNS. Non usare il nome visualizzato nell'immagine, ma crearne uno personalizzato. Selezionare una delle [aree supportate](overview.md). Specificare un nome per il gruppo di risorse. Selezionare **Create**.
 
-## <a name="create-a-message-endpoint"></a>Creare un endpoint del messaggio
+   ![Creare valori dell'argomento di Griglia di eventi](./media/custom-event-quickstart-portal/create-custom-topic.png)
 
-Prima di sottoscrivere l'argomento, creare l'endpoint per il messaggio dell'evento. Anziché scrivere codice per rispondere all'evento, creare un endpoint che raccoglie i messaggi per poterli visualizzare. RequestBin e Hookbin sono strumenti di terze parti che consentono di creare un endpoint e visualizzare le richieste inviate a questo endpoint. Passare a [RequestBin](https://requestb.in/) e fare clic su **Create a RequestBin** (Crea RequestBin) oppure passare a [Hookbin](https://hookbin.com/) e fare clic su **Create New Endpoint** (Crea nuovo endpoint).  Copiare l'URL del contenitore, necessario per sottoscrivere l'argomento.
+1. Dopo che l'argomento personalizzato è stato creato, viene visualizzata una notifica dell'operazione riuscita.
+
+   ![Visualizzare la notifica dell'operazione riuscita](./media/custom-event-quickstart-portal/success-notification.png)
+
+   Se la distribuzione non è riuscita, individuare la causa dell'errore. Selezionare **La distribuzione non è riuscita**.
+
+   ![Selezionare La distribuzione non è riuscita](./media/custom-event-quickstart-portal/select-failed.png)
+
+   Selezionare il messaggio di errore.
+
+   ![Selezionare La distribuzione non è riuscita](./media/custom-event-quickstart-portal/failed-details.png)
+
+   Nella figura seguente viene illustrata una distribuzione che non è riuscita perché il nome dell'argomento personalizzato è già in uso. Se viene visualizzato questo errore, riprovare la distribuzione con un nome diverso.
+
+   ![Conflitto di nomi](./media/custom-event-quickstart-portal/name-conflict.png)
+
+## <a name="create-an-azure-function"></a>Creare una funzione di Azure
+
+Prima di sottoscrivere l'argomento, creare l'endpoint per il messaggio dell'evento. In questo articolo Funzioni di Azure viene usato per creare un'app per le funzioni per l'endpoint.
+
+1. Per creare una funzione, selezionare **Crea una risorsa**.
+
+   ![Creare una risorsa](./media/custom-event-quickstart-portal/create-resource-small.png)
+
+1. Selezionare **Calcolo** e **App per le funzioni**.
+
+   ![Creare una funzione](./media/custom-event-quickstart-portal/create-function.png)
+
+1. Specificare un nome univoco per la funzione di Azure. Non usare il nome visualizzato nell'immagine. Selezionare il gruppo di risorse creato in questo articolo. Per il piano di hosting, usare **Piano a consumo**. Usare il nuovo account di archiviazione suggerito. Dopo avere specificato i valori, selezionare **Crea**.
+
+   ![Specificare i valori per la funzione](./media/custom-event-quickstart-portal/provide-function-values.png)
+
+1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
+
+   ![Vai alla risorsa](./media/custom-event-quickstart-portal/go-to-resource.png)
+
+1. Accanto a **Funzioni** selezionare **+**.
+
+   ![Aggiungere una funzione](./media/custom-event-quickstart-portal/add-function.png)
+
+1. Selezionare **Funzione personalizzata** tra le opzioni disponibili.
+
+   ![Funzione personalizzata](./media/custom-event-quickstart-portal/select-custom-function.png)
+
+1. Scorrere verso il basso fino a individuare **Trigger griglia di eventi**. Selezionare **C#**.
+
+   ![Selezionare il trigger di Griglia di eventi](./media/custom-event-quickstart-portal/select-event-grid-trigger.png)
+
+1. Accettare i valori predefiniti e selezionare **Crea**.
+
+   ![Nuova funzione](./media/custom-event-quickstart-portal/new-function.png)
+
+La funzione è ora pronta a ricevere gli eventi.
 
 ## <a name="subscribe-to-a-topic"></a>Sottoscrivere un argomento
 
-Si sottoscrive un argomento per indicare alla griglia di eventi gli eventi di cui si vuole tenere traccia. 
+Si sottoscrive un argomento per indicare a Griglia di eventi gli eventi di cui si vuole tenere traccia e dove inviare tali eventi.
 
-1. Per creare una sottoscrizione di Griglia di eventi, selezionare di nuovo **Tutti i servizi** e cercare *Griglia di eventi*. Selezionare **Sottoscrizioni di Griglia di eventi** tra le opzioni disponibili.
+1. Nella funzione di Azure selezionare **Aggiungi sottoscrizione di Griglia di eventi**.
 
-   ![Creare una sottoscrizione di Griglia di eventi](./media/custom-event-quickstart-portal/create-subscription.png)
+   ![Aggiungere una sottoscrizione di Griglia di eventi](./media/custom-event-quickstart-portal/add-event-grid-subscription.png)
 
-1. Selezionare **+ Sottoscrizione di eventi**.
+1. Fornire i valori per la sottoscrizione. Selezionare **Argomenti di Griglia di eventi** per il tipo di argomento. Per la sottoscrizione e il gruppo di risorse, selezionare la sottoscrizione e il gruppo di risorse in cui è stato creato l'argomento personalizzato. Ad esempio, selezionare il nome dell'argomento personalizzato. L'endpoint del sottoscrittore viene prepopolato con l'URL per la funzione.
 
-   ![Aggiungere una sottoscrizione di Griglia di eventi](./media/custom-event-quickstart-portal/add-subscription.png)
+   ![Fornire i valori della sottoscrizione](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
-1. Specificare un nome univoco per la sottoscrizione di eventi. Per il tipo di argomento, selezionare **Argomenti di Griglia di eventi**. Per l'istanza, selezionare l'argomento personalizzato creato. Specificare l'URL di RequestBin o Hookbin come endpoint per la notifica degli eventi. Dopo avere specificato i valori, selezionare **Crea**.
+1. Prima di attivare l'evento, aprire i log per la funzione in modo da visualizzare i dati dell'evento quando viene inviato. Nella parte inferiore della funzione di Azure, selezionare **Log**.
 
-   ![Specificare i valori della sottoscrizione di Griglia di eventi](./media/custom-event-quickstart-portal/provide-subscription-values.png)
+   ![Selezionare i log](./media/custom-event-quickstart-portal/select-logs.png)
 
-A questo punto, attivare un evento per vedere come la griglia di eventi distribuisce il messaggio nell'endpoint. Per semplificare questo articolo, viene usato Cloud Shell per inviare dati di esempio dell'evento all'argomento. In genere, i dati dell'evento vengono inviati da un'applicazione o un servizio di Azure.
+A questo punto, attivare un evento per vedere come la griglia di eventi distribuisce il messaggio nell'endpoint. Per semplificare questo articolo, viene usato Cloud Shell per inviare dati di esempio dell'evento all'argomento personalizzato. In genere, i dati dell'evento vengono inviati da un'applicazione o un servizio di Azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -88,8 +121,8 @@ A questo punto, attivare un evento per vedere come la griglia di eventi distribu
 Ottenere prima di tutto l'URL e la chiave per l'argomento. Usare il nome dell'argomento per `<topic_name>`.
 
 ```azurecli-interactive
-endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)
-key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
+endpoint=$(az eventgrid topic show --name <topic_name> -g myResourceGroup --query "endpoint" --output tsv)
+key=$(az eventgrid topic key list --name <topic_name> -g myResourceGroup --query "key1" --output tsv)
 ```
 
 L'esempio seguente ottiene i dati di esempio dell'evento:
@@ -98,41 +131,27 @@ L'esempio seguente ottiene i dati di esempio dell'evento:
 body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
 ```
 
-Eseguendo `echo "$body"` è possibile visualizzare l'evento completo. L'elemento `data` del JSON è il payload dell'evento. Questo campo accetta qualsiasi JSON ben formato. È anche possibile usare il campo oggetto per il filtro e il routing avanzato.
+Per visualizzare l'evento completo, usare `echo "$body"`. L'elemento `data` del JSON è il payload dell'evento. Questo campo accetta qualsiasi JSON ben formato. È anche possibile usare il campo oggetto per il filtro e il routing avanzato.
 
-CURL è una utilità che esegue richieste HTTP. In questo articolo CURL viene usato per inviare un evento all'argomento. 
+CURL è un'utilità che invia richieste HTTP. In questo articolo CURL viene usato per inviare un evento all'argomento personalizzato. 
 
 ```azurecli-interactive
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-È stato attivato l'evento e la griglia di eventi ha inviato il messaggio all'endpoint configurato al momento della sottoscrizione. Passare all'URL dell'endpoint creato in precedenza. In alternativa, fare clic su Aggiorna nel browser aperto. Verrà visualizzato l'evento appena inviato.
+È stato attivato l'evento e Griglia di eventi ha inviato il messaggio all'endpoint configurato al momento della sottoscrizione. Analizzare i log per visualizzare i dati dell'evento.
 
-```json
-[{
-  "id": "1807",
-  "eventType": "recordInserted",
-  "subject": "myapp/vehicles/motorcycles",
-  "eventTime": "2017-08-10T21:03:07+00:00",
-  "data": {
-    "make": "Ducati",
-    "model": "Monster"
-  },
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
-}]
-```
+![Visualizzare i log](./media/custom-event-quickstart-portal/view-log-entry.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si intende continuare a usare questo evento, non è necessario pulire le risorse create con questo articolo. Se non si intende continuare, eliminare le risorse create in questo articolo.
+Se si intende continuare a usare questo evento, non è necessario pulire le risorse create con questo articolo. In caso contrario, eliminare le risorse create in questo articolo.
 
 Selezionare il gruppo di risorse e quindi fare clic su **Elimina gruppo di risorse**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come creare argomenti e sottoscrizioni di eventi, è possibile approfondire le operazioni possibili con la griglia di eventi:
+Ora che si è appreso come creare argomenti personalizzati e sottoscrizioni di eventi, è possibile approfondire le operazioni possibili con Griglia di eventi:
 
 - [Informazioni sulla griglia di eventi](overview.md)
 - [Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato (anteprima)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)

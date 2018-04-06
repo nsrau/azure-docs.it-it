@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 32661ad4d647f266273c4c94a5ba177a348c5431
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 990abc5c4e546d72d093bcd9e8f37932e93cbeb4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
 
->[!NOTE]
-> Lo SKU di Load Balancer Standard è attualmente in anteprima. Durante l'anteprima, la funzionalità potrebbe non avere lo stesso livello di disponibilità e affidabilità delle funzionalità presenti nella versione con disponibilità generale. Per altre informazioni, vedere [Condizioni Supplementari di Microsoft Azure le Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Usare lo [SKU di Load Balancer Basic](load-balancer-overview.md) disponibile a livello generale per i servizi di produzione. Per usare l'[anteprima delle zone di disponibilità](https://aka.ms/availabilityzones) con questa anteprima, è richiesto un [accesso separato](https://aka.ms/availabilityzones), inoltre è necessario registrarsi all'[anteprima](#preview-sign-up) di Load Balancer Standard.
-
 Azure offre connettività in uscita per le distribuzioni dei clienti tramite vari meccanismi diversi. Questo articolo descrive che cosa sono gli scenari, quando si applicano, come funzionano e come gestirli.
+
+>[!NOTE] 
+>Questo articolo descrive solo le distribuzioni di Resource Manager. Vedere [Connessioni in uscita (versione classica)](load-balancer-outbound-connections-classic.md) per tutti gli scenari di distribuzione classica in Azure.
 
 Una distribuzione in Azure può comunicare con endpoint all'esterno di Azure nello spazio indirizzi IP pubblici. Quando un'istanza avvia un flusso in uscita verso una destinazione nello spazio indirizzi IP pubblici, Azure esegue in modo dinamico il mapping dell'indirizzo IP privato a un indirizzo IP pubblico. Dopo aver creato questo mapping, il traffico di ritorno per questo flusso con origine in uscita può raggiungere l'indirizzo IP privato da cui ha avuto origine il flusso.
 
@@ -38,11 +38,7 @@ Sono presenti più [scenari in uscita](#scenarios). È possibile combinare quest
 
 ## <a name="scenarios"></a>Panoramica dello scenario
 
-Azure offre due modelli di distribuzione principali, ovvero Azure Resource Manager e la distribuzione classica. Quando si usa [Azure Resource Manager](#arm), vengono definiti in modo esplicito il servizio Azure Load Balancer e le risorse correlate. Le distribuzioni classiche si basano su un'astrazione del concetto di bilanciamento del carico e offrono una funzione simile tramite la definizione di endpoint di un [servizio cloud](#classic). Gli [scenari](#scenarios) applicabili per la distribuzione dipendono dal modello di distribuzione usato.
-
-### <a name="arm"></a>Azure Resource Manager
-
-Attualmente, Azure offre tre diversi metodi per ottenere la connettività in uscita per le risorse di Azure Resource Manager. Le distribuzioni [classiche](#classic) includono un subset di questi scenari.
+Quando si usa [Azure Resource Manager](#arm), vengono definiti in modo esplicito il servizio Azure Load Balancer e le risorse correlate.  Attualmente, Azure offre tre diversi metodi per ottenere la connettività in uscita per le risorse di Azure Resource Manager. 
 
 | Scenario | Metodo | DESCRIZIONE |
 | --- | --- | --- |
@@ -52,19 +48,11 @@ Attualmente, Azure offre tre diversi metodi per ottenere la connettività in usc
 
 Se non si vuole che una macchina virtuale comunichi con gli endpoint all'esterno di Azure nello spazio indirizzi IP pubblici, è possibile usare i gruppi di sicurezza di rete per bloccare l'accesso in base alle specifiche esigenze. La sezione [Impedire la connettività in uscita](#preventoutbound) illustra i gruppi di sicurezza di rete più in dettaglio. La progettazione, l'implementazione e la gestione di una rete virtuale senza accesso in uscita non rientrano nell'ambito di questo articolo.
 
-### <a name="classic"></a>Distribuzione classica (servizi cloud)
-
-Gli scenari disponibili per le distribuzioni classiche sono un subset degli scenari disponibili per le distribuzioni di [Azure Resource Manager](#arm) e del servizio Load Balancer Basic.
-
-Per una macchina virtuale classica esistono gli stessi tre scenari fondamentali descritti per le risorse di Azure Resource Manager ([1](#ilpip), [2](#lb), [3](#defaultsnat)). Un ruolo di lavoro Web classico ha solo due scenari ([2](#lb), [3](#defaultsnat)). Anche per le [strategie di mitigazione](#snatexhaust) esistono le stesse differenze.
-
-L'algoritmo usato per la [preallocazione di porte temporanee](#ephemeralprots) per PAT per le distribuzioni classiche è lo stesso usato per le distribuzioni di risorse di Azure Resource Manager.  
-
 ### <a name="ilpip"></a>Scenario 1: macchina virtuale con un indirizzo IP pubblico a livello di istanza
 
 In questo scenario la macchina virtuale ha assegnato un IP pubblico a livello di istanza. Per quanto riguarda le connessioni in uscita, non è importante se la macchina virtuale abbia un carico bilanciato o meno. Questo scenario ha la precedenza rispetto agli altri. Quando si usa un indirizzo IP pubblico a livello di istanza, la macchina virtuale usa tale indirizzo IP per tutti i flussi in uscita.  
 
-Il mascheramento delle porte (PAT) non viene usato e tutte le porte temporanee sono disponibili per l'uso per la macchina virtuale.
+Un indirizzo IP pubblico assegnato a una macchina virtuale è una relazione 1:1, anziché uno-a-molti, e viene implementato come NAT 1:1 senza stato.  Il mascheramento delle porte (PAT) non viene usato e tutte le porte temporanee sono disponibili per l'uso per la macchina virtuale.
 
 Se l'applicazione avvia numerosi flussi in uscita e si assiste a un esaurimento delle porte SNAT, prendere in considerazione l'assegnazione di un [indirizzo IP pubblico a livello di istanza per ridurre i vincoli SNAT](#assignilpip). Leggere per intero [Gestione dell'esaurimento SNAT](#snatexhaust).
 
@@ -97,15 +85,11 @@ Le porte SNAT vengono preallocate come descritto nella sezione [Informazioni su 
 
 ### <a name="combinations"></a>Più scenari combinati
 
-È possibile combinare gli scenari descritti nelle sezioni precedenti per ottenere un risultato particolare. Quando esistono più scenari, si applica un ordine di priorità: lo [scenario 1](#ilpip) ha la precedenza sullo [scenario 2](#lb) e [3](#defaultsnat) (solo Azure Resource Manager). Lo [scenario 2](#lb) esegue l'override dello [scenario 3](#defaultsnat) (Azure Resource Manager e versione classica).
+È possibile combinare gli scenari descritti nelle sezioni precedenti per ottenere un risultato particolare. Quando esistono più scenari, si applica un ordine di precedenza: lo [scenario 1](#ilpip) ha la precedenza sullo [scenario 2](#lb) e [3](#defaultsnat). Lo [scenario 2](#lb) sostituisce lo [scenario 3](#defaultsnat).
 
 Un esempio è una distribuzione di Azure Resource Manager in cui l'applicazione dipende fortemente da connessioni in uscita a un numero limitato di destinazioni, ma riceve anche flussi in ingresso tramite un front-end di Load Balancer. In questo caso, è possibile combinare gli scenari 1 e 2 per una maggiore efficacia. Per informazioni su altri modelli, vedere [Gestione dell'esaurimento SNAT](#snatexhaust).
 
 ### <a name="multife"></a> Più front-end per i flussi in uscita
-
-#### <a name="load-balancer-basic"></a>Load Balancer Basic
-
-Load Balancer Basic sceglie un unico front-end da usare per i flussi in uscita quando esistono [più front-end IP (pubblici)](load-balancer-multivip-overview.md) candidati per i flussi in uscita. Questa selezione non è configurabile ed è consigliabile considerare casuale l'algoritmo di selezione. È possibile designare un indirizzo IP specifico per i flussi in uscita come descritto in [Più scenari combinati](#combinations).
 
 #### <a name="load-balancer-standard"></a>Load Balancer Standard
 
@@ -122,6 +106,10 @@ Load Balancer Standard usa tutti i candidati per i flussi in uscita contemporane
 ```
 
 In genere, il valore predefinito di questa opzione è _false_, il che significa che questa regola programma le connessioni SNAT in uscita per le macchine virtuali associate nel pool back-end della regola di bilanciamento del carico.  Il valore può essere impostato su _true_ per impedire che Load Balancer usi l'indirizzo IP front-end associato per le connessioni in uscita per le macchine virtuali nel pool back-end di questa regola di bilanciamento del carico.  È tuttavia possibile designare anche un indirizzo IP specifico per i flussi in uscita, come descritto in [Più scenari combinati](#combinations).
+
+#### <a name="load-balancer-basic"></a>Load Balancer Basic
+
+Load Balancer Basic sceglie un unico front-end da usare per i flussi in uscita quando esistono [più front-end IP (pubblici)](load-balancer-multivip-overview.md) candidati per i flussi in uscita. Questa selezione non è configurabile ed è consigliabile considerare casuale l'algoritmo di selezione. È possibile designare un indirizzo IP specifico per i flussi in uscita come descritto in [Più scenari combinati](#combinations).
 
 ### <a name="az"></a> Zone di disponibilità
 
@@ -147,7 +135,12 @@ Per informazioni sui modelli per la mitigazione delle condizioni che portano com
 
 Azure usa un algoritmo per determinare il numero di porte SNAT preallocate disponibili in base alla dimensione del pool back-end quando si usa il mascheramento delle porte SNAT ([PAT](#pat)). Le porte SNAT sono porte temporanee disponibili per un particolare indirizzo di origine IP pubblico.
 
-Azure prealloca le porte SNAT alla configurazione IP della scheda di interfaccia di rete di ogni macchina virtuale. Quando una configurazione IP viene aggiunta al pool, le porte SNAT vengono preallocate per questa configurazione IP in base alla dimensione del pool back-end. Per i ruoli di lavoro Web classici, l'allocazione avviene per ogni istanza del ruolo. Quando vengono creati i flussi in uscita, [PAT](#pat) usa (fino al limite preallocato) e rilascia in modo dinamico tali porte alla chiusura del flusso o quando si verifica un [timeout per inattività](#ideltimeout).
+Lo stesso numero di porte SNAT viene allocato rispettivamente per UDP e TCP e utilizzato indipendentemente per ogni protocollo di trasporto IP. 
+
+>[!IMPORTANT]
+>La programmazione SNAT per SKU Standard è basata sul protocollo di trasporto IP e viene derivata dalla regola di bilanciamento del carico.  Se esiste una sola regola di bilanciamento del carico TCP, SNAT è disponibile solo per TCP. Se è presente solo una regola di bilanciamento del carico TCP ed è necessaria una connessione SNAT in uscita per UDP, creare una regola di bilanciamento del carico UDP dallo stesso front-end allo stesso pool back-end.  In questo modo, verrà attivata la programmazione SNAT per UDP.  Non è necessario un probe di integrità o una regola di lavoro.  La programmazione SNAT per SKU Basic programma sempre SNAT per il protocollo di trasporto IP, indipendentemente dal protocollo di trasporto specificato nella regole di bilanciamento del carico.
+
+Azure prealloca le porte SNAT alla configurazione IP della scheda di interfaccia di rete di ogni macchina virtuale. Quando una configurazione IP viene aggiunta al pool, le porte SNAT vengono preallocate per questa configurazione IP in base alla dimensione del pool back-end. Quando vengono creati i flussi in uscita, [PAT](#pat) usa (fino al limite preallocato) e rilascia in modo dinamico tali porte alla chiusura del flusso o quando si verifica un [timeout per inattività](#ideltimeout).
 
 Nella tabella seguente sono riportate le preallocazioni delle porte SNAT per i livelli di dimensioni del pool back-end:
 
@@ -168,6 +161,18 @@ Ricordare che il numero di porte SNAT disponibili non viene convertito direttame
 La modifica delle dimensioni del pool back-end potrebbe influire su alcuni dei flussi stabiliti. Se le dimensioni del pool back-end aumentano e si esegue la transizione al livello successivo, metà delle porte SNAT preallocate vengono recuperate durante la transizione al livello di pool back-end più grande successivo. I flussi associati a una porta SNAT recuperata raggiungeranno il timeout e dovranno essere ristabiliti. Se viene tentato un nuovo flusso, il flusso avrà esito positivo immediatamente, purché siano disponibili porte preallocate.
 
 Se le dimensioni del pool back-end diminuiscono e si ha una transizione a un livello più basso, il numero di porte SNAT disponibili aumenta. In questo caso, non vi sono effetti per le porte SNAT allocate esistenti e i rispettivi flussi.
+
+Le allocazioni delle porte SNAT sono specifiche del protocollo di trasporto IP (i protocolli TCP e UDP vengono gestiti separatamente) e vengono rilasciate nelle condizioni seguenti:
+
+### <a name="tcp-snat-port-release"></a>Rilascio di porte SNAT TCP
+
+- Se il server/client invia richieste FIN/ACK, la porta SNAT viene rilasciata dopo 240 secondi.
+- In presenza di una richiesta RST, la porta SNAT viene rilasciata dopo 15 secondi.
+- È stato raggiunto il timeout di inattività
+
+### <a name="udp-snat-port-release"></a>Rilascio di porte SNAT UDP
+
+- È stato raggiunto il timeout di inattività
 
 ## <a name="problemsolving"></a> Risoluzione dei problemi 
 
@@ -208,9 +213,19 @@ Quando si usa un'istanza di Load Balancer Standard pubblica, si assegnano [più 
 >[!NOTE]
 >Nella maggior parte dei casi l'esaurimento delle porte SNAT indica una progettazione non valida.  Assicurarsi di conoscere il motivo dell'esaurimento delle porte prima di usare più front-end per aggiungere porte SNAT.  Potrebbe essere indice di un problema che può causare errori in un secondo momento.
 
+#### <a name="scaleout"></a>Scalabilità orizzontale
+
+Le [porte preallocate](#preallocatedports) vengono assegnate in base alle dimensioni del pool back-end e raggruppate in livelli per ridurre al minimo le interruzioni quando alcune delle porte devono essere riallocate in base al successivo livello di dimensioni maggiore del pool back-end.  È possibile scegliere di aumentare l'intensità dell'utilizzo delle porte SNAT per un front-end specifico ridimensionando il pool back-end fino alle dimensioni massime per un determinato livello.  A questo scopo, le dimensioni dell'applicazione devono essere aumentate in modo efficiente.
+
+Ad esempio, due macchine virtuali nel pool back-end devono avere 1024 porte SNAT disponibili per ogni configurazione IP, per un totale di 2048 porte SNAT per la distribuzione.  Se la distribuzione viene aumentata a 50 macchine virtuali, anche se il numero di porte preallocate resta costante per ogni macchina virtuale, potrà essere usato un totale di 51.200 (50 x 1024) porte SNAT dalla distribuzione.  Per aumentare le dimensioni della distribuzione, controllare il numero di [porte preallocate](#preallocatedports) per ogni livello per assicurarsi di definire la scalabilità orizzontale in base alle dimensioni massime per il rispettivo livello.  Se nell'esempio precedente si sceglie di applicare scalabilità orizzontale fino a 51 istanze anziché 50, si passa al livello successivo, finendo con meno porte SNAT per ogni macchina virtuale e in totale.
+
+Al contrario, applicare scalabilità orizzontale fino al successivo livello di dimensioni maggiore del pool back-end per le possibili connessioni in uscita se le porte allocate devono essere riallocate.  Se non si vuole che questo avvenga, è necessario definire la distribuzione in base alle dimensioni del livello.  In alternativa, assicurarsi che l'applicazione possa eseguire il rilevamento delle porte e nuovi tentativi in base alle esigenze.  I keep-alive TCP possono aiutare a rilevare i casi in cui le porte SNAT non funzionano più a causa della riallocazione.
+
 ### <a name="idletimeout"></a>Usare keep-alive per reimpostare il timeout di inattività per le connessioni uscita
 
-Il timeout di inattività delle connessioni in uscita è di 4 minuti. Questo timeout non è modificabile. È comunque possibile usare keep-alive del livello trasporto (ad esempio, keep-alive TCP) o del livello applicazione per aggiornare un flusso inattivo e reimpostare il timeout di inattività, se necessario.
+Il timeout di inattività delle connessioni in uscita è di 4 minuti. Questo timeout non è modificabile. È comunque possibile usare keep-alive del livello trasporto (ad esempio, keep-alive TCP) o del livello applicazione per aggiornare un flusso inattivo e reimpostare il timeout di inattività, se necessario.  
+
+Quando si usano keep-alive TCP, è sufficiente abilitarli sul lato della connessione. Ad esempio, è sufficiente abilitarli sul lato server solo per reimpostare il timer di inattività del flusso, mentre questo non è necessario per entrambi i lati per i keep-alive TCP avviati.  Si applicano concetti simili anche per il livello dell'applicazione, tra cui le configurazioni client-server di database.  Controllare il lato server per verificare le opzioni disponibili per keep-alive specifici dell'applicazione.
 
 ## <a name="discoveroutbound"></a>Individuazione dell'IP pubblico usato da una VM
 Esistono molti modi per determinare l'indirizzo IP di origine pubblica di una connessione in uscita. OpenDNS offre un servizio che consente di visualizzare l'indirizzo IP pubblico della macchina virtuale. 
@@ -231,6 +246,7 @@ Se un gruppo di sicurezza di rete blocca le richieste di probe di integrità dal
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [Load Balancer Basic](load-balancer-overview.md).
+- Vedere altre informazioni su [Azure Load Balancer](load-balancer-overview.md).
+- Vedere altre informazioni su [Azure Load Balancer Standard](load-balancer-standard-overview.md).
 - Vedere altre informazioni sui [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
 - Informazioni su alcune altre [funzionalità di rete](../networking/networking-overview.md) chiave di Azure.

@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 61e0e7cf960d7eb2294bc294ec1eec9d80428a81
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9f5a68972015f54e2333199652075cda2535a3c8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e zone di disponibilità
 
 Lo SKU Standard di Azure Load Balancer supporta scenari di [zone di disponibilità](../availability-zones/az-overview.md). Load Balancer Standard introduce diversi nuovi concetti legati alla possibilità di ottimizzare la disponibilità nello scenario end-to-end allineando le risorse con le zone, nonché di distribuirle tra le zone.  Vedere [Zone di disponibilità](../availability-zones/az-overview.md) per indicazioni su cosa sono le zone di disponibilità, quali aree supportano attualmente le zone di disponibilità e altri concetti e prodotti correlati. Le zone di disponibilità in combinazione con Load Balancer Standard costituiscono un set di funzionalità ampio e flessibile per la creazione di molti scenari diversi.  Leggere questo documento per comprendere questi [concetti](#concepts) e le [linee guida di progettazione](#design) degli scenari fondamentali.
 
 >[!NOTE]
-> Lo SKU di Load Balancer Standard è attualmente in anteprima. Durante l'anteprima, la funzionalità potrebbe non avere lo stesso livello di disponibilità e affidabilità delle funzionalità presenti nella versione con disponibilità generale. Per altre informazioni, vedere [Condizioni Supplementari di Microsoft Azure le Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Usare lo [SKU di Load Balancer Basic](load-balancer-overview.md) disponibile a livello generale per i servizi di produzione. Per usare l'[anteprima delle zone di disponibilità](https://aka.ms/availabilityzones) con questa anteprima, è richiesto un [accesso separato](https://aka.ms/availabilityzones), inoltre è necessario registrarsi all'[anteprima](#preview-sign-up) di Load Balancer Standard.
+>Vedere [Zone di disponibilità (anteprima)](https://aka.ms/availabilityzones) per altri argomenti correlati. 
 
 ## <a name="concepts"></a> Concetti relativi alle zone di disponibilità applicati a Load Balancer
 
@@ -151,7 +151,7 @@ Se si usano modelli di Resource Manager esistenti nella configurazione, aggiunge
 
 Il bilanciamento del carico tra zone è la possibilità di Load Balancer di raggiungere un endpoint di back-end in qualsiasi zona ed è indipendente dal front-end e dalla relativa zonalità.
 
-Se si vuole allineare e garantire la distribuzione con una singola zona, allineare le risorse di back-end di zona e di front-end di zona alla stessa zona. Non è necessaria alcuna azione.
+Se si vuole allineare e garantire la distribuzione all'interno di una singola zona, allineare le risorse di back-end e di front-end alla stessa zona. Non è necessaria alcuna azione.
 
 ### <a name="backend"></a>Back-end
 
@@ -210,7 +210,7 @@ La ridondanza della zona può fornire un'opzione indipendente dalla zona e al te
 
 Il concetto di zona può fornire una garanzia esplicita a una zona, la cui durata è legata all'integrità della zona. L'associazione di un indirizzo IP di zona o di un front-end di Load Balancer di zona può essere un attributo ragionevole o auspicabile soprattutto se la risorsa collegata è una macchina virtuale di zona nella stessa zona.  Può essere che l'applicazione richieda una conoscenza esplicita della zona in cui si trova una risorsa e si preferisca ragionare sulla disponibilità in zone distinte in modo esplicito.  È possibile scegliere di esporre più front-end di zona per un servizio end-to-end distribuito tra zone (vale a dire, front-end di zona in base alla zona per più set di scalabilità di macchine virtuali di zona).  Inoltre, se i front-end di zona sono indirizzi IP pubblici, è possibile usare questi front-end di zona molteplici per esporre il servizio con [Gestione traffico](../traffic-manager/traffic-manager-overview.md).  In alternativa, si possono usare più front-end di zona per ottenere informazioni dettagliate sulle prestazioni e sull'integrità in base alla zona tramite soluzioni di monitoraggio di terze parti ed esporre il servizio complessivo con un front-end con ridondanza della zona. Si devono gestire le risorse di zona solo con front-end di zona allineati alla stessa zona evitando scenari tra zone potenzialmente dannosi per le risorse di zona.  Le risorse di zona sono disponibili solo nelle aree in cui sono presenti le zone di disponibilità.
 
-Non esiste alcuna indicazione generale che una scelta sia migliore dell'altra senza conoscere il servizio end-to-end.
+Non è possibile fornire indicazioni generali riguardo alla scelta migliore da fare se non si conosce l'architettura del servizio.
 
 ## <a name="limitations"></a>Limitazioni
 

@@ -2,11 +2,11 @@
 title: 'Azure AD Connect: Selezionare il tipo di installazione | Microsoft Docs'
 description: Questo argomento descrive come selezionare il tipo di installazione da usare per Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 76f1ce12ab149f57ec6e995d132de83105c5e0ca
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selezionare il tipo di installazione da usare per Azure AD Connect
 Per Azure AD Connect sono disponibili due tipi di installazione: rapida e personalizzata. Questo argomento consente di decidere quale opzione usare durante l'installazione.
 
-## <a name="express"></a>Rapida
+## <a name="express"></a>Express
 L'installazione rapida è l'opzione più comune e viene usata per circa il 90% di tutte le nuove installazioni. È stata progettata per fornire una configurazione adatta per la maggior parte degli scenari dei clienti.
 
 Richiede:
@@ -34,7 +34,7 @@ Richiede:
 
 Offre:
 
-- [Sincronizzazione delle password](active-directory-aadconnectsync-implement-password-synchronization.md) da locale ad Azure AD per l'accesso Single Sign-On.
+- [Sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-hash-synchronization.md) da locale ad Azure AD per l'accesso Single Sign-On.
 - Una configurazione che consente di sincronizzare [utenti, gruppi, contatti e computer Windows 10](active-directory-aadconnectsync-understanding-default-configuration.md).
 - Sincronizzazione di tutti gli oggetti idonei in tutti i domini e tutte le unità organizzative.
 - [Aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md) abilitato per garantire che venga usata sempre la versione più recente.

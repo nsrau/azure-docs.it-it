@@ -1,13 +1,13 @@
 ---
-title: "Gestire set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs"
-description: "Comandi comuni dell'interfaccia della riga di comando di Azure 2.0 per la gestione dei set di scalabilità di macchine virtuali, ad esempio per l'avvio e l'arresto di un'istanza o la modifica della capacità del set di scalabilità."
+title: Gestire set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
+description: Comandi comuni dell'interfaccia della riga di comando di Azure 2.0 per la gestione dei set di scalabilità di macchine virtuali, ad esempio per l'avvio e l'arresto di un'istanza o la modifica della capacità del set di scalabilità.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: a484cf6734ff663a852be1a46e2b2ca2f75bb17d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1afb43b65203406a7d49b0e3f641bc22d164a4a9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Gestire il set di scalabilità di una macchina virtuale con l'interfaccia della riga di comando di Azure 2.0
 Nel ciclo di vita del set di scalabilità di una macchina virtuale potrebbe essere necessario eseguire una o più attività di gestione. Si potrebbe anche voler creare script per automatizzare le attività di ciclo di vita. Questo articolo descrive alcuni dei comandi comuni dell'interfaccia della riga di comando di Azure 2.0 che consentono di eseguire queste attività.
 
-Per completare queste attività di gestione è necessaria la versione più recente dell'interfaccia della riga di comando di Azure 2.0. Per informazioni su come installare e usare la versione più recente, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). Se è necessario creare un set di scalabilità di una macchina virtuale, è possibile [creare un set di scalabilità nel portale di Azure](virtual-machine-scale-sets-create-portal.md).
+Per completare queste attività di gestione è necessaria la versione più recente dell'interfaccia della riga di comando di Azure 2.0. Per informazioni, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). Se è necessario creare un set di scalabilità di macchine virtuali, è possibile [creare un set di scalabilità con l'interfaccia della riga di comando di Azure 2.0](quick-create-cli.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Visualizzare informazioni su un set di scalabilità

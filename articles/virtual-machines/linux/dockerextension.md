@@ -1,11 +1,11 @@
 ---
-title: Usare l'estensione di VM Docker di Azure | Documentazione Microsoft
+title: Usare l'estensione di VM Docker di Azure | Microsoft Docs
 description: Informazioni su come usare l'estensione di VM Docker per distribuire in modo rapido e sicuro un ambiente Docker in Azure con i modelli di Resource Manager e l'interfaccia della riga di comando di Azure 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: fe4013eefc0a7a896d6e8eb737ee8e2bc26ecf61
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1e5a4fcfd758c12213d6de7d0f5cfcc78531ee97
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Creare un ambiente Docker in Azure usando l'estensione di VM Docker
 Docker è una nota piattaforma di creazione dell'immagine e gestione di contenitori che consente di lavorare rapidamente con contenitori in Linux. L'ambiente Azure offre vari modi per distribuire Docker a seconda delle proprie esigenze. Questo articolo è incentrato sull'uso dell'estensione di VM Docker e dei modelli di Azure Resource Manager con l'interfaccia della riga di comando di Azure 2.0. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](dockerextension-nodejs.md).
+
+> [!WARNING]
+> L'estensione di VM Docker di Azure per Linux è deprecata e verrà ritirata nel mese di novembre 2018.
+> L'estensione installa semplicemente Docker. Le alternative disponibili, come cloud-init o l'estensione dello script personalizzata, offrono pertanto una soluzione più efficace per installare la versione di Docker desiderata. Per altre informazioni su come usare cloud-init, vedere [Personalizzare una VM Linux con cloud-init](tutorial-automate-vm-deployment.md).
 
 ## <a name="azure-docker-vm-extension-overview"></a>Panoramica dell'estensione di VM Docker di Azure
 L'estensione di VM Docker di Azure installa e configura il daemon Docker, il client Docker e Docker Compose nella macchina virtuale (VM) Linux. L'uso dell'estensione di VM Docker di Azure permette di ottenere un livello di controllo superiore e un maggior numero di funzionalità rispetto a quanto offerto dal semplice uso di Docker Machine o dalla creazione di un host Docker. Questi funzionalità aggiuntive, come ad esempio [Docker Compose](https://docs.docker.com/compose/overview/), rendono l'estensione di VM Docker di Azure la soluzione ideale per ambienti di sviluppo o di produzione più solidi.

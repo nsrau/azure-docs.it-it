@@ -2,7 +2,7 @@
 title: API di Application Insights per metriche ed eventi personalizzati | Microsoft Docs
 description: Inserire alcune righe di codice nell'app desktop o per dispositivi, nella pagina Web o nel servizio per tenere traccia dell'utilizzo e diagnosticare i problemi.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 80400495-c67b-4468-a92e-abf49793a54d
@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7d797716fb98ac85f11f956e732e08820b56affc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 072ce2952e3cdea47b02ef7656ca67d4bc0ae8f1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -79,7 +79,17 @@ Ottenere un'istanza di `TelemetryClient` (tranne che in JavaScript nelle pagine 
 
 TelemetryClient è thread-safe.
 
-Per i progetti ASP.NET e Java è consigliabile creare un'istanza di TelemetryClient per ogni modulo dell'app. Ad esempio è possibile che il servizio Web includa un'istanza di TelemetryClient per segnalare le richieste HTTP in entrata e un altro oggetto in una classe middleware per segnalare gli eventi di logica di business. È possibile impostare proprietà quali `TelemetryClient.Context.User.Id` per tenere traccia degli utenti e delle sessioni o `TelemetryClient.Context.Device.Id` per identificare il computer. Queste informazioni sono associate a tutti gli eventi inviati dall'istanza.
+Per i progetti ASP.NET e Java, vengono acquisite automaticamente le richieste HTTP in ingresso. È possibile creare istanze aggiuntive di TelemetryClient per altri moduli dell'app. Ad esempio potrebbe esserci un’istanza di TelemetryClient in una classe middleware per segnalare eventi di logica di business. È possibile impostare proprietà quali ID utente e ID dispositivo per identificare il computer. Queste informazioni sono associate a tutti gli eventi inviati dall'istanza. 
+
+*C#*
+
+    TelemetryClient.Context.User.Id = "...";
+    TelemetryClient.Context.Device.Id = "...";
+
+*Java*
+
+    telemetry.getContext().getUser().setId("...);
+    telemetry.getContext().getDevice().setId("...");
 
 Nei progetti Node.js è possibile usare `new applicationInsights.TelemetryClient(instrumentationKey?)` per creare una nuova istanza, ma questo è consigliato solo per scenari che richiedono la configurazione isolata dal `defaultClient` singleton.
 
@@ -156,13 +166,21 @@ Per inviare un singolo valore di metrica:
      appInsights.trackMetric("queueLength", 42.0);
  ```
 
-*C#, Java*
+*C#*
 
 ```csharp
     var sample = new MetricTelemetry();
     sample.Name = "metric name";
     sample.Value = 42.3;
     telemetryClient.TrackMetric(sample);
+```
+
+*Java*
+
+```Java
+    
+    telemetry.trackMetric("queueLength", 42.0);
+
 ```
 
 *Node.JS*
@@ -350,6 +368,10 @@ I dati relativi a utente e sessione vengono inviati come proprietà insieme alle
 
     telemetry.TrackPageView("GameReviewPage");
 
+*Java*
+
+    telemetry.trackPageView("GameReviewPage");
+
 *Visual Basic*
 
     telemetry.TrackPageView("GameReviewPage")
@@ -479,6 +501,14 @@ I report includono le analisi dello stack.
        telemetry.TrackException(ex);
     }
 
+*Java*
+
+    try {
+        ...
+    } catch (Exception ex) {
+        telemetry.trackException(ex);
+    }
+
 *JavaScript*
 
     try
@@ -541,11 +571,17 @@ exceptions
 ## <a name="tracktrace"></a>TrackTrace
 Usare TrackTrace per diagnosticare i problemi mediante l'invio di una traccia di navigazione ad Application Insights. È possibile inviare blocchi di dati di diagnostica e controllarli in [Ricerca diagnostica](app-insights-diagnostic-search.md).
 
-Gli [adattatori di log](app-insights-asp-net-trace-logs.md) usano questa API per inviare i log di terze parti al portale.
+In .NET gli [adattatori di log](app-insights-asp-net-trace-logs.md) usano questa API per inviare i log di terze parti al portale.
+
+In Java per [logger Standard come Log4J, Logback](app-insights-java-trace-logs.md) usano Application Insights Log4j o Logback Appenders per inviare i log di terze parti al portale.
 
 *C#*
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
+
+*Java*
+
+    telemetry.trackTrace(message, SeverityLevel.Warning, properties);
     
 *Node.JS*
 
@@ -559,10 +595,24 @@ Un vantaggio di TrackTrace è che è possibile inserire dati relativamente lungh
 
 È anche possibile aggiungere al messaggio un livello di gravità. E come per altri tipi di dati di telemetria è possibile aggiungere valori di proprietà utili per filtrare o cercare set di tracce diversi. Ad esempio: 
 
+*C#*
+
+```C#
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
                    SeverityLevel.Warning,
                    new Dictionary<string,string> { {"database", db.ID} });
+```
+
+*Java*
+
+```Java
+
+    Map<String, Integer> properties = new HashMap<>();
+    properties.put("Database", db.ID);
+    telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties);
+
+```
 
 In [Ricerca](app-insights-diagnostic-search.md) sarà possibile filtrare facilmente tutti i messaggi di un determinato livello di gravità relativi a un database specifico.
 
@@ -575,6 +625,8 @@ Se il [campionamento](app-insights-sampling.md) è attivo, la proprietà itemCou
 
 ## <a name="trackdependency"></a>TrackDependency
 Usare la chiamata di TrackDependency per rilevare i tempi di risposta e le percentuali di successo delle chiamate a un frammento di codice esterno. I risultati vengono visualizzati nei grafici dipendenze nel portale.
+
+*C#*
 
 ```csharp
 var success = false;
@@ -591,6 +643,26 @@ finally
 }
 ```
 
+*Java*
+
+```Java
+    boolean success = false;
+    long startTime = System.currentTimeMillis();
+    try {
+        success = dependency.call();
+    }
+    finally {
+        long endTime = System.currentTimeMillis();
+        long delta = endTime - startTime;
+        RemoteDependencyTelemetry dependencyTelemetry = new RemoteDependencyTelemetry("My Dependency", "myCall", delta, success);
+        telemetry.setTimeStamp(startTime);
+        telemetry.trackDependency(dependencyTelemetry);
+    }
+
+```
+
+*JavaScript*
+
 ```Javascript
 var success = false;
 var startTime = new Date().getTime();
@@ -605,9 +677,13 @@ finally
 }
 ```
 
-Tenere presente che il server SDK include un [modulo dipendenza](app-insights-asp-net-dependencies.md) che consente di individuare e tracciare alcune chiamate di dipendenza automaticamente, ad esempio a database e API REST. È necessario installare un agente nel server per consentire il funzionamento del modulo. Usare questa chiamata se si vuole tenere traccia di chiamate che il rilevamento automatico non intercetta o se non si vuole installare l'agente.
+Tenere presente che il server SDK include un [modulo dipendenza](app-insights-asp-net-dependencies.md) che consente di individuare e tracciare alcune chiamate di dipendenza automaticamente, ad esempio a database e API REST. È necessario installare un agente nel server per consentire il funzionamento del modulo. 
 
-Per disattivare il modulo standard per il rilevamento delle dipendenze, modificare il file [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) ed eliminare il riferimento a `DependencyCollector.DependencyTrackingTelemetryModule`.
+In Java, alcune chiamate a dipendenze possono essere automaticamente rilevate tramite [agente Java](app-insights-java-agent.md).
+
+Usare questa chiamata se si vuole tenere traccia di chiamate che il rilevamento automatico non intercetta o se non si vuole installare l'agente.
+
+Per disattivare il modulo standard per il rilevamento delle dipendenze in C#, modificare il file [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) ed eliminare il riferimento`DependencyCollector.DependencyTrackingTelemetryModule`. In Java, non installare l'agente java se non si desidera raccogliere le dipendenze standard automaticamente.
 
 ### <a name="dependencies-in-analytics"></a>Dipendenze in Analytics
 
@@ -630,17 +706,29 @@ dependencies
 In genere l'SDK invia i dati in momenti scelti per ridurre al minimo l'impatto sull'utente. In alcuni casi tuttavia è possibile che si voglia scaricare il buffer, ad esempio se si sta usando l'SDK in un'applicazione che si arresta.
 
 *C#*
-
+ 
+ ```C#
     telemetry.Flush();
-
     // Allow some time for flushing before shutdown.
-    System.Threading.Thread.Sleep(1000);
+    System.Threading.Thread.Sleep(5000);
+```
+
+*Java*
+
+```Java
+    telemetry.flush();
+    //Allow some time for flushing before shutting down
+    Thread.sleep(5000);
+```
+
     
 *Node.JS*
 
     telemetry.flush();
 
 Si noti che la funzione è asincrona per il [canale di telemetria del server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
+
+In teoria, il metodo Flush () deve essere utilizzato nell'attività di arresto dell'applicazione.
 
 ## <a name="authenticated-users"></a>utenti autenticati
 In un'app Web gli utenti sono identificati dai cookie per impostazione predefinita. Un utente può essere conteggiato più volte se accede all'app da un computer o da un browser diverso o se elimina i cookie.
@@ -726,7 +814,7 @@ Esistono tuttavia alcuni [limiti sul numero di proprietà, di valori delle propr
     // Send the event:
     telemetry.TrackEvent("WinGame", properties, metrics);
 
-*Node.js*
+*Node.JS*
 
     // Set up some properties and metrics:
     var properties = {"game": currentGame.Name, "difficulty": currentGame.Difficulty};
@@ -832,6 +920,7 @@ A volte si vuole rappresentare in un grafico il tempo necessario per eseguire un
 
 *C#*
 
+```C#
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
     // ... perform the timed action ...
@@ -847,7 +936,27 @@ A volte si vuole rappresentare in un grafico il tempo necessario per eseguire un
 
     // Send the event:
     telemetry.TrackEvent("SignalProcessed", properties, metrics);
+```
 
+*Java*
+
+```Java
+    long startTime = System.currentTimeMillis();
+
+    // perform timed action
+
+    long endTime = System.currentTimeMillis();
+    Map<String, Double> metrics = new HashMap<>();
+    metrics.put("ProcessingTime", endTime-startTime);
+
+    // Setup some propereties
+    Map<String, String> properties = new HashMap<>();
+    properties.put("signalSource", currentSignalSource.getName());
+
+    //send the event
+    telemetry.trackEvent("SignalProcessed", properties, metrics);
+
+```
 
 
 ## <a name="defaults"></a>Proprietà predefinite per i dati di telemetria personalizzati
@@ -882,7 +991,7 @@ Se si intende impostare solo i valori di proprietà predefiniti per alcuni degli
 
     gameTelemetry.TrackEvent("WinGame");
     
-*Node.JS*
+*Node.js*
 
     var gameTelemetry = new applicationInsights.TelemetryClient();
     gameTelemetry.commonProperties["Game"] = currentGame.Name;
@@ -920,9 +1029,17 @@ Per *avviare e arrestare in modo dinamico* la raccolta e la trasmissione di dati
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
+*Java*
+
+```Java
+    
+    telemetry.getConfiguration().setTrackingDisabled(true);
+
+```
+
 Per *disabilitare gli agenti di raccolta standard selezionati*, ad esempio contatori delle prestazioni, richieste HTTP o dipendenze, eliminare o impostare come commento le righe pertinenti in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Ad esempio è possibile eseguire questa operazione se si desidera inviare i propri dati TrackRequest.
 
-*Node.js*
+*Node.JS*
 
 ```Javascript
 
@@ -996,7 +1113,7 @@ Nelle pagine Web è possibile impostarla dallo stato del server Web anziché cod
     }({instrumentationKey:  
       // Generate from server property:
       @Microsoft.ApplicationInsights.Extensibility.
-         TelemetryConfiguration.Active.InstrumentationKey"
+         TelemetryConfiguration.Active.InstrumentationKey;
     }) // ...
 
 

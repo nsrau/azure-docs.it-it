@@ -2,24 +2,24 @@
 title: Crittografare i dischi di una macchina virtuale Windows in Azure | Microsoft Docs
 description: Come crittografare i dischi virtuali in una VM di Windows per una maggiore sicurezza tramite Azure PowerShell
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/10/2017
+ms.date: 03/07/2018
 ms.author: iainfou
-ms.openlocfilehash: 98b42b252a601af090579e3939f3c7ab91c3803b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f21e457b266fdd0106992dad29578eef6e89144
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-windows-vm"></a>Come crittografare i dischi virtuali in una VM di Windows
 Per migliorare gli aspetti di sicurezza e conformità delle macchine virtuali (VM), i dischi virtuali in Azure possono essere crittografati. I dischi vengono crittografati usando chiavi di crittografia protette in un insieme di credenziali delle chiavi di Azure. È possibile controllare queste chiavi di crittografia e il loro uso. Questo articolo descrive come crittografare i dischi virtuali in una VM di Windows tramite Azure PowerShell. È inoltre possibile [crittografare una VM di Linux usando l'interfaccia della riga di comando di Azure 2.0](../linux/encrypt-disks.md).
@@ -106,7 +106,7 @@ Creare un'entità servizio in Azure Active Directory con [New AzureRmADServicePr
 
 ```powershell
 $appName = "My App"
-$securePassword = "P@ssword!"
+$securePassword = ConvertTo-SecureString -String "P@ssw0rd!" -AsPlainText -Force
 $app = New-AzureRmADApplication -DisplayName $appName `
     -HomePage "https://myapp.contoso.com" `
     -IdentifierUris "https://contoso.com/myapp" `
@@ -124,56 +124,21 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $keyvaultName `
 ```
 
 
-## <a name="create-virtual-machine"></a>Crea macchina virtuale
-Per testare il processo di crittografia è necessario creare una macchina virtuale. Nell'esempio seguente viene creata una VM denominata *myVM* usando un'immagine di *Windows Server 2016 Datacenter*:
+## <a name="create-virtual-machine"></a>Creare una macchina virtuale
+Per testare il processo di crittografia, creare una VM con [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm). L'esempio seguente crea una VM denominata *myVM* usando un'immagine di *Windows Server 2016 Datacenter*. Quando vengono richieste le credenziali, immettere un nome utente e una password da usare per la VM:
 
 ```powershell
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
-
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName $rgName `
-    -Location $location `
-    -Name myVnet `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName $rgName `
-    -Location $location `
-    -AllocationMethod Static `
-    -IdleTimeoutInMinutes 4 `
-    -Name "mypublicdns$(Get-Random)"
-
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName `
-    -Location $location `
-    -Name myNetworkSecurityGroup `
-    -SecurityRules $nsgRuleRDP
-
-$nic = New-AzureRmNetworkInterface -Name myNic `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $pip.Id `
-    -NetworkSecurityGroupId $nsg.Id
-
 $cred = Get-Credential
 
-$vmName = "myVM"
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
+New-AzureRmVm `
+    -ResourceGroupName $rgName `
+    -Name "myVM" `
+    -Location $location `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -Credential $cred
 ```
 
 
@@ -194,9 +159,9 @@ $keyVaultResourceId = $keyVault.ResourceId;
 $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $keyVaultName -Name myKey).Key.kid;
 
 Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
-    -VMName $vmName `
+    -VMName "myVM" `
     -AadClientID $app.ApplicationId `
-    -AadClientSecret $securePassword `
+    -AadClientSecret (New-Object PSCredential "user",$securePassword).GetNetworkCredential().Password `
     -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl `
     -DiskEncryptionKeyVaultId $keyVaultResourceId `
     -KeyEncryptionKeyUrl $keyEncryptionKeyUrl `
@@ -206,7 +171,7 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
 Accettare la richiesta di continuare la crittografia della macchina virtuale. Durante questo processo, la VM viene riavviata. Dopo aver completato il processo di crittografia e aver riavviato la macchina virtuale, controllare lo stato di crittografia con [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus):
 
 ```powershell
-Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName $vmName
+Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName "myVM"
 ```
 
 L'output è simile all'esempio seguente:

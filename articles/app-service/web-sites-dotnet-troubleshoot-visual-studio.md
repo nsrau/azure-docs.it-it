@@ -5,7 +5,7 @@ services: app-service
 documentationcenter: .net
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7973f4311095b7c87ccd2394b048ec92c50f32a9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio
 ## <a name="overview"></a>Panoramica
@@ -125,12 +125,14 @@ Questa sezione illustra come eseguire il debug in modalità remota usando il pro
 
 3. Eliminare il metodo `About()` e sostituirlo con il codice seguente.
 
-        public ActionResult About()
-        {
-            string currentTime = DateTime.Now.ToLongTimeString();
-            ViewBag.Message = "The current time is " + currentTime;
-            return View();
-        }
+``` c#
+public ActionResult About()
+{
+    string currentTime = DateTime.Now.ToLongTimeString();
+    ViewBag.Message = "The current time is " + currentTime;
+    return View();
+}
+```
 4. [Impostare un punto di interruzione](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) sulla riga `ViewBag.Message`.
 
 5. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Pubblica**.
@@ -241,10 +243,12 @@ Se la funzione [ha scritto dei log](https://github.com/Azure/azure-webjobs-sdk/w
 * Durante il debug, il server invia i dati a Visual Studio, con possibili implicazioni sui costi della larghezza di banda. Per informazioni sui costi della larghezza di banda, vedere [Prezzi di Azure](https://azure.microsoft.com/pricing/calculator/).
 * Assicurarsi che l'attributo `debug` dell'elemento `compilation` nel file *Web.config* sia impostato su True. Questa è l'impostazione predefinita quando si pubblica una configurazione di build di debug.
 
-        <system.web>
-          <compilation debug="true" targetFramework="4.5" />
-          <httpRuntime targetFramework="4.5" />
-        </system.web>
+``` xml
+<system.web>
+  <compilation debug="true" targetFramework="4.5" />
+  <httpRuntime targetFramework="4.5" />
+</system.web>
+```
 * Se il debugger non passa da un'istruzione all'altra del codice da sottoporre a debug, può essere necessario modificare l'impostazione di Just My Code.  Per ulteriori informazioni, vedere [Limitare l'esecuzione di istruzioni a Just My Code](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
 * Quando si abilita la funzionalità di debug remoto, sul server viene avviato un timer. Dopo 48 ore la funzionalità viene automaticamente disattivata. Questo limite di 48 ore viene impostato per motivi di sicurezza e prestazioni. È possibile riattivare facilmente la funzionalità tutte le volte che si desidera. È invece consigliabile lasciarla disabilitata quando non si esegue attivamente il debug.
 * È possibile collegare manualmente il debugger a qualsiasi processo, non solo al processo dell'app Web (w3wp.exe). Per ulteriori informazioni su come utilizzare la modalità debug in Visual Studio, vedere [Debug in Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
@@ -277,32 +281,35 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
 ### <a name="add-tracing-statements-to-the-application"></a>Aggiungere istruzioni di traccia all'applicazione
 1. Aprire *Controllers\HomeController.cs* e sostituire i metodi `Index`, `About` e `Contact` con il codice riportato di seguito per aggiungere istruzioni `Trace` e un'istruzione `using` per `System.Diagnostics`:
 
-        public ActionResult Index()
-        {
-            Trace.WriteLine("Entering Index method");
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Index method");
-            return View();
-        }
+```c#
+public ActionResult Index()
+{
+    Trace.WriteLine("Entering Index method");
+    ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+    Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Index method");
+    return View();
+}
 
-        public ActionResult About()
-        {
-            Trace.WriteLine("Entering About method");
-            ViewBag.Message = "Your app description page.";
-            Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
-            Trace.WriteLine("Leaving About method");
-            return View();
-        }
+public ActionResult About()
+{
+    Trace.WriteLine("Entering About method");
+    ViewBag.Message = "Your app description page.";
+    Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
+    Trace.WriteLine("Leaving About method");
+    return View();
+}
 
-        public ActionResult Contact()
-        {
-            Trace.WriteLine("Entering Contact method");
-            ViewBag.Message = "Your contact page.";
-            Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Contact method");
-            return View();
-        }        
+public ActionResult Contact()
+{
+    Trace.WriteLine("Entering Contact method");
+    ViewBag.Message = "Your contact page.";
+    Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Contact method");
+    return View();
+}        
+```
+
 2. Aggiungere un'istruzione `using System.Diagnostics;` nella parte iniziale del file.
 
 ### <a name="view-the-tracing-output-locally"></a>Visualizzare l'output di traccia in locale
@@ -315,25 +322,30 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
     Nei passaggi seguenti viene illustrato come visualizzare l'output di traccia in una pagina Web, senza eseguire la compilazione in modalità debug.
 2. Aprire il file Web.config dell'applicazione, situato nella cartella di progetto, e aggiungere un elemento `<system.diagnostics>` alla fine del file, poco prima dell'elemento `</configuration>` di chiusura:
 
-          <system.diagnostics>
-            <trace>
-              <listeners>
-                <add name="WebPageTraceListener"
-                    type="System.Web.WebPageTraceListener,
-                    System.Web,
-                    Version=4.0.0.0,
-                    Culture=neutral,
-                    PublicKeyToken=b03f5f7f11d50a3a" />
-              </listeners>
-            </trace>
-          </system.diagnostics>
+``` xml
+<system.diagnostics>
+<trace>
+  <listeners>
+    <add name="WebPageTraceListener"
+        type="System.Web.WebPageTraceListener,
+        System.Web,
+        Version=4.0.0.0,
+        Culture=neutral,
+        PublicKeyToken=b03f5f7f11d50a3a" />
+  </listeners>
+</trace>
+</system.diagnostics>
+```
 
-    `WebPageTraceListener` consente di visualizzare l'output di traccia passando a `/trace.axd`.
+`WebPageTraceListener` consente di visualizzare l'output di traccia passando a `/trace.axd`.
 3. Aggiungere un <a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">elemento trace</a> dopo `<system.web>` nel file Web.config, come illustrato nell'esempio seguente:
 
-        <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+``` xml
+<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+```       
+
 4. Premere CTRL+F5 per eseguire l'applicazione.
-5. Nella barra degli indirizzi della finestra del browser aggiungere *trace.axd* all'URL, quindi premere INVIO. L'URL è simile a http://localhost:53370/trace.axd.
+5. Nella barra degli indirizzi della finestra del browser aggiungere *trace.axd* all'URL, quindi premere INVIO (l'URL è simile a http://localhost:53370/trace.axd).
 6. Nella pagina **Application Trace** fare clic su **View Details** nella prima riga (non la riga BrowserLink).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -646,15 +658,18 @@ In Internet non sono disponibili introduzioni complete e approfondite per la tra
 * [Traccia nelle visualizzazioni Razor ASP.NET MVC](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Oltre a informazioni sulla traccia nelle visualizzazioni Razor, in questo post viene illustrato come creare un filtro di errori per registrare tutte le eccezioni non gestite nelle applicazioni MVC. Per informazioni su come registrare tutte le eccezioni non gestite in un'applicazione Web Form, vedere l'esempio relativo a Global.asax in [Esempio completo di gestori di errori](http://msdn.microsoft.com/library/bb397417.aspx) in MSDN. In MVC o Web Form, se si desidera registrare determinate eccezioni ma lasciarne la gestione al framework predefinito, è possibile eseguire istruzioni catch e throw, come illustrato nell'esempio seguente:
 
-        try
-        {
-           // Your code that might cause an exception to be thrown.
-        }
-        catch (Exception ex)
-        {
-            Trace.TraceError("Exception: " + ex.ToString());
-            throw;
-        }
+``` c#
+try
+{
+   // Your code that might cause an exception to be thrown.
+}
+catch (Exception ex)
+{
+    Trace.TraceError("Exception: " + ex.ToString());
+    throw;
+}
+```
+
 * [Streaming dei log di traccia della diagnostica dalla riga di comando di Azure (oltre a Glimpse)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   Informazioni su come usare la riga di comando per eseguire le stesse procedure illustrate in questa esercitazione in Visual Studio. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) è uno strumento per il debug di applicazioni ASP.NET.
 * [Utilizzo delle funzionalità di registrazione e diagnostica di app Web - con David Ebbo](/documentation/videos/azure-web-site-logging-and-diagnostics/) e [Streaming dei log da app Web - con David Ebbo](/documentation/videos/log-streaming-with-azure-web-sites/)<br>

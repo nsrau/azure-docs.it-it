@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9cea9b18cd7434a34138d5cecad8a8fd7f10d2e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 01a6fefc10dfd83997acc290dbd1c85ba86a4799
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Gestire le istanze in Funzioni permanenti (Funzioni di Azure)
 
@@ -104,7 +104,7 @@ public static async Task Run(
 
 ## <a name="terminating-instances"></a>Terminazione delle istanze
 
-Un'istanza in esecuzione può essere terminata usando il metodo [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) della classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html). I due parametri sono un `instanceId` e una stringa `reason` che saranno scritte nei log e nello stato dell'istanza. Un'istanza terminata termina la sua esecuzione non appena raggiunge il successivo punto `await` oppure termina immediatamente se è già in un `await`.
+Un'istanza di orchestrazione in esecuzione può essere terminata usando il metodo [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) della classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html). I due parametri sono un `instanceId` e una stringa `reason` che saranno scritte nei log e nello stato dell'istanza. Un'istanza terminata termina la sua esecuzione non appena raggiunge il successivo punto `await` oppure termina immediatamente se è già in un `await`. 
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -119,6 +119,9 @@ public static Task Run(
 
 > [!NOTE]
 > La terminazione delle istanze è supportata attualmente solo per le funzioni dell'agente di orchestrazione di C#.
+
+> [!NOTE]
+> Al momento, la terminazione delle istanze non viene propagata. Le funzioni di attività e le orchestrazioni secondarie verranno eseguite fino al completamento anche se l'istanza di orchestrazione che le ha chiamate è stata terminata.
 
 ## <a name="sending-events-to-instances"></a>Invio di eventi alle istanze
 

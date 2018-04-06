@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 03/15/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7c58b4ebd840aca555b52a03cf44ace311b64e3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenziali del certificato per l'autenticazione dell'applicazione
 
-Azure Active Directory consente a un'applicazione di usare le proprie credenziali per l'autenticazione, ad esempio, nel flusso di concessione delle credenziali client di OAuth 2.0 ([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)) e nel flusso on-behalf-of ([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
+Azure Active Directory consente a un'applicazione di usare le proprie credenziali per l'autenticazione, ad esempio nel flusso di concessione di credenziali client OAuth 2.0 ([v1](active-directory-protocols-oauth-service-to-service.md), [v2](active-directory-v2-protocols-oauth-client-creds.md)) e nel flusso on-behalf-of ([v1](active-directory-protocols-oauth-on-behalf-of.md), [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 Un tipo di credenziale che può essere usato è un'asserzione di token JSON Web (JWT) firmata con un certificato di proprietà dell'applicazione.
 
 ## <a name="format-of-the-assertion"></a>Formato dell'asserzione
-Per calcolare l'asserzione, è preferibile usare una delle numerose librerie di [token JSON Web](https://jwt.io/) nel linguaggio scelto. Le informazioni incluse nel token sono:
+Per calcolare l'asserzione, è preferibile usare una delle numerose librerie di [token JSON Web](https://jwt.ms/) nel linguaggio scelto. Le informazioni incluse nel token sono:
 
 #### <a name="header"></a>Intestazione
 
@@ -85,7 +85,14 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Registrare il certificato con Azure AD
 
-Per associare la credenziale del certificato all'applicazione client in Azure AD, è necessario modificare il manifesto dell'applicazione.
+È possibile associare la credenziale del certificato all'applicazione client in Azure AD tramite il portale di Azure usando uno dei metodi seguenti:
+
+**Caricamento del file del certificato**
+
+Nella registrazione dell'app di Azure per l'applicazione client, fare clic su **Impostazioni**, fare clic su **Chiavi** e quindi fare clic su **Carica la chiave pubblica**. Selezionare il file del certificato che si vuole caricare e fare clic su **Salva**. Dopo il salvataggio, il certificato viene caricato e vengono visualizzati i valori di identificazione personale, data di inizio e scadenza. 
+
+**Aggiornamento del manifesto dell'applicazione**
+
 Con un certificato disponibile, è necessario calcolare:
 
 - `$base64Thumbprint`, che è la codifica Base 64 dell'hash del certificato

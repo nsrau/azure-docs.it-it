@@ -2,23 +2,23 @@
 title: Indicizzazione in Archiviazione BLOB di Azure con Ricerca di Azure
 description: Informazioni su come indicizzare Archiviazione BLOB di Azure ed estrarre il testo dai documenti con Ricerca di Azure
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 2a5968f4-6768-4e16-84d0-8b995592f36a
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/28/2017
+ms.date: 03/22/2018
 ms.author: eugenesh
-ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 67f6775fb68f4cd13c52ebe66727f2b4df23c692
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indicizzazione di documenti in Archiviazione BLOB di Azure con Ricerca di Azure
 Questo articolo illustra come usare Ricerca di Azure per indicizzare documenti (ad esempio PD, documenti di Microsoft Office e numerosi altri formati comuni) salvati nell'archivio BLOB di Azure. In primo luogo, vengono illustrate le nozioni di base per l'impostazione e la configurazione di un indicizzatore BLOB. Vengono inoltre descritti in modo più dettagliato i comportamenti e gli scenari che possono verificarsi.
@@ -31,7 +31,7 @@ L'indicizzatore BLOB può estrarre il testo dai formati di documento seguenti:
 ## <a name="setting-up-blob-indexing"></a>Configurazione dell'indicizzazione BLOB
 È possibile impostare un indicizzatore dell'Archiviazione BLOB di Azure usando:
 
-* [Azure portal](https://ms.portal.azure.com)
+* [Portale di Azure](https://ms.portal.azure.com)
 * [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) Ricerca di Azure
 * [.NET SDK](https://aka.ms/search-sdk) Ricerca di Azure
 
@@ -271,6 +271,10 @@ Per impostazione predefinita, l'indicizzatore BLOB viene arrestato non appena vi
 Per alcuni BLOB, Ricerca di Azure non è in grado di determinare il tipo di contenuto o di elaborare il documento di un tipo di contenuto altrimenti supportato. Per ignorare la modalità di errore, impostare il parametro di configurazione `failOnUnprocessableDocument` su False:
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+Ricerca di Azure limita le dimensioni dei BLOB indicizzati. Questi limiti sono documentati in [Limiti dei servizi in Ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). I BLOB sovradimensionati vengono gestiti come errori per impostazione predefinita. È comunque possibile indicizzare i metadati di archiviazione dei BLOB sovradimensionati se si imposta il parametro di configurazione `indexStorageMetadataOnlyForOversizedDocuments` su true: 
+
+    "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
 È anche possibile continuare l'indicizzazione se si verificano errori in qualsiasi momento dell'elaborazione, durante l'analisi dei BLOB o durante l'aggiunta di documenti a un indice. Per ignorare un determinato numero di errori, impostare i parametri di configurazione `maxFailedItems` e `maxFailedItemsPerBatch` sui valori desiderati. Ad esempio: 
 

@@ -1,26 +1,21 @@
 ---
-title: "Caricare grandi quantità di dati casuali in parallelo in Archiviazione di Azure | Microsoft Docs"
-description: "Informazioni su come usare Azure SDK per caricare grandi quantità di dati casuali in parallelo in un account di archiviazione di Azure"
+title: Caricare grandi quantità di dati casuali in parallelo in Archiviazione di Azure | Microsoft Docs
+description: Informazioni su come usare Azure SDK per caricare grandi quantità di dati casuali in parallelo in un account di archiviazione di Azure
 services: storage
-author: tamram
+author: roygara
 manager: jeconnoc
 ms.service: storage
 ms.workload: web
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/20/2018
-ms.author: tamram
+ms.author: rogarana
 ms.custom: mvc
-<<<<<<< HEAD
-ms.openlocfilehash: 98f3f69c6025d61caac20e13b573651854952432
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-=======
-ms.openlocfilehash: 39a48007bdcd055df4529074a67b5b8a6db2d8b4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
->>>>>>> e9608243da864c46ce93986fe11980d2656272ea
+ms.openlocfilehash: 668700cf3ff3d1a90f9639129ef2953ddca016f1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Caricare grandi quantità di dati casuali in parallelo in Archiviazione di Azure
 
@@ -78,7 +73,7 @@ Oltre alle impostazioni relative ai limiti per connessioni e threading, viene co
 |---|---|---|
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| Questa impostazione suddivide il BLOB in blocchi durante il caricamento. Per prestazioni ottimali, questo valore deve essere pari a 8 volte il numero di core. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Questa proprietà disabilita la verifica dell'hash MD5 del contenuto caricato. La disabilitazione della convalida MD5 produce un trasferimento più veloce. Non viene tuttavia confermata la validità o l'integrità dei file trasferiti.   |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Questa proprietà determina se un hash MD5 verrà calcolato e archiviato con il file.   |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Questa proprietà determina se un hash MD5 verrà calcolato e archiviato con il file.   |
 | [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| Backoff di 2 secondi con un massimo di 10 nuovi tentativi |Determina i criteri di ripetizione delle richieste. In caso di errori di connessione vengono eseguiti nuovi tentativi. In questo esempio viene configurato un criterio [ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) con un backoff di 2 secondi e un numero massimo di nuovi tentativi pari a 10. Questa impostazione è importante quando l'applicazione sta per raggiungere gli [obiettivi di scalabilità di Archiviazione BLOB](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
 
 L'attività `UploadFilesAsync` viene visualizzata nell'esempio seguente:

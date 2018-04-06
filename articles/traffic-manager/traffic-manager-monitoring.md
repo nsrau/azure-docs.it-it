@@ -1,11 +1,11 @@
 ---
 title: Monitoraggio degli endpoint di Gestione traffico di Azure | Microsoft Docs
-description: "Questo articolo illustra in che modo Gestione traffico usa il monitoraggio e il failover automatico degli endpoint per consentire ai clienti di Azure di distribuire applicazioni a disponibilità elevata"
+description: Questo articolo illustra in che modo Gestione traffico usa il monitoraggio e il failover automatico degli endpoint per consentire ai clienti di Azure di distribuire applicazioni a disponibilità elevata
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 3b30aa04854b779c25582abafc0f9ebba65b71ba
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: c54454dd2e7b56820834e4f3cd7452be10d5ddca
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitoraggio degli endpoint di Gestione traffico
 
@@ -78,6 +78,9 @@ Il valore relativo allo stato di monitoraggio dell'endpoint viene generato da Ge
 | Attivato |Attivato |Arrestato |Il servizio cloud o l'app Web cui punta l'endpoint non è in esecuzione. Verificare le impostazioni del servizio cloud o dell'app Web. Questa situazione può verificarsi anche se l'endpoint è di tipo annidato e il profilo figlio è disabilitato o non è attivo. <br>Gli endpoint con stato Interrotto non vengono monitorati. Non è incluso nelle risposte DNS e non riceve traffico. Un'eccezione a questa situazione è quando tutti gli endpoint sono danneggiati. In questo caso tutti gli elementi vengono considerati da restituire nella risposta alla query.</br>|
 
 Per informazioni dettagliate su come viene calcolato lo stato del monitoraggio degli endpoint nidificati, vedere [Profili nidificati di Gestione traffico](traffic-manager-nested-profiles.md).
+
+>[!NOTE]
+> Uno stato di monitoraggio dell'endpoint di tipo Interrotto può verificarsi nel servizio app se l'applicazione Web non è in esecuzione nel livello Standard o superiore. Per altre informazioni, vedere [Integrazione di Gestione traffico con il servizio app](/azure/app-service/web-sites-traffic-manager).
 
 ### <a name="profile-monitor-status"></a>Stato monitoraggio profilo
 

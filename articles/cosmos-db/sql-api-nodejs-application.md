@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/23/2018
 ms.author: mimig
-ms.openlocfilehash: 441f352555f40c0467df4c466d58ac35e32f9e61
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: ad6e335c562e52d7e2336dd1f29e5c159fe46589
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="_Toc395783175"></a>Creare un'applicazione Web Node.js con Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -29,8 +29,6 @@ ms.lasthandoff: 02/14/2018
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Questa esercitazione relativa a Node.js illustra come usare Azure Cosmos DB e l'API SQL per archiviare i dati e accedervi da un'applicazione Node.js Express ospitata in Siti Web di Azure. Verrà creata una semplice applicazione di gestione delle attività basata su Web, un'app ToDo, che consente di creare, recuperare e completare le attività. Le attività vengono memorizzate come documenti JSON in Azure Cosmos DB. Questa esercitazione illustra la creazione e la distribuzione dell'app e fornisce informazioni dettagliate sulle operazioni in ogni frammento di codice.
 
@@ -154,7 +152,7 @@ Al termine delle operazioni iniziali di installazione e configurazione, si può 
 
     ```nodejs
     let DocumentDBClient = require('documentdb').DocumentClient;
-    let docdbUtils = require('./docdbUtils');
+    let docdbUtils = require('./cosmosdb-manager.js');
     ```
 7. Quindi, aggiungere il codice per definire ed esportare l'oggetto Task. Si occupa dell'inizializzazione dell'oggetto Task e della configurazione del database e della raccolta documenti che verranno usati.  
 
@@ -489,7 +487,7 @@ Il secondo modulo contiene due campi di input e un pulsante che consente di crea
 Ciò è tutto quanto è necessario per il funzionamento dell'applicazione.
 
 ## <a name="_Toc395783181"></a>Passaggio 6: Esecuzione dell'applicazione in locale
-1. Per testare l'applicazione nel computer locale, eseguire `npm start` nel terminale per avviare l'applicazione, quindi aggiornare la pagina [http://localhost:3000](http://localhost:3000) del browser. L'aspetto della pagina dovrebbe essere simile all'immagine seguente:
+1. Per testare l'applicazione nel computer locale, eseguire `npm start` nel terminale per avviare l'applicazione e quindi aggiornare la pagina [http://localhost:3000](http://localhost:3000) nel browser. L'aspetto della pagina dovrebbe essere simile all'immagine seguente:
    
     ![Schermata dell'applicazione MyTodo List in una finestra del browser](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 

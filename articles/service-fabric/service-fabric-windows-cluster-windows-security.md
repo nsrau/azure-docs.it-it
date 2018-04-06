@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ce3bf686-ffc4-452f-b15a-3c812aa9e672
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: e093a631b0cf81195981a8e3d345504ebce02723
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eac453ad866910839088892de457c2cec48791c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Proteggere un cluster autonomo in Windows usando la protezione di Windows
 Per impedire l'accesso non autorizzato a un cluster di Service Fabric, è necessario proteggere il cluster. La sicurezza è importante soprattutto quando il cluster esegue carichi di lavoro di produzione. Questo articolo descrive come configurare la sicurezza da nodo a nodo e da client a nodo usando la protezione di Windows nel file *ClusterConfig.JSON*.  Il processo corrisponde al passaggio di configurazione della sicurezza in [Creare un cluster autonomo in esecuzione su Windows Server](service-fabric-cluster-creation-for-windows-server.md). Per altre informazioni sull'uso della protezione di Windows in Service Fabric, vedere [Scenari di sicurezza del cluster](service-fabric-cluster-security.md).
@@ -32,10 +32,12 @@ Per impedire l'accesso non autorizzato a un cluster di Service Fabric, è necess
 Il file di configurazione di esempio *ClusterConfig.gMSA.Windows.MultiMachine.JSON* scaricato con il pacchetto del cluster autonomo [Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) contiene un modello per la configurazione della sicurezza di Windows usando l'approccio [account del servizio gestito del gruppo](https://technet.microsoft.com/library/hh831782.aspx).  
 
 ```  
-"security": {  
+"security": {
+            "ClusterCredentialType": "Windows",
+            "ServerCredentialType": "Windows",
             "WindowsIdentities": {  
-                "ClustergMSAIdentity": "accountname@fqdn"  
-                "ClusterSPN": "fqdn"  
+                "ClustergMSAIdentity": "[gMSA Identity]", 
+                "ClusterSPN": "[Registered SPN for the gMSA account]",
                 "ClientIdentities": [  
                     {  
                         "Identity": "domain\\username",  
@@ -45,16 +47,18 @@ Il file di configurazione di esempio *ClusterConfig.gMSA.Windows.MultiMachine.JS
             }  
         }  
 ```  
-  
-| **Impostazioni di configurazione** | **Descrizione** |  
-| --- | --- |  
+
+| **Impostazione di configurazione** | **Descrizione** |
+| --- | --- |
+| ClusterCredentialType |Impostare su *Windows* per abilitare la sicurezza di Windows per la comunicazione da nodo a nodo.  | 
+| ServerCredentialType |Impostare su *Windows* per abilitare la sicurezza di Windows per la comunicazione da client a nodo. |  
 | WindowsIdentities |Contiene le identità del client e del cluster. |  
 | ClustergMSAIdentity |Configura la sicurezza da nodo a nodo. Account del servizio gestito del gruppo. |  
-| ClusterSPN |SPN di dominio completo per l'account del servizio gestito del gruppo|  
-| ClientIdentities |Configura la sicurezza da client a nodo. Matrice di account utente del client. |  
-| Identità |Identità del client, un utente del dominio. |  
-| IsAdmin |True indica che l'utente del dominio ha un accesso client come amministratore, mentre false indica un accesso client come utente. |  
-  
+| ClusterSPN |SPN registrato per l'account gMSA|  
+| ClientIdentities |Configura la sicurezza da client a nodo. Matrice di account utente del client. | 
+| Identità |Aggiungere l'utente del dominio, dominio\nome utente, per l'identità del client. |  
+| IsAdmin |Impostare su true per indicare che l'utente del dominio ha un accesso client come amministratore oppure su false per indicare un accesso client come utente. |  
+
 La [protezione da nodo a nodo](service-fabric-cluster-security.md#node-to-node-security) viene configurata impostando **ClustergMSAIdentity** quando l'infrastruttura di servizi deve essere eseguita nell'account del servizio gestito del gruppo. Per creare relazioni di trust tra i nodi, è necessario che si riconoscano. Questa operazione può essere eseguita in due modi diversi: specificare l'account del servizio gestito del gruppo che include tutti i nodi del cluster oppure specificare il gruppo del computer di dominio che include tutti i nodi del cluster. È consigliabile usare l'approccio degli [account del servizio gestiti del gruppo](https://technet.microsoft.com/library/hh831782.aspx) , in particolare per i cluster più grandi (più di 10 nodi) o per i cluster soggetti a probabile crescita o riduzione.  
 Non richiede inoltre la creazione di un gruppo di dominio per cui agli amministratori del cluster siano stati concessi i diritti di accesso per aggiungere e rimuovere membri. Questi account si rivelano utili anche nella gestione automatica delle password. Per altre informazioni, vedere [Introduzione gli account del servizio gestiti del gruppo](http://technet.microsoft.com/library/jj128431.aspx).  
  
@@ -63,10 +67,12 @@ Non richiede inoltre la creazione di un gruppo di dominio per cui agli amministr
 La sezione **security** dell'esempio seguente configura la sicurezza di Windows usando un account del servizio gestiti del gruppo e specifica che i computer nell'account del servizio gestiti del gruppo *ServiceFabric.clusterA.contoso.com* fanno parte del cluster e che a *CONTOSO\usera* è consentito l'accesso client come amministratore:  
   
 ```  
-"security": {  
+"security": {
+    "ClusterCredentialType": "Windows",            
+    "ServerCredentialType": "Windows",
     "WindowsIdentities": {  
         "ClustergMSAIdentity" : "ServiceFabric.clusterA.contoso.com",  
-        "ClusterSPN" : "clusterA.contoso.com",  
+        "ClusterSPN" : "http/servicefabric/clusterA.contoso.com",  
         "ClientIdentities": [{  
             "Identity": "CONTOSO\\usera",  
             "IsAdmin": true  
@@ -76,7 +82,7 @@ La sezione **security** dell'esempio seguente configura la sicurezza di Windows 
 ```  
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Configurare la funzionalità di sicurezza di Windows usando un gruppo di computer  
-Il file di configurazione di esempio *ClusterConfig.Windows.MultiMachine.JSON* scaricato con il pacchetto del cluster autonomo [Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) contiene un modello per la configurazione della sicurezza di Windows.  La sicurezza di Windows viene configurata nella sezione **Proprietà** : 
+Questo modello è in fase di deprecazione. È consigliabile usare gMSA come descritto sopra. Il file di configurazione di esempio *ClusterConfig.Windows.MultiMachine.JSON* scaricato con il pacchetto del cluster autonomo [Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) contiene un modello per la configurazione della sicurezza di Windows.  La sicurezza di Windows viene configurata nella sezione **Proprietà** : 
 
 ```
 "security": {
@@ -94,8 +100,8 @@ Il file di configurazione di esempio *ClusterConfig.Windows.MultiMachine.JSON* s
 
 | **Impostazione di configurazione** | **Descrizione** |
 | --- | --- |
-| ClusterCredentialType |**ClusterCredentialType** è impostato su *Windows* se ClusterIdentity specifica il nome di un gruppo di computer Active Directory. |  
-| ServerCredentialType |Impostare su *Windows* per abilitare la protezione di Windows per i client.<br /><br />Questa impostazione indica che i client del cluster e il cluster stesso sono in esecuzione in un dominio di Active Directory. |  
+| ClusterCredentialType |Impostare su *Windows* per abilitare la sicurezza di Windows per la comunicazione da nodo a nodo.  | 
+| ServerCredentialType |Impostare su *Windows* per abilitare la sicurezza di Windows per la comunicazione da client a nodo. |  
 | WindowsIdentities |Contiene le identità del client e del cluster. |  
 | ClusterIdentity |Usare il nome di un gruppo di computer, dominio\gruppo di computer, per configurare la sicurezza da nodo a nodo. |  
 | ClientIdentities |Configura la sicurezza da client a nodo. Matrice di account utente del client. |  

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5f22bb3ac378bc9b1ff94db486d6ea6053c64514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 87de0f23a00b035b12bac6cf655781961b1fb9e5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-an-application-in-kubernetes"></a>Aggiornare un'applicazione in Kubernetes
 
@@ -29,7 +29,7 @@ In questa esercitazione, parte sei di sette, viene aggiornata l'app Azure Vote d
 > * Push dell'immagine del contenitore in Registro contenitori di Azure
 > * Distribuzione di un'immagine del contenitore aggiornata
 
-Nelle esercitazioni successive, Operations Management Suite verrà configurato per monitorare il cluster Kubernetes.
+Nelle esercitazioni successive viene configurato Log Analytics per il monitoraggio del cluster Kubernetes.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -166,7 +166,7 @@ In questa esercitazione è stata aggiornata un'applicazione e l'aggiornamento è
 > * Push dell'immagine del contenitore in Registro contenitori di Azure
 > * Distribuzione dell'applicazione aggiornata
 
-Passare alla prossima esercitazione per apprendere come monitorare Kubernetes con Operations Management Suite.
+Passare alla prossima esercitazione per apprendere come monitorare Kubernetes con Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Monitorare Kubernetes con OMS](./container-service-tutorial-kubernetes-monitor.md)
+> [Monitorare Kubernetes con Log Analytics](./container-service-tutorial-kubernetes-monitor.md)

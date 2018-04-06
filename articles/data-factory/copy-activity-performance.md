@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 733a396117a58d8dc51e55614e503853f13141c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c43973a7e5070676fc0f32a4c8923d57a479f884
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +91,7 @@ L' **unità di spostamento dati cloud** è una misura che rappresenta la potenza
 | Copiare dati tra archivi basati su file | Tra 4 e 32 in base al numero e alle dimensioni dei file. |
 | Tutti gli altri scenari di copia | 4 |
 
-Per ignorare l'impostazione predefinita, è possibile specificare un valore per la proprietà **cloudDataMovementUnits** procedendo come segue. I **valori consentiti** per la proprietà **cloudDataMovementUnits** sono 2, 4, 8, 16, 32. Il **numero effettivo di unità di spostamento dati cloud** usate dall'operazione di copia in fase di esecuzione è minore o uguale al valore configurato, a seconda del modello di dati. Per informazioni sul livello di miglioramento delle prestazioni che è possibile ottenere quando si configurano più unità per un sink e un'origine della copia specifici, vedere la sezione [Informazioni di riferimento sulle prestazioni](#performance-reference).
+Per ignorare l'impostazione predefinita, è possibile specificare un valore per la proprietà **cloudDataMovementUnits** procedendo come segue. I **valori consentiti** per la proprietà **cloudDataMovementUnits** sono quelli **fino a 256**. Il **numero effettivo di unità di spostamento dati cloud** usate dall'operazione di copia in fase di esecuzione è minore o uguale al valore configurato, a seconda del modello di dati. Per informazioni sul livello di miglioramento delle prestazioni che è possibile ottenere quando si configurano più unità per un sink e un'origine della copia specifici, vedere la sezione [Informazioni di riferimento sulle prestazioni](#performance-reference).
 
 Quando si monitora un'esecuzione attività, è possibile visualizzare le unità di spostamento dati cloud effettivamente usate per ogni esecuzione della copia nell'output dell'attività di copia. Vedere [Monitoraggio dell'attività di copia](copy-activity-overview.md#monitoring).
 
@@ -133,11 +133,14 @@ Per ogni esecuzione dell'attività di copia, Data Factory determina il numero di
 
 | Scenario di copia | Numero predefinito di copie parallele determinato dal servizio |
 | --- | --- |
-| Copiare dati tra archivi basati su file |Tra 1 e 64. Dipende dalle dimensioni dei file e dal numero di unità di spostamento dati cloud usate per copiare dati tra due archivi dati cloud oppure dalla configurazione fisica del computer del runtime di integrazione self-hosted. |
+| Copiare dati tra archivi basati su file |Dipende dalle dimensioni dei file e dal numero di unità di spostamento dati cloud usate per copiare dati tra due archivi dati cloud oppure dalla configurazione fisica del computer del runtime di integrazione self-hosted. |
 | Copiare dati da qualsiasi archivio dati di origine in un'archiviazione tabelle di Azure |4 |
 | Tutti gli altri scenari di copia |1 |
 
-In genere, il comportamento predefinito dovrebbe garantire la velocità effettiva migliore. Tuttavia, per controllare il carico sui computer che ospitano gli archivi dati o per ottimizzare le prestazioni di copia, è possibile scegliere di ignorare il valore predefinito e specificare un valore per la proprietà **parallelCopies** . Il valore deve essere un numero intero maggiore o uguale a 1. Per garantire prestazioni ottimali in fase di esecuzione, l'attività di copia usa un valore minore o uguale al valore configurato.
+[!TIP]
+> Quando si copiano dati tra archivi basati su file, il comportamento predefinito (determinato automaticamente) è in genere quello che assicura la massima velocità effettiva. 
+
+Per controllare il carico sui computer che ospitano gli archivi dati o per ottimizzare le prestazioni di copia, è possibile scegliere di ignorare il valore predefinito e specificare un valore per la proprietà **parallelCopies**. Il valore deve essere un numero intero maggiore o uguale a 1. Per garantire prestazioni ottimali in fase di esecuzione, l'attività di copia usa un valore minore o uguale al valore configurato.
 
 ```json
 "activities":[

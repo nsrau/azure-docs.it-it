@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 4826dee82e62ffac70d7ca3d6dcfe005129de764
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d26b78fb5be96e979fb7b375acf6e907d858b706
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Esercitazione: Integrazione di Azure Active Directory con GoToMeeting
 
@@ -32,7 +32,7 @@ L'integrazione di GoToMeeting con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con GoToMeeting, sono necessari gli elementi seguenti:
 
@@ -108,77 +108,32 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    Nella casella di testo **Identificatore** digitare l'URL: `https://login.citrixonline.com/saml/sp`
+    Nella casella di testo **Identificatore** digitare l'URL: `https://authentication.logmeininc.com/saml/sp`
 
-4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
+4. Fare clic su **Mostra configurazione URL avanzata** e configurare gli URL seguenti
 
-    ![Collegamento di download del certificato](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_certificate.png) 
-
+    **URL di accesso** (lasciare lo spazio vuoto)
+    
+    **URL di risposta**: `https://authentication.logmeininc.com/saml/acs`
+    
+    **RelayState**:
+    
+    - Per l'app GoToMeeting usare `https://global.gotomeeting.com`
+    
+    - Per GoToTraining usare `https://global.gototraining.com`
+    
+    - Per GoToWebinar usare `https://global.gotowebinar.com` 
+    
+    - Per GoToAssist usare `https://app.gotoassist.com`
+    
 5. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_general_400.png)
 
-6. Per generare l'URL dei **metadati**, seguire questa procedura:
+6. In un'altra finestra del browser accedere a [GoToMeeting Organization Center](https://organization.logmeininc.com/). Verrà richiesto di confermare che l'IdP è stato aggiornato
 
-    a. Fare clic su **Registrazioni per l'app**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
-   
-    b. Fare clic su **Endpoint** per aprire la finestra di dialogo **Endpoint**.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
+7. Attivare la casella di controllo "My Identity Provider has been updated with the new domain" (Il provider di identità è stato aggiornato con il nuovo dominio). Al termine, fare clic su **Done** (Operazione completata).
 
-    c. Fare clic sul pulsante Copia per copiare l'URL del **DOCUMENTO METADATI FEDERAZIONE** e incollarlo nel Blocco note.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
-     
-    d. Passare ora alla pagina delle proprietà di **GoToMeeting**, copiare l'**ID applicazione** usando il pulsante **Copia** e incollarlo nel Blocco note.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
-
-    e. Generare l'**URL dei metadati** usando il modello seguente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
-
-7. Nella sezione **Configurazione di GoToMeeting** fare clic su **Configura GoToMeeting** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
-
-    ![Configurazione di GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
-
-8. In un'altra finestra del browser accedere a [GoToMeeting Organization Center](https://organization.logmeininc.com/)
-
-9. Nella scheda **Identity provider** (Provider di identità) è possibile configurare le impostazioni di Azure fornendo l'**URL dei metadati** generato o il **file di metadati** scaricato oppure scegliendo l'opzione **Manual** (Manuale).
-
-10. Per l'**URL dei metadati**, seguire questa procedura:
-
-    ![Configurazione di GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config1.png)
-
-    a. In **How would you like to configure your SAML IDP?** (Come si vuole configurare l'IDP SAML?) selezionare **Automatic** (Automatico) nel menu a discesa.
-
-    b. Incollare l'**URL dei metadati** generato nei passaggi precedenti nella relativa casella di testo.
-
-    c. Fare clic su **Save**.
-
-11. Per il **file di metadati**, seguire questa procedura:
-
-    ![Configurazione di GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config2.png)
-
-    a. In **How would you like to configure your SAML IDP?** (Come si vuole configurare l'IDP SAML?) selezionare **Upload SAML metadata file** (Carica file di metadati SAML) nel menu a discesa.
-
-    b. Per caricare il file di metadati scaricato, fare clic su **Upload metadata file** (Carica file di metadati).
-
-    c. Fare clic su **Save**.
-
-12. Per **Manual** (Manuale), seguire questa procedura:
-
-    ![Configurazione di GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config3.png)
-
-    a.  Nella casella di testo **Sign-in page URL** (URL pagina di accesso) incollare il valore dell'**URL del servizio Single Sign-On SAML** copiato dal portale di Azure.
-
-    b.  Nella casella di testo **Sign-out page URL** (URL pagina di disconnessione) incollare il valore dell'**URL di disconnessione** copiato dal portale di Azure.
-
-    c.  Nella casella di testo **Identity Provider Entity ID** (ID entità del provider di identità) incollare il valore dell'**ID di entità SAML** copiato dal portale di Azure.
-
-    d. Estrarre il certificato X509 dal file di metadati scaricato e caricarlo facendo clic su **Upload certificate** (Carica certificato).
-
-    e. Fare clic su **Save**.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).

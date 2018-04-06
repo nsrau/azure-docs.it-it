@@ -1,25 +1,25 @@
 ---
 title: Failover a livello di area in Azure Cosmos DB | Microsoft Docs
-description: "Informazioni sulla modalità di funzionamento di failover manuali e automatici con Azure Cosmos DB."
+description: Informazioni sulla modalità di funzionamento di failover manuali e automatici con Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 03/27/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5a4bdc49c5ab36a5026095b5d7b6f9856b020e1b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Failover a livello di area automatici per la continuità aziendale in Azure Cosmos DB
 Azure Cosmos DB semplifica la distribuzione globale dei dati, offrendo [account di database con più aree](distribute-data-globally.md) e completamente gestiti, che forniscono compromessi espliciti tra coerenza, disponibilità e prestazioni, il tutto con le relative garanzie. Gli account Cosmos DB offrono disponibilità elevata, latenze di pochi millisecondi, più [livelli di coerenza ben definiti](consistency-levels.md), failover a livello di area trasparente con API multihosting e la possibilità di ridimensionare in modo flessibile la velocità effettiva e le risorse di archiviazione in tutto il mondo. 
@@ -30,9 +30,10 @@ Cosmos DB supporta sia failover espliciti che failover basati su criteri che con
 * Come funzionano i failover automatici in Cosmos DB e che cosa accade quando un data center smette di funzionare?
 * In che modo è possibile usare i failover manuali in architetture applicative?
 
-In questo video di Azure Friday, con Scott Hanselman e Karthik Raman, Principal Engineering Manager, sono disponibili altre informazioni sui failover regionali.
+In questo video di Andrew Liu, Azure Cosmos DB Program Manager, sono disponibili altre informazioni sui failover regionali e vengono illustrate le funzionalità di distribuzione globale come il failover regionale.
 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+>[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ## <a id="ConfigureMultiRegionApplications"></a>Configurazione di applicazioni in più aree
 Prima di approfondire le modalità di failover, esaminiamo in che modo è possibile configurare un'applicazione per sfruttare i vantaggi della disponibilità di più aree e assicurare la resilienza in caso di failover regionali.
@@ -85,7 +86,7 @@ Dopo il ripristino dell'area interessata da un'interruzione del servizio, tutti 
 
 **Cosa accade se si verifica un'interruzione del servizio in un'area di scrittura?**
 
-Se l'area interessata è l'area di scrittura corrente e per l'account Azure Cosmos DB è abilitato il failover automatico, l'area viene automaticamente contrassegnata come offline. Viene quindi promossa un'area alternativa come area di scrittura per l'account Azure Cosmos DB interessato. È possibile abilitare il failover automatico e controllare completamente l'ordine di selezione dell'area per gli account Azure Cosmos DB tramite il portale di Azure o [a livello di codice](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
+Se l'area interessata è l'area di scrittura corrente e per l'account Azure Cosmos DB è abilitato il failover automatico, l'area viene automaticamente contrassegnata come offline. Viene quindi promossa un'area alternativa come area di scrittura per l'account Azure Cosmos DB interessato. È possibile abilitare il failover automatico e controllare completamente l'ordine di selezione dell'area per gli account Azure Cosmos DB tramite il portale di Azure o [a livello di codice](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
 
 ![Priorità di failover per Azure Cosmos DB](./media/regional-failover/failover-priorities.png)
 
@@ -97,7 +98,7 @@ Dopo il ripristino dell'area interessata da un'interruzione del servizio, tutti 
 
 * I dati presenti nell'area di scrittura precedente di cui non è stata eseguita la replica nelle aree di lettura durante l'interruzione vengono pubblicati come feed in conflitto. Le applicazioni possono leggere il feed in conflitto, risolvere i conflitti in base alla logica specifica dell'applicazione e scrivere di nuovo i dati aggiornati nell'account Azure Cosmos DB come appropriato. 
 * L'area di scrittura precedente viene ricreata come area di lettura e riportata automaticamente online. 
-* È possibile riconfigurare l'area di lettura che è stata riportata automaticamente online come area di scrittura eseguendo un failover manuale tramite il portale di Azure o [a livello di codice](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+* È possibile riconfigurare l'area di lettura che è stata riportata automaticamente online come area di scrittura eseguendo un failover manuale tramite il portale di Azure o [a livello di codice](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
 
 Il frammento di codice seguente illustra come elaborare i conflitti dopo il ripristino dell'area interessata dall'interruzione.
 
@@ -122,7 +123,7 @@ do
 
 ## <a id="ManualFailovers"></a>Failover manuali
 
-Oltre ai failover automatici, è possibile modificare manualmente l'area di scrittura corrente di un determinato account Cosmos DB in modo dinamico in una delle aree di lettura esistenti. I failover manuali possono essere avviati tramite il portale di Azure o [a livello di codice](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
+Oltre ai failover automatici, è possibile modificare manualmente l'area di scrittura corrente di un determinato account Cosmos DB in modo dinamico in una delle aree di lettura esistenti. I failover manuali possono essere avviati tramite il portale di Azure o [a livello di codice](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
 
 I failover manuali assicurano una **perdita di dati pari a zero** e **nessuna perdita di disponibilità** e trasferiscono correttamente lo stato di scrittura dalla vecchia alla nuova area di scrittura per l'account Cosmos DB specificato. Come nei failover automatici, durante i failover manuali Cosmos DB SDK gestisce automaticamente le modifiche dell'area di scrittura e garantisce che le chiamate vengano reindirizzate automaticamente alla nuova area di scrittura. La gestione dei failover non richiede alcuna modifica del codice o della configurazione dell'applicazione. 
 

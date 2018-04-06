@@ -1,24 +1,24 @@
 ---
 title: 'Guida introduttiva: aumentare il numero delle risorse di calcolo in Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
-description: "Attività di PowerShell per aumentare il numero delle risorse di calcolo modificando le unità Data Warehouse."
+description: Attività di PowerShell per aumentare il numero delle risorse di calcolo modificando le unità Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 01/31/2018
+ms.date: 03/16/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: a3a435d6bdb0d35c96349540d5e9f9b5be61bd9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3236c0ad9676712afd220a3c8a9326f3ea1f59d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Guida introduttiva: ridimensionare le risorse di calcolo in Azure SQL Data Warehouse con PowerShell
 
@@ -64,7 +64,7 @@ Seguire questa procedura per trovare le informazioni sulla posizione del data wa
 
     ![Nome del server e gruppo di risorse](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Annotare il nome del data warehouse che verrà usato come nome del database. Annotare anche il nome del server e il gruppo di risorse. Queste informazioni verranno usate nei comandi di sospensione e ripresa.
+4. Annotare il nome del data warehouse che verrà usato come nome del database. Tenere presente che un data warehouse è un tipo di database. Annotare anche il nome del server e il gruppo di risorse. Queste informazioni verranno usate nei comandi di sospensione e ripresa.
 5. Se il server è foo.database.windows.net, usare solo la prima parte come nome del server nei cmdlet PowerShell. Nella figura precedente il nome completo del server è newserver-20171113.database.windows.net. Come nome del server nel cmdlet PowerShell viene usato **newserver-20171113**.
 
 ## <a name="scale-compute"></a>Ridimensionare le risorse di calcolo
@@ -77,12 +77,13 @@ Per modificare le unità Data Warehouse, usare il cmdlet PowerShell [Set-AzureRm
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
 ```
 
-## <a name="check-database-state"></a>Controllare lo stato del database
+## <a name="check-data-warehouse-state"></a>Controllare lo stato del data warehouse
 
 Per visualizzare lo stato corrente del data warehouse, usare il cmdlet PowerShell [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase), che consente di ottenere lo stato del database **mySampleDataWarehouse** nel gruppo di risorse **myResourceGroup** e nel server **mynewserver-20171113.database.windows.net**.
 
 ```powershell
-Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database
 ```
 
 Verrà visualizzato un risultato simile al seguente:
@@ -113,7 +114,13 @@ ReadScale                     : Disabled
 ZoneRedundant                 : False
 ```
 
-È quindi possibile controllare lo **stato** del database. Nel caso in questione, il database è online.  Quando si esegue questo comando, è possibile ricevere un valore di stato Online, In pausa, Ripresa, Ridimensionamento o Sospeso.
+È possibile visualizzare lo **stato** del database nell'output. Nel caso in questione, il database è online.  Quando si esegue questo comando, è possibile ricevere un valore di stato Online, In pausa, Ripresa, Ridimensionamento o Sospeso. 
+
+Per visualizzare solo lo stato, usare il comando seguente:
+
+```powershell
+$database | Select-Object DatabaseName,Status
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Si è appreso come ridimensionare le risorse di calcolo per il data warehouse. Per altre informazioni su Azure SQL Data Warehouse, continuare con l'esercitazione per il caricamento dei dati.

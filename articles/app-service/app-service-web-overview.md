@@ -15,15 +15,15 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: e789d3c6e10399491eb055b850a590ae10aacd11
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 85a3898145f7aea5d3f668caeafb62286006230d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="web-apps-overview"></a>Panoramica di App Web
 
-Le *app Web del servizio app di Azure* , o semplicemente app Web, sono un servizio per l'hosting di applicazioni Web, API REST e back-end mobili. È possibile usare il linguaggio di sviluppo preferito tra .NET, .NET Core, Java, Ruby, Node.js, PHP o Python. È possibile eseguire e ridimensionare le app con facilità in macchine virtuali Windows o Linux. Vedere in proposito [Servizio app in Linux](containers/app-service-linux-intro.md). 
+Le *app Web del servizio app di Azure* , o semplicemente app Web, sono un servizio per l'hosting di applicazioni Web, API REST e back-end mobili. È possibile usare il linguaggio di sviluppo preferito tra .NET, .NET Core, Java, Ruby, Node.js, PHP o Python. Le applicazioni vengono eseguite e ridimensionate con facilità negli ambienti basati su Windows. Per gli ambienti basati su Linux, vedere [Servizio app su Linux](containers/app-service-linux-intro.md). 
 
 Le app Web non si limitano ad aggiungere la potenza di Microsoft Azure all'applicazione, in termini di sicurezza, bilanciamento del carico, ridimensionamento automatico e gestione automatizzata. Permettono anche di usufruire delle funzionalità DevOps, come la distribuzione continua da Visual Studio Team Services, GitHub, Hub Docker e altre origini, la gestione dei pacchetti, gli ambienti di staging, il dominio personalizzato e i certificati SSL. 
 
@@ -56,7 +56,7 @@ Creare la prima app Web.
 > [PHP](app-service-web-get-started-php.md)
 
 > [!div class="nextstepaction"]
-> [Node.js](app-service-web-get-started-nodejs.md)
+> [Node.JS](app-service-web-get-started-nodejs.md)
 
 > [!div class="nextstepaction"]
 > [Java](app-service-web-get-started-java.md)

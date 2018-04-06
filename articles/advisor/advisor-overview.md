@@ -5,8 +5,8 @@ services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0aa97a7557706f0b704d4e31a84e9d356d1ad087
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Presentazione di Azure Advisor
 
@@ -43,9 +43,6 @@ Nel dashboard di Advisor vengono visualizzati consigli personalizzati per tutte 
 
   ![Tipi di consigli di Advisor](./media/advisor-overview/advisor-dashboard.png)
 
-> [!NOTE]
-> Per usare Azure Advisor con una sottoscrizione, è necessario che un *proprietario* della sottoscrizione avvii il dashboard di Advisor.  Questa azione registra la sottoscrizione con Advisor.  Da questo momento in poi qualsiasi *proprietario*, *collaboratore* o *lettore* della sottoscrizione può accedere ai consigli di Advisor per la sottoscrizione. 
-
 È possibile fare clic su una categoria per visualizzare l'elenco di consigli disponibili in tale categoria e selezionare un consiglio per ottenere altre informazioni.  È inoltre possibile trovare informazioni sulle azioni che è possibile eseguire per sfruttare un'opportunità o risolvere un problema.
 
 ![Categoria di consigli di Advisor](./media/advisor-overview/advisor-ha-category-example.png) 
@@ -62,12 +59,12 @@ Se non si intende agire immediatamente, è possibile posporre il consiglio per u
 È possibile visualizzare i consigli di Advisor anche tramite l'interfaccia delle risorse delle macchine virtuali. Scegliere una macchina virtuale, quindi scorrere fino ai consigli di Advisor nel menu. 
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Quali autorizzazioni sono necessarie per accedere ad Advisor?
-
-Per accedere ai consigli di Advisor, è prima di tutto necessario registrare la sottoscrizione con Advisor. Una sottoscrizione viene registrata quando il *proprietario* della sottoscrizione avvia il dashboard di Advisor. Si tratta di un'operazione una tantum. Dopo avere registrato la sottoscrizione, è possibile accedere ai consigli di Advisor come *Proprietario*, *Collaboratore* o *Lettore* di una sottoscrizione.
+ 
+È possibile accedere ai consigli di Advisor come *Proprietario*, *Collaboratore* o *Lettore* di una sottoscrizione.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Per quali risorse fornisce consigli Advisor?
 
-Advisor fornisce consigli per macchine virtuali, set di disponibilità, gateway applicazione, Servizi app, SQL Server, database SQL e Cache Redis.
+Advisor fornisce consigli per macchine virtuali, set di disponibilità, gateway applicazione, Servizi app, SQL Server e Cache Redis.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>È possibile posporre o ignorare un consiglio?
 

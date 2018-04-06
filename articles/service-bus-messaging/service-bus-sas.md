@@ -5,8 +5,8 @@ services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: sethm;clemensv
-ms.openlocfilehash: f6bb77ad6df09e36419b24b24924dac7ecd79065
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 21e9e0a20842e365e40b71ac96888e7cd2056e52
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
 
@@ -273,6 +273,7 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 | Spostare un messaggio nella coda dei messaggi non recapitabili |Attesa |Qualsiasi indirizzo valido della coda |
 | Ottenere lo stato associato a una sessione della coda dei messaggi |Attesa |Qualsiasi indirizzo valido della coda |
 | Impostare lo stato associato a una sessione della coda dei messaggi |Attesa |Qualsiasi indirizzo valido della coda |
+| Pianificare il recapito ritardato di un messaggio, ad esempio [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Attesa | Qualsiasi indirizzo valido della coda
 | **Argomento** | | |
 | Creare un argomento |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
 | Eliminare un argomento |Gestisci |Qualsiasi indirizzo valido dell'argomento |

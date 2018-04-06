@@ -6,13 +6,13 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 5ce85761df4e0ad62c22a829f67464a3145fd827
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 48be55632d9c1bece3f1a6e4f9ac12a68f9cb7ab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informazioni sulle reti per la replica da Azure ad Azure
 
@@ -154,9 +154,10 @@ Seguire queste linee guida per le connessioni tra la posizione di destinazione e
 ### <a name="expressroute-configuration"></a>Configurazione di ExpressRoute
 Seguire queste procedure consigliate per la configurazione di ExpressRoute:
 
-- È necessario creare un circuito ExpressRoute nelle aree di origine e in quelle di destinazione. È quindi necessario creare una connessione tra:
-  - La rete virtuale di origine e il circuito ExpressRoute.
-  - La rete virtuale di destinazione e il circuito ExpressRoute.
+- Creare un circuito ExpressRoute in entrambe le aree di origine e di destinazione. È quindi necessario creare una connessione tra:
+    - La rete virtuale di origine e la rete locale, tramite il circuito ExpressRoute nell'area di origine.
+    - La rete virtuale di destinazione e la rete locale, tramite il circuito ExpressRoute nell'area di destinazione.
+
 
 - Come parte dello standard ExpressRoute, è possibile creare circuiti nella stessa area geopolitica. Per creare i circuiti ExpressRoute in diverse aree geopolitiche, è necessaria la presenza di Azure ExpressRoute Premium, il che comporta un costo incrementale (se si sta già usando ExpressRoute Premium, non sono previsti costi aggiuntivi). Per altre informazioni, vedere il [documento sulle posizioni di ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) e i [prezzi di ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 

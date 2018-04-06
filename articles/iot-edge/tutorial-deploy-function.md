@@ -2,7 +2,7 @@
 title: Distribuire Funzioni di Azure con Azure IoT Edge | Microsoft Docs
 description: Distribuire Funzione di Azure come modulo in un dispositivo perimetrale
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: v-jamebr
@@ -10,11 +10,11 @@ ms.date: 11/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1dfe46d307a076ae02362c4bba292602001ed915
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: a43ae8f28fc32b61fb5db985ffae98f093293798
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Distribuire Funzioni di Azure come modulo di IoT Edge: anteprima
 È possibile usare Funzioni di Azure per distribuire il codice che implementa la logica di business direttamente nei dispositivi IoT Edge. Questa esercitazione illustra in modo dettagliato la creazione e la distribuzione di una funzione di Azure che filtra i dati dei sensori nel dispositivo IoT Edge simulato, creato nelle esercitazioni sulla distribuzione di Azure IoT Edge in un dispositivo simulato in [Windows][lnk-tutorial1-win] o [Linux][lnk-tutorial1-lin]. In questa esercitazione si apprenderà come:     
@@ -174,8 +174,8 @@ Aggiungere le credenziali per il registro al runtime di Edge nel computer in cui
 1. Aggiungere il modulo **filterFunction**.
     1. Selezionare di nuovo **Add IoT Edge Module** (Aggiungi il modulo di IoT Edge).
     2. Nel campo **Nome** immettere `filterFunction`.
-    3. Nel campo **Immagine** immettere l'indirizzo dell'immagine, ad esempio `<docker registry address>/filterfunction:latest`.
-    74. Fare clic su **Salva**.
+    3. Nel campo **URI immagine** immettere l'indirizzo dell'immagine, ad esempio `<your container registry address>/filtermodule:0.0.1-amd64`. Nella sezione precedente è possibile trovare l'indirizzo completo dell'immagine.
+    74. Fare clic su **Save**.
 2. Fare clic su **Avanti**.
 3. Nel passaggio **Specify Routes** (Specifica route) copiare il codice JSON seguente nella casella di testo. La prima route trasporta i messaggi dal sensore della temperatura al modulo del filtro tramite l'endpoint "input1", La seconda route trasporta i messaggi dal modulo del filtro all'hub IoT. In questa route `$upstream` è una destinazione speciale che indica all'hub di Edge di inviare messaggi all'hub IoT. 
 

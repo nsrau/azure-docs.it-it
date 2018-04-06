@@ -3,7 +3,7 @@ title: Modello di risorsa e concetti relativi ad Azure Cosmos DB | Microsoft Doc
 description: Informazioni sul modello gerarchico di database, raccolte, funzioni definite dall'utente, documenti, autorizzazioni per gestire le risorse e altro ancora in Azure Cosmos DB.
 keywords: Modello gerarchico, Cosmos DB, Azure, Microsoft Azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
@@ -12,18 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a88f17a658987e1ff3ae0e0f38d6551c3acee1da
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 948fc84db2fd2d6f2059f9807b84194ebac59472
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Modello di risorsa gerarchico e concetti di base relativi ad Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Le entità del database gestite da Azure Cosmos DB vengono chiamate **risorse**. Ogni risorsa viene identificata in modo univoco da un URI logico. È possibile interagire con le risorse usando verbi HTTP, intestazioni di richiesta/risposta e codici di stato standard. 
 
@@ -34,6 +32,12 @@ In questo articolo vengono fornite le risposte alle domande seguenti:
 * Come si indirizza una risorsa?
 * Come si usano le raccolte?
 * Come si usano le stored procedure, i trigger e le funzioni definite dall'utente
+
+Nel video seguente Andrew Liu, Program Manager di Azure Cosmos DB, descrive il modello di risorse di Azure Cosmos DB. 
+
+> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
+>
+>
 
 ## <a name="hierarchical-resource-model"></a>Modello di risorse gerarchico
 Come illustrato nel diagramma seguente, il **modello di risorsa** gerarchico di Azure Cosmos DB è costituito da set di risorse in un account di database, ognuna indirizzabile tramite un URI logico e stabile. Un set di risorse viene definito **feed** in questo articolo. 
@@ -154,7 +158,7 @@ Come parte del provisioning e della gestione di un account di database, è possi
     </tbody>
 </table>
 
-Oltre al provisioning, alla configurazione e alla gestione dell'account di database dal portale di Azure, è anche possibile creare e gestire account di database Cosmos DB a livello di codice usando le [API REST di Azure Cosmos DB](/rest/api/documentdb/) e gli [SDK client](sql-api-sdk-dotnet.md).  
+Oltre al provisioning, alla configurazione e alla gestione dell'account di database dal portale di Azure, è anche possibile creare e gestire account di database Cosmos DB a livello di codice usando le [API REST di Azure Cosmos DB](/rest/api/cosmos-db/) e gli [SDK client](sql-api-sdk-dotnet.md).  
 
 ## <a name="databases"></a>Database
 Un database di Cosmos DB è un contenitore logico di uno o più utenti e raccolte, come illustrato nel diagramma seguente. È possibile creare un numero qualsiasi di database in un account di database Cosmos DB, a condizione di rispettare i limiti di offerta.  
@@ -173,7 +177,7 @@ Il numero di raccolte che è possibile creare in un database dipende dall'offert
 
 Un database di Azure Cosmos DB è anche un contenitore di utenti. Un utente, a sua volta, è uno spazio dei nomi logico per un set di autorizzazioni che fornisce autorizzazioni specifiche e accesso a raccolte, documenti e allegati.  
 
-Come per le altre risorse nel modello di risorsa di Azure Cosmos DB, i database possono essere creati, sostituiti, eliminati, letti o enumerati facilmente usando le [API REST](/rest/api/documentdb/) o uno degli [SDK client](sql-api-sdk-dotnet.md). Azure Cosmos DB assicura una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di una risorsa del database. Se si elimina un database, non sarà automaticamente più possibile accedere alle raccolte o agli utenti inclusi nel database.   
+Come per le altre risorse nel modello di risorsa di Azure Cosmos DB, i database possono essere creati, sostituiti, eliminati, letti o enumerati facilmente usando le [API REST](/rest/api/cosmos-db/) o uno degli [SDK client](sql-api-sdk-dotnet.md). Azure Cosmos DB assicura una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di una risorsa del database. Se si elimina un database, non sarà automaticamente più possibile accedere alle raccolte o agli utenti inclusi nel database.   
 
 ## <a name="collections"></a>Raccolte
 Una raccolta di Cosmos DB è un contenitore per i documenti JSON. 
@@ -191,7 +195,7 @@ Il criterio di indicizzazione di ogni raccolta rende possibili i compromessi tra
 * Possibilità di scegliere se includere o escludere percorsi o modelli specifici nei documenti dall'indice. Per ottenere questo risultato, impostare rispettivamente includedPaths e excludedPaths in indexingPolicy di una raccolta. È anche possibile configurare i compromessi relativi ad archiviazione e prestazioni per query di intervallo e hash per modelli di percorso specifici. 
 * Possibilità di scegliere tra aggiornamenti sincroni (coerenti) e asincroni (differiti) dell'indice. Per impostazione predefinita, l'indice è aggiornato in modo sincrono a ogni inserimento, sostituzione o eliminazione di un documento nella raccolta. Ciò permette alle query di rispettare lo stesso livello di coerenza delle letture di documenti. Anche se Azure Cosmos DB è ottimizzato per la scrittura e supporta volumi elevati di scritture di documenti, oltre a consentire la manutenzione sincrona dell'indice e la gestione di query coerenti, è possibile configurare determinate raccolte per l'aggiornamento differito dell'indice. L'indicizzazione differita migliora ulteriormente le prestazioni di scrittura ed è ideale per scenari di inserimento in blocco per raccolte principalmente a uso intensivo di lettura.
 
-Il criterio di indicizzazione può essere modificato tramite l'esecuzione di un'operazione PUT sulla raccolta. Può essere ottenuto tramite l'[SDK client](sql-api-sdk-dotnet.md), il [portale di Azure](https://portal.azure.com) o le [API REST](/rest/api/documentdb/).
+Il criterio di indicizzazione può essere modificato tramite l'esecuzione di un'operazione PUT sulla raccolta. Può essere ottenuto tramite l'[SDK client](sql-api-sdk-dotnet.md), il [portale di Azure](https://portal.azure.com) o le [API REST](/rest/api/cosmos-db/).
 
 ### <a name="querying-a-collection"></a>Esecuzione di query su una raccolta
 I documenti in una raccolta possono avere schemi arbitrari ed è possibile eseguire query sui documenti in una raccolta senza fornire anticipatamente alcuno schema o alcun indice secondario. È possibile eseguire query sulla raccolta seguendo la procedura descritta in [Riferimento per la sintassi SQL di Azure Cosmos DB](https://msdn.microsoft.com/library/azure/dn782250.aspx), che offre avanzati operatori gerarchici, relazionali e spaziali ed estendibilità tramite funzioni definite dall'utente basate su JavaScript. La grammatica JSON permette la modellazione di documenti JSON come alberi con etichette come nodi dell'albero. Viene usata dalle tecniche di indicizzazione automatica di API SQL e dal dialetto SQL di Azure Cosmos DB. Il linguaggio di query di SQL è caratterizzato da tre aspetti principali:   
@@ -200,7 +204,7 @@ I documenti in una raccolta possono avere schemi arbitrari ed è possibile esegu
 2. Un sottoinsieme di operazioni relazionali, incluse la composizione, l'applicazione di filtri, le proiezioni, le aggregazioni e i self join. 
 3. Funzioni definite dall'utente pure basate su JavaScript in grado di funzionare con (1) e (2).  
 
-Il modello di query di Azure Cosmos DB cerca di raggiungere un equilibrio tra funzionalità, efficienza e semplicità. Il motore di database di Azure Cosmos DB compila ed esegue in modo nativo le istruzioni di query SQL. È possibile eseguire query su una raccolta usando le [API REST](/rest/api/documentdb/) o uno degli [SDK client](sql-api-sdk-dotnet.md). In .NET SDK è disponibile un provider LINQ.
+Il modello di query di Azure Cosmos DB cerca di raggiungere un equilibrio tra funzionalità, efficienza e semplicità. Il motore di database di Azure Cosmos DB compila ed esegue in modo nativo le istruzioni di query SQL. È possibile eseguire query su una raccolta usando le [API REST](/rest/api/cosmos-db/) o uno degli [SDK client](sql-api-sdk-dotnet.md). In .NET SDK è disponibile un provider LINQ.
 
 > [!TIP]
 > È possibile provare l'API di SQL ed eseguire query SQL con il set di dati in [Query Playground](https://www.documentdb.com/sql/demo).
@@ -222,7 +226,7 @@ La logica JavaScript registrata a livello di raccolta può quindi rilasciare ope
 
 La possibilità di eseguire JavaScript direttamente nel motore di database nello stesso spazio di indirizzi del pool di buffer permette l'esecuzione efficiente e transazionale di operazioni di database nei documenti di una raccolta. Poiché il motore di database di Cosmos DB adotta completamente JSON e JavaScript, elimina eventuali mancate corrispondenze di impedenza tra i sistemi di tipi dell'applicazione e del database.   
 
-Dopo aver creato una raccolta, è possibile registrare stored procedure, trigger e UDF con la raccolta usando le [API REST](/rest/api/documentdb/) o uno degli [SDK client](sql-api-sdk-dotnet.md). Dopo la registrazione, sarà possibile farvi riferimento ed eseguire questi elementi. La stored procedure seguente, scritta interamente in JavaScript, accetta due argomenti (titolo del libro e nome dell'autore) e crea un nuovo documento, esegue query per un documento e quindi lo aggiorna. Tutte queste operazioni sono eseguite tramite una transazione ACID implicita. Se in un punto qualsiasi dell'esecuzione viene generata un'eccezione JavaScript, l'intera transazione viene interrotta.
+Dopo aver creato una raccolta, è possibile registrare stored procedure, trigger e UDF con la raccolta usando le [API REST](/rest/api/cosmos-db/) o uno degli [SDK client](sql-api-sdk-dotnet.md). Dopo la registrazione, sarà possibile farvi riferimento ed eseguire questi elementi. La stored procedure seguente, scritta interamente in JavaScript, accetta due argomenti (titolo del libro e nome dell'autore) e crea un nuovo documento, esegue query per un documento e quindi lo aggiorna. Tutte queste operazioni sono eseguite tramite una transazione ACID implicita. Se in un punto qualsiasi dell'esecuzione viene generata un'eccezione JavaScript, l'intera transazione viene interrotta.
 
     function businessLogic(name, author) {
         var context = getContext();
@@ -275,10 +279,10 @@ Poiché il database comprende in modo nativo JSON e JavaScript, non si verifican
 
 Le stored procedure e i trigger interagiscono con una raccolta e con i documenti in una raccolta tramite un modello a oggetti ben definito, che espone il contesto corrente della raccolta.  
 
-Le raccolte nell'API di SQL possono essere create, eliminate, lette o enumerate facilmente usando le [API REST](/rest/api/documentdb/) o uno degli [SDK client](sql-api-sdk-dotnet.md). L'API di SQL offre sempre una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di una raccolta. Se si elimina una raccolta, non sarà automaticamente più possibile accedere a documenti, allegati, stored procedure, trigger e funzioni UDF inclusi nella raccolta stessa.   
+Le raccolte nell'API di SQL possono essere create, eliminate, lette o enumerate facilmente usando le [API REST](/rest/api/cosmos-db/) o uno degli [SDK client](sql-api-sdk-dotnet.md). L'API di SQL offre sempre una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di una raccolta. Se si elimina una raccolta, non sarà automaticamente più possibile accedere a documenti, allegati, stored procedure, trigger e funzioni UDF inclusi nella raccolta stessa.   
 
 ## <a name="stored-procedures-triggers-and-user-defined-functions-udf"></a>Stored procedure, trigger e funzioni definite dall'utente (UDF)
-Come illustrato nella sezione precedente, è possibile scrivere logica dell'applicazione per l'esecuzione direttamente in una transazione nel motore del database. La logica dell'applicazione può essere scritta interamente in JavaScript e può essere modellata come stored procedure, trigger o funzione definita dall'utente (UDF, User-Defined Function). Il codice JavaScript in una stored procedure o un trigger può inserire, sostituire, eliminare, leggere o sottoporre a query documenti all'interno di una raccolta. Il codice JavaScript all'interno di una funzione definita dall'utente, invece, non può inserire, sostituire o eliminare documenti. Le funzioni definite dall'utente enumerano i documenti di un set di risultati di query e producono un altro set di risultati. Per la multi-tenancy, Azure Cosmos DB applica una rigida governance delle risorse basata sulle prenotazioni. Ogni stored procedure, trigger o funzione UDF ottiene una quantità fissa di risorse del sistema operativo per l'esecuzione delle operazioni. Le stored procedure, i trigger o le funzioni UDF, inoltre, non possono collegarsi a librerie JavaScript esterne e saranno disattivati in caso di superamento dei rispettivi budget di risorse allocati. È possibile eseguire o annullare la registrazione di stored procedure, trigger o funzioni definite dall'utente con una raccolta usando le API REST.  Durante la registrazione, una stored procedure, un trigger o una funzione UDF saranno precompilati e archiviati come codice byte, che sarà eseguito in seguito. La sezione seguente illustra come usare Azure Cosmos DB JavaScript SDK per la registrazione, l'esecuzione e l'annullamento della registrazione di una stored procedure, un trigger e una funzione definita dall'utente. JavaScript SDK è un semplice wrapper per le [API REST](/rest/api/documentdb/). 
+Come illustrato nella sezione precedente, è possibile scrivere logica dell'applicazione per l'esecuzione direttamente in una transazione nel motore del database. La logica dell'applicazione può essere scritta interamente in JavaScript e può essere modellata come stored procedure, trigger o funzione definita dall'utente (UDF, User-Defined Function). Il codice JavaScript in una stored procedure o un trigger può inserire, sostituire, eliminare, leggere o sottoporre a query documenti all'interno di una raccolta. Il codice JavaScript all'interno di una funzione definita dall'utente, invece, non può inserire, sostituire o eliminare documenti. Le funzioni definite dall'utente enumerano i documenti di un set di risultati di query e producono un altro set di risultati. Per la multi-tenancy, Azure Cosmos DB applica una rigida governance delle risorse basata sulle prenotazioni. Ogni stored procedure, trigger o funzione UDF ottiene una quantità fissa di risorse del sistema operativo per l'esecuzione delle operazioni. Le stored procedure, i trigger o le funzioni UDF, inoltre, non possono collegarsi a librerie JavaScript esterne e saranno disattivati in caso di superamento dei rispettivi budget di risorse allocati. È possibile eseguire o annullare la registrazione di stored procedure, trigger o funzioni definite dall'utente con una raccolta usando le API REST.  Durante la registrazione, una stored procedure, un trigger o una funzione UDF saranno precompilati e archiviati come codice byte, che sarà eseguito in seguito. La sezione seguente illustra come usare Azure Cosmos DB JavaScript SDK per la registrazione, l'esecuzione e l'annullamento della registrazione di una stored procedure, un trigger e una funzione definita dall'utente. JavaScript SDK è un semplice wrapper per le [API REST](/rest/api/cosmos-db/). 
 
 ### <a name="registering-a-stored-procedure"></a>Registrazione di una stored procedure
 La registrazione di una stored procedure consiste nel creare una nuova risorsa stored procedure in una raccolta tramite un metodo HTTP POST.  
@@ -406,7 +410,7 @@ L'annullamento della registrazione di una funzione definita dall'utente avviene 
             console.log("Error");
         });
 
-Anche se i frammenti di codice precedenti illustrano la registrazione (POST), l'annullamento della registrazione (PUT), la lettura/creazione di un elenco (GET) e l'esecuzione (POST) tramite [JavaScript SDK](https://github.com/Azure/azure-documentdb-js), è anche possibile usare le [API REST](/rest/api/documentdb/) o altri [SDK del client](sql-api-sdk-dotnet.md). 
+Anche se i frammenti di codice precedenti illustrano la registrazione (POST), l'annullamento della registrazione (PUT), la lettura/creazione di un elenco (GET) e l'esecuzione (POST) tramite [JavaScript SDK](https://github.com/Azure/azure-documentdb-js), è anche possibile usare le [API REST](/rest/api/cosmos-db/) o altri [SDK del client](sql-api-sdk-dotnet.md). 
 
 ## <a name="documents"></a>Documenti
 È possibile inserire, sostituire, eliminare, leggere, enumerare ed eseguire query in documenti JSON arbitrari in una raccolta. Azure Cosmos DB non impone alcuno schema e non richiede indici secondari per il supporto delle query sui documenti di una raccolta. Le dimensioni massime per un documento sono pari a 2 MB.   
