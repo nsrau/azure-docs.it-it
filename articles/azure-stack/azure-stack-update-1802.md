@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: b3a3c07446ad04a58d5180793404fc04677749b2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6f654e7897a9a00b0e53849002d5d4b16eab2bd6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1802-update"></a>Aggiornamento dello Stack 1802 Azure
 
@@ -56,7 +56,9 @@ In questo articolo vengono descritti i miglioramenti e correzioni nel pacchetto 
 
 
 ### <a name="post-update-steps"></a>Passaggi di post-aggiornamento
-*Non sono passaggi post-aggiornamento per aggiornamento 1802.*
+Dopo l'installazione di 1802, installare gli aggiornamenti rapidi applicabili. Per ulteriori informazioni, vedere i seguenti articoli della knowledge base, nonché il nostro [manutenzione criteri](azure-stack-servicing-policy.md).  
+- [KB 4103348 - servizio API di Controller di rete si blocca quando si tenta di installare un aggiornamento dello Stack di Azure](https://support.microsoft.com/help/4103348)
+
 
 
 ### <a name="new-features-and-fixes"></a>Nuove funzionalità e correzioni
@@ -82,7 +84,7 @@ Questo aggiornamento include i seguenti miglioramenti e correzioni per lo Stack 
 
 - **Viene aggiunto il supporto per più domini di errore**.  Per ulteriori informazioni, vedere [la disponibilità elevata per Azure Stack](azure-stack-key-features.md#high-availability-for-azure-stack).
 
-- **Varie correzioni** per le prestazioni, stabilità, sicurezza e il sistema operativo che viene utilizzato dallo stack di Azure.
+- **Varie correzioni** per le prestazioni, stabilità, sicurezza e il sistema operativo che viene utilizzato dallo Stack di Azure.
 
 <!--
 #### New features
@@ -141,6 +143,10 @@ Non siano presenti problemi noti dopo l'aggiornamento a 1802.
 
 #### <a name="compute"></a>Calcolo
 - Impostazioni di scalabilità per il set di scalabilità di macchine virtuali non sono disponibili nel portale. In alternativa, è possibile utilizzare [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). A causa delle differenze di versione di PowerShell, è necessario utilizzare il `-Name` parametro anziché `-VMScaleSetName`.
+
+- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+
+  Questo problema viene risolto nella versione 1803. Per risolvere questo problema per versione 1802, installare l'aggiornamento rapido di Azure Stack **1.0.180302.4**. Per altre informazioni, vedere [4131152 KB: set di scalabilità di macchine virtuali esistenti potrebbe essere inutilizzabile]( https://support.microsoft.com/help/4131152). 
 
 - Stack di Azure supporta l'utilizzo solo dischi rigidi virtuali di tipo fisso. Alcune immagini offerti tramite il marketplace nello Stack di Azure usano dischi rigidi virtuali dinamici, ma quelli sono state rimosse. Ridimensionamento di una macchina virtuale (VM) con un disco dinamico collegato lascia la macchina virtuale in uno stato di errore.
 
