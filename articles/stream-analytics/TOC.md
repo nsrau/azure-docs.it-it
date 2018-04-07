@@ -83,7 +83,7 @@
 ### [Usare le API REST](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 
 
-# riferimento
+# Riferimenti
 ## [Azure PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [Linguaggio di query](https://msdn.microsoft.com/library/azure/dn834998)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
@@ -94,7 +94,7 @@
 ## [Blog](http://blogs.msdn.com/b/streamanalytics/)
 ## [Video](https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest)
 ## [Forum di commenti e suggerimenti](http://feedback.azure.com/forums/270577-azure-stream-analytics)
-## [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Note sulla versione](stream-analytics-release-notes.md)

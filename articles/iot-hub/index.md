@@ -5,18 +5,18 @@ services: iot-hub
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: iot-hub
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 64108098048f8f72a7165175358b99314e8dd820
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 982a44874d53e79004acae723ec72fe0f5ba66b6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="iot-hub-documentation"></a>Documentazione sull'hub IoT 
 
@@ -154,9 +154,8 @@ Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Inte
                         <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">SDK per dispositivi C</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (servizio)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (dispositivi)</a></p>
-                        <p><a href="/javascript/api/azure-iot-device/">Node.js (dispositivi)</a></p>
-                        <p><a href="/javascript/api/azure-iothub">Node.js (servizio)</a></p>
-                        <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
+                        <p><a href="/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest">Node.js (dispositivi)</a></p>
+                        <p><a href="/javascript/api/azure-iothub/?view=azure-iot-typescript-latest">Node.js (servizio)</a></p>
                     </div>
                 </div>
             </div>
