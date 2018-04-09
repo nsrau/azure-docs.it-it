@@ -155,14 +155,10 @@
           href: backup-client-automation.md
     - name: database SQL di Azure
       items:
-        - name: Configurare la conservazione del backup a lungo termine
-          href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Visualizzare i backup in un insieme di credenziali di Servizi di ripristino
-          href: ../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Ripristinare dalla conservazione del backup a lungo termine
-          href: ../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Eliminare i backup di Azure SQL a lungo termine
-          href: ../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Configurare e ripristinare i backup del database SQL - Archiviazione SQL
+          href: ../sql-database/sql-database-long-term-backup-retention-configure.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Configurare e ripristinare i backup del database SQL - Insieme di credenziali di Servizi di ripristino
+          href: ../sql-database/sql-database-long-term-backup-retention-configure-vault.md?toc=%2fazure%2fbackup%2ftoc.json
     - name: Windows Server
       items:
         - name: Eseguire un backup dei file e delle cartelle di Windows Server
@@ -197,7 +193,7 @@
           href: backup-azure-scdpm-troubleshooting.md
         - name: Risolvere i problemi dell'agente di Backup di Azure
           href: backup-azure-mars-troubleshoot.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.backup

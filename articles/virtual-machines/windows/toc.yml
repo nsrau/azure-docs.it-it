@@ -342,13 +342,20 @@
         - name: Estensione Agente di raccolta log di Azure
           href: log-collector-extension.md
         - name: Estensione Diagnostica di Azure
-          href: ps-extensions-diagnostics.md
+          href: extensions-diagnostics.md
+          items:
+            - name: Schema dell'estensione
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
+            - name: Abilitare con PowerShell
+              href: ps-extensions-diagnostics.md
+            - name: Abilitare con modelli
+              href: extensions-diagnostics-template.md
+            - name: risoluzione dei problemi
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
         - name: Esportazione delle estensioni di VM
           href: extensions-export-templates.md
         - name: Risoluzione dei problemi relativi alle estensioni
           href: extensions-troubleshoot.md
-        - name: Estensione di monitoraggio e diagnostica
-          href: extensions-diagnostics-template.md
         - name: Agente Network Watcher
           href: extensions-nwa.md
         - name: Limitare l'installazione dell'estensione

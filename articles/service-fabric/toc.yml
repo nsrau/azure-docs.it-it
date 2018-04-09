@@ -249,12 +249,12 @@
               href: service-fabric-reliable-services-diagnostics.md
             - name: Eventi di Reliable Actors
               href: service-fabric-reliable-actors-diagnostics.md
-            - name: Metriche delle prestazioni
-              href: service-fabric-diagnostics-event-generation-perf.md
             - name: Monitoraggio della comunicazione remota con i servizi
               href: service-fabric-reliable-serviceremoting-diagnostics.md
         - name: Registrazione di applicazioni
           href: service-fabric-diagnostics-event-generation-app.md
+        - name: Metriche delle prestazioni
+          href: service-fabric-diagnostics-event-generation-perf.md
         - name: Panoramica del modello di integrità
           href: service-fabric-health-introduction.md
         - name: Segnalare eventi sull'integrità
@@ -433,6 +433,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: Procedure consigliate
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
+        - name: Effettuare il refactoring di un'app sottoposta a migrazione
+          href: /azure/architecture/service-fabric/refactor-migrated-app
     - name: Gestire il ciclo di vita delle applicazioni
       items:
         - name: Inserire un'applicazione in un pacchetto
