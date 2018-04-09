@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4445a84a6c6425110e7d705019a28b5cc5447046
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b4d626028eed09e9ce6a45fa8fa69859c082da7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="add-maps-for-xml-data-transform"></a>Aggiungere mappe per la trasformazione dei dati XML
 
@@ -28,9 +28,13 @@ Enterprise Integration usa mappe per trasformare i dati XML da un formato all'al
 
 Si supponga di ricevere regolarmente fatture o ordini B2B da un cliente che usa il formato AAAMMGG per le date. In azienda però le date vengono archiviare nel formato MMGGAAA. È possibile usare una mappa per *trasformare* il formato di data AAAMMGG in MMGGAAA prima di archiviare i dettagli dell'ordine o della fattura nel database relativo.
 
+
 ## <a name="how-do-i-create-a-map"></a>Come si crea una mappa?
 
 È possibile creare progetti BizTalk Integration con [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack") per Visual Studio 2015. È quindi possibile creare un file Integration Map che consente di eseguire il mapping visivo degli elementi tra due file di schema XML. Dopo aver compilato il progetto, si disporrà di un documento XSLT.
+
+Se una mappa ha un riferimento a un assembly esterno, allora entrambi devono essere caricati per l’account di integrazione. Devono essere caricati in un ordine specifico, innanzitutto l'assembly e quindi la mappa che fa riferimento all'assembly.
+
 
 ## <a name="how-do-i-add-a-map"></a>Come si aggiunge una mappa?
 
@@ -50,7 +54,7 @@ Si supponga di ricevere regolarmente fatture o ordini B2B da un cliente che usa 
 
     ![](./media/logic-apps-enterprise-integration-maps/map-1.png)
 
-5. Quando il pannello Mappe è aperto, scegliere **Aggiungi**.
+5. Quando la pagina Mappe è aperta, scegliere **Aggiungi**.
 
     ![](./media/logic-apps-enterprise-integration-maps/map-2.png)  
 
@@ -62,6 +66,19 @@ Si supponga di ricevere regolarmente fatture o ordini B2B da un cliente che usa 
 
     ![](./media/logic-apps-enterprise-integration-maps/map-4.png)
 
+
+## <a name="how-do-i-add-an-assembly"></a>Come si aggiunge un account?
+Aprire l'account di integrazione dove si desidera aggiungere l’assembly.
+
+1. Scegliere il riquadro degli **Assembly**.
+
+    ![Riquadro di assembly per l’account di integrazione](./media/logic-apps-enterprise-integration-maps/assemblytile.png)
+
+2. Quando la pagina degli assembly è aperta, scegliere **Aggiungi**. Immettere un **Nome** per l'assembly. Per caricare il file di assembly, scegliere l'icona a forma di cartella a destra della casella di testo **Assembly** . Al termine del processo di caricamento, scegliere **OK**.
+
+    ![Aggiungi assembly](./media/logic-apps-enterprise-integration-maps/assemblyfile.png)
+
+
 ## <a name="how-do-i-edit-a-map"></a>Come si modifica una mappa?
 
 È necessario caricare un nuovo file di mappa con le modifiche desiderate. È anche possibile scaricare la mappa e poi modificarla.
@@ -70,9 +87,9 @@ Per caricare una nuova mappa che sostituisce una mappa esistente, attenersi ai p
 
 1. Scegliere il riquadro **Mappe**.
 
-2. Quando il pannello Mappe è aperto, selezionare la mappa da modificare.
+2. Quando la pagina Mappe è aperta, selezionare la mappa che si desidera modificare.
 
-3. Nel pannello **Mappe** scegliere **Aggiorna**.
+3. Nella pagina **Mappe** scegliere **Aggiorna**.
 
     ![](./media/logic-apps-enterprise-integration-maps/edit-1.png)
 
@@ -84,7 +101,7 @@ Per caricare una nuova mappa che sostituisce una mappa esistente, attenersi ai p
 
 1. Scegliere il riquadro **Mappe**.
 
-2. Quando il pannello Mappe è aperto, selezionare la mappa da eliminare.
+2. Quando la pagina Mappe è aperta, selezionare la mappa che desideri eliminare.
 
 3. Scegliere **Elimina**.
 

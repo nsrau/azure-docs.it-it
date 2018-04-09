@@ -2,10 +2,10 @@
 title: Trasformare e proteggere l'API con Gestione API di Azure | Microsoft Docs
 description: Informazioni su come proteggere l'API con criteri di quota e limitazione (limitazione della frequenza).
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 772f3828d85c54e7b8bb44c857e555175b7444cc
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: fb56b8489b086b724df9f3c9179f2c3265cd05a7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-and-protect-your-api"></a>Trasformare e proteggere l'API 
 
@@ -75,7 +75,7 @@ Per visualizzare la risposta originale:
 7. Selezionare **Editor di codice**.
     
      ![Modificare i criteri](./media/set-edit-policies/set-edit-policies01.png)
-9. Posizionare il cursore all'interno dell'elemento **<outbound>**.
+9. Posizionare il cursore all'interno dell'elemento **&lt;outbound&gt;**.
 10. Nella finestra di destra, in **Transformation policies** (Criteri di trasformazione) fare clic su **+ Set HTTP header** (+ Imposta intestazione HTTP) due volte (per inserire due frammenti di criteri).
 
     ![Criteri](./media/transform-api/transform-api.png)
@@ -111,7 +111,7 @@ Per visualizzare la risposta originale:
 5. Nella parte superiore della schermata selezionare la scheda **Progettazione**.
 6. Nella finestra **Elaborazione in uscita** fare clic sul triangolo (accanto alla matita).
 7. Selezionare **Editor di codice**.
-8. Posizionare il cursore all'interno dell'elemento **<outbound>**.
+8. Posizionare il cursore all'interno dell'elemento **&lt;outbound&gt;**.
 9. Nella finestra a destra, in **Transformation policies** (Criteri di trasformazione) fare clic su **+ Find and replace string in body** (+ Trova e sostituisci la stringa nel corpo).
 10. Modificare il codice **<find-and-replace** (nell'elemento **<outbound>**) per sostituire l'URL in modo che corrisponda al gateway di Gestione API, Ad esempio: 
 
@@ -128,7 +128,7 @@ Questa sezione illustra come aggiungere la protezione per l'API back-end configu
 5. Nella parte superiore della schermata selezionare la scheda **Progettazione**.
 6. Nella finestra **Elaborazione in ingresso** fare clic sul triangolo (accanto alla matita).
 7. Selezionare **Editor di codice**.
-8. Posizionare il cursore all'interno dell'elemento **<inbound>**.
+8. Posizionare il cursore all'interno dell'elemento **&lt;inbound&gt;**.
 9. Nella finestra a destra, in **Access restriction policies** (Criteri di restrizione dell'accesso) fare clic su **+ Limit call rate per key** (+ Limita frequenza delle chiamate per chiave).
 10. Sostituire il codice **<rate-limit-by-key** (nell'elemento **<inbound>**) con il codice seguente:
 

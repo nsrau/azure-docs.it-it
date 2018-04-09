@@ -1,6 +1,6 @@
 ---
-title: Avvisi del log in Monitoraggio di Azure - Avvisi (anteprima) | Microsoft Docs
-description: Attivare messaggi di posta elettronica o notifiche, chiamare URL di siti Web (webhook) o usare l'automazione quando vengono soddisfatte le condizioni specificate di query complesse per Avvisi di Azure (anteprima).
+title: Avvisi del log nel Monitoraggio di Azure - Avvisi | Microsoft Docs
+description: Attivare messaggi di posta elettronica o notifiche, chiamare URL di siti Web (webhook) o usare l'automazione quando vengono soddisfatte le condizioni specificate di query complesse per Avvisi di Azure.
 author: msvijayn
 manager: kmadnani1
 editor: ''
@@ -12,35 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/17/2018
 ms.author: vinagara
-ms.openlocfilehash: 0cee8bf77e0facc12159b823152b8859ce5cedd8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5928bbcec08d6ba4ac0b0d03b66fa4bfc8f5e3d7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Avvisi del log in Monitoraggio di Azure - Avvisi (anteprima)
-Questo articolo contiene informazioni dettagliate sul funzionamento delle regole di avviso nelle query di Analytics in Avvisi di Azure (anteprima) e la descrizione delle differenze tra diversi tipi di regole di avviso del log. Per informazioni sugli avvisi delle metriche basati su log, vedere [Avvisi delle metriche near real time](monitoring-near-real-time-metric-alerts.md).
+# <a name="log-alerts-in-azure-monitor---alerts"></a>Avvisi del log nel Monitoraggio di Azure - Avvisi 
+Questo articolo contiene informazioni dettagliate sul funzionamento delle regole di avviso nelle query di Analytics in Avvisi di Azure e la descrizione delle differenze tra diversi tipi di regole di avviso del log. Per informazioni sugli avvisi delle metriche basati su log, vedere [Avvisi delle metriche near real time](monitoring-near-real-time-metric-alerts.md).
 
-Al momento, Avvisi di Azure (anteprima), supporta gli avvisi del log per le query di [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) e [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
+Al momento, Avvisi di Azure supporta gli avvisi del log per le query di [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) e [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
 > [!WARNING]
 
-> L'avviso del log in Avvisi di Azure (anteprima) attualmente non supporta le query tra aree di lavoro o tra app.
+> L'avviso del log in Avvisi di Azure attualmente non supporta le query tra aree di lavoro o tra app. Gli Avvisi di log per Application Insights sono attualmente disponibili in un’anteprima pubblica. Le funzionalità e l'esperienza utente sono soggette a modifiche.
 
-Gli utenti possono anche perfezionare le query nella piattaforma Analytics preferita in Azure e quindi *importarle per l'uso in Avvisi (anteprima) salvandole*. Procedura da seguire:
+Gli utenti possono anche perfezionare le query nella piattaforma Analytics preferita in Azure e quindi *importarle per l'uso in Avvisi salvandole*. Procedura da seguire:
 - Per Application Insights: passare al portale di Analytics, convalidare la query e i relativi risultati. Salvare quindi con nome univoco in *Query condivise*.
 - Per Log Analytics: passare a Ricerca Log, convalidare la query e i relativi risultati. Salvare quindi con nome univoco in qualsiasi categoria.
 
-Quindi durante la [creazione di un avviso del log in Avvisi (anteprima)](monitor-alerts-unified-usage.md) viene visualizzata la query salvata elencata come tipo di segnale **Log (query salvata)**, come illustrato nell'esempio seguente: ![Query salvata importata in Avvisi](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+Quindi, durante la [creazione di un avviso del log in Avvisi](monitor-alerts-unified-usage.md), viene visualizzata la query salvata ed elencata come tipo di segnale **Log (query salvata)**, come illustrato nell'esempio seguente: ![Query salvata e importata in Avvisi](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
 
 > [!NOTE]
 > L'uso di **Log (query salvata)** ha come risultato l'importazione in Avvisi. Di conseguenza, tutte le modifiche apportate in seguito in Analytics non si rifletteranno nelle regole di avviso salvate e viceversa.
 
 ## <a name="log-alert-rules"></a>Regole di avviso del log
 
-Gli avvisi vengono creati tramite Avvisi di Azure (anteprima) per eseguire automaticamente query del log a intervalli regolari.  Se i risultati della query del log corrispondono a criteri specifici viene creato un record di avviso. La regola può quindi eseguire automaticamente una o più azioni per notificare l'avviso all'utente in modo proattivo o richiamare un altro processo come l'invio di dati a un'applicazione esterna tramite [webhook basato su JSON](monitor-alerts-unified-log-webhook.md), usando [Gruppi di azioni](monitoring-action-groups.md). I diversi tipi di regole di avviso usano una logica diversa per eseguire l'analisi.
+Gli avvisi vengono creati tramite Avvisi di Azure per eseguire automaticamente query del log a intervalli regolari.  Se i risultati della query del log corrispondono a criteri specifici viene creato un record di avviso. La regola può quindi eseguire automaticamente una o più azioni per notificare l'avviso all'utente in modo proattivo o richiamare un altro processo come l'invio di dati a un'applicazione esterna tramite [webhook basato su JSON](monitor-alerts-unified-log-webhook.md), usando [Gruppi di azioni](monitoring-action-groups.md). I diversi tipi di regole di avviso usano una logica diversa per eseguire l'analisi.
 
 Le regole di avviso vengono definite dai dettagli seguenti:
 
@@ -118,7 +118,7 @@ In questo esempio, verranno creati avvisi separati per srv02 e srv03 poiché han
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Comprendere le [azioni webhook per gli avvisi del log](monitor-alerts-unified-log-webhook.md)
-* [Panoramica di Avvisi di Azure (anteprima)](monitoring-overview-unified-alerts.md)
-* Informazioni sull'[Uso di Avvisi di Azure (anteprima)](monitor-alerts-unified-usage.md)
+* [Ottenere una panoramica di Avvisi di Azure ](monitoring-overview-unified-alerts.md)
+* Informazioni sull'[Uso di Avvisi di Azure ](monitor-alerts-unified-usage.md)
 * Altre informazioni su [Application Insights](../application-insights/app-insights-analytics.md)
 * Altre informazioni su [Log Analytics](../log-analytics/log-analytics-overview.md).    

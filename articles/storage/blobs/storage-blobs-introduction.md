@@ -1,30 +1,31 @@
 ---
-title: Introduzione all'archiviazione BLOB di Azure | Microsoft Docs
-description: Introduzione all'archiviazione BLOB di Azure
+title: Introduzione ad Archiviazione BLOB - Archiviazione di oggetti in Azure | Microsoft Docs
+description: Archiviazione BLOB di Azure è progettata per archiviare enormi quantità di dati di oggetti non strutturati, come testo o dati binari. Le applicazioni possono accedere agli oggetti in Archiviazione BLOB da PowerShell o dall'interfaccia della riga di comando di Azure, da codice tramite le librerie client di Archiviazione di Azure o tramite REST.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: overview
-ms.date: 09/28/2017
+ms.date: 03/27/2018
 ms.author: tamram
-ms.openlocfilehash: aabc10b1c1c501e4fa0eb31835c2818cfb8942c6
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0fff0032ec2452413bcd1df3175634b14a64208f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-blob-storage"></a>Introduzione all'archiviazione BLOB
 
-Archivio BLOB di Azure è un servizio per l'archiviazione di grandi quantità di dati oggetto non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. L'archiviazione BLOB può essere usata per esporre dati pubblicamente a livello mondiale o archiviare privatamente i dati delle applicazioni.
+Archiviazione BLOB di Azure è una soluzione di archiviazione cloud Microsoft per gli oggetti dati. Archiviazione BLOB può archiviare enormi quantità di dati di oggetti non strutturati, come testo o dati binari. È possibile accedere ai dati in Archiviazione BLOB da ogni parte del mondo tramite HTTP o HTTPS. L'archiviazione BLOB può essere usata per esporre dati pubblicamente a livello mondiale o archiviare privatamente i dati delle applicazioni.
 
 Quelli di seguito sono gli impieghi più comuni dell'archiviazione BLOB:
 
 * Invio di immagini o documenti direttamente in un browser
 * Archiviazione di file per l'accesso distribuito
 * Flussi audio e video
-* Archiviazione di dati per backup e ripristino, ripristino di emergenza e archiviazione
+* Archiviazione per backup e ripristino, ripristino di emergenza e archiviazione
 * Archiviazione di dati a scopo di analisi da parte di un servizio locale o ospitato in Azure
+* Archiviazione di dischi rigidi virtuali da usare con le macchine virtuali di Azure
 
 ## <a name="blob-service-concepts"></a>Concetti del servizio BLOB
 

@@ -1,8 +1,8 @@
 ---
-title: "Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory | Microsoft Docs"
-description: "Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory."
+title: Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory | Microsoft Docs
+description: Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 03/20/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0d21a8848222c4b09723e22d2d51ec43b2154553
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory 
 
@@ -88,10 +88,10 @@ Se l'aggiunta all'identità ibrida di Azure AD non è stata completata correttam
     
     2. Se, per un qualsiasi motivo, Autoworkplace.exe non è in grado di eseguire automaticamente l'autenticazione con Azure Active Directory o AD FS. Tra i possibili motivi sono inclusi eventuali problemi di connettività di rete in uscita verso gli URL di Azure AD (verificare i prerequisiti) oppure il caso in cui l'autenticazione a più fattori è stata abilitata/configurata per l'utente, ma WIAORMUTLIAUTHN non è configurato nel server federativo (verificare i passaggi di configurazione). È anche possibile che la pagina di individuazione dell'area di autenticazione principale sia in attesa dell'interazione dell'utente, impedendo ad Autoworkplace.exe di ottenere automaticamente un token.
     
-    3. Se l'organizzazione usa Accesso Single Sign-On facile di Azure AD, gli URL seguenti non sono presenti nelle impostazioni della Intranet in Internet Explorer nel dispositivo:
+    3. Se l'organizzazione usa Accesso Single Sign-On facile di Azure AD, l'URL seguente non è presente nelle impostazioni della Intranet in Internet Explorer nel dispositivo:
     
        - https://autologon.microsoftazuread-sso.com
-       - https://aadg.windows.net.nsatc.net
+
     
        ed è necessario abilitare l'impostazione "Consenti aggiornamenti alla barra di stato tramite script" per l'area Intranet.
 

@@ -3,17 +3,17 @@ title: Servizio del database SQL di Azure | Microsoft Docs
 description: Informazioni sui livelli di servizio per database singoli e di pool per offrire livelli di prestazioni e dimensioni di archiviazione.
 services: sql-database
 author: CarlRabeler
-manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/21/2018
+manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 6153616de763eee1b20fff40d38816eca8b455de
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3fe7add4ad4c5563a6307db0dec27c658913429b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Quali sono i livelli di servizio del database SQL di Azure?
 
@@ -33,7 +33,8 @@ La scelta di un livello di servizio dipende soprattutto dai requisiti in termini
 |CPU|Basso|Basso, medio, elevato|Medio, elevato|
 |Velocità effettiva di I/O (approssimativa) |2,5 IOPS per DTU  | 2,5 IOPS per DTU | 48 IOPS per DTU|
 |Latenza di I/O (approssimativa)|5 ms (lettura), 10 ms (scrittura)|5 ms (lettura), 10 ms (scrittura)|2 ms (lettura/scrittura)|
-|Indici ColumnStore e OLTP in memoria|N/D|N/D|Supportato|
+|Indicizzazione ColumnStore |N/D|S3 e superiore|Supportato|
+|OLTP in memoria|N/D|N/D|Supportato|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>Livello di prestazioni e limiti delle dimensioni di archiviazione

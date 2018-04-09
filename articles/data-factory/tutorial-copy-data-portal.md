@@ -1,11 +1,11 @@
 ---
 title: Usare il portale di Azure per creare una pipeline di Data Factory | Microsoft Docs
-description: "Questa esercitazione offre istruzioni dettagliate per l'uso del portale di Azure per creare una data factory con una pipeline. La pipeline usa l'attività di copia per copiare i dati da un archivio BLOB di Azure a un database SQL."
+description: Questa esercitazione offre istruzioni dettagliate per l'uso del portale di Azure per creare una data factory con una pipeline. La pipeline usa l'attività di copia per copiare i dati da un archivio BLOB di Azure a un database SQL.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 116832175a4b7e4497c9005be7841cb56c1d235b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 34c78a114c1d106c400a94941aa113153383e206
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiare dati da un archivio BLOB di Azure a un database SQL con Azure Data Factory
 In questa esercitazione viene creata una data factory con l'interfaccia utente di Azure Data Factory. La pipeline in questa data factory copia i dati da un archivio BLOB di Azure a un database SQL. Il modello di configurazione di questa esercitazione si applica alla copia da un archivio dati basato su file a un archivio dati relazionale. Per un elenco degli archivi dati supportati come origini e sink, vedere la tabella degli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -303,7 +303,7 @@ In questa esercitazione si crea inizialmente la pipeline, quindi si creano i ser
     ![Visualizzare le notifiche](./media/tutorial-copy-data-portal/show-notifications.png)
 
 ## <a name="configure-code-repository"></a>Configurare il repository di codice
-È possibile pubblicare il codice associato agli elementi della data factory in un repository di codice di Visual Studio Team Services. In questo passaggio si crea il repository di codice. 
+È possibile pubblicare il codice associato agli elementi della data factory in un repository di codice di Visual Studio Team Services. In questo passaggio si crea il repository di codice.  Per altre informazioni sulla creazione con strumenti visivi tramite l'integrazione in VSTS, vedere [Creare con l'integrazione di GIT in VSTS](author-visually.md#author-with-vsts-git-integration).
 
 Se non si vuole usare il repository di codice di Visual Studio Team Services, è possibile ignorare questo passaggio e proseguire con la pubblicazione in Data Factory come nel passaggio precedente. 
 

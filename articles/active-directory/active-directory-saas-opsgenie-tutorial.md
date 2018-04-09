@@ -1,23 +1,23 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con OpsGenie | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con OpsGenie | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e OpsGenie.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 03/28/2018
 ms.author: jeedes
-ms.openlocfilehash: b0d8fa13c13ad8d4a85cb482bcd7e440006f0437
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b0cd54c7750e85eb7b4e1ba6be309c585d5a7b4e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Esercitazione: Integrazione di Azure Active Directory con OpsGenie
 
@@ -31,7 +31,7 @@ L'integrazione di OpsGenie con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con OpsGenie, sono necessari gli elementi seguenti:
 
@@ -112,17 +112,33 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     Nella casella di testo **URL accesso** digitare l'URL: `https://app.opsgenie.com/auth/login`
 
-4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_certificate.png) 
-
-5. Fare clic sul pulsante **Salva** .
+4. Fare clic sul pulsante **Salva** .
 
     ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione di OpsGenie** fare clic su **Configura OpsGenie** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+5. Nella sezione **Configurazione di OpsGenie** fare clic su **Configura OpsGenie** per aprire la finestra **Configura accesso**. Copiare l'**URL del servizio Single Sign-On SAML** dalla sezione di riferimento rapido.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png)
+
+6. Per generare l'**URL dei metadati**, seguire questa procedura:
+
+    a. Fare clic su **Registrazioni per l'app**.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appregistrations.png)
+   
+    b. Fare clic su **Endpoint** per aprire la finestra di dialogo **Endpoint**.  
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpointicon.png)
+
+    c. Fare clic sul pulsante Copia per copiare l'URL del **DOCUMENTO METADATI FEDERAZIONE** e incollarlo nel Blocco note.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpoint.png)
+     
+    d. Passare ora alla pagina delle proprietà di **OpsGenie**, copiare il valore di **ID applicazione** usando il pulsante **Copia** e incollarlo nel Blocco note.
+ 
+    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appid.png)
+
+    e. Generare l'**URL dei metadati** usando il modello seguente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
 7. Aprire un'altra istanza del browser e quindi accedere a OpsGenie come amministratore.
 
@@ -142,9 +158,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
     ![Impostazioni di OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_09.png)
     
-    a. Incollare l'**URL del servizio Single Sign-On** copiato dal portale di Azure nella casella di testo **SAML 2.0 Endpoint**.
+    a. Nella casella di testo **SAML 2.0 Endpoint** incollare il valore dell'**URL del servizio Single Sign-On** copiato dal portale di Azure.
     
-    b. Aprire il certificato con codifica Base 64 scaricato nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **X.500 Certificate** .
+    b. Nella casella di testo **Metadata URL** (URL dei metadati) incollare il valore dell'**URL dei metadati** copiato dal portale di Azure.
     
     c. Fare clic su **Salva modifiche**.
 

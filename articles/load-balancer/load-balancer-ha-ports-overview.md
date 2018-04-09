@@ -1,11 +1,11 @@
 ---
-title: "Panoramica delle porte a disponibilità elevata in Azure | Microsoft Docs"
-description: "Informazioni sul bilanciamento del carico con le porte a disponibilità elevata in un servizio di bilanciamento del carico interno."
+title: Panoramica delle porte a disponibilità elevata in Azure | Microsoft Docs
+description: Informazioni sul bilanciamento del carico con le porte a disponibilità elevata in un servizio di bilanciamento del carico interno.
 services: load-balancer
 documentationcenter: na
-author: rdhillon
-manager: timlt
-editor: 
+author: KumudD
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
 ms.service: load-balancer
@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 03/21/2017
 ms.author: kumud
-ms.openlocfilehash: 46e284d1636988390f3533d93bfd07399f45dc92
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 09c51441d393de5d801e7a4c259b711a527349d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="high-availability-ports-overview"></a>Panoramica delle porta a disponibilità elevata
 
-Azure Load Balancer Standard semplifica il processo di bilanciamento del carico dei flussi TCP e UDP su tutte le porte contemporaneamente quando si usa un servizio di bilanciamento del carico interno. 
+Azure Load Balancer Standard semplifica il bilanciamento del carico di flussi TCP e UDP su tutte le porte simultaneamente, quando si usa un servizio Azure Load Balancer interno. 
 
->[!NOTE]
-> La funzionalità Porte a disponibilità elevata è attualmente disponibile in anteprima con Load Balancer Standard. Durante l'anteprima, la funzionalità potrebbe non avere lo stesso livello di disponibilità e affidabilità delle funzionalità presenti nella versione con disponibilità generale. Per altre informazioni, vedere [Condizioni Supplementari di Microsoft Azure le Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Per usare la funzionalità Porte a disponibilità elevata con le risorse Load Balancer Standard, iscriversi a Load Balancer Standard (anteprima). Seguire le istruzioni per registrarsi per l'[anteprima di Load Balancer Standard](https://aka.ms/lbpreview#preview-sign-up).
-
-Una regola delle porte a disponibilità elevata è una variante di una regola di bilanciamento del carico configurata in un servizio Load Balancer Standard interno. Per semplificare l'uso di questo servizio, è possibile specificare un'unica regola di bilanciamento del carico per tutti i flussi TCP e UDP che raggiungono tutte le porte di un servizio Load Balancer Standard interno. La decisione di bilanciamento del carico viene presa per ogni flusso in base alle cinque tuple seguenti: indirizzo IP di origine, porta di origine, indirizzo IP di destinazione, porta di destinazione e protocollo.
+Una regola delle porte a disponibilità elevata è una variante di una regola di bilanciamento del carico, configurata in un servizio Azure Load Balancer Standard interno. Per semplificare l'uso di questo servizio, è possibile specificare un'unica regola per il bilanciamento del carico di tutti i flussi TCP e UDP in arrivo su tutte le porte del servizio Azure Load Balancer Standard interno. La decisione di bilanciamento del carico viene presa per ogni flusso in base a queste cinque tuple: indirizzo IP di origine, porta di origine, indirizzo IP di destinazione, porta di destinazione e protocollo.
 
 La funzionalità Porte a disponibilità elevata consente di gestire scenari critici, ad esempio la disponibilità elevata e la scalabilità per appliance di rete virtuale all'interno di reti virtuali. Può essere utile anche quando è necessario eseguire il bilanciamento del carico di un numero elevato di porte. 
 
@@ -44,11 +41,11 @@ Per raggiungere questi obiettivi è sufficiente aggiungere istanze di appliance 
 
 Nell'ambito di scenari a disponibilità elevata di appliance di rete virtuale le porte a disponibilità elevata offrono diversi vantaggi:
 - rapidità di failover verso istanze integre con probe di integrità per singola istanza
-- prestazioni più elevate con scalabilità orizzontale fino a *n* istanze attive
+- Prestazioni più elevate con scalabilità orizzontale fino a *n* istanze attive
 - scenari di *n* istanze attive e di istanze attive-passive
 - eliminazione della necessità di soluzioni complesse, ad esempio nodi Apache ZooKeeper, per il monitoraggio delle appliance
 
-Il diagramma seguente illustra una distribuzione di rete virtuale hub e spoke. Gli spoke effettuano il tunneling forzato del relativo traffico verso la rete virtuale hub e tramite l'appliance di rete virtuale prima di abbandonare lo spazio attendibile. Le appliance di rete virtuale si trovano dietro a un servizio Load Balancer Standard con configurazione con porte a disponibilità elevata. Tutto il traffico può essere elaborato e inoltrato di conseguenza.
+Il diagramma seguente illustra una distribuzione di rete virtuale hub e spoke. Gli spoke effettuano il tunneling forzato del relativo traffico verso la rete virtuale hub e tramite l'appliance di rete virtuale prima di abbandonare lo spazio attendibile. Le appliance di rete virtuale si trovano dietro a un servizio Load Balancer Standard con una configurazione con porte a disponibilità elevata. Tutto il traffico può essere elaborato e inoltrato di conseguenza.
 
 ![Diagramma della rete virtuale hub e spoke con appliance di rete virtuale distribuite in modalità a disponibilità elevata](./media/load-balancer-ha-ports-overview/nvaha.png)
 
@@ -57,34 +54,56 @@ Il diagramma seguente illustra una distribuzione di rete virtuale hub e spoke. G
 
 ### <a name="load-balancing-large-numbers-of-ports"></a>Bilanciamento del carico di un numero elevato di porte
 
-È anche possibile usare porte a disponibilità elevata per applicazioni che richiedono il bilanciamento del carico di un numero elevato di porte. È possibile semplificare questi scenari con un servizio [Load Balancer Standard](https://aka.ms/lbpreview) interno e porte a disponibilità elevata. Un'unica regola di bilanciamento del carico sostituisce più regole di bilanciamento del carico associate alle singole porte.
+È anche possibile usare porte a disponibilità elevata per applicazioni che richiedono il bilanciamento del carico di un numero elevato di porte. È possibile semplificare questi scenari con un servizio [Azure Load Balancer Standard](load-balancer-standard-overview.md) interno con porte a disponibilità elevata. Un'unica regola di bilanciamento del carico sostituisce più regole di bilanciamento del carico associate alle singole porte.
 
 ## <a name="region-availability"></a>Aree di disponibilità
 
-La funzionalità Porte a disponibilità elevata è disponibile nelle [stesse aree di Load Balancer Standard](https://aka.ms/lbpreview#region-availability).  
+La funzionalità Porte a disponibilità elevata è disponibile in tutte le aree globali di Azure.
 
-## <a name="preview-sign-up"></a>Iscrizione all'anteprima
+## <a name="supported-configurations"></a>Configurazioni supportate
 
-Per partecipare all'anteprima della funzionalità Porte a disponibilità elevata nel servizio Load Balancer Standard, registrare la sottoscrizione per la [versione di anteprima di Load Balancer Standard](https://aka.ms/lbpreview#preview-sign-up). È possibile registrarsi con l'interfaccia della riga di comando di Azure 2.0 o PowerShell.
+### <a name="one-single-non-floating-ip-non-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Singola configurazione con porte a disponibilità elevata con indirizzo IP non mobile (Non-Direct Server Return) nel servizio Azure Load Balancer Standard interno
+
+Questa è una configurazione con porte a disponibilità elevata di base. La configurazione seguente permette di configurare il bilanciamento del carico con porte a disponibilità elevata in un singolo indirizzo IP front-end.
+- Durante la configurazione di Azure Load Balancer Standard, selezionare la casella di controllo **Porte a disponibilità elevata** nella configurazione della regola di bilanciamento del carico, 
+- assicurandosi che l'opzione **Indirizzo IP mobile** sia impostata su **Disabilitato**.
+
+Questa configurazione non permette altre configurazione di regole di bilanciamento del carico nella risorsa Azure Load Balancer corrente, né altre configurazioni di risorse di bilanciamento del carico interno per il set specifico di istanze back-end.
+
+Tuttavia, è possibile configurare un servizio Azure Load Balancer Standard pubblico per le istanze back-end oltre a questa regola con porte a disponibilità elevata.
+
+## <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Singola configurazione con porte a disponibilità elevata con indirizzo IP mobile (Non-Direct Server Return) nel servizio Azure Load Balancer Standard interno
+
+Analogamente, è possibile configurare il servizio di bilanciamento del carico in modo da usare una regola di bilanciamento del carico con **porte a disponibilità elevata** con un singolo front-end e l'opzione **Indirizzo IP mobile** impostato su **Abilitato**. 
+
+Questa configurazione permette di aggiungere altre regole di bilanciamento del carico con indirizzo IP mobile e/o un servizio Azure Load Balancer pubblico. Tuttavia, non è possibile usare una configurazione di bilanciamento del carico con porte a disponibilità elevata con indirizzo IP non mobile insieme a questa configurazione.
+
+## <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>Più configurazioni con porte a disponibilità elevata nel servizio Azure Load Balancer Standard interno
+
+Se lo scenario richiede la configurazione di più front-end con porte a disponibilità elevata per lo stesso pool back-end, a questo scopo è possibile: 
+- Configurare più di un indirizzo IP privato front-end per una singola risorsa Azure Load Balancer Standard interna.
+- Configurare più regole di bilanciamento del carico, in cui ogni regola ha un unico indirizzo IP front-end selezionato.
+- Selezionare l'opzione **Porte a disponibilità elevata** e impostare **Indirizzo IP mobile** su **Abilitato** per tutte le regole di bilanciamento del carico.
+
+## <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>Servizio Azure Load Balancer interno con porte a disponibilità elevata e servizio Azure Load Balancer pubblico nelle stesse istanze back-end
+
+È possibile configurare **una** risorsa Azure Load Balancer Standard pubblica per le risorse back-end insieme a un singolo servizio Azure Load Balancer Standard interno con porte a disponibilità elevata.
 
 >[!NOTE]
->La registrazione può richiedere fino a un'ora.
+>Questa funzionalità oggi è disponibile tramite i modelli di Azure Resource Manager, ma non tramite il portale di Azure.
 
 ## <a name="limitations"></a>Limitazioni
 
-Di seguito sono elencate le configurazioni supportate o le eccezioni per la funzionalità Porte a disponibilità elevata:
+- La configurazione con porte a disponibilità elevata è disponibile solo per il servizio di bilanciamento del carico interno e non per un servizio Azure Load Balancer pubblico.
 
-- Una singola configurazione IP front-end può avere una sola regola di bilanciamento del carico DSR (Direct Server Return - IP mobile in Azure) con porte a disponibilità elevata o una sola regola del servizio di bilanciamento del carico non DSR con porte a disponibilità elevata. Non può averle entrambe.
-- Una singola configurazione IP dell'interfaccia di rete può avere solo una regola di bilanciamento del carico non DSR con porte a disponibilità elevata. Non è possibile configurare qualsiasi altra regola per questa configurazione IP.
-- Una singola configurazione IP dell'interfaccia di rete può avere una o più regole di bilanciamento del carico DSR con porte a disponibilità elevata, purché tutte le rispettive configurazioni IP front-end siano univoche.
-- Se tutte le regole di bilanciamento del carico sono relative alle porte a disponibilità elevata (solo DSR), possono coesistere due o più regole di bilanciamento del carico che puntano allo stesso pool back-end. Lo stesso vale se tutte le regole sono relative a porte non a disponibilità elevata (DSR e non DSR). Due regole di bilanciamento del carico di questo tipo non possono coesistere se è presente una combinazione di regole per porte a disponibilità elevata e per porte non a disponibilità elevata.
+- Una combinazione di regole di bilanciamento del carico con porte a disponibilità elevata e porte non a disponibilità elevata non è supportata.
+
 - La funzionalità Porte a disponibilità elevata non è disponibile per IPv6.
-- La simmetria di flusso per gli scenari di appliance di rete virtuale è supportata soltanto con una sola scheda di interfaccia di rete. Vedere la descrizione e il diagramma per [gli appliance di rete virtuale](#nva). 
 
+- La simmetria di flusso per gli scenari di appliance di rete virtuale è supportata soltanto con una sola scheda di interfaccia di rete. Vedere la descrizione e il diagramma per [gli appliance di rete virtuale](#nva). Tuttavia, se una regola Destination NAT può funzionare per lo scenario, è possibile usarla per assicurarsi che il servizio Azure Load Balancer interno invii il traffico restituito nella stessa appliance virtuale di rete.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Configurare le porte a disponibilità elevata per un servizio Load Balancer Standard interno](load-balancer-configure-ha-ports.md)
-- [Informazioni sull'anteprima di Load Balancer Standard](https://aka.ms/lbpreview)
-
+- Altre informazioni su [Azure Load Balancer Standard](load-balancer-standard-overview.md)

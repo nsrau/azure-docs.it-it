@@ -2,7 +2,7 @@
 title: Configurare criteri Hive in HDInsight aggiunto al dominio - Azure | Microsoft Docs
 description: Informazioni su...
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: saurinsh
 manager: jhubbard
 editor: cgronlun
@@ -16,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 919a0a45c4c8c94b19ed1d602ed20df0afabd09a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Configurare criteri Hive in HDInsight aggiunto al dominio
 Informazioni su come configurare i criteri di Apache Ranger per Hive. In questo articolo vengono creati due criteri di Ranger per limitare l'accesso a hivesampletable. La tabella hivesampletable è disponibile con i cluster HDInsight. Dopo aver configurato i criteri, usare Excel e il driver ODBC per connettersi alle tabelle Hive in HDInsight.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Un cluster HDInsight aggiunto al dominio. Vedere [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md) (Configurare i cluster HDInsight aggiunti al dominio).
 * Una workstation con Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone oppure Office 2010 Professional Plus.
 
@@ -45,10 +45,10 @@ Informazioni su come configurare i criteri di Apache Ranger per Hive. In questo 
     Attualmente, Ranger è compatibile solo con Yarn e Hive.
 
 ## <a name="create-domain-users"></a>Creazione di utenti del dominio
-In [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md#optional-create-ad-users-and-groups) (Configurare i cluster HDInsight aggiunti al dominio) sono stati creati hiveruser1 e hiveuser2. In questa esercitazione vengono usati i due account utente.
+Per informazioni su come creare hiveruser1 e hiveuser2, vedere [Creare un cluster HDInsight aggiunto al dominio](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster). In questa esercitazione vengono usati i due account utente.
 
 ## <a name="create-ranger-policies"></a>Creazione dei criteri di Ranger
-In questa sezione vengono creati due criteri di Ranger per accedere a hivesampletable. Vengono concesse autorizzazioni di selezione su diversi set di colonne. Entrambi gli utenti sono stati creati nella procedura [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md#optional-create-ad-users-and-groups) (Configurare i cluster HDInsight aggiunti al dominio).  Nella sezione successiva verranno verificati i due criteri in Excel.
+In questa sezione vengono creati due criteri di Ranger per accedere a hivesampletable. Vengono concesse autorizzazioni di selezione su diversi set di colonne. Entrambi gli utenti sono stati creati tramite la procedura descritta in [Creare un cluster HDInsight aggiunto al dominio](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster). Nella sezione successiva verranno verificati i due criteri in Excel.
 
 **Per creare criteri di Ranger**
 
@@ -82,7 +82,7 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
 ## <a name="create-hive-odbc-data-source"></a>Creare un'origine dati Hive ODBC
 Le istruzioni sono disponibili in [Creare un'origine dati Hive ODBC](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).  
 
- | Proprietà  |DESCRIZIONE |
+ | Proprietà  |Descrizione |
  | --- | --- |
  | Data Source Name | Assegnare un nome all'origine dati |
  | Host | Immettere &lt;HDInsightClusterName>.azurehdinsight.net. Ad esempio, myHDICluster.azurehdinsight.net |

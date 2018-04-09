@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 0c5a6b6d971d434a52bf80da6b34d7f6949589bc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: ef35ee881923c69d41b79fd6cb8464c695c614f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Eseguire la migrazione del database MySQL nel database di Azure mediante dump e ripristino
 Questo articolo illustra due modi comuni per eseguire il backup e il ripristino dei database nel database di Azure per MySQL
@@ -87,10 +87,12 @@ $ mysqldump -u root -p --all-databases > alldb_backup.sql
 ## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>Creare un database sul database di Azure per il server MySQL di destinazione
 Creare un database vuoto nel database di Azure per il server MySQL di destinazione in cui si vuole eseguire la migrazione dei dati. Usare uno strumento come MySQL Workbench, Toad o Navicat per creare il database. Il database può avere lo stesso nome del database che contiene i dati di dump; in alternativa, è possibile creare un database con un nome diverso.
 
-Per la connessione, individuare le informazioni di connessione nella pagina Proprietà nel database di Azure per MySQL.
-![Trovare le informazioni di connessione nel portale di Azure](./media/concepts-migrate-dump-restore/1_server-properties-name-login.png)
+Per la connessione, individuare le informazioni di connessione nella pagina **Panoramica** del database di Azure per MySQL.
+
+![Trovare le informazioni di connessione nel portale di Azure](./media/concepts-migrate-dump-restore/1_server-overview-name-login.png)
 
 Aggiungere le informazioni di connessione in MySQL Workbench.
+
 ![Stringa di connessione MySQL Workbench](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
 
 

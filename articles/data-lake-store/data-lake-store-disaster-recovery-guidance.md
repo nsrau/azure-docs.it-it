@@ -2,7 +2,7 @@
 title: Linee guida sul ripristino di emergenza per Azure Data Lake Store | Microsoft Docs
 description: Linee guida sul ripristino di emergenza per Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: d76f756e7a6fe77886f0d4e00ab8b23273b4e09d
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9a2705a2372ea4f2fbea1e27bf675679dfda28f8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Linee guida sul ripristino di emergenza dei dati in Data Lake Store
 
-I dati nell'account Azure Data Lake Store sono resilienti agli errori hardware temporanei di un'area grazie alle repliche automatizzate. Ciò garantisce durabilità e disponibilità elevata, rispettando il Contratto di servizio di Azure Data Lake Store. Questo articolo fornisce alcune linee guida su come proteggere ulteriormente i dati dalle rare interruzioni a livello di area o da eliminazioni accidentali.
+Azure Data Lake Store offre archiviazione con ridondanza locale (LRS). I dati nell'account Azure Data Lake Store sono pertanto resilienti agli errori hardware temporanei di un'area grazie all'uso di repliche automatizzate. Ciò garantisce durabilità e disponibilità elevata, rispettando il Contratto di servizio di Azure Data Lake Store. Questo articolo fornisce alcune linee guida su come proteggere ulteriormente i dati dalle rare interruzioni a livello di area o da eliminazioni accidentali.
 
 ## <a name="disaster-recovery-guidance"></a>Indicazioni sul ripristino di emergenza
-È fondamentale che ogni cliente prepari il proprio piano di ripristino di emergenza. Per creare un piano di ripristino di emergenza, vedere la documentazione di Azure seguente. Di seguito sono riportate alcune risorse che consentono di creare proprio piano.
+È fondamentale che ogni cliente prepari il proprio piano di ripristino di emergenza. Leggere le informazioni contenute in questo articolo per creare il proprio piano di ripristino di emergenza. Di seguito sono riportate alcune risorse che consentono di creare proprio piano.
 
 * [Ripristino di emergenza e disponibilità elevata per le applicazioni Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 * [Indicazioni tecniche sulla resilienza di Azure](../resiliency/resiliency-technical-guidance.md)

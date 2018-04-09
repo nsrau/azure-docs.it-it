@@ -1,11 +1,11 @@
 ---
 title: Gestire risorse di calcolo in Azure SQL Data Warehouse | Microsoft Docs
-description: "Informazioni sulle funzionalità di scalabilità orizzontale per le prestazioni in Azure SQL Data Warehouse. Applicare la scalabilità orizzontale modificando le DWU o ridurre i costi tramite la sospensione delle funzioni di data warehouse."
+description: Informazioni sulle funzionalità di scalabilità orizzontale per le prestazioni in Azure SQL Data Warehouse. Applicare la scalabilità orizzontale modificando le DWU o ridurre i costi tramite la sospensione delle funzioni di data warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: johnmac
-editor: 
+editor: ''
 ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: 7e6ae6e59b53dd79dab5e2504cf7a43a30e55353
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c34e37f0c6393c65d4b60705012769608bb7395b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gestire le risorse di calcolo in Azure SQL Data Warehouse
 Informazioni sulla gestione delle risorse di calcolo in Azure SQL Data Warehouse. Ridurre i costi sospendendo il data warehouse o ridimensionare il data warehouse per soddisfare le esigenze in termini di prestazioni. 
@@ -110,7 +110,7 @@ Per automatizzare le operazioni di gestione di calcolo, vedere [Manage compute w
 
 Ogni operazione di scalabilità orizzontale, sospensione e ripresa può richiedere alcuni minuti. Se queste operazioni vengono eseguite automaticamente, è consigliabile implementare la logica necessaria per garantire che determinate operazioni siano completate prima di procedere con un'altra azione. La verifica dello stato del data warehouse tramite vari endpoint consente di implementare correttamente l'automazione di tali operazioni. 
 
-Per verificare lo stato del data warehouse, vedere le guide introduttive a [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) oppure a [T-SQL](quickstart-scale-compute-tsql.md#check-database-state). È anche possibile verificare lo stato del data warehouse con un'[API REST](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+Per verificare lo stato del data warehouse, vedere la guida introduttiva a [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) o [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state). È anche possibile verificare lo stato del data warehouse con un'[API REST](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
 ## <a name="permissions"></a>Autorizzazioni

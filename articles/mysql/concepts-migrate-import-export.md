@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: f15811cd44e405ee33d9ba3d565c2982e71a80c0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 74b8c6afc5167225414f467f76f08c0e53bbade5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrare il database MySQL mediante l'importazione ed esportazione
 In questo articolo vengono illustrati due approcci comuni per importare ed esportare i dati in un database di Azure per il server MySQL con MySQL Workbench. 
@@ -33,9 +33,9 @@ Durante la migrazione al database di Azure per MySQL non è necessario spostare 
 ## <a name="create-a-database-on-the-azure-database-for-mysql-server"></a>Creare un database nel database di Azure per il server MySQL
 Creare un database vuoto nel database di Azure per il server MySQL in cui si vuole eseguire la migrazione dei dati. Usare uno strumento come MySQL Workbench, Toad o Navicat per creare il database. Il database può avere lo stesso nome del database che contiene i dati di dump; in alternativa, è possibile creare un database con un nome diverso.
 
-Per la connessione, individuare le informazioni di connessione nel riquadro **Proprietà** nel database di Azure per MySQL.
+Per la connessione, individuare le informazioni di connessione nella pagina **Panoramica** del database di Azure per MySQL.
 
-![Trovare le informazioni di connessione nel portale di Azure](./media/concepts-migrate-import-export/1_server-properties-name-login.png)
+![Trovare le informazioni di connessione nel portale di Azure](./media/concepts-migrate-import-export/1_server-overview-name-login.png)
 
 Aggiungere le informazioni di connessione a MySQL Workbench.
 

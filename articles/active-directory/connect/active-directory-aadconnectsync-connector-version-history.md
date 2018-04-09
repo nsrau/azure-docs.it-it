@@ -2,23 +2,23 @@
 title: Cronologia del rilascio delle versioni dei connettori | Microsoft Docs
 description: Questo argomento include l'elenco di tutte le versioni dei connettori per Forefront Identity Manager (FIM) e Microsoft Identity Manager (MIM)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2017
-ms.author: billmath
-ms.openlocfilehash: 5b43284a86a7e5d4cdbf50a29d73f970c9ad9d58
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 03/22/2018
+ms.author: davidste
+ms.openlocfilehash: 5b13338646abda7eefec44c42dc0159e9338adfa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connector-version-release-history"></a>Cronologia di rilascio delle versioni dei connettori
 I connettori per Forefront Identity Manager (FIM) e Microsoft Identity Manager (MIM) vengono aggiornati frequentemente.
@@ -34,9 +34,26 @@ Collegamenti correlati:
 * [Scaricare i connettori più recenti](http://go.microsoft.com/fwlink/?LinkId=717495)
 * [connettore LDAP generico](active-directory-aadconnectsync-connector-genericldap.md)
 * [connettore SQL generico](active-directory-aadconnectsync-connector-genericsql.md)
-* [connettore per Servizi Web](http://go.microsoft.com/fwlink/?LinkID=226245)
+* [connettore per Servizi Web](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws)
 * [connettore PowerShell](active-directory-aadconnectsync-connector-powershell.md)
 * [connettore Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
+
+
+## <a name="118300"></a>1.1.830.0
+
+### <a name="fixed-issues"></a>Problemi risolti:
+* Risolto ConnectorsLog System.Diagnostics.EventLogInternal.InternalWriteEvent (Messaggio: Un dispositivo associato al sistema non funziona)
+* In questa versione dei connettori sarà necessario aggiornare il reindirizzamento di binding da 3.3.0.0-4.1.3.0 a 4.1.4.0 in miiserver.exe.config
+* Servizi Web generici:
+    * Risolto Valid JSON response could not be saved in configuration tool
+* Generic SQL:
+    * L'esportazione genera sempre solo query di aggiornamento per l'operazione di eliminazione. Aggiunta per la generazione di una query di eliminazione
+    * La query SQL che ottiene gli oggetti per l'operazione di importazione delta, se 'Delta Strategy' è 'Rilevamento modifiche' è stata corretta. Limitazioni note in questa implementazione: l'importazione Delta con la modalità 'Rilevamento modifiche' non tiene traccia delle modifiche degli attributi multivalore
+    * Aggiunta la possibilità di generare una query di eliminazione per i casi in cui è necessario eliminare l'ultimo valore dell'attributo multivalore e la riga non contiene altri dati, ad eccezione del valore da eliminare.
+    * Gestione di System.ArgumentException gestisce quando vengono implementati i parametri OUTPUT mediante SP 
+    * Query non corretta per l'esecuzione dell'operazione di esportazione nel campo di tipo varbinary(max)
+    * Problema con la variabile parameterList inizializzata due volte (nelle funzioni di ExportAttributes e GetQueryForMultiValue)
+
 
 ## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
 
@@ -80,6 +97,8 @@ Collegamenti correlati:
   * Lo strumento Wsconfig non ha convertito correttamente la matrice Json dalla "richiesta di esempio" per il metodo di servizio REST. Si sono verificati problemi con la serializzazione di questa matrice Json per la richiesta REST.
   * Lo strumento Web Service Connector Configuration non supporta l'utilizzo di simboli di spazio nei nomi attributo JSON 
     * Il criterio di sostituzione può essere aggiunto manualmente al file WSConfigTool.exe.config, ad esempio```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+> [!NOTE]
+> Chiave JSONSpaceNamePattern necessaria poiché per l'esportazione si verifica l'errore seguente: Message: Empty name is not legal. 
 
 * Lotus Notes:
   * Se l'opzione **Consenti rilascio di attestati personalizzati per aziende/unità organizzative** è disattivata, il connettore ha esito negativo durante l'esportazione (aggiornamento); dopo il flusso di esportazione tutti gli attributi vengono esportati in Domino, ma al momento dell'esportazione viene restituita una KeyNotFoundException a Sync. 

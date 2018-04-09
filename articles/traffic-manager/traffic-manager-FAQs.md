@@ -1,24 +1,24 @@
 ---
-title: Gestione traffico di Azure - Domande frequenti | Documentazione Microsoft
+title: Gestione traffico di Azure - Domande frequenti | Microsoft Docs
 description: Questo articolo risponde ad alcune domande frequenti su Gestione traffico
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: KumudD
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2018
+ms.date: 03/18/2018
 ms.author: kumud
-ms.openlocfilehash: 09fd133ec72f7ebbbcb45f652855e7640656a0ca
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d9db669ab905fb51390f6ca80736af4cde13d902
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -123,9 +123,6 @@ Sì, solo l'API versione 2017-03-01 e versioni successive supportano il routing 
 
 ## <a name="real-user-measurements"></a>Misurazioni utente reale
 
->[!NOTE]
->La funzionalità Misurazioni utente reale in Gestione traffico è attualmente in versione di anteprima pubblica e potrebbe non offrire lo stesso livello di disponibilità e affidabilità delle funzionalità presenti nella versione con disponibilità generale. La funzionalità non è supportata, potrebbe avere funzioni vincolate e potrebbe non essere disponibile in tutte le località di Azure. Per ricevere le notifiche più aggiornate su disponibilità e stato di questa funzionalità, vedere la pagina [Aggiornamenti di Gestione traffico di Azure](https://azure.microsoft.com/updates/?product=traffic-manager).
-
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Quali sono i vantaggi offerti dall'utilizzo di Misurazioni utente reale?
 Quando si usa il metodo di routing basato sulle prestazioni, Gestione traffico seleziona l'area di Azure migliore a cui l'utente finale può connettersi, controllando l'IP di origine e la subnet client EDNS (se passata) e confrontandoli con l'intelligence di latenza di rete gestita dal servizio. La funzionalità Misurazioni utente reale migliora questo scenario facendo in modo che le esperienze della base di utenti finali contribuiscano a questa tabella di latenza e assicurando che la tabella includa adeguatamente le reti degli utenti finali da cui gli utenti finali si connettono ad Azure. In questo modo si ottiene una maggiore precisione nel routing degli utenti finali.
 
@@ -140,7 +137,8 @@ No, basta abilitare la funzionalità una sola volta per ogni sottoscrizione e tu
 
 ### <a name="how-do-i-turn-off-real-user-measurements-for-my-subscription"></a>Come si disattiva Misurazioni utente reale in una sottoscrizione?
 È possibile interrompere gli addebiti dei costi relativi a Misurazioni utente reale quando si smette di raccogliere e restituire le misure di latenza dall'applicazione client. Quando il codice JavaScript di misurazione è integrato in pagine Web, ad esempio, è possibile arrestare la funzionalità rimuovendo il codice JavaScript o disattivando la chiamata durante il rendering della pagina.
-Un altro modo per disattivare Misurazioni utente reale consiste nell'eliminare la chiave. Dopo che la funzionalità è stata disabilitata, tutte le misurazioni inviate a Gestione traffico con tale chiave vengono rimosse.
+
+È inoltre possibile disattivare Misurazioni utente reale eliminando la chiave. Dopo aver eliminato la chiave, tutte le misurazioni inviate a Gestione traffico con tale chiave vengono rimosse.
 
 ### <a name="can-i-use-real-user-measurements-with-client-applications-other-than-web-pages"></a>È possibile usare Misurazioni utente reale con applicazioni client diverse dalle pagine Web?
 Sì, Misurazioni utente reale è progettata per inserire i dati raccolti tramite tipi diversi di client utente finale. Queste domande frequenti verranno aggiornate man mano che verranno supportati nuovi tipi di applicazioni client.
@@ -155,7 +153,7 @@ No, non vi sono ritardi programmati prima che lo script venga richiamato.
 No, ogni volta che viene chiamato, lo script di Misurazioni utente reale misura un set di sei aree di Azure determinato dal servizio. Questo set cambia tra una chiamata e l'altra e, quando si verificano tante chiamate, la copertura delle misurazioni spazia tra aree di Azure diverse.
 
 ### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>È possibile limitare il numero di misurazioni effettuate a un numero specifico?
-Il codice JavaScript di misurazione è integrato nella pagina Web, pertanto si ha il controllo completo su quando iniziare e arrestare l'uso del servizio. Il set di aree viene restituito fino a quando il servizio Gestione traffico riceve una richiesta di misurazione di un elenco di aree di Azure. Occorre inoltre sapere che, durante il periodo di anteprima, non verrà addebitato alcuno costo per le misurazioni riportate a Gestione traffico.
+Il codice JavaScript di misurazione è integrato nella pagina Web, pertanto si ha il controllo completo su quando iniziare e arrestare l'uso del servizio. Il set di aree viene restituito fino a quando il servizio Gestione traffico riceve una richiesta di misurazione di un elenco di aree di Azure.
 
 ### <a name="can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements"></a>È possibile visualizzare le misurazioni effettuate dall'applicazione client nell'ambito di Misurazioni utente reale?
 Poiché la logica di misurazione viene eseguita dall'applicazione client, si ha il controllo completo di ciò che accade, inclusa la visualizzazione delle misurazioni di latenza. Gestione traffico non mostra una vista aggregata delle misurazioni ricevute nella chiave collegata alla sottoscrizione in uso.
@@ -186,9 +184,6 @@ Come indicato nella risposta precedente, i componenti lato server di Misurazioni
 
 ## <a name="traffic-view"></a>Visualizzazione traffico
 
->[!NOTE]
->La funzionalità Visualizzazione traffico di Gestione traffico è attualmente in versione di anteprima pubblica e potrebbe non offrire lo stesso livello di disponibilità e affidabilità delle funzionalità presenti nella versione con disponibilità generale. La funzionalità non è supportata, potrebbe avere funzioni vincolate e potrebbe non essere disponibile in tutte le località di Azure. Per ricevere le notifiche più aggiornate su disponibilità e stato di questa funzionalità, vedere la pagina [Aggiornamenti di Gestione traffico di Azure](https://azure.microsoft.com/updates/?product=traffic-manager).
-
 ### <a name="what-does-traffic-view-do"></a>A cosa serve Visualizzazione traffico?
 Visualizzazione traffico è una funzionalità di Gestione traffico che consente di comprendere a fondo gli utenti e le relative esperienze. Usa le query che riceve da Gestione traffico e le tabelle di intelligence di latenza di rete che il servizio gestisce per offrire le informazioni seguenti:
 - Le aree da cui gli utenti si connettono agli endpoint in Azure.
@@ -196,7 +191,7 @@ Visualizzazione traffico è una funzionalità di Gestione traffico che consente 
 - Le aree di Azure a cui gli utenti vengono instradati.
 - L'esperienza di latenza per queste aree di Azure.
 
-Queste informazioni sono disponibili all'utente tramite una vista tabulare nel portale. Sono inoltre disponibili come dati non elaborati da scaricare.
+Queste informazioni sono disponibili all'utente tramite la sovrapposizione della mappa geografica e viste tabulari nel portale. Sono inoltre disponibili come dati non elaborati da scaricare.
 
 ### <a name="how-can-i-benefit-from-using-traffic-view"></a>Quali sono i vantaggi dell'utilizzo di Visualizzazione traffico?
 
@@ -208,7 +203,7 @@ Monitoraggio di Azure aiuta a comprendere, a livello di aggregazione, il traffic
 
 ### <a name="does-traffic-view-use-edns-client-subnet-information"></a>Visualizzazione traffico usa le informazioni della subnet client EDNS?
 
-Visualizzazione traffico non considera le informazioni della subnet client EDNS quando genera il proprio output. Usa l'indirizzo IP del resolver DNS locale degli utenti per raggrupparli.
+Le query DNS gestite da Gestione traffico di Azure considerano le informazioni ECS per aumentare la precisione del routing. Ma durante la creazione del set di dati che mostra da dove gli utenti eseguono la connessione, Visualizzazione traffico usa solo l'indirizzo IP del resolver DNS.
 
 ### <a name="how-many-days-of-data-does-traffic-view-use"></a>Quanti giorni di dati usa Visualizzazione traffico?
 
@@ -219,15 +214,18 @@ Visualizzazione traffico genera il proprio output elaborando i dati dei sette gi
 Quando si usano endpoint esterni ospitati all'esterno di aree di Azure in un profilo di Gestione traffico, è possibile scegliere che venga eseguito il mapping a un'area di Azure che è un proxy per le relative caratteristiche di latenza (che è in effetti necessario se si usa il metodo di routing basato sulle prestazioni). Con questo mapping dell'area di Azure verranno usate le metriche di latenza di quell'area di Azure per generare l'output di Visualizzazione traffico. Se non viene specificata alcuna area di Azure, le informazioni sulla latenza saranno vuote nei dati per quegli endpoint esterni.
 
 ### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>È necessario abilitare Visualizzazione traffico per ogni profilo della sottoscrizione?
-Durante il periodo di anteprima, la funzionalità Visualizzazione traffico è abilitata a livello di sottoscrizione ed è disponibile per tutti i profili di Gestione traffico in tale sottoscrizione.
 
-### <a name="how-can-i-turn-off-traffic-view"></a>Come si disabilita Visualizzazione traffico?
-Durante il periodo di anteprima, è necessario creare un ticket di supporto per richiederne la disabilitazione nella propria sottoscrizione.
+Durante il periodo di anteprima, Visualizzazione traffico è stato abilitato a livello di sottoscrizione. Tra i miglioramenti che sono stati apportati prima della disponibilità generale, è ora possibile abilitare Visualizzazione traffico a livello di profilo, consentendo un'abilitazione più granulare di questa funzionalità. Per impostazione predefinita, Visualizzazione traffico verrà disabilitato per un profilo.
+
+>[!NOTE]
+>Se Visualizzazione traffico è stato abilitato a livello di sottoscrizione durante il periodo di anteprima, è ora necessario abilitarlo nuovamente per ogni profilo in tale sottoscrizione.
+ 
+### <a name="how-can-i-turn-off-traffic-view"></a>Come si disabilita Visualizzazione traffico? 
+È possibile disabilitare Visualizzazione traffico per qualsiasi profilo con il portale o le API REST. 
 
 ### <a name="how-does-traffic-view-billing-work"></a>Come funziona la fatturazione di Visualizzazione traffico?
 
 La determinazione dei prezzi di Visualizzazione traffico è basata sul numero di punti dati usati per creare l'output. L'unico tipo di dati supportato al momento sono le query che vengono ricevute dal proprio profilo. Viene addebitata inoltre solo l'elaborazione eseguita quando Visualizzazione traffico è abilitata. Ciò significa che, se si abilita Visualizzazione traffico per un periodo di tempo specifico in un mese e la si disabilita in altri periodi, vengono considerati per la fatturazione solo i punti dati elaborati mentre la funzionalità era abilitata.
-Durante il periodo di anteprima, l'uso di Visualizzazione traffico non viene fatturato.
 
 ## <a name="traffic-manager-endpoints"></a>Endpoint di Gestione traffico
 

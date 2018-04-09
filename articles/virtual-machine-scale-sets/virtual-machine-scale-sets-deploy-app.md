@@ -1,11 +1,11 @@
 ---
-title: "Distribuire un'applicazione in un set di scalabilità di macchine virtuali di Azure | Microsoft Docs"
-description: "Informazioni su come distribuire applicazioni nelle istanze di macchine virtuali Linux e Windows in un set di scalabilità"
+title: Distribuire un'applicazione in un set di scalabilità di macchine virtuali di Azure | Microsoft Docs
+description: Informazioni su come distribuire applicazioni nelle istanze di macchine virtuali Linux e Windows in un set di scalabilità
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 288bcdf6628f60d0b08fe151e630784d665db56f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cadd0f4c07b7e8adec4956543f67313aa8442da3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuire l'applicazione nei set di scalabilità delle macchine virtuali
 Per eseguire applicazioni nelle istanze di macchine virtuali (VM) in un set di scalabilità, è necessario prima installare i componenti dell'applicazione e i file necessari. Questo articolo descrive come creare un'immagine personalizzata di macchina virtuale per le istanze in un set di scalabilità o eseguire automaticamente gli script di installazione nelle istanze di macchine virtuali esistenti. Si apprenderà anche come gestire gli aggiornamenti delle applicazioni o del sistema operativo in un set di scalabilità.
@@ -28,94 +28,17 @@ Per eseguire applicazioni nelle istanze di macchine virtuali (VM) in un set di s
 ## <a name="build-a-custom-vm-image"></a>Creare un'immagine personalizzata della macchina virtuale
 Quando si usa una delle immagini della piattaforma Azure per creare le istanze nel set di scalabilità, non viene installato o configurato alcun software aggiuntivo. È possibile automatizzare l'installazione di questi componenti; tuttavia ciò si aggiunge al tempo necessario per eseguire il provisioning delle istanze di macchine virtuali nei set di scalabilità. Se si applicano numerose modifiche di configurazione alle istanze di macchine virtuali, si crea un sovraccarico di gestione con queste attività e script di configurazione.
 
-Per ridurre la gestione della configurazione e il tempo per eseguire il provisioning di una macchina virtuale, è possibile creare un'immagine personalizzata della macchina virtuale pronta per eseguire l'applicazione non appena viene eseguito il provisioning di un'istanza nel set di scalabilità. Il processo generale per creare un'immagine personalizzata della macchina virtuale per le istanze del set di scalabilità è il seguente:
+Per ridurre la gestione della configurazione e il tempo per eseguire il provisioning di una macchina virtuale, è possibile creare un'immagine personalizzata della macchina virtuale pronta per eseguire l'applicazione non appena viene eseguito il provisioning di un'istanza nel set di scalabilità. Per altre informazioni su come creare e usare un'immagine di VM personalizzata con un set di scalabilità, vedere le esercitazioni seguenti:
 
-1. Per creare un'immagine personalizzata della macchina virtuale per le istanze nel set di scalabilità, creare e accedere a una macchina virtuale, quindi installare e configurare l'applicazione. È possibile usare Packer per definire e creare un'immagine della macchina virtuale [Linux](../virtual-machines/linux/build-image-with-packer.md) o [Windows](../virtual-machines/windows/build-image-with-packer.md). In alternativa è possibile creare e configurare la macchina virtuale manualmente:
-
-    - Creare una macchina virtuale Linux con l'[interfaccia della riga di comando di Azure 2.0](../virtual-machines/linux/quick-create-cli.md), [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md) o il [portale](../virtual-machines/linux/quick-create-portal.md).
-    - Creare una macchina virtuale Windows con [Azure PowerShell](../virtual-machines/windows/quick-create-powershell.md), l'[interfaccia della riga di comando di Azure 2.0](../virtual-machines/windows/quick-create-cli.md) o il [portale](../virtual-machines/windows/quick-create-portal.md).
-    - Accedere a una macchina virtuale [Linux](../virtual-machines/linux/mac-create-ssh-keys.md#use-the-ssh-key-pair) o [Windows](../virtual-machines/windows/connect-logon.md).
-    - Installare e configurare le applicazioni e gli strumenti necessari. Se sono necessarie versioni specifiche di una libreria o di un runtime, un'immagine personalizzata della macchina virtuale consente di definire una versione. 
-
-2. Acquisire la macchina virtuale con l'[interfaccia della riga di comando di Azure 2.0](../virtual-machines/linux/capture-image.md) o [Azure PowerShell](../virtual-machines/windows/capture-image.md). Questo passaggio crea l'immagine personalizzata della macchina virtuale che viene usata per distribuire le istanze in un set di scalabilità.
-
-3. [Creare un set di scalabilità](virtual-machine-scale-sets-create.md) e specificare l'immagine personalizzata della macchina virtuale creata nei passaggi precedenti.
+- [Interfaccia della riga di comando di Azure 2.0](tutorial-use-custom-image-cli.md)
+- [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="already-provisioned"></a>Installare un'app con l'estensione dello script personalizzata
-L'estensione script personalizzata scarica ed esegue gli script sulle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Gli script possono essere scaricati dall'archiviazione di Azure o da GitHub oppure possono essere forniti al portale di Azure durante il runtime dell'estensione.
+L'estensione script personalizzata scarica ed esegue gli script sulle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Gli script possono essere scaricati dall'archiviazione di Azure o da GitHub oppure possono essere forniti al portale di Azure durante il runtime dell'estensione. Per altre informazioni su come creare e usare un'immagine di VM personalizzata con un set di scalabilità, vedere le esercitazioni seguenti:
 
-L'estensione script personalizzata è integrabile nei modelli di Azure Resource Manager e può essere eseguita anche tramite l'interfaccia della riga di comando di Azure, PowerShell, il portale di Azure o l'API REST di Macchine virtuali di Azure. 
-
-Per altre informazioni, vedere [Panoramica dell'estensione script personalizzata](../virtual-machines/windows/extensions-customscript.md).
-
-
-### <a name="use-azure-powershell"></a>Usare Azure PowerShell
-PowerShell usa una tabella hash per archiviare i file da scaricare e il comando da eseguire. L'esempio seguente:
-
-- Indica alle istanze di macchine virtuali di scaricare uno script da GitHub: *https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1*
-- Imposta l'estensione in modo da eseguire uno script di installazione: `powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1`
-- Ottiene informazioni su un set di scalabilità con [Get AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
-- Applica l'estensione alle istanze di macchine virtuali con [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
-
-L'estensione dello script personalizzata viene applicata alle istanze di macchine virtuali *myScaleSet* nel gruppo di risorse denominato *myResourceGroup*. Immettere i nomi personalizzati nel modo seguente:
-
-```powershell
-# Define the script for your Custom Script Extension to run
-$customConfig = @{
-    "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1");
-    "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
-}
-
-# Get information about the scale set
-$vmss = Get-AzureRmVmss `
-                -ResourceGroupName "myResourceGroup" `
-                -VMScaleSetName "myScaleSet"
-
-# Add the Custom Script Extension to install IIS and configure basic website
-$vmss = Add-AzureRmVmssExtension `
-    -VirtualMachineScaleSet $vmss `
-    -Name "customScript" `
-    -Publisher "Microsoft.Compute" `
-    -Type "CustomScriptExtension" `
-    -TypeHandlerVersion 1.8 `
-    -Setting $customConfig
-
-# Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzureRmVmss `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myScaleSet" `
-    -VirtualMachineScaleSet $vmss
-```
-
-Se il criterio di aggiornamento nel set di scalabilità è *manuale*, aggiornare le istanze di macchine virtuali con [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance). Questo cmdlet applica la configurazione aggiornata del set di scalabilità alle istanze di macchine virtuali e installa l'applicazione.
-
-
-### <a name="use-azure-cli-20"></a>Usare l'interfaccia della riga di comando 2.0 di Azure
-Per usare l'estensione dello script personalizzata con l'interfaccia della riga di comando di Azure, creare un file JSON che definisca i file da ottenere e i comandi da eseguire. Queste definizioni JSON possono essere riusate nelle distribuzioni del set di scalabilità per applicare installazioni di applicazioni coerenti.
-
-Nella shell corrente creare un file denominato *customConfig.json* e incollare la configurazione seguente. Ad esempio, creare il file in Cloud Shell anziché nel computer locale. È possibile usare qualsiasi editor. Immettere `sensible-editor cloudConfig.json` per creare il file e visualizzare un elenco degli editor disponibili.
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx.sh"],
-  "commandToExecute": "./automate_nginx.sh"
-}
-```
-
-Applicare la configurazione dell'estensione dello script personalizzata alle istanze di macchine virtuali nel set di scalabilità con [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set). Nell'esempio seguente viene applicata la configurazione *customConfig.json* alle istanze di macchine virtuali *myScaleSet* nel gruppo di risorse denominato *myResourceGroup*. Immettere i nomi personalizzati nel modo seguente:
-
-```azurecli
-az vmss extension set \
-    --publisher Microsoft.Azure.Extensions \
-    --version 2.0 \
-    --name CustomScript \
-    --resource-group myResourceGroup \
-    --vmss-name myScaleSet \
-    --settings @customConfig.json
-```
-
-Se il criterio di aggiornamento nel set di scalabilità è *manuale*, aggiornare le istanze di macchine virtuali con [az vmss update-instances](/cli/azure/vmss#update-instances). Questo cmdlet applica la configurazione aggiornata del set di scalabilità alle istanze di macchine virtuali e installa l'applicazione.
+- [Interfaccia della riga di comando di Azure 2.0](tutorial-install-apps-cli.md)
+- [Azure PowerShell](tutorial-install-apps-powershell.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Installare un'app su una macchina virtuale Windows con PowerShell DSC
@@ -123,7 +46,7 @@ Se il criterio di aggiornamento nel set di scalabilità è *manuale*, aggiornare
 
 L'estensione PowerShell DSC consente di personalizzare le istanze di macchine virtuali in un set di scalabilità con PowerShell. L'esempio seguente:
 
-- Indica alle istanze di macchine virtuali di scaricare un pacchetto DSC da GitHub - *https://github.com/iainfoulds/azure-samples/raw/master/dsc.zip*
+- Indica alle istanze di macchine virtuali di scaricare un pacchetto DSC da GitHub: *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
 - Imposta l'estensione in modo da eseguire uno script di installazione: `configure-http.ps1`
 - Ottiene informazioni su un set di scalabilità con [Get AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
 - Applica l'estensione alle istanze di macchine virtuali con [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
@@ -135,7 +58,7 @@ Viene applicata l'estensione DSC alle istanze di macchine virtuali *myScaleSet* 
 $dscConfig = @{
   "wmfVersion" = "latest";
   "configuration" = @{
-    "url" = "https://github.com/iainfoulds/azure-samples/raw/master/dsc.zip";
+    "url" = "https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip";
     "script" = "configure-http.ps1";
     "function" = "WebsiteTest";
   };
@@ -184,36 +107,6 @@ az vmss create \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
-
-
-## <a name="install-applications-as-a-set-scales-out"></a>Installare le applicazioni quando un set scala orizzontalmente
-I set di scalabilità consentono di aumentare il numero di istanze di macchine virtuali che eseguono l'app. Questo processo di scalabilità orizzontale può essere avviato manualmente o automaticamente in base a metriche, ad esempio l'utilizzo della CPU o della memoria.
-
-Se è stata applicata l'estensione dello script personalizzata al set di scalabilità, l'applicazione viene installata in ogni nuova istanza della macchina virtuale. Se il set di scalabilità è basato su un'immagine personalizzata con l'applicazione preinstallata, ogni nuova istanza della macchina virtuale viene distribuita in uno stato utilizzabile. 
-
-Se le istanze di macchine virtuali del set di scalabilità sono host contenitori, è possibile usare l'estensione dello script personalizzata per effettuare il pull ed eseguire le immagini contenitore necessarie. L'estensione dello script personalizzata è in grado anche di registrare la nuova istanza di macchina virtuale con un agente di orchestrazione, ad esempio il servizio contenitore di Azure.
-
-
-## <a name="deploy-application-updates"></a>Distribuire gli aggiornamenti delle applicazioni
-Se si aggiorna il codice, le librerie o i pacchetti dell'applicazione, è possibile effettuare il push dello stato più recente dell'applicazione nelle istanze di macchine virtuali in un set di scalabilità. Se si usa l'estensione dello script personalizzata, eseguire l'aggiornamento all'applicazione e non usare la distribuzione automatica. Modificare la configurazione di script personalizzata, ad esempio in modo che punti a uno script di installazione con il nome di una versione aggiornata. Nell'esempio precedente l'estensione dello script personalizzata usa uno script denominato *automate_nginx.sh*, come indicato di seguito:
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx.sh"],
-  "commandToExecute": "./automate_nginx.sh"
-}
-```
-
-Tutti gli aggiornamenti apportati all'applicazione non vengono esposti all'estensione dello script personalizzata, a meno che non venga modificato questo script di installazione. Un approccio consiste nell'includere un numero di versione che incrementa con le versioni dell'applicazione. L'estensione dello script personalizzata può ora referenziare *automate_nginx_v2.sh* come indicato di seguito:
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx_v2.sh"],
-  "commandToExecute": "./automate_nginx_v2.sh"
-}
-```
-
-L'estensione dello script personalizzata viene ora eseguita con le istanze di macchine virtuali per applicare gli aggiornamenti più recenti delle applicazioni.
 
 
 ### <a name="install-applications-with-os-updates"></a>Installare le applicazioni con gli aggiornamenti del sistema operativo

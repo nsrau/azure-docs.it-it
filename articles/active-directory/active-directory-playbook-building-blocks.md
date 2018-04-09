@@ -1,12 +1,12 @@
 ---
 title: Blocchi predefiniti del playbook dei modelli di verifica di Azure Active Directory | Microsoft Docs
-description: "Esplorare e implementare rapidamente gli scenari di Gestione delle identità e degli accessi"
+description: Esplorare e implementare rapidamente gli scenari di Gestione delle identità e degli accessi
 services: active-directory
 keywords: azure active directory, studio, modello di verifica, PoC
-documentationcenter: 
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Playbook dei modelli di verifica di Azure Active Directory: blocchi predefiniti
 
 ## <a name="catalog-of-roles"></a>Catalogo dei ruoli
 
-| Ruolo | Descrizione | Responsabilità del modello di verifica |
+| Ruolo | DESCRIZIONE | Responsabilità del modello di verifica |
 | --- | --- | --- |
 | **Team di sviluppo e architettura identità** | Questo è in genere quello che progetta la soluzione, implementa i prototipi, indirizza le approvazioni e gestisce le consegne al team operativo | Disponibilità degli ambienti e valutazione dei diversi scenari dal punto di vista della gestibilità |
 | **Team di gestione dell'identità locale** | Gestisce le diverse origini di identità locali: foreste di Active Directory, directory LDAP, sistemi HR e provider di identità federativa. | Disponibilità dell'accesso alle risorse locali necessarie per gli scenari PoC.<br/>Deve essere coinvolto nella misura minore possibile|
@@ -40,8 +40,8 @@ Di seguito sono riportati alcuni prerequisiti necessari per qualsiasi modello di
 
 | Prerequisito. | Risorse |
 | --- | --- |
-| Tenant di Azure AD definito con una sottoscrizione di Azure valida | [Come ottenere un tenant di Azure Active Directory](active-directory-howto-tenant.md)<br/>**Nota:** se si ha già un ambiente con licenze di Azure AD Premium, accedere a https://aka.ms/accessaad per ottenere una sottoscrizione gratuita <br/>Per altre informazioni, vedere: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ e https://technet.microsoft.com/library/dn832618.aspx |
-| Domini definiti e verificati | [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Nota:** alcuni carichi di lavoro, ad esempio Power BI, possono avere eseguito il provisioning di un tenant di azure AD dietro le quinte. Per verificare se un determinato dominio è associato a un tenant, passare a https://login.microsoftonline.com/{dominio}/v2.0/.well-known/openid-configuration. Se si ottiene una risposta positiva, il dominio è già assegnato a un tenant e potrebbe essere necessario acquisire la proprietà. In questo caso, contattare Microsoft per le istruzioni. Altre informazioni sulle opzioni di acquisizione della proprietà sono disponibili in: [Informazioni sull'iscrizione self-service per Azure](active-directory-self-service-signup.md) |
+| Tenant di Azure AD definito con una sottoscrizione di Azure valida | [Come ottenere un tenant di Azure Active Directory](active-directory-howto-tenant.md)<br/>**Nota:** se si dispone già di un ambiente con licenze di Azure AD Premium, è possibile ottenere una sottoscrizione gratuita passando a https://aka.ms/accessaad <br/>Altre informazioni su https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ e https://technet.microsoft.com/library/dn832618.aspx |
+| Domini definiti e verificati | [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Nota:** alcuni carichi di lavoro, ad esempio Power BI, possono avere eseguito il provisioning di un tenant di azure AD dietro le quinte. Per controllare se un determinato dominio è associato a un tenant, passare a https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Se si ottiene una risposta positiva, il dominio è già assegnato a un tenant e potrebbe essere necessario acquisire la proprietà. In questo caso, contattare Microsoft per le istruzioni. Altre informazioni sulle opzioni di acquisizione della proprietà sono disponibili in: [Informazioni sull'iscrizione self-service per Azure](active-directory-self-service-signup.md) |
 | Versione di valutazione di Azure AD Premium o EMS abilitata | [Azure Active Directory Premium gratis per un mese](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Licenze di Azure AD Premium o EMS assegnate agli utenti dei modelli di verifica | [Concessione di licenze a se stessi e agli utenti in Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
 | Credenziali di amministratore globale di Azure AD | [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) |
@@ -71,7 +71,7 @@ Tempo di completamento approssimativo: un'ora per meno di 1.000 utenti dei model
 
 ### <a name="considerations"></a>Considerazioni
 
-1. Esaminare le considerazioni sulla sicurezza della sincronizzazione degli hash delle password [qui](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).  Se la sincronizzazione degli hash delle password per gli utenti di produzione pilota non può essere assolutamente usata, considerare le seguenti alternative:
+1. Esaminare le considerazioni sulla sicurezza della sincronizzazione degli hash delle password [qui](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).  Se la sincronizzazione degli hash delle password per gli utenti di produzione pilota non può essere assolutamente usata, considerare le seguenti alternative:
    * Creare utenti test nel dominio di produzione. Assicurarsi di non sincronizzare altri account
    * Passare a un ambiente UAT
 2.  Se si vuole procedere con la federazione, è importante capire quali sono i costi associati a una soluzione federativa con un provider di identità locale oltre il modello di verifica e valutarli in relazione ai vantaggi che si sta cercando:
@@ -101,7 +101,7 @@ Tempo previsto per il completamento: 15 minuti
 | Accedere al portale di gestione di Azure AD | [Portale di gestione di Azure AD - Informazioni personalizzate distintive dell'azienda](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
 | Caricare le risorse per la pagina di accesso (logo alto, logo piccolo, etichette e così via). Facoltativamente, se si usa AD FS, allineare le stesse risorse con le pagine di accesso di AD FS | [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso: elementi personalizzabili](customize-branding.md) |
 | Attendere un paio di minuti che la modifica diventi effettiva |  |
-| Accedere con le credenziali utente del modello di verifica a https://myapps.microsoft.com |  |
+| Accedere con le credenziali modello di verifica a https://myapps.microsoft.com |  |
 | Verificare l'aspetto nel browser | [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](customize-branding.md) |
 | Se necessario, verificare l'aspetto in altri dispositivi |  |
 
@@ -138,7 +138,7 @@ Tempo previsto per il completamento: 60 minuti
 
 | Prerequisito. | Risorse |
 | --- | --- |
-| Ambiente di test dell'applicazione SaaS disponibile. In questa guida viene usato ServiceNow come esempio.<br/>Si consiglia di usare un'istanza di test per ridurre al minimo i possibili problemi quando si esamina la qualità e i mapping dei dati esistenti. | Accedere a https://developer.servicenow.com/app.do#!/home per avviare il processo di richiesta di un'istanza di test |
+| Ambiente di test dell'applicazione SaaS disponibile. In questa guida viene usato ServiceNow come esempio.<br/>Si consiglia di usare un'istanza di test per ridurre al minimo i possibili problemi quando si esamina la qualità e i mapping dei dati esistenti. | Passare a https://developer.servicenow.com/app.do#!/home per avviare il processo di acquisizione di un'istanza di test |
 | Accesso amministrativo alla console di gestione ServiceNow | [Esercitazione: Integrazione di Azure Active Directory con ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Definire un set di utenti a cui assegnare l'applicazione. È consigliabile un gruppo di sicurezza contenente gli utenti dei moduli di verifica. <br/>Se la creazione del gruppo non è fattibile, assegnare gli utenti direttamente all'applicazione per il modello di verifica | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 
@@ -156,7 +156,7 @@ Tempo previsto per il completamento: 60 minuti
 | Seguire le istruzioni per configurare ServiceNow |  |
 | Nel pannello "Provisioning" dell'applicazione ServiceNow abilitare il provisioning automatico | [Gestione del provisioning degli account utente per app aziendali nel nuovo portale di Azure](active-directory-enterprise-apps-manage-provisioning.md) |
 | Attendere alcuni minuti il completamento del provisioning.  Nel frattempo, è possibile verificare i report di provisioning |  |
-| Accedere a https://myapps.microsoft.com/ come utente test con accesso | [Che cos'è il pannello di accesso?](active-directory-saas-access-panel-introduction.md) |
+| Accedere a https://myapps.microsoft.com/ come un utente di prova autorizzato all’accesso | [Che cos'è il pannello di accesso?](active-directory-saas-access-panel-introduction.md) |
 | Fare clic sul riquadro per l'applicazione appena creata. Confermare l'accesso |  |
 | Facoltativamente, è possibile controllare i report sull'utilizzo dell'applicazione. Si noti che esiste una certa latenza, quindi è necessario attendere un certo tempo per vedere il traffico nei report. | [Report delle attività di accesso nel portale di Azure Active Directory: Utilizzo di applicazioni gestite](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Criteri di conservazione dei report di Azure Active Directory](active-directory-reporting-retention.md) |
 
@@ -186,7 +186,7 @@ Tempo previsto per il completamento: 15 minuti
 | Configurare l'applicazione dalla raccolta | [Novità della gestione delle applicazioni aziendali in Azure Active Directory: Raccolta di applicazioni con novità e miglioramenti](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | Configurare l'accesso SSO con password | [Gestione dell'accesso Single Sign-On per app aziendali nel nuovo portale di Azure: accesso basato su password](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Assegnare l'app al gruppo identificato nei prerequisiti | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
-| Accedere a https://myapps.microsoft.com/ come utente test con accesso |  |
+| Accedere a https://myapps.microsoft.com/ come un utente di prova autorizzato all’accesso |  |
 | Fare clic sul riquadro per l'applicazione appena creata. | [Che cos'è il pannello di accesso?: Single Sign-On basato su password senza provisioning delle identità](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Indicare le credenziali dell'applicazione | [Che cos'è il pannello di accesso?: Single Sign-On basato su password senza provisioning delle identità](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Chiudere il browser e ripetere l'accesso. Questa volta l'utente ottiene l'accesso all'applicazione in modo trasparente. |  |
@@ -209,7 +209,7 @@ Tempo previsto per il completamento: 30 minuti
 | Prerequisito. | Risorse |
 | --- | --- |
 | L'elenco di applicazioni di destinazione e gli URL di accesso esatti in anticipo. Ad esempio, è possibile usare Twitter. | [Twitter in Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Iscrizione a Twitter](https://twitter.com/signup?lang=en) |
-| Credenziali condivise per questa applicazione SaaS. | [Condivisione di account con Azure AD](active-directory-sharing-accounts.md)<br/>[Post sul rollover automatizzato delle password in Azure AD per Facebook, Twitter e LinkedIn ora in anteprima nel blog su sicurezza e mobilità aziendale] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
+| Credenziali condivise per questa applicazione SaaS. | [Condivisione di account con Azure AD](active-directory-sharing-accounts.md)<br/>[Post sul rollover automatizzato delle password in Azure AD per Facebook, Twitter e LinkedIn ora in anteprima - Blog su Enterprise Mobility e Security] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
 | Credenziali per almeno due membri del team che accedono allo stesso account. Devono fare parte di un gruppo di sicurezza. | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Accesso come amministratore locale a un computer per distribuire l'estensione Pannello di accesso per Internet Explorer, Firefox o Chrome | [Estensione Pannello di accesso per IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Estensione Pannello di accesso per Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Estensione Pannello di accesso per Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
@@ -443,7 +443,7 @@ Tempo previsto per il completamento: 10 minuti
 | Gli utenti del modello di verifica sono già stati assegnati all'applicazione |  |
 | Le credenziali per l'utente del modello di verifica sono disponibili |  |
 | L'utente del modello di verifica è registrato per MFA. Uso di un telefono con buona ricezione | https://aka.ms/ssprsetup |
-| Dispositivo nella rete interna. Indirizzo IP configurato nell'intervallo di indirizzi interni | Individuare l'indirizzo IP: https://www.bing.com/search?q=what%27s+my+ip |
+| Dispositivo nella rete interna. Indirizzo IP configurato nell'intervallo di indirizzi interni | Individuare l’indirizzo IP: https://www.bing.com/search?q=what%27s+my+ip |
 | Dispositivo nella rete esterna (può essere un telefono che usa la rete mobile del vettore) |  |
 
 ### <a name="steps"></a>Passaggi
@@ -478,8 +478,8 @@ Tempo previsto per il completamento: 15 minuti
 | --- | --- |
 | Accedere a https://portal.azure.com come amministratore globale (GA) e personalizzare il pannello PIM con bootstrap. L'amministratore globale che esegue questo passaggio viene designato amministratore della sicurezza.  In questo esempio sarà l'attore GA1 | [Uso della procedura guidata relativa alla sicurezza di Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
 | Identificare l'amministratore globale e trasformarlo da permanente a idoneo. Deve essere un amministratore separato da quello usato nel passaggio 1 per maggiore chiarezza. In questo esempio sarà l'attore GA2 | [Azure AD Privileged Identity Management: Come aggiungere o rimuovere un ruolo utente](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[Che cos'è Azure AD Privileged Identity Management?: Configurare le impostazioni di attivazione del ruolo](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
-| Accedere come GA2 a https://portal.azure.com e provare a modificare le impostazioni utente. Come si può vedere, alcune opzioni sono disattivate. | |
-| In una nuova scheda e nella stessa sessione del passaggio 3, passare a https://portal.azure.com e aggiungere il pannello PIM al dashboard. | [Come attivare o disattivare i ruoli in Azure AD Privileged Identity Management: Aggiungere l'applicazione Privileged Identity Management](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| Accedere come GA2 a https://portal.azure.com e provare a modificare le “Impostazioni utente”. Come si può vedere, alcune opzioni sono disattivate. | |
+| In una nuova scheda e nella stessa sessione del passaggio 3, andare a https://portal.azure.com e aggiungere il pannello PIM alla dashboard. | [Come attivare o disattivare i ruoli in Azure AD Privileged Identity Management: Aggiungere l'applicazione Privileged Identity Management](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
 | Richiedere l'attivazione al ruolo amministratore globale | [Come attivare o disattivare i ruoli in Azure AD Privileged Identity Management: Attivare un ruolo](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
 | Si noti che se GA2 non si è mai registrato per l'autenticazione a più fattori, sarà necessaria la registrazione per Azure MFA |  |
 | Tornare alla scheda originale del passaggio 3 e fare clic sul pulsante di aggiornamento nel browser. Si noti che ora si ha accesso alle impostazioni utente per la modifica | |
@@ -506,7 +506,7 @@ Tempo previsto per il completamento: 20 minuti
 | Passaggio | Risorse |
 | --- | --- |
 | Aprire Tor Browser | [Download di Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Accedere con l'account utente del modello di verifica a https://myapps.microsoft.com | [Studio sulla protezione delle identità di Azure Active Directory: Simulazione sugli eventi di rischio](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Accedere a https://myapps.microsoft.com con l'account utente del modello di verifica | [Studio sulla protezione delle identità di Azure Active Directory: Simulazione sugli eventi di rischio](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 | Attendere 5-7 minuti |  |
 | Accedere come amministratore globale a https://portal.azure.com e aprire il pannello Identity Protection | https://aka.ms/aadipgetstarted |
 | Aprire il pannello degli eventi di rischio. Dovrebbe apparire una voce sotto "Accessi da indirizzi IP anonimi"  | [Studio sulla protezione delle identità di Azure Active Directory: Simulazione sugli eventi di rischio](active-directory-identityprotection-playbook.md#simulating-risk-events) |
@@ -535,7 +535,7 @@ Tempo previsto per il completamento: 10 minuti
 | Accedere come amministratore globale a https://portal.azure.com e aprire il pannello Identity Protection | https://aka.ms/aadipgetstarted |
 | Abilitare un criterio di rischio di accesso come segue:<br/>- Assegnato a: utente del modello di verifica<br/>- Condizioni: rischio di accesso medio o alto (l'accesso da una posizione anonima viene considerato come livello di rischio medio)<br/>- Controlli: richiesto MFA | [Studio di Azure Active Directory Identity Protection: Rischio di accesso](active-directory-identityprotection-playbook.md) |
 | Aprire Tor Browser | [Download di Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Accedere con l'account utente del modello di verifica a https://myapps.microsoft.com |  |
+| Accedere a https://myapps.microsoft.com con l'account utente del modello di verifica |  |
 | Si noti la richiesta dell'autenticazione a più fattori | [Esperienze di accesso con Azure AD Identity Protection: Ripristino di un accesso rischioso](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
 
 ### <a name="considerations"></a>Considerazioni

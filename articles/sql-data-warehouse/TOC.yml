@@ -178,7 +178,7 @@
         - name: RedGate
           href: sql-data-warehouse-load-with-redgate.md
         - name: SSIS
-          href: sql-data-warehouse-load-from-sql-server-with-integration-services.md
+          href: /sql/integration-services/load-data-to-sql-data-warehouse
     - name: Integrare
       items:
         - name: Configurare la query elastica del database SQL
@@ -197,7 +197,7 @@
       items:
         - name: Automatizzare i livelli di calcolo
           href: manage-compute-with-azure-functions.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: T-SQL
       items:

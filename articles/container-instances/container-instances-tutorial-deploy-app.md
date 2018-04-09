@@ -2,61 +2,65 @@
 title: Esercitazione di Istanze di contenitore di Azure - Distribuire un'app
 description: Esercitazione di Istanze di contenitore di Azure - Parte 3 di 3 - Distribuire un'applicazione
 services: container-instances
-author: seanmck
+author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 02/22/2018
-ms.author: seanmck
+ms.date: 03/21/2018
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 0532d255b271b2155ae3115f8f96c4cbb53916e4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 29d7114f288f7387d0c7cd5c6afe2eaaa7a8c560
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="deploy-a-container-to-azure-container-instances"></a>Distribuire un contenitore in Istanze di contenitore di Azure
+# <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>Esercitazione: Distribuire un contenitore in Istanze di contenitore di Azure
 
-Questa è l'ultima esercitazione di una serie in tre parti. Nelle sezioni precedenti, [un'immagine del contenitore è stata creata](container-instances-tutorial-prepare-app.md) e [inserita in un'istanza di Registro contenitori di Azure](container-instances-tutorial-prepare-acr.md). Questo articolo completa la serie di esercitazioni distribuendo il contenitore in Istanze di contenitore di Azure.
+Questa è l'ultima esercitazione di una serie in tre parti. Nelle parti precedenti della serie, [è stata creata un'immagine del contenitore](container-instances-tutorial-prepare-app.md) e ne è stato eseguito il [push in Registro contenitori di Azure](container-instances-tutorial-prepare-acr.md). Questo articolo completa la serie con la distribuzione del contenitore in Istanze di contenitore di Azure.
 
-In questa esercitazione:
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Distribuzione del contenitore da Registro contenitori di Azure tramite l'interfaccia della riga di comando di Azure
-> * Visualizzazione dell'applicazione nel browser
-> * Visualizzazione dei log del contenitore
+> * Distribuire il contenitore da Registro contenitori di Azure a Istanze di contenitore di Azure
+> * Visualizzare l'applicazione in esecuzione nel browser
+> * Visualizzare i log del contenitore
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.27 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0][azure-cli-install].
-
-Per completare questa esercitazione è necessario un ambiente di sviluppo Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [Mac][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
-
-Azure Cloud Shell non include i componenti di Docker necessari per completare ogni passaggio di questa esercitazione. È necessario installare l'interfaccia della riga di comando di Azure e l'ambiente di sviluppo Docker nel computer locale per completare questa esercitazione.
+[!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Distribuire il contenitore tramite l'interfaccia della riga di comando di Azure
 
-L'interfaccia della riga di comando di Azure consente di distribuire un contenitore in Istanze di contenitore di Azure con un unico comando. L'immagine del contenitore è ospitata nell'istanza privata di Registro contenitori di Azure, quindi è necessario includere le credenziali necessarie per l'accesso. Ottenere le credenziali con i comandi seguenti dell'interfaccia della riga di comando di Azure.
+In questa sezione si userà l'interfaccia della riga di comando di Azure per distribuire l'immagine che è stata creata nella [prima esercitazione](container-instances-tutorial-prepare-app.md) e di cui è stato eseguito il push in Registro contenitori di Azure nella [seconda esercitazione](container-instances-tutorial-prepare-acr.md). Prima di procedere, assicurarsi di aver completato tali esercitazioni.
 
-Server di accesso del registro contenitori (sostituire con il nome del registro):
+### <a name="get-registry-credentials"></a>Ottenere le credenziali del registro
+
+Quando si distribuire un'immagine ospitata in un registro contenitori privato come quello creato nella [seconda esercitazione](container-instances-tutorial-prepare-acr.md), è necessario specificare le credenziali del registro.
+
+Per prima cosa, ottenere il nome completo del server di accesso del registro contenitori (sostituire `<acrName>` con il nome del registro):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-Password del registro contenitori:
+Successivamente, ottenere la password del registro contenitori:
 
 ```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-L'applicazione dovrà essere [preparata in anticipo][prepare-app]. Per distribuire l'immagine del contenitore dal registro contenitori con una richiesta di risorse di 1 core CPU e 1 GB di memoria, eseguire il comando [az container create][az-container-create]. Sostituire `<acrLoginServer>` e `<acrPassword>` con i valori ottenuti dai due comandi precedenti. Sostituire `<acrName>` con il nome del registro contenitori. È anche possibile sostituire `aci-tutorial-app` con il nome che si vuole assegnare alla nuova applicazione.
+### <a name="deploy-container"></a>Distribuire il contenitore
+
+Usare quindi il comando [az container create][az-container-create] per distribuire il contenitore. Sostituire `<acrLoginServer>` e `<acrPassword>` con i valori ottenuti dai due comandi precedenti. Sostituire `<acrName>` con il nome del registro contenitori.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-Entro pochi secondi si dovrebbe ricevere una risposta iniziale da Azure Resource Manager. Il valore `--dns-name-label` deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza di contenitore. Aggiornare il valore nell'esempio precedente se viene visualizzato un messaggio di errore relativo all'**etichetta del nome DNS** quando si esegue il comando.
+Entro pochi secondi si dovrebbe ricevere una risposta iniziale da Azure. Il valore `--dns-name-label` deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza di contenitore. Se quando si esegue il comando viene visualizzato un messaggio di errore relativo all'**etichetta del nome DNS**, modificare il valore nel comando precedente.
+
+### <a name="verify-deployment-progress"></a>Verificare lo stato di avanzamento della distribuzione
 
 Per visualizzare lo stato della distribuzione, usare il comando [az container show][az-container-show]:
 
@@ -74,7 +78,11 @@ Dopo aver completato la distribuzione, visualizzare il nome di dominio completo 
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Output di esempio: `"aci-demo.eastus.azurecontainer.io"`
+Ad esempio: 
+```console
+$ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
+"aci-demo.eastus.azurecontainer.io"
+```
 
 Per visualizzare l'applicazione in esecuzione, passare al nome DNS visualizzato in un browser a scelta:
 
@@ -86,12 +94,13 @@ Per visualizzare l'applicazione in esecuzione, passare al nome DNS visualizzato 
 az container logs --resource-group myResourceGroup --name aci-tutorial-app
 ```
 
-Output:
+Output di esempio:
 
 ```bash
+$ az container logs --resource-group myResourceGroup --name aci-tutorial-app
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
-::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://13.88.176.27/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ```
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
@@ -104,12 +113,17 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono stati distribuiti contenitori in Istanze di contenitore di Azure. Sono stati completati i passaggi seguenti:
+In questa esercitazione è stato completato il processo di distribuzione del contenitore in Istanze di contenitore di Azure. Sono stati completati i passaggi seguenti:
 
 > [!div class="checklist"]
-> * Il contenitore da Registro contenitori di Azure è stato distribuito tramite l'interfaccia della riga di comando di Azure
+> * Il contenitore è stato distribuito da Registro contenitori di Azure con l'interfaccia della riga di comando di Azure
 > * L'applicazione è stata visualizzata nel browser
 > * I log del contenitore sono stati visualizzati
+
+Dopo aver acquisito queste nozioni di base, approfondire la conoscenza di Istanze di contenitore di Azure, ad esempio in relazione al funzionamento dei gruppi di contenitori:
+
+> [!div class="nextstepaction"]
+> [Gruppi di contenitori in Istanze di contenitore di Azure](container-instances-container-groups.md)
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 81e227194ff64d7b7af842a208349ccc63528ab8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: bb6e4f9f147db2fb70d991922cf0bb8d16b29671
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Manutenzione predittiva per scenari reali
 
@@ -25,7 +25,7 @@ Questo scenario esplora un [set di dati simulato relativamente grande](https://g
 
 ### <a name="cortana-intelligence-gallery-github-repository"></a>Repository GitHub di Cortana Intelligence Gallery
 
-L'esercitazione su Cortana Intelligence Gallery per la manutenzione predittiva è un repository GitHub pubblico ([https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance)) in cui è possibile contribuire e segnalare problemi.
+L'esercitazione su Cortana Intelligence Gallery per la manutenzione predittiva è un repository GitHub pubblico ([https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)) in cui è possibile contribuire e segnalare problemi.
 
 
 ## <a name="use-case-overview"></a>Panoramica del caso d'uso

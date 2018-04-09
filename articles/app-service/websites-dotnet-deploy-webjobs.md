@@ -2,8 +2,8 @@
 title: Sviluppare e distribuire processi Web usando Visual Studio - Azure
 description: Informazioni su come sviluppare e distribuire processi Web di Azure in Servizio app di Azure usando Visual Studio.
 services: app-service
-documentationcenter: 
-author: ggailey777
+documentationcenter: ''
+author: tdykstra
 manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 8793485f2f1967e8c14ef335f14f81c9b946f974
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: babe190c0865f5be4aeecb40ca48b52673c6920e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Sviluppare e distribuire processi Web usando Visual Studio - Servizio app di Azure
 
@@ -29,7 +29,7 @@ Questo argomento illustra come usare Visual Studio per distribuire un progetto d
 Quando distribuisce un progetto di applicazione console abilitato per i processi Web, Visual Studio esegue due attività:
 
 * Copia i file di runtime nella cartella appropriata nell'app Web (*App_Data/jobs/continuous* per i processi Web in modalità continua, *App_Data/jobs/triggered* per i processi Web pianificati e su richiesta).
-* Configura i [processi dell'utilità di pianificazione di Azure](#scheduler) per i processi Web pianificati per essere eseguiti a orari specifici. Tale operazione non è necessaria per l'esecuzione dei processi Web in modalità continua.
+* Configura i processi dell'[Utilità di pianificazione di Azure](https://docs.microsoft.com/azure/scheduler/) per i processi Web la cui esecuzione è pianificata a orari specifici. Tale operazione non è necessaria per l'esecuzione dei processi Web in modalità continua.
 
 A un progetto abilitato per i processi Web vengono aggiunti gli elementi seguenti:
 

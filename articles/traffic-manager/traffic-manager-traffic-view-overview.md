@@ -4,28 +4,25 @@ description: Introduzione a Visualizzazione di traffico di Gestione traffico
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 11/11/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: 6b4378cb293824702dd52dcdeb86619f957b83ea
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.custom: ''
+ms.openlocfilehash: 7ce51017fdee92e5589c06b398c9650930d5436d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-traffic-view"></a>Visualizzazione traffico di Gestione traffico
-
->[!NOTE]
->La funzionalità Visualizzazione traffico di Gestione traffico è attualmente in versione di anteprima pubblica e potrebbe non offrire lo stesso livello di disponibilità e affidabilità delle funzionalità presenti nella versione con disponibilità generale. La funzionalità non è supportata, potrebbe avere funzioni vincolate e potrebbe non essere disponibile in tutte le località di Azure. Per ricevere le notifiche più aggiornate su disponibilità e stato di questa funzionalità, vedere la pagina [Aggiornamenti di Gestione traffico di Azure](https://azure.microsoft.com/updates/?product=traffic-manager).
 
 Gestione traffico fornisce il routing a livello DNS in modo che gli utenti finali vengano indirizzati a endpoint integri in base al metodo di routing specificato quando è stato creato il profilo. Visualizzazione traffico fornisce Gestione traffico con una visualizzazione delle basi utenti (a livello di granularità del resolver DNS) e del relativo modello di traffico. Quando si abilita Visualizzazione traffico, tali informazioni vengono elaborate per offrire approfondimenti attuabili. 
 
@@ -43,7 +40,7 @@ Visualizzazione traffico fa in modo che Gestione traffico esamini le query in in
 Nel passaggio successivo Gestione traffico mette in correlazione l'area della base utenti con il mapping delle aree di Azure con le tabelle di latenza della intelligence di rete che mantiene per reti di utenti finali diverse per comprendere la latenza media riscontrata dagli utenti di tali aree quando si connettono ad aree di Azure. Tutti questi calcoli vengono quindi combinati a un livello di IP del resolver DNS locale prima di essere presentati all'utente. È possibile usare le informazioni in vari modi.
 
 >[!NOTE]
->La latenza descritta in Visualizzazione traffico è una latenza rappresentativa tra l'utente finale e le aree di Azure a cui è stato connesso e non è la latenza di ricerca DNS.
+>La latenza descritta in Visualizzazione traffico è una latenza rappresentativa tra l'utente finale e le aree di Azure a cui è stato connesso e non è la latenza di ricerca DNS. Visualizzazione traffico fa una stima del massimo sforzo della latenza tra il resolver DNS locale e l'area di Azure a cui è stata indirizzata la query. Se i dati disponibili sono insufficienti, la latenza restituita sarà Null. 
 
 ## <a name="visual-overview"></a>Panoramica della visualizzazione
 
@@ -61,12 +58,12 @@ Se si passa il mouse su una posizione del resolver DNS nella mappa, verranno vis
 
 ### <a name="endpoint-information"></a>Informazioni sugli endpoint
 
-Le aree di Azure in cui risiedono gli endpoint vengono indicate come punti blu nella mappa. Fare clic su un endpoint per visualizzare i diversi percorsi,in base al resolver DNS usato, da cui il traffico è stato indirizzato a questo endpoint. Le connessioni vengono indicate come linea tra l'endpoint e la posizione del resolver DNS e il colore varia in base alla latenza rappresentativa all'interno di tale coppia. È possibile anche esaminare il nome dell'endpoint, l'area di Azure in cui viene eseguito e il volume totale di richieste che sono state indirizzate a essa da questo profilo di Gestione traffico.
+Le aree di Azure in cui risiedono gli endpoint vengono indicate come punti blu nella mappa. Se l'endpoint è esterno e non è mappata alcuna area di Azure, l'endpoint viene visualizzato nella parte superiore della mappa. Fare clic su un endpoint per visualizzare i diversi percorsi,in base al resolver DNS usato, da cui il traffico è stato indirizzato a questo endpoint. Le connessioni vengono indicate come linea tra l'endpoint e la posizione del resolver DNS e il colore varia in base alla latenza rappresentativa all'interno di tale coppia. È possibile anche esaminare il nome dell'endpoint, l'area di Azure in cui viene eseguito e il volume totale di richieste che sono state indirizzate a essa da questo profilo di Gestione traffico.
 
 
 ## <a name="tabular-listing-and-raw-data-download"></a>Elenco tabulare e download di dati non elaborati
 
-È possibile visualizzare i dati di Visualizzazione traffico in formato tabulare nel portale di Azure. Esiste una voce per ogni coppia di indirizzo IP/endpoint del resolver DNS che mostra la posizione geografica del resolver DNS, se disponibile, il nome dell'area di Azure in cui risiede l'endpoint, il volume di richieste associate a tale resolver DNS e la latenza rappresentativa associata agli utenti finali che usano questo DNS, se disponibile. È possibile anche scaricare i dati di Visualizzazione traffico come file CSV che possono essere usati come parte di un flusso di lavoro di analisi scelto.
+È possibile visualizzare i dati di Visualizzazione traffico in formato tabulare nel portale di Azure. Esiste una voce per ogni coppia di indirizzo IP/endpoint del resolver DNS che mostra l'indirizzo IP del resolver DNS, il nome e la posizione geografica dell'area di Azure in cui risiede l'endpoint, se disponibile, il volume di richieste associate a quel resolver DNS a quell'endpoint e la latenza rappresentativa associata agli utenti finali che usano quel DNS, se disponibile. È possibile anche scaricare i dati di Visualizzazione traffico come file CSV che possono essere usati come parte di un flusso di lavoro di analisi scelto.
 
 ## <a name="billing"></a>Fatturazione
 

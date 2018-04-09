@@ -1,11 +1,11 @@
 ---
 title: Domande frequenti su Cache Redis di Azure | Microsoft Docs
-description: "Risposte alle domande più comuni, modelli e procedure consigliate per la Cache Redis di Azure."
+description: Risposte alle domande più comuni, modelli e procedure consigliate per la Cache Redis di Azure.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 82c01419d65e00ddf27dfeb8fd444d5d3d81803c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 66340e690e5a6ac3e440b8b4d26e1a8b2abab266
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Domande frequenti sulla Cache Redis di Azure
 Risposte alle domande più comuni, modelli e procedure consigliate per la Cache Redis di Azure.
@@ -89,7 +89,7 @@ Esistono diversi modi per iniziare a usare Cache Redis di Azure.
 
 * È possibile eseguire una delle esercitazioni disponibili per [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md) e [Python](cache-python-get-started.md).
 * È possibile guardare il video sulla [compilazione di app ad alte prestazioni con Cache Redis di Microsoft Azure](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
-* È possibile consultare la documentazione del client per i client con la stessa lingua di sviluppo del progetto per vedere come usare Redis. Esistono molti client Redis che possono essere utilizzati con Cache Redis di Azure. Per un elenco dei client Redis, vedere [http://redis.io/clients](http://redis.io/clients).
+* È possibile consultare la documentazione del client per i client con la stessa lingua di sviluppo del progetto per vedere come usare Redis. Esistono molti client Redis che possono essere utilizzati con Cache Redis di Azure. Per un elenco di client Redis, vedere [http://redis.io/clients](http://redis.io/clients).
 
 Se non si dispone di un account Azure, è possibile:
 
@@ -111,7 +111,7 @@ Di seguito alcune considerazioni per la scelta di un'offerta cache.
 * **Redis Cluster**: per creare delle cache di dimensioni superiori a 53 GB o partizionare i dati tra più nodi Redis, è possibile usare le funzionalità di clustering Redis, disponibili nel livello Premium. Ogni nodo è costituito da una coppia di cache primaria/di replica per la disponibilità elevata. Per altre informazioni, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
 * **Protezione avanzata e isolamento della rete**: la distribuzione di Rete virtuale di Azure (VNET) offre maggiore sicurezza e isolamento per Cache Redis di Azure, nonché subnet, criteri di controllo di accesso e altre funzionalità per limitare ulteriormente l'accesso. Per altre informazioni, vedere [Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium](cache-how-to-premium-vnet.md).
 * **Configurare Redis**: nei livelli Standard e Premium, è possibile configurare Redis per le notifiche di Keyspace.
-* **Numero massimo di connessioni client**: il livello Premium offre il numero massimo di client che possono connettersi a Redis, con un numero maggiore di connessioni per cache di dimensioni più grandi. Per altre informazioni, vedere [Prezzi di Cache Redis di Azure](https://azure.microsoft.com/pricing/details/cache/).
+* **Numero massimo di connessioni client**: il livello Premium offre il numero massimo di client che possono connettersi a Redis, con un numero maggiore di connessioni per cache di dimensioni più grandi. Il clustering non aumenta il numero di connessioni disponibili per una cache in cluster. Per altre informazioni, vedere [Prezzi di Cache Redis di Azure](https://azure.microsoft.com/pricing/details/cache/).
 * **Core dedicato per il server Redis**: nel livello Premium per tutte le dimensioni della cache è disponibile un core dedicato per Redis. Nei livelli Basic/Standard, per le dimensioni C1 e superiori è disponibile un core dedicato per il server Redis.
 * **Redis è a thread singolo** , la disponibilità di più di due core non offre vantaggi ulteriori rispetto alla disponibilità di soli due core, ma in genere dimensioni di macchina virtuale maggiori hanno una larghezza di banda più elevata rispetto alle dimensioni minori. Se il server o il client della cache raggiunge i limiti della larghezza di banda, si riceveranno timeout sul lato client.
 * **Miglioramenti delle prestazioni**: le cache nel livello Premium sono distribuite su hardware con processori più veloci e che offrono migliori prestazioni rispetto al livello Basic o Standard. Le cache di livello Premium offrono una velocità effettiva più elevata e minori latenze.
@@ -135,18 +135,18 @@ Da questa tabella è possibile trarre le seguenti conclusioni:
 | Piano tariffario | Dimensione | Core CPU | Larghezza di banda disponibile | Dimensioni del valore di 1 KB | Dimensioni del valore di 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Dimensioni della cache livello Standard** | | |**Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** |**Richieste al secondo (RPS) non SSL** |**Richieste al secondo (RPS) SSL** |
-| C0 |250 MB |Condiviso |100 / 12,5 |15.000 |7.500 |
-| C1 |1 GB |1 |500 / 62,5 |38.000 |20.720 |
-| C2 |2,5 GB |2 |500 / 62,5 |41.000 |37.000 |
-| C3 |6 GB |4 |1000 / 125 |100.000 |90.000 |
-| C4 |13 GB |2 |500 / 62,5 |60.000 |55.000 |
-| C5 |26 GB |4 |1,000 / 125 |102.000 |93.000 |
-| C6 |53 GB |8 |2,000 / 250 |126.000 |120.000 |
+| C0 |250 MB |Condiviso |100/12,5 |15.000 |7500 |
+| C1 |1 GB |1 |500/62,5 |38.000 |20.720 |
+| C2 |2,5 GB |2 |500/62,5 |41.000 |37.000 |
+| C3 |6 GB |4 |1000/125 |100.000 |90.000 |
+| C4 |13 GB |2 |500/62,5 |60.000 |55.000 |
+| C5 |26 GB |4 |1000/125 |102.000 |93.000 |
+| C6 |53 GB |8 |2000/250 |126.000 |120.000 |
 | **Dimensioni della cache livello Premium** | |**Core CPU per partizione** | **Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** |**Richieste al secondo (RPS) non SSL, per partizione** |**Richieste al secondo (RPS) SSL, per partizione** |
-| P1 |6 GB |2 |1,500 / 187.5 |180,000 |172.000 |
-| P2 |13 GB |4 |3,000 / 375 |350.000 |341.000 |
-| P3 |26 GB |4 |3,000 / 375 |350.000 |341.000 |
-| P4 |53 GB |8 |6,000 / 750 |400.000 |373.000 |
+| P1 |6 GB |2 |1500/187,5 |180.000 |172.000 |
+| P2 |13 GB |4 |3000/375 |350.000 |341.000 |
+| P3 |26 GB |4 |3000/375 |350.000 |341.000 |
+| P4 |53 GB |8 |6000/750 |400.000 |373.000 |
 
 Per istruzioni sulla configurazione di stunnel o sul download degli strumenti Redis, ad esempio `redis-benchmark.exe`, vedere la sezione [Come si eseguono i comandi Redis?](#cache-commands).
 

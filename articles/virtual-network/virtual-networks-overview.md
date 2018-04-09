@@ -1,11 +1,11 @@
 ---
 title: Rete virtuale di Azure | Microsoft Docs
-description: "Informazioni sui concetti e sulle funzionalità di Rete virtuale di Azure."
+description: Informazioni sui concetti e sulle funzionalità di Rete virtuale di Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 9633de4b-a867-4ddf-be3c-a332edf02e24
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/1/2018
 ms.author: jdial
-ms.openlocfilehash: fadc1994cd930df36387a5bfb302c00d66f74fad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8d02afcc590482fdca4705ac582d85bb985dd3c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-virtual-network"></a>Che cos'è Rete virtuale di Azure?
 
@@ -32,7 +32,7 @@ Rete virtuale di Azure offre le funzionalità generali seguenti:
 - **[Connettività delle reti virtuali:](#connect-vnets)**  le reti virtuali possono essere connesse tra loro, in modo da consentire alle risorse in una rete virtuale di comunicare con le risorse in qualsiasi altra rete virtuale.
 - **[Connettività locale:](#connect-on-premises)**  una rete virtuale può essere connessa a una rete locale, consentendo alle risorse di comunicare tra loro.
 - **[Applicazione di filtri al traffico:](#filtering)**  è possibile filtrare il traffico di rete da e verso le risorse in una rete virtuale per indirizzo IP di origine e porta, per indirizzo IP di destinazione e porta e per protocollo.
-- **[Routing:](#routing)** facoltativamente, è possibile sostituire il routing predefinito di Azure configurando route personalizzate o propagando route BGP attraverso un gateway di rete.
+- **[Routing:](#routing)** facoltativamente, è possibile sostituire il routing predefinito di Azure configurando route personalizzate o propagando route BGP (Border Gateway Protocol) attraverso un gateway di rete.
 
 ## <a name = "isolation"></a>Isolamento e segmentazione delle reti
 

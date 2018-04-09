@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 03/20/2018
 ms.author: bhanupr
-ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ae7ccaf3d167176a1fc6015e84b0eb023da945d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurare cluster HDInsight aggiunti al dominio usando Azure Active Directory Domain Services
 
 I cluster aggiunti al dominio offrono alle aziende con più utenti funzionalità di sicurezza in HDInsight. I cluster HDInsight aggiunti al dominio sono collegati ai domini di Active Directory, così che gli utenti del dominio possano usare le proprie credenziali per effettuare l'autenticazione con i cluster ed eseguire lavori con big data. 
 
-Esistono due modi per configurare un controller di dominio in modo che i cluster HDInsight aggiunti al dominio possano connettersi a:
-
-- Azure Active Directory Domain Services (Azure AD DS)
-- Controller di Dominio di Active Directory su macchine virtuali Azure IaaS
-
 In questo articolo sono contenute informazioni su come configurare un cluster HDInsight aggiunto al dominio usando Azure Active Directory Domain Services.
+
+> [!NOTE]
+> Active Directory in macchine virtuali IaaS di Azure non è più supportata.
 
 ## <a name="create-azure-adds"></a>Creazione di Azure Active Directory Domain Services
 
@@ -58,7 +56,7 @@ Quando si crea un cluster HDInsight aggiunto al dominio, è necessario fornire i
 - **Gruppo di utenti con accesso**: i gruppi di protezione di cui si desidera sincronizzare gli utenti con il cluster. Ad esempio, HiveUsers. Se si desidera specificare più gruppi di utenti, separarli con una virgola ",".
  
 > [!NOTE]
-> Dato che Apache Zeppelin usa il nome di dominio per autenticare l'account del servizio di amministrazione, l'account del servizio DEVE avere lo stesso nome di dominio del suffisso UPN per Zeppelin Apache per funzionare correttamente.
+> Dato che Apache Zeppelin usa il nome di dominio per autenticare l'account del servizio di amministrazione, l'account del servizio DEVE avere lo stesso nome di dominio del suffisso UPN di Apache Zeppelin per funzionare correttamente.
  
 La schermata seguente mostra le configurazioni nel portale di Azure:
 

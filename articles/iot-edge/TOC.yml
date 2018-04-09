@@ -17,18 +17,18 @@
       href: tutorial-simulate-device-linux.md
     - name: Simulare un dispositivo perimetrale - Windows
       href: tutorial-simulate-device-windows.md
-    - name: 'Sviluppare un modulo C#'
-      href: tutorial-csharp-module.md
-    - name: Sviluppare un modulo Python
-      href: tutorial-python-module.md
+    - name: Distribuire codice in un modulo
+      items:
+        - name: 'C#'
+          href: tutorial-csharp-module.md
+        - name: Python
+          href: tutorial-python-module.md
     - name: Distribuire Analisi di flusso di Azure
       href: tutorial-deploy-stream-analytics.md
     - name: Distribuire Azure Machine Learning
       href: tutorial-deploy-machine-learning.md
     - name: Distribuire Funzioni di Azure
       href: tutorial-deploy-function.md
-    - name: Usare più moduli in Visual Studio Code
-      href: tutorial-multiple-modules-in-vscode.md
 - name: Guide alle procedure
   items:
     - name: Creare gateway
@@ -53,6 +53,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: Eseguire il debug di Funzioni di Azure
           href: how-to-vscode-debug-azure-function.md
+        - name: Usare più moduli
+          href: tutorial-multiple-modules-in-vscode.md
     - name: Archiviare dati sul perimetro
       href: sql-storage.md
     - name: Risolvere problemi

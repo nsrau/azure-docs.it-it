@@ -7,21 +7,22 @@ author: venkatgct
 ms.author: venkatja
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
-ms.openlocfilehash: b08b6af7abccb550884adc6cc90d180cfcadb2af
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.date: 03/23/2018
+ms.openlocfilehash: 61375ae3b304959d5cda37c4ce0364d566d576a5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gestire i dati di riferimento di un ambiente Azure Time Series Insights con C#
 
-Questo argomento descrive il codice di esempio C# che è possibile compilare per gestire i dati di riferimento per un ambiente Azure Time Series Insights.
+Questo articolo descrive un progetto C# di esempio che è possibile compilare per gestire i dati di riferimento per un ambiente Azure Time Series Insights.
 
+## <a name="prerequistes"></a>Prerequisiti
 Prima di compilare ed eseguire lo script di esempio, completare questa procedura:
 1. [Creare un set di dati di riferimento](time-series-insights-add-reference-data-set.md).
 
@@ -30,6 +31,11 @@ Prima di compilare ed eseguire lo script di esempio, completare questa procedura
    Per la configurazione di applicazioni non interattive, vedere [Autenticazione e autorizzazione](time-series-insights-authentication-and-authorization.md).
 
 3. Modificare il codice di esempio per sostituire le costanti di esempio, designate a **#DUMMY#**, in prossimità dell'inizio del codice. 
+
+Questo esempio di codice è disponibile anche all'indirizzo [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+
+## <a name="project-references"></a>Riferimenti del progetto
+Per questo esempio aggiungere i pacchetti NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` e `Newtonsoft.Json`. 
 
 ## <a name="c-sample-code"></a>Codice di esempio C# 
 ```csharp

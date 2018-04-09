@@ -1,3 +1,19 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: data-factory
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 03/27/2018
+ms.author: jingwang
+ms.custom: include file
+ms.openlocfilehash: e68e87bb19b8c64cf06c03831b22cf43d773efde
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/29/2018
+---
 Data Factory è un servizio multi-tenant che presenta i seguenti limiti predefiniti in modo che le sottoscrizioni dei clienti siano protette da ogni altro carico di lavoro. Molti dei limiti possono essere facilmente aumentati per la sottoscrizione fino al limite massimo contattando il supporto tecnico.
 
 ### <a name="version-2"></a>versione 2
@@ -15,7 +31,7 @@ Data Factory è un servizio multi-tenant che presenta i seguenti limiti predefin
 | Numero massimo di parametri per pipeline | 20 | 30 |
 | Byte per oggetto per gli oggetti pipeline <sup>1</sup> | 200 KB | 200 KB |
 | Byte per oggetto per oggetti set di dati e servizio collegato <sup>1</sup> | 100 KB | 2000 KB |
-| Unità di spostamento dati cloud <sup>3</sup> | 32 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Unità di spostamento dati cloud <sup>3</sup> | 256 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Numero di tentativi delle esecuzioni di attività pipeline | 1 giorno (timeout) | 1 giorno (timeout) |
 | Chiamate API in scrittura | 2500/ora<br/><br/> Questo limite è imposto da Azure Resource Manager, non da Azure Data Factory. | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Chiamate API in lettura | 12.500/ora<br/><br/> Questo limite è imposto da Azure Resource Manager, non da Azure Data Factory. | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
@@ -39,7 +55,7 @@ Data Factory è un servizio multi-tenant che presenta i seguenti limiti predefin
 
 <sup>2</sup> I core HDInsight su richiesta vengono allocati all'esterno della sottoscrizione che contiene la data factory. Di conseguenza, il limite massimo è il limite principale imposto dalla Data Factory per le memorie centrali HDInsight su richiesta e che è diverso dal limite principale associato alla sottoscrizione Azure.
 
-<sup>3</sup> L'unità di spostamento dati cloud viene usata in un'operazione di copia da cloud a cloud. Si tratta di un'unità di misura che rappresenta la potenza, ossia la combinazione tra CPU, memoria e allocazione di risorse di rete, di una singola unità in Data Factory. È possibile ottenere una velocità effettiva di copia maggiore usando un numero più elevato di unità di spostamento dati per alcuni scenari. Per informazioni dettagliate, vedere la sezione [Unità di spostamento dati cloud](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units).
+<sup>3</sup> L'unità di spostamento dati cloud viene usata in un'operazione di copia da cloud a cloud. Si tratta di un'unità di misura che rappresenta la potenza, ossia la combinazione tra CPU, memoria e allocazione di risorse di rete, di una singola unità in Data Factory. È possibile ottenere una velocità effettiva di copia maggiore usando un numero più elevato di unità di spostamento dati per alcuni scenari. Per informazioni dettagliate, vedere la sezione [Unità di spostamento dati cloud (V2)](../articles/data-factory/copy-activity-performance.md#cloud-data-movement-units) e [Unità di spostamento dati cloud (V1)](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units).
 
 <sup>4</sup> Integration Runtime (IR) è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le funzionalità di integrazione di dati seguenti in diversi ambienti di rete: spostamento dati, recapito di attività ai servizi di calcolo, esecuzione di pacchetti SSIS. Per altre informazioni, vedere [Panoramica di Integration Runtime](../articles/data-factory/concepts-integration-runtime.md).
 

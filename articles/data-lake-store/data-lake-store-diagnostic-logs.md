@@ -1,8 +1,8 @@
 ---
-title: Visualizzazione dei log di diagnostica per Azure Data Lake Store | Documentazione Microsoft
+title: Visualizzazione dei log di diagnostica per Azure Data Lake Store | Microsoft Docs
 description: 'Informazioni su come configurare e accedere ai log di diagnostica per Archivio Data Lake di Azure  '
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: b58a4b215b13d2e57a69a94a60e3e37471c926c8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5f1fa378c8eea68181d4596700238d03f360c5d0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Accesso ai log di diagnostica per Archivio Data Lake di Azure
 Informazioni su come abilitare la registrazione diagnostica per l'account Data Lake Store e visualizzare i log raccolti per l'account.
 
 Le organizzazioni possono abilitare la registrazione diagnostica per il loro account di Archivio Data Lake di Azure per raccogliere gli audit trial di accesso ai dati che forniscono varie informazioni, come l’elenco di utenti che hanno avuto accesso ai dati, la frequenza di accesso ai dati, la quantità di dati archiviati nell’account, ecc. Quando è abilitata, la registrazione della diagnostica e/o delle richieste viene eseguita nel modo più efficiente possibile. Vengono create voci nei log sia delle richieste che della diagnostica solo se esistono richieste effettuate verso l'endpoint di servizio.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Account di Archivio Data Lake di Azure**. Seguire le istruzioni fornite in [Introduzione ad Archivio Azure Data Lake tramite il portale di Azure](data-lake-store-get-started-portal.md).
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Abilitare la registrazione diagnostica per l'account di Archivio Data Lake
 1. Accedere al nuovo [portale di Azure](https://portal.azure.com).
-2. Aprire l'account di Data Lake Store e nel pannello corrispondente fare clic su **Impostazioni** e quindi su **Log di diagnostica**.
+2. Aprire l'account di Data Lake Store e nel pannello corrispondente fare clic su **Log di diagnostica**.
 3. Nel pannello **Log di diagnostica**, fare clic su **Attivare la diagnostica**.
 
     ![Abilitare la funzionalità di registrazione diagnostica](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Abilitare i log di diagnostica")
@@ -89,7 +89,7 @@ Esistono due modi per visualizzare i dati di log dell'account Data Lake Store.
 ## <a name="understand-the-structure-of-the-log-data"></a>Informazioni sulla struttura dei dati del log
 I log di controllo e delle richieste sono in formato JSON. In questa sezione, viene esaminata la struttura di JSON per i log delle richieste e di controllo.
 
-### <a name="request-logs"></a>Request Logs
+### <a name="request-logs"></a>Log delle richieste
 Di seguito viene riportata una voce di esempio nel log delle richieste in formato JSON. Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti di log.
 
     {
@@ -114,7 +114,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
     }
 
 #### <a name="request-log-schema"></a>Schema del log delle richieste
-| NOME | type | DESCRIZIONE |
+| Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | time |string |Il timestamp del log (fusorario UTC) |
 | ResourceId |string |L’ID della risorsa interessata dall’operazione |
@@ -127,7 +127,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 | properties |JSON |Vedere di seguito per ulteriori dettagli |
 
 #### <a name="request-log-properties-schema"></a>Schema delle proprietà del log di richiesta
-| NOME | type | DESCRIZIONE |
+| Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | HttpMethod |string |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
 | path |string |Il percorso coinvolto nell'operazione |
@@ -150,6 +150,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
              "category": "Audit",
              "operationName": "SeOpenStream",
              "resultType": "0",
+             "resultSignature": "0",
              "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
              "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
              "properties": {"StreamName":"adl://<data_lake_store_account_name>.azuredatalakestore.net/logs.csv"}
@@ -160,19 +161,20 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
     }
 
 #### <a name="audit-log-schema"></a>Schema del log di controllo
-| NOME | type | DESCRIZIONE |
+| Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | time |string |Il timestamp del log (fusorario UTC) |
 | ResourceId |string |L’ID della risorsa interessata dall’operazione |
 | category |string |La categoria di log. Ad esempio, **Audit**. |
 | operationName |string |Il nome dell'operazione registrata. Ad esempio, getfilestatus. |
 | resultType |string |Lo stato dell'operazione, ad esempio 200. |
+| resultSignature |string |Dettagli aggiuntivi sull'operazione. |
 | correlationId |string |L'ID del log che può essere usato per raggruppare un set di voci di log correlate |
 | identity |Oggetto |L'identità che ha generato il log |
 | properties |JSON |Vedere di seguito per ulteriori dettagli |
 
 #### <a name="audit-log-properties-schema"></a>Schema delle proprietà del log di controllo
-| NOME | type | DESCRIZIONE |
+| Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | StreamName |string |Il percorso coinvolto nell'operazione |
 

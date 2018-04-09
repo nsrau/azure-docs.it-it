@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1963d011462255d45de327ec17b7fad564d87654
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
 
@@ -52,7 +52,7 @@ R: La funzionalità Crittografia del servizio di archiviazione è abilitata per 
 
 **D: In che modo vengono crittografati i dati in un account di archiviazione di Resource Manager?**
 
-R: La funzionalità Crittografia del servizio di archiviazione è abilitata per impostazione predefinita per tutti gli account di archiviazione, sia quelli classici sia quelli di Resource Manager. Tuttavia, i dati esistenti non vengono crittografati. Per crittografare i dati esistenti, è possibile copiarli con un altro nome o in un altro contenitore e quindi rimuoverne le versioni non crittografate. 
+R: Crittografia del servizio di archiviazione è abilitato per impostazione predefinita per tutti gli account di archiviazione, classici e Resource Manager. Tutti i file esistenti nell'account di archiviazione creati prima dell'abilitazione della crittografia vengono crittografati retroattivamente tramite un processo di crittografia in background.
 
 **D: È possibile creare account di archiviazione con la funzionalità Crittografia del servizio di archiviazione abilitata usando Azure PowerShell e l'interfaccia della riga di comando di Azure?**
 

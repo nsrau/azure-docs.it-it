@@ -1,21 +1,20 @@
 ---
-title: Creare un gateway applicazione con regole di routing basato su percorsi URL - Portale di Azure | Microsoft Docs
-description: "Informazioni su come creare regole di routing basato su percorsi URL per un gateway applicazione e un set di scalabilità di macchine virtuali usando il portale di Azure."
+title: Creare un gateway applicazione con regole di routing basato su percorsi URL - Portale di Azure
+description: Informazioni su come creare regole di routing basato su percorsi URL per un gateway applicazione e un set di scalabilità di macchine virtuali usando il portale di Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 62063c42ab15a071a4500417a5d8adf6bfeac97f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.date: 3/26/2018
+ms.author: victorh
+ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Creare un gateway applicazione con regole di routing basato su percorsi usando il portale di Azure
 
@@ -158,7 +157,7 @@ In questo esempio vengono create tre macchine virtuali da usare come server back
 
     ![Testare l'URL di base nel gateway applicazione](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
-3. Modificare l'URL in http://&lt;ip-address&gt;:8080/video/test.htm sostituendo &lt;ip-address&gt; con l'indirizzo IP usato come nell'esempio seguente:
+3. Modificare l'URL in http://&lt;ip-address&gt;:8080/images/test.htm sostituendo &lt;ip-address&gt; con l'indirizzo IP usato come nell'esempio seguente:
 
     ![Testare l'URL delle immagini nel gateway applicazione](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 

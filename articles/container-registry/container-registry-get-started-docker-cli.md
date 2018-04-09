@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21d1abfbb49eaeae654a600d35ab350b96a12fd3
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Effettuare il push della prima immagine in un registro per contenitori Docker privati tramite l'interfaccia della riga di comando di Docker
 
@@ -123,4 +123,8 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Una volta apprese le nozioni di base, si è pronti per iniziare a usare il registro. Ad esempio, distribuire le immagini del contenitore dal registro in un cluster del [servizio contenitore di Azure](../aks/tutorial-kubernetes-prepare-app.md).
+Una volta apprese le nozioni di base, si è pronti per iniziare a usare il registro. Distribuire le immagini del contenitore dal registro nella posizione seguente:
+
+* [Servizio contenitore di Azure](../aks/tutorial-kubernetes-prepare-app.md)
+* [Istanze di contenitore di Azure](../container-instances/container-instances-tutorial-prepare-app.md)
+* [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

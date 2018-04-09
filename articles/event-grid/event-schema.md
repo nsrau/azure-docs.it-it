@@ -1,18 +1,18 @@
 ---
 title: Schema di eventi di Griglia di eventi di Azure
-description: "Descrive le proprietà disponibili per gli eventi con Griglia di eventi di Azure."
+description: Descrive le proprietà disponibili per gli eventi con Griglia di eventi di Azure.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/22/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7af0e1cc8ae36774ef1cebf1bada6477888860d0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Schema di eventi di Griglia di eventi di Azure
 
@@ -97,7 +97,11 @@ Per informazioni sulle proprietà nell'oggetto dati, vedere l'origine dell'event
 * [Hub IoT](event-schema-iot-hub.md)
 * [Gruppi di risorse (operazioni di gestione)](event-schema-resource-groups.md)
 
-Per gli argomenti personalizzati, l'autore dell'evento stabilisce l'oggetto dati. I dati di livello principale devono contenere gli stessi campi degli eventi standard definiti dalle risorse. Quando si pubblicano eventi in argomenti personalizzati, prendere in considerazione la modellazione dell'oggetto degli eventi in modo da supportare le operazioni di instradamento e filtro.
+Per gli argomenti personalizzati, l'autore dell'evento stabilisce l'oggetto dati. I dati di livello principale devono contenere gli stessi campi degli eventi standard definiti dalle risorse.
+
+Quando si pubblicano eventi per argomenti personalizzati, creare oggetti per gli eventi che facilitino i sottoscrittori a capire se sono interessati nell'evento. I sottoscrittori utilizzano l’oggetto per filtrare e inviare gli eventi. Si consiglia di fornire il percorso in cui si è verificato l'evento, in modo che i sottoscrittori possano filtrare in base ai segmenti di tale percorso. Il percorso consente ai sottoscrittori di filtrare gli eventi a seconda della dimensione. Ad esempio, se si specifica un percorso di tre segmenti, ad esempio `/A/B/C` nell'oggetto del messaggio, i sottoscrittori possono filtrare in base al primo segmento `/A` per ottenere un'ampia serie di eventi. Tali sottoscrittori ricevono eventi con oggetti come `/A/B/C` o `/A/D/E`. Altri sottoscrittori possono filtrare in base a `/A/B` per ottenere un set di eventi più ristretto.
+
+In alcuni casi, l’oggetto richiede la presenza di maggiori dettagli sull’argomento. Ad esempio, l’editore dell’**account di archiviazione** fornisce l'oggetto `/blobServices/default/containers/<container-name>/blobs/<file>` quando un file viene aggiunto a un contenitore. Un sottoscrittore può filtrare in base al percorso `/blobServices/default/containers/testcontainer` per ottenere tutti gli eventi per tale contenitore, ma non per altri contenitori nell'account di archiviazione. Un sottoscrittore potrebbe inoltre filtrare o inviare in base al suffisso `.txt` per operare solo con i file di testo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

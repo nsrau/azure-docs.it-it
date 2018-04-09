@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 98665ab215c98ea60273ce3aae2757cf20817a90
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -156,7 +156,7 @@ Verificare che tutti gli utenti abbiano eseguito l'accesso al proprio account am
 
 #### <a name="turn-on-password-synchronization"></a>Attivare la sincronizzazione password
 
-La sincronizzazione password è una funzionalità usata per sincronizzare gli hash delle password utente da un'istanza di Active Directory locale a un'istanza di Azure AD basata sul cloud. Anche se si decide di usare la federazione con Active Directory Federation Services (AD FS) o altri provider di identità, è possibile configurare la sincronizzazione password come backup in caso di errore o temporanea indisponibilità dell'infrastruttura locale, ad esempio i server AD o ADFS. In questo modo, gli utenti potranno accedere al servizio usando la stessa password usata per accedere all'istanza di AD locale. Identity Protection può inoltre rilevare le credenziali compromesse confrontando gli hash delle password con password segnalate come compromesse, se un utente ha usato lo stesso indirizzo di posta elettronica e la stessa password in altri servizi non connessi ad Azure AD.  Per altre informazioni, vedere [Implementare la sincronizzazione password con il servizio di sincronizzazione Azure AD Connect](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).
+La sincronizzazione password è una funzionalità usata per sincronizzare gli hash delle password utente da un'istanza di Active Directory locale a un'istanza di Azure AD basata sul cloud. Anche se si decide di usare la federazione con Active Directory Federation Services (AD FS) o altri provider di identità, è possibile configurare la sincronizzazione password come backup in caso di errore o temporanea indisponibilità dell'infrastruttura locale, ad esempio i server AD o ADFS. In questo modo, gli utenti potranno accedere al servizio usando la stessa password usata per accedere all'istanza di AD locale. Identity Protection può inoltre rilevare le credenziali compromesse confrontando gli hash delle password con password segnalate come compromesse, se un utente ha usato lo stesso indirizzo di posta elettronica e la stessa password in altri servizi non connessi ad Azure AD.  Per altre informazioni, vedere [Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Richiedere Multi-Factor Authentication (MFA) per gli utenti con tutti i ruoli con privilegi e gli utenti esposti
 

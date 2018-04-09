@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/26/2017
+ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure
 
@@ -46,6 +46,18 @@ Il diagramma precedente mostra quanto segue:
 Per informazioni dettagliate su S2D, vedere l'articolo relativo a [Spazi di archiviazione diretta \(S2D\) in Windows Server 2016 Datacenter Edition](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 S2D supporta due tipi di architettura: con convergenza e con iperconvergenza. L'architettura in questo documento è iperconvergente. In un'infrastruttura iperconvergente, l'archiviazione risiede negli stessi server che ospitano l'applicazione in cluster. In questa architettura, l'archiviazione risiede in ogni nodo dell'istanza del cluster di failover di SQL Server.
+
+## <a name="licensing-and-pricing"></a>Licenze e prezzi
+
+Nelle macchine virtuali di Azure è possibile concedere in licenza SQL Server usando un pagamento in base al consumo (PAYG) o utilizzare la propria licenza (BYOL) di immagini di VM. Il tipo di immagine selezionato influisce sul modo in cui vengono applicati i costi.
+
+Con le licenze PAYG, un'istanza del cluster di failover (FCI) di SQL Server nelle macchine virtuali di Microsoft Azure comporta costi per tutti i nodi di FCI, inclusi i nodi passivi. Per ulteriori informazioni, consultare le [tariffe delle Macchine virtuali SQL Server Enterprise](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+
+I clienti con un contratto Enterprise con Software Assurance hanno il diritto di utilizzare un nodo FCI passivo gratuito per ogni nodo attivo. Per sfruttarne i vantaggi In Azure, utilizzare le immagini di VM BYOL, quindi utilizzare la stessa licenza in entrambi i nodi attivo e passivo dell'istanza FCI. Per altre informazioni, consultare il [Contratto Enterprise](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+
+Per confrontare le licenze PAYG e BYOL per SQL Server nelle macchine virtuali di Azure, consultare [Introduzione alle VM di SQL](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
+
+Per informazioni complete sulle licenze SQL Server, consultare [Prezzi](http://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
 ### <a name="example-azure-template"></a>Modello di Azure di esempio
 
@@ -123,7 +135,7 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
 
    Scegliere l'immagine appropriata in base alla modalità di pagamento della licenza di SQL Server che si preferisce.
 
-   - **Licenza con pagamento in base all'uso**. Il costo al minuto di queste immagini include la licenza di SQL Server:
+   - **Licenza con pagamento in base all'uso**. Il costo al secondo di queste immagini include la licenza di SQL Server:
       - **SQL Server 2016 Enterprise in Windows Server Datacenter 2016**
       - **SQL Server 2016 Standard in Windows Server Datacenter 2016**
       - **SQL Server 2016 Developer in Windows Server Datacenter 2016**
@@ -266,7 +278,7 @@ Il cloud di controllo è un nuovo tipo di quorum di controllo del cluster archiv
 
 1. Salvare le chiavi di accesso e l'URL del contenitore.
 
-1. Configurare il quorum di controllo del cluster di failover. Vedere la sezione relativa alla [configurazione del quorum di controllo nell'interfaccia utente](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
+1. Configurare il quorum di controllo del cluster di failover. Vedere, [configurare il quorum di controllo nell'interfaccia utente]. (http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) nell'interfaccia utente.
 
 ### <a name="add-storage"></a>Aggiungere le risorse di archiviazione
 

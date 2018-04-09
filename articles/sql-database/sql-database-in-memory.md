@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 03/21/2018
 ms.author: jodebrui
-ms.openlocfilehash: 107df78f0ec6ce924785f5027958ee66f2a86c7c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 442c860a13e2af1d5398fb30a6069a0e3764ee64
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Ottimizzare le prestazioni tramite le tecnologie in memoria nel database SQL
 
@@ -104,7 +104,7 @@ Quando si usano indici columnstore non cluster, la tabella di base è ancora arc
 
 Passando a un piano tariffario superiore, ad esempio da Standard a Premium, non si corre mai il rischio di incompatibilità o altri problemi. Il passaggio implica semplicemente un aumento di funzionalità e risorse.
 
-Tuttavia, eseguire il downgrade del piano tariffario può avere un impatto negativo sul database. Questo impatto è particolarmente evidente quando si effettua il downgrade da Premium a Standard o Basic nei casi in cui il database contenga oggetti di OLTP In memoria. Le tabelle ottimizzate per la memoria e gli indici columnstore non sono disponibili dopo il downgrade, anche se dovessero rimanere visibili. Le stesse considerazioni si applicano quando si effettua il downgrade del piano tariffario di un pool elastico o quando si esegue lo spostamento dei database con tecnologie in memoria in un pool elastico Standard o Basic.
+Tuttavia, eseguire il downgrade del piano tariffario può avere un impatto negativo sul database. Questo impatto è particolarmente evidente quando si effettua il downgrade da Premium a Standard o Basic nei casi in cui il database contenga oggetti di OLTP In memoria. Le tabelle ottimizzate per la memoria non sono disponibili dopo il downgrade, anche se dovessero rimanere visibili. Le stesse considerazioni si applicano quando si effettua il downgrade del piano tariffario di un pool elastico o quando si esegue lo spostamento dei database con tecnologie in memoria in un pool elastico Standard o Basic.
 
 ### <a name="in-memory-oltp"></a>OLTP in memoria
 
@@ -130,11 +130,11 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="columnstore-indexes"></a>Indici Columnstore
 
-*Downgrade a Basic o Standard*: gli indici columnstore sono supportati solo nel piano tariffario Premium e non nei livelli Standard o Basic. Quando si effettua il downgrade del database al piano Standard o Basic, l'indice columnstore non è più disponibile. Il sistema conserva l'indice columnstore, ma non lo usa mai. Se in seguito si torna al piano Premium, l'indice columnstore torna subito disponibile all'uso.
+*Downgrade a Basic o Standard*: gli indici columnstore sono supportati solo nel piano tariffario Premium e non nel piano Standard, S3 e superiore, né nel piano Basic. Quando si effettua il downgrade del database a un piano o un livello non supportato, l'indice columnstore non è più disponibile. Il sistema conserva l'indice columnstore, ma non lo usa mai. Se in seguito si torna a un piano o un livello supportato, l'indice columnstore torna subito disponibile all'uso.
 
-Se dispone di un indice columnstore **cluster**, l'intera tabella non sarà più disponibile dopo il downgrade del livello. Pertanto è consigliabile eliminare tutti gli indici columnstore *cluster* prima di effettuare il downgrade del database al di sotto del livello Premium.
+Se dispone di un indice columnstore **cluster**, l'intera tabella non sarà più disponibile dopo il downgrade. Pertanto è consigliabile eliminare tutti gli indici columnstore *cluster* prima di effettuare il downgrade del database a un piano o un livello non supportato.
 
-*Downgrade a un livello Premium inferiore*: il downgrade avrà esito positivo se l'intero database rientra nelle dimensioni massime dei database relative al piano tariffario di destinazione o all'archiviazione disponibile nel pool elastico. Non è previsto alcun impatto specifico dagli indici columnstore.
+*Downgrade a un piano o un livello supportato inferiore*: il downgrade riesce se l'intero database rientra nelle dimensioni massime dei database relative al piano tariffario di destinazione o nello spazio di archiviazione disponibile nel pool elastico. Non è previsto alcun impatto specifico dagli indici columnstore.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>

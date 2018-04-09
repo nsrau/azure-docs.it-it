@@ -2,7 +2,7 @@
 title: Informazioni sugli avvisi in Log Analytics di Azure | Microsoft Docs
 description: Gli avvisi in Log Analytics identificano le informazioni importanti nel repository OMS e possono notificare i problemi all'utente in modo proattivo o richiamare le azioni per tentare di correggerle.  In questo articolo vengono descritti i diversi tipi di regole di avviso e come vengono definite.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/05/2018
 ms.author: bwren
-ms.openlocfilehash: 07e8312d5e113eeb9016dcc832b1cf66f8001c5f
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: ece2e7eeb53aebbb18bce4bb34e03307b0aea74c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Informazioni sugli avvisi in Log Analytics
 
@@ -102,7 +102,7 @@ Ad esempio, se si vuole generare un avviso quando il processore è in esecuzione
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-Se si vuole generare un avviso quando la media del processore è oltre il 90% per un determinato intervallo di tempo, usare una query con il [comando measure](log-analytics-search-reference.md#commands) come la seguente con la soglia per la regola di avviso **maggiore di 0**.
+Se si vuole generare un avviso quando la media del processore supera il 90% per un determinato intervallo di tempo, usare il comando `measure` per eseguire una query come la seguente, con la soglia per la regola di avviso **maggiore di 0**.
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
@@ -119,7 +119,7 @@ Se si vuole generare un avviso quando la media del processore è oltre il 90% pe
 Le regole di avviso **Unità di misura della metrica** creano un avviso per ogni oggetto in una query con un valore che supera una soglia specificata.  Presentano le differenze seguenti dalle regole di avviso **Numero di risultati**.
 
 #### <a name="log-search"></a>Ricerca log
-Sebbene sia possibile usare qualsiasi query per una regola di avviso **Numero di risultati**, esistono requisiti specifici della query per una regola di avviso per l'unità di misura della metrica.  Deve includere un [comando di misurazione](log-analytics-search-reference.md#commands) per raggruppare i risultati in un campo specifico. Questo comando deve includere gli elementi seguenti.
+Sebbene sia possibile usare qualsiasi query per una regola di avviso **Numero di risultati**, esistono requisiti specifici della query per una regola di avviso per l'unità di misura della metrica.  Deve includere un comando `measure` per raggruppare i risultati in un determinato campo. Questo comando deve includere gli elementi seguenti.
 
 - **Funzione di aggregazione**.  Determina il calcolo che viene eseguito e potenzialmente un campo numerico da aggregare.  Ad esempio, **count()** restituirà il numero di record nella query, **avg(CounterValue)** restituirà la media del campo CounterValue nell'intervallo.
 - **Campo Gruppo**.  Viene creato un record con un valore aggregato per ogni istanza di questo campo e può essere generato un avviso per ognuno di essi.  Ad esempio, se si desidera generare un avviso per ogni computer, si userà **dal Computer**.   
@@ -146,7 +146,7 @@ In questo esempio, verranno creati avvisi separati per srv02 e srv03 poiché han
 ## <a name="alert-records"></a>Record di avvisi
 I record degli avvisi creati dalle regole di avviso in Log Analytics hanno un **Tipo** impostato su **Avviso** e **SourceSystem** impostato su **OMS**.  Includono le proprietà elencate nella tabella seguente.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--- |:--- |
 | type |*Avviso* |
 | SourceSystem |*OMS* |

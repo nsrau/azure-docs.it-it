@@ -4,8 +4,8 @@ description: Informazioni su come creare attività personalizzate e usarle in un
 services: data-factory
 documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 6aaeaaacdc9ee67ebbed3ea3090455dde2357c3d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 770187c16ed9d0eacfaf99e571ad048c6723a9cf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -105,7 +105,7 @@ In questo esempio, helloworld.exe è un'applicazione personalizzata salvata nell
 
 Nella tabella seguente vengono descritti i nomi e le descrizioni delle proprietà specifiche per questa attività. 
 
-| Proprietà              | Descrizione                              | Obbligatoria |
+| Proprietà              | DESCRIZIONE                              | Obbligatoria |
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | Nome dell'attività nella pipeline     | Sì      |
 | description           | Testo che descrive l'attività.  | No        |
@@ -295,10 +295,10 @@ namespace SampleApp
 Se si desidera usare il contenuto di stdout.txt nelle attività downstream, è possibile ottenere il percorso del file stdout.txt nell'espressione @activity('MyCustomActivity').output.outputs[0]". 
 
   > [!IMPORTANT]
-  > - Activity.json, linkedServices.json e datasets.json vengono archiviati nella cartella di runtime dell'attività Batch. Per questo esempio, activity.json, linkedServices.json e datasets.json vengono archiviati nel percorso "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/". Se necessario, la pulizia di questi file deve essere eseguita separatamente. 
+  > - Activity.json, linkedServices.json e datasets.json vengono archiviati nella cartella di runtime dell'attività Batch. Per questo esempio, the activity.json, linkedServices.json e datasets.json vengono archiviati nel percorso "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/". Se necessario, la pulizia di questi file deve essere eseguita separatamente. 
   > - Poiché i servizi collegati usano Runtime di integrazione (self-hosted), le informazioni riservate, ad esempio le chiavi o le password, vengono crittografate da Runtime di integrazione (self-hosted) per verificare che le credenziali rimangano nell'ambiente di rete privata definito dal cliente. Alcuni campi riservati potrebbero risultare mancanti se il codice dell'applicazione personalizzata fa riferimento a tali campi in questo modo. Se necessario, usare SecureString in extendedProperties anziché un riferimento a servizi collegati. 
 
-## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a>Confrontare l'attività personalizzata della versione 2 e l'attività DotNet (personalizzata) della versione 1
+## <a name="compare-v2-v1"></a> Confrontare l'attività personalizzata della versione 2 e l'attività DotNet (personalizzata) della versione 1
 
   In Azure Data Factory versione 1 un'attività DotNet (personalizzata) viene implementata creando un progetto della libreria di classi .NET con una classe che implementa il metodo `Execute` dell'interfaccia `IDotNetActivity`. I servizi collegati, i set di dati e le proprietà estese nel payload JSON di un'attività DotNet (personalizzata) vengono passati al metodo di esecuzione come oggetti fortemente tipizzati. Per informazioni dettagliate sul comportamento della versione 1, vedere [Attività DotNet (personalizzate) nella versione 1](v1/data-factory-use-custom-activities.md). A causa di questa implementazione, il codice dell'attività DotNet della versione 1 deve avere come destinazione .NET Framework 4.5.2. L'attività DotNet della versione 1 deve inoltre essere eseguita sui nodi di pool di Azure Batch basati su Windows. 
 

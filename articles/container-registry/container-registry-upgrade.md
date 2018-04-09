@@ -1,18 +1,18 @@
 ---
 title: Aggiornamento del registro contenitori di Azure classico
-description: "Sfruttare il set di funzionalità ampliato dei registri di contenitori gestiti di base, standard e premium tramite l'aggiornamento del registro di contenitori classico non gestito."
+description: Sfruttare il set di funzionalità ampliato dei registri di contenitori gestiti di base, standard e premium tramite l'aggiornamento del registro di contenitori classico non gestito.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 19090bb69d7165c1e904450dc93b925e23e44782
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c5a61941bab2aa49cd8205e0a07dd2b5f7378ce9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Aggiornamento del registro contenitori classico
 
@@ -29,14 +29,16 @@ I registri gestiti consentono:
 * [Replica geografica](container-registry-geo-replication.md)
 * [Webhook](container-registry-webhook.md)
 
-Ma soprattutto, un registro classico dipende dall'account di archiviazione per cui Azure esegue il provisioning automatico nella sottoscrizione di Azure al momento della creazione del registro. Gli SKU di base, standard e premium invece sfruttano l'*archivio gestito*. Questo vuol dire che Azure gestisce in modo trasparente l'archiviazione delle immagini per l'utente: nella propria sottoscrizione non viene creato un account di archiviazione diverso.
+Soprattutto, un registro classico dipende dall'account di archiviazione per cui Azure esegue il provisioning automatico nella sottoscrizione di Azure al momento della creazione del registro. Al contrario, gli SKU Basic, Standard e Premium sfruttano i vantaggi delle [funzionalità di archiviazione avanzate](container-registry-storage.md) di Azure gestendo in modo automatico e trasparente l'archiviazione delle immagini. Non viene creato un account di archiviazione separato nella propria sottoscrizione.
 
 Un archivio di registro gestito è caratterizzato dai vantaggi seguenti:
 
-* Le immagini di contenitori sono [crittografati a riposo](../storage/common/storage-service-encryption.md).
-* Le immagini vengono archiviate usando l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md#geo-redundant-storage), garantendo un backup delle immagini con la replica su più aree.
+* Le immagini di contenitori sono [crittografati a riposo](container-registry-storage.md#encryption-at-rest).
+* Le immagini vengono archiviate usando l'[archiviazione con ridondanza geografica](container-registry-storage.md#geo-redundant-storage), garantendo un backup delle immagini con la replica su più aree.
 * Possibilità di [cambiare SKU](container-registry-skus.md#changing-skus) liberamente, consentendo una maggiore velocità effettiva, quando si sceglie uno SKU di livello superiore. Con ogni SKU, il Registro contenitori di Azure può soddisfare i requisiti di velocità effettiva man mano che aumentano le esigenze.
 * Il modello di sicurezza unificata per il registro e il relativo archivio consente la gestione semplificata dei diritti. È necessario gestire solo le autorizzazioni per il registro di contenitori, evitando la necessità di gestire anche le autorizzazioni per un account di archiviazione separato.
+
+Per altri dettagli sull'archiviazione di immagini nel Registro contenitori di Azure, vedere [Archiviazione di immagini del contenitore nel Registro contenitori di Azure](container-registry-storage.md).
 
 ## <a name="migration-considerations"></a>Considerazioni sulla migrazione
 

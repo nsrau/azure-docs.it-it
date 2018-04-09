@@ -2,7 +2,7 @@
 title: Mappa delle applicazioni in Azure Application Insights | Microsoft Docs
 description: Monitorare topologie di applicazioni complesse con la mappa delle applicazioni
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3bbed59bf93eab5e729fbdd3ccae04599ac47081
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 4b95cd947cd977208dee32d18fbc6a1fb099ff3b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: valutare le applicazioni distribuite
 La mappa delle applicazioni consente di individuare i colli di bottiglia delle prestazioni o le aree sensibili agli errori in tutti i componenti dell'applicazione distribuita. Ogni nodo nella mappa rappresenta un componente dell'applicazione o le relative dipendenze e ha un indicatore KPI dell'integrità e uno stato degli avvisi. È possibile fare clic da qualsiasi componente per ottenere una diagnostica più dettagliata, ad esempio sugli eventi di Application Insights. Se l'app usa i servizi di Azure, è possibile anche fare clic sulla diagnostica di Azure, ad esempio per consigli di Advisor su database SQL.
@@ -37,7 +37,7 @@ Abilitare la mappa delle applicazioni composita dall'[elenco delle anteprime](ap
 ![Abilitare la mappa di anteprima](media/app-insights-app-map/preview-from-classic.png)
 
 >[!Note]
-Questa versione di anteprima sostituisce la precedente anteprima della mappa delle applicazioni multiruolo. Per il momento, usare questa mappa per visualizzare l'intera topologia con più livelli di dipendenze dei componenti dell'applicazione. In base ai commenti e ai suggerimenti degli utenti verranno aggiunte ulteriori funzionalità analoghe a quelle supportate dalla mappa classica.
+Questa anteprima sostituisce la precedente anteprima della mappa delle applicazioni multiruolo. Per il momento, usare questa mappa per visualizzare l'intera topologia con più livelli di dipendenze dei componenti dell'applicazione. In base ai commenti e ai suggerimenti degli utenti verranno aggiunte ulteriori funzionalità analoghe a quelle supportate dalla mappa classica.
 
 È possibile visualizzare la topologia completa dell'applicazione con più livelli di componenti dell'applicazione correlati. I componenti possono essere risorse di Application Insights diverse o ruoli diversi in una singola risorsa. La mappa delle app consente di trovare i componenti seguendo le chiamate di dipendenza HTTP inviate tra i server con Application Insights SDK installato. 
 
@@ -142,4 +142,4 @@ Inviare commenti e suggerimenti tramite l'apposita opzione del portale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Azure portal](https://portal.azure.com)
+* [Portale di Azure](https://portal.azure.com)

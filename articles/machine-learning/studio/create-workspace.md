@@ -2,21 +2,20 @@
 title: Creare un'area di lavoro di Machine Learning Studio| Microsoft Docs
 description: Come creare un'area di lavoro per Azure Machine Learning Studio.
 services: machine-learning
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: garye
-ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
-ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8da10e474c62868ca109a44e7c66dc11ee62b6de
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Creare e condividere un'area di lavoro di Azure Machine Learning
 Questo menu si collega ad argomenti che descrivono come configurare i diversi ambienti di scienza dei dati usati da Cortana Analytics Process (CAP).
@@ -50,7 +49,7 @@ Per usare Azure Machine Learning Studio, è necessario disporre di un'area di la
 
 Dopo aver distribuito l'area di lavoro è possibile aprirla in Machine Learning Studio.
 
-1. Passare a Machine Learning Studio all'indirizzo [https://studio.azureml.net/](https://studio.azureml.net/).
+1. Accedere a Machine Learning Studio all'indirizzo[https://studio.azureml.net/](https://studio.azureml.net/).
 
 2. Selezionare l'area di lavoro nell'angolo in alto a destra.
 
@@ -77,7 +76,7 @@ Dopo la creazione di un'area di lavoro di Machine Learning, è possibile invitar
 
 ### <a name="to-share-a-workspace"></a>Per condividere un'area di lavoro
 
-1. Accedere a Machine Learning Studio all'indirizzo [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
+1. Accedere a Machine Learning Studio all'indirizzo [https://studio.azureml.net/Home](https://studio.azureml.net/Home).
 
 2. Nel pannello sinistro fare clic su **IMPOSTAZIONI**
 

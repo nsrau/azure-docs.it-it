@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ee75af9b1d7b77799fe02d87da257ff73bc567e6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 21f8eb795aa1675e2bbd5284f88b39c76ad59228
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Piani tariffari di Database di Azure per PostgreSQL
 
@@ -22,7 +22,7 @@ Un server Database di Azure per PostgreSQL può essere creato in uno dei tre pia
 |    | **Basic** | **Utilizzo generico** | **Con ottimizzazione per la memoria** |
 |:---|:----------|:--------------------|:---------------------|
 | Generazione di calcolo | Generazione 4, Generazione 5 | Generazione 4, Generazione 5 | Generazione 5 |
-| vCore | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16, 32 |
+| vCore | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memoria per vCore | 1x | 2x Basic | 2x Utilizzo generico |
 | Dimensioni di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 1 TB | Da 5 GB a 1 TB |
 | Tipo di archiviazione | Archiviazione Standard di Azure | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
@@ -40,7 +40,32 @@ Dopo aver creato un server, il numero di vCore può essere aumentato o ridotto i
 
 ## <a name="compute-generations-vcores-and-memory"></a>Generazioni di calcolo, vCore e memoria
 
-Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logica dell'hardware sottostante. È attualmente possibile scegliere tra due generazioni di calcolo, ovvero Generazione 4 e Generazione 5. Le CPU logiche Generazione 4 si basano sui processori Intel E5-2673 v3 (Haswell) a 2,4 GHz. Le CPU logiche Generazione 5 si basano sui processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz.
+Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logica dell'hardware sottostante. È attualmente possibile scegliere tra due generazioni di calcolo, ovvero Generazione 4 e Generazione 5. Le CPU logiche Generazione 4 si basano sui processori Intel E5-2673 v3 (Haswell) a 2,4 GHz. Le CPU logiche Generazione 5 si basano sui processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz. Generazione 4 e Generazione 5 sono disponibili nelle aree seguenti ("X" indica la disponibilità): 
+
+| **Area di Azure** | **Generazione 4** | **Generazione 5** |
+|:---|:----------:|:--------------------:|
+| Stati Uniti centrali |  | X |
+| Stati Uniti orientali | X | X |
+| Stati Uniti orientali 2 | X |  |
+| Stati Uniti centro-settentrionali | X |  |
+| Stati Uniti centro-meridionali | X |  |
+| Stati Uniti occidentali | X | X |
+| Stati Uniti occidentali 2 |  | X |
+| Canada centrale | X | X |
+| Canada orientale | X | X |
+| Brasile meridionale | X |  |
+| Europa settentrionale | X | X |
+| Europa occidentale | X | X |
+| Regno Unito occidentale |  | X |
+| Regno Unito meridionale |  | X |
+| Asia orientale | X |  |
+| Asia sudorientale | X |  |
+| Australia orientale |  | X |
+| India centrale | X |  |
+| India occidentale | X |  |
+| Giappone orientale | X |  |
+| Giappone occidentale | X |  |
+| Corea meridionale |  | X |
 
 A seconda del piano tariffario, il provisioning di ogni vCore viene effettuato con una quantità di memoria specifica. Quando si aumenta o diminuisce il numero di vCore per il server, la memoria aumenta o diminuisce proporzionalmente. Il piano Utilizzo generico fornisce il doppio della memoria per ogni vCore rispetto al piano Basic. Il piano Con ottimizzazione per la memoria fornisce il doppio della memoria rispetto al piano Utilizzo generico.
 

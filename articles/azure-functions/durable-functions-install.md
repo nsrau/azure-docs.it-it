@@ -4,21 +4,21 @@ description: Informazioni su come installare l'estensione Funzioni permanenti pe
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e1e8b019fe4632b0b6ac02888b562d6718c14fcc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3451f268e78df6efa5e3fc489b88415349efe169
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installare l'estensione Funzioni permanenti e i relativi esempi (Funzioni di Azure)
 
@@ -77,12 +77,17 @@ Visual Studio Code offre un'esperienza di sviluppo locale che copre tutte le pri
 3. Installare l'estensione Funzioni permanenti di Funzioni di Azure eseguendo le operazioni seguenti in un prompt dei comandi/finestra del terminale:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.2.0-beta3
     ```
-4. In alternativa, è possibile aggiornare il file *local.appsettings.json* con la stringa di connessione di Archiviazione di Azure autentica.
-3. Aprire il progetto in Visual Studio Code. 
-5. Per istruzioni su come eseguire l'esempio, iniziare con l'esempio relativo al [Concatenamento delle funzioni: Sequenza Hello di esempio](durable-functions-sequence.md). L'esempio può essere eseguito in locale o pubblicato in Azure.
-6. Avviare il progetto eseguendo il comando seguente nel prompt/terminale dei comandi:
+4. Installare l'estensione Twilio di Funzioni di Azure eseguendo le operazioni seguenti in un prompt dei comandi o una finestra del terminale:
+
+    ```bash
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta4
+    ```
+5. In alternativa, è possibile aggiornare il file *local.appsettings.json* con la stringa di connessione di Archiviazione di Azure autentica.
+6. Aprire il progetto in Visual Studio Code. 
+7. Per istruzioni su come eseguire l'esempio, iniziare con l'esempio relativo al [Concatenamento delle funzioni: Sequenza Hello di esempio](durable-functions-sequence.md). L'esempio può essere eseguito in locale o pubblicato in Azure.
+8. Avviare il progetto eseguendo il comando seguente nel prompt/terminale dei comandi:
     ```bash
     func host start
     ```

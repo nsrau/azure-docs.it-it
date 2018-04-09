@@ -1,22 +1,22 @@
 ---
-title: "Scalabilità della macchina virtuale verificare imposta disponibile nello Stack di Azure | Documenti Microsoft"
-description: "Informazioni su come un operatore cloud aggiungere scalabilità della macchina virtuale di Azure Marketplace Stack"
+title: Scalabilità della macchina virtuale verificare imposta disponibile nello Stack di Azure | Documenti Microsoft
+description: Informazioni su come un operatore cloud aggiungere scalabilità della macchina virtuale di Azure Marketplace Stack
 services: azure-stack
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: anajod
-keywords: 
-ms.openlocfilehash: a4c854bdd659a05f032f5ee232074bc38ff677ef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+keywords: ''
+ms.openlocfilehash: cdabd2a9d336cdd8ac83d27460fe129c45b7e1c6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Rendere il set di scalabilità di macchine virtuali disponibili nello Stack di Azure
 
@@ -30,7 +30,7 @@ Set di scalabilità di macchine virtuali nello Stack di Azure sono simili a set 
 * [Mark Russinovich talks Azure scale sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/) (Mark Russinovich illustra i set di scalabilità di Azure)
 * [Set di scalabilità di macchine virtuali con Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-Nello Stack di Azure, il set di scalabilità di macchina virtuale non supportano la scalabilità automatica. È possibile aggiungere più istanze di una scala impostata utilizzando il portale di Azure Stack, i modelli di gestione risorse o PowerShell.
+Nello Stack di Azure, il set di scalabilità di macchine virtuali non supporta la scalabilità automatica. È possibile aggiungere più istanze di una scala impostata utilizzando il portale di Azure Stack, i modelli di gestione risorse o PowerShell.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * **PowerShell e strumenti**
@@ -46,6 +46,7 @@ Nello Stack di Azure, il set di scalabilità di macchina virtuale non supportano
    Se è stato aggiunto un'immagine del sistema operativo a Stack Azure Marketplace, vedere [aggiungere l'immagine di macchina virtuale di Windows Server 2016 nel Marketplace Azure Stack](azure-stack-add-default-image.md).
 
    Per il supporto di Linux, scaricare Ubuntu Server 16.04 e aggiungerlo mediante ```Add-AzsVMImage``` con i seguenti parametri: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
+
 
 ## <a name="add-the-virtual-machine-scale-set"></a>Aggiungere il set di scalabilità della macchina virtuale
 
@@ -72,6 +73,38 @@ Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
 ```
+
+## <a name="update-images-in-a-virtual-machine-scale-set"></a>Aggiornare le immagini in un set di scalabilità della macchina virtuale 
+Dopo aver creato un set di scalabilità della macchina virtuale, gli utenti possono aggiornare le immagini nella scala dei set senza la scala impostata dover essere ricreato. Il processo di aggiornamento di un'immagine a seconda dei casi nei seguenti scenari:
+
+1. Modello di distribuzione di set di scalabilità della macchina virtuale **specifica più recente** per *versione*:  
+
+   Quando il *versione* viene impostato come **più recente** nel *imageReference* sezione del modello per una scala impostata, applicare la scalabilità verticale operazioni relative all'utilizzo di set di scalabilità della versione disponibile più recente Imposta le istanze dell'immagine per la scala. Una volta completata una scalabilità verticale, è possibile eliminare precedenti istanze set di scalabilità di macchine virtuali.  (I valori per *publisher*, *offrono*, e *sku* rimangono invariati). 
+
+   Ecco un esempio di definizione *più recente*:  
+
+          "imageReference": {
+             "publisher": "[parameters('osImagePublisher')]",
+             "offer": "[parameters('osImageOffer')]",
+             "sku": "[parameters('osImageSku')]",
+             "version": "latest"
+             }
+
+   Prima di scalabilità verticale è possibile utilizzare una nuova immagine, è necessario scaricare la nuova immagine:  
+
+   - Quando l'immagine in Marketplace è una versione più recente rispetto all'immagine nel set di scalabilità: scaricare la nuova immagine che sostituisce l'immagine precedente. Dopo l'immagine viene sostituita, un utente può procedere per la scalabilità verticale. 
+
+   - Quando la versione dell'immagine in Marketplace è lo stesso come l'immagine nel set di scalabilità: eliminare l'immagine che è in uso nel set di scalabilità e quindi scaricare la nuova immagine. Il tempo intercorso tra la rimozione dell'immagine originale e il download dell'immagine nuova, è possibile scalare in verticale. 
+      
+     Questo processo è obbligatorio per resyndicate immagini che utilizzano il formato di file sparse, introdotto con la versione 1803. 
+ 
+
+2. Modello di distribuzione di set di scalabilità della macchina virtuale **specificato non è più recente** per *versione* e specifica invece un numero di versione:  
+
+     Se si scarica un'immagine con una versione più recente (che modifica la versione disponibile), il set di scalabilità non è possibile scalare in verticale. È per impostazione predefinita la versione dell'immagine specificata nel modello di set di scala deve essere disponibile.  
+
+Per altre informazioni, vedere [dischi del sistema operativo e immagini](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>Rimuovere un set di scalabilità della macchina virtuale
 

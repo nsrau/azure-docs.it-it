@@ -139,6 +139,8 @@
               href: app-service-mobile-how-to-configure-microsoft-authentication.md
             - name: Eseguire l'autenticazione con Twitter
               href: app-service-mobile-how-to-configure-twitter-authentication.md
+        - name: Personalizzare authN/authZ
+          href: app-service-authentication-how-to.md
         - name: Usare l'identità dei servizi gestiti
           href: app-service-managed-service-identity.md
         - name: Usare un certificato SSL nel codice dell'applicazione

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/18/2017
+ms.date: 03/26/2018
 ms.author: ryanwi
-ms.openlocfilehash: dc7e536ce40bf95e1950e1e44844cd8fe26ea1a1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: bd57b6344baef3bdf97c850564ae2d3afa9c811e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-terminology-overview"></a>Panoramica della terminologia di Service Fabric
 Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la creazione di pacchetti, la distribuzione e la gestione di microservizi scalabili e affidabili. Questo articolo illustra in modo dettagliato la terminologia usata da Service Fabric, per agevolare la comprensione dei termini usati nella documentazione.
@@ -89,12 +89,22 @@ Per altre informazioni sulla distribuzione di applicazioni nel servizio archivio
    - Orchestrare gli aggiornamenti di applicazioni e cluster.
    - Interagire con altri componenti del sistema.
 
+**Servizio di gestione della riparazione**: si tratta di un servizio facoltativo del sistema che consente di eseguire le azioni di correzione da eseguire in un cluster in modo sicuro, automatizzabile e trasparente. Repair Manager è utilizzato per:
+   - L'esecuzione delle riparazioni di manutenzione Azure su cluster di Service Fabric Azure con [durabilità Silver e Gold](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster).
+   - L’esecuzione di azioni di correttive per l’[applicazione di orchestrazione di patch](service-fabric-patch-orchestration-application.md)
+
 ## <a name="built-in-programming-models"></a>Modelli di programmazione predefiniti
-Sono disponibili modelli di programmazione di .NET Framework per creare servizi di Service Fabric:
+Sono disponibili modelli di programmazione di .NET Framework e Java per creare servizi di Service Fabric:
 
 **Reliable Services**: API che consente di creare servizi con e senza stato. I servizi con stato archiviano il proprio stato in Reliable Collections, ad esempio un dizionario o una coda. È anche possibile collegare vari stack di comunicazione, ad esempio API Web e Windows Communication Foundation (WCF).
 
 **Reliable Actors**: API che consente di creare oggetti con e senza stato tramite il modello di programmazione Actor virtuale. Questo modello è utile in presenza di molte unità indipendenti di calcolo o stato. Questo modello usa un modello di threading basato su turni, quindi è consigliabile evitare codice che effettua chiamate ad altri attori o servizi, perché un singolo attore non può elaborare altre richieste in ingresso fino a quando tutte le relative richieste in uscita non sono state completate.
+
+È inoltre possibile eseguire le applicazioni esistenti in Service Fabric:
+
+**Contenitori**: Service Fabric supporta la distribuzione di contenitori Docker in Linux e di contenitori Windows Server in Windows Server 2016, nonché la modalità di isolamento di Hyper-V. Nel [modello applicativo](service-fabric-application-model.md)di Service Fabric, un contenitore rappresenta un host applicazione in cui sono inserite più repliche dei servizi. Service Fabric può eseguire qualsiasi contenitore e lo scenario è simile allo scenario degli eseguibili guest, in cui il pacchetto di un'applicazione esistente viene creato all'interno di un contenitore. È anche possibile eseguire i [servizi Service Fabric all'interno dei contenitori](service-fabric-services-inside-containers.md).
+
+**Eseguibili guest**: in Azure Service Fabric distribuito come servizio è possibile eseguire qualsiasi tipo di codice, ad esempio Node.js, Java, e C++. Service Fabric fa riferimento a questi tipi di servizi come eseguibili guest, considerati come servizi senza stato. I vantaggi dell'esecuzione di un eseguibile guest in un cluster di Service Fabric includono la disponibilità elevata, il monitoraggio dello stato, la gestione del ciclo di vita delle applicazioni, l’alta densità e l’individuabilità.
 
 Per altre informazioni, vedere [Scegliere un modello di programmazione per un servizio](service-fabric-choose-framework.md).
 

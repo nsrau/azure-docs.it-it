@@ -3,7 +3,7 @@ title: Introduzione a ruoli, autorizzazioni e sicurezza con Monitoraggio di Azur
 description: Informazioni su come usare le autorizzazioni e i ruoli predefiniti di monitoraggio di Azure per limitare l'accesso alle risorse di monitoraggio.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 2686e53b-72f0-4312-bcd3-3dc1b4a9b912
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: f8767073bb7a6723088bb2727346d23ec8872cd1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure
 Molti team hanno bisogno di regolare rigorosamente l'accesso ai dati e alle impostazioni di monitoraggio. Ad esempio, se si dispone di membri del team che lavorano esclusivamente sul monitoraggio (tecnici del supporto, tecnici DevOps) o si usa un provider di servizi gestiti, si consiglia di concedere loro l'accesso ai dati di monitoraggio solo limitandone la possibilità di creare, modificare o eliminare le risorse. In questo articolo viene illustrato come applicare rapidamente un ruolo di monitoraggio predefinito nel Controllo degli accessi in base al ruolo a un utente in Azure o creare il proprio ruolo personalizzato per un utente che ha bisogno di autorizzazioni di monitoraggio limitate. Vengono poi esposte alcune considerazioni sulla sicurezza per le risorse legate al monitoraggio di Azure e viene illustrato come è possibile limitare l'accesso ai dati che contengono.
@@ -30,6 +30,7 @@ I ruoli predefiniti del monitoraggio di Azure consentono di limitare l'accesso a
 Le persone a cui è assegnato il ruolo di lettore di monitoraggio possono visualizzare tutti i dati di monitoraggio in una sottoscrizione ma non possono modificare alcuna risorsa o impostazione relativa alle risorse di monitoraggio. Questo ruolo è appropriato per gli utenti di un'organizzazione, ad esempio tecnici del supporto o delle operazioni, che devono essere in grado di:
 
 * Visualizzare i dashboard di monitoraggio nel portale e creare dashboard di monitoraggio privati.
+* Visualizzare le regole di avviso definite in [Avvisi di Azure](monitoring-overview-unified-alerts.md)
 * Eseguire query per le metriche usando l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931930.aspx), i [cmdlet di PowerShell](insights-powershell-samples.md) o l'[interfaccia della riga di comando multipiattaforma](insights-cli-samples.md).
 * Eseguire query per il registro attività usando il portale, l'API REST di monitoraggio di Azure, i cmdlet di PowerShell o l'interfaccia della riga di comando multipiattaforma.
 * Visualizzare le [impostazioni di diagnostica](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) per una risorsa.
@@ -55,7 +56,7 @@ Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono 
 * Pubblicare dashboard di monitoraggio come dashboard condivisi.
 * Configurare le [impostazioni di diagnostica](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) per una risorsa.*
 * Impostare il [profilo di registro](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) per una sottoscrizione.*
-* Configurare impostazioni e attività di avviso.
+* Configurare le attività e le impostazioni delle regole di avviso tramite [Avvisi di Azure](monitoring-overview-unified-alerts.md).
 * Creare componenti e test Web di Application Insights.
 * Elencare le chiavi condivise dell'area di lavoro di Log Analytics.
 * Abilitare o disabilitare gli Intelligence Pack di Log Analytics.
@@ -76,7 +77,7 @@ Se i precedenti ruoli predefiniti non soddisfano le esigenze esatte del team, è
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Gruppi di azioni di lettura, scrittura ed eliminazione. |
 | Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Avvisi del log attività di lettura, scrittura ed eliminazione. |
-| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Regole di avviso di lettura, scrittura ed eliminazione (avvisi relativi alle metriche). |
+| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Regole di avviso di lettura, scrittura ed eliminazione (da versione classica degli avvisi). |
 | Microsoft.Insights/AlertRules/Incidents/Read |Elenco degli eventi imprevisti (cronologia della regola di avviso attivata) per le regole di avviso. Si applica solo al portale. |
 | Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Impostazioni di scalabilità automatica di lettura, scrittura ed eliminazione. |
 | Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Impostazioni di diagnostica di lettura, scrittura ed eliminazione. |
@@ -86,10 +87,12 @@ Se i precedenti ruoli predefiniti non soddisfano le esigenze esatte del team, è
 | Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Impostazioni di diagnostica di lettura, scrittura ed eliminazione per i log del flusso di rete. |
 | Microsoft.Insights/LogDefinitions/Read |Questa autorizzazione è necessaria per gli utenti che hanno bisogno dell'accesso ai registri attività tramite il portale. |
 | Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Profili di log di lettura, scrittura ed eliminazione (streaming del log attività nell'hub eventi o nell'account di archiviazione). |
-| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Avvisi relativi alle metriche quasi in tempo reale di lettura, scrittura ed eliminazione (anteprima pubblica). |
+| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Avvisi delle metriche near real time di lettura, scrittura ed eliminazione |
 | Microsoft.Insights/MetricDefinitions/Read |Definizioni delle metriche (elenco dei tipi di metriche disponibili per una risorsa). |
 | Microsoft.Insights/Metrics/Read |Metriche per una risorsa. |
 | Microsoft.Insights/Register/Action |Registrazione del provider di risorse di Monitoraggio di Azure. |
+| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Avvisi del log di lettura, scrittura ed eliminazione per Application Insights. |
+
 
 
 > [!NOTE]
@@ -118,9 +121,9 @@ I dati sul monitoraggio dei dati, in particolare i file di registro, possono con
 2. Registri di diagnostica, cioè registri generati da una risorsa.
 3. Metriche, generate dalle risorse.
 
-Tutti e tre questi tipi di dati possono essere archiviati in un account di archiviazione o trasmessi a un hub eventi, che sono entrambi risorse di Azure di scopo generico. Poiché si tratta di risorse di scopo generico, la creazione, l'eliminazione e l'accesso sono operazioni privilegiate e generalmente riservate agli amministratori. Si consiglia di usare le procedure seguenti con le risorse relative al monitoraggio per evitare un uso improprio:
+Tutti e tre questi tipi di dati possono essere archiviati in un account di archiviazione o trasmessi a un hub eventi, che sono entrambi risorse di Azure di scopo generico. Poiché si tratta di risorse di scopo generico, la creazione, l'eliminazione e l'accesso sono operazioni privilegiate e riservate agli amministratori. Si consiglia di usare le procedure seguenti con le risorse relative al monitoraggio per evitare un uso improprio:
 
-* Usare un account di archiviazione singolo e dedicato per il monitoraggio dei dati. Se è necessario separare i dati di monitoraggio in più account di archiviazione, non condividere mai l'uso di un account di archiviazione tra dati relativi al monitoraggio e non relativi al monitoraggio, perché in questo modo si potrebbe inavvertitamente fornire l'accesso ai dati non relativi al monitoraggio a chi ha bisogno solo dei dati di monitoraggio (es. SIEM di terze parti).
+* Usare un account di archiviazione singolo e dedicato per il monitoraggio dei dati. Se è necessario separare i dati di monitoraggio in più account di archiviazione, non condividere mai l'uso di un account di archiviazione tra dati relativi al monitoraggio e non relativi al monitoraggio, perché in questo modo si potrebbe inavvertitamente fornire l'accesso ai dati non relativi al monitoraggio a chi ha bisogno solo dei dati di monitoraggio (ad esempio SIEM di terze parti).
 * Usare un singolo bus di servizio o spazio dei nomi dell'hub eventi dedicato in tutte le impostazioni di diagnostica per lo stesso motivo specificato sopra.
 * Limitare l'accesso agli hub eventi o agli account di archiviazione relativi al monitoraggio tenendoli in un gruppo di risorse separato e [usare l'ambito](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) nei ruoli di monitoraggio per limitare l'accesso solo a tale gruppo di risorse.
 * Non concedere mai l'autorizzazione ListKeys ad account di archiviazione o hub eventi nell'ambito della sottoscrizione quando un utente ha bisogno solo dell'accesso ai dati di monitoraggio. Piuttosto, assegnare queste autorizzazioni all'utente nell'ambito di una risorsa o di un gruppo di risorse (se si dispone di un gruppo di risorse di monitoraggio dedicato).

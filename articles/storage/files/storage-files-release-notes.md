@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: wgries
-ms.openlocfilehash: b42287580078b4391ddbc5b8ff2835131c64236d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bb7fa68809341b5132d551ff1cab187bd4d7eeac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Note sulla versione dell'agente Sincronizzazione file di Azure (anteprima)
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -93,11 +93,12 @@ Gli elementi seguenti non vengono sincronizzati, ma il resto del sistema continu
 - Un endpoint server non può trovarsi nel volume di sistema, ad esempio C:\CartellaUtente non è un percorso accettabile a meno che C:\CartellaUtente non sia un punto di montaggio.
 - Il clustering di failover è supportato solo con i dischi cluster, non con i volumi condivisi cluster.
 - Un endpoint server non può essere annidato, ma può coesistere nello stesso volume parallelamente a un altro.
-- L'eliminazione di un numero elevato di directory (più di 10.000) da un server in una sola volta può provocare errori di sincronizzazione. Eliminare le directory in batch contenenti meno di 10.000 directory. Verificare che le operazioni di eliminazione siano state sincronizzate correttamente prima di eliminare il batch successivo.
 - In questa versione è stato aggiunto il supporto per il percorso radice di sincronizzazione in corrispondenza della radice di un volume.
 - Non archiviare il file di paging di un sistema operativo o di un'applicazione in un endpoint server.
 - Modifica in questa versione: aggiunta di nuovi eventi per tenere traccia del runtime totale per la suddivisione in livelli nel cloud (ID evento 9016), dello stato di caricamento della sincronizzazione (ID evento 9302) e dei file che non sono stati sincronizzati (ID evento 9900).
-- Modifica in questa versione: notevole miglioramento delle prestazioni di sincronizzazione degli spazi dei nomi per il ripristino di emergenza.
+- Funzionalità migliorate in questa versione: 
+- Notevole miglioramento delle prestazioni di sincronizzazione degli spazi dei nomi per il ripristino di emergenza.
+- L'eliminazione di grandi quantità di directory (più di 10.000) non deve più essere eseguita in batch con la versione 2*.
  
 ### <a name="cloud-tiering"></a>Suddivisione in livelli nel cloud
 - Modifica rispetto alla versione precedente: i nuovi file vengono suddivisi in livelli entro 1 ora (in precedenza in 32 ore) a seconda dell'impostazione dei criteri di suddivisione in livelli. Su richiesta viene fornito un cmdlet di PowerShell per la suddivisione in livelli. È possibile usare il cmdlet per valutare la suddivisione in livelli in modo più efficiente senza attendere il processo in background.

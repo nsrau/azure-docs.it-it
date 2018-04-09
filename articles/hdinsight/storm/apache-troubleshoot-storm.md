@@ -5,8 +5,8 @@ keywords: Azure HDInsight, Storm, domande frequenti, guida alla risoluzione dei 
 services: Azure HDInsight
 documentationcenter: na
 author: raviperi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: c0295af2e71d891d07dad7012b7a27402c375178
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ee408b32650fe0f0e0b66294896756732a2ca5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Risolvere i problemi di Storm usando Azure HDInsight
 
@@ -71,7 +71,7 @@ Il comando di esportazione scrive i metadati in un percorso Apache Hadoop Distri
     ```
 
 #### <a name="import-offset-metadata"></a>Importare i metadati dell'offset
-1. Usare SSH per andare al cluster ZooKeeper del vecchio cluster da cui è necessario esportare l'offset dei checkpoint.
+1. Usare SSH per andare al cluster ZooKeeper del vecchio cluster da cui è necessario importare l'offset dei checkpoint.
 2. Usare il comando seguente (dopo avere aggiornato la stringa della versione HDP) per importare i dati dell'offset ZooKeeper dal percorso HDFS /stormmetadta/zkdata al cluster di destinazione del server ZooKeeper:
 
     ```apache
@@ -79,7 +79,7 @@ Il comando di esportazione scrive i metadati in un percorso Apache Hadoop Distri
     ```
    
 #### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>Eliminare i metadati dell'offset per permettere alle topologie di avviare l'elaborazione dei dati dall'inizio o da un timestamp scelto dall'utente
-1. Usare SSH per andare al cluster ZooKeeper del vecchio cluster da cui è necessario esportare l'offset dei checkpoint.
+1. Usare SSH per andare al cluster ZooKeeper del vecchio cluster da cui è necessario eliminare l'offset dei checkpoint.
 2. Usare il comando seguente (dopo avere aggiornato la stringa della versione HDP) per eliminare tutti i dati dell'offset ZooKeeper nel cluster corrente:
 
     ```apache

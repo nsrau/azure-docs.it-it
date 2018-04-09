@@ -4,9 +4,9 @@ description: Documentazione di riferimento per il file host.json di Funzioni di 
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 6b5a8c81b1e3e45c85ea84a46054b6a38a886c5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 577c45edc832288943a7eeefe27c7a189a61b7b0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Riferimento host.json per Funzioni di Azure
 
-Il file di metadati *host.json* contiene le opzioni di configurazione globali che interessano tutte le funzioni dell’app per le funzioni. In questo articolo sono elencate le impostazioni disponibili. Lo schema JSON è riportato all’indirizzo http://json.schemastore.org/host.
+Il file di metadati *host.json* contiene le opzioni di configurazione globali che interessano tutte le funzioni dell’app per le funzioni. In questo articolo sono elencate le impostazioni disponibili. Lo schema JSON è disponibile all'indirizzo http://json.schemastore.org/host.
 
 Sono disponibili altre opzioni di configurazione globali nelle [impostazioni dell’app](functions-app-settings.md) e nel file [local.settings.json](functions-run-local.md#local-settings-file).
 
@@ -201,6 +201,9 @@ Impostazione di configurazione per i [trigger e le associazioni http](functions-
 ## <a name="id"></a>id
 
 ID univoco per l'host di processo. Può essere una GUID con lettera minuscola con trattini rimossi. Necessaria durante l'esecuzione locale. Quando è in esecuzione in Funzioni di Azure, viene generato automaticamente un ID se `id` viene omesso.
+
+Se si condivide un account di archiviazione tra più app per le funzioni, assicurarsi che ogni app abbia un valore diverso per `id`. È possibile omettere la proprietà `id` o impostare manualmente la proprietà `id` di ogni app per le funzioni su un valore diverso. Il trigger timer usa un blocco dell'archiviazione per garantire che vi sia una sola istanza del timer quando un'app per le funzioni viene scalata orizzontalmente a più istanze. Se due app per le funzioni condividono la stessa proprietà `id` e ognuna usa un trigger timer, verrà eseguito solo un timer.
+
 
 ```json
 {

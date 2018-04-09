@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione su Kubernetes in Azure: ridimensionare un''applicazione'
-description: 'Esercitazione sul servizio contenitore di Azure: ridimensionare un''applicazione'
+title: "Esercitazione su Kubernetes in Azure: ridimensionare un'applicazione"
+description: "Esercitazione sul servizio contenitore di Azure: ridimensionare un'applicazione"
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 556f4bfb204504de55c41da9615e61d5a88c75b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5e35be84df53386398deaca19d60d4a93f53e541
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="scale-application-in-azure-container-service-aks"></a>Ridimensionare un'applicazione nel servizio contenitore di Azure
+# <a name="tutorial-scale-application-in-azure-container-service-aks"></a>Esercitazione: Ridimensionare un'applicazione nel servizio contenitore di Azure (AKS)
 
 Se sono state eseguite le esercitazioni, si dispone di un cluster Kubernetes funzionante nel servizio contenitore di Azure ed è stata distribuita l'app Azure Voting.
 
@@ -26,7 +26,7 @@ In questa esercitazione, la quinta di otto, si aumenterà il numero di pod nell'
 > * Scalabilità manuale di pod Kubernetes
 > * Configurazione della scalabilità automatica di pod che eseguono il front-end dell'app
 
-Nelle esercitazioni successive l'applicazione Azure Vote viene aggiornata e Operations Management Suite viene configurato per monitorare il cluster Kubernetes.
+Nelle esercitazioni successive l'applicazione Azure Vote viene aggiornata e Log Analytics viene configurato per monitorare il cluster Kubernetes.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

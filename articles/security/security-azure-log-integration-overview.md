@@ -1,6 +1,6 @@
 ---
-title: Integrare i log delle risorse di Azure nei sistemi SIEM | Microsoft Docs
-description: "Informazioni, funzionalità principali e funzionamento di Integrazione log di Azure."
+title: Integrare i log delle risorse di Azure con i sistemi di informazioni di sicurezza e gestione degli eventi | Microsoft Docs
+description: Informazioni, funzionalità principali e funzionamento di Integrazione log di Azure.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -15,58 +15,60 @@ ms.workload: na
 ms.date: 02/15/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: e427e2f7dafb6db9bc5c15d841fbbf83a02fc0e1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6d91692a64a4d3def80990a439fe0a0898bf2f09
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="introduction-to-microsoft-azure-log-integration"></a>Introduzione a Integrazione log di Microsoft Azure
+# <a name="introduction-to-azure-log-integration"></a>Introduzione a Integrazione log di Azure
 
-Integrazione log di Azure consente di integrare i log non elaborati delle risorse di Azure nei sistemi SIEM (informazioni di sicurezza e gestione degli eventi) nel caso in cui un connettore a [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-get-started.md) non sia ancora disponibile per il fornitore SIEM.
+È possibile usare Integrazione log di Azure per integrare log non elaborati delle risorse di Azure nei sistemi di informazioni di sicurezza e gestione degli eventi locali. Usare Integrazione log di Azure solo se presso il fornitore del sistema di informazioni di sicurezza e gestione degli eventi non è disponibile un connettore a [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-get-started.md).
 
-Il metodo preferito per l'integrazione dei log di Azure consiste nell'usare un connettore per Monitoraggio di Azure del fornitore SIEM e seguire queste [istruzioni](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). Tuttavia, se il fornitore SIEM non offre un connettore per Monitoraggio di Azure, è possibile usare Integrazione log di Azure come soluzione temporanea (se SIEM è supportato da Integrazione log di Azure) fino a quando non sia disponibile un connettore di questo tipo.
+Il metodo preferito per l'integrazione dei log di Azure consiste nell'usare il connettore di Monitoraggio di Azure del fornitore del sistema di informazioni di sicurezza e gestione degli eventi. Per usare il connettore, seguire le istruzioni in [Monitoraggio dei flussi per gli hub eventi dati](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). 
 
->[!IMPORTANT]
->Se l'obiettivo principale è la raccolta di log di macchine virtuali, tenere presente che la maggior parte dei fornitori SIEM include questa opzione nella soluzione offerta. L'uso del connettore del fornitore SIEM deve costituire sempre l'opzione preferita.
+Se tuttavia il fornitore del sistema di informazioni di sicurezza e gestione degli eventi non offre un connettore per Monitoraggio di Azure, è possibile usare Integrazione log di Azure come soluzione temporanea finché il connettore non è disponibile. È possibile usare Integrazione log di Azure solo se Integrazione log di Azure supporta il sistema di informazioni di sicurezza e gestione degli eventi in uso.
 
-L'integrazione dei log di Azure raccoglie gli eventi di Windows da log del Visualizzatore eventi di Windows, [log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [avvisi del Centro sicurezza di Azure](../security-center/security-center-intro.md) e [log di Diagnostica di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) dalle risorse di Azure. Questa integrazione aiuta il sistema SIEM a fornire un dashboard unificato per tutti gli asset, locali o su cloud, consentendo di aggregare, correlare, analizzare e inviare avvisi per gli eventi di sicurezza.
+> [!IMPORTANT]
+> Se l'obiettivo principale è la raccolta di log di macchine virtuali, tenere presente che la maggior parte dei fornitori SIEM include questa opzione nella soluzione offerta. L'uso del connettore del fornitore SIEM è sempre l'opzione preferita.
 
->[!NOTE]
-Al momento i soli cloud supportati sono quello commerciale e quello di Azure per enti pubblici. Gli altri cloud non sono supportati.
+Integrazione log di Azure raccoglie gli eventi di Windows dai log del Visualizzatore eventi di Windows e dai [log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), dagli [avvisi del Centro sicurezza di Azure](../security-center/security-center-intro.md) e dai [log di Diagnostica di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) di risorse di Azure. L'integrazione consente alla soluzione di informazioni di sicurezza e gestione degli eventi di offrire un dashboard unificato per tutti gli asset, sia locali che nel cloud. Per ricevere, aggregare, correlare e analizzare gli avvisi per gli eventi di sicurezza, è possibile usare un dashboard.
 
-![Integrazione log di Azure][1]
+> [!NOTE]
+> Integrazione log di Azure attualmente supporta solo cloud commerciali di Azure e cloud Azure per enti pubblici. Gli altri cloud non sono supportati.
 
-## <a name="what-logs-can-i-integrate"></a>Quali log è possibile integrare?
+![Diagramma del processo di Integrazione log di Azure][1]
 
-Azure produce registrazioni complete per ogni servizio di Azure. Questi log rappresentano tre tipi di log:
+## <a name="what-logs-can-i-integrate"></a>Log che è possibile integrare
 
-* I **log di gestione/controllo** che offrono visibilità sulle operazioni CREATE, UPDATE e DELETE di [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). I log attività di Azure sono un esempio di questo tipo di log.
-* I **log del piano dati** che offrono visibilità sugli eventi generati come parte dell'uso di una risorsa di Azure. Un esempio di questo tipo di log sono i canali **Sistema**, **Sicurezza** e **Applicazione** del Visualizzatore eventi di Windows in una macchina virtuale Windows. Un altro esempio è la registrazione di diagnostica configurata tramite Monitor di Azure
-* Gli **eventi elaborati** forniscono eventi analizzati e informazioni sugli avvisi elaborate per conto del cliente. Un esempio di questo tipo di evento è costituito dagli avvisi del Centro sicurezza di Azure, in cui il Centro sicurezza di Azure ha elaborato e analizzato la sottoscrizione per fornire avvisi pertinenti alle condizioni di sicurezza attuali.
+Azure produce registrazioni estese per ogni servizio di Azure. Esistono tre tipi di log:
 
-Integrazione log di Azure supporta ArcSight, QRadar e Splunk. Verificare sempre con il fornitore SIEM se è disponibile un connettore nativo. Non è opportuno usare Integrazione log di Azure quando sono disponibili i connettori nativi.
+* **Log di gestione/controllo**: offrono visibilità sulle operazioni CREATE, UPDATE e DELETE di [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Un log attività di Azure rappresenta un esempio di questo tipo di log.
+* **Log di piano dati**: consente di visualizzare gli eventi che vengono generati quando si usa una risorsa di Azure. Un esempio di questo tipo di log sono i canali **Sistema**, **Sicurezza** e **Applicazione** del Visualizzatore eventi di Windows in una macchina virtuale Windows. Un altro esempio è la registrazione di Diagnostica di Azure configurata tramite Monitoraggio di Azure.
+* **Eventi elaborati**: offrono informazioni sugli eventi e sugli avvisi analizzati elaborate automaticamente. Un esempio di questo tipo di evento è rappresentato dagli avvisi del Centro sicurezza di Azure. Centro sicurezza di Azure elabora e analizza la sottoscrizione per fornire gli avvisi pertinenti alle condizioni di sicurezza correnti.
 
-Se non sono presenti altre opzioni, considerare l'uso di Integrazione log di Azure. La tabella seguente include i suggerimenti Microsoft.
+L'integrazione dei log di Azure supporta ArcSight, QRadar e Splunk. Verificare con il fornitore del sistema di informazioni di sicurezza e gestione degli eventi se è disponibile un connettore nativo. Non usare Integrazione log di Azure se è disponibile un connettore nativo.
 
-|**SIEM** | **Cliente che ha già adottato Integrazione log** | **Cliente che sta esplorando le opzioni dell'integrazione SIEM**|
+Se non sono disponibili altre opzioni, è consigliabile usare Integrazione log di Azure. La tabella seguente include i suggerimenti Microsoft:
+
+|Sistema di informazioni di sicurezza e gestione degli eventi | Cliente che usa già Integrazione log di Azure | Cliente che sta esplorando le opzioni di integrazione di informazioni di sicurezza e gestione degli eventi|
 |---------|--------------------------|-------------------------------------------|
-|**SPLUNK** | Avviare la migrazione al [componente aggiuntivo di Monitoraggio di Azure per Splunk](https://splunkbase.splunk.com/app/3534/) | Usare il [connettore SPLUNK](https://splunkbase.splunk.com/app/3534/) |
-|**IBM QRADAR** | Eseguire la migrazione o avviarla tramite il connettore QRadar descritto alla fine dell'articolo disponibile all'indirizzo http://aka.ms/azmoneventhub | Usare il connettore QRadar descritto alla fine dell'articolo disponibile all'indirizzo http://aka.ms/azmoneventhub  |
-|**ARCSIGHT** | Continuare a usare Integrazione log fino a quando non è disponibile un connettore, quindi eseguire la migrazione alla soluzione basata sul connettore.  | In alternativa, usare Azure Log Analytics. Evitare di usare Integrazione log di Azure, in modo da non dover affrontare il processo di migrazione quando il connettore risulta disponibile. |
+|**Splunk** | Iniziare passando al [componente aggiuntivo di Monitoraggio di Azure per Splunk](https://splunkbase.splunk.com/app/3534/). | Usare il [connettore Splunk](https://splunkbase.splunk.com/app/3534/). |
+|**QRadar** | Eseguire la migrazione al connettore QRadar o iniziare a usarlo. Il connettore è documentato nell'ultima sezione di [Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). | Usare il connettore QRadar documentato nell'ultima sezione di [Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). |
+|**ArcSight** | Continuare a usare Integrazione log di Azure finché non è disponibile un connettore e quindi eseguire la migrazione alla soluzione basata sul connettore.  | In alternativa, si considera di usare Azure Log Analytics. Evitare di usare Integrazione log di Azure, in modo da non dover affrontare il processo di migrazione quando il connettore sarà disponibile. |
 
->[!NOTE]
->L'integrazione dei log di Azure è una soluzione gratuita, ma ci saranno costi di archiviazione di Azure derivanti dall'archiviazione di informazioni nel file di log.
+> [!NOTE]
+> Integrazione log di Azure è una soluzione gratuita, ma ci sono costi di archiviazione di Azure derivanti dall'archiviazione di informazioni nei file di log.
 
-Per ricevere assistenza, aprire [una richiesta di supporto](../azure-supportability/how-to-create-azure-support-request.md). A tale scopo selezionare **Integrazione log** come servizio per cui richiedere supporto.
+In caso di necessità, creare una [richiesta di assistenza](../azure-supportability/how-to-create-azure-support-request.md). Per il servizio, selezionare **Integrazione log**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo documento è stata presentata l'integrazione dei log di Azure. Per altre informazioni sull'integrazione dei log di Azure e sui tipi di log supportati, vedere gli argomenti seguenti:
+Questo articolo rappresenta l'introduzione a Integrazione log di Azure. Per altre informazioni su Integrazione log di Azure e sui tipi di log supportati, vedere gli articoli seguenti:
 
-* [Introduzione all'integrazione dei log di Azure](security-azure-log-integration-get-started.md) - Questa esercitazione illustra come installare l'integrazione dei log di Azure e integrare i log dall'archiviazione di Azure WAD, i log attività di Azure, gli avvisi del Centro sicurezza di Azure e i log di controllo di Azure Active Directory.
-* [Domande frequenti sull'integrazione dei log di Azure](security-azure-log-integration-faq.md) - Queste domande frequenti riguardano l'integrazione dei log di Azure.
-* [Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)
+* [Introduzione a Integrazione log di Azure](security-azure-log-integration-get-started.md). Questa esercitazione guida l'utente attraverso l'installazione di Integrazione log di Azure e descrive come integrare log da risorse di archiviazione di Diagnostica di Microsoft Azure, log attività di Azure, avvisi del Centro sicurezza di Azure e log di controllo di Azure Active Directory.
+* [Domande frequenti su Integrazione log di Azure](security-azure-log-integration-faq.md). Queste domande frequenti riguardano Integrazione log di Azure.
+* Altre informazioni su come [trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-overview/azure-log-integration.png

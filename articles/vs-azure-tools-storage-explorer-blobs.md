@@ -1,11 +1,11 @@
 ---
-title: Gestire le risorse di archiviazione BLOB di Azure con Esplora archivi (anteprima) | Documentazione Microsoft
+title: Gestire le risorse di archiviazione BLOB di Azure con Esplora archivi (anteprima) | Microsoft Docs
 description: Gestire contenitori BLOB e BLOB di Azure con Storage Explorer (anteprima)
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
 ms.service: storage
 ms.devlang: multiple
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: c23b87cca66df0834a31494be7d8657ff9f2a865
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98a1016f78587b4139041f140634b98fa47edfd1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>Gestire le risorse dell'archivio BLOB di Azure con Storage Explorer (anteprima)
 ## <a name="overview"></a>Panoramica
 [Archiviazione BLOB di Azure](storage/blobs/storage-dotnet-how-to-use-blobs.md) è un servizio per l'archiviazione di grandi quantità di dati non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS.
 L'archiviazione BLOB può essere usata per esporre dati pubblicamente a livello mondiale o archiviare privatamente i dati delle applicazioni. In questo articolo si apprenderà come usare Storage Explorer (anteprima) per l'utilizzo di contenitori BLOB e BLOB.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario eseguire queste operazioni:
 
 * [Scaricare e installare Storage Explorer (anteprima)](http://www.storageexplorer.com)
@@ -41,7 +41,7 @@ I passaggi seguenti illustrano come creare un contenitore BLOB all'interno di St
 3. Fare clic con il pulsante destro del mouse su **Contenitori BLOB** e scegliere **Crea contenitore BLOB** dal menu di scelta rapida.
 
    ![Menu di scelta rapida Crea contenitore BLOB][0]
-4. Sotto la cartella **contenitori BLOB** verrà visualizzata una casella di testo. Immettere il nome per il contenitore BLOB. Per un elenco di regole e restrizioni relative alla denominazione dei contenitori BLOB, vedere [Regole di denominazione dei contenitori](storage/blobs/storage-dotnet-how-to-use-blobs.md#create-a-container).
+4. Sotto la cartella **contenitori BLOB** verrà visualizzata una casella di testo. Immettere il nome per il contenitore BLOB. Vedere [Creare il contenitore e impostare le autorizzazioni](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) per informazioni sulle regole e le restrizioni relative alla denominazione dei contenitori BLOB.
 
    ![Casella di testo Crea contenitore BLOB][1]
 5. Premere **INVIO** al termine della creazione del contenitore BLOB o **ESC** per annullare. Dopo aver creato il contenitore BLOB, verrà visualizzato sotto la cartella **contenitori BLOB** per l'account di archiviazione selezionato.
@@ -174,7 +174,7 @@ I passaggi seguenti illustrano come gestire i BLOB e le cartelle all'interno di 
      2. Nella finestra di dialogo **Carica i file** scegliere il pulsante con i puntini di sospensione (**…**) a destra della casella **File** per selezionare i file da caricare.
 
         ![Opzioni di Carica i file][16]
-     3. Specificare un valore per tipo **Tipo BLOB**. L'articolo [Introduzione all'archiviazione BLOB di Azure con .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) illustra le differenze tra i vari tipi di BLOB.
+     3. Specificare un valore per tipo **Tipo BLOB**. Per altre informazioni, vedere [Creare il contenitore e impostare le autorizzazioni](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container).
      4. È possibile specificare una cartella di destinazione in cui verranno caricati i file selezionati. Se la cartella di destinazione non esiste, verrà creata.
      5. Selezionare **Carica**.
    * **Caricare una cartella in un contenitore BLOB**
@@ -185,7 +185,7 @@ I passaggi seguenti illustrano come gestire i BLOB e le cartelle all'interno di 
      2. Nella finestra di dialogo **Upload Folder** (Carica cartella) scegliere il pulsante con i puntini di sospensione (**…**) a destra della casella di testo **Cartella** per selezionare la cartella di cui si vuole caricare il contenuto.
 
         ![Opzioni di Upload Folder (Carica cartella)][18]
-     3. Specificare un valore per tipo **Tipo BLOB**. L'articolo [Introduzione all'archiviazione BLOB di Azure con .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) illustra le differenze tra i vari tipi di BLOB.
+     3. Specificare un valore per tipo **Tipo BLOB**. Per altre informazioni, vedere [Creare il contenitore e impostare le autorizzazioni](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container).
      4. È possibile specificare una cartella di destinazione in cui verrà caricato il contenuto della cartella selezionata. Se la cartella di destinazione non esiste, verrà creata.
      5. Selezionare **Carica**.
    * **Scaricare un BLOB nel computer locale**

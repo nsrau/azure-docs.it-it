@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2018
+ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizzare le risorse con i gruppi di gestione di Azure 
 
@@ -24,15 +24,13 @@ Se l'organizzazione dispone di molte sottoscrizioni, potrebbe essere necessario 
 
 La funzionalità dei gruppi di gestione è disponibile come anteprima pubblica. Per iniziare a usare i gruppi di gestione, accedere al [portale di Azure](https://portal.azure.com) e cercare **Gruppi di gestione** nella sezione **Tutti i servizi**. 
 
-Il supporto di Criteri di Azure per i gruppi di gestione non è ancora disponibile nell'anteprima pubblica, ma lo sarà nelle prossime settimane.  
-
 Ad esempio, è possibile applicare a un gruppo di gestione criteri che limitano le aree disponibili per la creazione di macchine virtuali (VM). Questi criteri verranno applicati a tutti i gruppi di gestione, le sottoscrizioni e le risorse all'interno del gruppo, consentendo la creazione di macchine virtuali esclusivamente in tale area.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Gerarchia di gruppi di gestione e sottoscrizioni 
 
 È possibile creare una struttura flessibile di gruppi di gestione e sottoscrizioni, in modo da organizzare le risorse in una gerarchia per la gestione unificata di accesso e criteri. Il diagramma seguente mostra una gerarchia di esempio costituita da gruppi di gestione e sottoscrizioni organizzati in base ai reparti.    
 
-![gerarchia](media/management-groups/MG_overview.png)
+![albero](media/management-groups/MG_overview.png)
 
 Tramite la creazione di una gerarchia raggruppata per reparti, si è in grado di assegnare ruoli [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-what-is.md) che vengono *ereditati* dai reparti sottostanti al gruppo di gestione. Usando i gruppi di gestione è possibile ridurre il carico di lavoro e il rischio di errori, grazie alla possibilità di assegnare il ruolo una sola volta. 
 
@@ -42,6 +40,14 @@ Tramite la creazione di una gerarchia raggruppata per reparti, si è in grado di
     - Questo limite non include il livello radice o il livello sottoscrizione.
 - Ogni gruppo di gestione può supportare un solo elemento padre.
 - Ogni gruppo di gestione può avere più elementi figlio. 
+
+### <a name="preview-subscription-visibility-limitation"></a>Limitazione della visibilità delle sottoscrizioni nell'anteprima 
+Attualmente esiste una limitazione nell'anteprima che non consente di visualizzare le sottoscrizioni a cui è stato ereditato l'accesso. L'accesso viene ereditato nella sottoscrizione, ma Azure Resource Manager non è ancora in grado di rispettare questo tipo di accesso.  
+
+L'uso dell'API REST per ottenere informazioni sulla sottoscrizione restituisce dettagli come se si disponesse dell'accesso, ma nel portale di Azure e in Azure Powershell le sottoscrizioni non vengono visualizzate. 
+
+Si sta lavorando su questo aspetto che verrà risolto prima dell'annuncio di "Disponibilità generale" dei gruppi di gestione.  
+
 
 ## <a name="root-management-group-for-each-directory"></a>Gruppo di gestione radice per ogni directory
 

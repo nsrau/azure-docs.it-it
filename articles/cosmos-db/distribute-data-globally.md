@@ -2,23 +2,23 @@
 title: Distribuire i dati a livello globale con Azure Cosmos DB | Microsoft Docs
 description: Informazioni sulla replica geografica a livello globale, sul failover e sul ripristino dei dati usando i database globali di Azure Cosmos DB, un servizio database multimodello distribuito a livello globale.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 03/26/2018
 ms.author: arramac
-ms.openlocfilehash: 0be81802996f27a4c063e4e728a3c95ad757bea0
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: e31b66f20c51e95dbc2d8285bb5602590abd4f4f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Come distribuire i dati a livello globale con Azure Cosmos DB
 Azure è ovunque, offre una copertura globale in oltre 30 aree geografiche ed è in continua espansione. Ciò consente ad Azure di offrire in esclusiva agli sviluppatori la possibilità di creare, distribuire e gestire applicazioni distribuite a livello globale con la massima semplicità. 
@@ -37,6 +37,11 @@ In questo articolo viene illustrata una panoramica delle funzionalità di distri
 
 ## <a id="EnableGlobalDistribution"></a>Abilitazione della distribuzione globale chiavi in mano
 Azure Cosmos DB offre le funzionalità seguenti per consentire agli sviluppatori di scrivere applicazioni su scala globale in tutta semplicità. Queste funzionalità sono disponibili tramite [API REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) basate su provider di risorse di Azure Cosmos DB e tramite il portale di Azure.
+
+Nel video seguente Andrew Liu, Program Manager di Azure Cosmos DB, illustra le funzionalità di distribuzione globale chiavi in mano.
+
+> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ### <a id="RegionalPresence"></a>Presenza in tutte le aree 
 La presenza geografica di Azure è in continuo aumento, grazie alla disponibilità di un crescente numero di [nuove aree](https://azure.microsoft.com/regions/). Per impostazione predefinita, Azure Cosmos DB è disponibile in tutte le nuove aree di Azure. In questo modo, è possibile associare un'area geografica all'account del database Azure Cosmos DB non appena Azure rende disponibile la nuova area.

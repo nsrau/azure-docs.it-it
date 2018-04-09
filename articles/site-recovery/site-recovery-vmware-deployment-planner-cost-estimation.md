@@ -2,11 +2,11 @@
 title: Azure Site Recovery Deployment Planner per distribuzioni da VMware ad Azure | Microsoft Docs
 description: Guida dell'utente di Azure Site Recovery Deployment Planner.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 63963804b81aa57e914e18fa474963a3830d04d5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 337217e66fe4d3780af197911a0e72c6f936e411
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Report di stima dei costi di Azure Site Recovery Deployment Planner  
 
@@ -110,7 +110,7 @@ Per aggiungere manualmente le VM:
 * Each DR-Drill duration (Days) (Durata di ogni esercitazione sul ripristino di emergenza - giorni) 
 * OS Type (Tipo di sistema operativo)
 * Ridondanza dei dati 
-* Vantaggio Azure Hybrid Use
+* Vantaggio Azure Hybrid
 
 3.  È possibile applicare lo stesso valore a tutte le VM nella tabella facendo clic sul pulsante "Apply to all" (Applica a tutte) per il numero di esercitazioni sul ripristino di emergenza in un anno, la durata di ogni esercitazione sul ripristino di emergenza (in giorni), la ridondanza dei dati e il vantaggio Azure Hybrid Use.
 
@@ -136,7 +136,7 @@ Per aggiungere manualmente le VM:
 
 **Data redundancy** (Ridondanza dei dati): può corrispondere a LRS (Archiviazione con ridondanza locale), GRS (Archiviazione con ridondanza geografica) o RA-GRS (Archiviazione con ridondanza geografica e accesso in lettura). L'impostazione predefinita è LRS (Archiviazione con ridondanza locale). È possibile modificare il tipo in base al proprio account di archiviazione per VM specifiche oppure applicare il nuovo tipo a tutte le VM modificandolo nella prima riga e facendo clic sul pulsante "Apply to all" (Applica a tutte).  Il costo di archiviazione della replica viene calcolato in base al prezzo della ridondanza dei dati selezionata. 
 
-**Azure Hybrid Use Benefit** (Vantaggio Azure Hybrid Use): il vantaggio Azure Hybrid Use può essere eventualmente applicato alle VM Windows.  Il valore predefinito è Yes. È possibile modificare l'impostazione per VM specifiche oppure aggiornare tutte le VM facendo clic sul pulsante "Apply to all" (Applica a tutte).
+**Vantaggio Azure Hybrid**: il vantaggio Azure Hybrid può essere eventualmente applicato alle macchine virtuali Windows.  Il valore predefinito è Yes. È possibile modificare l'impostazione per VM specifiche oppure aggiornare tutte le VM facendo clic sul pulsante "Apply to all" (Applica a tutte).
 
 **Total Azure consumption** (Utilizzo totale di Azure): include il costo di calcolo, di archiviazione e della licenza di Azure Site Recovery per il ripristino di emergenza. Viene visualizzato il costo mensile o annuale in base alla selezione effettuata.
 

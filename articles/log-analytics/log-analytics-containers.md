@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: 0ad267b9694c2f9cdb574b6b6008d4f6fa027fce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6d2c85225ab74c912183a0bb8d7f100d1354e6c5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Soluzione Monitoraggio contenitori in Log Analytics
 
@@ -100,7 +100,10 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
     - In Windows Server 2016 e Windows 10, installare il motore e il client Docker, quindi connettere un agente per raccogliere informazioni da inviare a Log Analytics. Se si dispone di un ambiente Windows, consultare [Install and configure Windows container hosts](#install-and-configure-windows-container-hosts) (installare e configurare gli host contenitore di Windows).
   - Per l'orchestrazione di multi-host Docker:
     - Se si opera in un ambiente Red Hat OpenShift, vedere [Configurare un agente OMS per Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
-    - Se si dispone di un cluster Kubernetes tramite il servizio contenitore di Azure, consultare [Configure an OMS agent for Kubernetes](#configure-an-oms-agent-for-kubernetes) (Configurare un agente OMS per Kubernetes).
+    - Se si dispone di un cluster Kubernetes con il servizio contenitore di Azure:
+       - Consultare [Configurare un agente OMS per Kubernetes Linux](#configure-an-oms-linux-agent-for-kubernetes).
+       - Consultare [Configurare un agente OMS per Kubernetes Windows](#configure-an-oms-windows-agent-for-kubernetes).
+       - Consultare [Usare Helm per distribuire l'agente OMS in Kubernetes Linux](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
     - Se si ha un cluster DC/OS del servizio contenitore di Azure, vedere [Monitorare un cluster DC/OS del servizio contenitore di Azure con Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Se è presente un ambiente in modalità Docker Swarm, per altre informazioni vedere [Configurare un agente OMS per Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
     - Se si dispone di un cluster di Service Fabric, sono disponibili altre informazioni in [Monitorare i contenitori con Log Analytics di OMS](../service-fabric/service-fabric-diagnostics-oms-containers.md).
@@ -387,7 +390,7 @@ WSID:   36 bytes
 KEY:    88 bytes
 ```
 
-#### <a name="configure-an-oms-agent-for-windows-kubernetes"></a>Configurare un agente OMS per Kubernetes Windows
+#### <a name="configure-an-oms-windows-agent-for-kubernetes"></a>Configurare un agente OMS per Kubernetes Windows
 Per Kubernetes Windows è possibile usare uno script per generare il file yaml dei segreti per l'ID area di lavoro e la chiave primaria per installare l'agente OMS. Nella pagina [OMS Docker/Kubernetes di GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) sono disponibili file usabili con informazioni segrete.  È necessario installare l'agente OMS separatamente per i nodi master e agente.  
 
 1. Per usare il DaemonSet dell'agente OMS con informazioni segrete nel nodo master, in primo luogo eseguire l'accesso e creare i segreti.
@@ -544,15 +547,15 @@ La tabella seguente mostra esempi di record raccolti dalla soluzione Monitoraggi
 
 | Tipo di dati | Tipo di dati in Ricerca log | Fields |
 | --- | --- | --- |
-| Prestazioni per host e contenitori | `Type=Perf` | Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
-| Inventario contenitori | `Type=ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
-| Inventario delle immagini dei contenitori | `Type=ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
-| Log contenitori | `Type=ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
-| Log servizio contenitori | `Type=ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
-| Inventario di nodi contenitore | `Type=ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Inventario di Kubernetes | `Type=KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
-| Processo contenitore | `Type=ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Eventi di Kubernetes | `Type=KubeEvents_CL` | TimeGenerated, Computer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, Message |
+| Prestazioni per host e contenitori | `Perf` | Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
+| Inventario contenitori | `ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
+| Inventario delle immagini dei contenitori | `ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
+| Log contenitori | `ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
+| Log servizio contenitori | `ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
+| Inventario di nodi contenitore | `ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
+| Inventario di Kubernetes | `KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
+| Processo contenitore | `ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
+| Eventi di Kubernetes | `KubeEvents_CL` | TimeGenerated, Computer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, Message |
 
 Le etichette aggiunte ai tipi di dati *PodLabel* sono etichette personalizzate. Le etichette PodLabel aggiunte indicate nella tabella sono esempi. `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` saranno quindi diverse nel set di dati dell'ambiente e in genere saranno simili a `PodLabel_yourlabel_s`.
 
@@ -607,7 +610,7 @@ Log Analytics contrassegna un contenitore come **Non riuscito** se il contenitor
    ![stato dei contenitori](./media/log-analytics-containers/containers-log-search.png)
 3. Fare quindi clic sul valore aggregato dei contenitori non riusciti per visualizzare altre informazioni. Espandere **mostra dettagli** per visualizzare l'ID immagine.  
    ![contenitori non riusciti](./media/log-analytics-containers/containers-state-failed.png)  
-4. Digitare quindi il codice seguente nella query di ricerca. `Type=ContainerInventory <ImageID>` visualizza i dettagli dell'immagine, ad esempio dimensioni e numero di immagini arrestate e non riuscite.  
+4. Digitare quindi il codice seguente nella query di ricerca. `ContainerInventory <ImageID>` visualizza i dettagli dell'immagine, ad esempio dimensioni e numero di immagini arrestate e non riuscite.  
    ![contenitori non riusciti](./media/log-analytics-containers/containers-failed04.png)
 
 ## <a name="search-logs-for-container-data"></a>Ricerca dei dati dei contenitori nei log
@@ -625,17 +628,17 @@ Nella risoluzione di un errore specifico può essere utile vedere dove l'errore 
 
 
 ### <a name="to-search-logs-for-container-data"></a>Per cercare i dati dei contenitori nei log
-* Scegliere un'immagine non riuscita di recente e trovare i relativi registri degli errori. Iniziare cercando il nome di un contenitore che esegue l'immagine con una ricerca **ContainerInventory**. Cercare ad esempio `Type=ContainerInventory ubuntu Failed`  
+* Scegliere un'immagine non riuscita di recente e trovare i relativi registri degli errori. Iniziare cercando il nome di un contenitore che esegue l'immagine con una ricerca **ContainerInventory**. Cercare ad esempio `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Cercare contenitori Ubuntu](./media/log-analytics-containers/search-ubuntu.png)
 
-  Prendere nota del nome del contenitore accanto a **Name** e cercare questi log. In questo esempio si tratta di `Type=ContainerLog cranky_stonebreaker`.
+  Prendere nota del nome del contenitore accanto a **Name** e cercare questi log. In questo esempio si tratta di `ContainerLog | where Name == "cranky_stonebreaker"`.
 
 **Visualizzare le informazioni sulle prestazioni**
 
 Quando si inizia a creare query, può essere utile comprendere prima le operazioni possibili. Per visualizzare ad esempio tutti i dati sulle prestazioni, provare con una query generica digitando la query di ricerca seguente.
 
 ```
-Type=Perf
+Perf
 ```
 
 ![prestazioni dei contenitori](./media/log-analytics-containers/containers-perf01.png)
@@ -643,7 +646,7 @@ Type=Perf
 È possibile limitare i dati sulle prestazioni visualizzati a un contenitore specifico digitando il relativo nome a destra della query.
 
 ```
-Type=Perf <containerName>
+Perf <containerName>
 ```
 
 Verrà visualizzato l'elenco delle metriche delle prestazioni raccolte per un singolo contenitore.
@@ -652,8 +655,6 @@ Verrà visualizzato l'elenco delle metriche delle prestazioni raccolte per un si
 
 ## <a name="example-log-search-queries"></a>Esempio di query di ricerca log
 Spesso è utile compilare query iniziando con qualche esempio da modificare in funzione dell'ambiente. Come punto di partenza è possibile provare a usare l'area **Query di esempio** per compilare query più avanzate.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Query sui contenitori](./media/log-analytics-containers/containers-queries.png)
 

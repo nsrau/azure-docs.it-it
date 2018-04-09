@@ -1,7 +1,22 @@
+---
+title: Distribuzione globale di Azure Cosmos DB
+description: Informazioni su come replicare i dati a livello globale con Azure Cosmos DB nel portale di Azure
+services: cosmos-db
+author: mimig1
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 03/26/2018
+ms.author: mimig
+ms.custom: include file
+ms.openlocfilehash: b62d1cc3b7ea79adbf24f214ba3bb9e92c3a1f0c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/28/2018
+---
+È possibile ottenere maggiori informazioni sulla distribuzione globale di Azure Cosmos DB nel video seguente in cui Andrew Liu, Program Manager di Azure Cosmos DB, illustra in dettaglio la funzionalità di distribuzione globale.
 
-In questo video di Azure Friday, con Scott Hanselman e Karthik Raman, Principal Engineering Manager, sono disponibili altre informazioni sulla distribuzione globale in Azure Cosmos DB.
-
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+>[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
 
 Per informazioni sul funzionamento della replica di database globale in Azure Cosmos DB, vedere [Distribuire i dati a livello globale con Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
 
@@ -9,13 +24,13 @@ Per informazioni sul funzionamento della replica di database globale in Azure Co
 Azure Cosmos DB è disponibile in tutte le [aree di Azure][azureregions] del mondo. Dopo aver selezionato il livello di coerenza predefinito per l'account di database, è possibile associare una o più aree, a seconda del livello di coerenza predefinito e delle esigenze di distribuzione globale scelti.
 
 1. Nella barra a sinistra del [portale di Azure](https://portal.azure.com/) fare clic su **Azure Cosmos DB**.
-2. Nel pannello **Azure Cosmos DB** selezionare l'account di database da modificare.
-3. Nel pannello dell'account fare clic su **Replica i dati a livello globale** dal menu.
-4. Nel pannello **Replica i dati a livello globale** selezionare le aree da aggiungere o rimuovere facendo clic su di esse nella mappa e quindi scegliere **Salva**. L'aggiunta di aree ha un costo. Per altre informazioni, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) o l'articolo [Distribuire i dati a livello globale con Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
+2. Nella pagina **Azure Cosmos DB** selezionare l'account di database da modificare.
+3. Nella pagina dell'account fare clic su **Replica i dati a livello globale** dal menu.
+4. Nella pagina **Replica i dati a livello globale** selezionare le aree da aggiungere o rimuovere facendo clic su di esse nella mappa e quindi scegliere **Salva**. L'aggiunta di aree ha un costo. Per altre informazioni, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) o l'articolo [Distribuire i dati a livello globale con Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
    
     ![Fare clic sulle aree nella mappa per aggiungerle o rimuoverle][1]
     
-Dopo l'aggiunta di una seconda area, nel pannello **Replica i dati a livello globale** del portale viene abilitata l'opzione **Failover manuale**. È possibile usare questa opzione per testare il processo di failover o per modificare l'area di scrittura primaria. Dopo avere aggiunto una terza area, l'opzione **Priorità di failover** viene abilitata nello stesso pannello per poter modificare l'ordine di failover per le operazioni di lettura.  
+Dopo l'aggiunta di una seconda area, viene abilitata l'opzione **Failover manuale** nella pagina **Replica i dati a livello globale** del portale. È possibile usare questa opzione per testare il processo di failover o per modificare l'area di scrittura primaria. Dopo avere aggiunto una terza area, l'opzione **Priorità di failover** viene abilitata nella stessa pagina per poter modificare l'ordine di failover per le operazioni di lettura.  
 
 ### <a name="selecting-global-database-regions"></a>Selezionare aree di database globali
 Esistono due scenari comuni per la configurazione di due o più aree:
@@ -23,7 +38,7 @@ Esistono due scenari comuni per la configurazione di due o più aree:
 1. Offerta di accesso con bassa latenza ai dati indipendentemente dalla posizione del mondo in cui si trovano gli utenti finali
 2. Aggiunta di resilienza a livello di area per garantire continuità aziendale e ripristino di emergenza (BCDR)
 
-Per offrire l'accesso con bassa latenza agli utenti finali, è consigliabile distribuire l'applicazione e aggiungere Azure Cosmos DB nelle aree corrispondenti alla località in cui si trovano gli utenti dell'applicazione.
+Per offrire l'accesso con bassa latenza agli utenti finali, è consigliabile distribuire l'applicazione e Azure Cosmos DB nelle aree corrispondenti alla località in cui si trovano gli utenti dell'applicazione.
 
 Per finalità BCDR, è consigliabile aggiungere le aree in base alle coppie di aree descritte nell'articolo [Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure][bcdr].
 

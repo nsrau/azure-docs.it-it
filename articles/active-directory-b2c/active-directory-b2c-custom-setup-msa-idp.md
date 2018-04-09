@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Aggiungere un account Microsoft come provider di identità tramite criteri personalizzati"
-description: "Esempio di utilizzo di Microsoft come provider di identità basato sul protocollo OpenID Connect (OIDC)"
+title: 'Azure Active Directory B2C: Aggiungere un account Microsoft come provider di identità tramite criteri personalizzati'
+description: Esempio di utilizzo di Microsoft come provider di identità basato sul protocollo OpenID Connect (OIDC)
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: cdc77d093358fa15bb1acbc9ba6b1867bae062f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: a49e9589322eeb90a713321b4fbe4c4820609f7a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Aggiungere un account Microsoft come provider di identità tramite criteri personalizzati
 
@@ -38,7 +35,7 @@ La procedura include i passaggi seguenti:
 5.  Caricamento dei criteri in un tenant di Azure AD B2C e test dei criteri
 
 ## <a name="create-a-microsoft-account-application"></a>Creare un'applicazione di account Microsoft
-Per usare un account Microsoft come provider di identità in Azure Active Directory (Azure AD) B2C, è necessario creare un'applicazione di account Microsoft e inserire i parametri corretti. È necessario un account Microsoft. Se non si ha un account, visitare il sito [https://www.live.com/](https://www.live.com/).
+Per usare un account Microsoft come provider di identità in Azure Active Directory (Azure AD) B2C, è necessario creare un'applicazione di account Microsoft e inserire i parametri corretti. È necessario un account Microsoft. Se non si ha un account, visitare [https://www.live.com/](https://www.live.com/).
 
 1.  Entrare nel [portale di registrazione delle applicazioni Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) e accedere con le credenziali del proprio account Microsoft.
 2.  Fare clic su **Aggiungi un'app**.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 5d6d81678d1b3c63b52b34e79979d06fdc981ad0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8905b708101e78691c14168edf7afd659afa92a4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montare una condivisione file di Azure e accedere alla condivisione in Windows
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate in Windows e Windows Server. Questo articolo illustra tre diversi modi per montare una condivisione file di Azure in Windows: con l'interfaccia utente di Esplora file, tramite PowerShell e tramite il prompt dei comandi. 
@@ -86,7 +86,7 @@ Dopo che le credenziali sono state rese persistenti, non è più necessario forn
     
     ![Screenshot del menu a discesa "Connetti unità di rete"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. **Copiare il percorso UNC dal riquadro "Connetti" nel portale di Azure**: per una descrizione dettagliata di come trovare queste informazioni, vedere [qui](storage-how-to-use-files-portal.md#connect-to-file-share).
+3. **Copiare il percorso UNC dal riquadro "Connetti" nel portale di Azure.** 
 
     ![Il percorso UNC dal riquadro Connetti di File di Azure](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 

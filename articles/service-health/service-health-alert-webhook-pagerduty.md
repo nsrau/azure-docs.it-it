@@ -1,12 +1,12 @@
 ---
-title: "Configurare gli avvisi di integrità dei servizi di Azure con PagerDuty | Microsoft Docs"
-description: "Ricevere notifiche personalizzate sugli eventi di integrità del servizio nell'istanza di PagerDuty."
+title: Configurare gli avvisi di integrità dei servizi di Azure con PagerDuty | Microsoft Docs
+description: Ricevere notifiche personalizzate sugli eventi di integrità del servizio nell'istanza di PagerDuty.
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 9edcb727b9f0af348cacd5533523c4f2e8214703
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6e9fcf20d368e270f9af4551c539acd873335498
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>Configurare gli avvisi di integrità dei servizi con PagerDuty
 
@@ -88,7 +88,7 @@ Questo articolo illustra come configurare le notifiche di integrità dei servizi
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. Verrà visualizzato un codice `202 Accepted` con un messaggio contenente l'"ID evento".
 

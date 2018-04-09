@@ -4,18 +4,18 @@ description: Panoramica del servizio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 02/26/2018
+ms.date: 03/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 45eac1d1ecb173ba0a62ab13f47b7ee6e12f7af3
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 857dab5474cba24445daf7d139ae49d923038196
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
-Il servizio Azure Migrate valuta i carichi di lavoro locali per la migrazione ad Azure. Il servizio valuta l'idoneità alla migrazione dei computer locali in Azure e il dimensionamento in base alle prestazioni e fornisce stime dei costi per l'esecuzione dei computer locali in Azure. È il servizio ideale se si stanno prendendo in considerazione migrazioni in modalità lift-and-shift o si affrontano le prime fasi di valutazione della migrazione. Al termine della valutazione, è possibile usare servizi come [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) e [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview), per eseguire la migrazione dei computer in Azure.
+Il servizio Azure Migrate valuta i carichi di lavoro locali per la migrazione ad Azure. Il servizio valuta l'idoneità alla migrazione dei computer locali e il dimensionamento in base alle prestazioni e fornisce stime dei costi per l'esecuzione dei computer locali in Azure. È il servizio ideale se si stanno prendendo in considerazione migrazioni in modalità lift-and-shift o si affrontano le prime fasi di valutazione della migrazione. Al termine della valutazione, è possibile usare servizi come [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) e [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview), per eseguire la migrazione dei computer in Azure.
 
 ## <a name="why-use-azure-migrate"></a>Vantaggi di Azure Migrate
 
@@ -28,14 +28,12 @@ Azure Migrate consente di eseguire le operazioni seguenti.
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
-- Attualmente è possibile valutare solo macchine virtuali (VM) VMware locali per la migrazione a VM di Azure. Le VM VMware devono essere gestite dal server vCenter (versione 5.5, 6.0 o 6.5)
-
-> [!NOTE]
-> Il supporto per Hyper-V è in programma e sarà disponibile a breve. Nel frattempo, per pianificare la migrazione di carichi di lavoro Hyper-V è consigliabile usare [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc). 
-
+- Attualmente è possibile valutare solo macchine virtuali (VM) VMware locali per la migrazione a VM di Azure. Le VM VMware devono essere gestite dal server vCenter (versione 5.5, 6.0 o 6.5).
+- Il supporto per Hyper-V è disponibile nella nostra roadmap. Nel frattempo, per pianificare la migrazione di carichi di lavoro Hyper-V è consigliabile usare [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc). 
 - È possibile individuare fino a 1000 VM in una singola individuazione e fino a 1500 VM in un singolo progetto. È inoltre possibile valutare fino a 400 VM in una singola valutazione. Se è necessario individuarne o valutarne di più, si può aumentare il numero di individuazioni o valutazioni. [Altre informazioni](how-to-scale-assessment.md).
 - È possibile creare un progetto Azure Migrate solo nell'area Stati Uniti centro-occidentali o Stati Uniti orientali. Ciò non impedisce, tuttavia, di pianificare una migrazione per una diversa località di Azure di destinazione. La località del progetto di migrazione viene usata solo per l'archiviazione dei metadati individuati nell'ambiente locale.
 - Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione.
+
 
 ## <a name="what-do-i-need-to-pay-for"></a>Costo del servizio
 
@@ -52,7 +50,7 @@ Una valutazione consente di identificare l'idoneità di Azure per le macchine vi
 **Ridondanza dell'archiviazione** | Tipo di [ridondanza dell'archiviazione](https://docs.microsoft.com/azure/storage/common/storage-redundancy) che le VM di Azure useranno dopo la migrazione. Per impostazione predefinita viene usata l'archiviazione con ridondanza locale. Si noti che Azure Migrate supporta solo valutazioni basate su Managed Disks e il servizio Managed Disks supporta solo l'archiviazione con ridondanza locale, per questo motivo la proprietà attualmente prevede solo l'opzione di archiviazione con ridondanza locale. 
 **Criterio di dimensionamento** | Criterio che Azure Migrate deve usare per dimensionare correttamente le VM per Azure. È possibile definire il dimensionamento in base alla *cronologia delle prestazioni* delle VM locali o definire le dimensioni delle VM *come in locale* per Azure, senza considerare la cronologia delle prestazioni. Per impostazione predefinita viene usato il dimensionamento in base alle prestazioni.
 **Piani dei prezzi** | Per il calcolo dei costi, la valutazione considera l'eventuale iscrizione a Software Assurance e l'idoneità per il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Vengono considerate anche le [offerte di Azure](https://azure.microsoft.com/support/legal/offer-details/) eventualmente sottoscritte ed è possibile specificare gli sconti specifici della sottoscrizione (%) di cui si può usufruire con l'offerta. 
-**Piano tariffario** | È possibile specificare il [piano tariffario (Basic o Standard)](../virtual-machines/windows/sizes-general.md) per le VM di Azure di destinazione. Se, ad esempio, si prevede di eseguire la migrazione di un ambiente di produzione, considerare il livello Standard, che offre VM con bassa latenza, anche se a un costo superiore. D'altra parte, se si ha un ambiente di sviluppo e test, potrebbe essere preferibile il livello Basic, che ha VM con latenza maggiore e costi minori. Per impostazione predefinita, viene usato il livello [Standard](../virtual-machines/windows/sizes-general.md).
+**Piano tariffario** | È possibile specificare il [piano tariffario (Basic o Standard)](../virtual-machines/windows/sizes-general.md) per le macchine virtuali di Azure di destinazione. Se, ad esempio, si prevede di eseguire la migrazione di un ambiente di produzione, considerare il livello Standard, che offre macchine virtuali con bassa latenza, anche se a un costo superiore. D'altra parte, se si ha un ambiente di sviluppo e test, può essere preferibile il livello Basic, che ha macchine virtuali con latenza maggiore e costi minori. Per impostazione predefinita, viene usato il livello [Standard](../virtual-machines/windows/sizes-general.md).
 **Cronologia delle prestazioni** | Applicabile solo se il criterio di dimensionamento è basato sulle prestazioni. Per impostazione predefinita, Azure Migrate valuta le prestazioni dei computer locali usando la cronologia delle prestazioni dell'ultimo giorno, con un valore percentile del 95%. È possibile modificare questi valori nelle proprietà della valutazione. 
 **Fattore di comfort** | Durante la valutazione, Azure Migrate considera un buffer (fattore di comfort), che viene applicato ai dati sull'utilizzo delle VM (CPU, memoria, disco e rete). Il fattore di comfort tiene conto di aspetti come utilizzo stagionale, breve cronologia delle prestazioni e probabile aumento dell'utilizzo futuro.<br/><br/> Da una VM con 10 core e un utilizzo del 20%, ad esempio, si ottiene normalmente una VM con 2 core. Con un fattore di comfort pari a 2.0x, invece, il risultato è una VM con 4 core. L'impostazione predefinita del fattore di comfort è 1.3x.
 

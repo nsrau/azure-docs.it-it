@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 9d57f572ba159191f5b634b5ea604563ac2f7801
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3991312d7f7609bb0a206ccc0ecc67123ebec469
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Esecuzione di processi Apache Spark in AKS
 
@@ -33,7 +33,7 @@ Per completare la procedura descritta in questo articolo è necessario quanto se
 ## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio contenitore di Azure
 
 Spark viene usato per l'elaborazione di dati su larga scala ed è necessario che le dimensioni dei nodi Kubernetes soddisfino i requisiti di Spark in termini di risorse. Per i nodi del servizio contenitore di Azure (AKS) si consigliano dimensione di `Standard_D3_v2`.
- 
+
 Se è necessario un cluster AKS che soddisfi questo requisito minimo, eseguire i comandi seguenti.
 
 Creare un gruppo di risorse per il cluster.
@@ -58,12 +58,12 @@ Se si usa il Registro contenitori di Azure per archiviare le immagini dei conten
 
 ## <a name="build-the-spark-source"></a>Compilare l'origine Spark
 
-Prima di eseguire processi di Spark su un cluster AKS, è necessario compilare il codice sorgente di Spark e crearne il pacchetto in un'immagine contenitore. L'origine Spark contiene script che è possibile usare per completare questo processo. 
+Prima di eseguire processi di Spark su un cluster AKS, è necessario compilare il codice sorgente di Spark e crearne il pacchetto in un'immagine contenitore. L'origine Spark contiene script che è possibile usare per completare questo processo.
 
 Clonare il repository del progetto Spark nel sistema di sviluppo.
 
 ```bash
-git clone https://github.com/apache/spark
+git clone -b branch-2.3 https://github.com/apache/spark
 ```
 
 Passare alla directory del repository clonato e salvare il percorso dell'origine Spark in una variabile.
@@ -73,7 +73,7 @@ cd spark
 sparkdir=$(pwd)
 ```
 
-Se sono installate più versioni di JDK, impostare `JAVA_HOME` in modo da usare la versione 8 per la sessione corrente. 
+Se sono installate più versioni di JDK, impostare `JAVA_HOME` in modo da usare la versione 8 per la sessione corrente.
 
 ```bash
 export JAVA_HOME=`/usr/libexec/java_home -d 64 -v "1.8*"`
@@ -85,16 +85,21 @@ Eseguire il comando seguente per compilare il codice sorgente di Spark con suppo
 ./build/mvn -Pkubernetes -DskipTests clean package
 ```
 
-Il comando seguente crea le immagini contenitore di Spark e ne esegue il push in un registro di immagini contenitore. Sostituire `registry.example.com` con il nome del registro contenitori. Se si usa Hub Docker, questo valore è il nome del registro. Se si usa Registro contenitori di Azure, questo valore è il nome del server di accesso del Registro contenitori di Azure.
+I comandi seguenti creano le immagini del contenitore di Spark e ne eseguono il push in un registro di immagini contenitore. Sostituire `registry.example.com` con il nome del registro contenitori e `v1` con il tag che si preferisce usare. Se si usa Hub Docker, questo valore è il nome del registro. Se si usa Registro contenitori di Azure, questo valore è il nome del server di accesso del Registro contenitori di Azure.
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 build
+REGISTRY_NAME=registry.example.com
+REGISTRY_TAG=v1
+```
+
+```bash
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG build
 ```
 
 Eseguire il push dell'immagine del contenitore nel registro di immagini contenitore.
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 push
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG push
 ```
 
 ## <a name="prepare-a-spark-job"></a>Preparare un processo Spark
@@ -196,18 +201,10 @@ La variabile `jarUrl` contiene ora il percorso accessibile pubblicamente del fil
 
 ## <a name="submit-a-spark-job"></a>Inviare un processo Spark
 
-Prima di inviare il processo Spark, è necessario l'indirizzo del server API di Kubernetes. Usare il comando `kubectl cluster-info` per ottenere questo indirizzo.
-
-Individuare l'URL in cui è in esecuzione il server API di Kubernetes.
+Avviare kube-proxy in una riga di comando separata con il codice seguente.
 
 ```bash
-kubectl cluster-info
-```
-
-Prendere nota dell'indirizzo e della porta.
-
-```bash
-Kubernetes master is running at https://<your api server>:443
+kubectl proxy
 ```
 
 Tornare alla radice del repository Spark.
@@ -216,18 +213,16 @@ Tornare alla radice del repository Spark.
 cd $sparkdir
 ```
 
-Inviare il processo usando `spark-submit`. 
-
-Sostituire il valore `<kubernetes-api-server>` con l'indirizzo del server API e la porta. Sostituire `<spark-image>` con il nome dell'immagine del contenitore nel formato `<your container registry name>/spark:<tag>`.
+Inviare il processo usando `spark-submit`.
 
 ```bash
 ./bin/spark-submit \
-  --master k8s://https://<k8s-apiserver-host>:<k8s-apiserver-port> \
+  --master k8s://http://127.0.0.1:8001 \
   --deploy-mode cluster \
   --name spark-pi \
   --class org.apache.spark.examples.SparkPi \
   --conf spark.executor.instances=3 \
-  --conf spark.kubernetes.container.image=<spark-image> \
+  --conf spark.kubernetes.container.image=$REGISTRY_NAME/spark:$REGISTRY_TAG \
   $jarUrl
 ```
 
@@ -315,6 +310,9 @@ Quando si esegue il processo, anziché indicare un URL JAR remoto, è possibile 
     --conf spark.kubernetes.container.image=<spark-image> \
     local:///opt/spark/work-dir/<your-jar-name>.jar
 ```
+
+> [!WARNING]
+> La [documentazione][spark-docs] di Spark riporta che l'utilità di pianificazione di Kubernetes è attualmente in fase sperimentale. Nelle versioni future potrebbero essere apportate modifiche funzionali alla configurazione, alle immagini del contenitore e ai punti di ingresso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

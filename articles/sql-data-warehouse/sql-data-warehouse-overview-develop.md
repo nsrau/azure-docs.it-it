@@ -1,5 +1,5 @@
 ---
-title: Risorse per lo sviluppo di un data warehouse in Azure | Documentazione Microsoft
+title: Risorse per lo sviluppo di un data warehouse in Azure | Microsoft Docs
 description: Concetti di sviluppo, decisioni di progettazione, suggerimenti e tecniche di codifica per SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: develop
-ms.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: 329217faaf865052b79a1d44200cc3c788702046
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c81a6f9af556a86f10d2482333fdc98f9cfb1454
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decisioni di progettazione e tecniche di codifica per SQL Data Warehouse
 Esaminare questi articoli sullo sviluppo per capire meglio le decisioni chiave nella progettazione, i suggerimenti e le tecniche di codifica per SQL Data Warehouse.
@@ -49,7 +49,7 @@ Questi articoli illustrano le tecniche di codifica, i consigli e i suggerimenti 
 * [assegnazione di variabili][variable assignment]
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni di riferimento, vedere la pagina degli [argomenti di riferimento su Transact-SQL][Transact-SQL reference] per di SQL Data Warehouse.
+Per altre informazioni di riferimento, vedere [Istruzioni T-SQL di SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md).
 
 <!--Image references-->
 
@@ -71,7 +71,7 @@ Per altre informazioni di riferimento, vedere la pagina degli [argomenti di rife
 [user-defined schemas]: ./sql-data-warehouse-develop-user-defined-schemas.md
 [variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
 [views]: ./sql-data-warehouse-develop-views.md
-[Transact-SQL reference]: ./sql-data-warehouse-overview-reference.md
+
 
 <!--MSDN references-->
 [renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx

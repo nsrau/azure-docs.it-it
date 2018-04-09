@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: b68e8f7e67f767cff19e57f5864db89d6f059316
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b4559afa9294111eaa1f20fdf295d1fb26dcc994
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-deploy-a-linux-hybrid-runbook-worker"></a>Come distribuire un ruolo di lavoro ibrido per runbook di Linux
 
@@ -32,13 +30,13 @@ Ogni computer di lavoro runbook ibrido è un membro di un gruppo di computer di 
 Quando si avvia un runbook in un ruolo di lavoro ibrido per runbook, è necessario specificare il gruppo in cui verrà eseguito. I membri del gruppo determinano il ruolo di lavoro che gestirà la richiesta. Non è possibile scegliere un computer di lavoro specifico.
 
 ## <a name="installing-linux-hybrid-runbook-worker"></a>Installazione del ruolo di lavoro ibrido per runbook di Linux
-La procedura per installare e configurare manualmente un ruolo di lavoro ibrido per runbook in un computer Linux è semplice. È necessario abilitare la soluzione **Ruolo di lavoro ibrido per runbook di Automazione** nell'area di lavoro di OMS e quindi eseguire un set di comandi per registrare il computer come ruolo di lavoro e aggiungerlo a un gruppo nuovo o esistente. 
+La procedura per installare e configurare manualmente un ruolo di lavoro ibrido per runbook in un computer Linux è semplice. È necessario abilitare la soluzione **Ruolo di lavoro ibrido per runbook di Automazione** nell'area di lavoro di Log Analytics e quindi eseguire un set di comandi per registrare il computer come ruolo di lavoro e aggiungerlo a un gruppo nuovo o esistente. 
 
 Prima di procedere, è necessario annotare l'area di lavoro di Log Analytics a cui è collegato l'account di Automazione e anche la chiave primaria per l'account di Automazione. È possibile trovare entrambi gli elementi nel portale, selezionando l'account di Automazione, **Area di lavoro** per l'ID dell'area di lavoro, quindi scegliendo **Chiavi** per la chiave primaria.  
 
-1.  Abilitare la soluzione "Ruolo di lavoro ibrido per runbook di Automazione" in OMS. A tale scopo, è possibile:
+1.  Abilitare la soluzione "Ruolo di lavoro ibrido per runbook di Automazione" in Azure. A tale scopo, è possibile:
 
-   1. Dalla Raccolta soluzioni nel [portale di OMS](https://mms.microsoft.com) abilitare la soluzione **Ruolo di lavoro ibrido per runbook di Automazione**
+   1. Aggiungere la soluzione **Ruolo di lavoro ibrido per runbook di Automazione** alla sottoscrizione usando la procedura descritta in [Aggiungere soluzioni di gestione di Log Analytics di Azure all'area di lavoro](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).
    2. Eseguire il cmdlet seguente:
 
         ```powershell
@@ -47,18 +45,18 @@ Prima di procedere, è necessario annotare l'area di lavoro di Log Analytics a c
 
 2.  Eseguire il comando seguente modificando i valori per i parametri *-w*, *-k*, *-g* e *-e*. Per il parametro *-g* sostituire il valore con il nome del gruppo del ruolo di lavoro ibrido per runbook che il nuovo ruolo di lavoro ibrido per runbook di Linux deve aggiungere. Se il nome non è già presente nell'account di Automazione, viene eseguito un nuovo ruolo di lavoro ibrido per runbook con lo stesso nome.
     
-    ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
+    ```python
+    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
     ```
 3. Dopo il completamento del comando, il pannello Gruppi di ruoli di lavoro ibridi nel portale di Azure mostrerà il nuovo gruppo e il numero di membri oppure, nel caso di un gruppo esistente, il numero di membri verrà incrementato. È possibile selezionare il gruppo nell'elenco nel pannello **Gruppi di ruoli di lavoro ibridi** e selezionare il riquadro **Ruoli di lavoro per runbook**. Nel pannello **Ruoli di lavoro per runbook** sono elencati i membri del gruppo.  
 
 
 ## <a name="turning-off-signature-validation"></a>Disattivazione della convalida della firma 
-Per impostazione predefinita, i ruoli di lavoro ibridi per runbook di Linux richiedono la convalida della firma. Se si esegue un runbook non firmato in un ruolo di lavoro, viene visualizzato un errore che contiene "Convalida firma non riuscita". Per disattivare la convalida della firma, eseguire il comando seguente, sostituendo il secondo parametro con l'ID dell'area di lavoro OMS:
+Per impostazione predefinita, i ruoli di lavoro ibridi per runbook di Linux richiedono la convalida della firma. Se si esegue un runbook non firmato in un ruolo di lavoro, viene visualizzato un errore che contiene "Convalida firma non riuscita". Per disattivare la convalida della firma, eseguire il comando seguente, sostituendo il secondo parametro con l'ID dell'area di lavoro di Log Analytics:
 
-    ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <OMSworkspaceId>
-    ```
+ ```python
+ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
+ ```
 
 ## <a name="supported-runbook-types"></a>Tipi di runbook supportati
 

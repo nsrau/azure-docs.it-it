@@ -1,27 +1,27 @@
 ---
-title: Gestire le applicazioni in Visual Studio | Microsoft Docs
-description: "Usare Visual Studio per creare, sviluppare, creare pacchetti, distribuire ed effettuare il debug di applicazioni dell’infrastruttura di servizi e di servizi."
+title: Gestire le applicazioni di Azure Servic Fabric in Visual Studio | Microsoft Docs
+description: Usare Visual Studio per creare, sviluppare, creare pacchetti, distribuire ed eseguire il debug di applicazioni e servizi di Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/07/2017
-ms.author: mikkelhegn
-ms.openlocfilehash: 81814ef07cfab06855b3bfbf0eb6ef51b8dfce4f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.date: 03/26/2018
+ms.author: mikhegn
+ms.openlocfilehash: 5c5c3dc20996fbbdee9f9ed61eb3b09e4b274d92
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Usare Visual Studio per semplificare la scrittura e la gestione delle applicazioni dell’infrastruttura di servizi
-È possibile gestire le applicazioni e i servizi di Service Fabric di Azure tramite Visual Studio. Dopo aver [configurato l'ambiente di sviluppo](service-fabric-get-started.md), è infatti possibile usare Visual Studio per creare applicazioni di Service Fabric, aggiungere servizi o creare i pacchetti, registrare e distribuire le applicazioni nel cluster di sviluppo locale.
+# <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Usare Visual Studio per semplificare la scrittura e la gestione delle applicazioni di Service Fabric
+È possibile gestire le applicazioni e i servizi di Azure Service Fabric tramite Visual Studio. Dopo aver [configurato l'ambiente di sviluppo](service-fabric-get-started.md), è infatti possibile usare Visual Studio per creare applicazioni di Service Fabric, aggiungere servizi o creare i pacchetti, registrare e distribuire le applicazioni nel cluster di sviluppo locale.
 
 ## <a name="deploy-your-service-fabric-application"></a>Distribuire l'applicazione di Service Fabric
 Per impostazione predefinita, la distribuzione di un'applicazione combina in un'unica operazione i passaggi seguenti:
@@ -32,7 +32,7 @@ Per impostazione predefinita, la distribuzione di un'applicazione combina in un'
 4. Rimozione delle eventuali istanze dell'applicazione in esecuzione
 5. Creazione di un'istanza dell'applicazione
 
-In Visual Studio se si preme **F5** l'applicazione viene distribuita e il debugger viene allegato a tutte le istanze dell'applicazione. È possibile utilizzare **Ctrl + F5** per distribuire un'applicazione senza il debug, o pubblicare in un cluster locale o remoto mediante il profilo di pubblicazione. 
+In Visual Studio se si preme **F5** l'applicazione viene distribuita e il debugger viene allegato a tutte le istanze dell'applicazione. È possibile utilizzare **Ctrl + F5** per distribuire un'applicazione senza il debug, o pubblicare in un cluster locale o remoto mediante il profilo di pubblicazione.
 
 ### <a name="application-debug-mode"></a>Modalità di debug applicazione
 Visual Studio include la proprietà **Modalità di debug applicazione** che controlla la modalità di distribuzione dell'applicazione nel contesto del debug.
@@ -45,7 +45,7 @@ Visual Studio include la proprietà **Modalità di debug applicazione** che cont
 
 #### <a name="application-debug-modes"></a>Modalità di debug dell'applicazione
 
-1. **Aggiorna l'applicazione**: questa modalità consente di modificare rapidamente il codice e di eseguirne il debug e supporta la modifica dei file Web statici durante il debug. Questa modalità funziona solo se il cluster di sviluppo locale è in [modalità a 1 nodo](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+1. **Aggiorna l'applicazione**: questa modalità consente di modificare rapidamente il codice e di eseguirne il debug e supporta la modifica dei file Web statici durante il debug. Questa modalità funziona solo se il cluster di sviluppo locale è in [modalità a 1 nodo]. Questa è la modalità di debug dell'applicazione predefinita.(/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
 2. **Rimuovi applicazione** fa sì che l'applicazione venga rimossa al termine della sessione di debug.
 3. **Aggiornamento automatico**: l'applicazione resta in esecuzione al termine della sessione di debug. La sessione di debug successiva considera la distribuzione come un aggiornamento. Il processo di aggiornamento mantiene tutti i dati immessi in una sessione di debug precedente.
 4. **Mantieni l'applicazione**: l'applicazione resta in esecuzione nel cluster al termine della sessione di debug. All'inizio della sessione di debug successiva, l'applicazione viene rimossa.
@@ -53,7 +53,7 @@ Visual Studio include la proprietà **Modalità di debug applicazione** che cont
 Con l'opzione **Aggiornamento automatico** i dati vengono mantenuti applicando le funzionalità di aggiornamento dell'applicazione di Service Fabric. Per altre informazioni sull'aggiornamento delle applicazioni e su come è possibile eseguire un aggiornamento in un ambiente reale, vedere [Aggiornamento di un'applicazione di Service Fabric](service-fabric-application-upgrade.md).
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>Aggiungere un servizio all'applicazione di Service Fabric
-È possibile aggiungere nuovi servizi all'applicazione per estenderne le funzionalità.  Per essere certi che il servizio venga incluso nel pacchetto applicazione, aggiungere il servizio usando la voce di menu **New Fabric Service** .
+È possibile aggiungere nuovi servizi all'applicazione per estenderne le funzionalità. Per essere certi che il servizio venga incluso nel pacchetto applicazione, aggiungere il servizio usando la voce di menu **New Fabric Service** .
 
 ![Aggiungere un nuovo servizio di Service Fabric][newservice]
 
@@ -74,7 +74,7 @@ In Visual Studio è possibile eseguire operazioni di gestione dei cluster di bas
 ![Rimuovere un'applicazione][removeapplication]
 
 > [!TIP]
-> Per funzionalità di gestione dei cluster più avanzate, vedere [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> Per funzionalità di gestione dei cluster più avanzate, vedere [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 >
 >
 
@@ -84,7 +84,7 @@ In Visual Studio è possibile eseguire operazioni di gestione dei cluster di bas
 * [Distribuzione di un'applicazione di Service Fabric](service-fabric-deploy-remove-applications.md)
 * [Gestione dei parametri dell'applicazione per più ambienti](service-fabric-manage-multiple-environment-app-configuration.md)
 * [Debug dell'applicazione di Service Fabric](service-fabric-debugging-your-application.md)
-* [Visualizzazione del cluster con l’explorer di Service Fabric](service-fabric-visualizing-your-cluster.md)
+* [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
 <!--Image references-->
 [addserviceproject]:./media/service-fabric-manage-application-in-visual-studio/addserviceproject.png

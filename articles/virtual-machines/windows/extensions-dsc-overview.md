@@ -2,10 +2,10 @@
 title: Panoramica di DSC (Desired State Configuration) per Azure | Microsoft Docs
 description: Informazioni sull'uso del gestore dell'estensione di Microsoft Azure per PowerShell DSC (Desired State Configuration). L'articolo include prerequisiti, architettura e cmdlet.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mgreenegit
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: 14d29223435e9a133b112a61f2ecdde0aad581a2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5b16261c9a9f046b7bc55a06dd71aa154a0cec27
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
 
@@ -34,7 +34,7 @@ Il caso d'uso principale per l'estensione DSC (Desired State Configuration) di A
 
 Questo articolo fornisce informazioni relative a entrambi gli scenari: uso dell'estensione DSC per l'onboarding in Automazione e uso dell'estensione DSC come strumento per l'assegnazione di configurazioni a VM tramite Azure SDK.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - **Computer locale**: per interagire con l'estensione della macchina virtuale di Azure, è necessario usare il portale di Azure o Azure PowerShell SDK.
 - **Agente guest**: la macchina virtuale di Azure configurata tramite l'estensione DSC deve essere un sistema operativo che supporta Windows Management Framework (WMF) 4.0 o versione successiva. Per l'elenco completo delle versioni dei sistemi operativi supportati, vedere la [cronologia delle versioni dell'estensione DSC](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
@@ -71,7 +71,7 @@ Nella maggior parte degli scenari l'estensione DSC viene usata per lo più trami
 
 I cmdlet PowerShell che vengono usati per la gestione dell'estensione DSC sono la scelta ottimale per gli scenari di risoluzione interattiva dei problemi e raccolta di informazioni. È possibile usare i cmdlet per creare pacchetti, pubblicare e monitorare le distribuzioni dell'estensione DSC. Si noti che i cmdlet per l'estensione DSC non sono ancora aggiornati per funzionare con lo [script di configurazione predefinito](#default-configuration-script).
 
-Il cmdlet **Publish-AzureRMVMDscConfiguration** riceve un file di configurazione, lo analizza per cercare risorse DSC dipendenti e quindi crea un file ZIP. Il file ZIP contiene la configurazione e le risorse DSC necessarie per applicare la configurazione. Il cmdlet può inoltre creare il pacchetto in locale usando il parametro *-ConfigurationArchivePath*. In alternativa, il cmdlet pubblica il file ZIP nell'archiviazione BLOB e quindi lo protegge con un token di firma di accesso condiviso.
+Il cmdlet **Publish-AzureRMVMDscConfiguration** riceve un file di configurazione, lo analizza per cercare risorse DSC dipendenti e quindi crea un file ZIP. Il file ZIP contiene la configurazione e le risorse DSC necessarie per applicare la configurazione. Il cmdlet può anche creare il pacchetto in locale usando il parametro *-OutputArchivePath*. In alternativa, il cmdlet pubblica il file ZIP nell'archiviazione BLOB e quindi lo protegge con un token di firma di accesso condiviso.
 
 Lo script di configurazione con estensione ps1 creato dal cmdlet è nel file ZIP nella radice della cartella di archiviazione. La cartella del modulo è posizionata nella cartella di archiviazione nelle risorse.
 
@@ -133,7 +133,7 @@ Per configurare DSC nel portale:
 
 Il portale richiede l'input seguente:
 
-* **Configuration Modules or Script** (Moduli o script di configurazione): questo campo è obbligatorio. Il modulo non è stato aggiornato per lo [script di configurazione predefinito](#default-configuration-script). I moduli e gli script di configurazione richiedono un file con estensione ps1 contenente uno script di configurazione oppure un file ZIP con uno script di configurazione con estensione ps1 nella directory radice. Se si usa un file ZIP, tutte le risorse dipendenti devono essere incluse nelle cartelle del modulo all'interno del file ZIP. È possibile creare il file ZIP con il cmdlet **Publish-AzureVMDscConfiguration -ConfigurationArchivePath** incluso in Azure PowerShell SDK. Il file ZIP viene caricato nell'archiviazione BLOB dell'utente e protetto da un token di firma di accesso condiviso.
+* **Configuration Modules or Script** (Moduli o script di configurazione): questo campo è obbligatorio. Il modulo non è stato aggiornato per lo [script di configurazione predefinito](#default-configuration-script). I moduli e gli script di configurazione richiedono un file con estensione ps1 contenente uno script di configurazione oppure un file ZIP con uno script di configurazione con estensione ps1 nella directory radice. Se si usa un file ZIP, tutte le risorse dipendenti devono essere incluse nelle cartelle del modulo all'interno del file ZIP. È possibile creare il file con estensione zip con il cmdlet **Publish-AzureVMDscConfiguration -OutputArchivePath** incluso in Azure PowerShell SDK. Il file ZIP viene caricato nell'archiviazione BLOB dell'utente e protetto da un token di firma di accesso condiviso.
 
 * **Configuration Data PSD1 File**(File PSD1 dati di configurazione): questo è un campo facoltativo. Se la configurazione richiede un file di dati della configurazione con estensione psd1, usare questo campo per selezionare il file di dati e quindi caricarlo nell'archiviazione BLOB dell'utente. Il file di dati della configurazione è protetto da un token di firma di accesso condiviso nell'archiviazione BLOB.
 

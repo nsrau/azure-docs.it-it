@@ -3,9 +3,10 @@ title: ALM in Azure Machine Learning | Documentazione di Microsoft
 description: Applicare le procedure consigliate per la gestione del ciclo di vita dell'applicazione in Azure Machine Learning Studio
 keywords: ALM, AML, Azure ML, Gestione del ciclo di vita dell'applicazione, Controllo delle versioni
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: 1be6577d-f2c7-425b-b6b9-d5038e52b395
 ms.service: machine-learning
@@ -14,21 +15,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.author: haining
-ms.openlocfilehash: 9d1fcc761115c64fafb811d6ca1c2389babfdc15
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50a93d439f6d6815113d93e0dece7b512b9defe7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Gestione del ciclo di vita dell'applicazione in Azure Machine Learning Studio
-Azure Machine Learning Studio è uno strumento per lo sviluppo di esperimenti di Machine Learning che siano operativi nel cloud di Azure. Si tratta di una specie di fusione del servizio cloud scalabile e dell'IDE di Visual Studio in un'unica piattaforma. È possibile incorporare le procedure ALM (gestione del ciclo di vita dell'applicazione) standard, dal controllo delle versioni delle varie risorse all'esecuzione e distribuzione automatica in Azure Machine Learning Studio. Questo articolo descrive alcune opzioni e approcci.
+Azure Machine Learning Studio è uno strumento per lo sviluppo di esperimenti di Machine Learning che siano operativi nel cloud di Azure. Si tratta di una specie di fusione del servizio cloud scalabile e dell'IDE di Visual Studio in un'unica piattaforma. È possibile incorporare le procedure ALM (Application Lifecycle Management) standard dal controllo delle versioni delle varie risorse all'esecuzione e distribuzione automatica in Azure Machine Learning Studio. Questo articolo descrive alcune opzioni e approcci.
 
 ## <a name="versioning-experiment"></a>Controllo della versione degli esperimenti
-Esistono due metodi consigliati per controllare la versione degli esperimenti. È possibile fare affidamento sulla cronologia di esecuzione integrata o esportare l'esperimento nel formato JSON (JavaScript Object Notation) e gestirlo esternamente. Ecco vantaggi e svantaggi di ogni approccio.
+Esistono due metodi consigliati per controllare la versione degli esperimenti. È possibile fare affidamento sulla cronologia di esecuzione integrata o esportare l'esperimento in un formato JSON in modo da gestirlo esternamente. Ecco vantaggi e svantaggi di ogni approccio.
 
 ### <a name="experiment-snapshots-using-run-history"></a>Snapshot dell'esperimento tramite la cronologia di esecuzione
-Nel modello di esecuzione dell'esperimento di apprendimento di Azure Machine Learning Studio ogni volta che si fa clic sul pulsante **Esegui** nell'editor dell'esperimento viene inviato uno snapshot non modificabile dell'esperimento all'utilità di pianificazione del processo. Per visualizzare l'elenco degli snapshot, fare clic sul pulsante **Cronologia di esecuzione** sulla barra dei comandi dell'editor dell'esperimento.
+Nel modello di esecuzione dell'esperimento di apprendimento di Azure Machine Learning Studio, ogni volta che si fa clic sul pulsante **Esegui** nell'editor dell'esperimento, viene inviato uno snapshot non modificabile dell'esperimento al pianificatore dei processi. Per visualizzare l'elenco di snapshot, fare clic su **Cronologia esecuzioni** sulla barra dei comandi dell'editor dell'esperimento.
 
 ![Pulsante Cronologia di esecuzione](./media/version-control/runhistory.png)
 
@@ -36,7 +36,7 @@ Nel modello di esecuzione dell'esperimento di apprendimento di Azure Machine Lea
 
 ![Elenco Cronologia di esecuzione](./media/version-control/runhistorylist.png)
 
-Dopo averlo aperto, è possibile salvare l'esperimento dello snapshot come nuovo esperimento e quindi modificarlo. Se lo snapshot dell'esperimento contiene risorse come modelli sottoposti a training, trasformazione, set di dati e così via, che dispongono quindi di versioni aggiornate, lo snapshot mantiene i riferimenti della versione originale, ovvero del momento della sua acquisizione. Se si salva lo snapshot bloccato come nuovo esperimento, Azure Machine Learning Studio rileva l'esistenza di una versione più recente di queste risorse e le aggiorna automaticamente nel nuovo esperimento.
+Dopo averlo aperto, è possibile salvare l'esperimento dello snapshot come nuovo esperimento e quindi modificarlo. Se lo snapshot dell'esperimento contiene risorse come modelli con training, trasformazioni o set di dati che dispongono di versioni aggiornate, lo snapshot mantiene i riferimenti alla versione originale, ovvero a quella del momento della sua acquisizione. Se si salva lo snapshot bloccato come nuovo esperimento, Azure Machine Learning Studio rileva l'esistenza di una versione più recente di queste risorse e le aggiorna automaticamente nel nuovo esperimento.
 
 Se si elimina l'esperimento, vengono eliminati tutti i relativi snapshot.
 
@@ -46,19 +46,19 @@ Gli snapshot della cronologia di esecuzione mantengono una versione non modifica
 Il file JSON è una rappresentazione testuale del grafico dell'esperimento contenente il riferimento agli asset nell'area di lavoro, ad esempio set di dati o modelli sottoposti a training. Non contiene una versione serializzata dell'asset. Se si tenta di importare nuovamente il documento JSON nell'area di lavoro, gli asset referenziati devono già esistere e avere gli stessi ID asset referenziati nell'esperimento. In caso contrario non sarà possibile accedere all'esperimento importato.
 
 ## <a name="versioning-trained-model"></a>Controllo della versione del modello sottoposto a training
-Un modello sottoposto a training in Azure Machine Learning viene serializzato in un formato noto come file .iLearner e archiviato nell'account di archiviazione BLOB di Azure associato all'area di lavoro. Un modo per ottenere una copia del file iLearner è usare l'API di ripetizione del training. [Questo articolo](retrain-models-programmatically.md) spiega il funzionamento dell'API di ripetizione del training. Procedura generale:
+Un modello con training in Azure Machine Learning viene serializzato in un formato noto come file iLearner (`.iLearner`) e archiviato nell'account di archiviazione BLOB di Azure associato all'area di lavoro. Un modo per ottenere una copia del file iLearner è usare l'API di ripetizione del training. [Questo articolo](retrain-models-programmatically.md) spiega il funzionamento dell'API di ripetizione del training. Procedura generale:
 
 1. Impostare l'esperimento di training.
 2. Aggiungere la porta di output del servizio Web al modulo Train Model o al modulo che genera il modello sottoposto a training, ad esempio Tune Model Hyperparameter (Regola iperparametri del modello) o Create R Model (Crea modello R).
 3. Eseguire l'esperimento di training e quindi distribuirlo come servizio Web di training del modello.
-4. Chiamare l'endpoint BES del servizio Web di training e specificare il nome del file .iLearner desiderato, nonché la posizione dell'account di archiviazione BLOB in cui verrà archiviato.
-5. Raccogliere il file .iLearner generato al termine della chiamata BES.
+4. Chiamare l'endpoint BES del servizio Web di training e specificare il nome del file iLearner desiderato, nonché la posizione dell'account di archiviazione BLOB in cui verrà archiviato.
+5. Raccogliere il file iLearner generato al termine della chiamata BES.
 
-È possibile recuperare il file .iLearner tramite il commandlet di PowerShell [*Download-AmlExperimentNodeOutput*](https://github.com/hning86/azuremlps#download-amlexperimentnodeoutput). Questa operazione potrebbe essere più semplice se si desidera ottenere una copia del file iLearner senza la necessità di ripetere il training del modello a livello di codice.
+È possibile recuperare il file iLearner anche tramite il cmdlet di PowerShell [*Download-AmlExperimentNodeOutput*](https://github.com/hning86/azuremlps#download-amlexperimentnodeoutput). Questa operazione potrebbe essere più semplice se si desidera ottenere una copia del file iLearner senza la necessità di ripetere il training del modello a livello di codice.
 
-Dopo aver creato il file .iLearner contenente il modello con training, è possibile applicare la propria strategia di controllo delle versioni. La strategia può essere molto semplice, come applicare un prefisso o un suffisso quale convenzione di denominazione e lasciare il file .iLearner nell'archiviazione BLOB, oppure è possibile copiarlo o importarlo nel sistema di controllo delle versioni.
+Dopo aver creato il file iLearner contenente il modello con training, è possibile applicare la propria strategia di controllo delle versioni. La strategia può essere molto semplice, come applicare un prefisso o un suffisso quale convenzione di denominazione e lasciare il file iLearner nell'archiviazione BLOB, oppure è possibile copiarlo o importarlo nel sistema di controllo delle versioni.
 
-Il file .iLearner salvato può quindi essere usato per la valutazione tramite i servizi Web distribuiti.
+Il file iLearner salvato può quindi essere usato per il punteggio tramite i servizi Web distribuiti.
 
 ## <a name="versioning-web-service"></a>Controllo della versione del servizio Web
 È possibile distribuire due tipi di servizi Web da un esperimento di Azure Machine Learning. Il servizio Web classico è strettamente abbinato all'esperimento e all'area di lavoro. Il nuovo servizio Web usa il framework di Azure Resource Manager e non è più abbinato all'esperimento o all'area di lavoro originale.
@@ -75,12 +75,12 @@ Per controllare la versione di un servizio Web classico, è possibile usare il c
 
 Nel tempo potrebbero essere creati molti endpoint nello stesso servizio Web. Ciascun endpoint rappresenta una copia temporizzata dell'esperimento contenente la versione temporizzata del modello sottoposto a training. È quindi possibile usare la logica esterna per determinare l'endpoint da chiamare, che comporta la selezione di una versione del modello sottoposto a training per l'esecuzione della valutazione.
 
-È anche possibile creare numerosi endpoint del servizio Web identici e quindi riempire diverse versioni del file .iLearner nell'endpoint per ottenere un effetto simile. [Questo articolo](create-models-and-endpoints-with-powershell.md) illustra in modo più dettagliato come eseguire questa operazione.
+È anche possibile creare numerosi endpoint del servizio Web identici e quindi riempire diverse versioni del file iLearner nell'endpoint per ottenere un effetto simile. [Questo articolo](create-models-and-endpoints-with-powershell.md) illustra in modo più dettagliato come eseguire questa operazione.
 
 ### <a name="new-web-service"></a>Nuovo servizio Web
 Se si crea un nuovo servizio Web basato su Azure Resource Manager, il costrutto dell'endpoint non è più disponibile. In alternativa è possibile generare il file WSD (definizione del servizio Web) in formato JSON dall'esperimento predittivo tramite il commandlet di PowerShell [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) o [*Export-AzureRmMlWebservice*](https://msdn.microsoft.com/library/azure/mt767935.aspx) da un servizio Web distribuito basato su Resource Manager.
 
-Dopo aver esportato il file WSD e aver eseguito il relativo controllo della versione, è anche possibile distribuire il file WSD come nuovo servizio Web in un diverso piano di servizio Web di un'altra area di Azure. Assicurarsi semplicemente di specificare la configurazione appropriata per l'account di archiviazione, nonché l'ID del nuovo piano di servizio Web. Per riempire diversi file .iLearner, è possibile modificare il file WSD e aggiornare il riferimento al percorso del modello sottoposto a training, da distribuire come nuovo servizio Web.
+Dopo aver esportato il file WSD e aver eseguito il relativo controllo della versione, è anche possibile distribuire il file WSD come nuovo servizio Web in un diverso piano di servizio Web di un'altra area di Azure. Assicurarsi semplicemente di specificare la configurazione appropriata per l'account di archiviazione, nonché l'ID del nuovo piano di servizio Web. Per riempire diversi file iLearner, è possibile modificare il file WSD, aggiornare il riferimento al percorso del modello con training e distribuirlo come nuovo servizio Web.
 
 ## <a name="automate-experiment-execution-and-deployment"></a>Automatizzare la distribuzione e l'esecuzione dell'esperimento
 Un aspetto importante di ALM è la possibilità di automatizzare il processo di distribuzione ed esecuzione dell'applicazione. In Azure Machine Learning è possibile eseguire questa operazione tramite il [modulo di PowerShell](http://aka.ms/amlps). Di seguito è riportato un esempio di procedure complete riguardanti un processo automatizzato di esecuzione/distribuzione standard di ALM tramite il [modulo PowerShell di Azure Machine Learning Studio](http://aka.ms/amlps). Ogni passaggio è collegato a uno o più commandlet di PowerShell che possono essere usati per portare a termine questa operazione.

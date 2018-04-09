@@ -2,10 +2,10 @@
 title: Limiti e configurazione - App per la logica di Azure | Microsoft Docs
 description: Limiti di servizio e valori di configurazione per App per la logica di Azure
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 54a35607e107a09188373cc5f71bb3068b4c6bab
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 740a31f4b5e0ffe9fe2ae04d3dac51cf25ab3055
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Limiti e configurazione per App per la logica
 
@@ -86,7 +86,7 @@ Ecco i limiti per una singola istanza di app per la logica:
 
 | NOME | Limite | Note | 
 | ----- | ----- | ----- | 
-| Esecuzioni di azioni per 5 minuti | 100.000 | Per aumentare il limite a 300.000, è possibile eseguire un'app per la logica in modalità `High Througput`. Per configurare la modalità di velocità effettiva elevata, in `runtimeConfiguration` della risorsa flusso di lavoro impostare la proprietà `operationOptions` su `OptimizedForHighThroughput`. <p>**Nota**: la modalità di velocità effettiva elevata è in anteprima. È anche possibile distribuire un carico di lavoro tra più app nel modo necessario. | 
+| Esecuzioni di azioni per 5 minuti | 100.000 | Per aumentare il limite a 300.000, è possibile eseguire un'app per la logica in modalità `High Throughput`. Per configurare la modalità di velocità effettiva elevata, in `runtimeConfiguration` della risorsa flusso di lavoro impostare la proprietà `operationOptions` su `OptimizedForHighThroughput`. <p>**Nota**: la modalità di velocità effettiva elevata è in anteprima. È anche possibile distribuire un carico di lavoro tra più app, se necessario. | 
 | Chiamate in uscita simultanee di azioni | ~2.500 | Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
 | Endpoint di runtime: chiamate in ingresso simultanee |~1,000 | Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
 | Endpoint di runtime: lettura delle chiamate per 5 minuti  | 60.000 | È possibile distribuire il carico di lavoro tra più app nel modo necessario. | 

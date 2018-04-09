@@ -2,24 +2,23 @@
 title: Compilare una soluzione IoT con Analisi di flusso | Microsoft Docs
 description: Esercitazione introduttiva per la soluzione IoT di Analisi di flusso relativa allo scenario di un casello
 keywords: soluzione IOT, funzioni finestra
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/12/2018
+ms.date: 03/21/2018
 ms.author: sngun
-ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: b36833a9fe35f14eba6d9e397eb0958b716b313b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilare una soluzione IoT con Analisi di flusso
 
@@ -41,8 +40,7 @@ Per completare questa esercitazione, sono necessari i prerequisiti seguenti:
 * Visual Studio 2017, 2015 o la versione gratuita [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * Una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Privilegi di amministratore nel computer
-* Download di [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) dall'Area download Microsoft
-* Facoltativo: codice sorgente del generatore di eventi TollApp in [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
+* Scaricare il codice sorgente per l'analisi dei dati del sensore TollApp dal [repository GitHub azure-stream-analytics](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp). Questo repository contiene dati e query di esempio che verranno usati nelle sezioni successive. 
 
 ## <a name="scenario-introduction-hello-toll"></a>Presentazione dello scenario: il casello
 Un casello rappresenta una situazione piuttosto comune. Se ne incontrano sulle autostrade e su molti ponti e tunnel in tutto il mondo. Ogni barriera è costituita da più caselli. In quelli manuali ci si ferma per pagare il pedaggio a un addetto. In quelli automatizzati al passaggio attraverso il casello un sensore posto al di sopra di esso analizza una scheda RFID posizionata sul parabrezza del veicolo. È semplice visualizzare il passaggio dei veicoli nei caselli come un flusso di eventi, sui quali è possibile eseguire alcune operazioni interessanti.
@@ -66,7 +64,7 @@ Il flusso di dati di ingresso contiene informazioni sulle automobili che entrano
 
 Ecco una breve descrizione delle colonne:
 
-| Colonna | Descrizione |
+| Colonna | DESCRIZIONE |
 | --- | --- |
 | ID casello |ID casello che identifica in modo univoco un casello |
 | Tempo ingresso |Data e ora (UTC) di ingresso del veicolo nel casello |
@@ -93,7 +91,7 @@ Il flusso di dati di uscita contiene informazioni sulle automobili che escono da
 
 Ecco una breve descrizione delle colonne:
 
-| Colonna | Descrizione |
+| Colonna | DESCRIZIONE |
 | --- | --- |
 | ID casello |ID casello che identifica in modo univoco un casello |
 | Tempo ingresso |Data e ora (UTC) di uscita del veicolo dal casello |
@@ -113,7 +111,7 @@ Questa esercitazione usa uno snapshot statico di un database di registrazione di
 
 Ecco una breve descrizione delle colonne:
 
-| Colonna | Descrizione |
+| Colonna | DESCRIZIONE |
 | --- | --- |
 | Targa |Numero di targa del veicolo |
 | ID registrazione |ID registrazione del veicolo |

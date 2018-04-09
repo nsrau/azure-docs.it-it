@@ -1,6 +1,6 @@
 ---
 title: Opzioni di risoluzione dei nomi DNS per macchine virtuali Linux in Azure
-description: "Scenari di risoluzione dei nomi per macchine virtuali Linux in IaaS di Azure, inclusi i servizi DNS forniti, DNS esterno ibrido e possibilità di usare il proprio server DNS."
+description: Scenari di risoluzione dei nomi per macchine virtuali Linux in IaaS di Azure, inclusi i servizi DNS forniti, DNS esterno ibrido e possibilità di usare il proprio server DNS.
 services: virtual-machines
 documentationcenter: na
 author: RicksterCDN
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: cc06ee9305b4d3034154a0825c1aea53fe446f80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a445de3e1bfbeb2cd2e5674418688d6bb610a3c2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opzioni di risoluzione dei nomi DNS per macchine virtuali Linux in Azure
 Per impostazione predefinita, Azure fornisce la risoluzione dei nomi DNS per tutte le macchine virtuali contenute in una singola rete virtuale. È possibile implementare la soluzione di risoluzione dei nomi DNS configurando i servizi DNS nelle macchine virtuali ospitate da Azure. Gli scenari seguenti consentono di scegliere quello più adatto alla situazione specifica.
@@ -112,7 +112,7 @@ Il file resolv.conf viene generato automaticamente e non deve essere modificato.
 2. Eseguire "netconfig update" per aggiornare.
 
 **CentOS di Rogue Wave Software (in precedenza OpenLogic)** (usa NetworkManager)
-1. Aggiungere "echo "options timeout:1 attempts:5"" in "/etc/NetworkManager/dispatcher.d/11-dhclient".
+1. Aggiungere 'RES_OPTIONS="timeout:1 attempts:5"' a '/etc/sysconfig/network'.
 2. Eseguire "service network restart" per aggiornare.
 
 ## <a name="name-resolution-using-your-own-dns-server"></a>Risoluzione dei nomi usando il server DNS

@@ -3,7 +3,7 @@ title: Programmazione JavaScript lato server per Azure Cosmos DB | Microsoft Doc
 description: Informazioni su come usare Azure Cosmos DB per scrivere stored procedure, trigger del database e funzioni definite dall'utente in JavaScript. Ottenere suggerimenti sulla programmazione di database e altro ancora.
 keywords: Trigger di database, stored procedure, programma database, sproc, Azure, Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: aliuy
 manager: jhubbard
 editor: mimig
@@ -13,24 +13,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: d8438d126c1f994e51871e80bb11610ec95b0814
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 2b55307c3122513b414c3f90a6a36d230f3459c2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programmazione lato server per Azure Cosmos DB: stored procedure, trigger del database e funzioni definite dall'utente
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+L'esecuzione integrata e transazionale di JavaScript con il linguaggio di Azure Cosmos DB permette agli sviluppatori di scrivere **stored procedure**, **trigger** e **funzioni definite dall'utente (UDF)** in modo nativo in base alla specifica [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. L'integrazione di JavaScript consente di scrivere la logica dell'applicazione del programma di database che può essere inserita ed eseguita direttamente nelle partizioni di archiviazione del database. 
 
-L'esecuzione integrata e transazionale di JavaScript con il linguaggio di Azure Cosmos DB permette agli sviluppatori di scrivere **stored procedure**, **trigger** e **funzioni definite dall'utente** in modo nativo in [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Ciò consente di scrivere la logica dell'applicazione del programma del database che può essere inserita ed eseguita direttamente nelle partizioni di archiviazione del database. 
+Per iniziare, è consigliabile guardare il video seguente, in cui Andrew Liu presenta il modello di programmazione di database lato server di Azure Cosmos DB. 
 
-Per iniziare, è consigliabile guardare il video seguente, in cui Andrew Liu introduce brevemente il modello di programmazione database lato server di Cosmos DB. 
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
-> 
+> [!VIDEO https://www.youtube.com/embed/s0cXdHNlVI0]
+>
 > 
 
 Tornare quindi a questo articolo, che fornisce risposte alle domande seguenti:  
@@ -46,14 +44,14 @@ Tornare quindi a questo articolo, che fornisce risposte alle domande seguenti:
 Questo approccio di *"JavaScript come nuovo T-SQL"* libera gli sviluppatori di applicazioni dalle complessità delle mancate corrispondenze nel sistema dei tipi e delle tecnologie di mapping relazionale a oggetti. Comporta anche una serie di vantaggi intrinseci che possono essere utili per creare applicazioni avanzate:  
 
 * **Logica procedurale:** come linguaggio di programmazione di alto livello, JavaScript offre un'interfaccia completa e familiare per esprimere la logica di business. È possibile eseguire sequenze complesse di operazioni a ridosso dei dati.
-* **Transazioni atomiche:** Cosmos DB garantisce che le operazioni di database all'interno di una singola stored procedure o un trigger siano atomiche. Di conseguenza, un'applicazione potrà combinare le operazioni correlate in un unico batch, in modo che o tutte o nessuna di esse avranno esito positivo. 
+* **Transazioni atomiche:** Cosmos DB garantisce che le operazioni di database all'interno di una singola stored procedure o un trigger siano atomiche. Questa funzionalità atomica consente a un'applicazione di combinare le operazioni correlate in un unico batch, in modo che o nessuna o tutte abbiano esito positivo. 
 * **Prestazioni:** il mapping intrinseco di JSON al sistema di tipi del linguaggio JavaScript e il fatto che JSON rappresenta anche l'unità di base di archiviazione in Cosmos DB permette di eseguire una serie di ottimizzazioni, tra cui la materializzazione differita dei documenti JSON nel pool di buffer e la loro disponibilità su richiesta per il codice in esecuzione. Vi sono altri vantaggi associati all'integrazione della logica di business nel database:
   
   * Invio in batch: gli sviluppatori possono raggruppare le operazioni, come gli inserimenti, e inviarle in blocco. Ciò comporta una drastica riduzione del costo legato alla latenza del traffico di rete e dei costi generali di archiviazione per la creazione di transazioni separate. 
-  * Precompilazione: Cosmos DB precompila stored procedure, trigger e funzioni definite dall'utente per evitare il costo della compilazione JavaScript per ogni chiamata. I costi generali di compilazione del codice byte per la logica procedurale vengono ammortizzati a un valore minimo.
+  * Precompilazione: Cosmos DB precompila stored procedure, trigger e funzioni definite dall'utente (UDF) per evitare il lavoro di compilazione JavaScript per ogni chiamata. I costi generali di compilazione del codice byte per la logica procedurale vengono ammortizzati a un valore minimo.
   * Sequenziazione: molte operazioni necessitano di un effetto collaterale ("trigger") che implica potenzialmente l'esecuzione di una o più operazioni di archiviazione secondarie. Atomicità a parte, offre prestazioni migliori quando viene passata al server. 
-* **Incapsulamento:** è possibile usare le stored procedure per raggruppare la logica di business in un solo posto. Ciò comporta due vantaggi:
-  * Aggiunge un livello di astrazione al di sopra dei dati non elaborati, consentendo ai responsabili dell'architettura dati di far evolvere le proprie applicazioni indipendentemente dai dati. Si tratta di una caratteristica particolarmente vantaggiosa quando i dati sono privi di schema, a causa dei presupposti transitori che potrebbe essere necessario integrare nell'applicazione qualora fosse necessario gestire i dati direttamente.  
+* **Incapsulamento:** è possibile usare le stored procedure per raggruppare la logica di business in un'unica posizione, ottenendo due vantaggi:
+  * Viene aggiunto un livello di astrazione al di sopra dei dati non elaborati, consentendo ai responsabili dell'architettura dati di far evolvere le proprie applicazioni indipendentemente dai dati. Questo livello di astrazione è vantaggioso quando i dati sono senza schema, a causa dei presupposti transitori che potrebbe essere necessario integrare nell'applicazione qualora fosse necessario gestire i dati direttamente.  
   * Questa astrazione consente alle grandi imprese di proteggere i propri dati semplificando l'accesso dagli script.  
 
 La creazione e l'esecuzione di trigger del database, stored procedure e operatori query personalizzati sono supportate tramite il [portale di Azure](https://portal.azure.com), l'[API REST](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) e gli [SDK client](sql-api-sdk-dotnet.md) in molte piattaforme, tra cui .NET, Node.js e JavaScript.
@@ -88,7 +86,7 @@ Le stored procedure vengono registrate per ogni raccolta e funzionano in qualsia
         });
 
 
-Dopo aver registrato la stored procedure è possibile eseguirla a fronte della raccolta e leggere i risultati sul client. 
+Dopo aver registrato la stored procedure, è possibile eseguirla nella raccolta e leggere i risultati nel client. 
 
     // execute the stored procedure
     client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld')
@@ -99,9 +97,9 @@ Dopo aver registrato la stored procedure è possibile eseguirla a fronte della r
         });
 
 
-L'oggetto contesto offre accesso a tutte le operazioni che è possibile eseguire nelle risorse di archiviazione di Cosmos DB, oltre all'accesso agli oggetti richiesta e risposta. In questo caso, è stata usato l'oggetto risposta per impostare il corpo della risposta restituita al client. Per altre informazioni, vedere la [documentazione relativa all'SDK del server JavaScript di Cosmos DB](http://azure.github.io/azure-documentdb-js-server/).  
+L'oggetto contesto offre accesso a tutte le operazioni che è possibile eseguire nelle risorse di archiviazione di Cosmos DB, oltre all'accesso agli oggetti richiesta e risposta. In questo caso, è stata usato l'oggetto risposta per impostare il corpo della risposta restituita al client. Per altre informazioni, vedere la [documentazione relativa all'SDK del server JavaScript di Azure Cosmos DB](http://azure.github.io/azure-documentdb-js-server/).  
 
-Elaborando ulteriormente questo esempio, è possibile aggiungere alla stored procedure altre funzionalità relative al database. Le stored procedure possono creare, aggiornare, eseguire query ed eliminare documenti e allegati all'interno della raccolta.    
+Elaborando ulteriormente questo esempio, è possibile aggiungere alla stored procedure altre funzionalità relative al database. Le stored procedure possono creare, aggiornare, leggere ed eliminare documenti e allegati all'interno della raccolta, oltre che eseguire query su di essi.    
 
 ### <a name="example-write-a-stored-procedure-to-create-a-document"></a>Esempio: scrivere una stored procedure per creare un documento
 Il frammento successivo mostra come usare l'oggetto contesto per interagire con le risorse di Cosmos DB.
@@ -227,7 +225,7 @@ JavaScript in Cosmos DB è ospitato nello stesso spazio di memoria del database.
 
 Questa stored procedure usa le transazioni in un'applicazione di gioco per scambiare elementi tra due giocatori in un'unica operazione. La stored procedure prova a leggere due documenti, ciascuno corrispondente all'ID del giocatore passato come argomento. Se vengono trovati i documenti di entrambi i giocatori, la stored procedure aggiorna i documenti scambiando gli elementi. Se si verificano errori lungo il percorso, viene generata un'eccezione JavaScript che interrompe implicitamente la transazione.
 
-Se la stored procedure della raccolta è registrata in una raccolta a partizione singola, la transazione ha come ambito tutti i documenti all'interno della raccolta. Se la raccolta è partizionata, le stored procedure vengono eseguite nell'ambito della transazione di una singola chiave di partizione. Ogni esecuzione di stored procedure deve quindi includere un valore di chiave di partizione corrispondente all'ambito in cui la transazione deve essere eseguita. Per altri dettagli, vedere l'articolo relativo al [partizionamento di Azure Cosmos DB](partition-data.md).
+Se la stored procedure della raccolta è registrata in una raccolta a partizione singola, la transazione ha come ambito tutti i documenti all'interno della raccolta. Se la raccolta è partizionata, le stored procedure vengono eseguite nell'ambito della transazione di una singola chiave di partizione. Ogni esecuzione di stored procedure deve quindi includere un valore di chiave di partizione corrispondente all'ambito in cui la transazione deve essere eseguita. Per altre informazioni, vedere [Partizionamento di Azure Cosmos DB](partition-data.md).
 
 ### <a name="commit-and-rollback"></a>Commit e rollback
 Le transazioni sono integrate in maniera approfondita e nativa nel modello di programmazione JavaScript di Cosmos DB. All'interno di una funzione JavaScript, viene eseguito il wrapping di tutte le operazioni in un'unica transazione. Se la funzione JavaScript viene completata senza eccezioni, viene eseguito il commit delle operazioni nel database. Le istruzioni "BEGIN TRANSACTION" e "COMMIT TRANSACTION" nei database relazionali sono implicite in Cosmos DB.  
@@ -235,14 +233,14 @@ Le transazioni sono integrate in maniera approfondita e nativa nel modello di pr
 Se si verifica un'eccezione qualsiasi che viene propagata dallo script, il runtime JavaScript di Cosmos DB esegue il rollback dell'intera transazione. Come illustrato in un esempio precedente, la generazione di un'eccezione equivale effettivamente a un'istruzione "ROLLBACK TRANSACTION" in Cosmos DB.
 
 ### <a name="data-consistency"></a>Coerenza dei dati
-Le stored procedure e i trigger vengono sempre eseguiti sulla cartella di replica principale del contenitore di Azure Cosmos DB. In tal modo si garantisce la coerenza assoluta delle letture all'interno delle stored procedure. È possibile eseguire le query che usano funzioni definite dall'utente sulla replica principale o in qualsiasi replica secondaria, ma è necessario assicurarsi di soddisfare il livello di coerenza richiesto scegliendo la replica appropriata.
+Le stored procedure e i trigger vengono sempre eseguiti sulla cartella di replica principale del contenitore di Azure Cosmos DB. In tal modo si garantisce la coerenza assoluta delle letture all'interno delle stored procedure. È possibile eseguire query che usano funzioni definite dall'utente sulla replica primaria o su qualsiasi replica secondaria, ma è necessario assicurarsi di soddisfare il livello di coerenza richiesto scegliendo la replica appropriata.
 
 ## <a name="bounded-execution"></a>Esecuzione vincolata
 Tutte le operazioni di Cosmos DB devono essere completate entro la scadenza specificata dal server. Questo vincolo si applica anche alle funzioni JavaScript (stored procedure, trigger e funzioni definite dall'utente). Se un'operazione non viene completata entro questo limite di tempo, viene eseguito il rollback della transazione. Le funzioni JavaScript devono terminare entro il tempo limite oppure implementare un modello basato sulla continuazione in modo da riprendere l'esecuzione o eseguirla in batch.  
 
 Per semplificare lo sviluppo delle stored procedure e dei trigger per la gestione dei limiti di tempo, tutte le funzioni nell'oggetto raccolta (per creare, leggere, sostituire ed eliminare i documenti e gli allegati) restituiscono un valore booleano che indica se l'operazione verrà completata. Se questo valore è falso, sarà indice che il tempo limite sta per scadere e che è necessario concludere l'esecuzione della procedura.  Il completamento delle operazioni inserite in coda precedentemente alla prima operazione di archiviazione non accettata è garantito se la stored procedure viene completata in tempo e non vengono inserite in coda altre richieste.  
 
-Anche le funzioni JavaScript sono vincolate al consumo di risorse. Cosmos DB riserva una velocità effettiva per ogni raccolta in base alle dimensioni dell'account di database di cui è stato effettuato il provisioning. La velocità effettiva viene espressa in termini di un'unità normalizzata di consumo CPU, memoria e IO, denominata unità di richiesta, o RU. Le funzioni JavaScript possono potenzialmente usare un numero elevato di RU in breve tempo; per tale motivo, è possibile che venga limitata la frequenza del traffico di rete quando si raggiunge il limite della raccolta. È anche possibile che le stored procedure che richiedono un utilizzo elevato di risorse vengano messe in quarantena per assicurare la disponibilità delle operazioni di database primitive.  
+Anche le funzioni JavaScript sono vincolate al consumo di risorse. Cosmos DB riserva una velocità effettiva per ogni raccolta in base alle dimensioni dell'account di database di cui è stato effettuato il provisioning. La velocità effettiva viene espressa in termini di un'unità normalizzata di consumo CPU, memoria e IO, denominata unità di richiesta, o RU. Le funzioni JavaScript possono potenzialmente usare un numero elevato di RU in breve tempo; per tale motivo, è possibile che venga limitata la frequenza del traffico di rete quando si raggiunge il limite della raccolta. È anche possibile che le stored procedure che richiedono un uso elevato di risorse vengano messe in quarantena per assicurare la disponibilità delle operazioni di database primitive.  
 
 ### <a name="example-bulk-importing-data-into-a-database-program"></a>Esempio: importazione in blocco dei dati in un programma di database
 Di seguito è riportato un esempio di stored procedure scritta per importare in blocco i documenti in una raccolta. Da notare il modo in cui la stored procedure gestisce l'esecuzione vincolata verificando il valore booleano restituito da createDocument e quindi usa il numero di documenti inseriti in ogni chiamata della stored procedure per tracciare e riprendere l'avanzamento nei vari batch.
@@ -506,7 +504,7 @@ Avvia una chiamata concatenata che deve terminare con value().
 <b>filter(predicateFunction [, options] [, callback])</b>
 <ul>
 <li>
-Filtra l'input usando una funzione predicato che restituisce true o false per includere o escludere i documenti di input dal set risultante. Il comportamento è simile a quello di una clausola WHERE in SQL.
+Filtra l'input usando una funzione di predicato che restituisce true o false per includere o escludere i documenti di input dal set risultante. Il comportamento è simile a quello di una clausola WHERE in SQL.
 </li>
 </ul>
 </li>
@@ -561,10 +559,10 @@ Quando inclusi all'interno delle funzioni predicato e/o selettore, i seguenti co
 
 I seguenti costrutti JavaScript non vengono ottimizzati per gli indici di Azure Cosmos DB:
 
-* Flusso di controllo (ad esempio, se, per, mentre)
+* Flusso di controllo (ad esempio, if, for, while)
 * Chiamate di funzione
 
-Per ulteriori informazioni, vedere [Server-Side JSDocs](http://azure.github.io/azure-documentdb-js-server/).
+Per altre informazioni, vedere [Server-Side JSDocs](http://azure.github.io/azure-documentdb-js-server/) (JSDocs lato server).
 
 ### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>Esempio: Scrivere una stored procedure usando l'API di query JavaScript
 L'esempio di codice seguente illustra come usare l'API Query JavaScript nel contesto di una stored procedure. La stored procedure inserisce un documento, fornito da un parametro di input, e aggiorna un documento di metadati, usando il metodo `__.filter()` , con minSize, maxSize e totalSize in base alla proprietà relativa alle dimensioni del documento di input.
@@ -624,7 +622,7 @@ L'esempio di codice seguente illustra come usare l'API Query JavaScript nel cont
 ## <a name="sql-to-javascript-cheat-sheet"></a>Foglio riassuntivo di SQL per JavaScript
 Nella tabella seguente vengono presentate varie query SQL e le query JavaScript corrispondenti.
 
-Come le query SQL, le chiavi di proprietà del documento (ad esempio `doc.id`) fanno distinzione tra maiuscole e minuscole.
+Come le query SQL, le chiavi delle proprietà dei documenti (ad esempio `doc.id`) fanno distinzione tra maiuscole e minuscole.
 
 |SQL| API di query JavaScript|Descrizione sotto|
 |---|---|---|
@@ -651,10 +649,10 @@ L'[API lato server JavaScript](http://azure.github.io/azure-documentdb-js-server
 Le stored procedure e i trigger di JavaScript vengono create in modalità sandbox in modo che gli effetti di un unico script non vengano trasferiti all'altro senza che siano stati prima sottoposti all'isolamento delle transazioni snapshot a livello di database. Gli ambienti di runtime vengono riuniti in pool, ma ripuliti dal contesto dopo ciascuna esecuzione. Di conseguenza è possibile garantirne la sicurezza rispetto a effetti collaterali imprevisti causati l'un l'altro.
 
 ### <a name="pre-compilation"></a>Precompilazione
-Le stored procedure, i trigger e le UDF vengono precompilate implicitamente nel formato di codice byte per evitare i costi di compilazione ad ogni chiamata dello script. Questo garantisce la velocità elevata e il footprint ridotto delle chiamate delle stored procedure.
+Le stored procedure, le funzioni definite dall'utente e i trigger vengono precompilati implicitamente nel formato di codice byte per evitare il lavoro di compilazione per ogni chiamata dello script. Questo garantisce la velocità elevata e il footprint ridotto delle chiamate delle stored procedure.
 
 ## <a name="client-sdk-support"></a>Supporto di client SDK
-Oltre all'API [Node.js](sql-api-sdk-node.md) di Azure Cosmos DB, Azure Cosmos DB include gli [SDK di .NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) e [Python](sql-api-sdk-python.md) anche per l'API SQL. È possibile creare ed eseguire stored procedure, trigger e UDFs usando anche uno qualsiasi di questi SDK. Nell'esempio seguente viene illustrato come creare ed eseguire una stored procedure con il client .NET. Notare il modo in cui i tipi -NET vengono passati nella stored procedure come JSON e poi riletti.
+Oltre all'API [Node.js](sql-api-sdk-node.md) di Azure Cosmos DB, Azure Cosmos DB include gli [SDK di .NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) e [Python](sql-api-sdk-python.md) anche per l'API SQL. È possibile creare ed eseguire stored procedure, trigger e funzioni definite dall'utente anche usando anche uno di questi SDK. Nell'esempio seguente viene illustrato come creare ed eseguire una stored procedure con il client .NET. Notare il modo in cui i tipi -NET vengono passati nella stored procedure come JSON e poi riletti.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -708,7 +706,7 @@ Questo esempio illustra come usare l'[API .NET di SQL](/dotnet/api/overview/azur
         });
 
 
-L'esempio seguente illustra come creare una funzione definita dall'utente e usarla in una [query SQL](sql-api-sql-query.md).
+L'esempio seguente illustra come creare una funzione definita dall'utente (UDF) e usarla in una [query SQL](sql-api-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {
@@ -726,7 +724,7 @@ L'esempio seguente illustra come creare una funzione definita dall'utente e usar
     }
 
 ## <a name="rest-api"></a>API REST
-Tutte le operazioni di Azure Cosmos DB possono essere eseguite in modalità RESTful. È possibile registrare stored procedure, trigger e funzioni definite dall'utente in una raccolta usando il verbo HTTP POST. Di seguito è riportato un esempio di come registrare una stored procedure:
+Tutte le operazioni di Azure Cosmos DB possono essere eseguite in modalità RESTful. È possibile registrare stored procedure, trigger e funzioni definite dall'utente in una raccolta usando HTTP POST. Di seguito è riportato un esempio di come registrare una stored procedure:
 
     POST https://<url>/sprocs/ HTTP/1.1
     authorization: <<auth>>
@@ -776,7 +774,7 @@ In questo caso, l'input nella stored procedure viene passato al corpo della rich
     }
 
 
-A differenza delle stored procedure, non è possibile eseguire direttamente i trigger, che vengono però eseguiti come parte di un'operazione o di un documento. È possibile specificare i trigger da eseguire con una richiesta usando le intestazioni HTTP. Di seguito è riportata una richiesta per creare un documento.
+A differenza delle stored procedure, non è possibile eseguire direttamente i trigger, che vengono però eseguiti come parte di un'operazione o di un documento. È possibile specificare i trigger da eseguire con una richiesta usando le intestazioni HTTP. Il codice seguente illustra la richiesta per creare un documento.
 
     POST https://<url>/docs/ HTTP/1.1
     authorization: <<auth>>
@@ -793,12 +791,12 @@ A differenza delle stored procedure, non è possibile eseguire direttamente i tr
     }
 
 
-In questo caso, il pre-trigger da eseguire con la richiesta è specificato nell'intestazione x-ms-documentdb-pre-trigger-include. Di conseguenza, qualsiasi post-trigger viene indicato nell'intestazione x-ms-documentdb-post-trigger-include. Notare che è possibile specificare sia pre-trigger sia post-trigger per una determinata richiesta.
+In questo caso, il pre-trigger da eseguire con la richiesta è specificato nell'intestazione x-ms-documentdb-pre-trigger-include. Di conseguenza, qualsiasi post-trigger viene indicato nell'intestazione x-ms-documentdb-post-trigger-include. Per una determinata richiesta è possibile specificare sia pre-trigger sia post-trigger.
 
 ## <a name="sample-code"></a>Codice di esempio
 Per trovare altri esempi di codice sul lato server, inclusi esempi relativi all'[eliminazione in blocco](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) e all'[aggiornamento](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js), vedere l'[archivio GitHub](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
-Si desidera condividere la stored procedure awesome? Inviare una richiesta di pull! 
+Si desidera condividere la stored procedure awesome? Inviare una richiesta di pull. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Quando sono presenti uno o più stored procedure, trigger e funzioni definite dall'utente create, è possibile caricarli e visualizzarli nel portale di Azure usando Esplora dati.

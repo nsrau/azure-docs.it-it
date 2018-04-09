@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 04/06/2018
 ms.author: brenduns
-ms.openlocfilehash: c3cb8ab8a838a3f831ece617fcf3e218a9510ea5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e9c39c374d7dfa6759da9f9b9a12816d77c647b1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1712-update"></a>Aggiornamento dello Stack 1712 Azure
 
@@ -43,11 +43,14 @@ In questo articolo vengono descritti i miglioramenti e correzioni in questo pacc
 È necessario installare prima Azure Stack [1711 aggiornare](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1711) prima di applicare questo aggiornamento.
 
 ### <a name="post-update-steps"></a>Passaggi di post-aggiornamento
+- Dopo l'installazione di 1712, installare gli aggiornamenti rapidi applicabili. Per ulteriori informazioni, vedere i seguenti articoli della knowledge base, nonché il nostro [manutenzione criteri](azure-stack-servicing-policy.md).  
+  - [KB 4103348 - servizio API di Controller di rete si blocca quando si tenta di installare un aggiornamento dello Stack di Azure](https://support.microsoft.com/help/4103348)
 
-Questo aggiornamento è necessario inoltre installare gli aggiornamenti del firmware dal partner OEM dopo aver completato l'installazione dell'aggiornamento 1712 dello Stack di Azure.
 
-> [!NOTE]
-> Consultare il sito Web partner OEM per scaricare gli aggiornamenti.
+- Aggiornamento 1712 inoltre è necessario installare gli aggiornamenti del firmware dal partner OEM dopo aver completato l'installazione dell'aggiornamento 1712 dello Stack di Azure.
+
+  > [!NOTE]
+  > Consultare il sito Web partner OEM per scaricare gli aggiornamenti.
 
 ### <a name="new-features-and-fixes"></a>Nuove funzionalità e correzioni
 

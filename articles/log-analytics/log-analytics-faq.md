@@ -2,23 +2,23 @@
 title: Domande frequenti su Log Analytics | Documentazione Microsoft
 description: Risposte alle domande frequenti sul servizio Log Analytics di Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 03/21/2018
 ms.author: magoedte
-ms.openlocfilehash: 0b27386cd0f9f3ae50314b8c5d7708aea3e3d028
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398a62cbba952f35f29c1b1f411a6d5b901d2973
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="log-analytics-faq"></a>Domande frequenti su Log Analytics
 Le Domande frequenti Microsoft sono un elenco di domande frequenti su Log Analytics in Microsoft Azure. Per altre domande su Log Analytics, visitare il [forum di discussione](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e inviare una domanda. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
@@ -51,19 +51,21 @@ R: No. Log Analytics è un servizio cloud scalabile che elabora e archivia grand
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>D: Come si verifica se Log Analytics non sta più raccogliendo dati?
 
-R: Se l'utente ha il piano tariffario gratuito e ha inviato più di 500 MB di dati in un giorno, la raccolta dati si interrompe per il resto del giorno. Il raggiungimento del limite giornaliero è un motivo comune per cui Log Analytics interrompe la raccolta dei dati o per cui i dati mancano.
+R: Se l'utente ha il piano tariffario gratuito e ha inviato più di 500 MB di dati in un giorno, la raccolta dati si interrompe per il resto del giorno. Il raggiungimento del limite giornaliero è un motivo comune per cui Log Analytics interrompe la raccolta dei dati o per cui i dati mancano.  
 
-Log Analytics crea un evento di tipo *Operazione* quando la raccolta dei dati si avvia e si arresta. 
+Log Analytics crea un evento di tipo *Heartbeat* e può essere usato per determinare se la raccolta dei dati si arresta. 
 
-Eseguire la query seguente per verificare se si raggiunge il limite giornaliero e se i dati sono mancanti:`Type=Operation OperationCategory="Data Collection Status"`
+Eseguire la query seguente per verificare se si raggiunge il limite giornaliero e se i dati sono mancanti:`Heartbeat | summarize max(TimeGenerated)`
 
-Quando la raccolta dei dati si interrompe, *OperationStatus* è **Attenzione**. Quando la raccolta dei dati si avvia, *OperationStatus* è **Riuscito**. 
+Per controllare un computer specifico, eseguire la query seguente: `Heartbeat | where Computer=="contosovm" | summarize max(TimeGenerated)`
+
+Quando la raccolta dei dati si arresta, a seconda dell'intervallo di tempo selezionato, non verranno visualizzati record restituiti.   
 
 La tabella seguente descrive i motivi per cui raccolta dei dati si interrompe e un'azione consigliata per riprendere la raccolta dati:
 
 | Motivi di interruzione della raccolta dati                       | Per riprendere la raccolta dati |
 | -------------------------------------------------- | ----------------  |
-| Limite giornaliero di dati gratuiti raggiunto<sup>1</sup>       | Attendere fino al giorno successivo; la raccolta riprenderà automaticamente oppure<br> passare a un piano tariffario a pagamento |
+| Limite di dati gratuiti raggiunto<sup>1</sup>       | Attendere fino al mese successivo; la raccolta riprenderà automaticamente oppure<br> passare a un piano tariffario a pagamento |
 | La sottoscrizione di Azure è in sospeso perché: <br> la versione di prova gratuita è terminata <br> Azure Pass è scaduto <br> Il limite di spesa mensile è stato raggiunto, ad esempio in una sottoscrizione MSDN o in una sottoscrizione di Visual Studio                          | Passare a una sottoscrizione a pagamento <br> Passare a una sottoscrizione a pagamento <br> Rimuovere il limite oppure attendere fino ripristino del limite |
 
 <sup>1</sup> Se l'area di lavoro ha un piano tariffario gratuito, è possibile inviare solo 500 MB di dati al giorno al servizio. Quando si raggiunge il limite giornaliero, si interrompe la raccolta dei dati fino al giorno successivo. I dati inviati quando la raccolta dati è sospesa non vengono indicizzati e non sono disponibili per la ricerca. Quando la raccolta dei dati riprende, l'elaborazione avviene solo per i nuovi dati inviati. 
@@ -77,14 +79,13 @@ R: Per ricevere una notifica quando la raccolta dati si interrompe, seguire la p
 Quando si crea l'avviso per l'interruzione della raccolta dati, applicare le seguenti impostazioni:
 - **Nome** su *Data collection stopped* (Raccolta dati interrotta)
 - **Gravità** su *Avviso*
-- **Query di ricerca** su `Type=Operation OperationCategory="Data Collection Status" OperationStatus=Warning`
-- **Intervallo di tempo** su *2 Hours* (2 ore).
-- **Frequenza di avviso** su un'ora, dal momento che i dati di utilizzo vengono aggiornati solo una volta ogni ora.
+- **Query di ricerca** su `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+- **Intervallo di tempo** su *30 minuti*.
+- **Frequenza di avviso** ogni *dieci* minuti.
 - **Genera l'avviso in base a** sul *numero di risultati*
 - **Numero di risultati** su *Maggiore di 0*
 
-Seguire la procedura descritta in [Aggiungere azioni alle regole di avviso in Log Analytics](log-analytics-alerts-actions.md) per configurare un'azione di posta elettronica, webhook o runbook per la regola di avviso.
-
+Questo avviso viene attivato quando la query restituisce risultati solo se manca l'heartbeat per più di 15 minuti.  Seguire la procedura descritta in [Aggiungere azioni alle regole di avviso in Log Analytics](log-analytics-alerts-actions.md) per configurare un'azione di posta elettronica, webhook o runbook per la regola di avviso.
 
 ## <a name="configuration"></a>Configurazione
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>D: È possibile modificare il nome del contenitore di tabelle/BLOB usato per leggere da Diagnostica di Azure?
@@ -141,7 +142,7 @@ Verificare di avere l'autorizzazione in entrambe le sottoscrizioni di Azure.
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>D: Quanti dati è possibile inviare tramite l'agente a Log Analytics? È prevista una quantità massima di dati per ogni cliente?
 R. Il piano gratuito prevede un limite giornaliero di 500 MB per area di lavoro. I piani Standard e Premium non hanno limiti per la quantità di dati caricati. Come servizio cloud, Log Analytics è progettato per passare automaticamente a un piano superiore per gestire il volume proveniente da un cliente, anche se si tratta di diversi terabyte al giorno.
 
-L'agente di Log Analytics è stato progettato in modo da avere un impatto minimo. Uno dei clienti ha scritto un blog sui test eseguiti sull'agente e su come ne sia rimasto impressionato. Il volume dei dati varia a seconda delle soluzioni attivate. È possibile trovare informazioni dettagliate sul volume di dati e visualizzare la suddivisione per soluzioni nella pagina [Uso](log-analytics-usage.md).
+L'agente di Log Analytics è stato progettato in modo da avere un impatto minimo. Il volume dei dati varia a seconda delle soluzioni attivate. È possibile trovare informazioni dettagliate sul volume di dati e visualizzare la suddivisione per soluzioni nella pagina [Uso](log-analytics-usage.md).
 
 Per altre informazioni, è possibile consultare il [blog di un cliente](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) sull'impatto ridotto dell'agente OMS.
 
