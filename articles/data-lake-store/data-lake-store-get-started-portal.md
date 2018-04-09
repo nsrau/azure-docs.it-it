@@ -2,7 +2,7 @@
 title: Usare il portale di Azure per iniziare a usare Data Lake Store | Documentazione Microsoft
 description: Usare il portale di Azure per creare un account Data Lake Store ed eseguire le relative operazioni di base
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: c5b0f5250a08915e987a1eb5229f2c4648e660fd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 91ed55e5f12c10e67653bdadfca80bd072779711
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Introduzione ad Azure Data Lake Store con il portale di Azure
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 ## <a name="create-an-azure-data-lake-store-account"></a>Creare un account di Azure Data Lake Store
 
 1. Accedere al nuovo [portale di Azure](https://portal.azure.com).
-2. Fare clic su **Crea una risorsa**, selezionare **Dati e archiviazione** e quindi fare clic su **Azure Data Lake Store**. Leggere le informazioni nel pannello **Azure Data Lake Store**, quindi fare clic su **Crea** nell'angolo inferiore sinistro del pannello.
+2. Fare clic su **Crea una risorsa > Archiviazione > Data Lake Store**.
 3. Nel pannello **Nuovo Data Lake Store** inserire i valori come illustrato nello screenshot seguente:
    
     ![Creare un nuovo account Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Creare un nuovo account Azure Data Lake")
@@ -50,7 +50,7 @@ Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
    * **Impostazioni crittografia**. Sono disponibili tre opzioni:
      
      * **Non abilitare la crittografia**.
-     * **Usare chiavi gestite da Azure Data Lake**,  se si vuole che le chiavi di crittografia vengano gestite da Azure Data Lake Store.
+     * **Usare chiavi gestite da Data Lake Store**,  se si vuole che le chiavi di crittografia vengano gestite da Azure Data Lake Store.
      * **Usare chiavi incluse nell'insieme di credenziali delle chiavi personale**. È possibile selezionare un'istanza di Azure Key Vault esistente oppure crearne una nuova. Per usare le chiavi di un'istanza di Azure Key Vault, è necessario assegnare all'account Azure Data Lake Store le autorizzazioni per accedere a tale istanza. Per istruzioni, vedere [Assegnare le autorizzazioni per Azure Key Vault](#assign-permissions-to-azure-key-vault).
        
         ![Crittografia di Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Crittografia di Data Lake Store")
@@ -61,7 +61,7 @@ Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 
 4. Fare clic su **Crea**. Se si è scelto di aggiungere l'account al dashboard, si viene indirizzati al dashboard, dove è possibile visualizzare lo stato di avanzamento del provisioning dell'account Data Lake Store. Una volta eseguito il provisioning dell'account di Archivio Data Lake, viene visualizzato il pannello dell’account.
 
-### <a name="assign-permissions-to-azure-key-vault"></a>Assegnare le autorizzazioni per Azure Key Vault
+## <a name="assign-permissions-to-azure-key-vault"></a>Assegnare le autorizzazioni per Azure Key Vault
 Se sono state usate le chiavi di un insieme di credenziali delle chiavi di Azure per configurare la crittografia nell'account Data Lake Store, è necessario configurare l'accesso tra l'account Data Lake Store e l'account dell'insieme di credenziali delle chiavi di Azure. Seguire quindi questa procedura.
 
 1. Se sono state usate le chiavi dell'insieme di credenziali delle chiavi di Azure, il pannello dell'account Data Lake Store visualizza un avviso in alto. Fare clic sull'avviso per aprire **Crittografia**.
@@ -87,7 +87,7 @@ Se sono state usate le chiavi di un insieme di credenziali delle chiavi di Azure
 ## <a name="createfolder"></a>Creare delle cartelle in Azure Data Lake Store
 È possibile creare delle cartelle con il proprio account di Archivio Data Lake per gestire e archiviare i dati.
 
-1. Aprire l'account Data Lake Store creato. Dal riquadro sinistro fare clic su **Sfoglia** e selezionare **Data Lake Store**, quindi dal pannello di Data Lake Store fare clic sul nome dell’account in cui si desidera creare le cartelle. Se è stato aggiunto l'account alla schermata iniziale, fare clic sul riquadro dell’account.
+1. Aprire l'account Data Lake Store creato. Nel riquadro sinistro fare clic su **Tutte le risorse** e nel pannello Tutte le risorse fare clic sul nome dell'account in cui si vogliono creare le cartelle. Se è stato aggiunto l'account alla schermata iniziale, fare clic sul riquadro dell’account.
 2. Nel pannello dell'account di Archivio Data Lake, fare clic su **Esplora dati**.
    
     ![Creare cartelle nell'account Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Creare cartelle nell'account Data Lake Store")

@@ -9,15 +9,14 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: ba457daca030d3219fe32177b0b5f8b5565ff544
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3eab85aa4f7fde190a93239fc396cb9c04c2396c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="back-up-azure-file-shares-preview"></a>Eseguire il backup delle condivisioni di File di Azure (anteprima)
-
-Questo articolo illustra come usare il portale di Azure per eseguire il backup e il ripristino delle [condivisioni di File di Azure](../storage/files/storage-files-introduction.md) in Azure.
+# <a name="back-up-azure-file-shares"></a>Eseguire il backup di condivisioni file di Azure
+Questo articolo illustra come usare il portale di Azure per eseguire il backup e il ripristino delle [condivisioni file di Azure](../storage/files/storage-files-introduction.md).
 
 Questa guida illustra come eseguire queste operazioni:
 > [!div class="checklist"]
@@ -31,18 +30,17 @@ Questa guida illustra come eseguire queste operazioni:
 ## <a name="prerequisites"></a>prerequisiti
 Prima di eseguire il backup di una condivisione file di Azure, assicurarsi che la condivisione si trovi in uno dei [tipi di account di archiviazione supportati](troubleshoot-azure-files.md#preview-boundaries). Dopo questa verifica è possibile proteggere le condivisioni file.
 
-## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitazioni per il backup delle condivisioni di File di Azure durante l'anteprima
-Il backup di file di Azure è disponibile in anteprima. Durante l'anteprima, tenere presenti le limitazioni seguenti:
-- Non è possibile proteggere condivisioni file negli account di archiviazione con replica di [archiviazione con ridondanza della zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) o [archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage).
-- Non è possibile proteggere condivisioni file in account di archiviazione con reti virtuali abilitate.
+## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitazioni per il backup delle condivisioni file di Azure durante l'anteprima
+Il backup per le condivisioni file di Azure è disponibile in anteprima. Durante l'anteprima, tenere presenti le limitazioni seguenti:
+- Non è possibile proteggere condivisioni file di Azure negli account di archiviazione con replica di [archiviazione con ridondanza della zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) o [archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage).
+- Non è possibile proteggere condivisioni file di Azure in account di archiviazione con reti virtuali abilitate.
 - Per la protezione di File di Azure non è disponibile PowerShell né l'interfaccia della riga di comando.
 - Il numero massimo di backup pianificati al giorno è uno.
 - Il numero massimo di backup su richiesta al giorno è quattro.
 - Usare i [blocchi delle risorse](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) nell'account di archiviazione per impedire l'eliminazione accidentale dei backup nell'insieme di credenziali di Servizi di ripristino.
 - Non eliminare gli snapshot creati da Backup di Azure. L'eliminazione degli snapshot può comportare la perdita di punti di ripristino e/o errori di ripristino. 
 
-## <a name="configuring-azure-file-shares-backup"></a>Configurazione del backup di condivisioni file di Azure
-
+## <a name="configuring-backup-for-an-azure-file-share"></a>Configurazione del backup per una condivisione file di Azure
 Tutti i dati di backup vengono archiviati negli insiemi di credenziali di Servizi di ripristino. In questa esercitazione si presuppone che sia già disponibile una condivisione file di Azure. Per eseguire il backup della condivisione file di Azure:
 
 1. Creare un insieme di credenziali di Servizi di ripristino nella stessa area della condivisione file. Se è già disponibile un insieme di credenziali, aprire la pagina Panoramica correlata e fare clic su **Backup**.

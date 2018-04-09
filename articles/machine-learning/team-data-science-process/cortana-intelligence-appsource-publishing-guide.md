@@ -2,7 +2,7 @@
 title: Guida alla pubblicazione di Cortana Intelligence in AppSource | Microsoft Docs
 description: Di seguito sono elencati tutti i passaggi che i partner Microsoft devono seguire per pubblicare la propria soluzione Cortana Intelligence in AppSource.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
-ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: anupams
+ms.openlocfilehash: 1a5671eda967c1bba585d31b001bb465526709f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Guida alla pubblicazione di Cortana Intelligence in AppSource
 
@@ -114,5 +114,5 @@ Per informazioni su qualsiasi campo, inviare un messaggio all'indirizzo di posta
 Congratulazioni per aver pubblicato l'app.
 Il livello di ricavi che verranno ottenuti pubblicando l'app in AppSource dipende essenzialmente dalla capacità di influenzare i destinatari. Vedere [Growth-Hacking your Cortana Intelligence app on AppSource](http://aka.ms/aagrowthhackguide) (Growth Hacking di un'app Cortana Intelligence in AppSource) per maggiori dettagli su come ottimizzare i ricavi.
 
-In caso di domande o suggerimenti, contattare Microsoft all'indirizzo < appsourcecissupport@microsoft.com >.
+In caso di domande o suggerimenti, contattare Microsoft all'indirizzo <appsourcecissupport@microsoft.com>.
 

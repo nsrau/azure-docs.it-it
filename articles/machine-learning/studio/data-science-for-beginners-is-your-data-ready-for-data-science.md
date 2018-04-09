@@ -1,11 +1,12 @@
 ---
 title: Sono pronti i dati per l'analisi scientifica? Valutazione dei dati con Azure Machine Learning | Microsoft Docs
 description: Quattro criteri che i dati devono soddisfare per essere pronti per l'analisi scientifica. Questo video illustra esempi concreti per la valutazione dei dati di base.
-keywords: "dati rilevanti, valutare i dati, preparare i dati, criteri dei dati, compatibilità con i dati"
+keywords: dati rilevanti, valutare i dati, preparare i dati, criteri dei dati, compatibilità con i dati
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 4ab9462c4cc4573717450ce48028807960cecee9
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 2d9c66d89b82c63561b147f3d2537ba6ad07c511
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Sono pronti i dati per l'analisi scientifica?
 ## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Analisi scientifica dei dati per principianti
@@ -47,9 +47,7 @@ Questo è il video "I tuoi dati sono pronti per l'analisi scientifica?", il seco
 Per ottenere le risposte desiderate dall'analisi scientifica dei dati, è necessario fornire materiale non elaborato di alta qualità. Proprio come preparare una pizza: più buoni sono gli ingredienti usati, migliore sarà il risultato finale. 
 
 ## <a name="criteria-for-data"></a>Criteri per i dati
-Quindi, nel caso dell'analisi scientifica dei dati, esistono alcuni ingredienti che devono essere amalgamati insieme.
-
-Sono fondamentali dati:
+In data science esistono alcuni componenti di cui deve essere eseguito il pull contemporaneamente. Tra questi:
 
 * Rilevanti
 * Connesso
@@ -61,9 +59,9 @@ Per prima cosa, i dati devono essere rilevanti.
 
 ![Dati rilevanti vs. dati irrilevanti, valutare i dati](./media/data-science-for-beginners-is-your-data-ready-for-data-science/relevant-and-irrelevant-data.png)
 
-Osservando la tabella a sinistra, si apprende che abbiamo incontrato sette persone fuori dai bar di Boston, misurato il livello di alcol nel sangue, la media battuta dalla Red Sox nell'ultimo match e il prezzo del latte nel negozio di comodità più vicino.
+La tabella a sinistra presenta il livello di alcol nel sangue di sette persone testato fuori da un bar di Boston, la media battuta dei Red Sox nell'ultimo match e il prezzo del latte nel negozio all'angolo.
 
-Si tratta di dati del tutto legittimi. L'unico inconveniente è che non sono rilevanti. Non esiste alcuna relazione ovvia tra questi numeri. Infatti, dati il prezzo attuale del latte e la media battuta dalla Red Sox, non vi è alcun modo per risalire al contenuto di alcol nel sangue.
+Si tratta di dati del tutto legittimi. L'unico inconveniente è che non sono rilevanti. Non esiste alcuna relazione ovvia tra questi numeri. Infatti, dati il prezzo attuale del latte e la media battuta dei Red Sox, non vi è alcun modo per risalire al contenuto di alcol nel sangue.
 
 Osservando la tabella a destra si apprende invece che è stata misurata la massa corporea di ciascun individuo ed è stato contato il numero di bevande ingerite.  I numeri presenti su ogni riga sono adesso rilevanti l'uno per l'altro. Data la massa corporea di un individuo e il numero di margarita bevuti, è possibile stimare la quantità di alcol presente nel sangue.
 
@@ -76,35 +74,35 @@ Ecco alcuni dati rilevanti sulla qualità degli hamburger: temperatura della gri
 
 Alcuni valori non sono presenti nella maggior parte dei set di dati. Accade spesso di avere buchi del genere ed esistono delle soluzioni per colmarli. Tuttavia, se mancano diversi valori, i dati iniziano a somigliare a un formaggio svizzero.
 
-Dalla tabella a sinistra si evince che la quantità di dati mancanti è talmente elevata da poter difficilmente ipotizzare qualsiasi tipo di relazione tra la temperatura della griglia e il peso della carne. Questo è un esempio di dati disconnessi.
+Dalla tabella a sinistra si evince che la quantità di dati mancanti è talmente elevata da poter difficilmente ipotizzare qualsiasi tipo di relazione tra la temperatura della griglia e il peso della carne. Questo esempio mostra dati disconnessi.
 
 La tabella a destra, invece, è interamente completa e rappresenta un esempio di dati connessi.
 
 ## <a name="is-your-data-accurate"></a>Sono accurati i dati?
-L'ingrediente successivo necessario è l'accuratezza. Qui sono illustrati quattro bersagli da colpire con le frecce.
+Il successivo componente necessario è l'accuratezza. Ecco quattro bersagli da colpire.
 
 ![Dati accurati vs. dati non accurati - criteri di dati](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
-Si osservi il bersaglio in alto a destra. Attorno al punto centrale vi è un raggruppamento stretto. Quello è naturalmente accurato. Stranamente, nel linguaggio di analisi scientifica dei dati, anche le prestazioni poco al di sotto del centro del bersaglio sono considerate accurate.
+Si osservi il bersaglio in alto a destra. Attorno al punto centrale vi è un raggruppamento stretto. Quello è naturalmente accurato. Stranamente, nel linguaggio di data science, anche le prestazioni poco al di sotto del centro del bersaglio sono considerate accurate.
 
 Se si tratteggiasse il centro di queste frecce, si vedrebbe che è molto vicino al centro del bersaglio. Le frecce sono distribuite attorno al bersaglio, quindi considerate imprecise, ma sono centrate attorno al centro del bersaglio, quindi considerate accurate.
 
-Osservando adesso il bersaglio in alto a sinistra, le frecce sono molto vicine l'una all'altra, si tratta di un raggruppamento stretto. Sono precise, ma non accurate perché il centro è fuori dal centro del bersaglio. E, naturalmente, le frecce nel bersaglio in fondo a sinistra sono sia inaccurate sia imprecise. Questo arciere deve fare più pratica.
+Osservando adesso il bersaglio in alto a sinistra, le frecce sono molto vicine l'una all'altra, a formare un raggruppamento stretto. Sono precise, ma non accurate perché il centro è fuori dal centro del bersaglio. Le frecce nel bersaglio in fondo a sinistra sono sia inaccurate sia imprecise. Questo arciere deve fare più pratica.
 
 ## <a name="do-you-have-enough-data-to-work-with"></a>La quantità dei dati a disposizione con cui lavorare è sufficiente?
-Infine, l'ingrediente numero 4 è rappresentato da una quantità di dati sufficiente.
+Infine, il quarto elemento è rappresentato da dati sufficienti.
 
 ![La quantità dei dati a disposizione è sufficiente per l'analisi? Valutazione dei dati](./media/data-science-for-beginners-is-your-data-ready-for-data-science/barely-enough-data.png)
 
-Si immagini che ciascun punto di dati nella tabella sia una pennellata in un dipinto. Se le pennellate sono poche, il dipinto può apparire abbastanza confuso ed è difficile stabilire quale sia il soggetto.
+Si immagini che ciascun punto di dati nella tabella sia una pennellata in un dipinto. Se le pennellate sono poche, il dipinto può apparire confuso ed è difficile stabilire quale sia il soggetto.
 
 Se si danno altre pennellate, il dipinto inizia quindi a essere più nitido.
 
-Quando i tratti sono appena sufficienti, è possibile vedere quanto basta per prendere alcune decisioni approssimative. Si tratta di un posto che mi piacerebbe visitare? C'è molta luce, l'acqua sembra limpida: sì, è il posto in cui andrò in vacanza.
+Quando i tratti sono appena sufficienti, è possibile vedere soltanto quanto basta per prendere alcune decisioni approssimative. Si tratta di un posto che mi piacerebbe visitare? C'è molta luce, l'acqua sembra limpida: sì, è il posto in cui andrò in vacanza.
 
-Aggiungendo sempre più dati, l'immagine diventa più chiara ed è possibile prendere decisioni più dettagliate. Adesso guardando i tre hotel sulla riva sinistra, è possibile ammirare le straordinarie caratteristiche architettoniche di quello in primo piano. Deciso: terzo piano.
+Aggiungendo sempre più dati, l'immagine diventa più chiara ed è possibile prendere decisioni più dettagliate. Adesso, guardando i tre hotel sulla riva sinistra, è possibile ammirare le straordinarie caratteristiche architettoniche di quello in primo piano. È anche possibile scegliere di restare al terzo piano per la vista mozzafiato.
 
-Dati rilevanti, connessi, accurati e in quantità sufficiente rappresentano tutti gli ingredienti necessari per effettuare alcune analisi scientifiche dei dati di alta qualità.
+Dati rilevanti, connessi, accurati e in quantità sufficiente rappresentano tutti gli ingredienti necessari per analisi di data science di alta qualità.
 
 Anche gli altri quattro video della serie *Data Science for Beginners* (Analisi scientifica dei dati per principianti) di Microsoft Azure Machine Learning meritano di essere visti.
 

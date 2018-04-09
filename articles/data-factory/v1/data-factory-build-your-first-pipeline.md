@@ -2,10 +2,10 @@
 title: 'Esercitazione su Data Factory: prima pipeline di dati | Documentazione Microsoft'
 description: Questa esercitazione di Azure Data Factory illustra come creare e pianificare una data factory che elabora i dati usando uno script Hive in un cluster Hadoop.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
 ms.service: data-factory
 ms.workload: data-services
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 374eebfe35207f6e5264159dcb72abddc6de4598
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2fc9c0a823f48446f98fe9686242b8500462427b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Esercitazione: Creare la prima pipeline per trasformare i dati usando il cluster Hadoop
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-build-your-first-pipeline.md)
-> * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -85,15 +85,15 @@ Prima di iniziare questa esercitazione, sono necessari i prerequisiti seguenti:
 
 1. **Sottoscrizione di Azure** : se non è disponibile una sottoscrizione di Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Vedere l'articolo [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) per informazioni su come ottenere un account di valutazione gratuito.
 2. **Archiviazione di Azure** : in questa esercitazione si usa un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account) . Dopo aver creato l'account di archiviazione, annotare il **nome dell'account** e la **chiave di accesso**. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
-3. Scaricare e leggere il file di query Hive (**HQL**) disponibile all'indirizzo: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Questa query trasforma i dati di input per generare i dati di output. 
-4. Scaricare e leggere il file di input di esempio (**input.log**) disponibile all'indirizzo: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
+3. Scaricare ed esaminare il file di query Hive (**HQL**) che si trova in: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Questa query trasforma i dati di input per generare i dati di output. 
+4. Scaricare ed esaminare il file di input di esempio (**input.log**) che si trova in: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log).
 5. Creare un contenitore BLOB denominato **adfgetstarted** nell'Archiviazione BLOB di Azure. 
 6. Caricare il file **partitionweblogs.hql** nella cartella **script** nel contenitore **adfgetstarted**. Usare strumenti come [Esplora archivi di Microsoft Azure](http://storageexplorer.com/). 
 7. Caricare il file**input.log** nella cartella **inputdata** nel contenitore **adfgetstarted**. 
 
 Dopo avere completato i prerequisiti, selezionare uno dei seguenti strumenti/SDK per eseguire l'esercitazione: 
 
-- [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)

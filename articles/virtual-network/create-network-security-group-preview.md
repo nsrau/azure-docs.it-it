@@ -2,12 +2,12 @@
 title: Filtrare il traffico di rete con i gruppi di sicurezza di rete e delle applicazioni di Azure (anteprima) | Microsoft Docs
 description: Informazioni su come creare gruppi di sicurezza di rete e delle applicazioni (anteprima) per limitare il tipo di traffico di rete in entrata e in uscita delle macchine virtuali.
 services: virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
-ms.custom: 
+ms.custom: ''
 ms.openlocfilehash: ac9a1a8c59a26393d32f9c543e630c302b7ced9d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/31/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrare il traffico di rete con i gruppi di sicurezza di rete e delle applicazioni (anteprima)
 

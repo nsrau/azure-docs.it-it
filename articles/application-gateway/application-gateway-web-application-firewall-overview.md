@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: amsriva
-ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3945436a369f624ccb1d862b9623b8cfb1ed376
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="web-application-firewall-waf"></a>Web application firewall (WAF)
 
@@ -44,7 +44,7 @@ Di seguito sono indicati i vantaggi principali del gateway applicazione e del We
 
 * Monitorare l'applicazione Web contro gli attacchi tramite un log di Web application firewall in tempo reale. Questo log è integrato in [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md) per tenere traccia degli avvisi e dei log di Web application firewall e monitorare facilmente le tendenze.
 
-* Web application firewall sarà presto integrato con il Centro sicurezza di Azure. Il Centro sicurezza di Azure offre una visualizzazione centralizzata dello stato di sicurezza di tutte le risorse di Azure.
+* WAF si integra con il Centro sicurezza di Azure. Il Centro sicurezza di Azure offre una visualizzazione centralizzata dello stato di sicurezza di tutte le risorse di Azure.
 
 ### <a name="customization"></a>Personalizzazione
 
@@ -114,7 +114,7 @@ Il WAF del gateway applicazione può essere configurato per l'esecuzione nelle d
 
 ### <a name="application-gateway-waf-reports"></a>Monitoraggio WAF
 
-Il monitoraggio dello stato del gateway applicazione è un'attività importante. Il monitoraggio dell'integrità di Web application firewall e delle applicazioni protette è reso possibile dalla registrazione e dall'integrazione con Monitoraggio di Azure, il Centro sicurezza di Azure (presto disponibile) e Log Analytics.
+Il monitoraggio dello stato del gateway applicazione è un'attività importante. Il monitoraggio dell'integrità di Web application firewall e delle applicazioni protette è reso possibile dalla registrazione e dall'integrazione con Monitoraggio di Azure, il Centro sicurezza di Azure e Log Analytics.
 
 ![diagnostica](./media/application-gateway-web-application-firewall-overview/diagnostics.png)
 
@@ -124,7 +124,7 @@ Ogni log del gateway applicazione è integrato con [Monitoraggio di Azure](../mo
 
 #### <a name="azure-security-center"></a>Centro sicurezza di Azure
 
-Il [Centro sicurezza di Azure](../security-center/security-center-intro.md) consente di prevenire, rilevare e rispondere alle minacce con un livello di visibilità e controllo più elevato della sicurezza delle risorse di Azure. Il gateway applicazione è ora [integrato nel Centro sicurezza di Azure](application-gateway-integration-security-center.md). Il Centro sicurezza di Azure analizza l'ambiente per rilevare eventuali applicazioni Web non protette ed è ora in grado di consigliare il WAF del gateway applicazione per proteggere le risorse vulnerabili. È possibile creare il WAF del gateway applicazione direttamente dal Centro sicurezza di Azure.  Queste istanze WAF sono integrate nel Centro sicurezza di Azure, a cui inviano avvisi e informazioni sull'integrità per consentire la creazione di report.
+Il [Centro sicurezza di Azure](../security-center/security-center-intro.md) consente di prevenire, rilevare e rispondere alle minacce con un livello di visibilità e controllo più elevato della sicurezza delle risorse di Azure. Il gateway applicazione è [integrato nel Centro sicurezza di Azure](application-gateway-integration-security-center.md). Il Centro sicurezza di Azure analizza l'ambiente per rilevare eventuali applicazioni Web non protette ed è ora in grado di consigliare il WAF del gateway applicazione per proteggere le risorse vulnerabili. È possibile creare il WAF del gateway applicazione direttamente dal Centro sicurezza di Azure.  Queste istanze WAF sono integrate nel Centro sicurezza di Azure, a cui inviano avvisi e informazioni sull'integrità per consentire la creazione di report.
 
 ![Figura 1](./media/application-gateway-web-application-firewall-overview/figure1.png)
 

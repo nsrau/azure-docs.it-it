@@ -2,23 +2,20 @@
 title: Accesso Web con OpenID Connect - Azure AD B2C | Microsoft Docs
 description: Creazione di applicazioni Web tramite l'implementazione in Azure Active Directory del protocollo di autenticazione OpenID Connect
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 21d420c8-3c10-4319-b681-adf2e89e7ede
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: 0eb4194307d1d3953fa1cd88ac014ac7c2ba7311
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e787ea36ab5099705f151504385dd5dc97029e37
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: accesso Web con OpenID Connect
 OpenID Connect è un protocollo di autenticazione basato su OAuth 2.0 che può essere usato per consentire agli utenti di accedere in modo sicuro alle applicazioni Web. Tramite l'implementazione in Azure Active Directory B2C (Azure AD B2C) di OpenID Connect è possibile assegnare esperienze di gestione delle iscrizioni, degli accessi e altre esperienze di gestione delle identità nelle applicazioni Web ad Azure AD. Questa guida illustra come eseguire questa operazione in modo indipendente dal linguaggio. La guida descrive come inviare e ricevere messaggi HTTP senza usare una delle librerie Microsoft open source.
@@ -29,7 +26,7 @@ Dal momento che è un'estensione di OAuth 2.0, consente anche alle app di acquis
 
 Azure AD B2C estende il protocollo standard OpenID Connect per non limitarsi esclusivamente a semplici operazioni di autenticazione e autorizzazione. Introduce il [parametro criteri](active-directory-b2c-reference-policies.md), che consente di usare OpenID Connect per aggiungere esperienze utente all'app, ad esempio la gestione delle iscrizioni, degli accessi e dei profili. Di seguito viene illustrato come usare OpenID Connect e i criteri per implementare ognuna di queste esperienze nelle applicazioni Web. Viene anche illustrato come ottenere i token di accesso per accedere alle API Web.
 
-Le richieste HTTP di esempio nella sezione seguente usano la directory B2C di esempio, fabrikamb2c.onmicrosoft.com, nonché l'applicazione di esempio, https://aadb2cplayground.azurewebsites.net, e i criteri. Si possono provare le richieste in totale autonomia usando questi valori oppure è possibile sostituirli con valori personalizzati.
+Le richieste HTTP di esempio nella sezione successiva usano la directory B2C di esempio, fabrikamb2c.onmicrosoft.com, l'applicazione di esempio, https://aadb2cplayground.azurewebsites.net, e i criteri. Si possono provare le richieste in totale autonomia usando questi valori oppure è possibile sostituirli con valori personalizzati.
 Altre informazioni su come [ottenere un tenant, un'applicazione e criteri B2C](#use-your-own-b2c-directory).
 
 ## <a name="send-authentication-requests"></a>Invio di richieste di autenticazione

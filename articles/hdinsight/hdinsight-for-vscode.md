@@ -3,12 +3,12 @@ title: Strumenti di Azure HDInsight - Usare Visual Studio Code per Hive, LLAP o 
 description: Informazioni su come usare gli strumenti di Azure HDInsight per Visual Studio Code per creare e inviare query e script.
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
-manager: 
+manager: ''
 editor: jgao
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 4f0bcd0992a02e64b4b10347fc30776af17900bd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8c976e5508c928943e2a5e4820f72520554f9b5d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Usare gli strumenti di Azure HDInsight per Visual Studio Code
 
 Informazioni su come usare gli strumenti di Azure HDInsight per Visual Studio Code (VS Code) per creare e inviare processi batch Hive, query Hive interattive e script pySpark. Gli strumenti di Azure HDInsight possono essere installati sulle piattaforme supportate da VS Code, tra cui Windows, Linux e macOS. Sono previsti prerequisiti specifici per le diverse piattaforme.
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare le procedure descritte in questo articolo, sono necessari gli elementi seguenti:
 
@@ -69,9 +69,9 @@ Per potersi connettere ad Azure, è prima necessario creare un'area di lavoro in
 
 4. Aprire **XXXX_hdi_settings.json** da **Esplora risorse** oppure fare clic con il pulsante destro del mouse sull'editor di script e scegliere **Set Configuration** (Imposta configurazione). È possibile configurare la voce di accesso, il cluster predefinito e i parametri di invio dei processi, come illustrato nell'esempio nel file. È anche possibile lasciare vuoti gli altri parametri.
 
-## <a name="connect-to-azure"></a>Connect to Azure
+## <a name="connect-to-hdinsight-cluster"></a>Connettersi al cluster HDInsight
 
-Per poter inviare script ai cluster HDInsight da VS Code, è prima necessario connettersi all'account di Azure personale.
+Prima di inviare script ai cluster HDInsight da Visual Studio Code, è necessario connettersi al proprio account Azure oppure collegare un cluster, usando un nome utente e una password Ambari o un account aggiunto al dominio.
 
 **Connettersi ad Azure**
 

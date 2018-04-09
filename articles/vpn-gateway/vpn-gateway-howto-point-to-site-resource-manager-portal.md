@@ -1,11 +1,11 @@
 ---
-title: 'Connettere un computer a una rete virtuale di Azure da punto a sito con l''autenticazione del certificato di Azure nativo: portale di Azure | Microsoft Docs'
-description: "Connettere i client Windows e Mac OS X in modo sicuro a una rete virtuale di Azure tramite certificati da punto a sito e autofirmati o certificati rilasciati da un'autorità di certificazione. Questo articolo usa il portale di Azure."
+title: "Connettere un computer a una rete virtuale di Azure da punto a sito con l'autenticazione del certificato di Azure nativo: portale di Azure | Microsoft Docs"
+description: Connettere i client Windows e Mac OS X in modo sicuro a una rete virtuale di Azure tramite certificati da punto a sito e autofirmati o certificati rilasciati da un'autorità di certificazione. Questo articolo usa il portale di Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a15ad327-e236-461f-a18e-6dbedbf74943
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2018
+ms.date: 03/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0a45430491e1e06080ae2eca2124088402c17f54
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4603131c31ab3792efc1df504eb95dfde2eccb17
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato di Azure nativo: portale di Azure
 
@@ -78,6 +78,10 @@ Dopo aver creato la rete virtuale, è possibile aggiungere l'indirizzo IP di un 
 
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
+>[!NOTE]
+>Lo SKU Basic non supporta l'autenticazione IKEv2 o RADIUS.
+>
+
 ## <a name="generatecert"></a>5. Generare i certificati
 
 I certificati vengono usati da Azure per autenticare i client che si connettono a una rete virtuale tramite una connessione VPN da punto a sito. Dopo avere ottenuto un certificato radice, è necessario [caricare](#uploadfile) le informazioni della chiave pubblica in Azure. Il certificato radice viene quindi considerato "attendibile" da Azure per la connessione da punto a sito alla rete virtuale. È anche possibile generare i certificati client dal certificato radice considerato attendibile e quindi installarli in ogni computer client. Il certificato client viene usato per l'autenticazione del client all'avvio di una connessione alla rete virtuale. 
@@ -103,6 +107,10 @@ Il pool di indirizzi client è un intervallo di indirizzi IP privati specificati
 3. Nella pagina **Configurazione da punto a sito** aggiungere nella casella **Pool di indirizzi** l'intervallo di indirizzi IP privati da usare. I client VPN ricevono dinamicamente un indirizzo IP dall'intervallo specificato. Fare clic su **Salva** per convalidare e salvare le impostazioni.
 
   ![Pool di indirizzi client](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
+
+  >[!NOTE]
+  >Se in questa pagina non viene visualizzato il tipo di tunnel o il tipo di autenticazione nel portale, il gateway usa lo SKU Basic. Lo SKU Basic non supporta l'autenticazione IKEv2 o RADIUS.
+  >
 
 ## <a name="tunneltype"></a>7. Configurare il tipo di tunnel
 

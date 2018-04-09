@@ -5,7 +5,7 @@ services: notification-hubs
 documentationcenter: windows
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: c09621d1152aafbe15039130f6ca24082dc5bd21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8464a7e48a02be39fb624322fac6c26f4c6c6806
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>Introduzione a Hub di notifica per le app UWP
 
@@ -94,11 +94,11 @@ L'hub di notifica è ora configurato per l'uso di WNS. Sono disponibili le strin
 1. In Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Gestisci pacchetti NuGet**.  
     Verrà visualizzata la finestra **Gestisci pacchetti NuGet**.
 
-2. Nella casella di ricerca immettere **WindowsAzure.Messaging.Managed**, selezionare **Installa** e accettare le condizioni per l'utilizzo.
+2. Nella casella di ricerca immettere **Microsoft.Azure.NotificationHubs**, selezionare **Installa** e accettare le condizioni per l'utilizzo.
    
     ![Finestra Gestisci pacchetti NuGet][20]
    
-    Questa azione esegue il download, l'installazione e l'aggiunta di un riferimento alla libreria di messaggistica di Azure per Windows con il [pacchetto NuGet WindowsAzure.Messaging.Managed](http://nuget.org/packages/WindowsAzure.Messaging).
+    Questa azione scarica, installa e aggiunge un riferimento alla libreria di Hub di notifica di Azure per Windows usando il [pacchetto NuGet Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs).
 
 3. Aprire il file di progetto App.xaml.cs e aggiungere le istruzioni `using` seguenti: 
    

@@ -2,10 +2,10 @@
 title: IT Service Management Connector in Azure Log Analytics | Microsoft Docs
 description: Questo articolo fornisce una panoramica di Connettore di Gestione dei servizi IT e informazioni su come usare questa soluzione per monitorare e gestire da una posizione centrale gli elementi di lavoro di Gestione dei servizi IT in Azure Log Analytics e risolvere rapidamente eventuali problemi.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 56da2d4349a4a32eed783045381e504b529b1a1c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c39cf464a7e838fecf7ebd4a3cbb08612388a5fa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -191,7 +191,7 @@ Quando si crea/modifica una regola di avviso di Azure, usare un gruppo di azioni
 4. Inserire i valori appropriati nelle caselle di testo **Tipo di contatto**, **Impatto**, **Urgenza**, **Categoria** e **Sottocategoria** e quindi fare clic su **Crea**.
 
 
-##<a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizzare e analizzare i dati degli eventi imprevisti e delle richieste di modifica
+## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizzare e analizzare i dati degli eventi imprevisti e delle richieste di modifica
 
 In base alla configurazione quando si imposta una connessione, Connettore di Gestione dei servizi IT può sincronizzare fino a 120 giorni di dati degli eventi imprevisti e delle richieste di modifica. Lo schema dei record di log per questi dati è indicato nella [sezione successiva](#additional-information).
 
@@ -241,7 +241,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Sorgente
 - Assegnato a 
 - Categoria
-- Titolo
+- Title
 - DESCRIZIONE
 - Data di creazione
 - Data di chiusura
@@ -342,7 +342,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 2.  Se i dati provenienti da ServiceNow non vengono sincronizzati con Log Analytics, assicurarsi che l'istanza del servizio ServiceNow non sia sospesa. Le istanze di sviluppo di ServiceNow a volte vanno in sospensione se rimangono inattive a lungo. In caso contrario, segnalare il problema.
 3.  Se gli avvisi OMS vengono generati, ma gli elementi di lavoro non vengono creati nel prodotto ITSM o gli elementi di configurazione non vengono creati/collegati a elementi di lavoro o per qualsiasi altra informazione generica, esaminare le posizioni seguenti:
  -  Gestione dei servizi IT: la soluzione mostra un riepilogo delle connessioni/elementi di lavoro/computer e così via. Fare clic sul riquadro contenente **Stato connettore** per passare a **Ricerca log** con la query pertinente. Esaminare i record di log con ERROR LogType_S per altre informazioni.
- - Pagina **Ricerca log**: consente di visualizzare gli errori o le informazioni correlate direttamente usando la query *Type=ServiceDeskLog_CL*.
+ - Pagina **Ricerca log**: consente di visualizzare gli errori o le informazioni correlate direttamente usando la query `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Risolvere i problemi di distribuzione dell’app Web Service Manager
 1.  In caso di problemi con la distribuzione dell'app Web, assicurarsi di disporre di autorizzazioni sufficienti nella sottoscrizione indicata per creare/distribuire risorse.

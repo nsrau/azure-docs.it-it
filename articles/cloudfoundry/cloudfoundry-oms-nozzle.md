@@ -1,11 +1,11 @@
 ---
 title: Distribuire il nozzle di Log Analytics di Azure per il monitoraggio di Cloud Foundry | Microsoft Docs
-description: "Istruzioni dettagliate per la distribuzione del nozzle loggregator di Cloud Foundry per Log Analytics di Azure. Usare il nozzle per monitorare le metriche di prestazioni e integrità del sistema di Cloud Foundry."
+description: Istruzioni dettagliate per la distribuzione del nozzle loggregator di Cloud Foundry per Log Analytics di Azure. Usare il nozzle per monitorare le metriche di prestazioni e integrità del sistema di Cloud Foundry.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: ningk
 manager: timlt
-editor: 
+editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: virtual-machines-linux
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0d13d39d2921c51c537534a5b000564a9df91880
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b900a42196eedab89af8e55d71a336ed7adc45a4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Distribuire il nozzle di Azure Log Analytics per il monitoraggio del sistema Cloud Foundry
 
-[Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) è un servizio nella Microsoft [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/) (OMS). Consente di raccogliere e analizzare i dati generati dagli ambienti cloud e locali.
+[Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) è un servizio di Azure. Consente di raccogliere e analizzare i dati generati dagli ambienti cloud e locali.
 
 Il nozzle di Log Analytics di Azure (da qui in avanti il nozzle) è un componente di Cloud Foundry, che inoltra le metriche dal firehose [loggregator di Cloud Foundry](https://docs.cloudfoundry.org/loggregator/architecture.html) a Log Analytics di Azure. Il nozzle consente di raccogliere, visualizzare e analizzare le metriche delle prestazioni e dell'integrità del sistema Cloud Foundry tra più distribuzioni.
 
-Questo documento illustra come distribuire il nozzle nell'ambiente Cloud Foundry e come accedere ai dati dalla console OMS di Log Analytics di Azure.
+Questo documento illustra come distribuire il nozzle nell'ambiente Cloud Foundry e come accedere ai dati dalla console di Log Analytics.
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -53,9 +53,9 @@ Il nozzle deve anche disporre delle autorizzazioni di accesso al firehose loggre
 
 Verificare che sia installato Rubygems prima di configurare il client della riga di comando UAA.
 
-### <a name="3-create-an-oms-workspace-in-azure"></a>3. Creare un'area di lavoro OMS in Azure
+### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Creare un'area di lavoro di Log Analytics in Azure
 
-È possibile creare l'area di lavoro OMS manualmente o tramite un modello. Caricare le visualizzazioni e gli avvisi OMS preconfigurati al termine della distribuzione del nozzle.
+È possibile creare l'area di lavoro di Log Analytics manualmente o tramite un modello. Caricare le visualizzazioni e gli avvisi OMS preconfigurati al termine della distribuzione del nozzle.
 
 Per creare manualmente l'area lavoro OMS:
 
@@ -70,7 +70,7 @@ Per creare manualmente l'area lavoro OMS:
 
 Per altre informazioni, vedere [Introduzione a Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-In alternativa, è possibile creare l'area di lavoro OMS tramite il modello OMS. Con questo metodo, il modello carica automaticamente le visualizzazioni e gli avvisi OMS preconfigurati. Per altre informazioni, vedere l'articolo sulla [soluzione Azure OMS Log Analitica per Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
+In alternativa, è possibile creare l'area di lavoro di Log Analytics tramite il modello OMS. Con questo metodo, il modello carica automaticamente le visualizzazioni e gli avvisi OMS preconfigurati. Per altre informazioni, vedere l'articolo sulla [soluzione Azure Log Analytics per Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
 
 ## <a name="deploy-the-nozzle"></a>Distribuire il nozzle
 
@@ -118,14 +118,14 @@ cd oms-log-analytics-firehose-nozzle
 
 #### <a name="set-environment-variables"></a>Impostare le variabili di ambiente
 
-Ora è possibile impostare le variabili di ambiente nel file manifest.yml nella directory corrente. Di seguito viene illustrato il manifesto dell'applicazione per il nozzle. Sostituire i valori con informazioni specifiche dell'area di lavoro OMS.
+Ora è possibile impostare le variabili di ambiente nel file manifest.yml nella directory corrente. Di seguito viene illustrato il manifesto dell'applicazione per il nozzle. Sostituire i valori con informazioni specifiche dell'area di lavoro di Log Analytics.
 
 ```
-OMS_WORKSPACE             : OMS workspace ID: open OMS portal from your OMS workspace, select Settings, and select connected sources.
-OMS_KEY                   : OMS key: open OMS portal from your OMS workspace, select Settings, and select connected sources.
-OMS_POST_TIMEOUT          : HTTP post timeout for sending events to OMS Log Analytics. The default is 10 seconds.
-OMS_BATCH_TIME            : Interval for posting a batch to OMS Log Analytics. The default is 10 seconds.
-OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to OMS Log Analytics. The default is 1000.
+OMS_WORKSPACE             : Log Analytics workspace ID: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_KEY                   : OMS key: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
+OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
+OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
 API_ADDR                  : The API URL of the CF environment. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 DOPPLER_ADDR              : Loggregator's traffic controller URL. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 FIREHOSE_USER             : CF user you created in the preceding section, "Create a CF user and grant required privileges." This user has firehose and Cloud Controller admin access.
@@ -135,8 +135,8 @@ SKIP_SSL_VALIDATION       : If true, allows insecure connections to the UAA and 
 CF_ENVIRONMENT            : Enter any string value for identifying logs and metrics from different CF environments.
 IDLE_TIMEOUT              : The Keep Alive duration for the firehose consumer. The default is 60 seconds.
 LOG_LEVEL                 : The logging level of the Nozzle. Valid levels are DEBUG, INFO, and ERROR.
-LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to OMS Log Analytics as CounterEvents.
-LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to OMS Log Analytics. The default is 60 seconds.
+LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to Log Analytics as CounterEvents.
+LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Log Analytics. The default is 60 seconds.
 ```
 
 ### <a name="push-the-application-from-your-development-computer"></a>Eseguire il push dell'applicazione dal computer di sviluppo.
@@ -165,7 +165,7 @@ Verificare che l'applicazione nozzle di OMS sia in esecuzione.
 
 ### <a name="1-import-the-oms-view"></a>1. Importare la visualizzazione OMS
 
-Dal portale di OMS, passare a **Visualizza finestra di progettazione** > **Importa** > **Sfoglia**e selezionare uno dei file omsview. Selezionare ad esempio *Foundry.omsview Cloud*e salvare la vista. A questo punto viene visualizzato un riquadro **pagina di panoramica** di OMS. Selezionare per visualizzare le metriche visualizzate.
+Dal portale di OMS, passare a **Visualizza finestra di progettazione** > **Importa** > **Sfoglia**e selezionare uno dei file omsview. Selezionare ad esempio *Foundry.omsview Cloud*e salvare la vista. A questo punto viene visualizzato un riquadro nella pagina **Panoramica**. Selezionare per visualizzare le metriche visualizzate.
 
 È possibile personalizzare le visualizzazioni o creare nuove visualizzazioni tramite **Visualizza finestra di progettazione**.
 
@@ -183,7 +183,7 @@ Dal portale di OMS, passare a **Visualizza finestra di progettazione** > **Impor
 | Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Numero di risultati > 0   | Consul genera periodicamente lo stato di integrità. 0 indica che il sistema è integro, mentre 1 indica che l'emettitore di route rileva che Consul è inattivo. |
 | Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | Numero di risultati > 0 | Il numero delta di messaggi eliminato intenzionalmente da Doppler a causa di uno stato di congestione. |
 | Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Numero di risultati > 0   | Il loggregator invia il messaggio di log **LGR** per indicare problemi con il processo di registrazione. Questo problema si verifica ad esempio quando l'output del messaggio di log ha dimensioni elevate. |
-| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Numero di risultati > 0   | Quando il nozzle riceve l'avviso di consumer lento da loggregator, invia la ValueMetric **slowConsumerAlert** a OMS. |
+| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Numero di risultati > 0   | Quando il nozzle riceve l'avviso di consumer lento da loggregator, invia la ValueMetric **slowConsumerAlert** a Log Analytics. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Numero di risultati > 0   | Se il numero delta di eventi persi raggiunge una soglia, è possibile che si stia verificando un problema nel nozzle. |
 
 ## <a name="scale"></a>Scalabilità
@@ -218,7 +218,7 @@ Nella finestra dell'interfaccia della riga di comando di Cloud Foundry digitare:
 cf delete <App Name> -r
 ```
 
-Se si rimuove il nozzle, i dati nel portale OMS non vengono rimossi automaticamente. I dati scadranno in base alle impostazioni di conservazione di Log Analytics di OMS.
+Se si rimuove il nozzle, i dati nel portale OMS non vengono rimossi automaticamente. I dati scadranno in base alle impostazioni di conservazione di Log Analytics.
 
 ## <a name="support-and-feedback"></a>Supporto, commenti e suggerimenti
 

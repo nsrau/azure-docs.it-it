@@ -6,13 +6,13 @@ author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 15179fa3e3567f92a5eae69ba9a684addc3138dd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c9b8e072b5ccd89c27d9c46407e472d6bf1e1e84
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-container-registry-skus"></a>SKU del Registro contenitori di Azure
 
@@ -37,11 +37,11 @@ Gli SKU Basic, Standard e Premium sono noti collettivamente come registri *gesti
 
 ### <a name="managed-basic-standard-premium"></a>Gestiti (Basic, Standard, Premium)
 
-I registri gestiti sono supportati da un account Archiviazione di Azure gestito da Azure. L'account di archiviazione che archivia le immagini non è visualizzato nella sottoscrizione di Azure. L'uso di uno degli SKU di registri gestiti offre vari vantaggi, illustrati in dettaglio in [Aggiornare un registro classico][container-registry-upgrade]. Questo articolo illustra gli SKU di registri gestiti e le relative funzionalità.
+I registri gestiti traggono vantaggio dall'archiviazione immagini gestita interamente da Azure. L'account di archiviazione che archivia le immagini non è visualizzato nella sottoscrizione di Azure. L'uso di uno degli SKU di registri gestiti offre vari vantaggi, illustrati in dettaglio in [Archiviazione immagini del contenitore nel Registro contenitori di Azure][container-registry-storage]. Questo articolo illustra gli SKU di registri gestiti e le relative funzionalità.
 
 ### <a name="unmanaged-classic"></a>Non gestiti (classici)
 
-I registri classici sono detti non gestiti in quanto l'account di archiviazione che li supporta si trova all'interno della *sottoscrizione* di Azure. Di conseguenza, l'utente è responsabile della gestione dell'account di archiviazione in cui sono archiviate le immagini del contenitore. I registri non gestiti non consentono di alternare gli SKU in base alle esigenze (a parte eseguire l'[aggiornamento][container-registry-upgrade] a un registro di sistema gestito) e non offrono diverse funzionalità dei registri gestiti (ad esempio l'eliminazione delle immagini del contenitore, la [replica geografica][container-registry-geo-replication] e i [webhook][container-registry-webhook]).
+I registri classici sono detti non gestiti in quanto l'account di archiviazione che li supporta si trova all'interno della *sottoscrizione* di Azure. Di conseguenza, l'utente è responsabile della gestione dell'account di archiviazione in cui sono archiviate le immagini del contenitore. I registri non gestiti non consentono di alternare gli SKU in base alle esigenze (a parte eseguire l'[aggiornamento][container-registry-upgrade] a un registro gestito) e non offrono diverse funzionalità dei registri gestiti, ad esempio l'eliminazione delle immagini del contenitore, la [replica geografica][container-registry-geo-replication] e i [webhook][container-registry-webhook].
 
 Per ulteriori informazioni sull'aggiornamento di un registro classico a uno SKU gestito, vedere [Aggiornamento di un registro classico][container-registry-upgrade].
 
@@ -103,4 +103,5 @@ Inviare e votare i nuovi suggerimenti sulle funzionalità in [UserVoice del Regi
 [az-acr-update]: /cli/azure/acr#az_acr_update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-upgrade]: container-registry-upgrade.md
+[container-registry-storage]: container-registry-storage.md
 [container-registry-webhook]: container-registry-webhook.md

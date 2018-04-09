@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 94f11504597c127d505d103a417c3d78744d99d1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -87,6 +87,11 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
   az provider register --namespace Microsoft.Batch
   ```
 
+4. L'account che sposta le risorse deve avere almeno le autorizzazioni seguenti:
+
+   * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** sul gruppo di risorse di origine.
+   * **Microsoft.Resources/subscriptions/resourceGroups/write** sul gruppo di risorse di destinazione.
+
 ## <a name="when-to-call-support"></a>Quando chiamare il supporto
 
 È possibile spostare la maggior parte delle risorse tramite le operazioni self-service descritte in questo articolo. Usare le operazioni self-service per:
@@ -105,24 +110,25 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 
 * Gestione API
 * App del servizio app (app Web): vedere [Limitazioni del servizio app](#app-service-limitations)
+* Certificati del servizio app
 * Application Insights
 * Automazione
 * Azure Cosmos DB
 * Batch
 * Bing Mappe
-* RETE CDN
+* Rete di distribuzione dei contenuti
 * Servizi cloud: vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Servizi cognitivi
 * Content Moderator
 * Data Catalog
-* Data factory
+* Data Factory
 * Data Lake Analytics
-* Archivio Data Lake
+* Data Lake Store
 * DNS
 * Hub eventi
 * Cluster HDInsight - vedere [Limitazioni di HDInsight](#hdinsight-limitations)
 * Hub IoT
-* Insieme di credenziali di chiave
+* Key Vault
 * Bilanciamenti del carico: vedere [Limitazioni del servizio di bilanciamento del carico](#lb-limitations)
 * App per la logica
 * Machine Learning
@@ -193,7 +199,9 @@ Non è possibile spostare una rete virtuale in un'altra sottoscrizione se la ret
 
 ## <a name="app-service-limitations"></a>Limitazioni del servizio app
 
-Le limitazioni per lo spostamento delle risorse del Servizio app variano a seconda che lo spostamento avvenga all'interno di una sottoscrizione o a una nuova sottoscrizione.
+Le limitazioni per lo spostamento delle risorse del Servizio app variano a seconda che lo spostamento avvenga all'interno di una sottoscrizione o a una nuova sottoscrizione. 
+
+Le limitazioni descritte in queste sezioni si applicano ai certificati caricati e non ai certificati del servizio app. È possibile spostare i certificati del servizio app in un nuovo gruppo di risorse o in una nuova sottoscrizione senza limitazioni. Se si hanno più app Web che usano lo stesso certificato del servizio app, spostare prima tutte le app Web e quindi spostare il certificato.
 
 ### <a name="moving-within-the-same-subscription"></a>Spostamento all'interno della stessa sottoscrizione
 

@@ -42,7 +42,7 @@ No.
 
 **Ci sono limitazioni di scalabilità per i clienti che usano dischi gestiti?**
 
-Managed Disks elimina i limiti legati agli account di archiviazione. Tuttavia, il numero di dischi gestiti per ogni sottoscrizione è limitato a 2.000 per impostazione predefinita. È possibile aumentare questo numero rivolgendosi al supporto.
+Managed Disks elimina i limiti legati agli account di archiviazione. Tuttavia, come limite massimo, e anche come limite predefinito, sono previsti 10.000 dischi gestiti per area e per tipo di disco per una sottoscrizione.
 
 **È possibile fare uno snapshot incrementale di un disco gestito?**
 
@@ -50,7 +50,7 @@ No. La funzionalità snapshot corrente crea una copia completa di un disco gesti
 
 **Le macchine virtuali in un set di disponibilità possono essere composte da una combinazione di dischi gestiti e non gestiti?**
 
-No. No, i dischi nelle macchine virtuali in un set di disponibilità devono essere o tutti gestiti o tutti non gestiti. Quando si crea un set di disponibilità, è possibile scegliere il tipo di dischi da usare.
+No. I dischi nelle macchine virtuali in un set di disponibilità devono essere o tutti gestiti o tutti non gestiti. Quando si crea un set di disponibilità, è possibile scegliere il tipo di dischi da usare.
 
 **Managed Disks è l'opzione predefinita nel portale di Azure?**
 

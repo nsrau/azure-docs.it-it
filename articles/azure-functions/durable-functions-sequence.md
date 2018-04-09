@@ -4,21 +4,21 @@ description: Scopri come eseguire un esempio di Funzioni permanenti che effettua
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 0020f19e00f3365c4a0d80ebb67aeeedd7fe76df
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Concatenamento di funzioni in Funzioni permanenti - Esempio di sequenza di Hello
 
@@ -26,7 +26,7 @@ Il concatenamento di funzioni si riferisce al criterio di esecuzione di una sequ
 
 ## <a name="prerequisites"></a>prerequisiti
 
-* Seguire le istruzioni in [Install Durable Functions](durable-functions-install.md) (Installare Funzioni permanenti) per impostare l'esempio.
+* [Installare Funzioni permanenti](durable-functions-install.md).
 
 ## <a name="the-functions"></a>Funzioni
 
@@ -35,7 +35,7 @@ Questo articolo descrive le funzioni seguenti nell'app di esempio:
 * `E1_HelloSequence`: funzione di orchestrazione che chiama `E1_SayHello` più volte in una sequenza. Archivia gli output delle chiamate `E1_SayHello` e registra i risultati.
 * `E1_SayHello`: funzione di attività che antepone una stringa con "Hello".
 
-Le sezioni seguenti illustrano la configurazione e il codice usati per lo sviluppo nel portale di Azure. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
+Le sezioni seguenti illustrano la configurazione e il codice usati per gli script in C#. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
  
 ## <a name="functionjson-file"></a>File function.json
 

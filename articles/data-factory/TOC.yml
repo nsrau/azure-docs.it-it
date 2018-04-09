@@ -116,10 +116,14 @@
       href: concepts-integration-runtime.md
 - name: Guide alle procedure
   items:
-    - name: Creare data factory con strumenti visivi
-      href: author-visually.md
-    - name: Integrazione e distribuzione continue
-      href: continuous-integration-deployment.md
+    - name: Autore
+      items:
+        - name: Creare data factory con strumenti visivi
+          href: author-visually.md
+        - name: Integrazione e distribuzione continue
+          href: continuous-integration-deployment.md
+        - name: Sviluppo e debug iterativi
+          href: iterative-development-debugging.md
     - name: Copiare i dati
       items:
         - name: Copiare dati con l'attività di copia
@@ -376,7 +380,7 @@
           href: how-to-create-schedule-trigger.md
         - name: Creare un trigger di finestra a cascata
           href: how-to-create-tumbling-window-trigger.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.datafactory

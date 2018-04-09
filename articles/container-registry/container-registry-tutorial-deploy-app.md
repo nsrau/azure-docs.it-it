@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: d775a17cb8069a7521788d850d7d52b92cc67526
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 51aa3c6fc56e974fc1729a1d2fe35c889adf35e2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="deploy-web-app-from-azure-container-registry"></a>Distribuire un'app Web dal Registro contenitori di Azure
+# <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Esercitazione: Distribuire un'app Web dal Registro contenitori di Azure
 
 Questa esercitazione è la seconda di una serie in tre parti. Nella [prima parte](container-registry-tutorial-prepare-registry.md), è stato creato un registro contenitori privato, con replica geografica; è stata quindi creata un'immagine del contenitore poi inserita nel registro contenitori. Questo articolo illustra come distribuire il contenitore in due istanze di App Web in due diverse aree di Azure, per sfruttare i vantaggi della struttura simile alla rete del registro contenitori con replica geografica.
 

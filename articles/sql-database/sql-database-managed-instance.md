@@ -8,17 +8,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: bonova
-ms.openlocfilehash: bc9c16462f28d129efa8c47183c6325e69bb64f3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Informazioni su Istanza gestita (anteprima)
 
-Istanza gestita di database SQL di Azure (anteprima) è una nuova funzionalità del database SQL di Azure, che offre quasi il 100% di compatibilità con SQL Server in locale, fornendo un'implementazione della [rete virtuale](../virtual-network/virtual-networks-overview.md) nativa che risolve problemi di sicurezza comuni e un [modello aziendale](https://azure.microsoft.com/pricing/details/sql-database/) favorevole per i clienti di SQL Server locali. Istanza gestita consente ai clienti di SQL Server esistenti di spostare nel cloud le proprie applicazioni locali con modifiche minime nelle applicazioni e nel database. Allo stesso tempo, consente di mantenere tutte le funzionalità PaaS (applicazione automatica di patch e aggiornamenti di versione, backup, disponibilità elevata), che riducono drasticamente il carico di gestione e il TCO.
+L’Istanza gestita di database SQL di Azure (anteprima) è una nuova funzionalità del database SQL di Azure che offre quasi il 100% di compatibilità con SQL Server in locale (Enterprise Edition), fornendo un'implementazione della [rete virtuale (VNet)](../virtual-network/virtual-networks-overview.md) nativa che risolve problemi di sicurezza comuni e un [modello aziendale](https://azure.microsoft.com/pricing/details/sql-database/) favorevole per i clienti di SQL Server in locale. Istanza gestita consente ai clienti di SQL Server esistenti di spostare nel cloud le proprie applicazioni locali con modifiche minime nelle applicazioni e nel database. Allo stesso tempo, consente di mantenere tutte le funzionalità PaaS (applicazione automatica di patch e aggiornamenti di versione, backup, disponibilità elevata), che riducono drasticamente il carico di gestione e il TCO.
 
 > [!IMPORTANT]
 > Per un elenco delle aree geografiche in cui è attualmente disponibile Istanza gestita, vedere [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Eseguire la migrazione dei database a un servizio completamente gestito con Istanza gestita di database SQL di Azure).
@@ -34,16 +34,16 @@ Istanza gestita è concepita come piattaforma preferita per gli scenari seguenti
 
 In base alla disponibilità generale, Istanza gestita mira a offrire una compatibilità della superficie di attacco prossima al 100% con l'ultima versione di SQL Server in locale tramite un piano di rilascio a fasi. 
 
-La tabella seguente riassume le differenze principali e gli scenari di utilizzo previsti tra IaaS SQL, il database SQL di Azure e Istanza gestita:
+La tabella seguente riassume le differenze principali e gli scenari di utilizzo previsti tra IaaS SQL, il database SQL di Azure e Istanza gestita di database SQL di Azure:
 
 | | Scenario di utilizzo | 
 | --- | --- | 
-|Istanza gestita |Per i clienti che desiderano eseguire la migrazione di un numero maggiore di app da un ambiente locale o IaaS, creato personalmente o fornito da un ISV, con il minor numero di operazioni di migrazione possibile, proporre Istanza gestita. Tramite il [Servizio Migrazione del database (DMS)](/sql/dma/dma-overview) completamente automatico di Azure, i clienti possono trasferire il proprio server SQL locale in un'istanza gestita che garantisce la compatibilità con SQL Server in locale e il completo isolamento delle istanze del cliente con il supporto delle reti virtuali native.  Con Software Assurance, è possibile scambiare le licenze esistenti con tariffe scontate per un'istanza gestita di database SQL tramite l'[offerta per uso ibrido di Azure per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Istanza gestita di database SQL è la destinazione di migrazione migliore nel cloud per le istanze di SQL Server che richiedono un livello di sicurezza elevato e una superficie di programmazione avanzata. |
-|database SQL di Azure |**Pool elastici**: per i clienti che sviluppano nuove applicazioni SaaS multi-tenant o che intendono trasformare le proprie app locali esistenti in app SaaS multi-tenant, è possibile proporre i pool elastici. I vantaggi di questo modello sono i seguenti: <br><ul><li>Conversione del modello aziendale dalla vendita di licenze alla vendita di abbonamenti a un servizio (per gli ISV)</li></ul><ul><li>Isolamento dei tenant semplice e valido</li></ul><ul><li>Modello di programmazione incentrato sul database semplificato</li></ul><ul><li>Possibilità di scalare orizzontalmente senza raggiungere un limite rigido</li></ul>**Database singoli**: per i clienti che sviluppano nuove app diverse da servizi SaaS multi-tenant, il cui carico di lavoro è stabile e prevedibile, è possibile proporre i database singoli. I vantaggi di questo modello sono i seguenti:<ul><li>Modello di programmazione incentrato sul database semplificato</li></ul>  <ul><li>Prestazioni prevedibili per ogni database</li></ul>|
-|IaaS SQL |Per i clienti che necessitano di personalizzare il sistema operativo o il server di database, nonché per i clienti con requisiti specifici in termini di esecuzione di app di terze parti insieme a SQL Server (nella stessa macchina virtuale), è possibile proporre macchine virtuali SQL/IaaS come soluzione ottimale|
+|Istanza gestita di database SQL |Per i clienti che desiderano eseguire la migrazione di un numero maggiore di app da un ambiente locale o IaaS, creato personalmente o fornito da un ISV, con il minor numero di operazioni di migrazione possibile, proporre Istanza gestita. Tramite il [Servizio Migrazione del database (DMS)](/sql/dma/dma-overview) completamente automatico di Azure, i clienti possono trasferire il proprio server SQL locale in un'istanza gestita che garantisce la compatibilità con SQL Server in locale e il completo isolamento delle istanze del cliente con il supporto delle reti virtuali native.  Con Software Assurance, è possibile scambiare le licenze esistenti con tariffe scontate per un'istanza gestita di database SQL tramite l'[offerta per uso ibrido di Azure per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Istanza gestita di database SQL è la destinazione di migrazione migliore nel cloud per le istanze di SQL Server che richiedono un livello di sicurezza elevato e una superficie di programmazione avanzata. |
+|Database SQL di Azure (singolo o pool) |**Pool elastici**: per i clienti che sviluppano nuove applicazioni SaaS multi-tenant o che intendono trasformare le proprie app locali esistenti in app SaaS multi-tenant, è possibile proporre i pool elastici. I vantaggi di questo modello sono i seguenti: <br><ul><li>Conversione del modello aziendale dalla vendita di licenze alla vendita di abbonamenti a un servizio (per gli ISV)</li></ul><ul><li>Isolamento dei tenant semplice e valido</li></ul><ul><li>Modello di programmazione incentrato sul database semplificato</li></ul><ul><li>Possibilità di scalare orizzontalmente senza raggiungere un limite rigido</li></ul>**Database singoli**: per i clienti che sviluppano nuove app diverse da servizi SaaS multi-tenant, il cui carico di lavoro è stabile e prevedibile, è possibile proporre i database singoli. I vantaggi di questo modello sono i seguenti:<ul><li>Modello di programmazione incentrato sul database semplificato</li></ul>  <ul><li>Prestazioni prevedibili per ogni database</li></ul>|
+|Macchina virtuale IaaS SQL|Per i clienti che necessitano di personalizzare il sistema operativo o il server di database, nonché per i clienti con requisiti specifici in termini di esecuzione di app di terze parti insieme a SQL Server (nella stessa macchina virtuale), è possibile proporre macchine virtuali SQL/IaaS come soluzione ottimale|
 |||
 
-![posizionamento](./media/sql-database-managed-instance/positioning.png)
+<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>Come identificare un'istanza gestita a livello di codice
 
@@ -57,6 +57,9 @@ La tabella seguente mostra diverse proprietà, accessibili tramite Transact SQL,
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nome DNS completo dell'istanza nel formato seguente:<instanceName>.<dnsPrefix>. database.Windows.NET, dove <instanceName> è il nome fornito dal cliente, mentre <dnsPrefix> è la parte del nome generata automaticamente che garantisce l'univocità del DNS globale (ad esempio "wcus17662feb9ce98")|Esempio: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="key-features-and-capabilities-of-a-managed-instance"></a>Caratteristiche e funzionalità principali di un'istanza gestita 
+
+> [!IMPORTANT]
+> Un'istanza gestita viene eseguita con tutte le funzionalità della versione più recente di SQL Server, incluse le operazioni online, le correzioni automatiche del piano e altri miglioramenti delle prestazioni Enterprise. 
 
 | **Vantaggi di PaaS** | **Continuità aziendale** |
 | --- | --- |
@@ -90,6 +93,7 @@ Di seguito sono indicate le funzionalità principali del livello di servizio Uti
 | Versione/build di SQL Server | SQL Server (versione più recente disponibile) |
 | Dimensione minima archiviazione | 32 GB |
 | Dimensione massima archiviazione | 8 TB |
+| Quantità massima di risorse di archiviazione per database | 4 TB |
 | Archiviazione IOPS prevista | 500-7500 IOPS per ogni file di dati (dipende dal file di dati). Vedere [Archiviazione Premium](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Numero di file di dati (RIGHE) per il database | Multipli | 
 | Numero di file di log (LOG) per il database | 1 | 
@@ -120,7 +124,7 @@ Il diagramma seguente illustra la progettazione dell'isolamento:
 
 ### <a name="auditing-for-compliance-and-security"></a>Controllo per conformità e sicurezza 
 
-Il [controllo](sql-database-auditing.md) di Istanza gestita tiene traccia degli eventi del database e li registra in un log di controllo nell'account di archiviazione di Azure dell'utente. Il controllo consente di agevolare la conformità alle normative, comprendere le attività del database e ottenere informazioni su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza. 
+Il [controllo di Istanza gestita](sql-database-managed-instance-auditing.md) tiene traccia degli eventi del database e li registra in un log di controllo nell'account di archiviazione di Azure. Il controllo consente di agevolare la conformità alle normative, comprendere le attività del database e ottenere informazioni su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza. 
 
 ### <a name="data-encryption-in-motion"></a>Crittografia dei dati in movimento 
 
@@ -138,7 +142,7 @@ La [sicurezza a livello di riga](/sql/relational-databases/security/row-level-se
 
 ### <a name="threat-detection"></a>Introduzione al rilevamento delle minacce 
 
-Il [rilevamento delle minacce](sql-database-threat-detection.md) del database SQL di Azure è complementare al controllo perché offre un livello aggiuntivo di informazioni sulla sicurezza integrata nel servizio, che rileva tentativi insoliti e potenzialmente dannosi di accesso ai database o uso degli stessi. L'utente viene avvisato di attività sospette, vulnerabilità potenziali e attacchi SQL injection, nonché di modelli anomali di accesso al database. Gli avvisi di Rilevamento minacce sono disponibili nel [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), forniscono i dettagli delle attività sospette e raccomandano azioni per individuare e ridurre la minaccia.  
+Il [rilevamento delle minacce](sql-database-managed-instance-threat-detection.md) è complementare al [controllo di Istanza gestita](sql-database-managed-instance-auditing.md) perché offre un livello aggiuntivo di informazioni sulla sicurezza integrata nel servizio che rileva tentativi insoliti e potenzialmente dannosi di accesso o exploit del database. L'utente viene avvisato di attività sospette, vulnerabilità potenziali e attacchi SQL injection, nonché di modelli anomali di accesso al database. Gli avvisi di Rilevamento minacce sono disponibili nel [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), forniscono i dettagli delle attività sospette e raccomandano azioni per individuare e ridurre la minaccia.  
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integrazione in Azure Active Directory e autenticazione a più fattori 
 

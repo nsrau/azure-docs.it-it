@@ -1,24 +1,24 @@
 ---
-title: "Informazioni sulle versioni più recenti del sistema operativo guest Azure | Documentazione Microsoft"
-description: "Notizie sui rilasci più recenti e sulla compatibilità SDK per il sistema operativo guest di Servizi cloud di Azure."
+title: Informazioni sulle versioni più recenti del sistema operativo guest Azure | Documentazione Microsoft
+description: Notizie sui rilasci più recenti e sulla compatibilità SDK per il sistema operativo guest di Servizi cloud di Azure.
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/27/2018
+ms.date: 3/19/2018
 ms.author: raiye
-ms.openlocfilehash: dac0efdb1ce76ad6f143479782f164d3304aeaf3
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 0456bf8d8cdd84078d12c3fc0f48d16b0370cddd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest di Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
@@ -42,6 +42,9 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 Non si è certi di quale sia il sistema operativo guest o di come funzionano i rilasci del sistema operativo guest? Leggere [questa](#how-it-works) sezione.
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
+###### <a name="march-19-2018"></a>**19 marzo 2018**
+È stato rilasciato il sistema operativo guest di febbraio.
+
 ###### <a name="january-29-2018"></a>**29 gennaio 2018**
 Il sistema operativo guest di gennaio è stato rilasciato per le famiglie di sistemi operativi 2 (WA-GUEST-OS-2.70_201801-01) e 3 (WA-GUEST-OS-3.57_201801-01)
 
@@ -72,12 +75,6 @@ L'implementazione del sistema operativo guest di settembre è iniziata il 14 set
 ###### <a name="july-19-2017"></a>**19 luglio 2017**
 L'implementazione del sistema operativo guest di luglio è iniziata il 19 luglio e il rilascio è previsto per l'8 agosto.
 
-###### <a name="july-7-2017"></a>**7 luglio 2017**
-È stato rilasciato il sistema operativo guest di giugno.
-
-###### <a name="june-16-2017"></a>**16 giugno 2017**
-L'implementazione del sistema operativo guest di giugno è iniziata il 16 giugno e il rilascio è previsto per l'11 luglio.
-
 
 ## <a name="releases"></a>Rilasci
 ## <a name="family-5-releases"></a>Versioni della famiglia 5
@@ -93,8 +90,9 @@ Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.16_201802-01 |12 marzo 2018 |Post 5.18 |Da definire |
 | WA-GUEST-OS-5.15_201801-01 |4 gennaio 2018 |Post 5.17 |Da definire |
-| WA-GUEST-OS-5.14_201712-01 |4 gennaio 2018 |Post 5.16 |Da definire |
+|~~WA-GUEST-OS-5.14_201712-01~~ |4 gennaio 2018 |12 marzo 2018 |Da definire |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 dicembre 2017 |4 gennaio 2018|Da definire |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 novembre 2017 |4 gennaio 2018 |Da definire |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 ottobre 2017 |14 dicembre 2017 |Da definire |
@@ -118,8 +116,9 @@ Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.51_201802-01 |12 marzo 2018 |Post 4.53 |Da definire |
 | WA-GUEST-OS-4.50_201801-01 |4 gennaio 2018 |Post 4.52 |Da definire |
-| WA-GUEST-OS-4.49_201712-01 |4 gennaio 2018 |Post 4.51 |Da definire |
+|~~WA-GUEST-OS-4.49_201712-01~~ |4 gennaio 2018 |12 marzo 2018 |Da definire |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 dicembre 2017 |4 gennaio 2018 |Da definire |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 novembre 2017 |4 gennaio 2018 |Da definire |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 ottobre 2017 |14 dicembre 2017 |Da definire |
@@ -143,8 +142,9 @@ Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.58_201802-01 |19 marzo 2018 |Post 3.60 |Da definire |
 | WA-GUEST-OS-3.57_201801-01 |29 gennaio 2018 |Post 3.59 |Da definire |
-| WA-GUEST-OS-3.56_201712-01 |4 gennaio 2018 |Post 3.58 |Da definire |
+|~~WA-GUEST-OS-3.56_201712-01~~ |4 gennaio 2018 |19 marzo 2018 |Da definire |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 dicembre 2017 |29 gennaio 2018 |Da definire |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 novembre 2017 |4 gennaio 2018 |Da definire |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 ottobre 2017 |14 dicembre 2017 |Da definire |
@@ -168,8 +168,9 @@ Versione .NET Framework installata: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.71_201802-01 |12 marzo 2018 |Post 2.73 |Da definire |
 | WA-GUEST-OS-2.70_201801-01 |29 gennaio 2018 |Post 2.72 |Da definire |
-| WA-GUEST-OS-2.69_201712-01 |4 gennaio 2018 |Post 2.71 |Da definire |
+|~~WA-GUEST-OS-2.69_201712-01~~ |4 gennaio 2018 |12 marzo 2018 |Da definire |
 |~~WA-GUEST-OS-2.68_201711-01~~ |14 dicembre 2017 |29 gennaio 2018 |Da definire |
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 novembre 2017 |4 gennaio 2018 |Da definire |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 ottobre 2017 |14 dicembre 2017 |Da definire |

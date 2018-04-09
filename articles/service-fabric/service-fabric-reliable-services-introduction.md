@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: 1cbc116a8d595cfea0e87cd17b556e005f276774
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 66e3939a59f09650ce76488c38eb46699ab9f63f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reliable-services-overview"></a>Panoramica di Reliable Services
 Azure Service Fabric semplifica la scrittura e la gestione di Reliable Services con e senza stato. In questo argomento viene trattato quanto segue:
@@ -111,5 +111,5 @@ Una delle caratteristiche di questo servizio è che ha l'aspetto di un normale s
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Guida introduttiva a Reliable Services di Microsoft Azure Service Fabric](service-fabric-reliable-services-quick-start.md)
-* [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md)
+* [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 * [Modello di programmazione Reliable Actors](service-fabric-reliable-actors-introduction.md)

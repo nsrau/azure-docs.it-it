@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: 1360d8bb0911c424747209c69b830fc1ee461798
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 04688f943ac9eba27ca193aa2054c69b6a94547d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault
 
@@ -111,11 +111,11 @@ Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Passaggio 5: Copiare i dati nell'account di archiviazione
 
-Per trasferire i dati nel nuovo account di archiviazione in modo che vengano crittografati, vedere il passaggio 3 della sezione [Introduzione in Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md#step-3-copy-data-to-storage-account).
+Trasferire i dati nel nuovo account di archiviazione in modo che sia crittografato. Per altre informazioni, vedere [Domande frequenti su Crittografia del servizio di archiviazione](storage-service-encryption.md#faq-for-storage-service-encryption).
 
 ### <a name="step-6-query-the-status-of-the-encrypted-data"></a>Passaggio 6: Eseguire query relative allo stato dei dati crittografati
 
-Per eseguire query relative allo stato dei dati crittografati, vedere il passaggio 4 della sezione [Introduzione in Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md#step-4-query-the-status-of-the-encrypted-data).
+Eseguire query relative allo stato dei dati crittografati.
 
 ## <a name="faq-for-sse-with-customer-managed-keys"></a>Domande frequenti sulla crittografia SSE con chiavi gestite dal cliente
 

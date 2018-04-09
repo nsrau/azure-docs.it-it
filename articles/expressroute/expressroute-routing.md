@@ -5,20 +5,20 @@ documentationcenter: na
 services: expressroute
 author: ganesr
 manager: ganesr
-editor: 
+editor: ''
 ms.assetid: 5b382e79-fa3f-495a-a764-c5ff86af66a2
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: 87cf32c23c2b3f50057016a23212c95b706f2910
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 829646be6404f86d9f370b3a402cfc0c0c980699
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -107,7 +107,7 @@ Assicurarsi che l'indirizzo IP e il numero AS siano registrati a nome dell'utent
 
 Se i prefissi e il numero AS non sono assegnati all'utente specifico nei registri precedenti, è necessario aprire un caso di supporto per la convalida manuale di prefissi e ASN. Il supporto richiede documentazione, ad esempio una lettera di autorizzazione, che dimostri che l'utente è autorizzato a usare le risorse.
 
-Un numero AS privato è consentito con il peering Microsoft, ma sarà necessaria anche la convalida manuale.
+Un numero AS privato è consentito con il peering Microsoft, ma sarà necessaria anche la convalida manuale. Inoltre, i numeri AS privati in AS PATH per i prefissi ricevuti vengono rimossi. Di conseguenza, non è possibile aggiungere numeri AS privati in AS PATH per [determinare il routing per peering Microsoft](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
 > Gli indirizzi IP pubblici annunciati su Microsoft tramite ExpressRoute non devono essere annunciati su Internet, altrimenti potrebbe interrompersi la connettività con altri servizi Microsoft. Tuttavia, gli indirizzi IP pubblici usati dai server nella rete che comunica con gli endpoint di Office 365 nell'ambiente Microsoft possono essere annunciati tramite ExpressRoute. 
@@ -118,7 +118,7 @@ Un numero AS privato è consentito con il peering Microsoft, ma sarà necessaria
 Lo scambio di routing avviene tramite il protocollo eBGP. Vengono stabilite sessioni eBGP tramite i router MSEE e i propri router. L'autenticazione delle sessioni eBGP non è un requisito. Se necessario, è possibile configurare un hash MD5. Vedere il [Configura routing](expressroute-howto-routing-classic.md) e il [Circuito flussi di lavoro di provisioning e circuito stati](expressroute-workflows.md) per informazioni sulla configurazione delle sessioni BGP.
 
 ## <a name="autonomous-system-numbers"></a>Numeri AS (Autonomous System)
-Microsoft usa il numero AS 12076 per il peering pubblico di Azure, il peering privato di Azure e il peering Microsoft. Gli ASN da 65515 a 65520 sono riservati per uso interno. Sono supportati sia i numeri AS a 16 bit che a 32 bit. È necessario un numero ASN registrato pubblicamente solo per il peering Microsoft. Il peering privato e pubblico possono usare ASN privati.
+Microsoft usa il numero AS 12076 per il peering pubblico di Azure, il peering privato di Azure e il peering Microsoft. Gli ASN da 65515 a 65520 sono riservati per uso interno. Sono supportati sia i numeri AS a 16 bit che a 32 bit.
 
 Non sono previsti requisiti per la simmetria del trasferimento dei dati. I percorsi di andata e ritorno possono transitare attraverso coppie di router diverse. Le route identiche devono essere annunciate da entrambi i lati in più coppie di circuiti appartenenti all'utente. Non è necessario che le metriche delle route siano identiche.
 

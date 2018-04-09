@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione su Kubernetes in Azure: aggiornare un''applicazione'
-description: 'Esercitazione sul servizio contenitore di Azure: aggiornare un''applicazione'
+title: "Esercitazione su Kubernetes in Azure: aggiornare un'applicazione"
+description: "Esercitazione sul servizio contenitore di Azure: aggiornare un'applicazione"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 82a6b6580fbe69b11fdb8a47e2ca09c19b341bbc
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 97a7e0b8e33042739ccea9a086642d9019c15e5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="update-an-application-in-azure-container-service-aks"></a>Aggiornare un'applicazione nel servizio contenitore di Azure
+# <a name="tutorial-update-an-application-in-azure-container-service-aks"></a>Esercitazione: Aggiornare un'applicazione nel servizio contenitore di Azure (AKS)
 
 Dopo la distribuzione di un'applicazione in Kubernetes, è possibile aggiornarla specificando una nuova immagine del contenitore o una nuova versione dell'immagine. A questo scopo, l'aggiornamento viene eseguito a fasi in modo che solo una parte della distribuzione venga aggiornata contemporaneamente. Questo aggiornamento a fasi consente all'applicazione di rimanere in esecuzione durante l'aggiornamento. Fornisce inoltre un meccanismo di ripristino dello stato precedente se si verifica un errore di distribuzione. 
 
@@ -27,7 +27,7 @@ In questa esercitazione, la sesta di otto, viene aggiornata l'app Azure Vote di 
 > * Push dell'immagine del contenitore in Registro contenitori di Azure
 > * Distribuzione di un'immagine del contenitore aggiornata
 
-Nelle esercitazioni successive, Operations Management Suite verrà configurato per monitorare il cluster Kubernetes.
+Nelle esercitazioni successive viene configurato Log Analytics per il monitoraggio del cluster Kubernetes.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -89,7 +89,7 @@ Usare [docker tag][docker-tag] per assegnare il tag all'immagine. Sostituire `<a
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Usare [docker push][docker-push] per caricare l'immagine nel registro. Sostituire `<acrLoginServer>` con il nome del server di accesso del Registro contenitori di Azure.
+Usare [docker push][docker-push] per caricare l'immagine nel registro. Sostituire `<acrLoginServer>` con il nome del server di accesso del Registro contenitori di Azure. In caso di problemi nell'esecuzione del push nella propria istanza di Registro contenitori di Azure, verificare di aver eseguito il comando [az acr login][az-acr-login].
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -164,7 +164,7 @@ In questa esercitazione è stata aggiornata un'applicazione e l'aggiornamento è
 > * Push dell'immagine del contenitore in Registro contenitori di Azure
 > * Distribuzione dell'applicazione aggiornata
 
-Passare alla prossima esercitazione per apprendere come monitorare Kubernetes con Operations Management Suite.
+Passare alla prossima esercitazione per apprendere come monitorare Kubernetes con Log Analytics.
 
 > [!div class="nextstepaction"]
 > [Monitorare Kubernetes con Log Analytics][aks-tutorial-monitor]
@@ -179,3 +179,4 @@ Passare alla prossima esercitazione per apprendere come monitorare Kubernetes co
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

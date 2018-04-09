@@ -11,11 +11,11 @@ ms.workload: data-management
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: 82983c8926bdf3c7256c529448e5b4f3b2c2381c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3806b165e0124e979f59b51d5583cdbb1f949366
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Distribuire ed esplorare un'applicazione di database multi-tenant partizionato che usa il database SQL di Azure
 
@@ -45,7 +45,7 @@ Tutti gli utenti possono scaricare il codice sorgente C# e PowerShell per Wingti
 
 È disponibile una serie di esercitazioni correlate, basate su questa distribuzione iniziale, che consentono di esaminare vari modelli di progettazione e gestione SaaS. Nel corso delle esercitazioni gli utenti sono incoraggiati a eseguire gli script passo per passo in modo da osservare la modalità di implementazione dei diversi modelli SaaS.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
@@ -172,7 +172,7 @@ La distribuzione iniziale include tre tenant di esempio nel database *Tenants1*.
 2. Premere **F5** (non **F8**) per eseguire lo script; lasciare i valori predefiniti per il momento.
 
    > [!NOTE]
-   > È necessario eseguire gli script di PowerShell premendo **F5**, non **F8**, per eseguire solo una parte selezionata dello script. Il problema con **F8** è che la variabile *$PSScriptRoot* non viene valutata. Questa variabile è necessaria in molti script per l'esplorazione delle cartelle, richiamare altri script o importare moduli.
+   > È necessario eseguire gli script di PowerShell premendo **F5**, non **F8**, per eseguire solo una parte selezionata dello script. Il problema con **F8** è che la variabile *$PSScriptRoot* non viene valutata. Questa variabile è necessaria in molti script per esplorare le cartelle, richiamare altri script o importare moduli.
 
 Il nuovo tenant Red Maple Racing viene aggiunto al database *Tenants1* e registrato nel catalogo. Nel browser viene visualizzato il sito degli **eventi** del nuovo tenant per la vendita di biglietti:
 

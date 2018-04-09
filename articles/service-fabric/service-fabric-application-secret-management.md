@@ -1,47 +1,31 @@
 ---
-title: Gestione dei segreti nelle applicazioni di Service Fabric | Microsoft Docs
-description: Questo articolo descrive come proteggere i valori dei segreti in un'applicazione di Service Fabric.
+title: Gestire i segreti nelle applicazioni di Azure Service Fabric | Microsoft Docs
+description: Informazioni su come proteggere i valori dei segreti in un'applicazione di Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
+ms.date: 03/21/2018
 ms.author: vturecek
-ms.openlocfilehash: bb40f841c6c2671621624e0599a5f3a36a36ab26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 931667509a9aa5e898cd01ad26ff046e30acd3fe
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="managing-secrets-in-service-fabric-applications"></a>Gestione dei segreti nelle applicazioni di Service Fabric
+# <a name="manage-secrets-in-service-fabric-applications"></a>Gestire i segreti nelle applicazioni di Service Fabric
 Questa guida descrive la procedura di gestione dei segreti in un'applicazione di Service Fabric. I segreti possono essere informazioni riservate, ad esempio le stringhe di connessione di archiviazione, le password o altri valori che non devono essere gestiti in testo normale.
 
-Questa guida usa l'insieme di credenziali delle chiavi di Azure per gestire chiavi e segreti. Tuttavia, l' *uso* di segreti in un'applicazione è indipendente dalla piattaforma cloud per consentire alle applicazioni di essere distribuite in un cluster ospitato in un punto qualsiasi. 
+[Azure Key Vault][key-vault-get-started] viene usato come percorso di archiviazione sicuro per i certificati e come un modo per ottenere i certificati installati nei cluster Service Fabric in Azure. Se non si esegue la distribuzione in Azure, non è necessario usare l'insieme di credenziali delle chiavi per gestire i segreti nelle applicazioni di Service Fabric. Tuttavia, l' *uso* di segreti in un'applicazione è indipendente dalla piattaforma cloud per consentire alle applicazioni di essere distribuite in un cluster ospitato in un punto qualsiasi. 
 
-## <a name="overview"></a>Panoramica
-Il metodo consigliato per gestire le impostazioni di configurazione del servizio è tramite i [pacchetti di configurazione del servizio][config-package]. I pacchetti di configurazione dispongono di controllo delle versioni e sono aggiornabili tramite gli aggiornamenti in sequenza gestiti con convalida dell'integrità e rollback automatico. Questo approccio è da preferire alla configurazione globale in quanto riduce le probabilità di un'interruzione del servizio globale. I segreti crittografati non rappresentano un'eccezione. Service Fabric offre funzionalità incorporate per crittografare e decrittografare i valori in un file Settings.xml del pacchetto configurazione tramite la crittografia del certificato.
-
-Il diagramma seguente illustra il flusso di base per la gestione dei segreti in un'applicazione di Service Fabric:
-
-![panoramica della gestione dei segreti][overview]
-
-In questo flusso sono presenti quattro passaggi principali:
-
-1. Ottenere un certificato di crittografia dei dati.
-2. Installare il certificato nel cluster.
-3. Crittografare i valori dei segreti quando si distribuisce un'applicazione con il certificato e inserirli nel file di configurazione Settings.xml del servizio.
-4. Leggere i valori crittografati risultati da Settings. XML eseguendo la decrittografia con lo stesso certificato di crittografia. 
-
-[Azure Key Vault][key-vault-get-started] viene usato come percorso di archiviazione sicuro per i certificati e come un modo per ottenere i certificati installati nei cluster Service Fabric in Azure. Se non si esegue la distribuzione in Azure, non è necessario usare l'insieme di credenziali delle chiavi per gestire i segreti nelle applicazioni di Service Fabric.
-
-## <a name="data-encipherment-certificate"></a>Certificato di crittografia dei dati
+## <a name="obtain-a-data-encipherment-certificate"></a>Ottenere un certificato di crittografia dei dati
 Il certificato di crittografia dei dati viene usato esclusivamente per la crittografia e decrittografia dei valori di configurazione del file Settings.xml del servizio e non viene impiegato per l'autenticazione o la firma di testo crittografato. Il certificato deve soddisfare i requisiti seguenti:
 
 * Il certificato deve includere una chiave privata.
@@ -58,7 +42,7 @@ Il certificato di crittografia dei dati viene usato esclusivamente per la critto
 Questo certificato deve essere installato su ogni nodo del cluster. Verrà usato in fase di esecuzione per decrittografare i valori archiviati in nel file Settings.xml del servizio. Per le istruzioni di installazione, vedere l'articolo che spiega [come creare un cluster con Azure Resource Manager][service-fabric-cluster-creation-via-arm]. 
 
 ## <a name="encrypt-application-secrets"></a>Eseguire la crittografia dei segreti dell'applicazione
-L'SDK di Service Fabric ha funzioni di crittografia e decrittografia dei segreti predefinite. I valori dei segreti possono essere crittografati in fase di compilazione e quindi decrittografati e letti a livello di programmazione nel codice del servizio. 
+Quando si distribuisce un'applicazione, crittografare i valori dei segreti con il certificato e inserirli nel file di configurazione Settings.xml del servizio. L'SDK di Service Fabric ha funzioni di crittografia e decrittografia dei segreti predefinite. I valori dei segreti possono essere crittografati in fase di compilazione e quindi decrittografati e letti a livello di programmazione nel codice del servizio. 
 
 Il comando PowerShell seguente viene usato per crittografare un segreto. Questo comando consente unicamente di crittografare il valore e **non** firma il testo crittografato. È necessario usare lo stesso certificato di crittografia installato nel cluster per produrre il testo crittografato per i valori del segreto:
 
@@ -66,7 +50,7 @@ Il comando PowerShell seguente viene usato per crittografare un segreto. Questo 
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
 ```
 
-La stringa Base 64 risultante contiene sia il testo crittografato dei segreti che le informazioni relative al certificato usato per crittografarlo.  La stringa con codifica Base 64 può essere inserita in un parametro nel file di configurazione Settings.xml del servizio con l'attributo `IsEncrypted` impostato su `true`:
+La stringa con codifica Base 64 risultante contiene sia il testo crittografato del segreto sia le informazioni relative al certificato usato per crittografarlo.  La stringa con codifica Base 64 può essere inserita in un parametro nel file di configurazione Settings.xml del servizio con l'attributo `IsEncrypted` impostato su `true`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -140,7 +124,7 @@ await fabricClient.ApplicationManager.CreateApplicationAsync(applicationDescript
 ```
 
 ## <a name="decrypt-secrets-from-service-code"></a>Decrittografare i segreti dal codice del servizio
-I servizi di Service Fabric vengono eseguiti in NETWORK SERVICE per impostazione predefinita su Windows e non hanno accesso ai certificati installati nel nodo senza un'impostazione aggiuntiva.
+È possibile leggere i valori crittografati dal file Settings.xml decrittografandoli con lo stesso certificato usato per crittografare i segreti. I servizi di Service Fabric vengono eseguiti in NETWORK SERVICE per impostazione predefinita su Windows e non hanno accesso ai certificati installati nel nodo senza un'impostazione aggiuntiva.
 
 Quando si usa un certificato di crittografia dati, è necessario assicurarsi che NETWORK SERVICE o qualsiasi account utente sia in esecuzione nel servizio disponga dell'accesso alla chiave privata del certificato. Service Fabric gestirà automaticamente la concessione dell'accesso per il servizio se viene configurato a tale scopo. Questa configurazione può essere eseguita in ApplicationManifest definendo utenti e criteri di protezione per i certificati. Nell'esempio seguente, all'account NETWORK SERVICE viene concesso l'accesso in lettura a un certificato definito dalla relativa identificazione personale:
 
@@ -176,7 +160,7 @@ SecureString mySecretValue = configPackage.Settings.Sections["MySettings"].Param
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni sull' [esecuzione di applicazioni con autorizzazioni di sicurezza diverse](service-fabric-application-runas-security.md)
+Altre informazioni sulla [sicurezza dell'applicazione e del servizio](service-fabric-application-and-service-security.md)
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/key-vault-get-started.md

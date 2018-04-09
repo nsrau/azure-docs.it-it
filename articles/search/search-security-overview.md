@@ -1,24 +1,24 @@
 ---
 title: Proteggere i dati e le operazioni in Ricerca di Azure | Microsoft Docs
-description: "La sicurezza in Ricerca di Azure si basa sulla conformità SOC 2, sulla crittografia, sull'autenticazione e sull'accesso all'identità tramite gli ID di sicurezza di utenti e gruppi nei filtri di Ricerca di Azure."
+description: La sicurezza in Ricerca di Azure si basa sulla conformità SOC 2, sulla crittografia, sull'autenticazione e sull'accesso all'identità tramite gli ID di sicurezza di utenti e gruppi nei filtri di Ricerca di Azure.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: search
-ms.devlang: 
+ms.devlang: ''
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: c3aa4883e33b1f3494f8502fe7f8b12f7d64a72f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 35f875e5f6345b9ebb9abc4deb71b7bf9c78907d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="security-and-controlled-access-in-azure-search"></a>Sicurezza e accesso controllato in Ricerca di Azure
 
@@ -57,29 +57,16 @@ Tutti i servizi di Azure supportano i controlli degli accessi in base al ruolo p
 
 ## <a name="service-access-and-authentication"></a>Accesso al servizio e autenticazione
 
-Ricerca di Azure non solo eredita le misure di sicurezza della piattaforma Azure, ma fornisce anche la propria autenticazione basata su chiavi. Il tipo di chiave (amministratore o di query) determina il livello di accesso. L'invio di una chiave valida è considerato come prova che la richiesta ha origine da un'entità attendibile. 
+Ricerca di Azure non solo eredita le misure di sicurezza della piattaforma Azure, ma fornisce anche la propria autenticazione basata su chiavi. Una chiave API è una stringa composta da lettere e numeri generati casualmente. Il tipo di chiave (amministratore o di query) determina il livello di accesso. L'invio di una chiave valida è considerato come prova che la richiesta ha origine da un'entità attendibile. Per accedere al servizio di ricerca vengono usati due tipi di chiavi:
 
-L'autenticazione è necessaria per ogni richiesta, dove ogni richiesta è costituita da una chiave obbligatoria, un'operazione e un oggetto. Se concatenati, i due livelli di autorizzazione (completa o di sola lettura) più il contesto sono sufficienti per fornire una sicurezza ad ampio spettro per le operazioni del servizio. 
+* Amministratore (valida per qualsiasi operazione in lettura/scrittura sul servizio)
+* Di query (valida per operazioni di sola lettura, ad esempio le query su un indice)
 
-|Chiave|DESCRIZIONE|Limiti|  
-|---------|-----------------|------------|  
-|Admin|Concede diritti completi a tutte le operazioni, inclusa la possibilità di gestire il servizio, creare ed eliminare indici, indicizzatori e origini dati.<br /><br /> Due **api-key** amministratore, chiamate chiavi *primaria* e *secondaria* nel portale, vengono generate quando il servizio viene creato e possono essere generate di nuovo singolarmente su richiesta. Avere due chiavi consente di eseguire il rollover di una chiave mentre si usa la seconda per l'accesso continuo al servizio.<br /><br /> Le chiavi amministratore vengono specificate solo nelle intestazioni delle richieste HTTP. Non è possibile inserire un elemento api-key amministratore in un URL.|Un massimo di 2 per servizio|  
-|Query|Concede l'accesso in sola lettura agli indici e ai documenti e viene in genere distribuita alle applicazioni client che inviano richieste di ricerca.<br /><br /> Le chiavi di query vengono create su richiesta. È possibile crearle manualmente nel portale o a livello di codice tramite l'[API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Le chiavi di query possono essere specificate nell'intestazione di una richiesta HTTP per un'operazione di ricerca o suggerimento. In alternativa, è possibile passare una chiave di query come parametro in un URL. A seconda di come l'applicazione client formula la richiesta, può risultare più semplice passare la chiave come parametro di query:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|50 per servizio|  
+Le chiavi amministratore vengono create quando viene effettuato il provisioning del servizio. Esistono due chiavi amministratore, designate come *primaria* e *secondaria* per distinguerle, ma di fatto sono intercambiabili. Ogni servizio ha due chiavi amministratore in modo che sia possibile eseguire il rollover di una senza perdere l'accesso al servizio. È possibile rigenerare qualsiasi delle due chiavi amministrative ma non è possibile aggiungere chiavi al totale delle chiavi amministrative disponibili. È consentito un massimo di due chiavi amministratore per ogni servizio di ricerca.
 
- Non esiste alcuna distinzione visiva tra una chiave amministratore o una chiave di query. Entrambe le chiavi sono stringhe composte da 32 caratteri alfanumerici generati in modo casuale. Se si è persa traccia del tipo di chiave specificato nell'applicazione, è possibile [controllare i valori delle chiavi nel portale](https://portal.azure.com) o usare l'[API REST](https://docs.microsoft.com/rest/api/searchmanagement/) per restituire il valore e il tipo di chiave.  
+Le chiavi di query vengono create in base alle necessità e sono progettate per le applicazioni client che chiamano il servizio di ricerca direttamente. È possibile creare fino a 50 chiavi di query. Nel codice dell'applicazione si specificano l'URL di ricerca e una chiave API di query per consentire l'accesso di sola lettura al servizio. Il codice dell'applicazione specifica anche l'indice usato dall'applicazione. L'endpoint, una chiave API per l'accesso di sola lettura e un indice di destinazione definiscono insieme l'ambito e il livello di accesso della connessione dall'applicazione client.
 
-> [!NOTE]  
->  Passare dati sensibili, ad esempio un elemento `api-key`, nell'URI della richiesta è considerato una procedura di sicurezza non ottimale. Per questo motivo, Ricerca di Azure accetta solo una chiave di query come `api-key` nella stringa di query ed è consigliabile evitare di eseguire questa operazione, a meno che i contenuti dell'indice non debbano essere disponibili pubblicamente. Come regola generale, è consigliabile passare l'elemento `api-key` come intestazione della richiesta.  
-
-### <a name="how-to-find-the-access-keys-for-your-service"></a>Come trovare le chiavi di accesso per il servizio
-
-È possibile ottenere le chiavi di accesso nel portale o tramite l'[API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/). Per altre informazioni, vedere [Gestire le chiavi](search-manage.md#manage-api-keys).
-
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Elencare i [servizi di ricerca](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) per la sottoscrizione.
-3. Selezionare il servizio nella pagina dei servizi e trovare **Impostazioni** >**Chiavi** per visualizzare le chiavi amministratore e di query.
-
-![Pagina del portale, sezione Impostazioni, Chiavi](media/search-security-overview/settings-keys.png)
+L'autenticazione è necessaria per ogni richiesta, dove ogni richiesta è costituita da una chiave obbligatoria, un'operazione e un oggetto. Se concatenati, i due livelli di autorizzazione (completa o di sola lettura) più il contesto (ad esempio un'operazione di query su un indice) sono sufficienti per fornire una sicurezza ad ampio spettro per le operazioni del servizio. Per altre informazioni sulle chiavi, vedere [Create and manage api-keys](search-security-api-keys.md) (Creare e gestire le chiavi API).
 
 ## <a name="index-access"></a>Accesso all'indice
 
@@ -123,7 +110,7 @@ La tabella seguente riepiloga le operazioni consentite in Ricerca di Azure e la 
 | Eseguire una query su un indice | Chiave amministratore o di query (Controllo degli accessi in base al ruolo non applicabile) |
 | Eseguire una query sulle informazioni sul sistema, ad esempio per restituire statistiche, conteggi ed elenchi di oggetti. | Chiave amministratore, Controllo degli accessi in base al ruolo nella risorsa (Proprietario, Collaboratore, Lettore) |
 | Gestire le chiavi amministratore | Chiave amministratore, proprietario di Controllo degli accessi in base al ruolo o Collaboratore nella sottoscrizione. |
-| Gestire le chiavi di query |  Chiave amministratore, proprietario di Controllo degli accessi in base al ruolo o Collaboratore nella sottoscrizione. Il lettore di Controllo degli accessi in base al ruolo può visualizzare le chiavi di query. |
+| Gestire le chiavi di query |  Chiave amministratore, proprietario di Controllo degli accessi in base al ruolo o Collaboratore nella sottoscrizione.  |
 
 
 ## <a name="see-also"></a>Vedere anche 

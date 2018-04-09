@@ -1,6 +1,6 @@
 ---
 title: Modificare un set di scalabilità di macchine virtuali di Azure | Microsoft Docs
-description: Modificare un set di scalabilità di macchine virtuali di Azure
+description: Informazioni su come modificare e aggiornare un set di scalabilità di macchine virtuali di Azure con le API REST, Azure PowerShell e l'interfaccia della riga di comando di Azure 2.0
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
@@ -15,45 +15,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: fcca912a8120a51d2f0a454ef0a6341cd5882015
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91eccd2b4587d7cb926ca506ae2f2e5b91ea1f3e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificare un set di scalabilità di macchine virtuali
-Questo articolo descrive come modificare un set di scalabilità di macchine virtuali esistente. Le attività illustrare includono come cambiare la configurazione del set di scalabilità, come cambiare la configurazione delle applicazioni in esecuzione nel set di scalabilità, come gestire la disponibilità e altro ancora.
+Per tutto il ciclo di vita delle applicazioni, potrebbe essere necessario modificare o aggiornare il set di scalabilità di macchine virtuali. Questi aggiornamenti possono includere come aggiornare la configurazione del set di scalabilità o modificare la configurazione dell'applicazione. Questo articolo descrive come modificare un set di scalabilità esistente con le API REST, Azure PowerShell o l'interfaccia della riga di comando di Azure 2.0.
 
 ## <a name="fundamental-concepts"></a>Concetti fondamentali
 
-### <a name="scale-set-model"></a>Modello del set di scalabilità
+### <a name="the-scale-set-model"></a>Il modello del set di scalabilità
+Un set di scalabilità ha un "modello" che acquisisce lo stato *desiderato* del set di scalabilità nel suo insieme. Per eseguire query sul modello per un set di scalabilità è possibile usare 
 
-Un set di scalabilità ha un modello che acquisisce lo stato *desiderato* del set di scalabilità nel suo insieme. Per eseguire query sul modello per un set di scalabilità è possibile usare:
+- API REST con [compute/virtualmachinescalesets/get](/rest/api/compute/virtualmachinescalesets/get) come segue:
 
-* API REST: 
+    ```rest
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
+    ```
 
-  `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}?api-version={apiVersion}` 
-   
-  Per altre informazioni, vedere la [documentazione dell'API Rest](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/get).
+- Azure PowerShell con [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss):
 
-* PowerShell:
+    ```powershell
+    Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+    ```
 
-  `Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}`
-   
-  per altre informazioni, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss).
+- Interfaccia della riga di comando di Azure 2.0 con [az vmss show](/cli/azure/vmss#az_vmss_show):
 
-* Interfaccia della riga di comando di Azure: 
+    ```azurecli
+    az vmss show --resource-group myResourceGroup --name myScaleSet
+    ```
 
-  `az vmss show -g {resourceGroupName} -n {vmSaleSetName}` 
-   
-  Per altre informazioni, vedere la [documentazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_show).
+- È anche possibile usare [resources.azure.com](https://resources.azure.com) o gli [SDK di Azure](https://azure.microsoft.com/downloads/) specifici del linguaggio.
 
-Si può anche usare [Azure Resource Explorer (anteprima)](https://resources.azure.com) o gli [Azure SDK](https://azure.microsoft.com/downloads/) per eseguire query sul modello per un set di scalabilità.
+La presentazione esatta dell'output dipende dalle opzioni fornite al comando. L'esempio seguente illustra l'output di esempio condensato dall'interfaccia della riga di comando di Azure 2.0:
 
-La presentazione esatta dell'output dipende dalle opzioni fornite al comando. Questo è un esempio di output dell'interfaccia della riga di comando di Azure:
-
-```
-$ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
+```azurecli
+az vmss show --resource-group myResourceGroup --name myScaleSet
 {
   "location": "westus",
   "overprovision": true,
@@ -65,44 +64,39 @@ $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
     "name": "Standard_D2_v2",
     "tier": "Standard"
   },
-  .
-  .
-  .
 }
 ```
 
-Come si può notare, queste proprietà si applicano al set di scalabilità nel suo insieme.
+Queste proprietà si applicano al set di scalabilità nel suo insieme.
 
 
+### <a name="the-scale-set-instance-view"></a>Visualizzazione dell'istanza del set di scalabilità
+Un set di scalabilità ha anche una "visualizzazione dell'istanza" che acquisisce lo stato di *runtime* corrente del set di scalabilità nel suo insieme. Per eseguire query sulla visualizzazione dell'istanza per un set di scalabilità è possibile usare:
 
-### <a name="scale-set-instance-view"></a>Visualizzazione dell'istanza del set di scalabilità
+- API REST con [compute/virtualmachinescalesets/getinstanceview](/rest/api/compute/virtualmachinescalesets/getinstanceview) come segue:
 
-Un set di scalabilità ha anche una visualizzazione dell'istanza che acquisisce lo stato di *runtime* corrente del set di scalabilità nel suo insieme. Per eseguire query sulla visualizzazione dell'istanza per un set di scalabilità è possibile usare:
+    ```rest
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/instanceView?api-version={apiVersion}
+    ```
 
-* API REST: 
+- Azure PowerShell con [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss):
 
-  `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version={apiVersion}` 
-   
-  Per altre informazioni, vedere la [documentazione dell'API Rest](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/getinstanceview).
+    ```powershell
+    Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
+    ```
 
-* PowerShell: 
+- Interfaccia della riga di comando di Azure 2.0 con [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view):
 
-  `Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceView` 
-  
-  per altre informazioni, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss).
+    ```azurecli
+    az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
+    ```
 
-* Interfaccia della riga di comando di Azure: 
+- È anche possibile usare [resources.azure.com](https://resources.azure.com) o gli [SDK di Azure](https://azure.microsoft.com/downloads/) specifici del linguaggio
 
-  `az vmss get-instance-view -g {resourceGroupName} -n {vmSaleSetName}` 
-   
-  Per altre informazioni, vedere la [documentazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_get_instance_view).
+La presentazione esatta dell'output dipende dalle opzioni fornite al comando. L'esempio seguente illustra l'output di esempio condensato dall'interfaccia della riga di comando di Azure 2.0:
 
-Si può anche usare [Azure Resource Explorer (anteprima)](https://resources.azure.com) o gli [Azure SDK](https://azure.microsoft.com/downloads/) per eseguire query sulla visualizzazione dell'istanza per un set di scalabilità.
-
-La presentazione esatta dell'output dipende dalle opzioni fornite al comando. Questo è un esempio di output dell'interfaccia della riga di comando di Azure:
-
-```
-$ az vmss get-instance-view -g {resourceGroupName} -n {virtualMachineScaleSetName}
+```azurecli
+$ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
 {
   "statuses": [
     {
@@ -124,44 +118,39 @@ $ az vmss get-instance-view -g {resourceGroupName} -n {virtualMachineScaleSetNam
       }
     ]
   }
-  .
-  .
-  .
 }
 ```
 
-Come si può notare, queste proprietà forniscono un riepilogo dello stato di runtime corrente delle macchine virtuali nel set di scalabilità, incluso lo stato delle estensioni applicate al set di scalabilità stesso (omesso per brevità).
+Queste proprietà forniscono un riepilogo dello stato di runtime corrente delle macchine virtuali nel set di scalabilità, ad esempio lo stato delle estensioni applicate al set di scalabilità stesso.
 
 
-
-### <a name="scale-set-vm-model-view"></a>Visualizzazione modello di macchina virtuale del set di scalabilità
-
+### <a name="the-scale-set-vm-model-view"></a>Visualizzazione modello di macchina virtuale del set di scalabilità
 Così come un set di scalabilità ha una visualizzazione modello, anche ogni macchina virtuale nel set di scalabilità ha la propria visualizzazione modello. Per eseguire query sulla visualizzazione modello per un set di scalabilità è possibile usare:
 
-* API REST: 
+- API REST con [compute/virtualmachinescalesetvms/get](/rest/api/compute/virtualmachinescalesetvms/get) come segue:
 
-  `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}?api-version={apiVersion}` 
-  
-  Per altre informazioni, vedere la [documentazione dell'API Rest](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/get).
+    ```rest
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId?api-version={apiVersion}
+    ```
 
-* PowerShell: 
+- Azure PowerShell con [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm):
 
-  `Get-AzureRmVmssVm -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId}` 
-  
-  per altre informazioni, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm).
+    ```powershell
+    Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
+    ```
 
-* Interfaccia della riga di comando di Azure: 
+- Interfaccia della riga di comando di Azure 2.0 con [az vmss show](/cli/azure/vmss#az_vmss_show):
 
-  `az vmss show -g {resourceGroupName} -n {vmSaleSetName} --instance-id {instanceId}` 
-  
-  Per altre informazioni, vedere la [documentazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_show).
+    ```azurecli
+    az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
+    ```
 
-Si può anche usare [Azure Resource Explorer (anteprima)](https://resources.azure.com) o gli [Azure SDK](https://azure.microsoft.com/downloads/) per eseguire query sul modello di macchina virtuale in un set di scalabilità.
+- È anche possibile usare [resources.azure.com](https://resources.azure.com) o gli [SDK di Azure](https://azure.microsoft.com/downloads/).
 
-La presentazione esatta dell'output dipende dalle opzioni fornite al comando. Questo è un esempio di output dell'interfaccia della riga di comando di Azure:
+La presentazione esatta dell'output dipende dalle opzioni fornite al comando. L'esempio seguente illustra l'output di esempio condensato dall'interfaccia della riga di comando di Azure 2.0:
 
-```
-$ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
+```azurecli
+$ az vmss show --resource-group myResourceGroup --name myScaleSet
 {
   "location": "westus",
   "name": "{name}",
@@ -169,44 +158,39 @@ $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
     "name": "Standard_D2_v2",
     "tier": "Standard"
   },
-  .
-  .
-  .
 }
 ```
 
-Come si può notare, queste proprietà descrivono la configurazione della macchina virtuale stessa, non quella del set di scalabilità nel suo insieme. Ad esempio, il modello del set di scalabilità ha la proprietà `overprovision`, mentre il modello di una macchina virtuale nel set di scalabilità non ce l'ha. La proprietà overprovision è infatti valida per il set di scalabilità nel suo insieme, non per le singole macchine virtuali nel set di scalabilità (per altre informazioni su questa proprietà, vedere [Considerazioni sulla progettazione per i set di scalabilità](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning)).
+Queste proprietà descrivono la configurazione della macchina virtuale stessa, non quella del set di scalabilità nel suo insieme. Ad esempio, il modello del set di scalabilità ha la proprietà `overprovision`, a differenza del modello di una macchina virtuale nel set di scalabilità. La proprietà overprovision è infatti valida per il set di scalabilità nel suo insieme, non per le singole macchine virtuali nel set di scalabilità. Per altre informazioni su questa proprietà, vedere [Considerazioni sulla progettazione per i set di scalabilità](virtual-machine-scale-sets-design-overview.md#overprovisioning).
 
 
-
-### <a name="scale-set-vm-instance-view"></a>Visualizzazione dell'istanza di macchina virtuale del set di scalabilità
-
+### <a name="the-scale-set-vm-instance-view"></a>Visualizzazione dell'istanza di macchina virtuale del set di scalabilità
 Così come un set di scalabilità ha una visualizzazione dell'istanza, anche ogni macchina virtuale nel set di scalabilità ha la propria visualizzazione dell'istanza. Per eseguire query sulla visualizzazione dell'istanza per un set di scalabilità è possibile usare:
 
-* API REST: 
+- API REST con [compute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) come segue:
 
-  `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/instanceView?api-version={apiVersion}` 
- 
-  Per altre informazioni, vedere la [documentazione dell'API Rest](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/getinstanceview).
+    ```rest
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId/instanceView?api-version={apiVersion}
+    ```
 
-* PowerShell: 
+- Azure PowerShell con [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm):
 
-  `Get-AzureRmVmssVm -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -InstanceView` 
-  
-  per altre informazioni, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm).
+    ```powershell
+    Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
+    ```
 
-* Interfaccia della riga di comando di Azure: 
+- Interfaccia della riga di comando di Azure 2.0 con [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)
 
-  `az vmss get-instance-view -g {resourceGroupName} -n {vmSaleSetName} --instance-id {instanceId}` 
-  
-  Per altre informazioni, vedere la [documentazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_get_instance_view).
+    ```azurecli
+    az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
+    ```
 
-Si può anche usare [Azure Resource Explorer (anteprima)](https://resources.azure.com) o gli [Azure SDK](https://azure.microsoft.com/downloads/) per eseguire query sulla visualizzazione dell'istanza per una macchina virtuale in un set di scalabilità.
+- È anche possibile usare [resources.azure.com](https://resources.azure.com) o gli [SDK di Azure](https://azure.microsoft.com/downloads/)
 
-La presentazione esatta dell'output dipende dalle opzioni fornite al comando. Questo è un esempio di output dell'interfaccia della riga di comando di Azure:
+La presentazione esatta dell'output dipende dalle opzioni fornite al comando. L'esempio seguente illustra l'output di esempio condensato dall'interfaccia della riga di comando di Azure 2.0:
 
-```
-$ az vmss get-instance-view -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}
+```azurecli
+$ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
 {
   "additionalProperties": {
     "osName": "ubuntu",
@@ -251,202 +235,203 @@ $ az vmss get-instance-view -g {resourceGroupName} -n {vmScaleSetName} --instanc
     ],
     "vmAgentVersion": "{version}"
   },
-  .
-  .
-  .
 }
 ```
 
-Come si può notare, queste proprietà descrivono lo stato di runtime corrente della macchina virtuale stessa, incluse le eventuali estensioni applicate al set di scalabilità (omesse per brevità).
+Queste proprietà descrivono lo stato di runtime corrente della macchina virtuale stessa, che include le eventuali estensioni applicate al set di scalabilità.
 
 
-
-
-## <a name="techniques-for-updating-global-scale-set-properties"></a>Tecniche di aggiornamento delle proprietà globali del set di scalabilità
-
+## <a name="how-to-update-global-scale-set-properties"></a>Come aggiornare le proprietà globali del set di scalabilità
 Per aggiornare una proprietà globale del set di scalabilità, occorre eseguire l'aggiornamento nel modello del set di scalabilità. È possibile eseguire questo aggiornamento tramite:
 
-* API REST: 
+- API REST con [compute/virtualmachinescalesets/createorupdate](/rest/api/compute/virtualmachinescalesets/createorupdate) come segue:
 
-  `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}?api-version={apiVersion}` 
-  
-  Per altre informazioni, vedere la [documentazione dell'API Rest](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
+    ```rest
+    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
+    ```
 
-  In alternativa è possibile distribuire un modello di Azure Resource Manager usando le proprietà dell'API REST per aggiornare le proprietà globali del set di scalabilità.
+- È possibile distribuire un modello di Resource Manager con le proprietà dell'API REST per aggiornare le proprietà globali del set di scalabilità.
 
-* PowerShell: 
+- Azure PowerShell con [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss):
 
-  `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -VirtualMachineScaleSet {scaleSetConfigPowershellObject}` 
-  
-  per altre informazioni, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss).
+    ```powershell
+    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
+    ```
 
-* Interfaccia della riga di comando di Azure:
+- Interfaccia della riga di comando di Azure 2.0 con [az vmss update](/cli/azure/vmss#az_vmss_update):
+    - Per modificare una proprietà:
 
-  * Per modificare una proprietà: `az vmss update --set {propertyPath}={value}` 
-  
-  * Per aggiungere un oggetto a una proprietà di elenco in un set di scalabilità: `az vmss update --add {propertyPath} {JSONObjectToAdd}` 
-  
-  * Per rimuovere un oggetto da una proprietà di elenco in un set di scalabilità: `az vmss update --remove {propertyPath} {indexToRemove}` 
-  
-  Per altre informazioni, vedere la [documentazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_update). 
-  
-  In alternativa, se in precedenza si è distribuito il set di scalabilità tramite il comando `az vmss create`, è possibile eseguire di nuovo il comando `az vmss create` per aggiornare il set di scalabilità. A tale scopo, verificare che tutte le proprietà nel comando `az vmss create` siano rimaste invariate, ad eccezione di quelle che si vuole modificare.
+        ```azurecli
+        az vmss update --set {propertyPath}={value}
+        ```
 
+    - Per aggiungere un oggetto a una proprietà di elenco in un set di scalabilità: 
 
+        ```azurecli
+        az vmss update --add {propertyPath} {JSONObjectToAdd}
+        ```
 
-Si può anche usare [Azure Resource Explorer (anteprima)](https://resources.azure.com) o gli [Azure SDK](https://azure.microsoft.com/downloads/) per aggiornare il modello del set di scalabilità.
+    - Per rimuovere un oggetto da una proprietà di elenco in un set di scalabilità: 
+
+        ```azurecli
+        az vmss update --remove {propertyPath} {indexToRemove}
+        ```
+
+    - Se in precedenza si è distribuito il set di scalabilità con il comando `az vmss create`, è possibile eseguire di nuovo il comando `az vmss create` per aggiornare il set di scalabilità. Verificare che tutte le proprietà nel comando `az vmss create` siano rimaste invariate, a eccezione di quelle che si vuole modificare.
+
+- È anche possibile usare [resources.azure.com](https://resources.azure.com) o gli [SDK di Azure](https://azure.microsoft.com/downloads/).
 
 Dopo l'aggiornamento del modello, la nuova configurazione viene applicata a tutte le nuove macchine virtuali create nel set di scalabilità. Tuttavia, i modelli delle macchine virtuali esistenti nel set di scalabilità devono ancora essere aggiornati con il più recente modello del set di scalabilità generale. Il modello di ogni macchina virtuale contiene una proprietà booleana chiamata `latestModelApplied` che indica se la macchina virtuale è aggiornata o meno con il più recente modello del set di scalabilità generale (`true` significa che la macchina virtuale è aggiornata con il modello più recente).
 
 
-
-
-## <a name="techniques-for-bringing-vms-up-to-date-with-the-latest-scale-set-model"></a>Tecniche di aggiornamento delle macchine virtuali con il più recente modello del set di scalabilità
-
-I set di scalabilità hanno un *criterio di aggiornamento* che determina il modo in cui le macchine virtuali vengono aggiornate con l'ultima versione del modello del set di scalabilità. Le tre modalità del criterio di aggiornamento sono:
+## <a name="how-to-bring-vms-up-to-date-with-the-latest-scale-set-model"></a>Come aggiornare le macchine virtuali con il più recente modello del set di scalabilità
+I set di scalabilità hanno un "criterio di aggiornamento" che determina il modo in cui le macchine virtuali vengono aggiornate con l'ultima versione del modello del set di scalabilità. Le tre modalità del criterio di aggiornamento sono:
 
 - **Automatico**: in questa modalità il set di scalabilità non offre alcuna garanzia sull'ordine in cui le macchine virtuali vengono arrestate. Potrebbe arrestarle tutte contemporaneamente. 
-- **In sequenza**: in questa modalità il set di scalabilità implementa l'aggiornamento in batch, con una pausa facoltativa fra i singoli batch.
-- **Manuale**: in questa modalità, quando si aggiorna il modello del set di scalabilità, le macchine virtuali esistenti rimangono invariate. Per aggiornare le macchine virtuali esistenti, è necessario eseguire un aggiornamento manuale di ogni singola macchina virtuale. È possibile eseguire l'aggiornamento manuale tramite:
+- **In sequenza**: in questa modalità il set di scalabilità implementa l'aggiornamento in batch con una pausa facoltativa fra i singoli batch.
+- **Manuale**: in questa modalità, quando si aggiorna il modello del set di scalabilità, le macchine virtuali esistenti rimangono invariate.
+ 
+Per aggiornare le macchine virtuali esistenti, è necessario eseguire un "aggiornamento manuale" di ogni singola macchina virtuale. È possibile eseguire l'aggiornamento manuale con:
 
-  - API REST: 
-  
-    `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/manualupgrade?api-version={apiVersion}` 
+- API REST con [compute/virtualmachinescalesets/updateinstances](/rest/api/compute/virtualmachinescalesets/updateinstances) come segue:
+
+    ```rest
+    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
+    ```
+
+- Azure PowerShell con [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance):
     
-    Per altre informazioni, vedere la [documentazione dell'API Rest](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/updateinstances).
+    ```powershell
+    Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
+    ```
 
-  - PowerShell: 
-  
-    `Update-AzureRmVmssInstance -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId}` 
-    
-    per altre informazioni, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
+- Interfaccia della riga di comando di Azure 2.0 con [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances)
 
-  - Interfaccia della riga di comando di Azure: 
-  
-    `az vmss update-instances -g {resourceGroupName} -n {vmScaleSetName} --instance-ids {instanceIds}` 
-    
-    Per altre informazioni, vedere la [documentazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_update_instances).
+    ```azurecli
+    az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
+    ```
 
-  È anche possibile usare gli [Azure SDK](https://azure.microsoft.com/downloads/) per aggiornare manualmente una macchina virtuale in un set di scalabilità.
+- È anche possibile usare gli [SDK di Azure](https://azure.microsoft.com/downloads/) specifici del linguaggio.
 
 >[!NOTE]
-> I cluster di Azure Service Fabric possono usare solo la modalità automatica, ma l'aggiornamento viene gestito in modo diverso. Per altre informazioni sugli aggiornamenti di Service Fabric, vedere la [documentazione di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade).
+> I cluster di Service Fabric possono usare solo la modalità *automatica*, ma l'aggiornamento viene gestito in modo diverso. Per altre informazioni, vedere [Aggiornamenti delle applicazioni di Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
 
-Esiste un tipo di modifica alle proprietà globali del set di scalabilità che non segue il criterio di aggiornamento: le modifiche al profilo del sistema operativo del set di scalabilità, ad esempio il nome utente e la password dell'amministratore. Queste proprietà possono essere modificate solo nella versione dell'API 2017-12-01 o successiva. Queste modifiche si applicano solo alle macchine virtuali create dopo la modifica nel modello del set di scalabilità. Per aggiornare le macchine virtuali esistenti, è necessario ricreare l'immagine di ogni singola macchina virtuale. Si ricrea l'immagine di una macchina virtuale tramite:
+Esiste un tipo di modifica alle proprietà globali del set di scalabilità che non segue il criterio di aggiornamento. Le modifiche al profilo del sistema operativo del set di scalabilità (ad esempio, il nome utente amministratore e la password) possono essere apportate solo nella versione dell'API *2017-12-01* o successiva. Queste modifiche si applicano solo alle macchine virtuali create dopo la modifica nel modello del set di scalabilità. Per aggiornare le macchine virtuali esistenti, è necessario ricreare l'immagine di ogni singola macchina virtuale. È possibile farlo tramite:
 
-* API REST: 
+- API REST con [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage) come segue:
 
-  `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` 
-  
-  Per altre informazioni, vedere la [documentazione dell'API Rest](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage).
+    ```rest
+    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
+    ```
 
-* PowerShell: 
+- Azure PowerShell con [Set-AzureRmVmssVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm):
 
-  `Set-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` 
-  
-  per altre informazioni, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm).
+    ```powershell
+    Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
+    ```
 
-* Interfaccia della riga di comando di Azure: 
+- Interfaccia della riga di comando di Azure 2.0 con [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage):
 
-  `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` 
-  
-  Per altre informazioni, vedere la [documentazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_reimage).
+    ```azurecli
+    az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
+    ```
 
-È anche possibile usare gli [Azure SDK](https://azure.microsoft.com/downloads/) per ricreare l'immagine di una macchina virtuale in un set di scalabilità.
-
-
+- È anche possibile usare gli [SDK di Azure](https://azure.microsoft.com/downloads/) specifici del linguaggio.
 
 
 ## <a name="properties-with-restrictions-on-modification"></a>Proprietà con restrizioni di modifica
 
 ### <a name="create-time-properties"></a>Proprietà della fase di creazione
+Alcune proprietà possono essere impostate solo quando si crea il set di scalabilità. Queste proprietà includono:
 
-Alcune proprietà possono essere impostate solo durante la creazione iniziale del set di scalabilità. Queste proprietà includono:
-
-- Zone
+- Zone di disponibilità
 - Editore del riferimento all'immagine
 - Offerta di riferimento all'immagine
 
-### <a name="properties-that-can-be-changed-based-on-the-current-value-only"></a>Proprietà che possono essere modificate solo in base al valore corrente
-
+### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Proprietà che possono essere modificate solo in base al valore corrente
 Alcune proprietà possono essere modificate, con eccezioni che dipendono dal valore corrente. Queste proprietà includono:
 
-- `singlePlacementGroup`: se `singlePlacementGroup` è true, può essere modificato in false. Tuttavia, se `singlePlacementGroup` è false, *non può* essere modificato in true.
-- `subnet`: la subnet di un set di scalabilità può essere modificata purché la subnet originale e la nuova subnet facciano parte della stessa rete virtuale.
+- **singlePlacementGroup**: se singlePlacementGroup ha valore true, può essere impostata su false. Se invece singlePlacementGroup ha valore false, **non può** essere impostata su true.
+- **subnet**: la subnet di un set di scalabilità può essere modificata purché la subnet originale e la nuova subnet facciano parte della stessa rete virtuale.
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Proprietà che richiedono la deallocazione per poter essere modificate
-
 Alcune proprietà possono essere modificate su determinati valori solo dopo la deallocazione delle macchine virtuali del set di scalabilità. Queste proprietà includono:
 
-- `sku name`: se lo SKU della nuova macchina virtuale non è supportato nell'hardware in cui è attualmente in esecuzione il set di scalabilità, è necessario deallocare le macchine virtuali nel set di scalabilità prima di modificare `sku name`. Per altre informazioni sul ridimensionamento delle macchine virtuali, vedere [questo post di blog di Azure](https://azure.microsoft.com/blog/resize-virtual-machines/).
+- **Nome SKU**: se lo SKU della nuova macchina virtuale non è supportato nell'hardware in cui è attualmente in esecuzione il set di scalabilità, è necessario deallocare le macchine virtuali nel set di scalabilità prima di modificare il nome SKU. Per altre informazioni, vedere [Come ridimensionare una VM di Azure](../virtual-machines/windows/resize-vm.md).
 
 
 ## <a name="vm-specific-updates"></a>Aggiornamenti specifici delle macchine virtuali
-
 Alcune modifiche possono essere applicate solo a macchine virtuali specifiche anziché alle proprietà globali del set di scalabilità. Attualmente l'unico aggiornamento specifico della macchina virtuale supportato è il collegamento/scollegamento di dischi di dati a/da macchine virtuali nel set di scalabilità. Questa funzionalità è in anteprima. Per altre informazioni, vedere la [documentazione della versione di anteprima](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
+
 
 ## <a name="scenarios"></a>Scenari
 
 ### <a name="application-updates"></a>Aggiornamenti dell'applicazione
-
-Se un'applicazione viene distribuita a un set di scalabilità tramite estensioni, l'aggiornamento della configurazione delle estensioni causa l'aggiornamento dell'applicazione in conformità con i criteri di aggiornamento. Ad esempio, se si deve eseguire una nuova versione di uno script in un'estensione dello script personalizzata, si potrebbe aggiornare la proprietà `fileUris` in modo che punti al nuovo script. 
-
-In alcuni casi può essere consigliabile forzare un aggiornamento anche se la configurazione dell'estensione è rimasta invariata, ad esempio nel caso in cui si sia aggiornato lo script senza cambiare l'URI dello script. In questi casi è possibile modificare `forceUpdateTag` in modo da forzare un aggiornamento. La piattaforma Azure non interpreta questa proprietà, quindi la modifica del relativo valore non ha alcun effetto sulla modalità di esecuzione dell'estensione. La sua modifica forza semplicemente la ripetizione dell'esecuzione dell'estensione. 
-
-Per altre informazioni su `forceUpdateTag`, vedere la [documentazione dell'API REST relativa alle estensioni](https://docs.microsoft.com/rest/api/compute/virtualmachineextensions/createorupdate).
+Se un'applicazione viene distribuita a un set di scalabilità tramite estensioni, un aggiornamento alla configurazione delle estensioni causa l'aggiornamento dell'applicazione in conformità con i criteri di aggiornamento. Se ad esempio si deve eseguire una nuova versione di uno script in un'estensione dello script personalizzata, si potrebbe aggiornare la proprietà *fileUris* in modo che punti al nuovo script. In alcuni casi si potrebbe avere l'esigenza di forzare un aggiornamento anche se la configurazione delle estensioni è rimasta invariata, ad esempio nel caso in cui si sia aggiornato lo script senza modifiche all'URI. In questi casi è possibile modificare la proprietà *forceUpdateTag* per poter forzare un aggiornamento. La piattaforma di Azure non interpreta questa proprietà. Se si modifica il valore, l'esecuzione dell'estensione non subirà conseguenze. Una modifica forza semplicemente la ripetizione dell'esecuzione dell'estensione. Per altre informazioni sulla proprietà *forceUpdateTag*, vedere la [documentazione dell'API REST relativa alle estensioni](/rest/api/compute/virtualmachineextensions/createorupdate).
 
 Uno scenario frequente è la distribuzione delle applicazioni tramite un'immagine personalizzata. Questo scenario è illustrato nella sezione seguente.
 
 ### <a name="os-updates"></a>Aggiornamenti del sistema operativo
-
-Se si usano immagini della piattaforma, è possibile aggiornarle modificando `imageReference`. Per altre informazioni, vedere la [documentazione dell'API Rest](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate).
+Se si usano immagini della piattaforma di Azure, è possibile aggiornare l'immagine modificando la proprietà *imageReference*. Per altre informazioni, vedere la [documentazione relativa all'API REST](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 >[!NOTE]
-> Con le immagini della piattaforma si specifica solitamente "latest" come versione del riferimento all'immagine. Questo significa che quando si crea, si scala orizzontalmente e si ricrea l'immagine del set di scalabilità, le macchine virtuali vengono create con l'ultima versione disponibile. *Non* significa però che l'immagine del sistema operativo verrà aggiornata automaticamente nel tempo man mano che vengono rilasciate nuove versioni dell'immagine. Questa è una funzionalità separata, attualmente in anteprima. Per altre informazioni, vedere [Aggiornamenti automatici del sistema operativo](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
+> Con le immagini della piattaforma si specifica solitamente "latest" come versione del riferimento all'immagine. Quando si crea, si aumenta il numero di istanze e si ricrea l'immagine, le macchine virtuali vengono create con l'ultima versione disponibile. **Non** significa però che l'immagine del sistema operativo viene aggiornata automaticamente nel tempo man mano che vengono rilasciate nuove versioni dell'immagine. È attualmente in anteprima una funzionalità separata che fornisce aggiornamenti automatici del sistema operativo. Per altre informazioni, consultare la [documentazione relativa agli aggiornamenti automatici del sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md).
 
-Se si usano immagini personalizzate, è possibile aggiornarle modificando l'ID di `imageReference`. Per altre informazioni, vedere la [documentazione dell'API Rest](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate).
+Se si usano immagini personalizzate, è possibile aggiornare l'immagine aggiornando l'ID della proprietà *imageReference*. Per altre informazioni, vedere la [documentazione relativa all'API REST](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 ## <a name="examples"></a>Esempi
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>Aggiornare l'immagine del sistema operativo per il set di scalabilità
+Si può avere un set di scalabilità che esegue una versione precedente di Ubuntu LTS 16.04. Si vuole eseguire l'aggiornamento a una versione più recente di Ubuntu LTS 16.04, ad esempio la versione *16.04.201801090*. La proprietà della versione del riferimento all'immagine non fa parte di un elenco, quindi è possibile modificare direttamente queste proprietà con uno dei comandi seguenti:
 
-Supponiamo di avere un set di scalabilità che esegue una versione precedente di Ubuntu LTS 16.04. Si vuole eseguire l'aggiornamento a una versione più recente di Ubuntu LTS 16.04 (ad esempio la versione 16.04.201801090). La proprietà della versione del riferimento all'immagine non fa parte di un elenco, quindi è possibile modificare direttamente queste proprietà usando questi comandi:
+- Azure PowerShellPowerShell con [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) come segue:
 
-* PowerShell: 
+    ```powershell
+    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
+    ```
 
-  `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -ImageReferenceVersion 16.04.201801090`
+- Interfaccia della riga di comando di Azure 2.0 con [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
 
-* Interfaccia della riga di comando di Azure: 
-
-  `az vmss update -g {resourceGroupName} -n {vmScaleSetName} --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090`
+    ```azurecli
+    az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
+    ```
 
 
 ### <a name="update-the-load-balancer-for-your-scale-set"></a>Aggiornare il bilanciamento del carico del set di scalabilità
+Supponiamo di avere un set di scalabilità con un servizio Azure Load Balancer e di voler sostituire tale servizio con un gateway applicazione di Azure. Le proprietà del servizio di bilanciamento del carico e del gateway applicazione di un set di scalabilità fanno parte di un elenco, quindi è possibile usare i comandi per rimuovere o aggiungere elementi di elenco invece di modificare le proprietà direttamente:
 
-Supponiamo di avere un set di scalabilità con un servizio Azure Load Balancer e di voler sostituire tale servizio con un gateway applicazione di Azure. Le proprietà del servizio di bilanciamento del carico e del gateway applicazione per un set di scalabilità fanno parte di un elenco, quindi è possibile usare i comandi per la rimozione e l'aggiunta di elementi di elenco invece di modificare le proprietà direttamente.
+- Azure Powershell:
 
-PowerShell:
-```
-# Get the current model of the scale set and store it in a local PowerShell object named $vmss
-> $vmss=Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -Name {vmScaleSetName}
+    ```powershell
+    # Get the current model of the scale set and store it in a local powershell object named $vmss
+    $vmss=Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
+    
+    # Create a local powershell object for the new desired IP configuration, which includes the referencerence to the application gateway
+    $ipconf = New-AzureRmVmssIPConfig "myNic" -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
+    
+    # Replace the existing IP configuration in the local powershell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
+    $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
+    
+    # Update the model of the scale set with the new configuration in the local powershell object
+    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
+    ```
 
-# Create a local PowerShell object for the new desired IP configuration, which includes the reference to the application gateway
-> $ipconf = New-AzureRmVmssIPConfig myNic -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
+- Interfaccia della riga di comando di Azure 2.0:
 
-# Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure load balancer) with the new IP configuration
-> $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
-
-# Update the model of the scale set with the new configuration in the local PowerShell object
-> Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -Name {vmScaleSetName} -virtualMachineScaleSet $vmss
-
-```
-
-Interfaccia della riga di comando di Azure:
-```
-az vmss update -g {resourceGroupName} -n {vmScaleSetName} --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools 0 # Remove the load balancer back-end pool from the scale set model
-az vmss update -g {resourceGroupName} -n {vmScaleSetName} --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools 0 # Remove the load balancer back-end pool from the scale set model; only necessary if you have NAT pools configured on the scale set
-az vmss update -g {resourceGroupName} -n {vmScaleSetName} --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].ApplicationGatewayBackendAddressPools '{"id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendPoolName}"}' # Add the application gateway back-end pool to the scale set model
-```
+    ```azurecli
+    # Remove the load balancer backend pool from the scale set model
+    az vmss update --resource-group myResourceGroup --name myScaleSet --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools 0
+    
+    # Remove the load balancer backend pool from the scale set model; only necessary if you have NAT pools configured on the scale set
+    az vmss update --resource-group myResourceGroup --name myScaleSet --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools 0
+    
+    # Add the application gateway backend pool to the scale set model
+    az vmss update --resource-group myResourceGroup --name myScaleSet --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].ApplicationGatewayBackendAddressPools '{"id": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendPoolName}"}'
+    ```
 
 >[!NOTE]
-> Questi comandi presuppongono che nel set di scalabilità siano presenti una sola configurazione IP e un solo servizio di bilanciamento del carico. Se ce ne sono di più, potrebbe essere necessario usare un indice di elenco diverso da 0.
+> Questi comandi presuppongono che nel set di scalabilità siano presenti una sola configurazione IP e un solo servizio di bilanciamento del carico. Se ce ne sono di più, potrebbe essere necessario usare un indice di elenco diverso da *0*.
+
+
+## <a name="next-steps"></a>Passaggi successivi
+È anche possibile eseguire attività di gestione comuni sui set di scalabilità con l'[interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-manage-cli.md) o [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).

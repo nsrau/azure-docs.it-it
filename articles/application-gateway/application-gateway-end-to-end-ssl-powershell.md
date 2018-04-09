@@ -1,24 +1,22 @@
 ---
-title: Configurare SSL end-to-end con il gateway applicazione di Azure | Microsoft Docs
+title: Configurare SSL end-to-end con il gateway applicazione di Azure
 description: Questo articolo descrive come configurare SSL end-to-end con un gateway applicazione di Azure tramite PowerShell
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: e6d80a33-4047-4538-8c83-e88876c8834e
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
-ms.openlocfilehash: df14d5c4572a250f9f8951ee3b86e87e6f652782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 3/27/2018
+ms.author: victorh
+ms.openlocfilehash: 2de7086d7c26d5a655ad5998678f392126ea7e1d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurare SSL end-to-end usando un gateway applicazione con PowerShell
 
@@ -160,7 +158,8 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
    5. Configurare il certificato per il gateway applicazione. Questo certificato viene usato per decrittografare e crittografare di nuovo il traffico nel gateway applicazione.
 
    ```powershell
-   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+   $password = ConvertTo-SecureString  <password for certificate file> -AsPlainText -Force 
+   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password $password 
    ```
 
    > [!NOTE]
@@ -177,7 +176,7 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
    > [!NOTE]
    > Il probe predefinito ottiene la chiave pubblica dall'associazione SSL *predefinita* nell'indirizzo IP del back-end e confronta il valore della chiave pubblica ricevuta con il valore della chiave pubblica specificata qui. 
    
-   > Se si usano intestazioni host e la funzionalità Indicazione nome server (SNI) nel back-end, la chiave pubblica recuperata potrebbe non corrispondere al sito previsto in cui viene trasferito il traffico. In caso di dubbi, visitare la pagina all'indirizzo https://127.0.0.1/ nei server back-end per determinare il certificato usato per l'associazione SSL *predefinita*. In questa sezione usare la chiave pubblica ottenuta da tale richiesta. Se si usano intestazioni host e la funzionalità Indicazione nome server (SNI) nelle associazioni HTTPS e non si riceve una risposta e un certificato da una richiesta del browser manuale a https://127.0.0.1/ nei server back-end, è necessario configurare un'associazione SSL predefinita nei server. In caso contrario, i probe hanno esito negativo e il back-end non è consentito.
+   > Se si usano intestazioni host e la funzionalità Indicazione nome server (SNI) nel back-end, la chiave pubblica recuperata potrebbe non corrispondere al sito previsto in cui viene trasferito il traffico. In caso di dubbi, visitare la pagina all'indirizzo https://127.0.0.1/ nei server back-end per determinare il certificato usato per l'associazione SSL *predefinita*. In questa sezione usare la chiave pubblica ottenuta da tale richiesta. Se si usano intestazioni host e la funzionalità Indicazione nome server (SNI) nelle associazioni HTTPS e non si ricevono una risposta e un certificato da una richiesta manuale del browser all'indirizzo https://127.0.0.1/ nei server back-end, è necessario configurare un'associazione SSL predefinita nei server. In caso contrario, i probe hanno esito negativo e il back-end non è consentito.
 
    ```powershell
    $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer

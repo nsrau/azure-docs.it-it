@@ -1,5 +1,5 @@
 ---
-title: Indirizzare il traffico di rete - PowerShell | Documentazione Microsoft
+title: Indirizzare il traffico di rete - Azure PowerShell | Microsoft Docs
 description: Informazioni su come indirizzare il traffico di rete con una tabella di route usando PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 49c7b6158beee9d47ecd224e6a0750310d2b68c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7be6aa58c6779150d3e79893e6e179d08611567
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Indirizzare il traffico di rete con una tabella di route usando PowerShell
 
@@ -242,7 +242,7 @@ Immettere il nome utente e la password specificati durante la creazione della ma
 In un passaggio successivo viene usato il comando tracert.exe per testare il routing. Tracert usa il protocollo ICMP (Internet Control Message Protocol), che viene rifiutato tramite Windows Firewall. Abilitare il protocollo ICMP tramite Windows Firewall immettendo il comando seguente da PowerShell:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 Anche se in questo articolo viene usato tracert per testare il routing, non è consigliabile consentire il protocollo ICMP tramite Windows Firewall per le distribuzioni di produzione.
@@ -272,7 +272,7 @@ mstsc /v:myVmPublic
 Abilitare il protocollo ICMP tramite Windows Firewall immettendo il comando seguente da PowerShell:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 Per testare il routing del traffico di rete alla macchina virtuale *myVmPrivate* dalla macchina virtuale *myVmPublic*, immettere il comando seguente da PowerShell:
@@ -332,4 +332,4 @@ In questo articolo è stata creata una tabella di route per poi associarla a una
 Benché sia possibile distribuire molte risorse di Azure all'interno di una rete virtuale, non è possibile distribuire le risorse per alcuni servizi PaaS di Azure in una rete virtuale. È comunque possibile limitare l'accesso alle risorse di alcuni servizi PaaS di Azure al traffico da una sola subnet della rete virtuale. Passare all'esercitazione successiva per informazioni su come limitare l'accesso alla rete alle risorse PaaS di Azure.
 
 > [!div class="nextstepaction"]
-> [Limitare l'accesso alla rete alle risorse PaaS](virtual-network-service-endpoints-configure.md#azure-powershell)
+> [Limitare l'accesso alla rete alle risorse PaaS](tutorial-restrict-network-access-to-resources-powershell.md)

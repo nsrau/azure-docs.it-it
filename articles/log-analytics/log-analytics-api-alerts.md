@@ -1,8 +1,8 @@
 ---
 title: Uso dell'API REST degli avvisi di Log Analytics in OMS
-description: "L'API REST degli avvisi di Log Analytics consente di creare e gestire avvisi in Log Analytics, che è parte di OMS (Operations Management Suite).  In questo articolo vengono forniti i dettagli dell'API e alcuni esempi per l'esecuzione di diverse operazioni."
+description: L'API REST degli avvisi di Log Analytics consente di creare e gestire avvisi in Log Analytics, che è parte di OMS (Operations Management Suite).  In questo articolo vengono forniti i dettagli dell'API e alcuni esempi per l'esecuzione di diverse operazioni.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ce72ffef4394bf3bbe39fa420c4fcaa965ae35c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed0ac6e2041ef503470f7317a5736deecd1d2b8f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creare e gestire regole di avviso in Log Analytics con l'API REST
 L’API REST degli avvisi di Log Analytics consente di creare e gestire avvisi in OMS (Operations Management Suite)  In questo articolo vengono forniti i dettagli dell'API e alcuni esempi per l'esecuzione di diverse operazioni.
 
-L'API REST di ricerca di Log Analytics è RESTful ed è accessibile tramite l'API REST Azure Resource Manager. In questo documento sono disponibili esempi in cui viene usata l'API di una riga di comando di PowerShell che a sua volta usa [ARMClient](https://github.com/projectkudu/ARMClient), uno strumento della riga di comando open source che semplifica la chiamata dell'API di Azure Resource Manager. L'uso di ARMClient e PowerShell è una delle numerose opzioni di accesso all'API di ricerca di Log Analytics. Con questi strumenti è possibile usare l'API RESTful Azure Resource Manager per effettuare chiamate alle aree di lavoro di OMS ed eseguire i comandi di ricerca al loro interno. L'API fornirà risultati della ricerca per l'utente in formato JSON, consentendo di usare i risultati della ricerca in molti modi diversi a livello di codice.
+L'API REST di ricerca di Log Analytics è RESTful ed è accessibile tramite l'API REST Azure Resource Manager. In questo documento vengono forniti alcuni esempi in cui si accede all'API dalla riga di comando di PowerShell tramite [ARMClient](https://github.com/projectkudu/ARMClient), uno strumento da riga di comando open source che semplifica la chiamata dell'API di Azure Resource Manager. L'uso di ARMClient e PowerShell è una delle numerose opzioni di accesso all'API di ricerca di Log Analytics. Con questi strumenti è possibile usare l'API RESTful di Azure Resource Manager per effettuare chiamate alle aree di lavoro di OMS ed eseguire i comandi di ricerca al loro interno. L'API fornirà risultati della ricerca per l'utente in formato JSON, consentendo di usare i risultati della ricerca in molti modi diversi a livello di codice.
 
 ## <a name="prerequisites"></a>prerequisiti
 Attualmente, gli avvisi possono essere creati solo con una ricerca salvata in Log Analytics.  Per ulteriori informazioni, fare riferimento all’ [API REST di ricerca log](log-analytics-log-search-api.md) .
@@ -39,7 +39,7 @@ Le pianificazioni includono le proprietà elencate nella tabella seguente.
 | QueryTimeSpan |L'intervallo di tempo durante il quale vengono valutati i criteri. Deve essere maggiore o uguale a Interval. Il valore è espresso in minuti. |
 | Version |La versione API utilizzata.  Attualmente, deve sempre essere impostata su 1. |
 
-Si consideri ad esempio una query eventi con Interval pari a 15 minuti e Timespan pari a 30 minuti. In questo caso, la query viene eseguita ogni 15 minuti e viene generato un avviso se i criteri continuano a restituire true in un intervallo di 30 minuti.
+Si consideri ad esempio una query eventi con Interval pari a 15 minuti e Timespan pari a 30 minuti. In questo caso, la query viene eseguita ogni 15 minuti e viene attivato un avviso se i criteri continuano a restituire true in un intervallo di 30 minuti.
 
 ### <a name="retrieving-schedules"></a>Recupero delle pianificazioni
 Utilizzare il metodo Get per recuperare tutte le pianificazioni per una ricerca salvata.
@@ -90,7 +90,7 @@ Per eliminare una pianificazione, utilizzare il metodo Delete con un ID pianific
 ## <a name="actions"></a>Azioni
 Una pianificazione può avere più azioni. Un'azione può definire uno o più processi da eseguire, ad esempio l'invio di un messaggio di posta o l'avvio di un runbook o ancora può definire una soglia che determina quando i risultati di una ricerca corrispondono a certi criteri.  Alcune azioni definiranno entrambi, in modo che i processi vengano eseguiti quando viene raggiunta la soglia.
 
-Tutte le azioni includono le proprietà elencate nella tabella seguente.  I vari tipi di avvisi hanno diverse proprietà aggiuntive che sono descritte di seguito.
+Tutte le azioni includono le proprietà elencate nella tabella seguente.  I vari tipi di avvisi hanno proprietà aggiuntive diverse, che vengono descritte di seguito.
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
@@ -99,6 +99,10 @@ Tutte le azioni includono le proprietà elencate nella tabella seguente.  I vari
 | Version |La versione API utilizzata.  Attualmente, deve sempre essere impostata su 1. |
 
 ### <a name="retrieving-actions"></a>Recupero delle azioni
+
+> [!NOTE]
+> A partire dal 23 aprile 2018, tutti gli avvisi in un'area di lavoro verranno automaticamente estesi ad Azure. Un utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 23 aprile 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure, è possibile recuperare o aggiungere azioni usando l'[API dei gruppi di azioni](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+
 Utilizzare il metodo Get per recuperare tutte le azioni per una pianificazione.
 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules/{Schedule ID}/actions?api-version=2015-03-20
@@ -118,6 +122,10 @@ Usare il metodo Put con un ID azione esistente per la stessa ricerca salvata per
 Il formato della richiesta per la creazione di una nuova azione varia in base al tipo di attività e alcuni esempi sono disponibili nelle sezioni seguenti.
 
 ### <a name="deleting-actions"></a>Eliminazione delle azioni
+
+> [!NOTE]
+> A partire dal 23 aprile 2018, tutti gli avvisi in un'area di lavoro verranno automaticamente estesi ad Azure. Un utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 23 aprile 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure, è possibile recuperare o aggiungere azioni usando l'[API dei gruppi di azioni](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+
 Utilizzare il metodo Delete con l'ID azione per eliminare un’azione.
 
     armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/Actions/{Action ID}?api-version=2015-03-20
@@ -125,11 +133,18 @@ Utilizzare il metodo Delete con l'ID azione per eliminare un’azione.
 ### <a name="alert-actions"></a>Azioni di avviso
 Una pianificazione deve avere una sola azione di avviso.  Le azioni di avviso includono una o più delle sezioni elencate nella tabella seguente.  Ciascuna è descritta in dettaglio di seguito.
 
-| Sezione | DESCRIZIONE |
-|:--- |:--- |
-| Soglia |Criteri di esecuzione dell'azione. |
-| EmailNotification |Inviare messaggi a più destinatari. |
-| Correzione |Avviare un runbook in Automazione di Azure per tentare di risolvere il problema identificato. |
+| Sezione | DESCRIZIONE | Uso |
+|:--- |:--- |:--- |
+| Soglia |Criteri di esecuzione dell'azione.| Obbligatoria per ogni avviso, prima o dopo l'estensione ad Azure. |
+| Gravità |Etichetta usata per classificare l'avviso quando viene attivato.| Obbligatoria per ogni avviso, prima o dopo l'estensione ad Azure. |
+| Gruppi di azioni |ID del gruppo di azioni di Azure, in cui sono specificate le azioni necessarie, come posta elettronica, SMS, chiamate vocali, webhook, runbook di Automazione, connettori di Gestione dei servizi IT e così via.| Obbligatoria dopo che gli avvisi sono stati estesi ad Azure|
+| Customize Actions|Permette di modificare l'output standard per azioni selezionate dal gruppo di azioni| Facoltativa per ogni avviso, può essere usata dopo l'estensione degli avvisi ad Azure. |
+| EmailNotification |Inviare messaggi a più destinatari. | Non obbligatoria, se gli avvisi sono stati estesi ad Azure|
+| Correzione |Avviare un runbook in Automazione di Azure per tentare di risolvere il problema identificato. |Non obbligatoria, se gli avvisi sono stati estesi ad Azure|
+| Azioni webhook | Permette di eseguire il push di dati dagli avvisi al servizio desiderato come JSON |Non obbligatoria, se gli avvisi sono stati estesi ad Azure|
+
+> [!NOTE]
+> A partire dal 23 aprile 2018, tutti gli avvisi in un'area di lavoro verranno automaticamente estesi ad Azure. Un utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 23 aprile 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS).
 
 #### <a name="thresholds"></a>Soglie
 Un’azione di avviso deve avere una sola soglia.  Quando i risultati di una ricerca salvata corrispondano alla soglia di un'azione associata a tale ricerca, vengono eseguiti tutti gli altri processi in tale azione.  Inoltre, un'azione può contenere solo una soglia, in modo da poter essere utilizzata con azioni di altri tipi che non contengono soglie.
@@ -141,7 +156,7 @@ Le soglie includono le proprietà elencate nella tabella seguente.
 | Operator |Operatore di confronto soglie. <br> gt = Maggiore di <br> lt = minore di |
 | Value |Valore per la soglia. |
 
-Si consideri ad esempio una query eventi con Interval pari a 15 minuti, Timespan pari a 30 minuti e Threshold maggiore di 10. In questo caso, la query viene eseguita ogni 15 minuti e viene generato un avviso se restituisce 10 eventi creati in un intervallo di 30 minuti.
+Si consideri ad esempio una query eventi con Interval pari a 15 minuti, Timespan pari a 30 minuti e Threshold maggiore di 10. In questo caso, la query viene eseguita ogni 15 minuti e viene attivato un avviso se restituisce 10 eventi creati in un intervallo di 30 minuti.
 
 Di seguito è riportata una risposta di esempio per un'azione con una sola soglia.  
 
@@ -166,14 +181,155 @@ Usare il metodo Put con un ID azione esistente per modificare un'azione di sogli
     $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
+#### <a name="severity"></a>Gravità
+Log Analytics permette di classificare gli avvisi in categorie, per semplificare la gestione e la valutazione. La gravità definita per gli avvisi è: Informativo, Avviso e Critico. Queste definizioni corrispondono alla scala di gravità normale degli avvisi di Azure in questo modo:
+
+|Livello di gravità di Log Analytics  |Livello di gravità degli avvisi di Azure  |
+|---------|---------|
+|Critico |Gravità 0|
+|Avviso |Gravità 1|
+|Informativo | Gravità 2|
+
+Di seguito è riportata una risposta di esempio per un'azione con solo una soglia e la gravità. 
+
+    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
+    "properties": {
+        "Type": "Alert",
+        "Name": "My threshold action",
+        "Threshold": {
+            "Operator": "gt",
+            "Value": 10
+        },
+        "Severity": "critical",
+        "Version": 1    }
+
+Usare il metodo Put con un ID azione univoco per creare una nuova azione per una pianificazione con gravità.  
+
+    $thresholdWithSevJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+
+Usare il metodo Put con un ID azione esistente per modificare un'azione di gravità per una pianificazione.  Il corpo della richiesta deve includere il valore ETag dell'azione.
+
+    $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+
+#### <a name="action-groups"></a>Gruppi di azioni
+Tutti gli avvisi in Azure usano un gruppo di azioni come meccanismo predefinito per la gestione delle azioni. Con un gruppo di azioni, è possibile specificare le azioni una volta e quindi associare il gruppo di azioni a più avvisi in Azure. Tutto questo senza la necessità di dichiarare ripetutamente le stesse azioni più volte. I gruppi di azioni supportano più azioni, tra cui posta elettronica, SMS, chiamate vocali, connessioni di Gestione dei servizi IT, runbook di Automazione, URI di webhook e altro ancora. 
+
+Per gli utenti che hanno esteso gli avvisi in Azure, per una pianificazione devono ora essere passati i dettagli del gruppo di azioni insieme alla soglia per poter creare un avviso. I dettagli di posta elettronica, gli URL di webhook, i dettagli relativi all'automazione runbook e altre azioni devono essere definiti all'interno di un gruppo di azioni prima di creare un avviso. È possibile creare un [gruppo di azioni da Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-action-groups.md) nel portale o usare l'[API dei gruppi di azioni](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+
+Per aggiungere un'associazione di un gruppo di azioni a un avviso, specificare l'ID Azure Resource Manager univoco del gruppo di azioni nella definizione dell'avviso. Di seguito viene fornito un esempio:
+
+     "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
+      "properties": {
+        "Type": "Alert",
+        "Name": "test-alert",
+        "Description": "I need to put a descriptio here",
+        "Threshold": {
+          "Operator": "gt",
+          "Value": 12
+        },
+        "AzNsNotification": {
+          "GroupIds": [
+            "/subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup"
+          ]
+        },
+        "Severity": "critical",
+        "Version": 1
+      },
+
+Usare il metodo Put con un ID azione univoco per associare un gruppo di azioni già esistente per una pianificazione.  Di seguito viene fornito un esempio di utilizzo.
+
+    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+
+Usare il metodo Put con un ID azione esistente per modificare un gruppo di azioni associato per una pianificazione.  Il corpo della richiesta deve includere il valore ETag dell'azione.
+
+    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+
+#### <a name="customize-actions"></a>Personalizzare le azioni
+Per impostazione predefinita, le azioni seguono il modello e il formato standard per le notifiche. Gli utenti possono tuttavia personalizzare alcune azioni, anche se sono controllate da gruppi di azioni. Attualmente, la personalizzazione è possibile per l'oggetto del messaggio di posta elettronica e il payload del webhook.
+
+##### <a name="customize-e-mail-subject-for-action-group"></a>Personalizzare l'oggetto del messaggio di posta elettronica per il gruppo di azioni
+Per impostazione predefinita, l'oggetto del messaggio di posta elettronica per gli avvisi è: Alert Notification <AlertName> for <WorkspaceName>. L'oggetto può essere personalizzato per poter usare parole o tag specifici in modo da impiegare facilmente regole di filtro nella cartella della posta in arrivo. I dettagli dell'intestazione dei messaggi di posta elettronica personalizzati devono essere inviati insieme ai dettagli relativi al gruppo di azioni, come nell'esempio seguente.
+
+     "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
+      "properties": {
+        "Type": "Alert",
+        "Name": "test-alert",
+        "Description": "I need to put a descriptio here",
+        "Threshold": {
+          "Operator": "gt",
+          "Value": 12
+        },
+        "AzNsNotification": {
+          "GroupIds": [
+            "/subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup"
+          ]
+          "CustomEmailSubject": "Azure Alert fired"
+        },
+        "Severity": "critical",
+        "Version": 1
+      },
+
+Usare il metodo Put con un ID azione univoco per associare un gruppo di azioni già esistente a una personalizzazione per una pianificazione.  Di seguito viene fornito un esempio di utilizzo.
+
+    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired'} }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+
+Usare il metodo Put con un ID azione esistente per modificare un gruppo di azioni associato per una pianificazione.  Il corpo della richiesta deve includere il valore ETag dell'azione.
+
+    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired' }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+
+##### <a name="customize-webhook-payload-for-action-group"></a>Personalizzare il payload del webhook per il gruppo di azioni
+Per impostazione predefinita, il webhook inviato tramite il gruppo di azioni per Log Analytics ha una struttura fissa. È tuttavia possibile personalizzare il payload JSON usando variabili specifiche supportate, in modo da soddisfare i requisiti dell'endpoint del webhook. Per altre informazioni, vedere [Azioni webhook per le regole di avviso relative ai log](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md). 
+
+I dettagli di personalizzazione del webhook devono essere inviati insieme a quelli relativi al gruppo di azioni e verranno applicati a tutti gli URI del webhook specificati all'interno del gruppo di azioni, come nell'esempio seguente.
+
+     "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
+      "properties": {
+        "Type": "Alert",
+        "Name": "test-alert",
+        "Description": "I need to put a descriptio here",
+        "Threshold": {
+          "Operator": "gt",
+          "Value": 12
+        },
+        "AzNsNotification": {
+          "GroupIds": [
+            "/subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup"
+          ]
+          "CustomWebhookPayload": "{\"field1\":\"value1\",\"field2\":\"value2\"}",
+          "CustomEmailSubject": "Azure Alert fired"
+        },
+        "Severity": "critical",
+        "Version": 1
+      },
+
+Usare il metodo Put con un ID azione univoco per associare un gruppo di azioni già esistente a una personalizzazione per una pianificazione.  Di seguito viene fornito un esempio di utilizzo.
+
+    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}'} }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+
+Usare il metodo Put con un ID azione esistente per modificare un gruppo di azioni associato per una pianificazione.  Il corpo della richiesta deve includere il valore ETag dell'azione.
+
+    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}' }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+
 #### <a name="email-notification"></a>Notifica tramite posta elettronica
 Le notifiche tramite posta elettronica inviano i messaggi a uno o più destinatari.  Includono le proprietà elencate nella tabella seguente.
+
+> [!NOTE]
+> A partire dal 23 aprile 2018, tutti gli avvisi in un'area di lavoro verranno automaticamente estesi ad Azure. Un utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 23 aprile 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS). Per gli utenti che scelgono di estendere gli avvisi ad Azure, azioni come le notifiche tramite posta elettronica vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure, è possibile recuperare o aggiungere azioni usando l'[API dei gruppi di azioni](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+   
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | Recipients |Elenco di indirizzi di posta elettronica. |
 | Oggetto |L’oggetto del messaggio. |
-| Attachment |Gli allegati non sono attualmente supportati, pertanto il valore corrispondente sarà sempre "None". |
+| Attachment |Poiché gli allegati non sono attualmente supportati, il valore sarà sempre "None". |
 
 Di seguito è riportata una risposta di esempio per un'azione di notifica di posta elettronica con una determinata soglia.  
 
@@ -208,6 +364,9 @@ Usare il metodo Put con un ID azione esistente per modificare un'azione di posta
 
 #### <a name="remediation-actions"></a>Azioni correttive
 Le correzioni avviano un runbook in Automazione di Azure che tenta di risolvere il problema identificato dall'avviso.  È necessario creare un webhook per il runbook utilizzato in un'azione correttiva e quindi specificare l'URI nella proprietà WebhookUri.  Quando si crea questa azione utilizzando la console di OMS, viene creato automaticamente un nuovo webhook per il runbook.
+
+> [!NOTE]
+> A partire dal 23 aprile 2018, tutti gli avvisi in un'area di lavoro verranno automaticamente estesi ad Azure. Un utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 23 aprile 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS). Per gli utenti che scelgono di estendere gli avvisi ad Azure, azioni come la correzione tramite un runbook vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure, è possibile recuperare o aggiungere azioni usando l'[API dei gruppi di azioni](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
 
 Le correzioni includono le proprietà elencate nella tabella seguente.
 
@@ -262,17 +421,14 @@ Di seguito è riportato un esempio completo per creare un nuovo avviso di posta 
     $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
     armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
 
-### <a name="webhook-actions"></a>Azioni webhook
+#### <a name="webhook-actions"></a>Azioni webhook
 Le azioni webhook avviano un processo chiamando un URL e, facoltativamente, fornendo un payload da inviare.  Simili alle azioni correttive, sono destinate a webhook che possono richiamare processi diversi dai runbook di Automazione di Azure.  Hanno inoltre l'opzione aggiuntiva di fornire un payload da recapitare al processo remoto.
 
-Le azioni webhook non hanno una soglia, ma devono invece essere aggiunte a una pianificazione che includa un'azione di avviso con una determinata soglia.  È possibile aggiungere più azioni webhook che verranno tutte eseguite al raggiungimento della soglia.
+> [!NOTE]
+> A partire dal 23 aprile 2018, tutti gli avvisi in un'area di lavoro verranno automaticamente estesi ad Azure. Un utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 23 aprile 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS). Per gli utenti che scelgono di estendere gli avvisi ad Azure, azioni come quelle relative ai webhook vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure, è possibile recuperare o aggiungere azioni usando l'[API dei gruppi di azioni](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
 
-Le azioni webhook includono le proprietà elencate nella tabella seguente.
 
-| Proprietà | DESCRIZIONE |
-|:--- |:--- |
-| WebhookUri |L’oggetto del messaggio. |
-| CustomPayload |Payload personalizzato da inviare al webhook.  Il formato dipenderà dalle previsioni del webhook. |
+Le azioni webhook non hanno una soglia, ma devono invece essere aggiunte a una pianificazione che includa un'azione di avviso con una determinata soglia.  
 
 Di seguito è riportato un esempio di risposta per un’azione webhook e un'azione di avviso associata con una determinata soglia.
 
@@ -306,7 +462,7 @@ Di seguito è riportato un esempio di risposta per un’azione webhook e un'azio
         ]
     }
 
-#### <a name="create-or-edit-a-webhook-action"></a>Creazione o modifica di un’azione webhook
+##### <a name="create-or-edit-a-webhook-action"></a>Creazione o modifica di un’azione webhook
 Usare il metodo Put con un ID azione univoco per creare una nuova azione di webhook per una pianificazione.  Nell'esempio seguente viene creata un'azione webhook e un’azione di avviso con una determinata soglia, in modo che il webhook verrà attivato quando i risultati della ricerca salvata supereranno tale soglia.
 
     $thresholdAction = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
@@ -320,6 +476,8 @@ Usare il metodo Put con un ID azione esistente per modificare un'azione di webho
     $webhookAction = "{'etag': 'W/\"datetime'2016-02-26T20%3A25%3A00.6862124Z'\"','properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.cloudapp.net/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
 
+
 ## <a name="next-steps"></a>Passaggi successivi
 * Utilizzare l’ [API REST per eseguire ricerche nei log](log-analytics-log-search-api.md) in Log Analytics.
+* Per altre informazioni, fare riferimento agli [avvisi di log in Avvisi di Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)
 

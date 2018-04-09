@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: bf0a03ace2f6b6e6b1c845785a452d0b75f35de8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 81265dd61faee38d578a380ca392e7851662329c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurare l'ambiente di sviluppo in Mac OS X
 > [!div class="op_single_selector"]
@@ -44,13 +44,7 @@ Azure Service Fabric non viene eseguito in modo nativo in Mac OS X. Per eseguire
 ## <a name="create-a-local-container-and-set-up-service-fabric"></a>Creare un contenitore locale e configurare Service Fabric
 Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service Fabric, seguire questa procedura:
 
-1. Eseguire il pull dell'immagine del contenitore onebox di Service Fabric dal repository dell'hub Docker. Per impostazione predefinita, verrà eseguito il pull dell'immagine con la versione più recente di Service Fabric. Per revisioni specifiche, vedere la pagina dell'[hub Docker](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
-
-    ```bash
-    docker pull microsoft/service-fabric-onebox
-    ```
-
-2. Aggiornare la configurazione del daemon Docker nell'host con le impostazioni seguenti e riavviare il daemon Docker: 
+1. Aggiornare la configurazione del daemon Docker nell'host con le impostazioni seguenti e riavviare il daemon Docker: 
 
     ```json
     {
@@ -66,12 +60,47 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
     >
     >È consigliabile modificare direttamente le impostazioni di configurazione del daemon in Docker. Selezionare l'**icona Docker** e quindi selezionare **Preferences** (Preferenze) > **Daemon** > **Advanced** (Avanzate).
     >
+    >È consigliabile aumentare le risorse allocate per Docker durante il test di applicazioni di grandi dimensioni. Questa operazione può essere eseguita selezionando l'**icona Docker**, quindi selezionando **Advanced** (Avanzate) per modificare il numero di core e la quantità di memoria.
 
-3. Avviare un'istanza del contenitore onebox di Service Fabric e usare l'immagine di cui si è eseguito il pull nel primo passaggio:
+2. In una nuova directory creare un file denominato `.Dockerfile` per creare l'immagine di Service Fabric:
 
-    ```bash
-    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
+    ```dockerfile
+    FROM microsoft/service-fabric-onebox
+    WORKDIR /home/ClusterDeployer
+    RUN ./setup.sh
+    #Generate the local
+    RUN locale-gen en_US.UTF-8
+    #Set environment variables
+    ENV LANG=en_US.UTF-8
+    ENV LANGUAGE=en_US:en
+    ENV LC_ALL=en_US.UTF-8
+    EXPOSE 19080 19000 80 443
+    #Start SSH before running the cluster
+    CMD /etc/init.d/ssh start && ./run.sh
     ```
+
+    >[!NOTE]
+    >È possibile adattare questo file per aggiungere altri programmi o dipendenze nel contenitore.
+    >Ad esempio, se si aggiunge `RUN apt-get install nodejs -y` sarà possibile supportare le applicazioni `nodejs` come eseguibili guest.
+    
+    >[!TIP]
+    > Per impostazione predefinita, verrà eseguito il pull dell'immagine con la versione più recente di Service Fabric. Per revisioni specifiche, vedere la pagina dell'[hub Docker](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
+
+3. Per creare un'immagine riutilizzabile da `.Dockerfile` aprire un terminale e `cd` alla directory che contiene `.Dockerfile` e quindi eseguire:
+
+    ```bash 
+    docker build -t mysfcluster .
+    ```
+    
+    >[!NOTE]
+    >Questa operazione richiederà del tempo, ma è necessaria eseguirla solo una volta.
+
+4. Ora è possibile iniziare rapidamente una copia locale di Service Fabric, quando necessario, eseguendo:
+
+    ```bash 
+    docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
+    ```
+
     >[!TIP]
     >Specificare un nome per l'istanza del contenitore per poterla gestire in modo più leggibile. 
     >
@@ -80,20 +109,20 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
-4. Accedere al contenitore Docker in modalità SSH interattiva:
+5. Il cluster richiederà poco tempo per l'avvio. È possibile visualizzare i log usando il comando seguente o passare al dashboard per visualizzare l'integrità del cluster [http://localhost:19080](http://localhost:19080):
 
-    ```bash
-    docker exec -it sfonebox bash
+    ```bash 
+    docker logs sftestcluster
     ```
 
-5. Eseguire lo script di configurazione per recuperare le dipendenze necessarie e avviare il cluster nel contenitore:
 
-    ```bash
-    ./setup.sh     # Fetches and installs the dependencies required for Service Fabric to run
-    ./run.sh       # Starts the local cluster
+
+6. Al termine è possibile arrestare e pulire il contenitore con questo comando:
+
+    ```bash 
+    docker rm -f sftestcluster
     ```
 
-6. Al termine del passaggio 5, passare a `http://localhost:19080` dal Mac. Verrà visualizzato Service Fabric Explorer.
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Configurare l'interfaccia della riga di comando di Service Fabric (sfctl) in un computer Mac
 

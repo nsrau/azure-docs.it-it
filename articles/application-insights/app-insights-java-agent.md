@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio delle prestazioni per le app Web Java in Azure Application Insights | Documentazione Microsoft
+title: Monitoraggio delle prestazioni per le app Web Java in Azure Application Insights | Microsoft Docs
 description: Estendere il monitoraggio di prestazioni e utilizzo del sito Web Java con Application Insights.
 services: application-insights
 documentationcenter: java
@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: ecfcf7a3b3698435f98b74474d0ca7223ab2b46c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b327e7f062cdf3e6b1b34a9540461dcb18caf21c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Monitorare dipendenze, eccezioni e tempi di esecuzione nelle app Web Java
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorare dipendenze e rilevare eccezioni e tempi di esecuzione del metodo nelle app Web Java
 
 
 Se l'[app Web Java è stata instrumentata con Application Insights][java], sarà possibile usare l'agente Java per ottenere informazioni più dettagliate, senza modificare il codice:
 
 * **Dipendenze:** dati sulle chiamate effettuate dall'applicazione ad altri componenti, tra cui:
   * **Chiamate REST** eseguite tramite HttpClient, OkHttp e RestTemplate (Spring).
-  * **Redis** effettuate tramite il client Jedis. Se la chiamata dura più di 10s, l'agente recupera anche gli argomenti della chiamata.
-  * **[Chiamate JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**: MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB o Apache Derby DB. Sono supportate le chiamate "executeBatch". Per MySQL e PostgreSQL, se la chiamata dura più di 10s, l'agente segnala il piano di query.
-* **Eccezioni rilevate:** dati sulle eccezioni gestite dal codice.
-* **Tempo di esecuzione dei metodi:** dati sul tempo necessario per eseguire metodi specifici.
+  * **Chiamate Redis** effettuate tramite il client Jedis.
+  * **[Chiamate JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**: vengono acquisiti automaticamente i comandi MySQL, SQL Server e Oracle DB. Per MySQL, se la chiamata dura più di 10s, l'agente segnala il piano di query.
+* **Eccezioni rilevate:** informazioni sulle eccezioni gestite dal codice.
+* **Tempo di esecuzione del metodo:** informazioni sul tempo necessario per eseguire metodi specifici.
 
 Per usare l'agente Java, installarlo nel server. Le app Web devono essere instrumentate con [Application Insights Java SDK][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Installare l'agente di Application Insights per Java
-1. [Scaricare l'agente](https://aka.ms/aijavasdk) sul computer che esegue il server Java.
+1. [Scaricare l'agente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) sul computer che esegue il server Java. Assicurarsi di scaricare la stessa versione dell'agente Java e dei pacchetti core e Web dell'SDK per Java di Application Insights.
 2. Modificare lo script di avvio del server applicazioni e aggiungere il codice JVM seguente:
    
     `javaagent:`*percorso completo del file JAR dell'agente*

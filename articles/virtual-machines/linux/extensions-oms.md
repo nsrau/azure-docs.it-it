@@ -1,5 +1,5 @@
 ---
-title: Estensione macchina virtuale di Azure OMS per Linux | Documentazione Microsoft
+title: Estensione macchina virtuale di Azure OMS per Linux | Microsoft Docs
 description: Distribuire l'agente OMS in una macchina virtuale Linux usando un'estensione macchina virtuale.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 03/27/2018
 ms.author: danis
-ms.openlocfilehash: 5174e599f12314a657d142304ffec18fbff847b1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5c0b7224d0f534661950117813e1a4f348810853
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale OMS per Linux
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/16/2018
 
 Log Analytics include funzionalità di monitoraggio, impostazione di avvisi e correzione tramite avvisi per asset cloud e locali. L'estensione macchina virtuale Agente OMS per Linux è pubblicata e supportata da Microsoft. L'estensione installa l'agente OMS in macchine virtuali di Azure e registra le macchine virtuali in un'area di lavoro di Log Analytics esistente. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione macchina virtuale OMS per Linux.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -195,10 +195,11 @@ L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
 
 | Codice di errore | Significato | Azione possibile |
 | :---: | --- | --- |
+| 9 | Chiamata Enable anomala | [Aggiornare l'agente Linux di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) all'ultima versione disponibile. |
 | 10 | La macchina virtuale è già connessa a un'area di lavoro di Log Analytics | Per connettere la macchina virtuale all'area di lavoro specificata nello schema dell'estensione, impostare stopOnMultipleConnections su false nelle impostazioni pubbliche o rimuovere questa proprietà. Questa macchina virtuale viene fatturata una volta per ogni area di lavoro a cui è connessa. |
 | 11 | Configurazione non valida generata per l'estensione | Seguire l'esempio precedente per impostare tutti i valori della proprietà necessari alla distribuzione. |
 | 12 | La gestione di pacchetti dpkg è bloccata | Assicurarsi che tutte le operazioni di aggiornamento dpkg sul computer siano state completate e riprovare. |
-| 20 | Chiamata Enable anomala | [Aggiornare l'agente Linux di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) all'ultima versione disponibile. |
+| 20 | Errore di installazione del pacchetto SCX |
 | 51 | Questa estensione non è supportata sul sistema operativo della macchina virtuale | |
 | 55 | Non è possibile connettersi al servizio Microsoft Operations Management Suite | Verificare che il sistema disponga dell'accesso a Internet o che sia stato fornito un proxy HTTP valido. Verificare anche la correttezza dell'ID dell'area di lavoro. |
 

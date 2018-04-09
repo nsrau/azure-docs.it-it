@@ -1,6 +1,6 @@
 ---
 title: Controllare e ricevere notifiche sulle azioni importanti nella sottoscrizione di Azure | Microsoft Docs
-description: "Comprendere la cronologia di gestione delle risorse, dell'integrità del servizio e altre attività nel log attività della sottoscrizione, quindi usare un avviso del log attività per ricevere una notifica tramite posta elettronica quando nella sottoscrizione viene eseguita un'operazione con privilegi elevati."
+description: Comprendere la cronologia di gestione delle risorse, dell'integrità del servizio e altre attività nel log attività della sottoscrizione, quindi usare un avviso del log attività per ricevere una notifica tramite posta elettronica quando nella sottoscrizione viene eseguita un'operazione con privilegi elevati.
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: b0a79f46788dc7efb588110dc50805c45c373a49
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dd04cd9c8074d49df168b32840d12901da83c834
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Controllare e ricevere notifiche sulle azioni importanti nella sottoscrizione di Azure
 
@@ -28,7 +28,7 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
-1. Fare clic sul pulsante **Crea una risorsa** visualizzato nell'angolo superiore sinistro del portale di Azure.
+1. Fare clic sul pulsante **Crea una risorsa** visualizzato nell'angolo in alto a sinistra nel portale di Azure.
 
 2. Selezionare **Rete**, selezionare **Gruppo di sicurezza di rete**.
 
@@ -74,7 +74,7 @@ Fare clic sulla scheda **JSON** per visualizzare i dettagli completi dell'evento
 
 5. In **Avvisi tramite** selezionare il gruppo di azioni **Nuovo** e fornire un **nome** e un **nome breve** al gruppo di azioni. Il gruppo di azioni definisce il set di azioni eseguite quando viene attivato l'avviso (quando i criteri corrispondono a un nuovo evento).
 
-6. In **Azioni** aggiungere una o più azioni, fornendo un **Nome** per l'azione, il **Tipo di azione** (ad esempio, posta elettronica o SMS) e i **Dettagli**per quel tipo di azione specifico (ad esempio, un URL del webhook, un indirizzo e-mail o un numero SMS).
+6. In **Azioni** aggiungere una o più azioni, fornendo un **Nome** per l'azione, il **Tipo di azione** (ad esempio, posta elettronica, SMS o webhook) e i **Dettagli** per quel tipo di azione specifico (ad esempio, un URL del webhook, un indirizzo e-mail o un numero SMS).
 
     ![Creare un gruppo di sicurezza di rete nel portale](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
 
@@ -83,7 +83,7 @@ Fare clic sulla scheda **JSON** per visualizzare i dettagli completi dell'evento
 ## <a name="test-the-activity-log-alert"></a>Test dell'avviso del log attività
 
 > [!NOTE]
-> L'attivazione completa di un avviso del log attività richiede circa 10 minuti. I nuovi eventi che si verificano prima che l'avviso del log attività sia completamente attivato non generano notifiche.
+> L'attivazione completa di un avviso del log attività richiede circa 5 minuti. I nuovi eventi che si verificano prima che l'avviso del log attività sia completamente attivato non generano notifiche.
 >
 >
 

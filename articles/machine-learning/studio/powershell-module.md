@@ -1,11 +1,12 @@
 ---
 title: Modulo PowerShell per Machine Learning | Documentazione Microsoft
-description: "Il modulo PowerShell per Azure Machine Learning è disponibile in modalità di anteprima pubblica. Usare PowerShell per creare e gestire aree di lavoro, esperimenti, servizi Web e altro ancora."
+description: Il modulo PowerShell per Azure Machine Learning è disponibile in modalità di anteprima pubblica. Usare PowerShell per creare e gestire aree di lavoro, esperimenti, servizi Web e altro ancora.
 keywords: esperimento,regressione lineare,algoritmi di machine learning,esercitazione su machine learning,tecniche di modellazione predittiva,esperimento di analisi scientifica dei dati
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: a9001cc2-3aa0-47e1-b175-1f76408ba1d1
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: garye;haining
-ms.openlocfilehash: 47d005e584b6cb87d27a77f56ff619d342481aaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9553e372f4d1cb5c60935fae5a7af61806ea6d4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="powershell-module-for-microsoft-azure-machine-learning"></a>Modulo PowerShell per Microsoft Azure Machine Learning
 Il modulo PowerShell per Azure Machine Learning è uno strumento avanzato che consente di usare Windows PowerShell per gestire aree di lavoro, esperimenti, set di dati classici, servizi Web e altro.

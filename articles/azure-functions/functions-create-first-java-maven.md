@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c0984075cd8e372cce09ea100378dcd4e8cddabe
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 81d9d8790a750f34133f3f00dafc15c56185d7b1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Creare la prima funzione con Java e Maven (anteprima)
 
@@ -34,18 +34,25 @@ Questa guida introduttiva fornisce istruzioni dettagliate su come creare un prog
 ## <a name="prerequisites"></a>prerequisiti
 Per sviluppare app per le funzioni con Java, è necessario che siano installati gli elementi seguenti:
 
--  [.NET Core](https://www.microsoft.com/net/core), versione più recente.
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), versione 8.
--  [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org), versione 3.0 o successiva.
--  [Node.js](https://nodejs.org/download/), versione 8.6 o successiva.
+-  [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT] 
 > Per completare questa guida introduttiva, è necessario impostare la variabile di ambiente JAVA_HOME sul percorso di installazione di JDK.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Installare gli strumenti di base per Funzioni di Azure
 
-Gli [strumenti di base di Funzioni di Azure 2.0](https://www.npmjs.com/package/azure-functions-core-tools) offrono un ambiente di sviluppo locale per la scrittura, l'esecuzione e il debug di Funzioni di Azure. Installare gli strumenti con [npm](https://www.npmjs.com/), incluso con [Node.js](https://nodejs.org/).
+Gli [strumenti di base di Funzioni di Azure 2.0](https://www.npmjs.com/package/azure-functions-core-tools) offrono un ambiente di sviluppo locale per la scrittura, l'esecuzione e il debug di Funzioni di Azure. 
+
+Per l'installazione vedere la sezione [Installazione](https://github.com/azure/azure-functions-core-tools#installing) e trovare le istruzioni specifiche per il sistema operativo scelto (Windows, Linux, Mac).
+
+È anche possibile eseguire l'installazione manualmente con [npm](https://www.npmjs.com/), incluso con [Node.js](https://nodejs.org/), dopo aver installato i requisiti seguenti:
+
+-  [.NET Core](https://www.microsoft.com/net/core), versione più recente.
+-  [Node.js](https://nodejs.org/download/), versione 8.6 o successiva.
+
+Per procedere con un'installazione basata su npm, eseguire:
 
 ```
 npm install -g azure-functions-core-tools@core
@@ -185,6 +192,4 @@ Dopo avere creato un'app per le funzioni Java con un trigger HTTP semplice trigg
 - Vedere il [manuale dello sviluppatore di funzioni Java](functions-reference-java.md) per altre informazioni sullo sviluppo di funzioni Java.
 - Al progetto aggiungere altre funzioni con trigger diversi usando la destinazione Maven `azure-functions:add`.
 - Eseguire il debug delle funzioni in locale con Visual Studio Code. Con il [pacchetto di estensioni Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) installato e con il progetto Funzioni aperto in Visual Studio Code, [collegare il debugger](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) alla porta 5005. Impostare quindi un punto di interruzione nell'editor e attivare la funzione mentre è in esecuzione in locale: ![Debug delle funzioni in Visual Studio Code](media/functions-create-java-maven/vscode-debug.png)
-
-
-
+- Eseguire il debug delle funzioni in remoto con Visual Studio Code. Per le istruzioni vedere la documentazione relativa alla [scrittura di applicazioni Java senza server](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud).

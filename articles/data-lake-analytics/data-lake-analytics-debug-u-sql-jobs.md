@@ -2,7 +2,7 @@
 title: Eseguire il debug del codice C# definito dall'utente per i processi U-SQL di Azure Data Lake non riusciti | Microsoft Docs
 description: Informazioni su come eseguire il debug di un vertice con errore di U-SQL usando Strumenti Azure Data Lake per Visual Studio.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b614583079347c2634f8d03531517d1d32c75132
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Eseguire il debug del codice C# definito dall'utente per i processi U-SQL non riusciti
 
@@ -41,7 +41,7 @@ Quando si apre un processo non riuscito in Strumenti Azure Data Lake per Visual 
 
 1. Fare clic su **Scarica** per scaricare tutte le risorse e i flussi di input necessari. Se il download non viene completato, fare clic su **Riprova**.
 
-2. Fare clic su **Apri** dopo aver completato il download per generare l'ambiente di debug locale. Viene creata e aperta automaticamente una nuova istanza di Visual Studio con una soluzione di debug.
+2. Fare clic su **Apri** dopo aver completato il download per generare l'ambiente di debug locale. Verrà aperta una nuova soluzione di debug e se si ha una soluzione esistente aperta in Visual Studio, assicurarsi di salvarla e chiuderla prima del debug.
 
 ![Vertice download visual studio debug U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 

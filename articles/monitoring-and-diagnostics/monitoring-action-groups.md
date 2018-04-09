@@ -3,22 +3,22 @@ title: Creare e gestire gruppi di azione nel portale di Azure | Microsoft Docs
 description: Informazioni su come creare e gestire gruppi di azione nel portale di Azure.
 author: dkamstra
 manager: chrad
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 03/12/2018
 ms.author: dukek
-ms.openlocfilehash: 772b9c2b9532bd2cc37ad89db92545297eecd903
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a7f8697b7a92de1c19ceb65fadbcd7e4186e83f7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 ## <a name="overview"></a>Panoramica ##
@@ -29,7 +29,7 @@ I gruppi di azione consentono di configurare un elenco di azioni. Questi gruppi 
 Un gruppo di azione può avere fino a 10 tipi di azioni. Ogni azione è composta dalle seguenti proprietà:
 
 * **Nome:** un identificatore univoco all'interno del gruppo di azione.  
-* **Tipo di azione**: inviare un SMS, inviare un messaggio di posta elettronica, chiamare un webhook, inviare dati a uno strumento ITSM, chiamare un'app Azure o eseguire un runbook di Automazione.
+* **Tipo di azione**: inviare una chiamata vocale o un SMS, inviare un messaggio di posta elettronica, chiamare un webhook, inviare dati a uno strumento ITSM, chiamare un'app Azure o eseguire un runbook di Automazione.
 * **Dettagli**: l'URI del webhook, il numero di telefono o l'indirizzo di posta elettronica oppure le informazioni di connessione ITSM corrispondenti.
 
 Per informazioni sull'uso dei modelli di Azure Resource Manager per configurare i gruppi di azione: [Modelli di Resource Manager per il gruppo di azione](monitoring-create-action-group-with-resource-manager-template.md).
@@ -56,7 +56,7 @@ Per informazioni sull'uso dei modelli di Azure Resource Manager per configurare 
 
     a. **Nome**: immettere un identificatore univoco per questa azione.
 
-    b. **Tipo di azione**: selezionare Massaggio di posta elettronica/SMS/App Azure, Webhook, ITSM o Runbook di Automazione.
+    b. **Tipo di azione**: selezionare Massaggio di posta elettronica/SMS/Push/Voce, Webhook, ITSM o Runbook di Automazione.
 
     c. **Dettagli**: in base al tipo di azione, immettere un numero di telefono, un indirizzo di posta elettronica, l'URI del webhook, l'app Azure, la connessione ITSM o il runbook di Automazione. Per l'azione ITSM, specificare anche **Elemento di lavoro** e altri campi richiesti dallo strumento ITSM.
 

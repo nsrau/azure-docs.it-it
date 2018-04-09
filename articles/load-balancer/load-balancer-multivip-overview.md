@@ -1,34 +1,32 @@
 ---
-title: "Più front-end per Azure Load Balancer | Microsoft Docs"
-description: "Panoramica di più front-end in Azure Load Balancer"
+title: Più front-end per Azure Load Balancer | Microsoft Docs
+description: Panoramica di più front-end in Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 manager: narayan
-editor: 
+editor: ''
 ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: e4c77f3b9bd53df632a433532376eb859969a036
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: cf8fa396e0518e1c847225dfc1d8f91c3421bd11
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Più front-end per Azure Load Balancer
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer consente di eseguire il bilanciamento del carico dei servizi su più porte, più indirizzi IP o entrambi. È possibile usare le definizioni di servizio di bilanciamento del carico interno e pubblico per eseguire il bilanciamento del carico dei flussi in un set di macchine virtuali.
 
 Questo articolo descrive i principi fondamentali di questa funzionalità, i concetti importanti e i vincoli. Se si intende esporre i servizi in un solo indirizzo IP, sono disponibili istruzioni semplificate per le configurazioni di servizi di bilanciamento del carico [pubblici](load-balancer-get-started-internet-portal.md) o [interni](load-balancer-get-started-ilb-arm-portal.md). L'aggiunta di più front-end è un'operazione incrementale rispetto a una configurazione con un solo front-end. Usando i concetti illustrati in questo articolo è possibile espandere una configurazione semplificata in qualsiasi momento.
 
-Quando si definisce un'istanza di Azure Load Balancer, vengono connessi un front-end e un back-end con regole. Il probe di integrità a cui fa riferimento la regola viene usato per determinare il modo in cui i nuovi flussi vengono inviati a un nodo nel pool back-end. Il front-end è definito da una configurazione di IP front-end (nota anche come VIP, indirizzo IP virtuale) che è una tupla di 3 elementi costituita da un indirizzo IP (pubblico o interno), un protocollo di trasporto (UDP o TCP) e un numero di porta della regola di bilanciamento del carico. Un DIP è un indirizzo IP su una scheda di interfaccia di rete virtuale di Azure collegata a una macchina virtuale nel pool back-end.
+Quando si definisce un'istanza di Azure Load Balancer, viene connessa una configurazione di pool front-end e back-end con regole. Il probe di integrità a cui fa riferimento la regola viene usato per determinare il modo in cui i nuovi flussi vengono inviati a un nodo nel pool back-end. Il front-end (noto anche come VIP, indirizzo IP virtuale) è definito da una tupla di 3 elementi costituita da un indirizzo IP (pubblico o interno), un protocollo di trasporto (UDP o TCP) e un numero di porta della regola di bilanciamento del carico. Il pool back-end è una raccolta di configurazioni IP di macchine virtuali (parte della risorsa NIC) cui fa riferimento il pool back-end di bilanciamento del carico.
 
 La tabella seguente contiene alcune configurazioni front-end di esempio:
 
@@ -134,6 +132,10 @@ Il tipo di regola con indirizzo IP mobile è alla base di diversi modelli di con
 ## <a name="limitations"></a>Limitazioni
 
 * Le configurazioni di più front-end sono supportate solo con le macchine virtuali IaaS.
-* Con la regola dell'indirizzo IP mobile, l'applicazione deve usare il DIP per i flussi in uscita. Se l'applicazione si associa all'indirizzo IP del front-end configurato nell'interfaccia di loopback del sistema operativo guest, SNAT non potrà riscrivere il flusso in uscita e il flusso avrà esito negativo.
+* Con la regola dell'indirizzo IP mobile, l'applicazione deve usare la configurazione IP primaria per i flussi in uscita. Se l'applicazione si associa all'indirizzo IP del front-end configurato nell'interfaccia di loopback del sistema operativo guest, SNAT di Azure non potrà riscrivere il flusso in uscita e il flusso avrà esito negativo.
 * Gli indirizzi IP pubblici hanno un effetto sulla fatturazione. Per altre informazioni, vedere [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Si applicano i limiti delle sottoscrizioni. Per altre informazioni, vedere i [limiti del servizio](../azure-subscription-service-limits.md#networking-limits) .
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Verificare le [connessioni in uscita](load-balancer-outbound-connections.md) per comprendere l'impatto di più server front-end sul comportamento delle connessioni in uscita.

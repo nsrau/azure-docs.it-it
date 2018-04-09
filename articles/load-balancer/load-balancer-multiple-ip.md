@@ -1,5 +1,5 @@
 ---
-title: "Bilanciamento del carico in più configurazioni IP in Azure | Microsoft Docs"
+title: Bilanciamento del carico in più configurazioni IP in Azure | Microsoft Docs
 description: Bilanciamento del carico tra configurazioni IP primarie e secondarie.
 services: load-balancer
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 02388162ac4d2d86255c0a65d8b94253047f3983
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fcd9ff8b726b5dc3e0d447bc384dbcc7cc1a4e88
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Bilanciamento del carico in più configurazioni IP tramite il portale di Azure
 
@@ -27,7 +27,6 @@ ms.lasthandoff: 02/21/2018
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [Interfaccia della riga di comando](load-balancer-multiple-ip-cli.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Questo articolo illustra come usare Azure Load Balancer con più indirizzi IP in una scheda di interfaccia di rete (NIC, Network Interface Controller) secondaria. Il diagramma seguente illustra lo scenario:
 
@@ -63,7 +62,7 @@ Per ottenere lo scenario descritto in questo articolo, completare la procedura s
 
 Per ogni VM nella rete virtuale aggiungere la configurazione IP impostata per la scheda di interfaccia di rete secondaria:  
 
-1. Passare al portale di Azure all'indirizzo http://portal.azure.com. Accedere con l'account Azure.
+1. Accedere al portale di Azure: http://portal.azure.com. Accedere con l'account Azure.
 
 2. Nella parte superiore sinistra della schermata selezionare l'icona **Gruppi di risorse**. Selezionare quindi il gruppo di risorse in cui si trovano le VM, ad esempio **contosofabrikam**. Il riquadro **Gruppi di risorse** visualizza tutte le risorse e le schede di interfaccia di rete per le VM.
 
@@ -87,7 +86,7 @@ Quando la seconda configurazione IP della scheda di interfaccia di rete secondar
 
 Creare il servizio di bilanciamento del carico per la configurazione:
 
-1. Passare al portale di Azure all'indirizzo http://portal.azure.com. Accedere con l'account Azure.
+1. Accedere al portale di Azure: http://portal.azure.com. Accedere con l'account Azure.
 
 2. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Load Balancer**. Quindi selezionare **Crea**.
 

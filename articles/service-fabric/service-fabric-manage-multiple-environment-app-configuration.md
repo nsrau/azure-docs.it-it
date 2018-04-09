@@ -1,24 +1,24 @@
 ---
-title: "Gestire le applicazioni per più ambienti in Azure Service Fabric | Microsoft Docs"
-description: "Le applicazioni di Azure Service Fabric possono essere eseguite su cluster con dimensioni che variano da un solo computer a molte migliaia. In alcuni casi è possibile che si voglia configurare l'applicazione in modo diverso per i diversi ambienti. Questo articolo illustra come definire diversi parametri dell'applicazione per ogni ambiente,"
+title: Gestire le applicazioni per più ambienti in Azure Service Fabric | Microsoft Docs
+description: Le applicazioni di Azure Service Fabric possono essere eseguite su cluster con dimensioni che variano da un solo computer a molte migliaia. In alcuni casi è possibile che si voglia configurare l'applicazione in modo diverso per i diversi ambienti. Questo articolo illustra come definire diversi parametri dell'applicazione per ogni ambiente,
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/09/2017
+ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 6bc986236d50106485dce151f1f74622f56400c5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a3d0770d3b9c8702dbe4dac86f86030bea4090c0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gestire le applicazioni per più ambienti
 
@@ -41,7 +41,7 @@ Si prendano in considerazione due semplici esempi:
 
 > [!NOTE]
 > Non tutti gli attributi nei file manifesto dell'applicazione e del servizio supportano parametri.
-> In questi casi, è necessario ricorrere alla sostituzione di stringhe come parte del flusso di lavoro di distribuzione. In Visual Studio Team Services è possibile usare un'estensione come Replace Token https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens oppure in Jenkins è possibile eseguire un'attività script per sostituire i valori.
+> In questi casi, è necessario ricorrere alla sostituzione di stringhe come parte del flusso di lavoro di distribuzione. In Visual Studio Team Services è possibile usare un'estensione come Replace Token: https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens oppure in Jenkins è possibile eseguire un'attività script per sostituire i valori.
 >
 
 ## <a name="specifying-parameters-during-application-creation"></a>Definizione dei parametri durante la creazione dell'applicazione

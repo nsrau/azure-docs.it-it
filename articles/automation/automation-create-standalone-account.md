@@ -8,16 +8,14 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 5ea3d1af6f8bb4a6c0ef45560d8707afc58f61b1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ca00736c6c42223a0fe6259da5ee2531c287de18
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creare un account di Automazione di Azure autonomo
-Questo articolo mostra come creare un account di Automazione di Azure nel portale di Azure. È possibile usare l'account di Automazione del portale per valutare il servizio Automazione e scoprire di più su questo servizio, senza dover usare soluzioni di gestione aggiuntive o l'integrazione con Azure Log Analytics in Operations Management Suite (OMS). È possibile aggiungere tali soluzioni di gestione o attivare l'integrazione con Log Analytics per il monitoraggio avanzato di processi del runbook in qualsiasi momento in futuro. 
+Questo articolo mostra come creare un account di Automazione di Azure nel portale di Azure. È possibile usare l'account di Automazione del portale per valutare il servizio Automazione e scoprire di più su questo servizio, senza dover usare soluzioni di gestione aggiuntive o l'integrazione con Azure Log Analytics. È possibile aggiungere tali soluzioni di gestione o attivare l'integrazione con Log Analytics per il monitoraggio avanzato di processi del runbook in qualsiasi momento in futuro. 
 
 Con un account di Automazione è possibile autenticare i runbook gestendo le risorse in Azure Resource Manager o nel modello di distribuzione classico.
 

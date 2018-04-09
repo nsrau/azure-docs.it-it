@@ -6,14 +6,14 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 8deb78ba108aafc3297e6b96d6d88d0c56c60afd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d26fe28d301cf563dc6bdb3d9e17903dea3e73fc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Disponibilità elevata e database SQL di Azure
 Dall'inizio dell'offerta PaaS del database SQL di Azure, Microsoft ha promesso ai clienti l'integrazione della disponibilità elevata nel servizio evitando ai clienti di dover gestire, aggiungere una logica specifica o prendere decisioni in merito alla disponibilità elevata. Microsoft mantiene il controllo completo sulla configurazione e il funzionamento del sistema di disponibilità elevata offrendo ai clienti un contratto di servizio. Il contratto di servizio di disponibilità elevata si applica a un database SQL in un'area e non assicura protezione in caso di errore nell'intera area dovuto a fattori al di fuori del ragionevole controllo di Microsoft (ad esempio calamità naturali, guerra, atti di terrorismo, sommosse, azioni governative o un errore della rete o del dispositivo esterno al data center Microsoft, inclusi problemi presso la sede del cliente o tra questa e il data center Microsoft).
@@ -46,7 +46,7 @@ Vantaggi principali:
 
 ## <a name="data-redundancy"></a>Ridondanza dei dati
 
-La soluzione a disponibilità elevata del database di SQL si basa sulla tecnologia [Always ON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) di SQL Server e funziona per database LS e RS con differenze minime. Nella configurazione LS la tecnologia Always ON viene usata per la persistenza, mentre in quella RS viene usata per la disponibilità (RTO basso). 
+La soluzione a disponibilità elevata del database di SQL si basa sulla tecnologia dei [gruppi di disponibilità Always ON](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) di SQL Server e funziona per database LS e RS con differenze minime. Nella configurazione LS la tecnologia del gruppo di disponibilità Always ON viene usata per la persistenza, mentre in quella RS viene usata per la disponibilità (RTO basso). 
 
 ## <a name="local-storage-configuration"></a>Configurazione dell'archiviazione locale
 

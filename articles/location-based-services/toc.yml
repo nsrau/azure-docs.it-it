@@ -29,6 +29,8 @@
       href: render-coverage.md
     - name: Copertura per il routing
       href: routing-coverage.md
+    - name: Lingue supportate
+      href: supported-languages.md
 - name: Guide alle procedure
   items:
     - name: Gestire l'account e le chiavi
@@ -37,7 +39,7 @@
       href: how-to-use-map-control.md
     - name: Come cercare un indirizzo
       href: how-to-search-for-address.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: API funzionale
       href: 'https://docs.microsoft.com/rest/api/location-based-services/'

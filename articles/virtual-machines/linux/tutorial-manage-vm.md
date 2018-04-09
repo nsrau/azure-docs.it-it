@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e7dab67b46a2853e9585c88c8e4d4263f844c3b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 487ffffca445fb3f98dcaa6550b0b1b74290b803
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Creare e gestire VM Linux con l'interfaccia della riga di comando di Azure
 
@@ -91,7 +91,7 @@ exit
 
 ## <a name="understand-vm-images"></a>Informazioni sulle immagini delle VM
 
-Azure Marketplace include diverse immagini che possono essere usate per creare VM. Nei passaggi precedenti è stata creata una macchina virtuale usando un'immagine Ubuntu. In questo passaggio l'interfaccia della riga di comando di Azure viene usata per cercare nel marketplace un'immagine CentOS, che viene quindi usata per distribuire una seconda macchina virtuale.  
+Azure Marketplace include diverse immagini che possono essere usate per creare VM. Nei passaggi precedenti è stata creata una macchina virtuale usando un'immagine Ubuntu. In questo passaggio l'interfaccia della riga di comando di Azure viene usata per cercare nel marketplace un'immagine CentOS, che viene quindi usata per distribuire una seconda macchina virtuale. 
 
 Per visualizzare un elenco delle immagini più usate, eseguire il comando [az vm image list](/cli/azure/vm/image#az_vm_image_list).
 
@@ -136,7 +136,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-Per distribuire una VM usando un'immagine specifica, prendere nota del valore nella colonna *Urn*. Quando si specifica l'immagine, il numero di versione dell'immagine può essere sostituito con "latest", che seleziona la versione più recente della distribuzione. In questo esempio viene usato l'argomento `--image` per specificare la versione più recente di un'immagine CentOS 6.5.  
+Per distribuire una macchina virtuale usando un'immagine specifica, prendere nota del valore nella colonna *Urn*, che è costituito da server di pubblicazione, offerta, SKU e, facoltativamente, un numero di versione per[identificare](cli-ps-findimage.md#terminology) l'immagine. Quando si specifica l'immagine, il numero di versione dell'immagine può essere sostituito con "latest", che seleziona la versione più recente della distribuzione. In questo esempio viene usato l'argomento `--image` per specificare la versione più recente di un'immagine CentOS 6.5.  
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -259,7 +259,7 @@ Una macchina virtuale di Azure può avere uno dei diversi stati di alimentazione
 
 ### <a name="find-power-state"></a>Trovare lo stato di alimentazione
 
-Per recuperare lo stato di una determinata VM, usare il comando [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view). Assicurarsi di specificare un nome valido per una macchina virtuale e un gruppo di risorse. 
+Per recuperare lo stato di una determinata VM, usare il comando [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). Assicurarsi di specificare un nome valido per una macchina virtuale e un gruppo di risorse. 
 
 ```azurecli-interactive 
 az vm get-instance-view \

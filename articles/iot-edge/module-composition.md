@@ -6,14 +6,14 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/14/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4b59a715919e38e68c3b7518932617e9950940e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7df566ced755e1e817b3107dac8f17e9f6e9b8e4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Informazioni su come usare, configurare e riusare i moduli IoT Edge - Anteprima
 
@@ -122,7 +122,7 @@ Per ogni route è necessaria un'origine e un sink, mentre la condizione è un el
 ### <a name="source"></a>Sorgente
 L'origine specifica da dove provengono i messaggi. Può essere uno dei valori seguenti:
 
-| Sorgente | DESCRIZIONE |
+| Sorgente | Descrizione |
 | ------ | ----------- |
 | `/*` | Tutti i messaggi da dispositivo a cloud da qualsiasi dispositivo o modulo |
 | `/messages/*` | Qualsiasi messaggio da dispositivo a cloud inviato da un dispositivo o un modulo con o senza output |
@@ -134,37 +134,26 @@ L'origine specifica da dove provengono i messaggi. Può essere uno dei valori se
 ### <a name="condition"></a>Condizione
 La condizione è facoltativa in una dichiarazione di route. Se si intende passare tutti i messaggi dal sink all'origine, escludere interamente la clausola **WHERE**. In alternativa è possibile usare il [linguaggio di query di hub IoT][lnk-iothub-query] per filtrare alcuni messaggi o tipi di messaggio che soddisfano la condizione.
 
-I messaggi di Azure IoT vengono formattati come JSON e hanno sempre almeno un parametro **body**. Ad esempio: 
+I messaggi che passano tra i moduli in IoT Edge sono formattati come i messaggi che passano tra i dispositivi e l'hub IoT di Azure. Tutti i messaggi sono formattati come JSON e hanno i parametri **systemProperties**, **appProperties** e **body**. 
 
-```json
-"message": {
-    "body":{
-        "ambient":{
-            "temperature": 54.3421,
-            "humidity": 25
-        },
-        "machine":{
-            "status": "running",
-            "temperature": 62.2214
-        }
-    },
-    "appProperties":{
-        ...
-    }
-}
+È possibile creare query in base a tutti e tre i parametri con la sintassi seguente: 
+
+* Proprietà di sistema: `$<propertyName>` o `{$<propertyName>}`
+* Proprietà dell'applicazione: `<propertyName>`
+* Proprietà del corpo: `$body.<propertyName>` 
+
+Per esempi su come creare query in base alle proprietà dei messaggi, vedere [Espressioni di query per route di messaggi da dispositivo a cloud](../iot-hub/iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
+
+Un esempio specifico per IoT Edge riguarda il filtraggio dei messaggi inviati da un dispositivo foglia a un dispositivo gateway. I messaggi provenienti dai moduli contengono una proprietà di sistema denominata **connectionModuleId**. Se si intende eseguire il routing del messaggi direttamente da dispositivi foglia all'hub IoT, quindi, usare la route seguente per escludere i messaggi dei moduli:
+
+```sql
+FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
-
-Dato questo messaggio di esempio, è possibile definire varie condizioni, ad esempio:
-* `WHERE $body.machine.status != "running"`
-* `WHERE $body.ambient.temperature <= 60 AND $body.machine.temperature >= 60`
-
-La condizione può essere usata anche per ordinare i tipi di messaggio, ad esempio in un gateway che intende instradare i messaggi provenienti da dispositivi foglia. I messaggi provenienti da moduli contengono una proprietà specifica denominata **connectionModuleId**. Se si intende eseguire il routing del messaggi direttamente da dispositivi foglia all'hub IoT, quindi, usare la route seguente per escludere i messaggi dei moduli:
-* `FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream`
 
 ### <a name="sink"></a>Sink
 Il sink definisce dove vengono inviati i messaggi. Può essere uno dei valori seguenti:
 
-| Sink | DESCRIZIONE |
+| Sink | Descrizione |
 | ---- | ----------- |
 | `$upstream` | Inviare il messaggio all'hub IoT |
 | `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Inviare il messaggio all'input `{input}` del modulo`{moduleId}` |

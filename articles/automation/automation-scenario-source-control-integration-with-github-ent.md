@@ -1,24 +1,18 @@
 ---
-title: Integrazione del controllo del codice sorgente di Automazione di Azure con GitHub Enterprise | Documentazione Microsoft
+title: Integrazione del controllo del codice sorgente di Automazione di Azure con GitHub Enterprise
 description: Descrive nei dettagli come configurare l'integrazione con GitHub Enterprise per il controllo del codice sorgente dei runbook di Automazione.
 services: automation
-documentationCenter: 
-authors: georgewallace
-manager: jwhit
-editor: 
-ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 07/26/2017
-ms.author: magoedte
-ms.openlocfilehash: 2944b62cb3dc6146573041533d56d45b6cc87f18
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: carmonm
+ms.openlocfilehash: eab61daafe7ef8b5ca2fc1416dc7c04f97b8c671
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Scenario di Automazione di Azure - Integrazione del controllo del codice sorgente di Automazione con GitHub Enterprise
 
@@ -52,10 +46,10 @@ GitHRWCredential | Asset credenziali che viene creato per contenere il nome uten
 
 1. Il runbook Sync-LocalGitFolderToAutomationAccount esegue l'autenticazione usando l'[account RunAs di Azure](automation-sec-configure-azure-runas-account.md). 
 
-2. È inoltre necessaria un'area di lavoro di Microsoft Operations Management Suite (OMS) in cui sia abilitata e configurata la soluzione Automazione di Azure. Se non si ha un'area di lavoro associata all'account di Automazione usato per installare e configurare questo scenario, viene creata e configurata automaticamente quando si esegue lo script **New-OnPremiseHybridWorker.ps1** dal ruolo di lavoro ibrido per runbook.        
+2. È necessaria anche un'area di lavoro di Log Analytics in cui sia abilitata e configurata la soluzione Automazione di Azure. Se non si ha un'area di lavoro associata all'account di Automazione usato per installare e configurare questo scenario, viene creata e configurata automaticamente quando si esegue lo script **New-OnPremiseHybridWorker.ps1** dal ruolo di lavoro ibrido per runbook.        
 
     > [!NOTE]
-    > Attualmente, l'integrazione di Automazione con OMS è supportata solo nelle aree seguenti: **Australia sud-orientale**, **Stati Uniti orientali 2**, **Asia sud-orientale** ed **Europa occidentale**. 
+    > Attualmente, l'integrazione di Automazione con Log Analytics è supportata solo nelle aree seguenti: **Australia sud-orientale**, **Stati Uniti orientali 2**, **Asia sud-orientale** ed **Europa occidentale**. 
 
 3. Un computer che può essere usato come ruolo di lavoro ibrido per runbook dedicato che ospita anche il software GitHub e mantiene i file runbook (*runbook*.ps1) in una directory di origine nel file system per la sincronizzazione tra GitHub e l'account di Automazione.
 

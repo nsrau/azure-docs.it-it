@@ -2,11 +2,11 @@
 title: Guida introduttiva a PowerShell in Azure Cloud Shell (anteprima) | Documentazione Microsoft
 description: Guida introduttiva a PowerShell in Cloud Shell
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendmsft
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: 71ae70c13b4de87593345fd957a773741294b49c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: efee0842a2fca2afac28f179bba07c3b6682ee57
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Guida introduttiva a PowerShell in Azure Cloud Shell (anteprima)
 
@@ -118,7 +118,7 @@ Tuttavia, è sempre possibile usare `dir -Force` per ottenere dati aggiornati.
 
 ### <a name="navigate-storage-resources"></a>Esplorare le risorse di archiviazione
     
-Accedendo alla cartella `StorageAccounts` è possibile esplorare facilmente le risorse di archiviazione
+Accedendo alla directory `StorageAccounts` è possibile esplorare facilmente le risorse di archiviazione
     
 ``` PowerShell 
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
@@ -182,7 +182,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 #### <a name="invoke-powershell-script-across-remote-vms"></a>Richiamare uno script PowerShell tra le macchine virtuali remote
 
  > [!WARNING]
- > Consultare [Risoluzione dei problemi di gestione remota delle macchine virtuali di Azure](troubleshooting.md#powershell-resolutions).
+ > Consultare [Risoluzione dei problemi di gestione remota delle macchine virtuali di Azure](troubleshooting.md#troubleshooting-remote-management-of-azure-vms).
 
   Se si dispone di una macchina virtuale, MyVM1, usare `Invoke-AzureRmVMCommand` per richiamare un blocco di script di PowerShell nel computer remoto.
 
@@ -227,7 +227,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 ### <a name="discover-webapps"></a>Scoprire WebApp
 
-Accedendo alla cartella `WebApps` è possibile esplorare facilmente le risorse app Web
+Accedendo alla directory `WebApps` è possibile esplorare facilmente le risorse app Web
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -274,11 +274,11 @@ Per eseguire l'autenticazione a server o macchine virtuali tramite SSH, generare
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>Uso di un profilo personalizzato per rendere persistenti le impostazioni GIT e SSH
 
-Poiché le sessioni non vengono mantenute quando si esegue la disconnessione, salvare la cartella `$env:USERPROFILE\.ssh` in `CloudDrive` oppure creare un collegamento simbolico all'avvio di Cloud Shell.
+Poiché le sessioni non vengono mantenute quando si esegue la disconnessione, salvare la directory `$env:USERPROFILE\.ssh` in `CloudDrive` oppure creare un collegamento simbolico all'avvio di Cloud Shell.
 Aggiungere il frammento di codice seguente nel file profile.ps1 personale per creare un collegamento simbolico a CloudDrive.
 
 ``` PowerShell
-# Check if the .ssh folder exists
+# Check if the .ssh directory exists
 if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }
@@ -357,7 +357,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-Quando si usa PowerShell in Cloud Shell la volta successiva, il file `helloworld.ps1` sarà presente nella cartella `CloudDrive` che monta la condivisione di File di Azure.
+Quando si usa PowerShell in Cloud Shell la volta successiva, il file `helloworld.ps1` sarà presente nella directory `CloudDrive` che monta la condivisione file di Azure.
 
 ## <a name="use-custom-profile"></a>Usare un profilo personalizzato
 

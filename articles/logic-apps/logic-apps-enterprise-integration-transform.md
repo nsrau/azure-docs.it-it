@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f4ca7004432d28233888483424164456b008e992
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: fd59b6b3f51adb538e774bc5bb089880ca22e97e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Enterprise Integration con trasformazioni XML
 ## <a name="overview"></a>Panoramica
@@ -64,6 +64,7 @@ A questo punto, la configurazione della mappa è completa. In un'applicazione re
 
 È ora possibile testare la trasformazione eseguendo una richiesta all'endpoint HTTP.  
 
+
 ## <a name="features-and-use-cases"></a>Funzionalità e casi d'uso
 * La trasformazione creata in una mappa può essere semplice, come ad esempio la copia di un nome e di un indirizzo da un documento a un altro. In alternativa, è possibile creare trasformazioni più complesse usando operazioni di mapping predefinite.  
 * Sono già disponibili più operazioni o funzioni di mapping, incluse stringhe, funzioni data/ora e così via.  
@@ -73,11 +74,49 @@ A questo punto, la configurazione della mappa è completa. In un'applicazione re
 * Caricare le mappe esistenti  
 * Include il supporto per il formato XML.
 
-## <a name="adanced-features"></a>Funzionalità avanzate
-È possibile accedere alle funzionalità seguenti solo dalla visualizzazione codice.
+## <a name="advanced-features"></a>Funzionalità avanzate
+
+### <a name="reference-assembly-or-custom-code-from-maps"></a>Assembly di riferimento o codice personalizzato dalle mappe 
+L'azione di trasformazione supporta anche le mappe o le trasformazioni con riferimento all'assembly esterno. Questa funzionalità abilita le chiamate a codice .NET personalizzato direttamente da mappe XSLT. Di seguito sono elencati i prerequisiti per l'uso dell'assembly nelle mappe.
+
+* La mappa e l'assembly a cui si fa riferimento nella mappa devono essere [caricati nell'account di integrazione](./logic-apps-enterprise-integration-maps.md). 
+
+  > [!NOTE]
+  > La mappa e l'assembly devono essere caricati in un ordine specifico. È necessario caricare l'assembly prima della mappa che fa riferimento all'assembly.
+
+* La mappa deve anche presentare questi attributi e una sezione CDATA contenente la chiamata al codice dell'assembly:
+
+    * **nome** è il nome personalizzato dell'assembly.
+    * **spazio dei nomi** è lo spazio dei nomi nell'assembly che include il codice personalizzato.
+
+  Questo esempio mostra una mappa che fa riferimento a un assembly denominato "XslUtilitiesLib" e chiama il metodo `circumreference` dall'assembly.
+
+  ````xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
+  <msxsl:script language="C#" implements-prefix="user">
+    <msxsl:assembly name="XsltHelperLib"/>
+    <msxsl:using namespace="XsltHelpers"/>
+    <![CDATA[public double circumference(int radius){ XsltHelper helper = new XsltHelper(); return helper.circumference(radius); }]]>
+  </msxsl:script>
+  <xsl:template match="data">
+     <circles>
+        <xsl:for-each select="circle">
+            <circle>
+                <xsl:copy-of select="node()"/>
+                    <circumference>
+                        <xsl:value-of select="user:circumference(radius)"/>
+                    </circumference>
+            </circle>
+        </xsl:for-each>
+     </circles>
+    </xsl:template>
+    </xsl:stylesheet>
+  ````
+
 
 ### <a name="byte-order-mark"></a>Byte order mark
-Per impostazione predefinita, la risposta ottenuta dalla trasformazione inizierà con il byte order mark (BOM). Per disabilitare questa funzionalità, specificare `disableByteOrderMark` per la proprietà `transformOptions`:
+Per impostazione predefinita, la risposta ottenuta dalla trasformazione inizia con il Byte order mark (BOM). È possibile accedere a questa funzionalità solo quando si lavora nell'editor della visualizzazione Codice. Per disabilitare questa funzionalità, specificare `disableByteOrderMark` per la proprietà `transformOptions`:
 
 ````json
 "Transform_XML": {
@@ -94,6 +133,10 @@ Per impostazione predefinita, la risposta ottenuta dalla trasformazione inizier�
     "type": "Xslt"
 }
 ````
+
+
+
+
 
 ## <a name="learn-more"></a>Altre informazioni
 * [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")  

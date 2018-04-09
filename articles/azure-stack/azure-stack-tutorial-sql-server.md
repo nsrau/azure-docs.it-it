@@ -17,10 +17,10 @@ ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Rendere disponibili agli utenti dello Stack di Azure SQL database
 Un amministratore di cloud di Azure Stack, è possibile creare offerte che consentono agli utenti di database SQL che possono essere utilizzati con le app cloud nativo, siti Web e i carichi di lavoro di creare (tenant). Grazie agli utenti i database personalizzati, su richiesta, basato su cloud, è possibile salvarli tempo e risorse. A tale scopo, è possibile:

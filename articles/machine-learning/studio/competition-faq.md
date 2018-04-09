@@ -2,9 +2,10 @@
 title: Domande frequenti sui concorsi Microsoft Cortana Intelligence | Microsoft Docs
 description: Domande frequenti sui concorsi Microsoft Cortana Intelligence.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: haining;garye
-ms.openlocfilehash: f7c839a8471dc54daebc47d0bb5a450358f5250d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: db6fb6cd6c500ffe4537b57a968ef3b8792bcad6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Domande frequenti sui concorsi Microsoft Cortana Intelligence
 **Informazioni sui concorsi Cortana Intelligence**
@@ -35,7 +35,7 @@ Per domande di carattere generale, è possibile usare il [forum di Microsoft Azu
 
 **Come si partecipa a una competizione?**
 
-Accedere alla home page dei [concorsi](https://gallery.cortanaintelligence.com/competitions) di [Raccolta di intelligenza artificiale per Azure](https://gallery.cortanaintelligence.com/) o andare all'indirizzo [http://aka.ms/CIComp](http://aka.ms/CIComp). La home page elenca tutti i concorsi attualmente aperti. Nella pagina di iscrizione di ogni concorso sono riportate istruzioni dettagliate, le modalità di partecipazione, i premi e la durata.
+Accedere alla home page dei [concorsi](https://gallery.cortanaintelligence.com/competitions) di [Azure AI Gallery](https://gallery.cortanaintelligence.com/) o andare all'indirizzo [http://aka.ms/CIComp](http://aka.ms/CIComp). La home page elenca tutti i concorsi attualmente aperti. Nella pagina di iscrizione di ogni concorso sono riportate istruzioni dettagliate, le modalità di partecipazione, i premi e la durata.
 
 1. Individuare il concorso a cui si vuole partecipare, leggere tutte le istruzioni e guardare il video di esercitazione. Quindi fare clic sul pulsante **Enter Competition** (Partecipa al concorso) e copiare l'esperimento Starter nell'area di lavoro di Azure Machine Learning esistente. Creare prima di tutto un accesso a un'area di lavoro, se non è già disponibile. Eseguire l'esperimento iniziale, osservare le metriche delle prestazioni e usare la propria creatività per migliorare le prestazioni del modello. È probabile che la maggior parte del tempo verrà dedicata a questo passaggio.   
 

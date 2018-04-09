@@ -17,10 +17,10 @@ ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Rendere disponibili agli utenti di Azure Stack macchine virtuali
 Un amministratore di cloud di Azure Stack, è possibile creare offerte che possono sottoscrivere gli utenti (talvolta detto tenant). Con la sottoscrizione, gli utenti potranno quindi utilizzare i servizi di Azure Stack.
@@ -113,7 +113,7 @@ Dopo aver creato un'offerta, è possibile eseguirne il test. Accedere come utent
    Ora è possibile accedere al portale come utente di sottoscrivere un'offerta.
 
    a. Accedere al portale per gli utenti come un utente e fare clic su **ottenere una sottoscrizione**.
-   - Per un sistema integrato, l'URL varia in base sulla regione dell'operatore e il nome di dominio esterno e si trova il https://portal formato. &lt; *area*&gt;.&lt; *FQDN*&gt;.
+   - Per un sistema integrato, l'URL varia in base area e il nome di dominio esterno dell'operatore e sarà nel formato https://portal.&lt; *regione*&gt;.&lt; *FQDN*&gt;.
    - Se si utilizza il Kit di sviluppo dello Stack di Azure, l'indirizzo del portale è https://portal.local.azurestack.external.
 
    ![Ottieni una sottoscrizione](media/azure-stack-subscribe-plan-provision-vm/image01.png)
@@ -131,7 +131,7 @@ Dopo aver creato un'offerta, è possibile eseguirne il test. Accedere come utent
    Ora è possibile accedere al portale come utente di eseguire il provisioning di una macchina virtuale tramite la sottoscrizione. 
 
    a. Accedere al portale per gli utenti con un account utente.
-      - Per un sistema integrato, l'URL varia in base sulla regione dell'operatore e il nome di dominio esterno e si trova il https://portal formato. &lt; *area*&gt;.&lt; *FQDN*&gt;.
+      - Per un sistema integrato, l'URL varia in base area e il nome di dominio esterno dell'operatore e sarà nel formato https://portal.&lt; *regione*&gt;.&lt; *FQDN*&gt;.
    - Se si utilizza il Kit di sviluppo dello Stack di Azure, l'indirizzo del portale è https://portal.local.azurestack.external.
 
    b.  Nel dashboard, fare clic su **New** > **calcolo** > **Eval di Data Center di Windows Server 2016**, quindi fare clic su **crea**.

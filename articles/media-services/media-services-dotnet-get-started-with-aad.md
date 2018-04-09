@@ -2,28 +2,28 @@
 title: Usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali di Microsoft Azure con .NET | Microsoft Docs
 description: In questo argomento viene illustrato come usare l'autenticazione di Azure Active Directory (Azure AD) per accedere all'API Servizi multimediali di Microsoft Azure (AMS) con .NET.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: a9355200a05a3aa1b494b76977d38ddc42bfe179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8817bb0da526769470e96b63b9c80620309757bf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Usare l'autenticazione di Azure AD per accedere all'API di Servizi multimediali di Azure con .NET
 
 A partire da windowsazure.mediaservices 4.0.0.4, Servizi multimediali di Azure supporta l'autenticazione basata su Azure Active Directory (Azure AD). In questo argomento viene illustrato come usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali di Microsoft Azure con .NET.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Account di Servizi multimediali. Per altre informazioni, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
@@ -36,7 +36,7 @@ Quando si usa l'autenticazione di Azure AD con Servizi multimediali di Azure, è
 - L'**autenticazione basata su un'entità servizio** consente di eseguire l'autenticazione di un servizio. Le applicazioni che usano in genere questo metodo di autenticazione sono app che eseguono servizi daemon, servizi di livello intermedio o processi pianificati, ad esempio app Web, app per le funzioni, app per la logica, API o microservizi.
 
 >[!IMPORTANT]
->Attualmente, Servizi multimediali di Azure supporta un modello di autenticazione di Servizio di controllo di accesso Azure. L'autorizzazione di Controllo di accesso, tuttavia, verrà dichiarata deprecata il 1° giugno 2018. È consigliabile eseguire la migrazione all'autenticazione di Azure Active Directory il più presto possibile.
+>Attualmente, Servizi multimediali di Azure supporta un modello di autenticazione di Servizio di controllo di accesso Azure. L'autorizzazione di Controllo di accesso, tuttavia, verrà dichiarata deprecata il 22 giugno 2018. È consigliabile eseguire la migrazione all'autenticazione di Azure Active Directory il più presto possibile.
 
 ## <a name="get-an-azure-ad-access-token"></a>Ottenere un token di accesso di Azure AD
 

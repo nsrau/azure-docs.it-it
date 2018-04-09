@@ -4,7 +4,7 @@ description: Note sulla versione di Azure SDK per .NET 2.9
 services: app-service\web
 documentationcenter: .net
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
 ms.service: app-service
 ms.devlang: multiple
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 199f0906f73d693d7cd4b73c928f23ae83b99596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a62268cee0750c544703fb4c3f7e91238e26b872
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Note sulla versione di Azure SDK per .NET 2.9
 
 Questo argomento contiene le note sulle versioni 2.9 e 2.9.6 di Azure SDK per .NET.
 
-##<a name="azure-sdk-for-net-296-release-summary"></a>Riepilogo sulla versione Azure SDK per .NET 2.9.6
+## <a name="azure-sdk-for-net-296-release-summary"></a>Riepilogo sulla versione Azure SDK per .NET 2.9.6
 
 Data di rilascio: 16/11/2016
  
@@ -31,7 +31,7 @@ In questa versione non sono state introdotte modifiche di rilievo ad Azure SDK 2
 
 ### <a name="visual-studio-2017-release-candidate"></a>Visual Studio 2017 Release Candidate
 
-- In Visual Studio 2017 RC, questa versione di Azure SDK per .NET è integrata nel carico di lavoro di Azure. Tutti gli strumenti necessari per lo sviluppo per Azure saranno in futuro parte di Visual Studio 2017 RC. Per Visual Studio 2015 e Visual Studio 2013, l'SDK sarà ancora disponibile tramite WebPI. Le versioni per Visual Studio 2013 di Azure SDK per .NET verranno sospese quando Visual Studio 2017 verrà rilasciato come prodotto finale. Fare clic su questo collegamento per scaricare Visual Studio 2017 RC: https://www.visualstudio.com/vs/visual-studio-2017-rc/
+- In Visual Studio 2017 RC, questa versione di Azure SDK per .NET è integrata nel carico di lavoro di Azure. Tutti gli strumenti necessari per lo sviluppo per Azure saranno in futuro parte di Visual Studio 2017 RC. Per Visual Studio 2015 e Visual Studio 2013, l'SDK sarà ancora disponibile tramite WebPI. Le versioni per Visual Studio 2013 di Azure SDK per .NET verranno sospese quando Visual Studio 2017 verrà rilasciato come prodotto finale. Seguire questo collegamento per scaricare Visual Studio 2017 RC: https://www.visualstudio.com/vs/visual-studio-2017-rc/
 
 ### <a name="azure-diagnostics"></a>Diagnostica Azure
 

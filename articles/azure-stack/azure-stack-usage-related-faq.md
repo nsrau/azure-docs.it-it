@@ -1,9 +1,25 @@
- ---
-titolo: utilizzo API correlate domande frequenti | Descrizione di Microsoft Docs: metri elenco dello Stack di Azure, confronto con API di Azure-utilizzo, tempo di utilizzo e l'ora di segnalato, codici di errore.
-services: azure-stack documentationcenter: '' author: mattbriggs manager: femila editor: ''
-
-ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071 ms.service: azure-stack ms.workload: na ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 03/09/2018 ms.author: mabrigg ms.reviewer: alfredop
-
+---
+title: Utilizzo API correlate domande frequenti | Documenti Microsoft
+description: Elenco di misuratori di Stack di Azure, confronto con API di Azure-utilizzo, tempo di utilizzo e l'ora di segnalato, codici di errore.
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
+ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/09/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 3d6f2bf569ecfebe3bf4f535a7a8ab3bf22849f1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Domande frequenti nell'utilizzo di Azure Stack API
 Questo articolo risponde ad alcune domande frequenti sull'API di utilizzo dello Stack di Azure.
@@ -75,7 +91,7 @@ Attualmente, è possibile eseguire query solo da *segnalati tempo*.
 | Richiesta non valida di 400 / |*InvalidAggregationGranularity* |È stata richiesta una granularità di aggregazione non valido. I valori validi sono giornaliera e oraria. |
 | 503 |*ServiceUnavailable* |Si è verificato un errore non irreversibile poiché il servizio è occupato o la chiamata è limitata. |
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 [Fatturazione del cliente e chargeback nello Stack di Azure](azure-stack-billing-and-chargeback.md)
 
 [Utilizzo del provider di risorse API](azure-stack-provider-resource-api.md)

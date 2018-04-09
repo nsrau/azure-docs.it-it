@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione su Kubernetes in Azure: distribuire un''applicazione'
+title: "Esercitazione su Kubernetes in Azure: distribuire un'applicazione"
 description: Esercitazione sul servizio contenitore di Azure - Distribuire un'applicazione
 services: container-service
 author: neilpeterson
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 095bfe328f3e3ed220de71b3410e34b9be86cff1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9fad9627be453fb00508d1f6ec9594bd2bde6fad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="run-applications-in-azure-container-service-aks"></a>Eseguire applicazioni nel servizio contenitore di Azure
+# <a name="tutorial-run-applications-in-azure-container-service-aks"></a>Esercitazione: Eseguire applicazioni nel servizio contenitore di Azure (AKS)
 
 In questa esercitazione, parte 4 di 8, viene distribuita un'applicazione di esempio in un cluster Kubernetes. I passaggi completati comprendono:
 
@@ -24,7 +24,7 @@ In questa esercitazione, parte 4 di 8, viene distribuita un'applicazione di esem
 > * Eseguire un'applicazione in Kubernetes
 > * Test dell'applicazione
 
-Nelle esercitazioni successive, l'applicazione viene aggiornata e ne vengono aumentate le istanze e Operations Management Suite viene configurato per monitorare il cluster Kubernetes.
+Nelle esercitazioni successive l'applicazione viene ridimensionata e aggiornata e Log Analytics viene configurato per monitorare il cluster Kubernetes.
 
 Questa esercitazione presuppone una conoscenza di base dei concetti relativi a Kubernetes. Per informazioni dettagliate su Kubernetes, vedere la [documentazione di Kubernetes][kubernetes-documentation].
 

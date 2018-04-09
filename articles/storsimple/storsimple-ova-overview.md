@@ -1,24 +1,24 @@
 ---
 title: Panoramica dell'array virtuale StorSimple di Microsoft Azure | Microsoft Docs
-description: "Fornisce una descrizione dell'array virtuale StorSimple, una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra un array virtuale locale e la risorsa di archiviazione cloud di Microsoft Azure."
+description: Fornisce una descrizione dell'array virtuale StorSimple, una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra un array virtuale locale e la risorsa di archiviazione cloud di Microsoft Azure.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/16/2017
+ms.date: 03/28/2018
 ms.author: alkohli
-ms.openlocfilehash: b9a5797751fa970c569c93e5efe300d4d74319ce
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: db06614ebd7dee4b0a320737ea8f575b3a3be70f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introduzione a StorSimple Virtual Array
 
@@ -205,6 +205,15 @@ StorSimple usa deduplicazione e compressione dei dati per ridurre ulteriormente 
 ### <a name="scheduled-and-on-demand-backups"></a>Backup pianificati e su richiesta
 
 Le funzionalità di protezione dei dati di StorSimple consentono di creare backup su richiesta. Inoltre, una pianificazione di backup predefinita garantisce il backup dei dati ogni giorno. Si eseguono backup sotto forma di snapshot incrementali che vengono archiviati nel cloud. Gli snapshot, che registrano solo le modifiche apportate dall'ultimo backup, possono essere creati e ripristinati rapidamente. Gli snapshot possono essere fondamentali in scenari di ripristino di emergenza perché sostituiscono i sistemi di archiviazione secondaria (come il backup su nastro) e consentono di ripristinare i dati nel data center o in siti alternativi, se necessario.
+
+## <a name="gdpr-compliance"></a>Conformità al Regolamento generale sulla protezione dei dati (RGPD)
+Il [Regolamento generale sulla protezione dei dati (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) è una legge sulla privacy e sulla protezione dei dati dell'Unione europea (UE). L'RGPD contiene molti requisiti su come raccogliere, conservare e usare le informazioni personali. Le regole dell'RGPD vengono imposte alle aziende, agli enti pubblici e ad altre organizzazioni che operano nell'UE e raccolgono e analizzano i dati dei cittadini europei.
+
+Lo strumento Gestione dispositivi StorSimple per la serie di server virtuali è conforme all'RGPD. Le informazioni personali vengono raccolte e visualizzate nel servizio in due casi in particolare:
+ - Impostazioni utente relative agli avvisi in cui vengono configurati gli indirizzi di posta elettronica degli utenti. Queste informazioni possono essere cancellate dell'amministratore. 
+ - Utenti che possono accedere ai dati presenti nelle condivisioni. Viene visualizzato e può essere esportato un elenco di utenti che possono accedere ai dati delle condivisioni. Quando le condivisioni vengono eliminate, viene eliminato anche questo elenco.
+
+Per altre informazioni, consultare l'[Informativa sulla privacy Microsoft nel Centro protezione](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

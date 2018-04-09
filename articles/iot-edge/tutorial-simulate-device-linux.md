@@ -2,7 +2,7 @@
 title: Simulare Azure IoT Edge in Linux | Microsoft Docs
 description: Installare il runtime di Azure IoT Edge in un dispositivo simulato in Linux e distribuire il primo modulo
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 65a3f6d71c0c0d92f703a5d48760dd348c726ba4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Distribuire Azure IoT Edge in un dispositivo simulato in Linux o macOS: anteprima
 
@@ -37,6 +37,11 @@ In questa esercitazione viene usato un computer o una macchina virtuale come un 
 
 * Pip di Python per installare il runtime di IoT Edge.
    * Linux: `sudo apt-get install python-pip`.
+     * _Si noti che in alcune distribuzioni, ad esempio Raspbian, può anche essere necessario aggiornare alcuni pacchetti pip e installare dipendenze aggiuntive:_
+     ```
+     sudo pip install --upgrade setuptools pip
+     sudo apt-get install python2.7-dev libffi-dev libssl-dev
+     ```
    * MacOS: `sudo easy_install pip`.
 * Docker, per eseguire i moduli IoT Edge
    * [Installare Docker per Linux][lnk-docker-ubuntu] e assicurarsi che sia in esecuzione. 
@@ -70,7 +75,7 @@ sudo pip install -U azure-iot-edge-runtime-ctl
 
 Configurare il runtime con la stringa di connessione al dispositivo IoT Edge dalla sezione precedente:
 ```cmd
-sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Avviare il runtime:

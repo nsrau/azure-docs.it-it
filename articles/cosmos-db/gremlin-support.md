@@ -1,9 +1,9 @@
 ---
-title: Supporto Gremlin di Azure Cosmos DB | Documentazione Microsoft
-description: Informazioni sul linguaggio Gremlin di Apache TinkerPop e su funzionalità e passaggi disponibili in Azure Cosmos DB
+title: Supporto Gremlin di Azure Cosmos DB | Microsoft Docs
+description: Informazioni sul linguaggio Gremlin di Apache TinkerPop. Informazioni sulle funzionalità e sulle procedure disponibili in Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
-author: luisbosquez
+author: LuisBosquez
 manager: jhubbard
 editor: ''
 tags: ''
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: b32838dfaf83ea3acfb7125322bb99124370bd8e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 453e11c31a01b6ce8e77deda89725ecd53fd2db9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Supporto Gremlin Graph di Azure Cosmos DB
 Azure Cosmos DB supporta il linguaggio di attraversamento di grafi [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) di [Apache Tinkerpop](http://tinkerpop.apache.org), ovvero un'API Graph per la creazione di entità di grafi e l'esecuzione di operazioni di query sui grafi. È possibile usare il linguaggio Gremlin per creare le entità dei grafi (vertici e archi), modificare proprietà all'interno di tali entità, eseguire query e attraversamenti ed eliminare entità. 
@@ -35,10 +35,10 @@ Verrà ora usato un grafo di esempio per comprendere come le query possono esser
 
 Questo grafo presenta i seguenti tipi di vertici (denominati "label" in Gremlin):
 
-- Persone: il grafo presenta tre persone, Robin, Thomas e Ben
-- Interessi: i loro interessi, in questo esempio, il gioco del football
-- Dispositivi: i dispositivi usati dagli utenti
-- Sistemi operativi: i sistemi operativi eseguiti dai dispositivi
+- Persone: il grafo include tre persone, Robin, Thomas e Ben
+- Interessi: i loro interessi, in questo esempio, sono rappresentati dal gioco del football
+- Dispositivi: i dispositivi usati dalle persone
+- Sistemi operativi: i sistemi operativi eseguiti nei dispositivi
 
 Si rappresentano le relazioni tra queste entità tramite i seguenti tipi/etichette di archi:
 
@@ -132,7 +132,7 @@ Ad esempio, il frammento di codice seguente mostra una rappresentazione GraphSON
 
 Le proprietà usate da GraphSON per i vertici sono le seguenti:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | id | ID del vertice. Deve essere univoco (in combinazione con il valore di _partition se applicabile) |
 | label | Etichetta del vertice. Questo è facoltativo e viene usato per descrivere il tipo di entità. |
@@ -143,7 +143,7 @@ Le proprietà usate da GraphSON per i vertici sono le seguenti:
 
 E l'arco contiene le informazioni seguenti per spostarsi in altre parti del grafo.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | id | ID dell'arco. Deve essere univoco (in combinazione con il valore di _partition se applicabile) |
 | label | Etichetta dell'arco. Questa proprietà è facoltativa e viene usata per descrivere il tipo di relazione. |
@@ -152,7 +152,7 @@ E l'arco contiene le informazioni seguenti per spostarsi in altre parti del graf
 
 Ogni proprietà può archiviare più valori all'interno di una matrice. 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | value | Valore della proprietà
 
@@ -165,45 +165,45 @@ Le operazioni Gremlin funzionano senza problemi su dati a grafo che si estendono
 ## <a name="gremlin-steps"></a>Step di Gremlin
 Verranno ora esaminati gli step di Gremlin supportati da Azure Cosmos DB. Per informazioni complete su Gremlin, vedere [TinkerPop reference](http://tinkerpop.apache.org/docs/current/reference) (Riferimento a TinkerPop).
 
-| step | DESCRIZIONE | Documentazione TinkerPop 3.2 | Note |
-| --- | --- | --- | --- |
-| `addE` | Aggiunge un arco tra due vertici | [addE step](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
-| `addV` | Aggiunge un vertice al grafo | [addV step](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
-| `and` | Assicura che tutti gli attraversamenti restituiscono un valore | [and step](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
-| `as` | Modulatore di step per assegnare una variabile all'output di uno step | [as step](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
-| `by` | Modulatore di step usato con `group` e `order` | [by step](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
-| `coalesce` | Restituisce il primo attraversamento che restituisce un risultato | [coalesce step](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |
-| `constant` | Restituisce un valore costante. Usato con `coalesce`| [constant step](http://tinkerpop.apache.org/docs/current/reference/#constant-step) | |
-| `count` | Restituisce il conteggio risultante dall'attraversamento | [count step](http://tinkerpop.apache.org/docs/current/reference/#count-step) | |
-| `dedup` | Restituisce i valori con i duplicati rimossi | [dedup step](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) | |
-| `drop` | Elimina i valori (vertice/arco) | [drop step](http://tinkerpop.apache.org/docs/current/reference/#drop-step) | |
-| `fold` | Si comporta come una barriera che calcola l'aggregazione di risultati| [fold step](http://tinkerpop.apache.org/docs/current/reference/#fold-step) | |
-| `group` | Raggruppa i valori in base alle etichette specificate| [group step](http://tinkerpop.apache.org/docs/current/reference/#group-step) | |
-| `has` | Usato per filtrare proprietà, vertici e archi. Supporta `hasLabel`, `hasId`, `hasNot` e le varianti `has`. | [has step](http://tinkerpop.apache.org/docs/current/reference/#has-step) | |
-| `inject` | Inserisce i valori in un flusso| [inject step](http://tinkerpop.apache.org/docs/current/reference/#inject-step) | |
-| `is` | Usato per eseguire un filtro con un'espressione booleana | [is step](http://tinkerpop.apache.org/docs/current/reference/#is-step) | |
-| `limit` | Usato per limitare il numero di elementi nell'attraversamento| [limit step](http://tinkerpop.apache.org/docs/current/reference/#limit-step) | |
-| `local` | Esegue il wrapping di una sezione di attraversamento, simile a una sottoquery | [local step](http://tinkerpop.apache.org/docs/current/reference/#local-step) | |
-| `not` | Usato per produrre la negazione di un filtro | [not step](http://tinkerpop.apache.org/docs/current/reference/#not-step) | |
-| `optional` | Restituisce il risultato dell'attraversamento specificato se fornisce un risultato, in caso contrario restituisce l'elemento chiamante | [optional step](http://tinkerpop.apache.org/docs/current/reference/#optional-step) | |
-| `or` | Garantisce che almeno uno degli attraversamenti restituisca un valore | [or step](http://tinkerpop.apache.org/docs/current/reference/#or-step) | |
-| `order` | Restituisce i risultati nell'ordinamento specificato | [order step](http://tinkerpop.apache.org/docs/current/reference/#order-step) | |
-| `path` | Restituisce il percorso completo dell'attraversamento | [path step](http://tinkerpop.apache.org/docs/current/reference/#path-step) | |
-| `project` | Proietta le proprietà come Mappa | [project step](http://tinkerpop.apache.org/docs/current/reference/#project-step) | |
-| `properties` | Restituisce le proprietà per le etichette specificate | [properties step](http://tinkerpop.apache.org/docs/current/reference/#properties-step) | |
-| `range` | Filtra per l'intervallo di valori specificato| [range step](http://tinkerpop.apache.org/docs/current/reference/#range-step) | |
-| `repeat` | Ripete lo step per il numero di volte specificato. Usato per eseguire i cicli | [repeat step](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) | |
-| `sample` | Usato per campionare i risultati dell'attraversamento | [sample step](http://tinkerpop.apache.org/docs/current/reference/#sample-step) | |
+| step | Descrizione | Documentazione TinkerPop 3.2 |
+| --- | --- | --- |
+| `addE` | Aggiunge un arco tra due vertici | [addE step](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
+| `addV` | Aggiunge un vertice al grafo | [addV step](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
+| `and` | Assicura che tutti gli attraversamenti restituiscono un valore | [and step](http://tinkerpop.apache.org/docs/current/reference/#and-step) |
+| `as` | Modulatore di step per assegnare una variabile all'output di uno step | [as step](http://tinkerpop.apache.org/docs/current/reference/#as-step) |
+| `by` | Modulatore di step usato con `group` e `order` | [by step](http://tinkerpop.apache.org/docs/current/reference/#by-step) |
+| `coalesce` | Restituisce il primo attraversamento che restituisce un risultato | [coalesce step](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
+| `constant` | Restituisce un valore costante. Usato con `coalesce`| [constant step](http://tinkerpop.apache.org/docs/current/reference/#constant-step) |
+| `count` | Restituisce il conteggio risultante dall'attraversamento | [count step](http://tinkerpop.apache.org/docs/current/reference/#count-step) |
+| `dedup` | Restituisce i valori con i duplicati rimossi | [dedup step](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
+| `drop` | Elimina i valori (vertice/arco) | [drop step](http://tinkerpop.apache.org/docs/current/reference/#drop-step) |
+| `fold` | Si comporta come una barriera che calcola l'aggregazione di risultati| [fold step](http://tinkerpop.apache.org/docs/current/reference/#fold-step) |
+| `group` | Raggruppa i valori in base alle etichette specificate| [group step](http://tinkerpop.apache.org/docs/current/reference/#group-step) |
+| `has` | Usato per filtrare proprietà, vertici e archi. Supporta `hasLabel`, `hasId`, `hasNot` e le varianti `has`. | [has step](http://tinkerpop.apache.org/docs/current/reference/#has-step) |
+| `inject` | Inserisce i valori in un flusso| [inject step](http://tinkerpop.apache.org/docs/current/reference/#inject-step) |
+| `is` | Usato per eseguire un filtro con un'espressione booleana | [is step](http://tinkerpop.apache.org/docs/current/reference/#is-step) |
+| `limit` | Usato per limitare il numero di elementi nell'attraversamento| [limit step](http://tinkerpop.apache.org/docs/current/reference/#limit-step) |
+| `local` | Esegue il wrapping di una sezione di attraversamento, simile a una sottoquery | [local step](http://tinkerpop.apache.org/docs/current/reference/#local-step) |
+| `not` | Usato per produrre la negazione di un filtro | [not step](http://tinkerpop.apache.org/docs/current/reference/#not-step) |
+| `optional` | Restituisce il risultato dell'attraversamento specificato se fornisce un risultato, in caso contrario restituisce l'elemento chiamante | [optional step](http://tinkerpop.apache.org/docs/current/reference/#optional-step) |
+| `or` | Garantisce che almeno uno degli attraversamenti restituisca un valore | [or step](http://tinkerpop.apache.org/docs/current/reference/#or-step) |
+| `order` | Restituisce i risultati nell'ordinamento specificato | [order step](http://tinkerpop.apache.org/docs/current/reference/#order-step) |
+| `path` | Restituisce il percorso completo dell'attraversamento | [path step](http://tinkerpop.apache.org/docs/current/reference/#path-step) |
+| `project` | Proietta le proprietà come Mappa | [project step](http://tinkerpop.apache.org/docs/current/reference/#project-step) |
+| `properties` | Restituisce le proprietà per le etichette specificate | [properties step](http://tinkerpop.apache.org/docs/current/reference/#properties-step) |
+| `range` | Filtra per l'intervallo di valori specificato| [range step](http://tinkerpop.apache.org/docs/current/reference/#range-step) |
+| `repeat` | Ripete lo step per il numero di volte specificato. Usato per eseguire i cicli | [repeat step](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
+| `sample` | Usato per campionare i risultati dell'attraversamento | [sample step](http://tinkerpop.apache.org/docs/current/reference/#sample-step) |
 | `select` | Usato per proiettare i risultati dell'attraversamento |  [select step](http://tinkerpop.apache.org/docs/current/reference/#select-step) | |
-| `store` | Usato per le aggregazioni non bloccanti risultanti dall'attraversamento | [store step](http://tinkerpop.apache.org/docs/current/reference/#store-step) | |
-| `tree` | Aggrega i percorsi da un vertice a una struttura ad albero | [tree step](http://tinkerpop.apache.org/docs/current/reference/#tree-step) | |
-| `unfold` | Srotola un iteratore come step| [unfold step](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) | |
-| `union` | Unisce i risultati di più attraversamenti| [union step](http://tinkerpop.apache.org/docs/current/reference/#union-step) | |
-| `V` | Include gli step necessari per gli attraversamenti tra vertici e archi `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV`, e `otherV` per | [vertex steps](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) | |
-| `where` | Usato per filtrare i risultati dell'attraversamento. Supporta `eq`, `neq`, `lt`, `lte`, `gt`, `gte` e gli operatori `between`  | [where step](http://tinkerpop.apache.org/docs/current/reference/#where-step) | |
+| `store` | Usato per le aggregazioni non bloccanti risultanti dall'attraversamento | [store step](http://tinkerpop.apache.org/docs/current/reference/#store-step) |
+| `tree` | Aggrega i percorsi da un vertice a una struttura ad albero | [tree step](http://tinkerpop.apache.org/docs/current/reference/#tree-step) |
+| `unfold` | Srotola un iteratore come step| [unfold step](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
+| `union` | Unisce i risultati di più attraversamenti| [union step](http://tinkerpop.apache.org/docs/current/reference/#union-step) |
+| `V` | Include gli step necessari per gli attraversamenti tra vertici e archi `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV`, e `otherV` per | [vertex steps](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
+| `where` | Usato per filtrare i risultati dell'attraversamento. Supporta `eq`, `neq`, `lt`, `lte`, `gt`, `gte` e gli operatori `between`  | [where step](http://tinkerpop.apache.org/docs/current/reference/#where-step) |
 
-Il motore ottimizzato per la scrittura di Azure Cosmos DB supporta l'indicizzazione automatica di tutte le proprietà all'interno di vertici e archi per impostazione predefinita. Pertanto, query con filtri, query di intervallo, ordinamento o aggregazioni in qualsiasi proprietà vengono elaborati dall'indice e serviti in modo efficiente. Per altre informazioni sul funzionamento dell'indicizzazione in Azure Cosmos DB, vedere il documento sull'[indicizzazione senza schema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+Il motore ottimizzato per la scrittura fornito da Azure Cosmos DB supporta l'indicizzazione automatica di tutte le proprietà comprese all'interno di vertici e archi per impostazione predefinita. Pertanto, query con filtri, query di intervallo, ordinamento o aggregazioni in qualsiasi proprietà vengono elaborati dall'indice e serviti in modo efficiente. Per altre informazioni sul funzionamento dell'indicizzazione in Azure Cosmos DB, vedere il documento sull'[indicizzazione senza schema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Iniziare a creare un'applicazione Graph [tramite SDK](create-graph-dotnet.md) 
-* Altre informazioni sul [supporto Graph di Azure Cosmos DB](graph-introduction.md)
+* Altre informazioni sul [supporto dei grafi](graph-introduction.md) in Azure Cosmos DB

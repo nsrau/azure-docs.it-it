@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: d231fd525d310d2496c9ace40808b7deab0dd48f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 0859031ac26b061861aa51dce1093f2fe4350935
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="model-management-setup"></a>Installazione di Gestione modelli
 
@@ -154,12 +154,9 @@ Per usare un account esistente usare il comando seguente:
 az ml account modelmanagement set -n [your account name] -g [resource group it was created in]
 ```
 
-### <a name="deploy-your-model"></a>Distribuire il modello
-A questo punto si è pronti per distribuire il modello salvato come un servizio Web. 
-
-```azurecli
-az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
-```
+In seguito a questo processo, l'ambiente è pronto e l'account di Gestione modelli è stato creato per fornire le funzionalità necessarie per gestire e distribuire modelli di Machine Learning (vedere [Gestione modelli di Azure Machine Learning](model-management-overview.md) per una panoramica).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Provare uno dei molti esempi nella Raccolta.
+
+* Per istruzioni su come distribuire servizi Web eseguibili in un computer locale o in un cluster continuare con [Distribuzione di un modello di Machine Learning come un servizio Web](model-management-service-deploy.md).
+* Provare uno dei molti esempi nella Raccolta.

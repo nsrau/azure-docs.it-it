@@ -2,10 +2,10 @@
 title: Come usare Gestione API di Azure con le reti virtuali interne | Microsoft Docs
 description: Informazioni su come installare e configurare Gestione API di Azure in una rete virtuale interna.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: kjoshi
-editor: 
+editor: ''
 ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: be4aa45c919f579355c6ac6c5682c1537e9cc0cb
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servizio Gestione API di Azure con una rete virtuale interna
 Grazie alle reti virtuali di Azure, Gestione API è in grado di gestire API non accessibili su Internet. Sono disponibili varie tecnologie VPN per stabilire la connessione. È possibile distribuire Gestione API in due modalità principali all'interno di una rete virtuale:
@@ -34,7 +34,7 @@ Usando Gestione API in modalità interna è possibile implementare gli scenari s
 * Gestire le API ospitate in più aree geografiche usando un singolo endpoint del gateway. 
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
@@ -72,7 +72,7 @@ Una volta completata la distribuzione, nel dashboard dovrebbe essere visualizzat
 Quando si usa Gestione API in modalità di rete virtuale esterna, il servizio DNS è gestito da Azure. Per la modalità di rete virtuale interna, è necessario gestire il routing proprio.
 
 > [!NOTE]
-> Il servizio Gestione API non ascolta le richieste in arrivo dagli indirizzi IP. Risponde solo alle richieste per il nome host configurato negli endpoint di servizio. Questi endpoint includono gateway, portale per sviluppatori, portale di Azure, endpoint di gestione diretta e GIT.
+> Il servizio Gestione API non ascolta le richieste in arrivo dagli indirizzi IP. Risponde solo alle richieste per il nome host configurato negli endpoint di servizio. Questi endpoint includono gateway, portale di Azure, portale per sviluppatori, endpoint di gestione diretta e GIT.
 
 ### <a name="access-on-default-host-names"></a>Accesso con i nomi host predefiniti
 Quando si crea un servizio Gestione API, denominato ad esempio "contoso", vengono configurati i seguenti endpoint di servizio per impostazione predefinita:

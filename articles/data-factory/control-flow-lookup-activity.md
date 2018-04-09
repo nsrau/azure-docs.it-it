@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/27/2018
 ms.author: shlo
-ms.openlocfilehash: f55e85bb424f4f5973fd6d633b6adf9fbca4d0ef
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Attività Lookup in Azure Data Factory
 È possibile usare l'attività Lookup per la lettura o la ricerca di un record, un nome di tabella o un valore da qualsiasi origine esterna. Questo output può essere referenziato ulteriormente dalle attività successive. 
@@ -30,12 +30,23 @@ L'attività Lookup risulta utile quando si vuole recuperare in modo dinamico un 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
 Per l'attività Lookup sono attualmente supportate le origini dati seguenti:
-- File JSON nell'archivio BLOB di Azure
-- File JSON nel file system
-- Database SQL di Azure (dati JSON convertiti da query)
-- Azure SQL Data Warehouse (dati JSON convertiti da query)
-- SQL Server (dati JSON convertiti da query)
-- Archiviazione tabelle di Azure (dati JSON convertiti da query)
+
+- Amazon Redshift
+- Archivio BLOB di Azure
+- Azure Cosmos DB
+- Archivio Azure Data Lake
+- Archiviazione file di Azure
+- Database SQL di Azure
+- Azure SQL Data Warehouse
+- Archiviazione tabelle di Azure
+- Dynamics 365
+- Dynamics CRM
+- File system
+- PostgreSQL
+- Salesforce
+- Salesforce Service Cloud
+- SFTP
+- SQL Server
 
 Il numero massimo di righe restituite dall'attività Lookup è **5.000** con una dimensione massima di **10 MB**.
 
@@ -60,11 +71,16 @@ Il numero massimo di righe restituite dall'attività Lookup è **5.000** con una
 ```
 
 ## <a name="type-properties"></a>Proprietà del tipo
-NOME | DESCRIZIONE | type | Obbligatorio?
+Nome | Descrizione | Tipo | Obbligatorio?
 ---- | ----------- | ---- | --------
-dataset | Fornisce il riferimento al set di dati per la ricerca. I tipi di set di dati attualmente supportati sono:<ul><li>`AzureBlobDataset` per [Archivio BLOB di Azure ](connector-azure-blob-storage.md#dataset-properties) come origine</li><li>`FileShareDataset` per [File system](connector-file-system.md#dataset-properties) come origine</li><li>`AzureSqlTableDataset` per [Azure SQL Database ](connector-azure-sql-database.md#dataset-properties) o [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) come origine</li><li>`SqlServerTable` per [SQL Server](connector-sql-server.md#dataset-properties) come origine</li><li>`AzureTableDataset` per [Archiviazione tabelle di Azure ](connector-azure-table-storage.md#dataset-properties) come origine</li> | Coppia chiave/valore | Sì
-una sezione source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Visualizzare i dettagli della sezione "Proprietà dell'attività di copia" nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
-firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | boolean | di serie Il valore predefinito è `true`.
+dataset | Fornisce il riferimento al set di dati per la ricerca. Per i dettagli, vedere la sezione "Proprietà del set di dati" nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
+source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Visualizzare i dettagli della sezione "Proprietà dell'attività di copia" nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
+firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | boolean | No. Il valore predefinito è `true`.
+
+Tenere presente quanto segue:
+
+1. La colonna Source con tipo ByteArray non è supportata.
+2. Structure non è supportato nella definizione del set di dati. In particolare per i file in formato testo, è possibile usare la riga di intestazione per specificare il nome della colonna.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Usare il risultato dell'attività Lookup in un'attività successiva
 

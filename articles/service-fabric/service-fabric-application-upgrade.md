@@ -1,11 +1,11 @@
 ---
-title: Aggiornamento delle applicazioni di Service Fabric | Documentazione Microsoft
-description: "Questo articolo fornisce un'introduzione all'aggiornamento di un'applicazione di Service Fabric, inclusa la scelta delle modalità di aggiornamento e dei controlli di integrità eseguiti."
+title: Aggiornamento delle applicazioni di Service Fabric | Microsoft Docs
+description: Questo articolo fornisce un'introduzione all'aggiornamento di un'applicazione di Service Fabric, inclusa la scelta delle modalità di aggiornamento e dei controlli di integrità eseguiti.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 765931d8a888432e0cc77ff86d597b6e2a029a2a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 60bbd75496b6e835a76edb4251aac6ea249187b3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>Aggiornamento di un'applicazione di infrastruttura di servizi
 Un'applicazione di Azure Service Fabric è una raccolta di servizi. Durante un aggiornamento, Service Fabric confronta il nuovo [manifesto dell'applicazione](service-fabric-application-and-service-manifests.md) con la versione precedente e determina quali servizi dell'applicazione richiedono aggiornamenti. Service Fabric confronta i numeri di versione nel manifesto del servizio con quelli della versione precedente. Se un servizio non è cambiato, non viene aggiornato.
@@ -57,6 +57,13 @@ Quando viene eseguito il rollback di un aggiornamento dell'applicazione, vengono
 
 > [!TIP]
 > Il valore dell'impostazione di configurazione del cluster [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) deve essere *true* per abilitare le regole 2) e 3) indicate in precedenza (aggiornamento ed eliminazione di un servizio predefinito). Questa funzionalità è supportata in Service Fabric a partire dalla versione 5.5.
+
+## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Aggiornamento di più applicazioni con endpoint HTTPS
+Quando si usa HTTP**S**, è necessario prestare attenzione a non usare la **stessa porta** per istanze diverse della stessa applicazione. Ciò è dovuto al fatto che Service Fabric non sarà in grado di aggiornare il certificato per una delle istanze dell'applicazione. Ad esempio, se sia l'applicazione 1 che l'applicazione 2 desiderano eseguire l'aggiornamento del certificato 1 al certificato 2. Al momento dell'aggiornamento, Service Fabric potrebbe avere eliminato la registrazione del certificato 1 con http.sys anche se è ancora utilizzato dall'altra applicazione. Per evitare questo problema, Service Fabric rileva che è già presente un'altra istanza dell'applicazione registrata sulla porta con il certificato (a causa di http.sys) e l'operazione ha esito negativo.
+
+Pertanto Service Fabric non supporta l'aggiornamento di due servizi diversi mediante **la stessa porta** in istanze dell'applicazione diverse. In altre parole, non è possibile utilizzare lo stesso certificato in servizi diversi sulla stessa porta. Se è necessario avere un certificato condiviso sulla stessa porta, occorre verificare che i servizi si trovino su computer diversi con vincoli di posizionamento. In alternativa, utilizzare le porte dinamiche di Service Fabric se possibile per ogni servizio in ogni istanza dell'applicazione. 
+
+Se si verifica un errore di aggiornamento con https, viene visualizzato un avviso indicante che l'API del server Windows HTTP non supporta più certificati per le applicazioni che condividono una porta.
 
 ## <a name="application-upgrade-flowchart"></a>Diagramma di flusso di aggiornamento di un'applicazione
 Il diagramma di flusso che segue questo paragrafo aiuta a capire il processo di aggiornamento di un'applicazione di Service Fabric. In particolare, il flusso descrive in che modo i valori di timeout, ad esempio *HealthCheckStableDuration*, *HealthCheckRetryTimeout* e *UpgradeHealthCheckInterval*, consentono di verificare se l'aggiornamento in un dominio di aggiornamento viene considerato riuscito o non riuscito.

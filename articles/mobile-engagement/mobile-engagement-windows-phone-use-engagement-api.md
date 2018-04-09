@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ae2ba2e8-f75b-4dee-a164-a7dd65d35a23
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ec8b6c13ea052c8063dfde4321cdd286ab6cb817
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03673924ee7734fcf6f1f4f7c744616844fdc87a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-windows-phone-silverlight"></a>Come usare l'API di Engagement in Windows Phone Silverlight
+> [!IMPORTANT]
+> Azure Mobile Engagement verrà ritirato il 31/03/2018. Questa pagina verrà eliminata subito dopo.
+> 
+
 Questo documento è complementare all'articolo [Come integrare Mobile Engagement in un'app per Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md). Fornisce informazioni approfondite su come usare l'API di Engagement per segnalare le statistiche dell'applicazione.
 
 Se si vuole impostare Engagement in modo che segnali solo le sessioni, le attività, gli arresti anomali e i dati tecnici dell'applicazione, la soluzione più semplice consiste nel fare in modo che tutte le sottoclassi `PhoneApplicationPage` ereditino dalla classe `EngagementPage`.
@@ -41,7 +45,7 @@ Le *attività* possono tuttavia essere controllate anche manualmente usando l'AP
 
 ## <a name="reporting-activities"></a>Segnalazione di attività
 ### <a name="user-starts-a-new-activity"></a>L'utente inizia una nuova attività
-#### <a name="reference"></a>riferimento
+#### <a name="reference"></a>Riferimenti
             void StartActivity(string name, Dictionary<object, object> extras = null)
 
 È necessario chiamare `StartActivity()` ogni volta che l'attività dell'utente cambia. La prima chiamata a questa funzione avvia una nuova sessione utente.
@@ -100,7 +104,7 @@ Esistono tre tipi di eventi:
 * Eventi di processo
 
 ### <a name="standalone-events"></a>Eventi autonomi
-#### <a name="reference"></a>riferimento
+#### <a name="reference"></a>Riferimenti
             void SendEvent(string name, Dictionary<object, object> extras = null)
 
 Gli eventi autonomi possono verificarsi all'esterno del contesto di una sessione.
@@ -109,7 +113,7 @@ Gli eventi autonomi possono verificarsi all'esterno del contesto di una sessione
             EngagementAgent.Instance.SendEvent("event", extra);
 
 ### <a name="session-events"></a>Eventi di sessione
-#### <a name="reference"></a>riferimento
+#### <a name="reference"></a>Riferimenti
             void SendSessionEvent(string name, Dictionary<object, object> extras = null)
 
 Gli eventi di sessione vengono in genere usati per segnalare le azioni eseguite da un utente durante la sua sessione.
@@ -130,7 +134,7 @@ Gli eventi di sessione vengono in genere usati per segnalare le azioni eseguite 
             EngagementAgent.Instance.SendSessionEvent("sessionEvent", extras);
 
 ### <a name="job-events"></a>Eventi di processo
-#### <a name="reference"></a>riferimento
+#### <a name="reference"></a>Riferimenti
             void SendJobEvent(string eventName, string jobName, Dictionary<object, object> extras = null)
 
 Gli eventi di processo in genere vengono utilizzati per segnalare le azioni eseguite da un utente durante un processo.
@@ -146,7 +150,7 @@ Esistono tre tipi di errori:
 * Errori di processo
 
 ### <a name="standalone-errors"></a>Errori autonomi
-#### <a name="reference"></a>riferimento
+#### <a name="reference"></a>Riferimenti
             void SendError(string name, Dictionary<object, object> extras = null)
 
 Diversamente dagli errori di sessione, gli errori autonomi possono verificarsi all'esterno del contesto di una sessione.
@@ -155,7 +159,7 @@ Diversamente dagli errori di sessione, gli errori autonomi possono verificarsi a
             EngagementAgent.Instance.SendError("errorName", extras);
 
 ### <a name="session-errors"></a>Errori di sessione
-#### <a name="reference"></a>Riferimenti
+#### <a name="reference"></a>riferimento
             void SendSessionError(string name, Dictionary<object, object> extras = null)
 
 Gli errori di sessione vengono in genere usati per segnalare gli errori che hanno impatto sull'utente durante la sua sessione.
@@ -164,7 +168,7 @@ Gli errori di sessione vengono in genere usati per segnalare gli errori che hann
             EngagementAgent.Instance.SendSessionError("errorName", extra);
 
 ### <a name="job-errors"></a>Errori di processo
-#### <a name="reference"></a>riferimento
+#### <a name="reference"></a>Riferimenti
             void SendJobError(string errorName, string jobName, Dictionary<object, object> extras = null)
 
 Gli errori possono essere correlati a un processo in esecuzione invece che alla sessione utente corrente.
@@ -176,7 +180,7 @@ Gli errori possono essere correlati a un processo in esecuzione invece che alla 
 L'agente fornisce due metodi per gestire gli arresti anomali.
 
 ### <a name="send-an-exception"></a>Inviare un'eccezione
-#### <a name="reference"></a>riferimento
+#### <a name="reference"></a>Riferimenti
             void SendCrash(Exception e, bool terminateSession = false)
 
 #### <a name="example"></a>Esempio
@@ -191,7 +195,7 @@ L'agente fornisce due metodi per gestire gli arresti anomali.
 In questo caso la sessione e i processi verranno chiusi solo dopo l'invio dell'arresto anomalo.
 
 ### <a name="send-an-unhandled-exception"></a>Inviare un'eccezione non gestita
-#### <a name="reference"></a>riferimento
+#### <a name="reference"></a>Riferimenti
             void SendCrash(ApplicationUnhandledExceptionEventArgs e)
 
 Engagement fornisce inoltre un metodo per inviare le eccezioni non gestite. Questa possibilità è particolarmente utile se utilizzata all'interno del gestore eventi UnhandledException Silverlight.
@@ -298,7 +302,7 @@ Questo significa che le chiavi devono iniziare con almeno una lettera, seguita d
 I dati aggiuntivi sono limitati a **1024** caratteri per chiamata.
 
 ## <a name="reporting-application-information"></a>Segnalazione di informazioni sull'applicazione
-### <a name="reference"></a>riferimento
+### <a name="reference"></a>Riferimenti
             void SendAppInfo(Dictionary<object, object> appInfos)
 
 È possibile segnalare manualmente le informazioni di traccia o qualsiasi altra informazione specifica dell'applicazione mediante la funzione SendAppInfo().

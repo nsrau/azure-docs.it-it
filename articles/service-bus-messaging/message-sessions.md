@@ -2,10 +2,10 @@
 title: Sessioni di messaggi del bus di servizio di Azure | Microsoft Docs
 description: Gestire le sequenze di messaggi del bus di servizio di Azure con le sessioni.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 551432cd13c16fdd5423c46ed9c6f740353808f8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessioni di messaggi: First In, First Out (FIFO) 
 
@@ -53,13 +53,7 @@ Il blocco viene rilasciato quando viene chiamato **Close** o **CloseAsync** oppu
 
 Quando più ricevitori simultanei eseguono il pull dalla coda, i messaggi che appartengono a una sessione specifica vengono inviati al ricevitore specifico che attualmente ha bloccato la sessione. Con questa operazione, viene eseguito il demultiplexing di un flusso di messaggi con interfoliazione che si trova in una coda o una sottoscrizione in ricevitori diversi, che possono trovarsi anche in computer client diversi, perché la gestione del blocco avviene sul lato del servizio, all'interno del bus di servizio.
 
-Una coda rimane tuttavia una coda, ovvero non c'è un accesso casuale. Se più ricevitori simultanei sono in attesa di accettare sessioni specifiche oppure in attesa di messaggi da sessioni specifiche e c'è un messaggio nella parte superiore di una coda che appartiene a una sessione non ancora reclamata da alcun ricevitore, le consegne rimangono in attesa fino a quando un ricevitore di sessione non reclama tale sessione.
-
-La figura precedente mostra tre ricevitori di sessioni simultanei, che devono tutti accettare attivamente i messaggi dalla coda affinché ogni ricevitore possa avanzare. La sessione precedente, con `SessionId` = 4, non ha alcun client proprietario attivo e quindi non verrà recapitato alcun messaggio in alcuna posizione fino a quando il messaggio non viene acquisito da un ricevitore di sessione proprietario appena creato.
-
-Sebbene possa sembrare un comportamento vincolante, un singolo processo del ricevitore può gestire facilmente molte sessioni simultanee, in particolare quando sono scritte in codice rigorosamente asincrono. La gestione di alcune dozzine di sessioni simultanee è completamente automatica con il modello di callback.
-
-La strategia per la gestione di numerose sessioni simultanee, per cui ogni sessione riceve i messaggi solo sporadicamente, prevede che il gestore elimini la sessione dopo un determinato tempo di inattività e riprenda l'elaborazione quando la sessione viene accettata con l'arrivo della sessione successiva.
+L'illustrazione precedente mostra tre ricevitori di sessioni simultanee. Una sessione con `SessionId` = 4 non ha nessun client proprietario attivo, il che significa che i messaggi non vengono recapitati da questa sessione specifica. Una sessione opera in molti modi, ad esempio come una coda secondaria.
 
 Il blocco di sessione mantenuto dal ricevitore di sessione comprende i blocchi dei messaggi usati dalla modalità di finalizzazione *blocco di visualizzazione*. Un ricevitore non può avere due messaggi simultaneamente "in corso", ma i messaggi devono essere elaborati in ordine. È possibile ottenere un nuovo messaggio solo quando il messaggio precedente è stato completato o inserito nella coda di messaggi non recapitabili. Se un messaggio viene abbandonato, verrà presentato di nuovo con la successiva operazione di ricezione.
 

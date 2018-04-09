@@ -7,20 +7,20 @@ author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/09/2018
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4cf406dfbab40631c99da70085e99ba90f563411
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9bc5154486bf09072bdf3da6bbeb05407a140354
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Creare e gestire macchine virtuali di Windows con il modulo Azure PowerShell
 
@@ -90,9 +90,11 @@ Usare il comando seguente nel computer locale per creare una sessione desktop re
 mstsc /v:<publicIpAddress>
 ```
 
+Nella finestra **Sicurezza di Windows** selezionare **Altre opzioni** e quindi **Usa un altro account**. Digitare il nome utente e la password creati per la macchina virtuale e quindi fare clic su **OK**.
+
 ## <a name="understand-vm-images"></a>Informazioni sulle immagini delle VM
 
-Azure Marketplace include diverse immagini di macchine virtuali che possono essere usate per creare nuove VM. Nei passaggi precedenti è stata creata una macchina virtuale usando un'immagine Windows Server 2016-Datacenter. In questo passaggio, viene usato il modulo PowerShell per cercare nel marketplace altre immagini di Windows da usare anche come base per le nuove macchine virtuali. Questo processo consiste nell'individuazione del server di pubblicazione, dell'offerta e del nome dell'immagine (Sku). 
+Azure Marketplace include diverse immagini di macchine virtuali che possono essere usate per creare nuove VM. Nei passaggi precedenti è stata creata una macchina virtuale usando un'immagine Windows Server 2016-Datacenter. In questo passaggio viene usato il modulo PowerShell per cercare nel marketplace altre immagini di Windows che possono essere usate come base per nuove macchine virtuali. Questo processo consiste nell'individuazione del server di pubblicazione, dell'offerta, dello SKU e, facoltativamente, di un numero di versione per [identificare](cli-ps-findimage.md#terminology) l'immagine. 
 
 Usare il comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) per restituire un elenco di server di pubblicazione di immagini:
 
@@ -139,7 +141,7 @@ Skus                                      Offer         PublisherName          L
 2016-Nano-Server                          WindowsServer MicrosoftWindowsServer EastUS
 ```
 
-È possibile usare queste informazioni per distribuire una macchina virtuale con un'immagine specifica. Questo esempio distribuisce una macchina virtuale tramite Windows Server 2016 con immagine del contenitore.
+È possibile usare queste informazioni per distribuire una macchina virtuale con un'immagine specifica. Questo esempio distribuisce una macchina virtuale tramite la versione più recente di Windows Server 2016 con immagine del contenitore.
 
 ```azurepowershell-interactive
 New-AzureRmVm `

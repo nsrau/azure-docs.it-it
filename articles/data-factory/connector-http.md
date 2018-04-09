@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0092564dce9424b445240ebd2c3247e763a237e9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3aca66d6922273e78b5100948f1b868c6c9b56af
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copiare dati da un endpoint HTTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,6 +41,9 @@ In particolare, il connettore HTTP supporta:
 
 La differenza tra questo connettore e [il connettore della tabella Web](connector-web-table.md) è che quest'ultimo viene usato per estrarre il contenuto di una tabella da una pagina Web HTML.
 
+>[!TIP]
+>Per testare la richiesta HTTP per il recupero di dati prima di configurare il connettore HTTP in ADF, è possibile ricavare dalla specifica dell'API i requisiti di intestazione e corpo e usare strumenti come Postman o un Web browser per la convalida.
+
 ## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -51,7 +54,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato HTTP sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **HttpServer**. | Sì |
 | URL | URL di base al server Web | Sì |
@@ -63,7 +66,7 @@ Per il servizio collegato HTTP sono supportate le proprietà seguenti:
 
 Impostare la proprietà "authenticationType" su **Base**, **Digest** o **Windows** e specificare le proprietà seguenti insieme alle proprietà generiche descritte nella precedente sezione:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | userName | Nome utente per accedere all'endpoint HTTP. | Sì |
 | password | Password per l'utente (userName). Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
@@ -96,7 +99,7 @@ Impostare la proprietà "authenticationType" su **Base**, **Digest** o **Windows
 
 Per usare l'autenticazione ClientCertificate impostare la proprietà "authenticationType" su **ClientCertificate** e specificare le proprietà seguenti insieme alle proprietà generiche descritte nella precedente sezione:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | embeddedCertData | Dati del certificato con codifica Base64. | Specificare `embeddedCertData` o `certThumbprint`. |
 | certThumbprint | Identificazione personale del certificato installato nell'archivio certificati del computer per il runtime di integrazione self-hosted. Si applica solo quando in connectVia viene specificato il tipo di runtime di integrazione self-hosted. | Specificare `embeddedCertData` o `certThumbprint`. |
@@ -159,7 +162,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da HTTP, impostare la proprietà type del set di dati su **HttpFile**. Sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su **HttpFile** | Sì |
 | relativeUrl | URL relativo della risorsa che contiene i dati. Quando questa proprietà non è specificata, viene usato solo l'URL specificato nella definizione del servizio collegato. | No  |
@@ -216,7 +219,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da un database HTTP, impostare il tipo di origine nell'attività di copia su **HttpSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **HttpSource** | Sì |
 | httpRequestTimeout | Il timeout (TimeSpan) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta stessa.<br/> Il valore predefinito è 00:01:40  | No  |

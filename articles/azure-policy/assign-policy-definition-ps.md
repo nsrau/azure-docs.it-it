@@ -9,11 +9,11 @@ ms.date: 3/14/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 9f7d32d3d1208b6fe6075f7dacdd6d350aee03e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 45c5ccd0f891a5592eee7400de108c5097f75286
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi con il modulo AzureRM di PowerShell
 
@@ -47,8 +47,8 @@ I comandi precedenti utilizzano le informazioni seguenti:
 
 - **Name**: nome visualizzato per l'assegnazione di criteri. In questo caso si usa *Audit Virtual Machines without Managed Disks Assignment*.
 - **Definition**: definizione di criteri in base alla quale si crea l'assegnazione. In questo caso si tratta della definizione di criteri *Audit Virtual Machines without Managed Disks*.
-- **Scope**: ambito che determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri. Può variare da una sottoscrizione a gruppi di risorse. Assicurarsi di sostituire &lt;scope&gt; con il nome del gruppo di risorse.
-- **Sku**: questo comando crea un'assegnazione di criteri con il livello Standard. Il livello Standard offre funzionalità di gestione, valutazione della conformità e correzione su vasta scala. Attualmente è gratuito. In futuro comporterà l'addebito di costi. Quando verrà applicata la modifica dei prezzi, il relativo annuncio e altri dettagli saranno disponibili nella pagina [Prezzi di Criteri di Azure](https://azure.microsoft.com/pricing/details/azure-policy).
+- **Scope**: ambito che determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri. e può variare da una sottoscrizione a gruppi di risorse. Assicurarsi di sostituire &lt;scope&gt; con il nome del gruppo di risorse.
+- **Sku**: questo comando crea un'assegnazione di criteri con il livello Standard. Il livello Standard offre funzionalità di gestione, valutazione della conformità e correzione su vasta scala. Per altre informazioni sui piani tariffari, vedere [Prezzi di Criteri di Azure](https://azure.microsoft.com/pricing/details/azure-policy).
 
 
 A questo punto si è pronti per identificare le risorse non conformi per comprendere lo stato di conformità dell'ambiente.

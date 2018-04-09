@@ -2,18 +2,18 @@
 title: Struttura delle definizioni di Criteri di Azure | Microsoft Docs
 description: Descrizione di come la definizione dei criteri delle risorse viene usata da Criteri di Azure per stabilire le convenzioni per le risorse all'interno dell'organizzazione grazie alla definizione di quando i criteri vengono applicati e dell'azione da eseguire.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
-ms.custom: 
-ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.custom: ''
+ms.openlocfilehash: 50965010d821d4edf94e2f5727546cb56f61f5db
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -70,7 +70,9 @@ Il parametro **mode** (modalità) determina quali tipi di risorse verranno valut
 * `all`: vengono valutati i gruppi di risorse e tutti i tipi di risorse 
 * `indexed`: vengono valutati solo i tipi di risorse che supportano tag e il percorso
 
-È consigliabile impostare il parametro **mode** su `all`. Tutte le definizioni di criteri create tramite il portale usano la modalità `all`. Se si usa PowerShell o l'interfaccia della riga di comando di Azure, è necessario specificare il parametro **mode** e impostarlo su `all`. 
+Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** su `all`. Tutte le definizioni di criteri create tramite il portale usano la modalità `all`. Se si usa PowerShell o l'interfaccia della riga di comando di Azure, è necessario specificare il parametro **mode** manualmente.
+
+`indexed` deve essere usato quando la creazione di criteri consente di applicare tag o percorsi. Anche se questo non è necessario, così facendo le risorse che non supportano tag e percorsi saranno visualizzate come non conformi nei risultati sulla conformità. L'unica eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che tentano di applicare percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroup`. Per un esempio, vedere [Applicare tag di gruppi di risorse](scripts/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>Parametri
 
@@ -126,7 +128,7 @@ Nel blocco **Then** si definisce l'effetto che si verifica quando le condizioni 
     <condition> | <logical operator>
   },
   "then": {
-    "effect": "deny | audit | append"
+    "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
   }
 }
 ```
@@ -165,16 +167,22 @@ La sintassi **not** inverte il risultato della condizione. La sintassi **allOf**
 Una condizione valuta se un **campo** soddisfa determinati criteri. Le condizioni supportate sono:
 
 * `"equals": "value"`
+* `"notEquals": "value"`
 * `"like": "value"`
+* `"notLike": "value"`
 * `"match": "value"`
+* `"notMatch": "value"`
 * `"contains": "value"`
+* `"notContains": "value"`
 * `"in": ["value1","value2"]`
+* `"notIn": ["value1","value2"]`
 * `"containsKey": "keyName"`
+* `"notContainsKey": "keyName"`
 * `"exists": "bool"`
 
-Quando si usa la condizione **like**, è possibile inserire un carattere jolly (*) nel valore.
+Quando si usano le condizioni **like** e **notLike**, è possibile inserire un carattere jolly (*) nel valore.
 
-Quando si usa la condizione **match**, specificare `#` per rappresentare una cifra, `?` per una lettera e qualsiasi altro carattere per rappresentare il carattere effettivo. Per alcuni esempi, vedere [Immagini di macchine virtuali approvate](scripts/allowed-custom-images.md).
+Quando si usano le condizioni **match** e **notMatch**, specificare `#` per rappresentare una cifra, `?` per una lettera e qualsiasi altro carattere per rappresentare il carattere effettivo. Per alcuni esempi, vedere [Immagini di macchine virtuali approvate](scripts/allowed-custom-images.md).
 
 ### <a name="fields"></a>Fields
 Le condizioni vengono formate usando i campi. Un campo rappresenta le proprietà nel payload delle richieste di risorse usato per descrivere lo stato della risorsa.  
@@ -182,12 +190,28 @@ Le condizioni vengono formate usando i campi. Un campo rappresenta le proprietà
 Sono supportati i seguenti campi:
 
 * `name`
+* `fullName`
+  * Restituisce il nome completo della risorsa, inclusi tutti gli elementi padre (ad esempio, "myServer/myDatabase")
 * `kind`
 * `type`
 * `location`
 * `tags`
-* `tags.*`
+* `tags.tagName`
+* `tags[tagName]`
+  * Questa sintassi tra parentesi quadre supporta nomi di tag contenenti periodi
 * alias delle proprietà; per un elenco, vedere [alias](#aliases).
+
+### <a name="alternative-accessors"></a>Funzioni di accesso alternative
+**Campo** è la funzione di accesso primaria usata nelle regole dei criteri. Analizza direttamente la risorsa che viene valutata. Il criterio supporta tuttavia anche un'altra funzione, **origine**.
+
+```json
+"source": "action",
+"equals": "Microsoft.Compute/virtualMachines/write"
+```
+
+**Origine** supporta solo un valore, **azione**. Azione restituisce l'azione di autorizzazione della richiesta che viene valutata. Le azioni di autorizzazione vengono esposte nella sezione autorizzazioni del [Log attività](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
+
+Quando il criterio valuta le risorse esistenti in background, il valore **azione** viene impostato su un'azione di autorizzazione `/write` nel tipo di risorsa.
 
 ### <a name="effect"></a>Effetto
 Il criterio supporta i tipi di effetto seguenti:
@@ -212,7 +236,7 @@ In caso di **aggiunta**, è necessario specificare questi dettagli:
 
 Il valore può essere una stringa o un oggetto formato JSON.
 
-Con **AuditIfNotExists** e **DeployIfNotExists** è possibile valutare l'esistenza di una risorsa figlio e applicare una regola e un effetto corrispondente quando tale risorsa non esiste. È possibile ad esempio richiedere che venga distribuito un Network Watcher per tutte le reti virtuali.
+Con **AuditIfNotExists** e **DeployIfNotExists** è possibile valutare l'esistenza di una risorsa correlata e applicare una regola e un effetto corrispondente quando tale risorsa non esiste. È possibile ad esempio richiedere che venga distribuito un Network Watcher per tutte le reti virtuali.
 Per un esempio di controllo quando non è stata distribuita un'estensione della macchina virtuale, vedere [Audit if extension does not exist](scripts/audit-ext-not-exist.md) (Controllare se l'estensione esiste).
 
 

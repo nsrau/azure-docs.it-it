@@ -1,11 +1,11 @@
 ---
 title: Introduzione alla risoluzione dei problemi delle risorse in Azure Network Watcher | Microsoft Docs
-description: "Questa pagina fornisce una panoramica delle funzionalità di risoluzione dei problemi delle risorse di Network Watcher"
+description: Questa pagina fornisce una panoramica delle funzionalità di risoluzione dei problemi delle risorse di Network Watcher
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
 ms.service: network-watcher
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: a37c92e1aa58184ed29185742ec727c120fe593f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646caa5e4aacd58377c0a2b5985a69277d00cec3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduzione alla risoluzione dei problemi delle risorse in Azure Network Watcher
 
-I gateway di rete virtuale forniscono la connettività tra le risorse locali e altre reti virtuali in Azure. Il monitoraggio di questi gateway e delle rispettive connessioni è essenziale per assicurare che le comunicazioni non siano interrotte. Network Watcher consente di risolvere i problemi dei gateway di rete virtuale e delle connessioni. Questo può essere chiamato dal portale, da PowerShell, dall'interfaccia della riga di comando o dall'API REST. Quando viene chiamato, Network Watcher esegue la diagnostica dell'integrità del gateway di rete virtuale o della connessione e restituisce i risultati appropriati. Questa richiesta è una transazione a esecuzione prolungata e i risultati vengono restituiti al termine della diagnosi.
+I gateway di rete virtuale forniscono la connettività tra le risorse locali e altre reti virtuali in Azure. Il monitoraggio di questi gateway e delle rispettive connessioni è essenziale per assicurare che le comunicazioni non siano interrotte. Network Watcher consente di risolvere i problemi dei gateway e delle connessioni. Questa abilità può essere chiamata dal portale, da PowerShell, dall'interfaccia della riga di comando di Azure o dall'API REST. Quando viene chiamato, Network Watcher esegue la diagnostica dell'integrità del gateway o della connessione e restituisce i risultati appropriati. La richiesta è una transazione con esecuzione prolungata. I risultati vengono restituiti dopo aver completato la diagnosi.
 
 ![portal][2]
 
@@ -50,44 +50,44 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 
 | Tipo di errore | Motivo | Log|
 |---|---|---|
-| NoFault | Non viene rilevato alcun errore. |Sì|
-| GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No |
-| PlannedMaintenance |  L'istanza del gateway è in fase di manutenzione.  |No |
-| UserDrivenUpdate | È in corso l'aggiornamento utente. Potrebbe trattarsi di un'operazione di ridimensionamento. | No  |
-| VipUnResponsive | Non è possibile raggiungere l'istanza primaria del gateway. Ciò si verifica in caso di errore del probe di integrità. | No  |
+| NoFault | Nessun errore rilevato |Sì|
+| GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |No |
+| PlannedMaintenance |  L'istanza del gateway è in fase di manutenzione  |No |
+| UserDrivenUpdate | Questo errore si verifica quando è in corso l'aggiornamento utente. L’aggiornamento potrebbe essere di un'operazione di ridimensionamento. | No  |
+| VipUnResponsive | Questo errore si verifica quando l'istanza primaria del gateway non può essere raggiunta a causa di un errore di integrità probe. | No  |
 | PlatformInActive | Si è verificato un errore con la piattaforma. | No |
 | ServiceNotRunning | Il servizio sottostante non è in esecuzione. | No |
-| NoConnectionsFoundForGateway | Non esistono connessioni sul gateway. Questo è solo un avviso.| No |
-| ConnectionsNotConnected | Le connessioni non sono connesse. Questo è solo un avviso.| Sì|
+| NoConnectionsFoundForGateway | Nessuna connessione sul gateway. Questo errore è solo un avviso.| No |
+| ConnectionsNotConnected | Le connessioni non sono connesse. Questo errore è solo un avviso.| Sì|
 | GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Sì |
 
 ### <a name="connection"></a>Connessione
 
 | Tipo di errore | Motivo | Log|
 |---|---|---|
-| NoFault | Non viene rilevato alcun errore. |Sì|
-| GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No |
-| PlannedMaintenance | L'istanza del gateway è in fase di manutenzione.  |No |
-| UserDrivenUpdate | È in corso l'aggiornamento utente. Potrebbe trattarsi di un'operazione di ridimensionamento.  | No  |
-| VipUnResponsive | Non è possibile raggiungere l'istanza primaria del gateway. Ciò si verifica in caso di errore del probe di integrità. | No  |
-| ConnectionEntityNotFound | La configurazione della connessione non è presente. | No  |
-| ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected". |No |
+| NoFault | Nessun errore rilevato |Sì|
+| GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |No |
+| PlannedMaintenance | L'istanza del gateway è in fase di manutenzione  |No |
+| UserDrivenUpdate | Questo errore si verifica quando è in corso l'aggiornamento utente. L’aggiornamento potrebbe essere di un'operazione di ridimensionamento.  | No  |
+| VipUnResponsive | Questo errore si verifica quando l'istanza primaria del gateway non può essere raggiunta a causa di un errore di integrità probe. | No  |
+| ConnectionEntityNotFound | Configurazione della connessione non presente | No  |
+| ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected" |No |
 | ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Sì |
 | ConnectionMarkedStandy | Il servizio sottostante viene contrassegnato come "standby".| Sì|
-| Authentication | Mancata corrispondenza della chiave precondivisa. | Sì|
+| Authentication | Mancata corrispondenza della chiave precondivisa | Sì|
 | PeerReachability | Il gateway peer non è raggiungibile. | Sì|
 | IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Sì|
 | WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Sì|
 
 ## <a name="supported-gateway-types"></a>Tipi di gateway supportati
 
-L'elenco seguente mostra i gateway e le connessioni supportate con la risoluzione dei problemi di Network Watcher.
+L'elenco tabella seguente mostra i gateway e le connessioni supportate con la risoluzione dei problemi di Network Watcher:
+
 |  |  |
 |---------|---------|
 |**Tipi di gateway**   |         |
 |VPN      | Supportato        |
 |ExpressRoute | Non supportato |
-|Hypernet | Non supportato|
 |**Tipi di VPN** | |
 |Basato su route | Supportato|
 |Basata su criteri | Non supportato|
@@ -95,7 +95,6 @@ L'elenco seguente mostra i gateway e le connessioni supportate con la risoluzion
 |IPsec| Supportato|
 |Vnet2Vnet| Supportato|
 |ExpressRoute| Non supportato|
-|Hypernet| Non supportato|
 |VPNClient| Non supportato|
 
 ## <a name="log-files"></a>File di log

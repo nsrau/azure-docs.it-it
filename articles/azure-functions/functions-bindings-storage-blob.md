@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 221a049ae37cc6934d04e90b6b8035e2a020e811
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf2c4a12d1344ec17ce9688e1c7192f57104dc7b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Binding dell'archiviazione BLOB di Azure per Funzioni di Azure
 
@@ -233,12 +233,12 @@ In C# e nello script C# è possibile usare i tipi di parametro seguenti per il B
 * `string`
 * `Byte[]`
 * Un oggetto POCO serializzabile come JSON
-* `ICloudBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
-* `CloudBlockBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
-* `CloudPageBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
-* `CloudAppendBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Come accennato, alcuni di questi tipi richiedono una direzione di associazione `inout` in *function.json*. Questa direzione non è supportata dall'editor standard nel portale di Azure, pertanto è necessario usare l'editor avanzato.
+<sup>1</sup> richiede l'associazione "inout" `direction` in *function.json* o `FileAccess.ReadWrite` in una libreria di classi C#.
 
 L'associazione a `string`, `Byte[]` o POCO è consigliabile solo se le dimensioni del BLOB sono ridotte, in quanto l'intero contenuto del BLOB viene caricato in memoria. In genere, è preferibile usare un tipo `Stream` o `CloudBlockBlob`. Per altre informazioni, vedere [Concorrenza e utilizzo della memoria](#trigger---concurrency-and-memory-usage) più avanti in questo articolo.
 
@@ -374,7 +374,6 @@ public static void Run(
     TraceWriter log)
 {
     log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
-
 }
 ```        
 
@@ -534,12 +533,12 @@ In C# e nello script C# è possibile usare i tipi di parametro seguenti per l'as
 * `Byte[]`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
-* `CloudBlockBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
-* `CloudPageBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
-* `CloudAppendBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Come accennato, alcuni di questi tipi richiedono una direzione di associazione `inout` in *function.json*. Questa direzione non è supportata dall'editor standard nel portale di Azure, pertanto è necessario usare l'editor avanzato.
+<sup>1</sup> richiede l'associazione "inout" `direction` in *function.json* o `FileAccess.ReadWrite` in una libreria di classi C#.
 
 L'associazione a `string` o `Byte[]` è consigliabile solo se le dimensioni del BLOB sono ridotte, in quanto l'intero contenuto del BLOB viene caricato in memoria. In genere, è preferibile usare un tipo `Stream` o `CloudBlockBlob`. Per altre informazioni, vedere [Concorrenza e utilizzo della memoria](#trigger---concurrency-and-memory-usage) più indietro in questo articolo.
 
@@ -737,21 +736,23 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 ## <a name="output---usage"></a>Output - uso
 
-In C# e nello script C# è possibile usare i tipi di parametro seguenti per l'associazione di output BLOB:
+In C# e negli script C#, è possibile eseguire l'associazione ai seguenti tipi per la scrittura dei BLOB:
 
 * `TextWriter`
 * `out string`
 * `out Byte[]`
 * `CloudBlobStream`
 * `Stream`
-* `CloudBlobContainer`
+* `CloudBlobContainer`<sup>1</sup>
 * `CloudBlobDirectory`
-* `ICloudBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
-* `CloudBlockBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
-* `CloudPageBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
-* `CloudAppendBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
 
-Come accennato, alcuni di questi tipi richiedono una direzione di associazione `inout` in *function.json*. Questa direzione non è supportata dall'editor standard nel portale di Azure, pertanto è necessario usare l'editor avanzato.
+<sup>1</sup> richiede l'associazione "in" `direction` in *function.json* o `FileAccess.Read` in una libreria di classi C#.
+
+<sup>2</sup> richiede l'associazione "inout" `direction` in *function.json* o `FileAccess.ReadWrite` in una libreria di classi C#.
 
 Nelle funzioni asincrone usare il valore restituito o `IAsyncCollector` anziché un parametro `out`.
 

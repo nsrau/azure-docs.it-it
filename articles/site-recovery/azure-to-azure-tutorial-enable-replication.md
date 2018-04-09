@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 03/16/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 47d9a1e8aecde8ba0f01034f1d172c3fbd87ccfe
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7dd0bfbd96e6ba7b5d2174334419797c4fd60a51
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurare il ripristino di emergenza per macchine virtuali di Azure in un'area di Azure secondaria (anteprima)
 
@@ -30,7 +30,7 @@ Questa esercitazione illustra come configurare il ripristino di emergenza in un'
 > * Configurare l'accesso in uscita per le macchine virtuali
 > * Abilitare la replica per una macchina virtuale
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
@@ -144,7 +144,9 @@ Site Recovery crea le impostazioni predefinite e i criteri di replica per l'area
 
 - **Account di archiviazione della cache**: Site Recovery usa un account di archiviazione nell'area di origine. Le modifiche apportate alle macchine virtuali di origine vengono inviate a questo account prima della replica nel percorso di destinazione.
 
-- **Account di archiviazione di destinazione**: per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione nell'area di destinazione per poter eseguire il mirroring dell'account di archiviazione della macchina virtuale di origine.
+- **Account di archiviazione di destinazione (se la VM di origine non usa i dischi gestiti)**: per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione nell'area di destinazione per eseguire il mirroring dell'account di archiviazione della macchina virtuale di origine.
+
+- **Dischi gestiti di replica (se la VM di origine usa i dischi gestiti)**: per impostazione predefinita, Site Recovery crea dischi gestiti di replica nell'area di destinazione per eseguire il mirroring dei dischi gestiti della VM di origine con lo stesso tipo di archiviazione (Standard o Premium) del disco gestito della VM di origine.
 
 - **Set di disponibilità di destinazione**: per impostazione predefinita, Site Recovery crea un nuovo set di disponibilità nell'area di destinazione con il suffisso "asr". I set di disponibilità possono essere aggiunti solo se le VM fanno parte di un set nell'area di origine.
 

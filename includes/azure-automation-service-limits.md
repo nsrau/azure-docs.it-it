@@ -7,4 +7,4 @@
 | Tempo di esecuzione processo - livello gratuito |500 minuti per sottoscrizione al mese di calendario |
 | Quantità massima di memoria assegnata a un processo |400 MB |
 | Numero massimo di socket di rete consentiti per processo |1000 |
-
+| Numero massimo di account di automazione in una sottoscrizione |Nessun limite |

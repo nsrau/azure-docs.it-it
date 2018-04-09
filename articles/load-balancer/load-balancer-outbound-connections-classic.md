@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 7a307a598bd71369615b30476d387c06f473c397
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ec13109173f89b53e32f903febcec13c7f38c574
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="outbound-connections-classic"></a>Connessioni in uscita (versione classica)
 
@@ -37,7 +37,7 @@ Sono presenti più [scenari in uscita](#scenarios). È possibile combinare quest
 
 Azure offre tre metodi diversi per ottenere distribuzioni classiche con connettività in uscita.  Non tutte le distribuzioni classiche hanno la disponibilità di tutti e tre gli scenari:
 
-| Scenario | Metodo | DESCRIZIONE | Ruolo di lavoro Web | IaaS | 
+| Scenario | Metodo | Descrizione | Ruolo di lavoro Web | IaaS | 
 | --- | --- | --- | --- | --- |
 | [1. Macchina virtuale con un indirizzo IP pubblico a livello di istanza](#ilpip) | SNAT, il mascheramento delle porte non viene usato |Azure usa la macchina virtuale con l'IP pubblico assegnato. L'istanza ha tutte le porte temporanee disponibili. | No  | Sì |
 | [2. Endpoint pubblico con carico bilanciato](#publiclbendpoint) | SNAT con mascheramento delle porte (PAT) per l'endpoint pubblico |Azure condivide l'endpoint pubblico con indirizzo IP pubblico con più endpoint privati. Azure usa le porte temporanee dell'endpoint pubblico per il mascheramento delle porte. | Sì | Sì |
@@ -60,7 +60,7 @@ L'[algoritmo usato per la preallocazione delle porte temporanee](#ephemeralports
 
 In questo scenario la macchina virtuale ha assegnato un IP pubblico a livello di istanza. Per quanto riguarda le connessioni in uscita, non è importante se la macchina virtuale abbia un endpoint con carico bilanciato o meno. Questo scenario ha la precedenza rispetto agli altri. Quando si usa un indirizzo IP pubblico a livello di istanza, la macchina virtuale usa tale indirizzo IP per tutti i flussi in uscita.  
 
-Il mascheramento delle porte (PAT) non viene usato e tutte le porte temporanee sono disponibili per l'uso per la macchina virtuale.
+Un indirizzo IP pubblico assegnato a una macchina virtuale è una relazione 1:1, anziché 1:molti, e viene implementato come NAT 1:1 senza stato.  Il mascheramento delle porte (PAT) non viene usato e tutte le porte temporanee sono disponibili per l'uso per la macchina virtuale.
 
 Se l'applicazione avvia numerosi flussi in uscita e si assiste a un esaurimento delle porte SNAT, prendere in considerazione l'assegnazione di un [indirizzo IP pubblico a livello di istanza per ridurre i vincoli SNAT](#assignilpip). Leggere per intero [Gestione dell'esaurimento SNAT](#snatexhaust).
 
@@ -123,6 +123,18 @@ La modifica delle dimensioni della distribuzione potrebbe influire su alcuni dei
 
 Se le dimensioni della distribuzione diminuiscono e si ha una transizione a un livello più basso, il numero di porte SNAT disponibili aumenta. In questo caso, non vi sono effetti per le porte SNAT allocate esistenti e i rispettivi flussi.
 
+Le allocazioni delle porte SNAT sono specifiche del protocollo di trasporto IP (i protocolli TCP e UDP vengono gestiti separatamente) e vengono rilasciate nelle condizioni seguenti:
+
+### <a name="tcp-snat-port-release"></a>Rilascio di porte SNAT TCP
+
+- Se il server e il client inviano entrambi richieste FIN/ACK, la porta SNAT viene rilasciata dopo 240 secondi.
+- In presenza di una richiesta RST, la porta SNAT viene rilasciata dopo 15 secondi.
+- È stato raggiunto il timeout di inattività
+
+### <a name="udp-snat-port-release"></a>Rilascio di porte SNAT UDP
+
+- È stato raggiunto il timeout di inattività
+
 ## <a name="problemsolving"></a> Risoluzione dei problemi 
 
 Questa sezione è stata pensata per attenuare i problemi relativi all'esaurimento SNAT e ad altri scenari che possono verificarsi con le connessioni in uscita in Azure.
@@ -170,3 +182,4 @@ Usando il comando nslookup è possibile inviare una query DNS per il nome myip.o
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni su [Load Balancer](load-balancer-overview.md) usato nelle distribuzioni di Resource Manager.
+- Altre informazioni sugli scenari di [connessione in uscita](load-balancer-outbound-connections.md) disponibili nelle distribuzioni di Resource Manager.

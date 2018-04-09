@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 976d7e7cb304a24f235e51952ce04826776e2789
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -397,9 +397,9 @@ Dopo aver installato l'agente, eseguire i comandi di PowerShell riportati di seg
 
 **Comando 1**
 
-> cd C:\\Program Files\\Microsoft Azure Active Directory Synchronization Agent\\Modules\\AADSyncAgent
+> cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent" Agent\\Modules\\AADSyncAgent
 
-> import-module AADSyncAgent.psd1
+> Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 
 **Comando 2**
 
@@ -416,6 +416,9 @@ Dopo aver installato l'agente, eseguire i comandi di PowerShell riportati di seg
 
 >[!IMPORTANT]
 >Attualmente c'è un problema noto riguardante le credenziali di amministratore globale che non funzionano se usano un dominio personalizzato (esempio: admin@contoso.com). Per aggirare il problema, è possibile creare e usare un account amministratore globale con un dominio onmicrosoft.com (esempio: admin@contoso.onmicrosoft.com)
+
+>[!IMPORTANT]
+>Attualmente c'è un problema noto riguardante le credenziali di amministratore globale che non funzionano se è abilitata l'autenticazione a più fattori. Come soluzione alternativa, disabilitare l'autenticazione a più fattori per l'amministratore globale.
 
 
 **Comando 4**

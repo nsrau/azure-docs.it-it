@@ -3,19 +3,19 @@ title: Risolvere i problemi dei dischi rigidi virtuali collegati in macchine vir
 description: Come risolvere problemi come i riavvii imprevisti di macchine virtuali Windows o problemi durante l'eliminazione di un account di archiviazione contenente dischi rigidi virtuali collegati.
 keywords: connessione SSH rifiutata, errore SSH, SSH Azure, connessione SSH non riuscita
 services: virtual-machines-windows
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/28/2018
-ms.author: iainfou
-ms.openlocfilehash: b4f3382a070894647aa4294fc5b0b63c98eddaab
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: rogarana
+ms.openlocfilehash: d0103d8ea608014e53f70402220b302b6da445e9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-attached-vhds-on-azure-windows-virtual-machines"></a>Risolvere i problemi dei dischi rigidi virtuali collegati in macchine virtuali Windows di Azure
 

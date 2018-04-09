@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: 799636d0a702407be06bbe8cebae552b34d860db
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eb68993924bff8605fc244f438a686f0142c4762
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduzione ad Archiviazione di Microsoft Azure
 
@@ -131,7 +131,7 @@ Sono disponibili due tipi di crittografia di base per i servizi di archiviazione
 
 Crittografia del servizio di archiviazione di Azure per dati inattivi (SSE) consente di proteggere e salvaguardare i dati, in modo da soddisfare i criteri di sicurezza e conformità dell'organizzazione. Questa funzionalità consente ad Archiviazione di Azure di crittografare automaticamente i dati prima della persistenza nella risorsa di archiviazione e di decrittografarli prima del recupero. La crittografia, la decrittografia e la gestione delle chiavi sono completamente trasparenti per gli utenti.
 
-Crittografia del servizio di archiviazione crittografa automaticamente i dati in tutti i livelli di prestazioni (Standard e Premium), tutti i modelli di distribuzione (distribuzione classica e Azure Resource Manager) e tutti i servizi di archiviazione di Azure (BLOB, code, tabelle e file). Crittografia del servizio di archiviazione non influisce sulle prestazioni di Archiviazione di Azure.
+La crittografia del servizio di archiviazione crittografa automaticamente i dati in tutti i livelli di prestazioni (Standard e Premium), tutti i modelli di distribuzione (distribuzione classica e Azure Resource Manager) e tutti i servizi di Archiviazione di Azure (BLOB, code, tabelle e file). La crittografia del servizio di archiviazione non influisce sulle prestazioni di Archiviazione di Azure.
 
 Per altre informazioni sulla crittografia SSE dei dati inattivi, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md).
 
@@ -147,7 +147,7 @@ Per assicurare che i dati siano durevoli, Archiviazione di Azure manterrà e ges
 
 **Archiviazione con ridondanza locale (LRS)**
 
-L'archiviazione con ridondanza locale è progettata per garantire almeno il 99,999999999% (11 9) di durabilità degli oggetti nell'arco di un anno. Di conseguenza, Archiviazione di Azure gestisce più copie dei dati nel data center specificato durante la configurazione dell'account di archiviazione. Quando viene eseguito il commit delle modifiche, tutte le copie vengono aggiornate prima della restituzione dell'esito positivo. Le repliche sono quindi sempre sincronizzate. Le copie, inoltre, si trovano in domini di errore e di aggiornamento separati e i dati sono quindi disponibili anche in caso di errore in un nodo di archiviazione contenente i dati o se questo viene portato offline per un aggiornamento.
+L'archiviazione con ridondanza locale è progettata per garantire almeno il 99,999999999% (11 9) di durabilità degli oggetti nell'arco di un anno specifico. Di conseguenza, Archiviazione di Azure gestisce più copie dei dati nel data center specificato durante la configurazione dell'account di archiviazione. Quando viene eseguito il commit delle modifiche, tutte le copie vengono aggiornate prima della restituzione dell'esito positivo. Le repliche sono quindi sempre sincronizzate. Le copie, inoltre, si trovano in domini di errore e di aggiornamento separati e i dati sono quindi disponibili anche in caso di errore in un nodo di archiviazione contenente i dati o se questo viene portato offline per un aggiornamento.
 
 **Archiviazione con ridondanza della zona (ZRS) (Anteprima)**
 

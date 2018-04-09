@@ -1,24 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: strumento di supporto per la personalizzazione dell''interfaccia utente della pagina | Documentazione Microsoft'
-description: "Strumento di supporto per la dimostrazione della funzionalità di personalizzazione dell'interfaccia utente della pagina in Azure Active Directory B2C"
+title: "Azure Active Directory B2C: strumento di supporto per la personalizzazione dell'interfaccia utente della pagina | Documentazione Microsoft"
+description: Strumento di supporto per la dimostrazione della funzionalità di personalizzazione dell'interfaccia utente della pagina in Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: ae935d52-3520-4a94-b66e-b35bb40e7514
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: swkrish
-ms.openlocfilehash: a9ccdea64213d564b271699afe28f5ae6db0a71a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: strumento di supporto per la dimostrazione della funzionalità di personalizzazione dell'interfaccia utente della pagina
 Questo articolo è complementare all' [articolo principale sulla personalizzazione dell'interfaccia utente](active-directory-b2c-reference-ui-customization.md) in Azure Active Directory (Azure AD) B2C. I passaggi seguenti descrivono come verificare la funzionalità di personalizzazione dell'interfaccia utente delle pagine usando il contenuto HTML e CSS di esempio fornito.
@@ -80,7 +77,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 Questo repository contiene una directory `sample_templates\wingtip` , che include file HTML, CSS e immagini di esempio. Affinché questi modelli facciano riferimento al proprio account di archiviazione BLOB di Azure, è necessario modificare i file HTML. Aprire `unified.html` e `selfasserted.html` e sostituire tutte le istanze di `https://localhost` con l'URL del proprio contenitore di cui si è preso nota nei passaggi precedenti. È necessario usare il percorso assoluto dei file HTML, perché in questo caso l'HTML verrà gestito da Azure AD, nel dominio `https://login.microsoftonline.com`.
 
 ### <a name="upload-the-sample-files"></a>Caricare i file di esempio
-Nello stesso repository decomprimere `B2CAzureStorageClient.zip` ed eseguire il file `B2CAzureStorageClient.exe` in esso contenuto. Questo programma caricherà semplicemente tutti i file nella directory specificata per l'account di archiviazione e abiliterà l'accesso CORS per tali file. Se è stata eseguita la procedura descritta precedentemente, i file HTML e CSS punteranno all'account di archiviazione. Si noti che il nome dell'account di archiviazione è la parte che precede `blob.core.windows.net`, ad esempio `contoso`. È possibile verificare che il contenuto sia stato caricato correttamente, provando ad accedere a `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` da un browser. Usare anche [http://test-cors.org/](http://test-cors.org/) per assicurarsi che il contenuto sia ora abilitato per la Condivisione di risorse tra origini (CORS) e cercare "XHR status: 200" nel risultato.
+Nello stesso repository decomprimere `B2CAzureStorageClient.zip` ed eseguire il file `B2CAzureStorageClient.exe` in esso contenuto. Questo programma caricherà semplicemente tutti i file nella directory specificata per l'account di archiviazione e abiliterà l'accesso CORS per tali file. Se è stata eseguita la procedura descritta precedentemente, i file HTML e CSS punteranno all'account di archiviazione. Si noti che il nome dell'account di archiviazione è la parte che precede `blob.core.windows.net`, ad esempio `contoso`. È possibile verificare che il contenuto sia stato caricato correttamente, provando ad accedere a `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` da un browser. Usare anche [http://test-cors.org/](http://test-cors.org/) per assicurarsi che il contenuto sia ora abilitato per CORS e cercare "XHR status: 200" nel risultato.
 
 ### <a name="customize-your-policy-again"></a>Personalizzare di nuovo il criterio
 Dopo aver caricato il contenuto di esempio nell'account di archiviazione, è necessario modificare il criterio di iscrizione in modo che faccia riferimento a tale contenuto. Ripetere i passaggi a partire dalla sezione ["Personalizzare il criterio"](#customize-your-policy) più indietro, questa volta usando gli URL del proprio account di archiviazione. Il percorso del file `unified.html` sarà ad esempio `<url-of-your-container>/wingtip/unified.html`.

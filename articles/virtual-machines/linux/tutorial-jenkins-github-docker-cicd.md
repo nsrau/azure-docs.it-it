@@ -7,20 +7,20 @@ author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/15/2017
+ms.date: 03/27/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8a595ead7da8dfa5544903bd698bfdff40555eb9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9250e40c491257b554333f4606cbf0b476d8db21
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Come creare un'infrastruttura di sviluppo in una macchina virtuale Linux in Azure con Jenkins, GitHub e Docker
 Per automatizzare le fasi di compilazione e test dello sviluppo di un'applicazione, è possibile usare una pipeline per l'integrazione e la distribuzione continue (CI/CD). In questa esercitazione viene creata una pipeline CI/CD in una macchina virtuale di Azure e viene illustrato come:
@@ -64,7 +64,6 @@ runcmd:
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
   - usermod -aG docker jenkins
-  - touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
   - service jenkins restart
 ```
 
@@ -118,10 +117,13 @@ Se il file non è ancora disponibile, attendere ancora qualche minuto che cloud-
 
 Aprire un Web browser e passare a `http://<publicIps>:8080`. Completare la configurazione iniziale di Jenkins come segue:
 
-- Immettere il nome utente **admin** e quindi specificare la password *initialAdminPassword* ottenuta dalla macchina virtuale nel passaggio precedente.
-- Selezionare **Manage Jenkins** (Gestisci Jenkins) e quindi **Manage plugins** (Gestisci plug-in).
-- Scegliere **Available** (Disponibile) e quindi cercare *GitHub* nella casella di testo nella parte superiore. Selezionare la casella *GitHub plugin* (Plug-in GitHub) e quindi selezionare **Download now and install after restart** (Scarica subito e installa dopo il riavvio).
-- Selezionare la casella **Restart Jenkins when installation is complete and no jobs are running** (Riavvia Jenkins al termine dell'installazione e quando non ci sono processi in esecuzione) e quindi attendere il completamento del processo di installazione del plug-in.
+- Scegliere **Select plugins to install** (Selezionare il plug-in da installare)
+- Cercare *GitHub* nella casella di testo nella parte superiore. Selezionare la casella relativa a *GitHub* e quindi selezionare **Install** (Installa).
+- Creare il primo utente amministratore. Immettere un nome utente, ad esempio **admin**, quindi fornire una password sicura. Digitare infine un nome completo e un indirizzo di posta elettronica.
+- Selezionare **Save and Finish** (Salva e completa).
+- Quando Jenkins è pronto, selezionare **Start using Jenkins** (Inizia a usare Jenkins).
+  - Se il Web browser visualizza una pagina vuota quando si inizia a usare Jenkins, riavviare il servizio Jenkins. Dalla sessione SSH digitare `sudo service jenkins restart` e quindi aggiornare il Web browser.
+- Accedere a Jenkins con il nome utente e la password creati.
 
 
 ## <a name="create-github-webhook"></a>Creare webhook di GitHub
@@ -139,13 +141,13 @@ Creare un webhook all'interno del fork creato:
 
 
 ## <a name="create-jenkins-job"></a>Creare un processo di Jenkins
-Per fare in modo che Jenkins risponda a un evento in GitHub, ad esempio l'esecuzione del commit di codice, creare un processo di Jenkins. 
+Per fare in modo che Jenkins risponda a un evento in GitHub, ad esempio l'esecuzione del commit di codice, creare un processo di Jenkins. Usare gli URL del proprio fork di GitHub.
 
 Nel sito Web di Jenkins selezionare **Create new jobs** (Crea nuovi processi) dalla home page:
 
 - Immettere *HelloWorld* come nome del processo. Scegliere **Freestyle project** (Progetto Freestyle) e quindi selezionare **OK**.
-- Nella sezione **General** (Generale) selezionare il progetto **GitHub** e immettere l'URL del repository con fork, ad esempio *https://github.com/iainfoulds/nodejs-docs-hello-world*.
-- Nella sezione **Source code management** (Gestione del codice sorgente) selezionare **Git** e immettere l'URL *.git* del repository con fork, ad esempio *https://github.com/iainfoulds/nodejs-docs-hello-world.git*.
+- Nella sezione **General** (Generale) selezionare **GitHub project** (Progetto GirHub) e immettere l'URL della copia del repository creata tramite fork, ad esempio *https://github.com/iainfoulds/nodejs-docs-hello-world*
+- Nella sezione **Source code management** (Gestione del codice sorgente) selezionare **Git** e immettere l'URL *.git* del repository con fork, ad esempio *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - Nella sezione **Build Triggers** (Trigger di compilazione) selezionare **GitHub hook trigger for GITScm polling** (Trigger di hook GitHub per polling GITScm).
 - Nella sezione **Build** (Compilazione) scegliere **Add build step** (Aggiungi istruzione di compilazione). Selezionare **Execute shell** (Esegui shell) e quindi immettere `echo "Testing"` nella finestra di comando.
 - Selezionare **Save** (Salva) nella parte inferiore della finestra dei processi.

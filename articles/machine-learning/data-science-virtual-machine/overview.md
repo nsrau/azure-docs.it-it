@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: f62f6c4b2679457e8aaddb81e8a37622ca878ffc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8ee4af162ddaa64d4dbe83bebbb93e22409f041d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introduzione alla macchina virtuale data science di Azure per Linux e Windows
 
@@ -29,7 +29,7 @@ Questo argomento illustra le operazioni possibili con la VM per l'analisi scient
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>Usi della macchina virtuale per l'analisi scientifica dei dati
-L'obiettivo della macchina virtuale per l'analisi scientifica dei dati è offrire ai professionisti dei dati, in tutti i livelli e i ruoli, un ambiente di analisi scientifica dei dati privo di problemi. La VM consente di risparmiare una notevole quantità di tempo che sarebbe necessario se si volesse implementare un ambiente analogo in autonomia. Questa soluzione consente invece di avviare immediatamente il progetto di analisi scientifica dei dati in una nuova istanza di VM. 
+L'obiettivo della macchina virtuale per l'analisi scientifica dei dati è offrire ai professionisti dei dati, in tutti i livelli e i ruoli, un ambiente di analisi scientifica dei dati privo di problemi, preconfigurato e totalmente integrato. Anziché implementare un'area di lavoro analoga, è possibile effettuare il provisioning di una macchina virtuale per l'analisi scientifica e risparmiare così giorni o persino _settimane_ per i processi di installazione, configurazione e gestione dei pacchetti. Dopo aver allocato la macchina virtuale per l'analisi scientifica, è possibile iniziare immediatamente a lavorare al progetto di analisi scientifica dei dati.
 
 La VM data science è progettata e configurata per essere usata in un'ampia gamma di scenari di utilizzo. È possibile aumentare e ridurre le prestazioni dell'ambiente a seconda delle esigenze del progetto. Può essere usato il linguaggio preferito per programmare le attività di analisi scientifica dei dati. È inoltre possibile installare altri strumenti e personalizzare il sistema in base alle esigenze specifiche.
 

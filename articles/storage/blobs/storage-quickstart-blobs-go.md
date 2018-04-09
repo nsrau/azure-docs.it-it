@@ -9,17 +9,17 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: a30d012ea663b04028a4b0ebb2880532a596500b
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5572eaafa49200be0b2a8156dbc96bffd48be925
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Go
 
-Questa guida introduttiva spiega come usare il linguaggio di programmazione di Go per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. 
+Questa guida rapida mostra come usare il linguaggio di programmazione di Go per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida introduttiva: 
 * Installare [Go 1.8 o versione successiva](https://golang.org/dl/)
@@ -30,7 +30,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Scaricare l'applicazione di esempio
-L'[applicazione di esempio](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) usata in questa guida introduttiva è un'applicazione Go di base.  
+L'[applicazione di esempio](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) usata in questa guida rapida è un'applicazione Go di base.  
 
 Usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell'ambiente di sviluppo. 
 
@@ -135,7 +135,7 @@ handleErrors(err)
 ```
 ### <a name="upload-blobs-to-the-container"></a>Caricare i BLOB nel contenitore
 
-L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. I BLOB in blocchi sono quelli usati più di frequente e vengono usati in questa guida introduttiva.  
+L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. I BLOB in blocchi sono quelli usati più di frequente e vengono usati in questa guida rapida.  
 
 Per caricare un file in un BLOB, aprire il file usando **os.Open**. È quindi possibile caricare il file nel percorso specificato usando una delle API REST, ovvero PutBlob, PutBlock/PutBlockList. 
 
@@ -200,7 +200,7 @@ handleErrors(err)
 ```
 
 ### <a name="clean-up-resources"></a>Pulire le risorse
-Se i BLOB caricati in questa guida introduttiva non sono più necessari, è possibile eliminare l'intero contenitore usando il metodo **Delete**. 
+Se i BLOB caricati in questa guida rapida non sono più necessari, è possibile eliminare l'intero contenitore usando il metodo **Delete**. 
 
 ```go
 // Cleaning up the quick start by deleting the container and the file created locally
@@ -212,6 +212,13 @@ file.Close()
 os.Remove(fileName)
 ```
 
+## <a name="resources-for-developing-go-applications-with-blobs"></a>Risorse per lo sviluppo di applicazioni Go con BLOB
+
+Per lo sviluppo Go con Archiviazione BLOB, vedere le risorse aggiuntive seguenti:
+
+- Visualizzare e installare il [codice sorgente della libreria client Go](https://github.com/Azure/azure-storage-blob-go) per Archiviazione di Azure su GitHub.
+- Esplorare gli [esempi per Archiviazione BLOB](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob#pkg-examples) scritti con la libreria client Go.
+
 ## <a name="next-steps"></a>Passaggi successivi
  
-In questa guida introduttiva è stato descritto il trasferimento di file tra il disco locale e Archiviazione BLOB di Azure con Go. Per altre informazioni su Azure Storage Blob SDK, vedere il [codice sorgente](https://github.com/Azure/azure-storage-blob-go/) e le [informazioni di riferimento sull'API](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob).
+In questa guida rapida è stato descritto il trasferimento di file tra il disco locale e un archivio BLOB di Azure con Go. Per altre informazioni su Azure Storage Blob SDK, vedere il [codice sorgente](https://github.com/Azure/azure-storage-blob-go/) e le [informazioni di riferimento sull'API](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
-ms.openlocfilehash: 67f6ca36c334a60b634094f07e5d9696a6961eb8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d026009151f85a01f14ce4dd8a510f60ff407da1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: guida introduttiva
 
@@ -32,7 +32,7 @@ Per distribuire l'accesso SSO facile, seguire questa procedura.
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
-* **Configurare il server Azure AD Connect**: se come metodo di accesso si usa l'[autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md), non sono necessari altri controlli dei prerequisiti. Se si usa invece la [sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-synchronization.md) e se è presente un firewall tra Azure AD Connect e Azure AD:
+* **Configurare il server Azure AD Connect**: se come metodo di accesso si usa l'[autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md), non sono necessari altri controlli dei prerequisiti. Se si usa invece la [sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-hash-synchronization.md) e se è presente un firewall tra Azure AD Connect e Azure AD:
    - Usare Azure AD Connect 1.1.644.0 o versioni successive. 
    - Se il firewall o il proxy consente l'inserimento di DNS nell'elenco elementi consentiti, aggiungere all'elenco le connessioni agli URL di **\*.msappproxy.net** tramite la porta 443. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana. Questo prerequisito è applicabile solo quando si abilita la funzionalità. Non è necessario per gli accessi utente effettivi.
 

@@ -2,23 +2,23 @@
 title: Linee guida per la distribuzione di Windows Server Active Directory in macchine virtuali di Azure| Documentazione Microsoft
 description: Se si conosce la procedura per distribuire Servizi di dominio Active Directory e Active Directory Federation Services in locale, sono disponibili informazioni su come funzionano nelle macchine virtuali di Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 03/20/2018
 ms.author: femila
-ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c2d58e056cdb285be51d259492e11e6ae37b253e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Linee guida per la distribuzione di Active Directory di Windows Server nelle macchine virtuali di Azure
 Questo articolo descrive le differenze più importanti tra la distribuzione di Servizi di dominio Active Directory di Windows Server e Active Directory Federation Services (AD FS) in locale rispetto alla distribuzione nelle macchine virtuali di Microsoft Azure.
@@ -71,8 +71,10 @@ Per un video dimostrativo e un elenco di esercitazioni dettagliate, vedere la do
 > 
 > 
 
-### <a name="static-ip-addresses-must-be-configured-with-azure-powershell"></a>Gli indirizzi IP statici devono essere configurati con Azure PowerShell.
-Gli indirizzi dinamici vengono allocati per impostazione predefinita, ma per assegnare un indirizzo IP statico si usa invece il cmdlet Set-AzureStaticVNetIP. L'indirizzo IP statico impostato sarà mantenuto durante la correzione del servizio e l'arresto o il riavvio della macchina virtuale. Per altre informazioni, vedere il blog relativo all' [indirizzo IP interno statico per le macchine virtuali](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/).
+### <a name="static-ip-addresses-can-be-configured-with-azure-powershell"></a>È possibile configurare gli indirizzi IP statici con Azure PowerShell.
+Gli indirizzi dinamici vengono allocati per impostazione predefinita, ma per assegnare un indirizzo IP statico si usa invece il cmdlet Set-AzureStaticVNetIP. L'indirizzo IP statico impostato dal cmdlet viene mantenuto durante la correzione del servizio e l'arresto o il riavvio della macchina virtuale. Per altre informazioni, vedere il blog relativo all' [indirizzo IP interno statico per le macchine virtuali](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/). È anche possibile configurare un indirizzo IP statico durante la creazione di una macchina virtuale nel portale di Azure, come illustrato di seguito. Per altre informazioni, vedere [Creare una macchina virtuale con un IP pubblico statico usando il portale di Azure](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md).
+
+![passaggio per aggiungere l'indirizzo IP statico durante la creazione di una macchina virtuale](media/active-directory-deploying-ws-ad-guidelines/static-ip.png)
 
 ## <a name="BKMK_Glossary"></a>Termini e definizioni
 Di seguito è riportato un elenco non esaustivo dei termini relativi alle diverse tecnologie di Azure a cui viene fatto riferimento in questo articolo.
@@ -408,7 +410,7 @@ Per informazioni sulla configurazione della comunicazione diretta tra reti virtu
 
 Azure non presenta rischi di sicurezza fisica di una succursale, ma i controller di dominio di sola lettura potrebbero comunque risultare più economici perché le funzionalità che forniscono sono adatte a questi ambienti, anche se per motivi molto diversi. Ad esempio, i controller di dominio di sola lettura non hanno repliche in uscita e consentono di popolare selettivamente i segreti (password). D'altra parte, la mancanza di questi segreti potrebbe richiedere traffico in uscita su richiesta per la relativa convalida al momento dell'autenticazione di un utente o un computer. I segreti possono però essere prepopolati e memorizzati nella cache in modo selettivo.
 
-I controller di dominio di sola lettura forniscono un vantaggio aggiuntivo per quanto riguarda i problemi relativi a informazioni personali e dati ad alto impatto aziendale, perché è possibile aggiungere attributi che contengono dati sensibili al set di attributi con filtro per controller di dominio di sola lettura. Il set di attributi con filtro è un set personalizzabile di attributi che non vengono replicati nei controller di dominio di sola lettura. È possibile usare il set di attributi con filtro come strumento di sicurezza qualora non sia possibile o non si vogliano archiviare informazioni personali e dati ad alto impatto aziendale in Azure. Per altre informazioni, vedere [set di attributi con filtro per controller di dominio di sola lettura[(https://technet.microsoft.com/library/cc753459)].
+I controller di dominio di sola lettura forniscono un vantaggio aggiuntivo per quanto riguarda i problemi relativi a informazioni personali e dati ad alto impatto aziendale, perché è possibile aggiungere attributi che contengono dati sensibili al set di attributi con filtro per controller di dominio di sola lettura. Il set di attributi con filtro è un set personalizzabile di attributi che non vengono replicati nei controller di dominio di sola lettura. È possibile usare il set di attributi con filtro come strumento di sicurezza qualora non sia possibile o non si vogliano archiviare informazioni personali e dati ad alto impatto aziendale in Azure. Per altre informazioni, vedere [set di attributi con filtro per controller di dominio di sola lettura https://technet.microsoft.com/library/cc753459)].
 
 Verificare che le applicazioni siano compatibili con i controller di dominio di sola lettura che si prevede di usare. Molte applicazioni abilitate per Active Directory di Windows Server funzionano bene con i controller di dominio di sola lettura, ma l'esecuzione di alcune di queste può risultare inefficiente o non riuscire se non hanno accesso a un controller di dominio scrivibile. Per altre informazioni, vedere la Guida alla [Compatibilità delle applicazioni con i controller di dominio di sola lettura](https://technet.microsoft.com/library/cc755190).
 

@@ -5,21 +5,21 @@ keywords: ODBC, driver ODBC
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 03/22/2018
 ms.author: mimig
-ms.openlocfilehash: 3892f698ec2b0b45f71dc38491687897559821ba
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 445acafeef67027712826f644afaa1784569b30d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Connettersi ad Azure Cosmos DB usando gli strumenti di analisi BI con il driver ODBC
 
@@ -30,7 +30,7 @@ Il driver ODBC di Azure Cosmos DB è conforme a ODBC 3.8 e supporta la sintassi 
 ## <a name="why-do-i-need-to-normalize-my-data"></a>Perché è necessario normalizzare i dati?
 Azure Cosmos DB è un database senza schema, che consente quindi un rapido sviluppo di app permettendo a queste ultime di eseguire in tempo reale l'iterazione del modello di dati senza limitarle a uno schema rigoroso. Un singolo database di Azure Cosmos DB può contenere documenti JSON con varie strutture. Questa novità è ideale per lo sviluppo rapido delle applicazioni, ma quando si desidera analizzare e creare report dei dati usando gli strumenti di analisi e BI, è spesso necessario adattare e conformare tali dati a uno schema specifico.
 
-È qui che entra in gioco il driver ODBC. Tramite questo driver è ora possibile organizzare i dati rinormalizzati in Azure Cosmos DB in tabelle e visualizzazione in base alle proprie esigenze di analisi e creazione di report. Gli schemi rinormalizzati non hanno effetto sui dati sottostanti e non costringono gli sviluppatori a conformarli a essi, ma permettono semplicemente di sfruttare gli strumenti conformi a ODBC per accedere ai dati. A questo punto il database di Azure Cosmos DB non sarà apprezzato solo dal team di sviluppo, ma anche dagli analisti dei dati.
+È qui che entra in gioco il driver ODBC. Tramite il driver ODBC è ora possibile rinormalizzare i dati in Azure Cosmos DB in tabelle e visualizzazioni in base alle proprie esigenze di analisi e creazione di report. Gli schemi rinormalizzati non hanno effetto sui dati sottostanti e non costringono gli sviluppatori a conformarsi a essi, ma permettono di sfruttare gli strumenti conformi a ODBC per accedere ai dati. A questo punto il database di Azure Cosmos DB non sarà apprezzato solo dal team di sviluppo, ma anche dagli analisti dei dati.
 
 Verranno illustrate ora le procedure iniziali riguardanti il driver ODBC.
 
@@ -40,7 +40,7 @@ Verranno illustrate ora le procedure iniziali riguardanti il driver ODBC.
 
     | Programma di installazione | Sistemi operativi supportati| 
     |---|---| 
-    |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) per Windows a 64 bit| Versioni a 64 bit di Windows 8.1 o successiva, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2.| 
+    |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) per Windows a 64 bit| Versioni a 64 bit di Windows 8.1 o successive, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2.| 
     |[Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64) per Windows a 32 bit in Windows a 64 bit| Versioni a 64 bit di Windows 8.1 o successiva, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 e Windows Server 2003.| 
     |[Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) per Windows a 32 bit|Versioni a 32 bit di Windows 8.1 o successiva, Windows 8, Windows 7, Windows XP e Windows Vista.|
 
@@ -71,7 +71,7 @@ Verranno illustrate ora le procedure iniziali riguardanti il driver ODBC.
     - **File di schema**: si dispone di una serie di opzioni.
         - Per impostazione predefinita, lasciando vuota questa voce, il driver analizzerà i dati nella prima pagina per tutte le raccolte per individuare lo schema di ciascuna raccolta. L'operazione è definita Mapping raccolta. Senza un file di schema definito, il driver deve eseguire l'analisi per ogni sessione di driver. Possono quindi verificarsi tempi di avvio più elevati per un'applicazione che usa DSN. È consigliabile associare sempre un file di schema per un DSN.
         - Se si dispone già di un file di schema, probabilmente creato con l'[Editor schema](#schema-editor), è possibile fare clic su **Sfoglia**, selezionare il file, fare clic su **Salva** e quindi su **OK**.
-        - Per creare un nuovo schema, fare clic su **OK** e quindi su **Editor schema** nella finestra principale. Procedere quindi alle informazioni di [Editor schema](#schema-editor). Dopo la creazione, assicurarsi di tornare alla finestra **Opzioni avanzate** per includere il file di schema appena creato.
+        - Per creare un nuovo schema, fare clic su **OK** e quindi su **Editor schema** nella finestra principale. Procedere quindi alle informazioni di [Editor schema](#schema-editor). Dopo la creazione del nuovo file di schema, ricordarsi di tornare alla finestra **Opzioni avanzate** per includere il file di schema appena creato.
 
 6. Una volta completato e chiusa la finestra **Azure Cosmos DB ODBC Driver DSN Setup** (Configurazione DSN driver ODBC di Azure Cosmos DB), il nuovo DSN utente verrà aggiunto alla scheda User DSN (DSN utente).
 
@@ -114,10 +114,60 @@ La procedura seguente crea uno schema per i dati in una o più raccolte mediante
 4. Fare clic su **OK**. 
 5. Dopo aver completato le definizioni di mapping per le raccolte da campionare, nella finestra **Editor schemi** fare clic su **Campiona**.
      Per ogni colonna è possibile modificare i valori nome SQL della colonna, tipo SQL, lunghezza SQL (se applicabile) e le proprietà Scale (se applicabile), Precision (se applicabile) e Nullable.
-    - È possibile impostare **Nascondi colonna** su **true** se si desidera escludere la colonna dai risultati delle query. Le colonne contrassegnate con Nascondi colonna = true non vengono incluse nei risultati di selezione e proiezione, anche se fanno comunque parte dello schema. È ad esempio possibile nascondere tutte le proprietà di sistema richieste di Azure Cosmos DB che iniziano con "_".
+    - È possibile impostare **Nascondi colonna** su **true** se si desidera escludere la colonna dai risultati delle query. Le colonne contrassegnate con Nascondi colonna = true non vengono incluse nei risultati di selezione e proiezione, anche se fanno comunque parte dello schema. È ad esempio possibile nascondere tutte le proprietà di sistema richieste di Azure Cosmos DB che iniziano con `_`.
     - La colonna **id** è l'unico campo che non è possibile nascondere, poiché è usato come chiave primaria nello schema normalizzato. 
 6. Dopo aver completato la definizione dello schema, fare clic su **File** | **Salva**, passare alla directory in cui salvare lo schema e fare clic su **Salva**.
 7. Nella finestra **Azure Cosmos DB ODBC Driver DSN Setup** (Configurazione DSN driver ODBC di Azure Cosmos DB) fare clic su **Opzioni avanzate**. Quindi, nel riquadro **File di schema**, passare al file di schema salvato e fare clic su **OK**. Fare nuovamente clic su **OK** e salvare il DSN. In questo modo lo schema creato viene salvato nel DSN. 
+
+## <a name="optional-set-up-linked-server-connection"></a>(Facoltativo) Configurare la connessione al server collegato
+
+È possibile eseguire una query in Azure Cosmos DB da SQL Server Management Studio (SSMS) configurando una connessione del server collegato.
+
+1. Creare un'origine dati del sistema come descritto nel [Passaggio 2](#connect), denominata, ad esempio `SDS Name`.
+2. [Installare SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+3. Nell'editor di query di SSMS creare un oggetto server collegato `DEMOCOSMOS` per l'origine dati con i comandi seguenti. Sostituire `DEMOCOSMOS` con il nome del server collegato e `SDS Name` con il nome dell'origine dati del sistema.
+
+    ```sql
+    USE [master]
+    GO
+    
+    EXEC master.dbo.sp_addlinkedserver @server = N'DEMOCOSMOS', @srvproduct=N'', @provider=N'MSDASQL', @datasrc=N'SDS Name'
+    
+    EXEC master.dbo.sp_addlinkedsrvlogin @rmtsrvname=N'DEMOCOSMOS', @useself=N'False', @locallogin=NULL, @rmtuser=NULL, @rmtpassword=NULL
+    
+    GO
+    ```
+    
+Per visualizzare il nuovo nome del server collegato, aggiornare l'elenco di server collegati.
+
+![Server collegati in SSMS](./media/odbc-driver/odbc-driver-linked-server-ssms.png)
+
+### <a name="query-linked-database"></a>Eseguire una query nel database collegato
+
+Per eseguire una query nel database collegato, immettere una query SSMS. In questo esempio la query seleziona dalla tabella della raccolta denominata `customers`:
+
+```sql
+SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
+```
+
+Eseguire la query. Il risultato sarà simile al seguente:
+
+```
+attachments/  1507476156    521 Bassett Avenue, Wikieup, Missouri, 5422   "2602bc56-0000-0000-0000-59da42bc0000"   2015-02-06T05:32:32 +05:00 f1ca3044f17149f3bc61f7b9c78a26df
+attachments/  1507476156    167 Nassau Street, Tuskahoma, Illinois, 5998   "2602bd56-0000-0000-0000-59da42bc0000"   2015-06-16T08:54:17 +04:00 f75f949ea8de466a9ef2bdb7ce065ac8
+attachments/  1507476156    885 Strong Place, Cassel, Montana, 2069       "2602be56-0000-0000-0000-59da42bc0000"   2015-03-20T07:21:47 +04:00 ef0365fb40c04bb6a3ffc4bc77c905fd
+attachments/  1507476156    515 Barwell Terrace, Defiance, Tennessee, 6439     "2602c056-0000-0000-0000-59da42bc0000"   2014-10-16T06:49:04 +04:00      e913fe543490432f871bc42019663518
+attachments/  1507476156    570 Ruby Street, Spokane, Idaho, 9025       "2602c156-0000-0000-0000-59da42bc0000"   2014-10-30T05:49:33 +04:00 e53072057d314bc9b36c89a8350048f3
+```
+
+> [!NOTE]
+> Il server collegato di Cosmos DB non supporta la denominazione in quattro parti. Viene restituito un errore con un messaggio simile al seguente:
+
+```
+Msg 7312, Level 16, State 1, Line 44
+
+Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server "DEMOCOSMOS". A four-part name was supplied, but the provider does not expose the necessary interfaces to use a catalog or schema.
+``` 
 
 ## <a name="optional-creating-views"></a>(Facoltativo) Creazione di visualizzazioni
 È possibile definire e creare visualizzazioni come parte del processo di campionamento. Le visualizzazioni equivalgono alle visualizzazioni SQL. Sono di sola lettura e corrispondono alle selezioni e proiezioni definite in SQL di Azure Cosmos DB. 

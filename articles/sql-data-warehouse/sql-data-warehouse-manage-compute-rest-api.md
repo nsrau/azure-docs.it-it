@@ -1,24 +1,24 @@
 ---
-title: Sospendere, riprendere e ridimensionare con REST in Azure SQL Data Warehouse | Documentazione Microsoft
+title: Sospendere, riprendere e ridimensionare con REST in Azure SQL Data Warehouse | Microsoft Docs
 description: Gestire la potenza di calcolo in SQL Data Warehouse con le API REST.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: kfile
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 02/13/2018
+ms.date: 03/22/2018
 ms.author: barbkess
-ms.openlocfilehash: cb5b6221a5fc1d02ed1d93d56fd3db4858923307
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 518bbe23f1dcb9ffdffcfb67f875165617762c78
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>API REST per Azure SQL Data Warehouse
 API REST per la gestione del calcolo in Azure SQL Data Warehouse.
@@ -61,5 +61,5 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre attività di gestione, vedere [Panoramica della gestione](./sql-data-warehouse-overview-manage.md).
+Per altre informazioni, vedere [Gestire le risorse di calcolo](sql-data-warehouse-manage-compute-overview.md).
 

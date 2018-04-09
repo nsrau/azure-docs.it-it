@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 03/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6f7f0d9aea86594140c302e6d12e6528e802b9e7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3b1eeebacb55ffc7af4e2014f26dd9d5643f5478
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Gruppi di contenitori in Istanze di contenitore di Azure
 
@@ -38,15 +38,15 @@ Questo gruppo di contenitori di esempio:
 > [!NOTE]
 > I gruppi multicontenitore sono attualmente limitati ai contenitori Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di contenitore di Azure).
 
-### <a name="deployment"></a>Distribuzione
+## <a name="deployment"></a>Distribuzione
 
-I **gruppi di contenitori** hanno un'allocazione delle risorse minima pari a 1 vCPU e 1 GB di memoria. È possibile effettuare il provisioning dei singoli **contenitori** usando meno di 1 vCPU e 1 GB di memoria. In un gruppo di contenitori la distribuzione delle risorse può essere personalizzata per più contenitori entro i limiti stabiliti a livello di gruppo di contenitori. Ad esempio, due contenitori ognuno con 0,5 vCPU, presenti in un gruppo di contenitori, hanno allocato 1 vCPU.
+I *gruppi di contenitori* hanno un'allocazione delle risorse minima pari a 1 vCPU e 1 GB di memoria. È possibile effettuare il provisioning dei singoli *contenitori* di un gruppo di contenitori usando meno di 1 vCPU e 1 GB di memoria. In un gruppo di contenitori la distribuzione delle risorse può essere personalizzata per più contenitori entro i limiti stabiliti a livello di gruppo di contenitori. Ad esempio, due contenitori ognuno con 0,5 vCPU, presenti in un gruppo di contenitori a cui è stato allocato 1 vCPU.
 
-### <a name="networking"></a>Rete
+## <a name="networking"></a>Rete
 
 I gruppi di contenitori condividono un indirizzo IP e uno spazio dei nomi di porta su tale indirizzo IP. Per consentire a client esterni di raggiungere un contenitore all'interno del gruppo, è necessario esporre la porta sull'indirizzo IP e dal contenitore. Poiché i contenitori all'interno del gruppo condividono uno spazio dei nomi di porta, il mapping delle porte non è supportato. I contenitori all'interno di un gruppo possono raggiungersi tramite localhost sulle porte che hanno esposto, anche se queste porte non sono esposte esternamente sull'indirizzo IP del gruppo.
 
-### <a name="storage"></a>Archiviazione
+## <a name="storage"></a>Archiviazione
 
 È possibile impostare il montaggio di volumi esterni all'interno di un gruppo di contenitori ed eseguire il mapping di tali volumi in percorsi specifici all'interno dei singoli contenitori di un gruppo.
 
@@ -57,12 +57,15 @@ I gruppi di più contenitori sono utili nei casi in cui si vuole dividere una si
 Un esempio di utilizzo può includere gli elementi seguenti:
 
 * Un contenitore di applicazione e un contenitore di registrazione. Il contenitore di registrazione raccoglie l'output dei log e delle metriche generato dall'applicazione principale e lo scrive in una risorsa di archiviazione a lungo termine.
-* Un contenitore di applicazione e uno di monitoraggio. Il contenitore di monitoraggio invia periodicamente una richiesta all'applicazione per verificare che sia in esecuzione e risponda correttamente e genera un avviso nel caso in cui la verifica abbia esito negativo.
+* Un contenitore di applicazione e un contenitore di monitoraggio. Il contenitore di monitoraggio invia periodicamente una richiesta all'applicazione per verificare che sia in esecuzione e risponda correttamente e genera un avviso nel caso in cui la verifica abbia esito negativo.
 * Un contenitore che serve un'applicazione Web e un altro che esegue il pull del contenuto più recente dal controllo del codice sorgente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [distribuire un gruppo di più contenitori](container-instances-multi-container-group.md) con un modello di Azure Resource Manager.
+Informazioni su come distribuire un gruppo con più contenitori con un modello di Azure Resource Manager.
+
+> [!div class="nextstepaction"]
+> [Distribuire un gruppo di contenitori](container-instances-multi-container-group.md)
 
 <!-- IMAGES -->
 [container-groups-example]: ./media/container-instances-container-groups/container-groups-example.png

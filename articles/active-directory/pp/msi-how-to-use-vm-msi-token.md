@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6c6422bc2b13c0c40e48dabf0470c821b13e7851
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Acquisire un token di accesso per l'identità del servizio gestito assegnata dall'utente per una macchina virtuale
 
@@ -42,7 +42,9 @@ Un'applicazione client può richiedere un [token di accesso solo app](~/articles
 | [Ottenere un token tramite CURL](#get-a-token-using-curl) | Esempio d'uso dell'endpoint REST dell'identità del servizio gestito da un client Bash/CURL |
 | [Gestione della scadenza di token](#handling-token-expiration) | Indicazioni per la gestione di token di accesso scaduti |
 | [Gestione degli errori](#error-handling) | Indicazioni per la gestione di errori HTTP restituiti dall'endpoint del token dell'identità del servizio gestito |
+| [Linee guida sulla limitazione](#throttling-guidance) | Indicazioni sulla gestione della limitazione dell'endpoint di token MSI |
 | [ID di risorsa per servizi di Azure](#resource-ids-for-azure-services) | Come ottenere ID di risorsa per i servizi di Azure supportati |
+
 
 ## <a name="get-a-token-using-http"></a>Ottenere un token tramite HTTP 
 
@@ -164,6 +166,16 @@ Questa sezione illustra le possibili risposte di errore. Uno stato di tipo "200 
 |           | unsupported_response_type | Il server di autorizzazione non supporta l'acquisizione di un token di accesso con questo metodo. |  |
 |           | invalid_scope | L'ambito richiesto non è valido, è sconosciuto o ha un formato non valido. |  |
 | 500 - Errore interno del server | unknown | Impossibile recuperare il token da Active Directory. Per informazioni dettagliate, vedere i log in *\<percorso del file\>* | Verificare che l'identità del servizio gestito sia stata abilitata nella macchina virtuale. Vedere [Configurare un'identità del servizio gestito della macchina virtuale tramite il portale di Azure](msi-qs-configure-portal-windows-vm.md) per informazioni sulla configurazione della macchina virtuale.<br><br>Verificare anche che l'URI della richiesta HTTP GET sia formattato correttamente, in particolare l'URI della risorsa specificato nella stringa di query. Per un esempio, vedere la richiesta di esempio nella sezione [Ottenere un token tramite HTTP](#get-a-token-using-http) oppure vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](msi-overview.md#azure-services-that-support-azure-ad-authentication) per un elenco dei servizi e dei rispettivi ID risorsa.
+
+## <a name="throttling-guidance"></a>Linee guida sulla limitazione 
+
+I limiti delle richieste si applicano al numero di chiamate effettuate all'endpoint IMDS MSI. Al superamento della soglia di limitazione delle richieste, l'endpoint IMDS MSI limiterà eventuali ulteriori richieste mentre la limitazione è attiva. Durante questo intervallo l'endpoint IMDS MSI restituirà il codice di stato HTTP 429 indicante un numero eccessivo di richieste e si verificherà un errore delle richieste. 
+
+Per eseguire nuovi tentativi è consigliabile seguire la strategia seguente: 
+
+| **Strategia di ripetizione dei tentativi** | **Impostazioni** | **Valori** | **Funzionamento** |
+| --- | --- | --- | --- |
+|ExponentialBackoff |Numero tentativi<br />Interruzione temporanea minima<br />Interruzione temporanea massima<br />Interruzione temporanea delta<br />Primo tentativo rapido |5<br />0 secondi<br />60 secondi<br />2 secondi<br />false |Tentativo di 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di ~2 sec<br />Tentativo 3 - intervallo di ~6 sec<br />Tentativo 4 - intervallo di ~14 sec<br />Tentativo 5 - intervallo di 30 sec |
 
 ## <a name="resource-ids-for-azure-services"></a>ID di risorsa per i servizi di Azure
 

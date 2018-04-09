@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: fd4c28c2317356cbc6e3fd4d46a10509c029d530
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 37cae133dda2f274a83db1df37e798c5da58c539
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Aggregazione e raccolta di eventi con EventFlow
 
@@ -30,7 +30,7 @@ I file binari di EventFlow sono disponibili come set di pacchetti NuGet. Per agg
 
 ![Pacchetti NuGet di EventFlow nell'interfaccia utente di gestione pacchetti NuGet di Visual Studio](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
 
-Verrà visualizzato un elenco dei vari pacchetti evidenziati, con etichetta "Input" e "Output". EventFlow supporta diversi provider di accesso e analizzatori. Il servizio che ospita EventFlow deve includere pacchetti appropriati a seconda dell'origine e della destinazione dei log applicazioni. Oltre al pacchetto di base ServiceFabric, è anche necessario aver configurato almeno un Input e un Output. Ad esempio, è possibile aggiungere i pacchetti seguenti agli eventi EventSource inviati ad Application Insights:
+Verrà visualizzato un elenco dei vari pacchetti evidenziati, con etichetta "Input" e "Output". EventFlow supporta diversi provider di accesso e analizzatori. Il servizio che ospita EventFlow deve includere pacchetti appropriati a seconda dell'origine e della destinazione dei log applicazioni. Oltre al pacchetto di base ServiceFabric, è anche necessario aver configurato almeno un Input e un Output. È ad esempio possibile aggiungere i pacchetti seguenti per inviare eventi EventSource ad Application Insights:
 
 * `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` per acquisire dati dalla classe EventSource del servizio e da oggetti EventSource standard, ad esempio *Microsoft-ServiceFabric-Services* e *Microsoft-ServiceFabric-Actors*
 * `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`, i log verranno inviati a una risorsa di Azure Application Insights

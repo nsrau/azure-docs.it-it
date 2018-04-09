@@ -3,10 +3,10 @@ title: Installazione di una foresta Active Directory in una rete virtuale di Azu
 description: Un'esercitazione che illustra come creare una nuova foresta di Active Directory in una macchina virtuale (VM) in una rete virtuale di Azure.
 services: active-directory, virtual-network
 keywords: 'macchina virtuale active directory, installazione di una foresta active directory, video su azure active directory  '
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
-tags: 
+tags: ''
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: c98082b7d839490410132f19fdbf653c61d7165c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0b98b475f49847589398ca743fc3ac3b8bcbb381
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Installazione di una nuova foresta Active Directory in una rete virtuale di Azure
 Questo argomento illustra come creare un nuovo ambiente Windows Server Active Directory in una macchina virtuale (VM, Virtual Machine) in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). In questo caso, la rete virtuale di Azure non è connessa a una rete locale.

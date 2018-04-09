@@ -3,17 +3,17 @@ title: Introduzione alle tabelle temporali nel database SQL di Azure | Microsoft
 description: Informazioni introduttive sull'uso delle tabelle temporali nel database SQL di Azure.
 services: sql-database
 author: bonova
+ms.date: 03/21/2018
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 01/10/2017
 ms.author: bonova
-ms.openlocfilehash: 8e76d78e402d2cdc58ca26767c55c413f83226d9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0299d52396549baf8ea7e5eb7145585c7b5900a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introduzione alle tabelle temporali nel database SQL di Azure
 Le tabelle temporali sono una nuova funzionalità di programmabilità del database SQL di Azure che consente di monitorare e analizzare la cronologia completa delle modifiche ai dati, senza dover scrivere codice personalizzato. Le tabelle temporali mantengono i dati strettamente correlati al contesto temporale, in modo che i fatti archiviati possano essere interpretati come validi solo entro il periodo specifico. Questa proprietà delle tabelle temporali consente di eseguire un'analisi efficace basata sul tempo e di ottenere informazioni accurate dall'evoluzione dei dati.
@@ -64,7 +64,7 @@ Quando si crea una tabella temporale con controllo delle versioni di sistema, vi
 In questo caso specifico, l'obiettivo è eseguire l'analisi delle tendenze basata sul tempo su una cronologia di dati più estesa e set di dati più grandi. Per l'archiviazione della tabella della cronologia occorre quindi scegliere un indice columnstore cluster. Un columnstore cluster offre ottimi livelli di compressione e prestazioni per le query analitiche. La flessibilità delle tabelle temporali permette di configurare gli indici nelle tabelle temporali e correnti in modo completamente indipendente. 
 
 > [!NOTE]
-> Gli indici columnstore sono disponibili solo per il livello di servizio Premium.
+> Gli indici columnstore sono disponibili nel piano Premium e nel piano Standard, S3 e superiore.
 >
 
 Lo script seguente mostra come modificare l'indice predefinito nella tabella della cronologia nel columnstore cluster:

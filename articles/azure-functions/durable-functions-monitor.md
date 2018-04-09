@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 617b33a9f860ce3b06ff560de22824037eab8332
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7e520429e5f5e219e05a77eb4ca18d0d6b6b3977
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scenario di monitoraggio in Funzioni durevoli - Esempio di watcher per il meteo
 
@@ -26,8 +26,8 @@ Il modello di monitoraggio fa riferimento a un processo *ricorrente* flessibile 
 
 ## <a name="prerequisites"></a>prerequisiti
 
-* Seguire le istruzioni in [Install Durable Functions](durable-functions-install.md) (Installare Funzioni permanenti) per impostare l'esempio.
-* Questo articolo presuppone che l'utente abbia già eseguito la procedura dettagliata di esempio descritta in [Hello Sequence](durable-functions-sequence.md) (Sequenza di Hello).
+* [Installare Funzioni permanenti](durable-functions-install.md).
+* Completare la procedura dettagliata di esempio [Sequenza di Hello](durable-functions-sequence.md).
 
 ## <a name="scenario-overview"></a>Panoramica dello scenario
 
@@ -64,7 +64,7 @@ Questo articolo descrive le funzioni seguenti nell'app di esempio:
 * `E3_GetIsClear`: funzione dell'attività che controlla le condizioni meteo correnti per una località.
 * `E3_SendGoodWeatherAlert`: funzione dell'attività che invia un SMS tramite Twilio.
 
-Le sezioni seguenti illustrano la configurazione e il codice usati per lo sviluppo nel portale di Azure. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
+Le sezioni seguenti illustrano la configurazione e il codice usati per gli script in C#. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
  
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Orchestrazione di monitoraggio del meteo (Visual Studio Code e codice di esempio del portale di Azure)
 

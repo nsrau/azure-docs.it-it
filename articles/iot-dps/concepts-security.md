@@ -2,21 +2,21 @@
 title: Concetti relativi alla sicurezza nel servizio Azure Device Provisioning in hub IoT | Microsoft Docs
 description: Descrive i concetti relativi al provisioning della sicurezza specifici dei dispositivi con il servizio Device Provisioning e l'hub IoT
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 03/27/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ab2bfff571af659552eef8117de041ca6367ce56
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 5e35a802349bd85b50a13a3d9a7e0c78945937bd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Concetti relativi alla sicurezza del servizio Device Provisioning in hub IoT 
 
@@ -31,7 +31,7 @@ Il meccanismo di attestazione è il metodo usato per verificare l'identità di u
 
 Il servizio Device Provisioning supporta due tipi di attestazione:
 * **Certificati X.509** basati sul flusso di autenticazione del certificato X.509 standard.
-* **Token di firma di accesso condiviso** basati su una verifica nonce tramite lo standard TPM per le chiavi. Non è necessario un modulo TPM fisico nel dispositivo, ma il servizio prevede di eseguire l'attestazione usando la chiave di verifica dell'autenticità in base alle [specifiche TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Trusted Platform Module (TPM)** basato su una richiesta di verifica nonce, che usa lo standard TPM relativo alle chiavi per presentare un token di firma di accesso condiviso (SAS). Non è necessario un modulo TPM fisico nel dispositivo, ma il servizio prevede di eseguire l'attestazione usando la chiave di verifica dell'autenticità in base alle [specifiche TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## <a name="hardware-security-module"></a>Modulo di protezione hardware
 
@@ -42,7 +42,7 @@ Il modulo di protezione hardware viene usato per l'archiviazione sicura, basata 
 
 I segreti dei dispositivi possono essere archiviati anche nel software (memoria), ma si tratta di un tipo di archiviazione meno sicuro rispetto a un modulo di protezione hardware.
 
-## <a name="trusted-platform-module-tpm"></a>TPM (Trusted Platform Module)
+## <a name="trusted-platform-module"></a>Trusted Platform Module
 
 Il concetto di TPM può fare riferimento a uno standard per archiviare in modo sicuro le chiavi usate per autenticare la piattaforma oppure all'interfaccia di I/O usata per interagire con i moduli che implementano lo standard. Il TPM può essere un componente hardware distinto o integrato e può essere basato su firmware o su software. Vedere altre informazioni su [TPM e attestazione TPM](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Il servizio Device Provisioning supporta solo il TPM 2.0.
 
@@ -66,7 +66,7 @@ Un certificato radice è un certificato X.509 autofirmato che rappresenta un'aut
 
 ### <a name="intermediate-certificate"></a>Certificato intermedio
 
-Un certificato intermedio è un certificato X.509 che è stato firmato dal certificato radice (o da un altro certificato intermedio con il certificato radice nella catena). L'ultimo certificato intermedio in una catena viene usato per firmare il certificato foglia. Un certificato intermedio viene anche chiamato certificato della CA intermedia.
+Un certificato intermedio è un certificato X.509 che è stato firmato dal certificato radice o da un altro certificato intermedio con il certificato radice nella catena. L'ultimo certificato intermedio in una catena viene usato per firmare il certificato foglia. Un certificato intermedio viene anche chiamato certificato della CA intermedia.
 
 ### <a name="leaf-certificate"></a>Certificato foglia
 
@@ -76,8 +76,8 @@ Il certificato foglia, o certificato dell'entità finale, identifica il titolare
 
 Il servizio di provisioning espone due tipi di voce di registrazione che è possibile usare per controllare l'accesso per i dispositivi che usano il meccanismo di attestazione X.509:  
 
-- Le voci di [registrazione singola](./concepts-service.md#individual-enrollment) vengono configurate con il certificato del dispositivo associato a un dispositivo specifico. Queste voci controllano la registrazione per dispositivi specifici.
-- Le voci dei [gruppi di registrazioni](./concepts-service.md#enrollment-group) sono associate a un certificato della CA intermedia o radice specifico. Queste voci controllano la registrazione per tutti i dispositivi che hanno un certificato intermedio o radice nella rispettiva catena di certificati. 
+- Le voci di [registrazione singola](./concepts-service.md#individual-enrollment) vengono configurate con il certificato del dispositivo associato a un dispositivo specifico. Queste voci controllano le registrazioni per dispositivi specifici.
+- Le voci dei [gruppi di registrazioni](./concepts-service.md#enrollment-group) sono associate a un certificato della CA intermedia o radice specifico. Queste voci controllano le registrazioni per tutti i dispositivi che hanno un certificato intermedio o radice nella rispettiva catena di certificati. 
 
 Quando un dispositivo si connette al servizio di provisioning, il servizio assegna la priorità alle voci di registrazione più specifiche rispetto a quelle meno specifiche. Di conseguenza, se esiste una registrazione singola per il dispositivo, il servizio di provisioning applica questa voce. Se non esiste alcuna registrazione singola per il dispositivo ed esiste invece un gruppo di registrazioni per il primo certificato intermedio nella catena di certificati del dispositivo, il servizio applica questa voce e così via verso l'alto nella catena fino alla radice. Il servizio applica la prima voce applicabile trovata, in modo che:
 

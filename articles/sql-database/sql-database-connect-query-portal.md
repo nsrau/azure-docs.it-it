@@ -10,15 +10,15 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: e5c1a5a991284fcbeac53d2ce35be4e2634514fa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 97b14de64c4aa6bf134f2c293e4bb8b5725810d3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portale di Azure: usare l'editor di query SQL per connettersi ai dati ed eseguire query
 
-L'editor di query SQL è uno strumento di query basato su browser che offre un modo semplice ed efficiente per eseguire query SQL sul database SQL di Azure o su Azure SQL Data Warehouse senza uscire dal portale di Azure. Questa guida introduttiva illustra come usare l'editor di query per connettersi a un database SQL e quindi usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database.
+L'editor di query SQL è uno strumento di query basato su browser che offre un modo semplice ed efficiente per eseguire query SQL sul database SQL di Azure o su Azure SQL Data Warehouse senza uscire dal portale di Azure. Questa esercitazione introduttiva illustra come usare l'editor di query per connettersi a un database SQL e quindi usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database.
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -142,19 +142,25 @@ Usare il codice seguente per eliminare il nuovo prodotto aggiunto in precedenza 
 
 ## <a name="query-editor-considerations"></a>Considerazioni sull'editor di query
 
-Quando si usa l'editor di query ancora in fase di anteprima, è necessario tenere presente quanto segue:
+Quando si usa l'editor di query è necessario tenere presente quanto segue:
 
 1. Verificare di aver attivato l'opzione "Consenti l'accesso a Servizi di Azure" nelle impostazioni del firewall del server SQL Azure. Questa opzione consente all'editor di query SQL di accedere a data warehouse e database SQL.
 
-2. L'accesso amministratore di Azure Active Directory non funziona con account per cui è abilitata l'autenticazione a due fattori.
+2. Se il server SQL è in una rete virtuale, l'editor di query non può essere usato per eseguire query sui database in tale server.
 
-3. Gli account di posta elettronica (ad esempio outlook.com, hotmail.com, live.com, gmail.com e yahoo.com) non sono ancora supportati come amministratori di Active Directory. Assicurarsi di scegliere un utente creato in modo nativo o federato in Azure Active Directory.
+3. Premendo F5, la pagina Editor di query verrà aggiornata e la query su cui si sta lavorando andrà persa. Usare il pulsante Esegui sulla barra degli strumenti per eseguire le query.
 
-4. Le query su tipi di dati spaziali non sono ancora supportate nell'editor di query. Le query su colonne spaziali genereranno un errore "System.IO.FileNotFoundException".
+4. L'editor di query non supporta la connessione al database master
 
-5. Non è previsto alcun supporto per IntelliSense in tabelle e viste di database. L'editor, tuttavia, supporta il completamento automatico per i nomi già digitati.
+5. Esiste un timeout di 5 minuti per l'esecuzione delle query.
 
-6. Premendo F5, la pagina Editor di query verrà aggiornata e la query su cui si sta lavorando andrà persa. Usare il pulsante Esegui sulla barra degli strumenti per eseguire le query.
+6. L'accesso amministratore di Azure Active Directory non funziona con account per cui è abilitata l'autenticazione a due fattori.
+
+7. Gli account di posta elettronica (ad esempio outlook.com, hotmail.com, live.com, gmail.com e yahoo.com) non sono ancora supportati come amministratori di Active Directory. Assicurarsi di scegliere un utente creato in modo nativo o federato in Azure Active Directory.
+
+8. L'editor di query supporta solo la proiezione cilindrica per i tipi di dati geografici.
+
+9. Non è previsto alcun supporto per IntelliSense in tabelle e viste di database. L'editor, tuttavia, supporta il completamento automatico per i nomi già digitati.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

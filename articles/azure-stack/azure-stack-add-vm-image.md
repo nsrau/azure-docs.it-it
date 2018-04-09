@@ -2,23 +2,23 @@
 title: Aggiungere un'immagine di macchina virtuale allo Stack di Azure | Documenti Microsoft
 description: Aggiungere Windows o Linux VM immagine personalizzata dell'organizzazione per i tenant da utilizzare.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2018
+ms.date: 04/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0ba0bc4e8350a65a95dc41788c93d5c89fc48334
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: eb2035f6e667a9b3ab642d42cb9bb5ecf5c86fb1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Creare un'immagine di macchina virtuale personalizzata disponibile nello Stack di Azure
 
@@ -126,6 +126,7 @@ Per aggiungere l'immagine a Azure Marketplace dello Stack, completare i passaggi
     -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
   ```
 
+
 Il comando esegue le operazioni seguenti:
 
 * Esegue l'autenticazione per l'ambiente dello Stack di Azure.
@@ -133,9 +134,9 @@ Il comando esegue le operazioni seguenti:
 * Aggiunge l'immagine di macchina virtuale per il repository di immagini di macchina virtuale.
 * Crea un elemento del Marketplace.
 
-Per verificare che il comando eseguito correttamente, nel portale, andare al Marketplace. Verificare che sia disponibile nell'immagine di macchina virtuale di **macchine virtuali** categoria.
+Per verificare che il comando eseguito correttamente, nel portale, andare al Marketplace. Verificare che l'immagine di macchina virtuale sia disponibile il **calcolo** categoria.
 
-![Immagine di macchina virtuale aggiunto correttamente](./media/azure-stack-add-vm-image/image5.PNG)
+![Immagine di macchina virtuale aggiunto correttamente](./media/azure-stack-add-vm-image/verify-vm.png)
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>Rimuove un'immagine di macchina virtuale mediante PowerShell
 
@@ -174,7 +175,7 @@ Remove-AzsVMImage `
 
 Le immagini devono essere in grado di fare riferimento a un URI di archiviazione Blob. Preparare un'immagine del sistema operativo Windows o Linux nel formato VHD (non VHDX) e quindi caricare l'immagine a un account di archiviazione in Azure o Azure Stack. Se l'immagine è già stata caricata nell'archiviazione Blob in Azure o Azure Stack, è possibile ignorare il passaggio 1.
 
-1. [Caricare un'immagine di macchina virtuale Windows Azure per le distribuzioni di gestione risorse](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) oppure, per un'immagine Linux, seguire le istruzioni descritte in [macchine virtuali Linux di distribuire in Azure Stack](azure-stack-linux.md). Prima di caricare l'immagine, è importante prendere in considerazione i fattori seguenti:
+1. [Caricare un'immagine di macchina virtuale Windows Azure per le distribuzioni di gestione risorse](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) oppure, per un'immagine Linux, seguire le istruzioni descritte nel [macchine virtuali Linux di distribuire in Azure Stack](azure-stack-linux.md). Prima di caricare l'immagine, è importante prendere in considerazione i fattori seguenti:
 
    * Stack di Azure supporta il formato di disco rigido virtuale del disco fisso. Il formato fisso strutture del disco logico in modo lineare all'interno del file, in modo tale offset del disco X venga archiviato all'offset del blob X. Un piccolo piè di pagina alla fine del blob vengono descritte le proprietà del file VHD. Per verificare se il disco è fisso, utilizzare il [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) comando di PowerShell.  
 
@@ -185,7 +186,7 @@ Le immagini devono essere in grado di fare riferimento a un URI di archiviazione
 
    * Quando si carica il [immagine di macchina virtuale Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), assicurarsi di sostituire il **account di accesso da Azure** passaggio con il [configurare l'ambiente di PowerShell dell'operatore Azure Stack](azure-stack-powershell-configure-admin.md) passaggio.  
 
-   * Prendere nota di archiviazione Blob di URI in cui caricare l'immagine. L'URI di archiviazione Blob ha il seguente formato:  *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* con estensione vhd.
+   * Prendere nota di archiviazione Blob di URI in cui caricare l'immagine. L'URI di archiviazione Blob ha il seguente formato: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*con estensione vhd.
 
    * Per rendere il blob è accessibile in modo anonimo, passare al contenitore di blob account di archiviazione in cui è stato caricato l'immagine di macchina virtuale, disco rigido virtuale. Selezionare **Blob**, quindi selezionare **criteri di accesso**. Facoltativamente, è possibile invece generare una firma di accesso condiviso per il contenitore e includerlo come parte dell'URI del blob.
 

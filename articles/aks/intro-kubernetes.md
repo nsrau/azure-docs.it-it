@@ -9,17 +9,21 @@ ms.topic: overview
 ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 2980d4733dcf138c3a9aa1713cff994bbf5a296c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5bfa445eb11ed8be608278d0b95249372f9976ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="introduction-to-azure-container-service-aks"></a>Introduzione al servizio contenitore di Azure
+# <a name="introduction-to-azure-container-service-aks-preview"></a>Introduzione all'anteprima del servizio contenitore di Azure
 
 Il servizio contenitore di Azure semplifica la creazione, la configurazione e la gestione di un cluster di macchine virtuali preconfigurate per eseguire applicazioni in contenitori. Ciò consente di usare le competenze già acquisite o di attingere da un consistente e crescente bagaglio di competenze a livello di community per distribuire e gestire applicazioni basate sul contenitore in Microsoft Azure.
 
 Il servizio contenitore di Azure consente di sfruttare i vantaggi delle funzionalità di livello aziendale di Azure mantenendo al tempo stesso la portabilità delle applicazioni tramite Kubernetes e il formato immagine Docker.
+
+> [!IMPORTANT]
+> Il servizio contenitore di Azure è attualmente disponibile in **anteprima**. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+>
 
 ## <a name="managed-kubernetes-in-azure"></a>Managed Kubernetes in Azure
 

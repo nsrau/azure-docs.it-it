@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/22/2018
+ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7e3fd12b2157d28c5d61bfa8d5fb69a00557a1f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5b7af290a5e5c45d3f64ccb50586db0811dd592
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Creare una data factory e una pipeline con .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -102,12 +102,12 @@ Nella procedura guidata illustrata in questo articolo viene usato Visual Studio 
 Scaricare e installare [Azure .NET SDK](http://azure.microsoft.com/downloads/) nel computer.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Creare un'applicazione in Azure Active Directory
-Seguendo le istruzioni in [questo articolo](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) eseguire queste attività: 
+Seguendo le istruzioni delle sezioni in [questo articolo](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) eseguire queste attività: 
 
 1. **Creare un'applicazione di Azure Active Directory**. In Azure Active Directory creare un'applicazione che rappresenti l'applicazione .NET che si crea in questa esercitazione. Come URL di accesso è possibile specificare un URL fittizio, come illustrato nell'articolo (`https://contoso.org/exampleapp`).
-2. Ottenere l'**ID applicazione** e la **chiave di autenticazione**** usando le istruzioni della sezione **Ottenere l'ID applicazione e la chiave di autenticazione** dell'articolo. Prendere nota di questi valori che verranno usati più avanti in questa esercitazione. 
-3. Ottenere l'**ID tenant** usando le istruzioni della sezione **Ottenere l'ID tenant** dell'articolo. Prendere nota di questo valore. 
-4. Assegnare l'applicazione al ruolo **Collaboratore** a livello di sottoscrizione in modo che l'applicazione possa creare le data factory nella sottoscrizione. Seguire le istruzioni della sezione **Assegnare l'applicazione al ruolo** dell'articolo. 
+2. Ottenere l'**ID applicazione** e la **chiave di autenticazione** e prendere nota di questi valori che verranno usati più avanti in questa esercitazione. 
+3. Ottenere l'**ID tenant** e prendere nota di questo valore che verrà usato più avanti in questa esercitazione.
+4. Assegnare l'applicazione al ruolo **Collaboratore** a livello di sottoscrizione in modo che l'applicazione possa creare le data factory nella sottoscrizione.
 
 ## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio
 

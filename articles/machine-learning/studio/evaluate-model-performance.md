@@ -2,9 +2,10 @@
 title: Valutare le prestazioni del modello in Machine Learning | Documentazione Microsoft
 description: Viene spiegato come valutare le prestazioni del modello in Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: 48ce4584f7270d78b1d09b848bfdd305d03012b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bf065d8e91bd4ebb4cc3932c0525cb091b26b38
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Come valutare le prestazioni del modello in Azure Machine Learning
 Questo articolo illustra come valutare le prestazioni di un modello in Azure Machine Learning Studio e offre una breve spiegazione delle metriche disponibili per questa attività. L'argomento presenta inoltre tre scenari di apprendimento sorvegliato comuni: 
@@ -151,7 +151,7 @@ Connettere le porte come mostrato in basso nella figura 10.
 
 Impostare l'indice della colonna delle etichette del modulo [Train Model][train-model] su 5. Il set di dati non dispone di una riga di intestazione ma, com'è noto, le etichette delle classi si trovano nella quinta colonna.
 
-Fare clic sul modulo [Import Data][import-data] (Impora dati) e impostare la proprietà *Data source* (Origine dati) su *Web URL via HTTP* (URL Web via HTTP) e *URL* su http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Fare clic sul modulo [Import Data][import-data] (Importazione dati) e impostare la proprietà *Data source* (Origine dati) su *Web URL via HTTP* (URL Web tramite HTTP) e *URL* su http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
 Impostare la frazione delle istanze da usare per il training nel modulo [Split Data][split], ad esempio 0,7.
 

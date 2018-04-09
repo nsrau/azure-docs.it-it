@@ -1,11 +1,11 @@
 ---
-title: "Funzionalità del motore regole della rete CDN di Azure | Documentazione Microsoft"
-description: "Documentazione di riferimento per le funzionalità e condizioni di corrispondenza del motore regole della rete CDN di Azure."
+title: Funzionalità del motore regole della rete CDN di Azure | Documentazione Microsoft
+description: Documentazione di riferimento per le funzionalità e condizioni di corrispondenza del motore regole della rete CDN di Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 949b957716af2d7dfd704b4fca48afb78d0fed1e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funzionalità del motore regole della rete CDN di Azure
 Questo articolo offre una descrizione dettagliata delle funzionalità disponibili per il [motore regole](cdn-rules-engine.md) della rete di distribuzione dei contenuti (CDN) di Azure.
@@ -30,7 +30,7 @@ La terza parte di una regola è la funzionalità. Una funzionalità definisce il
 Queste funzionalità sono progettate per controllare l'accesso al contenuto.
 
 
-NOME | Scopo
+Nome | Scopo
 -----|--------
 [Deny Access (403)](#deny-access-403) (Nega accesso (403)) | Determina se tutte le richieste vengono rifiutate con una risposta 403 Accesso negato.
 [Token Auth](#token-auth) (Autenticazione token) | Determina se l'autenticazione basata su token viene applicata a una richiesta.
@@ -43,37 +43,37 @@ NOME | Scopo
 
 Queste funzionalità sono progettate per personalizzare come e quando il contenuto viene memorizzato nella cache.
 
-NOME | Scopo
+Nome | Scopo
 -----|--------
 [Bandwidth Parameters](#bandwidth-parameters) (Parametri larghezza di banda) | Determina se i parametri di limitazione della larghezza di banda, ad esempio ec_rate ed ec_prebuf, sono attivi.
-[Bandwidth Throttling](#bandwidth-throttling) (Limitazione larghezza di banda) | Limita la larghezza di banda per la risposta fornita dai server perimetrali.
+[Bandwidth Throttling](#bandwidth-throttling) (Limitazione larghezza di banda) | Limita la larghezza di banda per la risposta fornita dal POP (Point-Of-Presence).
 [Bypass Cache](#bypass-cache) (Ignora cache) | Determina se la richiesta deve ignorare la memorizzazione nella cache.
-[Cache-Control Header Treatment](#cache-control-header-treatment) (Gestione intestazione Cache-Control) | Controlla la generazione di intestazioni `Cache-Control` dal server perimetrale quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
+[Cache-Control Header Treatment](#cache-control-header-treatment) (Gestione intestazione Cache-Control) | Controlla la generazione di intestazioni `Cache-Control` da parte del POP quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
 [Cache-Key Query String](#cache-key-query-string) (Stringa di query chiave cache) | Determina se la chiave della cache include o esclude i parametri della stringa di query associati a una richiesta.
 [Cache-Key Rewrite](#cache-key-rewrite) (Riscrittura chiave cache) | Riscrive la chiave della cache associata a una richiesta.
-[Complete Cache Fill](#complete-cache-fill) (Riempimento completo della cache) | Determina ciò che accade quando una richiesta determina un mancato riscontro nella cache parziale in un server perimetrale.
+[Complete Cache Fill](#complete-cache-fill) (Riempimento completo della cache) | Determina ciò che accade quando una richiesta ha come risultato un mancato riscontro nella cache parziale su un POP.
 [Compress File Types](#compress-file-types) (Comprimi tipi di file) | Definisce i formati per i file compressi nel server.
-[Default Internal Max-Age](#default-internal-max-age) (Validità massima interna predefinita) | Determina l'intervallo Max-Age predefinito per la riconvalida della cache dal server perimetrale al server di origine.
-[Expires Header Treatment](#expires-header-treatment) (Gestione intestazione Expires) | Controlla la generazione di intestazioni `Expires` da un server perimetrale quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
-[External Max-Age](#external-max-age) (Validità massima esterna) | Determina l'intervallo Max-Age per la riconvalida della cache dal browser al server perimetrale.
-[Force Internal Max-Age](#force-internal-max-age) (Forza validità massima interna) | Determina l'intervallo Max-Age per la riconvalida della cache dal server perimetrale al server di origine.
+[Default Internal Max-Age](#default-internal-max-age) (Validità massima interna predefinita) | Determina l'intervallo massimo di validità predefinito per la riconvalida della cache dal POP al server di origine.
+[Expires Header Treatment](#expires-header-treatment) (Gestione intestazione Expires) | Controlla la generazione di intestazioni `Expires` da parte di un POP quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
+[External Max-Age](#external-max-age) (Validità massima esterna) | Determina l'intervallo massimo di validità per la riconvalida della cache dal browser al POP.
+[Force Internal Max-Age](#force-internal-max-age) (Forza validità massima interna) | Determina l'intervallo massimo di validità per la riconvalida della cache dal POP al server di origine.
 [H.264 Support (HTTP Progressive Download)](#h264-support-http-progressive-download) (Supporto H.264 (download progressivo HTTP)) | Determina i tipi di formati di file H.264 che possono essere usati per lo streaming di contenuti.
 [Honor No-Cache Request](#honor-no-cache-request) (Rispetta richiesta no-cache) | Determina se le richieste no-cache di un client HTTP vengono inoltrate al server di origine.
 [Ignore Origin No-Cache](#ignore-origin-no-cache) (Ignora no-cache origine) | Determina se la rete CDN deve ignorare alcune direttive servite da un server di origine.
 [Ignore Unsatisfiable Ranges](#ignore-unsatisfiable-ranges) (Ignora gli intervalli che non è possibile soddisfare) | Determina la risposta che viene restituita ai client quando una richiesta genera un codice di stato 416 - Impossibile attenersi all'intervallo richiesto.
-[Internal Max-Stale](#internal-max-stale) (Tempo di non aggiornamento massimo interno) | Controlla per quanto tempo dopo la normale scadenza un asset memorizzato nella cache può essere servito da un server perimetrale quando il server perimetrale non è in grado di riconvalidare l'asset memorizzato nella cache con il server di origine.
+[Internal Max-Stale](#internal-max-stale) (Tempo di non aggiornamento massimo interno) | Controlla l'intervallo di tempo dopo la normale scadenza in cui un asset memorizzato nella cache può essere servito da un POP quando il POP non è in grado di riconvalidare l'asset memorizzato nella cache con il server di origine.
 [Partial Cache Sharing](#partial-cache-sharing) (Condivisione cache parziale) | Determina se una richiesta può generare contenuto parzialmente memorizzato nella cache.
 [Prevalidate Cached Content](#prevalidate-cached-content) (Preconvalida contenuto memorizzato nella cache) | Determina se il contenuto memorizzato nella cache è idoneo per la riconvalida anticipata prima della scadenza della durata (TTL).
-[Refresh Zero-Byte Cache Files](#refresh-zero-byte-cache-files) (Aggiorna file della cache con zero byte) | Determina come viene gestita dai server perimetrali una richiesta di un client HTTP di un asset della cache con 0 byte.
+[Refresh Zero-Byte Cache Files](#refresh-zero-byte-cache-files) (Aggiorna file della cache con zero byte) | Determina come viene gestita dai POP una richiesta di un asset della cache con 0 byte inviata da un client HTTP.
 [Set Cacheable Status Codes](#set-cacheable-status-codes) (Imposta codici di stato inseribili nella cache) | Definisce il set di codici di stato che possono generare contenuto memorizzato nella cache.
 [Stale Content Delivery on Error](#stale-content-delivery-on-error) (Distribuzione di contenuto non aggiornato in caso di errore) | Determina se il contenuto scaduto memorizzato nella cache viene distribuito quando si verifica un errore durante la riconvalida della cache o quando si recupera il contenuto richiesto dal server di origine del cliente.
-[Stale While Revalidate](#stale-while-revalidate) (Client non aggiornato durante la riconvalida) | Migliora le prestazioni consentendo ai server perimetrali di servire un client non aggiornato al richiedente mentre avviene la riconvalida.
+[Stale While Revalidate](#stale-while-revalidate) (Client non aggiornato durante la riconvalida) | Migliora le prestazioni consentendo ai POP di servire un client non aggiornato al richiedente mentre avviene la riconvalida.
 
 ## <a name="comment-feature"></a>Funzionalità di commento
 
 Questa funzionalità è progettata per fornire informazioni aggiuntive all'interno di una regola.
 
-NOME | Scopo
+Nome | Scopo
 -----|--------
 [Comment](#comment) | Consente di aggiungere una nota all'interno di una regola.
  
@@ -81,7 +81,7 @@ NOME | Scopo
 
 Queste funzionalità sono progettate per aggiungere, modificare o eliminare le intestazioni dalla richiesta o dalla risposta.
 
-NOME | Scopo
+Nome | Scopo
 -----|--------
 [Age Response Header](#age-response-header) (Intestazione di risposta Age) | Determina se un'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
 [Debug Cache Response Headers](#debug-cache-response-headers) (Intestazioni di risposta di debug per la cache) | Determina se una risposta può includere l'intestazione di risposta X-EC-Debug, che fornisce informazioni sul criterio di cache per l'asset richiesto.
@@ -94,7 +94,7 @@ NOME | Scopo
 
 Queste funzionalità sono progettate per personalizzare i dati archiviati nei file di log non elaborati.
 
-NOME | Scopo
+Nome | Scopo
 -----|--------
 [Custom Log Field 1](#custom-log-field-1) (Campo 1 log personalizzato) | Determina il formato e il contenuto che vengono assegnati al campo di log personalizzato in un file di log non elaborato.
 [Log Query String](#log-query-string) (Stringa di query log) | Determina se una stringa di query viene archiviata insieme all'URL nei log di accesso.
@@ -110,7 +110,7 @@ Name | Purpose
 Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
 Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
 
-###Edge Optimizer
+### Edge Optimizer
 **Purpose:** Determines whether Edge Optimizer can be applied to a request.
 
 If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
@@ -128,7 +128,7 @@ Disabled|Restores the default behavior. The default behavior is to deliver conte
 **Default Behavior:** Disabled
  
 
-###Edge Optimizer - Instantiate Configuration
+### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
 
 This feature requires the ADN platform and the Edge Optimizer feature.
@@ -148,17 +148,17 @@ If the desired site does not appear in the list, then you should edit its config
 
 Queste funzionalità sono progettate per controllare in che modo la rete CDN comunica con un server di origine.
 
-NOME | Scopo
+Nome | Scopo
 -----|--------
 [Maximum Keep-Alive Requests](#maximum-keep-alive-requests) (Numero massimo di richieste Keep-Alive) | Definisce il numero massimo di richieste per una connessione Keep-Alive prima della chiusura.
-[Proxy Special Headers](#proxy-special-headers) (Intestazioni speciali proxy) | Definisce il set di intestazioni di richiesta specifiche della rete CDN che vengono inoltrate da un server perimetrale a un server di origine.
+[Proxy Special Headers](#proxy-special-headers) (Intestazioni speciali proxy) | Definisce il set di intestazioni di richiesta specifiche della rete CDN che vengono inoltrate da un POP a un server di origine.
 
 
 ## <a name="specialty-features"></a>Funzionalità specializzate
 
 Queste funzionalità offrono caratteristiche avanzate per gli utenti esperti.
 
-NOME | Scopo
+Nome | Scopo
 -----|--------
 [Cacheable HTTP Methods](#cacheable-http-methods) (Metodi HTTP inseribili nella cache) | Determina il set di metodi HTTP aggiuntivi che possono essere memorizzati nella cache nella rete.
 [Cacheable Request Body Size](#cacheable-request-body-size) (Dimensioni corpo richiesta inseribile nella cache) | Definisce la soglia per determinare se una risposta POST può essere memorizzata nella cache.
@@ -169,7 +169,7 @@ NOME | Scopo
 
 Queste funzionalità consentono il reindirizzamento o la riscrittura di una richiesta in un URL diverso.
 
-NOME | Scopo
+Nome | Scopo
 -----|--------
 [Follow Redirects](#follow-redirects) (Segui reindirizzamenti) | Determina se le richieste possono essere reindirizzate al nome host definito nell'intestazione Location restituita da un server di origine del cliente.
 [URL Redirect](#url-redirect) (Reindirizzamento URL) | Reindirizza le richieste tramite l'intestazione Location.
@@ -184,7 +184,7 @@ NOME | Scopo
 **Scopo**: determina se un'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
 Valore|Risultato
 --|--
-Attivato | L'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
+Enabled | L'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
 Disabled | L'intestazione di risposta Age viene esclusa dalla risposta inviata al richiedente.
 
 **Comportamento predefinito:**: Disabled.
@@ -201,8 +201,8 @@ I parametri di limitazione della larghezza di banda determinano se la velocità 
 
 Valore|Risultato
 --|--
-Attivato|Consente ai server perimetrali di soddisfare le richieste di limitazione della larghezza di banda.
-Disabled|Fa sì che i server perimetrali ignorino i parametri di limitazione della larghezza di banda. I contenuti richiesti vengono serviti normalmente, ossia senza limitazione della larghezza di banda.
+Enabled|Consente ai POP di soddisfare le richieste di limitazione della larghezza di banda.
+Disabled|Fa in modo che i POP ignorino i parametri di limitazione della larghezza di banda. I contenuti richiesti vengono serviti normalmente, ossia senza limitazione della larghezza di banda.
 
 **Comportamento predefinito:** Enabled.
  
@@ -212,14 +212,14 @@ Disabled|Fa sì che i server perimetrali ignorino i parametri di limitazione del
 
 ---
 ### <a name="bandwidth-throttling"></a>Limitazione larghezza di banda
-**Scopo**: limita la larghezza di banda per la risposta fornita dai server perimetrali.
+**Scopo**: limita la larghezza di banda per la risposta fornita dai POP.
 
 Per impostare correttamente la limitazione della larghezza di banda è necessario che siano definite entrambe le opzioni seguenti.
 
-Opzione|DESCRIZIONE
+Opzione|Descrizione
 --|--
 Kbytes per second (KB al secondo)|Impostare questa opzione sulla larghezza di banda massima (KB al secondo) che è possibile usare per inviare la risposta.
-Prebuf seconds (Secondi prebuf)|Impostare questa opzione sul numero di secondi che i server perimetrali devono attendere prima che sia attivata la limitazione della larghezza di banda. Lo scopo di questo intervallo di tempo di larghezza di banda senza restrizioni è quello di impedire a un lettore multimediale di riscontrare problemi di stuttering o buffering a causa della limitazione della larghezza di banda.
+Prebuf seconds (Secondi prebuf)|Impostare questa opzione sul numero di secondi che i POP devono attendere prima che sia attivata la limitazione della larghezza di banda. Lo scopo di questo intervallo di tempo di larghezza di banda senza restrizioni è quello di impedire a un lettore multimediale di riscontrare problemi di stuttering o buffering a causa della limitazione della larghezza di banda.
 
 **Comportamento predefinito:** Disabled.
 
@@ -233,8 +233,8 @@ Prebuf seconds (Secondi prebuf)|Impostare questa opzione sul numero di secondi c
 
 Valore|Risultato
 --|--
-Attivato|Fa sì che tutte le richieste giungano al server di origine, anche se i contenuti sono stati precedentemente memorizzati nella cache dei server perimetrali.
-Disabled|Fa sì che i server perimetrali memorizzino gli asset nella cache in base ai criteri della cache definiti nelle relative intestazioni di risposta.
+Enabled|Fa in modo che tutte le richieste giungano al server di origine, anche se i contenuti sono stati precedentemente memorizzati nella cache dei POP.
+Disabled|Fa in modo che i POP memorizzino gli asset nella cache in base ai criteri della cache definiti nelle relative intestazioni di risposta.
 
 **Comportamento predefinito:**
 
@@ -289,7 +289,7 @@ Informazioni chiave:
 
 ---
 ### <a name="cache-control-header-treatment"></a>Gestione intestazione Cache-Control
-**Scopo**: controlla la generazione di intestazioni `Cache-Control` dal server perimetrale quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
+**Scopo**: controlla la generazione di intestazioni `Cache-Control` da parte del POP quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
 
 Il modo più semplice per ottenere questo tipo di configurazione è inserire le funzionalità External Max-Age (Validità massima esterna) e Cache-Control Header Treatment (Gestione intestazioni Cache-Control) nella stessa istruzione.
 
@@ -298,7 +298,7 @@ Valore|Risultato
 Overwrite|Garantisce che vengano eseguite le azioni seguenti:<br/> - Sovrascrivere l'intestazione `Cache-Control` generata dal server di origine. <br/>- Aggiungere alla risposta l'intestazione `Cache-Control` prodotta dalla funzionalità External Max-Age (Validità massima esterna).
 Pass-through|Assicura che l'intestazione `Cache-Control` prodotta dalla funzionalità External Max-Age (Validità massima esterna) non venga mai aggiunta alla risposta. <br/> Se il server di origine produce un'intestazione `Cache-Control`, ne viene eseguito il pass-through all'utente finale. <br/> Se il server di origine non produce un'intestazione `Cache-Control`, è possibile che a causa di questa opzione l'intestazione della risposta non contenga un'intestazione `Cache-Control`.
 Add if Missing (Aggiungi se mancante)|Se un'intestazione `Cache-Control` non è stata ricevuta dal server di origine, questa opzione aggiunge l'intestazione `Cache-Control` prodotta dalla funzionalità External Max-Age (Validità massima esterna). Assicura quindi che a tutti gli asset venga assegnata un'intestazione `Cache-Control`.
-Rimuovere| Questa opzione assicura che con la risposta di intestazione non sia inclusa un'intestazione `Cache-Control`. Se è già stata assegnata un'intestazione `Cache-Control`, viene rimossa dalla risposta di intestazione.
+Remove| Questa opzione assicura che con la risposta di intestazione non sia inclusa un'intestazione `Cache-Control`. Se è già stata assegnata un'intestazione `Cache-Control`, viene rimossa dalla risposta di intestazione.
 
 **Comportamento predefinito:** Overwrite.
 
@@ -315,7 +315,7 @@ Informazioni chiave:
 - Specificare uno o più nomi di parametri della stringa di query. Delimitare ogni nome di parametro con uno spazio singolo.
 - Questa funzionalità determina se nella chiave di cache i parametri della stringa di query vengono inclusi o esclusi. La tabella seguente contiene informazioni aggiuntive per ogni opzione.
 
-type|DESCRIZIONE
+Tipo|Descrizione
 --|--
  Includi|  Indica che nella chiave di cache deve essere incluso ogni parametro specificato. Viene generata una chiave di cache univoca per ogni richiesta in cui sia contenuto un valore univoco per un parametro della stringa di query definito in questa funzionalità. 
  Includi tutto  |Indica che viene creata una chiave di cache univoca per ogni richiesta a un asset contenente una stringa di query univoca. Questo tipo di configurazione in genere non è consigliato, perché può comportare una piccola percentuale di riscontri nella cache. Un numero ridotto di riscontri nella cache produce un aumento del carico sul server di origine, che deve gestire un maggior numero di richieste. Questa configurazione consente di duplicare il comportamento di memorizzazione nella cache noto come "unique-cache" nella pagina di memorizzazione nella cache della stringa di query. 
@@ -387,7 +387,7 @@ Una chiave di cache è il percorso relativo che identifica un asset ai fini dell
 
 Per configurare questa funzionalità è necessario definire entrambe le opzioni seguenti:
 
-Opzione|DESCRIZIONE
+Opzione|Descrizione
 --|--
 Percorso originale| Consente di definire il percorso relativo dei tipi di richieste di cui viene riscritta la chiave di cache. Un percorso relativo può essere definito selezionando un percorso di origine di base e quindi definendo un modello di espressione regolare.
 Nuovo percorso|Consente di definire il percorso relativo della nuova chiave di cache. Un percorso relativo può essere definito selezionando un percorso di origine di base e quindi definendo un modello di espressione regolare. Questo percorso relativo può essere creato dinamicamente tramite l'uso di variabili HTTP
@@ -414,10 +414,10 @@ Informazioni chiave:
 </br>
 
 ---
-### <a name="complete-cache-fill"></a>Completa riempimento cache
-**Scopo:** determina ciò che accade quando una richiesta genera un mancato riscontro nella cache parziale in un server perimetrale.
+### <a name="complete-cache-fill"></a>Riempimento completo della cache
+**Scopo**: determina ciò che accade quando una richiesta ha come risultato un mancato riscontro nella cache parziale su un POP.
 
-Un mancato riscontro nella cache parziale descrive lo stato della cache relativo a un asset non completamente scaricato in un server perimetrale. Se un asset è stato solo parzialmente memorizzato nella cache di un server perimetrale, la richiesta successiva dell'asset verrà nuovamente inoltrata al server di origine.
+Un mancato riscontro nella cache parziale descrive lo stato della cache relativo a un asset non completamente scaricato in un POP. Se un asset è stato solo parzialmente memorizzato nella cache di un POP, la richiesta successiva dell'asset verrà nuovamente inoltrata al server di origine.
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
@@ -430,8 +430,8 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 
 Valore|Risultato
 --|--
-Attivato|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di obbligare il server periferico a inizializzare il recupero in background dell'asset dal server di origine. Al termine di questa operazione, l'asset si trova nella cache locale del server perimetrale.
-Disabled|Impedisce a un server perimetrale di eseguire il recupero in background dell'asset. Il risultato è che, alla successiva richiesta dell'asset dalla stessa area, il server perimetrale lo richiede dal server di origine del cliente.
+Enabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di obbligare il POP a inizializzare il recupero in background dell'asset dal server di origine. Al termine di questa operazione, l'asset si troverà nella cache locale del POP.
+Disabled|Impedisce a un POP di eseguire il recupero in background dell'asset. Per effetto di questa impostazione, alla successiva richiesta dell'asset dalla stessa area, il POP richiederà l'asset al server di origine del cliente.
 
 **Comportamento predefinito:** Enabled.
 
@@ -445,7 +445,7 @@ Disabled|Impedisce a un server perimetrale di eseguire il recupero in background
 
 Un formato di file può essere specificato usando il rispettivo tipo di elemento multimediale Internet, ad esempio Content-Type. Il tipo di elemento multimediale Internet è costituito da metadati indipendenti dalla piattaforma che consentono ai server di identificare il formato di file di un asset specifico. Di seguito è riportato un elenco dei tipi di elementi multimediali Internet.
 
-Tipo di elemento multimediale Internet|DESCRIZIONE
+Tipo di elemento multimediale Internet|Descrizione
 --|--
 text/plain|File di testo normale
 text/html| File HTML
@@ -474,7 +474,7 @@ Per impostazione predefinita, il campo del log personalizzato è denominato "x-e
 
 Il formato per specificare le intestazioni di richiesta e risposta è definito come segue:
 
-Tipo di intestazione|Format|Esempi
+Tipo di intestazione|Formato|Esempi
 -|-|-
 Intestazione di richiesta|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
 Intestazione di risposta|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
@@ -512,7 +512,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 Valore|Risultato
 -|-
-Attivato|Le richieste di intestazioni di risposta di debug per la cache restituiranno una risposta che include l'intestazione X-EC-Debug.
+Enabled|Le richieste di intestazioni di risposta di debug per la cache restituiranno una risposta che include l'intestazione X-EC-Debug.
 Disabled|L'intestazione di risposta X-EC-Debug verrà esclusa dalla risposta.
 
 **Comportamento predefinito:** Disabled.
@@ -522,18 +522,18 @@ Disabled|L'intestazione di risposta X-EC-Debug verrà esclusa dalla risposta.
 </br>
 
 ---
-### <a name="default-internal-max-age"></a>Max-Age interno predefinito
-**Scopo:** determina l'intervallo di validità massima predefinita per la riconvalida della cache dal server perimetrale al server di origine. In altre parole, la quantità di tempo che deve trascorrere prima che un server perimetrale verifichi se un asset memorizzato nella cache corrisponde all'asset archiviato sul server di origine.
+### <a name="default-internal-max-age"></a>Validità massima interna predefinita
+**Scopo**: determina l'intervallo massimo di validità predefinito per la riconvalida della cache dal POP al server di origine. In altre parole, la quantità di tempo che deve trascorrere prima che un POP verifichi se un asset memorizzato nella cache corrisponde all'asset archiviato sul server di origine.
 
 Informazioni chiave:
 
 - Questa azione viene eseguita solo per le risposte generate da un server di origine che non ha assegnato un'indicazione di validità massima nell'intestazione `Cache-Control` o `Expires`.
 - Questa azione non viene eseguita per gli asset che non sono considerati memorizzabili nella cache.
-- Questa azione non riguarda le riconvalide della cache dal browser al server perimetrale. Questi tipi di riconvalida vengono determinati dalle intestazioni `Cache-Control` o `Expires` inviate al browser, che possono essere personalizzate con la funzionalità External Max-Age (Validità massima esterna).
-- I risultati di questa azione non producono alcun effetto osservabile sulle intestazioni di risposta e sui contenuti restituiti dai server periferici, ma possono influire sulla quantità di traffico di riconvalida inviato dai server periferici al server di origine.
+- Questa azione non riguarda i tipi di riconvalida della cache dal browser al POP. Questi tipi di riconvalida vengono determinati dalle intestazioni `Cache-Control` o `Expires` inviate al browser, che possono essere personalizzate con la funzionalità External Max-Age (Validità massima esterna).
+- I risultati di questa azione non producono alcun effetto osservabile sulle intestazioni di risposta e sui contenuti restituiti dai POP, ma possono influire sulla quantità di traffico di riconvalida inviato dai POP al server di origine.
 - Per configurare questa funzionalità:
     - Selezionare il codice di stato per il quale può essere applicata una validità massima interna predefinita.
-    - Specificare un valore intero e quindi selezionare l'unità di tempo desiderata, ad esempio secondi, minuti, ore e così via. Questo valore definisce l'intervallo di validità massima interna predefinita.
+    - Specificare un valore intero e quindi selezionare l'unità di tempo desiderata, ad esempio secondi, minuti, ore e così via. Questo valore definisce l'intervallo massimo di validità interna predefinito.
 
 - Impostare l'unità di tempo su "Off" per assegnare un intervallo di validità massima interna predefinito di 7 giorni per le richieste a cui non è stata assegnata un'indicazione di validità massima nella rispettiva intestazione `Cache-Control` o `Expires`.
 - In base al modo in cui vengono monitorate le impostazioni della cache, è possibile che questa funzionalità non possa essere associata alle seguenti condizioni di corrispondenza: 
@@ -557,7 +557,7 @@ Informazioni chiave:
 
 Valore | Risultato
 ------|-------
-Attivato| Fa sì che tutte le richieste che soddisfano i criteri di corrispondenza vengano respinte con una risposta 403 - Accesso negato.
+Enabled| Fa sì che tutte le richieste che soddisfano i criteri di corrispondenza vengano respinte con una risposta 403 - Accesso negato.
 Disabled| Ripristina il comportamento predefinito. Il comportamento predefinito prevede di consentire al server di origine di determinare il tipo di risposta da restituire.
 
 **Comportamento predefinito**: Disabled
@@ -571,7 +571,7 @@ Disabled| Ripristina il comportamento predefinito. Il comportamento predefinito 
 
 ---
 ### <a name="expires-header-treatment"></a>Gestione intestazione Expires
-**Scopo**: controlla la generazione di intestazioni `Expires` da un server perimetrale quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
+**Scopo**: controlla la generazione di intestazioni `Expires` da parte di un POP quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
 
 Il modo più semplice per ottenere questo tipo di configurazione è inserire le funzionalità External Max-Age (Validità massima esterna) e Expires Header Treatment (Gestione intestazioni Expires) nella stessa istruzione.
 
@@ -580,7 +580,7 @@ Valore|Risultato
 Overwrite|Garantisce che vengano eseguite le azioni seguenti:<br/>- Sovrascrivere l'intestazione `Expires` generata dal server di origine.<br/>- Aggiungere alla risposta l'intestazione `Expires` prodotta dalla funzionalità External Max-Age (Validità massima esterna).
 Pass-through|Assicura che l'intestazione `Expires` prodotta dalla funzionalità External Max-Age (Validità massima esterna) non venga mai aggiunta alla risposta. <br/> Se il server di origine produce un'intestazione `Expires`, ne verrà eseguito il pass-through all'utente finale. <br/>Se il server di origine non produce un'intestazione `Expires`, è possibile che a causa di questa opzione l'intestazione della risposta non contenga un'intestazione `Expires`.
 Add if Missing (Aggiungi se mancante)| Se un'intestazione `Expires` non è stata ricevuta dal server di origine, questa opzione aggiunge l'intestazione `Expires` prodotta dalla funzionalità External Max-Age (Validità massima esterna). Assicura quindi che a tutti gli asset verrà assegnata un'intestazione `Expires`.
-Rimuovere| Assicura che con la risposta di intestazione non sia inclusa un'intestazione `Expires`. Se è già stata assegnata un'intestazione `Expires`, viene rimossa dalla risposta di intestazione.
+Remove| Assicura che con la risposta di intestazione non sia inclusa un'intestazione `Expires`. Se è già stata assegnata un'intestazione `Expires`, viene rimossa dalla risposta di intestazione.
 
 **Comportamento predefinito:** Overwrite
 
@@ -589,16 +589,16 @@ Rimuovere| Assicura che con la risposta di intestazione non sia inclusa un'intes
 </br>
 
 ---
-### <a name="external-max-age"></a>Max-Age esterno
-**Scopo:** determina l'intervallo di validità massima per la riconvalida della cache dal browser al server perimetrale. In altre parole, la quantità di tempo che deve trascorrere prima che un browser cerchi una nuova versione di un asset da un server periferico.
+### <a name="external-max-age"></a>Validità massima esterna
+**Scopo**: determina l'intervallo massimo di validità per la riconvalida della cache dal browser al POP. In altre parole, la quantità di tempo che deve trascorrere prima che un browser cerchi una nuova versione di un asset da un POP.
 
-Abilitando questa funzionalità, dai server perimetrali verranno generate intestazioni `Cache-Control: max-age` e `Expires` che saranno inviate al client HTTP. Per impostazione predefinita, queste intestazioni sovrascriveranno quelle create dal server di origine. Per modificare questo comportamento, tuttavia, è possibile usare le funzionalità Cache-Control Header Treatment (Gestione intestazioni Cache-Control) e Expires Header Treatment (Gestione intestazioni Expires).
+Abilitando questa funzionalità, dai POP verranno generate intestazioni `Cache-Control: max-age` e `Expires` che saranno inviate al client HTTP. Per impostazione predefinita, queste intestazioni sovrascriveranno quelle create dal server di origine. Per modificare questo comportamento, tuttavia, è possibile usare le funzionalità Cache-Control Header Treatment (Gestione intestazioni Cache-Control) e Expires Header Treatment (Gestione intestazioni Expires).
 
 Informazioni chiave:
 
-- Questa azione non riguarda le riconvalide della cache dal server periferico al server di origine. Questi tipi di riconvalida vengono determinati dalle intestazioni `Cache-Control` e `Expires` ricevute dal server di origine e possono essere personalizzati con le funzionalità Default Internal Max-Age (Validità massima interna predefinita) e Force Internal Max-Age (Forza validità massima interna).
+- Questa azione non riguarda i tipi di riconvalida della cache dal POP al server di origine. Questi tipi di riconvalida vengono determinati dalle intestazioni `Cache-Control` e `Expires` ricevute dal server di origine e possono essere personalizzati con le funzionalità Default Internal Max-Age (Validità massima interna predefinita) e Force Internal Max-Age (Forza validità massima interna).
 - Configurare questa funzionalità specificando un valore intero e selezionando l'unità di tempo desiderata, ad esempio secondi, minuti, ore e così via.
-- Se si imposta questa funzionalità su un valore negativo, i server perimetrali inviano una direttiva `Cache-Control: no-cache` e un valore temporale `Expires` impostato nel passato con ogni risposta inviata al browser. Anche nel caso in cui un client HTTP non memorizzi nella cache la risposta, questa impostazione non influisce sulla capacità dei server perimetrali di memorizzare nella cache la risposta ottenuta dal server di origine.
+- Se si imposta questa funzionalità su un valore negativo, i POP includeranno una direttiva `Cache-Control: no-cache` e un valore temporale `Expires` impostato nel passato in ogni risposta inviata al browser. Anche se un client HTTP non memorizza la risposta nella cache, questa impostazione non influisce sulla capacità dei POP di memorizzare nella cache la risposta ottenuta dal server di origine.
 - Impostando l'unità di tempo su "Off", questa funzionalità viene disabilitata. Delle intestazioni `Cache-Control` e `Expires` memorizzate nella cache con la risposta del server di origine viene eseguito il pass-through al browser.
 
 **Comportamento predefinito:** Off
@@ -617,7 +617,7 @@ Informazioni chiave:
 
 Valore|Risultato
 -|-
-Attivato|Le richieste possono essere reindirizzate.
+Enabled|Le richieste possono essere reindirizzate.
 Disabled|Le richieste non verranno reindirizzate.
 
 **Comportamento predefinito:** Disabled.
@@ -627,17 +627,17 @@ Disabled|Le richieste non verranno reindirizzate.
 </br>
 
 ---
-### <a name="force-internal-max-age"></a>Forza Max-Age interno
-**Scopo:** determina l'intervallo di validità massima per la riconvalida della cache dal server perimetrale al server di origine. In altre parole, la quantità di tempo che deve trascorrere prima che un server perimetrale verifichi se un asset memorizzato nella cache corrisponde all'asset archiviato sul server di origine.
+### <a name="force-internal-max-age"></a>Forza validità massima interna
+**Scopo**: determina l'intervallo massimo di validità per la riconvalida della cache dal POP al server di origine. In altre parole, la quantità di tempo che deve trascorrere prima che un POP verifichi se un asset memorizzato nella cache corrisponde all'asset archiviato sul server di origine.
 
 Informazioni chiave:
 
-- Questa funzionalità sostituirà l'intervallo di validità massima definito nelle intestazioni `Cache-Control` o `Expires` generate da un server di origine.
-- Questa funzionalità non riguarda le riconvalide della cache dal browser al server perimetrale. Questi tipi di riconvalida vengono determinati dalle intestazioni `Cache-Control` o `Expires` inviate al browser.
-- Questa funzionalità non produce alcun effetto osservabile sulla risposta fornita da un server perimetrale al richiedente. Può tuttavia influire sulla quantità di traffico di riconvalida inviato dai server perimetrali al server di origine.
+- Questa funzionalità sostituirà l'intervallo massimo di validità definito nelle intestazioni `Cache-Control` o `Expires` generate da un server di origine.
+- Questa funzionalità non riguarda i tipi di riconvalida della cache dal browser al POP. Questi tipi di riconvalida vengono determinati dalle intestazioni `Cache-Control` o `Expires` inviate al browser.
+- Questa funzionalità non produce alcun effetto osservabile sulla risposta fornita da un POP al richiedente. Può tuttavia influire sulla quantità di traffico di riconvalida inviato dai POP al server di origine.
 - Per configurare questa funzionalità:
     - Selezionare il codice di stato per il quale verrà applicato un intervallo di validità massima interna.
-    - Specificare un valore intero e quindi selezionare l'unità di tempo desiderata, ad esempio secondi, minuti, ore e così via. Questo valore definisce l'intervallo di validità massima della richiesta.
+    - Specificare un valore intero e quindi selezionare l'unità di tempo desiderata, ad esempio secondi, minuti, ore e così via. Questo valore definisce l'intervallo massimo di validità della richiesta.
 
 - Impostando l'unità di tempo su "Off", questa funzionalità viene disabilitata e agli asset non verrà assegnato un intervallo di validità massima interna. Se nell'intestazione originale non sono contenute istruzioni di memorizzazione nella cache, l'asset verrà memorizzato nella cache in base all'impostazione attiva nella funzionalità Default Internal Max-Age (Validità massima interna predefinita).
 - In base al modo in cui vengono monitorate le impostazioni della cache, è possibile che questa funzionalità non possa essere associata alle seguenti condizioni di corrispondenza: 
@@ -678,10 +678,10 @@ Una richiesta no-cache si verifica quando il client HTTP invia un'intestazione `
 
 Valore|Risultato
 --|--
-Attivato|Consente alle richieste no-cache di un client HTTP di essere inoltrate al server di origine e al server di origine di restituire al client HTTP le intestazioni di risposta e il corpo tramite il server periferico.
+Enabled|Consente l'inoltro delle richieste no-cache di un client HTTP al server di origine. Quest'ultimo restituirà al client HTTP il corpo e le intestazioni della risposta tramite il POP.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di impedire alle richieste no-cache di essere inoltrate al server di origine.
 
-Per tutto il traffico di produzione, è consigliabile lasciare questa funzionalità nello stato disabilitato predefinito. In caso contrario, i server di origine non risulteranno protetti da eventuali utenti finali che attivino inavvertitamente molte richieste no-cache durante l'aggiornamento di pagine Web o dai numerosi lettori multimediali di uso comune codificati per inviare un'intestazione no-cache con ogni richiesta video. Se applicata a determinate directory di staging o testing non di produzione, tuttavia, questa funzionalità consente di effettuare il pull on-demand di contenuti aggiornati dal server di origine.
+Per tutto il traffico di produzione, è consigliabile lasciare questa funzionalità nello stato disabilitato predefinito. In caso contrario, i server di origine non risulteranno protetti da eventuali utenti finali che attivino inavvertitamente molte richieste no-cache durante l'aggiornamento di pagine Web o dai numerosi lettori multimediali di uso comune codificati per l'invio di un'intestazione no-cache con ogni richiesta video. Se applicata a determinate directory di staging o testing non di produzione, tuttavia, questa funzionalità consente di effettuare il pull on-demand di contenuti aggiornati dal server di origine.
 
 Lo stato della cache visualizzato per una richiesta che può essere inoltrata a un server di origine grazie a questa funzionalità è: TCP_Client_Refresh_Miss. Il report sugli stati della cache, disponibile nel modulo di report principale, fornisce informazioni statistiche in base allo stato della cache. Consente quindi di monitorare il numero e la percentuale di richieste inoltrate a un server di origine a causa di questa funzionalità.
 
@@ -724,11 +724,11 @@ Informazioni chiave:
 ### <a name="ignore-unsatisfiable-ranges"></a>Ignora gli intervalli che non è possibile soddisfare 
 **Scopo:** determina la risposta che verrà restituita ai client quando una richiesta genera un codice di stato 416 Impossibile attenersi all'intervallo richiesto.
 
-Per impostazione predefinita, questo codice di stato viene restituito quando la richiesta di intervallo di byte specificata non può essere soddisfatta da un server periferico e non è stato specificato un campo di intestazione di richiesta If-Range.
+Per impostazione predefinita, questo codice di stato viene restituito quando la richiesta di intervallo di byte specificata non può essere soddisfatta da un POP e non è stato specificato un campo di intestazione di richiesta If-Range.
 
 Valore|Risultato
 -|-
-Attivato|Impedisce ai server perimetrali di rispondere a una richiesta di intervallo di byte non valida con un codice di stato 416 - Impossibile attenersi all'intervallo richiesto. I server forniranno invece l'asset richiesto e restituiranno al client il codice 200 - OK.
+Enabled|Impedisce ai POP di rispondere a una richiesta di intervallo di byte non valida con un codice di stato 416 - Impossibile attenersi all'intervallo richiesto. I server forniranno invece l'asset richiesto e restituiranno al client il codice 200 - OK.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di rispettare il codice di stato 416 - Impossibile attenersi all'intervallo richiesto.
 
 **Comportamento predefinito:** Disabled.
@@ -738,16 +738,16 @@ Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito p
 </br>
 
 ---
-### <a name="internal-max-stale"></a>Max-Stale interno
-**Scopo:** controlla per quanto tempo, dopo la normale scadenza, un asset memorizzato nella cache può essere servito da un server perimetrale quando il server perimetrale non è in grado di riconvalidare l'asset memorizzato nella cache con il server di origine.
+### <a name="internal-max-stale"></a>Tempo di non aggiornamento massimo interno
+**Scopo**: controlla l'intervallo di tempo dopo la normale scadenza in cui un asset memorizzato nella cache può essere servito da un POP quando il POP non è in grado di riconvalidare l'asset memorizzato nella cache con il server di origine.
 
-In genere, quando l'intervallo di validità massima di un asset scade, il server periferico invia una richiesta di riconvalida al server di origine. Il server di origine risponde quindi con un codice di stato 304 - Non modificato per fornire al server periferico un lease aggiornato sull'asset memorizzato nella cache o con un codice 200 - OK per fornire al server periferico una versione aggiornata dell'asset memorizzato nella cache.
+In genere, quando scade l'intervallo massimo di validità di un asset, il POP invia una richiesta di riconvalida al server di origine. Il server di origine risponde quindi con un codice di stato 304 - Non modificato per fornire al POP un lease aggiornato sull'asset memorizzato nella cache o con un codice 200 - OK per fornire al POP una versione aggiornata dell'asset memorizzato nella cache.
 
-Se il server periferico non è in grado di stabilire una connessione con il server di origine durante il tentativo di riconvalida, la funzionalità Internal Max-Stale (Tempo di non aggiornamento massimo interno) controlla se e per quanto tempo il server periferico può continuare a servire l'asset non aggiornato.
+Se il POP non è in grado di stabilire una connessione con il server di origine durante il tentativo di riconvalida, la funzionalità Internal Max-Stale (Tempo di non aggiornamento massimo interno) controlla se e per quanto tempo il POP può continuare a servire l'asset non aggiornato.
 
 Questo intervallo di tempo inizia nel momento in cui scade la validità massima dell'asset, non quando la riconvalida ha esito negativo. Il periodo massimo durante il quale un asset può essere servito senza riconvalida corrisponde quindi alla quantità di tempo determinata dalla combinazione dei valori Max-Age (Validità massima) e Max-Stale (Tempo di non aggiornamento massimo). Se ad esempio un asset è stato memorizzato nella cache alle 9.00 con una validità massima di 30 minuti e un tempo di non aggiornamento massimo di 15 minuti, in caso di tentativo di riconvalida non riuscito alle 9.44 un utente finale riceverebbe l'asset memorizzato nella cache non aggiornato, mentre in caso di tentativo di riconvalida non riuscito alle 9.46 l'utente finale riceverebbe un codice di stato 504 - Timeout gateway.
 
-Qualsiasi valore configurato per questa funzionalità viene sostituito dall'intestazione `Cache-Control: must-revalidate` o `Cache-Control: proxy-revalidate` ricevuta dal server di origine. Se una di queste intestazioni viene ricevuta dal server di origine all'inizio della procedura di memorizzazione dell'asset nella cache, il server periferico non servirà un asset memorizzato nella cache non aggiornato. In questo caso, se il server perimetrale non è in grado di eseguire la riconvalida con il server di origine alla scadenza dell'intervallo di validità massima dell'asset, il server perimetrale restituisce un errore 504 - Timeout gateway.
+Qualsiasi valore configurato per questa funzionalità viene sostituito dall'intestazione `Cache-Control: must-revalidate` o `Cache-Control: proxy-revalidate` ricevuta dal server di origine. Se una di queste intestazioni viene ricevuta dal server di origine quando un asset viene inizialmente memorizzato nella cache, il POP non servirà un asset memorizzato nella cache non aggiornato. In questo caso, se il POP non è in grado di eseguire la riconvalida con il server di origine alla scadenza dell'intervallo massimo di validità dell'asset, restituisce un errore 504 - Timeout gateway.
 
 Informazioni chiave:
 
@@ -777,7 +777,7 @@ Informazioni chiave:
 
 Valore|Risultato
 -|-
-Attivato|Consente l'archiviazione di stringhe di query durante la registrazione degli URL in un log di accesso. Se un URL non contiene una stringa di query, questa opzione non produrrà alcun effetto.
+Enabled|Consente l'archiviazione di stringhe di query durante la registrazione degli URL in un log di accesso. Se un URL non contiene una stringa di query, questa opzione non produrrà alcun effetto.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di ignorare le stringhe di query durante la registrazione degli URL in un log di accesso.
 
 **Comportamento predefinito:** Disabled.
@@ -814,7 +814,7 @@ Le richieste inoltrate a un server di origine rifletteranno le modifiche apporta
 
 Su un'intestazione di richiesta è possibile eseguire una delle azioni seguenti:
 
-Opzione|DESCRIZIONE|Esempio
+Opzione|Descrizione|Esempio
 -|-|-
 Append|Il valore specificato verrà aggiunto alla fine del valore dell'intestazione di richiesta esistente.|**Valore intestazione richiesta (Client):**Value1 <br/> **Valore intestazione richiesta (Motore regole HTTP):** Value2 <br/>**Valore nuova intestazione di richiesta:** Value1Value2
 Overwrite|Il valore dell'intestazione di richiesta verrà impostato sul valore specificato.|**Valore intestazione richiesta (Client):**Value1 <br/>**Valore intestazione richiesta (Motore regole HTTP):** Value2 <br/>**Valore nuova intestazione richiesta:** Value2 <br/>
@@ -828,12 +828,12 @@ Informazioni chiave:
     - CACHE-CONTROL
     - cachE-Control
 - Quando si specifica un nome di intestazione, assicurarsi di usare solo caratteri alfanumerici, trattini o caratteri di sottolineatura.
-- L'eliminazione di un'intestazione impedisce che venga inoltrata a un server di origine dai server perimetrali.
+- Eliminando un'intestazione si impedisce che venga inoltrata dai POP a un server di origine.
 - Le intestazioni seguenti sono riservate e non possono essere modificate da questa funzionalità:
     - forwarded
     - host
     - via
-    - Avviso
+    - warning
     - x-forwarded-for
     - Tutti i nomi di intestazione che iniziano con "x-ec" sono riservati.
 
@@ -848,11 +848,11 @@ Ogni risposta contiene un set di intestazioni di risposta che la descrivono. Que
 - Aggiungere o sovrascrivere il valore assegnato a un'intestazione di risposta. Se l'intestazione di risposta specificata non esiste, questa funzionalità la aggiungerà alla risposta.
 - Eliminare dalla risposta un'intestazione di risposta.
 
-Per impostazione predefinita, i valori delle intestazioni di risposta vengono definiti da un server di origine e dai server perimetrali.
+Per impostazione predefinita, i valori delle intestazioni di risposta vengono definiti da un server di origine e dai POP.
 
 Su un'intestazione di risposta è possibile eseguire una delle azioni seguenti:
 
-Opzione|DESCRIZIONE|Esempio
+Opzione|Descrizione|Esempio
 -|-|-
 Append|Il valore specificato verrà aggiunto alla fine del valore dell'intestazione di risposta esistente.|**Valore intestazione risposta (Client):**Value1 <br/> **Valore intestazione risposta (Motore regole HTTP):** Value2 <br/>**Valore nuova intestazione risposta:** Value1Value2
 Overwrite|Il valore dell'intestazione di risposta verrà impostato sul valore specificato.|**Valore intestazione risposta (Client):**Value1 <br/>**Valore intestazione risposta (Motore regole HTTP):** Value2 <br/>**Valore nuova intestazione risposta:** Value2 <br/>
@@ -869,7 +869,7 @@ Informazioni chiave:
 - Le intestazioni seguenti sono riservate e non possono essere modificate da questa funzionalità:
     - accept-encoding
     - age
-    - connessione
+    - connection
     - content-encoding
     - content-length
     - content-range
@@ -877,10 +877,10 @@ Informazioni chiave:
     - server
     - trailer
     - transfer-encoding
-    - Aggiornamento
+    - upgrade
     - vary
     - via
-    - Avviso
+    - warning
     - Tutti i nomi di intestazione che iniziano con "x-ec" sono riservati.
 
 [Torna all'inizio](#azure-cdn-rules-engine-features)
@@ -895,7 +895,7 @@ Questa cache parziale può essere quindi usata per soddisfare nuove richieste de
 
 Valore|Risultato
 -|-
-Attivato|Le richieste possono generare contenuti parzialmente memorizzati nella cache.
+Enabled|Le richieste possono generare contenuti parzialmente memorizzati nella cache.
 Disabled|Le richieste possono generare solo una versione completamente memorizzata nella cache dei contenuti richiesti.
 
 **Comportamento predefinito:** Disabled.
@@ -912,7 +912,7 @@ Definire l'intervallo di tempo prima della scadenza della durata dei contenuti r
 
 Informazioni chiave:
 
-- Se si imposta l'unità di tempo su "Off", la riconvalida dovrà essere eseguita dopo la scadenza della durata dei contenuti memorizzati nella cache. Non è necessario specificare alcun valore di tempo, poiché verrebbe ignorato.
+- Se si imposta l'unità di tempo su "Off", la riconvalida dovrà essere eseguita dopo la scadenza della durata dei contenuti memorizzati nella cache. Non è necessario specificare alcun valore di tempo poiché viene ignorato.
 
 **Comportamento predefinito:** Off. La riconvalida può aver luogo solo dopo la scadenza della durata dei contenuti memorizzati nella cache.
 
@@ -922,7 +922,7 @@ Informazioni chiave:
 
 ---
 ### <a name="proxy-special-headers"></a>Intestazioni speciali proxy
-**Scopo**: definisce il set di intestazioni di richiesta specifiche della rete CDN che verranno inoltrate da un server perimetrale a un server di origine.
+**Scopo**: definisce il set di intestazioni di richiesta specifiche della rete CDN che verranno inoltrate da un POP a un server di origine.
 
 Informazioni chiave:
 
@@ -937,15 +937,15 @@ Informazioni chiave:
 
 ---
 ### <a name="refresh-zero-byte-cache-files"></a>Aggiorna i file della cache con zero byte
-**Scopo**: determina come viene gestita dai server perimetrali una richiesta da parte di un client HTTP di un asset della cache con 0 byte.
+**Scopo**: determina come viene gestita dai POP una richiesta di un asset della cache con 0 byte inviata da un client HTTP.
 
 I valori validi sono:
 
 Valore|Risultato
 --|--
-Attivato|Fa sì che il server perimetrale recuperi nuovamente l'asset dal server di origine.
+Enabled|Fa in modo che il POP recuperi nuovamente l'asset dal server di origine.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di rendere disponibili asset di cache validi su richiesta.
-Questa funzionalità non è necessaria per eseguire correttamente operazioni di memorizzazione nella cache o distribuzione di contenuti, ma può essere utile come soluzione alternativa. I generatori di contenuti dinamici nei server di origine, ad esempio, possono determinare inavvertitamente l'invio di risposte con 0 byte ai server periferici. Questi tipi di risposte, in genere, vengono memorizzati nella cache dai server perimetrali. Presupponendo che una risposta con 0 byte non sia mai una risposta valida 
+Questa funzionalità non è necessaria per eseguire correttamente operazioni di memorizzazione nella cache o distribuzione di contenuti, ma può essere utile come soluzione alternativa. I generatori di contenuti dinamici nei server di origine, ad esempio, possono determinare inavvertitamente l'invio di risposte con 0 byte ai POP. Questi tipi di risposte vengono in genere memorizzati nella cache dai POP. Presupponendo che una risposta con 0 byte non sia mai una risposta valida 
 
 per questo tipo di contenuti, questa funzionalità può impedire che ai client vengano serviti questi tipi di asset.
 
@@ -991,7 +991,7 @@ Assicurarsi che il nome di intestazione specificato non coincida con nessuno dei
     - host
     - vary
     - via
-    - Avviso
+    - warning
     - x-forwarded-for
     - Tutti i nomi di intestazione che iniziano con "x-ec" sono riservati.
 
@@ -1005,7 +1005,7 @@ Assicurarsi che il nome di intestazione specificato non coincida con nessuno dei
 
 Valore|Risultato
 -|-
-Attivato|Se si verifica un errore durante una connessione a un server di origine, al richiedente vengono serviti contenuti non aggiornati.
+Enabled|Se si verifica un errore durante una connessione a un server di origine, al richiedente vengono serviti contenuti non aggiornati.
 Disabled|L'errore del server di origine viene inoltrato al richiedente.
 
 **Comportamento predefinito:** Disabled
@@ -1016,12 +1016,12 @@ Disabled|L'errore del server di origine viene inoltrato al richiedente.
 
 ---
 ### <a name="stale-while-revalidate"></a>Client non aggiornato durante la riconvalida
-**Scopo**: migliora le prestazioni consentendo ai server perimetrali di servire contenuti non aggiornati al richiedente mentre è in corso la riconvalida.
+**Scopo**: migliora le prestazioni consentendo ai POP di servire contenuti non aggiornati al richiedente mentre è in corso la riconvalida.
 
 Informazioni chiave:
 
 - Il comportamento di questa funzionalità varia in base all'unità di tempo selezionata.
-    - **Unità di tempo:** specificare un intervallo di tempo e selezionare un'unità di tempo, ad esempio secondi, minuti, ore e così via, per consentire la distribuzione di contenuti non aggiornati. Questo tipo di configurazione consente alla rete CDN di estendere l'intervallo di tempo durante il quale può distribuire contenuti prima di richiedere la convalida in base alla formula seguente: **Durata** + **Stale While Revalidate Time** (Client non aggiornato durante la riconvalida) 
+    - **Unità di tempo:** specificare un intervallo di tempo e selezionare un'unità di tempo, ad esempio secondi, minuti, ore e così via, per consentire la distribuzione di contenuti non aggiornati. Questo tipo di configurazione consente alla rete CDN di estendere l'intervallo di tempo durante il quale può distribuire contenuti prima di richiedere la convalida in base alla formula seguente: **Durata** + **Tempo di non aggiornamento durante la riconvalida** 
     - **Off:** selezionare "Off" per richiedere la riconvalida prima che possa essere servita una richiesta di contenuti non aggiornati.
         - Non specificare un intervallo di tempo poiché non è applicabile e verrebbe ignorato.
 
@@ -1041,7 +1041,7 @@ La chiave di crittografia usata per crittografare e decrittografare i valori dei
 
 Valore | Risultato
 ------|---------
-Attivato | Protegge i contenuti richiesti con l'autenticazione basata su token. Verranno soddisfatte solo le richieste provenienti da client che forniscono un token valido e ne soddisfano i requisiti. Dall'autenticazione basata su token sono escluse le transazioni FTP.
+Enabled | Protegge i contenuti richiesti con l'autenticazione basata su token. Verranno soddisfatte solo le richieste provenienti da client che forniscono un token valido e ne soddisfano i requisiti. Dall'autenticazione basata su token sono escluse le transazioni FTP.
 Disabled| Ripristina il comportamento predefinito. Il comportamento predefinito prevede di consentire alla configurazione dell'autenticazione basata su token di determinare se una richiesta deve essere protetta.
 
 **Comportamento predefinito:** Disabled.
@@ -1056,7 +1056,7 @@ Disabled| Ripristina il comportamento predefinito. Il comportamento predefinito 
 
 Di seguito sono elencati i codici di risposta disponibili.
 
-Codice risposta|Nome risposta|DESCRIZIONE
+Codice risposta|Nome risposta|Descrizione
 ----------------|-----------|--------
 301|Spostato in modo permanente|Questo codice di stato reindirizza gli utenti non autorizzati all'URL specificato nell'intestazione Location (Percorso).
 302|Trovato|Questo codice di stato reindirizza gli utenti non autorizzati all'URL specificato nell'intestazione Location (Percorso). Questo codice di stato costituisce il metodo standard per eseguire un'operazione di reindirizzamento.
@@ -1109,8 +1109,8 @@ I valori validi sono:
 
 Valore|Risultato
 ---|----
-Attivato|Fa sì che il server perimetrale non applichi la distinzione tra maiuscole e minuscole quando confronta gli URL in base ai parametri dell'autenticazione basata su token.
-Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di applicare la distinzioni tra maiuscole e minuscole durante i confronti di URL per l'autenticazione basata su token.
+Enabled|Fa in modo che il POP non applichi la distinzione tra maiuscole e minuscole quando confronta gli URL per i parametri dell'autenticazione basata su token.
+Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di applicare la distinzione tra maiuscole e minuscole durante i confronti di URL per l'autenticazione basata su token.
 
 **Comportamento predefinito:** Disabled.
 
@@ -1130,7 +1130,7 @@ Informazioni chiave:
 
 Valore|Risultato
 ----|----
-Attivato|L'opzione Valore definisce il nome del parametro della stringa di query tramite il quale devono essere definiti i token.
+Enabled|L'opzione Valore definisce il nome del parametro della stringa di query tramite il quale devono essere definiti i token.
 Disabled|Un token può essere specificato come un parametro non definito della stringa di query nell'URL della richiesta.
 
 **Comportamento predefinito:** Disabled. Un token può essere specificato come un parametro non definito della stringa di query nell'URL della richiesta.
@@ -1145,7 +1145,7 @@ Disabled|Un token può essere specificato come un parametro non definito della s
 
 Per configurare questa funzionalità è necessario impostare le opzioni seguenti:
 
-Opzione|DESCRIZIONE
+Opzione|Descrizione
 -|-
 Codice|Selezionare il codice di risposta che verrà restituito al richiedente.
 Source & Pattern (Origine e modello)| Queste impostazioni definiscono un modello di URI di richiesta che identifica il tipo di richieste che possono essere reindirizzate. Verranno reindirizzate solo le richieste il cui URL soddisfa entrambi i criteri seguenti: <br/> <br/> **Origine (o un punto di accesso dei contenuti):** selezionare un percorso relativo che identifica un server di origine. È costituito dalla sezione "/XXXX/" e dal nome dell'endpoint. <br/> **Origine (modello):** deve essere definito un modello che identifica le richieste in base al percorso relativo. Questo modello di espressione regolare deve definire un percorso che inizia immediatamente dopo il punto di accesso dei contenuti selezionato in precedenza (vedere sopra). <br/> - Assicurarsi che i criteri dell'URI di richiesta, ad esempio origine e modello, definiti in precedenza non entrino in conflitto con le condizioni di corrispondenza definite per questa funzionalità. <br/> - Specificare un criterio; se si usa un valore vuoto come criterio, viene eseguito il confronto di tutte le stringhe.
@@ -1154,25 +1154,25 @@ Destination| Definire l'URL a cui verranno reindirizzate le richieste precedenti
 
 **Scenario di esempio**
 
-Questo esempio dimostra come reindirizzare un URL CNAME perimetrale che viene risolto nell'URL CDN di base http://marketing.azureedge.net/brochures
+Questo esempio mostra come reindirizzare un URL CNAME perimetrale che viene risolto in questo URL CDN di base: http://marketing.azureedge.net/brochures
 
-Le richieste idonee verranno reindirizzate a questo URL CNAME periferico di base: http://cdn.mydomain.com/resources
+Le richieste idonee verranno reindirizzate a questo URL CNAME perimetrale di base: http://cdn.mydomain.com/resources
 
 Questo reindirizzamento URL può essere ottenuto tramite la configurazione seguente: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **Punti principali:**
 
 - La funzionalità Reindirizzamento URL definisce gli URL di richiesta che verranno reindirizzati. Non sono quindi necessarie condizioni di corrispondenza aggiuntive. Anche se la condizione di corrispondenza è stata definita come "Always" (Sempre), verranno reindirizzate solo le richieste che puntano alla cartella "brochures" nell'origine cliente "marketing". 
-- Tutte le richieste corrispondenti verranno reindirizzate all'URL CNAME periferico definito nell'opzione Destinazione. 
-    - Scenario di esempio #1: 
-        - Richiesta di esempio (URL CDN): http://marketing.azureedge.net/brochures/widgets.pdf 
-        - URL richiesta (dopo il reindirizzamento): http://cdn.mydomain.com/resources/widgets.pdf  
-    - Scenario di esempio #2: 
-        - Richiesta di esempio (URL CDN periferico): http://marketing.mydomain.com/brochures/widgets.pdf 
-        - URL richiesta (dopo il reindirizzamento): http://cdn.mydomain.com/resources/widgets.pdf  Sample scenario
-    - Scenario di esempio #3: 
-        - Richiesta di esempio (URL CNAME periferico): http://brochures.mydomain.com/campaignA/final/productC.ppt 
-        - URL richiesta (dopo il reindirizzamento): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+- Tutte le richieste corrispondenti verranno reindirizzate all'URL CNAME perimetrale definito nell'opzione Destinazione. 
+    - Scenario di esempio 1: 
+        - Richiesta di esempio (URL rete CDN): http://marketing.azureedge.net/brochures/widgets.pdf 
+        - URL della richiesta (dopo il reindirizzamento): http://cdn.mydomain.com/resources/widgets.pdf  
+    - Scenario di esempio 2: 
+        - Richiesta di esempio (URL CNAME perimetrale): http://marketing.mydomain.com/brochures/widgets.pdf 
+        - URL della richiesta (dopo il reindirizzamento): http://cdn.mydomain.com/resources/widgets.pdf
+    - Scenario di esempio 3: 
+        - Richiesta di esempio (URL CNAME perimetrale): http://brochures.mydomain.com/campaignA/final/productC.ppt 
+        - URL della richiesta (dopo il reindirizzamento): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - Nell'opzione Destinazione è stata usata la variabile Request Scheme (Schema richiesta) (%{scheme}) in modo che lo schema della richiesta rimanga invariato dopo il reindirizzamento.
 - I segmenti di URL acquisiti dalla richiesta vengono aggiunti al nuovo URL tramite "$1."
 
@@ -1188,17 +1188,17 @@ Informazioni chiave:
 
 - Per configurare questa funzionalità è necessario impostare le opzioni seguenti:
 
-Opzione|DESCRIZIONE
+Opzione|Descrizione
 -|-
  Source & Pattern (Origine e modello) | Queste impostazioni definiscono un modello di URI di richiesta che identifica il tipo di richieste che possono essere riscritte. Verranno riscritte solo le richieste il cui URL soddisfa entrambi i criteri seguenti: <br/>     - **Origine (o un punto di accesso dei contenuti):** selezionare un percorso relativo che identifica un server di origine. È costituito dalla sezione "/XXXX/" e dal nome dell'endpoint. <br/> - **Origine (modello):** deve essere definito un modello che identifica le richieste in base al percorso relativo. Questo modello di espressione regolare deve definire un percorso che inizia immediatamente dopo il punto di accesso dei contenuti selezionato in precedenza (vedere sopra). <br/> Assicurarsi che i criteri dell'URI di richiesta, ad esempio origine e modello, definiti in precedenza non entrino in conflitto con le condizioni di corrispondenza definite per questa funzionalità. Specificare un criterio; se si usa un valore vuoto come criterio, tutte le stringhe vengono confrontate. 
  Destination  |Definire l'URL relativo in cui verranno riscritte le richieste precedenti: <br/>    1. Selezionando un punto di accesso dei contenuti che identifichi un server di origine. <br/>    2. Definendo di un percorso tramite: <br/>        - Un modello di espressione regolare <br/>        - Variabili HTTP <br/> <br/> Sostituire nel modello di destinazione i valori acquisiti nel modello di origine usando $_n_ dove _n_ identifica un valore in base all'ordine in cui è stato acquisito. Ad esempio, $1 rappresenta il primo valore acquisito nel modello di origine e $2 rappresenta il secondo valore. 
- Questa funzionalità consente ai server perimetrali di riscrivere l'URL senza eseguire un reindirizzamento tradizionale. In questo modo, il richiedente riceverà lo stesso codice di risposta come se fosse stato richiesto l'URL riscritto.
+ Questa funzionalità consente ai POP di riscrivere l'URL senza eseguire un reindirizzamento tradizionale. In questo modo, il richiedente riceverà lo stesso codice di risposta come se fosse stato richiesto l'URL riscritto.
 
 **Scenario di esempio 1**
 
-Questo esempio dimostra come reindirizzare un URL CNAME perimetrale che viene risolto nell'URL CDN di base http://marketing.azureedge.net/brochures/
+Questo esempio mostra come reindirizzare un URL CNAME perimetrale che viene risolto in questo URL CDN di base: http://marketing.azureedge.net/brochures/
 
-Le richieste idonee verranno reindirizzate a questo URL CNAME periferico di base: http://MyOrigin.azureedge.net/resources/
+Le richieste idonee verranno reindirizzate a questo URL CNAME perimetrale di base: http://MyOrigin.azureedge.net/resources/
 
 Questo reindirizzamento URL può essere ottenuto tramite la configurazione seguente: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 

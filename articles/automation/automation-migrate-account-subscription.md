@@ -1,24 +1,18 @@
 ---
-title: Eseguire la migrazione delle risorse e dell'account di Automazione | Microsoft Docs
-description: "L’articolo illustra come spostare un account di Automazione in Automazione di Azure e le risorse associate da una sottoscrizione all’altra."
+title: Eseguire la migrazione delle risorse e dell'account di Automazione
+description: L’articolo illustra come spostare un account di Automazione in Automazione di Azure e le risorse associate da una sottoscrizione all’altra.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 9c2db4a2-f324-48dc-8ce7-3343bf7230d5
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/29/2017
-ms.author: magoedte
-ms.openlocfilehash: 40567d1b1f450c499715682cf8c22f0c79c7d0c7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: carmonm
+ms.openlocfilehash: a9e76634a7392bca93ba06749741505e7b34cb41
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrate-automation-account-and-resources"></a>Eseguire la migrazione delle risorse e dell’account di Automazione
 Per gli account di Automazione e le risorse associate (ad esempio asset, runbook, moduli, e così via) creati nel portale di Azure per i quali si vuole eseguire la migrazione da un gruppo di risorse a un altro o da una sottoscrizione a un'altra, è possibile farlo facilmente grazie alla funzionalità per [spostare le risorse](../azure-resource-manager/resource-group-move-resources.md) disponibile nel portale di Azure. Prima di procedere tuttavia è necessario rivedere l'[elenco si controllo prima di spostare le risorse](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources) e, in più, l'elenco seguente specifico per Automazione.  

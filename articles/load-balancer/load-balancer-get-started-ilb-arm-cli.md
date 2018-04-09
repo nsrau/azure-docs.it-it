@@ -1,216 +1,266 @@
 ---
-title: Creare un servizio di bilanciamento del carico interno - Interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: Informazioni su come creare un servizio di bilanciamento del carico interno con l'interfaccia della riga di comando di Resource Manager
+title: Creare un servizio di bilanciamento del carico di base interno - Interfaccia della riga di comando 2.0 di Azure | Microsoft Docs
+description: Informazioni su come creare un servizio di bilanciamento del carico interno con l'interfaccia della riga di comando 2.0 di Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: c7a24e92-b4da-43c0-90f2-841c1b7ce489
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/27/2017
 ms.author: kumud
-ms.openlocfilehash: 920ddecbf81296fd83606f2908e432f5327d4b7e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d90a4e74b6ad3bb95e91ad3a5327c887a87784bd
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="create-an-internal-load-balancer-by-using-the-azure-cli"></a>Creare un servizio di bilanciamento del carico interno tramite l'interfaccia della riga di comando di Azure
+# <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Creare un servizio di bilanciamento del carico interno per le macchine virtuali mediante l'interfaccia della riga di comando 2.0 di Azure
 
-> [!div class="op_single_selector"]
-> * [Portale di Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
-> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
-> * [Modello](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+Questo articolo illustra come creare un servizio di bilanciamento del carico interno per bilanciare il carico delle macchine virtuali. Per testare il servizio di bilanciamento del carico, si distribuiscono due macchine virtuali (VM) che eseguono Ubuntu Server per bilanciare il carico di un'app Web.
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-[!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
-
-[!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
-
-## <a name="deploy-the-solution-by-using-the-azure-cli"></a>Distribuire la soluzione tramite l'interfaccia della riga di comando di Azure
-
-La procedura seguente illustra come creare un servizio di bilanciamento del carico Internet usando Azure Resource Manager con l'interfaccia della riga di comando di Azure. Con Azure Resource Manager ogni risorsa viene creata e configurata singolarmente e quindi integrata per creare una risorsa.
-
-È necessario creare e configurare gli oggetti seguenti per distribuire un servizio di bilanciamento del carico.
-
-* **Configurazione di IP front-end**: contiene gli indirizzi IP pubblici per il traffico di rete in ingresso
-* **Pool di indirizzi back-end**: contiene interfacce di rete (NIC) per le macchine virtuali per la ricezione di traffico di rete dal servizio di bilanciamento del carico
-* **Regole di bilanciamento del carico**: contiene le regole che eseguono il mapping di una porta pubblica sul servizio di bilanciamento del carico alla porta nel pool di indirizzi back-end
-* **Regole NAT in ingresso**: contiene le regole che eseguono il mapping di una porta pubblica sul servizio di bilanciamento del carico a una porta per una macchina virtuale specifica nel pool di indirizzi back-end
-* **Probe**: contengono probe di integrità usati per verificare la disponibilità di istanze di macchine virtuali nel pool di indirizzi back-end
-
-Per altre informazioni, vedere [Supporto di Azure Resource Manager per Load Balancer](load-balancer-arm.md).
-
-## <a name="set-up-cli-to-use-resource-manager"></a>Configurare l'interfaccia della riga di comando per l'uso di Resource Manager
-
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md). Seguire le istruzioni fino al punto in cui si seleziona l'account Azure e la sottoscrizione.
-2. Eseguire il comando **azure config mode** per passare alla modalità Resource Manager, come illustrato di seguito:
-
-    ```azurecli
-    azure config mode arm
-    ```
-
-    Output previsto:
-
-        info:    New mode is arm
-
-## <a name="create-an-internal-load-balancer-step-by-step"></a>Per creare un servizio di bilanciamento del carico interno, attenersi alla procedura dettagliata descritta di seguito
-
-1. Accedere ad Azure.
-
-    ```azurecli
-    azure login
-    ```
-
-    Quando richiesto, immettere le credenziali di Azure.
-
-2. Attivare la modalità Azure Resource Manager per gli strumenti di comando.
-
-    ```azurecli
-    azure config mode arm
-    ```
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.28 o successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Tutte le risorse in Azure Resource Manager vengono associate a un gruppo di risorse. Se non è ancora stato fatto, creare un gruppo di risorse.
+Come prima cosa creare un gruppo di risorse con [az group create](https://docs.microsoft.com/cli/azure/group#create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
-```azurecli
-azure group create <resource group name> <location>
+L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupILB* nella posizione *eastus*:
+
+```azurecli-interactive
+  az group create \
+    --name myResourceGroupILB \
+    --location eastus
+```
+## <a name="create-a-virtual-network"></a>Crea rete virtuale
+
+Creare una rete virtuale denominata *myVnet* con una subnet denominata *mySubnet* nel gruppo *myResourceGroup* con il comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create).
+
+```azurecli-interactive
+  az network vnet create \
+    --name myVnet
+    --resource-group myResourceGroupILB \
+    --location eastus \
+    --subnet-name mySubnet
+```
+## <a name="create-basic-load-balancer"></a>Creare un servizio di bilanciamento del carico di base
+
+Questa sezione descrive dettagliatamente come creare e configurare i componenti seguenti del servizio di bilanciamento del carico:
+  - una configurazione IP front-end che riceve il traffico di rete in ingresso sul servizio di bilanciamento del carico
+  - un pool IP back-end a cui il pool front-end invia il traffico di rete con carico bilanciato
+  - un probe di integrità che determina l'integrità delle istanze back-end delle VM
+  - una regola di bilanciamento del carico che definisce come il traffico verrà distribuito alle VM.
+
+### <a name="create-the-load-balancer"></a>Creare il servizio di bilanciamento del carico
+
+Usare il comando [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) per creare un servizio di bilanciamento del carico di base pubblico denominato **myLoadBalancer**, che include una configurazione IP front-end denominata **myFrontEnd** e un pool back-end denominato **myBackEndPool** associato a un indirizzo IP privato **10.0.0.7.
+
+```azurecli-interactive
+  az network lb create \
+    --resource-group myResourceGroupILB \
+    --name myLoadBalancer \
+    --frontend-ip-name myFrontEnd \
+    --private-ip-address 10.0.0.7 \
+    --backend-pool-name myBackEndPool \
+    --vnet-name myVnet \
+    --subnet mySubnet      
+  ```
+### <a name="create-the-health-probe"></a>Creare il probe di integrità
+
+Un probe di integrità controlla tutte le istanze di una macchina virtuale per assicurarsi che possano ricevere il traffico di rete. L'istanza della macchina virtuale con controlli di probe falliti non viene rimossa dal servizio di bilanciamento del carico fino a quando non è nuovamente online e il controllo dei probe ne certifica l'integrità. Creare un probe di integrità con il comando [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) per monitorare l'integrità delle macchine virtuali. 
+
+```azurecli-interactive
+  az network lb probe create \
+    --resource-group myResourceGroupILB \
+    --lb-name myLoadBalancer \
+    --name myHealthProbe \
+    --protocol tcp \
+    --port 80   
 ```
 
-## <a name="create-an-internal-load-balancer-set"></a>Creare un set di bilanciamento del carico interno
+### <a name="create-the-load-balancer-rule"></a>Creare la regola di bilanciamento del carico
 
-1. Creare un bilanciamento del carico interno
+Una regola di bilanciamento del carico definisce la configurazione IP front-end per il traffico in ingresso e il pool IP back-end che riceve il traffico, insieme alla porta di origine e di destinazione necessaria. Creare una regola di bilanciamento del carico *myLoadBalancerRuleWeb* con il comando [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) per l'ascolto sulla porta 80 nel pool front-end *myFrontEndPool* e l'invio del traffico di rete con carico bilanciato al pool di indirizzi back-end *myBackEndPool* sempre tramite la porta 80. 
 
-    Nello scenario seguente, viene creato un gruppo di risorse denominato nrprg viene creato nell'area Stati Uniti orientali.
-
-    ```azurecli
-    azure network lb create --name nrprg --location eastus
-    ```
-
-   > [!NOTE]
-   > Tutte le risorse per un servizio di bilanciamento del carico interno, ad esempio reti virtuali e subnet della rete virtuale, devono essere nello stesso gruppo di risorse e nella stessa area.
-
-2. Creare un indirizzo IP di front-end per il servizio di bilanciamento del carico interno.
-
-    L'indirizzo IP usato deve essere compreso nell'intervallo della subnet della rete virtuale.
-
-    ```azurecli
-    azure network lb frontend-ip create --resource-group nrprg --lb-name ilbset --name feilb --private-ip-address 10.0.0.7 --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet
-    ```
-
-3. Creare un pool di indirizzi back-end.
-
-    ```azurecli
-    azure network lb address-pool create --resource-group nrprg --lb-name ilbset --name beilb
-    ```
-
-    Dopo aver definito un indirizzo IP front-end e un pool di indirizzi back-end, è possibile creare regole del servizio di bilanciamento del carico, regole NAT in ingresso e probe di integrità personalizzati.
-
-4. Creare una regola del servizio di bilanciamento del carico per il servizio di bilanciamento del carico interno.
-
-    Attenendosi alla procedura precedente, il comando crea una regola del servizio di bilanciamento del carico in ascolto sulla porta 1433 nel pool front-end e invia traffico di rete con bilanciamento del carico al pool di indirizzi back-end usando ancora la porta 1433.
-
-    ```azurecli
-    azure network lb rule create --resource-group nrprg --lb-name ilbset --name ilbrule --protocol tcp --frontend-port 1433 --backend-port 1433 --frontend-ip-name feilb --backend-address-pool-name beilb
-    ```
-
-5. Creare regole NAT in ingresso.
-
-    Le regole NAT in ingresso vengono usate per creare endpoint in un servizio di bilanciamento del carico che viene inviato a un'istanza di macchina virtuale specifica. Nei passaggi precedenti sono state create due regole NAT per il desktop remoto.
-
-    ```azurecli
-    azure network lb inbound-nat-rule create --resource-group nrprg --lb-name ilbset --name NATrule1 --protocol TCP --frontend-port 5432 --backend-port 3389
-
-    azure network lb inbound-nat-rule create --resource-group nrprg --lb-name ilbset --name NATrule2 --protocol TCP --frontend-port 5433 --backend-port 3389
-    ```
-
-6. Creare probe di integrità per il servizio di bilanciamento del carico.
-
-    Un probe di integrità controlla tutte le istanze di una macchina virtuale per assicurarsi che possano inviare il traffico di rete. L'istanza della macchina virtuale con controlli di probe falliti non viene rimossa dal servizio di bilanciamento del carico fino a quando non è nuovamente online e il controllo dei probe ne certifica l'integrità.
-
-    ```azurecli
-    azure network lb probe create --resource-group nrprg --lb-name ilbset --name ilbprobe --protocol tcp --interval 300 --count 4
-    ```
-
-    > [!NOTE]
-    > La piattaforma Microsoft Azure usa un indirizzo IPv4 statico e instradabile pubblicamente per un'ampia gamma di scenari di amministrazione. L'indirizzo IP è 168.63.129.16. Questo indirizzo IP non deve essere bloccato da alcun firewall, perché potrebbe causare un comportamento imprevisto.
-    > Per quanto riguarda il bilanciamento del carico interno di Azure, questo indirizzo IP viene usato da probe di monitoraggio del servizio di bilanciamento del carico per determinare lo stato di integrità delle macchine virtuali in un set con carico bilanciato. Se si usa un gruppo di sicurezza di rete per limitare il traffico alle macchine virtuali di Azure in un set con carico bilanciato internamente o lo si applica a una subnet di rete virtuale, assicurarsi di aggiungere una regola di sicurezza di rete per consentire il traffico dall'indirizzo 168.63.129.16.
-
-## <a name="create-nics"></a>Creare NIC
-
-È necessario creare schede di interfaccia di rete (NIC) o modificare quelle esistenti e associarle a regole NAT, regole del servizio di bilanciamento del carico e probe.
-
-1. Creare una scheda di interfaccia di rete denominata *lb-nic1-be* e associarla alla regola NAT *rdp1* e al pool di indirizzi back-end *beilb*.
-
-    ```azurecli
-    azure network nic create --resource-group nrprg --name lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" --location eastus
-    ```
-
-    Output previsto:
-
-        info:    Executing command network nic create
-        + Looking up the network interface "lb-nic1-be"
-        + Looking up the subnet "nrpvnetsubnet"
-        + Creating network interface "lb-nic1-be"
-        + Looking up the network interface "lb-nic1-be"
-        data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
-        data:    Name                            : lb-nic1-be
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : eastus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Private IP address            : 10.0.0.4
-        data:      Private IP Allocation Method  : Dynamic
-        data:      Subnet                        : /subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet
-        data:      Load balancer backend address pools
-        data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
-        data:      Load balancer inbound NAT rules:
-        data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1
-        data:
-        info:    network nic create command OK
-
-2. Creare una scheda di interfaccia di rete denominata *lb-nic2-be* e associarla alla regola NAT *rdp2* e al pool di indirizzi back-end *beilb*.
-
-    ```azurecli
-    azure network nic create --resource-group nrprg --name lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" --location eastus
-    ```
-
-3. Creare una macchina virtuale denominata *DB1* e associarla alla scheda di interfaccia di rete denominata *lb-nic1-be*. Un account di archiviazione denominato *web1nrp* è stato creato prima dell'esecuzione del comando seguente:
-
-    ```azurecli
-    azure vm create --resource--resource-grouproup nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
-    ```
-    > [!IMPORTANT]
-    > Le macchine virtuali in un servizio di bilanciamento del carico devono trovarsi nello stesso set di disponibilità. Usare `azure availset create` per creare un set di disponibilità.
-
-4. Creare una macchina virtuale (VM) denominata *DB2* e associarla alla scheda di interfaccia di rete denominata *lb-nic2-be*. Un account di archiviazione denominato *web1nrp* è stato creato prima dell'esecuzione del comando seguente.
-
-    ```azurecli
-    azure vm create --resource--resource-grouproup nrprg --name DB2 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
-    ```
-
-## <a name="delete-a-load-balancer"></a>Eliminare un servizio di bilanciamento del carico
-
-Per rimuovere un servizio di bilanciamento del carico, usare il comando seguente:
-
-```azurecli
-azure network lb delete --resource-group nrprg --name ilbset
+```azurecli-interactive
+  az network lb rule create \
+    --resource-group myResourceGroupILB \
+    --lb-name myLoadBalancer \
+    --name myHTTPRule \
+    --protocol tcp \
+    --frontend-port 80 \
+    --backend-port 80 \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool \
+    --probe-name myHealthProbe  
 ```
+
+## <a name="create-servers-for-the-backend-address-pool"></a>Creare server per il pool di indirizzi back-end
+
+Prima di distribuire alcune macchine virtuali e testare il servizio di bilanciamento del carico, creare le risorse di rete virtuale di supporto.
+
+###  <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
+Creare un gruppo di sicurezza di rete per definire le connessioni in ingresso alla rete virtuale.
+
+```azurecli-interactive
+  az network nsg create \
+    --resource-group myResourceGroupILB \
+    --name myNetworkSecurityGroup
+```
+
+### <a name="create-a-network-security-group-rule"></a>Creare una regola del gruppo di sicurezza di rete
+
+Creare una regola del gruppo di sicurezza di rete per consentire il traffico in ingresso attraverso la porta 80.
+
+```azurecli-interactive
+  az network nsg rule create \
+    --resource-group myResourceGroupILB \
+    --nsg-name myNetworkSecurityGroup \
+    --name myNetworkSecurityGroupRuleHTTP \
+    --protocol tcp \
+    --direction inbound \
+    --source-address-prefix '*' \
+    --source-port-range '*' \
+    --destination-address-prefix '*' \
+    --destination-port-range 22 \
+    --access allow \
+    --priority 300
+```
+### <a name="create-nics"></a>Creare NIC
+
+Creare due interfacce di rete con il comando [az network nic create](/cli/azure/network/nic#az_network_nic_create) e associarle all'indirizzo IP privato e al gruppo di sicurezza di rete. 
+
+```azurecli-interactive
+for i in `seq 1 2`; do
+  az network nic create \
+    --resource-group myResourceGroupILB \
+    --name myNic$i \
+    --vnet-name myVnet \
+    --subnet mySubnet \
+    --network-security-group myNetworkSecurityGroup \
+    --lb-name myLoadBalancer \
+    --lb-address-pools myBackEndPool
+done
+```
+
+## <a name="create-backend-servers"></a>Creare i server back-end
+
+In questo esempio vengono create due macchine virtuali da usare come server back-end per il bilanciamento del carico. Viene inoltre installato NGINX nelle macchine virtuali per verificare l'avvenuta creazione del servizio di bilanciamento del carico.
+
+### <a name="create-an-availability-set"></a>Creare un set di disponibilità
+
+Creare un set di disponibilità con il comando [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create)
+
+ ```azurecli-interactive
+  az vm availability-set create \
+    --resource-group myResourceGroupILB \
+    --name myAvailabilitySet
+```
+
+### <a name="create-two-virtual-machines"></a>Creare due macchine virtuali
+
+È possibile usare un file di configurazione cloud-init per installare NGINX ed eseguire un'app Node.js "Hello World" in una macchina virtuale Linux. Nella shell corrente creare un file denominato cloud-init.txt e incollare la configurazione seguente. Assicurarsi che l'intero file cloud-init venga copiato correttamente, in particolare la prima riga:
+
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+  - nodejs
+  - npm
+write_files:
+  - owner: www-data:www-data
+  - path: /etc/nginx/sites-available/default
+    content: |
+      server {
+        listen 80;
+        location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection keep-alive;
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+        }
+      }
+  - owner: azureuser:azureuser
+  - path: /home/azureuser/myapp/index.js
+    content: |
+      var express = require('express')
+      var app = express()
+      var os = require('os');
+      app.get('/', function (req, res) {
+        res.send('Hello World from host ' + os.hostname() + '!')
+      })
+      app.listen(3000, function () {
+        console.log('Hello world app listening on port 3000!')
+      })
+runcmd:
+  - service nginx restart
+  - cd "/home/azureuser/myapp"
+  - npm init
+  - npm install express -y
+  - nodejs index.js
+``` 
+ 
+Creare le macchine virtuali con il comando [az vm create](/cli/azure/vm#az_vm_create).
+
+ ```azurecli-interactive
+for i in `seq 1 2`; do
+  az vm create \
+    --resource-group myResourceGroupILB \
+    --name myVM$i \
+    --availability-set myAvailabilitySet \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt
+    done
+```
+La distribuzione delle macchine virtuali può richiedere alcuni minuti.
+
+### <a name="create-a-vm-for-testing-the-load-balancer"></a>Creare una macchina virtuale per testare il servizio di bilanciamento del carico
+
+Per testare il servizio di bilanciamento del carico, creare una macchina virtuale denominata *myVMTest* e associarla a *myNic3*.
+
+```azurecli-interactive
+ az vm create \
+    --resource-group myResourceGroupILB \
+    --name myVMTest \
+    --image win2016datacenter \
+    --admin-username azureuser \
+    --admin-password myPassword123456!
+```
+
+## <a name="test-the-internal-load-balancer"></a>Testare il servizio di bilanciamento del carico interno
+
+Per testare il servizio di bilanciamento del carico, è innanzitutto necessario ottenere l'indirizzo IP privato del servizio. Accedere quindi alla macchina virtuale myVMTest e digitare l'indirizzo IP privato nella barra degli indirizzi del Web browser.
+
+Per ottenere l'indirizzo IP privato del servizio di bilanciamento del carico, usare il comando [az network lb show](/cli/azure/network/public-ip##az-network-lb-show). Copiare l'indirizzo IP privato e incollarlo nella barra degli indirizzi del Web browser della macchina virtuale *myVMTest*.
+
+```azurecli-interactive
+  az network lb show \
+    --name myLoadBalancer
+    --resource-group myResourceGroupILB
+``` 
+![Testare il bilanciamento del carico](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non sono più necessari, è possibile rimuovere il gruppo di risorse, il servizio di bilanciamento del carico e tutte le risorse correlate tramite il comando [az group delete](/cli/azure/group#az_group_delete).
+
+```azurecli-interactive 
+  az group delete --name myResourceGroupILB
+```
+
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-[Configurare una modalità di distribuzione del servizio di bilanciamento del carico usando l'affinità dell'IP di origine](load-balancer-distribution-mode.md)
-
-[Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
-
+In questo articolo è stato creato un servizio di bilanciamento del carico di base interno a cui sono collegate macchine virtuali, è stata configurata la regola del traffico di bilanciamento del carico e del probe di integrità e quindi il servizio di bilanciamento del carico è stato testato. Per altre informazioni sui servizi di bilanciamento del carico e sulle risorse associate, passare alle procedure dettagliate.

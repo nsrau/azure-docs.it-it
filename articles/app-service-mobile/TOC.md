@@ -119,7 +119,6 @@
 #### [Back-end Node.js](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
 ## Proteggere
-### [Authentication and authorization](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json) (Autenticazione e autorizzazione)
 ### Eseguire l'autenticazione con provider di identità
 #### [Autenticazione di Azure Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Autenticazione di Facebook](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -157,7 +156,7 @@
 ### [Abilitare la registrazione diagnostica](../app-service/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Risolvere i problemi con Visual Studio](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-# riferimento
+# Riferimenti
 ## [.NET backend SDK](https://msdn.microsoft.com/library/azure/dn961176.aspx)
 ## [Node.js backend SDK](https://azure.github.io/azure-mobile-apps-node/)
 ## [Android client SDK](https://azure.github.io/azure-mobile-apps-android-client/)

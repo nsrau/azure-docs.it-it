@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: seohack1
-ms.openlocfilehash: c2589aabce86f848fa1aa3e25b3f78be180c5525
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 766ff118638538520c8f17694b32f35dbe6d1025
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-azure-role-based-access-control"></a>Risoluzione dei problemi del controllo degli accessi in base al ruolo di Azure 
 
-Questo articolo contiene le risposte alle domande comuni sui diritti di accesso specifici concessi ai ruoli, in modo da sapere cosa accade quando si usano i ruoli nel Portale di Azure e da poter risolvere i problemi di accesso. Questi tre ruoli coprono tutti i tipi di risorsa:
+Questo articolo contiene le risposte alle domande comuni sui diritti di accesso specifici concessi ai ruoli, in modo da sapere cosa accade quando si usano i ruoli nel Portale di Azure e risolvere i problemi di accesso. Questi tre ruoli coprono tutti i tipi di risorsa:
 
 * Proprietario  
 * Collaboratore  
@@ -31,7 +31,7 @@ Questo articolo contiene le risposte alle domande comuni sui diritti di accesso 
 
 Proprietari e collaboratori hanno accesso completo all'esperienza di gestione, ma il collaboratore non può concedere l'accesso ad altri utenti o gruppi. Il ruolo di lettore è maggiormente articolato e verrà quindi esaminato in maniera più approfondita. Per informazioni dettagliate su come concedere l'accesso, vedere [Controllo degli accessi in base al ruolo di Azure](role-based-access-control-configure.md) .
 
-## <a name="app-service-workloads"></a>Carichi di lavoro del servizio app
+## <a name="app-service"></a>Servizio app
 ### <a name="write-access-capabilities"></a>Funzionalità di accesso in scrittura
 Se si concede a un utente l'accesso in sola lettura a un'unica app Web, sono disabilitate alcune funzionalità non prevedibili. Per le funzionalità di gestione seguenti è necessario avere accesso **in scrittura** a un'app Web, come Collaboratore o Proprietario. Tali funzionalità non saranno disponibili in uno scenario di sola lettura.
 
@@ -69,7 +69,14 @@ Gli elementi seguenti richiedono accesso **in scrittura** all'intero **gruppo di
 * Componenti di Application Insights  
 * Test Web  
 
-## <a name="virtual-machine-workloads"></a>Carichi di lavoro delle macchine virtuali
+## <a name="azure-functions"></a>Funzioni di Azure
+Alcune funzionalità di [Funzioni di Azure](../azure-functions/functions-overview.md) richiedono l'accesso in scrittura. Ad esempio un utente, a cui è stato assegnato il ruolo di lettore, non sarà in grado di visualizzare le funzioni all'interno di un'app per le funzioni. Sul portale verrà indicato **(Nessun accesso)**.
+
+![Nessun accesso alle app per le funzioni](./media/role-based-access-control-troubleshooting/functionapps-noaccess.png)
+
+Un lettore può fare clic sulla scheda **Funzionalità della piattaforma** e quindi su **Tutte le impostazioni** per visualizzare alcune impostazioni correlate a un'app per le funzioni (in modo simile a un'app Web), ma non può modificare nessuna impostazione.
+
+## <a name="virtual-machine"></a>Macchina virtuale
 Analogamente a quanto accade con le app Web, alcune funzionalità del blade della macchina virtuale richiedono l'accesso in scrittura alla macchina virtuale o ad altre risorse del gruppo di risorse.
 
 Le macchine virtuali sono correlate a nomi di dominio, reti virtuali, account di archiviazione e regole di avviso.

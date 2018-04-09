@@ -3,7 +3,7 @@ title: Creare avvisi per i servizi di Azure - Portale di Azure | Documentazione 
 description: Attivare messaggi di posta elettronica o notifiche, chiamare URL di siti Web (webhook) o usare l'automazione quando vengono soddisfatte le condizioni specificate.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 4acf1f549a6c901fb0b772c4591f1f35d61365ad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Creare avvisi sulle metriche in Monitoraggio di Azure per i servizi di Azure: portale di Azure
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Creare avvisi sulle metriche classici in Monitoraggio di Azure per i servizi di Azure: portale di Azure
 > [!div class="op_single_selector"]
 > * [di Microsoft Azure](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,6 +29,12 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>Panoramica
+
+> [!NOTE]
+> Questo articolo descrive come creare versioni meno recenti degli avvisi delle metriche. Monitoraggio di Azure supporta ora avvisi delle metriche più recenti e migliori. Questi avvisi possono monitorare più metriche e consentire le segnalazioni sulle metriche dimensionali. Altre informazioni sugli [avvisi delle metriche quasi in tempo reale](monitoring-near-real-time-metric-alerts.md).
+>
+>
+
 Questo articolo descrive come impostare gli avvisi sulle metriche di Azure tramite il portale di Azure. 
 
 È possibile ricevere avvisi basati su metriche di monitoraggio o eventi nei servizi Azure.
@@ -43,14 +49,9 @@ Questo articolo descrive come impostare gli avvisi sulle metriche di Azure trami
 * chiamare un webhook
 * avviare l'esecuzione di un runbook di Azure (solo dal portale di Azure)
 
-> [!NOTE]
-> Monitoraggio di Azure ora supporta gli avvisi delle metriche quasi in tempo reale in anteprima pubblica. Vengono usati i gruppi di azioni. Altre informazioni sugli [avvisi delle metriche quasi in tempo reale](monitoring-near-real-time-metric-alerts.md).
->
->
-
 È possibile configurare e ottenere informazioni sulle regole degli avvisi sulle metriche tramite
 
-* [Azure portal](insights-alerts-portal.md)
+* [Portale di Azure](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
 * [interfaccia della riga di comando](insights-alerts-command-line-interface.md)
 * [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
@@ -58,11 +59,11 @@ Questo articolo descrive come impostare gli avvisi sulle metriche di Azure trami
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Creare una regola di avviso in base a una metrica con il portale di Azure
 1. Nel [portale](https://portal.azure.com/), individuare la risorsa da monitorare e selezionarla.
 
-2. Selezionare **Avvisi** o **Regole di avviso** nella sezione MONITORAGGIO. Il testo e l'icona possono lievemente variare per le diverse risorse.  
+2. Selezionare **Avvisi (versione classica)** nella sezione MONITORAGGIO. Il testo e l'icona possono lievemente variare per le diverse risorse. Se non si trova **Avvisi (versione classica)**, cercare in **Avvisi** o **Regole di avviso**
 
     ![Monitoraggio](./media/insights-alerts-portal/AlertRulesButton.png)
 
-3. Selezionare il comando **Aggiungi avviso** e compilare i campi.
+3. Selezionare il comando **Aggiungi avviso per la metrica** e compilare i campi.
 
     ![Aggiungi avviso](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 
@@ -91,7 +92,7 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Leggere una panoramica del monitoraggio di Azure](monitoring-overview.md) che include anche i tipi di informazioni che è possibile raccogliere e monitorare.
-* Altre informazioni sugli [avvisi delle metriche quasi in tempo reale (anteprima)](monitoring-near-real-time-metric-alerts.md).
+* Altre informazioni sui [nuovi avvisi delle metriche](monitoring-near-real-time-metric-alerts.md)
 * Altre informazioni sulla [configurazione dei webhook negli avvisi](insights-webhooks-alerts.md).
 * Altre informazioni sulla [configurazione di avvisi sugli eventi del log attività](monitoring-activity-log-alerts.md).
 * Altre informazioni sui [runbook di automazione di Azure](../automation/automation-starting-a-runbook.md).

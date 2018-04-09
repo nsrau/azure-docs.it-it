@@ -2,29 +2,29 @@
 title: Configurare MPIO per il dispositivo StorSimple | Microsoft Docs
 description: Descrive come configurare Multipath I/O per il dispositivo StorSimple connesso a un host che esegue Windows Server 2012 R2
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/05/2017
+ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 9fe3fa3a2df63d111de742ecb48b1469aad543cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f2b094604f486d283574f4669fcad6f72bd4431
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurare Multipath I/O per il dispositivo StorSimple
 
 Questa esercitazione descrive i passaggi da seguire per installare e usare la funzionalità Multipath I/O (MPIO) in un host che esegue Windows Server 2012 R2 e connesso a un dispositivo fisico StorSimple. Le indicazioni fornite in questo articolo si applicano solo ai dispositivi fisici StorSimple serie 8000. La funzionalità MPIO non è attualmente supportata in un'appliance cloud StorSimple.
 
-Microsoft ha creato il supporto per funzionalità Multipath I/O (MPIO) in Windows Server per consentire la creazione di configurazioni SAN a elevata disponibilità e con tolleranza d’errore. MPIO utilizza componenti di percorso fisico ridondanti, adattatori, cavi e interruttori, per creare percorsi logici tra il server e il dispositivo di archiviazione. Se si verifica un errore del componente, che causa l’errore di un percorso logico, la logica dei percorsi multipli utilizza un percorso alternativo per l’I/O, in modo che le applicazioni possano continuare ad accedere ai dati. Inoltre, in base alla configurazione, MPIO può anche migliorare le prestazioni bilanciando nuovamente il carico tra tutti questi percorsi. Per ulteriori informazioni, vedere [Panoramica di Multipath I/O](https://technet.microsoft.com/library/cc725907.aspx "Panoramica di Multipath I/O and features").
+Microsoft ha creato il supporto per funzionalità Multipath I/O (MPIO) in Windows Server per consentire la creazione di configurazioni di rete iSCI a elevata disponibilità e con tolleranza d'errore. MPIO utilizza componenti di percorso fisico ridondanti, adattatori, cavi e interruttori, per creare percorsi logici tra il server e il dispositivo di archiviazione. Se si verifica un errore del componente, che causa l’errore di un percorso logico, la logica dei percorsi multipli utilizza un percorso alternativo per l’I/O, in modo che le applicazioni possano continuare ad accedere ai dati. Inoltre, in base alla configurazione, MPIO può anche migliorare le prestazioni bilanciando nuovamente il carico tra tutti questi percorsi. Per ulteriori informazioni, vedere [Panoramica di Multipath I/O](https://technet.microsoft.com/library/cc725907.aspx "Panoramica di Multipath I/O and features").
 
 Per la disponibilità elevata della soluzione StorSimple, è necessario configurare MPIO nel dispositivo StorSimple. Quando MPIO è installato nei server host che eseguono Windows Server 2012 R2, i server possono dunque tollerare un errore di collegamento, di rete o di interfaccia.
 
@@ -149,12 +149,12 @@ Dopo la configurazione di MPIO in Windows Server, i volumi creati nel dispositiv
 
 ## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Passaggio 4: Configurare MPIO per la disponibilità elevata e il bilanciamento del carico
 
-Per la disponibilità elevata e il bilanciamento del carico basato su percorsi multipli, è necessario aggiungere manualmente più sessioni per dichiarare i diversi percorsi disponibili. Ad esempio, se l'host dispone di due interfacce connesse alla rete SAN e il dispositivo dispone di due interfacce connesse alla rete SAN, è necessario configurare quattro sessioni con permutazioni percorso corrette (se ciascuna interfaccia DATA e ciascuna interfaccia host si trova in una subnet IP diversa e non è instradabile saranno necessarie solo due sessioni).
+Per la disponibilità elevata e il bilanciamento del carico basato su percorsi multipli, è necessario aggiungere manualmente più sessioni per dichiarare i diversi percorsi disponibili. Ad esempio, se l'host dispone di due interfacce connesse alla rete iSCSI e il dispositivo dispone di due interfacce connesse alla rete iSCSI, è necessario configurare quattro sessioni con permutazioni percorso corrette (se ciascuna interfaccia DATA e ciascuna interfaccia host si trova in una subnet IP diversa e non è instradabile saranno necessarie solo due sessioni).
 
 **È consigliabile avere almeno 8 sessioni parallele attive tra il dispositivo e l'applicazione host in uso.** Ciò può essere ottenuto tramite l'abilitazione di 4 interfacce di rete nel sistema Windows Server in uso. Usare interfacce di rete fisiche o interfacce virtuali tramite le tecnologie di virtualizzazione di rete a livello di hardware o di sistema operativo nell'host Windows Server. Con le due interfacce di rete sul dispositivo, questa configurazione restituirà 8 sessioni attive. Questa configurazione consente di ottimizzare la velocità effettiva del dispositivo e del cloud.
 
 > [!IMPORTANT]
-> **È consigliabile non combinare interfacce di rete da 1 GbE e da 10 GbE. Se si utilizzano due interfacce di rete, devono essere di tipo identico.**
+> **È consigliabile non combinare interfacce di rete da 1 GbE e da 10 GbE. Se si usano due interfacce di rete, devono essere di tipo identico.**
 
 Nella procedura seguente viene descritto come aggiungere le sessioni quando un dispositivo StorSimple con due interfacce di rete viene connesso a un host con due interfacce di rete. Si hanno così solo 4 sessioni. Usare la stessa procedura con un dispositivo StorSimple con due interfacce di rete connesse a un host con quattro interfacce di rete. Sarà necessario configurare 8 sessioni anziché 4 come descritto qui.
 
@@ -172,15 +172,15 @@ Nella procedura seguente viene descritto come aggiungere le sessioni quando un d
 6. Nella finestra di dialogo **Impostazioni avanzate** :
    
    1. Nell'elenco a discesa **Scheda locale** selezionare **Iniziatore iSCSI Microsoft**.
-   2. Nell'elenco a discesa **IP iniziatore** , selezionare l’indirizzo IP dell'host.
-   3. Nell’elenco a discesa **IP portale di destinazione** , selezionare l’indirizzo IP dell’interfaccia di dati abilitata sul dispositivo.
+   2. Nell'elenco a discesa **IP iniziatore** selezionare l'indirizzo IP corrispondente alla prima interfaccia dell'host (interfaccia iSCSI).
+   3. Nell'elenco a discesa **IP portale destinazione** selezionare l'indirizzo IP per la prima interfaccia di dati abilitata sul dispositivo.
    4. Fare clic su **OK** per tornare alla finestra di dialogo Proprietà iniziatore iSCSI.
 7. Fare clic su **Proprietà** e nella finestra di dialogo **Proprietà** fare clic su **Aggiungi sessione**.
 8. Nella finestra di dialogo **Connessione alla destinazione** selezionare la casella di controllo **Consenti percorsi multipli**, quindi fare clic su **Avanzate**.
 9. Nella finestra di dialogo **Impostazioni avanzate** :
    
    1. Nell'elenco a discesa **Scheda locale** selezionare **Iniziatore iSCSI Microsoft**.
-   2. Nell’elenco a discesa **IP iniziatore** , selezionare l’indirizzo IP corrispondente alla seconda interfaccia dell'host.
+   2. Nell'elenco a discesa **IP iniziatore** selezionare l'indirizzo IP corrispondente alla seconda interfaccia iSCSI dell'host.
    3. Nell’elenco a discesa **IP portale di destinazione** , selezionare l’indirizzo IP per la seconda interfaccia di dati abilitata sul dispositivo.
    4. Fare clic su **OK** per tornare alla finestra di dialogo **iSCSI Initiator Properties** (Proprietà iniziatore iSCSI). È stata aggiunta ora una seconda sessione alla destinazione.
 10. Ripetere i passaggi da 8 a 10 per aggiungere altre sessioni (percorsi) alla destinazione. Con due interfacce nell'host e due sul dispositivo, è possibile aggiungere un totale di quattro sessioni.

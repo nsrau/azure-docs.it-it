@@ -1,24 +1,21 @@
 ---
 title: Utilizzo dell'API Graph - Azure AD B2C | Microsoft Docs
-description: "Come chiamare l'API Graph per un tenant di B2C usando l'identità di un'applicazione per automatizzare il processo."
+description: Come chiamare l'API Graph per un tenant di B2C usando l'identità di un'applicazione per automatizzare il processo.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
-ms.author: parakhj
-ms.openlocfilehash: aee051946c90c686959066ac14798f807e7b91b0
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.author: davidmu
+ms.openlocfilehash: ff3aa44a4e2513f4d3e5ac2eed84715b8fe9b004
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usare l'API Graph di Azure AD
 
@@ -48,7 +45,7 @@ Dopo aver creato un tenant B2C, è necessario registrare l'applicazione tramite 
 3. Nel riquadro di spostamento sinistro scegliere **Tutti i servizi**, fare clic su **Registrazioni per l'app** e quindi su **Aggiungi**.
 4. Seguire le istruzioni e creare una nuova applicazione. 
     1. Selezionare **App Web/API** come Tipo di applicazione.    
-    2. Fornire **qualsiasi URI di reindirizzamento** (ad esempio https://B2CGraphAPI) in quanto non è rilevante per questo esempio.  
+    2. Fornire un **URL di accesso qualsiasi** (ad esempio https://B2CGraphAPI) non essendo pertinente per questo esempio.  
 5. L'applicazione verrà mostrata nell'elenco delle applicazioni, fare clic su di essa per ottenere l'**ID applicazione** (noto anche come ID Client). Copiarlo in quanto sarà necessario in una sezione successiva.
 6. Nel menu Impostazioni fare clic su **Chiavi** e aggiungere una nuova chiave (nota anche come segreto client). Copiare anche questa per usarla in una sezione successiva.
 

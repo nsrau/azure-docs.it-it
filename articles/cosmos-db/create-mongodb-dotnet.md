@@ -15,17 +15,17 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/19/2018
 ms.author: mimig
-ms.openlocfilehash: 90b1ec66007302ed02032e04e7f3d771012ad02d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: cffce67988f6e703b5152f4eb7fc39fccf63a9a5
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Creare un'app Web per le API MongoDB con .NET e il portale di Azure
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
-Questa guida introduttiva illustra come creare un account, un database di documenti e una raccolta di Azure Cosmos DB con il portale di Azure. Si creerà e distribuirà quindi un'app Web di tipo elenco attività basata sul [driver .NET MongoDB](https://docs.mongodb.com/ecosystem/drivers/csharp/).
+Questa guida introduttiva illustra come creare un account, un database di documenti e una raccolta [API di MongoDB](mongodb-introduction.md) in Azure Cosmos DB con il portale di Azure. Si creerà e distribuirà quindi un'app Web di tipo elenco attività basata sul [driver .NET MongoDB](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
 ## <a name="prerequisites-to-run-the-sample-app"></a>Prerequisiti per eseguire l'app di esempio
 
