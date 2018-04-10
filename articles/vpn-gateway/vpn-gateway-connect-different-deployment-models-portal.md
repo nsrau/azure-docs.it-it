@@ -89,7 +89,7 @@ La tabella seguente illustra un esempio di come sono definiti le reti virtuali e
 
 In questa sezione vengono creati il gateway di rete virtuale classica, il gateway di rete locale (sito locale) e il gateway di rete virtuale. Gli screenshot sono forniti come esempio. Sostituire i valori con i valori personalizzati o usare i valori dell'[Esempio](#values).
 
-### 1. <a name="classicvnet">Creare una rete virtuale classica</a>
+### 1. <a name="classicvnet"></a>Creare una rete virtuale classica
 
 Se si eseguono questi passaggi come esercizio e non si dispone di una rete virtuale classica, è possibile creare una rete virtuale usando [questo articolo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e i valori delle impostazioni dell'[Esempio](#values) riportati sopra.
 
