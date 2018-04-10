@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1f1b987d00fad4931f9ad39b39101cc474c2a1e3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 54f63ec4cddf64110eadf25fff60167238f9f9a6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Creare e gestire un set di scalabilità di macchine virtuali con Azure PowerShell
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. Nel ciclo di vita del set di scalabilità di una macchina virtuale potrebbe essere necessario eseguire una o più attività di gestione. In questa esercitazione si apprenderà come:
@@ -45,7 +45,6 @@ Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azur
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
-
 In questa esercitazione, il nome del gruppo di risorse viene specificato quando si crea o si modifica un set di scalabilità.
 
 
@@ -83,10 +82,10 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 L'output di esempio seguente mostra due istanze di VM nel set di scalabilità:
 
 ```powershell
-ResourceGroupName         Name Location          Sku InstanceID ProvisioningState
------------------         ---- --------          --- ---------- -----------------
-MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS2          0         Succeeded
-MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS2          1         Succeeded
+ResourceGroupName         Name Location             Sku InstanceID ProvisioningState
+-----------------         ---- --------             --- ---------- -----------------
+MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS1_v2          0         Succeeded
+MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
 Per visualizzare altre informazioni su un'istanza di VM specifica, aggiungere il parametro `-InstanceId` a [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). L'esempio seguente consente di visualizzare informazioni sull'istanza di VM *1*:
@@ -235,7 +234,7 @@ Standard_NV6                       6      57344               24        1047552 
 Standard_NV12                     12     114688               48        1047552               696320
 ```
 
-Quando è stato creato un set di scalabilità all'inizio dell'esercitazione, per le istanze di VM è stato usato lo SKU di VM predefinito *Standard_D1_v2*. È possibile specificare una dimensione di istanza di VM diversa in base all'output di [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). L'esempio seguente creerà un set di scalabilità con il parametro `-VmSize` per specificare la dimensione di istanza di VM *Standard_F1*. Dato che la creazione e la configurazione di tutte le risorse e le istanze di VM del set di scalabilità richiedono alcuni minuti, non è necessario distribuire il set di scalabilità seguente:
+Quando è stato creato un set di scalabilità all'inizio dell'esercitazione, per le istanze di VM è stato usato lo SKU di VM predefinito *Standard_DS1_v2*. È possibile specificare una dimensione di istanza di VM diversa in base all'output di [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). L'esempio seguente creerà un set di scalabilità con il parametro `-VmSize` per specificare la dimensione di istanza di VM *Standard_F1*. Dato che la creazione e la configurazione di tutte le risorse e le istanze di VM del set di scalabilità richiedono alcuni minuti, non è necessario distribuire il set di scalabilità seguente:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `

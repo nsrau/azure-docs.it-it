@@ -8,11 +8,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: c2a52a387860de640e290746b25c164090819654
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 19629f383bdab19a2541ca33dd2937574c2ced17
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Esercitazione: Eseguire l'autenticazione degli utenti con Azure Active Directory B2C in un'app Web ASP.NET
 
@@ -66,7 +66,7 @@ Annotare l'**ID client applicazione**. L'ID identifica l'app in modo univoco ed 
 
 ### <a name="create-a-client-password"></a>Creare una password client
 
-Azure AD B2C usa l'autorizzazione OAuth2 per le [applicazioni client](../active-directory/develop/active-directory-dev-glossary.md#client-application). Le app Web sono [client riservati](../active-directory/develop/active-directory-dev-glossary.md#web-client) e richiedono un segreto client (password). L'ID client dell'applicazione e il segreto client vengono usati quando l'app Web esegue l'autenticazione con Azure Active Directory. 
+Azure AD B2C usa l'autorizzazione OAuth2 per le [applicazioni client](../active-directory/develop/active-directory-dev-glossary.md#client-application). Le app Web sono [client riservati](../active-directory/develop/active-directory-dev-glossary.md#web-client) e richiedono un ID client o un ID applicazione e un segreto client, una password client o una chiave applicazione.
 
 1. Selezionare la pagina Chiavi per l'app Web registrata e fare clic su **Genera chiave**.
 
@@ -150,7 +150,7 @@ La soluzione di esempio contiene due progetti:
 
 **App di esempio dell'API Web (TaskService):** API Web che supporta la funzionalità di creazione, lettura, aggiornamento ed eliminazione dell'elenco di attività. L'API Web è protetta da Azure AD B2C e chiamata dall'app Web.
 
-È necessario modificare l'app per l'uso della registrazione dell'app nel tenant. È anche necessario configurare i criteri creati. L'app Web di esempio definisce i valori di configurazione come impostazioni dell'app nel file Web.config. Per modificare le impostazioni dell'app:
+È necessario modificare l'app per l'uso della registrazione dell'app nel tenant, che include l'ID client o l'ID applicazione e la password client o la chiave applicazione. È anche necessario configurare i criteri creati. L'app Web di esempio definisce i valori di configurazione come impostazioni dell'app nel file Web.config. Per modificare le impostazioni dell'app:
 
 1. Aprire la soluzione **B2C-WebAPI-DotNet** in Visual Studio.
 
@@ -161,7 +161,7 @@ La soluzione di esempio contiene due progetti:
     
     <add key="ida:ClientId" value="The Application ID for your web app registered in your tenant" />
     
-    <add key="ida:ClientSecret" value="Client password (client secret)" />
+    <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
 3. Aggiornare le impostazioni dei criteri con il nome generato quando sono stati creati i criteri.
 

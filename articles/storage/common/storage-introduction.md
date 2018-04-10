@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: eb68993924bff8605fc244f438a686f0142c4762
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 18a8065bba8a4a0ec2025d6b9134fe9fab21eb5f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduzione ad Archiviazione di Microsoft Azure
 
@@ -143,35 +143,11 @@ Per altre informazioni sulla crittografia lato client, vedere [Crittografia lato
 
 ## <a name="replication"></a>Replica
 
-Per assicurare che i dati siano durevoli, Archiviazione di Azure manterrà e gestirà più copie dei dati. Questo approccio viene definito replica o ridondanza. Quando si configura l'account di archiviazione, si seleziona un tipo di replica. Nella maggior parte dei casi questa impostazione può essere modificata dopo la configurazione dell'account di archiviazione.
+Per assicurare che i dati siano durevoli, Archiviazione di Azure esegue la replica di più copie dei dati. Quando si configura l'account di archiviazione, si seleziona un tipo di replica. Nella maggior parte dei casi questa impostazione può essere modificata dopo la creazione dell'account di archiviazione. 
 
-**Archiviazione con ridondanza locale (LRS)**
-
-L'archiviazione con ridondanza locale è progettata per garantire almeno il 99,999999999% (11 9) di durabilità degli oggetti nell'arco di un anno specifico. Di conseguenza, Archiviazione di Azure gestisce più copie dei dati nel data center specificato durante la configurazione dell'account di archiviazione. Quando viene eseguito il commit delle modifiche, tutte le copie vengono aggiornate prima della restituzione dell'esito positivo. Le repliche sono quindi sempre sincronizzate. Le copie, inoltre, si trovano in domini di errore e di aggiornamento separati e i dati sono quindi disponibili anche in caso di errore in un nodo di archiviazione contenente i dati o se questo viene portato offline per un aggiornamento.
-
-**Archiviazione con ridondanza della zona (ZRS) (Anteprima)**
-
-L'archiviazione con ridondanza della zona è progettata per semplificare lo sviluppo di applicazioni a disponibilità elevata. Offre almeno il 99,9999999999% (12 9) di durabilità degli oggetti di archiviazione nell'arco di un anno. Replica i dati in modo sincrono in più zone di disponibilità. Valutare l'uso dell'archiviazione con ridondanza della zona per scenari, quali quelli delle applicazioni transazionali, in cui i tempi di inattività non sono accettabili. L'archiviazione con ridondanza della zona consente ai clienti di leggere e scrivere dati anche se una singola zona non è disponibile o non può essere ripristinata. Gli inserimenti e gli aggiornamenti dei dati vengono eseguiti in modo sincrono e sono notevolmente coerenti.    
-
-La precedente funzionalità di archiviazione con ridondanza della zona è ora nota come versione classica dell'archiviazione con ridondanza della zona. Gli account della versione classica dell'archiviazione con ridondanza della zona sono disponibili solo per i BLOB in blocchi negli account di archiviazione per utilizzo generico v1. La versione classica dell'archiviazione con ridondanza della zona replica i dati in modo asincrono nei data center in una o due aree. Una replica potrebbe non essere disponibile a meno che Microsoft non avvii il failover all'area secondaria. Un account della versione classica dell'archiviazione con ridondanza della zona non può essere convertito da o verso l'archiviazione con ridondanza locale o l'archiviazione con ridondanza geografica e non include funzionalità di registrazione o metrica.
-
-**Archiviazione con ridondanza geografica (GRS)**
-
-L'archiviazione con ridondanza geografica è progettata per offrire il 99,99999999999999% (16 9) di durabilità degli oggetti nell'arco di un anno mantenendo le copie locali dei dati in un'area primaria e un altro set di copie dei dati in un'area secondaria distante centinaia di chilometri dall'area primaria. In caso di errore nell'area primaria, il servizio di archiviazione di Azure eseguirà il failover all'area secondaria.
-
-**Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).**
-
-L'archiviazione con ridondanza geografica e accesso in lettura è esattamente uguale all'archiviazione con ridondanza geografica, ma si ottiene l'accesso in lettura ai dati nella posizione secondaria. Se il data center primario risulta temporaneamente non disponibile, è possibile continuare a leggere i dati dalla posizione secondaria. Questo approccio può risultare molto utile. È ad esempio possibile che sia presente un'applicazione Web che passa alla modalità di sola lettura e fa riferimento a una copia secondaria, consentendo l'accesso parziale, anche se gli aggiornamenti non sono disponibili.
-
-> [!IMPORTANT]
-> È possibile cambiare la modalità di replica dei dati dopo la creazione dell'account di archiviazione. Se però si passa dall'archiviazione con ridondanza locale o dall'archiviazione con ridondanza della zona all'archiviazione con ridondanza geografica o all'archiviazione con ridondanza geografica e accesso in lettura, potrebbe essere addebitato un costo una tantum per il trasferimento dei dati.
->
-
-Per altre informazioni sulle opzioni di replica, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 Per informazioni sul ripristino di emergenza, vedere [Cosa fare se si verifica un'interruzione di Archiviazione di Azure](storage-disaster-recovery-guidance.md).
-
-Per un esempio su come usare l'archiviazione con ridondanza geografica e accesso in lettura per assicurare la disponibilità elevata, vedere [Progettazione di applicazioni a disponibilità elevata con RA-GRS](storage-designing-ha-apps-with-ragrs.md).
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Trasferimento dei dati da e verso Archiviazione di Azure
 

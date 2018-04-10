@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 88475c169bd6cc8fc4d653801ec1af58ebc7620e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 97c2f68356a6a589f48224d297493509786ceff1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le seguenti funzionalità di integrazione di dati in diversi ambienti di rete:
@@ -94,14 +94,14 @@ Per eseguire in modalità lift-and-shift il carico di lavoro SSIS esistente, è 
 È possibile eseguire il provisioning del runtime di integrazione Azure-SSIS nella rete pubblica o privata.  L'accesso ai dati locali è supportata aggiungendo il runtime di integrazione Azure-SSIS a una rete virtuale connessa alla rete locale.  
 
 ### <a name="compute-resource-and-scaling"></a>Risorsa di calcolo e ridimensionamento
-Il runtime di integrazione Azure-SSIS è un cluster completamente gestito di macchine virtuali Azure dedicato all'esecuzione di pacchetti SSIS. È possibile usare il proprio server di database SQL o Istanza gestita (anteprima privata) per eseguire l'hosting del catalogo di progetti/pacchetti SSIS (SSISDB) da associare ad esso. È possibile aumentare la potenza di calcolo specificando la dimensione del nodo e scalare orizzontalmente specificando il numero di nodi nel cluster. È possibile gestire il costo di esecuzione del runtime di integrazione Azure-SSIS interrompendolo e avviandolo in base alle necessità.
+Il runtime di integrazione Azure-SSIS è un cluster completamente gestito di macchine virtuali Azure dedicato all'esecuzione di pacchetti SSIS. È possibile usare il proprio server di database SQL o Istanza gestita di Azure (anteprima) per ospitare il catalogo di progetti/pacchetti SSIS (SSISDB) da associare ad esso. È possibile aumentare la potenza di calcolo specificando la dimensione del nodo e scalare orizzontalmente specificando il numero di nodi nel cluster. È possibile gestire il costo di esecuzione del runtime di integrazione Azure-SSIS interrompendolo e avviandolo in base alle necessità.
 
 Per altre informazioni, vedere l'articolo su come creare e configurare il runtime di integrazione SSIS di Azure nelle guide alle procedure.  Dopo la creazione è possibile distribuire e gestire i pacchetti SSIS esistenti con poche o nessuna modifica usando strumenti familiari, ad esempio SQL Server Data Tools (SSDT) e SQL Server Management Studio (SSMS), come si usa SSIS in locale.
 
 Per altre informazioni sul runtime SSIS di Azure, vedere gli articoli seguenti: 
 
 - [Esercitazione: distribuire i pacchetti SSIS in Azure](tutorial-create-azure-ssis-runtime-portal.md). In questo articolo vengono fornite le istruzioni passo per passo per creare un runtime di integrazione SSIS di Azure e utilizzare un database Azure SQL per ospitare il catalogo SSIS. 
-- [Procedura: come creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md). Questo articolo amplia l'esercitazione e fornisce istruzioni sull'utilizzo dell’istanza gestita di database SQL di Azure (anteprima privata) e sull’aggiunta del runtime di integrazione a un VNet. 
+- [Procedura: come creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md). Questo articolo amplia l'esercitazione e fornisce istruzioni sull'uso di Istanza gestita di SQL di Azure (anteprima) e sull'aggiunta del runtime di integrazione a una rete virtuale. 
 - [Monitorare un runtime di integrazione SSIS di Azure](monitor-integration-runtime.md#azure-ssis-integration-runtime). In questo articolo viene illustrato come recuperare informazioni su un runtime di integrazione SSIS di Azure e le descrizioni degli stati nelle informazioni restituite. 
 - [Gestire un runtime di integrazione SSIS di Azure](manage-azure-ssis-integration-runtime.md). In questo articolo viene illustrato come arrestare, avviare o rimuovere un runtime di integrazione SSIS di Azure. Viene inoltre mostrato come scalare orizzontalmente il runtime di integrazione SSIS di Azure aggiungendo più nodi al runtime di integrazione. 
 - [Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale](join-azure-ssis-integration-runtime-virtual-network.md). Questo articolo fornisce informazioni sull'aggiunta di un runtime di integrazione SSIS di Azure a una rete virtuale di Azure (VNet). Indica inoltre i passaggi per usare il portale di Azure per configurare VNet in modo che il runtime di integrazione SSIS di Azure possa essere aggiunto alla rete virtuale. 
@@ -178,13 +178,13 @@ Quando viene usato per eseguire lo spostamento di dati, il runtime di integrazio
 ### <a name="azure-ssis-ir"></a>Runtime di integrazione Azure-SSIS
 Selezionando la località corretta per il runtime di integrazione Azure-SSIS è fondamentale ottenere prestazioni elevate per ei flussi di lavoro di estrazione, trasformazione e caricamento (ETL).  Sei località sono inizialmente disponibili per l'anteprima (Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Australia orientale, Europa settentrionale ed Europa occidentale).
 
-- La località del runtime di integrazione Azure-SSIS non deve essere necessariamente uguale a quella della data factory, ma deve essere uguale a quella del server del database SQL/Istanza gestita di Azure (anteprima privata) in cui verrà eseguito l'hosting di SSISDB. In questo modo il runtime di integrazione Azure-SSIS può accedere facilmente a SSISDB senza incorrere in traffico eccessivo tra le diverse località.
-- Se non si dispone di un server del database SQL/Istanza gestita di Azure (anteprima privata) esistente per eseguire l'hosting di SSISDB, ma si dispone di origini/destinazioni di dati locali, è opportuno creare un nuovo server del database SQL/Istanza gestita di Azure (anteprima privata) nella stessa località di una rete virtuale connessa alla rete locale.  In questo modo è possibile creare il runtime di integrazione Azure-SSIS usando il nuovo server del database SQL/Istanza gestita di Azure (anteprima privata) e aggiungendo tale rete virtuale, tutto nella stessa località, riducendo al minimo gli spostamenti di dati in località diverse in modo efficace.
-- Se la località del server del database SQL/Istanza gestita di Azure (anteprima privata) esistente in cui è stato eseguito l'hosting di SSISDB non è la stessa località di una rete virtuale connessa alla rete locale, creare prima il runtime di integrazione Azure-SSIS usando un server del database SQL/Istanza gestita di Azure (anteprima privata) e aggiungendo un'altra rete virtuale nella stessa località e quindi configurare una connessione da rete virtuale a rete virtuale tra località diverse.
+- La posizione del runtime di integrazione Azure-SSIS non deve essere necessariamente uguale a quella della data factory, ma deve essere uguale a quella del server di database SQL di Azure/Istanza gestita di Azure (anteprima) in cui verrà ospitato SSISDB. In questo modo il runtime di integrazione Azure-SSIS può accedere facilmente a SSISDB senza incorrere in traffico eccessivo tra le diverse località.
+- Se non è disponibile un server di database SQL di Azure/Istanza gestita di Azure (anteprima) esistente per ospitare SSISDB, ma sono disponibili origini/destinazioni locali per i dati, è opportuno creare un nuovo server di database SQL di Azure/Istanza gestita di Azure (anteprima) nella stessa posizione di una rete virtuale connessa alla rete locale.  In questo modo è possibile creare il runtime di integrazione Azure-SSIS usando il nuovo server di database SQL di Azure/Istanza gestita di Azure (anteprima) e aggiungendo tale rete virtuale, il tutto nella stessa posizione, riducendo al minimo gli spostamenti di dati in posizioni diverse.
+- Se la posizione del server di database SQL di Azure/Istanza gestita di Azure (anteprima) esistente in cui è ospitato SSISDB non è la stessa posizione di una rete virtuale connessa alla rete locale, creare prima il runtime di integrazione Azure-SSIS usando un server di database SQL di Azure/Istanza gestita di Azure (anteprima) e aggiungendo un'altra rete virtuale nella stessa posizione e quindi configurare una connessione da rete virtuale a rete virtuale tra posizioni diverse.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:
 
 - [Creare il runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md)
-- [Creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md). Questo articolo amplia l'esercitazione e fornisce istruzioni sull'utilizzo dell’istanza gestita di database SQL di Azure (anteprima privata) e sull’aggiunta del runtime di integrazione a un VNet. 
+- [Creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md). Questo articolo amplia l'esercitazione e fornisce istruzioni sull'uso di Istanza gestita di SQL di Azure (anteprima) e sull'aggiunta del runtime di integrazione a una rete virtuale. 

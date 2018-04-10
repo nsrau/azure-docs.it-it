@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: backup
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 850d4d1e2ef6a13fcd8a072e6da210d558c7769b
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 8093275ec9e9cce6d9a765bf1bfc434fecdb6ea7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Domande sul backup di file di Azure
 Questo articolo risponde a domande comuni sul backup di file di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -29,8 +29,14 @@ Durante l'anteprima, il backup per le condivisioni file di Azure non supporta tu
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>Perché non vengono visualizzate alcune delle condivisioni file di Azure nell'account di archiviazione quando si prova a configurare il backup? <br/>
 Verificare se la condivisione file di Azure è già protetta nello stesso insieme di credenziali di Servizi di ripristino oppure se è stata eliminata di recente.
 
-### <a name="why-cant-i-protect-file-shares-connected-to-a-sync-group-in-azure-file-sync-br"></a>Perché non è possibile proteggere condivisioni file connesse a un gruppo di sincronizzazione in Sincronizzazione file di Azure? <br/>
-La protezione di condivisioni file di Azure connesse a gruppi di sincronizzazione è disponibile in anteprima limitata. Inviare un messaggio a [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) indicando l'ID della sottoscrizione per richiedere l'accesso. 
+### <a name="can-i-protect-file-shares-connected-to-a-sync-group-in-azure-files-sync-br"></a>È possibile proteggere condivisioni file connesse a un gruppo di sincronizzazione in Sincronizzazione file di Azure? <br/>
+Sì. La protezione di condivisioni file di Azure connesse a gruppi di sincronizzazione è abilitata ed è inclusa nell'anteprima pubblica.
+
+### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-did-not-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Durante un tentativo di backup delle condivisioni file, è stato selezionato un account di archiviazione per individuare le condivisioni file presenti. Le condivisioni non sono state tuttavia protette. Come si possono proteggere queste condivisioni file con altri insiemi di credenziali?
+Durante un tentativo di backup, la selezione di un account di archiviazione per l'individuazione di condivisioni file incluse in tale account comporta la registrazione dell'account di archiviazione nell'insieme di credenziali da cui viene eseguita l'operazione. Se si sceglie di proteggere le condivisioni file con un insieme di credenziali diverso, [annullare la registrazione](troubleshoot-azure-files.md#configuring-backup) dell'account di archiviazione scelto da questo insieme di credenziali.
+
+### <a name="can-i-change-the-vault-to-which-i-backup-my-file-shares"></a>È possibile cambiare l'insieme di credenziali in cui si esegue il backup delle condivisioni file?
+Sì. Sarà tuttavia necessario [interrompere la protezione](backup-azure-files.md#stop-protecting-an-azure-file-share) dall'insieme di credenziali connesso, [annullare la registrazione](troubleshoot-azure-files.md#configuring-backup) dell'account di archiviazione e quindi proteggerlo da un insieme di credenziali diverso.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>In quali aree geografiche è possibile eseguire il backup di condivisioni file di Azure? <br/>
 Il backup di condivisioni file di Azure è attualmente disponibile in anteprima e solo nelle aree geografiche seguenti: 
@@ -43,7 +49,11 @@ Il backup di condivisioni file di Azure è attualmente disponibile in anteprima 
 -   Australia orientale (AE) 
 -   Stati Uniti orientali (EUS)
 -   Stati Uniti orientali 2 (EUS2)
+- Giappone orientale (JPE)
+- Giappone occidentale (JPW)
 -   India centrale (INC) 
+- India meridionale (INS)
+- Corea meridionale (KRS)
 -   Stati Uniti centro-settentrionali (NCUS) 
 -   Europa settentrionale (NE) 
 -   Stati Uniti a centro-meridionali (SCUS) 
@@ -58,12 +68,15 @@ Il backup di condivisioni file di Azure è attualmente disponibile in anteprima 
 Inviare un messaggio a [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) se è necessario usare la funzionalità in un'area geografica non indicata nell'elenco.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vaultbr"></a>Quante condivisioni file di Azure si possono proteggere in un insieme di credenziali?<br/>
-Durante l'anteprima è possibile proteggere condivisioni file di Azure di un massimo di 25 account di archiviazione per ogni insieme di credenziali. È possibile proteggere fino a 200 condivisioni file di Azure in un singolo insieme di credenziali. 
+Durante l'anteprima è possibile proteggere condivisioni file di Azure di un massimo di 25 account di archiviazione per ogni insieme di credenziali. È possibile proteggere fino a 200 condivisioni file di Azure in un singolo insieme di credenziali.
+
+### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>È possibile proteggere due condivisioni file diverse dallo stesso account di archiviazione in insiemi di credenziali diversi?
+di serie Tutte le condivisioni file di un account di archiviazione possono essere protette solo dallo stesso insieme di credenziali.
 
 ## <a name="backup"></a>Backup
 
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>Quanti backup su richiesta è possibile eseguire per ogni condivisione file? <br/>
-È previsto un limite di 200 snapshot per ogni condivisione file. Il limite include gli snapshot creati da Backup di Azure in base ai criteri definiti. Se si iniziano a rilevare errori con i backup dopo aver raggiunto questo limite, eliminare i punti di ripristino su richiesta per poter completare i backup successivi.
+È previsto un limite di 200 snapshot per ogni condivisione file in qualsiasi momento. Il limite include gli snapshot creati da Backup di Azure in base ai criteri definiti. Se si iniziano a rilevare errori con i backup dopo aver raggiunto questo limite, eliminare i punti di ripristino su richiesta per poter completare i backup successivi.
 
 ### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>Dopo aver abilitato le reti virtuali nell'account di archiviazione, il backup di condivisioni file nell'account non riesce. Perché?
 Il backup di condivisioni file di Azure non supporta attualmente gli account di archiviazione con reti virtuali abilitate. Disabilitare le reti virtuali negli account di archiviazione per consentire il backup. 
@@ -85,7 +98,7 @@ Sì. Se si è scelto **Conserva i dati di backup** quando è stata interrotta la
 Il backup di condivisioni file di Azure consente di conservare i backup giornalieri fino a 120 giorni.
 
 ### <a name="what-happens-when-i-change-the-backup-policy-for-an-azure-file-share-br"></a>Cosa accade quando si modificano i criteri di backup per una condivisione file di Azure? <br/>
-Quando vengono applicati nuovi criteri a una o più condivisioni file, vengono seguite la pianificazione e la conservazione stabilite dai nuovi criteri. Se il periodo di conservazione viene esteso, i punti di ripristino esistenti vengono contrassegnati in modo che vengano mantenuti in base ai nuovi criteri. Se il periodo di conservazione viene ridotto, vengono contrassegnati per l'eliminazione ed eliminati nel successivo processo di pulizia.
+Quando vengono applicati nuovi criteri a una o più condivisioni file, vengono seguite la pianificazione e la conservazione stabilite dai nuovi criteri. Se il periodo di conservazione viene esteso, i punti di ripristino esistenti vengono contrassegnati in modo che vengano mantenuti in base ai nuovi criteri. Se il periodo di conservazione viene ridotto, vengono contrassegnati per l'eliminazione nel processo di pulizia successivo e vengono eliminati.
 
 ## <a name="see-also"></a>Vedere anche 
 Queste informazioni riguardano solo il backup di file di Azure. Per informazioni su altre aree di Backup di Azure, vedere queste domande frequenti sul backup:

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 40abc884a898dc16ae4d785c13d3e926fb30e432
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1d477bfe42cebbc35db4fd40aa5bc3de4829c49b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>Creare una macchina virtuale Linux con PowerShell
 
@@ -30,7 +30,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Questa guida introduttiva richiede il modulo Azure PowerShell 3.6 o versioni successive. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-È infine necessario archiviare una chiave pubblica SSH denominata *id_rsa.pub* nella directory *.ssh* del profilo utente di Windows. Per informazioni dettagliate sulla creazione delle chiavi SSH per Azure, vedere [Create SSH keys for Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Creare chiavi SSH per Azure).
+È infine necessario archiviare una chiave pubblica SSH denominata *id_rsa.pub* nella directory *.ssh* del profilo utente di Windows. Per informazioni dettagliate su come creare e usare le chiavi SSH, vedere [Creare chiavi SSH per Azure](ssh-from-windows.md).
 
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure

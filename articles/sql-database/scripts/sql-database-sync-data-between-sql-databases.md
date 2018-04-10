@@ -1,13 +1,13 @@
 ---
-title: "Esempio di sincronizzazione di PowerShell tra più database SQL di Azure | Microsoft Docs"
-description: "Script di esempio di Azure PowerShell per sincronizzare più database SQL di Azure"
+title: Esempio di sincronizzazione di PowerShell tra più database SQL di Azure | Microsoft Docs
+description: Script di esempio di Azure PowerShell per sincronizzare più database SQL di Azure
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
@@ -17,15 +17,15 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 23446e4156daca3903f15e538e2c47e63fcbf673
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8a6dbf6e8cdd2fe066c11cc14ae587912873f7e4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Usare PowerShell per sincronizzare più database SQL
  
-Questo esempio di Azure PowerShell permette di configurare la sincronizzazione dei dati per sincronizzare più database SQL di Azure.
+Questo esempio di Azure PowerShell consente di configurare la sincronizzazione dei dati (anteprima) per sincronizzare più database SQL di Azure.
 
 Questo esempio richiede il modulo Azure PowerShell 4.2 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
