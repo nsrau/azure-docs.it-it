@@ -2,21 +2,21 @@
 title: Eseguire il provisioning di un dispositivo con il servizio Device Provisioning in hub IoT di Azure| Microsoft Docs
 description: Eseguire il provisioning del dispositivo in un singolo hub IoT con il servizio Device Provisioning in hub IoT di Azure
 services: iot-dps
-keywords: 
+keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 03/28/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: bf50699d2dc67294d554ba15713254a8b88d8ade
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d98ce103bed7f9d14eb45422b70ceca1328afaa
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Eseguire il provisioning del dispositivo in un hub IoT con il servizio Device Provisioning in hub IoT di Azure
 
@@ -29,25 +29,25 @@ Nell'esercitazione precedente abbiamo appreso come configurare un dispositivo pe
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Prima di procedere, assicurarsi di configurare il dispositivo e il relativo *modulo di protezione hardware* come descritto nell'esercitazione [Configurare un dispositivo per il provisioning usando il servizio Device Provisioning in hub IoT di Azure](./tutorial-set-up-device.md).
+Prima di procedere, assicurarsi di configurare il dispositivo come descritto nell'esercitazione [Configurare un dispositivo per il provisioning usando il servizio Device Provisioning in hub IoT di Azure](./tutorial-set-up-device.md).
 
+Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md) prima di continuare.
 
 <a id="enrolldevice"></a>
 ## <a name="enroll-the-device"></a>Registrare il dispositivo
 
-Questo passaggio prevede l'aggiunta di elementi di sicurezza esclusivi del dispositivo al servizio Device Provisioning. Di seguito sono indicati gli elementi di sicurezza.
+Questo passaggio prevede l'aggiunta di elementi di sicurezza esclusivi del dispositivo al servizio Device Provisioning. Questi elementi di sicurezza si basano sul [Meccanismo di attestazione](concepts-device.md#attestation-mechanism) del dispositivo, come indicato di seguito:
 
-- Per i dispositivi basati su TPM:
-    - *Chiave di verifica dell'autenticità*, univoca per ogni chip TPM o simulazione. Per altre informazioni leggere [Informazioni sulla chiave di verifica dell'autenticità del TPM](https://technet.microsoft.com/library/cc770443.aspx).
-    - *ID di registrazione*, usato per identificare in modo univoco un dispositivo nell'ambito o nello spazio dei nomi. Può coincidere o meno con l'ID dispositivo. L'ID è obbligatorio per ogni dispositivo. Per i dispositivi basati su TPM, l'ID di registrazione può essere derivato dal TPM stesso, ad esempio un hash SHA-256 della chiave di verifica dell'autenticità del TPM.
+- Per i dispositivi basati su TPM sono necessari:
+    - *Chiave di verifica dell'autenticità*, che è univoca per ogni chip TPM o simulazione e che deve essere richiesta al produttore del chip TPM.  Per altre informazioni leggere [Informazioni sulla chiave di verifica dell'autenticità del TPM](https://technet.microsoft.com/library/cc770443.aspx).
+    - *ID di registrazione*, usato per identificare in modo univoco un dispositivo nell'ambito o nello spazio dei nomi. L'ID può coincidere o meno con l'ID dispositivo. L'ID è obbligatorio per ogni dispositivo. Per i dispositivi basati su TPM, l'ID di registrazione può essere derivato dal TPM stesso, ad esempio un hash SHA-256 della chiave di verifica dell'autenticità del TPM.
 
     ![Informazioni di registrazione per TPM nel portale](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)
 
-- Per i dispositivi basati su X.509:
-    - [Certificato emesso nel chip X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) o nella simulazione, sotto forma di file con estensione *pem* o *cer*. Per la registrazione individuale è necessario usare il *certificato del firmatario* per il sistema X.509, mentre per i gruppi di registrazione è necessario usare il *certificato radice*.
+- Per i dispositivi basati su X.509 sono necessari:
+    - [Certificato emesso nel chip X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) o nella simulazione, sotto forma di file con estensione *pem* o *cer*. Per la registrazione individuale è necessario usare il *certificato del firmatario* per dispositivo per il sistema X.509, mentre per i gruppi di registrazione è necessario usare il *certificato radice*. 
 
     ![Informazioni di registrazione per X.509 nel portale](./media/tutorial-provision-device-to-hub/x509-device-enrollment.png)
-
 
 È possibile registrare il dispositivo nel servizio Device Provisioning in due modi:
 
@@ -55,30 +55,28 @@ Questo passaggio prevede l'aggiunta di elementi di sicurezza esclusivi del dispo
 
     ![Gruppi di registrazione per X.509 nel portale](./media/tutorial-provision-device-to-hub/x509-enrollment-groups.png)
 
-- **Individual Enrollments** (Registrazioni individuali) Rappresenta una voce per un singolo dispositivo che può eseguire la registrazione al servizio Device Provisioning. Le registrazioni individuali possono usare certificati X.509 o token di firma di accesso condiviso (in un TPM reale o virtuale) come meccanismo di attestazione. È consigliabile usare le registrazioni individuali per i dispositivi che richiedono configurazioni iniziali univoche oppure per i dispositivi che possono usare solo token di firma di accesso condiviso tramite TPM o TPM virtuale come meccanismo di attestazione. In caso di registrazione individuale è possibile specificare l'ID dispositivo hub IoT desiderato.
+- **Individual Enrollments** (Registrazioni individuali) Rappresenta una voce per un singolo dispositivo che può eseguire la registrazione al servizio Device Provisioning. Le registrazioni individuali possono usare certificati X.509 o token di firma di accesso condiviso (in un TPM reale o virtuale) come meccanismo di attestazione. È consigliabile usare le registrazioni individuali per i dispositivi che richiedono configurazioni iniziali univoche e per i dispositivi che possono usare solo token di firma di accesso condiviso tramite TPM o TPM virtuale come meccanismo di attestazione. In caso di registrazione individuale è possibile specificare l'ID dispositivo hub IoT desiderato.
 
-Di seguito sono indicati i passaggi per registrare il dispositivo nel portale:
-
-1. Prendere nota degli elementi di sicurezza per il modulo di protezione hardware nel dispositivo. Potrebbe essere necessario usare le API riportate nella sezione relativa all'[estrazione di elementi di sicurezza](./tutorial-set-up-device.md#extractsecurity) dell'esercitazione precedente in un ambiente di sviluppo.
+Ora si registra il dispositivo con l'istanza del servizio Device Provisioning, usando gli elementi di sicurezza necessari in base al meccanismo di attestazione del dispositivo: 
 
 1. Accedere al portale di Azure, fare clic sul pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio Device Provisioning.
 
-1. Nel pannello di riepilogo del servizio Device Provisioning selezionare **Manage enrollments** (Gestisci registrazioni). Selezionare la scheda **Individual Enrollments** (Registrazioni individuali) o **Enrollment Groups** (Gruppi di registrazione) in base alla configurazione del dispositivo. Fare clic sul pulsante **Add** (Aggiungi) in alto. Selezionare **TPM** o **X.509** come *meccanismo* di attestazione dell'identità e immettere gli elementi di sicurezza appropriati come descritto in precedenza. È possibile immettere un nuovo **ID di dispositivo hub IoT**. Al termine, fare clic sul pulsante **Save** (Salva). 
+2. Nel pannello di riepilogo del servizio Device Provisioning selezionare **Manage enrollments** (Gestisci registrazioni). Selezionare la scheda **Individual Enrollments** (Registrazioni individuali) o **Enrollment Groups** (Gruppi di registrazione) in base alla configurazione del dispositivo. Fare clic sul pulsante **Add** (Aggiungi) in alto. Selezionare **TPM** o **X.509** come *meccanismo* di attestazione dell'identità e immettere gli elementi di sicurezza appropriati come descritto in precedenza. È possibile immettere un nuovo **ID di dispositivo hub IoT**. Al termine, fare clic sul pulsante **Save** (Salva). 
 
-1. Quando la registrazione del dispositivo è completata, verrà visualizzato nel portale come riportato di seguito:
+3. Quando la registrazione è completata, il dispositivo verrà visualizzato nel portale come riportato di seguito:
 
     ![Successful TPM enrollment in the portal (Registrazione TPM nel portale riuscita)](./media/tutorial-provision-device-to-hub/tpm-enrollment-success.png)
 
+Dopo la registrazione, il servizio di provisioning attende che il dispositivo venga avviato per potersi connettere successivamente. Quando il dispositivo viene avviato per la prima volta, la libreria SDK del client interagisce con il chip per estrarre gli elementi di sicurezza dal dispositivo e verifica la registrazione con il servizio Device Provisioning. 
 
 ## <a name="start-the-device"></a>Avviare il dispositivo
 
 A questo punto la configurazione seguente è pronta per la registrazione del dispositivo:
 
 1. Il dispositivo o il gruppo di dispositivi sono registrati per il servizio Device Provisioning e 
-2. Il dispositivo include il chip del modulo di protezione hardware configurato ed è accessibile tramite l'applicazione usando il client SDK del servizio Device Provisioning.
+2. Il dispositivo è pronto con il meccanismo di attestazione configurato ed è accessibile attraverso l'applicazione usando Device Provisioning Service client SDK.
 
 Avviare il dispositivo per consentire all'applicazione client di eseguire la registrazione al servizio Device Provisioning.  
-
 
 ## <a name="verify-the-device-is-registered"></a>Verificare che il dispositivo sia registrato
 

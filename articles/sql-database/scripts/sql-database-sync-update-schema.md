@@ -1,13 +1,13 @@
 ---
-title: 'Esempio di PowerShell: aggiornare lo schema di sincronizzazione per la sincronizzazione dati SQL | Microsoft Docs'
+title: 'Esempio di PowerShell: aggiornare lo schema di sincronizzazione per la sincronizzazione dati SQL (anteprima) | Microsoft Docs'
 description: Script di esempio di Azure PowerShell per aggiornare lo schema di sincronizzazione per la sincronizzazione dati SQL
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
@@ -17,20 +17,20 @@ ms.workload: database
 ms.date: 01/10/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 66bf084f585b86979e6521321daf466c571de10c
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 5f9f0a5921951669d451a9755c5da2091287c909
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Usare PowerShell per aggiornare lo schema di sincronizzazione in un gruppo di sincronizzazione esistente
 
-In questo esempio di PowerShell viene aggiornato lo schema di sincronizzazione in un gruppo di sincronizzazione esistente. Quando si sincronizzano più tabelle, questo script consente di aggiornare lo schema di sincronizzazione in modo efficiente.
+In questo esempio di PowerShell viene aggiornato lo schema di sincronizzazione in un gruppo di sincronizzazione dati SQL (anteprima) esistente. Quando si sincronizzano più tabelle, questo script consente di aggiornare lo schema di sincronizzazione in modo efficiente.
 
 Questo esempio illustra l'uso dello script **UpdateSyncSchema**, disponibile su GitHub come [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
 
 Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure (anteprima)](../sql-database-sync-data.md).
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Questo esempio richiede il modulo Azure PowerShell 4.2 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  

@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: ce72c1a68c1dbe5cede33dd42adc1b002a81326e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6226fea5001d19a6f0e1f6700d90ea2b9481d43c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Applicare la disponibilità elevata ai dati delle applicazioni con l'archiviazione di Azure
 
-Questa esercitazione è la prima parte di una serie e illustra come garantire la disponibilità elevata dei dati delle applicazioni in Azure. Al termine, si disporrà di un'applicazione console che recupera e carica un BLOB in un account di archiviazione [con ridondanza geografica e accesso in lettura](../common/storage-redundancy.md#read-access-geo-redundant-storage). L'archiviazione con ridondanza geografica e accesso in lettura funziona replicando le transazioni dall'area primaria all'area secondaria. Il processo di replica garantisce che i dati nell'area secondaria abbiano coerenza finale. L'applicazione usa il criterio [Interruttore](/azure/architecture/patterns/circuit-breaker) per determinare l'endpoint a cui connettersi. L'applicazione passa all'endpoint secondario quando viene simulato un errore.
+Questa esercitazione è la prima parte di una serie e illustra come garantire la disponibilità elevata dei dati delle applicazioni in Azure. Al termine, si disporrà di un'applicazione console che recupera e carica un BLOB in un account di archiviazione [con ridondanza geografica e accesso in lettura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage). L'archiviazione con ridondanza geografica e accesso in lettura funziona replicando le transazioni dall'area primaria all'area secondaria. Il processo di replica garantisce che i dati nell'area secondaria abbiano coerenza finale. L'applicazione usa il criterio [Interruttore](/azure/architecture/patterns/circuit-breaker) per determinare l'endpoint a cui connettersi. L'applicazione passa all'endpoint secondario quando viene simulato un errore.
 
 Nella prima parte della serie si apprenderà come:
 

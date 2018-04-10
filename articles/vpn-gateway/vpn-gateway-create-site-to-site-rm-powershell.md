@@ -4,7 +4,7 @@ description: Passaggi per creare una connessione IPsec dalla rete locale a una r
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: fcc2fda5-4493-4c15-9436-84d35adbda8e
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 84df8b286bd9f3ae3012f297c3a929ef57369ff6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6ee23beaa450129be7c173da9efc687cc3790a15
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Creare una rete virtuale con una connessione VPN da sito a sito usando PowerShell e Azure Resource Manager
 
@@ -33,7 +33,6 @@ Questo articolo illustra come usare PowerShell per creare una connessione gatewa
 > 
 >
 
-
 Una connessione gateway VPN da sito a sito viene usata per connettere la rete locale a una rete virtuale di Azure tramite un tunnel VPN IPsec/IKE (IKEv1 o IKEv2). Questo tipo di connessione richiede un dispositivo VPN che si trova in locale con un indirizzo IP pubblico esterno assegnato. Per altre informazioni sui gateway VPN, vedere [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md).
 
 ![Diagramma della connessione cross-premise gateway VPN da sito a sito](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-diagram.png)
@@ -45,7 +44,16 @@ Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti
 * Verificare di avere un dispositivo VPN compatibile e che sia presente un utente in grado di configurarlo. Per altre informazioni sui dispositivi VPN compatibili e sulla configurazione dei dispositivi, vedere [Informazioni sui dispositivi VPN](vpn-gateway-about-vpn-devices.md).
 * Verificare di avere un indirizzo IPv4 pubblico esterno per il dispositivo VPN. L'indirizzo IP non può trovarsi dietro un NAT.
 * Se non si ha familiarità con gli intervalli degli indirizzi IP disponibili nella configurazione della rete locale, è necessario coordinarsi con qualcuno che possa fornire tali dettagli. Quando si crea questa configurazione, è necessario specificare i prefissi degli intervalli di indirizzi IP che Azure instraderà alla posizione locale. Nessuna delle subnet della rete locale può sovrapporsi alle subnet della rete virtuale a cui ci si vuole connettere.
-* Installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager. Poiché i cmdlet di PowerShell vengono aggiornati di frequente, in genere sarà necessario aggiornarli per ottenere le funzionalità più recenti. Se non si aggiornano i cmdlet di PowerShell, i valori specificati potrebbero avere esito negativo. Per altre informazioni su come scaricare e installare i cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+
+### <a name="running-powershell-locally"></a>Esecuzione di PowerShell in locale
+
+Se si sceglie di installare e usare PowerShell in locale, installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager. Poiché i cmdlet di PowerShell vengono aggiornati di frequente, in genere sarà necessario aggiornarli per ottenere le funzionalità più recenti. Se non si aggiornano i cmdlet di PowerShell, i valori specificati potrebbero avere esito negativo. 
+
+Per trovare la versione in uso, eseguire 'Get-Module -ListAvailable AzureRM'. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+Se si esegue PowerShell in locale, è anche necessario eseguire 'Login-AzureRmAccount' per creare una connessione con Azure.
+
 
 ### <a name="example"></a>Valori di esempio
 
@@ -54,31 +62,26 @@ Gli esempi di questo articolo usano i valori seguenti. È possibile usare questi
 ```
 #Example values
 
-VnetName                = TestVNet1
+VnetName                = VNet1
 ResourceGroup           = TestRG1
 Location                = East US 
-AddressSpace            = 10.11.0.0/16 
-SubnetName              = Subnet1 
-Subnet                  = 10.11.1.0/28 
-GatewaySubnet           = 10.11.0.0/27
-LocalNetworkGatewayName = Site2
-LNG Public IP           = <VPN device IP address> 
-Local Address Prefixes  = 10.0.0.0/24, 20.0.0.0/24
+AddressSpace            = 10.1.0.0/16 
+SubnetName              = Frontend 
+Subnet                  = 10.1.0.0/24 
+GatewaySubnet           = 10.1.255.0/27
+LocalNetworkGatewayName = Site1
+LNG Public IP           = <On-premises VPN device IP address> 
+Local Address Prefixes  = 10.101.0.0/24, 10.101.1.0/24
 Gateway Name            = VNet1GW
-PublicIP                = VNet1GWIP
+PublicIP                = VNet1GWPIP
 Gateway IP Config       = gwipconfig1 
 VPNType                 = RouteBased 
 GatewayType             = Vpn 
-ConnectionName          = VNet1toSite2
+ConnectionName          = VNet1toSite1
 
 ```
 
-
-## <a name="Login"></a>1. Eseguire la connessione alla sottoscrizione
-
-[!INCLUDE [PowerShell login](../../includes/vpn-gateway-ps-login-include.md)]
-
-## <a name="VNet"></a>2. Creare una rete virtuale e una subnet del gateway
+## <a name="VNet"></a>1. Creare una rete virtuale e una subnet del gateway
 
 Se non si ha una rete virtuale, crearne una. Quando si crea una rete virtuale, verificare che gli spazi di indirizzi specificati non si sovrappongano agli spazi di indirizzi presenti nella rete locale. 
 
@@ -99,7 +102,7 @@ Questo esempio crea una rete virtuale e una subnet del gateway. Se esiste già u
 
 Creare un gruppo di risorse:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name TestRG1 -Location 'East US'
 ```
 
@@ -107,36 +110,38 @@ Creare la rete virtuale.
 
 1. Impostare le variabili.
 
-  ```powershell
-  $subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.11.0.0/27
-  $subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix 10.11.1.0/28
+  ```azurepowershell-interactive
+  $subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27
+  $subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Frontend' -AddressPrefix 10.1.0.0/24
   ```
 2. Creare la rete virtuale.
 
-  ```powershell
-  New-AzureRmVirtualNetwork -Name TestVNet1 -ResourceGroupName TestRG1 `
-  -Location 'East US' -AddressPrefix 10.11.0.0/16 -Subnet $subnet1, $subnet2
+  ```azurepowershell-interactive
+  New-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1 `
+  -Location 'East US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet1, $subnet2
   ```
 
 ### <a name="gatewaysubnet"></a>Per aggiungere una subnet del gateway a una rete virtuale già creata
 
+Usare la procedura illustrata in questa sezione se è già disponibile una rete virtuale, ma è necessario aggiungere una subnet del gateway.
+
 1. Impostare le variabili.
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG1 -Name TestVet1
   ```
 2. Creare la subnet del gateway.
 
-  ```powershell
-  Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.11.0.0/27 -VirtualNetwork $vnet
+  ```azurepowershell-interactive
+  Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
   ```
 3. Impostare la configurazione.
 
-  ```powershell
+  ```azurepowershell-interactive
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
 
-## 3. <a name="localnet"></a>Creare il gateway di rete locale
+## 2. <a name="localnet"></a>Creare il gateway di rete locale
 
 Il gateway di rete locale in genere fa riferimento al percorso locale. Assegnare al sito un nome che Azure possa usare come riferimento, quindi specificare l'indirizzo IP del dispositivo VPN locale con cui si creerà una connessione. Specificare anche i prefissi degli indirizzi IP che verranno instradati tramite il gateway VPN al dispositivo VPN. I prefissi degli indirizzi specificati sono quelli disponibili nella rete locale. Se la rete locale viene modificata, è possibile aggiornare facilmente i prefissi.
 
@@ -147,44 +152,44 @@ Usare i valori seguenti:
 
 Per aggiungere un gateway di rete locale con un solo prefisso di indirizzo:
 
-  ```powershell
-  New-AzureRmLocalNetworkGateway -Name Site2 -ResourceGroupName TestRG1 `
-  -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.0.0.0/24'
+  ```azurepowershell-interactive
+  New-AzureRmLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
+  -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.101.0.0/24'
   ```
 
 Per aggiungere un gateway di rete locale con più prefissi di indirizzo:
 
-  ```powershell
-  New-AzureRmLocalNetworkGateway -Name Site2 -ResourceGroupName TestRG1 `
-  -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
+  ```azurepowershell-interactive
+  New-AzureRmLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
+  -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
   ```
 
 Per modificare i prefissi di indirizzo IP per il gateway di rete locale:<br>
 Talvolta è possibile modificare i prefissi del gateway di rete locale. I passaggi necessari per modificare i prefissi di indirizzo IP dipendono dal fatto che sia stata creata una connessione di gateway VPN. Vedere la sezione [Per modificare i prefissi di indirizzo IP per un gateway di rete locale](#modify) di questo articolo.
 
-## <a name="PublicIP"></a>4. Richiedere un indirizzo IP pubblico
+## <a name="PublicIP"></a>3. Richiedere un indirizzo IP pubblico
 
 Un gateway VPN deve avere un indirizzo IP pubblico. È necessario richiedere prima di tutto la risorsa dell'indirizzo IP e quindi farvi riferimento durante la creazione del gateway di rete virtuale. L'indirizzo IP viene assegnato dinamicamente alla risorsa durante la creazione del gateway VPN. Il gateway VPN supporta attualmente solo l'allocazione degli indirizzi IP pubblici *dinamici*. Non è possibile richiedere un'assegnazione degli indirizzi IP pubblici statici. Ciò non significa tuttavia che l'indirizzo IP viene modificato dopo l'assegnazione al gateway VPN. L'indirizzo IP pubblico viene modificato solo quando il gateway viene eliminato e ricreato. Non viene modificato in caso di ridimensionamento, reimpostazione o altre manutenzioni/aggiornamenti del gateway VPN.
 
 Richiedere un indirizzo IP pubblico che verrà assegnato per il gateway VPN di rete virtuale.
 
-```powershell
-$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
+```azurepowershell-interactive
+$gwpip= New-AzureRmPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
-## <a name="GatewayIPConfig"></a>5. Creare la configurazione di indirizzamento IP gateway
+## <a name="GatewayIPConfig"></a>4. Creare la configurazione di indirizzamento IP gateway
 
 La configurazione del gateway definisce la subnet e l'indirizzo IP pubblico da utilizzare. Per creare la configurazione del gateway, usare l'esempio seguente:
 
-```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name TestVNet1 -ResourceGroupName TestRG1
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
 $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 ```
 
-## <a name="CreateGateway"></a>6. Creare il gateway VPN
+## <a name="CreateGateway"></a>5. Creare il gateway VPN
 
-Creare il gateway VPN di rete virtuale. Per completare la creazione di un gateway VPN, possono essere necessari fino a 45 minuti o più.
+Creare il gateway VPN di rete virtuale.
 
 Usare i valori seguenti:
 
@@ -192,46 +197,48 @@ Usare i valori seguenti:
 * Il valore di *-VpnType* può essere *RouteBased*, talvolta definito gateway dinamico nella documentazione, o *PolicyBased*, talvolta definito gateway statico nella documentazione. Per altre informazioni sui tipi di gateway VPN, vedere [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md).
 * Selezionare lo SKU del gateway da usare. Esistono limitazioni di configurazione per alcuni SKU. Per altre informazioni, vedere [SKU del gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Se durante la creazione del gateway VPN si ottiene un errore relativo a -GatewaySku, verificare di avere installato la versione più recente dei cmdlet di PowerShell.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased -GatewaySku VpnGw1
 ```
 
-## <a name="ConfigureVPNDevice"></a>7. Configurare il dispositivo VPN
+Dopo aver eseguito questo comando, la configurazione del gateway può richiedere fino a 45 minuti.
+
+## <a name="ConfigureVPNDevice"></a>6. Configurare il dispositivo VPN
 
 Le connessioni da sito a sito verso una rete locale richiedono un dispositivo VPN. In questo passaggio viene configurato il dispositivo VPN. Durante la configurazione del dispositivo VPN, è necessario quanto segue:
 
 - Chiave condivisa. Si tratta della stessa chiave condivisa che viene specificata durante la creazione della connessione VPN da sito a sito. In questi esempi viene usata una chiave condivisa semplice. È consigliabile generare una chiave più complessa per l'uso effettivo.
 - Indirizzo IP pubblico del gateway di rete virtuale. È possibile visualizzare l'indirizzo IP pubblico usando il portale di Azure, PowerShell o l'interfaccia della riga di comando. Per trovare l'indirizzo IP pubblico del gateway di rete virtuale con PowerShell, usare l'esempio seguente:
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG1
   ```
 
 [!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 
-## <a name="CreateConnection"></a>8. Creare la connessione VPN
+## <a name="CreateConnection"></a>7. Creare la connessione VPN
 
 Successivamente, creare la connessione VPN da sito a sito tra il gateway di rete virtuale e il dispositivo VPN. Assicurarsi di sostituire i valori con i propri. La chiave condivisa deve corrispondere al valore utilizzato per la configurazione del dispositivo VPN. Si noti che "-ConnectionType" per la connessione da sito a sito è *IPsec*.
 
 1. Impostare le variabili.
-  ```powershell
+  ```azurepowershell-interactive
   $gateway1 = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
-  $local = Get-AzureRmLocalNetworkGateway -Name Site2 -ResourceGroupName TestRG1
+  $local = Get-AzureRmLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
   ```
 
 2. Creare la connessione.
-  ```powershell
-  New-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite2 -ResourceGroupName TestRG1 `
+  ```azurepowershell-interactive
+  New-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1 `
   -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
   ```
 
 La connessione verrà stabilita in breve tempo.
 
-## <a name="toverify"></a>9. Verificare la connessione VPN
+## <a name="toverify"></a>8. Verificare la connessione VPN
 
 Esistono diversi modi per verificare la connessione VPN.
 
@@ -242,13 +249,13 @@ Esistono diversi modi per verificare la connessione VPN.
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
 
-## <a name="modify"></a>Modificare i prefissi degli indirizzi IP per un gateway di rete locale
+## <a name="modify"></a>Per modificare i prefissi di indirizzo IP per un gateway di rete locale
 
 In caso di modifica dei prefissi degli indirizzi IP da indirizzare alla posizione locale, è possibile modificare il gateway di rete locale. Sono disponibili due set di istruzioni. La scelta delle istruzioni dipende dal fatto che sia già stata creata o meno la connessione gateway.
 
 [!INCLUDE [Modify prefixes](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
-## <a name="modifygwipaddress"></a>Modificare l'indirizzo IP del gateway per un gateway di rete locale
+## <a name="modifygwipaddress"></a>Per modificare l'indirizzo IP del gateway per un gateway di rete locale
 
 [!INCLUDE [Modify gateway IP address](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 

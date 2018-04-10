@@ -2,28 +2,31 @@
 title: Informazioni su Azure IoT Edge | Microsoft Docs
 description: Panoramica del servizio Azure IoT Edge
 services: iot-Edge
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
 editor: chipalost
-ms.assetid: 
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 04/01/2018
 ms.author: kgremban
-ms.custom: 
-ms.openlocfilehash: 5f69041572729d1458a22a855128639056d61586
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: ''
+ms.openlocfilehash: 9071caedd9ab3b63527c2c0bdab38db2efadb17c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>Informazioni su Azure IoT Edge - anteprima
 
 Azure IoT Edge sposta nei dispositivi l'analisi cloud e la logica di business personalizzata consentendo all'organizzazione di concentrarsi sulle analisi approfondite di livello aziendale invece che sulla gestione dati. È possibile ottenere una reale scalabilità per la soluzione configurando il software IoT, distribuendola nei dispositivi tramite contenitori standard e monitorandola dal cloud.
+
+>[!NOTE]
+>Azure IoT Edge è disponibile solo nel livello Standard dell'hub IoT. Per altre informazioni sui livelli Basic e Standard, vedere [come scegliere il livello corretto dell'hub IoT](../iot-hub/iot-hub-scaling.md).
 
 L'analisi incrementa il valore aggiunto nelle soluzioni IoT, ma non tutte le operazioni di analisi devono essere eseguite nel cloud. Per fare in modo che un dispositivo risponda alle emergenze il più rapidamente possibile, è possibile eseguire il rilevamento anomalie sul dispositivo stesso. Analogamente, per ridurre i costi della larghezza di banda ed evitare il trasferimento di terabyte di dati non elaborati, è possibile eseguire in locale la pulizia e l'aggregazione dei dati e quindi inviare le informazioni al cloud. 
 

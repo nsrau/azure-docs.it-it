@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 34fdf45094fae8e751d6b3e5c57d5b4df2e78200
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 014c9ea34f35e915c6c4eac5a96c55201549e18a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -130,9 +130,11 @@ Quando il traffico in uscita viene inviato da una subnet, Azure seleziona una ro
 Se più route contengono lo stesso prefisso degli indirizzi, Azure seleziona il tipo di route in base alla priorità seguente:
 
 1. Route definita dall'utente
-2. Una route di sistema con il tipo di hop *Rete virtuale*, *Peering reti virtuali* o *VirtualNetworkServiceEndpoint*.
 2. Route BGP
-3. Una route di sistema con un tipo di hop diverso da *Rete virtuale*, *Peering reti virtuali* o *VirtualNetworkServiceEndpoint*.
+3. Route di sistema
+
+> [!NOTE]
+> Le route di sistema per il traffico correlato alla rete virtuale, ai peering di rete virtuale o agli endpoint del servizio rete virtuale sono le route preferite anche se le route BGP sono più specifiche.
 
 Una tabella di route contiene ad esempio le route seguenti:
 

@@ -5,8 +5,8 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: fbf0556cc47bc08a71fcf050b43c2dbbe5d27184
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 950c64ea1ea2edc072650a9f63a6d21ad369c496
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="network-security"></a>Sicurezza di rete
 
@@ -141,7 +141,7 @@ Se si creano altre regole, specificando altri gruppi di sicurezza delle applicaz
  
 Per informazioni sui limiti associati alla creazione di gruppi di sicurezza delle applicazioni e all'inclusione di tali gruppi nelle regole di sicurezza, vedere l'articolo relativo ai [limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-I gruppi di sicurezza delle applicazioni sono disponibili in versione di anteprima. Le funzionalità in anteprima non offrono lo stesso livello di disponibilità e affidabilità delle funzionalità in versione di disponibilità generale. Prima di usare gruppi di sicurezza delle applicazioni, è necessario eseguire l'apposita registrazione completando i passaggi da 1 a 5 delle sezioni relative ad Azure o PowerShell dell'articolo su come [creare un gruppo di sicurezza di rete con gruppi di sicurezza delle applicazioni](create-network-security-group-preview.md). I gruppi di sicurezza delle applicazioni hanno i vincoli seguenti:
+I gruppi di sicurezza delle applicazioni hanno i vincoli seguenti:
 
 -   Tutte le interfacce di rete all'interno di un gruppo di sicurezza delle applicazioni devono trovarsi nella stessa rete virtuale. Non è possibile aggiungere interfacce di rete da reti virtuali diverse allo stesso gruppo di sicurezza delle applicazioni. La rete virtuale in cui si trova la prima interfaccia di rete assegnata al gruppo di sicurezza delle applicazioni definisce la rete virtuale in cui devono trovarsi tutte le interfacce di rete successivamente assegnate.
 - Se si specificano gruppi di sicurezza delle applicazioni come origine e destinazione in una regola di sicurezza, le interfacce di rete in entrambi i gruppi di sicurezza delle applicazioni devono trovarsi nella stessa rete virtuale. Ad esempio, se il gruppo di sicurezza delle applicazioni 1 contiene interfacce di rete che si trovano nella rete virtuale 1 e il gruppo di sicurezza delle applicazioni 2 contiene interfacce di rete che si trovano nella rete virtuale 2, non è possibile assegnare il gruppo di sicurezza delle applicazioni 1 come origine e il gruppo di sicurezza delle applicazioni 2 come destinazione in una regola, perché tutte le interfacce di rete devono trovarsi nella rete virtuale 1.
@@ -165,5 +165,4 @@ I gruppi di sicurezza delle applicazioni sono disponibili in versione di antepri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Completare l'esercitazione relativa alla [creazione di un gruppo di sicurezza di rete](virtual-networks-create-nsg-arm-pportal.md)
-* Completare l'esercitazione relativa alla [creazione di un gruppo di sicurezza di rete con gruppi di sicurezza delle applicazioni](create-network-security-group-preview.md)
+* Informazioni su come [creare un gruppo di sicurezza di rete](tutorial-filter-network-traffic.md).

@@ -1,120 +1,169 @@
 ---
-title: Configurare un dispositivo per il servizio Device Provisioning in hub IoT di Azure| Microsoft Docs
+title: Configurare il dispositivo per il servizio Device Provisioning in hub IoT di Azure
 description: Configurare un dispositivo per il provisioning tramite il servizio Device Provisioning in hub IoT durante il processo di produzione del dispositivo
 services: iot-dps
-keywords: 
+keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 835a54f147b9ea543df21e7dfeb226ac42aceda3
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: c885e4d5d747d913eaf0b7137b240950e920e7ff
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurare un dispositivo per il provisioning usando il servizio Device Provisioning in hub IoT di Azure
 
-Nell'esercitazione precedente è stato descritto come configurare il servizio Device Provisioning in hub IoT di Azure per effettuare automaticamente il provisioning dei dispositivi per l'hub IoT. Questa esercitazione include le istruzioni per configurare il dispositivo durante il processo di produzione, in modo che sia possibile configurare il servizio Device Provisioning per il dispositivo in base al relativo [modulo di protezione hardware (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security) e il dispositivo possa connettersi al servizio Device Provisioning la prima volta che viene avviato. Questa esercitazione illustra i processi per:
+Nell'esercitazione precedente è stato descritto come configurare il servizio Device Provisioning in hub IoT di Azure per effettuare automaticamente il provisioning dei dispositivi per l'hub IoT. Questa esercitazione mostra come configurare il dispositivo durante il processo produttivo, consentendone il provisioning automatico con lhub IoT. Il provisioning del dispositivo viene effettuato in base al rispettivo [meccanismo di attestazione](concepts-device.md#attestation-mechanism), al primo avvio e alla prima connessione al servizio di provisioning. Questa esercitazione illustra i processi per:
 
 > [!div class="checklist"]
-> * Selezionare un modulo di protezione hardware
-> * Compilare l'SDK client di Device Provisioning per il modulo di protezione hardware selezionato
+> * Creare un SDK client del servizio Device Provisioning specifico per la piattaforma
 > * Estrarre gli elementi di sicurezza
-> * Impostare la configurazione del servizio Device Provisioning nel dispositivo
+> * Creare il software di registrazione del dispositivo
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Prima di procedere, creare l'istanza del servizio Device Provisioning e un hub IoT seguendo le istruzioni indicate nell'esercitazione [Set up cloud for device provisioning](./tutorial-set-up-cloud.md) (Configurare il cloud per il provisioning dei dispositivi).
+Prima di procedere, creare l'istanza del servizio Device Provisioning e un hub IoT seguendo le istruzioni indicate nell'esercitazione [1 - Configurare risorse cloud](./tutorial-set-up-cloud.md) precedente.
 
+Questa esercitazione usa il [repository per gli SDK e le librerie di Azure IoT per C](https://github.com/Azure/azure-iot-sdk-c), che include l'SDK client per il servizio Device Provisioning per C. L'SDK offre attualmente il supporto per TPM e X.509 per dispositivi in esecuzione su implementazioni Windows o Ubuntu. Questa esercitazione è basata sull'uso di un client di sviluppo Windows e ciò presuppone anche competenze di base di Visual Studio 2017. 
 
-## <a name="select-a-hardware-security-module"></a>Selezionare un modulo di protezione hardware
+Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md) prima di continuare. 
 
-L'[SDK client del servizio Device Provisioning](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) offre il supporto per due tipi di moduli di protezione hardware (HSM): 
+## <a name="build-a-platform-specific-version-of-the-sdk"></a>Creare una versione dell'SDK specifica per la piattaforma
 
-- [TPM (Trusted Platform Module)](https://en.wikipedia.org/wiki/Trusted_Platform_Module).
-    - Il modulo TPM è uno standard stabilito per la maggior parte delle piattaforme per dispositivi basati su Windows, nonché per alcuni dispositivi basati su Linux/Ubuntu. In qualità di produttore di dispositivi, è possibile scegliere questo modulo se nei dispositivi è installato uno di questi sistemi operativi e se si sta cercando uno standard stabilito per i moduli di protezione hardware. Con i chip TPM è possibile registrare solo ogni dispositivo individualmente nel servizio Device Provisioning. Ai fini dello sviluppo è possibile usare il simulatore TPM nel computer di sviluppo Windows o Linux.
+L'SDK client del servizio Device Provisioning consente di implementare il software di registrazione del dispositivo. Prima di poterlo usare, è tuttavia necessario creare una versione dell'SDK specifica per la piattaforma client di sviluppo e per il meccanismo di attestazione. In questa esercitazione viene creato un SDK che usa Visual Studio 2017 su una piattaforma di sviluppo Windows per un tipo supportato di attestazione:
 
-- Moduli di protezione hardware basati su [X.509](https://cryptography.io/en/latest/x509/). 
-    - I moduli di protezione hardware basati su X.509 sono chip relativamente più recenti e attualmente in fase di evoluzione nei chip Microsoft su RIoT o DICE che implementano i certificati X.509. I chip X.509 consentono di eseguire registrazioni in blocco nel portale. Supportano anche determinati sistemi operativi diversi da Windows, ad esempio embedOS. Ai fini dello sviluppo, l'SDK client del servizio Device Provisioning supporta il simulatore di dispositivi X.509. 
+1. Installare gli strumenti necessari e clonare il repository di GitHub contenente l'SDK client per il servizio Device Provisioning per C:
 
-In qualità di produttore di dispositivi, è necessario selezionare i moduli/chip di protezione hardware che si basano su uno dei tipi precedenti. Altri tipi di moduli di protezione hardware non sono attualmente supportati nell'SDK client del servizio Device Provisioning.   
+   a. Verificare che nel computer sia installato Visual Studio 2015 o [Visual Studio 2017](https://www.visualstudio.com/vs/). È necessario che il carico di lavoro ['Sviluppo di applicazioni desktop con C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) sia abilitato per l'installazione di Visual Studio.
 
+   b. Scaricare e installare il [sistema di compilazione CMake](https://cmake.org/download/). È importante che nel computer sia installato Visual Studio con il carico di lavoro "Sviluppo di applicazioni desktop con C++" **prima** dell'installazione di CMake.
 
-## <a name="build-device-provisioning-client-sdk-for-the-selected-hsm"></a>Compilare l'SDK client di Device Provisioning per il modulo di protezione hardware selezionato
+   c. Verificare che `git` sia installato nel computer e venga aggiunto alle variabili di ambiente accessibili alla finestra di comando. Vedere gli [strumenti client Git di Software Freedom Conservancy](https://git-scm.com/download/) per gli strumenti `git` più recenti, incluso **Git Bash**, una shell Bash da riga di comando per l'interazione con il repository Git locale. 
 
-L'SDK client del servizio Device Provisioning aiuta a implementare il meccanismo di sicurezza selezionato nel software. La procedura seguente mostra come usare l'SDK per il chip del modulo di protezione hardware selezionato:
+   d. Aprire Git Bash e clonare il repository "Azure IoT SDKs and libraries for C". Il completamento del comando di clonazione potrebbe richiedere qualche minuto, perché scarica alcuni moduli secondari dipendenti:
+    
+   ```cmd/sh
+   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+   ```
 
-1. Se è stata seguita la [Guida introduttiva per creare un dispositivo simulato](./quick-create-simulated-device.md), la configurazione è pronta per la compilazione dell'SDK. In caso contrario, seguire i primi quattro passaggi nella sezione intitolata [Preparare l'ambiente di sviluppo](./quick-create-simulated-device.md#setupdevbox). Questi passaggi clonano il repository GitHub per l'SDK client del servizio Device Provisioning e installano lo strumento di compilazione `cmake`. 
+   e. Creare una nuova sottodirectory `cmake` all'interno della sottodirectory del repository appena creato:
 
-1. Compilare l'SDK per il tipo di modulo di protezione hardware selezionato per il dispositivo interessato, digitando al prompt dei comandi uno dei comandi seguenti:
-    - Per i dispositivi TPM:
+   ```cmd/sh
+   mkdir azure-iot-sdk-c/cmake
+   ``` 
+
+2. Dal prompt dei comandi di Git Bash passare alla sottodirectory `cmake` del repository azure-iot-sdk-c:
+
+   ```cmd/sh
+   cd azure-iot-sdk-c/cmake
+   ```
+
+3. Compilare l'SDK per la piattaforma di sviluppo e uno dei meccanismi di attestazione supportati usando uno dei comandi seguenti. Notare anche il doppio punto finale. Al termine, CMake crea la sottodirectory `/cmake` con contenuto specifico per il dispositivo:
+    - Per i dispositivi che usano un TPM/modulo di protezione hardware fisico o un certificato X.509 simulato per l'attestazione:
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON ..
         ```
 
-    - Per il simulatore TPM:
+    - Per i dispositivi che usano il simulatore TPM per l'attestazione:
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
         ```
 
-    - Per i dispositivi e il simulatore X.509:
-        ```cmd/sh
-        cmake -Duse_prov_client:BOOL=ON ..
-        ```
-
-1. L'SDK include il supporto predefinito per i dispositivi che eseguono implementazioni Windows o Ubuntu per i moduli di protezione hardware TPM e X.509. Per questi moduli di protezione hardware supportati, passare alla sezione intitolata [Estrarre gli elementi di sicurezza](#extractsecurity) più avanti. 
+Ora è possibile usare l'SDK per compilare il codice di registrazione del dispositivo. 
  
-## <a name="support-custom-tpm-and-x509-devices"></a>Supportare i dispositivi TPM e X.509 personalizzati
+<a id="extractsecurity"></a> 
 
-L'SDK client del servizio Device Provisioning non offre supporto predefinito per alcun dispositivo TPM e X.509 che non esegue Windows o Ubuntu. Per tali dispositivi è necessario scrivere codice personalizzato per il chip del modulo di protezione hardware specifico, come illustrato nei passaggi seguenti:
+## <a name="extract-the-security-artifacts"></a>Estrarre gli elementi di sicurezza 
 
-### <a name="develop-your-custom-repository"></a>Sviluppare il repository personalizzato
+Il passaggio successivo consiste nell'estrarre gli elementi di sicurezza per il meccanismo di attestazione usato dal dispositivo. 
 
-1. Sviluppare una libreria per accedere al modulo di protezione hardware. Questo progetto richiede che si produca una raccolta statica ad uso dell'SDK del servizio Device Provisioning.
-1. La raccolta deve implementare le funzioni definite nel file di intestazione seguente: a. Per il modulo TPM personalizzato, implementare le funzioni definite nel [documento HSM personalizzato](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).
-    b. Per il certificato X.509 personalizzato, implementare le funzioni definite nel [documento HSM personalizzato](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
+### <a name="physical-device"></a>Dispositivo fisico 
 
-### <a name="integrate-with-the-device-provisioning-service-client"></a>Integrare con il client del servizio Device Provisioning
+Se si crea l'SDK per l'uso di un'attestazione da un TPM/modulo di protezione hardware fisico:
 
-Dopo la creazione della raccolta è possibile passare a IoThub C-SDK e collegarlo alla raccolta:
+- Per un dispositivo TPM, è necessario determinare la **Chiave di approvazione** associata al dispositivo dal produttore del chip TPM. È possibile derivare un **ID registrazione** univoco per il dispositivo TPM mediante l'uso di hash nella chiave di verifica autenticità.  
 
-1. Specificare il repository GitHub del modulo di protezione hardware personalizzato, il percorso della raccolta e il relativo nome nel comando cmake seguente:
-    ```cmd/sh
-    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
+- Per un dispositivo X.509, è necessario ottenere i certificati rilasciati al dispositivo o ai dispositivi: i certificati di entità di fine per le registrazioni dei dispositivi singoli e i certificati radice per le registrazioni di gruppo di dispositivi. 
+
+### <a name="simulated-device"></a>Dispositivo simulato
+
+Se l'SDK è stato creato per l'uso di un'attestazione da un TPM simulato o da un certificato X.509:
+
+- Per un dispositivo TPM simulato:
+   1. In un prompt dei comandi nuovo o separato passare alla sottodirectory `azure-iot-sdk-c` ed eseguire il simulatore TPM, che è in ascolto di un socket sulle porte 2321 e 2322. Non chiudere questa finestra di comando. Il simulatore dovrà restare in esecuzione fino alla fine della guida introduttiva seguente. 
+
+      Dalla sottodirectory `azure-iot-sdk-c` eseguire il comando seguente per avviare il simulatore:
+
+      ```cmd/sh
+      .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
+      ```
+
+   2. Usando Visual Studio, aprire la soluzione generata nella cartella *cmake* denominata `azure_iot_sdks.sln` e creata tramite il comando "Compila soluzione" dal menu "Compilazione".
+
+   3. Nel riquadro *Esplora soluzioni* di Visual Studio passare alla cartella **Provision\_Tools**. Fare clic con il pulsante destro del mouse sul progetto **tpm_device_provision** e scegliere **Imposta come progetto di avvio**. 
+
+   4. Eseguire la soluzione usando uno dei comandi "Avvia" dal menu "Debug". La finestra di output visualizza l'**_ID registrazione_** del simulatore TPM e la **_Chiave di approvazione_**, necessari per la registrazione dei dispositivi. Copiare questi valori per un utilizzo successivo. È possibile chiudere questa finestra contenente ID registrazione e Chiave di approvazione, ma lasciare aperta la finestra del simulatore TPM in esecuzione avviato al Passaggio 1.
+
+- Per un dispositivo X.509 simulato:
+  1. Usando Visual Studio, aprire la soluzione generata nella cartella *cmake* denominata `azure_iot_sdks.sln` e creata tramite il comando "Compila soluzione" dal menu "Compilazione".
+
+  2. Nel riquadro *Esplora soluzioni* di Visual Studio passare alla cartella **Provision\_Tools**. Fare clic con il pulsante destro del mouse sul progetto **dice\_device\_enrollment** e scegliere **Set as Startup Project** (Imposta come progetto di avvio). 
+  
+  3. Eseguire la soluzione usando uno dei comandi "Avvia" dal menu "Debug". Nella finestra di output immettere **i** per la registrazione singola quando richiesto. Nella finestra di output viene visualizzato un certificato X.509 generato in locale per il dispositivo simulato. Copiare l'output da *-----BEGIN CERTIFICATE-----* alla prima occorrenza di *-----END CERTIFICATE-----*, assicurandosi di includere anche queste due righe. Si noti che è necessario solo il primo certificato indicato nella finestra di output.
+ 
+  4. Creare un file denominato **_X509testcert.pem_**, aprirlo in un editor di testo di propria scelta e copiare il contenuto degli Appunti in questo file. Salvare il file, perché verrà usato in seguito per la registrazione dei dispositivi. Quando il software di registrazione viene eseguito, usa lo stesso certificato durante il provisioning automatico.    
+
+Questi elementi di sicurezza sono necessari durante la registrazione del dispositivo nel servizio Device Provisioning. Il servizio di provisioning attende che il dispositivo venga ad un certo punto avviato e connesso. Quando il dispositivo viene avviato per la prima volta, la logica dell'SDK client interagisce con il chip o con il simulatore per estrarre gli elementi di sicurezza dal dispositivo e verifica la registrazione con il servizio Device Provisioning. 
+
+## <a name="create-the-device-registration-software"></a>Creare il software di registrazione del dispositivo
+
+L'ultimo passaggio consiste nella scrittura di un'applicazione di registrazione che usa l'SDK client del servizio Device Provisioning per registrare il dispositivo nel servizio hub IoT. 
+
+> [!NOTE]
+> Per questo passaggio si presuppone l'uso di un dispositivo simulato, ottenuto tramite l'esecuzione di un'applicazione di registrazione di esempio dell'SDK dalla workstation. Gli stessi concetti sono tuttavia applicabili se si compila un'applicazione di registrazione per la distribuzione in un dispositivo fisico. 
+
+1. Nel portale di Azure selezionare il pannello **Panoramica** per il servizio Device Provisioning e copiare il valore **_Ambito ID_**. L'*ambito ID* viene generato dal servizio e garantisce l'univocità. Non può essere modificato e viene usato per identificare in modo univoco gli ID di registrazione.
+
+    ![Estrarre le informazioni dell'endpoint del servizio Device Provisioning dal pannello del portale](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
+
+2. In *Esplora soluzioni* di Visual Studio passare alla cartella **Provision\_Samples**. Selezionare il progetto di esempio denominato **prov\_dev\_client\_sample** e aprire il file di origine **prov\_dev\_client\_sample.c**.
+
+3. Assegnare il valore _Ambito ID_ ottenuto nel Passaggio 1 alla variabile `id_scope` (rimuovendo le parentesi di sinistra/`[` e di destra/`]`): 
+
+    ```c
+    static const char* global_prov_uri = "global.azure-devices-provisioning.net";
+    static const char* id_scope = "[ID Scope]";
     ```
-   
-1. Aprire l'SDK in Visual Studio e compilarlo. 
 
-    - Il processo di compilazione creerà la libreria SDK.
-    - L'SDK tenterà di collegarsi al modulo di protezione hardware personalizzato definito nel comando cmake.
+    Come riferimento, vedere la variabile `global_prov_uri`, che consente all'API`IoTHubClient_LL_CreateFromDeviceAuth` di registrazione al client dell'hub IoT di connettersi all'istanza designata del servizio Device Provisioning.
 
-1. Eseguire l'esempio `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample\prov_dev_client_ll_sample.c` per verificare se il modulo di protezione hardware è stato implementato correttamente.
+4. Nella funzione **main()** nello stesso file aggiungere/rimuovere il commento alla variabile `hsm_type` che corrisponde al meccanismo di attestazione usato dal software di registrazione del dispositivo (TPM o X.509): 
 
-<a id="extractsecurity"></a>
-## <a name="extract-the-security-artifacts"></a>Estrarre gli elementi di sicurezza
+    ```c
+    hsm_type = SECURE_DEVICE_TYPE_TPM;
+    //hsm_type = SECURE_DEVICE_TYPE_X509;
+    ```
 
-Il passaggio successivo consiste nell'estrarre gli elementi di sicurezza per il modulo di protezione hardware nel dispositivo.
+5. Salvare le modifiche e ricompilare l'esempio **prov\_dev\_client\_sample** selezionando "Compila soluzione" dal menu "Compilazione". 
 
-1. Per un dispositivo TPM, è necessario individuare la **chiave di verifica autenticità** associata dal produttore del chip TPM. È possibile derivare un **ID registrazione** univoco per il dispositivo TPM mediante l'uso di hash nella chiave di verifica autenticità. 
-2. Per un dispositivo X.509, è necessario ottenere i certificati rilasciati al dispositivo o ai dispositivi: i certificati di entità di fine per le registrazioni dei dispositivi singoli e i certificati radice per le registrazioni di gruppo di dispositivi.
+6. Fare clic con il pulsante destro del mouse sul progetto **prov\_dev\_client\_sample** nella cartella **Provision\_Samples** e scegliere **Set as Startup Project** (Imposta come progetto di avvio). NON eseguire ancora l'applicazione di esempio.
 
-Questi elementi di sicurezza sono necessari per registrare i dispositivi nel servizio Device Provisioning. Il servizio di provisioning attende quindi che uno di questi dispositivi venga ad un certo punto avviato e connesso. Per informazioni su come usare questi elementi di sicurezza per creare le registrazioni, vedere [How to manage device enrollments](how-to-manage-enrollments.md) (Come gestire le registrazioni dei dispositivi). 
+> [!IMPORTANT]
+> Non eseguire/avviare ancora il dispositivo. È necessario completare il processo registrando il dispositivo con il servizio Device Provisioning Service prima di avviare il dispositivo. La sezione Passaggi successivi più avanti fornirà indicazioni sull'articolo successivo.
 
-Quando il dispositivo viene avviato per la prima volta, l'SDK client interagisce con il chip per estrarre gli elementi di sicurezza dal dispositivo e verifica la registrazione con il servizio Device Provisioning. 
+### <a name="sdk-apis-used-during-registration-for-reference-only"></a>API dell'SDK usate durante la registrazione (solo come riferimento)
 
-
-## <a name="set-up-the-device-provisioning-service-configuration-on-the-device"></a>Impostare la configurazione del servizio Device Provisioning nel dispositivo
-
-L'ultimo passaggio del processo di produzione del dispositivo consiste nello scrivere un'applicazione che usa l'SDK client del servizio Device Provisioning per registrare il dispositivo con il servizio. Questo SDK include le API seguenti da usare per le applicazioni:
+Come riferimento, l'SDK fornisce le API seguenti per l'applicazione da usare durante la registrazione. Queste API consentono al dispositivo di connettersi e registrarsi al servizio Device Provisioning all'avvio. Il dispositivo riceve a sua volta le informazioni necessarie per stabilire una connessione all'istanza dell'hub IoT:
 
 ```C
-// Creates a Provisioning Client for communications with the Device Provisioning Client Service
+// Creates a Provisioning Client for communications with the Device Provisioning Client Service.  
 PROV_DEVICE_LL_HANDLE Prov_Device_LL_Create(const char* uri, const char* scope_id, PROV_DEVICE_TRANSPORT_PROVIDER_FUNCTION protocol)
 
 // Disposes of resources allocated by the provisioning Client.
@@ -130,67 +179,22 @@ void Prov_Device_LL_DoWork(PROV_DEVICE_LL_HANDLE handle)
 PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const char* optionName, const void* value)
 ```
 
-Ricordarsi di inizializzare le variabili `uri` e `id_scope` come menzionato nella sezione [Simulate first boot sequence](./quick-create-simulated-device.md#firstbootsequence) (Simulare la prima sequenza di avvio del dispositivo) di questa guida introduttiva prima di usarle. L'API di registrazione del client Device Provisioning `Prov_Device_LL_Create` esegue la connessione al servizio Device Provisioning globale. L'*ambito ID* viene generato dal servizio e garantisce l'univocità. Non può essere modificato e viene usato per identificare in modo univoco gli ID di registrazione. Il parametro `iothub_uri` consente all'API di registrazione del client per l'hub IoT `IoTHubClient_LL_CreateFromDeviceAuth` di eseguire la connessione all'hub IoT corretto. 
-
-
-Queste API aiutano il dispositivo a connettersi e a registrarsi al servizio Device Provisioning quando viene avviato, a ottenere le informazioni sull'hub IoT e a connettersi all'hub. Il file `provisioning_client/samples/prov_client_ll_sample/prov_client_ll_sample.c` mostra come usare queste API. È necessario, in generale, creare il framework seguente per la registrazione del client:
-
-```C
-static const char* global_uri = "global.azure-devices-provisioning.net";
-static const char* id_scope = "[ID scope for your provisioning service]";
-...
-static void register_callback(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* context)
-{
-    USER_DEFINED_INFO* user_info = (USER_DEFINED_INFO *)user_context;
-    ...
-    user_info. reg_complete = 1;
-}
-static void registation_status(DPS_REGISTRATION_STATUS reg_status, void* user_context)
-{
-}
-int main()
-{
-    ...
-    SECURE_DEVICE_TYPE hsm_type;
-    hsm_type = SECURE_DEVICE_TYPE_TPM;
-    //hsm_type = SECURE_DEVICE_TYPE_X509;
-    prov_dev_security_init(hsm_type); // initialize your HSM 
-
-    prov_transport = Prov_Device_HTTP_Protocol;
-    
-    PROV_CLIENT_LL_HANDLE handle = Prov_Device_LL_Create(global_uri, id_scope, prov_transport); // Create your provisioning client
-
-    if (Prov_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
-        do {
-        // The register_callback is called when registration is complete or fails
-            Prov_Client_LL_DoWork(handle);
-        } while (user_info.reg_complete == 0);
-    }
-    Prov_Client_LL_Destroy(handle); // Clean up the Provisioning client
-    ...
-    iothub_client = IoTHubClient_LL_CreateFromDeviceAuth(user_info.iothub_uri, user_info.device_id, transport); // Create your IoT hub client and connect to your hub
-    ...
-}
-```
-
-È possibile perfezionare l'applicazione di registrazione del client del servizio Device Provisioning che usa all'inizio un dispositivo simulato usando una configurazione di prova del servizio. Dopo avere verificato il corretto funzionamento dell'applicazione nell'ambiente di test, è possibile compilarla per il dispositivo specifico e copiare il file eseguibile nell'immagine del dispositivo. Non avviare ancora il dispositivo. È necessario [registrare il dispositivo con il servizio Device Provisioning](./tutorial-provision-device-to-hub.md#enrolldevice) prima di avviarlo. Vedere i passaggi successivi per informazioni su questo processo. 
+È anche possibile che sia necessario perfezionare l'applicazione di registrazione del client del servizio Device Provisioning usando prima di tutto un dispositivo simulato e una configurazione di prova del servizio. Dopo avere verificato il corretto funzionamento dell'applicazione nell'ambiente di test, è possibile compilarla per il dispositivo specifico e copiare il file eseguibile nell'immagine del dispositivo. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-I servizi Device Provisioning e per l'hub IoT sono a questo punto configurati nel portale. Se si desidera interrompere la configurazione del provisioning dei dispositivi e/o eseguirla in un secondo momento usando uno di questi servizi, è consigliabile arrestarli per evitare costi non necessari.
+I servizi Device Provisioning e hub IoT sono a questo punto in esecuzione nel portale. Se si vuole interrompere la configurazione del provisioning dei dispositivi e/o posticipare il completamento di questa serie di esercitazioni, è consigliabile arrestarli per evitare costi non necessari.
 
 1. Nel portale di Azure fare clic su **Tutte le risorse** nel menu a sinistra e quindi selezionare il servizio Device Provisioning. Nella parte superiore del pannello **Tutte le risorse** fare clic su **Elimina**.  
-1. Nel portale di Azure fare clic su **Tutte le risorse** nel menu a sinistra e quindi selezionare l'hub IoT. Nella parte superiore del pannello **Tutte le risorse** fare clic su **Elimina**.  
-
+2. Nel portale di Azure fare clic su **Tutte le risorse** nel menu a sinistra e quindi selezionare l'hub IoT. Nella parte superiore del pannello **Tutte le risorse** fare clic su **Elimina**.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questa esercitazione illustra come:
 
 > [!div class="checklist"]
-> * Selezionare un modulo di protezione hardware
-> * Compilare l'SDK client di Device Provisioning per il modulo di protezione hardware selezionato
+> * Creare un SDK client del servizio Device Provisioning specifico per la piattaforma
 > * Estrarre gli elementi di sicurezza
-> * Impostare la configurazione del servizio Device Provisioning nel dispositivo
+> * Creare il software di registrazione del dispositivo
 
 Passare all'esercitazione successiva per informazioni su come effettuare il provisioning del dispositivo per l'hub IoT registrandolo nel servizio Device Provisioning in hub IoT di Azure per il provisioning automatico.
 

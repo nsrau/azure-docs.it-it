@@ -2,10 +2,10 @@
 title: Importare una specifica OpenAPI usando il portale di Azure | Microsoft Docs
 description: Informazioni su come importare una specifica OpenAPI con Gestione API.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: f0c77c6e959ca99698b3ea704756a6abf36147f3
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0ea24b58deb7b33755a44737a66938883f74a13c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="import-an-openapi-specification"></a>Importare una specifica OpenAPI
 
-Questo articolo illustra come importare un'API back-end "Specifica OpenAPI" che si trova all'indirizzo http://conferenceapi.azurewebsites.net?format=json. Questa API back-end è fornita da Microsoft e ospitata in Azure. e come testare l'API di Gestione API.
+Questo articolo illustra come importare un'API back-end "Specifica OpenAPI" che risiede in http://conferenceapi.azurewebsites.net?format=json. Questa API back-end è fornita da Microsoft e ospitata in Azure. e come testare l'API di Gestione API.
+
+> [!IMPORTANT]
+> Vedere questo [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) per informazioni e suggerimenti importanti relativi all'importazione di OpenAPI.
 
 In questo articolo viene spiegato come:
 
@@ -59,7 +62,7 @@ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testare la nuova API di Gestione API nel portale di Azure
 
-È possibile chiamare le operazioni direttamente dal portale di Azure, che consente di visualizzare e testare le operazioni di un'API in tutta comodità.  
+È possibile chiamare le operazioni direttamente dal portale di Azure, che consente di visualizzare e testare le operazioni di un'API in tutta comodità.
 
 1. Selezionare l'API creata nel passaggio precedente.
 2. Fare clic sulla scheda **Test**.
@@ -67,14 +70,14 @@ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di
     ![Testare l'API](./media/api-management-get-started/test-api.png)
 1. Fare clic su **GetSpeakers**.
 
-    La pagina visualizza i campi per i parametri di query, ma in questo caso non ne esistono. La pagina visualizza anche i campi per le intestazioni. Una delle intestazioni è "Ocp-Apim-Subscription-Key", per la chiave di sottoscrizione del prodotto associato all'API. Se si è creata l'istanza di Gestione API, si è già un amministratore, quindi la chiave viene inserita automaticamente. 
+    La pagina visualizza i campi per i parametri di query, ma in questo caso non ne esistono. La pagina visualizza anche i campi per le intestazioni. Una delle intestazioni è "Ocp-Apim-Subscription-Key", per la chiave di sottoscrizione del prodotto associato all'API. Se si è creata l'istanza di Gestione API, si è già un amministratore, quindi la chiave viene inserita automaticamente.
 4. Fare clic su **Invia**.
 
     Il back-end risponde con **200 OK** e alcuni dati.
 
 ## <a name="call-operation"> </a>Chiamare un'operazione dal portale per sviluppatori
 
-Le operazioni possono essere chiamate anche dal **portale per sviluppatori** per testare le API. 
+Le operazioni possono essere chiamate anche dal **portale per sviluppatori** per testare le API.
 
 1. Selezionare l'API creata nel passaggio "Importare e pubblicare un'API back-end".
 2. Fare clic su **Portale per sviluppatori**.
@@ -85,11 +88,11 @@ Le operazioni possono essere chiamate anche dal **portale per sviluppatori** per
 3. Selezionare **API**.
 4. Selezionare **Demo Conference API**.
 5. Fare clic su **GetSpeakers**.
-    
+
     La pagina visualizza i campi per i parametri di query, ma in questo caso non ne esistono. La pagina visualizza anche i campi per le intestazioni. Una delle intestazioni è "Ocp-Apim-Subscription-Key", per la chiave di sottoscrizione del prodotto associato all'API. Se si è creata l'istanza di Gestione API, si è già un amministratore, quindi la chiave viene inserita automaticamente.
 6. Fare clic su **Prova**.
 7. Fare clic su **Invia**.
-    
+
     Dopo aver richiamato un'operazione, nel portale per sviluppatori vengono visualizzati lo **stato della risposta**, le **intestazioni della risposta** e l'eventuale **contenuto della risposta**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: 829646be6404f86d9f370b3a402cfc0c0c980699
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7380629344b27d5bb1e7af0aeddcb8f7665c1a5c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -197,7 +197,7 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 Tutte le route annunciate da Microsoft verranno contrassegnate con il valore della community appropriato. 
 
 > [!IMPORTANT]
-> I prefissi globali vengono contrassegnati con un valore della community appropriato e vengono annunciati solo quando è abilitato il componente aggiuntivo ExpressRoute Premium.
+> I prefissi globali vengono contrassegnati con un valore della community appropriato.
 > 
 > 
 
