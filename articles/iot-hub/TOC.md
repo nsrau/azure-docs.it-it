@@ -45,6 +45,7 @@
 ### [Recuperare un messaggio di Twitter con Funzioni di Azure](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 ### [Inviare messaggi a un server MQTT usando le API Eclipse Paho](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 ### [Monitorare il sensore magnetico e inviare notifiche tramite posta elettronica con Funzioni di Azure](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
+### [Controllare il LED RGB di MXChip IoT DevKit con dispositivi gemelli di Azure](iot-hub-arduino-iot-devkit-az3166-devkit-state.md)
 
 # Guide alle procedure
 ## Pianificazione
@@ -89,12 +90,12 @@
 ### Inviare messaggi da cloud a dispositivo
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
-#### [Node.js](iot-hub-node-node-c2d.md)
+#### [Node.JS](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
 ### Caricare file da dispositivi
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
-#### [Node.js](iot-hub-node-node-file-upload.md)
+#### [Node.JS](iot-hub-node-node-file-upload.md)
 #### [Python](iot-hub-python-python-file-upload.md)
 ### Introduzione ai dispositivi gemelli
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-twin-getstarted.md)
@@ -173,7 +174,7 @@
 ## [Java (servizio)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (dispositivi)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Node.js (dispositivi)](https://docs.microsoft.com/javascript/api/azure-iot-device/)
-## [Node.js (servizio)](https://docs.microsoft.com/javascript/api/azure-iothub)
+## [Node.js (servizio)](https://docs.microsoft.com/javascript/api/azure-iothub/)
 ## [SDK per dispositivi C](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (provider di risorse)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
