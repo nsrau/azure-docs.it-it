@@ -32,7 +32,7 @@ ms.lasthandoff: 03/23/2018
     - Per prima cosa fare clic su **Crea configurazione IP gateway** per aprire la pagina "Scegli indirizzo IP pubblico", quindi fare clic su **+Crea nuovo** per aprire la pagina "Crea indirizzo IP pubblico".
     - Immettere quindi un **nome** per l'indirizzo IP pubblico. Lasciare lo SKU impostato su **Basic** a meno che non esista un motivo specifico per modificarlo, quindi fare clic su **OK** nella parte inferiore della pagina per salvare le modifiche.
 
-      ![Crea indirizzo IP pubblico](./media/vpn-gateway-add-gw-s2s-rm-portal-include/gwip.png "Crea indirizzo IP pubblico")
+      ![Crea indirizzo IP pubblico](./media/vpn-gateway-add-gw-s2s-rm-portal-include/gwip.png "")
 
 4. Verificare le impostazioni. Se si vuole che il gateway venga visualizzato nel dashboard, è possibile selezionare **Aggiungi al dashboard** nella parte inferiore della pagina. 
 5. Fare clic su **Crea** per iniziare a creare il gateway VPN. Le impostazioni verranno convalidate e nel dashboard verrà visualizzato il riquadro relativo alla distribuzione del gateway di rete virtuale. La creazione di un gateway può richiedere fino a 45 minuti. Potrebbe essere necessario aggiornare la pagina del portale per visualizzare lo stato di completamento.
