@@ -108,7 +108,7 @@ Per coloro che usano applicazioni federate sono disponibili molte nuove funziona
 
 
 Per verificare la nuova configurazione di SSO federato:
-1. Aprire il pannello **Single Sign-On** di un'applicazione federata dal menu di navigazione a sinistra e assicurarsi che sia selezionata la modalità *Accesso basato su SAML**. 
+1. Aprire il pannello **Single Sign-On** di un'applicazione federata dal menu di navigazione a sinistra e assicurarsi che sia selezionata la modalità *Accesso basato su SAML*\*. 
 2. Abilitare quindi la casella di controllo sotto l'intestazione **Attributi utente** per modificare tutti gli attributi inclusi nel token SAML passato all'applicazione.
 
 È anche possibile creare e gestire i certificati usati per l'accesso Single Sign-On federato ed eseguirne il rollover, nonché modificare il destinatario della notifica di scadenza del certificato. Queste nuove opzioni sono disponibili nell'intestazione **Certificati** dello stesso pannello Single Sign-On.
