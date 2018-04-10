@@ -2,7 +2,7 @@
 title: Come creare, gestire o eliminare un account di archiviazione nel portale di Azure | Documentazione Microsoft
 description: Creare un nuovo account di archiviazione, gestire le chiavi di accesso dell'account o eliminare un account di archiviazione nel portale di Azure. Informazioni sugli account di archiviazione Standard e Premium.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn

@@ -86,7 +86,7 @@ Alle regole CORS vengono applicate le limitazioni seguenti:
 * La lunghezza di un'intestazione consentita, di un'intestazione esposta o di un'origine consentita non deve superare 256 caratteri.
 * Le intestazioni consentite e quelle esposte possono essere:
   * Intestazioni letterali, per cui viene fornito il nome esatto dell'intestazione, ad esempio **x-ms-meta-processed**. Nella richiesta è possibile specificare un massimo di 64 intestazioni letterali.
-  * Intestazioni con prefisso, per cui viene fornito un prefisso dell'intestazione, ad esempio **x-ms-meta-data***. Specificando un prefisso in questo modo, si consente o si espone qualsiasi intestazione che inizi con il prefisso specificato. Nella richiesta è possibile specificare un massimo di due intestazioni con prefisso.
+  * Intestazioni con prefisso, per cui viene fornito un prefisso dell'intestazione, ad esempio **x-ms-meta-data**\*. Specificando un prefisso in questo modo, si consente o si espone qualsiasi intestazione che inizi con il prefisso specificato. Nella richiesta è possibile specificare un massimo di due intestazioni con prefisso.
 * I metodi (o verbi HTTP) specificati nell'elemento **AllowedMethods** devono essere conformi ai metodi supportati dalle API del servizio di archiviazione di Azure. I metodi supportati sono DELETE, GET, HEAD, MERGE, POST, OPTIONS e PUT.
 
 ## <a name="understanding-cors-rule-evaluation-logic"></a>Informazioni sulla logica di valutazione delle regole CORS
