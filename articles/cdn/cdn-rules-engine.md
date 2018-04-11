@@ -1,11 +1,11 @@
 ---
 title: Eseguire l'override del comportamento HTTP con il motore regole della rete CDN di Azure | Documentazione Microsoft
-description: "Il motore regole consente di personalizzare la modalità con cui vengono gestite le richieste HTTP nella rete CDN di Azure, ad esempio la distribuzione di determinati tipi di contenuto, la definizione di criteri di memorizzazione nella cache e la modifica delle intestazioni HTTP."
+description: Il motore regole consente di personalizzare la modalità con cui vengono gestite le richieste HTTP nella rete CDN di Azure, ad esempio la distribuzione di determinati tipi di contenuto, la definizione di criteri di memorizzazione nella cache e la modifica delle intestazioni HTTP.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
 ms.service: cdn
 ms.workload: tbd
@@ -44,7 +44,7 @@ Per accedere al motore regole è necessario prima di tutto selezionare **Gestisc
     ![Motore regole per Accelerazione sito dinamico](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
 
 ## <a name="tutorial"></a>Esercitazione
-1. Nella pagina **Profilo rete CDN **selezionare** Gestisci**.
+1. Nella pagina **Profilo rete CDN** selezionare **Gestisci**.
    
     ![Pulsante di gestione del profilo della rete CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
    
