@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 847213a5b8aab908d412ecc9aecec984aec1a9ba
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9b3c4efc712ebe9c0fe209d2ca0478367872d3b7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -37,7 +37,7 @@ Monitoraggio prestazioni rete offre tre ampie funzionalità:
 
     Questa funzionalità consente di eseguire test basati su HTTP, HTTPS, TCP e ICMP per monitorare la disponibilità e il tempo di risposta del servizio quasi in tempo reale o su base cronologica. È anche possibile monitorare il contributo della rete a una perdita di pacchetti e alla latenza. Con una mappa della topologia di rete, è possibile isolare i rallentamenti della rete. È possibile identificare le aree problematiche lungo il percorso di rete dal nodo al servizio, con dati di latenza per ogni hop. Grazie ai test predefiniti, è possibile monitorare la connettività di rete a Office 365 e a Dynamics CRM senza alcuna preconfigurazione. Questa funzionalità consente di monitorare la connettività di rete a qualsiasi endpoint idoneo per TCP, ad esempio siti Web, applicazioni SaaS e PaaS e database SQL.
 
-* [Monitoraggio di ExpressRoute](log-analytics-network-performance-monitor-expressroute.md): consente di monitorare la connettività end-to-end e le prestazioni tra succursali e Azure tramite Azure ExpressRoute.  
+* [Monitoraggio di ExpressRoute](log-analytics-network-performance-monitor-expressroute.md): consente di monitorare la connettività end-to-end e le prestazioni tra succursali e Azure, tramite Azure ExpressRoute.  
 
 Ulteriori informazioni sulle diverse funzionalità supportate da [Monitoraggio prestazioni rete](https://docs.microsoft.com/azure/networking/network-monitoring-overview) sono disponibili online.
  
@@ -48,6 +48,7 @@ NPM consente di monitorare la connettività tra reti e applicazioni in qualsiasi
 * Stati Uniti orientali
 * Asia sudorientale
 * Australia sud-orientale
+* Regno Unito meridionale
 * Virginia e Governo degli Stati Uniti
 
 L'elenco delle aree supportate per Monitoraggio di ExpressRoute è disponibile nella [documentazione](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions).
