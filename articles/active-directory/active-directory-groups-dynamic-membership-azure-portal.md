@@ -12,31 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 03/30/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 2b42840bc1053e9574e7c8ab1c68611c3b2bc7df
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a4ed9ddabe19406fa694992f29cf529b491438c0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Creare regole basate su attributi per l'appartenenza dinamica ai gruppi in Azure Active Directory
-In Azure Active Directory (Azure AD) è possibile creare regole avanzate per abilitare complesse appartenenze dinamiche ai gruppi basate su attributi. Questo articolo descrive in dettaglio la sintassi e gli attributi per creare regole di appartenenza dinamica per utenti o dispositivi.
+In Azure Active Directory (Azure AD) è possibile creare regole avanzate per abilitare complesse appartenenze dinamiche ai gruppi basate su attributi. Questo articolo descrive in dettaglio la sintassi e gli attributi per creare regole di appartenenza dinamica per utenti o dispositivi. È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office 365.
 
 Quando gli attributi di un utente o un dispositivo cambiano, il sistema valuta tutte le regole dinamiche del gruppo in una directory per verificare se la modifica attiverà aggiunte o rimozioni nel gruppo. Se un utente o un dispositivo soddisfa una regola in un gruppo, viene aggiunto come membro a tale gruppo. Se non soddisfano la regola, vengono rimossi.
 
 > [!NOTE]
-> È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office 365.
->
 > Questa funzionalità richiede una licenza Azure AD Premium P1 per ogni utente membro per almeno un gruppo dinamico. Perché gli utenti siano membri dei gruppi dinamici, non è obbligatorio che vengano effettivamente assegnate a loro le licenze, ma è necessario avere il numero minimo di licenze nel tenant per coprire tutti gli utenti. Se ad esempio si ha un totale di 1.000 utenti univoci in tutti i gruppi dinamici del tenant, è necessario avere almeno 1.000 licenze di Azure AD Premium P1 o versione successiva per soddisfare il requisito delle licenze.
 >
 > Sebbene sia possibile creare un gruppo dinamico per i dispositivi o gli utenti, non è possibile creare una regola che contenga sia oggetti utente che dispositivo.
 > 
 > Al momento non è possibile creare un gruppo di dispositivi in base agli attributi dell'utente proprietario. Le regole di appartenenza dispositivo possono fare riferimento solo ad attributi immediati degli oggetti dispositivo nella directory.
-> 
-> Microsoft Teams non supporta ancora l'appartenenza a gruppi dinamica. È possibile convalidare l'errore nei log associato a "Non è possibile eseguire la migrazione dell'appartenenza a gruppi dinamica"
 
 ## <a name="to-create-an-advanced-rule"></a>Per creare una regola avanzata
 1. Accedere al [centro amministrativo Azure AD](https://aad.portal.azure.com) con un account di amministratore globale o amministratore di account utente.
@@ -74,7 +70,7 @@ Per l'elenco completo dei parametri supportati e degli operatori delle regole di
 La lunghezza totale del corpo della regola avanzata non può superare i 2048 caratteri.
 
 > [!NOTE]
-> Le operazioni di stringa ed espressione regolare non fanno distinzione tra maiuscole e minuscole. È anche possibile eseguire controlli Null usando *null* come costante, ad esempio user.department -eq *$null*.
+> Le operazioni di stringa ed espressione regolare non fanno distinzione tra maiuscole e minuscole. È anche possibile eseguire controlli Null usando *null* come costante, ad esempio user.department -eq *null*.
 > Le stringhe contenenti virgolette (") devono essere precedute dal carattere di escape ', ad esempio user.department -eq \`"Sales".
 
 ## <a name="supported-expression-rule-operators"></a>Operatori delle regole di espressione supportati
@@ -106,11 +102,11 @@ Tutti gli operatori sono elencati di seguito per la precedenza da una posizione 
 Tutti gli operatori possono essere usati con o senza trattino come prefisso. Le parentesi sono necessarie solo quando la priorità non soddisfa i requisiti.
 Ad esempio: 
 ```
-   user.department -eq "Marketing" -and user.country -eq "US"
+   user.department –eq "Marketing" –and user.country –eq "US"
 ```
 Equivale a:
 ```
-   (user.department -eq "Marketing") -and (user.country -eq "US")
+   (user.department –eq "Marketing") –and (user.country –eq "US")
 ```
 ## <a name="using-the--in-and--notin-operators"></a>Uso degli operatori -In e -notIn
 
@@ -160,32 +156,32 @@ Operatori consentiti
 
 | Properties | Valori consentiti | Uso |
 | --- | --- | --- |
-| city |Qualsiasi valore stringa o *$null* |(user.city -eq "valore") |
-| country |Qualsiasi valore stringa o *$null* |(user.country -eq "valore") |
-| companyName | Qualsiasi valore stringa o *$null* | (user.companyName -eq "value") |
-| department |Qualsiasi valore stringa o *$null* |(user.department -eq "valore") |
+| city |Qualsiasi valore di stringa o *null* |(user.city -eq "valore") |
+| country |Qualsiasi valore di stringa o *null* |(user.country -eq "valore") |
+| companyName | Qualsiasi valore di stringa o *null* | (user.companyName -eq "value") |
+| department |Qualsiasi valore di stringa o *null* |(user.department -eq "valore") |
 | displayName |Qualsiasi valore stringa. |(user.displayName -eq "valore") |
-| employeeId |Qualsiasi valore stringa. |(user.employeeId -eq "valore")<br>(user.employeeId -ne *$null*) |
-| facsimileTelephoneNumber |Qualsiasi valore stringa o *$null* |(user.facsimileTelephoneNumber -eq "valore") |
-| givenName |Qualsiasi valore stringa o *$null* |(user.givenName -eq "valore") |
-| jobTitle |Qualsiasi valore stringa o *$null* |(user.jobTitle -eq "valore") |
-| mail |Qualsiasi valore stringa o *$null* (indirizzo SMTP dell'utente) |(user.mail -eq "valore") |
+| employeeId |Qualsiasi valore stringa. |(user.employeeId -eq "valore")<br>(user.employeeId -ne *null*) |
+| facsimileTelephoneNumber |Qualsiasi valore di stringa o *null* |(user.facsimileTelephoneNumber -eq "valore") |
+| givenName |Qualsiasi valore di stringa o *null* |(user.givenName -eq "valore") |
+| jobTitle |Qualsiasi valore di stringa o *null* |(user.jobTitle -eq "valore") |
+| mail |Qualsiasi valore di stringa o *null* (indirizzo SMTP dell'utente) |(user.mail -eq "valore") |
 | mailNickName |Qualsiasi valore stringa (alias di posta dell'utente) |(user.mailNickName -eq "valore") |
-| mobile |Qualsiasi valore stringa o *$null* |(user.mobile -eq "valore") |
+| mobile |Qualsiasi valore di stringa o *null* |(user.mobile -eq "valore") |
 | objectId |GUID dell'oggetto utente |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | Identificatore di sicurezza (SID) locale per gli utenti sincronizzati da un ambiente locale al cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |Nessuno DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Qualsiasi valore stringa o *$null* |(user.physicalDeliveryOfficeName -eq "valore") |
-| postalCode |Qualsiasi valore stringa o *$null* |(user.postalCode -eq "valore") |
+| physicalDeliveryOfficeName |Qualsiasi valore di stringa o *null* |(user.physicalDeliveryOfficeName -eq "valore") |
+| postalCode |Qualsiasi valore di stringa o *null* |(user.postalCode -eq "valore") |
 | preferredLanguage |Codice ISO 639-1 |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |Qualsiasi valore stringa o *$null* |(user.sipProxyAddress -eq "valore") |
-| state |Qualsiasi valore stringa o *$null* |(user.state -eq "valore") |
-| streetAddress |Qualsiasi valore stringa o *$null* |(user.streetAddress -eq "valore") |
-| surname |Qualsiasi valore stringa o *$null* |(user.surname -eq "valore") |
-| telephoneNumber |Qualsiasi valore stringa o *$null* |(user.telephoneNumber -eq "valore") |
+| sipProxyAddress |Qualsiasi valore di stringa o *null* |(user.sipProxyAddress -eq "valore") |
+| state |Qualsiasi valore di stringa o *null* |(user.state -eq "valore") |
+| streetAddress |Qualsiasi valore di stringa o *null* |(user.streetAddress -eq "valore") |
+| surname |Qualsiasi valore di stringa o *null* |(user.surname -eq "valore") |
+| telephoneNumber |Qualsiasi valore di stringa o *null* |(user.telephoneNumber -eq "valore") |
 | usageLocation |Codice di paese di due lettere |(user.usageLocation -eq "US") |
 | userPrincipalName |Qualsiasi valore stringa. |(user.userPrincipalName -eq "alias@domain") |
-| userType |membro guest *$null* |(user.userType -eq "Membro") |
+| userType |membro guest *null* |(user.userType -eq "Membro") |
 
 ### <a name="properties-of-type-string-collection"></a>Proprietà di tipo insieme String
 Operatori consentiti
@@ -228,7 +224,7 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 ## <a name="use-of-null-values"></a>Uso dei valori Null
 
-Per specificare un valore Null in una regola, è possibile usare il valore *null*. Prestare attenzione a non usare le virgolette per la parola *null*, in caso contrario, verrà interpretato come valore di stringa letterale. Il modo corretto per fare riferimento al valore Null è il seguente:
+Per specificare un valore Null in una regola, è possibile usare il valore *null*. Prestare attenzione a non usare le virgolette per la parola *null*, in caso contrario, verrà interpretato come valore di stringa letterale. L'operatore -not non può essere usato come operatore di confronto per null. Se si usa questo operatore, viene restituito un errore indipendentemente dal fatto che si usi null o $null. In alternativa, usare -eq o -ne. Il modo corretto per fare riferimento al valore Null è il seguente:
 ```
    user.mail –ne $null
 ```
@@ -254,13 +250,14 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 > [!NOTE]
 > 1. Per il corretto funzionamento della regola, verificare che la proprietà **Manager ID** sia impostata correttamente sugli utenti inclusi nel tenant. È possibile controllare il valore corrente per un utente nella **scheda Profilo**.
 > 2. Questa regola supporta solo i dipendenti **diretti**. Attualmente non è possibile creare un gruppo per una gerarchia nidificata, ad esempio un gruppo che include dipendenti diretti e i relativi dipendenti.
+> 3. Questa regola non può essere combinata con altre regole avanzate.
 
 **Per configurare il gruppo**
 
 1. Eseguire i passaggi da 1 a 5 illustrati nella sezione [Per creare la regola avanzata](#to-create-the-advanced-rule) e selezionare **Utente dinamico** come **Tipo di appartenenza**.
 2. Nel pannello **Dynamic membership rules** (Regole di appartenenza dinamica) immettere la regola con la sintassi seguente:
 
-    *Dipendenti diretti per "{obectID_of_manager}"*
+    *Dipendenti diretti per "{objectID_of_manager}"*
 
     Esempio di una regola valida:
 ```
@@ -295,19 +292,43 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Modifica dell'appartenenza dinamica in statica e viceversa
 È possibile modificare il modo in cui viene gestita l'appartenenza in un gruppo. Ciò è utile per mantenere lo stesso ID e nome di gruppo nel sistema in modo che i riferimenti al gruppo esistenti restino validi. Creando un nuovo gruppo sarebbe infatti necessario aggiornare tali riferimenti.
 
-È in corso l'aggiornamento del portale di Azure per supportare questa funzionalità. Nel frattempo è possibile usare i cmdlet di PowerShell come illustrato di seguito.
+L'interfaccia di amministrazione di Azure AD è stata aggiornata per aggiungere il supporto per questa funzionalità. Attualmente i clienti possono convertire gruppi esistenti dall'appartenenza dinamica all'appartenenza assegnata e viceversa tramite l'interfaccia di amministrazione di Azure AD o i cmdlet di PowerShell, come illustrato di seguito.
 
 > [!WARNING]
 > Quando si modifica un gruppo statico esistente in gruppo dinamico, tutti i membri esistenti verranno rimossi dal gruppo e verrà quindi elaborata la regola di appartenenza per aggiungere nuovi membri. Se il gruppo viene usato per controllare l'accesso alle app o alle risorse, i membri originali potrebbero perdere l'accesso finché non viene completata l'elaborazione della regola di appartenenza.
 >
-> È consigliabile testare prima la nuova regola per verificare che la nuova appartenenza nel gruppo sia quella prevista.
+> È consigliabile testare prima la nuova regola di appartenenza per verificare che la nuova appartenenza nel gruppo sia quella prevista.
 
-**Uso di PowerShell per modificare la gestione delle appartenenze in un gruppo**
+### <a name="using-azure-ad-admin-center-to-change-membership-management-on-a-group"></a>Uso dell'interfaccia di amministrazione di Azure AD per modificare la gestione delle appartenenze in un gruppo 
+
+1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account di amministratore globale o di amministratore di account utente nel tenant.
+2. Selezionare **Gruppi**.
+3. Dall'elenco **Tutti i gruppi** aprire il gruppo che si vuole modificare.
+4. Selezionare **Proprietà**.
+5. Nella pagina **Proprietà** del gruppo selezionare Assegnato (statico), Utente dinamico o Dispositivo dinamico come **Tipo di appartenenza**, a seconda del tipo di appartenenza desiderato. Per l'appartenenza dinamica è possibile usare il generatore di regole per selezionare le opzioni per una regola semplice o per scrivere una regola avanzata manualmente. 
+
+I passaggi seguenti offrono un esempio della procedura da seguire per modificare da statica a dinamica l'appartenenza per un gruppo di utenti. 
+
+1. Nella pagina **Proprietà** del gruppo selezionato selezionare **Utente dinamico** come **Tipo di appartenenza** e quindi selezionare Sì nella finestra di dialogo che descrive le modifiche all'appartenenza del gruppo per continuare. 
+  
+   ![selezionare il tipo di appartenenza Utente dinamico](./media/active-directory-groups-dynamic-membership-azure-portal/select-group-to-convert.png)
+  
+2. Selezionare **Aggiungi query dinamica** e quindi specificare la regola.
+  
+   ![immettere la regola](./media/active-directory-groups-dynamic-membership-azure-portal/enter-rule.png)
+  
+3. Dopo aver creato la regola, selezionare **Aggiungi query** nella parte inferiore della pagina.
+4. Selezionare **Salva** nella pagina **Proprietà** del gruppo per salvare le modifiche. Il valore di **Tipo di appartenenza** del gruppo viene aggiornato immediatamente nell'elenco dei gruppi.
+
+> [!TIP]
+> La conversione del gruppo potrebbe non riuscire se la regola avanzata immessa non è corretta. Nell'angolo superiore destro del portale viene visualizzata una notifica che contiene una spiegazione dei motivi per cui la regola non può essere accettata dal sistema. Leggerla attentamente per capire come modificare la regola per renderla valida.
+
+### <a name="using-powershell-to-change-membership-management-on-a-group"></a>Uso di PowerShell per modificare la gestione delle appartenenze in un gruppo
 
 > [!NOTE]
-> Per modificare le proprietà dei gruppi dinamici, sarà necessario usare i cmdlet della **versione di anteprima di** [Azure AD PowerShell versione 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). È possibile installare l'anteprima da [qui](https://www.powershellgallery.com/packages/AzureADPreview).
+> Per modificare le proprietà dei gruppi dinamici, sarà necessario usare i cmdlet della **versione di anteprima di** [Azure AD PowerShell versione 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). È possibile installare l'anteprima da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
 
-Di seguito è riportato un esempio delle funzioni che cambiano la gestione delle appartenenze in un gruppo esistente. È necessario prestare attenzione in modo da modificare correttamente la proprietà GroupTypes e mantenere tutti i valori eventualmente presenti non correlati all'appartenenza dinamica.
+Di seguito è riportato un esempio delle funzioni che cambiano la gestione delle appartenenze in un gruppo esistente. In questo esempio è necessario prestare attenzione a modificare correttamente la proprietà GroupTypes e a mantenere i valori eventualmente non correlati all'appartenenza dinamica.
 
 ```
 #The moniker for dynamic groups as used in the GroupTypes property of a group object

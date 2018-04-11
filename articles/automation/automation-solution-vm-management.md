@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: da2d95bc100a6160282c93682ad76f7ee881e105
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2838d8fd53d4e2e564bb7784cb5489e9a167d5bb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) in Automazione di Azure
 
@@ -55,7 +55,7 @@ Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine v
 
 1. Viene visualizzata la pagina **Aggiungi soluzione**. Viene richiesto di configurare la soluzione prima di importarla nella sottoscrizione di Automazione.
    ![Pagina Aggiungi soluzione di Virtual Machine Management](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
-1. Nella pagina **Aggiungi soluzione** selezionare **Area di lavoro**. Selezionare un'area di lavoro di OMS collegata alla stessa sottoscrizione di Azure in cui è incluso l'account di Automazione. Se non è disponibile un'area di lavoro, selezionare **Crea una nuova area di lavoro**. Nella pagina **Area di lavoro di OMS** seguire questa procedura:
+1. Nella pagina **Aggiungi soluzione** selezionare **Area di lavoro**. Selezionare un'area di lavoro di Log Analytics collegata alla stessa sottoscrizione di Azure in cui è incluso l'account di Automazione. Se non è disponibile un'area di lavoro, selezionare **Crea una nuova area di lavoro**. Nella pagina **Area di lavoro di OMS** seguire questa procedura:
    * Specificare un nome per la nuova **area di lavoro OMS**.
    * Selezionare una **sottoscrizione** a cui collegarsi. Se la sottoscrizione selezionata per impostazione predefinita non è appropriata, è possibile sceglierne una dall'elenco a discesa.
    * Per il **gruppo di risorse**, è possibile selezionare un gruppo di risorse esistente o crearne uno nuovo.
@@ -63,13 +63,13 @@ Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine v
    * Selezionare un **Piano tariffario**. La soluzione offre due livelli: **Gratuito** e **Per nodo (OMS)**. Il livello Gratuito presenta un limite per la quantità di dati raccolti al giorno, il periodo di conservazione e i minuti di esecuzione dei processi dei runbook. Il livello Per nodo non ha limiti per la quantità di dati raccolti al giorno.
 
         > [!NOTE]
-        > Anche se è visualizzato come opzione, il livello a pagamento Per GB (autonomo) non è applicabile. Se si seleziona e si procede con la creazione della soluzione nella sottoscrizione, l'operazione ha esito negativo. Questo problema sarà risolto al momento del rilascio ufficiale della soluzione. Questa soluzione usa solo l'inserimento di log e i minuti di esecuzione dei processi di automazione. Non aggiunge altri nodi OMS all'ambiente in uso.
+        > Anche se è visualizzato come opzione, il livello a pagamento Per GB (autonomo) non è applicabile. Se si seleziona e si procede con la creazione della soluzione nella sottoscrizione, l'operazione ha esito negativo. Questo problema sarà risolto al momento del rilascio ufficiale della soluzione. Questa soluzione usa solo l'inserimento di log e i minuti di esecuzione dei processi di automazione. Non aggiunge altri nodi all'ambiente in uso.
 
 1. Dopo aver specificato le informazioni necessarie nella pagina **Area di lavoro di OMS**, fare clic su **Crea**. È possibile monitorarne lo stato scegliendo **Notifiche** dal menu. Al termine, si tornerà alla pagina **Aggiungi soluzione**.
-1. Nella pagina **Aggiungi soluzione** selezionare **Account di Automazione**. Se si sta creando una nuova area di lavoro di OMS, è anche necessario creare un nuovo account di Automazione da associare. Selezionare **Crea un account di Automazione** e specificare le informazioni seguenti nella pagina **Aggiungi account di Automazione**:
+1. Nella pagina **Aggiungi soluzione** selezionare **Account di Automazione**. Se si sta creando una nuova area di lavoro di Log Analytics, è anche necessario creare un nuovo account di Automazione da associare. Selezionare **Crea un account di Automazione** e specificare le informazioni seguenti nella pagina **Aggiungi account di Automazione**:
    * Nel campo **Nome** immettere il nome dell'account di Automazione.
 
-    Tutte le altre opzioni vengono popolate automaticamente in base all'area di lavoro OMS selezionata Queste opzioni non possono essere modificate. Il metodo di autenticazione predefinito per i runbook inclusi nella soluzione è un account RunAs di Azure. Dopo aver fatto clic su **OK**, le opzioni di configurazione vengono convalidate e viene creato l'account di Automazione. Per tenere traccia dello stato di avanzamento, è possibile usare la voce **Notifiche** nel menu.
+    Tutte le altre opzioni vengono popolate automaticamente in base all'area di lavoro di Log Analytics selezionata. Queste opzioni non possono essere modificate. Il metodo di autenticazione predefinito per i runbook inclusi nella soluzione è un account RunAs di Azure. Dopo aver fatto clic su **OK**, le opzioni di configurazione vengono convalidate e viene creato l'account di Automazione. Per tenere traccia dello stato di avanzamento, è possibile usare la voce **Notifiche** nel menu.
 
 1. Nella pagina **Aggiungi soluzione** selezionare infine **Configurazione**. Viene visualizzata la pagina **Parametri**.
 
@@ -230,7 +230,7 @@ Non è consigliabile abilitare tutte le pianificazioni, perché potrebbe verific
 
 ## <a name="log-analytics-records"></a>Record di Log Analytics
 
-Automazione crea due tipi di record nel repository OMS: log di processo e flussi di processo.
+Automazione crea due tipi di record nell'area di lavoro di Log Analytics: log di processo e flussi di processo.
 
 ### <a name="job-logs"></a>Log di processo
 

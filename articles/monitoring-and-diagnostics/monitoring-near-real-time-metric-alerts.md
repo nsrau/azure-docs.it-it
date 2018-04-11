@@ -1,6 +1,6 @@
 ---
-title: Avvisi delle metriche near real time in Monitoraggio di Azure | Microsoft Docs
-description: Informazioni su come usare avvisi di metriche near real time per monitorare le metriche delle risorse di Azure con una frequenza di circa 1 minuto.
+title: Avvisi delle metriche più recenti nelle risorse supportate da Monitoraggio di Azure | Microsoft Docs
+description: Informazioni di riferimento sulle metriche e i log di supporto per gli avvisi delle metriche in tempo quasi reale di Azure più recenti.
 author: snehithm
 manager: kmadnani1
 editor: ''
@@ -12,32 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: 15b9b0b69f3805b3e3af1d3973fd3a77bea62ab9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6ccb095f3739a90bdab2408965a742f9cbc19359
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="use-the-newer-metric-alerts-for-azure-services-in-azure-portal"></a>Usare gli avvisi metrica più recenti per i servizi di Azure sul portale di Azure
-Monitoraggio di Azure supporta un nuovo tipo di avvisi denominati avvisi delle metriche quasi in tempo reale. 
+# <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Avvisi delle metriche più recenti per i servizi di Azure nel portale di Azure
+Monitoraggio di Azure supporta ora un nuovo tipo di avviso delle metriche. Gli avvisi più recenti sono diversi dai [normali avvisi delle metriche](insights-alerts-portal.md) per alcuni aspetti:
 
-Gli avvisi delle metriche quasi in tempo reale sono diversi dai [normali avvisi metrica](insights-alerts-portal.md) per alcuni aspetti:
+- **Latenza migliorata**: gli avvisi delle metriche più recenti possono essere eseguiti con una frequenza di un minuto. Gli avvisi metrica meno recenti sono sempre eseguibili con una frequenza di 5 minuti. Gli avvisi del log hanno ancora un ritardo maggiore di 1 minuto a causa del tempo necessario per inserire i log. 
+- **Supporto delle metriche multidimensionali**: è possibile inviare un avviso per le metriche multidimensionali, per poter monitorare solo un segmento interessante della metrica. 
+- **Maggiore controllo delle condizioni delle metriche**: è possibile definire regole di avviso più dettagliate. Gli avvisi più recenti supportano il monitoraggio dei valori massimo, minimo, medio e totale delle metriche. 
+- **Monitoraggio combinato di più metriche**: è possibile monitorare più metriche (attualmente un massimo di due) con una singola regola. Viene attivato un avviso se entrambe le metriche violano le rispettive soglie per il periodo di tempo specificato. 
+- **Migliore sistema di notifica**: tutti gli avvisi più recenti usano [gruppi di azioni](monitoring-action-groups.md), ovvero gruppi di azioni e notifiche con nome che possono essere riusati in più avvisi. Al contrario, gli avvisi delle metriche classici e gli avvisi di Log Analytics precedenti non usano gruppi di azioni. 
+- **Metriche dai log** (anteprima pubblica limitata): i dati di log diretti a Log Analytics possono essere ora estratti in metriche di Monitoraggio di Azure e quindi essere oggetto di avvisi come le altre metriche. 
 
-- **Latenza migliorata**: gli avvisi delle metriche quasi in tempo reale sono eseguibili con una frequenza di un minuto. Gli avvisi metrica meno recenti sono sempre eseguibili con una frequenza di 5 minuti.
-- **Supporto delle metriche multidimensionali**: è possibile inviare un avviso per le metriche multidimensionali, in modo da monitorare un segmento interessante della metrica.
-- **Maggiore controllo delle condizioni delle metriche**: è possibile di definire regole di avviso più dettagliate negli avvisi delle metriche near real time. Gli avvisi supportano il monitoraggio dei valori massimo, minimo, medio e totale delle metriche.
-- **Monitoraggio combinato di più metriche**: gli avvisi delle metriche near real time possono monitorare più metriche (attualmente un massimo di due) con una singola regola. Viene attivato un avviso se entrambe le metriche violano le rispettive soglie per il periodo di tempo specificato.
-- **Sistema di notifica modulare**: gli avvisi delle metriche near real time usano i [gruppi di azioni](monitoring-action-groups.md). È possibile usare i gruppi di azioni per creare azioni modulari. È possibile riutilizzare i gruppi di azioni per più regole di avviso.
-- **Metriche dai log**: dai comuni dati di log in arrivo in [Log Analytics](../log-analytics/log-analytics-overview.md) è possibile estrarre le metriche in Monitoraggio di Azure e ricevere avvisi quasi in tempo reale.
+Per informazioni su come creare un avviso metrica più recente sul portale di Azure, vedere [Creare una regola di avviso nel portale di Azure](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal). Dopo la creazione, è possibile gestire l'avviso seguendo i passaggi descritti in [Gestire gli avvisi nel portale di Azure](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
+
+## <a name="portal-powershell-cli-rest-support"></a>Supporto per il portale, PowerShell, l'interfaccia della riga di comando, REST
+Al momento è possibile creare avvisi metrica più recenti solo nel portale di Azure o nell'API REST. Il supporto per la configurazione degli avvisi più recenti con PowerShell, l'interfaccia della riga di comando di Azure (interfaccia della riga di comando di Azure 2.0), sarà presto disponibile.
 
 ## <a name="metrics-and-dimensions-supported"></a>Metriche e dimensioni supportate
-Gli avvisi delle metriche near real time supportano gli avvisi per le metriche con dimensioni. Le dimensioni possono essere usate per filtrare le metriche al livello corretto. Tutte le metriche supportate e le dimensioni applicabili possono essere esplorate e visualizzate da [Monitoraggio di Azure - Esplora metriche (anteprima)](monitoring-metric-charts.md).
+Gli avvisi delle metriche più recenti supportano l'invio di avvisi per le metriche che usano le dimensioni. Le dimensioni possono essere usate per filtrare le metriche al livello corretto. Tutte le metriche supportate e le dimensioni applicabili possono essere esplorate e visualizzate da [Monitoraggio di Azure - Esplora metriche (anteprima)](monitoring-metric-charts.md).
 
-Ecco l'elenco completo delle origini delle metriche basate su Monitoraggio di Azure supportate dagli avvisi delle metriche near real time:
+Ecco l'elenco completo delle origini delle metriche di Monitoraggio di Azure supportate dagli avvisi più recenti:
 
 |Tipo di risorsa  |Dimensioni supportate  | Metriche disponibili|
 |---------|---------|----------------|
@@ -60,25 +63,20 @@ Ecco l'elenco completo delle origini delle metriche basate su Monitoraggio di Az
 |Microsoft.Storage/storageAccounts/services     |     Sì    | [Servizi BLOB](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [servizi file](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [servizi di accodamento](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) e [servizi tabelle](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  N/D       | [Analisi dei flussi](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
 |Microsoft.CognitiveServices/accounts     |    N/D     | [Servizi cognitivi](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
-|Microsoft.OperationalInsights/workspaces (anteprima) | Sì|[Aree di lavoro di Log Analytics](#support-for-oms-logs-as-metrics-for-alerting)|
+|Microsoft.OperationalInsights/workspaces (anteprima) | Sì|[Aree di lavoro di Log Analytics](#log-analytics-logs-as-metrics-for-alerting)|
 
 
-## <a name="create-a-newer-metric-alert"></a>Creare un avviso metrica più recente
-Al momento è possibile creare avvisi metrica più recenti solo nel portale di Azure o nell'API REST. Il supporto per la configurazione degli avvisi delle metriche quasi in tempo reale tramite PowerShell, l'interfaccia della riga di comando di Azure (Azure CLI), sarà presto disponibile.
+## <a name="log-analytics-logs-as-metrics-for-alerting"></a>Log di Log Analytics come metriche per gli avvisi 
 
-Per informazioni su come creare un avviso metrica più recente sul portale di Azure, vedere [Creare una regola di avviso nel portale di Azure](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
-
-## <a name="manage-newer-metric-alerts"></a>Gestione degli avvisi metrica più recenti
-Dopo aver creato un avviso delle metriche near real time, è possibile gestirlo seguendo i passaggi descritti in [Gestire gli avvisi nel portale di Azure](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
-
-## <a name="support-for-oms-logs-as-metrics-for-alerting"></a>Supporto per i log OMS come metriche per gli avvisi
-
-È possibile usare gli avvisi delle metriche quasi in tempo reale anche nei log OMS più comuni estratti come metriche nel quadro dell'anteprima delle metriche dei log.  
+È possibile usare gli avvisi delle metriche più recenti anche nei log di Log Analytics più comuni estratti come metriche nel quadro dell'anteprima delle metriche dei log.  
 - [Contatori delle prestazioni](../log-analytics/log-analytics-data-sources-performance-counters.md) per i computer Windows e Linux
 - [Record di heartbeat per l'Integrità agente](../operations-management-suite/oms-solution-agenthealth.md)
 - Record di [Gestione aggiornamenti](../operations-management-suite/oms-solution-update-management.md)
+ 
+> [!NOTE]
+> Metriche e/o dimensioni specifiche verranno visualizzate solo se i relativi dati esistono nel periodo scelto. Tali metriche sono disponibili per i clienti con aree di lavoro negli Stati Uniti orientali, negli Stati Uniti centro-occidentali e in Europa occidentale che hanno acconsentito esplicitamente all'anteprima. Per registrarsi all'anteprima, iscriversi tramite [il sondaggio](https://aka.ms/MetricLogPreview).
 
-Ecco l'elenco completo delle origini delle metriche basate su log OMS supportate dagli avvisi delle metriche near real time:
+È supportato l'elenco seguente di origini delle metriche basate sui log di Log Analytics:
 
 Nome metrica/Dettagli  |Dimensioni supportate  | Tipo di log  |
 |---------|---------|---------|
@@ -151,13 +149,11 @@ Nome metrica/Dettagli  |Dimensioni supportate  | Tipo di log  |
 |    Heartbeat  |     Sì - Computer, OSType, Version e SourceComputerId    |   Record di heartbeat |
 |    Aggiornamento |     Sì - Computer, Product, Classification, UpdateState, Optional e Approved    |   Gestione degli aggiornamenti |
 
-> [!NOTE]
-> Metriche e/o dimensioni specifiche verranno visualizzate solo se i relativi dati esistono nel periodo scelto. Tali metriche sono disponibili per i clienti con aree di lavoro negli Stati Uniti orientali, negli Stati Uniti centro-occidentali e in Europa occidentale che hanno acconsentito esplicitamente all'anteprima. Per registrarsi all'anteprima, iscriversi tramite [il sondaggio](https://aka.ms/MetricLogPreview).
 
 
 ## <a name="payload-schema"></a>Schema del payload
 
-L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli avvisi delle metriche near real time se viene usato il [gruppo di azione](monitoring-action-groups.md) correttamente configurato:
+L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli avvisi delle metriche più recenti se viene usato un [gruppo di azioni](monitoring-action-groups.md) correttamente configurato:
 
 ```json
 {"schemaId":"AzureMonitorMetricAlert","data":

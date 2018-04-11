@@ -4,8 +4,8 @@ description: Questa pagina fornisce una panoramica del servizio Network Watcher 
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 792b96e4f5ba5dc0f2f943f099a2fee339407d66
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Panoramica del monitoraggio della rete in Azure
 
@@ -47,6 +47,7 @@ Di seguito sono elencate le funzionalità attualmente disponibili in Network Wat
 * **[Limite sottoscrizioni di rete](#network-subscription-limits)**: permette di visualizzare l'utilizzo delle risorse di rete rispetto ai limiti.
 * **[Configurazione del log di diagnostica](#diagnostic-logs)**: permette di abilitare o disabilitare i log di diagnostica per le risorse di rete in un gruppo di risorse da un unico riquadro.
 * **[Risoluzione dei problemi di connessione](network-watcher-connectivity-overview.md)**: verifica se è possibile stabilire una connessione TCP diretta da una macchina virtuale a un determinato endpoint arricchito con contesto Azure.
+* **[Monitoraggio connessione](connection-monitor.md)**: monitora i problemi di latenza e connessione tra una macchina virtuale di Azure e un indirizzo IP usando indirizzo IP e porta di origine e di destinazione.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Controllo degli accessi in base al ruolo in Network Watcher
 

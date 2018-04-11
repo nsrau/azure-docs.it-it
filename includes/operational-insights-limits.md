@@ -1,9 +1,19 @@
-
->[!NOTE]
->Log Analytics era noto in precedenza come Operational Insights.
->
->
-
+---
+title: File di inclusione
+description: File di inclusione
+services: log-analytics
+author: MGoedtel
+ms.service: log-analytics
+ms.topic: include
+ms.date: 03/29/2018
+ms.author: magoedte
+ms.custom: include file
+ms.openlocfilehash: 29256b3bcfedb7fe5045ff4c6c3842eb25e00a28
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/03/2018
+---
 I limiti seguenti si applicano alle risorse di Log Analytics per ogni sottoscrizione:
 
 | Risorsa | Limite predefinito | Commenti
@@ -11,17 +21,20 @@ I limiti seguenti si applicano alle risorse di Log Analytics per ogni sottoscriz
 | Numero di aree di lavoro gratuite per sottoscrizione | 10 | Non è possibile aumentare questo limite |
 | Numero di aree di lavoro a pagamento per sottoscrizione | N/D | Il limite è dato dal numero di risorse all'interno di un gruppo di risorse e dal numero di gruppi di risorse per ogni sottoscrizione | 
 
+>[!NOTE]
+>A partire dal 2 aprile 2018 le nuove aree di lavoro in una nuova sottoscrizione useranno automaticamente il piano tariffario *Per GB*.  Per le sottoscrizioni esistenti create prima del 2 aprile o per una sottoscrizione collegata a un registrazione di un Contratto Enterprise esistente, è possibile continuare a scegliere tra tre piani tariffari per le nuove aree di lavoro. 
+>
 
 I limiti seguenti si applicano a ogni area di lavoro di Log Analytics:
 
-|  | Gratuito | Standard | Premium | Autonoma | OMS |
-| --- | --- | --- | --- | --- | --- |
-| Volume di dati raccolti ogni giorno |500 MB<sup>1</sup> |None |None | None | Nessuno
-| Periodo di conservazione dei dati |7 giorni |1 mese |12 mesi | 1 mese<sup>2</sup> | 1 mese <sup>2</sup>|
+|  | Gratuito | Standard | Premium | Autonoma | OMS | Per GB |
+| --- | --- | --- | --- | --- | --- |--- |
+| Volume di dati raccolti ogni giorno |500 MB<sup>1</sup> |Nessuna |Nessuna | Nessuna | Nessuna | Nessuna
+| Periodo di conservazione dei dati |7 giorni |1 mese |12 mesi | 1 mese<sup>2</sup> | 1 mese <sup>2</sup>| 1 mese <sup>2</sup>|
 
 <sup>1</sup> Quando i clienti raggiungono il limite giornaliero di trasferimento dati di 500 MB, l'analisi dei dati si interrompe e riprende all'inizio del giorno successivo. Un giorno si basa su UTC.
 
-<sup>2</sup> Il periodo di conservazione dei dati per i piani tariffari Autonomo e OMS può essere aumentato a 730 giorni.
+<sup>2</sup> Il periodo di conservazione dei dati per i piani tariffari Autonomo, OMS e Per GB può essere aumentato a 730 giorni.
 
 | Categoria | Limiti | Commenti
 | --- | --- | --- |

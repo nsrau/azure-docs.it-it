@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 89d1a4767c240c7e4fedb9d7ac47d6d4fb0aa737
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Domande frequenti sulla migrazione di Archiviazione di Azure
 
@@ -168,7 +168,7 @@ Usare AzCopy per scaricare i dati. Per altre informazioni, vedere [Trasferire da
 
 **Come si modifica la località secondaria nell'area Europa per un account di archiviazione?**
 
-L'area primaria viene selezionata durante la creazione di un account di archiviazione. L'area secondaria viene determinata in base a quella primaria e non è possibile modificarla. Per altre informazioni, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
+L'area primaria viene selezionata durante la creazione di un account di archiviazione. L'area secondaria viene determinata in base a quella primaria e non è possibile modificarla. Per altre informazioni, vedere [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy.md).
 
 **Dove è possibile ottenere altre informazioni su Crittografia del servizio di archiviazione di Azure?**  
   
@@ -280,11 +280,11 @@ Per concedere ad altri utenti l'accesso alle risorse di archiviazione:
       
     - **AzCopy**: aggiungere **-secondary** al nome dell'account di archiviazione nell'URL per accedere all'endpoint secondario. Ad esempio:   
      
-      https://nomeaccountarchiviazione-secondary.blob.core.windows.net/vhds/BlobName.vhd
+      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
     - **Token SAS**: usare un token di firma di accesso condiviso (SAS) per accedere ai dati dall'endpoint. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
-**Come si usa un dominio personalizzato HTTPS con l'account di archiviazione? Come è possibile, ad esempio, fare in modo che "https://nomeaccountarchiviazione.blob.core.windows.net/images/image.gif" venga visualizzato come "https://www.contoso.com/images/image.gif"?**
+**Come si usa un dominio personalizzato HTTPS con l'account di archiviazione? Ad esempio, come si fa a visualizzare "https://mystorageaccountname.blob.core.windows.net/images/image.gif" come "https://www.contoso.com/images/image.gif"?**
 
 Gli account di archiviazione con domini personalizzati attualmente non supportano l'autenticazione SSL.
 È però possibile usare domini personalizzati non HTTPS. Per altre informazioni, vedere [Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB](../blobs/storage-custom-domain-name.md).

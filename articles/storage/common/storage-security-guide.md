@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: e0a398075b01b3c3750a33a9dd74b5ad1c0f71fd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-storage-security-guide"></a>Guida alla sicurezza di Archiviazione di Azure
 
@@ -357,7 +357,7 @@ Questa funzionalità garantisce che tutti i dati presenti sui dischi delle macch
 
 #### <a name="iaas-vms-and-their-vhd-files"></a>VM IaaS e i relativi file VHD
 
-Per i dischi dati usati dalle VM IaaS è consigliabile usare Crittografia dischi di Azure. Se si crea una VM utilizzando un'immagine proveniente da Azure Marketplace, Azure esegue una [copia superficiale](https://en.wikipedia.org/wiki/Object_copying) dell'immagine nell'account di archiviazione in Archiviazione di Azure senza crittografarla, anche se è abilitata la funzionalità SSE. Dopo aver creato la VM e avviato l'aggiornamento dell'immagine, SSE inizierà a crittografare i dati. Per questo motivo, è consigliabile usare Crittografia dischi di Azure nelle VM create da immagini in Azure Marketplace, se si vuole che siano completamente crittografate.
+Per i dischi dati usati dalle VM IaaS è consigliabile usare Crittografia dischi di Azure. Se si crea una macchina virtuale con dischi non gestiti usando un'immagine proveniente da Azure Marketplace, Azure esegue una [copia superficiale](https://en.wikipedia.org/wiki/Object_copying) dell'immagine nell'account di archiviazione in Archiviazione di Azure senza crittografarla, anche se la funzionalità SSE è abilitata. Dopo aver creato la VM e avviato l'aggiornamento dell'immagine, SSE inizierà a crittografare i dati. Per questo motivo, è consigliabile usare Crittografia dischi di Azure nelle macchine virtuali con dischi non gestiti create da immagini in Azure Marketplace, se si vuole che siano completamente crittografate. Se si crea una macchina virtuale con dischi gestiti, per impostazione predefinita la funzionalità SSE esegue la crittografia di tutti i dati utilizzando le chiavi gestite dalla piattaforma. 
 
 Se si sposta una macchina virtuale pre-crittografata dall'ambiente locale in Azure, si potranno caricare le chiavi di crittografia nell'insieme di credenziali delle chiavi di Azure e continuare a usare la crittografia usata in locale per quella VM. Crittografia dischi di Azure viene abilitata per gestire questo scenario.
 

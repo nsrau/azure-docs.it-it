@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 300b9b7786c17972c5c48df7e5b6d28491adc095
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d0614e2eae0f60068e69b7a4687fc62fbe082c64
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -30,7 +30,7 @@ Il campionamento riduce i costi del traffico e dei dati e consente di evitare la
 ## <a name="in-brief"></a>In breve:
 * Il campionamento mantiene un record su *n* e rimuove il resto. Ad esempio, potrebbe mantenere 1 un evento su 5, corrispondente a una frequenza di campionamento del 20%. 
 * Nelle app server Web ASP.NET, il campionamento viene eseguito automaticamente se l'applicazione invia molti dati di telemetria.
-* È anche possibile impostare il campionamento manualmente, nella pagina del portale relativa ai prezzi, nel file con estensione CONFIG dell'SDK di ASP.NET oppure nel file ApplicationInsights.xml dell'SDK di Java, per ridurre anche il traffico di rete.
+* È anche possibile impostare il campionamento manualmente, nella pagina Utilizzo e costi stimati del portale, nel file con estensione config di ASP.NET SDK oppure nel file ApplicationInsights.xml di Java SDK, per ridurre anche il traffico di rete.
 * Se si registrano eventi personalizzati e ci si vuole assicurare che gli eventi di un set vengano mantenuti o rimossi insieme, verificare che abbiano lo stesso valore OperationId.
 * Il divisore di campionamento *n* è indicato in ogni record nella proprietà `itemCount`, visualizzata nella ricerca con il nome descrittivo "Conteggio delle richieste" o "Conteggio degli eventi". Quando il campionamento non è in esecuzione, `itemCount==1`.
 * Se si scrivono query di Dati di analisi, è necessario [tener conto del campionamento](app-insights-analytics-tour.md#counting-sampled-data). In particolare, anziché eseguire semplicemente il conteggio dei record, è necessario usare `summarize sum(itemCount)`.
@@ -49,7 +49,7 @@ Questa forma di campionamento opera nel punto in cui i dati di telemetria di ser
 
 Usare questo tipo di campionamento se l'app spesso supera la quota mensile e non si ha la possibilità di usare uno dei tipi di campionamento basati sull'SDK. 
 
-Impostare la frequenza di campionamento nel pannello Quota + prezzi:
+Impostare la frequenza di campionamento nella pagina Utilizzo e costi stimati:
 
 ![Nel pannello Panoramica sull'applicazione fare clic su Impostazioni, Quota, Esempi e quindi selezionare una frequenza di campionamento e fare clic su Aggiorna.](./media/app-insights-sampling/04.png)
 

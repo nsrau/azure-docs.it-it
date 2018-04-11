@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: d1a605ae5c0ea598ba507de0b21a841333df79ef
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7cd16d64d18b4cdcb710f68c55a8251904acda86
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Risolvere i problemi di configurazione non valida delle entità servizio per il dominio gestito
 
@@ -93,7 +93,7 @@ Seguire questa procedura se un'entità servizio con ID ```d87dcbc6-a371-462e-88e
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Avviso AADDS105: L'applicazione di sincronizzazione delle password non è aggiornata
 
-**Messaggio di avviso:** The service principal with the application ID "d87dcbc6-a371-462e-88e3-28ad15ec4e64" was deleted and then recreated (L'entità servizio con ID applicazione "d87dcbc6-a371-462e-88e3-28ad15ec4e64" è stata eliminata e quindi ricreata). Questa entità servizio gestisce un'altra entità servizio e un'applicazione che vengono usate per la sincronizzazione delle password. L'entità servizio e/o l'applicazione gestite non sono state autorizzate nell'entità servizio appena creata e pertanto non possono essere gestite dal servizio. Questo significa che la nuova entità servizio creata non sarà in grado di aggiornare le precedenti applicazioni gestite con effetti sulla sincronizzazione delle password.
+**Messaggio di avviso:** The service principal with the application ID "d87dcbc6-a371-462e-88e3-28ad15ec4e64" was deleted and then recreated (L'entità servizio con ID applicazione "d87dcbc6-a371-462e-88e3-28ad15ec4e64" è stata eliminata e quindi ricreata). La ricreazione lascia autorizzazioni incoerenti per risorse di Azure AD Domain Services necessarie per gestire il dominio gestito. La sincronizzazione delle password nel dominio gestito può esserne influenzata.
 
 
 **Soluzione:** per eseguire questa procedura, è necessario avere installato Azure AD PowerShell. Per informazioni sull'installazione di Azure AD PowerShell, vedere [questo articolo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).

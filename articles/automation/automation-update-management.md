@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e426f2b90e3ac3ac6bcb9825c7848c76e52a1021
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a7891e5bedb6e2ad3cba4780d38fc479d7b0bf4e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -119,7 +119,7 @@ Heartbeat
 
 In un computer Windows la connettività degli agenti con Log Analytics può essere verificata nel modo seguente:
 
-1.  Aprire Microsoft Monitoring Agent nel Pannello di controllo. Nella scheda **Analisi dei log di Azure (OMS)** l'agente visualizza il messaggio **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service** (Microsoft Monitoring Agent ha eseguito la connessione al servizio Microsoft Operations Management Suite).   
+1.  Aprire Microsoft Monitoring Agent nel Pannello di controllo. Nella scheda **Analisi dei log di Azure** l'agente visualizza il messaggio **The Microsoft Monitoring Agent has successfully connected to Log Analytics** (Microsoft Monitoring Agent ha eseguito la connessione a Log Analytics).   
 2.  Aprire il registro eventi di Windows, passare a **Registri applicazioni e servizi\Operations Manager** e cercare gli ID evento 3000 e 5002 del connettore del servizio di origine. Questi eventi indicano che il computer ha eseguito la registrazione all'area di lavoro di Log Analytics e sta ricevendo la configurazione.  
 
 Se l'agente non può comunicare con Log Analytics ed è configurato per la comunicazione con Internet tramite firewall o server proxy, verificare che il firewall o il server proxy sia configurato correttamente come descritto nei paragrafi relativi alla [configurazione di rete per l'agente Windows](../log-analytics/log-analytics-agent-windows.md) o alla [configurazione di rete per l'agente Linux](../log-analytics/log-analytics-agent-linux.md).
@@ -131,7 +131,7 @@ Se l'agente non può comunicare con Log Analytics ed è configurato per la comun
 
 Gli agenti Linux appena aggiunti visualizzeranno lo stato **Aggiornato** dopo l'esecuzione di una valutazione. Il processo può richiedere fino a 6 ore.
 
-Per verificare che un gruppo di gestione di Operations Manager comunichi con Log Analytics, vedere [Convalidare l'integrazione di Operations Manager con OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
+Per verificare che un gruppo di gestione di Operations Manager comunichi con Log Analytics, vedere [Convalidare l'integrazione di Operations Manager con Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## <a name="data-collection"></a>Raccolta dei dati
 
@@ -173,7 +173,7 @@ Fare clic su **Aggiornamenti mancanti** per visualizzare l'elenco di aggiornamen
 
 ## <a name="viewing-update-deployments"></a>Visualizzazione delle distribuzioni degli aggiornamenti
 
-Fare clic su **Distribuzioni di aggiornamenti** per visualizzare l'elenco delle distribuzioni degli aggiornamenti esistenti. Facendo clic su una qualsiasi delle distribuzioni degli aggiornamenti nell'elenco viene aperta la pagina **Esecuzione di distribuzione aggiornamenti** per la specifica distribuzione degli aggiornamenti.
+Fare clic sulla scheda **Distribuzioni di aggiornamento** per visualizzare l'elenco delle distribuzioni degli aggiornamenti esistenti. Facendo clic su una qualsiasi delle distribuzioni degli aggiornamenti nella tabella viene aperta la pagina **Esecuzione di distribuzione aggiornamenti** per la specifica distribuzione degli aggiornamenti.
 
 ![Panoramica dei risultati della distribuzione degli aggiornamenti](./media/automation-update-management/update-deployment-run.png)
 
@@ -186,7 +186,7 @@ Creare una nuova distribuzione degli aggiornamenti facendo clic sul pulsante **P
 | NOME |Nome univoco che identifica la distribuzione degli aggiornamenti. |
 |Sistema operativo| Linux o Windows|
 | Computer da aggiornare |Selezionare una ricerca salvata o scegliere un computer dall'elenco a discesa e selezionare i singoli computer |
-|Classificazione aggiornamento|Selezionare tutte le classificazioni degli aggiornamenti necessarie|
+|Classificazioni degli aggiornamenti|Selezionare tutte le classificazioni degli aggiornamenti necessarie|
 |Aggiornamenti da escludere|Immettere tutte le KB da escludere senza il prefisso "KB"|
 |Impostazioni di pianificazione|Selezionare l'ora di inizio e selezionare Una sola volta o Ricorrente per la ricorrenza|
 | Finestra di manutenzione |Numero di minuti impostato per gli aggiornamenti. Il valore non può essere inferiore a 30 minuti e superiore a 6 ore |
@@ -213,7 +213,7 @@ La tabella seguente contiene esempi di ricerche log per i record di aggiornament
 
 I clienti che hanno investito in System Center Configuration Manager per gestire PC, server e dispositivi mobili si affidano alle caratteristiche potenti e avanzate di questa soluzione anche per gestire gli aggiornamenti software come parte del loro ciclo di Gestione aggiornamenti software.
 
-Per informazioni su come integrare la soluzione Gestione aggiornamenti di OMS con System Center Configuration Manager, vedere [Integrare System Center Configuration Manager con Gestione aggiornamenti OMS](oms-solution-updatemgmt-sccmintegration.md).
+Per informazioni su come integrare la soluzione di gestione con System Center Configuration Manager, vedere [Integrare System Center Configuration Manager con Gestione aggiornamenti](oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="patching-linux-machines"></a>Applicazione di patch a computer Linux
 

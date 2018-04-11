@@ -4,8 +4,8 @@ description: Imparare a usare Azure Application Insights con Funzioni di Azure p
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: functions
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: d2a61f5f51e3c4a1de6baa79493cb2c7380c76b6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -493,7 +493,7 @@ Si consiglia di usare Application Insights per monitorare le funzioni perché of
 
 ### <a name="logging-to-storage"></a>Registrazione per l'archiviazione
 
-La registrazione predefinita usa l'account di archiviazione specificato dalla stringa di connessione nell'impostazione app `AzureWebJobsDashboard`. Se questa impostazione app viene configurata, è possibile visualizzare i dati di registrazione nel portale di Azure. Nella pagina di un'app per le funzioni selezionare la scheda **Monitoraggio** per ottenere un elenco di esecuzioni della funzione. Selezionare l'esecuzione della funzione per esaminare la durata, i dati di input, gli errori e i file di log associati.
+La registrazione predefinita usa l'account di archiviazione specificato dalla stringa di connessione nell'impostazione app `AzureWebJobsDashboard`. Se questa impostazione app viene configurata, è possibile visualizzare i dati di registrazione nel portale di Azure. Nella risorsa di archiviazione, passare a File, selezionare il servizio file per la funzione e quindi passare a `LogFiles > Application > Functions > Function > your_function` per visualizzare il file di log. Nella pagina di un'app per le funzioni selezionare la scheda **Monitoraggio** per ottenere un elenco di esecuzioni della funzione. Selezionare l'esecuzione della funzione per esaminare la durata, i dati di input, gli errori e i file di log associati.
 
 Se si usa Application Insights ed è stata disabilitata la [registrazione predefiniti](#disable-built-in-logging), la scheda **Monitoraggio** consente di passare ad Application Insights.
 

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 75b55b45c355f585fd73bdc1d97bc6adbbc4e9a0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6cec039034f0650d017eb14de584939bb3191223
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>File di configurazione del servizio Sperimentazione di Azure Machine Learning
 
@@ -149,6 +149,8 @@ Il file _\<nome destinazione di calcolo>.compute_ specifica le informazioni di c
 **nativeSharedDirectory**: questa proprietà specifica la directory di base, ad esempio: _~/.azureml/share/_, in cui i file possono essere salvati per essere condivisi tra le esecuzioni nella stessa destinazione calcolo. Se questa impostazione viene usata durante l'esecuzione in un contenitore Docker, _sharedVolumes_ deve essere impostato su true. In caso contrario, l'esecuzione ha esito negativo.
 
 **userManagedEnvironment**: questa proprietà specifica se la destinazione di calcolo è gestita direttamente dall'utente o se è gestita tramite il servizio Sperimentazione.  
+
+**pythonLocation**: questa proprietà specifica la posizione del runtime di Python da usare nella destinazione di calcolo per eseguire il programma dell'utente. 
 
 ### <a name="run-configuration-namerunconfig"></a>\<nome configurazione esecuzione>.runconfig
 _\<nome della configurazione di esecuzione>.runconfig_ specifica il comportamento di esecuzione di Sperimentazione di Azure Machine Learning. È possibile configurare il comportamento di esecuzione, ad esempio il rilevamento della cronologia di esecuzione o la destinazione di calcolo da usare e molto altro. I nomi dei file di configurazione di esecuzione vengono usati per popolare l'elenco a discesa dei contesti di esecuzione nell'applicazione desktop di Azure ML Workbench.

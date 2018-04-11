@@ -1,30 +1,30 @@
 ---
 title: Panoramica del Controllo degli accessi in base al ruolo per le risorse di Azure PIM | Microsoft Docs
-description: "Panoramica della funzionalità Controllo degli accessi in base al ruolo in PIM, incluse la terminologia e le notifiche"
+description: Panoramica della funzionalità Controllo degli accessi in base al ruolo in PIM, incluse la terminologia e le notifiche
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
-ms.author: barclayn
-ms.openlocfilehash: 19715f800e7d8d40336d8e9fa3bf8073795dce5b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 03/30/2018
+ms.author: billmath
+ms.openlocfilehash: 87d349933a8daeaf8b7a4487612ad62dd2b9efc2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="pim-for-azure-resources-preview"></a>PIM per Risorse di Azure (anteprima)
+# <a name="pim-for-azure-resources"></a>PIM per risorse di Azure
 
-Con Azure Active Directory Privileged Identity Management (PIM) è ora possibile gestire, controllare e monitorare l'accesso a Risorse di Azure (anteprima) nell'organizzazione, incluse le sottoscrizioni, i gruppi di risorse e addirittura le macchine virtuali. Qualsiasi risorsa nel portale di Azure che sfrutta i vantaggi della funzionalità Controllo degli accessi in base al ruolo può usare tutte le straordinarie funzionalità di sicurezza e gestione del ciclo di vita offerte da Azure AD PIM e alcune nuove funzionalità eccellenti che saranno presto disponibili nei ruoli di Azure AD. 
+Con Azure Active Directory Privileged Identity Management (PIM) è ora possibile gestire, controllare e monitorare l'accesso alle risorse di Azure nell'organizzazione, incluse le sottoscrizioni, i gruppi di risorse e addirittura le macchine virtuali. Qualsiasi risorsa nel portale di Azure che sfrutta i vantaggi della funzionalità Controllo degli accessi in base al ruolo può usare tutte le straordinarie funzionalità di sicurezza e gestione del ciclo di vita offerte da Azure AD PIM e alcune nuove funzionalità eccellenti che saranno presto disponibili nei ruoli di Azure AD. 
 
-## <a name="pim-for-azure-resources-preview-helps-resource-administrators"></a>PIM per Risorse di Azure (anteprima) aiuta gli amministratori delle risorse
+## <a name="pim-for-azure-resources-helps-resource-administrators"></a>PIM per risorse di Azure aiuta gli amministratori delle risorse
 
 - Verificare gli utenti e i gruppi a cui sono assegnati ruoli per le risorse di Azure amministrate
 - Abilitare l'accesso su richiesta "Just-In-Time" per gestire le risorse come sottoscrizioni, gruppi di risorse e altro ancora
@@ -49,15 +49,15 @@ Gli utenti o i membri di un gruppo assegnati ai ruoli Proprietario o Amministrat
 
 PIM offre un comodo accesso per l'attivazione di ruoli, la visualizzazione delle attivazioni/richieste in sospeso, delle approvazioni in sospeso (per i [ruoli della directory di Azure AD](azure-ad-pim-approval-workflow.md)) e delle verifiche in sospeso in attesa della risposta dell'utente dalla sezione Attività nel menu di spostamento a sinistra.
 
-Quando si accede a una delle voci del menu Attività dal punto di ingresso Panoramica, la visualizzazione risultante contiene i risultati per i ruoli della directory di Azure AD e per i ruoli delle risorse di Azure (anteprima). 
+Quando si accede a una delle voci del menu Attività dal punto di ingresso Panoramica, la visualizzazione risultante contiene i risultati per i ruoli della directory di Azure AD e per i ruoli delle risorse di Azure. 
 
 ![](media/azure-pim-resource-rbac/role-settings-details.png)
 
-Ruoli personali contiene un elenco delle assegnazioni a ruoli attivi e idonei dell'utente per i ruoli della directory di Azure AD e per i ruoli di Risorse di Azure (anteprima).
+Ruoli personali contiene un elenco delle assegnazioni di ruolo attive e idonee dell'utente per i ruoli della directory di Azure AD e per i ruoli delle risorse di Azure.
 
 ## <a name="activate-roles"></a>Attivare i ruoli
 
-L'attivazione dei ruoli per Risorse di Azure (anteprima) introduce una nuova esperienza che consente ai membri dei ruoli idonei di pianificare l'attivazione per una data/ora futura e selezionare una durata di attivazione specifica entro il valore massimo, configurato dagli amministratori. Altre informazioni sull'[attivazione dei ruoli di Azure AD sono disponibili qui](../active-directory-privileged-identity-management-how-to-activate-role.md).
+L'attivazione dei ruoli per le risorse di Azure introduce una nuova esperienza che consente ai membri dei ruoli idonei di pianificare l'attivazione per una data/ora futura e selezionare una durata di attivazione specifica entro il valore massimo, configurato dagli amministratori. Altre informazioni sull'[attivazione dei ruoli di Azure AD sono disponibili qui](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -73,7 +73,7 @@ Se l'attivazione è pianificata per una data e un'ora future, la richiesta in so
 
 ## <a name="discover-and-manage-azure-resources"></a>Individuare e gestire le risorse di Azure
 
-Per trovare e gestire ruoli per una risorsa di Azure, selezionare Risorse di Azure (anteprima) nella scheda Gestisci nel menu di spostamento a sinistra. Usare i filtri o la barra di ricerca nella parte superiore della pagina per trovare una risorsa.
+Per trovare e gestire ruoli per una risorsa di Azure, selezionare Risorse di Azure nella scheda Gestisci nel menu di spostamento a sinistra. Usare i filtri o la barra di ricerca nella parte superiore della pagina per trovare una risorsa.
 
 ![](media/azure-pim-resource-rbac/azure-resources.png)
 

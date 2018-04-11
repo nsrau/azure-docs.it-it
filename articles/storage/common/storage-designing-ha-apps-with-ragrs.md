@@ -1,6 +1,6 @@
 ---
-title: "Progettazione di applicazioni a disponibilità elevata con l'archiviazione con ridondanza geografica e accesso in lettura di Azure (RA-GRS) | Documentazione Microsoft"
-description: "Informazioni su come usare l'archiviazione RA-GRS di Azure per progettare un'applicazione a disponibilità elevata con flessibilità sufficiente per la gestione delle interruzioni."
+title: Progettazione di applicazioni a disponibilità elevata con l'archiviazione con ridondanza geografica e accesso in lettura di Azure (RA-GRS) | Documentazione Microsoft
+description: Informazioni su come usare l'archiviazione RA-GRS di Azure per progettare un'applicazione a disponibilità elevata con flessibilità sufficiente per la gestione delle interruzioni.
 services: storage
 documentationcenter: .net
 author: tamram
@@ -12,28 +12,26 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/21/2018
 ms.author: tamram
-ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: f7f3f2d99e5582a1bcb672cc176258dfff9c3217
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Progettazione di applicazioni a disponibilità elevata con RA-GRS
 
 Una funzionalità comune delle infrastrutture basate su cloud come Archiviazione di Azure è che offrono una piattaforma a disponibilità elevata per l'hosting di applicazioni. Gli sviluppatori di applicazioni basate su cloud devono valutare attentamente il modo in cui sfruttare questa piattaforma per fornire applicazioni a disponibilità elevata agli utenti. Questo articolo è incentrato sul modo in cui gli sviluppatori possono usare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) per garantire la disponibilità elevata delle applicazioni di Archiviazione di Azure.
 
-Archiviazione di Azure offre quattro scelte per la ridondanza dei dati nell'account di archiviazione:
-
-- Archiviazione con ridondanza locale (LRS)
-- Archiviazione con ridondanza della zona (ZRS) 
-- Archiviazione con ridondanza geografica (GRS)
-- Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) 
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 Questo articolo è incentrato sull'archiviazione con ridondanza geografica (GRS) e su quella con ridondanza geografica e accesso in lettura (RA-GRS). Con l'archiviazione con ridondanza geografica, vengono mantenute tre copie dei dati nell'area primaria selezionata durante la configurazione dell'account di archiviazione. Altre tre copie vengono mantenute in modo asincrono in un'area secondaria specificata da Azure. L'archiviazione con ridondanza geografica e accesso in lettura è uguale all'archiviazione con ridondanza geografica, fatta eccezione per l'accesso in lettura alla copia secondaria. Per altre informazioni sulle opzioni di ridondanza di Archiviazione di Azure, vedere [Replica di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/storage-redundancy). L'articolo sulla replica illustra anche le associazioni tra aree primarie e secondarie.
 
 Questo articolo include frammenti di codice e un collegamento a un esempio completo alla fine che è possibile scaricare ed eseguire.
+
+> [!NOTE]
+> Archiviazione di Azure ora supporta l'archiviazione con ridondanza della zona per la compilazione di applicazioni a disponibilità elevata. L'archiviazione con ridondanza della zona offre una soluzione semplice per le esigenze di ridondanza di molte applicazioni. L'archiviazione con ridondanza della zona assicura la protezione da guasti hardware o gravi emergenze che interessano un singolo data center. Per altre informazioni, vedere [Archiviazione con ridondanza della zona: applicazioni di Archiviazione Azure a disponibilità elevata](storage-redundancy-zrs.md).
 
 ## <a name="key-features-of-ra-grs"></a>Funzionalità principali dell'archiviazione con ridondanza geografica e accesso in lettura
 

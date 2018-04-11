@@ -2,12 +2,12 @@
 title: Informazioni sui token utente in Collaborazione B2B di Azure AD | Microsoft Docs
 description: Informazioni di riferimento sui token utente per Collaborazione B2B in Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,15 +16,15 @@ ms.workload: identity
 ms.date: 05/25/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 6afa7d01282d6c35b042ad69fcdcb5714c92de10
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c4f152aa4da9fcbe07179414aa8dc69f8633bb6b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Informazioni sui token utente in Collaborazione B2B di Azure AD
 
-Se si vuole conoscere l'aspetto del token per un utente di collaborazione B2B, di seguito sono riportati i dettagli del token di connessione e del contenuto del token per Azure Active Directory (Azure AD) Guest e un account di Microsoft Guest nel tenant delle risorse per tenantid 04dcc6ab-388a-4559-b527-fbec656300ea. Per vedere i contenuti del token JSON Web (JWT), usare [https://jwt.io/](https://jwt.io/) o [http://calebb.net](http://calebb.net/).
+Se si vuole conoscere l'aspetto del token per un utente di collaborazione B2B, di seguito sono riportati i dettagli del token di connessione e del contenuto del token per Azure Active Directory (Azure AD) Guest e un account di Microsoft Guest nel tenant delle risorse per tenantid 04dcc6ab-388a-4559-b527-fbec656300ea. Per visualizzare il contenuto del token JSON Web (JWT), usare [https://jwt.io/](https://jwt.io/) o [https://jwt.ms/](https://jwt.ms/).
 
 ## <a name="azure-ad-guest-token"></a>Token del guest di Azure AD
 ```
