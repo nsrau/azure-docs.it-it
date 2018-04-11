@@ -35,7 +35,7 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Premium:
 
 * **Limiti dei dischi di Archiviazione Premium**
 
-    Archiviazione Premium supporta i dischi di VM che possono essere collegati a VM delle serie con dimensioni specifiche. Archiviazione Premium supporta le macchine virtuali serie DS, DSv2, GS, Ls, Fs ed Esv3. È possibile scegliere fra sette dimensioni di disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Attualmente le dimensioni di disco P4 e P6 sono supportate solo per Managed Disks. Ciascuna dimensione di disco ha le proprie specifiche in termini di prestazioni. A seconda dei requisiti dell'applicazione è possibile collegare uno o più dischi alla VM. Le specifiche saranno descritte dettagliatamente nella sezione [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#scalability-and-performance-targets).
+    Archiviazione Premium supporta i dischi di VM che possono essere collegati a VM delle serie con dimensioni specifiche. Archiviazione Premium supporta le macchine virtuali serie DS, DSv2, GS, Ls, Fs ed Esv3. È possibile scegliere fra sette dimensioni di disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB) e P50 (4095 GB). Attualmente le dimensioni di disco P4 e P6 sono supportate solo per Managed Disks. Ciascuna dimensione di disco ha le proprie specifiche in termini di prestazioni. A seconda dei requisiti dell'applicazione è possibile collegare uno o più dischi alla VM. Le specifiche saranno descritte dettagliatamente nella sezione [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#scalability-and-performance-targets).
 
 * **BLOB di pagine Premium**
 
@@ -45,11 +45,11 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Premium:
 
 * **Account di archiviazione Premium**
 
-    Per iniziare a usare Archiviazione Premium, creare un account di archiviazione Premium per dischi non gestiti. Nel [portale di Azure](https://portal.azure.com), per creare un account di Archiviazione Premium, scegliere il livello di prestazioni **Premium**. Selezionare l'opzione di replica **Archiviazione con ridondanza locale**. È anche possibile creare un account di Archiviazione Premium impostando il tipo su **Premium_LRS** in uno dei seguenti percorsi:
-    * [API REST di archiviazione](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (versione 2014-02-14 o versione successiva)
-    * [API REST di gestione servizi](http://msdn.microsoft.com/library/azure/ee460799.aspx) (versione 2014-10-01 o una versione successiva; per le distribuzioni di Azure classiche)
-    * [API REST del provider delle risorse di archiviazione di Azure](https://docs.microsoft.com/rest/api/storagerp) (per le distribuzioni di Azure Resource Manager)
-    * [Azure PowerShell](/powershell/azureps-cmdlets-docs.md) (versione 0.8.10 o successiva)
+    Per iniziare a usare Archiviazione Premium, creare un account di archiviazione Premium per dischi non gestiti. Nel [portale di Azure](https://portal.azure.com), per creare un account di Archiviazione Premium, scegliere il livello di prestazioni **Premium**. Selezionare l'opzione di replica **Archiviazione con ridondanza locale**. È anche possibile creare un account di Archiviazione Premium impostando il livello di prestazioni su **Premium_LRS** (Archiviazione con ridondanza locale Premium). Per modificare il livello di prestazioni, usare uno degli approcci seguenti:
+     
+    - [Uso di Azure PowerShell con Archiviazione di Azure](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+    - [Uso dell'interfaccia della riga di comando di Azure 2.0 con Archiviazione di Azure](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+    - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (API REST del provider delle risorse di archiviazione di Azure) (per le distribuzioni di Azure Resource Manager) o una delle librerie client dei provider di risorse di Archiviazione di Azure
 
     Nella sezione [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#premium-storage-scalability-and-performance-targets) sono riportate informazioni sui limiti dell'account di Archiviazione Premium.
 
@@ -103,7 +103,7 @@ Di seguito sono indicate alcune funzionalità delle VM serie DS, DSv2, GS, Ls e 
 
     Attualmente la più grande VM della serie DS è la Standard_DS15_v2. La Standard_DS15_v2 può fornire fino a 960 MB/s su tutti i dischi. La più grande VM della serie GS è la Standard_GS5. La Standard_GS5 può fornire fino a 2.000 MB/s su tutti i dischi.
 
-    Si noti che questi limiti riguardano solo il traffico su disco. Questi limiti non includono i riscontri cache e il traffico di rete. Una larghezza di banda separata è disponibile per il traffico di rete della VM. La larghezza di banda per il traffico di rete è diversa dalla larghezza di banda dedicata utilizzata dai dischi di Archiviazione Premium.
+    Questi limiti riguardano solo il traffico su disco. Questi limiti non includono i riscontri cache e il traffico di rete. Una larghezza di banda separata è disponibile per il traffico di rete della VM. La larghezza di banda per il traffico di rete è diversa dalla larghezza di banda dedicata utilizzata dai dischi di Archiviazione Premium.
 
     Per le informazioni più aggiornate sul numero massimo di IOPS e sulla velocità effettiva (larghezza di banda) massima per le VM supportate da Archiviazione Premium, vedere [Dimensioni per le macchine virtuali Windows in Azure](../articles/virtual-machines/windows/sizes.md) o [Dimensioni delle macchine virtuali Linux in Azure](../articles/virtual-machines/linux/sizes.md).
 
@@ -129,11 +129,11 @@ Se si usano account di archiviazione Premium per dischi non gestiti e l'applicaz
 ### <a name="premium-storage-disk-limits"></a>Limiti dei dischi di Archiviazione Premium
 Quando si effettua il provisioning di un disco di archiviazione Premium, la dimensione del disco determina il livello massimo di IOPS e velocità effettiva (larghezza di banda). Azure offre sette tipi di dischi di Archiviazione Premium: P4 (solo Managed Disks), P6 (solo Managed Disks), P10, P20, P30, P40 e P50. Ogni tipo di disco di Archiviazione Premium ha limiti specifici di IOPS e velocità effettiva. I limiti per i tipi di dischi sono descritti nella tabella seguente:
 
-| Tipo di disco Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Dimensioni disco           | 32 GB| 64 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS per disco       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Velocità effettiva per disco | 25 MB al secondo  | 50 MB al secondo  | 100 MB al secondo | 150 MB al secondo | 200 MB al secondo | 250 MB al secondo | 250 MB al secondo | 
+| Tipo di disco Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Dimensioni disco           | 32 GB| 64 GB| 128 GB| 256 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS per disco       | 120   | 240   | 500   | 1100   | 2300              | 5000              | 7500              | 7500              | 
+| Velocità effettiva per disco | 25 MB al secondo  | 50 MB al secondo  | 100 MB al secondo | 125 MB al secondo | 150 MB al secondo | 200 MB al secondo | 250 MB al secondo | 250 MB al secondo | 
 
 > [!NOTE]
 > Assicurarsi che nella VM sia disponibile una larghezza di banda sufficiente per il traffico dell'unità disco, come descritto in [Macchine virtuali supportate da Archiviazione Premium](#premium-storage-supported-vms). In caso contrario, la velocità effettiva del disco e IOPS sarà limitata a valori più bassi. IOPS e velocità effettiva massima si basano sui limiti della VM, non sui limiti del disco descritti nella tabella precedente.  
@@ -160,7 +160,7 @@ Ecco alcuni aspetti importanti da conoscere sulla scalabilità e le prestazioni 
 
 * **Velocità effettiva**
 
-    Il limite della velocità effettiva include le scritture su disco e le operazioni di letture dal disco che non vengono servite dalla cache. Ad esempio, un disco P10 ha una velocità effettiva di 100 MB/s per disco. La tabella seguente illustra alcuni esempi di velocità effettiva valida per un disco P10:
+    Il limite della velocità effettiva include le scritture su disco e le operazioni di letture dal disco che non vengono servite dalla cache. Un disco P10 ha ad esempio una velocità effettiva di 100 MB/s per disco. La tabella seguente illustra alcuni esempi di velocità effettiva valida per un disco P10:
 
     | Velocità effettiva massima per un disco P10 | Letture non cache dal disco | Scritture non cache nel disco |
     | --- | --- | --- |
@@ -170,7 +170,7 @@ Ecco alcuni aspetti importanti da conoscere sulla scalabilità e le prestazioni 
 
 * **Riscontri cache**
 
-    I riscontri nella cache non sono limitati da IOPS o velocità di trasmissione del disco allocati. Ad esempio, quando si usa un disco dati con l'impostazione della cache **ReadOnly** in una VM supportata da Archiviazione Premium, le letture gestite dalla cache non sono soggette ai limiti di IOPS e di velocità effettiva del disco. Se il carico di lavoro di un disco è composto prevalentemente da letture, è possibile ottenere una velocità di trasmissione molto elevata. La cache è soggetta a limiti di velocità effettiva e IOPS separati a livello della VM, in base alle dimensioni della stessa. Le VM della serie DS hanno circa 4.000 IOPS e 33 MB/s per memoria centrale per la cache e gli I/O dell'unità SSD locale. Le VM della serie GS hanno circa 5.000 IOPS e 50 MB/s per memoria centrale per la cache e gli I/O dell’unità SSD locale. 
+    I riscontri nella cache non sono limitati da IOPS o velocità di trasmissione del disco allocati. Ad esempio, quando si usa un disco dati con l'impostazione della cache **ReadOnly** in una VM supportata da Archiviazione Premium, le letture gestite dalla cache non sono soggette ai limiti di IOPS e di velocità effettiva del disco. Se il carico di lavoro di un disco è composto prevalentemente da letture, è possibile ottenere una velocità di trasmissione molto elevata. La cache è soggetta a limiti di velocità effettiva e IOPS separati a livello della VM, in base alle dimensioni della stessa. Le VM della serie DS hanno circa 4.000 IOPS e 33 MB/s per memoria centrale per la cache e gli I/O dell'unità SSD locale. Le VM della serie GS hanno circa 5.000 IOPS e 50 MB/s per memoria centrale per la cache e gli I/O dell'unità SSD locale. 
 
 ## <a name="throttling"></a>Limitazione
 La limitazione può verificarsi se l'applicazione IOPS o la velocità effettiva supera i limiti allocati per un disco di Archiviazione Premium. La limitazione può anche verificarsi se il traffico su disco totale in tutti i dischi della VM supera il limite della larghezza di banda del disco disponibile per la VM. Per evitare la limitazione, è consigliabile limitare il numero di richieste di I/O in sospeso per il disco. Usare un limite basato sugli obiettivi di scalabilità e prestazioni per il disco di cui è stato eseguito il provisioning e sulla larghezza di banda del disco disponibile per la VM.  
@@ -297,14 +297,3 @@ Per creare un processo di backup con backup basati sul tempo, criteri semplici p
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su Archiviazione Premium, vedere gli articoli seguenti.
-
-### <a name="design-and-implement-with-premium-storage"></a>Progettare e implementare con Archiviazione Premium
-* [Progettare ai fini delle prestazioni con Archiviazione Premium](../articles/virtual-machines/windows/premium-storage-performance.md)
-* [Operazioni di archiviazione BLOB con Archiviazione Premium](http://go.microsoft.com/fwlink/?LinkId=521969)
-
-### <a name="operational-guidance"></a>Informazioni operative
-* [Migrazione ad Archiviazione Premium di Azure](../articles/storage/common/storage-migration-to-premium-storage.md)
-
-### <a name="blog-posts"></a>Post di BLOG
-* [Archiviazione Premium di Azure disponibile a livello generale](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
-* [Annuncio della serie GS: aggiunta del supporto di archiviazione Premium per le macchine virtuali di grandi dimensioni nel cloud pubblico](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
