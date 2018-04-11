@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
-ms.openlocfilehash: cf93c95a37c9c32333727059317e05cfcc252905
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9ea7da35acefc139625e71904c8aa1b01b87e4df
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Creare avvisi in versione classica sulle metriche in Monitoraggio di Azure per i servizi di Azure - Interfaccia della riga di comando multipiattaforma
 > [!div class="op_single_selector"]
@@ -30,11 +30,11 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="overview"></a>Panoramica
 > [!NOTE]
-> Questo articolo descrive come creare versioni meno recenti degli avvisi delle metriche. Monitoraggio di Azure supporta ora [avvisi delle metriche più recenti e migliori](monitoring-near-real-time-metric-alerts.md). Questi avvisi possono monitorare più metriche e consentire le segnalazioni sulle metriche dimensionali. Il supporto per l'interfaccia della riga di comando per i nuovi avvisi delle metriche sarà presto disponibile.
+> Questo articolo descrive come creare versioni meno recenti degli avvisi classici delle metriche. Monitoraggio di Azure supporta ora [avvisi delle metriche più recenti e migliori](monitoring-near-real-time-metric-alerts.md). Questi avvisi possono monitorare più metriche e consentire le segnalazioni sulle metriche dimensionali. Il supporto per l'interfaccia della riga di comando per i nuovi avvisi delle metriche sarà presto disponibile.
 >
 >
 
-Questo articolo descrive come impostare gli avvisi sulle metriche di Azure tramite l'interfaccia della riga di comando multipiattaforma.
+Questo articolo descrive come impostare gli avvisi classici delle metriche di Azure tramite l'interfaccia della riga di comando multipiattaforma.
 
 > [!NOTE]
 > Dal 25 settembre 2016 Monitoraggio di Azure è il nuovo nome di "Azure Insights". Tuttavia, gli spazi dei nomi e quindi i comandi seguenti contengono ancora il termine "insights".
@@ -46,14 +46,14 @@ Questo articolo descrive come impostare gli avvisi sulle metriche di Azure trami
 * **Valori metrici** : l'avviso si attiva quando il valore di una specifica metrica supera una soglia assegnata per eccesso o difetto. Vale a dire che si attiva sia quando la condizione viene inizialmente soddisfatta e successivamente quando tale condizione non è più soddisfatta.    
 * **Eventi del log attività**: è possibile attivare un avviso per *ogni* evento o solo quando si verifica un determinato evento. Per altre informazioni sugli avvisi sui log attività [fare clic qui](monitoring-activity-log-alerts.md)
 
-È possibile configurare un avviso sulle metriche affinché esegua queste operazioni al momento dell'attivazione:
+È possibile configurare un avviso classico delle metriche affinché esegua queste operazioni al momento dell'attivazione:
 
 * inviare un messaggio di posta elettronica all'amministratore e ai coamministratori del servizio
 * inviare un messaggio di posta elettronica ad altri indirizzi specificati
 * chiamare un webhook
 * avviare l'esecuzione di un runbook di Azure; attualmente è possibile solo dal portale di Azure
 
-È possibile configurare e ottenere informazioni sulle regole degli avvisi sulle metriche tramite
+È possibile configurare e ottenere informazioni sulle regole degli avvisi classici delle metriche tramite
 
 * [Portale di Azure](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
@@ -112,7 +112,7 @@ Questo articolo descrive come impostare gli avvisi sulle metriche di Azure trami
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
 
     ```
-5. Per creare il webhook o inviare un messaggio di posta elettronica all'attivazione di un avviso di metrica, creare prima il messaggio di posta elettronica e/o i webhook. Creare la regola immediatamente dopo. Non è possibile associare il webhook o messaggi di posta elettronica a regole già create tramite l'interfaccia della riga di comando.
+5. Per creare il webhook o inviare un messaggio di posta elettronica all'attivazione di un avviso classico di metrica, creare prima il messaggio di posta elettronica e/o i webhook. Creare la regola immediatamente dopo. Non è possibile associare il webhook o messaggi di posta elettronica a regole già create tramite l'interfaccia della riga di comando.
 
     ```console
     azure insights alerts actions email create --customEmails myemail@contoso.com

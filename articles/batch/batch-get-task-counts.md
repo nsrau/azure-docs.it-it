@@ -1,18 +1,18 @@
 ---
-title: "Monitorare lo stato di un processo conteggiando le attività in base allo stato - Azure Batch | Microsoft Docs"
-description: "Monitorare lo stato di un processo chiamando l'operazione di recupero del conteggio delle attività per conteggiare le attività per ogni processo. È possibile ottenere un conteggio delle attività attive, in esecuzione e completate e delle attività riuscite o non riuscite."
+title: Monitorare lo stato di un processo conteggiando le attività in base allo stato - Azure Batch | Microsoft Docs
+description: Monitorare lo stato di un processo chiamando l'operazione di recupero del conteggio delle attività per conteggiare le attività per ogni processo. È possibile ottenere un conteggio delle attività attive, in esecuzione e completate e delle attività riuscite o non riuscite.
 services: batch
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: tamram
-ms.openlocfilehash: ceff59d7063b60a1344a47489d3d73e0e8ee07df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: bc112ed5b481560362962d6b550d336de6b3d9b4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="count-tasks-by-state-to-monitor-a-jobs-progress-preview"></a>Conteggiare le attività in base allo stato per monitorare lo stato di un processo (anteprima)
 
@@ -31,7 +31,7 @@ L'operazione di recupero dei conteggi delle attività conta le attività in base
 - Un'attività viene conteggiata come **in esecuzione** quando è stata assegnata a un nodo di calcolo, ma non è ancora completata. Un'attività viene conteggiata come **in esecuzione** quando il suo stato è `preparing` o `running`, come indicato dall'operazione di [recupero delle informazioni su un'attività][rest_get_task].
 - Un'attività viene conteggiata come **completata** quando non è più idonea per l'esecuzione. Un'attività conteggiata come **completata** è stata in genere completata correttamente o non è riuscita e ha anche superato il limite di nuovi tentativi. 
 
-L'operazione di recupero dei conteggi delle attività indica anche quante attività sono riuscite o non sono riuscite. Batch determina se un'attività è riuscita o meno controllando la proprietà **result** della proprietà [executionInfo][https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo]:
+L'operazione di recupero dei conteggi delle attività indica anche quante attività sono riuscite o non sono riuscite. Batch determina se un'attività ha avuto esito positivo o negativo controllando la proprietà **result** della proprietà [executionInfo] [https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo]:
 
     - Un'attività viene conteggiata come **riuscita** se il risultato dell'esecuzione dell'attività è `success`.
     - Un'attività viene conteggiata come **non riuscita** se il risultato dell'esecuzione dell'attività è `failure`.

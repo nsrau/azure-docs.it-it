@@ -3,24 +3,24 @@ title: Controlli di accesso nell'accesso condizionale di Azure Active Directory 
 description: Informazioni sul funzionamento dei controlli di accesso nell'accesso condizionale di Azure Active Directory.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 03/28/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: e38b7db2699cd3e4cf76d4a8e8fc558b133dd35b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="access-controls-in-azure-active-directory-conditional-access"></a>Controlli di accesso nell'accesso condizionale di Azure Active Directory 
 
@@ -75,11 +75,15 @@ L'uso dell'autenticazione a più fattori assicura la protezione delle risorse ne
 
 ### <a name="compliant-device"></a>Dispositivo conforme
 
-È possibile configurare criteri di accesso condizionale in base al dispositivo. Lo scopo di un criterio di accesso condizionale basato sul dispositivo è di concedere l'accesso alle risorse configurate solo da dispositivi considerati attendibili. Richiedere un dispositivo conforme è una delle opzioni disponibili per definire un dispositivo attendibile. Per altre informazioni, vedere [Configurare i criteri di accesso condizionale basato su dispositivo di Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+È possibile configurare criteri di accesso condizionale in base al dispositivo. Lo scopo di un criterio di accesso condizionale basato sul dispositivo è di concedere l'accesso alle risorse configurate solo da dispositivi considerati attendibili. Richiedere un dispositivo conforme è una delle opzioni disponibili per definire un dispositivo attendibile. Se questa opzione è selezionata, i criteri di accesso condizionale consentono l'accesso tramite dispositivi aggiunti ad Azure Active Directory e contrassegnati come conformi dalla soluzione MDM.
+
+Per altre informazioni, vedere [Configurare i criteri di accesso condizionale basato su dispositivo di Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
 ### <a name="domain-joined-device"></a>Dispositivo aggiunto a un dominio
 
-Richiedere un dispositivo aggiunto a un dominio è un'altra opzione disponibile per configurare criteri di accesso condizionale basato su dispositivo. Questo requisito si riferisce a tablet aziendali, laptop e desktop di Windows aggiunti ad Active Directory locale. Per altre informazioni, vedere [Configurare i criteri di accesso condizionale basato su dispositivo di Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+Richiedere un dispositivo aggiunto a un dominio è un'altra opzione disponibile per configurare criteri di accesso condizionale basato su dispositivo. Questo requisito si riferisce a tablet aziendali, laptop e desktop di Windows aggiunti ad Active Directory locale. Se questa opzione è selezionata, i criteri di accesso condizionale consentono l'accesso tramite dispositivi aggiunti ad Active Directory locale e ad Azure Active Directory in uso.  
+
+Per altre informazioni, vedere [Configurare i criteri di accesso condizionale basato su dispositivo di Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
 
 

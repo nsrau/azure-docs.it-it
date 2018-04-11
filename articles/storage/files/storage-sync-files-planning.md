@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 401542bf61aa27138d26cce522e24078503b77e0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f3ed53e3c6606ca540cc2e760f2f6280ccf5cc2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure (anteprima)
 È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -96,6 +96,19 @@ Le versioni future di Windows Server verranno aggiunte non appena verranno rilas
 
 > [!Note]  
 > Sono supportati solo i volumi NTFS. Non sono supportati ReFS, FAT, FAT32 e altri file system.
+
+### <a name="files-skipped"></a>File ignorati
+| File/Cartella | Note |
+|-|-|
+| Desktop.ini | File specifico del sistema |
+| ethumbs.db$ | File temporaneo per anteprime |
+| ~$\*.\* | File temporaneo di Office |
+| \*.tmp | File temporaneo |
+| \*.laccdb | File di blocco dei database di Access|
+| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| \\System Volume Information | Cartella specifica del volume |
+| $RECYCLE.BIN| Cartella |
+| \\SyncShareState | Cartella per la sincronizzazione |
 
 ### <a name="failover-clustering"></a>Clustering di failover
 Il clustering di failover di Windows Server è supportato da Sincronizzazione file di Azure per l'opzione di distribuzione "File server per uso generale". Il clustering di failover non è supportato per l'opzione "File server di scalabilità orizzontale per dati di applicazioni" né per i volumi condivisi cluster (CSV, Clustered Shared Volume).

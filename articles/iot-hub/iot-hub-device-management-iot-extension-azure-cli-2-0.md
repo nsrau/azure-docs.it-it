@@ -1,11 +1,11 @@
 ---
 title: Gestione dei dispositivi Azure IoT con l'estensione IoT dell'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
-description: "Usare l'estensione IoT dell'interfaccia della riga di comando di Azure 2.0 per la gestione dei dispositivi dell'hub IoT di Azure, con opzioni di gestione come i metodi diretti e le proprietà desiderate in dispositivi gemelli."
+description: Usare l'estensione IoT dell'interfaccia della riga di comando di Azure 2.0 per la gestione dei dispositivi dell'hub IoT di Azure, con opzioni di gestione come i metodi diretti e le proprietà desiderate in dispositivi gemelli.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: chrissie926
 manager: timlt
-tags: 
+tags: ''
 keywords: gestione dispositivi iot azure, gestione dispositivi hub iot azure, gestione dispositivi iot, gestione dispositivi hub iot
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
 ms.service: iot-hub
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 07b9f14048b6618863efd5bd8eb8bcc8f52ec735
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ceace7331c7548c5b4e27f8529152fd69d5469cd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Usare l'estensione IoT per l'interfaccia della riga di comando di Azure 2.0 per la gestione dei dispositivi dell'hub IoT di Azure
 
@@ -27,7 +27,9 @@ ms.lasthandoff: 03/09/2018
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[L'estensione IoT dell'interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) è una nuova estensione IoT open source che amplia le funzionalità dell'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest). Questa interfaccia include comandi per l'interazione con Azure Resource Manager e gli endpoint di gestione. Ad esempio, è possibile usarla per creare una macchina virtuale o un hub IoT di Azure. Un'estensione dell'interfaccia della riga di comando di Azure consente a un servizio di Azure di aumentare le potenzialità dell'interfaccia e all'utente di accedere a funzionalità aggiuntive specifiche del servizio. L'estensione IoT offre agli sviluppatori IoT la possibilità di accedere dalla riga di comando a tutte le funzionalità dell'hub IoT, di IoT Edge e del servizio Device Provisioning in hub IoT.
+[L'estensione IoT dell'interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) è una nuova estensione IoT open source che amplia le funzionalità dell'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest). Questa interfaccia include comandi per l'interazione con Azure Resource Manager e gli endpoint di gestione. Ad esempio, è possibile usarla per creare una macchina virtuale o un hub IoT di Azure. Un'estensione dell'interfaccia della riga di comando di Azure consente a un servizio di Azure di aumentare le potenzialità dell'interfaccia e all'utente di accedere a funzionalità aggiuntive specifiche del servizio. L'estensione IoT offre agli sviluppatori IoT la possibilità di accedere dalla riga di comando a tutte le funzionalità dell'hub IoT, di IoT Edge e del servizio Device Provisioning in hub IoT.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 | Opzione di gestione          | Attività                                                                                                                            |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
@@ -39,8 +41,7 @@ ms.lasthandoff: 03/09/2018
 
 Per altre informazioni sulle differenze e sull'uso di queste opzioni, vedere [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md) (Indicazioni sulla comunicazione da dispositivo a cloud) e [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.md) (Indicazioni sulla comunicazione da cloud a dispositivo).
 
-> [!NOTE]
-> I dispositivi gemelli sono documenti JSON nei quali vengono archiviate informazioni sullo stato dei dispositivi (metadati, configurazioni e condizioni). L'hub IoT rende permanente un dispositivo gemello per ogni dispositivo che si connette. Per altre informazioni sui dispositivi gemelli, vedere [Introduzione ai dispositivi gemelli](iot-hub-node-node-twin-getstarted.md).
+I dispositivi gemelli sono documenti JSON nei quali vengono archiviate informazioni sullo stato dei dispositivi (metadati, configurazioni e condizioni). L'hub IoT rende permanente un dispositivo gemello per ogni dispositivo che si connette. Per altre informazioni sui dispositivi gemelli, vedere [Introduzione ai dispositivi gemelli](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione
 

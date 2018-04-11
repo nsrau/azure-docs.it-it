@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Introduzione a Griglia di eventi di Azure
 
@@ -33,25 +33,26 @@ Attualmente Griglia di eventi supporta le aree seguenti:
 *   Stati Uniti occidentali
 *   Stati Uniti occidentali 2
 
-Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare a usare Griglia di eventi, vedere [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Creare e instradare eventi personalizzati con Griglia di eventi di Azure). L'immagine seguente illustra come Griglia di eventi collega autori e gestori ma non fornisce un elenco completo di opzioni supportate.
+Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare a usare Griglia di eventi, vedere [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Creare e instradare eventi personalizzati con Griglia di eventi di Azure). L'immagine seguente illustra come Griglia di eventi collega origini e gestori ma non fornisce un elenco completo di opzioni supportate.
 
 ![Modello funzionale di Griglia di eventi](./media/overview/functional-model.png)
 
-## <a name="event-publishers"></a>Autori di eventi
+## <a name="event-sources"></a>Origini eventi
 
-Attualmente i servizi di Azure seguenti hanno il supporto predefinito degli autori per Griglia di eventi:
+Attualmente i servizi di Azure seguenti supportano l'invio degli eventi a Griglia di eventi:
 
 * Sottoscrizioni di Azure (operazioni di gestione)
 * Argomenti personalizzati
 * Hub eventi
 * Hub IoT
 * Gruppi di risorse (operazioni di gestione)
+* Bus di servizio
 * Archiviazione BLOB
 * Utilizzo generico dell'archiviazione v2 (GPv2)
 
 ## <a name="event-handlers"></a>Gestori eventi
 
-Attualmente i servizi di Azure seguenti hanno il supporto predefinito dei gestori per Griglia di eventi: 
+Attualmente i servizi di Azure seguenti supportano la gestione degli eventi da Griglia di eventi: 
 
 * Automazione di Azure
 * Funzioni di Azure

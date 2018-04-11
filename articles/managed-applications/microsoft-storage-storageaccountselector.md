@@ -1,6 +1,6 @@
 ---
-title: Elemento StorageAccountSelector dell'interfaccia utente di Applicazione gestita di Azure | Microsoft Docs
-description: Illustra l'elemento Microsoft.Storage.StorageAccountSelector dell'interfaccia utente per le applicazioni gestite di Azure
+title: Elemento StorageAccountSelector dell'interfaccia utente di Azure | Microsoft Docs
+description: Illustra l'elemento Microsoft.Storage.StorageAccountSelector dell'interfaccia utente per il portale di Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 366a862acc15decf6a8e19f875d5d052695f373c
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: ca66b788af68699b4750e1e2826b6a6b104c72c7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>Elemento Microsoft.Storage.StorageAccountSelector dell'interfaccia utente
-Controllo per la selezione di un account di archiviazione nuovo o esistente. Usare questo elemento quando si [crea un'applicazione Azure gestita](publish-service-catalog-app.md).
+Controllo per la selezione di un account di archiviazione nuovo o esistente.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector.png)
@@ -66,6 +66,5 @@ Controllo per la selezione di un account di archiviazione nuovo o esistente. Usa
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un'introduzione alle applicazioni gestite, vedere [Panoramica di Applicazione gestita di Azure](overview.md).
 * Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
 * Per una descrizione delle proprietà comuni negli elementi dell'interfaccia utente, vedere [Elementi di CreateUiDefinition](create-uidefinition-elements.md).

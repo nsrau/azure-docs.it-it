@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurare manualmente un gruppo di disponibilità AlwaysOn in VM di Azure
 
@@ -32,13 +32,13 @@ Il diagramma illustra le operazioni di compilazione nell'esercitazione.
 
 ![Gruppo di disponibilità](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Nell'esercitazione si presuppone una conoscenza di base dei gruppi di disponibilità di SQL Server AlwaysOn. Se sono necessarie altre informazioni, vedere [Panoramica di Gruppi di disponibilità AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
 
 La tabella seguente elenca i prerequisiti da completare prima di iniziare l'esercitazione:
 
-|  |Requisito |Descrizione |
+|  |Requisito |DESCRIZIONE |
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Due istanze di SQL Server | - In un set di disponibilità di Azure <br/> - In un dominio singolo <br/> - Con la funzionalità Clustering di failover installata |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Controllo di condivisione file per il cluster |  
@@ -374,22 +374,14 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
    ![Trovare il servizio di bilanciamento del carico nel gruppo di risorse](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Fare clic sul servizio di bilanciamento del carico, quindi su **Pool back-end** e infine su **+Aggiungi**. Impostare il pool back-end come segue:
+1. Fare clic sul servizio di bilanciamento del carico, quindi su **Pool back-end** e infine su **+Aggiungi**. 
 
-   | Impostazione | Descrizione | Esempio
-   | --- | --- |---
-   | **Nome** | Digitare un nome in formato testo | SQLLBBE
-   | **Associato a** | Selezionare dall'elenco | Set di disponibilità
-   | **Set di disponibilità** | Usare un nome del set di disponibilità in cui si trovano le VM di SQL Server | sqlAvailabilitySet |
-   | **Macchine virtuali** |I nomi delle due VM di SQL Server | sqlserver-0, sqlserver-1
+1. Associare il pool back-end con il set di disponibilità contenente le macchine virtuali.
 
-1. Digitare il nome per il pool back-end.
+1. In **Configurazioni IP della rete di destinazione** selezionare **MACCHINA VIRTUALE** e scegliere entrambe le macchine virtuali che ospiteranno le repliche del gruppo di disponibilità. Non includere il server di controllo della condivisione file.
 
-1. Fare clic su **+ Aggiungi una macchina virtuale**.
-
-1. Per il set di disponibilità, scegliere quello in cui si trovano le istanze di SQL Server.
-
-1. Per le macchine virtuali, includere entrambe le istanze di SQL Server. Non includere il server di controllo della condivisione file.
+   >[!NOTE]
+   >Se non vengono specificate entrambe le macchine virtuali, verranno stabilite solo le connessioni alla replica primaria.
 
 1. Fare clic su **OK** per creare il pool back-end.
 
@@ -399,7 +391,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
 1. Impostare il probe di integrità nel modo seguente:
 
-   | Impostazione | Descrizione | Esempio
+   | Impostazione | DESCRIZIONE | Esempio
    | --- | --- |---
    | **Nome** | Text | SQLAlwaysOnEndPointProbe |
    | **Protocollo** | Scegliere TCP | TCP |
@@ -414,7 +406,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 1. Fare clic sul servizio di bilanciamento del carico, quindi su **Regole di bilanciamento del carico** e infine su **+Aggiungi**.
 
 1. Impostare le regole di bilanciamento del carico come segue.
-   | Impostazione | Descrizione | Esempio
+   | Impostazione | DESCRIZIONE | Esempio
    | --- | --- |---
    | **Nome** | Text | SQLAlwaysOnEndPointListener |
    | **Indirizzo IP front-end IP** | Scegliere un indirizzo |Usare l'indirizzo creato quando si è creato il servizio di bilanciamento del carico. |

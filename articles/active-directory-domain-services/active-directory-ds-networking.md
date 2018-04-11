@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Domain Services: linee guida sulla rete | Microsoft Docs'
+title: 'Azure AD Domain Services: linee guida sulla rete | Documentazione Microsoft'
 description: Considerazioni sulla rete per Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a56413490decc928ff2643213084155ae469871c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerazioni sulla rete per Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Come selezionare una rete virtuale di Azure
@@ -73,7 +73,7 @@ Azure Active Directory Domain Services richiede le porte seguenti per la manuten
 **Porta 443 (sincronizzazione con Azure AD)**
 * Usata per sincronizzare la directory di Azure AD con il dominio gestito.
 * È obbligatorio consentire l'accesso a questa porta nel gruppo di sicurezza di rete. Senza l'accesso a questa porta, il dominio gestito non è sincronizzato con la directory di Azure AD. Gli utenti potrebbero non essere in grado di accedere, perché le modifiche alle password non vengono sincronizzate con il dominio gestito.
-* È possibile limitare l'accesso in ingresso a questa porta agli indirizzi IP appartenenti all'intervallo di indirizzi IP di Azure.
+* È possibile limitare l'accesso in ingresso a questa porta agli indirizzi IP appartenenti all'intervallo di indirizzi IP di Azure. Si noti che l'intervallo di indirizzi IP di Azure è diverso rispetto all'intervallo di PowerShell illustrato nella regola seguente.
 
 **Porta 5986 (comunicazione remota di PowerShell)**
 * Usata per eseguire attività di gestione con la comunicazione remota di PowerShell nel dominio gestito.

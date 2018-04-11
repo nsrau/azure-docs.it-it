@@ -1,12 +1,12 @@
 ---
 title: Accelerazione sito dinamico tramite la rete CDN di Azure
-description: Approfondimento dell'accelerazione sito dinamico
+description: La rete CDN di Azure supporta l'ottimizzazione Accelerazione sito dinamico per i file con contenuto dinamico.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
 manager: akucer
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli
-ms.openlocfilehash: 713f00f432095b7a8a19996fb7bdb7e5f8d79b63
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Accelerazione sito dinamico tramite la rete CDN di Azure
 
@@ -26,12 +26,12 @@ A causa dell'elevata diffusione di social media, e-commerce e Web iper-personali
 
 Le funzionalità standard della rete per la distribuzione di contenuti (CDN) includono la possibilità di memorizzare nella cache file in posizioni più vicine agli utenti finali per accelerare la distribuzione di file statici. Tuttavia, con le applicazioni Web dinamiche la memorizzazione nella cache di tali contenuti in posizioni periferiche non è possibile, in quanto il server genera il contenuto in risposta al comportamento degli utenti. È più difficile accelerare la distribuzione di tali contenuti rispetto alla memorizzazione nella cache perimetrale tradizionale e a questo scopo è necessaria una soluzione end-to-end in grado di ottimizzare ogni elemento insieme all'intero percorso dei dati, dalle fasi iniziali alla distribuzione. L'ottimizzazione Accelerazione sito dinamico della rete CDN di Azure migliora in modo misurabile le prestazioni delle pagine Web con contenuto dinamico.
 
-La **rete CDN di Azure di Akamai** e la **rete CDN di Azure di Verizon** offrono entrambe l'ottimizzazione basata su Accelerazione sito dinamico tramite il menu **Ottimizzato per** durante la creazione degli endpoint.
+La **rete CDN di Azure con tecnologia Akamai** e la **rete CDN di Azure con tecnologia Verizon** offrono entrambe l'ottimizzazione basata su Accelerazione sito dinamico tramite il menu **Ottimizzato per** durante la creazione degli endpoint.
 
 > [!Important]
-> Solo per i profili di **rete CDN di Azure di Akamai**, è possibile modificare l'ottimizzazione di un endpoint di rete CDN dopo la creazione.
+> Per i profili di **rete CDN di Azure con tecnologia Akamai**, è possibile modificare l'ottimizzazione di un endpoint di rete CDN dopo che è stato creato.
 >   
-> Per i profili di **rete CDN di Azure di Verizon** non è possibile modificare l'ottimizzazione di un endpoint di rete CDN dopo la creazione.
+> Per i profili di **rete CDN di Azure con tecnologia Verizon**, non è possibile modificare l'ottimizzazione di un endpoint di rete CDN dopo che è stato creato.
 
 ## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>Configurazione di un endpoint di rete CDN per accelerare la distribuzione di file dinamici
 
@@ -58,7 +58,7 @@ Per configurare un endpoint di rete CDN in modo da ottimizzare la distribuzione 
    Una volta creato l'endpoint di rete CDN, questo applica le ottimizzazioni basate su Accelerazione sito dinamico per tutti i file che soddisfano determinati criteri. 
 
 
-**Per configurare un endpoint esistente per Accelerazione sito dinamico (solo profili di rete CDN di Azure di Akamai):**
+**Per configurare un endpoint esistente per Accelerazione sito dinamico (solo profili di rete CDN di Azure con tecnologia Akamai):**
 
 1. Nella pagina **Profilo rete CDN** selezionare l'endpoint che si vuole modificare.
 
@@ -104,7 +104,7 @@ Transmission Control Protocol (TCP) è il protocollo standard della suite di pro
 
 *Slow start* (lentezza di avvio) è un algoritmo del protocollo TCP che impedisce la congestione di rete limitando la quantità di dati inviati in rete. La lentezza di avvio inizia con finestre di congestione di dimensioni ridotte tra il mittente e il destinatario, fino a raggiungere le dimensioni massime o a rilevare una perdita di pacchetti.
 
- Sia la **rete CDN di Azure fornita da Akamai** che la **rete CDN di Azure fornita da Verizon** eliminano la lentezza di avvio TCP in tre passaggi:
+ Entrambi i profili di **rete CDN di Azure con tecnologia Akamai** e di **rete CDN di Azure con tecnologia Verizon** eliminano la lentezza di avvio TCP in tre passaggi:
 
 1. Viene usato il monitoraggio dell'integrità e della larghezza di banda per misurare la larghezza di banda delle connessioni tra i server POP perimetrali.
     
@@ -152,19 +152,32 @@ Con la funzionalità Accelerazione sito dinamico, la memorizzazione nella cache 
 
 Se il sito Web include una combinazione di asset statici e dinamici, è preferibile adottare un approccio ibrido per ottenere prestazioni ottimali. 
 
-Per i profili di **rete CDN di Azure di Verizon Premium** è possibile attivare la memorizzazione nella cache per casi specifici tramite il [motore regole](cdn-rules-engine.md) per gli endpoint con Accelerazione sito dinamico. Le regole create interessano solo gli endpoint del profilo che sono ottimizzati per Accelerazione sito dinamico. 
+Per i profili di **rete CDN Standard di Azure con tecnologia Verizon** e di **rete CDN Standard di Azure con tecnologia Akamai**, è possibile attivare la memorizzazione nella cache per specifici endpoint con Accelerazione sito dinamico usando [regole di memorizzazione nella cache](cdn-caching-rules.md).
 
-Per accedere al motore regole per gli endpoint con Accelerazione sito dinamico:
+Per accedere alle regole di memorizzazione nella cache:
+
+1. Nella pagina **Profilo CDN**, in Impostazioni, selezionare **Regole di memorizzazione nella cache**.  
     
-1. Nella pagina **Profilo rete CDN **selezionare** Gestisci**.  
+    ![Pulsante Regole di memorizzazione nella cache della rete CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
+
+    Viene visualizzata la pagina **Regole di memorizzazione nella cache**.
+
+2. Creare una regola globale o personalizzata per attivare la memorizzazione nella cache per l'endpoint con Accelerazione sito dinamico. 
+
+Per i profili di **rete CDN Premium di Azure con tecnologia Verizon** è possibile attivare la memorizzazione nella cache per specifici endpoint con Accelerazione sito dinamico usando il [motore regole](cdn-rules-engine.md). Le regole create interessano solo gli endpoint del profilo che sono ottimizzati per Accelerazione sito dinamico. 
+
+Per accedere al motore regole:
     
-    ![Pulsante di gestione del profilo della rete CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
+1. Nella pagina **Profilo rete CDN**selezionare**Gestisci**.  
+    
+    ![Pulsante di gestione del profilo della rete CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     Si aprirà il portale di gestione della rete CDN.
 
 2. Nel portale di gestione della rete CDN selezionare **ADN** e quindi **Motore regole**. 
 
-    ![Motore regole per Accelerazione sito dinamico](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
+    ![Motore regole per Accelerazione sito dinamico](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
+
 
 
 In alternativa, e possibile usare due endpoint di rete CDN, uno ottimizzato con Accelerazione sito dinamico per distribuire asset dinamici e un altro con un'ottimizzazione di tipo statico, ad esempio la distribuzione Web generica, per distribuire asset memorizzabili nella cache. Modificare gli URL delle pagine Web per il collegamento diretto all'asset nell'endpoint di rete CDN che si prevede di usare. 

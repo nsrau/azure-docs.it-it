@@ -1,8 +1,8 @@
 ---
-title: Viste nelle soluzioni di gestione di Operations Management Suite (OMS) | Microsoft Docs
-description: "Le soluzioni di gestione in Operations Management Suite (OMS) includono in genere una o più viste per visualizzare i dati.  Questo articolo descrive come esportare una vista creata da Progettazione viste e includerla in una soluzione di gestione. "
+title: Viste nelle soluzioni di gestione | Microsoft Docs
+description: 'Le soluzioni di gestione includono in genere una o più viste per visualizzare i dati.  Questo articolo descrive come esportare una vista creata da Progettazione viste e includerla in una soluzione di gestione. '
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,22 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: b44763fe67b1c70c0b6ecdff73c32d8bb4fab3a4
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Viste nelle soluzioni di gestione di Operations Management Suite (OMS) (anteprima)
+# <a name="views-in-management-solutions-preview"></a>Viste nelle soluzioni di gestione (anteprima)
 > [!NOTE]
-> Questa è una documentazione preliminare per la creazione di soluzioni di gestione in OMS attualmente disponibili in versione di anteprima. Qualsiasi schema descritto di seguito è soggetto a modifiche.    
->
->
+> Questa è una documentazione preliminare per la creazione di soluzioni di gestione attualmente disponibili in versione di anteprima. Qualsiasi schema descritto di seguito è soggetto a modifiche.    
 
-Le [soluzioni di gestione in Operations Management Suite (OMS)](operations-management-suite-solutions.md) includono in genere una o più viste per visualizzare i dati.  Questo articolo descrive come esportare una vista creata da [Progettazione viste](../log-analytics/log-analytics-view-designer.md) e includerla in una soluzione di gestione.  
+
+Le [soluzioni di gestione](operations-management-suite-solutions.md) includono in genere una o più viste per visualizzare i dati.  Questo articolo descrive come esportare una vista creata da [Progettazione viste](../log-analytics/log-analytics-view-designer.md) e includerla in una soluzione di gestione.  
 
 > [!NOTE]
-> Gli esempi in questo articolo usano parametri e variabili che sono richiesti o comuni nelle soluzioni di gestione e che sono descritti in [Creazione di soluzioni di gestione in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)
+> Gli esempi in questo articolo usano parametri e variabili che sono richiesti o comuni nelle soluzioni di gestione e che sono descritti in [Progettare e creare una soluzione di gestione in Azure](operations-management-suite-solutions-creating.md)
 >
 >
 
@@ -48,7 +47,7 @@ I passaggi di base per aggiungere una vista a una soluzione sono i seguenti.  Og
 ## <a name="export-the-view-to-a-file"></a>Esportare la vista in un file
 Seguire le istruzioni in [Progettazione viste di Log Analytics](../log-analytics/log-analytics-view-designer.md) per esportare una vista in un file.  Il file esportato sarà nel formato JSON con gli stessi [elementi del file di soluzione](operations-management-suite-solutions-solution-file.md).  
 
-L'elemento **resources** del file della vista avrà una risorsa di tipo **Microsoft.OperationalInsights/workspaces** che rappresenta l'area di lavoro OMS.  Questo elemento avrà un sottoelemento di tipo **views** che rappresenta la vista e contiene la configurazione dettagliata.  Sarà necessario copiare i dettagli di questo elemento e incollarli nella soluzione.
+L'elemento **resources** del file della vista avrà una risorsa di tipo **Microsoft.OperationalInsights/workspaces** che rappresenta l'area di lavoro di Log Analytics.  Questo elemento avrà un sottoelemento di tipo **views** che rappresenta la vista e contiene la configurazione dettagliata.  Sarà necessario copiare i dettagli di questo elemento e incollarli nella soluzione.
 
 ## <a name="create-the-view-resource-in-the-solution"></a>Creare la risorsa vista nella soluzione
 Aggiungere la risorsa vista seguente nell'elemento **resources** del file di soluzione.  Vengono usate le variabili descritte di seguito, che è necessario aggiungere.  Si noti che le proprietà **Dashboard** e **OverviewTile** sono segnaposto che verranno sovrascritti con le proprietà corrispondenti del file della vista esportato.

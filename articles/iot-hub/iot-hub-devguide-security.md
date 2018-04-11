@@ -14,23 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: e7e45a6af0857520eec27263281a0f0a43b30013
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c410db9a7255a039ab9b41ae39f2fe1018719f8f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Controllare l'accesso all'hub IoT
 
 Questo articolo illustra le opzioni per la protezione dell'hub IoT. L'hub IoT usa le *autorizzazioni* per concedere l'accesso a ogni endpoint dell'hub stesso. Le autorizzazioni limitano l'accesso a un hub IoT in base alla funzionalità.
 
-L'articolo illustra:
+Questo articolo descrive:
 
 * Le diverse autorizzazioni che è possibile concedere a un'app per dispositivo o back-end per accedere all'hub IoT.
 * Il processo di autenticazione e i token usati per verificare le autorizzazioni.
 * Come definire l'ambito delle credenziali per limitare l'accesso a risorse specifiche.
 * Supporto dell'hub IoT per i certificati x.509.
 * Meccanismo di autenticazione personalizzata del dispositivo che usa gli schemi di autenticazione o i registri di identità del dispositivo esistenti.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 È necessario avere le autorizzazioni appropriate per accedere agli endpoint dell'hub IoT. Un dispositivo, ad esempio, deve includere un token contenente le credenziali di sicurezza con ogni messaggio inviato all'hub IoT.
 

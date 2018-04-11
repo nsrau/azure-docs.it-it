@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: richrund
-ms.openlocfilehash: 17dadd784d59a2cc0cab6ffbae144010f896b296
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluzioni di monitoraggio di rete di Azure in Log Analytics
 
@@ -28,18 +28,19 @@ Log Analytics offre le seguenti soluzioni per il monitoraggio delle reti:
 * Azure Application Gateway Analytics per analizzare
  * Log di gateway applicazione di Azure
  * Metriche di gateway applicazione di Azure
-* Azure Network Security Group Analytics per analizzare
- * Log dei gruppi di sicurezza di rete di Azure
+* Soluzioni per monitorare e controllare l'attività della rete cloud
+* [Analisi del traffico](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+* Analisi del gruppo di sicurezza di rete di Azure
 
 ## <a name="network-performance-monitor-npm"></a>Monitoraggio delle prestazioni di rete
 
-La soluzione di gestione [Monitoraggio delle prestazioni di rete](log-analytics-network-performance-monitor.md) consente di monitorare l'integrità, la disponibilità e la raggiungibilità delle reti.  Viene usata per monitorare la connettività tra:
+La soluzione di gestione [Monitoraggio delle prestazioni di rete](https://docs.microsoft.com/azure/networking/network-monitoring-overview) consente di monitorare l'integrità, la disponibilità e la raggiungibilità delle reti.  Viene usata per monitorare la connettività tra:
 
 * Cloud pubblico e risorse locali
 * Data center e percorsi utente (succursali)
 * Subnet che ospitano vari livelli di un'applicazione multilivello.
 
-Per altre informazioni, vedere [Monitoraggio delle prestazioni di rete](log-analytics-network-performance-monitor.md).
+Per altre informazioni, vedere [Monitoraggio delle prestazioni di rete](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway Analytics e Azure Network Security Group Analytics
 Per usare le soluzioni:

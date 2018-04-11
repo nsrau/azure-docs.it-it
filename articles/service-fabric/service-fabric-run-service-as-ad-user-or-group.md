@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/21/2018
+ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 1cf23a8f564553e65ac2c0fd34d44d81fe2327ea
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7dc467d9977d536011e1c3fcf663fc335f90a492
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Eseguire un servizio come utente o gruppo di Active Directory
-Azure Service Fabric consente di proteggere le applicazioni in esecuzione nel cluster con account utente diversi. In questo modo le applicazioni in esecuzione, anche in un ambiente ospitato condiviso, sono reciprocamente protette. Per impostazione predefinita, le applicazioni di Service Fabric vengono eseguite con lo stesso account con cui viene eseguito il processo Fabric.exe. Per un cluster Windows Server autonomo, è possibile eseguire un servizio come [gMSA (group Managed Service Account, account del servizio gestito del gruppo)](service-fabric-run-service-as-gmsa.md) oppure come utente o gruppo di Active Directory usando criteri RunAs. Si noti che viene usato Active Directory locale all'interno del dominio e non Azure Active Directory (Azure AD).
+In un cluster autonomo di Windows Server è possibile eseguire un servizio come utente o gruppo di Active Directory usando i criteri RunAs.  Per impostazione predefinita, le applicazioni di Service Fabric vengono eseguite con lo stesso account con cui viene eseguito il processo Fabric.exe. L'esecuzione di applicazioni con account diversi, anche in ambienti ospitati condivisi, aumenta la sicurezza reciproca. Si noti che è in uso Active Directory in locale nel dominio e non Microsoft Azure Active Directory (Azure AD).  È anche possibile eseguire un servizio come [account del servizio gestito del gruppo](service-fabric-run-service-as-gmsa.md).
 
 Usando un utente o un gruppo del dominio, sarà quindi possibile accedere ad altre risorse del dominio (ad esempio, condivisioni file) a cui sono state concesse le autorizzazioni.
 

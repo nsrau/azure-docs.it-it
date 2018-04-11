@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 3caa3d2b8640c83f1001aeac3b0a5e9ada143183
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2c05407d761a8848f9e032aa219960cd7ea6fa93
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-protect-an-api-using-oauth-20-with-azure-active-directory-and-api-management"></a>Come proteggere un'API usando OAuth 2.0 con Azure Active Directory e Gestione API
 
@@ -114,11 +114,11 @@ Fare clic su **OAuth 2.0** e quindi su **Aggiungi**.
 
 Specificare i valori per i campi **Nome visualizzato** e **Descrizione**.
 
-Per URL della pagina di registrazione del client** immettere un valore segnaposto, ad esempio `http://localhost`.  **URL della pagina di registrazione del client** fa riferimento alla pagina che gli utenti possono usare per creare e configurare i propri account per i provider OAuth 2.0 che supportano la gestione degli account da parte degli utenti. In questo esempio gli utenti non creano e configurano i propri account, di conseguenza si usa un segnaposto.
+Per URL della pagina di registrazione del client** immettere un valore segnaposto, ad esempio `http://localhost`.  **Client registration page URL** fa riferimento alla pagina che gli utenti possono usare per creare e configurare i propri account per i provider OAuth 2.0 che supportano la gestione degli account da parte degli utenti. In questo esempio gli utenti non creano e configurano i propri account, di conseguenza si usa un segnaposto.
 
 Selezionare **Codice di autorizzazione** in **Tipi di concessione di autorizzazione**.
 
-Specificare quindi un valore per **URL dell'endpoint autorizzazione** e **URL dell'endpoint token**.
+Successivamente, specificare un valore per **Authorization endpoint URL** e **Token endpoint URL**.
 
 Questi valori possono essere recuperati dalla pagina **Endpoint** nel tenant di Azure AD. Per accedere agli endpoint, passare nuovamente alla pagina **Registrazioni per l'app** e fare clic su **Endpoint**.
 
@@ -156,7 +156,7 @@ Passare a **Impostazioni**.
 
 In **Sicurezza** scegliere **OAuth 2.0** e selezionare il server OAuth 2.0 configurato in precedenza. 
 
-Fare clic su **Salva**.
+Fare clic su **Save**.
 
 ## <a name="successfully-call-the-api-from-the-developer-portal"></a>Eseguire la chiamata all'API dal portale per sviluppatori
 
@@ -181,9 +181,9 @@ Fare clic su **Invia**. Al termine della procedura dovrebbe essere possibile ese
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Configurare criteri di convalida JWT per preautorizzare le richieste
 
-A questo punto, quando un utente prova a eseguire una chiamata dalla console per sviluppatori, viene chiesto di eseguire l'accesso e la console per sviluppatori ottiene un token di accesso per conto dell'utente. Tutto funziona come previsto, ma che cosa accade se un utente chiama l'API senza un token o con un token non valido? Se ad esempio si prova a eliminare l'intestazione `Authorization`, si noterà che è ancora possibile chiamare l'API. Questo avviene perché Gestione API non convalida il token di accesso a questo punto, ma passa l'intestazione `Auhtorization` all'API back-end.
+A questo punto, quando un utente prova a eseguire una chiamata dalla console per sviluppatori, viene chiesto di eseguire l'accesso e la console per sviluppatori ottiene un token di accesso per conto dell'utente. Tutto funziona come previsto, ma che cosa accade se un utente chiama l'API senza un token o con un token non valido? Se ad esempio si prova a eliminare l'intestazione `Authorization`, si noterà che è ancora possibile chiamare l'API. Questo avviene perché Gestione API non convalida il token di accesso a questo punto, ma passa semplicemente l'intestazione `Auhtorization` all'API back-end.
 
-È possibile usare i criteri di [convalida JWT](api-management-access-restriction-policies.md#ValidateJWT) per preautorizzare le richieste in Gestione API convalidando i token di accesso di ogni richiesta in ingresso. Se una richiesta non ha un token valido, viene bloccata da Gestione API e non viene passata al back-end. È possibile aggiungere i criteri seguenti a `Echo API`. 
+È possibile usare i criteri di [convalida JWT](api-management-access-restriction-policies.md#ValidateJWT) per preautorizzare le richieste in Gestione API convalidando i token di accesso di ogni richiesta in ingresso. Se una richiesta non ha un token valido, viene bloccata da Gestione API e non viene passata al back-end. È ad esempio possibile aggiungere i criteri seguenti alla sezione dei criteri `<inbound>` di `Echo API`. In questo modo, viene verificata l'attestazione dei destinatari in un token di accesso e viene restituito un messaggio di errore se il token non è valido. Per informazioni su come configurare i criteri, vedere [Impostare o modificare criteri](set-edit-policies.md).
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -196,7 +196,12 @@ A questo punto, quando un utente prova a eseguire una chiamata dalla console per
 </validate-jwt>
 ```
 
+## <a name="build-an-application-to-call-the-api"></a>Creare un'applicazione per chiamare l'API
+
+In questa guida è stata usata la Console per sviluppatori di Gestione API come applicazione client di esempio per chiamare `Echo API` protetta da OAuth 2.0. Per altre informazioni su come creare un'applicazione e implementare il flusso di OAuth 2.0, vedere [Esempi di codice di Azure Active Directory](../active-directory/develop/active-directory-code-samples.md).
+
 ## <a name="next-steps"></a>Passaggi successivi
+* Altre informazioni su [Azure Active Directory e OAuth 2.0](../active-directory/develop/active-directory-authentication-scenarios.md)
 * Altre informazioni sui [video](https://azure.microsoft.com/documentation/videos/index/?services=api-management) relativi a Gestione API.
 * Per altri metodi di protezione del servizio back-end, vedere [Come proteggere i servizi back-end usando l'autenticazione reciproca dei certificati](api-management-howto-mutual-certificates.md).
 

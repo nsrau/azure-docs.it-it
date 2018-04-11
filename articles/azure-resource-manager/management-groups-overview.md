@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 911043c8fda985f25023dc1224d8e67b283f4d6c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizzare le risorse con i gruppi di gestione di Azure 
 
@@ -42,11 +42,15 @@ Tramite la creazione di una gerarchia raggruppata per reparti, si è in grado di
 - Ogni gruppo di gestione può avere più elementi figlio. 
 
 ### <a name="preview-subscription-visibility-limitation"></a>Limitazione della visibilità delle sottoscrizioni nell'anteprima 
-Attualmente esiste una limitazione nell'anteprima che non consente di visualizzare le sottoscrizioni a cui è stato ereditato l'accesso. L'accesso viene ereditato nella sottoscrizione, ma Azure Resource Manager non è ancora in grado di rispettare questo tipo di accesso.  
+Attualmente esiste una limitazione nell'anteprima che non consente di visualizzare le sottoscrizioni per cui è stato ereditato l'accesso. L'accesso alla sottoscrizione è stato ereditato, ma Azure Resource Manager non è ancora in grado di riconoscere questo tipo di accesso.  
 
-L'uso dell'API REST per ottenere informazioni sulla sottoscrizione restituisce dettagli come se si disponesse dell'accesso, ma nel portale di Azure e in Azure Powershell le sottoscrizioni non vengono visualizzate. 
+Se si usa l'API REST per ottenere informazioni sulla sottoscrizione, vengono restituiti i dettagli poiché in realtà si dispone dell'accesso, ma nel portale di Azure e in Azure PowerShell le sottoscrizioni non vengono visualizzate. 
 
-Si sta lavorando su questo aspetto che verrà risolto prima dell'annuncio di "Disponibilità generale" dei gruppi di gestione.  
+Questa limitazione è attualmente in fase di analisi e verrà risolta prima dell'annuncio della "Disponibilità generale" dei gruppi di gestione.  
+
+### <a name="cloud-solution-providercsp-limitation-during-preview"></a>Limitazione per Provider di soluzioni cloud (CSP) nell'anteprima 
+Attualmente esiste una limitazione per i partner Provider di soluzioni cloud (CSP) a causa della quale non sono in grado di creare o gestire gruppi di gestione dei clienti all'interno della directory dei clienti.  
+Questa limitazione è attualmente in fase di analisi e verrà risolta prima dell'annuncio della "Disponibilità generale" dei gruppi di gestione.
 
 
 ## <a name="root-management-group-for-each-directory"></a>Gruppo di gestione radice per ogni directory

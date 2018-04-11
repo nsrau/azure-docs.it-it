@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 29ab87b6afe31b7bbb40ef7d743e209f86811c9d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c227af1afa95243390152918a6b81015dbaceaeb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gestire gli aggiornamenti per più macchine virtuali
 
@@ -61,7 +61,7 @@ Gli agenti Windows devono essere configurati per comunicare con un server Window
 
 Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.
 
-Questa soluzione non supporta un agente di OMS per Linux configurato per l'invio di report a più aree di lavoro di Operations Management Suite.
+Questa soluzione non supporta un agente di OMS per Linux configurato per l'invio di report a più aree di lavoro di Log Analytics.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Abilitare la gestione degli aggiornamenti per le macchine virtuali Azure
 
@@ -176,5 +176,5 @@ Per visualizzare informazioni dettagliate sugli errori della distribuzione, sele
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni su Gestione aggiornamenti, ad esempio su log, output ed errori, vedere [Soluzione Gestione aggiornamenti in OMS](../operations-management-suite/oms-solution-update-management.md).
+* Per altre informazioni su Gestione aggiornamenti, ad esempio su log, output ed errori, vedere [Soluzione Gestione aggiornamenti in Azure](../operations-management-suite/oms-solution-update-management.md).
 

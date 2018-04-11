@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -27,7 +27,7 @@ Questo articolo illustra le procedure di risoluzione dei problemi che possono es
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>Errore di comunicazione dell'agente di macchine virtuali con Backup di Azure
+## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>L'agente di macchine virtuali non riesce a comunicare con Backup di Azure
 
 Messaggio di errore: "L'agente di macchine virtuali non riesce a comunicare con il servizio Backup di Azure"
 
@@ -78,21 +78,6 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 **Causa 4: [Non è possibile recuperare lo stato dello snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Causa 5: [Non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)**  
 **Causa 6: [Il servizio di backup non ha l'autorizzazione per eliminare i punti di ripristino precedenti a causa di un blocco del gruppo di risorse](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
-
-## <a name="disk-configuration-is-not-supported"></a>Configurazione del disco non supportata
-
-Messaggio di errore: "The specified Disk configuration is not supported" (La configurazione del disco specificata non è supportata)
-
-> [!NOTE]
-> È disponibile un'anteprima privata per il supporto di backup per macchine virtuali con dischi di dimensioni superiori a 1 TB. Per informazioni dettagliate, vedere l'[anteprima privata per il supporto del backup di macchine virtuali con dischi di grandi dimensioni](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
->
->
-
-Attualmente Backup di Azure non supporta dischi di dimensioni [superiori a 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). Se si hanno dischi con dimensioni superiori a 1 TB:  
-1. [Collegare nuovi dischi](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) con dimensioni inferiori a 1 TB.  
-2. Copiare i dati dai dischi con dimensioni superiori a 1 TB nei nuovi dischi creati con dimensioni inferiori a 1 TB.  
-3. Verificare che tutti i dati siano stati copiati. Rimuovere quindi i dischi con dimensioni superiori a 1 TB.  
-4. Avviare il backup.
 
 ## <a name="causes-and-solutions"></a>Cause e soluzioni
 

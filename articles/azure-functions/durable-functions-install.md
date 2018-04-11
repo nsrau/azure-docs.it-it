@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3451f268e78df6efa5e3fc489b88415349efe169
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3a83ed5f7dba3e4d68204a2c9dffb4459cadfef9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installare l'estensione Funzioni permanenti e i relativi esempi (Funzioni di Azure)
 
 L'estensione [Funzioni permanenti](durable-functions-overview.md) di Funzioni di Azure è inclusa nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Questo articolo illustra come installare il pacchetto e un set di esempi per gli ambienti di sviluppo seguenti:
 
 * Visual Studio 2017 (scelta consigliata) 
-
+* Visual Studio Code
 * Portale di Azure
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
@@ -48,11 +48,7 @@ Visual Studio offre al momento l'esperienza ottimale per lo sviluppo di applicaz
 Seguire le stesse istruzioni fornite per l'avvio con l'esempio, ma eseguire i passaggi seguenti invece di scaricare il file con estensione *zip*:
 
 1. Creare un progetto di app per le funzioni.
-2. Aggiungere il riferimento al pacchetto NuGet seguente al file *csproj*:
-
-   ```xml
-   <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="1.0.0-beta" />
-   ```
+2. Cercare il riferimento al pacchetto NuGet seguente usando *Gestisci pacchetti NuGet* e aggiungerlo al progetto: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.1.0-beta2 (selezionare *Includi versione preliminare* per cercare questo pacchetto)
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -129,6 +125,8 @@ Visual Studio Code offre un'esperienza di sviluppo locale che copre tutte le pri
 1. Creare una nuova app per le funzioni in [functions.azure.com](https://functions.azure.com/signin).
 
 2. Configurare l'app per le funzioni affinché usi la [versione di runtime 2.0](set-runtime-version.md).
+
+   L'estensione Funzioni permanenti funziona sia nel runtime 1.X che nel runtime 2.0, ma i modelli del portale di Azure sono disponibili solo quando si imposta come destinazione il runtime 2.0.
 
 3. Creare una nuova funzione selezionando **"Creare una funzione personalizzata."**.
 

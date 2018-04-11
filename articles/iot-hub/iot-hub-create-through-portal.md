@@ -2,23 +2,23 @@
 title: Usare il portale di Azure per creare un hub IoT | Microsoft Docs
 description: Come creare, gestire ed eliminare hub IoT di Azure con il portale di Azure. Include informazioni su piani tariffari, ridimensionamento, sicurezza e configurazione della messaggistica.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0909cd2b-4c1e-49e0-b68a-75532caf0a6a
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: ac1a52355ffa5354bebe3b98fdb75783bcd57697
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 6ffde076caff6217bf6255c9294eca63d3e39b85
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creare un hub IoT usando il portale di Azure
 
@@ -53,18 +53,9 @@ Per creare un hub IoT, è necessario assegnare un nome all'hub IoT. Questo nome 
 
 ### <a name="choose-the-pricing-tier"></a>Scegliere il piano tariffario
 
-È possibile scegliere fra quattro piani: **Gratuito**, **Standard 1**, **Standard 2** e **Standard S3**. Il piano gratuito consente la connessione di solo 500 dispositivi all'hub IoT e di un massimo di 8.000 messaggi al giorno.
+È possibile scegliere tra livelli diversi a seconda del numero di funzionalità che si desidera e di quanti messaggi si inviano al giorno tramite la soluzione. Il livello gratuito è utilizzabile a scopo di test e valutazione. Consente la connessione di 500 dispositivi all'hub IoT e un massimo di 8.000 messaggi al giorno. Ogni sottoscrizione Azure può creare hub IoT nel livello gratuito. 
 
-**Standard S1**: usare l'edizione S1 per le soluzioni IoT con un numero elevato di dispositivi, ognuno dei quali genera quantità limitate di dati. Ogni unità dell'edizione S1 consente fino a 400.000 messaggi al giorno tra tutti i dispositivi.
-
-**Standard S2**: usare l'edizione S2 per le soluzioni IoT in cui i dispositivi generano grandi quantità di dati. Ogni unità dell'edizione S2 consente fino a 6 milioni di messaggi al giorno tra tutti i dispositivi connessi.
-
-**Standard S3**: usare l'edizione S3 per soluzioni IoT che generano grandi quantità di dati. Ogni unità dell'edizione S3 consente fino a 300 milioni di messaggi al giorno tra tutti i dispositivi connessi.
-
-![][4]
-
-> [!NOTE]
-> L'hub IoT consente solo un hub gratuito per sottoscrizione di Azure.
+Per informazioni dettagliate sulle altre opzioni relative al livello, vedere [Scegliere il livello più adatto di hub IoT](iot-hub-scaling.md).
 
 ### <a name="iot-hub-units"></a>Unità hub IoT
 
@@ -153,17 +144,6 @@ Fare clic su **Route** per gestire la modalità di invio dei messaggi da disposi
 È possibile aggiungere i route all'hub IoT facendo clic su **Aggiungi** nella parte superiore del pannello **Route*** inserendo le informazioni necessarie e facendo clic su **OK**. Il route viene quindi elencato nel pannello principale **Route**. È possibile modificare un route selezionandolo nell'elenco di route. Per abilitare un route, selezionarlo nell'elenco di route e impostare l'interruttore **Enabled** su **Off**. Per salvare le modifiche, fare clic su **OK** nella parte inferiore del pannello.
 
 ![][15]
-
-## <a name="pricing-and-scale"></a>Prezzi e scalabilità
-
-I prezzi di un hub IoT esistente possono essere modificati tramite le impostazioni disponibili in **Prezzi** con le eccezioni seguenti:
-
-* Nell'implementazione corrente un hub IoT con uno SKU gratuito non può cambiare i piani con quelli di uno degli SKU a pagamento o viceversa.
-* Nella sottoscrizione Azure può essere presente un solo livello gratuito per l'hub IoT.
-
-![][12]
-
-È possibile passare da un livello più elevato a uno inferiore solo quando il numero di messaggi inviati per un dato giorno supera la quota per il livello inferiore. Ad esempio, se il numero di messaggi al giorno supera 400.000, il livello per l'hub IoT può essere cambiato. Tuttavia, se si modifica il piano S1, l'hub IoT è limitato per il giorno in questione.
 
 ## <a name="delete-the-iot-hub"></a>Eliminare l'hub IoT
 

@@ -2,22 +2,22 @@
 title: Abilitare il backup di una macchina virtuale di Azure durante la creazione | Microsoft Docs
 description: Vedere la procedura per abilitare il backup di una macchina virtuale di Azure durante il processo di creazione.
 services: backup, virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2018
 ms.author: trinadhk
-ms.openlocfilehash: 4041fc555fe4b61d10f84236dcae5156c6282fd3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e16714eee697d9dc8102b5f29d9639d650517562
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enable-backup-during-azure-virtual-machine-creation"></a>Abilitare il backup durante la creazione di una macchina virtuale di Azure 
 
@@ -57,6 +57,10 @@ Se non è già stato eseguito l'accesso al proprio account, accedere al [portale
 ## <a name="initiate-a-backup-after-creating-the-vm"></a>Avviare un backup dopo la creazione della macchina virtuale 
 
 Anche se i criteri di backup sono stati creati, è consigliabile definire un backup iniziale. Per visualizzare i dettagli del backup per la macchina virtuale al termine del modello di creazione della macchina virtuale, dall'impostazione **Operazioni** nel menu a sinistra fare clic su **Backup**. È possibile usare questa impostazione per attivare un backup su richiesta, ripristinare una macchina virtuale completa o tutti i dischi, ripristinare file da un backup di macchina virtuale o modificare i criteri di backup associati alla macchina virtuale.  
+
+## <a name="using-a-resource-manager-template-to-deploy-a-protected-vm"></a>Usare un modello di Resource Manager per distribuire una macchina virtuale protetta
+
+I passaggi precedenti illustrano come usare il portale di Azure per creare una macchina virtuale e proteggerla in un insieme di credenziali di Servizi di ripristino. Se si vogliono distribuire rapidamente una o più macchine virtuali e proteggerle in un insieme di credenziali di Servizi di ripristino, vedere il modello [Deploy a Windows VM and enable backup](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/) (Distribuire una macchina virtuale Windows e abilitare il backup).
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti 
 

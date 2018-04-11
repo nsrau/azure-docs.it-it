@@ -1,6 +1,6 @@
 ---
-title: Elemento OptionsGroup dell'interfaccia utente di Applicazione gestita di Azure | Microsoft Docs
-description: Illustra l'elemento Microsoft.Common.OptionsGroup dell'interfaccia utente per le applicazioni gestite di Azure
+title: Elemento OptionsGroup dell'interfaccia utente di Azure | Microsoft Docs
+description: Illustra l'elemento Microsoft.Common.OptionsGroup dell'interfaccia utente per il portale di Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0ba820176e0231437e878922cb508cd3b97d46c3
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 4b2ce987e311a12e3833fcc1dbae2b48b40135ff
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Elemento Microsoft.Common.OptionsGroup dell'interfaccia utente
-Controllo di selezione con una riga di opzioni disponibili. Usare questo elemento quando si [crea un'applicazione Azure gestita](publish-service-catalog-app.md).
+Controllo di selezione con una riga di opzioni disponibili.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Common.OptionsGroup](./media/managed-application-elements/microsoft.common.optionsgroup.png)
@@ -31,17 +31,17 @@ Controllo di selezione con una riga di opzioni disponibili. Usare questo element
   "name": "element1",
   "type": "Microsoft.Common.OptionsGroup",
   "label": "Some options group",
-  "defaultValue": "Foo",
+  "defaultValue": "my value",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
       {
-        "label": "Foo",
-        "value": "Bar"
+        "label": "Value one",
+        "value": "one"
       },
       {
-        "label": "Baz",
-        "value": "Qux"
+        "label": "Value two",
+        "value": "two"
       }
     ]
   },
@@ -61,6 +61,5 @@ Controllo di selezione con una riga di opzioni disponibili. Usare questo element
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un'introduzione alle applicazioni gestite, vedere [Panoramica di Applicazione gestita di Azure](overview.md).
 * Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
 * Per una descrizione delle proprietà comuni negli elementi dell'interfaccia utente, vedere [Elementi di CreateUiDefinition](create-uidefinition-elements.md).

@@ -3,24 +3,24 @@ title: Supporto del firewall e controllo dell'accesso agli indirizzi IP per Azur
 description: Informazioni su come usare criteri di controllo di accesso agli indirizzi IP per il supporto del firewall in account del database di Azure Cosmos DB.
 keywords: controllo di accesso IP, supporto del firewall
 services: cosmos-db
-author: shahankur11
+author: mimig1
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: c1b9ede0-ed93-411a-ac9a-62c113a8e887
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
-ms.author: ankshah
-ms.openlocfilehash: 85f5e0e076f92afc79ed8f4ce652bb0f31923113
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 03/30/2018
+ms.author: mimig
+ms.openlocfilehash: 5b70f77d49651e2873428fc7798fff3770b7a095
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Supporto del firewall di Azure Cosmos DB
 Per proteggere i dati archiviati in un account del database di Azure Cosmos DB, Azure Cosmos DB ha reso disponibile il supporto per un [modello di autorizzazione](https://msdn.microsoft.com/library/azure/dn783368.aspx) basato su segreto che usa un codice di autenticazione messaggi basato su hash (HMAC, Hash-based Message Authentication Code). Oltre al modello di autenticazione basato su segreto, Azure Cosmos DB supporta ora controlli dell'accesso agli indirizzi IP basati su criteri per il supporto del firewall in ingresso. Questo modello è simile alle regole del firewall di un sistema di database tradizionale e offre un livello aggiuntivo di sicurezza per l'account del database di Azure Cosmos DB. Con questo modello è ora possibile configurare un account del database di Azure Cosmos DB perché sia accessibile solo da un set di computer e/o servizi cloud approvato. Per l'accesso alle risorse di Azure Cosmos DB da questi set di computer e servizi approvati, è comunque necessario che il chiamante presenti un token di autorizzazione valido.
@@ -31,15 +31,13 @@ Per impostazione predefinita, un account del database di Azure Cosmos DB è acce
 ![Diagramma che mostra il processo di connessione per il controllo di accesso basato su IP](./media/firewall-support/firewall-support-flow.png)
 
 ## <a id="configure-ip-policy"></a> Configurazione dei criteri di controllo di accesso IP
-I criteri di controllo di accesso IP possono essere impostati nel portale di Azure o a livello di codice tramite l'[interfaccia della riga di comando di Azure](cli-samples.md), [Azure PowerShell](powershell-samples.md) o l'[API REST](/rest/api/documentdb/) aggiornando la proprietà **ipRangeFilter**. 
+I criteri di controllo di accesso IP possono essere impostati nel portale di Azure o a livello di codice tramite l'[interfaccia della riga di comando di Azure](cli-samples.md), [Azure PowerShell](powershell-samples.md) o l'[API REST](/rest/api/cosmos-db/) aggiornando la proprietà **ipRangeFilter**. 
 
-Per impostare i criteri di controllo di accesso IP nel portale di Azure, passare alla pagina dell'account Azure Cosmos DB, fare clic su **Firewall** nel menu di spostamento e impostare **Abilita controllo di accesso per indirizzi IP** su **ATTIVATO**. 
+Per impostare i criteri di controllo di accesso IP nel portale di Azure, passare alla pagina dell'account Azure Cosmos DB, fare clic su **Firewall** nel menu di spostamento, quindi modificare il valore di **Consenti l'accesso da** impostandolo su **Reti selezionate** e infine fare clic su **Salva**. 
 
 ![Screenshot che mostra come aprire la pagina Firewall nel portale di Azure](./media/firewall-support/azure-portal-firewall.png)
 
-Una volta attivato il controllo di accesso IP, il portale fornisce opzioni per abilitare l'accesso al portale di Azure, altri servizi di Azure e l'IP corrente. Nelle sezioni seguenti sono disponibili altre informazioni su queste opzioni.
-
-![Screenshot che mostra come configurare le impostazioni del firewall nel portale di Azure](./media/firewall-support/azure-portal-firewall-configure.png)
+Una volta attivato il controllo di accesso IP, il portale offre la possibilità di specificare indirizzi e intervalli IP, nonché opzioni per abilitare l'accesso ad altri servizi di Azure e al portale di Azure. Nelle sezioni seguenti sono disponibili altre informazioni su queste opzioni.
 
 > [!NOTE]
 > Abilitando criteri di controllo dell'accesso agli indirizzi IP per l'account del database di Azure Cosmos DB, qualsiasi accesso all'account del database di Azure Cosmos DB da computer non inclusi nell'elenco degli intervalli di indirizzi IP consentiti viene bloccato. Grazie a questo modello, viene bloccata anche l'esplorazione dell'operazione del piano dati dal portale per garantire l'integrità del controllo di accesso.
@@ -55,12 +53,14 @@ Quando si abilitano i criteri di controllo di accesso IP a livello di codice, è
 |Cina|139.217.8.252|
 |US Gov|52.244.48.71|
 
-Per abilitare l'accesso al portale di Azure, impostare il valore di **Consenti l'accesso al portale di Azure** su **ATTIVATO** nel portale di Azure (il valore di **Abilita controllo di accesso per indirizzi IP** deve essere impostato su **ATTIVATO** per modificare e visualizzare il valore di **Consenti l'accesso al portale di Azure**).
+L'accesso al portale di Azure viene abilitato per impostazione predefinita quando si modifica l'impostazione di Firewall specificando **Reti selezionate** nel portale di Azure. 
 
 ![Screenshot che mostra come abilitare l'accesso al portale di Azure](./media/firewall-support/enable-azure-portal.png)
 
 ## <a name="connections-from-other-azure-paas-services"></a>Connessioni da altri servizi PaaS di Azure 
-In Azure i servizi PaaS come Analisi di flusso di Azure, Funzioni di Azure e Servizio app di Azure vengono usati in combinazione con Azure Cosmos DB. Per consentire l'accesso a un account del database di Azure Cosmos DB da questi servizi il cui indirizzo IP non è prontamente disponibile, aggiungere l'indirizzo IP 0.0.0.0 all'elenco di indirizzi IP consentiti associato all'account del database di Azure Cosmos DB a livello di codice oppure impostare il valore di **Consenti l'accesso a Servizi di Azure** su ATTIVATO nel portale di Azure (il valore di **Abilita controllo di accesso per indirizzi IP** deve essere impostato su **ATTIVATO** per visualizzare e modificare il valore di **Consenti l'accesso a Servizi di Azure**). In questo modo si garantisce che i servizi PaaS di Azure possano accedere all'account Azure Cosmos DB. 
+In Azure i servizi PaaS come Analisi di flusso di Azure, Funzioni di Azure e Servizio app di Azure vengono usati in combinazione con Azure Cosmos DB. Per abilitare l'accesso a un account del database di Azure Cosmos DB da questi servizi i cui indirizzi IP non sono prontamente disponibili, aggiungere a livello di codice l'indirizzo IP 0.0.0.0 all'elenco di indirizzi IP consentiti associato all'account del database di Azure Cosmos DB. 
+
+L'accesso agli altri servizi di Azure viene abilitato per impostazione predefinita quando si modifica l'impostazione di Firewall specificando **Reti selezionate** nel portale di Azure. 
 
 ![Screenshot che mostra come aprire la pagina Firewall nel portale di Azure](./media/firewall-support/enable-azure-services.png)
 
@@ -68,10 +68,12 @@ In Azure i servizi PaaS come Analisi di flusso di Azure, Funzioni di Azure e Ser
 
 Per semplificare lo sviluppo, il portale di Azure consente di identificare e aggiungere l'indirizzo IP del computer client all'elenco di indirizzi consentiti, in modo che le app in esecuzione nella macchina virtuale possano accedere all'account Azure Cosmos DB. L'indirizzo IP del client viene rilevato in base a quanto visualizzato dal portale. Potrebbe trattarsi dell'indirizzo IP del client della macchina virtuale oppure dell'indirizzo IP del gateway di rete. Non dimenticare di rimuoverlo prima di passare all'ambiente di produzione.
 
+Per abilitare il proprio indirizzo IP corrente, selezionare **Add my current IP** (Aggiungi indirizzo IP corrente), in modo da aggiungere l'indirizzo all'elenco, e quindi fare clic su **Salva**.
+
 ![Screenshot che mostra come configurare le impostazioni del firewall per l'IP corrente](./media/firewall-support/enable-current-ip.png)
 
 ## <a name="connections-from-cloud-services"></a>Connessioni da servizi cloud
-In Azure, i servizi cloud sono uno strumento comune per ospitare la logica del servizio di livello intermedio con Azure Cosmos DB. Per consentire l'accesso a un account del database di Azure Cosmos DB da un servizio cloud, l'indirizzo IP pubblico del servizio cloud deve essere aggiunto all'elenco di indirizzi IP consentiti associato all'account del database di Azure Cosmos DB [configurando il criterio di controllo dell'accesso agli indirizzi IP](#configure-ip-policy).  In questo modo, tutte le istanze del ruolo dei servizi cloud hanno accesso all'account del database di Azure Cosmos DB. È possibile recuperare gli indirizzi IP per i servizi cloud nel portale di Azure, come mostrato nello screenshot seguente:
+In Azure, i servizi cloud sono uno strumento comune per ospitare la logica del servizio di livello intermedio con Azure Cosmos DB. Per consentire l'accesso a un account del database di Azure Cosmos DB da un servizio cloud, l'indirizzo IP pubblico del servizio cloud deve essere aggiunto all'elenco di indirizzi IP consentiti associato all'account del database di Azure Cosmos DB [configurando il criterio di controllo dell'accesso agli indirizzi IP](#configure-ip-policy). In questo modo, tutte le istanze del ruolo dei servizi cloud hanno accesso all'account del database di Azure Cosmos DB. È possibile recuperare gli indirizzi IP per i servizi cloud nel portale di Azure, come mostrato nello screenshot seguente:
 
 ![Screenshot che mostra l'indirizzo IP pubblico per un servizio cloud visualizzato nel portale di Azure](./media/firewall-support/public-ip-addresses.png)
 
@@ -91,7 +93,7 @@ Quando si accede a un account del database di Azure Cosmos DB da un computer in 
 ### <a name="portal-operations"></a>Operazioni nel portale
 Abilitando criteri di controllo dell'accesso agli indirizzi IP per l'account del database di Azure Cosmos DB, qualsiasi accesso all'account del database di Azure Cosmos DB da computer non inclusi nell'elenco degli intervalli di indirizzi IP consentiti viene bloccato. Se si vogliono abilitare operazioni sul piano dati del portale, ad esempio l'esplorazione di raccolte e le query nei documenti, è quindi necessario consentire esplicitamente l'accesso al portale di Azure usando la pagina **Firewall** nel portale. 
 
-![Screenshot che mostra come abilitare l'accesso al portale di Azure](./media/firewall-support/enable-azure-portal.png)
+![Screenshot che mostra come abilitare l'accesso al portale di Azure](./media/firewall-support/azure-portal-firewall.png)
 
 ### <a name="sdk--rest-api"></a>SDK e API REST
 Per motivi di sicurezza, l'accesso tramite SDK o API REST da computer non inclusi nell'elenco degli indirizzi IP consentiti restituisce una risposta generica 404 Non trovato senza altri dettagli. Controllare l'elenco degli indirizzi IP consentiti per l'account del database di Azure Cosmos DB per verificare che all'account sia applicata la configurazione dei criteri corretta.

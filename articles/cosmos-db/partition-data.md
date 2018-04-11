@@ -5,29 +5,29 @@ services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/30/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 149d2ba5108fb49741203fbe5c50add6c0d523ae
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partizionamento e ridimensionamento in Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) è un servizio di database multimodello distribuito a livello globale che consente di ottenere prestazioni rapide e prevedibile. È ridimensionabile contestualmente all'espansione dell'applicazione. Questo articolo offre una panoramica del funzionamento del partizionamento per tutti i modelli di dati in Azure Cosmos DB. Descrive anche come configurare contenitori Azure Cosmos DB per ridimensionare in modo efficace le applicazioni.
 
-Il partizionamento e le chiavi di partizione sono illustrati in questo video di Azure Friday con Scott Hanselman e Shireesh Thota, responsabile principale della progettazione di Azure Cosmos DB:
+Il partizionamento e le chiavi di partizione sono illustrati in questo video con Andrew Liu, Program Manager di Azure Cosmos DB:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]
+> [!VIDEO https://www.youtube.com/embed/SS6WrQ-HJ30]
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Partizionamento in Azure Cosmos DB

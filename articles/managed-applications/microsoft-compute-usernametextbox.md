@@ -1,6 +1,6 @@
 ---
-title: Elemento UserNameTextBox dell'interfaccia utente dell'applicazione gestita di Azure | Microsoft Docs
-description: Illustra l'elemento Microsoft.Compute.UserNameTextBox dell'interfaccia utente per le applicazioni gestite di Azure
+title: Elemento UserNameTextBox dell'interfaccia utente di Azure | Microsoft Docs
+description: Illustra l'elemento Microsoft.Compute.UserNameTextBox dell'interfaccia utente per il portale di Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a395915af274750eb57a085ee51b55fdd392615
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 4c8f62784b563bd8d39ccc763598b73b9b5d7195
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Elemento Microsoft.Compute.UserNameTextBox dell'interfaccia utente
-Controllo casella di testo con convalida predefinita per i nomi utente di Windows e Linux. Usare questo elemento quando si [crea un'applicazione Azure gestita](publish-service-catalog-app.md).
+Controllo casella di testo con convalida predefinita per i nomi utente di Windows e Linux.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Compute.UserNameTextBox](./media/managed-application-elements/microsoft.compute.usernametextbox.png)
@@ -57,6 +57,5 @@ Se si specifica un valore per `constraints.regex`, viene attivata sia la convali
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un'introduzione alle applicazioni gestite, vedere [Panoramica di Applicazione gestita di Azure](overview.md).
 * Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
 * Per una descrizione delle proprietà comuni negli elementi dell'interfaccia utente, vedere [Elementi di CreateUiDefinition](create-uidefinition-elements.md).

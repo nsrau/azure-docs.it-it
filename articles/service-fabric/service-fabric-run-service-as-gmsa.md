@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/21/2018
+ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: cd36d52df24610af1d2cb2d9e6e41f33bb7ea5fe
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e22c656218abcd0564faec6fae6d6979f09b386a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Eseguire un servizio come account del servizio gestito del gruppo
-Azure Service Fabric consente di proteggere le applicazioni in esecuzione nel cluster con account utente diversi. L'esecuzione di applicazioni con account diversi, anche in ambienti ospitati condivisi, aumenta la sicurezza reciproca. Per impostazione predefinita, le applicazioni di Service Fabric vengono eseguite con lo stesso account con cui viene eseguito il processo Fabric.exe. Per un cluster autonomo di Windows Server, è possibile eseguire un servizio come gMSA (group Managed Service Account) o come [utente o gruppo di Active Directory](service-fabric-run-service-as-ad-user-or-group.md) usando criteri RunAs. Si noti che è in uso Active Directory in locale nel dominio e non Microsoft Azure Active Directory (Azure AD). Usando un gMSA, in `Application Manifest` non è archiviata alcuna password o password crittografata.
+In un cluster autonomo di Windows Server è possibile eseguire un servizio come account del servizio gestito del gruppo usando criteri RunAs.  Per impostazione predefinita, le applicazioni di Service Fabric vengono eseguite con lo stesso account con cui viene eseguito il processo Fabric.exe. L'esecuzione di applicazioni con account diversi, anche in ambienti ospitati condivisi, aumenta la sicurezza reciproca. Si noti che è in uso Active Directory in locale nel dominio e non Microsoft Azure Active Directory (Azure AD). Se si usa un account del servizio gestito del gruppo, nel manifesto dell'applicazione non viene archiviata alcuna password o password crittografata.  È anche possibile eseguire un servizio come [utente o gruppo di Active Directory](service-fabric-run-service-as-ad-user-or-group.md).
 
 L'esempio seguente mostra come creare un account gMSA denominato *svc-Test$*, come distribuire tale account del servizio gestito ai nodi del cluster e come configurare l'entità utente.
 

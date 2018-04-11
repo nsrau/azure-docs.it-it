@@ -4,9 +4,9 @@ description: Informazioni su come eseguire la diagnostica dei problemi con l'est
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5ebab8660dfe21984e1a7f9a1cb925aea60de213
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2fc1c87a0eee9e822ffc997f67320ed23dd5916
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnostica in Funzioni permanenti (Funzioni di Azure)
 
@@ -50,6 +50,7 @@ Ogni evento del ciclo di vita di un'istanza di orchestrazione genera la scrittur
 * **reason**: dati aggiuntivi associati all'evento di rilevamento. Ad esempio, se un'istanza è in attesa di una notifica degli eventi esterni, questo campo indica il nome dell'evento di cui è in attesa. Se una funzione ha avuto esito negativo, il campo contiene i dettagli dell'errore.
 * **isReplay**: valore booleano che indica se per l'evento di rilevamento è prevista la riesecuzione.
 * **extensionVersion**: la versione dell'estensione Durable Task. Questi dati sono particolarmente importanti quando si segnalano possibili bug nell'estensione. Le istanze con esecuzione prolungata possono segnalare più versioni, se si verifica un aggiornamento durante l'esecuzione. 
+* **sequenceNumber**: numero di sequenza di esecuzione per un evento. In combinazione con il timestamp consente di ordinare gli eventi per ora di esecuzione. *Si noti che questo numero verrà reimpostato su zero se l'host viene riavviato durante l'esecuzione dell'istanza. È quindi importante eseguire sempre l'ordinamento prima per timestamp e quindi per sequenceNumber.*
 
 Il livello di dettaglio dei dati di rilevamento generati ad Application Insights può essere configurato nella sezione `logger` del file `host.json`.
 
@@ -72,11 +73,11 @@ Per impostazione predefinita, vengono generati tutti gli eventi di rilevamento. 
 
 ### <a name="single-instance-query"></a>Query per singola istanza
 
-La query seguente mostra i dati di rilevamento cronologici per una singola istanza di orchestrazione della funzione [Hello Sequence](durable-functions-sequence.md). È scritta con [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). Esclude la riesecuzione in modo da mostrare solo il percorso di esecuzione *logico*.
+La query seguente mostra i dati di rilevamento cronologici per una singola istanza di orchestrazione della funzione [Hello Sequence](durable-functions-sequence.md). È scritta con [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). Esclude la riesecuzione in modo da mostrare solo il percorso di esecuzione *logico*. Gli eventi possono essere ordinati per `timestamp` e `sequenceNumber`, come illustrato nella query seguente: 
 
 ```AIQL
-let targetInstanceId = "bf71335b26564016a93860491aa50c7f";
-let start = datetime(2017-09-29T00:00:00);
+let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
+let start = datetime(2018-03-25T09:20:00);
 traces
 | where timestamp > start and timestamp < start + 30m
 | where customDimensions.Category == "Host.Triggers.DurableTask"
@@ -84,16 +85,17 @@ traces
 | extend instanceId = customDimensions["prop__instanceId"]
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
+| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
 | where isReplay == false
 | where instanceId == targetInstanceId
-| project timestamp, functionName, state, instanceId, appName = cloud_RoleName
+| sort by timestamp asc, sequenceNumber asc
+| project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
 ```
-Il risultato è un elenco di eventi di rilevamento che mostrano il percorso di esecuzione dell'orchestrazione, incluse eventuali funzioni di attività.
 
-![Query di Application Insights](media/durable-functions-diagnostics/app-insights-single-instance-query.png)
+Il risultato è un elenco di eventi di traccia che mostrano il percorso di esecuzione dell'orchestrazione, incluse eventuali funzioni di attività ordinate per ora di esecuzione in ordine ascendente.
 
-> [!NOTE]
-> Alcuni di questi eventi di rilevamento potrebbero non essere nell'ordine corretto per la mancanza di precisione nella colonna `timestamp`. Questo aspetto è in corso di rilevamento in GitHub come [Issue 71](https://github.com/Azure/azure-functions-durable-extension/issues/71).
+![Query di Application Insights](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+
 
 ### <a name="instance-summary-query"></a>Query di riepilogo dell'istanza
 

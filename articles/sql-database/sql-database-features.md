@@ -6,14 +6,14 @@ author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 842c65987dc97872751071dbcf138794a14940e2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d8adf097d6bee404cff8e7b15782c6c59531a897
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Confronto tra le funzionalità: database SQL di Azure e SQL Server 
 
@@ -114,13 +114,13 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [Istruzioni SET](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | Supportate per la maggior parte. Vedere le singole istruzioni | Sì, vedere le [differenze relative a T-SQL](sql-database-managed-instance-transact-sql-information.md)|
 | [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | Sì | Sì |
 | [Spatial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | Sì | Sì |
-| [Sincronizzazione dati SQL](sql-database-get-started-sql-data-sync.md) | Sì | Sì |
+| [Sincronizzazione dati SQL](sql-database-get-started-sql-data-sync.md) | Sì | No  |
 | [SQL Operations Studio](https://docs.microsoft.com/sql/sql-operations-studio/what-is) | Sì | Sì |
 | [Agente SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No. Vedere [Processi elastici](sql-database-elastic-jobs-getting-started.md) | Sì, vedere le [differenze relative a SQL Server Agent](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | No, vedere [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | No. Vedere [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [Controllo di SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | No. Vedere [Controllo del database SQL](sql-database-auditing.md) | Sì, vedere le [differenze relative al controllo](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [SQL Server Data Tools (SSDT)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Sì | Sì |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Parziale, lo sviluppo dei pacchetti in SQL Server Data Tools non è supportato | No, non in anteprima pubblica |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Sì, con SSIS gestito nell'ambiente di Azure Data Factory (ADF) in cui i pacchetti vengono archiviati nel database SSIS ospitato dal database SQL di Azure ed eseguiti nel [runtime di integrazione SSIS di Azure](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). | Sì, con SSIS gestito nell'ambiente di Azure Data Factory (ADF) in cui i pacchetti vengono archiviati nel database SSIS ospitato dall'istanza gestita ed eseguiti nel [runtime di integrazione SSIS di Azure](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Sì | Sì |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sì | Sì |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No. Vedere [Eventi estesi](sql-database-xevent-db-diff-from-svr.md) | Sì |

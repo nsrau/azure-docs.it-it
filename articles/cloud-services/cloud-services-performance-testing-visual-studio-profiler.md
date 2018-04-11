@@ -2,11 +2,11 @@
 title: Profilatura di un servizio cloud in locale nell'emulatore di calcolo | Documentazione Microsoft
 services: cloud-services
 description: Analizzare i problemi di prestazioni nei servizi cloud con il profiler di Visual Studio
-documentationcenter: 
+documentationcenter: ''
 author: mikejo
-manager: ghogen
-editor: 
-tags: 
+manager: douge
+editor: ''
+tags: ''
 ms.assetid: 25e40bf3-eea0-4b0b-9f4a-91ffe797f6c3
 ms.service: cloud-services
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8ff7b88a3086488ab669288687c274237ca30b47
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Test locale delle prestazioni di un servizio cloud nell'emulatore di calcolo di Azure mediante il profiler di Visual Studio
 È possibile usare diversi strumenti e tecniche per il test delle prestazioni di servizi cloud.
@@ -30,7 +30,7 @@ Quando si pubblica un servizio cloud in Azure, è possibile impostare Visual Stu
 In questo articolo viene illustrato il metodo Campionamento CPU per la profilatura, che può essere eseguito localmente nell'emulatore. Si tratta di un metodo di profilatura non eccessivamente invasivo. Il profiler salva uno snapshot dello stack di chiamate in base a intervalli di campionamento specificati. I dati vengono raccolti per un determinato periodo di tempo e vengono visualizzati in un rapporto. Questo metodo di profilatura tende a indicare la posizione in cui viene eseguita la maggior parte del lavoro della CPU in un'applicazione a elevato utilizzo di calcolo.  Ciò consente di focalizzare l'attenzione sul "percorso critico" in cui l'applicazione trascorre la maggior parte del tempo.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1: Configurare Visual Studio per la profilatura
-Visual Studio include alcune opzioni di configurazione che possono risultare utili per la profilatura. Per rendere comprensibili i rapporti di profilatura, saranno necessari simboli (file con estensione pdb) per l'applicazione, oltre a simboli per le librerie di sistema. È necessario assicurarsi di fare riferimento ai server dei simboli disponibili. A tale scopo, dal menu **Strumenti** in Visual Studio scegliere **Opzioni**, quindi **Debug** e infine **Simboli**. Verificare che Server dei simboli Microsoft sia elencato in **Percorsi dei file di simboli (pdb)**.  È inoltre possibile fare riferimento a http://referencesource.microsoft.com/symbols, dove potrebbero essere disponibili file di simboli aggiuntivi.
+Visual Studio include alcune opzioni di configurazione che possono risultare utili per la profilatura. Per rendere comprensibili i rapporti di profilatura, saranno necessari simboli (file con estensione pdb) per l'applicazione, oltre a simboli per le librerie di sistema. È necessario assicurarsi di fare riferimento ai server dei simboli disponibili. A tale scopo, dal menu **Strumenti** in Visual Studio scegliere **Opzioni**, quindi **Debug** e infine **Simboli**. Verificare che Server dei simboli Microsoft sia elencato in **Percorsi dei file di simboli (pdb)**.  È anche possibile fare riferimento a http://referencesource.microsoft.com/symbols, che può avere file di simboli aggiuntivi.
 
 ![Opzioni dei simboli][4]
 

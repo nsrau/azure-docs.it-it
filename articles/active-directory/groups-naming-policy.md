@@ -2,31 +2,31 @@
 title: Impostazioni dei criteri per i nomi dei gruppi di Office 365 in Azure Active Directory (anteprima) | Microsoft Docs
 description: Come configurare la scadenza dei gruppi di Office 365 in Azure Active Directory (anteprima)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: michael.tillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c21706a591d0e1aa00279edf7a5534ada95fd8c1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Applicare criteri di denominazione per i gruppi di Office 365 in Azure Active Directory (anteprima)
 
 Per applicare convenzioni di denominazione coerenti per i gruppi di Office 365 creati o modificati dagli utenti, configurare criteri di denominazione dei gruppi per i tenant in Azure Active Directory (Azure AD). Ad esempio, è possibile usare i criteri di denominazione per comunicare la funzione, l'appartenenza, l'area geografica o il creatore di un gruppo. È anche possibile utilizzare i criteri di denominazione per agevolare la categorizzazione dei gruppi nella Rubrica. È possibile utilizzare i criteri per bloccare l'uso di parole specifiche nei nomi dei gruppi e negli alias.
 
 > [!IMPORTANT]
-> L'utilizzo dell'anteprima dei criteri di denominazione dei gruppi di Office 365 richiede licenze di Azure Active Directory Premium P1 per ogni singolo utente che è membro di uno o più gruppi di Office 365.
+> L'uso dell'anteprima dei criteri di denominazione dei gruppi di Office 365 richiede licenze di Azure Active Directory Premium P1 o di Azure AD Basic EDU per ogni utente univoco membro di uno o più gruppi di Office 365.
 
 I criteri di denominazione sono applicati per creare o modificare i gruppi creati per più carichi di lavoro (ad esempio Outlook, Microsoft Teams, SharePoint, Exchange o Planner). Vengono applicati al nome e all'alias del gruppo. Se si impostano i criteri di denominazione In Azure AD e si dispone di criteri di denominazione dei gruppi di Exchange esistenti, vengono applicati i criteri di denominazione di Azure AD.
 

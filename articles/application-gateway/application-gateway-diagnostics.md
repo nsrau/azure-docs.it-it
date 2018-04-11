@@ -1,25 +1,22 @@
 ---
-title: Monitorare i log di accesso e delle prestazioni, l'integrità back-end e le metriche per il gateway applicazione | Microsoft Docs
+title: Monitorare i log di accesso e delle prestazioni, l'integrità back-end e le metriche per il gateway applicazione
 description: Informazioni su come abilitare e gestire i log di accesso e delle prestazioni per il gateway applicazione
 services: application-gateway
-documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 300628b8-8e3d-40ab-b294-3ecc5e48ef98
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 4/2/2018
 ms.author: amitsriva
-ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 982ae712320cb390b1822de6a7a3980ebfb6251e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Integrità back-end, log di diagnostica e metriche per il gateway applicazione
 
@@ -29,7 +26,7 @@ Il gateway applicazione di Azure consente di monitorare le risorse nei modi segu
 
 * [Log](#diagnostic-logging): i log consentono di salvare o usare i dati delle prestazioni, di accesso e di altre tipologie da una risorsa a fini di monitoraggio.
 
-* [Metriche](#metrics): il gateway applicazione include attualmente una sola metrica. Questa metrica misura la velocità effettiva del gateway applicazione in byte al secondo.
+* [Metriche](#metrics): gateway applicazione ha attualmente sette metriche per visualizzare i contatori delle prestazioni.
 
 ## <a name="back-end-health"></a>Integrità back-end
 
@@ -318,13 +315,22 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 
 Le metriche sono una funzionalità di alcune risorse di Azure che consente di visualizzare i contatori delle prestazioni nel portale. Per il gateway applicazione sono disponibili le metriche seguenti:
 
-- Current Connections (Connessioni correnti)
-- Richieste non riuscite
-- Healthy Host Count (Numero di host integri)
-- Stato della risposta
-- Velocità effettiva
-- Totale richieste
-- Unhealthy Host count (Numero di host non integri)
+- **Connessioni correnti**
+- **Richieste non riuscite**
+- **Numero di host integri**
+
+   È possibile filtrare per pool back-end per visualizzare gli host integri o non integri in un pool back-end specifico.
+
+
+- **Stato della risposta**
+
+   La distribuzione del codice di stato della risposta può essere ulteriormente classificata per visualizzare le risposte nelle categorie 2xx, 3xx, 4xx e 5xx.
+
+- **Velocità effettiva**
+- **Richieste totali**
+- **Numero di host non integri**
+
+   È possibile filtrare per pool back-end per visualizzare gli host integri o non integri in un pool back-end specifico.
 
 Passare a un gateway applicazione e in **Monitoraggio** fare clic su **Metriche**. Per visualizzare i valori disponibili, selezionare l'elenco a discesa **METRICA**.
 

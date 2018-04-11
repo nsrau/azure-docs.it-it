@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 87a24ae9b620557e3106eb7f51b3f002cd76dd03
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2ad995c4b48c2c298edd7c6b4da92ea8f3c4a060
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Autorizzare l'accesso ad applicazioni Web con OAuth 2.0 e Azure Active Directory
 Azure Active Directory (Azure AD) usa OAuth 2.0 per consentire di autorizzare l'accesso ad applicazioni Web e API Web nel proprio tenant di Azure AD. Questa guida, indipendente dal linguaggio, descrive come inviare e ricevere messaggi HTTP senza usare una delle librerie open source di Microsoft.
@@ -59,7 +59,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | prompt |Facoltativo |Indica il tipo di interazione obbligatoria dell'utente.<p> I valori validi sono: <p> *login*: all'utente deve essere chiesto di ripetere l'autenticazione. <p> *consent*: il consenso dell'utente è stato concesso, ma deve essere aggiornato. All'utente deve essere chiesto di indicare il consenso. <p> *admin_consent*: a un amministratore deve essere chiesto di indicare il consenso per conto di tutti gli utenti dell'organizzazione |
 | login_hint |Facoltativo |Consente di pre-compilare il campo nome utente/indirizzo di posta elettronica dell'utente nella pagina di accesso, se già si conosce il nome utente.  Le app usano spesso questo parametro durante la riautenticazione, dopo aver estratto il nome utente da un accesso precedente tramite l'attestazione `preferred_username`. |
 | domain_hint |Facoltativo |Offre un suggerimento relativo al tenant o al dominio che l'utente deve usare per accedere. Il valore di domain_hint è un dominio registrato per il tenant. Se il tenant è federato a una directory locale, AAD reindirizza al server federativo tenant specificato. |
-| code_challenge_method | Facoltativo    | Metodo usato per codificare `code_verifier` per il parametro `code_challenge`. Può essere uno di `plain` o `S256`.  Se escluso, `code_challenge` viene considerato testo non crittografato se `code_challenge` è incluso.  Azure Active Directory v2.0 supporta sia `plain` sia `S256`. Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge_method | Facoltativo    | Metodo usato per codificare `code_verifier` per il parametro `code_challenge`. Può essere uno di `plain` o `S256`.  Se escluso, `code_challenge` viene considerato testo non crittografato se `code_challenge` è incluso.  Azure Active Directory versione 1.0 supporta sia `plain` che `S256`. Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 | code_challenge        | Facoltativo    | Usato per proteggere le concessioni di codici di autorizzazione tramite la chiave di prova per Code Exchange (PKCE) da un client nativo. Obbligatorio con `code_challenge_method` incluso.  Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]
@@ -138,9 +138,9 @@ grant_type=authorization_code
 | grant_type |Obbligatoria |Deve essere `authorization_code` per il flusso del codice di autorizzazione. |
 | code |Obbligatoria |Il valore `authorization_code` acquisito nella sezione precedente |
 | redirect_uri |Obbligatoria |Lo stesso valore `redirect_uri` utilizzato per acquisire `authorization_code`. |
-| client_secret |Obbligatorio per app Web |Segreto dell'applicazione creato per l'app nel portale di registrazione delle app.  È consigliabile non usarlo in un'app nativa, perché i segreti client non possono essere archiviati in modo affidabile nei dispositivi.  Il segreto è obbligatorio per le app Web e le API Web che possono archiviare `client_secret` in modo sicuro sul lato server. |
+| client_secret |richiesto per le app Web, non consentito per i client pubblici |Segreto dell'applicazione creato per l'app nel portale di registrazione delle app.  Non può essere usato in un'app nativa (client pubblico), perché client_secret non può essere archiviato in modo affidabile nei dispositivi.  È obbligatorio per le app Web e le API Web (tutti i client riservati) che possono archiviare `client_secret` in modo sicuro sul lato server. |
 | resource |Obbligatorio se è specificato nella richiesta del codice di autorizzazione, altrimenti facoltativo |L'URI ID app dell'API Web (risorsa protetta). |
-| code_verifier | Facoltativo              | Stesso code_verifier usato per ottenere il codice di autorizzazione.  Obbligatorio se nella richiesta di concessione del codice di autorizzazione è stato usato PKCE.  Per altre informazioni, vedere [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
+| code_verifier | Facoltativo              | Stesso code_verifier usato per ottenere il codice di autorizzazione.  Obbligatorio se nella richiesta di concessione del codice di autorizzazione è stato usato PKCE.  Per altre informazioni, vedere [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 
 Per trovare l'URI ID app, nel portale di gestione di Azure fare clic su **Active Directory**, selezionare la directory, fare clic sull'applicazione e infine su **Configura**.
 

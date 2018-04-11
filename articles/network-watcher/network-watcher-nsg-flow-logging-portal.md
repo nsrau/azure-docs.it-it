@@ -5,7 +5,7 @@ services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
 ms.devlang: na
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 633543aba99f5c09b14a9e4b11adf59ca04d0fe5
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cb41781c5ac8fb759cecea01402c08dd716bf7d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Gestire i log di flusso del gruppo di sicurezza di rete nel portale di Azure
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Portale di Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Interfaccia della riga di comando 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 > - [Interfaccia della riga di comando 2.0](network-watcher-nsg-flow-logging-cli.md)
@@ -38,7 +38,10 @@ I log di flusso del gruppo di sicurezza di rete sono una funzionalità di Networ
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo scenario presuppone il completamento dei passaggi descritti in [Creare un'istanza di Azure Network Watcher](network-watcher-create.md). Lo scenario presuppone anche che l'utente possieda un gruppo di risorse con una macchina virtuale valida.
+Per completare la procedura descritta in questo articolo, sono necessarie le risorse seguenti:
+
+- Un'istanza esistente di Network Watcher. Per creare un'istanza di Network Watcher, vedere [Creare un'istanza di Azure Network Watcher](network-watcher-create.md).
+- Un gruppo di risorse esistente con una macchina virtuale valida. Se non si ha una macchina virtuale, vedere Creare una macchina virtuale [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) o [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="register-insights-provider"></a>Registrare il provider Insights
 
@@ -68,7 +71,7 @@ Selezionare un gruppo di sicurezza di rete dall'elenco.
 
 ### <a name="step-3"></a>Passaggio 3 
 
-Nel pannello **Impostazioni dei log dei flussi** impostare lo stato su **On** (Attivo) e configurare un account di archiviazione.  Al termine, fare clic su **OK**. Selezionare quindi **Salva**.
+Nel pannello **Impostazioni dei log dei flussi** impostare lo stato su **On** (Attivo) e configurare un account di archiviazione. Selezionare un account di archiviazione esistente con l'impostazione predefinita **Tutte le reti** selezionata in **Firewall e reti virtuali** nelle **IMPOSTAZIONI** dell'account di archiviazione. Dopo aver selezionato un account di archiviazione, selezionare **OK** e quindi **Salva**.
 
 ![Panoramica dei log di flusso][3]
 

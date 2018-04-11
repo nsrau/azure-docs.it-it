@@ -1,6 +1,6 @@
 ---
-title: Elemento MultiStorageAccountCombo dell'interfaccia utente di Applicazione gestita di Azure | Microsoft Docs
-description: Illustra l'elemento Microsoft.Storage.MultiStorageAccountCombo dell'interfaccia utente per le applicazioni gestite di Azure
+title: Elemento MultiStorageAccountCombo dell'interfaccia utente di Azure | Microsoft Docs
+description: Illustra l'elemento Microsoft.Storage.MultiStorageAccountCombo dell'interfaccia utente per il portale di Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: e1dda7917988146807ca6cfab10a3a4eac0b7bb2
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: c395c076a4910e124c1b93ebc61b5e491b2b53ff
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Elemento Microsoft.Storage.MultiStorageAccountCombo dell'interfaccia utente
-Gruppo di controlli per la creazione di più account di archiviazione, con nomi che iniziano con un prefisso comune. Usare questo elemento quando si [crea un'applicazione Azure gestita](publish-service-catalog-app.md).
+Gruppo di controlli per la creazione di più account di archiviazione, con nomi che iniziano con un prefisso comune.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft.storage.multistorageaccountcombo.png)
@@ -70,6 +70,5 @@ Gruppo di controlli per la creazione di più account di archiviazione, con nomi 
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un'introduzione alle applicazioni gestite, vedere [Panoramica di Applicazione gestita di Azure](overview.md).
 * Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
 * Per una descrizione delle proprietà comuni negli elementi dell'interfaccia utente, vedere [Elementi di CreateUiDefinition](create-uidefinition-elements.md).

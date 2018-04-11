@@ -1,6 +1,6 @@
 ---
-title: Elemento VirtualNetworkCombo dell'interfaccia utente di Applicazione gestita di Azure | Microsoft Docs
-description: Illustra l'elemento Microsoft.Network.VirtualNetworkCombo dell'interfaccia utente per le applicazioni gestite di Azure
+title: Elemento VirtualNetworkCombo dell'interfaccia utente di Azure | Microsoft Docs
+description: Illustra l'elemento Microsoft.Network.VirtualNetworkCombo dell'interfaccia utente per il portale di Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: c17ef740dcc709b5b344c4e60ef997a948b2e5de
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 38202b3b669a162f1cdbe88663d050d8d791c964
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Elemento Microsoft.Network.VirtualNetworkCombo dell'interfaccia utente
-Gruppo di controlli per la selezione di una rete virtuale nuova o esistente. Usare questo elemento quando si [crea un'applicazione Azure gestita](publish-service-catalog-app.md).
+Gruppo di controlli per la selezione di una rete virtuale nuova o esistente.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo.png)
@@ -115,6 +115,5 @@ Il valore predefinito è **0**. Per assicurarsi che gli indirizzi disponibili si
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un'introduzione alle applicazioni gestite, vedere [Panoramica di Applicazione gestita di Azure](overview.md).
 * Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
 * Per una descrizione delle proprietà comuni negli elementi dell'interfaccia utente, vedere [Elementi di CreateUiDefinition](create-uidefinition-elements.md).

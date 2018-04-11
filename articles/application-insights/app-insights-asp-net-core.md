@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 77c48a22f974e027b4e8858d5e38018bbf5bb54f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights per ASP.NET Core
 
@@ -95,7 +95,7 @@ Per generare traffico di test, è possibile avviare l'app e quindi fare clic man
 
 1. Eseguire l'app facendo clic su IIS Express. ![Screenshot dell'icona IIS Express di Visual Studio](./media/app-insights-asp-net-core/0012-iis-express.png)
 
-2. Copiare l'URL dalla barra degli indirizzi del browser. È nel formato http://localhost:{numero di porta casuale}.
+2. Copiare l'URL dalla barra degli indirizzi del browser. È nel formato http://localhost:{random numero di porta}
 
    ![Screenshot della barra degli indirizzi URL del browser](./media/app-insights-asp-net-core/0013-copy-url.png)
 
@@ -159,7 +159,7 @@ Verranno visualizzate diverse richieste di conferma. Leggere e confermare se si 
    ```
      ![Screenshot della modifica apportata al codice in _ViewImports.cshtml](./media/app-insights-asp-net-core/00018-view-imports.png)
 
-3. In **Layout.cshtml** aggiungere la riga riportata di seguito davanti al tag ``</head>``, ma prima di tutti gli altri script.
+3. In **_Layout.cshtml** aggiungere la riga riportata di seguito davanti al tag ``</head>``, ma prima di tutti gli altri script.
 
     ```C#
     @Html.Raw(snippet.FullScript)

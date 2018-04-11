@@ -1,25 +1,23 @@
 ---
-title: "Panoramica del monitoraggio dell'integrità per il gateway applicazione di Azure | Documentazione Microsoft"
-description: "Informazioni sulle funzionalità di monitoraggio nel gateway applicazione di Azure"
+title: Panoramica del monitoraggio dell'integrità per il gateway applicazione di Azure
+description: Informazioni sulle funzionalità di monitoraggio nel gateway applicazione di Azure
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
-ms.assetid: 7eeba328-bb2d-4d3e-bdac-7552e7900b7f
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
-ms.author: davidmu
-ms.openlocfilehash: 83a0b1be1aba48146aa1aaedb36ad9d9d23f17d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 3/30/2018
+ms.author: victorh
+ms.openlocfilehash: 2f62f01c1178f9529eb46051f088affccc5279a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Panoramica del monitoraggio dell'integrità del gateway applicazione
 
@@ -40,9 +38,28 @@ Ad esempio, si configura il gateway applicazione per usare i server back-end A, 
 
 Se il controllo probe predefinito non riesce per il server A, il gateway applicazione lo rimuove dal pool back-end e il flusso del traffico di rete a questo server viene arrestato. Il probe predefinito continua tuttavia a controllare il server A ogni 30 secondi. Quando il server A risponde correttamente a una richiesta di un probe di integrità predefinito, viene aggiunto di nuovo come integro al pool back-end e il flusso del traffico verso il server riprenderà.
 
+### <a name="probe-matching"></a>Criteri di corrispondenza dei probe
+
+Per impostazione predefinita, una risposta HTTP(S) con codice di stato 200 viene considerata integra. I probe di integrità personalizzati supportano anche due criteri di corrispondenza. Questi criteri possono essere usati per modificare l'interpretazione predefinita di ciò che costituisce una risposta integra.
+
+I criteri di corrispondenza sono i seguenti: 
+
+- **Corrispondenza del codice di stato della risposta HTTP**: il criterio adottato da un probe per accettare il codice di risposta o l'intervallo di codici di risposta HTTP specificato dall'utente. Sono supportati singoli codici di stato della risposta, delimitati da virgole, o un intervallo di codici di stato.
+- **Corrispondenza del corpo della risposta HTTP**: il criterio adottato dal probe in base al quale viene esaminato il corpo della risposta HTTP e viene stabilita una corrispondenza con una stringa specificata dall'utente. Si noti che la corrispondenza verifica solo la presenza della stringa specificata dall'utente nel corpo della risposta e non è una corrispondenza completa basata su espressione regolare.
+
+I criteri di corrispondenza possono essere specificati tramite il cmdlet `New-AzureRmApplicationGatewayProbeHealthResponseMatch`.
+
+Ad esempio: 
+
+```
+$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
+$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
+```
+Una volta specificati, i criteri di corrispondenza possono essere associati alla configurazione del probe tramite un parametro `-Match` in PowerShell.
+
 ### <a name="default-health-probe-settings"></a>Impostazioni del probe di integrità predefinito
 
-| Proprietà probe | Valore | DESCRIZIONE |
+| Proprietà probe | Valore | Descrizione |
 | --- | --- | --- |
 | URL probe |http://127.0.0.1:\<porta\>/ |Percorso URL |
 | Interval |30 |Intervallo di probe in secondi |
@@ -62,12 +79,12 @@ I probe personalizzati consentono un controllo più granulare sul monitoraggio d
 
 La tabella seguente fornisce le definizioni delle proprietà di un probe di integrità personalizzato.
 
-| Proprietà probe | DESCRIZIONE |
+| Proprietà probe | Descrizione |
 | --- | --- |
-| NOME |Nome del probe. Questo nome viene usato per fare riferimento al probe nelle impostazioni HTTP back-end |
+| Nome |Nome del probe. Questo nome viene usato per fare riferimento al probe nelle impostazioni HTTP back-end |
 | Protocollo |Protocollo usato per inviare il probe. Il probe usa il protocollo definito nelle impostazioni HTTP del back-end. |
 | Host |Nome host per inviare il probe. Applicabile solo quando vengono configurati più siti nel gateway applicazione. In caso contrario, usare "127.0.0.1". Questo valore è diverso dal nome host della VM. |
-| path |Percorso relativo del probe. Il percorso valido inizia da "/". |
+| Percorso |Percorso relativo del probe. Il percorso valido inizia da "/". |
 | Interval |Intervallo di probe in secondi. Questo valore è l'intervallo di tempo tra due probe consecutivi. |
 | Timeout |Timeout del probe in secondi. Se non viene ricevuta una risposta valida entro questo periodo di timeout, il probe viene contrassegnato come non riuscito.  |
 | Soglia non integra |Numero di tentativi di probe. Il server back-end viene contrassegnato come inattivo dopo che il numero di errori di probe consecutivi ha raggiunto una soglia non integra. |
