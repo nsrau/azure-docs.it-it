@@ -4,7 +4,7 @@ description: Informazioni su come reimpostare la password di un account o i serv
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 45c69812-d3e4-48de-a98d-39a0f5675777
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: danis
-ms.openlocfilehash: d793b101e3b6fa5a441158ef8ca9f7cd6d3a5a5b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 038fc81fd46f81a454ec908e2156579ff8d41ee6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Come reimpostare il servizio Desktop remoto o la relativa password di accesso in una VM Windows
 Se non è possibile connettersi a una macchina virtuale Windows, è possibile reimpostare la password di amministratore locale o la configurazione del servizio Desktop remoto (opzione non supportata nei controller di dominio Windows). È possibile usare il portale di Azure o l'estensione di accesso alla VM in Azure PowerShell per reimpostare la password. Dopo aver eseguito l'accesso alla VM, è necessario reimpostare la password per l'utente.  

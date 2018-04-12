@@ -5,7 +5,7 @@ services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c7392678-0924-46c6-9c59-1665cb9b6586
 ms.service: storsimple
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.date: 03/28/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc3c0ad193af7625c8c4c1c2e82b6bdc8be33310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>Quali sono i limiti relativi al sistema StorSimple serie 8000?
 

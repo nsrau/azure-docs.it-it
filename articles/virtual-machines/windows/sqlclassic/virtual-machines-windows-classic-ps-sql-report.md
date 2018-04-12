@@ -1,6 +1,6 @@
 ---
-title: "Usare PowerShell per creare una macchina virtuale con un server di report in modalità nativa | Microsoft Docs"
-description: "Questo argomento descrive e illustra la distribuzione e la configurazione di un server di report di SQL Server Reporting Services in modalità nativa in una macchina virtuale di Azure. "
+title: Usare PowerShell per creare una macchina virtuale con un server di report in modalità nativa | Microsoft Docs
+description: 'Questo argomento descrive e illustra la distribuzione e la configurazione di un server di report di SQL Server Reporting Services in modalità nativa in una macchina virtuale di Azure. '
 services: virtual-machines-windows
 documentationcenter: na
 author: guyinacube
@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Usare PowerShell per creare una macchina virtuale di Azure con un server di report in modalità nativa
 > [!IMPORTANT] 

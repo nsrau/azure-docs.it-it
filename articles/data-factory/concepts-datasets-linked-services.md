@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: ''
+ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: d88e4a068841f68feffb094b2aa07faaf5a6a8cc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f9a3eeff7a44c98228f89a7519117b043217eefd
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Set di dati e servizi collegati in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -125,7 +125,7 @@ La tabella seguente descrive le proprietà nel codice JSON precedente:
 Proprietà | DESCRIZIONE | Obbligatoria |
 -------- | ----------- | -------- |
 name | Nome del set di dati. Vedere [Azure Data Factory - Regole di denominazione](naming-rules.md). |  Sì |
-type | Tipo del set di dati. Specificare uno dei tipi supportati da Data Factory, ad esempio AzureBlob o AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere [Tipi di set di dati](#dataset-types). | Sì |
+type | Tipo del set di dati. Specificare uno dei tipi supportati da Data Factory, ad esempio AzureBlob o AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere [Tipi di set di dati](#dataset-type). | Sì |
 structure | Schema del set di dati. Per informazioni dettagliate, vedere [Struttura del set di dati](#dataset-structure). | No  |
 typeProperties | Le proprietà del tipo sono diverse per ogni tipo, ad esempio: BLOB di Azure, tabella SQL di Azure. Per informazioni dettagliate sui tipi supportati e le relative proprietà, vedere la sezione [Tipo di set di dati](#dataset-type). | Sì |
 

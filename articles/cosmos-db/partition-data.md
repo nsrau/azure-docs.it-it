@@ -3,7 +3,7 @@ title: Partizionamento e aumento del numero di istanze in Azure Cosmos DB | Micr
 description: Informazioni sul funzionamento del partizionamento in Azure Cosmos DB, sulla configurazione del partizionamento e delle chiavi di partizione e su come scegliere la chiave di partizione corretta per l'applicazione.
 services: cosmos-db
 author: arramac
-manager: jhubbard
+manager: kfile
 editor: monicar
 documentationcenter: ''
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 149d2ba5108fb49741203fbe5c50add6c0d523ae
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 16b0ddd45c8e524798a453af7c731af28f5f5c2d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partizionamento e ridimensionamento in Azure Cosmos DB
 

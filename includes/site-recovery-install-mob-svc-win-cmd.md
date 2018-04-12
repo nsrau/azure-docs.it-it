@@ -25,11 +25,11 @@ Usage :
 UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
 ```
 
-| Parametro|Tipo|Descrizione|Valori possibili|
+| Parametro|type|DESCRIZIONE|Valori possibili|
 |-|-|-|-|
-|/Role|Obbligatorio|Specifica se installare il servizio Mobility (MS) o MasterTarget (MT).|MS </br> MT|
+|/Role|Mandatory|Specifica se installare il servizio Mobility (MS) o MasterTarget (MT).|MS </br> MT|
 |/InstallLocation|Facoltativo|Percorso in cui viene installato il servizio Mobility.|Qualsiasi cartella del computer|
-|/Platform|Obbligatorio|Specifica la piattaforma in cui viene installato il servizio Mobility. </br> </br>- **VMware**: usare questo valore se si installa il servizio Mobility in una macchina virtuale in esecuzione su *host VMware vSphere ESXi*, *host Hyper-V* e *server fisici*. </br> - **Azure**: usare questo valore se si installa un agente in una macchina virtuale IaaS di Azure. | VMware </br> Azure|
+|/Platform|Mandatory|Specifica la piattaforma in cui viene installato il servizio Mobility. </br> </br>- **VMware**: usare questo valore se si installa il servizio Mobility in una macchina virtuale in esecuzione su *host VMware vSphere ESXi*, *host Hyper-V* e *server fisici*. </br> - **Azure**: usare questo valore se si installa un agente in una macchina virtuale IaaS di Azure. | VMware </br> Azure|
 |/Silent|Facoltativo|Specifica l'esecuzione del programma di installazione in modalità non interattiva.| N/D|
 
 >[!TIP]
@@ -42,10 +42,10 @@ Usage :
 UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
 ```
 
-  | Parametro|Tipo|Descrizione|Valori possibili|
+  | Parametro|type|DESCRIZIONE|Valori possibili|
   |-|-|-|-|
-  |/CSEndPoint |Obbligatorio|Indirizzo IP del server di configurazione| Qualsiasi indirizzo IP valido|
-  |/PassphraseFilePath|Obbligatorio|Percorso della passphrase |Qualsiasi percorso file locale o UNC valido|
+  |/CSEndPoint |Mandatory|Indirizzo IP del server di configurazione| Qualsiasi indirizzo IP valido|
+  |/PassphraseFilePath|Mandatory|Percorso della passphrase |Qualsiasi percorso file locale o UNC valido|
 
 
 >[!TIP]

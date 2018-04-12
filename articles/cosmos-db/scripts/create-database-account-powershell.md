@@ -3,11 +3,10 @@ title: 'Script di Azure PowerShell: creare un account API SQL di Azure Cosmos DB
 description: 'Esempio di script di Azure PowerShell: creare un account API SQL di Azure Cosmos DB'
 services: cosmos-db
 documentationcenter: cosmosdb
-author: mimig1
-manager: jhubbard
-editor: 
+author: SnehaGunda
+manager: kfile
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: PowerShell
@@ -15,12 +14,12 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
-ms.author: mimig
-ms.openlocfilehash: 060270f424cb3bbb984430d9e17656453fa30c4d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: sngun
+ms.openlocfilehash: c44f4a5998ac8159d3bc5d1e41f1fe94b0897c6b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-create-a-sql-api-account-using-powershell"></a>Azure Cosmos DB: creare un account API SQL con PowerShell
 

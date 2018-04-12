@@ -4,7 +4,7 @@ description: Informazioni sull'uso del gestore dell'estensione di Microsoft Azur
 services: virtual-machines-windows
 documentationcenter: ''
 author: mgreenegit
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: dsc
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: 5b16261c9a9f046b7bc55a06dd71aa154a0cec27
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e23d0a70cdfcc1b37f02d86dd6418aa28c5bbf2c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
 
@@ -34,7 +34,7 @@ Il caso d'uso principale per l'estensione DSC (Desired State Configuration) di A
 
 Questo articolo fornisce informazioni relative a entrambi gli scenari: uso dell'estensione DSC per l'onboarding in Automazione e uso dell'estensione DSC come strumento per l'assegnazione di configurazioni a VM tramite Azure SDK.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - **Computer locale**: per interagire con l'estensione della macchina virtuale di Azure, è necessario usare il portale di Azure o Azure PowerShell SDK.
 - **Agente guest**: la macchina virtuale di Azure configurata tramite l'estensione DSC deve essere un sistema operativo che supporta Windows Management Framework (WMF) 4.0 o versione successiva. Per l'elenco completo delle versioni dei sistemi operativi supportati, vedere la [cronologia delle versioni dell'estensione DSC](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).

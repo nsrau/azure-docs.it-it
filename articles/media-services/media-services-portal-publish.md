@@ -2,10 +2,10 @@
 title: Pubblicare contenuti sul portale di Azure | Documentazione Microsoft
 description: Questa esercitazione illustra i passaggi necessari per la pubblicazione di contenuti sul portale di Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 92c364eb-5a5f-4f4e-8816-b162c031bb40
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 6759d3f49e15a3b01022df318a83563ad6bd859f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6fec9b21e8612376dced6af9da7304f4c2b1a93f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Pubblicare contenuti sul portale di Azure
 > [!div class="op_single_selector"]
@@ -36,20 +36,20 @@ ms.lasthandoff: 12/21/2017
 
 Perché l'utente possa avere a disposizione un URL da usare per scaricare o riprodurre in streaming i contenuti, è prima necessario pubblicare un asset creando un localizzatore. I localizzatori forniscono accesso ai file di risorse. Servizi multimediali di Azure supporta due tipi di localizzatori: 
 
-* **Localizzatori di streaming (OnDemandOrigin)**. I localizzatori di streaming vengono usati per il flusso adattivo. Alcuni esempi di flusso adattivo includono Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming e DASH (Dynamic Adaptive Streaming over HTTP, denominato anche MPEG-DASH). Per creare un localizzatore di streaming, l'asset deve contenere un file con estensione ism. 
+* **Localizzatori di streaming (OnDemandOrigin)**. I localizzatori di streaming vengono usati per il flusso adattivo. Alcuni esempi di flusso adattivo includono Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming e DASH (Dynamic Adaptive Streaming over HTTP, denominato anche MPEG-DASH). Per creare un localizzatore di streaming, l'asset deve contenere un file con estensione ism. Ad esempio, http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
 * **Localizzatori progressivi (firma di accesso condiviso)**. I localizzatori progressivi vengono usati per la distribuzione di video tramite download progressivo.
 
 Per creare un URL di streaming HLS, aggiungere *(format=m3u8-aapl)* all'URL:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
 
 Per creare un URL di streaming per la riproduzione di asset Smooth Streaming, usare il formato URL seguente:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest
 
 Per creare un URL di streaming MPEG DASH, aggiungere *(format=mpd-time-csf)* all'URL:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
 
 Un URL di firma di accesso condiviso ha il formato seguente:
 

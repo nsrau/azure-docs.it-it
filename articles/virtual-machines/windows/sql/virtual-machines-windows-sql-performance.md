@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/20/2018
 ms.author: jroth
-ms.openlocfilehash: 2aa066caf6239f29038228c3c91607d913e70682
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e4f955a0880254cb67ccd3e46ad04b3685341263
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure
 
@@ -39,7 +39,7 @@ Di seguito è riportato un elenco controllo rapido per ottimizzare le prestazion
 
 | Area | Ottimizzazioni |
 | --- | --- |
-| [Dimensioni macchina virtuale](#vm-size-guidance) |[DS3](../sizes-memory.md) o superiore per SQL Enterprise.<br/><br/>[DS2](../sizes-memory.md) o superiore per SQL Standard Edition e Web Edition. |
+| [Dimensioni macchina virtuale](#vm-size-guidance) |[DS3](../sizes-general.md) o superiore per SQL Enterprise.<br/><br/>[DS2](../sizes-general.md) o superiore per SQL Standard Edition e Web Edition. |
 | [Archiviazione](#storage-guidance) |Usare [Archiviazione Premium](../premium-storage.md). Archiviazione Standard è consigliata solo per i carichi di lavoro di sviluppo/test.<br/><br/>Mantenere l'[account di archiviazione](../../../storage/common/storage-create-storage-account.md) e la macchina virtuale di SQL Server nella stessa area.<br/><br/>Disabilitare l' [archiviazione con ridondanza geografica](../../../storage/common/storage-redundancy.md) (replica geografica) di Azure nell'account di archiviazione. |
 | [Dischi](#disks-guidance) |Usare almeno 2 [dischi P30](../premium-storage.md#scalability-and-performance-targets) (1 per i file di log, 1 per i file di dati e TempDB).<br/><br/>Evitare l'uso del sistema operativo o di dischi temporanei per la registrazione o l'archiviazione di database.<br/><br/>Abilitare la memorizzazione nella cache di lettura sui dischi che ospitano i file di dati e i file di dati di TempDB.<br/><br/>Non abilitare la memorizzazione nella cache sui dischi che ospitano il file di log.<br/><br/>Importante: arrestare SQL Server quando si modificano le impostazioni della cache per un disco di una macchina virtuale di Azure.<br/><br/>Eseguire lo striping di più dischi dati di Azure per ottenere una maggiore velocità effettiva I/O.<br/><br/>Formattare con dimensioni di allocazione documentate. |
 | [I/O](#io-guidance) |Abilitare la compressione di pagina di database.<br/><br/>Abilitare l'inizializzazione immediata dei file per i file di dati.<br/><br/>Limitare l'aumento automatico delle dimensioni per il database.<br/><br/>Disabilitare la compattazione automatica per il database.<br/><br/>Spostare tutti i database su dischi dati, inclusi i database di sistema.<br/><br/>Spostare le directory dei file di traccia e dei log degli errori di SQL Server sui dischi dati.<br/><br/>Configurare il percorso predefinito del file di backup e del file di database.<br/><br/>Abilitare le pagine bloccate.<br/><br/>Applicare le correzioni delle prestazioni di SQL Server. |

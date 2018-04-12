@@ -5,27 +5,26 @@ services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/26/2017
+ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: fc5dcc945750b4ab4eef337dbd96bd051bb4dd81
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6345fe89a3bf25041621213274ea0c3081848d99
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Visualizzare o analizzare i dati raccolti con la ricerca log di Log Analytics
 
 In Log Analytics è possibile usare ricerche log creando query per analizzare i dati raccolti. Usare dashboard preesistenti che è possibile personalizzare con i grafici delle ricerche più utili.  Ora che è stata definita una raccolta di dati operativi dai log attività e dalle macchine virtuali di Azure, in questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Aggiornare la risorsa Log Analytics di Azure al nuovo linguaggio di query 
 > * Eseguire una semplice ricerca di dati di eventi e usare le funzionalità per modificare e filtrare i risultati 
 > * Usare i dati sulle prestazioni
 
@@ -42,15 +41,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 Per iniziare, aprire il portale per la ricerca log.   
 
 1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
-2. Nel riquadro delle sottoscrizioni di Log Analytics, selezionare un'area di lavoro e quindi selezionare il riquadro **Ricerca log**.<br> ![Pulsante Ricerca log](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
-
-Potrebbe essere apparso il banner nella parte superiore della pagina delle risorse di Log Analytics nel portale che invita a eseguire l'aggiornamento.<br> ![Avviso di aggiornamento di Log Analytics nel portale di Azure](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
-
-Di recente Log Analytics ha introdotto un nuovo linguaggio di query per semplificare la costruzione di query, la correlazione di dati da diverse origini e l'analisi per identificare rapidamente tendenze o problemi.
-
-Eseguire un aggiornamento è semplice.  Avviare il processo facendo clic sul banner indicante **Altre informazioni e aggiorna**.  Leggere le informazioni aggiuntive sull'aggiornamento nella pagina delle informazioni sull'aggiornamento e fare clic su **Aggiorna ora**.
-
-Questo processo richiede alcuni minuti. Nel frattempo è possibile tenere traccia dello stato di avanzamento alla voce **Notifiche** nel menu. Altre informazioni sui [Vantaggi del nuovo linguaggio di query](log-analytics-log-search-upgrade.md#why-the-new-language).
+2. Nel riquadro delle sottoscrizioni di Log Analytics, selezionare un'area di lavoro e quindi selezionare il riquadro **Ricerca log**.<br><br> ![Pulsante Ricerca log](media/log-analytics-tutorial-viewdata/azure-portal-02.png)
 
 ## <a name="create-a-simple-search"></a>Creare una ricerca semplice
 Il modo più rapido per recuperare alcuni dati da utilizzare è una query semplice che restituisce tutti i record in una tabella.  In presenza di client Windows o Linux connessi all'area di lavoro, saranno disponibili dati nella tabella Event (Windows) o nella tabella Syslog (Linux).

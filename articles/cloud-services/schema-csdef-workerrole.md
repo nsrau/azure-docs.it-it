@@ -1,23 +1,23 @@
 ---
 title: Schema WorkerRole di definizione di Servizi cloud di Azure | Microsoft Docs
-ms.custom: 
+ms.custom: ''
 ms.date: 04/14/2015
 ms.prod: azure
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
-caps.latest.revision: 
+caps.latest.revision: 55
 author: thraka
 ms.author: adegeo
 manager: timlt
 ms.openlocfilehash: 0171c7254db5855f0eccd19ae9938249d8966edd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Schema WorkerRole di definizione di Servizi cloud di Azure
 Il ruolo di lavoro di Azure è un ruolo utile per lo sviluppo generalizzato e può eseguire l'elaborazione in background per un ruolo Web.

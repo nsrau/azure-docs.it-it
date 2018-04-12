@@ -4,7 +4,7 @@ description: Confrontare i punteggi di benchmark di CoreMark calcolo per le VM d
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 93e812c1-79dd-40c5-b97b-aa79f5cd7d76
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: cynthn;davberg
-ms.openlocfilehash: 5066ca582beb0c226e3b5e4014a696d44af50df6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 25e471b826a1df0bd71f141286a59159b674f365
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Calcolare i punteggi di benchmark per le VM Linux
 I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni di calcolo per la linea di VM ad alte prestazioni di Azure con Ubuntu. I punteggi di benchmark sul calcolo sono disponibili anche per le [VM Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

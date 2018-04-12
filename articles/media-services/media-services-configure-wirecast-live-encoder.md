@@ -1,11 +1,11 @@
 ---
-title: "Configurare il codificatore Telestream Wirecast per inviare un flusso live a velocità in bit singola | Microsoft Docs"
-description: "In questo argomento viene illustrato come configurare il codificatore live Wirecast per inviare un flusso a velocità in bit singola a canali AMS abilitati per la codifica live. "
+title: Configurare il codificatore Telestream Wirecast per inviare un flusso live a velocità in bit singola | Microsoft Docs
+description: 'In questo argomento viene illustrato come configurare il codificatore live Wirecast per inviare un flusso a velocità in bit singola a canali AMS abilitati per la codifica live. '
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: 0e4fb0b7c915969da1760eaccc77aa399030752e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Usare il codificatore Wirecast per inviare un flusso live a velocità in bit singola.
 > [!div class="op_single_selector"]

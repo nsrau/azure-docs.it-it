@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 448711b7b2e102662bc157485561c33bf7f5fba1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1ba2f2be8db424bddfccdf374704ec7be5691feb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="overview-of-azure-monitor"></a>Panoramica di Monitoraggio di Azure
 Questo articolo fornisce una panoramica del servizio Monitoraggio di Azure in Microsoft Azure. Illustra il funzionamento di Monitoraggio di Azure e fornisce collegamenti a informazioni aggiuntive su come usare Monitoraggio di Azure.  Per un'introduzione video, vedere i collegamenti della sezione Passaggi successivi alla fine dell'articolo. 
@@ -168,4 +168,4 @@ Altre informazioni su:
 - Configurare le [estensioni di Diagnostica di Azure](../azure-diagnostics.md), per diagnosticare problemi nell'applicazione di servizio cloud, macchina virtuale, set di scalabilità di macchine virtuali o Service Fabric.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) , utili per la diagnosi di problemi nell'app Web del servizio app.
 - [Risoluzione dei problemi di Archiviazione di Azure](../storage/common/storage-e2e-troubleshooting.md) , utile per l'uso di BLOB, tabelle o code di archiviazione.
-- [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/oms/)
+- [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/)

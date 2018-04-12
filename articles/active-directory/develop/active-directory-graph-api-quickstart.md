@@ -3,7 +3,7 @@ title: Avvio rapido per l'API Graph di Azure AD | Microsoft Docs
 description: L'API Graph di Azure Active Directory consente l'accesso a livello di codice ad Azure AD tramite endpoint dell'API REST OData. Le applicazioni possono usare l'API Graph di Azure AD per le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete) su oggetti e dati della directory.
 services: active-directory
 documentationcenter: n/a
-author: viv-liu
+author: mtillman
 manager: mtillman
 editor: ''
 tags: ''
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/28/2017
-ms.author: viviali
+ms.date: 04/02/2018
+ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 6869fc8ec582ea857128e91f1f127e9255e77865
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d195d808e07b872c11379f13b6e89794da39f70e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Avvio rapido per l'API Graph di Azure AD
 L'API Graph di Azure Active Directory (AD) consente l'accesso a livello di codice ad Azure AD tramite endpoint dell'API REST OData. Le applicazioni possono usare l'API Graph di Azure AD per le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete) su oggetti e dati della directory. È ad esempio possibile usare l'API Graph di Azure AD per creare un nuovo utente, visualizzare o aggiornare le proprietà dell'utente, modificare la password utente, verificare l'appartenenza ai gruppi per l'accesso basato sui ruoli e disabilitare o eliminare l'utente. Per altre informazioni sulle funzionalità dell'API Graph di Azure AD e sugli scenari di applicazione, vedere la [documentazione di riferimento dell'API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) e [API Graph di Azure Active Directory](https://msdn.microsoft.com/library/hh974476.aspx). 
 
 > [!IMPORTANT]
-> Per accedere alle risorse di Azure Active Directory è consigliabile usare [Microsoft Graph](https://developer.microsoft.com/graph) anziché l'API Graph di Azure AD. Le attività di sviluppo sono ora concentrate su Microsoft Graph e non sono previsti altri miglioramenti all'API Graph di Azure AD. Il numero di scenari in cui potrebbe essere ancora appropriato usare l'API Graph di Azure AD è piuttosto limitato. Per altre informazioni, vedere il post [Microsoft Graph o Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) nel blog di Office Developer Center.
+> Per accedere alle risorse di Azure Active Directoryi è consigliabile usare [Microsoft Graph](https://developer.microsoft.com/graph) anziché l'API Graph di Azure AD. Le attività di sviluppo sono ora concentrate su Microsoft Graph e non sono previsti altri miglioramenti all'API Graph di Azure AD. Il numero di scenari in cui potrebbe essere ancora appropriato usare l'API Graph di Azure AD è piuttosto limitato. Per altre informazioni, vedere il post [Microsoft Graph o Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) nel blog di Office Developer Center.
 > 
 > 
 
@@ -56,7 +56,7 @@ In alternativa, `https://graph.windows.net/contoso.com/users?api-version=1.6` el
 
 Lo screenshot seguente mostra l'output che viene visualizzato se si passa ad Azure AD Graph Explorer, si esegue l'accesso e si immette `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` per visualizzare tutti gli utenti nella directory dell'utente connesso:
 
-![Azure AD Graph Explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
+![API Graph di Azure AD explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
 **Caricare Azure AD Graph Explorer**: per caricare lo strumento, usare l'indirizzo [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/). Fare clic su **Login** (Accedi) e accedere con le credenziali dell'account Azure AD per eseguire Azure AD Graph Explorer sul tenant personale. Se un utente esegue Azure AD Graph Explorer sul tenant personale, l'utente o il relativo amministratore deve fornire il proprio consenso in fase di accesso. Se si ha una sottoscrizione di Office 365, si ha automaticamente un tenant di Azure AD. Le credenziali usate per accedere a Office 365 corrispondono in realtà a un account Azure AD ed è possibile usare queste credenziali con Azure AD Graph Explorer.
 
@@ -66,7 +66,7 @@ Azure AD Graph Explorer presenta le funzionalità e le limitazioni seguenti:
 
 * Funzionalità di completamento automatico in set di risorse. Per visualizzarla, fare clic sulla casella di richiesta (dove viene visualizzato l'URL della società). È possibile selezionare un set di risorse dall'elenco a discesa.
 * Cronologia delle richieste.
-* Supporto per gli alias di indirizzamento "me" e "myorganization". È ad esempio possibile usare `https://graph.windows.net/me?api-version=1.6` per restituire l'oggetto corrispondente all'utente connesso oppure `https://graph.windows.net/myorganization/users?api-version=1.6` per restituire tutti gli utenti nella directory dell'utente connesso.
+* Supporta gli alias di indirizzamento "me" e "myorganization". È ad esempio possibile usare `https://graph.windows.net/me?api-version=1.6` per restituire l'oggetto corrispondente all'utente connesso oppure `https://graph.windows.net/myorganization/users?api-version=1.6` per restituire tutti gli utenti nella directory dell'utente connesso.
 * Supporto per tutte le operazioni CRUD sulla directory personale tramite `POST`, `GET`, `PATCH` e `DELETE`.
 * Una sezione di intestazioni di risposta. Questa sezione può essere usata per consentire la risoluzione dei problemi che si verificano durante l'esecuzione di query.
 * Un visualizzatore JSON per la risposta con funzionalità di espansione e compressione.

@@ -2,12 +2,12 @@
 title: Gestire gli avvisi di manutenzione per macchine virtuali Windows in Azure | Microsoft Docs
 description: Visualizzare gli avvisi relativi alla manutenzione per macchine virtuali Windows in esecuzione in Azure e avviare la manutenzione self-service.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: zivraf
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: d6d8507508ef1946c1dfa41c47ae81f51c0ad4ef
-ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
+ms.openlocfilehash: a9cb24b569af4ff0fd3cf9bf66d0b937415907ae
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Gestire gli avvisi relativi alla manutenzione pianificata per le macchine virtuali Windows
 

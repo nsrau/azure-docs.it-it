@@ -50,7 +50,7 @@ Per aggiungere un dispositivo alla soluzione per il monitoraggio remoto, complet
 
     ![Scegliere le opzioni per il dispositivo](media/iot-suite-selector-connecting/devicesoptions.png)
 
-1. Scegliere **Applica**. Prendere quindi nota dei valori di **ID dispositivo**, **Chiave primaria**, e **Stringa di connessione - chiave primaria**:
+1. Scegliere **Applica**. Prendere quindi nota dei valori di **ID dispositivo**, **Chiave primaria**, e **Connection string primary key** (Chiave primaria della stringa di connessione):
 
     ![Recuperare le credenziali](media/iot-suite-selector-connecting/credentials.png)
 

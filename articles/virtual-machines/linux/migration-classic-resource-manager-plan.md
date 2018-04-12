@@ -2,10 +2,10 @@
 title: Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager | Documentazione Microsoft
 description: Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 246032701d97fc7d16e6cb38ee79fbd5470f65d9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 586a5590c88ef4124543c47389f62eaa864d2d18
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 Anche se Azure Resource Manager offre molte funzionalità straordinarie, è fondamentale pianificare la migrazione in modo che avvenga senza problemi. Dedicare tempo alla pianificazione garantisce che non si verifichino problemi durante l'esecuzione delle attività di migrazione. 

@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="performance-metrics"></a>Metriche delle prestazioni
 

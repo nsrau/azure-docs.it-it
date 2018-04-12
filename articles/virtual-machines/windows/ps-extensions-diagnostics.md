@@ -1,11 +1,11 @@
 ---
 title: Usare Azure PowerShell per abilitare la diagnostica in una macchina virtuale Windows | Microsoft Docs
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 description: Informazioni su come usare PowerShell per abilitare Diagnostica di Azure in una macchina virtuale che esegue Windows
 author: sbtron
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 2e6d88f2-1980-4a24-827e-a81616a0d247
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: d0be4a712657edfc516c5f32e66519f5d9486728
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 49c6fe69afdee6a075d9f888f8a2417455bc7e51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Usare PowerShell per abilitare la Diagnostica di Azure in una macchina virtuale che esegue Windows
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]

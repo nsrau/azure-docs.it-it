@@ -2,10 +2,10 @@
 title: Preparare un disco rigido virtuale (VHD) di Windows per il caricamento in Azure | Microsoft Docs
 description: Come preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: glimoli
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 67832fd20b758af6fd7a31c0099ce8019bb2442d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 74c47907698e3365d093f0e17dba87b690406443
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 Prima di caricare una macchina virtuale di Windows dall'ambiente locale a Microsoft Azure, è necessario preparare il disco rigido virtuale, VHD o VHDX. Azure supporta solo macchine virtuali di prima generazione nel formato di file VHD e con un disco a dimensione fissa. La dimensione massima consentita per il disco rigido virtuale è 1023 GB. È possibile convertire una VM di prima generazione dal file system VHDX a VHD e da un disco a espansione dinamica a un disco a dimensione fissa. Non è tuttavia possibile modificare la generazione di una macchina virtuale. Per altre informazioni, vedere [Should I create a generation 1 or 2 VM in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) (Creare una macchina virtuale di prima o seconda generazione in Hyper-V).

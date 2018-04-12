@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 77741c39387dbfc8817b6494f8d79c424e1a498f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eb7e87934269a5e1ba453e20f6f409a10dfbda5b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Ripristinare un singolo tenant con un'applicazione SaaS di database per tenant
 
@@ -50,7 +50,7 @@ Per il ripristino dei dati di un tenant singolo sono disponibili due modelli sem
 
 Se il database usa la [replica geografica](sql-database-geo-replication-overview.md) e si esegue il ripristino in parallelo, è consigliabile copiare i dati necessari dalla copia ripristinata nel database originale. Se il database originale viene sostituito con il database ripristinato, è necessario riconfigurare e risincronizzare la replica geografica.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione del database per tenant SaaS Wingtip Tickets
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione SaaS di database per tenant Wingtip Tickets
 
 Gli script e il codice sorgente dell'applicazione del database multi-tenant SaaS Wingtip Tickets sono disponibili nel repository [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) di GitHub. Vedere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
 
@@ -99,7 +99,7 @@ Questo esercizio ripristina il database Contoso Concert Hall a un punto nel temp
 1. Completare la sezione [Simulare un tenant che elimina accidentalmente i dati](#simulate-a-tenant-accidentally-deleting-data).
 2. In PowerShell ISE aprire ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_.
 3. Impostare **$DemoScenario** = **2**, *Ripristinare il tenant in parallelo*.
-4. Premere F5 per eseguire lo script.
+4. Per eseguire lo script, premere F5.
 
 Lo script ripristina lo stato del database tenant precedente rispetto all'eliminazione dell'evento. Il database viene ripristinato in un nuovo database, denominato _ContosoConcertHall\_old_. I metadati di catalogo esistenti nel database ripristinato vengono eliminati e quindi il database viene aggiunto al catalogo tramite una chiave calcolata dal nome *ContosoConcertHall\_old*.
 
@@ -110,7 +110,7 @@ Scorrere gli eventi elencati nel browser per confermare che l'evento eliminato n
 È improbabile che si usi l'esposizione del tenant ripristinato come tenant aggiuntivo, con una propria app Eventi, come metodo per fornire al tenant l'accesso ai dati ripristinati, ma questo metodo è utile per illustrare il modello di ripristino. In genere, si concede l'accesso in sola lettura ai dati precedenti e il database viene mantenuto solo per un periodo definito. Nell'esempio, al termine è possibile eliminare la voce del tenant ripristinato eseguendo lo scenario _Rimuovere il tenant ripristinato_.
 
 1. Impostare **$DemoScenario** = **4**, *Rimuovere il tenant ripristinato*.
-2. Premere F5 per eseguire lo script.
+2. Per eseguire lo script, premere F5.
 3. La voce *ContosoConcertHall\_old* viene ora eliminata dal catalogo. Chiudere la pagina degli eventi per questo tenant nel browser.
 
 
@@ -120,7 +120,7 @@ Questo esercizio ripristina uno stato del tenant Contoso Concert Hall precedente
 
 1. In PowerShell ISE aprire il file **Demo-RestoreTenant.ps1**.
 2. Impostare **$DemoScenario** = **5**, *Ripristinare il tenant sul posto*.
-3. Premere F5 per eseguire lo script.
+3. Per eseguire lo script, premere F5.
 
 Lo script ripristina uno stato del database tenant precedente l'eliminazione dell'evento. Prima porta il tenant Contoso Concert Hall offline in modo che non si verifichino altri aggiornamenti. Un database parallelo viene quindi creato tramite il ripristino dal punto di ripristino e denominato con un timestamp per garantire che il nome del database non sia in conflitto con il nome del database tenant esistente. Successivamente, il database tenant precedente viene eliminato e il database ripristinato viene rinominato con il nome del database originale. Infine, Contoso Concert Hall viene portato online per consentire all'applicazione l'accesso al database ripristinato.
 

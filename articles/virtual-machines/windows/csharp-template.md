@@ -2,9 +2,9 @@
 title: Distribuire una macchina virtuale con C# e un modello di Azure Resource Manager | Microsoft Docs
 description: Informazioni su come usare C# e un modello di Resource Manager per distribuire una macchina virtuale di Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: bfba66e8-c923-4df2-900a-0c2643b81240
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: davidmu
-ms.openlocfilehash: b82a70d1b654ff9601db501011d9aa21af8e36c2
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: f2c488a891d1037535f1782da54544ac6af9dd41
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuire una macchina virtuale di Azure con C# e un modello di Azure Resource Manager
 Questo articolo descrive come distribuire un modello di Azure Resource Manager tramite C#. Il modello creato consente di distribuire una singola macchina virtuale che esegue Windows Server in una nuova rete virtuale con un'unica subnet.

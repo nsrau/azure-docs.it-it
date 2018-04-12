@@ -3,9 +3,9 @@ title: Introduzione ai dispositivi gemelli dell'hub IoT di Azure (Python) | Micr
 description: Come usare i dispositivi gemelli dell'hub IoT di Azure per aggiungere tag e quindi usare una query dell'hub IoT. Usare Azure IoT SDK per Python per implementare l'app di dispositivo simulato e un'app di servizio che aggiunge i tag ed esegue la query dell'hub IoT.
 services: iot-hub
 documentationcenter: python
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 314c88e4-cce1-441c-b75a-d2e08e39ae7d
 ms.service: iot-hub
 ms.devlang: python
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2017
-ms.author: v-masebo
-ms.openlocfilehash: 20c1eeee6ca690ddcf0b9489b88689213b79488e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: d5b606532ac445b03527c5027dc3b434d88b6b1f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-device-twins-python"></a>Introduzione ai dispositivi gemelli (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]

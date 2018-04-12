@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 1b7901542a699e74f65527bf734133f73acb0bea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c646b0b1ab0ec62cffb4f7cf7474b48c68dfabb4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-public-basic-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Creare un servizio pubblico di bilanciamento del carico di base tramite il portale di Azure
 
@@ -38,8 +38,8 @@ In questa sezione si crea un servizio pubblico di bilanciamento del carico di ba
 1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa** > **Rete** > **Load Balancer**.
 2. Nella pagina **Creare un servizio di bilanciamento del carico** immettere questi valori per il bilanciamento del carico:
     - *myLoadBalancer* come nome del servizio di bilanciamento del carico.
-    - **Pubblico** come tipo di bilanciamento del carico. 
-     - *myPublicIP* come indirizzo IP pubblico da creare con SKU impostato su **Basic** e **Assegnazione** impostato su **Dinamico**.
+    - **Pubblico** come tipo di bilanciamento del carico.
+    - *myPublicIP* come indirizzo IP pubblico da creare con SKU impostato su **Basic** e **Assegnazione** impostato su **Dinamico**.
     - *myResourceGroupLB* come nome del nuovo gruppo di risorse creato.
 3. Fare clic su **Crea** per creare il servizio di bilanciamento del carico.
    
@@ -91,7 +91,7 @@ In questa sezione vengono create regole NSG per consentire connessioni in ingres
     - *Consenti* come **Azione**
     - *100* come **Priorità**
     - *myHTTPRule* come nome
-    - *Allow HTTP* (Consenti HTTP) come descrizione
+    - *Consenti HTTP* come descrizione
 4. Fare clic su **OK**.
  
  ![Crea rete virtuale](./media/load-balancer-get-started-internet-portal/8-load-balancer-nsg-rules.png)
@@ -103,13 +103,13 @@ In questa sezione vengono create regole NSG per consentire connessioni in ingres
     - *Consenti* come **Azione**
     - *200* come **Priorità**
     - *myRDPRule* come nome
-    - *Allow RDP* (Consenti RDP) come descrizione
+    - *Consenti RDP* come descrizione
 
    
 
 ### <a name="install-iis"></a>Installare IIS
 
-1. Fare clic su **Tutte le risorse** nel menu a sinistra e quindi, nell'elenco delle risorse, fare clic su **myVM1**, che si trova nel gruppo di risorse *myResourceGroupLB*.
+1. Fare clic su **Tutte le risorse** nel menu a sinistra e quindi nell'elenco delle risorse fare clic su **myVM1**, che si trova nel gruppo di risorse *myResourceGroupLB*.
 2. Nella pagina **Panoramica** fare clic su **Connect to RDP** (Connetti a RDP) nella macchina virtuale.
 3. Accedere alla macchina virtuale con nome utente *azureuser* e password *Azure123456!*
 4. Nel desktop del server passare a **Strumenti di amministrazione Windows**>**Server Manager**.
@@ -155,7 +155,7 @@ Per consentire al servizio di bilanciamento del carico di base di monitorare lo 
     - **HTTP** come tipo di protocollo.
     - *80* come numero della porta.
     - *15* in **Intervallo** come numero di secondi tra i tentativi del probe.
-    - *2* in **Soglia di non integrità** come numero di errori di probe consecutivi che devono verificarsi prima che una macchina virtuale venga considerata non integra.
+    - *2* per **Soglia di non integrità** come numero di errori di probe consecutivi che devono verificarsi prima che una macchina virtuale venga considerata non integra.
 4. Fare clic su **OK**.
 
    ![Aggiunta di un probe](./media/load-balancer-get-started-internet-portal/4-load-balancer-probes.png)

@@ -2,9 +2,9 @@
 title: Creazione e caricamento di un VHD Linux in Azure | Documentazione Microsoft
 description: Creare e caricare un disco rigido virtuale di Azure (VHD) contenente il sistema operativo Linux con il modello di distribuzione classica
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
-ms.openlocfilehash: 49cf4f1718e4dce1e86aa3c8921eaa8af5f16192
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 1ba568eeaf3bbc3d786cc48e54404aa65a00fecc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux
 > [!IMPORTANT] 

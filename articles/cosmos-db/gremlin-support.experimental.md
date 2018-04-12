@@ -1,12 +1,10 @@
 ---
 title: Supporto Gremlin di Azure Cosmos DB | Documentazione Microsoft
-description: Informazioni sul linguaggio Gremlin di Apache TinkerPop. Informazioni sulle funzionalità e procedure disponibili in Azure Cosmos DB
+description: Informazioni sul linguaggio Gremlin di Apache TinkerPop. Informazioni sulle funzionalità e sulle procedure disponibili in Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
 author: LuisBosquez
-manager: jhubbard
-editor: ''
-tags: ''
+manager: kfile
 ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
 ms.service: cosmos-db
 ms.devlang: na
@@ -15,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: f04beb9526dbf55d42590b9843e7c104b8fca092
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c5e904c741c96808555718b0d90368e1bf770ecb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Supporto Gremlin Graph di Azure Cosmos DB
 Azure Cosmos DB supporta il linguaggio di attraversamento di grafi [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) di [Apache Tinkerpop](http://tinkerpop.apache.org), ovvero un'API Graph per la creazione di entità di grafi e l'esecuzione di operazioni di query sui grafi. È possibile usare il linguaggio Gremlin per creare le entità dei grafi (vertici e archi), modificare proprietà all'interno di tali entità, eseguire query e attraversamenti ed eliminare entità. 
@@ -35,10 +33,10 @@ Verrà ora usato un grafo di esempio per comprendere come le query possono esser
 
 Questo grafo presenta i seguenti tipi di vertici (denominati "label" in Gremlin):
 
-- Persone: il grafo presenta tre persone, Robin, Thomas e Ben
-- Interessi: i loro interessi, in questo esempio, il gioco del football
-- Dispositivi: i dispositivi usati dagli utenti
-- Sistemi operativi: i sistemi operativi eseguiti dai dispositivi
+- Persone: il grafo include tre persone, Robin, Thomas e Ben
+- Interessi: i loro interessi, in questo esempio, sono rappresentati dal gioco del football
+- Dispositivi: i dispositivi usati dalle persone
+- Sistemi operativi: i sistemi operativi eseguiti nei dispositivi
 
 Si rappresentano le relazioni tra queste entità tramite i seguenti tipi/etichette di archi:
 
@@ -202,8 +200,8 @@ Verranno ora esaminati gli step di Gremlin supportati da Azure Cosmos DB. Per in
 | `V` | Include gli step necessari per gli attraversamenti tra vertici e archi `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV`, e `otherV` per | [vertex steps](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
 | `where` | Usato per filtrare i risultati dell'attraversamento. Supporta `eq`, `neq`, `lt`, `lte`, `gt`, `gte` e gli operatori `between`  | [where step](http://tinkerpop.apache.org/docs/current/reference/#where-step) |
 
-Il motore ottimizzato per la scrittura fornito da Azure Cosmos DB supporta l'indicizzazione automatica di tutte le proprietà all'interno di vertici e archi per impostazione predefinita. Pertanto, query con filtri, query di intervallo, ordinamento o aggregazioni in qualsiasi proprietà vengono elaborati dall'indice e serviti in modo efficiente. Per altre informazioni sul funzionamento dell'indicizzazione in Azure Cosmos DB, vedere il documento sull'[indicizzazione senza schema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+Il motore ottimizzato per la scrittura fornito da Azure Cosmos DB supporta l'indicizzazione automatica di tutte le proprietà comprese all'interno di vertici e archi per impostazione predefinita. Pertanto, query con filtri, query di intervallo, ordinamento o aggregazioni in qualsiasi proprietà vengono elaborati dall'indice e serviti in modo efficiente. Per altre informazioni sul funzionamento dell'indicizzazione in Azure Cosmos DB, vedere il documento sull'[indicizzazione senza schema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Iniziare a creare un'applicazione Graph [tramite SDK](create-graph-dotnet.md) 
-* Altre informazioni sul [supporto di Graph](graph-introduction.md) in Azure Cosmos DB
+* Altre informazioni sul [supporto dei grafi](graph-introduction.md) in Azure Cosmos DB

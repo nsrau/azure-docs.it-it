@@ -4,8 +4,7 @@ description: Informazioni sulla replica geografica a livello globale, sul failov
 services: cosmos-db
 documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: ''
+manager: kfile
 ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2018
 ms.author: arramac
-ms.openlocfilehash: e31b66f20c51e95dbc2d8285bb5602590abd4f4f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 588eb4df9555f20fe4193e8ae34ad51c17921db2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Come distribuire i dati a livello globale con Azure Cosmos DB
 Azure è ovunque, offre una copertura globale in oltre 30 aree geografiche ed è in continua espansione. Ciò consente ad Azure di offrire in esclusiva agli sviluppatori la possibilità di creare, distribuire e gestire applicazioni distribuite a livello globale con la massima semplicità. 
@@ -36,7 +35,7 @@ Grazie alla funzionalità di distribuzione globale chiavi in mano di Azure Cosmo
 In questo articolo viene illustrata una panoramica delle funzionalità di distribuzione globale di Azure Cosmos DB e viene descritto l'approccio esclusivo di Azure Cosmos DB per l'offerta di contratti di servizio completi. 
 
 ## <a id="EnableGlobalDistribution"></a>Abilitazione della distribuzione globale chiavi in mano
-Azure Cosmos DB offre le funzionalità seguenti per consentire agli sviluppatori di scrivere applicazioni su scala globale in tutta semplicità. Queste funzionalità sono disponibili tramite [API REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) basate su provider di risorse di Azure Cosmos DB e tramite il portale di Azure.
+Azure Cosmos DB offre le funzionalità seguenti per consentire agli sviluppatori di scrivere applicazioni su scala globale in tutta semplicità. Queste funzionalità sono disponibili tramite [API REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) basate su provider di risorse di Azure Cosmos DB e tramite il portale di Azure.
 
 Nel video seguente Andrew Liu, Program Manager di Azure Cosmos DB, illustra le funzionalità di distribuzione globale chiavi in mano.
 
