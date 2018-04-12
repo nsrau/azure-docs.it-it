@@ -1,11 +1,11 @@
 ---
 title: Azure Authenticator per Android | Documentazione Microsoft
-description: "L'app Microsoft Azure Authenticator può essere usata per eseguire l'accesso alle risorse di lavoro. L'app Azure Authenticator segnala eventuali richieste di verifica a due fattori in sospeso con la visualizzazione di un avviso nel dispositivo mobile."
+description: L'app Microsoft Azure Authenticator può essere usata per eseguire l'accesso alle risorse di lavoro. L'app Azure Authenticator segnala eventuali richieste di verifica a due fattori in sospeso con la visualizzazione di un avviso nel dispositivo mobile.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: b7ceca0d-5c9d-45c4-942c-b3a9b6bad36c
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
 ms.openlocfilehash: 349649e015aae7198d2c40efc3c1865cad087e8a
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator per Android
 L'amministratore IT può consigliare di usare Microsoft Azure Authenticator per eseguire l'accesso alle risorse di lavoro. Questa applicazione fornisce due opzioni di accesso:

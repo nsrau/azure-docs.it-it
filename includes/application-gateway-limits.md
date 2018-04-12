@@ -1,4 +1,4 @@
-| Risorsa | Limite predefinito | Nota |
+| Risorsa | Limite predefinito | Note |
 | --- | --- | --- |
 | gateway applicazione |50 per sottoscrizione | Massimo 100 |
 | Configurazioni IP front-end |2 |1 pubblica e 1 privata |
