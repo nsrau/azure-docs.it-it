@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
 ms.openlocfilehash: 4d9df6743d84310b7db70034d1e84dd3591b3c21
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure
 Il controllo degli accessi in base al ruolo di Azure presenta i seguenti ruoli predefiniti che possono essere assegnati a utenti, gruppi e servizi. Non è possibile modificare le definizioni dei ruoli predefiniti. Si possono tuttavia creare [ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md) per soddisfare le esigenze specifiche dell'organizzazione.
@@ -37,7 +37,7 @@ Questo articolo tratta solo i ruoli diversi che esistono oggi. Quando si assegna
 > Le definizioni dei ruoli di Azure sono in continua evoluzione. Questo articolo viene aggiornato il più possibile, ma le definizioni dei ruoli più recenti sono sempre disponibili in Azure PowerShell. Usare il cmdlet [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) per elencare tutti i ruoli correnti. È possibile esaminare un ruolo specifico usando `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions` in base alle esigenze. Usare [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) per elencare le operazioni di provider di risorse di Azure specifici.
 
 
-| Ruolo predefinito | Descrizione |
+| Ruolo predefinito | DESCRIZIONE |
 | --- | --- |
 | [Proprietario](#owner) | Consente di gestire tutto, incluso l'accesso alle risorse. |
 | [Collaboratore](#contributor) | Consente di gestire tutto, tranne l'accesso alle risorse. |
@@ -45,8 +45,8 @@ Questo articolo tratta solo i ruoli diversi che esistono oggi. Quando si assegna
 | [Collaboratore servizio Gestione API](#api-management-service-contributor) | Può gestire il servizio e le API. |
 | [Ruolo operatore del servizio Gestione API](#api-management-service-operator-role) | Può gestire il servizio ma non le API. |
 | [Ruolo lettura del servizio Gestione API](#api-management-service-reader-role) | Consente l'accesso di sola lettura al servizio e alle API. |
-| [Collaboratore componente di Application Insights](#application-insights-component-contributor) | Può gestire i componenti di Application Insights. |
-| [Debugger di snapshot di Application Insights](#application-insights-snapshot-debugger) | Concede all'utente l'autorizzazione per l'uso delle funzionalità del debugger di snapshot di Application Insights. |
+| [Collaboratore componente di Application Insights](#application-insights-component-contributor) | È in grado di gestire i componenti di Application Insights |
+| [Debugger di snapshot di Application Insights](#application-insights-snapshot-debugger) | Concede all'utente l'autorizzazione per l'uso delle funzionalità del debugger di snapshot di Application Insights |
 | [Operatore processo di automazione](#automation-job-operator) | Consente di creare e gestire i processi tramite i runbook di Automazione. |
 | [Operatore di automazione](#automation-operator) | Gli operatori di automazione possono avviare, arrestare, sospendere e riprendere processi. |
 | [Operatore runbook di automazione](#automation-runbook-operator) | Consente di leggere le proprietà del runbook per permettere di creare processi del runbook. |
@@ -62,7 +62,7 @@ Questo articolo tratta solo i ruoli diversi che esistono oggi. Quando si assegna
 | [Lettore profilo rete CDN](#cdn-profile-reader) | Può visualizzare i profili e i rispettivi endpoint della rete CDN, ma non può apportare modifiche. |
 | [Collaboratore reti virtuali classiche](#classic-network-contributor) | Consente di gestire le reti classiche, ma non di accedervi. |
 | [Collaboratore account di archiviazione classico](#classic-storage-account-contributor) | Consente di gestire gli account di archiviazione classici, ma non di accedervi. |
-| [Ruolo del servizio dell'operatore della chiave dell'account di archiviazione classico](#classic-storage-account-key-operator-service-role) | Gli operatori della chiave dell'account di archiviazione classico sono autorizzati a elencare e rigenerare le chiavi negli account di archiviazione classici. |
+| [Ruolo del servizio dell'operatore della chiave dell'account di archiviazione classico](#classic-storage-account-key-operator-service-role) | Gli operatori della chiave dell'account di archiviazione classico sono autorizzati a elencare e rigenerare le chiavi negli account di archiviazione classici |
 | [Collaboratore macchine virtuali classiche](#classic-virtual-machine-contributor) | Consente di gestire le macchine virtuali classiche, ma non di accedervi né di gestire la rete virtuale o l'account di archiviazione a cui sono connesse. |
 | [Collaboratore database ClearDB MySQL](#cleardb-mysql-db-contributor) | Consente di gestire i database MySQL ClearDB, ma non di accedervi. |
 | [Ruolo Lettore dell'account Cosmos DB](#cosmos-db-account-reader-role) | Può leggere i dati degli account Azure Cosmos DB. Vedere [Collaboratore account DocumentDB](#documentdb-account-contributor) per la gestione degli account Azure Cosmos DB. |
@@ -1123,7 +1123,7 @@ Consente di gestire i database SQL, ma non di accedervi né di gestirne i criter
 | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 | Microsoft.Sql/locations/*/read |  |
 | Microsoft.Sql/servers/databases/* | Creare e gestire database SQL |
-| Microsoft.Sql/servers/read | Restituisce l'elenco di server o ottiene le proprietà per il server specificato. |
+| Microsoft.Sql/servers/read | Restituisce l'elenco di server o ottiene le proprietà per il server specificato |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 | **NotActions** |  |
@@ -1304,7 +1304,7 @@ Consente di gestire le macchine virtuali, ma non di accedervi né di gestire la 
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/*/read |  |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/read | Restituisce i dettagli dell'oggetto dell'elemento protetto |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/write | Crea un elemento protetto di backup |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Crea una finalità di protezione di backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Crea un programma di protezione del backup |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Restituisce tutti i criteri di protezione |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Crea i criteri di protezione |
 | Microsoft.RecoveryServices/Vaults/read | L'operazione Ottieni insieme di credenziali ottiene un oggetto che rappresenta la risorsa di Azure di tipo 'vault' |

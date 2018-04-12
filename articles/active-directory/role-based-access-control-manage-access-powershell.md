@@ -1,8 +1,8 @@
 ---
-title: Gestire il controllo degli accessi in base al ruolo con Azure PowerShell | Microsoft Docs
+title: Gestire il controllo degli accessi in base al ruolo con Azure PowerShell | Documentazione Microsoft
 description: Come gestire il controllo degli accessi in base al ruolo con Azure PowerShell, come elencare ruoli, assegnare ruoli ed eliminare assegnazioni di ruoli.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
@@ -15,10 +15,10 @@ ms.date: 07/12/2017
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.openlocfilehash: 5e7e01502a173cb93216c77dd43f61094fd88148
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Gestire il controllo degli accessi in base al ruolo con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Prima di usare PowerShell per gestire il controllo degli accessi in base al ruol
 * Azure PowerShell 0.8.8 o versione successiva. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 * Cmdlet di Azure Resource Manager Installare i [cmdlet di Azure Resource Manager](/powershell/azure/overview) in PowerShell.
 
-## <a name="list-roles"></a>Elencare i ruoli
+## <a name="list-roles"></a>Elenco dei ruoli
 ### <a name="list-all-available-roles"></a>Elencare tutti i ruoli disponibili
 Per elencare i ruoli del controllo degli accessi in base al ruolo disponibili per l'assegnazione e controllare le operazioni a cui concedono l'accesso, usare `Get-AzureRmRoleDefinition`.
 
@@ -117,7 +117,7 @@ Per concedere l'accesso a un gruppo nell'ambito delle risorse, usare:
 
 ![Controllo degli accessi in base al ruolo di PowerShell - New-AzureRmRoleAssignment - Schermata](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment4.png)
 
-## <a name="remove-access"></a>Rimuovere l'accesso
+## <a name="remove-access"></a>Rimuovere un accesso
 Per rimuovere l'accesso per utenti, gruppi e applicazioni, usare:
 
     Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
@@ -125,7 +125,7 @@ Per rimuovere l'accesso per utenti, gruppi e applicazioni, usare:
 ![Controllo degli accessi in base al ruolo di PowerShell - Remove-AzureRmRoleAssignment - Schermata](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
 ## <a name="create-a-custom-role"></a>Creare un ruolo personalizzato
-Per creare un ruolo personalizzato, usare il comando ```New-AzureRmRoleDefinition```. Esistono due metodi per strutturare il ruolo, usare PSRoleDefinitionObject o un modello JSON. 
+Per creare un ruolo personalizzato, usare il comando ```New-AzureRmRoleDefinition``` . Esistono due metodi per strutturare il ruolo, usare PSRoleDefinitionObject o un modello JSON. 
 
 ## <a name="get-actions-for-a-resource-provider"></a>Ottenere le azioni per un provider di risorse
 Quando si creano ruoli personalizzati da zero, è importante conoscere tutte le operazioni possibili dei provider di risorse.
@@ -197,7 +197,7 @@ Così come per la creazione di un ruolo personalizzato, è possibile modificare 
 ### <a name="modify-role-with-psroledefinitionobject"></a>Modificare un ruolo con PSRoleDefinitionObject
 Per modificare un ruolo personalizzato, usare innanzitutto il comando `Get-AzureRmRoleDefinition` per recuperare la definizione di ruolo. Successivamente, apportare le modifiche desiderate alla definizione del ruolo. Infine, usare il comando `Set-AzureRmRoleDefinition` per salvare la definizione del ruolo modificata.
 
-Nell'esempio seguente viene aggiunta l'operazione `Microsoft.Insights/diagnosticSettings/*` al ruolo personalizzato *Operatore macchina virtuale*.
+Nell'esempio seguente viene aggiunta l'operazione `Microsoft.Insights/diagnosticSettings/*` al ruolo personalizzato *Operatore macchina virtuale* .
 
 ```
 $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
@@ -207,7 +207,7 @@ Set-AzureRmRoleDefinition -Role $role
 
 ![Controllo degli accessi in base al ruolo di PowerShell - Set-AzureRmRoleDefinition - Schermata](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-1.png)
 
-Nell'esempio seguente viene aggiunta una sottoscrizione di Azure agli ambiti assegnabili del ruolo personalizzato *Virtual Machine Operator*.
+Nell'esempio seguente viene aggiunta una sottoscrizione di Azure agli ambiti assegnabili del ruolo personalizzato *Virtual Machine Operator* .
 
 ```
 Get-AzureRmSubscription - SubscriptionName Production3
@@ -249,9 +249,9 @@ Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 ```
 
 ## <a name="delete-a-custom-role"></a>Eliminare un ruolo personalizzato
-Per eliminare un ruolo personalizzato, usare il comando `Remove-AzureRmRoleDefinition`.
+Per eliminare un ruolo personalizzato, usare il comando `Remove-AzureRmRoleDefinition` .
 
-Nell'esempio seguente viene rimosso il ruolo personalizzato *Operatore macchina virtuale*.
+Nell'esempio seguente viene rimosso il ruolo personalizzato *Operatore macchina virtuale* .
 
 ```
 Get-AzureRmRoleDefinition "Virtual Machine Operator"
@@ -262,7 +262,7 @@ Get-AzureRmRoleDefinition "Virtual Machine Operator" | Remove-AzureRmRoleDefinit
 ![Controllo degli accessi in base al ruolo di PowerShell - Remove-AzureRmRoleDefinition - Schermata](./media/role-based-access-control-manage-access-powershell/4-remove-azurermroledefinition.png)
 
 ## <a name="list-custom-roles"></a>Elencare ruoli personalizzati
-Per elencare i ruoli disponibili per l'assegnazione a un ambito, usare il comando `Get-AzureRmRoleDefinition`.
+Per elencare i ruoli disponibili per l'assegnazione a un ambito, usare il comando `Get-AzureRmRoleDefinition` .
 
 L'esempio seguente elenca tutti i ruoli disponibili per l'assegnazione nella sottoscrizione selezionata.
 

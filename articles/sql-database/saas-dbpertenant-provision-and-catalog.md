@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 1accc672e396c5a9405369654f9bc4f8463c9afc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ddb870d0513d6834aacf0964c240260f18df0fd
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Effettuare il provisioning di nuovi tenant e registrarli nel catalogo
 
@@ -31,11 +31,11 @@ In questa esercitazione si apprenderà come:
 Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
 * È stata distribuita l'app SaaS di database per tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database per tenant Wingtip Tickets](saas-dbpertenant-get-started-deploy.md).
-* Azure PowerShell è installato. Per altre informazioni, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Azure PowerShell è installato. Per altre informazioni, vedere [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>Introduzione al modello di catalogazione SaaS
 
-In un'applicazione SaaS multi-tenant supportata da database è importante sapere dove sono archiviate le informazioni per ogni tenant. Nel modello di catalogazione SaaS il mapping tra ogni tenant e il database in cui sono archiviati i relativi dati viene inserito all'interno di un database di catalogo. Questo modello viene applicato ogni volta che i dati del tenant vengono distribuiti tra più database.
+In un'applicazione SaaS multi-tenant supportata da database è importante sapere dove sono archiviate le informazioni per ogni tenant. Nel modello di catalogo SaaS il mapping tra ogni tenant e il database in cui sono archiviati i relativi dati viene inserito all'interno di un database di catalogo. Questo modello viene applicato ogni volta che i dati del tenant vengono distribuiti tra più database.
 
 Ogni tenant è identificato da una chiave nel catalogo, che è mappata al percorso del database. Nell'app Wingtip Tickets la chiave viene creata a partire da un hash del nome del tenant. Questo schema consente all'app di comporre la chiave usando il nome del tenant incluso nell'URL dell'applicazione. È possibile usare altri schemi di chiave del tenant.  
 
@@ -47,7 +47,7 @@ Oltre all'applicazione SaaS, il catalogo può abilitare strumenti di database. N
 
 Negli esempi SaaS Wingtip Tickets il catalogo viene implementato tramite le funzionalità di gestione delle partizioni della [libreria EDCL (Elastic Database Client Library, libreria client dei database elastici)](sql-database-elastic-database-client-library.md). La libreria EDCL è disponibile in Java e in .NET Framework. La libreria EDCL consente a un'applicazione di creare, gestire e usare una mappa partizioni supportata da database. 
 
-Una mappa partizioni contiene un elenco di partizioni (database) e il mapping tra le chiavi (tenant) e le partizioni. Le funzioni della libreria EDCL vengono usate durante il provisioning dei tenant per creare le voci nella mappa partizioni. Vengono inoltre usate in fase di esecuzione dalle applicazioni per connettersi al database corretto. La libreria EDCL memorizza nella cache le informazioni di connessione per ridurre al minimo il traffico verso il database del catalogo e per velocizzare l'applicazione. 
+Una mappa partizioni contiene un elenco di partizioni (database) e il mapping tra le chiavi (tenant) e le partizioni. Le funzioni della libreria EDCL vengono usate durante il provisioning dei tenant per creare le voci nella mappa partizioni. Vengono inoltre usate in fase di esecuzione dalle applicazioni per connettersi al database corretto. La libreria client dei database elastici memorizza nella cache le informazioni di connessione per ridurre al minimo il traffico verso il database del catalogo e per velocizzare l'applicazione. 
 
 > [!IMPORTANT]
 > I dati di mapping sono accessibili nel database del catalogo, ma *non devono essere modificati*. Per modificare i dati di mapping è possibile usare solo le API della libreria EDCL. Modificando direttamente i dati di mapping si corre il rischio di danneggiare il catalogo e pertanto questa modifica non è supportata.
@@ -109,9 +109,9 @@ Non è necessario seguire esplicitamente questo flusso di lavoro in cui viene il
    * L'oggetto $shardMap viene inizializzato dalla mappa partizioni _tenantcatalog_ nel database del catalogo. In questo modo viene composto e restituito un oggetto catalogo, che viene usato nello script di livello superiore.
 * **Calcolo della chiave per il nuovo tenant**. Viene usata una funzione hash per creare la chiave del tenant dal nome del tenant.
 * **Controllo dell'esistenza della chiave del tenant**. Il catalogo viene controllato per verificare che la chiave sia disponibile.
-* **Provisioning del database tenant con New-TenantDatabase**. Usare F11 per eseguire le singole istruzioni e vedere come viene effettuato il provisioning del database usando un [modello di Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).
+* **Provisioning del database tenant con New-TenantDatabase.** Usare F11 per eseguire le singole istruzioni e vedere come viene effettuato il provisioning del database usando un [modello di Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-    Il nome del database viene creato in base al nome del tenant, in modo che sia chiaro quale partizione appartiene a quale tenant. È possibile adottare anche altre convenzioni di denominazione per il database. Un modello di Resource Manager crea un database tenant copiando un database modello (_baseTenantDB_) nel server di catalogo. In alternativa, è possibile creare un database e inizializzarlo importando un file BACPAC oppure eseguire uno script di inizializzazione da un percorso noto.
+    Il nome del database viene costruito dal nome del tenant, in modo che sia chiaro quale partizione appartiene a quale tenant. È possibile adottare anche altre convenzioni di denominazione per il database. Un modello di Gestione risorse crea un database tenant copiando un database modello (_baseTenantDB_) nel server di catalogo. In alternativa, è possibile creare un database e inizializzarlo importando un file BACPAC oppure eseguire uno script di inizializzazione da un percorso noto.
 
     Il modello di Resource Manager è disponibile nella cartella …\Learning Modules\Common: *tenantdatabasecopytemplate.json*
 
@@ -129,7 +129,7 @@ Al termine del provisioning, l'esecuzione torna allo script originale *Demo-Prov
    ![Pagina Events](media/saas-dbpertenant-provision-and-catalog/new-tenant.png)
 
 
-## <a name="provision-a-batch-of-tenants"></a>Effettuare il provisioning di un batch di tenant
+## <a name="provision-a-batch-of-tenants"></a>Eseguire il provisioning di un batch di tenant
 
 Questo esercizio descrive come effettuare il provisioning di un batch di 17 tenant. È consigliabile effettuare il provisioning di questo batch di tenant prima di iniziare altre esercitazioni sull'applicazione SaaS di database per tenant Wingtip Tickets. Sarà così disponibile un numero maggiore di database.
 

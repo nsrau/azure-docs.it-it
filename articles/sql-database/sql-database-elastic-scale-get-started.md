@@ -7,13 +7,13 @@ author: anumjs
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 04/01/2018
 ms.author: anjangsh
-ms.openlocfilehash: 28ff3f6eee2316a078badcf29e6780f3844f3a54
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: fa6899b285bcd1d3f2d4c1e17e3fbab7a6e0f839
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Iniziare a usare gli strumenti di database elastico
 Questo documento presenta l'esperienza di sviluppo per la [libreria client del database elastico](sql-database-elastic-database-client-library.md) tramite l'esecuzione dell'app di esempio. Nell'esempio viene creata una semplice applicazione partizionata e si esplorano le funzionalità chiave degli strumenti di database elastico del database SQL di Microsoft Azure. L'applicazione è incentrata sui casi d'uso per la [gestione delle mappe delle partizioni](sql-database-elastic-scale-shard-map-management.md), il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) e l'[esecuzione di query su più partizioni](sql-database-elastic-scale-multishard-querying.md). La libreria client è disponibile su .NET e Java. 

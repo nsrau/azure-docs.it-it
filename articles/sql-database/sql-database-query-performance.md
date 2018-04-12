@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 18d03ffcd586a809b37cbc1ca9a7843c25c7758d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 85f25946974b7ede64f9f8fb0009eed42c55c25a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Query Performance Insight del database SQL di Azure
 La gestione e l'ottimizzazione delle prestazioni dei database relazionali è un'attività complessa che richiede un'esperienza significativa e un investimento elevato in termini di tempo. Le Informazioni dettagliate sulle prestazioni delle query consentono di dedicare meno tempo alla risoluzione dei problemi delle prestazioni del database, offrendo i vantaggi seguenti:​
