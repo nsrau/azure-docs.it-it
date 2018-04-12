@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: d7ee74a19f806faed0bcfcfa5f1c5de3937d9f31
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b5443cb1d883bd829a13b6d941d2c87c6205c64f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Panoramica di Azure Load Balancer Standard
 
@@ -30,7 +30,7 @@ Questo articolo illustra Load Balancer Standard.  Per una panoramica più genera
 
 Load Balancer Standard è un nuovo prodotto Load Balancer per tutte le applicazioni TCP e UDP, con un set di funzionalità più espanso e granulare di Load Balancer Basic.  Nonostante siano presenti molte somiglianze, è importante acquisire familiarità con le differenze, come viene suggerito da questo articolo.
 
-È possibile utilizzare Standard Load Balancer come un Load Balancer interno o pubblico. E una macchina virtuale può essere connessa a una risorsa Load Balancer interna e pubblica.
+È possibile usare il servizio Load Balancer Standard come servizio di bilanciamento del carico pubblico o interno. E una macchina virtuale può essere connessa a una risorsa Load Balancer interna e pubblica.
 
 Le funzioni della risorsa di Load Balancer sono espresse come un front-end, una regola, una probe di integrità e una definizione di pool back-end.  Una risorsa può contenere più regole. Le macchine virtuali vengono inserite nel pool back-end specificando il pool back-end dalla risorsa di scheda di interfaccia di rete.  Nel caso di un set di scalabilità della macchina virtuale, questo parametro viene passato tramite il profilo di rete ed espanso.
 
@@ -76,9 +76,6 @@ Il pool back-end può contenere le macchine virtuali autonome, set di disponibil
 Quando si considera come progettare il pool back-end, è possibile progettare per il minor numero di singole risorse di pool di back-end per ottimizzare ulteriormente la durata delle operazioni di gestione.  Non vi è alcuna differenza nelle prestazioni del piano dati o la scala.
 
 ## <a name="az"></a>Zone di disponibilità
-
->[!NOTE]
-> Per utilizzare [disponibilità zone anteprima](https://aka.ms/availabilityzones) con Load Balancer Standard richiede [iscrizione per le zone di disponibilità](https://aka.ms/availabilityzones).
 
 Load Balancer Standard supporta funzionalità aggiuntive in aree in cui sono disponibili zone di disponibilità.  Queste funzionalità sono incrementali rispetto a tutte le funzioni di Load Balancer Standard.  Le configurazioni delle zone di disponibilità sono disponibili per Load Balancer Standard pubblico e interno.
 
@@ -175,6 +172,9 @@ Le risorse di Load Balancer Standard sono presenti in una piattaforma infrastrut
 ## <a name="migration-between-skus"></a>Migrazione tra SKU
 
 Gli SKU non sono modificabili. Seguire i passaggi di questa sezione per passare da uno SKU di risorsa a un altro.
+
+>[!IMPORTANT]
+>Leggere tutto questo documento per comprendere le differenze tra SKU ed esaminare attentamente il proprio scenario.  Potrebbe essere necessario apportare altre modifiche in base allo scenario.
 
 ### <a name="migrate-from-basic-to-standard-sku"></a>Migrare dallo SKU Basic a Standard
 

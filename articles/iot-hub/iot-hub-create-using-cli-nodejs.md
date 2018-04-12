@@ -3,7 +3,7 @@ title: Creare un hub IoT usando l'interfaccia della riga di comando di Azure (az
 description: Come creare un hub IoT di Azure usando l'interfaccia della riga di comando di Azure multipiattaforma (azure.js).
 services: iot-hub
 documentationcenter: .net
-author: BeatriceOltean
+author: kgremban
 manager: timlt
 editor: ''
 ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
-ms.author: boltean
-ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/01/2018
+ms.author: kgremban
+ms.openlocfilehash: 7e761ba66f4b28dd7cc59dc8998c23810dd2b7d1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Creare un hub IoT usando l'interfaccia della riga di comando di Azure
 
@@ -90,8 +90,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **resource-group**. Il nome del gruppo di risorse. Il formato non distingue tra maiuscole e minuscole, usa caratteri alfanumerici, caratteri di sottolineatura e trattini e ammette una lunghezza da 1 a 64.
 * **name**. Il nome dell'hub IoT da creare. Il formato non distingue tra maiuscole e minuscole, usa caratteri alfanumerici e trattini e ammette una lunghezza da 3 a 50.
 * **location**. Il percorso (area/data center di Azure) per eseguire il provisioning dell'hub IoT.
-* **sku-name**. Il nome dello SKU, uno fra: [F1, S1, S2, S3]. Per l'elenco completo più recente, vedere la pagina relativa ai prezzi di IoT Hub.
-* **units**. Il numero di unità fornite. Intervallo: F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. Le unità IoT Hub sono basate sul numero totale di messaggi e il numero di dispositivi a cui si vuole connettersi.
+* **sku-name**. Il nome dello SKU, uno fra: [F1, S1, S2, S3]. Per informazioni dettagliate su ogni SKU, vedere [Prezzi dell'hub IoT di Azure](https://azure.microsoft.com/pricing/details/iot-hub/). Attualmente i livelli Basic sono disponibili solo tramite il portale. 
+* **units**. Il numero di unità fornite. Per informazioni dettagliate sui limiti di unità, vedere [Prezzi dell'hub IoT di Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 

@@ -3,9 +3,9 @@ title: Caricare file da dispositivi nell'hub IoT di Azure con Node | Microsoft D
 description: Come caricare file da un dispositivo al cloud usando Azure IoT SDK per dispositivi per Node.js. I file caricati vengono salvati in un contenitore BLOB di archiviazione di Azure.
 services: iot-hub
 documentationcenter: nodejs
-author: msebolt
+author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
 ms.devlang: node
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
-ms.author: v-masebo
-ms.openlocfilehash: cff0f2fc664e0c09bfa1f8f0e0d488a049a6f448
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.author: v-masebo;dobett
+ms.openlocfilehash: 7733aa11dd76eac564c115b10c57a84da5666d38
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Caricare file da un dispositivo al cloud con l'hub IoT
 
@@ -29,7 +29,7 @@ Questa esercitazione si basa sul codice contenuto nell'esercitazione [Inviare me
 - Specificare in modo sicuro un dispositivo con un URI del BLOB di Azure per il caricamento di un file.
 - Usare le notifiche di caricamento di file dell'hub IoT per attivare l'elaborazione del file nel back-end dell'app.
 
-Le esercitazioni [Introduzione all'hub IoT](iot-hub-node-node-getstarted.md) e [Inviare messaggi da cloud a dispositivo con l'hub IoT](iot-hub-node-node-c2d.md) illustrano le funzionalità di messaggistica di base da dispositivo a cloud e da cloud a dispositivo dell'hub IoT. Tuttavia in alcuni scenari non è possibile mappare facilmente i dati che i dispositivi inviano in messaggi relativamente ridotti da dispositivo a cloud, che l'hub IoT accetta. Ad esempio: 
+L'esercitazione [Introduzione all'hub IoT](iot-hub-node-node-getstarted.md) illustra le funzionalità di messaggistica di base da dispositivo a cloud dell'hub IoT. Tuttavia in alcuni scenari non è possibile mappare facilmente i dati che i dispositivi inviano in messaggi relativamente ridotti da dispositivo a cloud, che l'hub IoT accetta. Ad esempio: 
 
 * File di grandi dimensioni che contengono immagini
 * Video

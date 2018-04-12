@@ -2,17 +2,17 @@
 title: Reazione a eventi di Archiviazione BLOB di Azure | Microsoft Docs
 description: Usare Griglia di eventi di Azure per sottoscrivere eventi di Archiviazione BLOB.
 services: storage,event-grid
-keywords: 
+keywords: ''
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.openlocfilehash: ea2ec712c8d8b5f85f020535ab0544986f0da53a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reazione a eventi di Archiviazione BLOB di Azure
 
@@ -20,12 +20,12 @@ Gli eventi di Archiviazione di Azure consentono alle applicazioni di reagire all
 
 Tra gli scenari comuni di eventi di archiviazione BLOB sono inclusi l'elaborazione di immagini o video, l'indicizzazione delle ricerche o qualsiasi flusso di lavoro orientato ai file.  I caricamenti asincroni di file sono operazioni perfette per gli eventi.  Quando le modifiche non sono frequenti, ma lo scenario richiede tempi di risposta immediata, un'architettura basata su eventi può essere particolarmente efficiente.
 
-La disponibilità per gli eventi di Archiviazione è associata alla [disponibilità](../../event-grid/overview.md) di Griglia di eventi. Gli eventi di Archiviazione saranno disponibili in altre aree man mano che la disponibilità di Griglia di eventi si diffonde. Per un rapido esempio, vedere [Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato - Interfaccia della riga di comando](storage-blob-event-quickstart.md) o [Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato - PowerShell](storage-blob-event-quickstart-powershell.md). 
+La disponibilità degli eventi di archiviazione è legata alla [disponibilità](../../event-grid/overview.md) di Griglia di eventi. Gli eventi di archiviazione saranno disponibili nelle aree geografiche in cui si renderà disponibile Griglia di eventi. Per un rapido esempio, vedere [Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato - Interfaccia della riga di comando](storage-blob-event-quickstart.md) o [Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato - PowerShell](storage-blob-event-quickstart-powershell.md). 
 
 ![Modello di Griglia di eventi di Azure](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
 ## <a name="blob-storage-accounts"></a>Account di archiviazione BLOB
-Gli eventi di archiviazione BLOB sono disponibili in [account di archiviazione di oggetti BLOB](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) e in [account di archiviazione per utilizzo generico versione 2](../common/storage-account-options.md#general-purpose-v2). Gli account di archiviazione per **utilizzo generico versione 2** supportano tutte le funzionalità di tutti i servizi di archiviazione, inclusi oggetti BLOB, file, code e tabelle. Gli **account di archiviazione di oggetti BLOB** sono account di archiviazione specializzati per l'archiviazione di dati non strutturati come BLOB (oggetti) in Archiviazione di Azure. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico e includono tutte le straordinarie caratteristiche di durabilità, disponibilità, scalabilità e prestazioni che si usano già normalmente, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta. Per applicazioni che richiedono solo archivi BLOB in blocchi o BLOB di aggiunta, è consigliabile usare account di archiviazione BLOB. 
+Gli eventi di archiviazione BLOB sono disponibili in [account di archiviazione di oggetti BLOB](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) e in [account di archiviazione per utilizzo generico versione 2](../common/storage-account-options.md#general-purpose-v2). Gli account di archiviazione per **utilizzo generico versione 2** supportano tutte le funzionalità di tutti i servizi di archiviazione, inclusi oggetti BLOB, file, code e tabelle. Gli **account di archiviazione BLOB** sono account specializzati per l'archiviazione di dati non strutturati come BLOB (oggetti) in Archiviazione di Azure. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico e includono tutte le straordinarie caratteristiche di durabilità, disponibilità, scalabilità e prestazioni che si usano già normalmente, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta. Per applicazioni che richiedono solo archivi BLOB in blocchi o BLOB di aggiunta, è consigliabile usare account di archiviazione BLOB. 
 
 ## <a name="available-blob-storage-events"></a>Eventi di archiviazione BLOB disponibili
 Griglia di eventi usa le [sottoscrizioni di eventi](../../event-grid/concepts.md#event-subscriptions) per instradare i messaggi di evento ai sottoscrittori.  Le sottoscrizioni di eventi di archiviazione BLOB possono includere due tipi di eventi:  

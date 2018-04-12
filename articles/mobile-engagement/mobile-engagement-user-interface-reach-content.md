@@ -2,10 +2,10 @@
 title: Interfaccia utente di Azure Mobile Engagement - Contenuti di Reach
 description: Informazioni su come gestire il contenuto univoco dei diversi tipi di campagne di notifica push in Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: add64f06-43c9-475c-8722-51cd00bb844b
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 3741a43b74af5846e95e42d8a7b533621e780f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 982cc66ffe98aa6dff8fe290cc1c2d4bad03c9ac
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>Come gestire il contenuto univoco dei diversi tipi di campagne di notifica push
+> [!IMPORTANT]
+> Azure Mobile Engagement verrà ritirato il 31/03/2018. Questa pagina verrà eliminata subito dopo.
+> 
+
 È possibile usare la sezione Contenuto di una nuova campagna di copertura per modificare il contenuto di annunci, sondaggi, push di dati e riquadri (solo per Windows Phone). L'impostazione del contenuto delle campagne di push è specifico per il tipo di campagna. 
 
 ### <a name="content-types"></a>Tipi di contenuti:
@@ -56,7 +60,7 @@ Ogni ricorrenza del modello {deviceid} verrà automaticamente sostituita dall'id
 * **Azioni di Android e iOS**
   * Aprire una pagina Web
   * http://\[dominio-sito-Web\] 
-  * Esempio: http://www.azure.com
+  * Esempio:http://www.azure.com
   * Inviare un messaggio di posta elettronica
   * mailto:\[destinatario-messaggio\]?subject=\[oggetto\]&body=\[messaggio\] 
   * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
@@ -76,11 +80,11 @@ Ogni ricorrenza del modello {deviceid} verrà automaticamente sostituita dall'id
 * **Azioni solo di iOS**
   * Scaricare un'applicazione in App Store
   * http://itunes.apple.com/[paese]/app/[nome app]/id[ID app]?mt=8 
-  * Esempio: http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
+  * Esempio:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
   * Azioni di Windows
   * Aprire una pagina Web
   * http://\[dominio-sito-Web\] 
-  * Esempio: http://www.azure.com
+  * Esempio:http://www.azure.com
   * Inviare un messaggio di posta elettronica
   * mailto:\[destinatario-messaggio\]?subject=\[oggetto\]&body=\[messaggio\] 
   * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!

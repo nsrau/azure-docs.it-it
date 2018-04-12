@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: kumud
-ms.openlocfilehash: 09c51441d393de5d801e7a4c259b711a527349d8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f6e9dd09558a3485629d5b70dd8b68b292427b18
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="high-availability-ports-overview"></a>Panoramica delle porta a disponibilità elevata
 
@@ -72,20 +72,20 @@ Questa configurazione non permette altre configurazione di regole di bilanciamen
 
 Tuttavia, è possibile configurare un servizio Azure Load Balancer Standard pubblico per le istanze back-end oltre a questa regola con porte a disponibilità elevata.
 
-## <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Singola configurazione con porte a disponibilità elevata con indirizzo IP mobile (Non-Direct Server Return) nel servizio Azure Load Balancer Standard interno
+### <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Singola configurazione con porte a disponibilità elevata con indirizzo IP mobile (Non-Direct Server Return) nel servizio Azure Load Balancer Standard interno
 
 Analogamente, è possibile configurare il servizio di bilanciamento del carico in modo da usare una regola di bilanciamento del carico con **porte a disponibilità elevata** con un singolo front-end e l'opzione **Indirizzo IP mobile** impostato su **Abilitato**. 
 
 Questa configurazione permette di aggiungere altre regole di bilanciamento del carico con indirizzo IP mobile e/o un servizio Azure Load Balancer pubblico. Tuttavia, non è possibile usare una configurazione di bilanciamento del carico con porte a disponibilità elevata con indirizzo IP non mobile insieme a questa configurazione.
 
-## <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>Più configurazioni con porte a disponibilità elevata nel servizio Azure Load Balancer Standard interno
+### <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>Più configurazioni con porte a disponibilità elevata nel servizio Azure Load Balancer Standard interno
 
 Se lo scenario richiede la configurazione di più front-end con porte a disponibilità elevata per lo stesso pool back-end, a questo scopo è possibile: 
 - Configurare più di un indirizzo IP privato front-end per una singola risorsa Azure Load Balancer Standard interna.
 - Configurare più regole di bilanciamento del carico, in cui ogni regola ha un unico indirizzo IP front-end selezionato.
 - Selezionare l'opzione **Porte a disponibilità elevata** e impostare **Indirizzo IP mobile** su **Abilitato** per tutte le regole di bilanciamento del carico.
 
-## <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>Servizio Azure Load Balancer interno con porte a disponibilità elevata e servizio Azure Load Balancer pubblico nelle stesse istanze back-end
+### <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>Servizio Azure Load Balancer interno con porte a disponibilità elevata e servizio Azure Load Balancer pubblico nelle stesse istanze back-end
 
 È possibile configurare **una** risorsa Azure Load Balancer Standard pubblica per le risorse back-end insieme a un singolo servizio Azure Load Balancer Standard interno con porte a disponibilità elevata.
 

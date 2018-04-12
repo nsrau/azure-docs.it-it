@@ -33,7 +33,7 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 
     Per modificare il piano di sottoscrizione o visualizzare le impostazioni di contatto di SendGrid, fare clic sul nome del servizio SendGrid per aprire il dashboard del Marketplace di SendGrid.
 
-    ![Impostazioni][settings]
+    ![Scheda Impostazioni][settings]
 
     Per inviare un'email tramite SendGrid, è necessario specificare la chiave API.
 

@@ -1,24 +1,24 @@
 ---
-title: "Risoluzione di un problema relativo all'impossibilità di stabilire una connessione VPN da sito a sito di Azure | Microsoft Docs"
-description: "Informazioni su come risolvere un problema relativo a una connessione VPN da sito a sito che si interrompe improvvisamente e non può essere riconnessa."
+title: Risoluzione di un problema relativo all'impossibilità di stabilire una connessione VPN da sito a sito di Azure | Microsoft Docs
+description: Informazioni su come risolvere un problema relativo a una connessione VPN da sito a sito che si interrompe improvvisamente e non può essere riconnessa.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2017
+ms.date: 03/29/2018
 ms.author: genli
-ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 3e590df66f84cd88ba7ba251373c14a44a94ca77
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Risoluzione dei problemi: una connessione VPN da sito a sito di Azure non può essere stabilita e smette di funzionare
 
@@ -92,7 +92,9 @@ Cercare e rimuovere il routing definito dall'utente o i gruppi di sicurezza di r
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Passaggio 7. Verificare il probe di integrità del gateway di Azure
 
-1. Passare al probe di integrità.
+1. Aprire un probe di integrità passando all'URL seguente:
+
+    `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
 2. Fare clic sull'avviso del certificato.
 3. Se si riceve una risposta, il gateway VPN viene considerato integro. Se non si riceve una risposta, è possibile che il gateway non sia integro oppure il problema è causato da un gruppo di sicurezza di rete nella subnet del gateway. Il testo seguente è una risposta di esempio:

@@ -1,6 +1,6 @@
 ---
-title: Funzioni per la creazione di definizioni dell'interfaccia utente di Applicazione gestita di Azure | Microsoft Docs
-description: Illustra le funzioni da usare durante la creazione di definizioni dell'interfaccia utente per le applicazioni gestite di Azure
+title: Elementi di definizione per la creazione dell'interfaccia utente di Azure | Microsoft Docs
+description: Descrive gli elementi da usare quando si creano definizioni dell'interfaccia utente per il portale di Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 23e407bf93bc51116ca45339bffcb801d69290f0
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d6f96d4aa66839518023b4d567caf1ff839a29fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="createuidefinition-elements"></a>Elementi di CreateUiDefinition
-Questo articolo illustra lo schema e le proprietà per tutti gli elementi supportati di CreateUiDefinition. Usare questi elementi quando si [crea un'applicazione Azure gestita](publish-service-catalog-app.md). Lo schema per la maggior parte degli elementi è il seguente:
+Questo articolo illustra lo schema e le proprietà per tutti gli elementi supportati di CreateUiDefinition. Lo schema per la maggior parte degli elementi è il seguente:
 
 ```json
 {
   "name": "element1",
   "type": "Microsoft.Common.TextBox",
   "label": "Some text box",
-  "defaultValue": "foobar",
-  "toolTip": "Keep calm and visit the [Azure Portal](portal.azure.com).",
+  "defaultValue": "my value",
+  "toolTip": "Provide a descriptive name.",
   "constraints": {},
   "options": {},
   "visible": true
@@ -65,5 +65,4 @@ La documentazione per ogni elemento include un esempio di interfaccia utente, un
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un'introduzione alle applicazioni gestite, vedere [Panoramica di Applicazione gestita di Azure](overview.md).
-* Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
+Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).

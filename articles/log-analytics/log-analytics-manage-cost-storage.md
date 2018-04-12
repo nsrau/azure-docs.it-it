@@ -1,54 +1,121 @@
 ---
-title: Gestire i costi della conservazione dei dati in Log Analytics di Azure | Microsoft Docs
-description: Informazioni su come modificare il piano tariffario e i criteri di conservazione dei dati per l'area di lavoro di Log Analytics nel portale di Azure.
+title: Gestire il costo dei dati in Azure Log Analytics | Microsoft Docs
+description: Informazioni su come modificare il piano tariffario e gestire il volume e i criteri di conservazione dei dati per l'area di lavoro di Log Analytics nel portale di Azure.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 03/27/2018
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: 5143abdde715424a41a53bb661db342acf817e0c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 629031310eba21bc3308754706bd7ba227009ac6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="manage-cost-of-data-retention-with-your-log-analytics-workspace"></a>Gestire i costi di conservazione dei dati con l'area di lavoro di Log Analytics
-Con l'iscrizione a Log Analytics, a seconda del piano selezionato, è previsto un limite sul tempo di archiviazione dei dati generati da origini connesse nell'area di lavoro.  Questo articolo evidenzia le considerazioni che possono influenzare i costi per la conservazione dei dati per diversi periodi di tempo e come configurare tale limite.   
+# <a name="manage-cost-by-controlling-data-volume-and-retention-with-your-log-analytics-workspace"></a>Gestire i costi controllando il volume e i criteri di conservazione dei dati con l'area di lavoro di Log Analytics
+Log Analytics è un servizio progettato per offrire scalabilità e supportare la raccolta, l'indicizzazione e l'archiviazione di grandi quantità di dati al giorno da qualsiasi origine aziendale o distribuita in Azure.  Anche se si tratta di uno strumento importante per l'organizzazione, è comunque fondamentale ottimizzare i costi. A tale scopo, è importante comprendere che il costo di un'area di lavoro di Log Analytics non si basa solo sul volume dei dati raccolti, ma dipende anche dal piano selezionato e dal periodo di tempo di archiviazione dei dati generati dalle origini connesse.  
 
-Poiché Log Analytics può usare grandi quantità di dati da origini locali o da ambienti cloud e ibridi, i costi di archiviazione dei dati per un periodo di tempo possono essere considerevoli in base ai fattori seguenti:
+In questo articolo viene esaminato come monitorare in modo proattivo il volume dei dati e l'aumento dello spazio di archiviazione e definire i limiti per controllare i costi associati. 
 
-* Numero di sistemi, componenti dell'infrastruttura, risorse cloud e così via, da cui avviene la raccolta
-* Tipo di dati creati dall'origine, ad esempio code di messaggi, log, eventi, dati sulla sicurezza o metriche sulle prestazioni
-* Volume dei dati generati da queste origini 
-* Numero di soluzioni di gestione abilitate, origine dati e frequenza di raccolta
+Il costo dei dati può essere notevole, a seconda dei fattori seguenti: 
+
+- Numero di sistemi, componenti dell'infrastruttura, risorse cloud e così via, da cui avviene la raccolta 
+- Tipo di dati creati dall'origine, ad esempio code di messaggi, log, eventi, dati sulla sicurezza o metriche sulle prestazioni 
+- Volume di dati generati da tali origini e inseriti nell'area di lavoro 
+- Periodo di conservazione dei dati nell'area di lavoro  
+- Numero di soluzioni di gestione abilitate, origine dati e frequenza della raccolta 
 
 > [!NOTE]
 > Consultare la documentazione per ogni soluzione per avere una stima della quantità di dati raccolti.   
 
-Se si usa il piano *Gratuito*, i dati hanno un limite di conservazione di sette giorni.  Per il livello *Autonomo* o *A pagamento*, sono disponibili i dati raccolti negli ultimi 31 giorni.  
-
-Quando si usa il piano *Gratuito*, se si superano le quantità consentite, è possibile convertire l'area di lavoro in un piano a pagamento per raccogliere dati oltre questo limite. 
+Se si usa il piano *Gratuito*, i dati possono essere conservati per un massimo di 7 giorni. Per il livello *Autonomo* o *A pagamento*, i dati raccolti sono disponibili per 31 giorni. Il piano *Gratuito* prevede un limite di inserimento giornaliero di 500 MB. Se si supera costantemente il volume consentito, è possibile convertire l'area di lavoro in un piano a pagamento per raccogliere dati oltre questo limite. 
 
 > [!NOTE]
 > Se si sceglie di selezionare un periodo di conservazione più lungo per il livello a pagamento, vengono addebitati dei costi. È possibile modificare il tipo di piano in qualsiasi momento. Per altre informazioni sui prezzi, vedere [Dettagli prezzi](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
-## <a name="change-the-data-retention-period"></a>Cambiare il periodo di conservazione dei dati 
+Ci sono due modi per limitare il volume dei dati e controllare i costi, ovvero l'impostazione di un limite giornaliero e della conservazione dati.  
+
+## <a name="review-estimated-cost"></a>Esaminare il costo stimato
+Log Analytics aiuta a capire quali sono i costi probabili in base ai modelli di utilizzo recenti.  A questo scopo, eseguire i passaggi seguenti.  
 
 1. Accedere al [portale di Azure](http://portal.azure.com). 
-2. Fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
-3. Nel riquadro di sottoscrizione di Log Analytics selezionare dall'elenco l'area di lavoro da modificare.
-4. Nella pagina dell'area di lavoro fare clic su **Conservazione** dal riquadro di sinistra.
-5. Nel riquadro di conservazione dell'area di lavoro spostare il dispositivo di scorrimento per aumentare o diminuire il numero di giorni e quindi fare clic su **Salva**.  Se si usa il livello *gratuito*, non è possibile modificare il periodo di conservazione dei dati ed è necessario eseguire l'aggiornamento al piano a pagamento per controllare questa impostazione.<br><br> ![Modificare l'impostazione di conservazione dei dati dell'area di lavoro](media/log-analytics-manage-cost/manage-cost-change-retention.png)
+2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.<br><br> ![Portale di Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+3. Nel riquadro delle sottoscrizioni di Log Analytics selezionare l'area di lavoro e quindi fare clic su **Utilizzo e costi stimati** nel riquadro a sinistra.<br><br> ![Pagina Utilizzo e costi stimati](media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+
+Da qui è possibile esaminare il volume di dati per il mese. Sono inclusi tutti i dati ricevuti e conservati nell'area di lavoro di Log Analytics.  Fare clic su **Dettagli di utilizzo** nella parte superiore della pagina per visualizzare il dashboard di utilizzo con informazioni sulle tendenze del volume di dati in base a origine, computer e offerta. Per visualizzare e impostare un limite giornaliero o per modificare il periodo di conservazione, fare clic su **Gestione del volume dati**.
+ 
+I costi di Log Analytics vengono addebitati nella fattura di Azure. È possibile visualizzare i dettagli della fattura di Azure nella sezione Fatturazione del portale di Azure oppure nel [portale di fatturazione di Azure](https://account.windowsazure.com/Subscriptions).  
+
+## <a name="daily-cap"></a>Limite giornaliero
+Quando si crea un'area di lavoro di Log Analytics dal portale di Azure e si sceglie il piano *Gratuito*, viene impostato un limite di 500 MB al giorno. Gli altri piani tariffari non prevedono limiti. È possibile configurare un limite giornaliero e limitare l'inserimento giornaliero per l'area di lavoro, tuttavia è necessario tenere presente che l'obiettivo non deve essere quello di raggiungere tale limite.  Se ciò avviene, si perdono i dati per il resto del giorno, compromettendo la possibilità di osservare le condizioni di integrità delle risorse che supportano i servizi IT.  Il limite giornaliero è finalizzato a gestire l'aumento imprevisto nel volume di dati dalle risorse gestite e rimanere entro il limite prefissato oppure quando si vuole semplicemente limitare gli addebiti non pianificati per l'area di lavoro.  
+
+Quando viene raggiunto il limite giornaliero, la raccolta di tipi di dati fatturabili viene arrestata per il resto del giorno.  Nella parte superiore della pagina per l'area di lavoro di Log Analytics selezionata viene visualizzato un banner di avviso e viene inviato un evento di tipo operazione alla tabella *Operazione* nella categoria **LogManagement**. La raccolta dati riprende dopo l'ora di ripristino definita in *Daily limit will be set at* (Ora impostazione limite giornaliero). Si consiglia di definire una regola di avviso in base a questo evento operazione, per l'invio di una notifica quando viene raggiunta la soglia dei dati giornaliera. 
+
+### <a name="identify-what-daily-data-limit-to-define"></a>Identificare la soglia dei dati giornaliera da definire 
+Vedere [Utilizzo e costi stimati di Log Analytics](log-analytics-usage.md) per informazioni sulla tendenza nell'inserimento dati e sul limite di volume giornaliero da definire. Fare attenzione nella scelta del limite, in quanto non sarà possibile monitorare le risorse una volta raggiunto il limite. 
+
+### <a name="manage-the-maximum-daily-data-volume"></a>Gestire il volume di dati giornaliero massimo 
+Di seguito viene descritto come configurare un limite per gestire il volume di dati che verranno inseriti da Log Analytics al giorno.  
+
+1. Nell'area di lavoro selezionare **Utilizzo e costi stimati** nel riquadro a sinistra.
+2. Nella pagina **Utilizzo e costi stimati** per l'area di lavoro selezionata fare clic su **Gestione del volume dati** nella parte superiore. 
+5. Per impostazione predefinita, il limite giornaliero è impostato su **DISATTIVA**. Fare clic su **ATTIVA** per abilitarlo e quindi impostare il volume di dati in GB/giorno.<br><br> ![Configurazione della soglia dei dati in Log Analytics](media/log-analytics-manage-cost-storage/set-daily-volume-cap-01.png)
+
+### <a name="alert-when-limit-reached"></a>Inviare un avviso al raggiungimento del limite
+Anche se nel portale di Azure viene visualizzato un segnale visivo quando viene raggiunta la soglia dei dati, questo comportamento potrebbe non soddisfare le esigenze aziendali per la gestione di problemi operativi che richiedono attenzione immediata.  Per ricevere una notifica di avviso, è possibile creare una nuova regola di avviso in Monitoraggio di Azure.  Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).      
+
+Per iniziare, ecco le impostazioni consigliate per l'avviso:
+
+* Destinazione: Selezionare la risorsa di Log Analytics
+* Criteri: 
+   * Nome segnale: Ricerca log personalizzata
+   * Query di ricerca: operazione, seguita da | con valore "OverQuota" per Detail
+   * In base a: Numero di risultati
+   * Condizione: Maggiore di
+   * Soglia: 0
+   * Periodo: 5 (minuti)
+   * Frequenza: 5 (minuti)
+* Nome regola di avviso: Soglia dei dati giornaliera raggiunta
+* Gravità: Avviso (Gravità 1)
+
+Una volta definito l'avviso e raggiunto il limite, viene attivato un avviso e viene eseguita la risposta definita nel gruppo di azioni. È possibile informare il team tramite posta elettronica e SMS oppure automatizzare le operazioni usando webhook o runbook di Automazione oppure tramite l'[integrazione con una soluzione di Gestione dei servizi IT esterna](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
+
+## <a name="change-the-data-retention-period"></a>Cambiare il periodo di conservazione dei dati 
+La procedura seguente descrive come configurare il periodo di conservazione dei dati nell'area di lavoro.
+ 
+1. Nell'area di lavoro selezionare **Utilizzo e costi stimati** nel riquadro a sinistra.
+2. Nella pagina **Utilizzo e costi stimati** fare clic su **Gestione del volume dati** nella parte superiore.
+5. Nel riquadro spostare il dispositivo di scorrimento per aumentare o diminuire il numero di giorni e quindi fare clic su **OK**.  Se si usa il livello *gratuito*, non è possibile modificare il periodo di conservazione dei dati ed è necessario eseguire l'aggiornamento al piano a pagamento per controllare questa impostazione.<br><br> ![Modificare l'impostazione di conservazione dei dati dell'area di lavoro](media/log-analytics-manage-cost-storage/manage-cost-change-retention-01.png)
+
+## <a name="troubleshooting"></a>risoluzione dei problemi
+**Domanda**: Cosa è possibile fare se Log Analytics smette di raccogliere dati? 
+**Risposta**: Se si sta usando il piano tariffario Gratuito e sono stati inviati più di 500 MB di dati in un giorno, la raccolta dati viene interrotta per il resto del giorno. Il raggiungimento del limite giornaliero è un motivo comune per cui Log Analytics interrompe la raccolta dei dati o per cui i dati mancano.  
+Log Analytics crea un evento di tipo operazione quando la raccolta dati si avvia e si arresta.  
+Eseguire la query seguente per verificare se si sta raggiungendo il limite giornaliero e si stanno perdendo dati: operazione, seguita da | con OperationCategory == 'Data Collection Status'   
+Quando la raccolta dati si interrompe, OperationStatus è Avviso. Quando la raccolta dati si avvia, OperationStatus è Riuscito.  
+La tabella seguente descrive i motivi per cui raccolta dei dati si interrompe e un'azione consigliata per riprendere la raccolta dati:  
+
+|Motivo dell'arresto della raccolta| Soluzione| 
+|-----------------------|---------|
+|Limite giornaliero di dati gratuiti raggiunto<sup>1</sup>|Attendere fino al giorno successivo per il riavvio automatico della raccolta oppure passare a un piano tariffario a pagamento.|
+|Limite giornaliero definito nella gestione dei volumi di dati raggiunto|Attendere fino al giorno successivo per il riavvio automatico della raccolta oppure aumentare il limite giornaliero per il volume di dati, come descritto in [Gestire il volume di dati giornaliero massimo](#manage-the-maximum-daily-volume)|
+|La sottoscrizione di Azure è in sospeso perché:<br> la versione di prova gratuita è terminata<br> Azure Pass è scaduto<br> Il limite di spesa mensile è stato raggiunto, ad esempio in una sottoscrizione MSDN o in una sottoscrizione di Visual Studio|Passare a una sottoscrizione a pagamento<br> Rimuovere il limite oppure attendere fino ripristino del limite|
+
+<sup>1</sup> Se l'area di lavoro ha un piano tariffario gratuito, è possibile inviare solo 500 MB di dati al giorno al servizio. Quando si raggiunge il limite giornaliero, si interrompe la raccolta dei dati fino al giorno successivo. I dati inviati quando la raccolta dati è sospesa non vengono indicizzati e non sono disponibili per la ricerca. Quando la raccolta dati riprende, l'elaborazione avviene solo per i nuovi dati inviati. 
+
+Log Analytics usa l'ora UTC. L'ora di ripristino varia tra le aree di lavoro, per impedire che tutte le aree di lavoro per cui è impostato un limite inizino a inserire i dati nello stesso momento. Se l'area di lavoro raggiunge il limite giornaliero, l'elaborazione riprende dopo l'ora di ripristino definita in **Daily limit will be set at** (Ora impostazione limite giornaliero).<br><br> ![Fuso orario UTC per l'impostazione del limite di Log Analytics](media/log-analytics-manage-cost-storage/data-volume-mgmt-limit-utc.png)
+
+**Domanda**: Come è possibile ricevere una notifica per l'arresto della raccolta dati? 
+**Risposta**: Usare la procedura per la *creazione di un avviso relativo al limite di dati giornaliero* per ricevere una notifica quando la raccolta dati si arresta e seguire i passaggi per aggiungere azioni alle regole di avviso per configurare un messaggio di posta elettronica, un webhook o un runbook per la regola di avviso. 
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
-Per determinare la quantità di dati raccolti, da quali origini vengono inviati e i diversi tipi di dati inviati per gestire il consumo e i costi, vedere [Analizzare l'utilizzo dei dati in Log Analytics](log-analytics-usage.md).
+Per determinare la quantità di dati raccolti, le origini che inviano i dati e i diversi tipi di dati inviati per gestire il consumo e i costi, vedere [Analizzare l'utilizzo dei dati in Log Analytics](log-analytics-usage.md).

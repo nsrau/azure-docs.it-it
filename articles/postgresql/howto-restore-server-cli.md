@@ -1,24 +1,25 @@
 ---
-title: Come eseguire il backup e il ripristino di un server in Database di Azure per PostgreSQL
+title: Come eseguire il backup e ripristinare un server nel Database di Azure per PostgreSQL | Microsoft Docs
 description: Informazioni su come eseguire il backup e il ripristino di un server nel database di Azure per PostgreSQL usando l'interfaccia della riga di comando di Azure.
 services: postgresql
-author: rachel-msft
-ms.author: raagyema
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 69dfde7e54a271caabc6d0909565165fb219c7f2
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 04/01/2018
+ms.openlocfilehash: 8ca129640db862f6031325279cc98c1e08dcef59
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Come eseguire il backup e il ripristino di un server nel database di Azure per PostgreSQL usando l'interfaccia della riga di comando di Azure
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per PostgreSQL usando l'interfaccia della riga di comando di Azure
 
-Usare il database di Azure per PostgreSQL per ripristinare il database di un server a una data precedente che va dai 7 ai 35 giorni.
+## <a name="backup-happens-automatically"></a>Il backup viene eseguito automaticamente
+Il backup dei server Database di Azure per PostgreSQL viene eseguito periodicamente per abilitare le funzionalità di ripristino. L'uso di questa funzionalità consente di ripristinare il server e tutti i suoi database a un momento precedente nel nuovo server.
 
 ## <a name="prerequisites"></a>prerequisiti
 Per completare questa guida, è necessario:
@@ -26,19 +27,63 @@ Per completare questa guida, è necessario:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+ 
 
 > [!IMPORTANT]
-> Se si installa e si usa l'interfaccia della riga di comando in locale, per questa guida è necessario usare la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Per verificare la versione, al prompt dei comandi dell'interfaccia della riga di comando di Azure immettere `az --version`. Per eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+> Questa guida dettagliata richiede l'uso dell'interfaccia della riga di comando di Azure 2.0 o versioni successive. Per verificare la versione, al prompt dei comandi dell'interfaccia della riga di comando di Azure immettere `az --version`. Per eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="backup-happens-automatically"></a>Il backup viene eseguito automaticamente
-Quando si usa Database di Azure per PostgreSQL, il servizio di database esegue automaticamente il backup del servizio ogni 5 minuti. 
+## <a name="add-the-extension"></a>Aggiungere l'estensione
+Aggiungere l'estensione di gestione di Database di Azure per PostgreSQL aggiornata con il comando seguente:
+```azurecli-interactive
+az extension add --name rdbms
+``` 
 
-Per il livello di base, il servizio di backup è disponibile per 7 giorni. Per il livello standard, il servizio di backup è disponibile per 35 giorni. Per altre informazioni, vedere [Piano tariffario di Database di Azure per PostgreSQL](concepts-pricing-tiers.md).
+Verificare che sia installata la versione dell'estensione corretta. 
+```azurecli-interactive
+az extension list
+```
 
-Con questa funzionalità di backup automatico è possibile ripristinare il server e i suoi database a una data precedente o a un precedente punto nel tempo.
+Il codice JSON restituito includerà gli elementi seguenti: 
+```json
+{
+    "extensionType": "whl",
+    "name": "rdbms",
+    "version": "0.0.5"
+}
+```
 
-## <a name="restore-a-database-to-a-previous-point-in-time-by-using-the-azure-cli"></a>Ripristinare un database a un momento precedente con l'interfaccia della riga di comando di Azure
-Usare Database di Azure per PostgreSQL per ripristinare il server a un momento precedente. I dati ripristinati vengono copiati in un nuovo server e il server esistente viene lasciato invariato. Se, ad esempio, una tabella è stata involontariamente eliminata a mezzogiorno di oggi, è possibile eseguire il ripristino a un qualsiasi momento prima di mezzogiorno. È possibile quindi recuperare la tabella e i dati mancanti dalla copia ripristinata del server. 
+Se non viene restituita la versione 0.0.5, eseguire questo comando per aggiornare l'estensione: 
+```azurecli-interactive
+az extension update --name rdbms
+```
+
+
+## <a name="set-backup-configuration"></a>Impostare la configurazione del backup
+
+La decisione riguardo alla configurazione del server per il backup con ridondanza locale o il backup con ridondanza geografica viene presa al momento della creazione del server. 
+
+> [!NOTE]
+> Dopo aver creato il server, il tipo di ridondanza (locale o geografica) non può essere modificato.
+>
+
+Durante la creazione di un server tramite il comando `az postgres server create`, il parametro `--geo-redundant-backup` definisce l'opzione di ridondanza del backup. Se il valore è `Enabled`, vengono eseguiti backup con ridondanza geografica. Se invece il valore è `Disabled`, vengono eseguiti backup con ridondanza locale. 
+
+Il periodo di conservazione dei backup è specificato dal parametro `--backup-retention-days`. 
+
+Per altre informazioni sull'impostazione di questi valori durante la creazione, vedere [Guida introduttiva all'interfaccia della riga di comando del server Database di Azure per PostgreSQL](quickstart-create-server-database-azure-cli.md).
+
+È possibile modificare il periodo di conservazione dei backup di un server nel modo seguente:
+
+```azurecli-interactive
+az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+```
+
+L'esempio precedente modifica il periodo di conservazione dei backup di mydemoserver a 10 giorni.
+
+Il periodo di conservazione dei backup determina quanto è possibile tornare indietro nel tempo con un ripristino temporizzato, essendo il ripristino basato sui backup disponibili. Il ripristino temporizzato è descritto in modo più dettagliato nella sezione seguente.
+
+## <a name="server-point-in-time-restore"></a>Ripristino temporizzato del server
+È possibile ripristinare il server in base a una temporizzazione precedente. I dati ripristinati vengono copiati in un nuovo server e il server esistente viene lasciato invariato. Se, ad esempio, una tabella è stata involontariamente eliminata a mezzogiorno di oggi, è possibile eseguire il ripristino a un qualsiasi momento prima di mezzogiorno. È possibile quindi recuperare la tabella e i dati mancanti dalla copia ripristinata del server. 
 
 Per ripristinare il server usare il comando [az postgres server restore](/cli/azure/postgres/server#az_postgres_server_restore) dell'interfaccia della riga di comando di Azure.
 
@@ -47,7 +92,7 @@ Per ripristinare il server usare il comando [az postgres server restore](/cli/az
 Per ripristinare il server, al prompt dei comandi dell'interfaccia della riga di comando di Azure immettere il comando seguente:
 
 ```azurecli-interactive
-az postgres server restore --resource-group myresourcegroup --server mydemoserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
+az postgres server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time 2018-03-13T13:59:00Z --source-server mydemoserver
 ```
 
 Il comando `az postgres server restore` richiede i parametri seguenti:
@@ -55,16 +100,49 @@ Il comando `az postgres server restore` richiede i parametri seguenti:
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | name | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
-| restore-point-in-time | 2017-04-13T13:59:00Z | Selezionare un punto nel tempo per il ripristino. La data e l'ora devono trovarsi all'interno del periodo di memorizzazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. È possibile usare il proprio fuso orario locale, ad esempio `2017-04-13T05:59:00-08:00`. È anche possibile usare il formato UTC Zulu, ad esempio `2017-04-13T13:59:00Z`. |
+| restore-point-in-time | 2018-03-13T13:59:00Z | Selezionare un punto nel tempo per il ripristino. La data e l'ora devono trovarsi all'interno del periodo di memorizzazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. È possibile usare il proprio fuso orario locale, ad esempio `2018-03-13T05:59:00-08:00`. È anche possibile usare il formato UTC Zulu, ad esempio `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | Il nome o l'ID del server di origine da cui eseguire il ripristino. |
 
 Quando si ripristina un server a un punto precedente nel tempo, viene creato un nuovo server. Il server originale e i database dal punto nel punto specificato vengono copiati nel nuovo server.
 
 I valori relativi al percorso e al piano tariffario per il server ripristinato sono gli stessi del server di origine. 
 
-Il comando `az postgres server restore` è sincrono. Dopo il ripristino, il server può essere usato di nuovo per ripetere il processo per un altro punto nel tempo. 
+Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto.
+
+## <a name="geo-restore"></a>Ripristino geografico
+Se il server è stato configurato per backup con ridondanza geografica, è possibile creare un nuovo server dal backup di quel server esistente. Questo nuovo server può essere creato in qualsiasi area in cui è disponibile Database di Azure per PostgreSQL.  
+
+Per creare un server tramite un backup con ridondanza geografica, usare il comando `az postgres server georestore` dell'interfaccia della riga di comando di Azure.
+
+Per eseguire un ripristino geografico del server, al prompt dei comandi dell'interfaccia della riga di comando di Azure immettere il comando seguente:
+
+```azurecli-interactive
+az postgres server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen4_8 
+```
+Questo comando crea un nuovo server denominato *mydemoserver georestored* negli Stati Uniti orientali che apparterrà a *myresourcegroup*. Si tratta di un server per utilizzo generico di quarta generazione con otto vCore. Il server viene creato dal backup con ridondanza geografica di *mydemoserver*, che si trova anch'esso nel gruppo di risorse *myresourcegroup*
+
+Se si vuole creare il nuovo server in un gruppo di risorse diverso dal server esistente, nel parametro `--source-server` è necessario specificare il nome del server come nell'esempio seguente:
+
+```azurecli-interactive
+az postgres server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver" --location eastus --sku-name GP_Gen4_8
+
+```
+
+Il comando `az postgres server georestore` richiede i parametri seguenti:
+| Impostazione | Valore consigliato | DESCRIZIONE  |
+| --- | --- | --- |
+|resource-group| myresourcegroup | Nome del gruppo di risorse cui apparterrà il nuovo server.|
+|name | mydemoserver-georestored | Nome del nuovo server. |
+|source-server | mydemoserver | Nome del server esistente di cui vengono usati i backup con ridondanza geografica. |
+|location | eastus | Percorso del nuovo server. |
+|sku-name| GP_Gen4_8 | Questo parametro imposta il piano tariffario, la generazione delle risorse di calcolo e il numero di vCore del nuovo server. GP_Gen4_8 indica un server per utilizzo generico di quarta generazione con otto vCore.|
+
+
+>[!Important]
+>Quando si crea un nuovo server tramite un ripristino geografico, il server eredita le stesse dimensioni di archiviazione e lo stesso piano tariffario del server di origine. Questi valori non possono essere modificati durante la creazione. Dopo aver creato il nuovo server, le dimensioni di archiviazione possono essere aumentate.
 
 Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Raccolte connessioni per il Database di Azure per PostgreSQL](concepts-connection-libraries.md)
+- Altre informazioni sui [backup](concepts-backup.md) del servizio.
+- Altre informazioni sulle opzioni di [continuità aziendale](concepts-business-continuity.md).

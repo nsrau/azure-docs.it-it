@@ -5,8 +5,8 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: fbf0556cc47bc08a71fcf050b43c2dbbe5d27184
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3b935d3a3c37b63386dfb2cbd25ceba59d91a998
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-security"></a>Sicurezza di rete
 
@@ -35,7 +35,7 @@ Quando un gruppo di sicurezza di rete è associato sia a un'interfaccia di rete 
 - **Traffico in ingresso**: il gruppo di sicurezza di rete associato alla subnet in cui si trova l'interfaccia di rete viene valutato per primo. Tutto il traffico consentito tramite il gruppo di sicurezza di rete associato alla subnet viene quindi valutato in base al gruppo di sicurezza di rete associato all'interfaccia di rete. Può ad esempio essere necessario l'accesso in ingresso da Internet a una macchina virtuale sulla porta 80. Se si associa un gruppo di sicurezza di rete sia all'interfaccia di rete che alla subnet in cui si trova tale interfaccia, il gruppo di sicurezza di rete associato alla subnet e all'interfaccia di rete deve consentire la porta 80. Se la porta 80 è stata consentita solo tramite il gruppo di sicurezza di rete associato alla subnet o all'interfaccia di rete in cui si trova la subnet, la comunicazione non riesce a causa delle regole di sicurezza predefinite. Per informazioni dettagliate, vedere [Regole di sicurezza predefinite](#default-security-rules). Se è stato applicato un gruppo di sicurezza di rete solo alla subnet o all'interfaccia di rete e il gruppo contiene una regola che consente il traffico in ingresso sulla porta 80, ad esempio, la comunicazione ha esito positivo. 
 - **Traffico in uscita**: il gruppo di sicurezza di rete associato all'interfaccia di rete viene valutato per primo. Tutto il traffico consentito tramite il gruppo di sicurezza di rete associato all'interfaccia di rete viene quindi valutato in base al gruppo di sicurezza di rete associato alla subnet.
 
-È possibile che non sempre si conosca quando i gruppi di sicurezza di rete sono applicati sia a un'interfaccia di rete che a una subnet. Le regole di aggregazione applicate a un'interfaccia di rete possono essere verificate facilmente visualizzando le [regole di sicurezza effettive](virtual-network-manage-nsg-arm-portal.md) per un'interfaccia di rete. È anche possibile usare la funzionalità di [verifica del flusso IP](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) in Azure Network Watcher per determinare se è consentita la comunicazione da o verso un'interfaccia di rete. Lo strumento indica se la comunicazione è consentita e quale regola di sicurezza di rete consente o impedisce il traffico.
+È possibile che non sempre si conosca quando i gruppi di sicurezza di rete sono applicati sia a un'interfaccia di rete che a una subnet. Le regole di aggregazione applicate a un'interfaccia di rete possono essere verificate facilmente visualizzando le [regole di sicurezza effettive](virtual-network-nsg-troubleshoot-portal.md) per un'interfaccia di rete. È anche possibile usare la funzionalità di [verifica del flusso IP](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) in Azure Network Watcher per determinare se è consentita la comunicazione da o verso un'interfaccia di rete. Lo strumento indica se la comunicazione è consentita e quale regola di sicurezza di rete consente o impedisce il traffico.
  
 > [!NOTE]
 > I gruppi di sicurezza di rete sono associati a subnet oppure a macchine virtuali e servizi cloud distribuiti con il modello di distribuzione classica, anziché a interfacce di rete nel modello di distribuzione Resource Manager. Per altre informazioni in proposito, vedere le [informazioni sui modelli di distribuzione di Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -141,7 +141,7 @@ Se si creano altre regole, specificando altri gruppi di sicurezza delle applicaz
  
 Per informazioni sui limiti associati alla creazione di gruppi di sicurezza delle applicazioni e all'inclusione di tali gruppi nelle regole di sicurezza, vedere l'articolo relativo ai [limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-I gruppi di sicurezza delle applicazioni sono disponibili in versione di anteprima. Le funzionalità in anteprima non offrono lo stesso livello di disponibilità e affidabilità delle funzionalità in versione di disponibilità generale. Prima di usare gruppi di sicurezza delle applicazioni, è necessario eseguire l'apposita registrazione completando i passaggi da 1 a 5 delle sezioni relative ad Azure o PowerShell dell'articolo su come [creare un gruppo di sicurezza di rete con gruppi di sicurezza delle applicazioni](create-network-security-group-preview.md). I gruppi di sicurezza delle applicazioni hanno i vincoli seguenti:
+I gruppi di sicurezza delle applicazioni hanno i vincoli seguenti:
 
 -   Tutte le interfacce di rete all'interno di un gruppo di sicurezza delle applicazioni devono trovarsi nella stessa rete virtuale. Non è possibile aggiungere interfacce di rete da reti virtuali diverse allo stesso gruppo di sicurezza delle applicazioni. La rete virtuale in cui si trova la prima interfaccia di rete assegnata al gruppo di sicurezza delle applicazioni definisce la rete virtuale in cui devono trovarsi tutte le interfacce di rete successivamente assegnate.
 - Se si specificano gruppi di sicurezza delle applicazioni come origine e destinazione in una regola di sicurezza, le interfacce di rete in entrambi i gruppi di sicurezza delle applicazioni devono trovarsi nella stessa rete virtuale. Ad esempio, se il gruppo di sicurezza delle applicazioni 1 contiene interfacce di rete che si trovano nella rete virtuale 1 e il gruppo di sicurezza delle applicazioni 2 contiene interfacce di rete che si trovano nella rete virtuale 2, non è possibile assegnare il gruppo di sicurezza delle applicazioni 1 come origine e il gruppo di sicurezza delle applicazioni 2 come destinazione in una regola, perché tutte le interfacce di rete devono trovarsi nella rete virtuale 1.
@@ -165,5 +165,4 @@ I gruppi di sicurezza delle applicazioni sono disponibili in versione di antepri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Completare l'esercitazione relativa alla [creazione di un gruppo di sicurezza di rete](virtual-networks-create-nsg-arm-pportal.md)
-* Completare l'esercitazione relativa alla [creazione di un gruppo di sicurezza di rete con gruppi di sicurezza delle applicazioni](create-network-security-group-preview.md)
+* Informazioni su come [creare un gruppo di sicurezza di rete](tutorial-filter-network-traffic.md).

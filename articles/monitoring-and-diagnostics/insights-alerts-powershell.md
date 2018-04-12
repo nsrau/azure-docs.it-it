@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 03/28/2018
 ms.author: robb
-ms.openlocfilehash: 03026ee8bedd5277b2bb6cf28dabafabf207b0ae
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8f7df424b27e6899821a9bdd2f1d8397a0de35a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Creare avvisi delle metriche classici in Monitoraggio di Azure per i servizi di Azure - PowerShell
 > [!div class="op_single_selector"]
@@ -31,18 +31,18 @@ ms.lasthandoff: 03/23/2018
 ## <a name="overview"></a>Panoramica
 
 > [!NOTE]
-> Questo articolo descrive come creare versioni meno recenti degli avvisi delle metriche. Monitoraggio di Azure supporta ora [avvisi delle metriche più recenti e migliori](monitoring-near-real-time-metric-alerts.md). Questi avvisi possono monitorare più metriche e consentire le segnalazioni sulle metriche dimensionali. Il supporto di PowerShell per i nuovi avvisi delle metriche sarà presto disponibile.
+> Questo articolo descrive come creare versioni meno recenti degli avvisi classici delle metriche. Monitoraggio di Azure supporta ora [avvisi delle metriche più recenti e migliori](monitoring-near-real-time-metric-alerts.md). Questi avvisi possono monitorare più metriche e consentire le segnalazioni sulle metriche dimensionali. Il supporto di PowerShell per i nuovi avvisi delle metriche sarà presto disponibile.
 >
 >
 
-Questo articolo descrive come impostare gli avvisi sulle metriche tramite PowerShell.  
+Questo articolo descrive come impostare gli avvisi classici delle metriche tramite PowerShell.  
 
 È possibile ricevere avvisi basati su metriche di monitoraggio o eventi nei servizi Azure.
 
 * **Valori metrici** : l'avviso si attiva quando il valore di una specifica metrica supera una soglia assegnata per eccesso o difetto. Vale a dire che si attiva sia quando la condizione viene inizialmente soddisfatta e successivamente quando tale condizione non è più soddisfatta.    
 * **Eventi del log attività**: è possibile attivare un avviso per *ogni* evento o solo quando si verifica un determinato evento. Per altre informazioni sugli avvisi sui log attività [fare clic qui](monitoring-activity-log-alerts.md)
 
-È possibile configurare un avviso sulle metriche affinché esegua queste operazioni al momento dell'attivazione:
+È possibile configurare un avviso classico delle metriche affinché esegua queste operazioni al momento dell'attivazione:
 
 * inviare un messaggio di posta elettronica all'amministratore e ai coamministratori del servizio
 * inviare un messaggio di posta elettronica ad altri indirizzi specificati
@@ -135,8 +135,8 @@ Per altre informazioni è sempre possibile digitare ```Get-Help``` e quindi il c
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Leggere una panoramica del monitoraggio di Azure](monitoring-overview.md) che include anche i tipi di informazioni che è possibile raccogliere e monitorare.
-* Altre informazioni sulla [configurazione dei webhook negli avvisi](insights-webhooks-alerts.md).
-* Altre informazioni sulla [configurazione di avvisi sugli eventi del log attività](monitoring-activity-log-alerts.md).
+* Informazioni su come [configurare i webhook negli avvisi](insights-webhooks-alerts.md).
+* Informazioni su come [configurare avvisi per gli eventi del log attività](monitoring-activity-log-alerts.md).
 * Altre informazioni sui [runbook di automazione di Azure](../automation/automation-starting-a-runbook.md).
 * Leggere una [panoramica della raccolta dei log di diagnostica](monitoring-overview-of-diagnostic-logs.md) per raccogliere metriche dettagliate e ad alta frequenza sul servizio.
 * Leggere una [panoramica della raccolta di metriche](insights-how-to-customize-monitoring.md) per verificare che il servizio sia disponibile e reattivo.

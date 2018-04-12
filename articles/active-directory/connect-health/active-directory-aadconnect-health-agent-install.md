@@ -2,7 +2,7 @@
 title: Installazione dell'agente di Azure AD Connect Health | Documentazione Microsoft
 description: Si tratta della pagina di Azure AD Connect Health che descrive l'installazione dell'agente per ADFS e la sincronizzazione.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 85a12cbfdad4a1b8fbc7c3e3ea15b91c5267d7c8
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 5a0dadb86b6bdcbf8fc9ba38d09a2bfc9f8ec341
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installazione dell'agente di Azure AD Connect Health
 Questo documento illustra le procedure per installare e configurare l'agente di Azure AD Connect Health. Gli agenti sono disponibili per il download in [questa pagina](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent).
@@ -136,7 +136,7 @@ Per poter usare questa funzionalità per raccogliere dati e analizzarli, l'agent
 9. Selezionare le caselle di controllo **Operazioni riuscite** e Operazioni non riuscite e quindi fare clic su **OK**. Questa opzione dovrebbe essere abilitata per impostazione predefinita.
 10. Aprire una finestra di PowerShell ed eseguire il comando seguente: ```Set-AdfsProperties -AuditLevel Verbose```.
 
-Si noti che il livello di controllo "di base" è abilitato per impostazione predefinita. Per altre informazioni, vedere [Miglioramenti del controllo AD FS in Windows Server 2016](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
+Si noti che il livello di controllo "di base" è abilitato per impostazione predefinita. Per altre informazioni, vedere [Miglioramenti del controllo AD FS in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
 
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>Per individuare i log di controllo di ADFS
@@ -144,6 +144,8 @@ Si noti che il livello di controllo "di base" è abilitato per impostazione pred
 2. Passare a Registri di Windows e selezionare **Sicurezza**.
 3. A destra fare clic su **Filtra registri correnti**.
 4. In Origine evento selezionare **Controllo di ADFS**.
+
+    Vedere la [nota nelle domande frequenti](active-directory-aadconnect-health-faq.md#operations-questions) sui log di controllo.
 
 ![Log di controllo di ADFS](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 

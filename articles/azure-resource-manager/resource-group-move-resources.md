@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 03/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: 94f11504597c127d505d103a417c3d78744d99d1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 40e79ba584843787ad7744f91e14907deb99ccaa
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -116,22 +116,22 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Azure Cosmos DB
 * Batch
 * Bing Mappe
-* Rete di distribuzione dei contenuti
+* RETE CDN
 * Servizi cloud: vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Servizi cognitivi
 * Content Moderator
 * Data Catalog
-* Data Factory
+* Data factory
 * Data Lake Analytics
-* Data Lake Store
+* Archivio Data Lake
 * DNS
 * Hub eventi
 * Cluster HDInsight - vedere [Limitazioni di HDInsight](#hdinsight-limitations)
 * Hub IoT
-* Key Vault
+* Insieme di credenziali di chiave
 * Bilanciamenti del carico: vedere [Limitazioni del servizio di bilanciamento del carico](#lb-limitations)
 * App per la logica
-* Machine Learning
+* Machine Learning: i servizi Web di Machine Learning Studio possono essere spostati in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non in un'altra sottoscrizione. Altre risorse di Machine Learning possono essere spostate da una sottoscrizione all'altra.
 * Servizi multimediali
 * Mobile Engagement
 * Hub di notifica

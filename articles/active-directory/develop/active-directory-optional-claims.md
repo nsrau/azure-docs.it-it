@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 03/15/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0cfa79b9c44953c613eaec8d701f351c6f2ce212
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f9cc4f900428e1337fc9b9d428879d6527c60017
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Attestazioni facoltative in Azure AD (anteprima)
 
@@ -65,13 +65,7 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 | `fwd`                      | Indirizzo IP.  Aggiunge l'indirizzo IPv4 originale del client richiedente (quando si trova in una rete virtuale).                                                                                                       | Token JSON Web        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | Paese dell'utente.                                                                                                                                                                                  | Token JSON Web        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | Paese del tenant della risorsa.                                                                                                                                                                       | Token JSON Web        |           |                                                                                                                                                                                                                                                                                         |
-| `is_device_known`          | Indica se il dispositivo è aggiunto all'area di lavoro. Correlato ai criteri di accesso condizionale.                                                                                                                 | SAML       |           | Per i token JWT, convergente in signin_state.                                                                                                                                                                                                                                                   |
-| `is_device_managed`        | Indica se il dispositivo ha MDM installato. Correlato ai criteri di accesso condizionale.                                                                                                                  | SAML       |           | Per i token JWT, convergente in signin_state.                                                                                                                                                                                                                                                   |
-| `is_device_compliant`      | Indica che MDM ha determinato che il dispositivo è conforme ai criteri di sicurezza del dispositivo dell'organizzazione.                                                                                  | SAML       |           | Per i token JWT, convergente in signin_state.                                                                                                                                                                                                                                                   |
-| `kmsi`                     | Indica se l'utente ha scelto l'opzione Mantieni l'accesso.                                                                                                                                    | SAML       |           | Per i token JWT, convergente in signin_state.                                                                                                                                                                                                                                                   |
-| `upn`                      | Attestazione UserPrincipalName.  Benché questa attestazione sia inclusa automaticamente, è possibile specificarla come attestazione facoltativa per collegare proprietà aggiuntive in modo da modificarne il comportamento nel caso dell'utente guest. | JWT, SAML  |           | Proprietà aggiuntive: <br> include_externally_authenticated_upn <br> include_externally_authenticated_upn_without_hash                                                                                                                                                                 |
-| `groups`                   | Gruppi a cui appartiene un utente.                                                                                                                                                               | JWT, SAML  |           | Proprietà aggiuntive: <br> Sam_account_name<br> Dns_domain_and_sam_account_name<br> Netbios_domain_and_sam_account<br> Max_size_limit<br> Emit_as_roles<br>                                                                                                                            |
-
+| `upn`                      | Attestazione UserPrincipalName.  Benché questa attestazione sia inclusa automaticamente, è possibile specificarla come attestazione facoltativa per collegare proprietà aggiuntive in modo da modificarne il comportamento nel caso dell'utente guest. | JWT, SAML  |           | Proprietà aggiuntive: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
 ### <a name="v20-optional-claims"></a>Attestazioni facoltative v2.0
 Queste attestazioni sono sempre incluse nei token v1.0, ma vengono rimosse dai token v2.0 a meno che non sia richiesto.  Queste attestazioni sono applicabili solo per i token JWT (token ID e token di accesso).  
 
@@ -90,26 +84,19 @@ Queste attestazioni sono sempre incluse nei token v1.0, ma vengono rimosse dai t
 
 ### <a name="additional-properties-of-optional-claims"></a>Proprietà aggiuntive delle attestazioni facoltative
 
-Alcuni attestazioni facoltative possono essere configurate per modificare il modo in cui che viene restituita l'attestazione.  Queste proprietà aggiuntive variano dalle modifiche alla formattazione (ad esempio, `include_externally_authenticated_upn_without_hash`) alla modifica del set di dati restituiti (`Dns_domain_and_sam_account_name`).
+Alcuni attestazioni facoltative possono essere configurate per modificare il modo in cui che viene restituita l'attestazione.  Queste proprietà aggiuntive vengono usate principalmente per facilitare la migrazione di applicazioni in locale con previsioni di dati diverse (ad esempio `include_externally_authenticated_upn_without_hash` consente l'uso di client che non possono gestire hashmark (`#`) nell'UPN)
 
 **Tabella 4: valori per la configurazione di attestazioni facoltative standard**
 
 | Nome proprietà                                     | Nome proprietà aggiuntiva                                                                                                             | DESCRIZIONE |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `Upn`                                                 |                                                                                                                                      |             |
+| `upn`                                                 |                                                                                                                                      |             |
 | | `include_externally_authenticated_upn`              | Include l'UPN guest così come è archiviato nel tenant della risorsa.  Ad esempio: `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
 | | `include_externally_authenticated_upn_without_hash` | Come sopra, tranne che i cancelletti (`#`) vengono sostituiti con caratteri di sottolineatura (`_`), ad esempio `foo_hometenant.com_EXT_@resourcetenant.com` |             
-| `groups`                                              |                                                                                                                                      |             |
-| | `sam_account_name`                                  |                                                                                                                                      |             
-| | `dns_domain_and_sam_account_name`                   |                                                                                                                                      |             
-| | `netbios_domain_and_sam_account_name`               |                                                                                                                                      |             
-| | `max_size_limit`                                    | Aumenta il numero di gruppi restituiti al limite massimo di dimensioni del gruppo (1000).                                                            |             
-| | `emit_as_roles`                                     | Genera un'attestazione "roles" invece dell'attestazione "groups", con gli stessi valori.  Destinato alle app che eseguono la migrazione da un ambiente locale in cui il controllo degli accessi in base al ruolo era tradizionalmente gestito tramite l'appartenenza al gruppo.   |             
 
 > [!Note]
 >Specificando l'attestazione facoltativa upn senza una proprietà aggiuntiva non viene modificato alcun comportamento: per visualizzare una nuova attestazione rilasciata nel token, deve essere aggiunta almeno una delle proprietà aggiuntive. 
->
->Le proprietà aggiuntive `account_name` per i gruppi non sono interoperabili e l'ordinamento delle proprietà aggiuntive è fondamentale: verrà usata solo la prima proprietà aggiuntiva del nome account. 
+
 
 #### <a name="additional-properties-example"></a>Esempio di proprietà aggiuntive:
 
@@ -118,15 +105,15 @@ Alcuni attestazioni facoltative possono essere configurate per modificare il mod
    {
        "idToken": [ 
              { 
-                "name": "groups", 
+                "name": "upn", 
             "essential": false,
-                "additionalProperties": [ "netbios_domain_and_sam_account_name", "sam_account_name" , "emit_as_roles"]  
+                "additionalProperties": [ "include_externally_authenticated_upn"]  
               }
         ]
 }
 ```
 
-Questo oggetto OptionalClaims restituirà la stessa attestazione `groups` come se `sam_account_name` non fosse incluso; trovandosi dopo `netbios_domain_and_sam_account_name`, viene ignorato. 
+Questo oggetto OptionalClaims fa in modo che il token ID restituito al client includa un altro UPN con il tenant home aggiuntivo e informazioni sul tenant risorse.  
 
 ## <a name="configuring-optional-claims"></a>Configurazione di attestazioni facoltative
 

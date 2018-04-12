@@ -1,6 +1,6 @@
 ---
-title: Elemento DropDown dell'interfaccia utente di Applicazione gestita di Azure | Microsoft Docs
-description: Illustra l'elemento Microsoft.Common.DropDown dell'interfaccia utente per le applicazioni gestite di Azure
+title: Elemento DropDown dell'interfaccia utente di Azure | Microsoft Docs
+description: Illustra l'elemento Microsoft.Common.DropDown dell'interfaccia utente per il portale di Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: a3cbb7363c04043eb253e91e058753bc271e4e01
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 6c92304ae623807ffba05dcdbb576e1cef63b10c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Elemento Microsoft.Common.DropDown dell'interfaccia utente
-Controllo di selezione con elenco a discesa. Usare questo elemento quando si [crea un'applicazione Azure gestita](publish-service-catalog-app.md).
+Controllo di selezione con elenco a discesa.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.dropdown.png)
@@ -31,17 +31,17 @@ Controllo di selezione con elenco a discesa. Usare questo elemento quando si [cr
   "name": "element1",
   "type": "Microsoft.Common.DropDown",
   "label": "Some drop down",
-  "defaultValue": "Foo",
+  "defaultValue": "my value",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
       {
-        "label": "Foo",
-        "value": "Bar"
+        "label": "Value one",
+        "value": "one"
       },
       {
-        "label": "Baz",
-        "value": "Qux"
+        "label": "Value two",
+        "value": "two"
       }
     ]
   },
@@ -61,6 +61,5 @@ Controllo di selezione con elenco a discesa. Usare questo elemento quando si [cr
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un'introduzione alle applicazioni gestite, vedere [Panoramica di Applicazione gestita di Azure](overview.md).
 * Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
 * Per una descrizione delle proprietà comuni negli elementi dell'interfaccia utente, vedere [Elementi di CreateUiDefinition](create-uidefinition-elements.md).

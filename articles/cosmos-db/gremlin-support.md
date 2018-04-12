@@ -1,12 +1,10 @@
 ---
-title: Supporto Gremlin di Azure Cosmos DB | Microsoft Docs
+title: Supporto Gremlin di Azure Cosmos DB | Documentazione Microsoft
 description: Informazioni sul linguaggio Gremlin di Apache TinkerPop. Informazioni sulle funzionalità e sulle procedure disponibili in Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
 author: LuisBosquez
-manager: jhubbard
-editor: ''
-tags: ''
+manager: kfile
 ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
 ms.service: cosmos-db
 ms.devlang: na
@@ -15,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 453e11c31a01b6ce8e77deda89725ecd53fd2db9
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b13e31be58502d670b11dace1f646b0632a2f039
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Supporto Gremlin Graph di Azure Cosmos DB
 Azure Cosmos DB supporta il linguaggio di attraversamento di grafi [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) di [Apache Tinkerpop](http://tinkerpop.apache.org), ovvero un'API Graph per la creazione di entità di grafi e l'esecuzione di operazioni di query sui grafi. È possibile usare il linguaggio Gremlin per creare le entità dei grafi (vertici e archi), modificare proprietà all'interno di tali entità, eseguire query e attraversamenti ed eliminare entità. 
@@ -132,7 +130,7 @@ Ad esempio, il frammento di codice seguente mostra una rappresentazione GraphSON
 
 Le proprietà usate da GraphSON per i vertici sono le seguenti:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | id | ID del vertice. Deve essere univoco (in combinazione con il valore di _partition se applicabile) |
 | label | Etichetta del vertice. Questo è facoltativo e viene usato per descrivere il tipo di entità. |
@@ -143,7 +141,7 @@ Le proprietà usate da GraphSON per i vertici sono le seguenti:
 
 E l'arco contiene le informazioni seguenti per spostarsi in altre parti del grafo.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | id | ID dell'arco. Deve essere univoco (in combinazione con il valore di _partition se applicabile) |
 | label | Etichetta dell'arco. Questa proprietà è facoltativa e viene usata per descrivere il tipo di relazione. |
@@ -152,7 +150,7 @@ E l'arco contiene le informazioni seguenti per spostarsi in altre parti del graf
 
 Ogni proprietà può archiviare più valori all'interno di una matrice. 
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | value | Valore della proprietà
 
@@ -165,7 +163,7 @@ Le operazioni Gremlin funzionano senza problemi su dati a grafo che si estendono
 ## <a name="gremlin-steps"></a>Step di Gremlin
 Verranno ora esaminati gli step di Gremlin supportati da Azure Cosmos DB. Per informazioni complete su Gremlin, vedere [TinkerPop reference](http://tinkerpop.apache.org/docs/current/reference) (Riferimento a TinkerPop).
 
-| step | Descrizione | Documentazione TinkerPop 3.2 |
+| step | DESCRIZIONE | Documentazione TinkerPop 3.2 |
 | --- | --- | --- |
 | `addE` | Aggiunge un arco tra due vertici | [addE step](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
 | `addV` | Aggiunge un vertice al grafo | [addV step](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |

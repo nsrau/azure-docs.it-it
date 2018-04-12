@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c5952422bb4faec196a5a54b9f18cf9700988aad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 655f0b625d9f1b7c7ad216e9276da62d8454380f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 1. Nel portale fare clic su **+** sul lato sinistro e digitare "gateway di rete virtuale" nella casella di ricerca. Individuare **Gateway di rete virtuale** nei risultati della ricerca e fare clic sulla voce. Nella pagina **Gateway di rete virtuale** fare clic su **Crea** nella parte inferiore per aprire la pagina **Crea gateway di rete virtuale**.
 2. Nella pagina **Crea gateway di rete virtuale** inserire i valori per il gateway di rete virtuale.
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/23/2018
     - Per prima cosa fare clic su **Crea configurazione IP gateway** per aprire la pagina "Scegli indirizzo IP pubblico", quindi fare clic su **+Crea nuovo** per aprire la pagina "Crea indirizzo IP pubblico".
     - Immettere quindi un **nome** per l'indirizzo IP pubblico. Lasciare lo SKU impostato su **Basic** a meno che non esista un motivo specifico per modificarlo, quindi fare clic su **OK** nella parte inferiore della pagina per salvare le modifiche.
 
-      ![Crea indirizzo IP pubblico](./media/vpn-gateway-add-gw-s2s-rm-portal-include/gwip.png "Crea indirizzo IP pubblico")
+      ![Crea indirizzo IP pubblico](./media/vpn-gateway-add-gw-rm-portal-include/gwip.png "")
 
 4. Verificare le impostazioni. Se si vuole che il gateway venga visualizzato nel dashboard, è possibile selezionare **Aggiungi al dashboard** nella parte inferiore della pagina. 
 5. Fare clic su **Crea** per iniziare a creare il gateway VPN. Le impostazioni verranno convalidate e nel dashboard verrà visualizzato il riquadro relativo alla distribuzione del gateway di rete virtuale. La creazione di un gateway può richiedere fino a 45 minuti. Potrebbe essere necessario aggiornare la pagina del portale per visualizzare lo stato di completamento.

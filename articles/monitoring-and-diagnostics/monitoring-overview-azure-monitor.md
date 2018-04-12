@@ -1,25 +1,25 @@
 ---
 title: Panoramica di Monitoraggio di Azure | Documentazione Microsoft
-description: "Monitoraggio di Azure raccoglie dati statistici da usare in avvisi, webhook, scalabilità automatica e automazione. L'articolo elenca anche altre opzioni di monitoraggio di Microsoft."
+description: Monitoraggio di Azure raccoglie dati statistici da usare in avvisi, webhook, scalabilità automatica e automazione. L'articolo elenca anche altre opzioni di monitoraggio di Microsoft.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1ba2f2be8db424bddfccdf374704ec7be5691feb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="overview-of-azure-monitor"></a>Panoramica di Monitoraggio di Azure
 Questo articolo fornisce una panoramica del servizio Monitoraggio di Azure in Microsoft Azure. Illustra il funzionamento di Monitoraggio di Azure e fornisce collegamenti a informazioni aggiuntive su come usare Monitoraggio di Azure.  Per un'introduzione video, vedere i collegamenti della sezione Passaggi successivi alla fine dell'articolo. 
@@ -35,15 +35,13 @@ Monitoraggio di Azure ha una pagina di destinazione che consente agli utenti di:
 - Comprendere le funzionalità di monitoraggio offerte da Azure.
 - Individuare, configurare e caricare la piattaforma e le funzionalità premium di monitoraggio di Azure.
 
-Mentre il servizio Monitoraggio di Azure viene rilasciato, la pagina di panoramica di destinazione è in anteprima. 
-
 La pagina è un punto di partenza per la navigazione, incluso il caricamento. Mostra i problemi dettagliati rilevanti dei vari servizi e consente all'utente di accedervi con il relativo contesto.
  
 ![Modello di monitoraggio e diagnostica per risorse non di calcolo](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
 
 Quando si apre la pagina, è possibile scegliere tra le sottoscrizioni per cui si dispone di accesso in lettura. Per una sottoscrizione selezionata, è possibile vedere:
 
-- **Avvisi attivati e origini degli avvisi**: questa tabella mostra il riepilogo conteggi, le origini degli avvisi e quante volte sono stati generati gli avvisi per la durata di tempo selezionata. Si applica sia agli avvisi metrica che agli avvisi del log attività. *<Modifica: l'anteprima degli avvisi con l'esperienza unificata deve essere visualizzata anche per tutti gli avvisi: eventi, metriche e log>*
+- **Avvisi attivati e origini degli avvisi**: questa tabella mostra il riepilogo conteggi, le origini degli avvisi e quante volte sono stati generati gli avvisi per la durata di tempo selezionata. Si applica sia agli avvisi precedenti che a quelli nuovi. Altre informazioni sui [nuovi avvisi di Azure](monitoring-overview-unified-alerts.md). 
 - **Errori log attività**: se una delle risorse di Azure registra eventi con gravità a livello di errore, è possibile visualizzare un conteggio di alto livello e andare alla pagina log attività per esaminare ogni evento.
 - **Integrità dei servizi di Azure**: è possibile visualizzare un conteggio di problemi di integrità del servizio, eventi pianificati di manutenzione e avvisi sull'integrità. Integrità dei servizi di Azure offre informazioni personalizzate quando nell'infrastruttura di Azure si verificano problemi che influiscono sui servizi.  Per altre informazioni, vedere [Integrità dei servizi di Azure](../service-health/service-health-overview.md).  
 - **Application Insights**: vedere gli indicatori KPI per ogni risorsa AppInsights nella sottoscrizione corrente. Gli indicatori KPI sono ottimizzati affinché l'applicazione sul lato server monitori le applicazioni web ASP.NET e i tipi di applicazione Java, Node e generali. Gli indicatori KPI includono metriche per la frequenza di richieste, la durata di risposta, la percentuale di errori e di disponibilità. 
@@ -143,12 +141,12 @@ Ecco alcuni metodi di visualizzazione:
 
 ### <a name="automate"></a>Automatizzare
 > [!NOTE]
-> Come parte dell'evoluzione continua degli avvisi in Microsoft Azure, è ora disponibile un'esperienza unificata per gli avvisi in anteprima. Altre informazioni sugli [avvisi di Azure (anteprima)](monitoring-overview-unified-alerts.md)
+> Come parte dell'evoluzione continua degli avvisi in Microsoft Azure, è ora disponibile un'esperienza unificata per gli avvisi. Altre informazioni sui [nuovi avvisi di Azure](monitoring-overview-unified-alerts.md)
 
-Negli avvisi di Azure standard è possibile usare i dati di monitoraggio per attivare avvisi o anche interi processi. Tra gli esempi sono inclusi:
+Negli avvisi di Azure è possibile usare i dati di monitoraggio per attivare avvisi o anche interi processi. Tra gli esempi sono inclusi:
 
 * Usare i dati per la scalabilità automatica delle istanze di calcolo in base al carico dell'applicazione.
-* Inviare messaggi di posta elettronica quando una metrica supera una soglia predeterminata.
+* Inviare messaggi di posta elettronica basati su condizioni di metrica o log. 
 * Chiamare un URL Web (webhook) per eseguire un'azione in un sistema all'esterno di Azure.
 * Avviare un runbook in Automazione di Azure per eseguire varie attività.
 
@@ -170,4 +168,4 @@ Altre informazioni su:
 - Configurare le [estensioni di Diagnostica di Azure](../azure-diagnostics.md), per diagnosticare problemi nell'applicazione di servizio cloud, macchina virtuale, set di scalabilità di macchine virtuali o Service Fabric.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) , utili per la diagnosi di problemi nell'app Web del servizio app.
 - [Risoluzione dei problemi di Archiviazione di Azure](../storage/common/storage-e2e-troubleshooting.md) , utile per l'uso di BLOB, tabelle o code di archiviazione.
-- [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/oms/)
+- [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/)

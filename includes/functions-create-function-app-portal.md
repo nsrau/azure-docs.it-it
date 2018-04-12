@@ -1,4 +1,4 @@
-1. Fare clic su **Crea una risorsa** nell'angolo superiore destro del portale di Azure e quindi selezionare **Calcolo** > **App per le funzioni**. 
+1. Selezionare il pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure e quindi selezionare **Calcolo** > **App per le funzioni**. 
 
     ![Creare un'app per le funzioni nel portale di Azure](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
@@ -16,8 +16,14 @@
     | **Posizione** | Europa occidentale | Scegliere un'[area](https://azure.microsoft.com/regions/) nelle vicinanze o vicino ad altri servizi a cui accedono le funzioni. |
     | **[Account di archiviazione](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Nome globalmente univoco |  Nome del nuovo account di archiviazione usato dall'app per le funzioni. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È possibile anche usare un account esistente. |
 
-1. Fare clic su **Crea** per effettuare il provisioning della nuova app per le funzioni e distribuirla. È possibile monitorare lo stato della distribuzione facendo clic sull'icona di notifica nell'angolo superiore destro del portale. 
+3. Selezionare **Crea** per effettuare il provisioning dell'app per le funzioni e distribuirla. 
+
+4. Selezionare l'icona di notifica nell'angolo superiore destro del portale e attendere la visualizzazione del messaggio **La distribuzione è riuscita**. 
 
     ![Definire nuove impostazioni dell'app per le funzioni](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
-    Se si fa clic su **Vai alla risorsa**, viene visualizzata la nuova app di funzione.
+4. Selezionare **Vai alla risorsa** per visualizzare la nuova app per le funzioni.
+
+>[!TIP]
+>In caso di problemi nell'individuare le app per le funzioni nel portale, provare ad [aggiungere le app per le funzioni ai preferiti nel portale di Azure](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite).   
+

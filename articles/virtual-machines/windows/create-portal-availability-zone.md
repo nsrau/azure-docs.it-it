@@ -1,33 +1,32 @@
 ---
 title: Creare una VM Windows suddivisa in zone con il portale di Azure | Microsoft Docs
-description: "Creare una VM Windows in una zona di disponibilità con il portale di Azure"
+description: Creare una VM Windows in una zona di disponibilità con il portale di Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: dlepow
-manager: timlt
-editor: tysonn
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/27/2018
 ms.author: danlep
-ms.custom: 
-ms.openlocfilehash: 63c2baa2f3924cf2274608df98b854683bc2baa8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: ''
+ms.openlocfilehash: 3d3561cf1ad760930821fabeef9839c25d55f2a9
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Creare una macchina virtuale Windows in una zona di disponibilità con il portale di Azure
 
 Questo articolo descrive come usare il portale di Azure per creare una macchina virtuale Linux in una zona di disponibilità di Azure. Una [zona di disponibilità](../../availability-zones/az-overview.md) è una zona fisicamente separata in un'area di Azure. Usare le zone di disponibilità per proteggere app e dati da un poco probabile errore o perdita di un intero data center.
 
-[!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
-
+Per usare una zona di disponibilità, creare la macchina virtuale in un'[area di Azure supportata](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure 
 
@@ -39,88 +38,39 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**. 
 
-3. Immettere le informazioni relative alla macchina virtuale. Il nome utente e la password immessi in questo modulo verranno usati per accedere alla macchina virtuale. Al termine fare clic su **OK**.
+3. Immettere le informazioni relative alla macchina virtuale. Il nome utente e la password immessi in questo modulo verranno usati per accedere alla macchina virtuale. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](faq.md#what-are-the-password-requirements-when-creating-a-vm). Scegliere una località, ad esempio Stati Uniti orientali 2, che supporti le zone di disponibilità. Al termine fare clic su **OK**.
 
     ![Immettere le informazioni di base sulla VM nel pannello del portale](./media/create-portal-availability-zone/create-windows-vm-portal-basic-blade.png)
 
-4. Selezionare una dimensione per la VM. Per visualizzare altre dimensioni, selezionare **Visualizza tutto** o modificare il filtro **Supported disk type** (Tipo di disco supportato). Prestare attenzione a selezionare una delle dimensioni supportate nell'anteprima delle zone di disponibilità, ad esempio *DS1_v2 Standard*. 
+4. Scegliere una dimensione per la VM. Selezionare una dimensione consigliata o filtrare in base alle funzionalità. Confermare che la dimensione è disponibile nella zona che si vuole usare.
 
-    ![Screenshot che mostra le dimensioni delle VM](./media/create-portal-availability-zone/create-linux-vm-portal-sizes.png)  
+    ![Selezionare una dimensione di VM](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
 
 5. Sotto **Impostazioni** > **Disponibilità elevata** selezionare una delle zone numerate nella casella a discesa **Zona di disponibilità**, mantenere invariate le altre impostazioni predefinite e fare clic su **OK**.
 
-    ![Selezionare una zona di disponibilità](./media/create-portal-availability-zone/create-linux-vm-portal-availability-zone.png)
+    ![Selezionare una zona di disponibilità](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
 
-6. Nella pagina del riepilogo fare clic su **Acquista** per avviare la distribuzione della macchina virtuale.
+6. Nella pagina di riepilogo fare clic su **Crea** per avviare la distribuzione della macchina virtuale.
 
 7. La macchina virtuale verrà aggiunta al dashboard del portale di Azure. Una volta completata la distribuzione verrà automaticamente aperto il riepilogo della macchina virtuale.
 
+## <a name="confirm-zone-for-managed-disk-and-ip-address"></a>Confermare la zona per il disco gestito e un indirizzo IP
 
-## <a name="zone-for-ip-address-and-managed-disk"></a>Zona per l'indirizzo IP e il disco gestito
+Quando la VM è distribuita in una zona di disponibilità, viene creato un disco gestito per la VM nella stessa zona di disponibilità. Per impostazione predefinita, in questa zona viene creato anche un indirizzo IP pubblico.
 
-Quando la VM è distribuita in una zona di disponibilità, l'indirizzo IP e le risorse del disco gestito vengono distribuite nella stessa zona di disponibilità. È possibile confermare le impostazioni di zona usando Azure PowerShell. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
+È possibile confermare le impostazioni di zona per queste risorse nel portale.  
 
-Gli esempi seguenti ottengono informazioni sulle risorse in un gruppo di risorse denominato *myResourceGroup*. Sostituire il nome del gruppo di risorse utilizzato per creare la VM.
+1. Fare clic su **Gruppi di risorse** e quindi sul nome del gruppo di risorse per la macchina virtuale, ad esempio *myResourceGroup*.
 
-Trovare la zona dell'indirizzo IP pubblico con [Get-AzureRmPublicIpAddress](/en-us/powershell/module/azurerm.network/get-azurermpublicipaddress):
+2. Fare clic sul nome della risorsa disco. La pagina **Panoramica** include informazioni dettagliate sulla località e sulla zona di disponibilità della risorsa.
 
-```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup
-```
-L'impostazione `Zones` nell'output indica che l'indirizzo IP pubblico si trova nella stessa zona di disponibilità della VM:
+    ![Zona di disponibilità per il disco gestito](./media/create-portal-availability-zone/create-windows-vm-portal-disk.png)
 
-```powershell
-Name                     : myVM-ip
-ResourceGroupName        : myResourceGroup
-Location                 : eastus2
-Id                       : /subscriptions/e44f251c-c67e-4760-9ed6-bf99a306ecff/resourceGroups/danlep0911/providers/Micr
-                           osoft.Network/publicIPAddresses/myVM-ip
-Etag                     : W/"b67e14c0-7e8a-4d12-91c5-da2a5dfad132"
-ResourceGuid             : 314bf57d-9b25-4474-9282-db3561d536aa
-ProvisioningState        : Succeeded
-Tags                     :
-PublicIpAllocationMethod : Dynamic
-IpAddress                : 13.68.16.25
-PublicIpAddressVersion   : IPv4
-IdleTimeoutInMinutes     : 4
-IpConfiguration          : {
-                             "Id": "/subscriptions/e44f251c-c67e-4760-9ed6-bf99a306ecff/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVM11842/ipConfigurations/ipconfig1"
-                           }
-DnsSettings              : null
-Zones                    : {2}
-```
+3. Fare clic sul nome della risorsa dell'indirizzo IP pubblico. La pagina **Panoramica** include informazioni dettagliate sulla località e sulla zona di disponibilità della risorsa.
+
+    ![Zona di disponibilità per l'indirizzo IP](./media/create-portal-availability-zone/create-windows-vm-portal-ip.png)
 
 
-Anche la risorsa disco gestito per la VM viene creata nella stessa zona di disponibilità. È possibile verificarlo con [Get-AzureRmDisk](/powershell/module/azurerm.compute/get-azurermdisk):
-
-```powershell
-Get-AzureRmDisk -ResourceGroupName myResourceGroup
-```
-
-L'output indica che il disco gestito si trova nella stessa zona di disponibilità della VM:
-
-```powershell
-ResourceGroupName  : myResourceGroup
-AccountType        : PremiumLRS
-OwnerId            : /subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.
-                     Compute/virtualMachines/myVM
-ManagedBy          : /subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.
-                     Compute/virtualMachines/myVM
-Sku                : Microsoft.Azure.Management.Compute.Models.DiskSku
-Zones              : {2}
-TimeCreated        : 9/7/2017 6:57:26 PM
-OsType             : Windows
-CreationData       : Microsoft.Azure.Management.Compute.Models.CreationData
-DiskSizeGB         : 127
-EncryptionSettings :
-ProvisioningState  : Succeeded
-Id                 : /subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.
-                     Compute/disks/myVM_OsDisk_1_bd921920bb0a4650becfc2d830000000
-Name               : myVM_OsDisk_1_bd921920bb0a4650becfc2d830000000
-Type               : Microsoft.Compute/disks
-Location           : eastus2
-Tags               : {}
-```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

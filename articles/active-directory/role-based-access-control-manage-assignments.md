@@ -2,7 +2,7 @@
 title: Visualizzare le assegnazioni di accesso alle risorse di Azure | Microsoft Docs
 description: Visualizzare e gestire tutte le assegnazioni di controllo degli accessi in base al ruolo per qualsiasi utente o gruppo nel portale di Azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: jeffsta
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: rolyon
-ms.openlocfilehash: 7794d25e9111a4c2dbe822f9618d0acdfb69a2d2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b53c758eb9cfd68e66a6192f4461de3d60f8c651
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Visualizzare le assegnazioni dell'accesso per utenti e gruppi nel portale di Azure
 > [!div class="op_single_selector"]

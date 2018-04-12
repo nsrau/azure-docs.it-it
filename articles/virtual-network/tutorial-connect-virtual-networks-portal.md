@@ -1,36 +1,39 @@
 ---
-title: Connettere reti virtuali con il peering reti virtuali - Portale di Azure | Microsoft Docs
-description: Informazioni su come connettere reti virtuali con il peering reti virtuali.
+title: Connettere reti virtuali con il peering di rete virtuale - Portale di Azure | Microsoft Docs
+description: In questo articolo viene illustrato come connettere reti virtuali con il peering di rete virtuale usando il portale di Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0962a917186277a34abbda17b8fea87bcf4ad1e9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b864c71a62289b3abef13a98b52683f7d928b8e1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Connettere reti virtuali con il peering reti virtuali usando il portale di Azure
+# <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Connettere reti virtuali con il peering di rete virtuale usando il portale di Azure
 
-È possibile connettere due reti virtuali tra loro con il peering reti virtuali. Dopo che è stato eseguito il peering, le risorse delle due reti virtuali possono comunicare tra loro con la stessa larghezza di banda e la stessa latenza che sarebbero disponibili se si trovassero nella stessa rete virtuale. In questo articolo viene spiegato come:
+È possibile connettere due reti virtuali tra loro con il peering di rete virtuale. Dopo che è stato eseguito il peering, le risorse delle due reti virtuali possono comunicare tra loro con la stessa larghezza di banda e la stessa latenza che sarebbero disponibili se si trovassero nella stessa rete virtuale. In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
 > * Creare due reti virtuali
 > * Connettere due reti virtuali con un peering di reti virtuali
 > * Distribuire una macchina virtuale in ogni rete virtuale
 > * Stabilire la comunicazione tra le macchine virtuali
+
+Se si preferisce, è possibile completare questo articolo usando l'[interfaccia della riga di comando di Azure](tutorial-connect-virtual-networks-cli.md) oppure [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -147,7 +150,7 @@ La creazione delle macchine virtuali può richiedere alcuni minuti. Non proceder
 3. Per connettersi alla macchina virtuale, aprire il file con estensione rdp scaricato. Quando richiesto, selezionare **Connetti**.
 4. Immettere il nome utente e la password specificati durante la creazione della macchina virtuale (potrebbe essere necessario selezionare **Altre opzioni**, quindi **Usa un account diverso** per specificare le credenziali immesse quando è stata creata la macchina virtuale), quindi scegliere **OK**.
 5. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Selezionare **Sì** per procedere con la connessione.
-6. In un passaggio successivo verrà usato il ping per comunicare con la macchina virtuale *myVm2* dalla macchina virtuale *myVm1*. Il ping usa il protocollo ICMP (Internet Control Message Protocol), che viene rifiutato tramite Windows Firewall per impostazione predefinita. Nella macchina virtuale *myVm1* abilitare il protocollo ICMP (Internet Control Message Protocol) attraverso Windows Firewall, in modo che sia possibile effettuare il ping della macchina virtuale da *myVm2* in un passaggio successivo tramite PowerShell:
+6. In un passaggio successivo verrà usato il ping per comunicare con la macchina virtuale *myVm2* dalla macchina virtuale *myVm1*. Il ping usa il protocollo ICMP (Internet Control Message Protocol), che viene rifiutato tramite Windows Firewall per impostazione predefinita. Nella macchina virtuale *myVm1* abilitare il protocollo ICMP attraverso Windows Firewall, in modo che sia possibile effettuare il ping della macchina virtuale da *myVm2* in un passaggio successivo tramite PowerShell:
 
     ```powershell
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
@@ -177,15 +180,8 @@ Quando non sono più necessari, eliminare il gruppo di risorse e tutte le risors
 2. Selezionare **Elimina gruppo di risorse**.
 3. Immettere *myResourceGroup* in **DIGITARE IL NOME DEL GRUPPO DI RISORSE** e selezionare **Elimina**.
 
-**<a name="register"></a>Registrarsi per l'anteprima del peering reti virtuali globale**
-
-Il peering reti virtuali nella stessa area è disponibile a livello generale. Il peering di reti virtuali in aree diverse è attualmente disponibile in anteprima. Vedere gli [aggiornamenti delle reti virtuali](https://azure.microsoft.com/updates/?product=virtual-network) per le aree disponibili. Per eseguire il peering di reti virtuali tra aree diverse, è prima necessario registrarsi per l'anteprima. Non si può effettuare la registrazione con il portale, ma è possibile eseguire questa operazione con [PowerShell](tutorial-connect-virtual-networks-powershell.md#register) o l'[interfaccia della riga di comando di Azure](tutorial-connect-virtual-networks-cli.md#register). Se si tenta di eseguire il peering di reti virtuali in aree diverse prima di registrarsi per questa funzionalità, il peering non riesce.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato illustrato come connettere due reti virtuali, nella stessa posizione di Azure, con il peering di reti virtuali. È anche possibile creare un peering di reti virtuali in [aree diverse](#register) e in [sottoscrizioni di Azure diverse](create-peering-different-subscriptions.md#portal) e creare [progettazioni di rete di tipo hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) con peering. Prima di eseguire il peering di reti virtuali di produzione, è consigliabile acquisire familiarità con la [panoramica del peering](virtual-network-peering-overview.md), la [gestione del peering](virtual-network-manage-peering.md) e i [limiti delle reti virtuali](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
+In questo articolo è stato illustrato come connettere due reti nella stessa area di Azure con il peering di rete virtuale. È anche possibile creare un peering di rete virtuale in [aree supportate](virtual-network-manage-peering.md#cross-region) diverse e in [sottoscrizioni di Azure diverse](create-peering-different-subscriptions.md#portal) e creare [progettazioni di rete di tipo hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) con peering. Per altre informazioni sul peering di rete virtuale, vedere [Peering di rete virtuale](virtual-network-peering-overview.md) e [Gestire un peering di rete virtuale](virtual-network-manage-peering.md).
 
-Proseguire connettendo il proprio computer a una rete virtuale tramite una VPN e interagendo con le risorse in una rete virtuale o in reti virtuali associate tramite peering.
-
-> [!div class="nextstepaction"]
-> [Connettere un computer a una rete virtuale](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Per connettere il proprio computer a una rete virtuale tramite una VPN e interagire con le risorse in una rete virtuale o in reti virtuali associate tramite peering, vedere [Connettere un computer a una rete virtuale](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

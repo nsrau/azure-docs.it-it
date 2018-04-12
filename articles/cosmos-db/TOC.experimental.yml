@@ -6,8 +6,6 @@ items:
     items:
       - name: Informazioni su Azure Cosmos DB
         href: introduction.md
-      - name: Esperimento sulla documentazione
-        href: experiment.experimental.md
   - name: Guide introduttive
     expanded: true
     items:
@@ -80,7 +78,7 @@ items:
       - name: Velocità effettiva
         href: request-units.md
       - name: Costo totale di proprietà
-        href: 'https://aka.ms/documentdb-tco-paper'
+        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Database senza server
         href: serverless-computing-database.md
       - name: Sicurezza
@@ -200,6 +198,8 @@ items:
                 items:
                   - name: Test delle prestazioni
                     href: performance-testing.md
+                  - name: Suggerimenti sulle prestazioni Async Java
+                    href: performance-tips-async-java.md
                   - name: Suggerimenti sulle prestazioni per .NET
                     href: performance-tips.md
                   - name: Suggerimenti sulle prestazioni Java
@@ -217,17 +217,17 @@ items:
                   - name: Registrazione delle applicazioni con App per la logica
                     href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
                   - name: Eseguire associazioni a Funzioni di Azure
-                    href: ../azure-functions/functions-bindings-documentdb.md
+                    href: ../azure-functions/functions-bindings-cosmosdb.md
                   - name: Integrare Ricerca di Azure
-                    href: ../search/search-howto-index-documentdb.md
+                    href: ../search/search-howto-index-cosmosdb.md
                   - name: Spostare dati con Azure Data Factory
                     href: ../data-factory/connector-azure-cosmos-db.md
                   - name: Analizzare dati in tempo reale con l'analisi di flusso di Azure
-                    href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
+                    href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
                   - name: Ottenere il record HL7 FHIR modificato tramite App per la logica
                     href: change-feed-hl7-fhir-logic-apps.md
                   - name: Elaborare dati dei sensori in tempo reale
-                    href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
+                    href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
                   - name: Visualizzare dati con Power BI
                     href: powerbi-visualize.md
                   - name: Sfruttare il driver ODBC per la visualizzazione dei dati
@@ -263,7 +263,7 @@ items:
               - name: Documento sull'indicizzazione indipendente dallo schema
                 href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
               - name: Playground SQL
-                href: 'https://www.documentdb.com/sql/demo'
+                href: 'https://aka.ms/cosmos-db-playground'
       - name: Documentazione sull'API MongoDB
         items:
           - name: Panoramica

@@ -1,6 +1,6 @@
 ---
-title: Elemento TextBox dell'interfaccia utente dell'applicazione gestita di Azure | Microsoft Docs
-description: Illustra l'elemento Microsoft.Common.TextBox dell'interfaccia utente per le applicazioni gestite di Azure
+title: Elemento TextBox dell'interfaccia utente di Azure | Microsoft Docs
+description: Illustra l'elemento Microsoft.Common.TextBox dell'interfaccia utente per il portale di Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d3fae42ae202fe720761382e1020fa8bd8c62b44
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: daee95c177ecddfea1cf7d6d162906fcc86938b4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Elemento Microsoft.Common.TextBox dell'interfaccia utente
-Controllo che è possibile usare per modificare il testo non formattato. Usare questo elemento quando si [crea un'applicazione Azure gestita](publish-service-catalog-app.md).
+Controllo che è possibile usare per modificare il testo non formattato.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textbox.png)
@@ -31,8 +31,8 @@ Controllo che è possibile usare per modificare il testo non formattato. Usare q
   "name": "element1",
   "type": "Microsoft.Common.TextBox",
   "label": "Some text box",
-  "defaultValue": "foobar",
-  "toolTip": "Halp!",
+  "defaultValue": "my value",
+  "toolTip": "Use only allowed characters",
   "constraints": {
     "required": true,
     "regex": "^[a-z0-9A-Z]{1,30}$",
@@ -55,6 +55,5 @@ Controllo che è possibile usare per modificare il testo non formattato. Usare q
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un'introduzione alle applicazioni gestite, vedere [Panoramica di Applicazione gestita di Azure](overview.md).
 * Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
 * Per una descrizione delle proprietà comuni negli elementi dell'interfaccia utente, vedere [Elementi di CreateUiDefinition](create-uidefinition-elements.md).

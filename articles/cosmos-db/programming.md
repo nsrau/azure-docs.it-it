@@ -5,8 +5,7 @@ keywords: Trigger di database, stored procedure, programma database, sproc, Azur
 services: cosmos-db
 documentationcenter: ''
 author: aliuy
-manager: jhubbard
-editor: mimig
+manager: kfile
 ms.assetid: 0fba7ebd-a4fc-4253-a786-97f1354fbf17
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 2b55307c3122513b414c3f90a6a36d230f3459c2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 25ae6bde2ca89b2f944a8879c746dcedcf798ec2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programmazione lato server per Azure Cosmos DB: stored procedure, trigger del database e funzioni definite dall'utente
 
@@ -51,10 +50,10 @@ Questo approccio di *"JavaScript come nuovo T-SQL"* libera gli sviluppatori di a
   * Precompilazione: Cosmos DB precompila stored procedure, trigger e funzioni definite dall'utente (UDF) per evitare il lavoro di compilazione JavaScript per ogni chiamata. I costi generali di compilazione del codice byte per la logica procedurale vengono ammortizzati a un valore minimo.
   * Sequenziazione: molte operazioni necessitano di un effetto collaterale ("trigger") che implica potenzialmente l'esecuzione di una o più operazioni di archiviazione secondarie. Atomicità a parte, offre prestazioni migliori quando viene passata al server. 
 * **Incapsulamento:** è possibile usare le stored procedure per raggruppare la logica di business in un'unica posizione, ottenendo due vantaggi:
-  * Viene aggiunto un livello di astrazione al di sopra dei dati non elaborati, consentendo ai responsabili dell'architettura dati di far evolvere le proprie applicazioni indipendentemente dai dati. Questo livello di astrazione è vantaggioso quando i dati sono senza schema, a causa dei presupposti transitori che potrebbe essere necessario integrare nell'applicazione qualora fosse necessario gestire i dati direttamente.  
+  * Aggiunge un livello di astrazione al di sopra dei dati non elaborati, consentendo ai responsabili dell'architettura dati di far evolvere le proprie applicazioni indipendentemente dai dati. Questo livello di astrazione è vantaggioso quando i dati sono senza schema, a causa dei presupposti transitori che potrebbe essere necessario integrare nell'applicazione qualora fosse necessario gestire i dati direttamente.  
   * Questa astrazione consente alle grandi imprese di proteggere i propri dati semplificando l'accesso dagli script.  
 
-La creazione e l'esecuzione di trigger del database, stored procedure e operatori query personalizzati sono supportate tramite il [portale di Azure](https://portal.azure.com), l'[API REST](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) e gli [SDK client](sql-api-sdk-dotnet.md) in molte piattaforme, tra cui .NET, Node.js e JavaScript.
+La creazione e l'esecuzione di trigger del database, stored procedure e operatori query personalizzati sono supportate tramite il [portale di Azure](https://portal.azure.com), l'[API REST](/rest/api/cosmos-db/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) e gli [SDK client](sql-api-sdk-dotnet.md) in molte piattaforme, tra cui .NET, Node.js e JavaScript.
 
 Questa esercitazione usa [Node.js SDK con promesse Q](http://azure.github.io/azure-documentdb-node-q/) per illustrare la sintassi e l'uso di stored procedure, trigger e funzioni definite dall'utente.   
 

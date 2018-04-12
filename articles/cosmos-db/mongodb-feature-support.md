@@ -3,8 +3,7 @@ title: Supporto delle funzionalità fornito da Azure Cosmos DB per MongoDB | Mic
 description: Informazioni sul supporto delle funzionalità fornito dall'API MongoDB di Azure Cosmos DB per MongoDB 3.4.
 services: cosmos-db
 author: alekseys
-manager: jhubbard
-editor: ''
+manager: kfile
 documentationcenter: ''
 ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
@@ -14,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 470ad2fe458c47392b8f55a8f46c75e54ccf87a3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cadf637dd3a71e040fef8188f7290907659e5cdb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Supporto dell'API MongoDB per le funzionalità e la sintassi MongoDB
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile comunicare con l'API MongoDB del database tramite uno dei [driver](https://docs.mongodb.org/ecosystem/drivers)open source del client MongoDB. L'API MongoDB consente di usare driver client esistenti aderendo al [protocollo di trasmissione](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) MongoDB.
 
-Usando l'API MongoDB di Azure Cosmos DB è possibile sfruttare i noti vantaggi delle API MongoDB con tutte le funzionalità aziendali di Azure Cosmos DB: [distribuzione globale](distribute-data-globally.md), [partizionamento orizzontale automatico](partition-data.md), garanzie di disponibilità e latenza, indicizzazione automatica di ogni campo, crittografia di dati inattivi, backup e molto altro.
+Usando l'API MongoDB di Azure Cosmos DB è possibile sfruttare i noti vantaggi delle API MongoDB con tutte le funzionalità aziendali offerte da Azure Cosmos DB: [distribuzione globale](distribute-data-globally.md), [partizionamento orizzontale automatico](partition-data.md), garanzie di disponibilità e latenza, indicizzazione automatica di ogni campo, crittografia di dati inattivi, backup e molto altro.
 
 ## <a name="mongodb-query-language-support"></a>Supporto del linguaggio di query MongoDB
 

@@ -3,33 +3,32 @@ title: Esercitazione su Power BI per il connettore Azure Cosmos DB | Microsoft D
 description: Usare questa esercitazione su Power BI per importare JSON, creare report dettagliati e visualizzare i dati con Azure Cosmos DB e il connettore per Power BI.
 keywords: esercitazione Power BI, visualizzare dati, connettore Power BI
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: mimig
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2017
-ms.author: mimig
-ms.openlocfilehash: 6414cdc942c43f6eb13ca8f050d6503bdd3e0b42
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 03/29/2018
+ms.author: sngun
+ms.openlocfilehash: 7f884589cc198bed95a4a5fe51325a72cb799b69
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Esercitazione su Power BI per Azure Cosmos DB: visualizzare dati tramite il connettore per Power BI
-[PowerBI.com](https://powerbi.microsoft.com/) è un servizio online dove è possibile creare e condividere dashboard e report con dati importanti per gli utenti e l'organizzazione.  Power BI Desktop è uno strumento per la creazione di report dedicato che consente di recuperare dati da diverse origini dati, unire e trasformare i dati, creare visualizzazioni e report potenti e pubblicare i report in Power BI.  Con la versione più recente di Power BI Desktop è ora possibile connettersi al proprio account Cosmos DB tramite il connettore Cosmos DB per Power BI.   
+[PowerBI.com](https://powerbi.microsoft.com/) è un servizio online dove è possibile creare e condividere dashboard e report con dati importanti per gli utenti e l'organizzazione.  Power BI Desktop è uno strumento per la creazione di report dedicato che consente di recuperare dati da diverse origini dati, unire e trasformare i dati, creare visualizzazioni e report potenti e pubblicare i report in Power BI.  Con la versione più recente di Power BI Desktop è ora possibile connettersi al proprio account Azure Cosmos DB tramite il connettore Azure Cosmos DB per Power BI.   
 
-Questa esercitazione su Power BI illustra in dettaglio i passaggi per connettersi a un account Cosmos DB in Power BI Desktop, passare a una raccolta da cui estrarre i dati con lo strumento di navigazione, trasformare i dati JSON in formato tabulare tramite l'Editor di query di Power BI Desktop e creare e pubblicare un report in PowerBI.com.
+Questa esercitazione su Power BI illustra in dettaglio i passaggi per connettersi a un account Azure Cosmos DB in Power BI Desktop, passare a una raccolta da cui estrarre i dati con lo strumento di navigazione, trasformare i dati JSON in formato tabulare tramite l'Editor di query di Power BI Desktop e creare e pubblicare un report in PowerBI.com.
 
 Dopo aver completato questa esercitazione su Power BI, si potrà rispondere alle domande seguenti:  
 
-* Come è possibile creare report con i dati di Cosmos DB tramite Power BI Desktop?
-* Come è possibile connettersi a un account Cosmos DB in Power BI Desktop?
+* Come è possibile creare report con i dati di Azure Cosmos DB tramite Power BI Desktop?
+* Come è possibile connettersi a un account Azure Cosmos DB in Power BI Desktop?
 * Come è possibile recuperare dati da una raccolta di Power BI Desktop?
 * Come è possibile trasformare dati JSON annidati in Power BI Desktop?
 * Come è possibile pubblicare e condividere i report personalizzati in PowerBI.com?
@@ -44,16 +43,16 @@ Dopo aver completato questa esercitazione su Power BI, si potrà rispondere alle
 Prima di seguire le istruzioni di questa esercitazione su Power BI, verificare di avere accesso alle risorse seguenti:
 
 * [La versione più recente di Power BI Desktop](https://powerbi.microsoft.com/desktop).
-* Accesso all'account demo o ai dati nell'account Cosmos DB.
+* Accesso all'account demo o ai dati nell'account Azure Cosmos DB.
   * L'account demo viene popolato con i dati sui vulcani illustrati in questa esercitazione. Questo account demo non è associato ad alcun contratto di servizio e viene usato esclusivamente a scopo dimostrativo.  Microsoft si riserva il diritto di apportare modifiche a questo account demo incluse, a titolo esemplificativo, la chiusura dell'account, la modifica della chiave, la limitazione dell'accesso, la modifica e l'eliminazione dei dati, in qualsiasi momento senza preavviso o motivo.
     * URL: https://analytics.documents.azure.com
     * Chiave di sola lettura: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
   * In alternativa, per creare un account personalizzato, vedere [Creare un account database Cosmos DB usando il portale di Azure](https://azure.microsoft.com/documentation/articles/create-account/). Per ottenere dati di esempio sui vulcani simili a quelli usati in questa esercitazione, che però non contengono i blocchi GeoJSON, vedere il [sito NOAA](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) e quindi importare i dati con lo [strumento di migrazione dati di Azure Cosmos DB](import-data.md).
 
-Per condividere i report in PowerBI.com, è necessario avere un account in PowerBI.com.  Per altre informazioni su Power BI in versione gratuita o Power BI Pro, visitare il sito [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
+Per condividere i report in PowerBI.com, è necessario avere un account in PowerBI.com.  Per altre informazioni sulla versione gratuita di Power BI o su Power BI Pro, visitare il sito [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
 ## <a name="lets-get-started"></a>Attività iniziali
-In questa esercitazione si immagini di essere un geologo che studia i vulcani di tutto il mondo.  I dati sui vulcani sono archiviati in un account Cosmos DB e i documenti JSON hanno un aspetto simile al documento di esempio seguente.
+In questa esercitazione si immagini di essere un geologo che studia i vulcani di tutto il mondo.  I dati sui vulcani sono archiviati in un account Azure Cosmos DB e i documenti JSON hanno un aspetto simile al documento di esempio seguente.
 
     {
         "Volcano Name": "Rainier",
@@ -72,7 +71,7 @@ In questa esercitazione si immagini di essere un geologo che studia i vulcani di
           "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
 
-Si vogliono recuperare i dati sui vulcani dall'account Cosmos DB e visualizzare dati in un report di Power BI interattivo, come il report seguente.
+Si vogliono recuperare i dati sui vulcani dall'account Azure Cosmos DB e visualizzare dati in un report di Power BI interattivo, come il report seguente.
 
 ![Dopo aver completato questa esercitazione Power BI con il connettore Power BI, sarà possibile visualizzare i dati con il report volcano Power BI Desktop](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
 
@@ -86,11 +85,11 @@ Ecco come fare una prova. Di seguito sono riportati i requisiti iniziali.
    
     ![Visualizzazione report di Power BI Desktop - Connettore Power BI](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
 4. Selezionare **Home** sulla barra multifunzione, quindi fare clic su **Recupera dati**.  Verrà visualizzata la finestra **Recupera dati** .
-5. Fare clic su **Azure**, selezionare **Microsoft Azure DocumentDB (Beta)**, quindi fare clic su **Connetti**. 
+5. Fare clic su **Azure**, selezionare **Azure Cosmos DB (Beta)** e quindi fare clic su **Connetti**. 
 
     ![Recupero di dati in Power BI Desktop - Connettore Power BI](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
-6. Nella pagina **Anteprima connettore** fare clic su **Continua**. Viene visualizzata la finestra **Connetti di Microsoft Azure DocumentDB**.
-7. Specificare l'URL dell'endpoint dell'account Cosmos DB da cui recuperare i dati, come illustrato di seguito, quindi fare clic su **OK**. Per usare il proprio account, è possibile recuperare l'URL dalla casella URI del pannello **[Chiavi](manage-account.md#keys)** del portale di Azure. Per usare l'account demo, immettere `https://analytics.documents.azure.com` come URL. 
+6. Nella pagina **Anteprima connettore** fare clic su **Continua**. Viene visualizzata la finestra **Azure Cosmos DB**.
+7. Specificare l'URL dell'endpoint dell'account Azure Cosmos DB da cui recuperare i dati, come illustrato di seguito, e quindi fare clic su **OK**. Per usare il proprio account, è possibile recuperare l'URL dalla casella URI del pannello **[Chiavi](manage-account.md#keys)** del portale di Azure. Per usare l'account demo, immettere `https://analytics.documents.azure.com` come URL. 
    
     Lasciare vuoti i campi Nome database, Nome raccolta e iItruzione SQL poiché si tratta di campi facoltativi.  Si userà invece lo strumento di navigazione per selezionare il database e la raccolta per identificare la provenienza dei dati.
    
@@ -218,11 +217,11 @@ Per un aggiornamento pianificato, attenersi alla seguente procedura.
 3. Fare clic su **Modifica credenziali**. 
    
     Si apre la finestra popup Configura. 
-4. Immettere la chiave per connettersi all'account Cosmos DB per il set di dati e quindi fare clic su **Accedi**. 
+4. Immettere la chiave per connettersi all'account Azure Cosmos DB per il set di dati e quindi fare clic su **Accedi**. 
 5. Espandere **Pianifica aggiornamento** e impostare la pianificazione desiderata per aggiornare il set di dati. 
 6. Fare clic su **Applica** per completare la configurazione dell'aggiornamento pianificato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni su Power BI, vedere [Introduzione a Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
-* Per altre informazioni su Cosmos DB, vedere la [pagina iniziale della documentazione di Azure Cosmos DB](https://azure.microsoft.com/documentation/services/cosmos-db/).
+* Per altre informazioni su Azure Cosmos DB, vedere la [pagina iniziale della documentazione di Azure Cosmos DB](https://azure.microsoft.com/documentation/services/cosmos-db/).
 

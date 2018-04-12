@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/19/2018
 ms.author: bwren
 ms.openlocfilehash: 37213012e817f0fae21a47a4334a519bbbca206b
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Creare ricerche log in Azure Log Analytics tramite il portale per la ricerca log
 
@@ -30,7 +30,7 @@ Questo articolo include un'esercitazione che descrive come creare ricerche log e
 
 Per creare ricerche nel portale Advanced Analytics anziché nel portale per la ricerca log, vedere [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856587) (Introduzione al portale di Analytics).  Entrambi i portali utilizzano lo stesso linguaggio di query per accedere agli stessi dati nell'area di lavoro di Log Analytics.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 In questa esercitazione si presuppone che sia già disponibile un'area di lavoro di Log Analytics con almeno un'origine connessa che genera dati analizzabili tramite le query.  
 
 - Se l'area di lavoro non è disponibile, è possibile crearne una gratuitamente seguendo la procedura in [Introduzione a un'area di lavoro di Log Analytics](log-analytics-get-started.md).

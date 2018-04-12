@@ -22,11 +22,11 @@ Usage:
 ./install -d <Install Location> -r <MS|MT> -v VmWare -q
 ```
 
-|Parametro|Tipo|Descrizione|Valori possibili|
+|Parametro|type|DESCRIZIONE|Valori possibili|
 |-|-|-|-|
-|-r |Obbligatorio|Specifica se installare il servizio Mobility (MS) o MasterTarget (MT).|MS </br> MT|
+|-r |Mandatory|Specifica se installare il servizio Mobility (MS) o MasterTarget (MT).|MS </br> MT|
 |-d |Facoltativo|Percorso in cui viene installato il servizio Mobility.|/usr/local/ASR|
-|-v|Obbligatorio|Specifica la piattaforma in cui viene installato il servizio Mobility. </br> </br>- **VMware**: usare questo valore se si installa il servizio Mobility in una macchina virtuale in esecuzione su *host VMware vSphere ESXi*, *host Hyper-V* e *server fisici*. </br> - **Azure**: usare questo valore se si installa un agente in una macchina virtuale IaaS di Azure.| VMware </br> Azure|
+|-v|Mandatory|Specifica la piattaforma in cui viene installato il servizio Mobility. </br> </br>- **VMware**: usare questo valore se si installa il servizio Mobility in una macchina virtuale in esecuzione su *host VMware vSphere ESXi*, *host Hyper-V* e *server fisici*. </br> - **Azure**: usare questo valore se si installa un agente in una macchina virtuale IaaS di Azure.| VMware </br> Azure|
 |-q|Facoltativo|Specifica l'esecuzione del programma di installazione in modalità non interattiva.| N/D|
 
 
@@ -38,7 +38,7 @@ cd /usr/local/ASR/Vx/bin
 UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
 ```
 
-|Parametro|Tipo|Descrizione|Valori possibili|
+|Parametro|type|DESCRIZIONE|Valori possibili|
 |-|-|-|-|
-|-i |Obbligatorio|Indirizzo IP del server di configurazione|Qualsiasi indirizzo IP valido|
-|-P |Obbligatorio|Percorso completo del file in cui viene salvata la passphrase di connessione|Qualsiasi cartella valida|
+|-i |Mandatory|Indirizzo IP del server di configurazione|Qualsiasi indirizzo IP valido|
+|-P |Mandatory|Percorso completo del file in cui viene salvata la passphrase di connessione|Qualsiasi cartella valida|

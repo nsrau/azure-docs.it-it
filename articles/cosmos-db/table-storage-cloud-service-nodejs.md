@@ -1,5 +1,5 @@
 ---
-title: 'Archiviazione tabelle di Azure: creare un''app Web Node.js | Microsoft Docs'
+title: "Archiviazione tabelle di Azure: creare un'app Web Node.js | Microsoft Docs"
 description: Esercitazione basata sull'esercitazione per la creazione di un'app Web con Express e in cui vengono aggiunti i servizi di archiviazione di Azure e il modulo di Azure.
 services: cosmos-db
 documentationcenter: nodejs
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: 9acd197c26e6365e396fd8f6321d764bba7bbb6c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 3708c4a1bae93682f81d8aad0f3649f6b2381ff5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Archiviazione tabelle di Azure: applicazione Web Node.js
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/18/2018
 ## <a name="overview"></a>Panoramica
 In questa esercitazione, l'applicazione creata nell'esercitazione [Creazione di un'applicazione Web Node.js usando Express in un servizio cloud di Azure] viene estesa usando le librerie client di Microsoft Azure per Node.js in modo da poter lavorare con i servizi di gestione dati. L'applicazione viene estesa creando un'applicazione elenco di attività basata sul Web che è possibile distribuire in Azure. L'elenco di attività consente a un utente di recuperare le attività, aggiungerne di nuove e contrassegnarle come completate.
 
-Gli elementi attività vengono archiviati in Archiviazione di Azure. Archiviazione di Azure consente l'archiviazione di dati non strutturati, a tolleranza di errore e a disponibilità elevata. Archiviazione di Azure include varie strutture di dati in cui è possibile archiviare i dati e da cui è possibile accedere ad essi. A questo scopo, è possibile usare i servizi di archiviazione delle API incluse in Azure SDK per Node.js o le API REST. Per ulteriori informazioni, vedere [Archiviazione e accesso ai dati in Azure].
+Gli elementi attività vengono archiviati in Archiviazione di Azure o Azure Cosmos DB. Archiviazione di Azure e Azure Cosmos DB consentono l'archiviazione di dati non strutturati, a tolleranza di errore e a disponibilità elevata. Archiviazione di Azure e Azure Cosmos DB includono varie strutture di dati in cui è possibile archiviare i dati e da cui è possibile accedere a essi. A questo scopo, è possibile usare i servizi di archiviazione e di Azure Cosmos DB delle API incluse in Azure SDK per Node.js o le API REST. Per ulteriori informazioni, vedere [Archiviazione e accesso ai dati in Azure].
 
 In questa esercitazione si presume che siano state completate le esercitazioni [Creazione e distribuzione di un'applicazione Node.js a un Servizio cloud di Azure] e [Creazione di un'applicazione Web Node.js usando Express in un servizio cloud di Azure][Creazione di un'applicazione Web Node.js usando Express in un servizio cloud di Azure].
 
@@ -40,7 +40,7 @@ In questo screenshot viene visualizzata l'applicazione completata:
 ![Pagina Web completata in Internet Explorer](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
 ## <a name="setting-storage-credentials-in-webconfig"></a>Impostazione delle credenziali di archiviazione in Web.Config
-Per accedere ad Archiviazione di Azure, è necessario passare le credenziali di archiviazione. Per eseguire questa operazione, è possibile usare le impostazioni dell'applicazione web.config,
+Per accedere ad Archiviazione di Azure o ad Azure Cosmos DB, è necessario passare le credenziali di archiviazione. Per eseguire questa operazione, è possibile usare le impostazioni dell'applicazione web.config,
 che vengono passate a Node come variabili di ambiente e che verranno lette da Azure SDK.
 
 > [!NOTE]
@@ -55,7 +55,7 @@ Eseguire i passaggi seguenti per recuperare le credenziali dell'account di archi
 3. Nella finestra di Azure Powershell immettere il cmdlet seguente per recuperare le informazioni sull'account di archiviazione:
 
     ```powershell
-    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
+    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccount
     ```
 
    Con questo cmdlet viene recuperato l'elenco di account di archiviazione e di chiavi dell'account associati al servizio ospitato.
@@ -144,7 +144,7 @@ In questa sezione, l'applicazione di base creata con il comando **express** vien
     Task.prototype = {
       find: function(query, callback) {
         self = this;
-        self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
+        self.storageClient.queryEntities(this.tablename, query, null, null, function entitiesQueried(error, result) {
           if(error) {
             callback(error);
           } else {
@@ -181,7 +181,7 @@ In questa sezione, l'applicazione di base creata con il comando **express** vien
             callback(error);
           }
           entity.completed._ = true;
-          self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+          self.storageClient.replaceEntity(self.tableName, entity, function entityUpdated(error) {
             if(error) {
               callback(error);
             }
@@ -215,7 +215,7 @@ In questa sezione, l'applicazione di base creata con il comando **express** vien
     TaskList.prototype = {
       showTasks: function(req, res) {
         self = this;
-        var query = azure.TableQuery()
+        var query = new azure.TableQuery()
           .where('completed eq ?', false);
         self.task.find(query, function itemsFound(error, items) {
           res.render('index',{title: 'My ToDo List ', tasks: items});
@@ -224,7 +224,10 @@ In questa sezione, l'applicazione di base creata con il comando **express** vien
 
       addTask: function(req,res) {
         var self = this
-        var item = req.body.item;
+        var item = {
+            name: req.body.name, 
+            category: req.body.category
+        };
         self.task.addItem(item, function itemAdded(error) {
           if(error) {
             throw error;
@@ -307,7 +310,7 @@ In questa sezione, l'applicazione di base creata con il comando **express** vien
             td Category
             td Date
             td Complete
-          if tasks != []
+          if tasks == []
             tr
               td
           else
@@ -325,9 +328,9 @@ In questa sezione, l'applicazione di base creata con il comando **express** vien
       hr
       form.well(action="/addtask", method="post")
         label Item Name:
-        input(name="item[name]", type="textbox")
+        input(name="name", type="textbox")
         label Item Category:
-        input(name="item[category]", type="textbox")
+        input(name="category", type="textbox")
         br
         button.btn(type="submit") Add item
     ```
@@ -339,9 +342,20 @@ Il file **layout.jade** della directory **views** viene usato come modello globa
 
 1. Scaricare ed estrarre i file per [Twitter Bootstrap](http://getbootstrap.com/). Copiare il file **bootstrap.min.css** dalla cartella **bootstrap\\dist\\css** alla directory **public\\stylesheets** dell'applicazione tasklist.
 2. Dalla cartella **views** aprire il file **layout.jade** nell'editor di testo e sostituire il contenuto con quello seguente:
-
-    doctype html  html    head      title= title      link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')      link(rel='stylesheet', href='/stylesheets/style.css')    body.app      nav.navbar.navbar-default        div.navbar-header          a.navbar-brand(href='/') My Tasks      block content
-
+ 
+```jade
+    doctype html
+    html
+      head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+      body.app
+        nav.navbar.navbar-default
+          div.navbar-header
+            a.navbar-brand(href='/') My Tasks
+        block content
+```
 3. Salvare il file **layout.jade**.
 
 ### <a name="running-the-application-in-the-emulator"></a>Esecuzione dell'applicazione nell'emulatore
@@ -414,7 +428,7 @@ Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicaz
    L'eliminazione del servizio può richiedere diversi minuti. Al termine della procedura di eliminazione del servizio, verrà visualizzato un messaggio di conferma dell'eliminazione.
 
 [Creazione di un'applicazione Web Node.js usando Express in un servizio cloud di Azure]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
-[Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Archiviazione e accesso ai dati in Azure]: https://docs.microsoft.com/azure/storage/
 [Creazione e distribuzione di un'applicazione Node.js a un Servizio cloud di Azure]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
 
 

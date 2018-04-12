@@ -1,29 +1,24 @@
 ---
-title: Progettazione di un processo ELT per Azure SQL Data Warehouse | Microsoft Docs
-description: Combinare le tecnologie per lo spostamento di dati in Azure e il caricamento dei dati in SQL Data Warehouse per progettare un processo di estrazione, caricamento e trasformazione (ELT, Extract, Load, Transform) per Azure SQL Data Warehouse.
+title: Progettare un processo ELT anziché ETL per Azure SQL Data Warehouse | Microsoft Docs
+description: Invece di ETL, progettare un processo di estrazione, caricamento e trasformazione (ELT, Extract, Load, Transform) per il caricamento di dati in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
-ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 12/12/2017
-ms.author: cakarst;barbkess
-ms.openlocfilehash: e94dca69c77c46034e318205279be5188e1371f5
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.topic: conceptual
+ms.component: design
+ms.date: 03/28/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: c27ad843c9ee9beed871dcc03254cb1266f6ebe2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Progettazione ELT (Extract, Load, Transform) per Azure SQL Data Warehouse
 
-Combinare le tecnologie per il trasferimento di dati in un archivio di Azure e il caricamento dei dati in SQL Data Warehouse per progettare un processo di estrazione, caricamento e trasformazione (ELT, Extract, Load, Transform) per Azure SQL Data Warehouse. Questo articolo presenta le tecnologie che supportano il caricamento con PolyBase e quindi si concentra sulla progettazione di un processo ELT che usa PolyBase con T-SQL per caricare dati in SQL Data Warehouse da Archiviazione di Azure.
+Invece di un processo ETL, progettare un processo di estrazione, caricamento e trasformazione (ELT, Extract, Load, Transform) per il caricamento di dati in Azure SQL Data Warehouse. Questo articolo presenta alcuni tipi di progettazione di un processo ELT che sposta i dati in un data warehouse di Azure.
 
 ## <a name="what-is-elt"></a>Definizione di ELT
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 03/16/2018
+ms.date: 03/29/2018
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7c51a2a1cace89305b971d5fb0f56c360cbf93cb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f47d250bbe6689e19dda5042b335ff1812a790d4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Esercitazione: Eseguire query in Azure Cosmos DB con l'API di MongoDB
 
@@ -30,6 +30,10 @@ Questo articolo illustra le attività seguenti:
 
 > [!div class="checklist"]
 > * Esecuzione di query sui dati con MongoDB
+
+Per iniziare, guardare questo video con Andy Hoh, Program Manager di Azure Cosmos DB, sull'esecuzione di query in MongoDB:
+
+>[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
 
 ## <a name="sample-document"></a>Documento di esempio
 
@@ -300,7 +304,7 @@ La query seguente restituisce tutte le famiglie in cui la dimensione della matri
 
 **Risultati**
 
-Poiché in nessuna famiglia sono presenti più di 2 figli, non viene restituito alcun risultato. La query avrà esito positivo e restituirà l'intero documento solo quando il parametro è 2.
+Non verranno restituiti risultati perché non ci sono famiglie con più di due figli. La query avrà esito positivo e restituirà l'intero documento solo quando il parametro è 2.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

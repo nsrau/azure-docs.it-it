@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: 889284d9c53f902b7a8443c4622e1c3015630ae0
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 87984859d1f0562149e6700642f7f0a1361d624e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Esercitazione: Analisi del sentiment su dati in streaming con Azure Databricks
 
@@ -113,7 +113,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
 
 Per ricevere un flusso di tweet, è necessario creare un'applicazione in Twitter. Seguire le istruzioni per creare un'applicazione Twitter e registrare i valori necessari per completare questa esercitazione.
 
-1. In un Web browser passare alla [pagina di gestione delle applicazioni Twitter](http://twitter.com/app) e selezionare **Create New App** (Crea nuova app).
+1. In un Web browser passare alla [pagina di gestione delle applicazioni Twitter](https://apps.twitter.com/) e selezionare **Create New App** (Crea nuova app).
 
     ![Creare un'applicazione Twitter](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-twitter-app.png "Creare un'applicazione Twitter")
 
@@ -121,7 +121,7 @@ Per ricevere un flusso di tweet, è necessario creare un'applicazione in Twitter
 
     ![Dettagli dell'applicazione Twitter](./media/databricks-sentiment-analysis-cognitive-services/databricks-provide-twitter-app-details.png "Dettagli dell'applicazione Twitter")
 
-3. Nella pagina dell'applicazione selezionare **Keys and Access Tokens** (Chiavi e token di accesso) e copiare i valori di **Consume Key** (Chiave utente) e **Consumer Secret** (Segreto utente). Selezionare anche **Create my access token** (Crea il mio token di accesso) per generare i token di accesso. Copiare i valori di **Access Token** (Token di accesso) e **Access Token Secret** (Segreto del token di accesso).
+3. Nella pagina dell'applicazione selezionare **Keys and Access Tokens** (Chiavi e token di accesso) e copiare i valori di **Consumer Key** (Chiave utente) e **Consumer Secret** (Segreto utente). Selezionare anche **Create my access token** (Crea il mio token di accesso) per generare i token di accesso. Copiare i valori di **Access Token** (Token di accesso) e **Access Token Secret** (Segreto del token di accesso).
 
     ![Dettagli dell'applicazione Twitter](./media/databricks-sentiment-analysis-cognitive-services/twitter-app-key-secret.png "Dettagli dell'applicazione Twitter")
 

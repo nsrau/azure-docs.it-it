@@ -2,6 +2,7 @@
 |----------|--------------|------------|
 | Servizi di sincronizzazione archiviazione per sottoscrizione | 15 servizi di sincronizzazione archiviazione | No  |
 | Gruppi di sincronizzazione per servizio di sincronizzazione archiviazione | 30 gruppi di sincronizzazione | Sì |
+| Server registrati per servizio di sincronizzazione archiviazione | 99 server | Sì |
 | Endpoint cloud per gruppo di sincronizzazione | 1 endpoint cloud | Sì |
 | Endpoint server per gruppo di sincronizzazione | 50 endpoint server | No  |
 | Endpoint server per server | 33-99 endpoint server | Sì, ma variabile a seconda della configurazione |

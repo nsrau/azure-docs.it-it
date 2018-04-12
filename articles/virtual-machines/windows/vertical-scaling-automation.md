@@ -1,11 +1,11 @@
 ---
-title: "Usare Automazione di Azure per applicare la scalabilità verticale alle macchine virtuali di Windows | Microsoft Docs"
-description: "Applicare la scalabilità verticale a una macchina virtuale Windows in risposta agli avvisi di monitoraggio con Automazione di Azure"
+title: Usare Automazione di Azure per applicare la scalabilità verticale alle macchine virtuali di Windows | Microsoft Docs
+description: Applicare la scalabilità verticale a una macchina virtuale Windows in risposta agli avvisi di monitoraggio con Automazione di Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4f964713-fb67-4bcc-8246-3431452ddf7d
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/29/2016
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea5169c1a95f00e78ae3f5f177812466eb7a0deb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abbbcce2ae72ac77ba6f6c21e626b34bcded7909
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="vertically-scale-windows-vms-with-azure-automation"></a>Applicare la scalabilità verticale a macchine virtuali di Windows con Automazione di Azure
 

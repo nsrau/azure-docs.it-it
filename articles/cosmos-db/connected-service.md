@@ -3,10 +3,8 @@ title: Servizio connesso di Visual Studio per Azure Cosmos DB
 description: Consente agli sviluppatori di connettere facilmente l'account Azure Cosmos DB e di gestire le risorse tramite Servizi connessi di Visual Studio
 services: cosmos-db
 documentationcenter: ''
-author: jejiang
-manager: DJ
-+tags: cosmos-db
-editor: Jenny Jiang
+author: Jejiang
+manager: kfile
 ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB
@@ -16,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: 93be368d34f02e64d11abe9a04b11272ce18124d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d496d80f1d87b234e0c94333b01ad2c23cc037ab
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: servizio connesso di Visual Studio (anteprima)
 

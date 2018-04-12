@@ -1,6 +1,6 @@
 ---
-title: Elemento SizeSelector dell'interfaccia utente dell'applicazione gestita di Azure | Microsoft Docs
-description: Illustra l'elemento Microsoft.Compute.SizeSelector dell'interfaccia utente per le applicazioni gestite di Azure
+title: Elemento SizeSelector dell'interfaccia utente di Azure | Microsoft Docs
+description: Illustra l'elemento Microsoft.Compute.SizeSelector dell'interfaccia utente per il portale di Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 72278b1999f89e5bd5f203794ba3a403a695c933
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 3966de95233f32a09d4799630632c2bb6a490d78
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Elemento Microsoft.Compute.SizeSelector dell'interfaccia utente
-Controllo per la selezione di una dimensione per una o più istanze di macchina virtuale. Usare questo elemento quando si [crea un'applicazione Azure gestita](publish-service-catalog-app.md).
+Controllo per la selezione di una dimensione per una o più istanze di macchina virtuale.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
@@ -67,6 +67,5 @@ Controllo per la selezione di una dimensione per una o più istanze di macchina 
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un'introduzione alle applicazioni gestite, vedere [Panoramica di Applicazione gestita di Azure](overview.md).
 * Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
 * Per una descrizione delle proprietà comuni negli elementi dell'interfaccia utente, vedere [Elementi di CreateUiDefinition](create-uidefinition-elements.md).

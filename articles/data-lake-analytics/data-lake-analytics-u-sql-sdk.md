@@ -2,11 +2,11 @@
 title: Ridimensionare esecuzione e test locali di U-SQL con l'SDK U-SQL di Azure Data Lake | Microsoft Docs
 description: Informazioni su come usare l'SDK U-SQL di Azure Data Lake per ridimensionare l'esecuzione e il test locali di processi U-SQL con le interfacce di programmazione e della riga di comando nella workstation locale.
 services: data-lake-analytics
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
 ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Ridimensionare esecuzione e test locali di U-SQL con l'SDK U-SQL di Azure Data Lake
 

@@ -1,8 +1,8 @@
 ---
-title: "Supporto di Azure Application Insights per più componenti, microservizi e contenitori | Microsoft Docs"
-description: "Monitoraggio di applicazioni costituite da più componenti o ruoli per le prestazioni e l'uso."
+title: Supporto di Azure Application Insights per più componenti, microservizi e contenitori | Microsoft Docs
+description: Monitoraggio di applicazioni costituite da più componenti o ruoli per le prestazioni e l'uso.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 046661bf7903b4e5ea528282ad5170901a45b35c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9b03aff140eec5b355383447f0a815220d6408e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Monitorare le applicazioni multi-componente con Application Insights (anteprima)
 
@@ -42,7 +42,7 @@ Per ottenere una mappa delle applicazioni multi-componente, è necessario raggiu
 
 * **Installare l'ultima versione preliminare** del pacchetto di Application Insights in tutti i componenti dell'applicazione. 
 * **Condividere una singola risorsa di Application Insights** per tutti i componenti dell'applicazione.
-* **Abilitare la mappa delle applicazioni multi-ruolo** nel pannello Anteprime.
+* **Abilitare la mappa delle applicazioni composita** nel pannello Anteprime.
 
 Configurare ogni componente dell'applicazione usando il metodo appropriato per il relativo tipo. ([ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), [JavaScript](app-insights-javascript.md).)
 
@@ -73,9 +73,9 @@ Aggiornare o installare i pacchetti di Application Insights nel progetto per ogn
 ![Copiare la chiave di strumentazione nel file .config](./media/app-insights-monitor-multi-role-apps/copy-instrumentation-key.png)
 
 
-### <a name="3-enable-multi-role-application-map"></a>3. Abilitare la Mappa delle applicazioni multiruolo
+### <a name="3-enable-composite-application-map"></a>3. Abilitare la mappa delle applicazioni composite
 
-Nel portale di Azure aprire la risorsa per l'applicazione. Nel pannello Anteprime abilitare *Mappa delle applicazioni multiruolo*.
+Nel portale di Azure aprire la risorsa per l'applicazione. Sotto l'intestazione secondaria CONFIGURA fare clic su Anteprime per aprire il pannello Anteprime. Nel pannello Anteprime abilitare *Mappa delle applicazioni composite*.
 
 ### <a name="4-enable-docker-metrics-optional"></a>4. Abilitare la metrica di Docker (facoltativo) 
 

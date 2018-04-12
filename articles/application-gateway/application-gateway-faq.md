@@ -1,24 +1,19 @@
 ---
-title: Domande frequenti sul gateway applicazione di Azure | Microsoft Docs
+title: Domande frequenti sul gateway applicazione di Azure
 description: Questa pagina offre risposte alle domande frequenti sul gateway applicazione di Azure
-documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
-ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 3/29/2018
+ms.author: victorh
+ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -38,7 +33,19 @@ Il gateway applicazione è un servizio di bilanciamento del carico di livello 7 
 
 **D. Quali protocolli supporta il gateway applicazione?**
 
-Il gateway applicazione supporta HTTP, HTTPS e WebSocket.
+Il gateway applicazione supporta HTTP, HTTPS, HTTP/2 e WebSocket.
+
+**D. In che modo il gateway applicazione supporta HTTP/2?**
+
+Il supporto del protocollo HTTP/2 è disponibile per i client che si connettono solo a listener di del gateway applicazione. La comunicazione con i pool di server back-end avviene tramite HTTP/1.1. 
+
+Per impostazione predefinita, il supporto di HTTP/2 è disabilitato. Il frammento di codice di esempio seguente, di Azure PowerShell, illustra come abilitarlo:
+
+```
+$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw.EnableHttp2 = $true
+Set-AzureRmApplicationGateway -ApplicationGateway $gw
+```
 
 **D. Quali risorse sono supportate oggi nell'ambito del pool back-end?**
 
@@ -314,7 +321,7 @@ Sono disponibili log di controllo per il gateway applicazione. Nel portale fare 
 
 **D. È possibile impostare avvisi con il gateway applicazione?**
 
-Sì, il gateway applicazione supporta gli avvisi, che vengono configurati in base alle metriche.  Il gateway applicazione ha attualmente una metrica di "velocità effettiva" che può essere configurata per l'invio di avvisi. Per altre informazioni sugli avvisi, vedere [Ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Sì, il gateway applicazione supporta gli avvisi, che vengono configurati in base alle metriche. Il gateway applicazione ha attualmente una metrica di "velocità effettiva" che può essere configurata per l'invio di avvisi. Per altre informazioni sugli avvisi, vedere [Ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 **D. L'integrità back-end restituisce uno stato sconosciuto. Quale potrebbe essere la causa?**
 

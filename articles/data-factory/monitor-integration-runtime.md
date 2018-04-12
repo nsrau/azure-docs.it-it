@@ -2,10 +2,10 @@
 title: Monitoraggio del runtime di integrazione in Azure Data Factory | Documentazione Microsoft
 description: Informazioni su come monitorare diversi tipi di runtime di integrazione in Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: douglasl
-ms.openlocfilehash: 74a4ad6438f9e66331f76e87d20d1eb8b29e8451
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 4c857af02e104940559cb86daa3ccd208d8e35a1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitoraggio di un runtime di integrazione in Azure Data Factory  
 Il **runtime di integrazione** è l'infrastruttura di calcolo usata da Azure Data Factory per fornire varie funzionalità di integrazione di dati in diversi ambienti di rete. Esistono tre tipi di runtime di integrazione offerti da Data Factory:
@@ -162,10 +162,10 @@ Il runtime di integrazione Azure-SSIS è un cluster completamente gestito di mac
 | NodeSize | Le dimensioni di ogni nodo del runtime di integrazione SSIS di Azure. |
 | NodeCount | Il numero di nodi nel runtime di integrazione SSIS di Azure. |
 | MaxParallelExecutionsPerNode | Il numero di esecuzioni parallele per ogni nodo nel runtime di integrazione SSIS di Azure. |
-| CatalogServerEndpoint | L'endpoint del server di istanza gestita/database SQL di Azure esistente per ospitare il database SSIS. |
-| CatalogAdminUserName | Il nome utente amministratore del server di istanza gestita/database SQL di Azure esistente. Il servizio Data Factory utilizza queste informazioni per preparare e gestire il database SSIS per conto dell'utente. |
-| CatalogAdminPassword | La password amministratore del server di istanza gestita/database SQL di Azure esistente. |
-| CatalogPricingTier | Il piano tariffario per il database SSIS ospitato dal server del database SQL di Azure esistente.  Non applicabile all’istanza gestita SQL di Azure che ospita il database SSIS. |
+| CatalogServerEndpoint | L'endpoint del server di istanza gestita/database SQL di Azure (anteprima) esistente per ospitare il database SSIS. |
+| CatalogAdminUserName | Il nome utente amministratore del server di istanza gestita/database SQL di Azure (anteprima) esistente. Il servizio Data Factory utilizza queste informazioni per preparare e gestire il database SSIS per conto dell'utente. |
+| CatalogAdminPassword | La password amministratore del server di istanza gestita/database SQL di Azure (anteprima) esistente. |
+| CatalogPricingTier | Il piano tariffario per il database SSIS ospitato dal server del database SQL di Azure esistente.  Non applicabile all'istanza gestita SQL di Azure (anteprima) che ospita il database SSIS. |
 | VNetId | L’ID della risorsa di rete virtuale (VNet) per aggiungere un runtime di integrazione SSIS di Azure. |
 | Subnet | Il nome della subnet per aggiungere un runtime di integrazione SSIS di Azure. |
 | ID | L’ID di risorsa del runtime di integrazione SSIS di Azure. |
@@ -199,7 +199,7 @@ Vedere gli articoli seguenti per ulteriori informazioni sul runtime di integrazi
 
 - [Runtime di integrazione SSIS di Azure](concepts-integration-runtime.md#azure-ssis-integration-runtime). In questo articolo vengono fornite le informazioni sui runtime di integrazione in generale incluso il runtime di integrazione SSIS di Azure. 
 - [Esercitazione: distribuire i pacchetti SSIS in Azure](tutorial-create-azure-ssis-runtime-portal.md). In questo articolo vengono fornite le istruzioni passo per passo per creare un runtime di integrazione SSIS di Azure e utilizzare un database Azure SQL per ospitare il catalogo SSIS. 
-- [Procedura: come creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md). Questo articolo amplia l'esercitazione e fornisce istruzioni sull'utilizzo dell’istanza gestita di database SQL di Azure (anteprima privata) e sull’aggiunta del runtime di integrazione a un VNet. 
+- [Procedura: come creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md). Questo articolo amplia l'esercitazione e fornisce istruzioni sull'uso dell'istanza gestita di SQL di Azure (anteprima) e sull'aggiunta del runtime di integrazione a una rete virtuale. 
 - [Gestire un runtime di integrazione SSIS di Azure](manage-azure-ssis-integration-runtime.md). In questo articolo viene illustrato come arrestare, avviare o rimuovere un runtime di integrazione SSIS di Azure. Viene inoltre mostrato come scalare orizzontalmente il runtime di integrazione SSIS di Azure aggiungendo più nodi al runtime di integrazione. 
 - [Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale](join-azure-ssis-integration-runtime-virtual-network.md). Questo articolo fornisce informazioni sull'aggiunta di un runtime di integrazione SSIS di Azure a una rete virtuale di Azure (VNet). Indica inoltre i passaggi per usare il portale di Azure per configurare VNet in modo che il runtime di integrazione SSIS di Azure possa essere aggiunto alla rete virtuale. 
 

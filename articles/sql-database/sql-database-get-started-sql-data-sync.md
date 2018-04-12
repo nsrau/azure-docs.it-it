@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 237a34c955f8ef36e25c30a6b13787f6a9296612
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f9318b5baa46ab991b5e72e12a89a25e4f635db3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Impostare l'anteprima di sincronizzazione dati SQL
 In questa esercitazione si imparerà a configurare sincronizzazione dati SQL di Azure creando un gruppo di sincronizzazione ibrido che contiene sia istanze del database SQL di Azure che istanze di SQL Server. Il nuovo gruppo di sincronizzazione ha una configurazione completa ed esegue la sincronizzazione in base alla pianificazione impostata.
@@ -38,6 +38,8 @@ Per esempi di PowerShell completi che illustrano come configurare la sincronizza
     ![Elenco dei database SQL di Azure](media/sql-database-get-started-sql-data-sync/datasync-preview-sqldbs.png)
 
 3.  Nel pagina **Database SQL** selezionare il database SQL esistente da usare come database hub per la sincronizzazione dati. Verrà aperta la pagina Database SQL.
+
+    Il database hub è l'endpoint centrale della topologia di sincronizzazione in cui un gruppo di sincronizzazione ha più endpoint del database. Tutti gli altri endpoint del database nello stesso gruppo di sincronizzazione, ovvero tutti i database membri, eseguono la sincronizzazione con il database hub.
 
 4.  Nella pagina Database SQL per il database selezionato selezionare **Sincronizza con altri database**. Verrà aperta la pagina Sincronizzazione dati.
 
@@ -67,6 +69,8 @@ Per esempi di PowerShell completi che illustrano come configurare la sincronizza
         ![Specificare la frequenza di sincronizzazione](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
 
     4.  Nella sezione **Risoluzione dei conflitti** selezionare "Priorità hub" o "Priorità client".
+
+        "Priorità hub" significa che, quando si verifica un conflitto, i dati nel database hub sovrascrivono i dati in conflitto nel database membro. "Priorità client" significa che, quando si verifica un conflitto, i dati nel database membro sovrascrivono i dati in conflitto nel database hub. 
 
         ![Specificare come vengono risolti i conflitti](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 425310f50cebc920a71090d2017dca2a6c135991
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure
 
@@ -375,27 +375,13 @@ Per creare il servizio di bilanciamento del carico:
 
 1. Tornare al gruppo di risorse di Azure con le macchine virtuali e individuare il nuovo servizio di bilanciamento del carico. Potrebbe essere necessario aggiornare la visualizzazione del gruppo di risorse. Fare clic sul servizio di bilanciamento del carico.
 
-1. Nel pannello del servizio di bilanciamento del carico fare clic su **Pool back-end**.
+1. Fare clic su **Pool back-end** e quindi su **+Aggiungi** per aggiungere un pool back-end.
 
-1. Fare clic su **+ Aggiungi** per aggiungere un pool back-end.
+1. Associare il pool back-end con il set di disponibilità contenente le macchine virtuali.
 
-1. Digitare un nome per il pool back-end.
+1. In **Configurazioni IP della rete di destinazione** selezionare **MACCHINA VIRTUALE** e scegliere le macchine virtuali che parteciperanno come nodi del cluster. Assicurarsi di includere tutte le macchine virtuali che ospiteranno l'istanza del cluster di failover. 
 
-1. Fare clic su **Aggiungi una macchina virtuale**.
-
-1. Nel pannello **Scegliere le macchine virtuali** fare clic su **Scegliere un set di disponibilità**.
-
-1. Scegliere il set di disponibilità in cui sono state inserite le macchine virtuali di SQL Server.
-
-1. Nel pannello **Scegliere le macchine virtuali** fare clic su **Scegliere le macchine virtuali**.
-
-   Il portale di Azure si presenterà come l'immagine seguente:
-
-   ![Creare il back-end del servizio di bilanciamento di carico](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-load-balancer-back-end.png)
-
-1. Fare clic su **Seleziona** nel pannello **Scegliere le macchine virtuali**.
-
-1. Fare clic su **OK** due volte.
+1. Fare clic su **OK** per creare il pool back-end.
 
 ### <a name="configure-a-load-balancer-health-probe"></a>Configurare un probe di integrità per il servizio di bilanciamento del carico
 

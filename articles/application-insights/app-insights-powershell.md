@@ -1,8 +1,8 @@
 ---
 title: Automatizzare Azure Application Insights con PowerShell | Microsoft Docs
-description: "Automatizzare la creazione di risorse, avvisi e test di disponibilità in PowerShell usando un modello di Azure Resource Manager."
+description: Automatizzare la creazione di risorse, avvisi e test di disponibilità in PowerShell usando un modello di Azure Resource Manager.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: f4f9d1558d2ef9dc5e1b7b248ad5bc8753f59cf9
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 46ba4ce992640e8a6d171ab839dd7cdb24e0b404
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Creazione di risorse Application Insights con PowerShell
 L'articolo descrive come automatizzare la creazione e l'aggiornamento di risorse di [Application Insights](app-insights-overview.md) usando Azure Resource Manager. Questo procedimento potrebbe, ad esempio, essere utilizzato come parte di un processo di compilazione. Insieme alla risorsa di base di Application Insights, è possibile creare [test Web di disponibilità](app-insights-monitor-web-app-availability.md), configurare [avvisi](app-insights-alerts.md), impostare lo [schema dei prezzi](app-insights-pricing.md) e creare altre risorse di Azure.
@@ -204,7 +204,7 @@ Per creare una risorsa app con il piano tariffario Enterprise, usando il modello
 * Se si intende usare solo il piano tariffario Basic predefinito, è possibile omettere la risorsa CurrentBillingFeatures dal modello.
 * Se si vuole modificare il piano tariffario dopo la creazione della risorsa dei componenti, è possibile usare un modello non contenente la risorsa "microsoft.insights/components". Omettere anche il nodo `dependsOn` nella risorsa della fatturazione. 
 
-Per verificare il piano tariffario aggiornato, esaminare il pannello "Funzionalità + prezzi" nel browser. **Aggiornare la visualizzazione nel browser** per assicurarsi che venga visualizzato lo stato più recente.
+Per verificare il piano tariffario aggiornato, esaminare il pannello **Utilizzo e costi stimati** nel browser. **Aggiornare la visualizzazione nel browser** per assicurarsi che venga visualizzato lo stato più recente.
 
 
 

@@ -14,7 +14,7 @@
 | Valore | Limite predefinito | Limite massimo |
 | --- | --- | --- |
 | Parametri |256 |256 |
-| Variabili |256 |256 |
+| variables |256 |256 |
 | Risorse (incluso il numero di copie) |800 |800 |
 | Output |64 |64 |
 | Espressione del modello |24.576 caratteri |24.576 caratteri |

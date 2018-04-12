@@ -2,23 +2,17 @@
 title: Decidere quando usare BLOB di Azure, File di Azure o Dischi di Azure
 description: Informazioni sui diversi modi di archiviare e accedere ai dati in Azure per aiutare a decidere quale tecnologia usare.
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 03/28/2018
 ms.author: tamram
-ms.openlocfilehash: b9c7913d1e95693a5ec72b24cf020928d67f0133
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ded0884ff83cc214d78f65fed8cefa646f11d952
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidere quando usare BLOB di Azure, File di Azure o Dischi di Azure
 
@@ -47,9 +41,9 @@ La tabella seguente confronta File di Azure e BLOB di Azure.
 |Endpoint|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Directory|Spazio dei nomi flat|Oggetti directory veri|  
 |Distinzione tra maiuscole e minuscole nei nomi|Fa distinzione tra maiuscole e minuscole.|Non fa distinzione tra maiuscole e minuscole, ma le mantiene così come sono|  
-|Capacity|Contenitori fino a 500 TB|Condivisioni file da 5 TB|  
-|Velocità effettiva|Fino a 60 MB/s per BLOB in blocchi|Fino a 60 MB/s per condivisione|  
-|Dimensioni oggetto|Fino a 200 GB/BLOB in blocchi|Fino a 1 TB/file|  
+|Capacity|Contenitori fino a 500 TiB|Condivisioni file da 5 TiB|  
+|Velocità effettiva|Fino a 60 MiB/s per BLOB in blocchi|Fino a 60 MiB/s per condivisione|  
+|Dimensioni oggetto|Fino a circa 4,75 TiB per BLOB in blocchi|Fino a 1 TiB per file|  
 |Capacità fatturata|In base ai byte scritti|In base alle dimensioni di file|  
 |Librerie client|Supporto di più lingue|Supporto di più lingue|  
   
@@ -68,9 +62,9 @@ La tabella seguente confronta File di Azure e Dischi di Azure.
 |Authentication|Predefinito|Impostato con comando net use|  
 |Pulizia|Automatico|Manuale|  
 |Accesso tramite REST|Non è possibile accedere ai file all'interno del disco rigido virtuale|È possibile accedere ai file archiviati in una condivisione|  
-|Dimensioni massime|Disco di 4 TB|Condivisione file da 5 TB e file da 1 TB nella condivisione|  
+|Dimensioni massime|Disco da 4 TiB|Condivisione file da 5 TiB e file da 1 TiB nella condivisione|  
 |IOPS di 8 KB massimo|500 IOPS|1000 IOps|  
-|Velocità effettiva|Fino a 60 MB/s per disco|Fino a 60 MB/s per condivisione file|  
+|Velocità effettiva|Fino a 60 MiB/s per disco|Fino a 60 MiB/s per condivisione file|  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2018
+ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 23e4b7c74e6dfb88ec6ec50d5b8ae6d8288223f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 434cbdca42e4287a0f3d7e3960bc0baa373bc358
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Raccogliere log attività di Azure in Log Analytics tra sottoscrizioni
 
@@ -324,9 +324,9 @@ Per informazioni dettagliate su ogni passaggio, fare clic sul nome del passaggio
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>Passaggio 5: Visualizzare il log attività di Azure in Log Analytics
 Il passaggio finale consiste per controllare l'area di lavoro di Log Analytics per assicurarsi che i dati vengano raccolti come previsto.
 
-1. Nel portale di Azure selezionare **Log Analytics**.
-2. Selezionare l'area di lavoro e quindi il riquadro **Ricerca log**.
-3. Nella barra delle query di ricerca digitare `AzureActivity_CL` e fare clic sul pulsante di ricerca. Se il log personalizzato non è stato denominato *AzureActivity*, digitare il nome scelto e aggiungere `_CL`.
+1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
+2. Nell'elenco di aree di lavoro di Log Analytics selezionare l'area di lavoro.
+3.  Fare clic sul riquadro **Ricerca log** e nel riquadro Ricerca log digitare `AzureActivity_CL` nel campo della query e quindi premere INVIO o fare clic sul pulsante della ricerca a destra del campo della query. Se il log personalizzato non è stato denominato *AzureActivity*, digitare il nome scelto e aggiungere `_CL`.
 
 >[!NOTE]
 > Quando un nuovo log personalizzato viene inviato per la prima volta a Log Analytics, potrebbe essere necessario attendere fino a un'ora affinché diventi disponibile per la ricerca.

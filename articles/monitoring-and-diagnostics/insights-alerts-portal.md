@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-ms.openlocfilehash: 4acf1f549a6c901fb0b772c4591f1f35d61365ad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b0d938112aaea4d86dd539b53a1749cc800607a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Creare avvisi sulle metriche classici in Monitoraggio di Azure per i servizi di Azure: portale di Azure
 > [!div class="op_single_selector"]
@@ -31,25 +31,25 @@ ms.lasthandoff: 03/23/2018
 ## <a name="overview"></a>Panoramica
 
 > [!NOTE]
-> Questo articolo descrive come creare versioni meno recenti degli avvisi delle metriche. Monitoraggio di Azure supporta ora avvisi delle metriche più recenti e migliori. Questi avvisi possono monitorare più metriche e consentire le segnalazioni sulle metriche dimensionali. Altre informazioni sugli [avvisi delle metriche quasi in tempo reale](monitoring-near-real-time-metric-alerts.md).
+> Questo articolo descrive come creare versioni meno recenti degli avvisi classici delle metriche. Monitoraggio di Azure supporta ora i [nuovi avvisi delle metriche](monitoring-near-real-time-metric-alerts.md). 
 >
 >
 
-Questo articolo descrive come impostare gli avvisi sulle metriche di Azure tramite il portale di Azure. 
+Questo articolo descrive come impostare gli avvisi classici delle metriche di Azure tramite il portale di Azure. 
 
 È possibile ricevere avvisi basati su metriche di monitoraggio o eventi nei servizi Azure.
 
 * **Valori metrici** : l'avviso si attiva quando il valore di una specifica metrica supera una soglia assegnata per eccesso o difetto. Vale a dire che si attiva sia quando la condizione viene inizialmente soddisfatta e successivamente quando tale condizione non è più soddisfatta.    
 * **Eventi del log attività**: è possibile attivare un avviso per *ogni* evento o solo quando si verifica un determinato evento. Altre informazioni sugli [avvisi del log attività](monitoring-activity-log-alerts.md).
 
-È possibile configurare un avviso sulle metriche affinché esegua queste operazioni al momento dell'attivazione:
+È possibile configurare un avviso classico delle metriche affinché esegua queste operazioni al momento dell'attivazione:
 
 * inviare un messaggio di posta elettronica all'amministratore e ai coamministratori del servizio
 * inviare un messaggio di posta elettronica ad altri indirizzi specificati
 * chiamare un webhook
 * avviare l'esecuzione di un runbook di Azure (solo dal portale di Azure)
 
-È possibile configurare e ottenere informazioni sulle regole degli avvisi sulle metriche tramite
+È possibile configurare e ottenere informazioni sulle regole degli avvisi classici delle metriche tramite
 
 * [Portale di Azure](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
@@ -63,7 +63,7 @@ Questo articolo descrive come impostare gli avvisi sulle metriche di Azure trami
 
     ![Monitoraggio](./media/insights-alerts-portal/AlertRulesButton.png)
 
-3. Selezionare il comando **Aggiungi avviso per la metrica** e compilare i campi.
+3. Selezionare il comando **Aggiungi avviso per la metrica (classico)** e compilare i campi.
 
     ![Aggiungi avviso](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 

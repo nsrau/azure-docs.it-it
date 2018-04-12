@@ -2,9 +2,8 @@
 title: 'Unità richiesta e stima della velocità effettiva: Azure Cosmos DB | Microsoft Docs'
 description: Informazioni su come comprendere, specificare e stimare i requisiti relativi alle unità richiesta in Azure Cosmos DB.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: mimig
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
 ms.service: cosmos-db
@@ -12,25 +11,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: mimig
-ms.openlocfilehash: 3679aa76d4a6b9fd6335371e1639f1f246867fa5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.date: 03/30/2018
+ms.author: sngun
+ms.openlocfilehash: ab85591ce4ffadeba4c1336efea0bd6945d46ec3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
-Ora disponibile: [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner) di Azure Cosmos DB. Per altre informazioni, vedere [Stima delle esigenze di velocità effettiva](request-units.md#estimating-throughput-needs).
 
-![Calcolatore della velocità effettiva][5]
-
-## <a name="introduction"></a>Introduzione
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) è il database multimodello distribuito a livello globale di Microsoft. Con Azure Cosmos DB non è necessario affittare macchine virtuali, distribuire software o monitorare database. Azure Cosmos DB è gestito e monitorato costantemente dai migliori tecnici Microsoft, in modo da offrire disponibilità, prestazioni e protezione dei dati di elevata qualità. È possibile accedere ai dati usando le API preferite, ad esempio l'[API SQL](documentdb-introduction.md), l'[API MongoDB](mongodb-introduction.md), l'[API Table](table-introduction.md) e Gremlin tramite l'[API Graph](graph-introduction.md). Tutte queste API sono supportate a livello nativo. La valuta di Azure Cosmos DB è costituita dalle unità richiesta (UR). Con le unità richiesta, non è necessario riservare capacità di lettura/scrittura né effettuare il provisioning di CPU, memoria e operazioni di I/O al secondo.
 
 Azure Cosmos DB supporta una serie di API con operazioni diverse, che vanno dalla semplice lettura e scrittura alle query per grafi più complesse. Poiché non tutte le richieste sono uguali, viene loro assegnata una quantità normalizzata di **unità richiesta** in base alla quantità di calcolo necessaria per servire la richiesta. Il numero di unità richiesta per un'operazione è deterministico ed è possibile tenere traccia del numero di unità richiesta utilizzate da qualsiasi operazione in Azure Cosmos DB tramite un'intestazione della risposta. 
 
-Per prestazioni prevedibili, è necessario riservare una velocità effettiva in unità di 100 UR/secondo. 
+Per prestazioni prevedibili, è necessario riservare una velocità effettiva in unità di 100 UR/secondo. È possibile [eseguire una stima delle esigenze di velocità effettiva](request-units.md#estimating-throughput-needs) usando il [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner) di Azure Cosmos DB.
+
+![Calcolatore della velocità effettiva][5]
 
 Alla fine della lettura, si avranno le risposte alle domande seguenti:  
 
@@ -46,9 +43,9 @@ Azure Cosmos DB offre prestazioni veloci e prevedibili, *riservando* risorse per
 
 Con Azure Cosmos DB, la velocità effettiva riservata è specificata in termini di unità richiesta elaborate al secondo. Si possono considerare le unità richiesta come una specie di valuta della velocità effettiva, secondo cui si *riserva* una quantità garantita di unità richiesta disponibili al secondo per l'applicazione.  Ogni operazione in Azure Cosmos DB, ovvero scrittura di un documento, esecuzione di una query, aggiornamento di un documento, utilizza CPU, memoria e operazioni di I/O al secondo.  In altre parole, ogni operazione comporta un *addebito richiesta* espresso in *unità richiesta*.  La conoscenza dei fattori che influiscono sugli addebiti delle unità richiesta, insieme ai requisiti di velocità effettiva dell'applicazione, consente di eseguire l'applicazione nel modo più economicamente conveniente possibile. Anche Esplora dati nel portale di Azure è un ottimo strumento per testare gli elementi di base di una query.
 
-Per iniziare è consigliabile guardare il video riportato di seguito, in cui Aravind Ramachandran illustra le unità richiesta e le prestazioni prevedibili con Azure Cosmos DB.
+È consigliabile guardare prima di tutto il video seguente, in cui Andrew Liu, Program Manager di Azure Cosmos DB, illustra le unità richiesta.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
+> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
 > 
 

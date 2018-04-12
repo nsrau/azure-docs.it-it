@@ -1,12 +1,12 @@
 ---
-title: Controllare il comportamento di memorizzazione nella cache della rete per la distribuzione di contenuti (CDN) di Azure con regole | Microsoft Docs
-description: "È possibile usare le regole di memorizzazione nella cache della rete CDN o modificare il comportamento predefinito di scadenza della cache a livello globale e con condizioni, ad esempio un percorso URL e le estensioni dei file."
+title: Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole di memorizzazione nella cache | Microsoft Docs
+description: È possibile usare le regole di memorizzazione nella cache della rete CDN o modificare il comportamento predefinito di scadenza della cache a livello globale e con condizioni, ad esempio un percorso URL e le estensioni dei file.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 735978a0986b2b16b4f96faca78c06d798915002
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole
+# <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole di memorizzazione nella cache
 
 > [!NOTE] 
 > Le regole di memorizzazione nella cache sono disponibili solo per la **rete CDN di Azure di Verizon Standard** e la **rete CDN di Azure di Akamai Standard**. Per la **rete CDN di Azure di Verizon Premium** è possibile usare il [motore delle regole della rete CDN di Azure](cdn-rules-engine.md) nel portale a cui si accedere tramite il pulsante **Gestisci** per funzionalità analoghe.
  
-La rete CDN di Azure offre due modi per controllare la modalità di memorizzazione nella cache dei file: 
+La rete per la distribuzione di contenuti (CDN) di Azure offre due modi per controllare la modalità di memorizzazione nella cache dei file: 
 
 - Regole di memorizzazione nella cache: questo articolo descrive come è possibile usare le regole di memorizzazione nella cache della rete CDN o modificare il comportamento predefinito di scadenza della cache a livello globale e con condizioni personalizzate, ad esempio un percorso URL e le estensioni dei file. La rete CDN di Azure offre due tipi di regole di memorizzazione nella cache:
    - Regole di memorizzazione nella cache globali: è possibile impostare una regola di memorizzazione nella cache globale per ogni endpoint nel profilo, che influisce su tutte le richieste all'endpoint. La regola di memorizzazione nella cache globale esegue l'override di eventuali intestazioni di direttive della cache HTTP, se impostate.
@@ -40,11 +40,11 @@ Per informazioni sul comportamento predefinito e sulle intestazioni delle dirett
 Come impostare regole di memorizzazione nella cache della rete CDN:
 
 1. Aprire il portale di Azure, selezionare un profilo della rete CDN e selezionare un endpoint.
-2. Nel riquadro sinistro, in Impostazioni, fare clic su **Regole di memorizzazione nella cache**.
+2. In Impostazioni nel riquadro sinistro selezionare **Regole di memorizzazione nella cache**.
 
    ![Pulsante Regole di memorizzazione nella cache della rete CDN](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
-1. Creare una regola di memorizzazione nella cache globale come segue:
+3. Creare una regola di memorizzazione nella cache globale come segue:
    1. In **Regole di memorizzazione nella cache globali** impostare **Comportamento di memorizzazione nella cache della stringa di query** su **Ignora stringhe di query**.
    2. Impostare **Comportamento di memorizzazione nella cache** su **Imposta se mancante**.
        
@@ -62,10 +62,11 @@ Come impostare regole di memorizzazione nella cache della rete CDN:
 
     ![Regole di memorizzazione nella cache personalizzate](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
+    
 > [!NOTE] 
 > I file memorizzati nella cache prima della modifica di una regola mantengono l'impostazione di durata della cache di origine. Per reimpostare le durate della cache, è necessario [ripulire il file](cdn-purge-endpoint.md). Per gli endpoint della **rete CDN di Azure di Verizon** l'attuazione delle regole di memorizzazione nella cache può richiedere fino a 90 minuti.
 
-## <a name="reference"></a>Riferimenti
+## <a name="reference"></a>riferimento
 
 ### <a name="caching-behavior-settings"></a>Impostazioni del comportamento di memorizzazione nella cache
 Per le regole di memorizzazione nella cache globali e personalizzate, è possibile specificare le impostazioni di **Comportamento di memorizzazione nella cache** seguenti:
