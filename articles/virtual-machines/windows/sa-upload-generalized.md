@@ -1,13 +1,13 @@
 ---
-title: "Caricare un disco rigido virtuale generalizzato per creare più macchine virtuali in Azure | Microsoft Docs"
+title: Caricare un disco rigido virtuale generalizzato per creare più macchine virtuali in Azure | Microsoft Docs
 description: Caricare un disco rigido virtuale generalizzato in un account di archiviazione di Azure per creare una macchina virtuale Windows da usare con il modello di distribuzione di Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: d8c700d7b23f0e86b4a190e3c1f1143d962a8d63
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 28caca06dd756732314f758e6acb4629f857dd91
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Caricare un disco rigido virtuale generalizzato in Azure e creare una nuova macchina virtuale
 

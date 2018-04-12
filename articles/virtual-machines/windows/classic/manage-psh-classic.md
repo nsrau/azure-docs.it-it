@@ -1,11 +1,11 @@
 ---
 title: Gestire le macchine virtuali tramite Azure PowerShell | Microsoft Docs
-description: "Informazioni su comandi che è possibile utilizzare per automatizzare le attività di gestione delle macchine virtuali."
+description: Informazioni su comandi che è possibile utilizzare per automatizzare le attività di gestione delle macchine virtuali.
 services: virtual-machines-windows
 documentationcenter: windows
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: 7cdf9bd3-6578-4069-8a95-e8585f04a394
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
 ms.author: kasing
-ms.openlocfilehash: 88ab031778957f20dd42955c2c1311d731e2f588
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 942141fad09e6233efc7f850212a73f8a39c163c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-your-virtual-machines-by-using-azure-powershell"></a>Gestire le macchine virtuali con Azure PowerShell
 > [!IMPORTANT] 

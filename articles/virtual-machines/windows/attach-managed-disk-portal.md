@@ -2,12 +2,12 @@
 title: Collegare un disco dati gestito a una macchina virtuale Windows - Azure | Microsoft Docs
 description: Come collegare un disco dati gestito nuovo a una macchina virtuale Windows nel portale di Azure tramite il modello di distribuzione di Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 603d1c423ff2039915bdd3d5ed4a79b78d491edc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 14721b2f2bc7913c2b7eadfc5ee801a223201ea9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Collegare un disco dati gestito a una macchina virtuale Windows nel portale di Azure
 

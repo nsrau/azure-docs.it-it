@@ -1,24 +1,19 @@
 ---
 title: Analisi di flusso di Azure in IoT Edge (anteprima)
 description: Creare processi Edge in Analisi di flusso di Azure e distribuirli in dispositivi che eseguono Azure IoT Edge.
-keywords: flusso dei dati, iot, edge
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 01/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 475ca357c8445e8a7c672406f919af1d99a0933b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 01/16/2017
+ms.openlocfilehash: 1c02f8f7b086d0441c2def0e92c54cce72fad85e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Analisi di flusso di Azure in IoT Edge (anteprima)
 
@@ -207,7 +202,7 @@ Per altre informazioni, vedere la [documentazione di Docker per Windows](https:/
 * [Comunicazioni di terze parti per Analisi di flusso di Azure in IoT Edge (anteprima)](https://go.microsoft.com/fwlink/?linkid=862828).
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -2,10 +2,10 @@
 title: Associazione di domande e risposte con Azure Machine Learning Workbench | Microsoft Docs
 description: Come usare diversi metodi di apprendimento automatico efficaci per associare query aperte a coppie di domande frequenti e risposte preesistenti.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: mezmicrosoft
 editor: mezmicrosoft
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -16,10 +16,10 @@ ms.date: 09/15/2017
 ms.author: mez
 manager: tihazen
 ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/05/2018
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Associazione di domande e risposte con Azure Machine Learning Workbench
 È difficile rispondere a domande aperte e spesso a questo scopo è necessario l'intervento di esperti in materia. Per ridurre l'esigenza di ricorrere a esperti in materia interni, le società spesso creano elenchi di domande frequenti come strumento per offrire assistenza agli utenti. Questo esempio mostra diversi metodi di apprendimento automatico efficaci per associare query aperte a coppie di domande frequenti e risposte preesistenti. Questo esempio mostra un semplice processo di sviluppo per creare la soluzione con Azure Machine Learning Workbench. 

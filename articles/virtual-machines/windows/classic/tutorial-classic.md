@@ -2,10 +2,10 @@
 title: Creare una macchina virtuale nel portale di Azure | Documentazione Microsoft
 description: Creare una macchina virtuale di Windows nel portale di Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: 1871f823-ebd7-4eff-9a22-8e2411555595
@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 99a67821ab926983205e2327c428e854d20a0cf5
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 5fd2128ff436d3211f41c7dfdcc4c2b8aabd0eb0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Creare una macchina virtuale con Windows nel portale di Azure
 > [!div class="op_single_selector"]
-> * [Azure portal](tutorial.md)
+> * [Portale di Azure](tutorial.md)
 > * [PowerShell: distribuzione classica](create-powershell.md)
 >
 >

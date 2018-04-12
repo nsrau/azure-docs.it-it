@@ -1,13 +1,13 @@
 ---
 title: Creare immagini di macchine virtuali personalizzate con l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: 'Esercitazione: creare un''immagine di macchina virtuale personalizzata tramite l''interfaccia della riga di comando di Azure.'
+description: "Esercitazione: creare un'immagine di macchina virtuale personalizzata tramite l'interfaccia della riga di comando di Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 297faeb56ac2d4743bfe5887e369be066e91fbd3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 911bb639402fb4577eb5bc3ff5b3096c66806378
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>Creare un'immagine personalizzata di una macchina virtuale di Azure tramite l'interfaccia della riga di comando
 

@@ -2,10 +2,10 @@
 title: Acquisire una VM Linux di Azure da usare come modello | Documentazione Microsoft
 description: Informazioni su come acquisire e "generalizzare" l'immagine di una VM di Azure basata su Linux creata con il modello di distribuzione Azure Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: f990a0da0be7f10dc16aa2e5a6320b456cfffed1
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 71c60c8d29e4db8aab1932a1bece03396a12e4da
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Acquisire una VM Linux in esecuzione su Azure
 Seguire i passaggi descritti in questo articolo per generalizzare e acquisire la macchina virtuale Linux di Azure (VM) nel modello di distribuzione Azure Resource Manager. Quando si generalizza la macchina virtuale, si rimuovono le informazioni sull'account personale e si prepara la macchina virtuale da usare come immagine. Si acquisisce quindi l'immagine di un disco rigido virtuale generalizzato (VHD) per il sistema operativo, i dischi rigidi virtuali per i dischi dati collegati, e un [modello di Resource Manager](../../azure-resource-manager/resource-group-overview.md) per nuove distribuzioni di macchine virtuali. Questo articolo descrive come acquisire un'immagine di macchina virtuale con l'interfaccia della riga di comando di Azure 1.0 tramite i dischi non gestiti. È anche possibile [acquisire una macchina virtuale tramite Azure Managed Disks con l'interfaccia della riga di comando di Azure 2.0 ](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). La funzionalità Managed Disks viene gestita dalla piattaforma Azure e non richiede alcuna pianificazione o alcuna posizione per l'archiviazione. Per altre informazioni, vedere [Azure Managed Disks Overview](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Panoramica di Azure Managed Disks). 

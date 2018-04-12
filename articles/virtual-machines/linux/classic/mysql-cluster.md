@@ -1,11 +1,11 @@
 ---
 title: Creare un cluster MySQL con set con carico bilanciato | Microsoft Docs
-description: "Configurare un cluster MySQL di Linux con bilanciamento del carico e disponibilità elevata creato con il modello di distribuzione classica in Azure"
+description: Configurare un cluster MySQL di Linux con bilanciamento del carico e disponibilità elevata creato con il modello di distribuzione classica in Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: bureado
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 6c413a16-e9b5-4ffe-a8a3-ae67046bbdf3
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.openlocfilehash: 8b39da7b96002e14c7d9a567ddc4f1dbc9d45c60
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e2671def47879e3d4eae000c9084cd458e29b933
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Usare set con bilanciamento del carico per creare un cluster MySQL su Linux
 > [!IMPORTANT]

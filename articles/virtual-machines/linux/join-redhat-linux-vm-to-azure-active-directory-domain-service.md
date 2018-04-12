@@ -4,9 +4,9 @@ description: Come aggiungere una macchina virtuale Red Hat Enterprise Linux 7 es
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2016
 ms.author: v-livech
-ms.openlocfilehash: 2e46a0f3c9bdbe267d121b4bf62e25d5d411fcc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68971372a3c9d9671ccad43db8d7b543d286fc7a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="join-a-redhat-linux-vm-to-an-azure-active-directory-domain-service"></a>Aggiungere una VM RedHat Linux a un servizio di dominio Active Directory di Azure
 

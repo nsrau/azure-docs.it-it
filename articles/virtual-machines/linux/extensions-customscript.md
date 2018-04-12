@@ -1,11 +1,11 @@
 ---
-title: Eseguire script personalizzati nelle macchine virtuali Linux in Azure | Microsoft Docs
-description: "Automatizzare le attività di configurazione delle macchine virtuali Linux usando l'estensione per script personalizzati"
+title: Eseguire script personalizzati nelle macchine virtuali Linux | Microsoft Docs
+description: Automatizzare le attività di configurazione delle macchine virtuali Linux usando l'estensione script personalizzata
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: cf17ab2b-8d7e-4078-b6df-955c6d5071c2
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 53adef0f512c54e036a981dbaa0d08453db6b194
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: 88f337df14b7e2647a76cce7ef91ec6f8950bbc6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure con macchine virtuali Linux
 L'estensione per script personalizzati scarica ed esegue script sulle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o altre attività di configurazione o gestione. È possibile scaricare gli script da Archiviazione di Azure, o da un altro percorso Internet accessibile, oppure è possibile fornirli al runtime dell'estensione. 
@@ -29,7 +29,7 @@ L'estensione per script personalizzati è integrabile con i modelli di Azure Res
 Questo articolo descrive come usare l'estensione per script personalizzati dall'interfaccia della riga di comando di Azure ed eseguire l'estensione usando un modello di Azure Resource Manager. Sono inoltre illustrate le procedure di risoluzione dei problemi per i sistemi Linux.
 
 ## <a name="extension-configuration"></a>Configurazione dell'estensione
-La configurazione dell'estensione per script personalizzati specifica informazioni come il percorso dello script e il comando da eseguire. È possibile archiviare queste informazioni in file di configurazione, specificarle sulla riga di comando o definirle in un modello di Azure Resource Manager. 
+La configurazione dell'estensione script personalizzata specifica informazioni come il percorso dello script e il comando da eseguire. È possibile archiviare queste informazioni in file di configurazione, specificarle sulla riga di comando o definirle in un modello di Azure Resource Manager. 
 
 I dati sensibili possono essere archiviati in una configurazione protetta, che viene crittografata e decrittografata solo all'interno della macchina virtuale. La configurazione protetta è utile quando il comando di esecuzione include segreti, ad esempio una password.
 
@@ -210,7 +210,7 @@ az vm extension set --resource-group myResourceGroup --vm-name myVM --name custo
 
 Per un esempio completo, vedere la [demo .NET Music Store](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 Quando viene eseguita l'estensione per script personalizzati, lo script viene creato o scaricato in una directory simile all'esempio seguente. Anche l'output del comando viene salvato in questa directory, nei file `stdout` e `stderr`.
 
 ```bash

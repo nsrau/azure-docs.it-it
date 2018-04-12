@@ -2,18 +2,18 @@
 title: App Azure SaaS SQL con indicizzazione dei video | Microsoft Docs
 description: Questo articolo indicizza varie posizioni temporali nel nostro video di 81 minuti sulla progettazione dell'app di tenancy DB SaaS, dalla conferenza Ignite che si è tenuta l'11 ottobre 2017. È possibile passare direttamente alla parte di interesse. Vengono descritti almeno 3 criteri. Vengono descritte le funzionalità di Azure che semplificano lo sviluppo e la gestione.
 services: sql-database
-ms.date: 12/06/2017
+ms.date: 04/01/2018
 ms.service: sql-database
 ms.reviewer: billgib
 ms.topic: article
 author: MightyPen
 ms.author: genemi
 manager: craigg
-ms.openlocfilehash: 0d9182abda03aef3ffe35e10114fa045d8b0ca74
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7dcd4681833f227f32534ae3053b7b482bb813bc
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>Annotazioni e indicizzazione dei video per l'app SaaS multi-tenant con il database SQL di Azure
 

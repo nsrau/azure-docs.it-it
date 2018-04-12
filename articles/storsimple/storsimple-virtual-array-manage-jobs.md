@@ -1,11 +1,11 @@
 ---
 title: Visualizzare e gestire i processi dell'array virtuale StorSimple | Documentazione Microsoft
-description: "Descrive la pagina Processi del servizio Gestione dispositivi StorSimple e illustra come è possibile tenere traccia dei processi recenti e correnti per l'array virtuale StorSimple."
+description: Descrive la pagina Processi del servizio Gestione dispositivi StorSimple e illustra come è possibile tenere traccia dei processi recenti e correnti per l'array virtuale StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 31879821-b599-4609-a7f4-d4b0f658a933
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: 3fd1c262a8ce94d8e98f2b066a8028d974b15b1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare i processi per l'array virtuale StorSimple
 ## <a name="overview"></a>Panoramica

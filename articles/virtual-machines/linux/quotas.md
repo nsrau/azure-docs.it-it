@@ -1,12 +1,12 @@
 ---
 title: Quote vCPU per Azure | Documentazione Microsoft
 description: Informazioni sulle quote vCPU per Azure.
-keywords: 
+keywords: ''
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: Drewm3
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
 ms.author: drewm
-ms.openlocfilehash: 8b99fd92d9031b7172e698cf5db1f776387bdfb9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a4e0bbe1c6d9b121dfb422934cdd67ff19f80482
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quote vCPU delle macchine virtuali
 

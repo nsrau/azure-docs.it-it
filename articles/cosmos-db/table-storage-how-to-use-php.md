@@ -14,11 +14,11 @@ ms.devlang: php
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: mimig
-ms.openlocfilehash: 64ce8206b4b0ab3c831417d6e478f9c059188345
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 69fa1f8f9717d1ea4ca5081a45317cff8d752809
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Come usare il servizio Tabella di archiviazione di Azure o l'API del servizio tabelle di Cosmos DB da PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -435,9 +435,6 @@ Il metodo **TableRestProxy->batch** consente di eseguire più operazioni in una 
 * **addDeleteEntity** (per aggiungere un'operazione deleteEntity)
 
 L'esempio seguente illustra come eseguire le operazioni **insertEntity** e **deleteEntity** in una sola richiesta. 
-
-> [!NOTE]
-> Azure Cosmos DB non supporta ancora le operazioni batch per le tabelle. 
 
 ```php
 require_once 'vendor/autoload.php';

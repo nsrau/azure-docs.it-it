@@ -2,12 +2,12 @@
 title: Sincronizzare gli utenti di Azure Active Directory con un cluster - Azure HDInsight | Microsoft Docs
 description: Sincronizzare gli utenti autenticati da Azure Active Directory in un cluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
@@ -17,16 +17,16 @@ ms.workload: big-data
 ms.date: 01/19/2018
 ms.author: ashishth
 ms.openlocfilehash: ad1586a6e358dfb1ca2391474ecdd9bee2f6226d
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizzare gli utenti di Azure Active Directory con un cluster HDInsight
 
 I [cluster HDInsight aggiunti al dominio](hdinsight-domain-joined-introduction.md) possono usare l'autenticazione avanzata con gli utenti di Azure Active Directory (Azure AD) e criteri di *controllo degli accessi in base al ruolo*. Quando si aggiungono utenti e gruppi ad Azure AD, è possibile sincronizzare gli utenti che richiedono l'accesso al cluster.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Se non è stato già fatto, [creare un cluster HDInsight aggiunto al dominio](hdinsight-domain-joined-configure.md).
 
@@ -152,7 +152,7 @@ Aprire l'[interfaccia utente Web di Ambari](hdinsight-hadoop-manage-ambari.md) p
 
 Quando il nuovo utente (o qualsiasi altro utente di dominio) accede ad Ambari, usa le credenziali complete di nome utente e dominio di Azure AD.  Ambari visualizza un alias dell'utente, ovvero il nome visualizzato dell'utente in Azure AD. Il nuovo utente di esempio ha il nome utente `hiveuser3@contoso.com`. In Ambari, il nuovo utente viene visualizzato come `hiveuser3` ma l'utente accede ad Ambari come `hiveuser3@contoso.com`.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 * [Configurare criteri Hive in HDInsight aggiunto al dominio](hdinsight-domain-joined-run-hive.md)
 * [Gestire i cluster HDInsight aggiunti al dominio](hdinsight-domain-joined-manage.md)
