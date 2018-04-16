@@ -1,11 +1,11 @@
 ---
 title: Creare un'app ASP.NET in Azure con un database SQL | Microsoft Docs
-description: "Informazioni su come ottenere un'app ASP.NET che è possibile usare in Azure con connessione a un database SQL."
+description: Informazioni su come ottenere un'app ASP.NET che è possibile usare in Azure con connessione a un database SQL.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bd5aa5186bdec84e1943887ef0980fa50cd26324
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72bc8e95e5b77baec29247f5593a522bbe663368
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Creare un'app ASP.NET in Azure con un database SQL
+# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Esercitazione: Creare un'app ASP.NET in Azure con un database SQL
 
 Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione. Questa esercitazione illustra come distribuire un'app Web ASP.NET basata sui dati in Azure e connetterla al [database SQL di Azure](../sql-database/sql-database-technical-overview.md). Al termine sarà disponibile un'applicazione ASP.NET in esecuzione in Azure e connessa al database SQL.
 
@@ -48,6 +48,8 @@ Per completare questa esercitazione:
   - **Sviluppo di Azure**
 
   ![Sviluppo Web e ASP.NET e sviluppo di Azure (in Web e Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+
+Se Visual Studio è già stato installato, aggiungere i carichi di lavoro in Visual Studio facendo clic su **Strumenti** > **Ottieni strumenti e funzionalità**.
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 

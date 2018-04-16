@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a6ff5ebdf678972c686c972fd03041b362c1ff81
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6fa1deb8e7a1a7ddd28583b6df7bad9df57738ed
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Esercitazione: Creare e usare un'immagine personalizzata per i set di scalabilità di macchine virtuali con Azure PowerShell
 Quando si crea un set di scalabilità, si specifica un'immagine da usare quando vengono distribuite le istanze di macchina virtuale. Per ridurre il numero di attività dopo la distribuzione delle istanze di macchina virtuale, è possibile usare un'immagine di VM personalizzata. Questa immagine di VM personalizzata include le installazioni o le configurazioni delle applicazioni necessarie. Le istanze di macchina virtuale create nel set di scalabilità usano l'immagine di VM personalizzata e sono pronte per gestire il traffico delle applicazioni. In questa esercitazione si apprenderà come:
@@ -39,6 +39,10 @@ Se si sceglie di installare e usare PowerShell in locale, per questa esercitazio
 
 
 ## <a name="create-and-configure-a-source-vm"></a>Creare e configurare una macchina virtuale di origine
+
+>[!NOTE]
+> Questa esercitazione illustra in modo dettagliato il processo di creazione e di uso di un'immagine di macchina virtuale generalizzata. Non è supportata la creazione di un set di scalabilità da un'immagine di macchina virtuale specializzata.
+
 Creare prima un gruppo di risorse con il comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup), quindi creare una VM con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Questa macchina virtuale viene quindi usata come origine per un'immagine di macchina virtuale personalizzata. L'esempio seguente crea una VM denominata *myCustomVM* nel gruppo di risorse denominato *myResourceGroup*. Quando richiesto, immettere un nome utente e una password da usare come credenziali di accesso per la macchina virtuale:
 
 ```azurepowershell-interactive

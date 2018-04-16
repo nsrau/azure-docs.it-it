@@ -6,7 +6,7 @@ documentationcenter: Java
 author: bbenz
 manager: jeffsand
 editor: jasonwhowell
-ms.assetid: 
+ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 2df08c8e3dbadbfc1a9d2cfb3adcda4f5bae2851
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0712035f317adb318d60285637526f951bf5bdec
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-java-and-mysql-web-app-in-azure"></a>Creare un'app Web Java e MySQL in Azure
+# <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Esercitazione: Creare un'app Web Java e MySQL in Azure
 
 > [!NOTE]
 > Questo articolo consente di distribuire un'app nel servizio app in Windows. Per la distribuzione nel servizio app in _Linux_, vedere l'articolo su come [distribuire un'app Spring Boot in contenitore in Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
@@ -137,7 +137,7 @@ Per visualizzare i possibili valori utilizzabili per `--location`, usare il coma
 
 ### <a name="create-a-mysql-server"></a>Creare un server MySQL
 
-In Cloud Shell creare un server in Database di Azure per MySQL (anteprima) con il comando [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create). Sostituire il segnaposto `<mysql_server_name>` con il nome univoco del proprio server MySQL. Questo nome fa parte del nome host del server MySQL, `<mysql_server_name>.mysql.database.azure.com`, pertanto deve essere univoco a livello globale. Sostituire anche `<admin_user>` e `<admin_password>` con i valori desiderati.
+In Cloud Shell creare un server in Database di Azure per MySQL con il comando [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create). Sostituire il segnaposto `<mysql_server_name>` con il nome univoco del proprio server MySQL. Questo nome fa parte del nome host del server MySQL, `<mysql_server_name>.mysql.database.azure.com`, pertanto deve essere univoco a livello globale. Sostituire anche `<admin_user>` e `<admin_password>` con i valori desiderati.
 
 ```azurecli-interactive
 az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
@@ -168,7 +168,7 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 ```
 
 > [!NOTE]
-> Database di Azure per MySQL (anteprima) per il momento non consente di abilitare automaticamente le connessioni dai servizi di Azure. Poiché gli indirizzi IP in Azure vengono assegnati dinamicamente, per il momento è preferibile abilitarli tutti. Il servizio è ancora in anteprima, ma presto verranno abilitati metodi migliori per la protezione del database.
+> Database di Azure per MySQL per il momento non consente di abilitare automaticamente le connessioni dai servizi di Azure. Poiché gli indirizzi IP in Azure vengono assegnati dinamicamente, per il momento è preferibile abilitarli tutti. Verranno abilitati metodi migliori per la protezione del database.
 
 ## <a name="configure-the-azure-mysql-database"></a>Configurare il database MySQL di Azure
 

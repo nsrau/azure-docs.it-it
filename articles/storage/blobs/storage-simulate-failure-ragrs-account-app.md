@@ -10,11 +10,11 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 0e7ab68075fbce729d3905375acce0dace22c483
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a86f54d580db6e577b878cb1701c7b969d23c129
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Simulare un errore nell'accesso all'archiviazione con ridondanza e accesso in lettura
 
@@ -179,9 +179,9 @@ Nella seconda parte della serie si è appreso come simulare un errore per testar
 > * Simulare un errore con [Fiddler](#simulate-a-failure-with-fiddler) o una [route statica non valida](#simulate-a-failure-with-an-invalid-static-route) 
 > * Simulare il ripristino di un endpoint primario
 
-Fare clic sul collegamento per visualizzare esempi di archiviazione predefiniti.
+Per altre informazioni sul funzionamento dell'archiviazione con ridondanza geografica e accesso in lettura e sui rischi associati, vedere l'articolo seguente.
 
 > [!div class="nextstepaction"]
-> [Esempi di script di archiviazione di Azure](storage-samples-blobs-cli.md)
+> [Progettazione di applicazioni a disponibilità elevata con RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md)
 
 [previous-tutorial]: storage-create-geo-redundant-storage.md

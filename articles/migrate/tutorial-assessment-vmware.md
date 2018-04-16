@@ -7,11 +7,11 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bbd08637894c43c543aeb8236f515e5ed9c5fc19
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: d70b4ea2d45c38fa53ab3c00f76c00ef6f3d7663
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Individuare e valutare le macchine virtuali VMware locali per la migrazione ad Azure
 
@@ -84,7 +84,15 @@ Verificare che il file con estensione ova sia sicuro prima di distribuirlo.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Il valore hash generato deve corrispondere a queste impostazioni.
+    
+    Per OVA versione 1.0.9.7
 
+    **Algoritmo** | **Valore hash**
+    --- | ---
+    MD5 | d5b6a03701203ff556fa78694d6d7c35
+    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
+    
     Per OVA versione 1.0.9.5
 
     **Algoritmo** | **Valore hash**
@@ -151,7 +159,7 @@ Importare il file scaricato nel server vCenter.
     - Se la macchina virtuale accede a Internet tramite un proxy, fare clic su **Proxy settings** (Impostazioni proxy) e specificare l'indirizzo e la porta di ascolto del proxy. Se il proxy richiede l'autenticazione, specificare le credenziali.
 
     > [!NOTE]
-    > L'indirizzo proxy deve essere immesso nel formato http://ProxyIPAddress o http://ProxyFQDN. È supportato solo il proxy HTTP.
+    > È necessario immettere l'indirizzo proxy nel formato http://ProxyIPAddress o http://ProxyFQDN. È supportato solo il proxy HTTP.
 
     - L'agente di raccolta verifica che il servizio dell'agente di raccolta sia in esecuzione. Il servizio è installato per impostazione predefinita nella macchina virtuale dell'agente di raccolta.
     - Scaricare e installare VMware PowerCLI.

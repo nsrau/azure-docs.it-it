@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: de20dae10ae6b43adcbc5040a8a71ba5650bafec
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9694dcfec7b3297e925bb45bee5e74b69609063d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-python-and-postgresql-web-app-in-azure"></a>Creare un'app Web Python e PostgreSQL in Azure
+# <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>Esercitazione: Creare un'app Web Python e PostgreSQL in Azure
 
 > [!NOTE]
 > Questo articolo consente di distribuire un'app nel servizio app in Windows. Per la distribuzione nel servizio app in _Linux_, vedere [Compilare un'app Web Python Docker e PostgreSQL in Azure](./containers/tutorial-docker-python-postgresql-app.md).
@@ -226,7 +226,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Passare a http://localhost:5000 in un browser. Fare clic su **Registra!** e creare una registrazione test. I dati vengono ora scritti nel database in Azure.
+Andare a http://localhost:5000 in un browser. Fare clic su **Registra!** e creare una registrazione test. I dati vengono ora scritti nel database in Azure.
 
 ![Applicazione Python Flask in esecuzione in locale](./media/app-service-web-tutorial-python-postgresql/local-app.png)
 

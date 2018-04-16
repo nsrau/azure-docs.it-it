@@ -47,7 +47,7 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
         - Se si sceglie **File**, selezionare **Risorsa**, **Nomi delle condivisioni file** (facoltativo) e **Piano di supporto** ![Scegliere File](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
     4. Fare clic su **Avanti**.
 
-3. In **Nuova richiesta di supporto** selezionare **Step 2 Problem** (Passaggio 2 - Problema). In **Problema** seguire questa procedura:
+3. In **Nuova richiesta di supporto** selezionare **Passaggio 2 - Problema**. In **Problema** seguire questa procedura:
     
     1. Come **Gravità** scegliere **C - Impatto minimo**. Se necessario, il supporto eseguirà un aggiornamento.
     2. Come **Tipo di problema** selezionare **Migrazione dei dati**.
@@ -60,10 +60,10 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 
        ![Problema](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
 
-4. In **Nuova richiesta di assistenza** fare clic su **Step 3 Contact information** (Passaggio 3 - Informazioni di contatto). In **Informazioni contatto** seguire la procedura seguente:
+4. In **Nuova richiesta di supporto** fare clic su **Passaggio 3 - Informazioni contatto**. In **Informazioni contatto** seguire la procedura seguente:
 
     1. In **Opzioni contatti**, fornire il metodo di contatto preferito (telefono o posta elettronica) e la lingua. Il tempo di risposta viene selezionato automaticamente in base al piano di sottoscrizione.
-    2. In Informazioni di contatto specificare nome, posta elettronica, contatto facoltativo, paese. Selezionare la casella di controllo **Save contact changes for future support requests** (Salva modifiche di contatto per le richieste di supporto future).
+    2. In Informazioni di contatto specificare nome, posta elettronica, contatto facoltativo, paese. Selezionare la casella di controllo **Salvare le modifiche apportate al contatto per le richieste di supporto future**.
     3. Fare clic su **Crea**.
    
         ![Informazioni contatto](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   

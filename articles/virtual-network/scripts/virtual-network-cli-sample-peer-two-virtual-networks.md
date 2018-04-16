@@ -10,20 +10,20 @@ tags: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: 244d7f6ff64643386c417d708f7fb1e9bbc34209
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: feab9f518076938ed20396319ceb1d5badb9eb8f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="peer-two-virtual-networks"></a>Eseguire il peering di due reti virtuali
+# <a name="peer-two-virtual-networks-script-sample"></a>Esempio di script per il peering di due reti virtuali
 
-Questo script consente di creare e connettere due reti virtuali nella stessa area usando la rete di Azure. Dopo aver eseguito lo script, sarà presente un peering tra due reti virtuali.
+Questo esempio di script consente di creare e connettere due reti virtuali nella stessa area usando la rete di Azure. Dopo aver eseguito lo script, sarà presente un peering tra due reti virtuali.
 
 È possibile eseguire lo script da Azure [Cloud Shell](https://shell.azure.com/bash) o da un'installazione locale dell'interfaccia della riga di comando di Azure. Se si usa l'interfaccia della riga di comando in locale, per questo script è necessaria la versione 2.0.28 o successiva. Per trovare la versione installata, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
 

@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 8d9b0fcc8b72f947cbc64c6ac9a428ac29f8dfd2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b872153278810ce92f19c7c71fe473a2b77def35
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Guida introduttiva: Onboarding di computer Windows su Centro sicurezza
 Dopo l'onboarding delle sottoscrizioni di Azure, è possibile abilitare il Centro sicurezza per le risorse in esecuzione all'esterno di Azure, ad esempio in locale o in altri cloud, effettuando il provisioning di Microsoft Monitoring Agent.
@@ -62,7 +62,7 @@ Ora è necessario installare il file scaricato nel computer di destinazione.
 2. Nella pagina di **benvenuto** selezionare **Avanti**.
 3. Nella pagina **Condizioni di licenza** leggere la licenza e quindi fare clic su **Accetto**.
 4. Nella pagina **Cartella di destinazione** modificare o mantenere la cartella di installazione predefinita e quindi scegliere **Avanti**.
-5. Nella pagina **Opzioni di installazione dell'agente** scegliere di connettere l'agente ad Azure Log Analytics (OMS) e quindi scegliere **Avanti**.
+5. Nella pagina **Opzioni di installazione dell'agente** scegliere di connettere l'agente ad Azure Log Analytics e quindi selezionare **Avanti**.
 6. Nella pagina **Azure Log Analytics** incollare l'**ID area di lavoro** e la **chiave dell'area di lavoro (chiave primaria)** copiati nel Blocco note nella procedura precedente.
 7. Se il computer deve fare riferimento a un'area di lavoro di Log Analytics nel cloud di Azure per enti pubblici, selezionare **Azure per enti pubblici statunitensi** nell'elenco a discesa **Cloud di Azure**.  Se il computer deve comunicare tramite un server proxy con il servizio Log Analytics, scegliere **Avanzate** e specificare l'URL e il numero di porta del server proxy.
 8. Scegliere **Avanti** dopo aver specificato le impostazioni di configurazione necessarie.

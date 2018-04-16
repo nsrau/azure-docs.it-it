@@ -7,11 +7,11 @@ ms.topic: overview
 ms.date: 03/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 857dab5474cba24445daf7d139ae49d923038196
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8f6c2c54dd20b663eb43c716a2bd82310cf0256a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -30,7 +30,7 @@ Azure Migrate consente di eseguire le operazioni seguenti.
 
 - Attualmente è possibile valutare solo macchine virtuali (VM) VMware locali per la migrazione a VM di Azure. Le VM VMware devono essere gestite dal server vCenter (versione 5.5, 6.0 o 6.5).
 - Il supporto per Hyper-V è disponibile nella nostra roadmap. Nel frattempo, per pianificare la migrazione di carichi di lavoro Hyper-V è consigliabile usare [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc). 
-- È possibile individuare fino a 1000 VM in una singola individuazione e fino a 1500 VM in un singolo progetto. È inoltre possibile valutare fino a 400 VM in una singola valutazione. Se è necessario individuarne o valutarne di più, si può aumentare il numero di individuazioni o valutazioni. [Altre informazioni](how-to-scale-assessment.md).
+- È possibile individuare fino a 1500 VM in una singola individuazione e fino a 1500 VM in un singolo progetto. È inoltre possibile valutare fino a 1500 VM in una singola valutazione.
 - È possibile creare un progetto Azure Migrate solo nell'area Stati Uniti centro-occidentali o Stati Uniti orientali. Ciò non impedisce, tuttavia, di pianificare una migrazione per una diversa località di Azure di destinazione. La località del progetto di migrazione viene usata solo per l'archiviazione dei metadati individuati nell'ambiente locale.
 - Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione.
 

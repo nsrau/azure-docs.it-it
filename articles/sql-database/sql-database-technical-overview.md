@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.topic: overview
 ms.date: 03/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 7a06ed8433ebcf728c7b090f5e984d4e3ebeb846
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a3b703c96e309294e5327fb7fb013cbf28c369e4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Informazioni sul servizio database SQL di Azure 
 
-Il database SQL è un servizio gestito di database relazionale per utilizzo generico in Microsoft Azure che supporta strutture come dati relazionali, JSON, dati spaziali e XML. Il database SQL offre [database SQL singoli](sql-database-servers-databases.md) gestiti, database SQL gestiti in un [pool elastico](sql-database-elastic-pool.md) e istanze gestite di SQL, denominate [Istanza gestita di database SQL](sql-database-managed-instance.md) (in anteprima pubblica). Questo servizio offre [prestazioni con scalabilità dinamica](sql-database-service-tiers.md) e opzioni come gli [indici columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) per funzionalità di analisi e report avanzatissime e [OLTP in memoria](sql-database-in-memory.md) per l'elaborazione XTP (Extreme Transaction Processing). Microsoft gestisce agevolmente tutte le operazioni di applicazione di patch e aggiornamento della base di codice SQL, rimuovendo tutte le attività di gestione dell'infrastruttura sottostante. 
+Il database SQL è un servizio gestito di database relazionale per utilizzo generico in Microsoft Azure che supporta strutture come dati relazionali, JSON, dati spaziali e XML. Il database SQL offre [database SQL singoli](sql-database-servers-databases.md) gestiti, database SQL gestiti in un [pool elastico](sql-database-elastic-pool.md) e [istanze gestite](sql-database-managed-instance.md) di SQL (in anteprima pubblica). Questo servizio offre [prestazioni con scalabilità dinamica](sql-database-service-tiers.md) e opzioni come gli [indici columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) per funzionalità di analisi e report avanzatissime e [OLTP in memoria](sql-database-in-memory.md) per l'elaborazione XTP (Extreme Transaction Processing). Microsoft gestisce agevolmente tutte le operazioni di applicazione di patch e aggiornamento della base di codice SQL, rimuovendo tutte le attività di gestione dell'infrastruttura sottostante. 
 
 Il database SQL condivide la base di codice con il [motore di database di Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). In linea con la strategia Microsoft incentrata sul cloud, le funzionalità più recenti di SQL Server vengono rilasciate prima al database SQL e poi a SQL Server. Questo approccio significa avere la possibilità di usare le funzionalità di SQL Server più nuove senza sovraccarico per l'applicazione di patch o gli aggiornamenti, oltre al vantaggio che le nuove funzionalità sono testate in milioni di database. Per informazioni sulle nuove funzionalità annunciate, vedere:
 
@@ -41,9 +41,13 @@ Con Istanza gestita di database SQL, ogni istanza è isolata dalle altre con ris
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Regolare le prestazioni e scalabilità senza tempi di inattività
 
-Per il database SQL sono disponibili tre livelli di servizio che supportano carichi di lavoro da leggeri a pesanti: Basic, Standard e Premium. È possibile creare la prima app in un singolo database di piccole dimensioni per un costo mensile conveniente e quindi modificare il livello di servizio manualmente o a livello di codice in qualsiasi momento per soddisfare le esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
+Il database SQL offre un [modello di acquisto basato su DTU](sql-database-service-tiers.md#dtu-based-purchasing-model) o il [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). 
+- Il modello di acquisto basato su DTU offre un insieme di risorse di calcolo, memoria e I/O in tre livelli di servizio per supportare carichi di lavoro di database da leggeri a pesanti: Basic, Standard e Premium. I livelli delle prestazioni di ogni livello forniscono una diversa combinazione di queste risorse, a cui è possibile aggiungere altre risorse di archiviazione.
+- Il modello di acquisto basato su vCore consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione.
 
-   ![scalabilità](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+È possibile creare la prima app in un singolo database di piccole dimensioni per un costo mensile conveniente e quindi modificare il livello di servizio manualmente o a livello di codice in qualsiasi momento per soddisfare le esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
+
+   ![Ridimensionamento DTU](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 Istanza gestita di database SQL è in anteprima e offre un unico livello di servizio. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL](sql-database-managed-instance.md).
 
@@ -64,7 +68,7 @@ In entrambi i casi, ovvero database singoli o database nel pool, sono disponibil
 
 ### <a name="extensive-monitoring-and-alerting-capabilities"></a>Funzionalità complete di monitoraggio e avviso
 
-In che modo è possibile confrontare le prestazioni relative dei database singoli e dei pool elastici? Come si conosce il giusto arresto quando si connette e si disconnette? È possibile usare il [monitoraggio predefinito delle prestazioni](sql-database-performance.md) e gli strumenti relativi agli [avvisi](sql-database-insights-alerts-portal.md), insieme alle valutazioni delle prestazioni in base a [Unità di transazione di database (DTU) per database singoli e unità di transazione di database elastico (eDTU) per pool elastici](sql-database-what-is-a-dtu.md). Usando questi strumenti, è possibile valutare rapidamente l'impatto dell'aumento o della riduzione delle prestazioni in base alle esigenze correnti o previste relative alle prestazioni. Per altre informazioni, vedere [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md) .
+In che modo è possibile confrontare le prestazioni relative dei database singoli e dei pool elastici? Come si conosce il giusto arresto quando si connette e si disconnette? Si usano gli strumenti [predefinite di monitoraggio delle prestazioni](sql-database-performance.md) e [avviso](sql-database-insights-alerts-portal.md), combinati con le classificazioni delle prestazioni. Usando questi strumenti, è possibile valutare rapidamente l'impatto dell'aumento o della riduzione delle prestazioni in base alle esigenze correnti o previste relative alle prestazioni. Per altre informazioni, vedere [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md) .
 
 Database SQL può anche [generare log di metrica e diagnostica](sql-database-metrics-diag-logging.md) per facilitare il monitoraggio. È possibile configurare il database SQL per archiviare l'utilizzo delle risorse, ruoli di lavoro, sessioni e connettività in una delle risorse di Azure seguenti:
 
@@ -82,7 +86,7 @@ Il settore di Azure che ha una accordo sul livello di disponibilità del servizi
 - **[Ripristini temporizzati](sql-database-recovery-using-backups.md)**: il database SQL supporta il recupero in qualsiasi momento entro il periodo di conservazione automatico del backup.
 - **[Replica geografica attiva](sql-database-geo-replication-overview.md)**: il database SQL consente di configurare fino a quattro database secondari leggibili nello stesso data center o in data center di Azure distribuiti a livello globale.  Nel caso di un'applicazione SaaS che usa un database catalogo con volumi elevati di transazioni di sola lettura concorrenti, ad esempio, è possibile usare la replica geografica attiva per il potenziamento della lettura su scala globale ed evitare i colli di bottiglia nel database primario causati dai carichi di lavoro di lettura. 
 - **[Gruppi di failover](sql-database-geo-replication-overview.md)**: il database SQL consente di abilitare soluzioni di disponibilità elevata e bilanciamento del carico su scala globale, inclusi la replica geografica trasparente e il failover di set di database e pool elastici di grandi dimensioni. I gruppi di failover e la replica geografica attiva consentono la creazione di applicazioni SaaS distribuite a livello globale con un sovraccarico amministrativo minimo, grazie alla possibilità di delegare l'orchestrazione complessa di monitoraggio, routing e failover al database SQL.
-- **[Database con ridondanza della zona](sql-database-high-availability.md)**: il database SQL consente di effettuare il provisioning di database o pool elastici Premium in più zone di disponibilità. Dato che i database e i pool elastici Premium hanno più repliche ridondanti per garantire disponibilità elevata, l'inserimento di tali repliche in più zone di disponibilità assicura resilienza superiore, nonché la possibilità di eseguire automaticamente il ripristino in caso di errori a livello di data center senza perdita di dati. Questa funzionalità è attualmente in anteprima. 
+- **[Database con ridondanza della zona](sql-database-high-availability.md)**: il database SQL consente di effettuare il provisioning di database o pool elastici Premium o business critical (anteprima) in più zone di disponibilità. Poiché questi database e pool elastici hanno più repliche ridondanti per garantire disponibilità elevata, l'inserimento di tali repliche in più zone di disponibilità assicura resilienza superiore, nonché la possibilità di eseguire automaticamente il ripristino in caso di errori a livello di data center senza perdita di dati. Questa funzionalità è attualmente in anteprima. 
 
 ## <a name="built-in-intelligence"></a>Intelligenza incorporata
 
@@ -166,7 +170,7 @@ Il database SQL supporta lo sviluppo di applicazioni con Python, Java, Node.js, 
 
 - Vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/sql-database/) per informazioni sui prezzi e per confrontare e calcolare il prezzo per database singoli e per pool elastici.
 
-- Per iniziare, vedere queste guide introduttive:
+- Per iniziare, vedere queste esercitazioni introduttive:
 
   - [Creare un database SQL nel portale di Azure](sql-database-get-started-portal.md)  
   - [Creare un database SQL con l'interfaccia della riga di comando di Azure](sql-database-get-started-cli.md)

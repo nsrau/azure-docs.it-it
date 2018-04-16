@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app #
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/16/2018
 - Con un indirizzo VIP su un indirizzo IP esterno, spesso denominato ambiente del servizio app esterno.
 - Con un indirizzo VIP su un indirizzo IP interno, spesso denominato ambiente del servizio app ILB perché l'endpoint interno è un servizio di bilanciamento del carico interno (ILB). 
 
-Questo articolo illustra come creare un ambiente del servizio app ILB. Per una panoramica dell'ambiente del servizio app, vedere [Introduzione ad Ambiente del servizio app][Intro]. Per informazioni sulla creazione di un ambiente del servizio app esterno, vedere [Creare un ambiente del servizio app esterno][MakeExternalASE].
+Questo articolo illustra come creare un ambiente del servizio app ILB. Per una panoramica dell'ambiente del servizio app, vedere [Introduzione agli ambienti del servizio app][Intro]. Per informazioni sulla creazione di un ambiente del servizio app esterno, vedere [Creare un ambiente del servizio app esterno][MakeExternalASE].
 
 ## <a name="overview"></a>Panoramica ##
 
@@ -63,7 +63,7 @@ Per creare un ambiente del servizio app con bilanciamento del carico interno:
 
 4. Selezionare o creare una rete virtuale.
 
-5. Se si seleziona una rete virtuale esistente, è necessario creare una subnet per contenere l'ambiente del servizio app. Assicurarsi di impostare una subnet con dimensioni sufficientemente grandi per supportare la crescita futura dell'ambiente del servizio app. La dimensione consigliata è `/25`, contenente 128 indirizzi, in grado di gestire un ambiente del servizio app con dimensione massima. La dimensione minima selezionabile è `/28`. In base alle esigenze dell'infrastruttura, è possibile ridimensionare questo valore fino a un massimo di 11 istanze.
+5. Se si seleziona una rete virtuale esistente, è necessario creare una subnet per contenere l'ambiente del servizio app. Assicurarsi di impostare una subnet con dimensioni sufficientemente grandi per supportare la crescita futura dell'ambiente del servizio app. La dimensione consigliata è `/25`, contenente 128 indirizzi, in grado di gestire un ambiente del servizio app con dimensione massima. La dimensione minima selezionabile è `/28`. In base alle esigenze dell'infrastruttura, è possibile ridimensionare questo valore solo fino a un massimo di 3 istanze.
 
     * Superare il valore massimo predefinito di 100 istanze nei piani di servizio app.
 
@@ -81,7 +81,7 @@ Per creare un ambiente del servizio app con bilanciamento del carico interno:
 
     * &lt;asename&gt;.p.azurewebsites.net
 
-   Il nome di dominio personalizzato usato per le app e il nome di dominio usato dall'ambiente del servizio app non possono sovrapporsi. Per un ambiente del servizio app ILB con nome di dominio _contoso.com_, non è possibile usare nomi di dominio personalizzati per le app come:
+   È disponibile una funzionalità denominata nomi di dominio personalizzati che consente di eseguire il mapping di un nome DNS esistente all'app Web. Per altre informazioni su questa funzionalità, vedere il documento [Eseguire il mapping di un nome DNS esistente all'app Web][customdomain]. Il nome di dominio personalizzato usato per le app e il nome di dominio usato dall'ambiente del servizio app non possono sovrapporsi. Per un ambiente del servizio app ILB con nome di dominio _contoso.com_, non è possibile usare nomi di dominio personalizzati per le app come:
 
     * www.contoso.com
 
@@ -250,3 +250,4 @@ Per altre informazioni sulla configurazione dell'ambiente del servizio app ILB c
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[customdomain]: ../app-service-web-tutorial-custom-domain.md
