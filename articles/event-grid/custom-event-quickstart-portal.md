@@ -5,14 +5,14 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 03/23/2018
+ms.date: 04/05/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: f1185c0b2d5d320cd712642f422408348bee7a37
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3ee94025a12a004fda806183c47d5a336b958478
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Creare e instradare eventi personalizzati con il portale di Azure e Griglia di eventi
 
@@ -38,7 +38,7 @@ Un argomento di Griglia di eventi fornisce un endpoint definito dall'utente in c
 
    ![Passaggi iniziali](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Specificare un nome univoco per l'argomento personalizzato. Il nome dell'argomento deve essere univoco perché è rappresentato da una voce DNS. Non usare il nome visualizzato nell'immagine, ma crearne uno personalizzato. Selezionare una delle [aree supportate](overview.md). Specificare un nome per il gruppo di risorse. Selezionare **Create**.
+1. Specificare un nome univoco per l'argomento personalizzato. Il nome dell'argomento deve essere univoco perché è rappresentato da una voce DNS. Non usare il nome visualizzato nell'immagine. ma crearne uno personalizzato. Selezionare una delle [aree supportate](overview.md). Specificare un nome per il gruppo di risorse. Selezionare **Create**.
 
    ![Creare valori dell'argomento di Griglia di eventi](./media/custom-event-quickstart-portal/create-custom-topic.png)
 
@@ -118,25 +118,48 @@ A questo punto, attivare un evento per vedere come la griglia di eventi distribu
 
 ## <a name="send-an-event-to-your-topic"></a>Inviare un evento all'argomento
 
-Ottenere prima di tutto l'URL e la chiave per l'argomento. Usare il nome dell'argomento per `<topic_name>`.
+Usare l'interfaccia della riga di comando di Azure o PowerShell per inviare un evento di test all'argomento personalizzato.
+
+Il primo esempio usa l'interfaccia della riga di comando di Azure. Ottiene l'URL e la chiave per l'argomento e i dati dell'evento di esempio. Usare il nome dell'argomento per `<topic_name>`. Per visualizzare l'evento completo, usare `echo "$body"`. L'elemento `data` del JSON è il payload dell'evento. Questo campo accetta qualsiasi JSON ben formato. È anche possibile usare il campo oggetto per il filtro e il routing avanzato. CURL è un'utilità che invia richieste HTTP.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name <topic_name> -g myResourceGroup --query "key1" --output tsv)
-```
 
-L'esempio seguente ottiene i dati di esempio dell'evento:
-
-```azurecli-interactive
 body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
+
+curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-Per visualizzare l'evento completo, usare `echo "$body"`. L'elemento `data` del JSON è il payload dell'evento. Questo campo accetta qualsiasi JSON ben formato. È anche possibile usare il campo oggetto per il filtro e il routing avanzato.
+Il secondo esempio usa PowerShell per eseguire passaggi simili.
 
-CURL è un'utilità che invia richieste HTTP. In questo articolo CURL viene usato per inviare un evento all'argomento personalizzato. 
+```azurepowershell-interactive
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
 
-```azurecli-interactive
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+$eventID = Get-Random 99999
+
+#Date format should be SortableDateTimePattern (ISO 8601)
+$eventDate = Get-Date -Format s
+
+#Construct body using Hashtable
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/motorcycles"
+    eventTime= $eventDate   
+    data= @{
+        make="Ducati"
+        model="Monster"
+    }
+    dataVersion="1.0"
+}
+
+#Use ConvertTo-Json to convert event body from Hashtable to JSON Object
+#Append square brackets to the converted JSON payload since they are expected in the event's JSON payload syntax
+$body = "["+(ConvertTo-Json $htbody)+"]"
+
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
 È stato attivato l'evento e Griglia di eventi ha inviato il messaggio all'endpoint configurato al momento della sottoscrizione. Analizzare i log per visualizzare i dati dell'evento.

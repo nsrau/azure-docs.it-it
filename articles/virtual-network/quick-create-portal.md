@@ -1,30 +1,31 @@
 ---
-title: Creare una rete virtuale di Azure - Portale | Microsoft Docs
-description: Apprendere a creare rapidamente una rete virtuale usando il portale di Azure. Una rete virtuale consente alle risorse di Azure, come le macchine virtuali, di comunicare privatamente tra loro e con Internet.
+title: 'Creare una rete virtuale: guida introduttiva - Portale di Azure | Microsoft Docs'
+description: Questa guida introduttiva illustra come creare una rete virtuale usando il portale di Azure. Una rete virtuale consente alle risorse di Azure, come le macchine virtuali, di comunicare privatamente tra loro e con Internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: ''
+ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
-ms.custom: ''
-ms.openlocfilehash: c8f2cbe6b7377772e019a4ff90f91355ba0815ae
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: mvc
+ms.openlocfilehash: 7107dc72686004141d8bea0083089cba065a9f4c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="create-a-virtual-network-using-the-azure-portal"></a>Creare una rete virtuale usando il portale di Azure
+# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Guida introduttiva: Creare una rete virtuale con il portale di Azure
 
-Una rete virtuale consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente tra loro e con Internet. Questo articolo illustra come creare una rete virtuale. Dopo avere creato una rete virtuale, si distribuiscono due VM nella rete virtuale. Quindi si effettua la connessione a una VM da Internet e si comunica privatamente tra le due VM.
+Una rete virtuale consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente tra loro e con Internet. Questa guida introduttiva illustra come creare una rete virtuale. Dopo avere creato una rete virtuale, si distribuiscono due VM nella rete virtuale. Quindi si effettua la connessione a una VM da Internet e si comunica privatamente tra le due VM.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -90,9 +91,9 @@ Completare nuovamente i passaggi 1-6, ma nel passaggio 3 assegnare alla VM il no
 4. Selezionare **OK**.
 5. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se viene visualizzato l'avviso, selezionare **Sì** o **Continua** per procedere con la connessione.
 
-## <a name="communicate-privately-between-vms"></a>Comunicare privatamente tra VM
+## <a name="communicate-between-vms"></a>Stabilire la comunicazione tra le macchine virtuali
 
-1. Da PowerShell immettere `ping myvm2`. Il ping non riesce, dal momento che usa il protocollo Internet Control Message Protocol (ICMP) e ICMP non è consentito in Windows Firewall per impostazione predefinita.
+1. Da PowerShell immettere `ping myvm2`. Il ping non riesce, perché usa il protocollo Internet Control Message Protocol (ICMP) che per impostazione predefinita non è consentito da Windows Firewall.
 2. Per consentire a *myVm2* di effettuare il ping in *myVm1* in un passaggio successivo, immettere il comando seguente da PowerShell, che consente il protocollo ICMP in ingresso in Windows Firewall:
 
     ```powershell
@@ -117,9 +118,6 @@ Quando non sono più necessari, eliminare il gruppo di risorse e tutte le risors
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sono state create una rete virtuale predefinita e due VM. È stata effettuata la connessione a una VM da Internet e si è comunicato privatamente tra le due VM. Per altre informazioni sulle impostazioni della rete virtuale, vedere [Manage a virtual network](manage-virtual-network.md) (Gestire una rete virtuale).
+In questa guida introduttiva sono state create una rete virtuale predefinita e due VM. È stata effettuata la connessione a una VM da Internet ed è stata stabilita una comunicazione privata tra la VM e un'altra VM. Per altre informazioni sulle impostazioni della rete virtuale, vedere [Manage a virtual network](manage-virtual-network.md) (Gestire una rete virtuale).
 
-Per impostazione predefinita, Azure consente comunicazioni private senza restrizioni tra le macchine virtuali, ma permette solo connessioni Desktop remoto in ingresso alle VM Windows da Internet. Per informazioni su come consentire o limitare i diversi tipi di comunicazione di rete da e verso le VM, passare all'esercitazione successiva.
-
-> [!div class="nextstepaction"]
-> [Filtrare il traffico di rete](virtual-networks-create-nsg-arm-pportal.md)
+Per impostazione predefinita, Azure consente comunicazioni private senza restrizioni tra le macchine virtuali, ma permette solo connessioni Desktop remoto in ingresso alle VM Windows da Internet. Per informazioni su come consentire o limitare i diversi tipi di comunicazione di rete da e verso le VM, passare all'esercitazione [Filtrare il traffico di rete](tutorial-filter-network-traffic.md).

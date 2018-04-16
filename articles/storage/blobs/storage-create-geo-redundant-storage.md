@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.service: storage
 ms.workload: web
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 6226fea5001d19a6f0e1f6700d90ea2b9481d43c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 86fb0ae7c9ee5a2856c81603a4e08ae7016b022f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Applicare la disponibilità elevata ai dati delle applicazioni con l'archiviazione di Azure
 
@@ -45,6 +45,11 @@ Per completare questa esercitazione:
 * Installare [Python](https://www.python.org/downloads/)
 * Scaricare e installare [Azure Storage SDK per Python](https://github.com/Azure/azure-storage-python)
 * (Facoltativo) Scaricare e installare [Fiddler](https://www.telerik.com/download/fiddler)
+
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+
+* Installare e configurare [Maven](http://maven.apache.org/download.cgi) per usarlo dalla riga di comando
+* Installare e configurare un [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 ---
 
@@ -95,6 +100,13 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 ```bash
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
+
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+[Scaricare il progetto di esempio](https://github.com/Azure-Samples/storage-java-ha-ra-grs) ed estrarre il file storage-java-ragrs.zip. È anche possibile usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell'ambiente di sviluppo. Il progetto di esempio contiene un'applicazione Java di base.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
+```
 ---
 
 
@@ -135,15 +147,20 @@ La funzione di ripetizione dei tentativi dell'oggetto di archiviazione è impost
  
 Prima del download vengono definite le funzioni [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) e [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) dell'oggetto del servizio, che definiscono i gestori eventi che vengono attivati quando un download viene completato oppure ha esito negativo e viene eseguito un nuovo tentativo.  
 
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+È possibile eseguire l'applicazione aprendo un terminale o il prompt dei comandi con la cartella dell'applicazione scaricata come ambito. A questo punto immettere `mvn compile exec:java` per eseguire l'applicazione. L'applicazione carica quindi l'immagine **HelloWorld.png** dalla directory all'account di archiviazione e verifica che l'immagine sia stata replicata nell'endpoint RA-GRS secondario. Al termine della verifica, l'applicazione inizierà a scaricare ripetutamente l'immagine, segnalando l'endpoint da cui esegue il download.
+
+La funzione di ripetizione dei tentativi dell'oggetto di archiviazione è impostata in modo da usare un criterio di ripetizione lineare. La funzione di ripetizione dei tentativi determina se eseguire o meno un nuovo tentativo per una richiesta e specifica il numero di secondi di attesa tra i singoli tentativi. La proprietà **LocationMode** di **BlobRequestOptions** è impostata su **PRIMARY\_THEN\_SECONDARY**. In questo modo, l'applicazione può passare automaticamente alla località secondaria se non riesce a raggiungere la località primaria quando tenta di scaricare **HelloWorld.png**.
+
 ---
 
-### <a name="retry-event-handler"></a>Riprovare il gestore dell'evento
+## <a name="understand-the-sample-code"></a>Informazioni sul codice di esempio
 
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
-Quando il download dell'immagine non riesce ed è impostata la ripetizione dei tentativi, viene chiamato il gestore eventi `OperationContextRetrying`. Se viene raggiunto il numero massimo di tentativi definito nell'applicazione, il valore di [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) della richiesta viene modificato in `SecondaryOnly`. Questa impostazione forza l'applicazione a tentare di scaricare l'immagine dall'endpoint secondario. Questa configurazione riduce il tempo necessario per richiedere che l'immagine non venga ripetuta all'infinito come endpoint primario.
+### <a name="retry-event-handler"></a>Riprovare il gestore dell'evento
 
-Nell'esempio di codice l'attività `RunCircuitBreakerAsync` nel file `Program.cs` viene usata per scaricare un'immagine dall'account di archiviazione con il metodo [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet). Prima del download viene definito [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). Il contesto dell'operazione definisce i gestori dell'evento, generati quando il download viene completato correttamente o se un download ha esito negativo ed esegue un nuovo tentativo.
+Quando il download dell'immagine non riesce ed è impostata la ripetizione dei tentativi, viene chiamato il gestore eventi `OperationContextRetrying`. Se viene raggiunto il numero massimo di tentativi definito nell'applicazione, il valore di [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) della richiesta viene modificato in `SecondaryOnly`. Questa impostazione forza l'applicazione a tentare di scaricare l'immagine dall'endpoint secondario. Questa configurazione riduce il tempo necessario per richiedere che l'immagine non venga ripetuta all'infinito come endpoint primario.
  
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -169,34 +186,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 }
 ```
 
-# <a name="python-tabpython"></a>[Python] (#tab/python) 
-Quando il download dell'immagine non riesce ed è impostata la ripetizione dei tentativi, viene chiamato il gestore eventi `retry_callback`. Se viene raggiunto il numero massimo di tentativi definito nell'applicazione, il valore di [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) della richiesta viene modificato in `SECONDARY`. Questa impostazione forza l'applicazione a tentare di scaricare l'immagine dall'endpoint secondario. Questa configurazione riduce il tempo necessario per richiedere che l'immagine non venga ripetuta all'infinito come endpoint primario.  
-
-```python
-def retry_callback(retry_context):
-    global retry_count
-    retry_count = retry_context.count
-    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
-    sys.stdout.flush()
-
-    # Check if we have more than n-retries in which case switch to secondary
-    if retry_count >= retry_threshold:
-
-        # Check to see if we can fail over to secondary.
-        if blob_client.location_mode != LocationMode.SECONDARY:
-            blob_client.location_mode = LocationMode.SECONDARY
-            retry_count = 0
-        else:
-            raise Exception("Both primary and secondary are unreachable. "
-                            "Check your application's network connection.")
-```
-
----
-
-
 ### <a name="request-completed-event-handler"></a>Gestore dell'evento per la richiesta completata
- 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
 Quando il download dell'immagine riesce viene chiamato il gestore dell'evento `OperationContextRequestCompleted`. Se l'applicazione usa l'endpoint secondario, continua a usarlo fino a 20 volte. Dopo 20 volte, l'applicazione reimposta [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) su `PrimaryThenSecondary` ed esegue un nuovo tentativo con l'endpoint primario. Se una richiesta ha esito positivo, l'applicazione continua a eseguire la lettura dall'endpoint primario.
  
@@ -219,6 +209,31 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 
 # <a name="python-tabpython"></a>[Python] (#tab/python) 
 
+### <a name="retry-event-handler"></a>Riprovare il gestore dell'evento
+
+Quando il download dell'immagine non riesce ed è impostata la ripetizione dei tentativi, viene chiamato il gestore eventi `retry_callback`. Se viene raggiunto il numero massimo di tentativi definito nell'applicazione, il valore di [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) della richiesta viene modificato in `SECONDARY`. Questa impostazione forza l'applicazione a tentare di scaricare l'immagine dall'endpoint secondario. Questa configurazione riduce il tempo necessario per richiedere che l'immagine non venga ripetuta all'infinito come endpoint primario.  
+
+```python
+def retry_callback(retry_context):
+    global retry_count
+    retry_count = retry_context.count
+    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
+    sys.stdout.flush()
+
+    # Check if we have more than n-retries in which case switch to secondary
+    if retry_count >= retry_threshold:
+
+        # Check to see if we can fail over to secondary.
+        if blob_client.location_mode != LocationMode.SECONDARY:
+            blob_client.location_mode = LocationMode.SECONDARY
+            retry_count = 0
+        else:
+            raise Exception("Both primary and secondary are unreachable. "
+                            "Check your application's network connection.")
+```
+
+### <a name="request-completed-event-handler"></a>Gestore dell'evento per la richiesta completata
+
 Quando il download dell'immagine riesce viene chiamato il gestore dell'evento `response_callback`. Se l'applicazione usa l'endpoint secondario, continua a usarlo fino a 20 volte. Dopo 20 volte, l'applicazione reimposta [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) su `PRIMARY` ed esegue un nuovo tentativo con l'endpoint primario. Se una richiesta ha esito positivo, l'applicazione continua a eseguire la lettura dall'endpoint primario.
 
 ```python
@@ -234,7 +249,20 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+
+Con Java, non è necessario definire i gestori di callback se la proprietà **LocationMode** di **BlobRequestOptions** è impostata su **PRIMARY\_THEN\_SECONDARY**. In questo modo, l'applicazione può passare automaticamente alla località secondaria se non riesce a raggiungere la località primaria quando tenta di scaricare **HelloWorld.png**.
+
+```java
+    BlobRequestOptions myReqOptions = new BlobRequestOptions();
+    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff, maxAttempts));
+    myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
+    blobClient.setDefaultRequestOptions(myReqOptions);
+
+    blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
+```
 ---
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

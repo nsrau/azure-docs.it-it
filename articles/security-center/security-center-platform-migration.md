@@ -1,11 +1,11 @@
 ---
 title: Migrazione della piattaforma del Centro sicurezza di Azure | Microsoft Docs
-description: "Questo documento illustra alcune delle modifiche che sono state apportate alla modalità di raccolta dati nel Centro sicurezza di Azure."
+description: Questo documento illustra alcune delle modifiche che sono state apportate alla modalità di raccolta dati nel Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 80246b00-bdb8-4bbc-af54-06b7d12acf58
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2e2e8d7213504ccd71df7048045925bf566c76d5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-security-center-platform-migration"></a>Migrazione della piattaforma del Centro sicurezza di Azure
 
@@ -32,7 +32,7 @@ A partire dall'inizio di giugno 2017, il Centro sicurezza di Azure ha apportato 
 
 In precedenza, il Centro sicurezza usava l'agente di monitoraggio di Azure per raccogliere i dati di protezione dalle macchine virtuali, tra cui informazioni sulle configurazioni di sicurezza, usate per identificare le vulnerabilità, ed eventi di sicurezza, usati per rilevare le minacce. Questi dati venivano archiviati negli account di archiviazione in Azure.
 
-Attualmente, il Centro sicurezza usa Microsoft Monitoring Agent, lo stesso agente usato da Operations Management Suite e dal servizio Log Analytics. I dati raccolti dall'agente vengono archiviati in un'*area di lavoro* di [Log Analytics](../log-analytics/log-analytics-manage-access.md) esistente associata alla sottoscrizione di Azure o in una o più aree di lavoro nuove, a seconda della georilevazione della macchina virtuale.
+Attualmente, il Centro sicurezza usa Microsoft Monitoring Agent, lo stesso agente usato dal servizio Log Analytics. I dati raccolti dall'agente vengono archiviati in un'*area di lavoro* di [Log Analytics](../log-analytics/log-analytics-manage-access.md) esistente associata alla sottoscrizione di Azure o in una o più aree di lavoro nuove, a seconda della georilevazione della macchina virtuale.
 
 ## <a name="agent"></a>Agente
 
@@ -62,9 +62,9 @@ Per le aree di lavoro create dal Centro sicurezza, i dati vengono conservati per
 > [!NOTE]
 > I dati raccolti in precedenza dal Centro sicurezza rimangono negli account di archiviazione. Al termine della migrazione, è possibile eliminare questi account di archiviazione.
 
-### <a name="oms-security-solution"></a>Soluzione di sicurezza di OMS 
+### <a name="security-management-solution"></a>Soluzione di gestione della sicurezza 
 
-Per i clienti esistenti che non dispongono della soluzione di sicurezza di OMS, la soluzione viene installata automaticamente nell'area di lavoro, ma solo per le macchine virtuali di Azure. Non disinstallare questa soluzione, dal momento che non è disponibile alcuna correzione automatica se questa operazione viene eseguita dalla console di gestione di OMS.
+Per i clienti esistenti che non hanno una soluzione di gestione della sicurezza in Log Analytics, la soluzione viene installata automaticamente nell'area di lavoro, ma solo per le macchine virtuali di Azure. Non disinstallare questa soluzione, dal momento che non è disponibile alcuna correzione automatica se questa operazione viene eseguita dalla console di gestione.
 
 
 ## <a name="other-updates"></a>Altri aggiornamenti

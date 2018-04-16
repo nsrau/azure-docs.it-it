@@ -2,7 +2,7 @@
 title: Servizio Web app per dispositivi mobili del server Azure MFA | Microsoft Docs
 description: L'app Microsoft Authenticator offre un'opzione di autenticazione fuori banda aggiuntiva.  Consente al server MFA di inviare notifiche push agli utenti.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 83b04e48dd528881097bcf16bc03e1a18ea20c43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7ca5c7bcc82f0a77276f4f39a02d8abf2f47bc10
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Abilitare l'autenticazione con il server Azure Multi-Factor Authentication
 
@@ -29,11 +29,13 @@ Quando la ricezione del telefono non è affidabile, è preferibile usare un'app 
 
 A seconda dell'ambiente, è possibile distribuire il servizio Web per app per dispositivi mobili nello stesso server in cui è in esecuzione il server Azure Multi-Factor Authentication o in un altro server con connessione Internet.
 
+Se è stato installato MFA Server versione 8.0 o successiva, non è necessario eseguire la maggior parte dei passaggi seguenti. È possibile configurare l'autenticazione delle app per dispositivi mobili seguendo la procedura disponibile in [Configurare l'app per dispositivi mobili](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server).
+
 ## <a name="requirements"></a>Requisiti
 
 Per usare l'app Microsoft Authenticator, è necessario quanto segue in modo che l'app possa comunicare correttamente con il servizio Web app per dispositivi mobili:
 
-* Server Azure Multi-Factor Authentication v6.0 o versioni successive
+* Server Azure Multi-Factor Authentication v6.x o versioni successive
 * Installare il servizio Web app per dispositivi mobili in un server Web con connessione Internet che esegue Microsoft® [Internet Information Services (IIS) 7.x o versione successiva](http://www.iis.net/)
 * ASP.NET v4.0.30319 deve essere installato, registrato e impostato su Consentito
 * I servizi ruolo obbligatori includono ASP.NET e Compatibilità metabase IIS 6
@@ -48,6 +50,7 @@ Per usare l'app Microsoft Authenticator, è necessario quanto segue in modo che 
 
 Prima di installare il servizio Web app per dispositivi mobili, tenere presente i dettagli seguenti:
 
+* L'installazione del servizio Web per app per dispositivi mobili non è necessario per la versione 8.0 o per le versioni successive. Completare solo i passaggi disponibili in [Configurare l'app per dispositivi mobili](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server).
 * È necessario un account del servizio che fa parte del gruppo "PhoneFactor Admins". L'account può essere lo stesso usato per l'installazione del portale utenti.
 * È utile aprire un browser Web nel server Web connesso a Internet e andare all'URL dell'SDK servizio Web riportato nel file web.config. Se il browser è in grado di accedere al servizio Web, chiederà le credenziali. Immettere il nome utente e la password immessi nel file web.config esattamente come visualizzati nel file. Assicurarsi che non vengano visualizzati errori o avvisi relativi al certificato.
 * Se un proxy inverso o un firewall si trova prima del server Web del servizio Web app per dispositivi mobili ed esegue l'offload SSL, è possibile modificare il file web.config del servizio Web app per dispositivi mobili in modo che il servizio Web app per dispositivi mobili possa usare il protocollo http anziché https. SSL è comunque richiesto dall'app per dispositivi mobili per il proxy inverso o per il firewall. Aggiungere la chiave seguente alla sezione \<appSettings\>:
@@ -80,25 +83,24 @@ L'SDK servizio Web deve essere protetto con un certificato SSL. Un certificato a
 
    * Trovare la chiave **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** e sostituire **value=""** con **value="DOMAIN\User"**, dove DOMAIN\User è un account del servizio che fa parte del gruppo "PhoneFactor Admins".
    * Trovare la chiave **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** e sostituire **value=""** con **value="Password"**, dove Password è la password dell'account del servizio specificato alla riga precedente.
-   * Trovare l'impostazione **pfMobile App Web Service_pfwssdk_PfWsSdk** e sostituire il valore **http://localhost:4898/PfWsSdk.asmx** con l'URL dell'SDK servizio Web, ad esempio https://mfa.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx.
+   * Trovare l'impostazione **pfMobile App Web Service_pfwssdk_PfWsSdk** e modificare il valore da **http://localhost:4898/PfWsSdk.asmx** all'URL dell'SDK del servizio Web. Ad esempio: https://mfa.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx).
    * Salvare il file Web.Config e chiudere il Blocco note.
 
    > [!NOTE]
    > Dato che per la connessione viene usato SSL, è necessario fare riferimento all'SDK servizio Web come **nome di dominio completo** e **non come indirizzo IP**. Il certificato SSL viene rilasciato per il nome di dominio completo e l'URL usato deve corrispondere al nome sul certificato.
 
 7. Se il sito Web in cui è installato il servizio Web per app per dispositivi mobili non è già stato associato a un certificato firmato pubblicamente, installare il certificato nel server, aprire Gestione IIS e associare il certificato al sito Web.
-8. Aprire un Web browser da qualsiasi computer e passare all'URL in cui è stato installato il servizio Web per app per dispositivi mobili, ad esempio https://mfa.contoso.com/MultiFactorAuthMobileAppWebService. Assicurarsi che non vengano visualizzati errori o avvisi relativi al certificato.
+8. Aprire un Web browser da qualsiasi computer e andare all'URL in cui è stato installato il servizio Web per app per dispositivi mobili, ad esempio: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService). Assicurarsi che non vengano visualizzati errori o avvisi relativi al certificato.
 9. Per altre informazioni sui metodi disponibili nell'SDK dei servizi Web, vedere il file della Guida per il server MFA.
+10. Il servizio Web app per dispositivi mobili è ora installato. È necessario configurare il server Azure Multi-Factor Authentication per l'utilizzo con il portale.
 
 ## <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Configurare le impostazioni dell'app per dispositivi mobili nel server Azure Multi-Factor Authentication
-
-Il servizio Web app per dispositivi mobili è ora installato. È necessario configurare il server Azure Multi-Factor Authentication per l'utilizzo con il portale.
 
 1. Nella console del server Multi-Factor Authentication fare clic sull'icona del portale utenti. Se gli utenti sono autorizzati a controllare i metodi di autenticazione, nella scheda Impostazioni, in **Consenti agli utenti di selezionare il metodo**, selezionare **App per dispositivi mobili**. Se questa funzionalità non è abilitata, agli utenti finali viene richiesto di contattare l'help desk per completare l'attivazione dell'app per dispositivi mobili.
 2. Selezionare la casella **Consenti agli utenti di attivare l'app mobile**.
 3. Selezionare la casella **Consenti registrazione utente**.
 4. Fare clic sull'icona dell'**app per dispositivi mobili**.
-5. Immettere l'URL usato con la directory virtuale creata durante l'installazione di MultiFactorAuthenticationMobileAppWebServiceSetup64, ad esempio https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/ nel campo **URL servizio Web app mobile**.
+5. Se si usa la versione 8.0 o versioni successive, ignorare il passaggio successivo. Immettere l'URL usato con la directory virtuale creata durante l'installazione di MultiFactorAuthenticationMobileAppWebServiceSetup64, ad esempio: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/) nel campo **URL servizio Web app mobile**.
 6. Popolare il campo **Nome account** con il nome della società o dell'organizzazione da visualizzare nell'app per dispositivi mobili per questo account.
    ![Impostazioni dell'app per dispositivi mobili per la configurazione del server MFA](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)
 

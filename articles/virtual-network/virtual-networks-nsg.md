@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: c38223674061aa8c257e47b6208f890b7aef378d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3a581111587d0fe3cba04cd05272b3154374ce52
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrare il traffico di rete con gruppi di sicurezza di rete
 
@@ -262,4 +262,4 @@ Dato che alcuni gruppi di sicurezza di rete sono associati a singole interfacce 
 * [Distribuire gruppi di sicurezza di rete (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md).
 * [Distribuire gruppi di sicurezza di rete (distribuzione classica)](virtual-networks-create-nsg-classic-ps.md).
 * [Gestire i log dei gruppi di sicurezza di rete](virtual-network-nsg-manage-log.md).
-* [Risolvere i problemi relativi ai gruppi di sicurezza di rete] (virtual-network-nsg-troubleshoot-portal.md)
+* [Risolvere i problemi dei gruppi di sicurezza di rete](virtual-network-nsg-troubleshoot-portal.md)

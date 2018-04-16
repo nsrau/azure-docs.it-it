@@ -2,25 +2,25 @@
 title: Ricerca interattiva sulla mappa con Servizi Location Based di Azure | Microsoft Docs
 description: Guida introduttiva di Azure - Avviare una demo di una ricerca interattiva sulla mappa con Servizi Location Based di Azure (anteprima)
 services: location-based-services
-keywords: 
+keywords: ''
 author: kgremban
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 04/03/2018
 ms.topic: quickstart
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 288044b2f8a4b996489bbd6a6b0a61b455e8f4ad
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a61d56f8e649d60dacff8f9849ab7e26363e119
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Avviare una demo di una ricerca interattiva sulla mappa con Servizi Location Based di Azure (anteprima)
 
-Questo articolo illustra le funzionalità di Servizi Location Based di Azure per l'esecuzione di una ricerca interattiva con le mappe di Azure. Vengono anche descritti i passaggi di base per creare un account di Servizi Location Based di Azure e ottenere la chiave dell'account da usare nell'applicazione Web demo. 
+Questo articolo illustra le funzionalità di Servizi Location Based di Azure per l'esecuzione di una ricerca interattiva. Vengono anche descritti i passaggi di base per creare un account di Servizi Location Based di Azure e ottenere la chiave dell'account da usare nell'applicazione Web demo. 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -40,14 +40,14 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 5. Una volta creato l'account, aprirlo e passare a **IMPOSTAZIONI**. Fare clic su **Chiavi** per ottenere le chiavi primaria e secondaria per l'account Servizi Location Based di Azure. Copiare il valore di **Chiave primaria** negli Appunti in locale per usarlo nella sezione seguente. 
 
-## <a name="download-the-demo-application-for-azure-maps"></a>Scaricare l'applicazione demo per le mappe di Azure
+## <a name="download-the-demo-application"></a>Scaricare l'applicazione demo
 
 1. Scaricare o copiare il contenuto del file [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
 2. Salvare il contenuto del file in locale come **AzureMapDemo.html** e aprirlo in un editor di testo.
 3. Cercare la stringa `<insert-key>` e sostituirla con il valore di **Chiave primaria** ottenuto nella sezione precedente. 
 
 
-## <a name="launch-the-demo-application-for-azure-maps"></a>Avviare l'applicazione demo per le mappe di Azure
+## <a name="launch-the-demo-application-for"></a>Avviare l'applicazione demo per
 
 1. Aprire il file **AzureMapDemo.html** nel browser che si preferisce.
 2. Osservare la mappa visualizzata della città di Los Angeles. La città è determinata dal valore della coppia `[longitude, latitude]` assegnato alla variabile JavaScript denominata **center** in *AzureMapDemo.html*. È possibile modificare queste coordinate per visualizzare qualsiasi altra città desiderata. Le coordinate della città di New York sono ad esempio *[-74.0060, 40.7128]*.

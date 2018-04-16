@@ -190,7 +190,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
   
     d. Fare clic su **Next: Permissions** (Avanti: Autorizzazioni).
 
-16. Nella finestra di dialogo **Attach Permissions Policies** (Collega criteri di autorizzazione) fare clic su **Next: Review** (Avanti: Riepilogo).  
+16. Nella finestra di dialogo **Attach Permissions Policies** (Collega i criteri di autorizzazione) fare clic su **Next: Review** (Avanti: Riepilogo).  
     
     ![Configurare criteri dell'accesso Single Sign-On][33]
 

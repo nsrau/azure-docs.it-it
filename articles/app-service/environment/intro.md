@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 803a1cde5387b549504b42346d1a2e6a5df04746
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0b113a594ebf1180346eccc295251f522dcc29c5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="introduction-to-app-service-environments"></a>Introduzione agli ambienti del servizio app #
+# <a name="introduction-to-the-app-service-environments"></a>Introduzione agli ambienti del servizio app #
  
 ## <a name="overview"></a>Panoramica ##
 
-Ambiente del servizio app di Azure è una funzionalità del servizio app di Azure che fornisce un ambiente completamente isolato e dedicato per l'esecuzione sicura di app del servizio app di Azure su vasta scala. Questa funzionalità può ospitare [app Web][mobileapps], app per le API e [funzioni][Functions].
+L'ambiente del servizio app di Azure è una funzionalità del servizio app di Azure che fornisce un ambiente completamente isolato e dedicato per l'esecuzione sicura di app del servizio app di Azure su vasta scala. Questa funzionalità può ospitare [app Web][mobileapps], app per le API e [funzioni][Functions].
 
 Gli ambienti del servizio app sono adatti ai carichi di lavoro dell'applicazione che richiedono:
 
@@ -43,7 +43,7 @@ Gli ambienti del servizio app sono isolati per eseguire solo le applicazioni di 
 
 ## <a name="dedicated-environment"></a>Ambiente dedicato ##
 
-Un ambiente del servizio app è dedicato esclusivamente a una singola sottoscrizione e può ospitare 100 istanze. Può comprendere da 100 istanze contenute in un singolo piano di servizio app a 100 piani di servizio app da un'istanza singola o qualsiasi combinazione intermedia.
+Un ambiente del servizio app è dedicato esclusivamente a una singola sottoscrizione e può ospitare 100 istanze del piano di servizio app. Può comprendere da 100 istanze contenute in un singolo piano di servizio app a 100 piani di servizio app da un'istanza singola o qualsiasi combinazione intermedia.
 
 Un ambiente del servizio app è composto da front-end e ruoli di lavoro. I front-end sono responsabili della terminazione HTTP/HTTPS e del bilanciamento del carico automatico delle richieste di app all'interno di un ambiente del servizio app. I front-end vengono aggiunti automaticamente con l'aumentare dei piani di servizio app nell'ambiente del servizio app.
 

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 03/06/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 66a5f7e6872a76c91f1f5f1a4b0b1973cb890b0f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 09a229d93ee8d5fec36a0cfa765e87bebaafc24d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Proteggere l'accesso ai dati di un'applicazione nel cloud
 
@@ -34,7 +34,7 @@ Per completare questa esercitazione è necessario avere completato l'esercitazio
 
 ## <a name="set-container-public-access"></a>Impostare l'accesso pubblico al contenitore
 
-In questa parte della serie di esercitazioni si usano i token di firma di accesso condiviso per l'accesso alle anteprime. In questo passaggio si imposta l'accesso pubblico del contenitore _thumbs_ su `off`.
+In questa parte della serie di esercitazioni si usano i token di firma di accesso condiviso per l'accesso alle anteprime. In questo passaggio si imposta l'accesso pubblico del contenitore _thumbnails_ su `off`.
 
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -42,7 +42,7 @@ blobStorageAccount=<blob_storage_account>
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
-az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbs  \
+az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbnails  \
 --public-access off
 ``` 
 
@@ -145,7 +145,7 @@ Nell'attività precedente vengono usate le classi, le proprietà e i metodi segu
 
 La soluzione [Crittografia del servizio di archiviazione (SSE)](../common/storage-service-encryption.md) di Azure consente di proteggere e salvaguardare i dati. La soluzione SSE garantisce la crittografia dei dati inattivi e gestisce la crittografia, la decrittografia e la gestione delle chiavi. Tutti i dati sono crittografati tramite la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)a 256 bit, una delle crittografie a blocchi più solide tra quelle disponibili.
 
-Crittografia del servizio di archiviazione crittografa automaticamente i dati in tutti i livelli di prestazioni (Standard e Premium), tutti i modelli di distribuzione (distribuzione classica e Azure Resource Manager) e tutti i servizi di archiviazione di Azure (BLOB, code, tabelle e file). 
+La crittografia del servizio di archiviazione crittografa automaticamente i dati in tutti i livelli di prestazioni (Standard e Premium), tutti i modelli di distribuzione (distribuzione classica e Azure Resource Manager) e tutti i servizi di Archiviazione di Azure (BLOB, code, tabelle e file). 
 
 ## <a name="enable-https-only"></a>Abilitare solo HTTPS
 

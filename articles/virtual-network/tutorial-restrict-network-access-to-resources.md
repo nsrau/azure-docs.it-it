@@ -1,30 +1,31 @@
 ---
-title: Limitare l'accesso alla rete alle risorse PaaS - Portale di Azure | Microsoft Docs
-description: Informazioni su come limitare l'accesso di rete alle risorse di Azure, ad esempio Archiviazione di Azure e il database SQL di Azure, con gli endpoint di servizio della rete virtuale usando il portale di Azure.
+title: Limitare l'accesso di rete alle risorse PaaS - Esercitazione - Portale di Azure | Microsoft Docs
+description: In questa esercitazione si apprenderà come limitare l'accesso di rete alle risorse di Azure, ad esempio Archiviazione di Azure e il database SQL di Azure, con gli endpoint di servizio della rete virtuale usando il portale di Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: ''
-ms.tgt_pltfrm: virtual-network
+ms.topic: tutorial
+ms.tgt_pltfrm: virtual-networ
 ms.workload: infrastructure
 ms.date: 03/14/2018
 ms.author: jdial
-ms.custom: ''
-ms.openlocfilehash: 9a64a5c1f63dc05cba6fdfa310b694e34bdba7d1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.custom: mvc
+ms.openlocfilehash: f53544e756bde623a604513f17f9cc92c8efe42b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Limitare l'accesso di rete alle risorse PaaS con gli endpoint di servizio della rete virtuale usando il portale di Azure
+# <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Esercitazione: Limitare l'accesso di rete alle risorse PaaS con gli endpoint di servizio della rete virtuale usando il portale di Azure
 
-Gli endpoint di servizio di rete virtuale consentono di limitare l'accesso di rete ad alcune risorse dei servizi di Azure a una subnet della rete virtuale. È anche possibile rimuovere l'accesso a Internet alle risorse. Gli endpoint di servizio offrono connessione diretta dalla rete virtuale ai servizi di Azure supportati, consentendo di usare lo spazio indirizzi privato della rete virtuale per accedere ai servizi di Azure. Il traffico destinato alle risorse di Azure tramite gli endpoint di servizio rimane sempre nella rete backbone di Microsoft Azure. In questo articolo viene spiegato come:
+Gli endpoint di servizio della rete virtuale consentono di limitare l'accesso di rete ad alcune risorse dei servizi di Azure a una subnet della rete virtuale. È anche possibile rimuovere l'accesso Internet alle risorse. Gli endpoint di servizio forniscono la connessione diretta dalla rete virtuale ai servizi di Azure supportati, consentendo di usare lo spazio indirizzi privato della rete virtuale per accedere ai servizi di Azure. Il traffico destinato alle risorse di Azure tramite gli endpoint di servizio rimane sempre nella rete backbone di Microsoft Azure. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare una rete virtuale con una subnet
@@ -32,7 +33,9 @@ Gli endpoint di servizio di rete virtuale consentono di limitare l'accesso di re
 > * Creare una risorsa di Azure e consentire l'accesso di rete alla risorsa da una sola subnet
 > * Distribuire una macchina virtuale (VM) in ogni subnet
 > * Verificare che venga consentito l'accesso a una risorsa da una subnet
-> * Verificare che venga negato l'accesso a una risorsa da una subnet e da Internet
+> * Verificare che venga rifiutato l'accesso a una risorsa da una subnet e da Internet
+
+Se si preferisce, è possibile completare questa esercitazione usando l'[interfaccia della riga di comando di Azure](tutorial-restrict-network-access-to-resources-cli.md) oppure [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -75,7 +78,7 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
     |Intervallo di indirizzi| 10.0.1.0/24|
     |Endpoint di servizio| Selezionare **Microsoft.Storage** in **Servizi**|
 
-## <a name="restrict-network-access-to-and-from-a-subnet"></a>Limitare l'accesso di rete a e da una subnet
+## <a name="restrict-network-access-for-a-subnet"></a>Limitare l'accesso di rete per una subnet
 
 1. Selezionare **+ Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
 2. Selezionare **Rete** e quindi selezionare **Gruppo di sicurezza di rete**.
@@ -141,7 +144,7 @@ In **Create a network security group** (Crea un gruppo di sicurezza di rete) imm
 
 ## <a name="restrict-network-access-to-a-resource"></a>Limitare l'accesso di rete a una risorsa
 
-I passaggi necessari per limitare l'accesso di rete alle risorse create tramite i servizi di Azure abilitati per gli endpoint di servizio variano a seconda dei servizi. Vedere la documentazione relativa ai singoli servizi per i passaggi specifici. La parte rimanente di questo articolo descrive, a titolo di esempio, i passaggi da eseguire per limitare l'accesso di rete per un account di archiviazione di Azure.
+I passaggi necessari per limitare l'accesso di rete alle risorse create tramite i servizi di Azure abilitati per gli endpoint di servizio variano a seconda dei servizi. Vedere la documentazione relativa ai singoli servizi per i passaggi specifici. La parte rimanente di questa esercitazione include, a titolo di esempio, i passaggi da eseguire per limitare l'accesso di rete per un account di archiviazione di Azure.
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
@@ -160,7 +163,7 @@ I passaggi necessari per limitare l'accesso di rete alle risorse create tramite 
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Creare una condivisione file nell'account di archiviazione
 
-1. Dopo che l'account di archiviazione è stato creato, immettere il nome dell'account di archiviazione nella casella **Cerca risorse, servizi e documentazione** nella parte superiore del portale. Quando il nome dell'account di archiviazione viene visualizzato nei risultati della ricerca, selezionarlo.
+1. Dopo aver creato l'account di archiviazione, immettere il nome dell'account di archiviazione nella casella **Cerca risorse, servizi e documentazione** nella parte superiore del portale. Quando il nome dell'account di archiviazione viene visualizzato nei risultati della ricerca, selezionarlo.
 2. Selezionare **File** come illustrato nell'immagine seguente:
 
     ![Account di archiviazione](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
@@ -195,7 +198,7 @@ Per impostazione predefinita, gli account di archiviazione accettano connessioni
 
 ## <a name="create-virtual-machines"></a>Creare macchine virtuali
 
-Per testare l'accesso di rete per un account di archiviazione, distribuire una macchina virtuale in ogni subnet.
+Per testare l'accesso di rete a un account di archiviazione, distribuire una VM in ogni subnet.
 
 ### <a name="create-the-first-virtual-machine"></a>Creare la prima macchina virtuale
 
@@ -263,13 +266,13 @@ La distribuzione della VM richiede alcuni minuti. Non continuare con il passaggi
 
 8. Chiudere la sessione Desktop remoto alla macchina virtuale *myVmPrivate*.
 
-## <a name="confirm-access-is-denied-to-storage-account"></a>Verificare che venga negato l'accesso a un account di archiviazione
+## <a name="confirm-access-is-denied-to-storage-account"></a>Verificare che venga rifiutato l'accesso a un account di archiviazione
 
 1. Immettere *myVmPublic* nella casella **Cerca risorse, servizi e documentazione** nella parte superiore del portale.
 2. Selezionare **myVmPublic** quando viene visualizzato nei risultati della ricerca.
 3. Completare i passaggi da 1 a 6 di [Verificare che venga consentito l'accesso a un account di archiviazione](#confirm-access-to-storage-account) per la VM *myVmPublic*.
 
-    L'accesso viene rifiutato e si riceve un errore `New-PSDrive : Access is denied`. L'accesso viene rifiutato perché la VM *myVmPublic* viene distribuita nella subnet *pubblica*. La subnet *pubblica* non ha un endpoint di servizio abilitato per Archiviazione di Azure e l'account di archiviazione consente l'accesso di rete solo dalla subnet *privata* e non dalla subnet *pubblica*.
+    L'accesso viene rifiutato e si riceve un errore `New-PSDrive : Access is denied`. L'accesso viene rifiutato perché la VM *myVmPublic* viene distribuita nella subnet *pubblica*. La subnet *Public* non ha un endpoint di servizio abilitato per Archiviazione di Azure e l'account di archiviazione consente l'accesso di rete solo dalla subnet *Private* e non dalla subnet *Public*.
 
 4. Chiudere la sessione Desktop remoto alla macchina virtuale *myVmPublic*.
 
@@ -292,9 +295,9 @@ Quando non sono più necessari, eliminare il gruppo di risorse e tutte le risors
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato abilitato un endpoint di servizio per una subnet della rete virtuale. È stato illustrato che gli endpoint di servizio possono essere abilitati per le risorse distribuite con più servizi di Azure. È stato creato un account di archiviazione di Azure ed è stato limitato l'accesso di rete all'account di archiviazione solo alle risorse in una subnet della rete virtuale. Prima di creare endpoint di servizio nelle reti virtuali di produzione, è consigliabile familiarizzare con gli [endpoint di servizio](virtual-network-service-endpoints-overview.md).
+In questa esercitazione è stato abilitato un endpoint di servizio per una subnet della rete virtuale. È stato illustrato che gli endpoint di servizio possono essere abilitati per le risorse distribuite con più servizi di Azure. È stato creato un account di archiviazione di Azure ed è stato limitato l'accesso di rete all'account di archiviazione solo alle risorse in una subnet della rete virtuale. Per altre informazioni sugli endpoint servizio, vedere [Panoramica degli endpoint servizio](virtual-network-service-endpoints-overview.md) e [Gestire le subnet](virtual-network-manage-subnet.md).
 
-Se nell'account sono presenti più reti virtuali, potrebbe essere necessario connettere due reti virtuali in modo che le risorse di ogni rete virtuale possano comunicare tra di esse. Passare all'esercitazione successiva per imparare a connettere le reti virtuali.
+Se nell'account sono presenti più reti virtuali, può essere necessario connettere due reti virtuali per consentire alle risorse di ogni rete virtuale di comunicare tra loro. Passare all'esercitazione successiva per informazioni su come connettere le reti virtuali.
 
 > [!div class="nextstepaction"]
 > [Connettere reti virtuali](./tutorial-connect-virtual-networks-portal.md)

@@ -9,13 +9,13 @@ ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.devlang: PowerShell
 ms.topic: quickstart
-ms.date: 04/17/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 97a2bdeb275c00d298b6b25e31516984c5d9b62e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9649b79a8100597c73d9082e1314fc47e811b95c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>Creare un singolo database SQL di Azure usando PowerShell
 
@@ -88,7 +88,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 
 ## <a name="create-a-database-in-the-server-with-sample-data"></a>Creare un database nel server con dati di esempio
 
-Creare un database con [livello di prestazioni S0](sql-database-service-tiers.md) nel server con il comando [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase). L'esempio seguente crea un database denominato `mySampleDatabase` e carica i dati di esempio di AdventureWorksLT in questo database. Sostituire questi valori predefiniti con quelli desiderati. Altre guide introduttive di questa raccolta si basano sui valori di questa guida introduttiva.
+Creare un database con [livello di prestazioni S0](sql-database-service-tiers.md) nel server con il comando [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase). L'esempio seguente crea un database denominato `mySampleDatabase` e carica i dati di esempio di AdventureWorksLT in questo database. Sostituire questi valori predefiniti con quelli desiderati. Altre esercitazioni introduttive di questa raccolta si basano sui valori di questa guida introduttiva.
 
 ```powershell
 New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
@@ -100,10 +100,10 @@ New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Altre guide introduttive di questa raccolta si basano sui valori di questa guida introduttiva. 
+Altre esercitazioni introduttive della raccolta si basano su questa guida introduttiva. 
 
 > [!TIP]
-> Se si prevede di continuare a usare le guide introduttive successive, non eliminare le risorse create in questa guida introduttiva. Se non si prevede di continuare, seguire questa procedura per eliminare tutte le risorse create da questa guida introduttiva nel portale di Azure.
+> Se si prevede di continuare a usare le esercitazioni introduttive successive, non pulire le risorse create in questa guida di avvio rapido. Se non si prevede di continuare, seguire questa procedura per eliminare tutte le risorse create da questa guida di avvio rapido nel portale di Azure.
 >
 
 ```powershell

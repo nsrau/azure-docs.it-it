@@ -45,11 +45,11 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Premium:
 
 * **Account di archiviazione Premium**
 
-    Per iniziare a usare Archiviazione Premium, creare un account di archiviazione Premium per dischi non gestiti. Nel [portale di Azure](https://portal.azure.com), per creare un account di Archiviazione Premium, scegliere il livello di prestazioni **Premium**. Selezionare l'opzione di replica **Archiviazione con ridondanza locale**. È anche possibile creare un account di Archiviazione Premium impostando il livello di prestazioni su **Premium_LRS** (Archiviazione con ridondanza locale Premium). Per modificare il livello di prestazioni, usare uno degli approcci seguenti:
+    Per iniziare a usare Archiviazione Premium, creare un account di archiviazione Premium per dischi non gestiti. Nel [portale di Azure](https://portal.azure.com), per creare un account di Archiviazione Premium, scegliere il livello di prestazioni **Premium**. Selezionare l'opzione di replica **Archiviazione con ridondanza locale**. È anche possibile creare un account di Archiviazione Premium impostando il livello di prestazioni su **Archiviazione con ridondanza locale Premium**. Per modificare il livello di prestazioni, usare uno degli approcci seguenti:
      
-    - [Uso di Azure PowerShell con Archiviazione di Azure](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
-    - [Uso dell'interfaccia della riga di comando di Azure 2.0 con Archiviazione di Azure](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
-    - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (API REST del provider delle risorse di archiviazione di Azure) (per le distribuzioni di Azure Resource Manager) o una delle librerie client dei provider di risorse di Archiviazione di Azure
+    - [PowerShell per Archiviazione di Azure](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+    - [Interfaccia della riga di comando di Azure per Archiviazione di Azure](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+    - [API REST del provider delle risorse di archiviazione di Azure](https://docs.microsoft.com/rest/api/storagerp) (per le distribuzioni di Azure Resource Manager) o una delle librerie client dei provider di risorse di Archiviazione di Azure
 
     Nella sezione [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#premium-storage-scalability-and-performance-targets) sono riportate informazioni sui limiti dell'account di Archiviazione Premium.
 

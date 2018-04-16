@@ -1,36 +1,37 @@
 ---
-title: Creare una rete virtuale di Azure - Interfaccia della riga di comando di Azure | Microsoft Docs
-description: Apprendere a creare rapidamente una rete virtuale usando l'interfaccia della riga di comando di Azure. Una rete virtuale consente alle risorse di Azure, come le macchine virtuali, di comunicare privatamente tra loro e con Internet.
+title: 'Creare una rete virtuale: guida introduttiva - Interfaccia della riga di comando di Azure | Microsoft Docs'
+description: Questa guida introduttiva illustra come creare una rete virtuale usando il portale di Azure. Una rete virtuale consente alle risorse di Azure, come le macchine virtuali, di comunicare privatamente tra loro e con Internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: ''
+ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
-ms.custom: ''
-ms.openlocfilehash: d07f06a1a70c859544c3b1ceb6146dc11e4d10aa
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.custom: mvc
+ms.openlocfilehash: bb45b2b4ecd89187e94066bc81782174738fe3a9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="create-a-virtual-network-using-the-azure-cli"></a>Creare una rete virtuale usando l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Guida introduttiva: Creare una rete virtuale con l'interfaccia della riga di comando di Azure
 
-Una rete virtuale consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente tra loro e con Internet. Questo articolo illustra come creare una rete virtuale. Dopo avere creato una rete virtuale, si distribuiscono due VM nella rete virtuale. Quindi si effettua la connessione a una VM da Internet e si comunica privatamente con l'altra VM.
+Una rete virtuale consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente tra loro e con Internet. Questa guida introduttiva illustra come creare una rete virtuale. Dopo avere creato una rete virtuale, si distribuiscono due VM nella rete virtuale. Quindi si effettua la connessione a una VM da Internet e si comunica privatamente con l'altra VM.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione installata, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questa guida introduttiva richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione installata, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
@@ -102,7 +103,7 @@ Sostituire `<publicIpAddress>` con l'indirizzo IP pubblico della VM *myVm2* nel 
 ssh <publicIpAddress>
 ```
 
-## <a name="communicate-privately-between-vms"></a>Comunicare privatamente tra VM
+## <a name="communicate-between-vms"></a>Stabilire la comunicazione tra le macchine virtuali
 
 Per confermare le comunicazioni private tra le VM *myVm2* e *myVm1*, immettere il comando seguente:
 
@@ -124,9 +125,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sono state create una rete virtuale predefinita e due VM. È stata effettuata la connessione a una VM da Internet e si è comunicato privatamente tra le due VM. Per altre informazioni sulle impostazioni della rete virtuale, vedere [Manage a virtual network](manage-virtual-network.md) (Gestire una rete virtuale). 
+In questa guida introduttiva sono state create una rete virtuale predefinita e due VM. È stata effettuata la connessione a una VM da Internet ed è stata stabilita una comunicazione privata tra la VM e un'altra VM. Per altre informazioni sulle impostazioni della rete virtuale, vedere [Manage a virtual network](manage-virtual-network.md) (Gestire una rete virtuale). 
 
-Per impostazione predefinita, Azure consente comunicazioni private senza restrizioni tra le macchine virtuali, ma permette solo sessioni SSH in ingresso alle VM Linux da Internet. Per informazioni su come consentire o limitare i diversi tipi di comunicazione di rete da e verso le VM, passare all'esercitazione successiva.
-
-> [!div class="nextstepaction"]
-> [Filtrare il traffico di rete](tutorial-filter-network-traffic-cli.md)
+Per impostazione predefinita, Azure consente comunicazioni private senza restrizioni tra le macchine virtuali, ma permette solo connessioni Desktop remoto in ingresso alle VM Windows da Internet. Per informazioni su come consentire o limitare i diversi tipi di comunicazione di rete da e verso le VM, vedere [Filtrare il traffico di rete](tutorial-filter-network-traffic.md).

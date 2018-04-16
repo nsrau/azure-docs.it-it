@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6038251ba79797312a0fec61e4a6f3d2e99d5435
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 276c6bf1a476e5c74c5e75e4906f451154becf31
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Guida introduttiva: Creare un'applicazione .NET Service Fabric in Azure
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. 
@@ -29,14 +29,14 @@ In questa guida introduttiva viene illustrato come distribuire la prima applicaz
 ![Screenshot dell'applicazione](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
 Usando questa applicazione, si apprenderà come:
-> [!div class="checklist"]
-> * Creare un'applicazione mediante .NET e Service Fabric
-> * Usare ASP.NET Core come front-end Web
-> * Archiviare i dati dell'applicazione in un servizio con stato
-> * Eseguire il debug dell'applicazione in locale
-> * Distribuire l'applicazione in un cluster in Azure
-> * Scalare orizzontalmente l'applicazione in più nodi
-> * Eseguire un aggiornamento in sequenza delle applicazioni
+
+* Creare un'applicazione mediante .NET e Service Fabric
+* Usare ASP.NET Core come front-end Web
+* Archiviare i dati dell'applicazione in un servizio con stato
+* Eseguire il debug dell'applicazione in locale
+* Distribuire l'applicazione in un cluster in Azure
+* Scalare orizzontalmente l'applicazione in più nodi
+* Eseguire un aggiornamento in sequenza delle applicazioni
 
 ## <a name="prerequisites"></a>prerequisiti
 Per completare questa guida introduttiva:
@@ -92,7 +92,7 @@ Quando l'utente vota nell'applicazione, si verificano gli eventi seguenti:
 
 ## <a name="debug-in-visual-studio"></a>Eseguire il debug in Visual Studio
 
-Durante il debug dell'applicazione in Visual Studio, viene usato un cluster di sviluppo locale di Service Fabric. È possibile modificare l'esperienza di debug in base allo specifico scenario. In questa applicazione i dati vengono archiviati nel servizio back-end tramite un dizionario Reliable. Visual Studio rimuove l'applicazione per impostazione predefinita quando si arresta il debugger. La rimozione dell'applicazione determina la rimozione anche dei dati nel servizio back-end. Per rendere persistenti i dati tra le sessioni di debug, è possibile modificare la proprietà **Modalità di debug applicazione** del progetto **Voting** in Visual Studio.
+L'applicazione dovrebbe essere correttamente in esecuzione, ma è possibile usare il debugger per verificare il funzionamento delle parti principali dell'applicazione. Durante il debug dell'applicazione in Visual Studio, viene usato un cluster di sviluppo locale di Service Fabric. È possibile modificare l'esperienza di debug in base allo specifico scenario. In questa applicazione i dati vengono archiviati nel servizio back-end tramite un dizionario Reliable. Visual Studio rimuove l'applicazione per impostazione predefinita quando si arresta il debugger. La rimozione dell'applicazione determina la rimozione anche dei dati nel servizio back-end. Per rendere persistenti i dati tra le sessioni di debug, è possibile modificare la proprietà **Modalità di debug applicazione** del progetto **Voting** in Visual Studio.
 
 Per osservare che cosa avviene nel codice, completare la procedura seguente:
 1. Aprire il file **/VotingWeb/Controllers/VotesController.cs** e impostare un punto di interruzione nel metodo **Put** dell'API Web (riga 69). È possibile cercare il file in Esplora soluzioni in Visual Studio.
@@ -181,8 +181,8 @@ Il browser può visualizzare un avviso che indica che il percorso non è attendi
 
 Per scalare il servizio front-end Web, seguire questa procedura:
 
-1. Aprire Service Fabric Explorer nel cluster, ad esempio `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
-2. Fare clic sui puntini di sospensione accanto al nodo **fabric:/Voting/VotingWeb** nella visualizzazione ad albero e scegliere **Scale Service** (Ridimensiona servizio).
+1. Aprire Service Fabric Explorer nel cluster, ad esempio `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+2. Nella visualizzazione struttura ad albero espandere **Applicazioni**->**VotingType**->**fabric:/Voting**. Fare clic sui puntini di sospensione accanto al nodo **fabric:/Voting/VotingWeb** nella visualizzazione ad albero e scegliere **Scale Service** (Ridimensiona servizio).
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
 
@@ -213,25 +213,26 @@ Per aggiornare l'applicazione, eseguire le operazioni seguenti:
 7. Nella finestra di dialogo **Pubblica applicazione di Service Fabric** selezionare la casella di controllo Aggiorna l'applicazione e fare clic su **Pubblica**.
 
     ![Impostazione di aggiornamento nella finestra di dialogo Pubblica](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
+
+    Durante l'esecuzione dell'aggiornamento, è comunque possibile usare l'applicazione. Poiché nel cluster sono in esecuzione due istanze del servizio, alcune delle richieste potrebbero ottenere la versione aggiornata dell'applicazione, mentre altre potrebbero ancora ottenere la versione precedente.
+
 8. Aprire il browser e passare all'indirizzo del cluster sulla porta 19080, ad esempio `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
 9. Fare clic sul nodo **Applicazioni** nella visualizzazione ad albero, quindi su **Upgrades in Progress** (Aggiornamenti in corso) nel riquadro destro. È possibile osservare che l'aggiornamento viene distribuito attraverso i domini di aggiornamento del cluster, verificando l'integrità di ogni dominio prima di procedere a quello successivo. Nell'indicatore di stato viene visualizzato in verde un dominio di aggiornamento dopo aver verificato l'integrità di dominio.
     ![Visualizzazione dell'aggiornamento in Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     Service Fabric garantisce la sicurezza degli aggiornamenti attendendo due minuti dopo l'aggiornamento del servizio in ogni nodo del cluster. L'intero aggiornamento richiederà circa 8 minuti.
 
-10. Durante l'esecuzione dell'aggiornamento, è comunque possibile usare l'applicazione. Poiché nel cluster sono in esecuzione due istanze del servizio, alcune delle richieste potrebbero ottenere la versione aggiornata dell'applicazione, mentre altre potrebbero ancora ottenere la versione precedente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa guida introduttiva si è appreso come:
 
-> [!div class="checklist"]
-> * Creare un'applicazione mediante .NET e Service Fabric
-> * Usare ASP.NET Core come front-end Web
-> * Archiviare i dati dell'applicazione in un servizio con stato
-> * Eseguire il debug dell'applicazione in locale
-> * Distribuire l'applicazione in un cluster in Azure
-> * Scalare orizzontalmente l'applicazione in più nodi
-> * Eseguire un aggiornamento in sequenza delle applicazioni
+* Creare un'applicazione mediante .NET e Service Fabric
+* Usare ASP.NET Core come front-end Web
+* Archiviare i dati dell'applicazione in un servizio con stato
+* Eseguire il debug dell'applicazione in locale
+* Distribuire l'applicazione in un cluster in Azure
+* Scalare orizzontalmente l'applicazione in più nodi
+* Eseguire un aggiornamento in sequenza delle applicazioni
 
 Per altre informazioni su Service Fabric e .NET, fare riferimento a questa esercitazione:
 > [!div class="nextstepaction"]

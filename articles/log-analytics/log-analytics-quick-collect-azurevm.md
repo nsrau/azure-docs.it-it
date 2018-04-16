@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2018
+ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: ff610c4efa9db16ca8a1e151b36e0e08dfe30d69
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 3b21a3ae5940cd736fe23b76e7ede9dc0061b711
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Raccogliere dati sulle macchine virtuali di Azure
 [Azure Log Analytics](log-analytics-overview.md) può raccogliere i dati direttamente dalle macchine virtuali di Azure e da altre risorse dell'ambiente in un unico archivio per analisi dettagliate e per la correlazione.  Questa guida introduttiva illustra come configurare e raccogliere dati dalle VM Linux o Windows di Azure in pochi semplici passaggi.  
@@ -37,7 +37,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
   * Selezionare una **sottoscrizione** a cui collegarsi. Se la sottoscrizione selezionata per impostazione predefinita non è appropriata, è possibile sceglierne una dall'elenco a discesa.
   * Per **Gruppo di risorse**, selezionare un gruppo di risorse esistente contenente una o più macchine virtuali di Azure.  
   * Selezionare la **località** in cui sono distribuite le VM.  Per altre informazioni, vedere le [are in cui è disponibile Log Analytics](https://azure.microsoft.com/regions/services/).
-  * Se si sta creando un'area di lavoro in una nuova sottoscrizione creata dopo il 2 aprile 2018, verrà automaticamente usato il piano tariffario *Per GB* e non sarà disponibile l'opzione che consente di selezionare un piano tariffario.  Se si sta creando un'area di lavoro per una sottoscrizione esistente creata prima del 2 aprile o per una sottoscrizione collegata a un Contratto Enterprise esistente, è possibile scegliere tra tre piani tariffari.  In questa guida introduttiva si selezionerà il piano gratuito.  Per altre informazioni sui piani specifici, vedere [Dettagli prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+  * Se si sta creando un'area di lavoro in una nuova sottoscrizione creata dopo il 2 aprile 2018, verrà automaticamente usato il piano di determinazione dei prezzi *Per GB* e non sarà disponibile l'opzione che consente di selezionare un piano tariffario.  Se si sta creando un'area di lavoro per una sottoscrizione esistente creata prima del 2 aprile o per una sottoscrizione collegata a un registrazione di un Contratto Enterprise esistente, selezionare il piano tariffario preferito.  Per altre informazioni sui piani specifici, vedere [Dettagli prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
   
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 
@@ -45,19 +45,12 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 Per tenere traccia dello stato di avanzamento della verifica delle informazioni e della creazione dell'area di lavoro, è possibile usare la voce **Notifiche** nel menu. 
 
->[!NOTE]
->Quando si crea una nuova area di lavoro collegata a una nuova sottoscrizione creata dopo il 2 aprile 2018, verrà automaticamente usato il piano tariffario *PerGB2018*.  Questo piano include 5 GB gratuiti di dati al mese per le risorse di Application Insights e Log Analytics. Per altre informazioni sul modello di determinazione prezzi, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
->
-
 ## <a name="enable-the-log-analytics-vm-extension"></a>Abilitare l'estensione macchina virtuale di Log Analytics
 Per le macchine virtuali Windows e Linux già distribuite in Azure, si installa l'agente di Log Analytics con l'estensione VM di Log Analytics.  L'uso dell'estensione macchina virtuale consente di semplificare il processo di installazione e di configurare automaticamente l'agente per l'invio di dati all'area di lavoro di Log Analytics specificata. L'agente viene anche aggiornato automaticamente in modo da garantire la presenza delle funzionalità e delle correzioni più recenti.
 
 >[!NOTE]
 >L'agente OMS per Linux non può essere configurato per inviare report a più di un'area di lavoro di Log Analytics. 
 
-Se è stata creata un'area di lavoro nel cloud Azure per enti pubblici, nella parte superiore della pagina delle risorse di Log Analytics nel portale si noterà il banner che invita a eseguire l'aggiornamento.  L'aggiornamento non è necessario ai fini di questa guida introduttiva.<br>
-
-![Avviso di aggiornamento di Log Analytics nel portale di Azure](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
 1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
 2. Nell'elenco di aree di lavoro di Log Analytics selezionare *DefaultLAWorkspace* creata prima.
 3. Nel menu a sinistra fare clic su **Macchine virtuali** in Origini dati dell'area di lavoro.  
@@ -93,10 +86,6 @@ Ora che la raccolta di dati è stata abilitata, verrà eseguito un semplice esem
 
 1. Nel portale di Azure passare a Log Analytics e selezionare l'area di lavoro creata prima.
 2. Fare clic sul riquadro **Ricerca log** e nel riquadro Ricerca log digitare `Perf` nel campo della query e quindi premere INVIO o fare clic sul pulsante della ricerca a destra del campo della query.<br> ![Esempio di query di ricerca log di Log Analytics](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
-
-   >[!NOTE]
-   >Se l'area di lavoro viene creata nel cloud Azure per enti pubblici, si userà la query `Type=Perf`.  
-   >
 
 La query nella figura seguente, ad esempio, ha restituito 78.000 record relativi alle prestazioni.  I risultati effettivi saranno molti di meno.<br> ![Risultato della ricerca log di Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 

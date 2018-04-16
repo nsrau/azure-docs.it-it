@@ -6,15 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3d7dd0986878c747f92afc712301453bc8772ef2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f1c6b5cd07752c6b29234a365b3298d76b639b3a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Distribuire Funzioni di Azure come modulo di IoT Edge: anteprima
 È possibile usare Funzioni di Azure per distribuire il codice che implementa la logica di business direttamente nei dispositivi IoT Edge. Questa esercitazione illustra in modo dettagliato la creazione e la distribuzione di una funzione di Azure che filtra i dati dei sensori nel dispositivo IoT Edge simulato, creato nelle esercitazioni sulla distribuzione di Azure IoT Edge in un dispositivo simulato in [Windows][lnk-tutorial1-win] o [Linux][lnk-tutorial1-lin]. In questa esercitazione si apprenderà come:     
@@ -95,8 +95,7 @@ La procedura seguente illustra come creare una funzione di IoT Edge tramite Visu
                 // Copy the properties of the original message into the new Message object
                 foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
                 {
-                    filteredMessage.Properties.Add(prop.Key, prop.Value);
-                }
+                    filteredMessage.Properties.Add(prop.Key, prop.Value);                }
                 // Add a new property to the message to indicate it is an alert
                 filteredMessage.Properties.Add("MessageType", "Alert");
                 // Send the message        
@@ -136,10 +135,13 @@ La procedura seguente illustra come creare una funzione di IoT Edge tramite Visu
    ```
    Per trovare il nome utente, la password e il server di accesso da usare in questo comando, passare al [portale di Azure] (https://portal.azure.com). Da **Tutte le risorse** fare clic sul riquadro per il Registro contenitori di Azure per aprirne le proprietà, quindi fare clic su **Chiavi di accesso**. Copiare i valori nei campi **Nome utente**, **Password** e **Server di accesso**. 
 
-2. Nello strumento di esplorazione di VS Code fare clic con il pulsante destro del mouse sul file **module.json** e quindi su **Build and Push IoT Edge module Docker image** (Compilazione e push dell'immagine Docker del modulo per IoT Edge). Nella casella a discesa popup nella parte superiore della finestra di Visual Studio Code selezionare la piattaforma del contenitore, **amd64** per un contenitore Linux o **windows-amd64** per un contenitore Windows. Visual Studio Code inserisce quindi in contenitori i codici funzione e ne esegue il push nel registro contenitori specificato.
+2. Aprire **module.json**. È facoltativamente possibile aggiornare `"version"` ad esempio a **"1.0"**. Viene mostrato anche il nome del repository immesso nel parametro `-r` di `dotnet new aziotedgefunction`.
 
+3. Salvare il file **module.json**.
 
-3. È possibile ottenere l'indirizzo completo dell'immagine del contenitore con tag nel terminale integrato di VS Code. Per altre informazioni sulla definizione di build e push, è possibile fare riferimento al file `module.json`.
+4. Nello strumento di esplorazione di Visual Studio Code fare clic con il pulsante destro del mouse sul file **module.json** e quindi scegliere **Build and Push IoT Edge module Docker image** (Compilazione e push dell'immagine Docker del modulo per IoT Edge). Nella casella a discesa popup nella parte superiore della finestra di Visual Studio Code selezionare la piattaforma del contenitore, **amd64** per un contenitore Linux o **windows-amd64** per un contenitore Windows. Visual Studio Code inserisce quindi in contenitori i codici funzione e ne esegue il push nel registro contenitori specificato.
+
+5. È possibile ottenere l'indirizzo completo dell'immagine del contenitore con tag nel terminale integrato di Visual Studio Code. Per altre informazioni sulla definizione di compilazione e push, è possibile fare riferimento al file `module.json`.
 
 ## <a name="add-registry-credentials-to-your-edge-device"></a>Aggiungere le credenziali del registro al dispositivo perimetrale
 Aggiungere le credenziali per il registro al runtime di Edge nel computer in cui si esegue il dispositivo perimetrale, in modo da consentire al runtime l'accesso per il pull del contenitore. 
