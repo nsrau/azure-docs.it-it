@@ -5,7 +5,7 @@ services: dns
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
 ms.devlang: na
@@ -69,13 +69,13 @@ Un record CAA consente ai proprietari di domini di specificare quali autorità d
 
 I set di record CNAME non possono coesistere con altri set di record con lo stesso nome. Non è ad esempio possibile creare contemporaneamente un set di record CNAME con il nome relativo "www" e un record A con il nome relativo '"www".
 
-Dal momento che il vertice della zona (name = '@') contiene sempre i set di record NS e SOA creati quando è stata creata la zona, non è possibile creare un set di record CNAME al vertice della zona.
+Dal momento che il vertice della zona (name = '\@\') contiene sempre i set di record NS e SOA creati quando è stata creata la zona, non è possibile creare un set di record CNAME al vertice della zona.
 
 Questi vincoli derivano dagli standard DNS e non sono limitazioni di DNS di Azure.
 
 ### <a name="ns-records"></a>Record NS
 
-Un set di record NS viene creato automaticamente in corrispondenza del vertice di ogni zona DNS (nome = "@") e viene eliminato automaticamente quando viene eliminata la zona; non può essere eliminato separatamente.
+Un set di record NS viene creato automaticamente in corrispondenza del vertice di ogni zona DNS (nome = "\@\") e viene eliminato automaticamente quando viene eliminata la zona; non può essere eliminato separatamente.
 
 Questo set contiene i nomi dei server dei nomi DNS di Azure assegnati alla zona. È possibile aggiungere altri server dei nomi a questo set di record NS per supportare domini coesistenti con più provider DNS. È anche possibile modificare il valore TTL e i metadati per questo set di record. Tuttavia, non è possibile rimuovere o modificare i server dei nomi DNS di Azure già popolati. 
 
@@ -83,7 +83,7 @@ Notare che questo si applica solo al set di record NS al vertice della zona. Gli
 
 ### <a name="soa-records"></a>Record SOA
 
-Un set di record SOA viene creato automaticamente in corrispondenza del vertice di ogni zona (nome = '@') e viene eliminato automaticamente quando viene eliminata la zona.  I record SOA non possono essere creati o eliminati separatamente.
+Un set di record SOA viene creato automaticamente in corrispondenza del vertice di ogni zona (nome = '\@\') e viene eliminato automaticamente quando viene eliminata la zona.  I record SOA non possono essere creati o eliminati separatamente.
 
 È possibile modificare tutte le proprietà del record SOA ad eccezione della proprietà "host", che è preconfigurata in modo da fare riferimento al nome del server dei nomi primario fornito da DNS di Azure.
 
@@ -95,7 +95,7 @@ Un set di record SOA viene creato automaticamente in corrispondenza del vertice 
 
 I [record SRV](https://en.wikipedia.org/wiki/SRV_record) vengono usati da svariati servizi per specificare i percorsi dei server. Quando si specifica un record SRV in DNS di Azure:
 
-* Il *servizio* e il *protocollo* devono essere specificati come parte del nome del set di record, preceduti da caratteri di sottolineatura.  Ad esempio, "\_sip.\_tcp.name".  Per un record nel vertice della zona non è necessario specificare '@' nel nome del record, ma è sufficiente usare il servizio e il protocollo, ad esempio '\_sip.\_tcp'.
+* Il *servizio* e il *protocollo* devono essere specificati come parte del nome del set di record, preceduti da caratteri di sottolineatura.  Ad esempio, "\_sip.\_tcp.name".  Per un record nel vertice della zona non è necessario specificare '\@\' nel nome del record, ma è sufficiente usare il servizio e il protocollo, ad esempio '\_sip.\_tcp'.
 * La *priorità*, il *peso*, la *porta* e la *destinazione* vengono specificati come parametri di ogni record nel set di record.
 
 ### <a name="txt-records"></a>Record TXT
