@@ -52,12 +52,12 @@ Se si dimentica la password, la si vuole modificare, il personale IT non l'ha ma
 Per il portale delle app personali è necessario un browser che supporti JavaScript e in cui sia abilitato CSS. Se si usano app con accesso Single Sign-On basato su password è necessario installare anche l'estensione corrispondente. L'estensione viene scaricata automaticamente quando si avvia un'applicazione configurata per le app con accesso Single Sign-On basato su password.
 
 Verificare che vengano soddisfatti i requisiti del browser seguenti:
-- **Edge**: su Windows 10 Anniversary Edition o versioni successive.
+- **Microsoft Edge**: su Windows 10 Anniversary Edition o versioni successive.
 - **Chrome**: in Windows 7 o versione successiva e in Mac OS X o versione successiva.
 - **Firefox 26.0 o versione successiva**: in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva.
 - **Internet Explorer 8, 9, 10, 11**: in Windows 7 o versioni successive (supporto limitato).
 
-È anche possibile scaricare l'estensione per Chrome ed Edge direttamente dai siti seguenti:
+È anche possibile scaricare l'estensione per Chrome e Microsoft Edge direttamente dai siti seguenti:
 
 - [Estensione per Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 - [Estensione per Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
@@ -92,7 +92,7 @@ Se l'estensione è stata installata e continuano a verificarsi problemi, procede
        Nell'elenco di collegamenti **Usati di recente** verranno visualizzate le ultime tre app usate.
 
 > [!NOTE]
-> Queste funzionalità sono disponibili solo per Edge, Chrome e Firefox.
+> Queste funzionalità sono disponibili solo per Microsoft Edge, Chrome e Firefox.
 
 ## <a name="how-do-i-add-a-new-app"></a>Come aggiungere una nuova app
 

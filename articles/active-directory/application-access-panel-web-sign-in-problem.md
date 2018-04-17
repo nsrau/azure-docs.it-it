@@ -2,10 +2,10 @@
 title: Problemi di accesso al sito Web del pannello di accesso | Microsoft Docs
 description: Linee guida per risolvere i possibili problemi durante il tentativo di accedere per usare il pannello di accesso
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -62,7 +62,7 @@ Per l'accesso Single Sign-On basato su password il browser dell'utente finale pu
 
 -   Internet Explorer 8, 9, 10, 11 su Windows 7 o versioni successive
 
--   Edge su Windows 10 Anniversary Edition o versioni successive 
+-   Microsoft Edge su Windows 10 Anniversary Edition o versioni successive 
 
 -   Chrome in Windows 7 o versione successiva e MacOS X o versione successiva
 

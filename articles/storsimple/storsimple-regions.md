@@ -1,12 +1,12 @@
 ---
-title: "Disponibilità in base all'area StorSimple | Microsoft Docs"
+title: Disponibilità in base all'area StorSimple | Microsoft Docs
 description: Illustra le aree di Azure in cui sono disponibili i modelli di dispositivo StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -68,7 +68,7 @@ Se si utilizza un dispositivo fisico StorSimple 8100 o 8600, il dispositivo è d
 
 | #  | Paese        | #  | Paese     | #  | Paese      | #  | Paese              |
 |----|----------------|----|-------------|----|--------------|----|----------------------|
-| 1  | Australia      | 16 | Hong Kong - R.A.S.   | 31 | Nuova Zelanda  | 46 | Sud Africa         |
+| 1  | Australia      | 16 | RAS di Hong Kong   | 31 | Nuova Zelanda  | 46 | Sud Africa         |
 | 2  | Austria        | 17 | Ungheria     | 32 | Nigeria      | 47 | Corea del Sud          |
 | 3  | Bahrain        | 18 | Islanda     | 33 | Norvegia       | 48 | Spagna                |
 | 4  | Belgio        | 19 | India       | 34 | Perù         | 49 | Sri Lanka            |
@@ -79,7 +79,7 @@ Se si utilizza un dispositivo fisico StorSimple 8100 o 8600, il dispositivo è d
 | 9  | Repubblica ceca | 24 | Giappone       | 39 | Qatar        | 54 | Turchia               |
 | 10 | Danimarca        | 25 | Kenya       | 40 | Romania      | 55 | Ucraina              |
 | 11 | Egitto          | 26 | Kuwait      | 41 | Russia       | 56 | Emirati Arabi Uniti |
-| 12 | Finlandia        | 27 | Macao       | 42 | Arabia Saudita | 57 | Regno Unito       |
+| 12 | Finlandia        | 27 | RAS di Macao       | 42 | Arabia Saudita | 57 | Regno Unito       |
 | 13 | Francia         | 28 | Malaysia    | 43 | Singapore    | 58 | Stati Uniti        |
 | 14 | Germania        | 29 | Messico      | 44 | Slovacchia     | 59 | Vietnam              |
 | 15 | Grecia         | 30 | Paesi Bassi | 45 | Slovenia     | 60 | Croazia              |

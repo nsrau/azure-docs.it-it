@@ -2,10 +2,10 @@
 title: Problemi di accesso a un'applicazione dal pannello di accesso | Microsoft Docs
 description: Come risolvere i problemi di accesso a un'applicazione dal pannello di accesso di Microsoft Azure AD su myapps.microsoft.com
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -66,7 +66,7 @@ Per l'accesso Single Sign-On basato su password il browser dell'utente finale pu
 
 -   Internet Explorer 8, 9, 10, 11 su Windows 7 o versioni successive
 
--   Edge su Windows 10 Anniversary Edition o versioni successive
+-   Microsoft Edge su Windows 10 Anniversary Edition o versioni successive
 
 -   Chrome in Windows 7 o versione successiva e MacOS X o versione successiva
 
@@ -90,7 +90,7 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
 
 7.  Accedere al pannello di accesso e verificare se è possibile **avviare** le applicazioni con accesso SSO basato su password.
 
-È anche possibile scaricare l'estensione per Chrome ed Edge dai collegamenti diretti seguenti:
+È anche possibile scaricare l'estensione per Chrome e Microsoft Edge dai collegamenti diretti seguenti:
 
 -   [Estensione Pannello di accesso per Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 

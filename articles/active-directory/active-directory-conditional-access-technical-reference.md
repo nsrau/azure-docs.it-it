@@ -123,7 +123,7 @@ Questa impostazione funziona con tutti i browser. Tuttavia, per soddisfare un cr
 
 | OS                     | Browser                            | Supporto     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Edge, Chrome     | ![Controllo][1] |
+| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![Controllo][1] |
 | Windows 8/8.1        | Internet Explorer, Chrome           | ![Controllo][1] |
 | Windows 7              | Internet Explorer, Chrome           | ![Controllo][1] |
 | iOS                    | Safari, Intune Managed Browser      | ![Controllo][1] |

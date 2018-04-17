@@ -2,13 +2,13 @@
 title: Copertura del traffico in Servizi Location Based di Azure | Microsoft Docs
 description: Informazioni sulla copertura del traffico in Servizi Location Based di Azure
 services: location-based-services
-keywords: 
+keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
@@ -45,7 +45,7 @@ Servizi Location Based di Azure fornisce informazioni dettagliate sul traffico, 
 |+Principato di Monaco     |✓         |✓         |
 |Germania     |✓         |✓         |
 |Grecia     |✓         |✓         |
-|Hong Kong - R.A.S.     |✓         |✓         |
+|RAS di Hong Kong     |✓         |✓         |
 |Ungheria     |✓         |✓         |
 |Islanda     |         |✓         |
 |Indonesia     |✓         |✓         |

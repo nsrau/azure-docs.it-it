@@ -93,7 +93,7 @@ Uno SKU viene visualizzato sotto l'offerta padre nel marketplace e come entità 
    * **Summary (Riepilogo)**: immettere un breve riepilogo per questo SKU, che viene visualizzato sotto il titolo.
    * **Description (Descrizione)**: immettere una descrizione dettagliata sullo SKU.
    * **SKU Type** (Tipo di SKU): i valori consentiti sono *Managed Application* (Applicazione gestita) e *Solution Templates* (Modelli di soluzioni). In questo caso, selezionare *Managed Application* (Applicazione gestita).
-   * **Country/Region availability** (Disponibilità paese/regione): selezionare i paesi in cui l'applicazione gestita è disponibile.
+   * **Country/Region availability** (Disponibilità paese/area geografica): selezionare i paesi in cui l'applicazione gestita è disponibile.
    * **Pricing** (Prezzi): indica il prezzo della gestione dell'applicazione. Prima di impostare il prezzo, selezionare i paesi disponibili.
 
 1. Aggiungere un nuovo pacchetto. Compilare la sezione dei **dettagli del pacchetto** nel formato seguente:

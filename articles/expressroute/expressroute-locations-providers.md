@@ -44,7 +44,7 @@ La tabella seguente fornisce una mappa di aree di Azure e di località ExpressRo
 | **America del Nord** |Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti orientali 2, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Canada centrale, Canada orientale |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
 | **America del Sud** |Brasile meridionale |Sao Paulo |
 | **Europa** |Francia centrale, Francia meridionale, Europa settentrionale, Europa occidentale, Regno Unito orientale, Regno Unito meridionale |Amsterdam, Dublino, Londra, Newport (Galles), Parigi |
-| **Asia** |Asia orientale, Asia sudorientale |Hong Kong, Singapore, Singapore2 |
+| **Asia** |Asia orientale, Asia sudorientale |RAS di Hong Kong, Singapore, Singapore2 |
 | **Giappone** |Giappone occidentale, Giappone orientale |Osaka, Tokyo |
 | **Australia** |Australia sudorientale, Australia orientale |Melbourne, Sydney |
 | **India** |India occidentale, India centrale, India Meridionale |Chennai, Mumbai |
@@ -77,7 +77,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Telmex Uninet+, Verizon, Zayo|
 | **Denver** |CoreSite, Megaport |
 | **Dublino** |Colt, eir, Interxion, Megaport, Telecity Group |
-| **Hong Kong** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
+| **RAS di Hong Kong** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Las Vegas** |Level 3 Communications, Megaport |
 | **Londra** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo |
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo |
@@ -154,7 +154,7 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 | **Chicago** | Equinix | Lightower, Windstream |
 | **Dallas** | Equinix, Megaport | C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Francoforte** | Telecity | BICS, Nianet, QSC AG |
-| **Hong Kong** | Equinix | Macroview Telecom |
+| **RAS di Hong Kong** | Equinix | Macroview Telecom |
 | **Londra** | Equinix, euNetworks, Telecity | Bezeq International Ltd., Epsilon, Exponential E, HSO, NexGen Networks, Tamares Telecom, Zain |
 | **Los Angeles** | Equinix |Transtelco |
 | **Madrid** | Level3 | Zertia |

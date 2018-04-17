@@ -12,7 +12,7 @@ ms.reviewer: wfayed
 keywords: ''
 ms.openlocfilehash: 3180b24454fc49a34a40bdf2873fad1d56173e3d
 ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/23/2018
 ---
@@ -261,7 +261,7 @@ Se si decide di eseguire manualmente i comandi, eseguire la procedura seguente:
    > [!IMPORTANT]
    > Per configurare le regole di autorizzazione rilascio quando si utilizza Windows Server 2012 o 2012 R2 AD FS, è necessario utilizzare lo snap-in MMC di AD FS.
 
-4. Quando si utilizza Internet Explorer o il browser Edge per accedere allo Stack di Azure, è necessario ignorare associazioni dei token. In caso contrario, i tentativi di accesso esito negativo. L'istanza di AD FS o un membro della farm, eseguire il comando seguente:
+4. Quando si utilizza Internet Explorer o il browser Microsoft Edge per accedere allo Stack di Azure, è necessario ignorare associazioni dei token. In caso contrario, i tentativi di accesso esito negativo. L'istanza di AD FS o un membro della farm, eseguire il comando seguente:
 
    ```powershell
    Set-AdfsProperties -IgnoreTokenBinding $true

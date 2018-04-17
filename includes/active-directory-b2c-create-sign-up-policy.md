@@ -10,7 +10,7 @@ Il **Nome** determina il nome dei criteri di iscrizione usati dall'applicazione.
 
 Fare clic su **Provider di identità** e selezionare **Iscrizione posta elettronica**. Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
 
-Fare clic su **Attributi iscrizione**. Qui è possibile scegliere gli attributi che si desidera raccogliere dall'utente durante l'iscrizione. Selezionare ad esempio **Paese/Area**, **Nome visualizzato** e **Codice postale**. Fare clic su **OK**.
+Fare clic su **Attributi iscrizione**. Qui è possibile scegliere gli attributi che si desidera raccogliere dall'utente durante l'iscrizione. Selezionare ad esempio **Paese/Area geografica**, **Nome visualizzato** e **Codice postale**. Fare clic su **OK**.
 
 Fare clic su **Attestazioni applicazione**. Qui si scelgono le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di iscrizione. Selezionare ad esempio **Nome visualizzato**, **Provider di identità**, **Codice postale**, **L'utente è nuovo** e l'**ID oggetto dell'utente**.
 

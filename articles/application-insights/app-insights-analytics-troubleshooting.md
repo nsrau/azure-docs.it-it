@@ -2,7 +2,7 @@
 title: Risolvere i problemi di Analytics in Azure Application Insights | Documentazione Microsoft
 description: 'Problemi con Application Insights Analytics? Inizia da qui. '
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9bbd5859-3584-4d80-9b6d-d5910fa48baa
@@ -54,7 +54,7 @@ Si è verificato un errore correlato all'autenticazione (durante l'autenticazion
 2. Il portale Analytics è stato aperto utilizzando preferiti, segnalibri o un collegamento salvato? L'accesso è stato eseguito con credenziali diverse da quelle utilizzate quando è stato salvato il collegamento?
 3. Provare a utilizzare una finestra del browser privata/in incognito (dopo aver chiuso tutte le finestre di questo tipo). Sarà necessario fornire le credenziali. 
 4. Aprire un'altra finestra del browser (normale) e accedere ad [Azure](https://portal.azure.com). Uscire, quindi aprire il collegamento ed effettuare l'accesso con le credenziali corrette.
-5. Gli utenti di Edge e Internet Explorer possono ricevere questo errore anche quando le impostazioni delle zone attendibili non sono supportate.
+5. Gli utenti di Microsoft Edge e Internet Explorer possono ricevere questo errore anche quando le impostazioni delle zone attendibili non sono supportate.
    
     Verificare che il [portale di Analytics](https://analytics.applicationinsights.io) e il [portale di Azure Active Directory](https://portal.azure.com) si trovino nella stessa area di sicurezza:
    

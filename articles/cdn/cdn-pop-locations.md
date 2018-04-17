@@ -44,7 +44,7 @@ Questo articolo elenca le località POP (Point of Presence) correnti, ordinate p
 | Europa meridionale | Milano, Italia<br />Madrid, Spagna | Italia<br />Spagna |
 | Africa | Johannesburg, Sudafrica | |
 | Medio Oriente | Muscat, Oman<br />Fujirah, Emirati Arabi Uniti | Qatar |
-| Asia | Hong Kong - R.A.S.<br />Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India<br />Nuova Delhi, India<br />Batam, Indonesia<br />Giacarta, Indonesia<br />Osaka, Giappone<br />Tokyo, Giappone<br />Singapore<br />Seoul, Corea del Sud<br />Kaohsiung, Taiwan | Hong Kong - R.A.S.<br />India<br />Indonesia<br />Giappone<br />Malaysia<br />Filippine<br />Singapore<br />Taiwan<br />Thailandia<br />Vietnam |
+| Asia | RAS di Hong Kong<br />Bengaluru (Bangalore), India<br />Chennai, India<br />Delhi, India<br />Mumbai, India<br />Nuova Delhi, India<br />Batam, Indonesia<br />Giacarta, Indonesia<br />Osaka, Giappone<br />Tokyo, Giappone<br />Singapore<br />Seoul, Corea del Sud<br />Kaohsiung, Taiwan | RAS di Hong Kong<br />India<br />Indonesia<br />Giappone<br />Malaysia<br />Filippine<br />Singapore<br />Taiwan<br />Thailandia<br />Vietnam |
 | Australia e Nuova Zelanda | Melbourne, Australia<br />Sydney, Australia<br />Auckland, Nuova Zelanda | Australia<br />Nuova Zelanda |
 
 
