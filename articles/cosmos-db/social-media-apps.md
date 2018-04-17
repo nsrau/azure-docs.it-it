@@ -232,7 +232,7 @@ Con il tempo, aumenterà il traffico e di conseguenza aumenterà il consumo di r
 
 ![Aumento delle prestazioni e definizione di una chiave di partizione](./media/social-media-apps/social-media-apps-scaling.png)
 
-Poi le cose migliorano e gli utenti di un'altra area, paese o continente, notano la piattaforma e iniziano a usarla. Che magnifica sorpresa!
+Poi le cose migliorano e gli utenti di un'altra area geografica, paese o continente, notano la piattaforma e iniziano a usarla.Che magnifica sorpresa!
 
 Ma subito dopo ci si accorge che l'esperienza degli utenti con la piattaforma non è ottimale. Sono così lontani dall'area operativa che la latenza è molto elevata. Bisogna evitare che gli utenti abbandonino la piattaforma. Ci vorrebbe un modo semplice per **estendere la portata globale** e infatti il modo esiste.
 

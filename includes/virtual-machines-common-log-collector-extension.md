@@ -24,7 +24,7 @@ In entrambe le modalità di raccolta, è possibile specificare cartelle di racco
 * **Modello di ricerca**: modello dei nomi di file da raccogliere. Il valore predefinito è "\*"
 * **Ricorsiva**: se i file da raccogliere si trovano in modo ricorsivo nel percorso specificato.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Disporre di un account di archiviazione per il salvataggio dei file ZIP generati dall'estensione.
 * Usare i cmdlet di Azure PowerShell v0.8.0 o versioni successive. Per altre informazioni, vedere la pagina relativa ai [Download di Azure](https://azure.microsoft.com/downloads/).
 

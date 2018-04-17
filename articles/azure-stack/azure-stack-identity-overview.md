@@ -1,12 +1,12 @@
 ---
-title: "Panoramica dell'identità per lo Stack di Azure | Documenti Microsoft"
-description: "Conoscere i sistemi di identità che è possibile utilizzare con lo Stack di Azure."
+title: Panoramica dell'identità per lo Stack di Azure | Documenti Microsoft
+description: Conoscere i sistemi di identità che è possibile utilizzare con lo Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/22/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: deebe5d8ff4c35c4507d2daf5c15025a1810d865
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.reviewer: ''
+ms.openlocfilehash: 607c7938a789b3504a425057645b291bd4c8235b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Panoramica dell'identità per lo Stack di Azure
 
@@ -52,12 +52,12 @@ Gli account utente (identità) sono gli account standard che eseguono l'autentic
 Come creare e gestire utenti e gruppi varia a seconda della soluzione di identità che è utilizzare. 
 
 Nello Stack di Azure, gli account utente: 
-- Vengono creati nel  *username@domain*  formato. Anche se ADFS viene eseguito il mapping degli account utente a un'istanza di Active Directory, AD FS non supporta l'utilizzo del  *\<dominio >\<alias >* formato. 
+- Vengono creati nel *username@domain* formato. Anche se ADFS viene eseguito il mapping degli account utente a un'istanza di Active Directory, AD FS non supporta l'utilizzo del  *\<dominio >\<alias >* formato. 
 - Da impostare per utilizzare l'autenticazione a più fattori. 
 - Sono limitate alla directory in cui innanzitutto registrare, ovvero la directory della propria organizzazione.
 - Possono essere importati dalla directory locale. Per altre informazioni, vedere [integrare le directory locali con Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect). 
 
-Quando si accede al portale tenant dell'organizzazione, usare il  *https://portal.local.azurestack.external*  URL. 
+Quando si accede al portale tenant dell'organizzazione, usare il *https://portal.local.azurestack.external* URL. 
 
 ### <a name="guest-users"></a>Utenti guest
 Gli utenti guest sono gli account utente dagli altri tenant di directory che è stato concesso l'accesso alle risorse nella directory. Per supportare gli utenti guest, si utilizza Azure Active Directory e abilitare il supporto per multi-tenancy. Quando il supporto è abilitato, è possibile invitare gli utenti guest di accedere alle risorse nel tenant di directory, che a sua volta consente la collaborazione con organizzazioni esterne. 
@@ -148,7 +148,7 @@ Per l'autenticazione con il provider di identità e ricevere un Token Web JSON, 
 1.  **URL per il sistema di identità (Authority)**: l'URL in cui il provider di identità può essere raggiunto. Ad esempio, *https://login.windows.net*. 
 2.  **URI ID App per Azure Resource Manager**: l'identificatore univoco per la gestione di risorse di Azure che è registrato con il provider di identità. Inoltre è univoco per ogni installazione dello Stack di Azure.
 3.  **Credenziali**: le credenziali utilizzare per l'autenticazione con il provider di identità. 
-4.  **URL per Gestione risorse di Azure**: l'URL è il percorso del servizio Gestione risorse di Azure. Ad esempio,  *https://management.azure.com*  o  *https://management.local.azurestack.external* .
+4.  **URL per Gestione risorse di Azure**: l'URL è il percorso del servizio Gestione risorse di Azure. Ad esempio, *https://management.azure.com* o *https://management.local.azurestack.external*.
 
 Quando un'entità (un client, applicazione o utente) esegue una richiesta di autenticazione per accedere a una risorsa, la richiesta deve includere:
 - Credenziali del server principale.
@@ -169,9 +169,9 @@ Una volta completate tutte le convalide, Gestione risorse di Azure Usa il *oppos
 
 ### <a name="use-role-based-access-control"></a>Usare il controllo degli accessi in base al ruolo  
 Role-Based Access controllo (RBAC) nello Stack di Azure è coerente con l'implementazione di Microsoft Azure. È possibile gestire l'accesso alle risorse tramite l'assegnazione di ruolo RBAC appropriato per gli utenti, gruppi e applicazioni. Per informazioni su come usare RBAC con lo Stack di Azure, vedere gli articoli seguenti:
-- [Introduzione a controllo di accesso basato sui ruoli nel portale di Azure](/azure/active-directory/role-based-access-control-what-is).
-- [Utilizzare controllo di accesso basato sui ruoli per gestire l'accesso alle risorse di sottoscrizione di Azure](/azure/active-directory/role-based-access-control-configure).
-- [Creare ruoli personalizzati per gestire il controllo di accesso](/azure/active-directory/role-based-access-control-custom-roles).
+- [Introduzione al Controllo degli accessi in base al ruolo di Azure nel portale di Azure](/azure/role-based-access-control/overview).
+- [Utilizzare controllo di accesso basato sui ruoli per gestire l'accesso alle risorse di sottoscrizione di Azure](/azure/role-based-access-control/role-assignments-portal).
+- [Creare ruoli personalizzati per gestire il controllo di accesso](/azure/role-based-access-control/custom-roles).
 - [Gestire il controllo di accesso basato sui ruoli](azure-stack-manage-permissions.md) nello Stack di Azure.
 
 

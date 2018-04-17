@@ -2,7 +2,7 @@
 title: Come usare Gestione API di Azure in una rete virtuale con un gateway applicazione | Microsoft Docs
 description: Informazioni su come installare e configurare Gestione API di Azure in una rete virtuale interna con un gateway applicazione (WAF) come front-end
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: solankisamir
 manager: kjoshi
 editor: antonba
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
 ms.openlocfilehash: f9bc3ffda9f943a37fd5aadf440abf7d33a6d1de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrare Gestione API in una rete virtuale interna con un gateway applicazione 
 
@@ -32,7 +32,7 @@ La combinazione di Gestione API in una rete virtuale interna con il gateway appl
 * Uso di una singola risorsa di Gestione API e disponibilità di un sottoinsieme di API definite in Gestione API per gli utenti esterni.
 * Predisposizione di un modo veloce per attivare e disattivare l'accesso a Gestione API dalla rete Internet pubblica. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
@@ -298,7 +298,7 @@ L'esempio seguente crea una semplice regola per il percorso "/echo/" che instrad
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 ```
 
-In caso di mancata corrispondenza con le regole di percorso che devono essere abilitate da Gestione API, la configurazione del mapping dei percorsi della regola definisce anche un pool di indirizzi del back-end predefinito denominato **dummyBackendPool**. Ad esempio, http://api.contoso.net/calc/* accede a **dummyBackendPool** in quanto è definito come il pool predefinito per traffico senza corrispondenza.
+In caso di mancata corrispondenza con le regole di percorso che devono essere abilitate da Gestione API, la configurazione del mapping dei percorsi della regola definisce anche un pool di indirizzi del back-end predefinito denominato **dummyBackendPool**. Ad esempio, http://api.contoso.net/calc/* accede a **dummyBackendPool** poiché è impostato come pool predefinito per il traffico senza corrispondenza.
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting

@@ -1,5 +1,5 @@
 ---
-title: Integrare un servizio cloud di Azure con la rete CDN di Azure | Documentazione Microsoft
+title: Integrare un servizio cloud di Azure con la rete CDN di Azure | Microsoft Docs
 description: Informazioni su come distribuire un servizio cloud che fornisce contenuti da un endpoint della rete CDN di Azure integrato
 services: cdn, cloud-services
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="intro"></a> Integrare un servizio cloud con la rete CDN di Azure
 È possibile integrare un servizio cloud con la rete CDN di Azure, rendendo disponibile qualsiasi contenuto dalla posizione del servizio cloud. Questo approccio offre i vantaggi seguenti:
@@ -146,7 +146,7 @@ che corrisponde all'URL di origine seguente all'endpoint della rete CDN:
 
     http://camcdnservice.cloudapp.net/Content/bootstrap.css
 
-Quando si passa a **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**, a seconda del browser, verrà richiesto di scaricare o di aprire il file bootstrap.css disponibile nell'app Web pubblicata.
+Quando si passa a **http://*&lt;nomeCDN>*.azureedge.net/Content/bootstrap.css**, a seconda del browser, verrà chiesto di scaricare o aprire il file bootstrap.css disponibile nell'app Web pubblicata.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
@@ -157,7 +157,7 @@ Quando si passa a **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**,
 * Qualsiasi controller/azione
 * Se la stringa di query viene abilitata sull'endpoint della rete CDN, qualsiasi URL con stringhe di query
 
-In effetti, con la configurazione precedente, è possibile ospitare l'intero servizio cloud da **http://*&lt;cdnName>*.azureedge.net/**. Se si passa a **http://camservice.azureedge.net/**, si ottiene il risultato dell'azione da Home/Index.
+In effetti, con la configurazione precedente, è possibile ospitare l'intero servizio cloud da **http://*&lt;nomeCDN>*.azureedge.net/**. Se si passa a **http://camservice.azureedge.net/**, si ottiene il risultato dell'azione da Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -325,7 +325,7 @@ Seguire i passaggi precedenti per configurare questa azione del controller:
             <br />
             <input class="btn" type="submit" value="Generate meme" />
         </form>
-5. Pubblicare nuovamente il servizio cloud e passare a **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** nel browser.
+5. Pubblicare nuovamente il servizio cloud e passare a **http://*&lt;nomeServizio>*.cloudapp.net/MemeGenerator/Index** nel browser.
 
 Quando si inviano i valori del modulo a `/MemeGenerator/Index`, il metodo di azione `Index_Post` restituisce un collegamento al metodo di azione `Show` con il rispettivo identificatore di input. Facendo clic sul collegamento si raggiunge il codice seguente:  
 

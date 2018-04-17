@@ -2,10 +2,10 @@
 title: Gestire gli account di archiviazione di Azure Stack | Documenti Microsoft
 description: Informazioni su come trovare, gestire, ripristinare e recuperare gli account di archiviazione di Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: anirudha
-ms.openlocfilehash: 395cd113e21bf747c796ff28026f552f30656b47
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ce61dec785d6207e2d2df21884525f76a6778f4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gestire gli account di archiviazione in Azure Stack
 Informazioni su come gestire gli account di archiviazione nello Stack di Azure per trovare, ripristinare e recuperare la capacità di archiviazione in base alle esigenze aziendali.
@@ -99,7 +99,7 @@ Nello Stack di Azure è un modo semplice per eseguire questa operazione:
   L'account in uso non vengano visualizzate nell'elenco di account quando l'account eliminato è già stato sottoposto a garbage collection. In questo caso, non può essere recuperato. Vedere [recuperare capacità](#reclaim) in questo argomento.
 
 ## <a name="set-the-retention-period"></a>Impostare il periodo di memorizzazione
-L'impostazione del periodo di conservazione consente un operatore di cloud specificare un periodo di tempo in giorni (compreso tra 0 e 9999 giorni) durante il quale può essere recuperato potenzialmente qualsiasi account eliminato. Periodo di memorizzazione predefinito è impostato su 15 giorni. Impostazione del valore su "0", tutti gli account eliminati immediatamente fuori memorizzazione che sia contrassegnata per periodicamente operazioni di garbage collection.
+L'impostazione del periodo di conservazione consente un operatore di cloud specificare un periodo di tempo in giorni (compreso tra 0 e 9999 giorni) durante il quale può essere recuperato potenzialmente qualsiasi account eliminato. Periodo di memorizzazione predefinito è impostato su 0 giorni. Impostazione del valore su "0", tutti gli account eliminati immediatamente fuori memorizzazione che sia contrassegnata per periodicamente operazioni di garbage collection.
 
 **Per modificare il periodo di memorizzazione:**
 

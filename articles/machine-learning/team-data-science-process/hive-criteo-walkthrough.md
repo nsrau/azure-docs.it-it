@@ -1,8 +1,8 @@
 ---
-title: 'Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Hadoop di Azure HDInsight su un set di dati da 1 TB | Documentazione Microsoft'
+title: 'Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Hadoop di Azure HDInsight su un set di dati da 1 TB | Microsoft Docs'
 description: Uso del Processo di analisi scientifica dei dati per i team per uno scenario end-to-end in cui un cluster Hadoop di HDInsight viene usato per creare e distribuire un modello con un set di dati di grandi dimensioni (1 TB) disponibile pubblicamente
 services: machine-learning,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev
 ms.openlocfilehash: 760e08643fb3e71478fc899278591569da1d515b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Hadoop di Azure HDInsight su un set di dati da 1 TB
 
@@ -433,11 +433,11 @@ Ecco l'aspetto del modulo **Import Data** durante il recupero dei dati dalla tab
 
 ![Acquisizione di dati con Import Data](./media/hive-criteo-walkthrough/i3zRaoj.png)
 
-Per il modulo **Import Data** i valori dei parametri forniti nel grafico sono solo esempi del tipo di valori che è necessario specificare. Di seguito sono illustrate alcune indicazioni generali su come compilare il set di parametri per il modulo **Import Data** .
+Per il modulo **Import Data** i valori dei parametri forniti nel grafico sono solo esempi del tipo di valori che è necessario specificare. Di seguito sono illustrate alcune indicazioni generali su come compilare il set di parametri per il modulo **Import Data**.
 
-1. In **Data Source**
+1. In **Data Source** (Origine dati) scegliere "Hive query" (Query Hive).
 2. Nella casella **Hive database query** (Query di database Hive) è sufficiente specificare l'istruzione SELECT * FROM <nome\_del\_database.nome\_della\_tabella>.
-3. **Hcatalog server URI** (URI del server Hcatalog): se il cluster è "abc", specificare semplicemente https://abc.azurehdinsight.net.
+3. **Hcatalog server URI** (URI del server Hcatalog): se il cluster è "abc", specificare semplicemente https://abc.azurehdinsight.net
 4. **Hadoop user account name** (Nome dell'account utente Hadoop): nome utente scelto al momento dell'autorizzazione del cluster (NON il nome utente di accesso remoto).
 5. **Hadoop user account password** (Password dell'account utente Hadoop): password per il nome utente scelta al momento dell'autorizzazione del cluster (NON la password di accesso remoto).
 6. **Location of output data**: scegliere "Azure".

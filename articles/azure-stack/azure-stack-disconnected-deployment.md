@@ -1,25 +1,25 @@
 ---
 title: Le decisioni di distribuzione disconnesso di Azure per lo Stack di Azure integrati sistemi | Documenti Microsoft
-description: "Determinare le decisioni per le distribuzioni di Azure Stack Azure connesse a più nodi di pianificazione della distribuzione."
+description: Determinare le decisioni per le distribuzioni di Azure Stack Azure connesse a più nodi di pianificazione della distribuzione.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8fbc489bacb3c8592ee99fc5a4486fd864f498ee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Distribuzione di Azure disconnessa pianificazione decisioni per lo Stack di Azure integrato sistemi
 Dopo aver deciso [integrerà come Stack di Azure nell'ambiente cloud ibrido](azure-stack-connection-models.md), quindi è possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.
@@ -45,7 +45,7 @@ Stack di Azure è stato progettato per la scelta ottimale quando è connesso ad 
 |Distribuzione di macchine Virtuali con estensione Docker per eseguire i comandi di Docker|Compromessa – Docker controllerà Internet per la versione più recente e questo controllo ha esito negativo.|
 |Collegamenti alla documentazione relativa nel portale Azure Stack|Non disponibile-collegamenti come guida introduttiva di inviare un Feedback, Guida, e così via, che utilizzano un URL Internet non funzionerà.|
 |Avviso monitoraggio e aggiornamento/mitigazione che fa riferimento a una Guida di monitoraggio e aggiornamento in linea|Non disponibile: qualsiasi avviso correzione collegamenti che utilizzano che un URL Internet non funzionerà.|
-|Diffusione Marketplace: la possibilità di selezionare e aggiungere i pacchetti di raccolta direttamente da Azure Marketplace|Non disponibile: questa funzionalità richiede la connettività ad Azure e un account Azure Active Directory.|
+|Diffusione Marketplace: la possibilità di selezionare e aggiungere i pacchetti di raccolta direttamente da Azure Marketplace|Compromessa: quando si distribuisce Azure Stack in modalità disconnessa (senza qualsiasi connessione a internet), non è possibile scaricare elementi del marketplace tramite il portale di Azure Stack. Tuttavia, è possibile usare il [dello strumento di diffusione marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) per scaricare gli elementi del marketplace in un computer con connettività internet e quindi li trasferiscono al proprio ambiente dello Stack di Azure.|
 |Utilizza gli account di Azure Active Directory federation per gestire una distribuzione di Azure Stack|Non disponibile: questa funzionalità richiede la connettività in Azure. AD FS con un'istanza locale di Active Directory devono essere utilizzate.|
 |Provider di risorse, ad esempio SQL e WebApp|Non disponibile - provider di risorse, ad esempio SQL e WebApp richiedono l'accesso a Internet per il contenuto.|
 |Interfaccia della riga di comando|Compromessa-CLI con funzionalità ridotte in termini di autenticazione e il provisioning dei principi di servizio.|

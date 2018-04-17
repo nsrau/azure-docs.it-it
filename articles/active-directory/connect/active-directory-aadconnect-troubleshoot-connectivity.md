@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: risolvere i problemi di connettività | Documentazione Microsoft"
-description: "Descrive come risolvere i problemi di connettività con Azure AD Connect."
+title: 'Azure AD Connect: risolvere i problemi di connettività | Microsoft Docs'
+description: Descrive come risolvere i problemi di connettività con Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
 ms.workload: identity
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Risolvere i problemi di connettività con Azure AD Connect
 Questo articolo illustra il funzionamento della connettività tra Azure AD Connect e Azure AD e come risolverne i problemi. Questi problemi si verificano con maggiore probabilità in un ambiente con un server proxy.
@@ -75,10 +75,10 @@ Questo errore viene visualizzato se l'endpoint **https://secure.aadcdn.microsoft
 Se l'Installazione guidata riesce a connettersi ad Azure AD, ma non è possibile verificare la password, viene visualizzato questo errore:  
 ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
-* È una password temporanea e deve essere modificata? È effettivamente la password corretta? Provare ad accedere ad https://login.microsoftonline.com da un computer diverso dal server Azure AD Connect e verificare che l'account sia utilizzabile.
+* È una password temporanea e deve essere modificata? È effettivamente la password corretta? Provare ad accedere a https://login.microsoftonline.com da un computer diverso dal server di Azure AD Connect e verificare che l'account sia utilizzabile.
 
 ### <a name="verify-proxy-connectivity"></a>Verificare la connettività del proxy
-Per verificare se il server Azure AD Connect può effettivamente connettersi al proxy e a Internet, usare alcuni comandi di PowerShell per controllare se il proxy consente o meno le richieste Web. Al prompt di PowerShell eseguire `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. Tecnicamente la prima chiamata viene effettuata a https://login.microsoftonline.com. Sebbene tale URI funzioni comunque, la risposta dell'altro URI è più veloce.
+Per verificare se il server Azure AD Connect può effettivamente connettersi al proxy e a Internet, usare alcuni comandi di PowerShell per controllare se il proxy consente o meno le richieste Web. Al prompt di PowerShell eseguire `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. Tecnicamente la prima chiamata viene effettuata a https://login.microsoftonline.com e anche questo URI funziona, ma la risposta dell'altro URI è più veloce.
 
 PowerShell usa la configurazione presente in machine.config per contattare il proxy. Le impostazioni in winhttp/netsh non dovranno influire su questi cmdlet.
 

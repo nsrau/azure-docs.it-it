@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mazha
-ms.openlocfilehash: 87f00575e0c2c4cd7a8525df96b2f5b13d470643
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ed6f0b2c021fc4b31b85986c07df0502dba826f2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Controllare il comportamento di memorizzazione nella cache con stringhe di query della rete CDN di Azure: livello Standard
 > [!div class="op_single_selector"]
@@ -36,8 +36,13 @@ Con la funzionalità di memorizzazione nella cache con stringhe di query, la ret
 Sono disponibili tre modalità di stringa di query:
 
 - **Ignora stringhe di query**: modalità predefinita. In questa modalità il nodo POP (Point-Of-Presence) della rete CDN passa le stringhe di query dal richiedente al server di origine quando viene eseguita la prima richiesta e memorizza l'asset nella cache. Tutte le richieste successive dell'asset gestite dal POP ignoreranno le stringhe di query finché l'asset memorizzato nella cache non sarà scaduto.
+
 - **Disabilita la memorizzazione nella cache per le stringhe di query**: in questa modalità le richieste con stringhe di query non vengono memorizzate nella cache nel nodo POP della rete CDN. Il nodo POP recupera l'asset direttamente dal server di origine e lo passa al richiedente a ogni richiesta.
-- **Memorizza nella cache tutti gli URL univoci**: in questa modalità ogni richiesta con URL univoco, compresa la stringa di query, viene considerata un asset univoco con la propria cache. Ad esempio, la risposta inviata dal server di origine per una richiesta di `example.ashx?q=test1` viene memorizzata nella cache nel nodo POP e restituita per le memorizzazioni nella cache successive con la stessa stringa di query. Una richiesta di `example.ashx?q=test2` viene memorizzata nella cache come asset separato con la propria impostazione di durata (TTL).
+
+- **Memorizza nella cache tutti gli URL univoci**: in questa modalità ogni richiesta con URL univoco, compresa la stringa di query, viene considerata un asset univoco con la propria cache. Ad esempio, la risposta inviata dal server di origine per una richiesta di example.ashx?q=test1 viene memorizzata nella cache nel nodo POP e restituita per le memorizzazioni nella cache successive con la stessa stringa di query. Una richiesta di example.ashx?q=test2 viene memorizzata nella cache come asset separato con la propria impostazione di durata (TTL).
+   
+    >[!IMPORTANT] 
+    > Non usare questa modalità quando la stringa di query contiene parametri che vengono modificati con ogni richiesta, ad esempio un ID di sessione o un nome utente, poiché si avrà come risultato una bassa percentuale di riscontri nella cache.
 
 ## <a name="changing-query-string-caching-settings-for-standard-cdn-profiles"></a>Modifica delle impostazioni di memorizzazione nella cache della stringa di query per i profili standard della rete CDN
 1. Aprire un profilo di rete CDN e quindi fare clic sull'endpoint della rete CDN che si desidera gestire.
