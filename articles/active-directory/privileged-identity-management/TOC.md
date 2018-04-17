@@ -50,12 +50,12 @@
 ## PIM per i ruoli delle risorse
 ### [Tipi di assegnazione](pim-resource-roles-eligible-visibility.md)
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # Risorse correlate
 ## [Azure Active Directory](/azure/active-directory/)
-## [Controllo degli accessi in base al ruolo](../role-based-access-control-what-is.md)
+## [Controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md)
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
