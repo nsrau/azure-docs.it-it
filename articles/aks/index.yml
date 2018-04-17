@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
-  ms.openlocfilehash: effec3747fef172e3124c4d2ea6fef86b0b80590
-  ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+  ms.openlocfilehash: a381697e27a2d85d99fcbb1eb54bd7c0ab7d743a
+  ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/27/2017
+  ms.lasthandoff: 04/16/2018
 abstract:
   description: Il servizio contenitore di Azure gestisce l'ambiente Kubernetes ospitato consentendo di distribuire e gestire applicazioni in contenitori in modo semplice e rapido senza competenze nell'orchestrazione di contenitori. Elimina anche l'impegno delle operazioni in corso e della manutenzione effettuando il provisioning, l'aggiornamento e il ridimensionamento delle risorse su richiesta, senza portare le applicazioni offline.
 sections:
@@ -46,7 +46,7 @@ sections:
     - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Eseguire le immagini del contenitore in Kubernetes</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-scale">Ridimensionare un'applicazione e l'infrastruttura Kubernetes</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Aggiornare un'applicazione in esecuzione in Kubernetes</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Monitorare Kubernetes con OMS</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Monitorare Kubernetes con Log Analytics</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">Aggiornare un cluster del servizio contenitore di Azure</a>
 - title: riferimento
   items:

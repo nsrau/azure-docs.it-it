@@ -24,7 +24,7 @@
 ###[Distribuire modelli usando l'interfaccia della riga di comando di Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Sicurezza (controllo degli accessi in base al ruolo)](azure-operations-guide.md#security-of-azure-resource)
-###[Usare le assegnazioni di ruolo per gestire le risorse](../../active-directory/role-based-access-control-configure.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+###[Usare le assegnazioni di ruolo per gestire le risorse](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Macchine virtuali](azure-operations-guide.md#azure-virtual-machines)
 ### [Dimensioni delle VM per Windows](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 

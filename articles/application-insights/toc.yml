@@ -196,6 +196,8 @@
               href: app-insights-usage-segmentation.md
             - name: Grafici a imbuto
               href: usage-funnels.md
+            - name: Coorte
+              href: app-insights-usage-cohorts.md
             - name: Impatto
               href: app-insights-usage-impact.md
             - name: Conservazione
