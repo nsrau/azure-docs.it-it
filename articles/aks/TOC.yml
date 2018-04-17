@@ -83,6 +83,8 @@
           href: openfaas.md
         - name: Eseguire processi Spark nel servizio contenitore di Azure
           href: spark-job.md
+        - name: Uso di GPU nel servizio contenitore di Azure
+          href: gpu-cluster.md
     - name: Nozioni di base di Kubernetes
       items:
         - name: Usare il dashboard Kubernetes

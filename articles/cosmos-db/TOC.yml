@@ -6,8 +6,6 @@ items:
     items:
       - name: Informazioni su Azure Cosmos DB
         href: introduction.md
-      - name: Esperimento di documentazione
-        href: experiment.md
   - name: Guide introduttive
     expanded: true
     items:
@@ -185,7 +183,7 @@ items:
                 href: sql-api-sql-query-metrics.md
               - name: Playground SQL
                 href: 'https://aka.ms/cosmos-db-playground'
-              - name: Partizionamento
+              - name: Partizionamento dei dati SQL
                 href: sql-api-partition-data.md
               - name: 'Stored procedure, trigger e UDF'
                 href: programming.md
@@ -288,6 +286,8 @@ items:
             items:
               - name: Supporto Gremlin
                 href: gremlin-support.md
+              - name: Partizionamento Graph
+                href: graph-partitioning.md
           - name: API di tabella
             items:
               - name: Sviluppo di tabelle
@@ -330,8 +330,6 @@ items:
             href: geospatial.md
           - name: Indicizzazione
             href: indexing-policies.md
-          - name: Servizi connessi in Visual Studio
-            href: connected-service.md
       - name: Gestisci
         items:
           - name: Operazioni di lettura e scrittura convenienti
@@ -396,8 +394,8 @@ items:
           - name: Sfruttare il driver ODBC per la visualizzazione dei dati
             href: odbc-driver.md
           - name: Usare Spring Boot Starter con le API SQL
-            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-  - name: riferimento
+            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
+  - name: Riferimenti
     items:
       - name: Esempi di codice
         href: 'https://azure.microsoft.com/resources/samples/?service=cosmos-db'
