@@ -109,7 +109,7 @@ Tornare al progetto **FabrikamFiber.Web** e aggiornare la stringa di connessione
 
 Premere **F5** per eseguire l'applicazione ed eseguirne il debug nel contenitore.
 
-Edge apre la pagina di avvio definita dell'applicazione usando l'indirizzo IP del contenitore nella rete NAT interna (in genere 172.x.x.x). Per altre informazioni sul debug delle applicazioni nei contenitori mediante Visual Studio 2017, vedere [questo articolo][link-debug-container].
+Microsoft Edge apre la pagina di avvio definita dell'applicazione usando l'indirizzo IP del contenitore nella rete NAT interna (in genere 172.x.x.x). Per altre informazioni sul debug delle applicazioni nei contenitori mediante Visual Studio 2017, vedere [questo articolo][link-debug-container].
 
 ![esempio di fabrikam in un contenitore][image-web-preview]
 

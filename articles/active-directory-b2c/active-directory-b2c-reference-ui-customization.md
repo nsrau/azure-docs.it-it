@@ -341,7 +341,7 @@ Se si prevede di usare la funzionalità di personalizzazione dell'interfaccia ut
 * Non copiare il contenuto predefinito di Azure AD B2C né provare a modificarlo. È preferibile creare il contenuto HTML5 da zero e usare il contenuto predefinito come riferimento.
 * Per motivi di sicurezza, non è consentito includere codice JavaScript nel contenuto. La maggior parte degli elementi necessari dovrebbe già essere disponibile. In caso contrario, usare [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) per richiedere nuove funzionalità.
 * Versioni di browser supportate:
-  * Internet Explorer 11, 10, Edge
+  * Internet Explorer 11, 10, Microsoft Edge
   * Supporto limitato per Internet Explorer 9, 8
   * Google Chrome 42.0 e versioni successive
   * Mozilla Firefox 38.0 e versioni successive

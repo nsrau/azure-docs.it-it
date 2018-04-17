@@ -594,7 +594,7 @@ L'estensione del browser App personali è ora disponibile tramite un utile strum
 - Possibilità di accedere direttamente ad app con accesso SSO basato su password dalla pagina di accesso dell'app
 - Avvio delle app tramite la funzionalità di ricerca rapida
 - Collegamenti alle app usate di recente dall'estensione
-- L'estensione è disponibile per Edge, Chrome e Firefox.
+- L'estensione è disponibile per Microsoft Edge, Chrome e Firefox.
  
 Per altre informazioni, vedere [Estensione per l'accesso sicuro alle app personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension).
 

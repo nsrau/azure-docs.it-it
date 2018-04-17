@@ -82,7 +82,7 @@ Servizi Location Based di Azure offre informazioni di geocodifica dettagliate pe
 | Isole Vergini americane                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | |                 |                |              |            |                    |
 | **Asia Pacifico**                                        |                 |                |              |            |                    |
-| Samoa americane                                      |                 |                |       ✓      |      ✓     |          ✓         |
+| Isole Samoa americane                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Australia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bangladesh                                          |                 |                |              |      ✓     |          ✓         |
 | Bhutan                                              |                 |                |              |      ✓     |          ✓         |
@@ -97,7 +97,7 @@ Servizi Location Based di Azure offre informazioni di geocodifica dettagliate pe
 | Figi |                 |                |              |      ✓     |          ✓         |
 | Polinesia francese                                    |                 |                |              |      ✓     |          ✓         |
 | Isole Heard e McDonald                   |                 |                |              |      ✓     |          ✓         |
-| Hong Kong - R.A.S.                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| RAS di Hong Kong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Giappone                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
@@ -120,8 +120,8 @@ Servizi Location Based di Azure offre informazioni di geocodifica dettagliate pe
 | Isole Paracelso                                     |                 |                |              |      ✓     |                    |
 | Filippine                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
-| Samoa                                               |                 |                |              |      ✓     |          ✓         |
-| Isole Senkaku                                     |        ✓        |                |              |      ✓     |          ✓         |
+| Isole Samoa                                                |                 |                |              |      ✓     |          ✓         |
+| Isole Senkaku/Diaoyutai                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapore                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Isole Salomone                                     |                 |                |              |      ✓     |          ✓         |
 | Corea del Sud                                         |                 |                |              |      ✓     |          ✓         |
@@ -218,7 +218,7 @@ Servizi Location Based di Azure offre informazioni di geocodifica dettagliate pe
 | Repubblica centrafricana                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Chad                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Congo                                               |                 |                |       ✓      |      ✓     |          ✓         |
-| Costa d'Avorio                                       |                 |                |       ✓      |      ✓     |          ✓         |
+| Côte d’Ivoire (Costa d'Avorio)                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Congo, Repubblica democratica                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Gibuti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Egitto                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |

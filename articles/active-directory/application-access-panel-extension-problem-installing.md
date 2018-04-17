@@ -2,10 +2,10 @@
 title: Installare l'estensione del browser per il pannello di accesso alle applicazioni | Microsoft Docs
 description: Risolvere gli errori comuni riscontrabili durante l'installazione dell'estensione del browser per il pannello di accesso.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -34,7 +34,7 @@ Il pannello di accesso richiede almeno un browser con supporto di JavaScript e a
 
 Per l'accesso SSO basato su password, è possibile usare uno qualsiasi dei browser seguenti.
 
-- **Edge**: in Windows 10 Anniversary Edition o versioni successive. 
+- **Microsoft Edge**: in Windows 10 Anniversary Edition o versioni successive. 
 - **Chrome**: in Windows 7 o versioni successive e in MacOS X o versioni successive.
 - **Firefox 26.0 o versioni successive**: in Windows XP SP2 o versioni successive e in Mac OS X 10.6 o versioni successive.
 - **Internet Explorer 8, 9, 10 e 11**: in Windows 7 o versioni successive (supporto limitato).
@@ -58,10 +58,10 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
 
 7.  Accedere al pannello di accesso e verificare se è possibile avviare le applicazioni con SSO basato su password.
 
-È anche possibile scaricare l'estensione per Chrome ed Edge direttamente dai siti seguenti:
+È anche possibile scaricare l'estensione per Chrome ed Microsoft Edge direttamente dai siti seguenti:
 
 - [Estensione per Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Estensione per Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
+- [Estensione per Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Usare l'estensione per l'accesso sicuro alle app personali
 * Se si usa un URL delle app personali diverso da `https://myapps.microsoft.com`, configurare l'URL predefinito seguendo questa procedura:
@@ -86,7 +86,7 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
        Nell'elenco di collegamenti **Recently Used** (Usate di recente) verranno visualizzate le ultime tre app usate.
 
 > [!NOTE]
-> Le opzioni precedenti sono disponibili solo per Edge, Chrome e Firefox.
+> Le opzioni precedenti sono disponibili solo per Microsoft Edge, Chrome e Firefox.
 
 ## <a name="set-up-a-group-policy-for-internet-explorer"></a>Configurare un criterio di gruppo per Internet Explorer
 
@@ -105,7 +105,7 @@ Per istruzioni dettagliate per la configurazione del criterio di gruppo e la rel
 Per accedere a uno strumento di diagnostica e per informazioni sulla configurazione dell'estensione per Internet Explorer, vedere l'articolo su come [risolvere i problemi relativi all'estensione per il pannello di accesso per Internet Explorer](active-directory-saas-ie-troubleshooting.md).
 
 > [!NOTE]
-> Internet Explorer è coperto da supporto limitato e non riceve più nuovi aggiornamenti software. Il browser consigliato è Edge.
+> Internet Explorer è coperto da supporto limitato e non riceve più nuovi aggiornamenti software. Il browser consigliato è Microsoft Edge.
 
 ## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Se i passaggi precedenti non risolvono il problema
 

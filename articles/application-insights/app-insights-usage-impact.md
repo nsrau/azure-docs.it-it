@@ -1,8 +1,8 @@
 ---
 title: Impatto sull'utilizzo di Azure Application Insights | Microsoft Docs
-description: "Analizzare in che modo diverse proprietà influiscono potenzialmente sui tassi di conversione di parti delle app."
+description: Analizzare in che modo diverse proprietà influiscono potenzialmente sui tassi di conversione di parti delle app.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -55,7 +55,7 @@ In questa istanza, con l'aumento del tempo di caricamento di **Product Page** il
 
 Lo strumento Impatto supporta proprietà e misure sia standard che personalizzate. È possibile usare entrambe. Al posto della durata, usare i filtri sugli eventi primari e secondari per ottenere risultati più specifici.
 
-## <a name="do-users-from-different-countries-or-regions-convert-at-different-rates"></a>Gli utenti di aree o paesi diversi presentano tassi di conversione diversi?
+## <a name="do-users-from-different-countries-or-regions-convert-at-different-rates"></a>Gli utenti di aree geografiche o paesi diversi presentano tassi di conversione diversi?
 
 1. Selezionare una visualizzazione pagina dall'elenco a discesa **For the page view** (Per la visualizzazione pagina).
 2. Scegliere "Country or region" (Paese o area geografica) nell'elenco a discesa **analyze how its** (analizza come l'elemento).

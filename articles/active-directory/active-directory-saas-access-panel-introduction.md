@@ -72,7 +72,7 @@ Il programma di installazione è specifico dell'architettura. Facendo clic sul c
 
 
 L'estensione del pannello di accesso è attualmente disponibile per:
-- **Edge**: in Windows 10 Anniversary Edition o versioni successive. 
+- **Microsoft Edge**: in Windows 10 Anniversary Edition o versioni successive. 
 - **Chrome**: in Windows 7 o versioni successive e in MacOS X o versioni successive.
 - **Firefox 26.0 o versioni successive**: in Windows XP SP2 o versioni successive e in Mac OS X 10.6 o versioni successive.
 - **Internet Explorer 8, 9, 10 e 11**: in Windows 7 o versioni successive (supporto limitato).
@@ -85,7 +85,7 @@ Per usare l'accesso Single Sign-On basato su password, è necessario usare l'est
 - L'estensione mostra le ultime tre applicazioni che sono state avviate nella sezione **Usati di recente**.
 
 > [!NOTE]
-> Sono disponibili funzionalità aggiuntive per Edge, Chrome e Firefox.
+> Sono disponibili funzionalità aggiuntive per Microsoft Edge, Chrome e Firefox.
 >
 
 Se si usa un URL delle app personali diverso da `https://myapps.microsoft.com`, configurare l'URL predefinito seguendo questa procedura:

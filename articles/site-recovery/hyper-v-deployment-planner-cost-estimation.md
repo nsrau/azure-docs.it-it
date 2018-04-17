@@ -170,7 +170,7 @@ Site Recovery Deployment Planner può generare il report dei costi con una quals
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentino ($)||AUD|Dollaro australiano ($)||BRL|Real brasiliano (R$)|
 |CAD|Dollaro canadese ($)||CHF|Franco svizzero (chf)||DKK|Corona danese (kr)|
-|EUR|Euro (€)||GBP|Sterlina britannica (£)||HKD|Dollaro di Hong Kong (HK$)|
+|EUR|Euro (€)||GBP|Sterlina britannica (£)||HKD|Dollaro della RAS di Hong Kong (HK$)|
 |IDR|Rupia indonesiana (Rp)||INR|Rupia indiana (₹)||JPY|Yen giapponese (¥)|
 |KRW|Won coreano (₩)||MXN|Peso messicano (MXN$)||MYR|Ringgit malese (RM$)|
 |NOK|Corona norvegese (kr)||NZD|Dollaro neozelandese ($)||RUB|Rublo russo (руб)|

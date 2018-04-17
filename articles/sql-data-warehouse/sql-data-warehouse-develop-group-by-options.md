@@ -1,11 +1,11 @@
 ---
 title: Opzioni Group by in SQL Data Warehouse | Documentazione Microsoft
-description: "Suggerimenti per l’implementazione delle opzioni group by in SQL Data Warehouse di Azure per lo sviluppo di soluzioni."
+description: Suggerimenti per l’implementazione delle opzioni group by in SQL Data Warehouse di Azure per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: f95a1e43-768f-4b7b-8a10-8a0509d0c871
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -50,7 +50,7 @@ GROUP BY ROLLUP (
 
 Usando ROLLUP sono state richieste le aggregazioni seguenti:
 
-* Paese e area
+* Paese e area geografica
 * Paese
 * Grand Total
 

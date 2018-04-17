@@ -26,7 +26,7 @@ Questa esercitazione è la seconda parte di una serie di esercitazioni sull'arch
 
 Usare l'interfaccia della riga di comando di Azure e il portale di Azure per aggiungere le funzionalità di ridimensionamento a un'app esistente di caricamento di immagini.
 
-![App Web pubblicata nel browser Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![App Web pubblicata nel browser Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 In questa esercitazione si apprenderà come:
 
@@ -157,7 +157,7 @@ Fare clic sull'area **Upload photos** (Carica foto) per selezionare e caricare u
 
 Si noti che quando l'immagine caricata scompare, nella sequenza video **Generated thumbnails** (Anteprime generate) viene mostrata una copia dell'immagine caricata. Questa immagine è stata ridimensionata dalla funzione, aggiunta al contenitore *anteprime* e scaricata dal client Web.
 
-![App Web pubblicata nel browser Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![App Web pubblicata nel browser Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
