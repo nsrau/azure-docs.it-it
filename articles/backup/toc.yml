@@ -85,8 +85,6 @@
           href: backup-azure-files.md
         - name: Domande frequenti sull'esecuzione del backup di condivisioni di File di Azure
           href: backup-azure-files-faq.md
-        - name: Risolvere i problemi del backup delle condivisioni di File di Azure
-          href: troubleshoot-azure-files.md
     - name: Macchine virtuali di Azure
       items:
         - name: Preparare la macchina virtuale
@@ -181,18 +179,20 @@
           href: backup-azure-delete-vault.md
     - name: Risolvere problemi
       items:
-        - name: Problemi relativi al backup delle macchine virtuali di Azure nel portale di Azure
+        - name: Messaggi di errore del backup di VM IaaS
           href: backup-azure-vms-troubleshoot.md
-        - name: 'Errore di backup delle VM di Azure: non è stato possibile comunicare con l''agente della macchina virtuale per lo stato dello snapshot a causa del timeout della sottoattività di creazione snapshot della macchina virtuale'
+        - name: Timeout dell'agente di Backup di Azure (MARS) o dell'estensione della VM
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
-        - name: Rallentamento delle prestazioni di backup di file e cartelle in Backup di Azure
+        - name: Il backup di file e cartelle è lento
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
-        - name: Risolvere i problemi del server di Backup di Azure
+        - name: Server di backup di Azure
           href: backup-azure-mabs-troubleshoot.md
-        - name: Risolvere i problemi relativi a System Center Data Protection Manager
+        - name: System Center DPM
           href: backup-azure-scdpm-troubleshooting.md
-        - name: Risolvere i problemi dell'agente di Backup di Azure
+        - name: Agente di Backup di Azure (MARS)
           href: backup-azure-mars-troubleshoot.md
+        - name: Backup di condivisioni di File di Azure
+          href: troubleshoot-azure-files.md
 - name: riferimento
   items:
     - name: Azure PowerShell

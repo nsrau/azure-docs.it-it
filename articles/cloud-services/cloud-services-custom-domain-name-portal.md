@@ -5,7 +5,7 @@ services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5783a246-a151-4fb1-b488-441bfb29ee44
 ms.service: cloud-services
 ms.workload: tbd
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
 ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure
-Quando si crea un servizo cloud, Azure lo assegna a un sottodominio di **cloudapp.net**. Ad esempio, se il servizio cloud è denominato "contoso", gli utenti saranno in grado di accedere all'applicazione da un URL come http://contoso.cloudapp.net. Azure assegna anche un indirizzo IP virtuale.
+Quando si crea un servizo cloud, Azure lo assegna a un sottodominio di **cloudapp.net**. Se ad esempio il servizio cloud è denominato "contoso", gli utenti saranno in grado di accedere all'applicazione da un URL come http://contoso.cloudapp.net. Azure assegna anche un indirizzo IP virtuale.
 
 È tuttavia possibile esporre l'applicazione in un nome di dominio personalizzato, ad esempio **contoso.com**. In questo articolo viene illustrato come riservare o configurare un nome di dominio personalizzato per i ruoli Web del servizio cloud.
 

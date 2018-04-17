@@ -56,6 +56,7 @@
 #### [Invito tramite posta elettronica](active-directory-b2b-invitation-email.md)
 #### [Riscatto di invito](active-directory-b2b-redemption-experience.md)
 #### [Aggiungere utenti B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
+#### [Consentire o bloccare gli inviti](active-directory-b2b-allow-deny-list.md)
 #### [Accesso condizionale per B2B](active-directory-b2b-mfa-instructions.md)
 #### [Criteri di condivisione per B2B](active-directory-b2b-delegate-invitations.md)
 #### [Aggiungere un utente B2B a un ruolo](active-directory-b2b-add-guest-to-role.md)
@@ -114,7 +115,7 @@
 #### [Trovare report sull'attività](active-directory-reporting-migration.md)
 #### [Usare il pacchetto di contenuto Power BI di Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
 #### [Correggere gli utenti contrassegnati per il rischio](active-directory-report-security-user-at-risk-remediation.md)
-### riferimento
+### Riferimenti
 #### [Conservazione](active-directory-reporting-retention.md)
 #### [Latenze](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
@@ -327,9 +328,6 @@
 #### [Riferimento tecnico](active-directory-conditional-access-technical-reference.md)
 #### [Domande frequenti](active-directory-conditional-faqs.md)
 
-### Windows Hello
-#### [Autenticazione senza password](active-directory-azureadjoin-passport.md)
-#### [Abilitare Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
 ### Autenticazione basata su certificati
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)

@@ -201,6 +201,8 @@
       items:
         - name: Sicurezza del cluster
           href: service-fabric-cluster-security.md
+        - name: Ridimensionamento
+          href: service-fabric-cluster-scaling.md
         - name: Differenze in termini di funzionalità tra Linux e Windows
           href: service-fabric-linux-windows-differences.md
         - name: Cluster in Azure
@@ -323,6 +325,8 @@
               href: service-fabric-resource-governance.md
             - name: Driver di volume e registrazione
               href: service-fabric-containers-volume-logging-drivers.md
+            - name: Visualizzare i log dei contenitori
+              href: service-fabric-containers-view-logs.md
             - name: Servizi nei contenitori
               href: service-fabric-services-inside-containers.md
             - name: Modalità di rete del contenitore
@@ -539,8 +543,10 @@
           href: service-fabric-visualizing-your-cluster.md
         - name: Connettersi a un cluster sicuro
           href: service-fabric-connect-to-secure-cluster.md
-        - name: Applicare patch ai nodi del cluster
+        - name: Applicare patch ai nodi del cluster (Windows)
           href: service-fabric-patch-orchestration-application.md
+        - name: Applicare patch ai nodi del cluster (Linux)
+          href: service-fabric-patch-orchestration-application-linux.md
     - name: Monitorare e diagnosticare
       items:
         - name: Analizzare con OMS
@@ -573,7 +579,7 @@
           href: service-fabric-view-entities-aggregated-health.md
         - name: Risolvere i problemi del cluster locale
           href: service-fabric-troubleshoot-local-cluster-setup.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.servicefabric/

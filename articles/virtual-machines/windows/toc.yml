@@ -83,6 +83,8 @@
           href: sizes-hpc.md
         - name: Unità di calcolo di Azure
           href: acu.md
+        - name: Punteggi di benchmark
+          href: compute-benchmark-scores.md
     - name: Manutenzione e aggiornamenti
       href: maintenance-and-updates.md
     - name: Archiviazione su disco
@@ -157,7 +159,7 @@
         - name: Usare WinRM
           href: winrm.md
         - name: Usare i controlli di accesso
-          href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Usare i criteri
           href: policy.md
         - name: Creare un insieme di credenziali delle chiavi
