@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 3180b24454fc49a34a40bdf2873fad1d56173e3d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: HT
+ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Azure Data Center di Stack - identità
 È possibile distribuire dello Stack di Azure mediante Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. Prima di distribuire Azure Stack, è necessario effettuare la scelta. Distribuzione tramite ADFS viene detta anche la distribuzione di Azure Stack in modalità disconnessa.
@@ -56,7 +56,7 @@ Requirements:
 |Componente|Requisito|
 |---------|---------|
 |Grafico|Microsoft Active Directory 2012/2012 R2/2016|
-|AD FS|Windows Server 2012/2012 R2/2016|
+|AD FS|Windows Server 2012 o 2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>Impostazione dell'integrazione di Graph
 
@@ -262,6 +262,9 @@ Se si decide di eseguire manualmente i comandi, eseguire la procedura seguente:
    > Per configurare le regole di autorizzazione rilascio quando si utilizza Windows Server 2012 o 2012 R2 AD FS, è necessario utilizzare lo snap-in MMC di AD FS.
 
 4. Quando si utilizza Internet Explorer o il browser Microsoft Edge per accedere allo Stack di Azure, è necessario ignorare associazioni dei token. In caso contrario, i tentativi di accesso esito negativo. L'istanza di AD FS o un membro della farm, eseguire il comando seguente:
+
+   > [!note]  
+   > Questo passaggio non è applicabile quando si utilizza Windows Server 2012 o 2012 R2 AD FS. È possibile ignorare questo comando e continuare con l'integrazione.
 
    ```powershell
    Set-AdfsProperties -IgnoreTokenBinding $true

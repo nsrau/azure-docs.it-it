@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: b1c82727e97b85fae5f315ceb1cd79cfdd111b45
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6a106ba59f09ffc20f8461c5267ae06695df4cd0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Accesso Single Sign-On facile di Azure Active Directory
 
@@ -28,7 +28,7 @@ L'accesso Single Sign-On (SSO) facile di Azure Active Directory consente agli ut
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-L'accesso SSO facile può essere combinato con i metodi di accesso che usano la [sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-synchronization.md) o l'[autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md).
+L'accesso SSO facile può essere combinato con i metodi di accesso che usano la [sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-hash-synchronization.md) o l'[autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md).
 
 ![Accesso Single Sign-On facile](./media/active-directory-aadconnect-sso/sso1.png)
 
@@ -42,7 +42,7 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
   - Gli utenti non devono immettere ripetutamente le proprie password.
 - *Facilità di distribuzione e gestione*
   - Non sono necessari componenti aggiuntivi locali per usare la funzionalità.
-  - Funziona con qualsiasi metodo di autenticazione cloud: [sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-synchronization.md) o [autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md).
+  - Funziona con qualsiasi metodo di autenticazione cloud: [sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-hash-synchronization.md) o [autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md).
   - Può essere implementata per alcuni o tutti gli utenti con Criteri di gruppo.
   - Registrare dispositivi non Windows 10 con Azure AD, senza che sia necessaria un'infrastruttura AD FS. Per questa funzionalità è necessaria la versione 2.1 o successiva del [client Workplace Join](https://www.microsoft.com/download/details.aspx?id=53554).
 
@@ -58,7 +58,7 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 - È una funzionalità gratuita e non serve alcuna delle edizioni a pagamento di Azure AD per utilizzarla.
 - Può essere usata per i client basati su Web browser e i client di Office che supportano l'[autenticazione moderna](https://aka.ms/modernauthga) nelle piattaforme e nei browser idonei per l'autenticazione Kerberos:
 
-| SO\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
+| SO\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Sì|No |Sì|Sì\*|N/D
 |Windows 8.1|Sì|N/D|Sì|Sì\*|N/D

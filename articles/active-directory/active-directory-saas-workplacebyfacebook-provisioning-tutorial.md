@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 15cbaafcd86c576f4789a61ed80c526b6fe705ab
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d42a6b63833bffc3cce1830a728ec21083b25dc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workplace by Facebook per il provisioning utenti automatico
 
@@ -57,7 +57,7 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 Questa sezione illustra la connessione di Azure AD all'API per il provisioning degli account utente di Workplace by Facebook e la configurazione del servizio di provisioning per la creazione, l'aggiornamento e la disabilitazione degli account utente assegnati in Workplace by Facebook in base all'assegnazione di utenti e gruppi in Azure AD.
 
 >[!Tip]
->Si può anche scegliere di abilitare l'accesso Single Sign-On basato su SAML per Workplace by Facebook, seguendo le istruzioni disponibili nel [portale di Azure](https://portal.azure.com). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari.
+>Si può anche scegliere di abilitare l'accesso Single Sign-On basato su SAML per Workplace by Facebook seguendo le istruzioni disponibili nel [portale di Azure](https://portal.azure.com). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari.
 
 ### <a name="to-configure-user-account-provisioning-to-workplace-by-facebook-in-azure-ad"></a>Per configurare l'account utente eseguendo il provisioning a Workplace by Facebook in Azure AD:
 
@@ -75,7 +75,7 @@ Azure AD consente di sincronizzare automaticamente i dettagli dell'account degli
 
     ![provisioning](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. Nella sezione **Credenziali amministratore** inserire il token segreto dell'amministratore di Workplace by Facebook e impostare l'URL del tenant su `https://www.facebook.com/scim/v1/`.
+5. Nella sezione **Credenziali amministratore** inserire il token di accesso dell'amministratore di Workplace by Facebook e impostare l'URL del tenant su `https://www.facebook.com/scim/v1/`. Vedere queste [istruzioni](https://developers.facebook.com/docs/workplace/integrations/custom-integrations/apps) sulla creazione di un token di accesso per Workplace. 
 
 6. Nel portale di Azure fare clic su **Connessione di test** per verificare che Azure AD possa connettersi all'app Workplace by Facebook. Se la connessione non riesce, verificare che l'account Workplace by Facebook abbia le autorizzazioni di amministratore di team.
 

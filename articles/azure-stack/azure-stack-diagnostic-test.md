@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c28216ced2a7cd2995c55a9faacb93cf27e60c65
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Eseguire un test di convalida per lo Stack di Azure
 
@@ -33,7 +33,8 @@ Quando si verifica un problema, contattare il supporto tecnico di servizi Micros
 2. Contattare il Microsoft servizi di supporto.
 3. Eseguire **Test AzureStack** dal punto di fine con privilegi.
     1. Accedere all'endpoint con privilegi. Per istruzioni, vedere [utilizzando l'endpoint con privilegi in Azure Stack](azure-stack-privileged-endpoint.md). 
-    2. Accedere come **AzureStack\CloudAdmin** sull'host di gestione.
+    2. In ASDK, effettuare nell'host di gestione come **AzureStack\CloudAdmin**.  
+    In un sistema integrato è necessario usare l'indirizzo IP per il punto di fine con privilegi per la gestione fornito dal fornitore dell'hardware OEM.
     3. Aprire PowerShell come amministratore.
     4. Eseguire: `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
     5. Eseguire: `Test-AzureStack`

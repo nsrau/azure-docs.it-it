@@ -1,30 +1,30 @@
 ---
 title: 'Log Analytics per Apache Kafka: Azure HDInsight| Microsoft Docs'
-description: Informazioni su come usare Operations Management Suite per analizzare i log del cluster Apache Kafka in Azure HDInsight.
+description: Informazioni su come usare Log Analytics per analizzare i log del cluster Apache Kafka in Azure HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 6fcb925829e33704c94c96209a61346b0404e13b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 15107a0fbcd6242ac13f366b16be10efaeaad6bb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analizzare i log per Apache Kafka in HDInsight
 
-Informazioni su come usare Microsoft Operations Management Suite per analizzare i log generati da Apache Kafka in HDInsight.
+Informazioni su come usare Log Analytics per analizzare i log generati da Apache Kafka in HDInsight.
 
-## <a name="enable-oms-for-kafka"></a>Abilitare OMS per Kafka
+## <a name="enable-log-analytics-for-kafka"></a>Abilitare Log Analytics per Kafka
 
 I passaggi per abilitare Log Analytics per HDInsight sono uguali per tutti i cluster HDInsight. Per informazioni su come creare e configurare i servizi richiesti, usare i collegamenti seguenti:
 
@@ -35,15 +35,15 @@ I passaggi per abilitare Log Analytics per HDInsight sono uguali per tutti i clu
 3. Configurare il cluster Kafka per l'uso di Log Analytics. Per altre informazioni, vedere il documento su come [usare Log Analytics per monitorare HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
     > [!NOTE]
-    > È anche possibile configurare il cluster per l'uso di Log Analytics con il cmdlet `Enable-AzureRmHDInsightOperationsManagementSuite`. Questo cmdlet richiede le informazioni seguenti:
+    > È anche possibile configurare il cluster per l'uso di Log Analytics tramite il cmdlet `Enable-AzureRmHDInsightOperationsManagementSuite`. Questo cmdlet richiede le informazioni seguenti:
     >
     > * Il nome del cluster HDInsight.
-    > * L'ID dell'area di lavoro per Log Analytics. È possibile trovare l'ID dell'area di lavoro nell'area di lavoro di OMS della propria area di lavoro di Log Analytics.
-    > * La chiave primaria per la connessione OMS. Per trovare la chiave primaria, selezionare l'istanza di Log Analytics e quindi __Portale di OMS__. Nel portale di OMS selezionare __Impostazioni__, __Origini connesse__ e quindi __Server Linux__.
+    > * L'ID dell'area di lavoro per Log Analytics. È possibile trovare questo ID nell'area di lavoro di Log Analytics.
+    > * La chiave primaria per la connessione di Log Analytics. Per trovare la chiave primaria, selezionare l'istanza di Log Analytics e quindi __Portale di OMS__. Nel portale di OMS selezionare __Impostazioni__, __Origini connesse__ e quindi __Server Linux__.
 
 
 > [!IMPORTANT]
-> Potrebbero essere necessari circa 20 minuti affinché i dati siano disponibili per Log Analytics.
+> Possono trascorrere circa 20 minuti prima che i dati siano disponibili per Log Analytics.
 
 ## <a name="query-logs"></a>Log di query
 
@@ -72,7 +72,7 @@ I passaggi per abilitare Log Analytics per HDInsight sono uguali per tutti i clu
  
  ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Log Analytics, vedere il documento [Introduzione a un'area di lavoro di Log Analytics](../../log-analytics/log-analytics-get-started.md).
+Per altre informazioni su Log Analytics, vedere la [documentazione introduttiva all'uso di un'area di lavoro di Log Analytics](../../log-analytics/log-analytics-get-started.md).
 
 Per altre informazioni sull'uso di Kafka, vedere i documenti seguenti:
 

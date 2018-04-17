@@ -26,7 +26,7 @@ Per richiamare i metodi nei dispositivi, usare la pagina **Dispositivi** della s
 
 1. Per visualizzare un elenco dei metodi che è possibile chiamare in un dispositivo, scegliere **Pianificazione**. Per pianificare un metodo per l'esecuzione in più dispositivi, è possibile selezionare più dispositivi nell'elenco. Il pannello **Pianificazione** mostra i tipi di metodi comuni a tutti i dispositivi selezionati.
 
-1. Scegliere **FirmwareUpdate**, impostare il nome del processo su **UpdatePhysicalChiller**. Impostare **Firmware Version** (Versione firmware) su **2.0.0**, impostare **Firmware URI** (URI firmware) su **http://contoso.com/updates/firmware.bin** e quindi scegliere  **Apply** (Applica):
+1. Scegliere **FirmwareUpdate**, impostare il nome del processo su **UpdatePhysicalChiller**. Impostare **Firmware Version** (Versione firmware) su **2.0.0**, quindi impostare **Firmware URI** (URI firmware) su **http://contoso.com/updates/firmware.bin** e infine scegliere **Apply** (Applica):
 
     ![Pianificare l'aggiornamento del firmware](media/iot-suite-visualize-connecting/deviceschedule.png)
 

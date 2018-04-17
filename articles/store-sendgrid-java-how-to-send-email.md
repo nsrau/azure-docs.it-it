@@ -1,7 +1,7 @@
 ---
 title: Come usare il servizio e-mail SendGrid (Java) | Microsoft Docs
 description: Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid disponibile in Azure. Gli esempi di codice sono scritti in Java.
-services: 
+services: ''
 documentationcenter: java
 author: thinkingserious
 manager: sendgrid
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Come inviare messaggi di posta elettronica usando SendGrid da Java
 Questa guida illustra come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti in Java. Gli scenari presentati includono **creazione di messaggi di posta elettronica**, **invio di messaggi di posta elettronica**, **aggiunta di allegati**, **uso di filtri** e **aggiornamento delle proprietà**. Per altre informazioni su SendGrid e sull'invio di messaggi di posta elettronica, vedere la sezione [Passaggi successivi](#next-steps) .
@@ -33,13 +33,13 @@ SendGrid è un [servizio di posta elettronica basato sul cloud] che offre [recap
 * Inoltro di richieste dei clienti
 * Notifiche di posta elettronica dall'applicazione
 
-Per altre informazioni, visitare il sito <http://sendgrid.com>.
+Per altre informazioni, vedere <http://sendgrid.com>.
 
 ## <a name="create-a-sendgrid-account"></a>Creare un account SendGrid
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="how-to-use-the-javaxmail-libraries"></a>Procedura: Usare le librerie javax.mail
-Ottenere le librerie javax.mail, ad esempio da <http://www.oracle.com/technetwork/java/javamail> e importarle nel codice. Ad alto livello, la procedura per usare la libreria javax.mail per l'invio di messaggio di posta elettronica mediante SMTP è la seguente:
+Ottenere le librerie javax.mail, ad esempio da <http://www.oracle.com/technetwork/java/javamail>, e importarle nel codice. Ad alto livello, la procedura per usare la libreria javax.mail per l'invio di messaggio di posta elettronica mediante SMTP è la seguente:
 
 1. Specificare i valori SMTP, compreso il server SMTP, che per SendGrid è smtp.sendgrid.net.
 
@@ -158,7 +158,7 @@ SendGrid fornisce funzionalità di posta elettronica aggiuntive attraverso l'uti
           {\"enable\":1}}}}");
 
 ## <a name="how-to-update-email-properties"></a>Procedura: Aggiornare le proprietà dei messaggi di posta elettronica
-È possibile sovrascrivere alcune proprietà delle e-mail usando **set*Property*** oppure aggiungerle usando  **add*Property***.
+È possibile sovrascrivere alcune proprietà dei messaggi di posta elettronica usando **set*Property*** oppure aggiungerle con **add*Property***.
 
 Ad esempio, per specificare indirizzi **Rispondi a** , usare il codice seguente:
 
@@ -180,8 +180,8 @@ SendGrid offre API basate sul Web che è possibile usare per sfruttare altre fun
 A questo punto, dopo aver appreso le nozioni di base del servizio di posta elettronica SendGrid, è possibile usare i collegamenti seguenti per ottenere altre informazioni.
 
 * Esempio che illustra l'uso di SendGrid in una distribuzione Azure: [Come inviare messaggi di posta elettronica usando SendGrid da Java in una distribuzione Azure](store-sendgrid-java-how-to-send-email-example.md)
-* SDK Java per SendGrid: <https://sendgrid.com/docs/Code_Examples/java.html>
-* Documentazione relativa all'API SendGrid: <https://sendgrid.com/docs/API_Reference/index.html>
+* SendGrid Java SDK: <https://sendgrid.com/docs/Code_Examples/java.html>
+* Documentazione dell'API SendGrid: <https://sendgrid.com/docs/API_Reference/index.html>
 * Offerta speciale SendGrid per i clienti di Azure: <https://sendgrid.com/windowsazure.html>
 
 [http://sendgrid.com]: https://sendgrid.com

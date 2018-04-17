@@ -2,10 +2,10 @@
 title: Problema nella configurazione dell'accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta | Microsoft Docs
 description: Informazioni sui problemi comuni che si possono incontrare durante la configurazione dell'accesso Single Sign-On basato su password per applicazioni personalizzate non incluse nella raccolta delle applicazioni di Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: e5c8562b89b70236d9d65a5f8765ae386d6831b4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problema nella configurazione dell'accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta
 
@@ -63,7 +63,7 @@ Per configurare l'**accesso Single Sign-On basato su password** per un'applicazi
 
 9.  Immettere l'**URL di accesso**, ovvero l'URL in cui gli utenti immetteranno il nome utente e la password per eseguire l'accesso. **Assicurarsi che i campi di accesso siano visibili nell'URL fornito**.
 
-10. Fare clic sul pulsante **Salva**.
+10. Fare clic sul pulsante **Salva** .
 
 11. Dopo questa operazione, dall'URL verrà creata automaticamente una casella di input per nome utente e password e sarà possibile usare Azure AD per la trasmissione sicura delle password all'applicazione tramite l'estensione del browser del pannello di accesso.
 
@@ -93,7 +93,7 @@ Per configurare l'**accesso Single Sign-On basato su password** per un'applicazi
 
 9.  Immettere l'**URL di accesso**, ovvero l'URL in cui gli utenti immetteranno il nome utente e la password per eseguire l'accesso. **Assicurarsi che i campi di accesso siano visibili nell'URL fornito**.
 
-10. Fare clic sul pulsante **Salva**.
+10. Fare clic sul pulsante **Salva** .
 
 11. Dopo questa operazione, dall'URL verrà creata automaticamente una casella di input per nome utente e password e sarà possibile usare Azure AD per la trasmissione sicura delle password all'applicazione tramite l'estensione del browser del pannello di accesso. Nel caso in cui l'operazione non riesca, è possibile **modificare la modalità di accesso per usare l'acquisizione manuale dei campi di accesso** andando al passaggio 12.
 
@@ -103,7 +103,7 @@ Per configurare l'**accesso Single Sign-On basato su password** per un'applicazi
 
 14. Fare clic su **OK**.
 
-15. Fare clic su **Salva**.
+15. Fare clic su **Save**.
 
 16. Seguire le istruzioni visualizzate per usare il pannello di accesso.
 
@@ -251,7 +251,7 @@ La sezione seguente illustra in dettaglio il significato degli elementi della no
 
     -   Esempio: **L'URL interno "http://bing.com/" non è valido perché è già in uso**
 
--   **Copia errore**: fare clic sull'**icona Copia** a destra della casella di testo **Copia errore** per copiare tutti i dettagli di notifica da condividere con un tecnico di supporto o con il gruppo del prodotto
+-   **Copia errore**: fare clic sull'**icona Copia** a destra della casella di testo **Copia errore** per copiare tutti i dettagli della notifica da condividere con un tecnico di supporto o del gruppo di prodotti
 
     -   Esempio: ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 

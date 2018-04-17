@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: d0b287eb61087e90c898aad5273ab5be8c1f98b2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bd3618367f91fe043cc8412481b38a9c996a5275
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Utilizzare i database SQL nello Stack di Microsoft Azure
 
@@ -81,7 +81,7 @@ Il provider di risorse è costituito da tre componenti:
 
     - Nella directory a cui puntata il parametro DependencyFilesLocalPath, può esistere solo un singolo file di certificato.
 
-    - Il nome del file non deve contenere caratteri speciali.
+    - Il nome del file non deve contenere spazi o caratteri speciali.
 
 
 5. Aprire un **nuova** console di PowerShell con privilegi elevati (amministratore) e modifica della directory in cui sono stati estratti i file. Per evitare problemi che potrebbero verificarsi dei moduli di PowerShell non corretti che sono già caricati nel sistema, utilizzare una nuova finestra.
@@ -231,7 +231,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -DependencyFilesLocalPath $tempDir\cert
  ```
 
-### <a name="updatesqlproviderps1-parameters"></a>UpdateSQLProvider.ps1 parameters
+### <a name="updatesqlproviderps1-parameters"></a>Parametri UpdateSQLProvider.ps1
 È possibile specificare questi parametri nella riga di comando. In caso contrario, o qualsiasi parametro di convalida non riesce, viene chiesto di fornire i parametri richiesti.
 
 | Nome parametro | DESCRIZIONE | Commento o il valore predefinito |
@@ -363,7 +363,7 @@ Per rimuovere il provider di risorse, è necessario innanzitutto rimuovere tutte
 6. Eseguire nuovamente lo script di distribuzione con gli elementi seguenti:
     - -Disinstallare parametro
     - Gli endpoint di gestione risorse di Azure
-    - The DirectoryTenantID
+    - Il DirectoryTenantID
     - Le credenziali per l'account amministratore del servizio
 
 

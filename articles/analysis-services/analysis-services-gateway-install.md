@@ -2,29 +2,29 @@
 title: Installare il gateway dati locale | Microsoft Docs
 description: Informazioni su come installare e configurare un gateway dati locale.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 04/03/2018
 ms.author: owend
-ms.openlocfilehash: c2cbe1c60f67c689a38d1585245610a6fa73bff4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b57ee7d9617f8bf2e54122ac37f351ae0cf9db26
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installare e configurare un gateway dati locale
 Quando uno o più server Azure Analysis Services nella stessa area si connettono a origini dati locali, è necessario un gateway dati locale. Per altre informazioni sul gateway, vedere [Gateway dati locale](analysis-services-gateway.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 **Requisiti minimi:**
 
 * .NET Framework 4.5
@@ -44,6 +44,7 @@ Quando uno o più server Azure Analysis Services nella stessa area si connettono
 * Installare il gateway in un computer che rimane attivo e non passa alla modalità di sospensione.
 * Non installare il gateway in un computer connesso alla rete in modalità wireless. È infatti possibile che si verifichi un calo delle prestazioni.
 * Accedere ad Azure con un account di Azure AD per lo stesso [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) della sottoscrizione in cui si sta registrando il gateway. Gli account Azure B2B (guest) non sono supportati per l'installazione e registrazione di un gateway.
+* Il gateway (unificato) qui descritto non è supportato in Azure per enti pubblici (Fairfax). Usare il gateway locale dedicato per Azure Analysis Services. Il gateway dedicato non supporta servizi aggiuntivi come Power BI e PowerApps. Il gateway dedicato viene installato dalla pagina Avvio rapido dei server nel portale.
 
 
 ## <a name="download"></a>Scaricare

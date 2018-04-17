@@ -2,11 +2,11 @@
 title: Classificazione del reddito - Team Data Science Process - Azure Machine Learning | Microsoft Docs
 description: Come usare il modello di Team Data Science Process per creare un progetto in Azure Machine Learning per la classificazione dei redditi negli Stati Uniti.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
 ms.openlocfilehash: dc6279a1bac230146f4f0cebf2fbdbb6333cb7a1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Classificazione dei redditi con un progetto di Team Data Science Process (TDSP)
 
@@ -48,7 +48,7 @@ Vedere [Team Data Science Process (TDSP) Lifecycle](https://github.com/Azure/Mic
 
 ![](./media/scenario-tdsp-classifying-us-incomes/tdsp-lifecycle.jpg)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 ### <a name="required-subscription-hardware-software"></a>Requisiti obbligatori: sottoscrizione, hardware, software
 1. Una [sottoscrizione di Azure](https://azure.microsoft.com). È anche possibile ottenere una [sottoscrizione gratuita](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) per eseguire questo esempio.
 2. Una [macchina virtuale di data science di Azure con Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm). Dimensioni della macchina virtuale: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), con 4 CPU virtuali e 14 GB di RAM. Benché questo esempio sia stato testato su una macchina virtuale di data science di Azure, è probabile che funzionerà su qualsiasi computer Windows 10.
@@ -87,7 +87,7 @@ Il problema consiste nel determinare in che modo i dati socioeconomici acquisiti
 ## <a name="data-description"></a>Descrizione dei dati
 Per informazioni dettagliate sui dati, vedere la [descrizione](https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.names) nel repository UCI. 
 
-Questi dati sono stati estratti dal database dell'ufficio del censimento all'indirizzo https://www.census.gov/en.html. 
+Questi dati sono stati estratti dal database dell'Ufficio del censimento degli Stati Uniti all'indirizzo https://www.census.gov/en.html. 
 
 
 * In totale, sono presenti 48.842 istanze (prima di qualsiasi filtro), in una combinazione di istanze continue e discrete (training = 32,.561, test = 16.281)

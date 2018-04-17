@@ -26,7 +26,7 @@ Questo articolo semplifica la risoluzione dei problemi relativi ad applicazioni 
 ## <a name="overview"></a>Panoramica
 Quando si pubblica un'app proxy di applicazione, solo le pagine all'interno della radice sono accessibili quando si accede all'applicazione. Se la pagina non viene visualizzata correttamente, l'URL interno radice usato per l'applicazione potrebbe non includere alcune risorse della pagina. Per risolvere questo problema, assicurarsi di aver pubblicato *tutte* le risorse per la pagina come parte dell'applicazione.
 
-Per verificare che il problema sia questo, aprire lo strumento di individuazione di rete, ad esempio Fiddler o altri strumenti F12 in Internet Explorer/Edge, caricare la pagina e cercare eventuali errori 404. Questi errori indicano che le pagine non possono essere trovate e potrebbero dover essere pubblicate.
+Per verificare che il problema sia questo, aprire lo strumento di individuazione di rete, ad esempio Fiddler o altri strumenti F12 in Internet Explorer/Microsoft Edge, caricare la pagina e cercare eventuali errori 404. Questi errori indicano che le pagine non possono essere trovate e potrebbero dover essere pubblicate.
 
 Come esempio di questo caso, si supponga di avere pubblicato un'applicazione per il calcolo delle spese usando l'URL interno <http://myapps/expenses>, mentre l'app usa il foglio di stile <http://myapps/style.css>. In questo caso, il foglio di stile non viene pubblicato nell'applicazione e di conseguenza il caricamento dell'app genera un errore 404 mentre tenta di caricare style.css. In questo esempio il problema può essere risolto pubblicando l'applicazione con l'URL interno <http://myapp/>.
 

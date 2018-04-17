@@ -2,7 +2,7 @@
 title: Eseguire query in Azure Log Analytics per monitorare i cluster Azure HDInsight | Microsoft Docs
 description: Informazioni su come eseguire query in Azure Log Analytics per monitorare i processi in esecuzione in un cluster HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: f9e023ae8d6c50049b588cf056629cd8d46ee603
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1b2f5fc9bd4f8fc8cd70437e38831595d0a8a819
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Eseguire query in Azure Log Analytics per monitorare i cluster HDInsight
 
@@ -29,11 +29,11 @@ Informazioni sugli scenari relativi alle modalità d'uso di Azure Log Analytics 
 * [Cercare messaggi di log specifici nei cluster](#search-for-specific-log-messages)
 * [Creare avvisi di eventi](#create-alerts-for-tracking-events)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * È necessario aver configurato un cluster HDInsight per l'uso di Azure Log Analytics. Per istruzioni, vedere [Usare Azure Log Analytics con i cluster HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
-* È necessario aver aggiunto soluzioni di gestione specifiche per i cluster HDInsight all'area di lavoro [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), come descritto in [Aggiungere soluzioni di gestione di cluster HDInsight in Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
+* È necessario aver aggiunto soluzioni di gestione specifiche per i cluster HDInsight all'area di lavoro di [Log Analytics](../operations-management-suite/operations-management-suite-overview.md), come descritto in [Aggiungere soluzioni di gestione di cluster HDInsight in Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>Analizzare le metriche dei cluster HDInsight
 
@@ -86,7 +86,7 @@ Informazioni su come cercare i messaggi di errore in un intervallo di tempo spec
 
     ![Aprire il dashboard OMS](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "Aprire il dashboard OMS")
 
-2. Nella schermata iniziale del dashboard OMS fare clic su **Ricerca log**.
+2. Nella schermata iniziale del portale di OMS fare clic su **Ricerca log**.
 
     ![Aprire la ricerca log](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "Aprire la ricerca log")
 
@@ -126,7 +126,7 @@ Il primo passaggio per creare un avviso consiste nel creare una query in base a 
 
     ![Aprire il dashboard OMS](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "Aprire il dashboard OMS")
 
-2. Nella schermata iniziale del dashboard OMS fare clic su **Ricerca log**.
+2. Nella schermata iniziale del portale di OMS fare clic su **Ricerca log**.
 
     ![Aprire la ricerca log](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "Aprire la ricerca log")
 
@@ -152,5 +152,5 @@ Il primo passaggio per creare un avviso consiste nel creare una query in base a 
 
 ## <a name="see-also"></a>Vedere anche 
 
-* [Uso di Log Analytics di Operations Management Suite](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Uso di Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Creare regole di avviso in Log Analytics](../log-analytics/log-analytics-alerts-creating.md)

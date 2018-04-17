@@ -1,11 +1,11 @@
 ---
 title: Abilitare multi-tenancy nello Stack di Azure | Documenti Microsoft
-description: "Informazioni su come supportare più directory di Azure Active Directory nello Stack di Azure"
+description: Informazioni su come supportare più directory di Azure Active Directory nello Stack di Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 66689d80cbee0be36b3e8c9951a43d0d43fa01be
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9ee54827ae9e8a803a5e3d7464559aec62c67119
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Abilitare multi-tenancy nello Stack di Azure
 
@@ -91,7 +91,7 @@ Register-AzSWithMyDirectoryTenant `
 ## <a name="direct-users-to-sign-in"></a>Indicare agli utenti di accedere
 Ora che si e Maria sono stati completati i passaggi relativi alla directory di Mary onboard, Mary possano indirizzare gli utenti di Fabrikam per effettuare l'accesso.  Gli utenti di Fabrikam (vale a dire, gli utenti con il suffisso fabrikam.onmicrosoft.com) accedere visitando https://portal.local.azurestack.external.  
 
-Mary indirizzerà qualsiasi [entità esterna](../active-directory/active-directory-understanding-resource-access.md) nella directory di Fabrikam (vale a dire, gli utenti nella directory senza il suffisso del fabrikam.onmicrosoft.com Fabrikam) per accedere tramite https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se non utilizzano questo URL, vengono inviati alla directory predefinita (Fabrikam) e a ricevere un messaggio di errore che all'amministratore non ha accettato le condizioni.
+Mary indirizzerà qualsiasi [entità esterna](../role-based-access-control/rbac-and-directory-admin-roles.md) nella directory di Fabrikam (vale a dire, gli utenti nella directory senza il suffisso del fabrikam.onmicrosoft.com Fabrikam) per accedere tramite https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se non utilizzano questo URL, vengono inviati alla directory predefinita (Fabrikam) e a ricevere un messaggio di errore che all'amministratore non ha accettato le condizioni.
 
 ## <a name="next-steps"></a>Fasi successive
 

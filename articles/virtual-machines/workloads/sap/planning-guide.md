@@ -18,10 +18,10 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9cd12808f7e3bbb8a4edfe0d8de1e5b0a007770a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -372,7 +372,7 @@ Per informazioni sull'argomento relativo alle distribuzioni SAP in Azure sono di
 
 Le note seguenti su SAP sono correlate all'argomento relativo a SAP in Azure:
 
-| Numero della nota | Title |
+| Numero della nota | Titolo |
 | --- | --- |
 | [1928533] |Applicazioni SAP in Azure: dimensioni e prodotti supportati |
 | [2015553] |SAP in Microsoft Azure: prerequisiti per il supporto |
@@ -677,7 +677,7 @@ Ogni macchina virtuale di Azure deve essere connessa a una rete virtuale.
 Per informazioni dettagliate, vedere [questo articolo][resource-groups-networking] e [questa pagina](https://azure.microsoft.com/documentation/services/virtual-network/).
 
 [comment]: <> (MShermannd TODO Couldn't find an article which includes the OpenLDAP topic + ARM; )
-[comment]: <> (MSSedusch &lt;https://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL&gt;)
+[comment]: <> (MSSedusch <https://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL>)
 
 > [!NOTE]
 > Per impostazione predefinita, dopo la distribuzione di una macchina virtuale non è possibile modificare la configurazione della rete virtuale. Le impostazioni di TCP/IP devono essere lasciate sul server DHCP di Azure. Il comportamento predefinito prevede l'assegnazione di IP dinamici.
@@ -799,7 +799,7 @@ Il portale di Azure è una delle tre interfacce con cui gestire le distribuzioni
 ![Portale di Microsoft Azure: panoramica delle macchine virtuali][planning-guide-figure-800]
 
 [comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>)
-[comment]: <> (MSSedusch * &lt;https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/&gt;)
+[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
 Le attività di amministrazione e configurazione per l'istanza della macchina virtuale possono essere eseguite dal portale di Azure.
 
@@ -979,7 +979,7 @@ Lo scopo di questo scenario è caricare un file VHD, con o senza sistema operati
 * Accedere alla sottoscrizione con *az login*
 * Selezionare la propria sottoscrizione con *az account set --subscription `<subscription name or id`>*
 * Caricare il disco rigido virtuale con *az storage blob upload*. Vedere [Uso dell'interfaccia della riga di comando di Azure con archiviazione di Azure][storage-azure-cli]
-* (Facoltativo) Creare un disco gestito dal disco rigido virtuale con *az disk create*. Vedere https://docs.microsoft.com/cli/azure/disk#az_disk_create
+* (Facoltativo) Creare un disco gestito dal disco rigido virtuale usando *az disk create*. Vedere https://docs.microsoft.com/cli/azure/disk#az_disk_create
 * Creare una nuova VM specificando il disco rigido virtuale o il disco gestito caricato come disco del sistema operativo con *azure vm create* e il parametro *--attach-os-disk*
 * Aggiungere un disco dati a una nuova VM con *az vm disk attach* e il parametro *--new*
 
@@ -1008,7 +1008,7 @@ Per caricare una VM o un disco rigido virtuale esistente dalla rete locale per u
 * Accedere alla sottoscrizione con *az login*
 * Selezionare la propria sottoscrizione con *az account set --subscription `<subscription name or id`>*
 * Caricare il disco rigido virtuale con *az storage blob upload*. Vedere [Uso dell'interfaccia della riga di comando di Azure con archiviazione di Azure][storage-azure-cli]
-* (Facoltativo) Creare un'immagine del disco gestito dal disco rigido virtuale con *az image create*. Vedere https://docs.microsoft.com/cli/azure/image#az_image_create
+* (Facoltativo) Creare un'immagine del disco gestito dal disco rigido virtuale usando *az image create*. Vedere https://docs.microsoft.com/cli/azure/image#az_image_create
 * Creare una nuova VM specificando l’immagine del disco rigido virtuale o del disco gestito caricato come disco del sistema operativo con *azure vm create* e il parametro *--image*
 
 **Modello**

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/12/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 890237ff40f9c9893c57f49c96e6ddc99849c2bd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b09799fe102522e1ad91f4983cf4f5fa8122b2c1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>Usare i profili di versione API per PowerShell nello Stack di Azure
 
@@ -34,15 +34,10 @@ Il **AzureRM.Bootstrapper** modulo che è disponibile tramite la raccolta di Pow
 ```PowerShell
 Install-Module -Name AzureRm.BootStrapper
 ```
-Il modulo AzureRM.Bootstrapper è in anteprima. dettagli e funzionalità sono soggette a modifiche. Per scaricare e installare la versione più recente di questo modulo da PowerShell Gallery, eseguire il cmdlet seguente:
-
-```PowerShell
-Update-Module -Name "AzureRm.BootStrapper"
-```
 
 ## <a name="install-a-profile"></a>Installare un profilo
 
-Utilizzare il **installazione AzureRmProfile** cmdlet con il **2017-03-09-profilo** profilo versione API per installare i moduli di Azure Resource Manager necessari dallo Stack di Azure. Si noti che i moduli di operatore dello Stack di Azure non vengono installati con questo profilo versione API e devono essere installati separatamente come specificato nel passaggio 3 del [installare PowerShell per Azure Stack](azure-stack-powershell-install.md) articolo.
+Utilizzare il **installazione AzureRmProfile** cmdlet con il **2017-03-09-profilo** profilo versione API per installare i moduli di Azure Resource Manager necessari dallo Stack di Azure. I moduli di operatore dello Stack di Azure non vengono installati con questo profilo di versione API. Devono essere installati separatamente come specificato nel passaggio 3 della [installazione di PowerShell per Azure Stack](azure-stack-powershell-install.md) articolo.
 
 ```PowerShell 
 Install-AzureRMProfile -Profile 2017-03-09-profile
