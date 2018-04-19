@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 6ec202237a0b3fb1b7f0b7158c0aa454b4d65770
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1f2f0819f987bf389ff4b2816ad422fdd8a81f82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategie di ripristino di emergenza per applicazioni che usano i pool elastici del database SQL
 Nel corso degli anni è stato riscontrato che i servizi cloud non sono infallibili e che si verificano incidenti catastrofici. Il database SQL offre diverse funzionalità utili per la continuità aziendale dell'applicazione in caso di eventi imprevisti. [Pool elastici](sql-database-elastic-pool.md) e i database singoli supportano lo stesso tipo di funzionalità per il ripristino di emergenza. Questo articolo illustra alcune strategie di ripristino di emergenza per i pool elastici che sfruttano i vantaggi di queste funzionalità per la continuità aziendale del database SQL.
@@ -26,7 +26,7 @@ In questo articolo viene usato il modello classico di applicazione ISV SaaS:
 Questo articolo illustra le strategie di ripristino di emergenza in diversi scenari, dalle applicazioni per start-up attente ai costi a quelle con requisiti di disponibilità rigorosi.
 
 > [!NOTE]
-> Se si usano pool e database Premium, è possibile renderli resistenti alle interruzioni a livello di area convertendoli in una configurazione di distribuzione con ridondanza della zona (attualmente in anteprima). Vedere [Database con ridondanza della zona](sql-database-high-availability.md).
+> Se si usano pool elastici e database Premium o Business Critical (anteprima), è possibile renderli resistenti alle interruzioni a livello di area convertendoli in una configurazione di distribuzione con ridondanza della zona (attualmente in anteprima). Vedere [Database con ridondanza della zona](sql-database-high-availability.md).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Scenario 1. Start-up attente ai costi
 <i>Una start-up estremamente attenta ai costi  vuole semplificare la distribuzione e la gestione dell'applicazione e può avere un contratto di servizio limitato per singoli clienti. Vuole tuttavia assicurarsi che l'applicazione nel suo complesso non sia mai offline.</i>
@@ -65,7 +65,7 @@ Il **vantaggio** principale di questa strategia è costituito dai costi di eserc
 ## <a name="scenario-2-mature-application-with-tiered-service"></a>Scenario 2. Applicazione matura con più livelli di servizio
 <i>Un'applicazione SaaS matura con più livelli di offerte del servizio e diversi contratti di servizio per i clienti delle versioni di valutazione e i clienti delle versioni a pagamento deve ridurre il più possibile i costi per i clienti delle versioni di valutazione. Questi clienti possono accettare i tempi di inattività, ma si vuole ridurne la probabilità. Per i clienti delle versioni a pagamento, i tempi di inattività possono costituire un rischio inaccettabile. Si vuole quindi assicurare che i clienti delle versioni a pagamento siano sempre in grado di accedere ai propri dati.</i> 
 
-Per supportare questo scenario, separare i tenant delle versioni di valutazione dai tenant delle versioni a pagamento, inserendoli in pool elastici separati. I clienti delle versioni di valutazione avranno valori di eDTU per tenant inferiori e un contratto di servizio inferiore con tempi di ripristino più lunghi. I clienti delle versioni a pagamento saranno inclusi in un pool con valori di eDTU per tenant superiori e un contratto di servizio superiore. Per garantire tempi di ripristino minimi, i database tenant dei clienti delle versioni a pagamento sono sottoposti a replica geografica. Questa configurazione è illustrata nel diagramma seguente. 
+Per supportare questo scenario, separare i tenant delle versioni di valutazione dai tenant delle versioni a pagamento, inserendoli in pool elastici separati. I clienti delle versioni di valutazione avranno valori di eDTU o vCore per tenant inferiori e un contratto di servizio inferiore con tempi di ripristino più lunghi. I clienti delle versioni a pagamento saranno inclusi in un pool con valori di eDTU o vCore per tenant superiori e un contratto di servizio superiore. Per garantire tempi di ripristino minimi, i database tenant dei clienti delle versioni a pagamento sono sottoposti a replica geografica. Questa configurazione è illustrata nel diagramma seguente. 
 
 ![Figura 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
@@ -80,7 +80,7 @@ In caso di interruzione nell'area primaria, la procedura di ripristino per ripor
 * Effettuare immediatamente il failover dei database di gestione nell'area di ripristino di emergenza (3).
 * Modificare la stringa di connessione dell'applicazione in modo che faccia riferimento all'area di ripristino di emergenza. Tutti i nuovi account e database tenant verranno ora creati nell'area di ripristino di emergenza. I dati risulteranno temporaneamente non disponibili per i clienti esistenti delle versioni di valutazione.
 * Effettuare il failover dei database tenant a pagamento nel pool nell'area di ripristino di emergenza per ripristinarne immediatamente la disponibilità (4). Dato che il failover è una rapida modifica a livello di metadati, prendere in considerazione un'ottimizzazione con attivazione su richiesta dei singoli failover da parte delle connessioni degli utenti finali. 
-* Se le dimensioni eDTU del pool secondario sono inferiori a quelle del pool primario perché i database secondari richiedevano solo le funzionalità necessarie per elaborare i log delle modifiche durante l'impostazione come secondari, aumentare immediatamente la capacità del pool per adeguarla all'intero carico di lavoro di tutti i tenant (5). 
+* Se le dimensioni di eDTU o il valore di vCore del pool secondario sono inferiori a quelli del pool primario perché i database secondari richiedevano solo le funzionalità necessarie per elaborare i log delle modifiche durante l'impostazione come secondari, aumentare immediatamente la capacità del pool per adeguarla all'intero carico di lavoro di tutti i tenant (5). 
 * Creare il nuovo pool elastico con lo stesso nome e la stessa configurazione nell'area di ripristino di emergenza per i database dei clienti della versione di valutazione (6). 
 * Dopo la creazione del pool dei clienti della versione di valutazione, usare il ripristino geografico per ripristinare i singoli database tenant della versione di valutazione nel nuovo pool (7). Prendere in considerazione l'attivazione dei singoli ripristini in base alle connessioni degli utenti finali oppure l'uso di un altro schema di priorità specifico dell'applicazione.
 
@@ -108,7 +108,7 @@ Il **vantaggio** principale di questa strategia consiste nel fatto che offre il 
 ## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Scenario 3. Applicazione geograficamente distribuita con più livelli di servizio
 <i>Un'applicazione SaaS matura con offerte di più livelli di servizio vuole offrire un Contratto di servizio molto aggressivo ai clienti della versione a pagamento e vuole ridurre al minimo il rischio di impatto di eventuali interruzioni, perché anche una breve interruzione può causare l'insoddisfazione dei clienti. È essenziale che i clienti della versione a pagamento possano accedere sempre ai propri dati. Le versioni di valutazione sono gratuite e non è disponibile alcun Contratto di servizio durante il periodo di valutazione. </i> 
 
-Per supportare questo scenario, usare tre pool elastici separati. È necessario effettuare il provisioning di due pool di dimensioni uguali con valori eDTU elevati per ogni database in due aree diverse per includere i database tenant dei clienti della versione a pagamento. Il terzo pool contenente i tenant delle versioni di valutazione può avere valori eDTU inferiori per ogni database e viene sottoposto a provisioning in una delle due aree.
+Per supportare questo scenario, usare tre pool elastici separati. È necessario effettuare il provisioning di due pool di dimensioni uguali con valori eDTU o vCore elevati per ogni database in due aree diverse per includere i database tenant dei clienti della versione a pagamento. Il terzo pool contenente i tenant delle versioni di valutazione può avere valori eDTU o vCore inferiori per ogni database e viene sottoposto a provisioning in una delle due aree.
 
 Per garantire tempi di ripristino minimi durante le interruzioni, i database tenant dei clienti della versione a pagamento sono sottoposti a replica geografica con il 50% dei database primari in ognuna delle due aree. Analogamente, ogni area include il 50% dei database secondari. In questo modo, lo stato offline di un'area influisce solo sul 50% dei database dei clienti a pagamento, di cui viene effettuato il failover. Gli altri database rimangono inalterati. Questa configurazione è illustrata nel diagramma seguente:
 
@@ -125,7 +125,7 @@ Il diagramma seguente illustra la procedura di ripristino da eseguire in caso di
 * Eseguire immediatamente il failover dei database di gestione nell'area B (3).
 * Modificare la stringa di connessione dell'applicazione in modo che faccia riferimento ai database di gestione nell'area B. Modificare i database di gestione affinché i nuovi account e database tenant vengano creati nell'area B e i database tenant esistenti siano disponibili in tale area. I dati risulteranno temporaneamente non disponibili per i clienti esistenti delle versioni di valutazione.
 * Effettuare il failover dei database tenant a pagamento nel pool 2 nell'area B per ripristinarne immediatamente la disponibilità (4). Dato che il failover è una rapida modifica a livello di metadati, è possibile prendere in considerazione un'ottimizzazione con attivazione su richiesta dei singoli failover da parte delle connessioni degli utenti finali. 
-* Dato che il pool 2 ora contiene solo database primari, il carico di lavoro totale nel pool aumenta ed è possibile incrementarne immediatamente le dimensioni eDTU (5). 
+* Dato che il pool 2 ora contiene solo database primari, il carico di lavoro totale nel pool aumenta ed è possibile incrementare immediatamente le dimensioni di eDTU (5) o il numero di vCore. 
 * Creare il nuovo pool elastico con lo stesso nome e la stessa configurazione nell'area B per i database dei clienti della versione di valutazione (6). 
 * Dopo la creazione del pool, usare il ripristino geografico per ripristinare il singolo database tenant della versione di valutazione nel pool (7). È possibile prendere in considerazione l'attivazione dei singoli ripristini in base alle connessioni degli utenti finali oppure l'uso di un altro schema di priorità specifico dell'applicazione.
 
@@ -142,7 +142,7 @@ Al termine del ripristino dell'area A, è necessario decidere se si vuole usare 
 * Annullare tutte le richieste di ripristino geografico in sospeso verso il pool di ripristino di emergenza della versione di valutazione.   
 * Effettuare il failover del database di gestione (8). Dopo il ripristino dell'area, l'elemento primario precedente è diventato automaticamente l'elemento secondario. Ora diventa di nuovo primario.  
 * Selezionare i database tenant della versione a pagamento di cui verrà effettuato il failback nel pool 1 e avviare il failover negli elementi secondari (9). Dopo il ripristino dell'area, tutti i database nel pool 1 sono diventati automaticamente secondari. Ora il 50% dei database diventa di nuovo primario. 
-* Ridurre le dimensioni del pool 2 al valore eDTU originale (10).
+* Ridurre le dimensioni del pool 2 al valore eDTU (10) o al numero di vCore originale.
 * Impostare su sola lettura tutti i database della versione di valutazione ripristinati nell'area B (11).
 * Per ogni database nel pool di ripristino di emergenza delle versioni di valutazione modificato dopo il ripristino, rinominare o eliminare il database corrispondente nel pool primario delle versioni di valutazione (12). 
 * Copiare i database aggiornati dal pool di ripristino di emergenza al pool primario (13). 

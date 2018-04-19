@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 04/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d1ca15028590824cef95e3e9c2d957f9883a0e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b0cb9b4003faa2ccdd07ccc78c2095472690f0e7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>Acceleratore di scrittura di Azure per distribuzioni SAP
 L'acceleratore di scrittura di Azure è una funzionalità implementata esclusivamente per le macchine virtuali della serie M. L'acceleratore di scrittura di Azure non è disponibile con altre serie di macchine virtuali in Azure, ad eccezione della serie M. Come indicato dal nome, lo scopo della funzionalità è migliorare la latenza di I/O delle scritture per l'Archiviazione Premium di Azure. 
@@ -28,10 +28,11 @@ L'acceleratore di scrittura di Azure è una funzionalità implementata esclusiva
 >[!NOTE]
 > Attualmente, l'acceleratore di scrittura di Azure è disponibile come anteprima pubblica e richiede l'aggiunta dell'ID della sottoscrizione di Azure nell'elenco degli elementi consentiti.
 
-La funzionalità dell'acceleratore di scrittura di Azure è disponibile come anteprima pubblica in:
+La funzionalità dell'acceleratore di scrittura di Azure è disponibile per la distribuzione Serie M come anteprima pubblica in:
 
 - Stati Uniti occidentali 2
 - Europa occidentale
+- Asia sudorientale
 
 ## <a name="planning-for-using-azure-write-accelerator"></a>Pianificazione per l'uso dell'acceleratore di scrittura di Azure
 L'acceleratore di scrittura di Azure deve essere usato per i volumi che contengono il log delle transazioni o i log di ripristino di un DBMS. Non è consigliabile usare l'acceleratore di scrittura di Azure per i volumi di dati di un sistema DBMS. Questa restrizione è consigliata perché l'acceleratore di scrittura di Azure richiede il montaggio dei dischi rigidi virtuali di Archiviazione Premium di Azure senza la memorizzazione nella cache delle letture aggiuntiva disponibile per l'Archiviazione Premium. Con questo tipo di memorizzazione nella cache si possono riscontrare vantaggi maggiori con i database tradizionali. Dato che l'acceleratore di scrittura influisce solo sulle attività di scrittura e non velocizza le letture, la progettazione supportata per SAP prevede l'uso dell'acceleratore di scrittura sulle unità del log delle transazioni o dei log di ripristino dei database SAP supportati. 
@@ -54,15 +55,16 @@ Esistono limiti per il numero di dischi rigidi virtuali di Archiviazione Premium
 > Per abilitare l'acceleratore di scrittura di Azure in un disco di Azure esistente che NON fa parte di un volume costituito da più dischi con gestori di dischi o volumi Windows, spazi di archiviazione Windows, file server di scalabilità orizzontale di Windows, LVM di Linux o MDADM, è necessario arrestare il carico di lavoro che accede al disco di Azure. Le applicazioni di database che usano il disco di Azure DEVONO essere arrestate.
 
 > [!IMPORTANT]
-> L'abilitazione dell'acceleratore di scrittura per il disco del sistema operativo di Azure della macchina virtuale comporterà il riavvio della macchina virtuale. 
+> L'abilitazione dell'acceleratore di scrittura per il disco del sistema operativo della macchina virtuale di Azure comporterà il riavvio della macchina virtuale. 
 
 L'abilitazione dell'acceleratore di scrittura di Azure per i dischi operativi non dovrebbe essere necessaria per le configurazioni di macchine virtuali correlate a SAP.
 
 ### <a name="restrictions-when-using-azure-write-accelerator"></a>Restrizioni per l'uso dell'acceleratore di scrittura di Azure
 Quando si usa l'acceleratore di scrittura di Azure per dischi o dischi rigidi virtuali di Azure, si applicano queste restrizioni:
 
-- La memorizzazione nella cache del disco Premium deve essere impostata su 'Nessuna'. Tutte le altre modalità di memorizzazione nella cache non sono supportate.
+- La memorizzazione nella cache del disco Premium deve essere impostata su 'Nessuna' o 'Sola lettura'. Tutte le altre modalità di memorizzazione nella cache non sono supportate.
 - La creazione di snapshot sul disco abilitato per l'acceleratore di scrittura non è ancora supportata. Questa restrizione impedisce al Servizio Backup di Azure di creare uno snapshot coerente con l'applicazione di tutti i dischi della macchina virtuale.
+- Solo dimensioni di I/O più piccole usano il percorso dell'acceleratore. In scenari di carichi di lavoro dove i dati vengono caricati in blocco oppure dove i buffer dei log delle transazioni di diversi sistemi di gestione di database vengono popolati con quantità rilevanti di dati prima di venire salvati in modo permanente nella risorsa di archiviazione, è possibile che l'I/O scritto su disco non usi il percorso dell'acceleratore.
 
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Abilitazione dell'acceleratore di scrittura per un disco specifico
@@ -70,7 +72,7 @@ Le prossime sezioni descrivono come abilitare l'acceleratore di scrittura di Azu
 
 Attualmente, gli unici metodi disponibili per abilitare l'acceleratore di scrittura sono l'API Rest di Azure e PowerShell. Nel corso delle prossime settimane verrà aggiunto il supporto di altri metodi nel portale di Azure.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 I prerequisiti seguenti sono validi per l'utilizzo dell'acceleratore di scrittura di Azure in questo momento:
 
 - L'ID della sottoscrizione usato per distribuire la macchina virtuale e le risorse di archiviazione per la macchina virtuale deve essere incluso nell'elenco degli elementi consentiti. Contattare il referente di Microsoft CSA, GBB o l'account manager per richiedere l'aggiunta dell'ID della sottoscrizione all'elenco degli elementi consentiti. 
@@ -289,7 +291,7 @@ L'output potrebbe essere simile al seguente:
 
 ```
 
-Il passaggio successivo include l'aggiornamento del file JSON e l'abilitazione dell'acceleratore di scrittura nel disco denominato 'log1'. Questa operazione può essere eseguita aggiungendo l'attributo nel file JSON dopo la voce della cache del disco. 
+Il passaggio successivo include l'aggiornamento del file JSON e l'abilitazione dell'acceleratore di scrittura nel disco denominato 'log1'. Questo passaggio può essere eseguito aggiungendo l'attributo nel file JSON dopo la voce della cache del disco. 
 
 ```
         {

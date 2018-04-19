@@ -7,13 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 04/04/2018
 ms.author: sashan
-ms.openlocfilehash: 45ddc4070e2162715eefab21841d75f1fa2a29e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: carlrab
+ms.openlocfilehash: d241bfb6245eb5a70f1e4fcedc86c969766019f4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Panoramica: gruppi di failover e replica geografica attiva
 La replica geografica attiva consente di configurare fino a quattro database secondari accessibili in lettura nella stessa posizione del data center o in posizioni (aree) diverse. Sono disponibili database secondari per l'esecuzione di query e per il failover in caso di interruzione di un data center o di impossibilità di connettersi al database primario. Il failover deve essere avviato manualmente dall'applicazione dell'utente. Dopo il failover, il nuovo database primario dispone di un endpoint di connessione diverso. 
@@ -69,7 +70,7 @@ La funzionalità di replica geografica attiva fornisce i seguenti elementi essen
    >
 
 * **Supporto dei database del pool elastico**: la replica geografica attiva può essere configurata per qualsiasi database in qualsiasi pool elastico. Il database secondario può trovarsi in un altro pool elastico. Per i database normali, il database secondario può essere un pool elastico e viceversa, purché i livelli di servizio restino invariati. 
-* **Livello di prestazioni configurabile del database secondario**: i database primari e secondari devono avere lo stesso livello di servizio (Basic, Standard, Premium). Un database secondario può essere creato con un livello di prestazioni (DTU) inferiore rispetto al database primario. Questa opzione non è consigliata per le applicazioni con attività di scrittura nel database elevate perché il maggiore intervallo di replica aumenta il rischio di perdita di dati sostanziali dopo il failover. Inoltre, dopo il failover ci saranno delle ripercussioni sulle prestazioni dell'applicazione fino a quando il nuovo database primario non verrà aggiornato a un livello di prestazioni superiore. Il grafico della percentuale IO del log nel portale di Azure fornisce un buon metodo per stimare il livello di prestazioni minimo del database secondario che deve sostenere il carico della replica. Ad esempio, se il database primario è P6 (1000 DTU) e la percentuale IO del log è del 50%, il database secondario deve essere almeno P4 (500 DTU). È anche possibile recuperare i dati di I/O del log usando la vista di database [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) o [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  Per altre informazioni sui livelli di prestazioni del database SQL, vedere [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md). 
+* **Livello di prestazioni configurabile del database secondario**: i database primari e secondari devono avere lo stesso livello di servizio. Un database secondario può essere creato con un livello di prestazioni (DTU) inferiore rispetto al database primario. Questa opzione non è consigliata per le applicazioni con attività di scrittura nel database elevate perché il maggiore intervallo di replica aumenta il rischio di perdita di dati sostanziali dopo il failover. Inoltre, dopo il failover ci saranno delle ripercussioni sulle prestazioni dell'applicazione fino a quando il nuovo database primario non verrà aggiornato a un livello di prestazioni superiore. Il grafico della percentuale IO del log nel portale di Azure fornisce un buon metodo per stimare il livello di prestazioni minimo del database secondario che deve sostenere il carico della replica. Ad esempio, se il database primario è P6 (1000 DTU) e la percentuale IO del log è del 50%, il database secondario deve essere almeno P4 (500 DTU). È anche possibile recuperare i dati di I/O del log usando la vista di database [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) o [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  Per altre informazioni sui livelli di prestazioni del database SQL, vedere [Quali sono i livelli di servizio del database SQL di Azure?](sql-database-service-tiers.md). 
 * **Failover e failback controllati dall'utente**: un database secondario può essere impostato esplicitamente sul ruolo di database primario in qualsiasi momento dall'applicazione o dall'utente. Durante un'interruzione reale, deve essere usata l'opzione "non pianificato", che alza immediatamente il livello di un database secondario a primario. Quando il database primario viene ripristinato ed è nuovamente disponibile, il sistema lo contrassegna automaticamente come database secondario e lo aggiorna con il nuovo database primario. A causa della natura asincrona della replica, una piccola quantità di dati può andare perduta durante i failover non pianificati se il database primario si interrompe prima di replicare le modifiche più recenti al database secondario. Quando un database primario con più database secondari esegue il failover, il sistema riconfigura automaticamente le relazioni di replica e collega i database secondari rimanenti al nuovo database primario appena alzato di livello senza alcun intervento da parte dell'utente. Dopo aver risolto l'interruzione del servizio che ha causato il failover, è opportuno ripristinare l'applicazione nell'area primaria. A tale scopo, richiamare il comando di failover con l'opzione "pianificato". 
 * **Mantenere sincronizzate le credenziali e le regole del firewall**: per i database con replica geografica è consigliabile usare le [regole del firewall a livello di database](sql-database-firewall-configure.md), in modo che tali regole possano essere replicate con il database, per garantire che tutti i database secondari abbiano le stesse regole del firewall del database primario. In questo modo non è più necessario configurare e gestire le regole del firewall manualmente nei server che ospitano sia il database primario che i secondari. Analogamente, l'accesso ai dati come [utenti di database indipendente](sql-database-manage-logins.md) fa sì che i database primari e secondari abbiano sempre le stesse credenziali utente. Durante un failover, quindi, non si verificano interruzioni dovute a una mancata corrispondenza tra account di accesso e password. Con l'aggiunta di [Azure Active Directory](../active-directory/active-directory-whatis.md) i clienti possono gestire l'accesso utente ai database primari e secondari, eliminando completamente la necessità di gestire le credenziali nei database.
 
@@ -134,7 +135,7 @@ Come indicato in precedenza, i gruppi di failover automatico (in anteprima) e la
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>Gestire il failover del database SQL con Transact-SQL
 
-| Comando | DESCRIZIONE |
+| Comando | Descrizione |
 | --- | --- |
 | [ALTER DATABASE (database SQL di Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Usare l'argomento ADD SECONDARY ON SERVER per creare un database secondario per un database esistente e avviare la replica dei dati |
 | [ALTER DATABASE (database SQL di Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Usare FAILOVER o FORCE_FAILOVER_ALLOW_DATA_LOSS per passare un database secondario al ruolo di database primario per avviare il failover |
@@ -147,7 +148,7 @@ Come indicato in precedenza, i gruppi di failover automatico (in anteprima) e la
 
 ## <a name="manage-sql-database-failover-using-powershell"></a>Gestire il failover del database SQL con PowerShell
 
-| Cmdlet | DESCRIZIONE |
+| Cmdlet | Descrizione |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Ottiene uno o più database. |
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Crea un database secondario per un database esistente e avvia la replica dei dati. |
@@ -166,7 +167,7 @@ Come indicato in precedenza, i gruppi di failover automatico (in anteprima) e la
 >
 
 ## <a name="manage-sql-database-failover-using-the-rest-api"></a>Gestire il failover del database SQL con L'API REST
-| API | DESCRIZIONE |
+| API | Descrizione |
 | --- | --- |
 | [Creare o aggiornare database (createMode=Restore)](/rest/api/sql/Databases/CreateOrUpdate) |Crea, aggiorna o ripristina un database primario o secondario. |
 | [Get Create or Update Database Status](/rest/api/sql/Databases/CreateOrUpdate) |Restituisce lo stato durante un'operazione di creazione. |

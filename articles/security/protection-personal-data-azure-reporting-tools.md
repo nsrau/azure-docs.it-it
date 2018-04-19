@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fc859f3aa34531133b7a21e36591b011c63d511c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Documentare la protezione dei dati personali con gli strumenti di creazione di report di Azure
 
@@ -95,13 +95,13 @@ Gli strumenti di analisi in Log Analytics, come le ricerche nei log, le visualiz
 
 #### <a name="how-do-i-use-log-analytics"></a>Uso di Log Analytics
 
-È possibile accedere a Log Analytics tramite il portale di OMS o il portale di Azure, da qualsiasi Web browser. Log Analytics include un linguaggio di query che permette di recuperare e consolidare rapidamente i dati nel repository. È possibile creare e salvare ricerche log per analizzare direttamente i dati nel portale.
+È possibile accedere a Log Analytics tramite il portale di OMS o il portale di Azure, da qualsiasi Web browser. Log Analytics include un linguaggio di query che consente di recuperare e consolidare rapidamente i dati nell'area di lavoro di Log Analytics. È possibile creare e salvare ricerche log per analizzare direttamente i dati nel portale.
 
 Per creare un'area di lavoro di Log Analytics nel portale di Azure, seguire questa procedura:
 
 1. Nell'elenco dei servizi in Marketplace selezionare **Log Analytics**.
 
-2. Selezionare **Crea** e quindi specificare il nome dell'area di lavoro di OMS, selezionare la sottoscrizione, il gruppo di risorse, la località e il piano tariffario.
+2. Selezionare **Crea** e quindi specificare il nome dell'area di lavoro di Log Analytics, selezionare la sottoscrizione, il gruppo di risorse, la località e il piano tariffario.
 
 3. Fare clic su **OK** per visualizzare un elenco delle aree di lavoro.
 

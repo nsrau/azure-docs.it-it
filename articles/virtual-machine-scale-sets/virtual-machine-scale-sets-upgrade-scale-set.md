@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: cbd5b57d0cde3743c7ef70437f702536c27ac999
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b1fdc364b903ed552f657fcabdadcf209d7c969e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificare un set di scalabilità di macchine virtuali
 Per tutto il ciclo di vita delle applicazioni, potrebbe essere necessario modificare o aggiornare il set di scalabilità di macchine virtuali. Questi aggiornamenti possono includere come aggiornare la configurazione del set di scalabilità o modificare la configurazione dell'applicazione. Questo articolo descrive come modificare un set di scalabilità esistente con le API REST, Azure PowerShell o l'interfaccia della riga di comando di Azure 2.0.
@@ -367,7 +367,7 @@ Alcune modifiche possono essere applicate solo a macchine virtuali specifiche an
 ## <a name="scenarios"></a>Scenari
 
 ### <a name="application-updates"></a>Aggiornamenti dell'applicazione
-Se un'applicazione viene distribuita a un set di scalabilità tramite estensioni, un aggiornamento alla configurazione delle estensioni causa l'aggiornamento dell'applicazione in conformità con i criteri di aggiornamento. Se ad esempio si deve eseguire una nuova versione di uno script in un'estensione dello script personalizzata, si potrebbe aggiornare la proprietà *fileUris* in modo che punti al nuovo script. In alcuni casi si potrebbe avere l'esigenza di forzare un aggiornamento anche se la configurazione delle estensioni è rimasta invariata, ad esempio nel caso in cui si sia aggiornato lo script senza modifiche all'URI. In questi casi è possibile modificare la proprietà *forceUpdateTag* per poter forzare un aggiornamento. La piattaforma di Azure non interpreta questa proprietà. Se si modifica il valore, l'esecuzione dell'estensione non subirà conseguenze. Una modifica forza semplicemente la ripetizione dell'esecuzione dell'estensione. Per altre informazioni sulla proprietà *forceUpdateTag*, vedere la [documentazione dell'API REST relativa alle estensioni](/rest/api/compute/virtualmachineextensions/createorupdate).
+Se un'applicazione viene distribuita a un set di scalabilità tramite estensioni, un aggiornamento alla configurazione delle estensioni causa l'aggiornamento dell'applicazione in conformità con i criteri di aggiornamento. Se ad esempio si deve eseguire una nuova versione di uno script in un'estensione dello script personalizzata, si potrebbe aggiornare la proprietà *fileUris* in modo che punti al nuovo script. In alcuni casi si potrebbe avere l'esigenza di forzare un aggiornamento anche se la configurazione delle estensioni è rimasta invariata, ad esempio nel caso in cui si sia aggiornato lo script senza modifiche all'URI. In questi casi è possibile modificare la proprietà *forceUpdateTag* per poter forzare un aggiornamento. La piattaforma di Azure non interpreta questa proprietà. Se si modifica il valore, l'esecuzione dell'estensione non subirà conseguenze. Una modifica forza semplicemente la ripetizione dell'esecuzione dell'estensione. Per altre informazioni sulla proprietà *forceUpdateTag*, vedere la [documentazione dell'API REST relativa alle estensioni](/rest/api/compute/virtualmachineextensions/createorupdate). Notare che la proprietà *forceUpdateTag* non può essere usata con tutte le estensioni e non solo con l'estensione di script personalizzata.
 
 Uno scenario frequente è la distribuzione delle applicazioni tramite un'immagine personalizzata. Questo scenario è illustrato nella sezione seguente.
 
@@ -400,7 +400,7 @@ Si può avere un set di scalabilità che esegue una versione precedente di Ubunt
 ### <a name="update-the-load-balancer-for-your-scale-set"></a>Aggiornare il bilanciamento del carico del set di scalabilità
 Supponiamo di avere un set di scalabilità con un servizio Azure Load Balancer e di voler sostituire tale servizio con un gateway applicazione di Azure. Le proprietà del servizio di bilanciamento del carico e del gateway applicazione di un set di scalabilità fanno parte di un elenco, quindi è possibile usare i comandi per rimuovere o aggiungere elementi di elenco invece di modificare le proprietà direttamente:
 
-- Azure Powershell:
+- Azure PowerShell:
 
     ```powershell
     # Get the current model of the scale set and store it in a local PowerShell object named $vmss

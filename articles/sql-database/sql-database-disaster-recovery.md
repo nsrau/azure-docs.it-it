@@ -1,5 +1,5 @@
 ---
-title: Ripristino di emergenza del database SQL | Documentazione Microsoft
+title: Ripristino di emergenza del database SQL | Microsoft Docs
 description: Informazioni su come ripristinare un database da un guasto o un'interruzione del servizio del data center a livello di area con le funzionalità di replica geografica attiva e ripristino geografico del database SQL.
 services: sql-database
 author: anosov1960
@@ -7,14 +7,14 @@ manager: jhubbard
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e9ec0a0a602965561b77619123588db57c59993c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: dc97c0703150df9773427b13fc07371c3593ce9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Ripristinare un database SQL di Azure o eseguire il failover in un database secondario
 Il database SQL di Azure offre le funzionalità riportate di seguito per il ripristino da un'interruzione del servizio:
@@ -26,7 +26,7 @@ Il database SQL di Azure offre le funzionalità riportate di seguito per il ripr
 Per informazioni sugli scenari di continuità aziendale e sulle funzionalità che supportano questi scenari, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
 
 > [!NOTE]
-> Se si usano database o pool Premium con ridondanza della zona, il processo di ripristino viene automatizzato e la parte restante di questo articolo non è applicabile. 
+> Se si usano database o pool Premium o Business Critical con ridondanza della zona (anteprima), il processo di ripristino viene automatizzato e la parte restante di questo articolo non è applicabile. 
 
 ### <a name="prepare-for-the-event-of-an-outage"></a>Prepararsi per un evento di interruzione del servizio
 Per completare correttamente il ripristino su un'altra area dati tramite i gruppi di failover o i backup con ridondanza geografica, è necessario preparare un server in un'altra interruzione del data center perché diventi il nuovo server primario in caso di necessità, nonché procedure ben definite, documentate e testate per garantire un ripristino senza problemi. La procedura di preparazione comprende:

@@ -1,12 +1,13 @@
 ---
 title: Instradare il traffico di rete - Interfaccia della riga di comando di Azure | Microsoft Docs
-description: Informazioni su come instradare il traffico di rete con una tabella di route usando l'interfaccia della riga di comando di Azure.
+description: Questo articolo descrive come instradare il traffico di rete con una tabella di route usando l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -16,24 +17,23 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 871b562fa12b93d1b65e23ca58615d35ef6bb34b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eb4a28b5a57d7e301e800cd4ad87c56b7c5df6d2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Instradare il traffico di rete con una tabella di route usando l'interfaccia della riga di comando di Azure
 
 Per impostazione predefinita, Azure instrada automaticamente il traffico tra tutte le subnet di una rete virtuale. È possibile creare le proprie route per eseguire l'override del routing predefinito di Azure. La possibilità di creare route personalizzate è utile se, ad esempio, si vuole indirizzare il traffico tra subnet attraverso un'appliance virtuale di rete. In questo articolo viene spiegato come:
 
-> [!div class="checklist"]
-> * Creare una tabella di route
-> * Creare una route
-> * Creare una rete virtuale con più subnet
-> * Associare una route a una subnet
-> * Creare un'appliance virtuale di rete che indirizza il traffico
-> * Distribuire le macchine virtuali in subnet diverse
-> * Indirizzare il traffico da una subnet a un'altra attraverso un'appliance virtuale di rete
+* Creare una tabella di route
+* Creare una route
+* Creare una rete virtuale con più subnet
+* Associare una route a una subnet
+* Creare un'appliance virtuale di rete che indirizza il traffico
+* Distribuire le macchine virtuali in subnet diverse
+* Indirizzare il traffico da una subnet a un'altra attraverso un'appliance virtuale di rete
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -203,7 +203,7 @@ La creazione della VM richiede alcuni minuti. Dopo aver creato la macchina virtu
   "resourceGroup": "myResourceGroup"
 }
 ```
-Prendere nota di **publicIpAddress**. Questo indirizzo viene usato per accedere alla macchina virtuale da Internet in un passaggio successivo.
+Prendere nota di **publicIpAddress**. Questo indirizzo viene usato per accedere alla VM da Internet in un passaggio successivo.
 
 ## <a name="route-traffic-through-an-nva"></a>Indirizzare il traffico attraverso un'appliance virtuale di rete
 
@@ -215,7 +215,7 @@ ssh azureuser@<publicIpAddress>
 
 Quando viene richiesto di immettere una password, specificare la password selezionata in [Creare macchine virtuali](#create-virtual-machines).
 
-Usare il comando seguente per installare traceroute nella macchina virtuale *myVmPrivate*:
+Usare il comando seguente per installare il traceroute nella macchina virtuale *myVmPrivate*:
 
 ```bash 
 sudo apt-get install traceroute
@@ -242,7 +242,7 @@ Usare il comando seguente per stabilire una connessione SSH alla macchina virtua
 ssh azureuser@myVmPublic
 ```
 
-Usare il comando seguente per installare traceroute nella macchina virtuale *myVmPublic*:
+Usare il comando seguente per installare il traceroute nella macchina virtuale *myVmPublic*:
 
 ```bash 
 sudo apt-get install traceroute
@@ -275,9 +275,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stata creata una tabella di route per poi associarla a una subnet. È stata creata una semplice appliance virtuale di rete che ha indirizzato il traffico da una subnet pubblica a una subnet privata. Distribuire una varietà di appliance virtuali di rete preconfigurate che svolgono funzioni di rete come la protezione tramite firewall e l'ottimizzazione della WAN da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Prima di distribuire tabelle di route per l'uso in produzione, è consigliabile familiarizzare con il [routing in Azure](virtual-networks-udr-overview.md), la [gestione delle tabelle di route](manage-route-table.md) e i [limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+In questo articolo è stata creata una tabella di route per poi associarla a una subnet. È stata creata una semplice appliance virtuale di rete che ha indirizzato il traffico da una subnet pubblica a una subnet privata. Distribuire una varietà di appliance virtuali di rete preconfigurate che svolgono funzioni di rete come la protezione tramite firewall e l'ottimizzazione della WAN da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Per altre informazioni sul routing, vedere [Panoramica del routing](virtual-networks-udr-overview.md) e [Gestire una tabella di route](manage-route-table.md).
 
-Benché sia possibile distribuire molte risorse di Azure all'interno di una rete virtuale, non è possibile distribuire le risorse per alcuni servizi PaaS di Azure in una rete virtuale. È comunque possibile limitare l'accesso alle risorse di alcuni servizi PaaS di Azure al traffico da una sola subnet della rete virtuale. Passare all'esercitazione successiva per informazioni su come limitare l'accesso alla rete alle risorse PaaS di Azure.
-
-> [!div class="nextstepaction"]
-> [Limitare l'accesso alla rete alle risorse PaaS](tutorial-restrict-network-access-to-resources-cli.md)
+Benché sia possibile distribuire molte risorse di Azure all'interno di una rete virtuale, non è possibile distribuire le risorse per alcuni servizi PaaS di Azure in una rete virtuale. È comunque possibile limitare l'accesso alle risorse di alcuni servizi PaaS di Azure al traffico da una sola subnet della rete virtuale. Per informazioni su come fare, vedere [Limitare l'accesso alla rete alle risorse PaaS](tutorial-restrict-network-access-to-resources-cli.md).

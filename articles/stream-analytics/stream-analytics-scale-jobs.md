@@ -1,31 +1,25 @@
 ---
-title: Ridimensionare i processi di analisi di flusso per aumentare la velocità effettiva | Microsoft Docs
-description: Informazioni su come ridimensionare i processi di Analisi di flusso configurando partizioni di input, ottimizzando la definizione di query e impostando le unità di streaming del processo.
-keywords: flusso di dati, elaborazione del flusso di dati, ottimizzare analisi
+title: Potenziamento e ampliamento dei processi di Analisi di flusso di Azure
+description: Questo articolo descrive come ridimensionare un processo di Analisi di flusso tramite il partizionamento dei dati di input, l'ottimizzazione delle query e l'impostazione di unità di streaming per il processo.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 2e0487a9e4cd6346312c6817ef2768556cba72ba
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/22/2017
+ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva
+# <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Ridimensionare un processo di Analisi di flusso di Azure per aumentare la velocità effettiva
 Questo articolo illustra come ottimizzare una query per aumentare la velocità effettiva per i processi di Analisi di flusso. È possibile usare la seguente guida per ridimensionare il processo per gestire carichi più elevati e sfruttare i vantaggi di più risorse di sistema (ad esempio maggiore larghezza di banda, più risorse della CPU, una maggiore memoria).
 Come prerequisito, è necessario leggere gli articoli seguenti:
 -   [Informazioni e modifica delle unità di streaming](stream-analytics-streaming-unit-consumption.md)
 -   [Creare processi che possono essere parallelizzati](stream-analytics-parallelization.md)
-
 
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Caso 1: la query è intrinsecamente completamente eseguibile in parallelo tra le partizioni di input
 Se la query è intrinsecamente completamente eseguibile in parallelo tra le partizioni di input, è possibile seguire la procedura seguente:
@@ -40,7 +34,6 @@ Se la query è intrinsecamente completamente eseguibile in parallelo tra le part
 >[!Note]
 > Scegliere il numero giusto di Unità di Streaming: poiché l'Analisi di flusso di Azure crea un nodo di elaborazione per ogni 6 unità di ricerca aggiunta, è consigliabile rendere il numero di nodi un divisore del numero di partizioni di input, in modo che le partizioni possano essere distribuite uniformemente tra i nodi.
 > Ad esempio, si è misurato che il processo delle 6 unità di ricerca può raggiungere i 4 MB/s di velocità di elaborazione e il conteggio delle partizioni di input è pari a 4. È possibile scegliere di eseguire il processo con 12 unità di ricerca per ottenere una velocità di elaborazione di circa 8 MB/s, o 24 unità di ricerca per raggiungere i 16 MB/s. È possibile decidere quando aumentare il numero di unità di ricerca per il processo a qualsiasi valore, come una funzione del tasso di input.
-
 
 
 ## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>Caso 2 - se la query non è perfettamente parallela.
@@ -150,7 +143,7 @@ Il grafico seguente illustra la relazione tra unità di streaming e velocità ef
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)

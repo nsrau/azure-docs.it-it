@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
 ms.openlocfilehash: 200d87b950ac76c85513bc11da2798562e48bec3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrare Azure Active Directory con E Sales Manager Remix
 
@@ -155,7 +155,7 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
     
     b. Nell'elenco a discesa nella sezione **Collaboration item** (Elemento collaborazione) selezionare **email** (e-mail).
 
-    c. Nella casella **Collaboration item** (Elemento collaborazione) incollare il valore dell'attestazione copiato prima dal portale di Azure, ovvero **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    c. Nella casella **Collaboration item** (Elemento collaborazione) incollare il valore di attestazione precedentemente copiato dal portale di Azure, ad esempio **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
     d. Nella casella **Issuer (entity ID)** (Autorità di certificazione - ID entità) incollare il valore dell'identificatore copiato prima dalla sezione **URL e dominio E Sales Manager Remix** del portale di Azure.
 

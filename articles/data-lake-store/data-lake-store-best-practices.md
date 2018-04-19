@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: daa6a0fd6927a166ee4809dc1dc5df612765403a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Procedure consigliate per l'uso di Azure Data Lake Store
 Questo articolo illustra le procedure consigliate e alcune considerazioni per l'uso di Azure Data Lake Store. L'articolo fornisce informazioni su sicurezza, prestazioni, resilienza e monitoraggio per Data Lake Store. Prima di Data Lake Store, l'uso di Big Data in servizi come Azure HDInsight era un'operazione complessa. Era necessario partizionare i dati tra più account di archiviazione BLOB, per ottenere spazio di archiviazione di petabyte e prestazioni ottimali su tale scala. Data Lake Store rimuove la maggior parte dei limiti assoluti relativi a dimensioni e prestazioni. Ci sono tuttavia alcune considerazioni illustrate in questo articolo che aiutano a ottenere prestazioni ottimali con Data Lake Store. 
@@ -129,7 +129,7 @@ Data Lake Store fornisce funzionalità di controllo e log di diagnostica dettagl
 
 ### <a name="export-data-lake-store-diagnostics"></a>Esportare i dati di diagnostica di Data Lake Store 
 
-Uno dei modi più rapidi per accedere a log in cui è possibile eseguire ricerche da Data Lake Store è quello di abilitare il log shipping in **Operations Management Suite (OMS)** nel pannello **Diagnostica** per l'account Data Lake Store. Ciò fornisce accesso immediato ai log in ingresso, con filtri temporali e di contenuti, oltre che opzioni di avviso (posta elettronica/webhook) attivate a intervalli di 15 minuti. Per informazioni, vedere [Accesso ai log di diagnostica per Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
+Uno dei modi più rapidi per accedere a log in cui è possibile eseguire ricerche da Data Lake Store è quello di abilitare il log shipping in **Log Analytics** nel pannello **Diagnostica** per l'account Data Lake Store. Ciò fornisce accesso immediato ai log in ingresso, con filtri temporali e di contenuti, oltre che opzioni di avviso (posta elettronica/webhook) attivate a intervalli di 15 minuti. Per informazioni, vedere [Accesso ai log di diagnostica per Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
 
 Per avvisi più in tempo reale e per un maggiore controllo sulla destinazione dei log, è possibile esportare i log in Hub eventi di Azure, dove il contenuto può essere analizzato singolarmente o per un intervallo di tempo, per inviare notifiche in tempo reale a una coda. Un'applicazione distinta come un'[app per la logica](../connectors/connectors-create-api-azure-event-hubs.md) può quindi utilizzare gli avvisi e comunicarli al canale appropriato, oltre che inviare le metriche a strumenti di monitoraggio come NewRelic, Datadog o AppDynamics. In alternativa, se si usa uno strumento di terze parti, ad esempio ElasticSearch, è possibile esportare i log in Archiviazione BLOB di Azure e usare il [plug-in Azure Logstash](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob) per utilizzare i dati in stack Elasticsearch, Kibana e Logstash (ELK).
 
@@ -139,7 +139,7 @@ Se il log shipping di Data Lake Store non è attivato, Azure HDInsight consente 
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Dopo che la proprietà è stata impostata e i nodi sono stati riavviati, i dati di diagnostica di Data Lake Store vengono scritti nei log YARN nei nodi (/tmp/<user>/yarn.log) ed è possibile monitorare i dettagli importanti, come gli errori o le limitazioni (codice errore HTTP 429). Le stesse informazioni possono essere monitorate anche in OMS o in qualunque strumento che consenta il log shipping nel pannello [Diagnostica](data-lake-store-diagnostic-logs.md) dell'account Data Lake Store. È consigliabile attivare almeno la registrazione sul lato client oppure usare l'opzione di log shipping con Data Lake Store per ottenere visibilità operativa e semplificare il debug.
+Dopo che la proprietà è stata impostata e i nodi sono stati riavviati, i dati di diagnostica di Data Lake Store vengono scritti nei log YARN nei nodi (/tmp/<user>/yarn.log) ed è possibile monitorare i dettagli importanti, come gli errori o le limitazioni (codice errore HTTP 429). Le stesse informazioni possono essere monitorate anche in Log Analytics o in qualunque strumento che consenta il log shipping nel pannello [Diagnostica](data-lake-store-diagnostic-logs.md) dell'account Data Lake Store. È consigliabile attivare almeno la registrazione sul lato client oppure usare l'opzione di log shipping con Data Lake Store per ottenere visibilità operativa e semplificare il debug.
 
 ### <a name="run-synthetic-transactions"></a>Eseguire transazioni sintetiche 
 

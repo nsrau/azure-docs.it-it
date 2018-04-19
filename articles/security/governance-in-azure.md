@@ -1,12 +1,12 @@
 ---
 title: Governance in Azure | Microsoft Docs
-description: "Informazioni sui servizi di calcolo basati sul cloud che includono un'ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell'applicazione o dell'organizzazione."
+description: Informazioni sui servizi di calcolo basati sul cloud che includono un'ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell'applicazione o dell'organizzazione.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 875b78f6af330aea3333b045ee72e9632e9aa8a6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 04d9e6152c87a49a5f1b1b1a29c16d80de00f4e9
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="governance-in-azure"></a>Governance in Azure
 
@@ -263,7 +263,7 @@ Man mano che l'organizzazione aggiunge servizi di base alla sottoscrizione, dive
 
 I blocchi di risorse attualmente supportano due valori: CanNotDelete e ReadOnly. CanNotDelete significa che gli utenti con i diritti appropriati possono continuare a leggere o a modificare una risorsa ma non possono eliminarla. ReadOnly significa che gli utenti autorizzati non possono eliminare o modificare una risorsa.
 
-I blocchi di Resource Manager si applicano solo alle operazioni che vengono effettuate a livello di gestione, che sono costituite da operazioni inviate a <https://management.azure.com>. I blocchi non limitano il modo in cui le risorse eseguono le proprie funzioni. Vengono limitate le modifiche alle risorse, ma non le operazioni delle risorse. Un blocco di sola lettura in un database SQL impedisce ad esempio l'eliminazione o la modifica del database, ma non impedisce la creazione, l'aggiornamento o l'eliminazione dei dati nel database.
+I blocchi di Resource Manager si applicano solo alle operazioni che si verificano nel piano di gestione, costituito da operazioni inviate a <https://management.azure.com>. I blocchi non limitano il modo in cui le risorse eseguono le proprie funzioni. Vengono limitate le modifiche alle risorse, ma non le operazioni delle risorse. Un blocco di sola lettura in un database SQL impedisce ad esempio l'eliminazione o la modifica del database, ma non impedisce la creazione, l'aggiornamento o l'eliminazione dei dati nel database.
 
 Applicare **ReadOnly** può causare risultati imprevisti perché alcune operazioni che sembrano di sola lettura possono richiedere ulteriori operazioni. Ad esempio, l'inserimento di un blocco **ReadOnly** in un account di archiviazione impedisce a tutti gli utenti di ottenere un elenco delle chiavi. L'operazione di elenco delle chiavi viene gestita tramite una richiesta POST, perché le chiavi restituite sono disponibili per operazioni di scrittura.
 
@@ -410,33 +410,33 @@ Il Centro sicurezza di Azure monitora le risorse di Azure seguenti:
 
 - Soluzioni dei partner integrate nella sottoscrizione di Azure come un web application firewall nelle macchine virtuali e nell'[ambiente del servizio app](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme).
 
-### <a name="operations-management-suite"></a>Operations Management Suite
+### <a name="log-analytics"></a>Log Analytics
 
-Il [programma di governance](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) e per la sicurezza delle informazioni del team di sviluppo e assistenza di OMS supporta requisiti interni ed è conforme alle leggi ed ai regolamenti, come descritto in [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) e [Microsoft Trust Center Compliance (Conformità di Microsoft Trust Center)](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Vengono anche fornite informazioni su come OMS stabilisce i requisiti di sicurezza, identifica i controlli di sicurezza, e gestisce e monitora i rischi. Ogni anno viene effettuata una revisione di criteri, standard, procedure e linee guida.
+Il [programma di governance](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) e per la sicurezza delle informazioni del team di sviluppo e assistenza del software Log Analytics supporta requisiti interni ed è conforme alle leggi e alle normative, come descritto nel [Centro protezione di Azure](https://azure.microsoft.com/support/trust-center/) e nella sezione [Conformità del centro protezione Microsoft](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Qui viene anche descritto il modo in cui Log Analytics stabilisce i requisiti di sicurezza, identifica i controlli di sicurezza, gestisce e controlla i rischi. Ogni anno viene effettuata una revisione di criteri, standard, procedure e linee guida.
 
-Ciascun membro del team di sviluppo di OMS riceve una formazione formale sulla sicurezza delle applicazioni. Internamente, viene usato un sistema di controllo della versione per lo sviluppo di software, che protegge ogni singolo progetto software.
+Ciascun membro del team di sviluppo di Log Analytics riceve una formazione formale sulla sicurezza delle applicazioni. Internamente, viene usato un sistema di controllo della versione per lo sviluppo di software, che protegge ogni singolo progetto software.
 
-Microsoft si avvale di un team per la sicurezza e conformità che supervisiona e valuta tutti i servizi in Microsoft. Il team è composto da addetti alla sicurezza delle informazioni che non sono associati ai reparti tecnici dove si sviluppa OMS. Gli addetti alla sicurezza dispongono della propria catena di gestione ed eseguono valutazioni indipendenti di prodotti e servizi per garantirne la sicurezza e la conformità.
+Microsoft si avvale di un team per la sicurezza e conformità che supervisiona e valuta tutti i servizi in Microsoft. Il team è composto da addetti alla sicurezza delle informazioni che non sono associati ai reparti tecnici dove si sviluppa Log Analytics. Gli addetti alla sicurezza dispongono della propria catena di gestione ed eseguono valutazioni indipendenti di prodotti e servizi per garantirne la sicurezza e la conformità.
 
-Operations Management Suite (OMS) è una raccolta di servizi di gestione progettati nel cloud sin dall'inizio. Anziché distribuire e gestire le risorse localmente, i componenti OMS sono ospitati integralmente in Azure. La configurazione è minima ed è possibile essere operativi in davvero pochi minuti.
+Azure offre una raccolta di servizi di gestione progettati nel cloud sin dall'inizio. Anziché distribuire e gestire le risorse localmente, questi componenti sono ospitati integralmente in Azure. La configurazione è minima ed è possibile essere operativi in davvero pochi minuti.
 
 ![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
-Anche se i servizi OMS vengono eseguiti nel cloud, non significa che non siano in grado di gestire efficacemente l'ambiente locale.
+Anche se i servizi Log Analytics vengono eseguiti nel cloud, non significa che non siano in grado di gestire efficacemente l'ambiente locale.
 
 Se si installa un agente in un qualsiasi computer Windows o Linux nel data center, invierà i dati a Log Analytics dove potranno essere analizzati insieme agli altri dati raccolti dal cloud o dai servizi locali. Usare Backup di Azure e Azure Site Recovery per sfruttare il cloud per il backup e l'elevata disponibilità per le risorse locali.
 
 I runbook nel cloud non possono generalmente accedere alle risorse locali, ma è possibile installare un agente in uno o più computer per ospitare i runbook del data center. Quando si avvia un runbook, si specifica solo se lo si vuole eseguire nel cloud o in un ruolo di lavoro locale.
 
-Le funzionalità principali di OMS vengono fornite da un set di servizi eseguiti in Azure. Ogni servizio fornisce una funzione di gestione specifica ed è possibile combinare i servizi per realizzare scenari di gestione diversi.
+Le funzionalità principali di Log Analytics vengono fornite da un set di servizi eseguiti in Azure. Ogni servizio fornisce una funzione di gestione specifica ed è possibile combinare i servizi per realizzare scenari di gestione diversi.
 
 ![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
-Operation Manager di Azure estende le sue funzionalità offrendo soluzioni di gestione. Le [soluzioni di gestione](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) sono set pre-confezionati di logica che implementano uno scenario di gestione usando uno o più servizi OMS.
+Operation Manager di Azure estende le sue funzionalità offrendo soluzioni di gestione. Le [soluzioni di gestione](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) sono set pre-confezionati di logica che implementano uno scenario di gestione usando uno o più servizi di gestione.
 
 ![Operation Manager di Azure](./media/governance-in-azure/security-governance-in-azure-fig10.png)
 
-Sono disponibili diverse soluzioni Microsoft e dei partner che è possibile aggiungere facilmente alla sottoscrizione di Azure per aumentare il valore dell'investimento in OMS.
+Sono disponibili diverse soluzioni Microsoft e dei partner che è possibile aggiungere facilmente alla sottoscrizione di Azure per aumentare il valore dell'investimento in Log Analytics.
 
 I partner possono creare le proprie soluzioni per supportare le applicazioni e i servizi e offrirle agli utenti tramite Azure Marketplace o i modelli di avvio rapido.
 
@@ -455,7 +455,7 @@ Gli avvisi sono disponibili in diversi servizi, tra cui:
 >[!Note]
 > Vedere [Impostare gli avvisi in Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) e [Monitorare la disponibilità e la velocità di risposta dei siti Web](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
 
-- Log Analytics (Operations Management Suite): permette il routing dei registri delle attività e diagnostici a Log Analytics. Operations Management Suite consente gli avvisi relativi alla metrica, ai log e altri tipi di avviso.
+- Log Analytics: consente il routing dei log di diagnostica e attività a Log Analytics e permette gli avvisi relativi alla metrica, ai log e altri tipi di avviso.
 
 >[!Note]
 > Per altre informazioni, vedere Avvisi in [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).

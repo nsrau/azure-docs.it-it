@@ -16,6 +16,7 @@ Nella tabella seguente sono elencate le limitazioni che si applicano alle risors
 | --- | --- |
 | Numero massimo hub IoT a pagamento per ogni sottoscrizione di Azure |10 |
 | Numero massimo hub IoT gratuiti per ogni sottoscrizione di Azure |1 |
+| Numero massimo di caratteri in un ID dispositivo | 128 |
 | Numero massimo di identità del dispositivo<br/> restituito in una singola chiamata |1000 |
 | Conservazione massima nell'hub IoT per i messaggi dal dispositivo al cloud |7 giorni |
 | Dimensione massima del messaggio del dispositivo al cloud |256 KB |

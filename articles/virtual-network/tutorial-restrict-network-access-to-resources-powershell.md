@@ -1,38 +1,38 @@
 ---
 title: Limitare l'accesso di rete alle risorse PaaS - Azure PowerShell | Microsoft Docs
-description: Informazioni su come limitare l'accesso di rete alle risorse di Azure, ad esempio Archiviazione di Azure e il database SQL di Azure, con gli endpoint di servizio della rete virtuale usando PowerShell.
+description: In questo articolo viene descritto come limitare l'accesso di rete alle risorse di Azure, ad esempio Archiviazione di Azure e il database SQL di Azure, tramite endpoint servizio di rete virtuale con Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 7e402af74babda2ce32d4a1597c61d71aba89b9e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 28c95e1333b4641e50284a869135a9608dd3242f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Limitare l'accesso di rete alle risorse PaaS con gli endpoint di servizio della rete virtuale usando PowerShell
 
 Gli endpoint di servizio della rete virtuale consentono di limitare l'accesso di rete ad alcune risorse dei servizi di Azure a una subnet della rete virtuale. È anche possibile rimuovere l'accesso Internet alle risorse. Gli endpoint di servizio forniscono la connessione diretta dalla rete virtuale ai servizi di Azure supportati, consentendo di usare lo spazio indirizzi privato della rete virtuale per accedere ai servizi di Azure. Il traffico destinato alle risorse di Azure tramite gli endpoint di servizio rimane sempre nella rete backbone di Microsoft Azure. In questo articolo viene spiegato come:
 
-> [!div class="checklist"]
-> * Creare una rete virtuale con una subnet
-> * Aggiungere una subnet e abilitare un endpoint di servizio
-> * Creare una risorsa di Azure e consentire l'accesso di rete alla risorsa da una sola subnet
-> * Distribuire una macchina virtuale (VM) in ogni subnet
-> * Verificare che venga consentito l'accesso a una risorsa da una subnet
-> * Verificare che venga rifiutato l'accesso a una risorsa da una subnet e da Internet
+* Creare una rete virtuale con una subnet
+* Aggiungere una subnet e abilitare un endpoint di servizio
+* Creare una risorsa di Azure e consentire l'accesso di rete alla risorsa da una sola subnet
+* Distribuire una macchina virtuale (VM) in ogni subnet
+* Verificare che venga consentito l'accesso a una risorsa da una subnet
+* Verificare che venga rifiutato l'accesso a una risorsa da una subnet e da Internet
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -40,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Azure PowerShell 5.4.1 o versione successiva. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
 
-## <a name="create-a-virtual-network"></a>Creare una rete virtuale
+## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
 Prima di creare una rete virtuale, è necessario creare un gruppo di risorse per la rete virtuale e tutte le altre risorse create in questo articolo. Creare un gruppo di risorse con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup*: 
 
@@ -93,7 +93,7 @@ $subnetConfigPrivate = Add-AzureRmVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="restrict-network-access-to-and-from-a-subnet"></a>Limitare l'accesso di rete verso e da una subnet
+## <a name="restrict-network-access-for-a-subnet"></a>Limitare l'accesso di rete per una subnet
 
 Creare regole di sicurezza per il gruppo di sicurezza di rete con [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). La regola seguente consente l'accesso in uscita agli indirizzi IP pubblici assegnati al servizio Archiviazione di Azure: 
 
@@ -114,7 +114,7 @@ La regola seguente rifiuta l'accesso a tutti gli indirizzi IP pubblici. La regol
 
 ```azurepowershell-interactive
 $rule2 = New-AzureRmNetworkSecurityRuleConfig `
-  -Name Deny-internet-All `
+  -Name Deny-Internet-All `
   -Access Deny `
   -DestinationAddressPrefix Internet `
   -DestinationPortRange * `
@@ -319,9 +319,9 @@ Verificare che la VM non abbia connettività in uscita ad altri indirizzi IP pub
 ping bing.com
 ```
 
-Non si ricevono risposte perché il gruppo di sicurezza di rete associato alla subnet *Private* non consente l'accesso in uscita a indirizzi IP pubblici diversi dagli indirizzi assegnati al servizio Archiviazione di Azure.
+Non si ricevono risposte perché il gruppo di sicurezza di rete associato alla subnet *privata* non consente l'accesso in uscita a indirizzi IP pubblici diversi dagli indirizzi assegnati al servizio Archiviazione di Azure.
 
-Chiudere la sessione Desktop remoto alla VM *myVmPrivate*.
+Chiudere la sessione Desktop remoto alla macchina virtuale *myVmPrivate*.
 
 ## <a name="confirm-access-is-denied-to-storage-account"></a>Verificare che venga rifiutato l'accesso a un account di archiviazione
 
@@ -372,9 +372,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato abilitato un endpoint di servizio per una subnet della rete virtuale. È stato illustrato che gli endpoint di servizio possono essere abilitati per le risorse distribuite con più servizi di Azure. È stato creato un account di archiviazione di Azure ed è stato limitato l'accesso di rete all'account di archiviazione solo alle risorse in una subnet della rete virtuale. Prima di creare endpoint di servizio nelle reti virtuali di produzione, è consigliabile familiarizzare con gli [endpoint di servizio](virtual-network-service-endpoints-overview.md).
+In questo articolo è stato abilitato un endpoint servizio per una subnet della rete virtuale. È stato illustrato che gli endpoint di servizio possono essere abilitati per le risorse distribuite con più servizi di Azure. È stato creato un account di archiviazione di Azure ed è stato limitato l'accesso di rete all'account di archiviazione solo alle risorse in una subnet della rete virtuale. Per altre informazioni sugli endpoint servizio, vedere [Panoramica degli endpoint servizio](virtual-network-service-endpoints-overview.md) e [Gestire le subnet](virtual-network-manage-subnet.md).
 
-Se nell'account sono presenti più reti virtuali, può essere necessario connettere due reti virtuali per consentire alle risorse di ogni rete virtuale di comunicare tra loro. Passare all'esercitazione successiva per imparare a connettere le reti virtuali.
-
-> [!div class="nextstepaction"]
-> [Connettere reti virtuali](./tutorial-connect-virtual-networks-powershell.md)
+Se nell'account sono presenti più reti virtuali, può essere necessario connettere due reti virtuali per consentire alle risorse di ogni rete virtuale di comunicare tra loro. Per informazioni su come fare, vedere [Connettere reti virtuali](tutorial-connect-virtual-networks-powershell.md).

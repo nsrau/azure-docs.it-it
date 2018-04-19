@@ -1,38 +1,38 @@
 ---
 title: Limitare l'accesso alla rete alle risorse PaaS - Interfaccia della riga di comando di Azure | Microsoft Docs
-description: Informazioni su come limitare l'accesso di rete alle risorse di Azure, ad esempio Archiviazione di Azure e il database SQL di Azure, con gli endpoint di servizio della rete virtuale usando l'interfaccia della riga di comando di Azure.
+description: In questo articolo viene descritto come limitare l'accesso di rete alle risorse di Azure, ad esempio Archiviazione di Azure e il database SQL di Azure, tramite endpoint servizio di rete virtuale con l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 5c0c6a802c931b71f5be8b01c610cf0810b0b4d1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f357861a7a44b249e06f091a8693b7f2d8dd5178
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Limitare l'accesso di rete alle risorse PaaS con gli endpoint di servizio della rete virtuale usando l'interfaccia della riga di comando di Azure
 
-Gli endpoint di servizio di rete virtuale consentono di limitare l'accesso di rete ad alcune risorse dei servizi di Azure a una subnet della rete virtuale. È anche possibile rimuovere l'accesso a Internet alle risorse. Gli endpoint di servizio offrono connessione diretta dalla rete virtuale ai servizi di Azure supportati, consentendo di usare lo spazio indirizzi privato della rete virtuale per accedere ai servizi di Azure. Il traffico destinato alle risorse di Azure tramite gli endpoint di servizio rimane sempre nella rete backbone di Microsoft Azure. In questo articolo viene spiegato come:
+Gli endpoint di servizio di rete virtuale consentono di limitare l'accesso di rete ad alcune risorse dei servizi di Azure a una subnet della rete virtuale. È anche possibile rimuovere l'accesso Internet alle risorse. Gli endpoint di servizio forniscono la connessione diretta dalla rete virtuale ai servizi di Azure supportati, consentendo di usare lo spazio indirizzi privato della rete virtuale per accedere ai servizi di Azure. Il traffico destinato alle risorse di Azure tramite gli endpoint di servizio rimane sempre nella rete backbone di Microsoft Azure. In questo articolo viene spiegato come:
 
-> [!div class="checklist"]
-> * Creare una rete virtuale con una subnet
-> * Aggiungere una subnet e abilitare un endpoint di servizio
-> * Creare una risorsa di Azure e consentire l'accesso di rete alla risorsa da una sola subnet
-> * Distribuire una macchina virtuale (VM) in ogni subnet
-> * Verificare che venga consentito l'accesso a una risorsa da una subnet
-> * Verificare che venga negato l'accesso a una risorsa da una subnet e da Internet
+* Creare una rete virtuale con una subnet
+* Aggiungere una subnet e abilitare un endpoint di servizio
+* Creare una risorsa di Azure e consentire l'accesso di rete alla risorsa da una sola subnet
+* Distribuire una macchina virtuale (VM) in ogni subnet
+* Verificare che venga consentito l'accesso a una risorsa da una subnet
+* Verificare che venga rifiutato l'accesso a una risorsa da una subnet e da Internet
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -82,7 +82,7 @@ az network vnet subnet create \
   --service-endpoints Microsoft.Storage
 ```
 
-## <a name="restrict-network-access-to-and-from-subnet"></a>Limitare l'accesso di rete verso e dalla subnet
+## <a name="restrict-network-access-for-a-subnet"></a>Limitare l'accesso di rete per una subnet
 
 Creare un gruppo di sicurezza di rete con il comando [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). L'esempio seguente crea un gruppo di sicurezza di rete denominato *myNsgPrivate*.
 
@@ -151,7 +151,7 @@ az network nsg rule create \
 
 ## <a name="restrict-network-access-to-a-resource"></a>Limitare l'accesso di rete a una risorsa
 
-I passaggi necessari per limitare l'accesso di rete alle risorse create tramite i servizi di Azure abilitati per gli endpoint di servizio variano a seconda dei servizi. Vedere la documentazione relativa ai singoli servizi per i passaggi specifici. La parte rimanente di questo articolo descrive, a titolo di esempio, i passaggi da eseguire per limitare l'accesso di rete per un account di archiviazione di Azure.
+I passaggi necessari per limitare l'accesso di rete alle risorse create tramite i servizi di Azure abilitati per gli endpoint di servizio variano a seconda dei servizi. Vedere la documentazione relativa ai singoli servizi per i passaggi specifici. La parte rimanente di questo articolo include, a titolo di esempio, i passaggi da eseguire per limitare l'accesso di rete per un account di archiviazione di Azure.
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
@@ -218,7 +218,7 @@ az storage account network-rule add \
 ```
 ## <a name="create-virtual-machines"></a>Creare macchine virtuali
 
-Per testare l'accesso di rete per un account di archiviazione, distribuire una macchina virtuale in ogni subnet.
+Per testare l'accesso di rete a un account di archiviazione, distribuire una VM in ogni subnet.
 
 ### <a name="create-the-first-virtual-machine"></a>Creare la prima macchina virtuale
 
@@ -311,7 +311,7 @@ Creare una directory per un punto di montaggio:
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-Provare a montare la condivisione file di Azure nella directory creata. Questa esercitazione presuppone che sia stata distribuita la versione più recente di Ubuntu. Se si usano versioni meno recenti di Ubuntu, vedere [Eseguire il montaggio in Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per istruzioni aggiuntive sul montaggio di condivisioni file. Prima di eseguire il comando seguente, sostituire `<storage-account-name>` con il nome dell'account e `<storage-account-key>` con la chiave recuperata in [Creare un account di archiviazione](#create-a-storage-account):
+Provare a montare la condivisione file di Azure nella directory creata. Questo articolo presuppone che sia stata distribuita la versione più recente di Ubuntu. Se si usano versioni meno recenti di Ubuntu, vedere [Eseguire il montaggio in Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per istruzioni aggiuntive sul montaggio di condivisioni file. Prima di eseguire il comando seguente, sostituire `<storage-account-name>` con il nome dell'account e `<storage-account-key>` con la chiave recuperata in [Creare un account di archiviazione](#create-a-storage-account):
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -341,9 +341,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato abilitato un endpoint di servizio per una subnet della rete virtuale. È stato illustrato che gli endpoint di servizio possono essere abilitati per le risorse distribuite con più servizi di Azure. È stato creato un account di archiviazione di Azure ed è stato limitato l'accesso di rete all'account di archiviazione solo alle risorse in una subnet della rete virtuale. Prima di creare endpoint di servizio nelle reti virtuali di produzione, è consigliabile familiarizzare con gli [endpoint di servizio](virtual-network-service-endpoints-overview.md).
+In questo articolo è stato abilitato un endpoint servizio per una subnet della rete virtuale. È stato illustrato che gli endpoint di servizio possono essere abilitati per le risorse distribuite con più servizi di Azure. È stato creato un account di archiviazione di Azure ed è stato limitato l'accesso di rete all'account di archiviazione solo alle risorse in una subnet della rete virtuale. Per altre informazioni sugli endpoint servizio, vedere [Panoramica degli endpoint servizio](virtual-network-service-endpoints-overview.md) e [Gestire le subnet](virtual-network-manage-subnet.md).
 
-Se nell'account sono presenti più reti virtuali, potrebbe essere necessario connettere due reti virtuali in modo che le risorse di ogni rete virtuale possano comunicare tra di esse. Passare all'esercitazione successiva per imparare a connettere le reti virtuali.
-
-> [!div class="nextstepaction"]
-> [Connettere reti virtuali](./tutorial-connect-virtual-networks-cli.md)
+Se nell'account sono presenti più reti virtuali, può essere necessario connettere due reti virtuali per consentire alle risorse di ogni rete virtuale di comunicare tra loro. Per informazioni su come fare, vedere [Connettere reti virtuali](tutorial-connect-virtual-networks-cli.md).

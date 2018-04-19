@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/19/2018
+ms.date: 4/6/2018
 ms.author: raiye
-ms.openlocfilehash: 0456bf8d8cdd84078d12c3fc0f48d16b0370cddd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1f24db331b3d59eaad54c5c2488e56913261cff2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest di Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
@@ -42,6 +42,9 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 Non si è certi di quale sia il sistema operativo guest o di come funzionano i rilasci del sistema operativo guest? Leggere [questa](#how-it-works) sezione.
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
+###### <a name="april-6-2018"></a>**6 aprile 2018**
+È stato rilasciato il sistema operativo guest di marzo.
+
 ###### <a name="march-19-2018"></a>**19 marzo 2018**
 È stato rilasciato il sistema operativo guest di febbraio.
 
@@ -90,8 +93,9 @@ Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.17_201803-01 |6 aprile 2018 |Post 5.19 |Da definire |
 | WA-GUEST-OS-5.16_201802-01 |12 marzo 2018 |Post 5.18 |Da definire |
-| WA-GUEST-OS-5.15_201801-01 |4 gennaio 2018 |Post 5.17 |Da definire |
+|~~WA-GUEST-OS-5.15_201801-01~~ |4 gennaio 2018 |6 aprile 2018 |Da definire |
 |~~WA-GUEST-OS-5.14_201712-01~~ |4 gennaio 2018 |12 marzo 2018 |Da definire |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 dicembre 2017 |4 gennaio 2018|Da definire |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 novembre 2017 |4 gennaio 2018 |Da definire |
@@ -116,8 +120,9 @@ Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.52_201803-01 |6 aprile 2018 |Post 4.54 |Da definire |
 | WA-GUEST-OS-4.51_201802-01 |12 marzo 2018 |Post 4.53 |Da definire |
-| WA-GUEST-OS-4.50_201801-01 |4 gennaio 2018 |Post 4.52 |Da definire |
+|~~WA-GUEST-OS-4.50_201801-01~~ |4 gennaio 2018 |6 aprile 2018 |Da definire |
 |~~WA-GUEST-OS-4.49_201712-01~~ |4 gennaio 2018 |12 marzo 2018 |Da definire |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 dicembre 2017 |4 gennaio 2018 |Da definire |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 novembre 2017 |4 gennaio 2018 |Da definire |
@@ -142,8 +147,9 @@ Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.59_201803-01 |6 aprile 2018 |Post 3.61 |Da definire |
 | WA-GUEST-OS-3.58_201802-01 |19 marzo 2018 |Post 3.60 |Da definire |
-| WA-GUEST-OS-3.57_201801-01 |29 gennaio 2018 |Post 3.59 |Da definire |
+|~~WA-GUEST-OS-3.57_201801-01~~ |29 gennaio 2018 |6 aprile 2018 |Da definire |
 |~~WA-GUEST-OS-3.56_201712-01~~ |4 gennaio 2018 |19 marzo 2018 |Da definire |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 dicembre 2017 |29 gennaio 2018 |Da definire |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 novembre 2017 |4 gennaio 2018 |Da definire |
@@ -168,8 +174,9 @@ Versione .NET Framework installata: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.72_201803-01 |6 aprile 2018 |Post 2.74 |Da definire |
 | WA-GUEST-OS-2.71_201802-01 |12 marzo 2018 |Post 2.73 |Da definire |
-| WA-GUEST-OS-2.70_201801-01 |29 gennaio 2018 |Post 2.72 |Da definire |
+|~~WA-GUEST-OS-2.70_201801-01~~ |29 gennaio 2018 |6 aprile 2018 |Da definire |
 |~~WA-GUEST-OS-2.69_201712-01~~ |4 gennaio 2018 |12 marzo 2018 |Da definire |
 |~~WA-GUEST-OS-2.68_201711-01~~ |14 dicembre 2017 |29 gennaio 2018 |Da definire |
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 novembre 2017 |4 gennaio 2018 |Da definire |

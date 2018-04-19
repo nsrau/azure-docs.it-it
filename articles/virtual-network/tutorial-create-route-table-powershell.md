@@ -1,12 +1,13 @@
 ---
-title: Indirizzare il traffico di rete - Azure PowerShell | Microsoft Docs
-description: Informazioni su come indirizzare il traffico di rete con una tabella di route usando PowerShell.
+title: Indirizzare il traffico di rete con Azure PowerShell | Microsoft Docs
+description: Questo articolo descrive come instradare il traffico di rete con una tabella di route usando PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
@@ -16,24 +17,23 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: f7be6aa58c6779150d3e79893e6e179d08611567
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f6f3bd2a9683daf5f523cc5cfe43e568fb508694
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Indirizzare il traffico di rete con una tabella di route usando PowerShell
 
 Per impostazione predefinita, Azure indirizza automaticamente il traffico tra tutte le subnet di una rete virtuale. È possibile creare le proprie route per eseguire l'override del routing predefinito di Azure. La possibilità di creare route personalizzate è utile se, ad esempio, si vuole indirizzare il traffico tra subnet attraverso un'appliance virtuale di rete. In questo articolo viene spiegato come:
 
-> [!div class="checklist"]
-> * Creare una tabella di route
-> * Creare una route
-> * Creare una rete virtuale con più subnet
-> * Associare una route a una subnet
-> * Creare un'appliance virtuale di rete che indirizza il traffico
-> * Distribuire le macchine virtuali in subnet diverse
-> * Indirizzare il traffico da una subnet a un'altra attraverso un'appliance virtuale di rete
+* Creare una tabella di route
+* Creare una route
+* Creare una rete virtuale con più subnet
+* Associare una route a una subnet
+* Creare un'appliance virtuale di rete che indirizza il traffico
+* Distribuire le macchine virtuali in subnet diverse
+* Indirizzare il traffico da una subnet a un'altra attraverso un'appliance virtuale di rete
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -239,43 +239,43 @@ Aprire il file RDP scaricato. Quando richiesto, selezionare **Connetti**.
 
 Immettere il nome utente e la password specificati durante la creazione della macchina virtuale (potrebbe essere necessario selezionare **Altre opzioni**, quindi **Usa un account diverso** per specificare le credenziali immesse quando è stata creata la macchina virtuale), quindi scegliere **OK**. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Selezionare **Sì** per procedere con la connessione. 
 
-In un passaggio successivo viene usato il comando tracert.exe per testare il routing. Tracert usa il protocollo ICMP (Internet Control Message Protocol), che viene rifiutato tramite Windows Firewall. Abilitare il protocollo ICMP tramite Windows Firewall immettendo il comando seguente da PowerShell:
+In un passaggio successivo viene usato il comando tracert.exe per testare il routing. Tracert usa il protocollo ICMP (Internet Control Message Protocol), che viene rifiutato tramite Windows Firewall. Abilitare il protocollo ICMP tramite Windows Firewall immettendo il comando seguente da PowerShell nella VM *myVmPrivate*:
 
 ```powershell
-New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
+New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 ```
 
-Anche se in questo articolo viene usato tracert per testare il routing, non è consigliabile consentire il protocollo ICMP tramite Windows Firewall per le distribuzioni di produzione.
+Anche se in questo articolo viene usato il tracciamento delle route per testare il routing, non è consigliabile consentire il protocollo ICMP tramite Windows Firewall per le distribuzioni di produzione.
 
-Abilitare l'inoltro IP nel sistema operativo della macchina virtuale *myVmNva* completando i passaggi seguenti dalla macchina virtuale *myVmPrivate*:
+In [Enable IP forwarding](#enable-ip-forwarding) (Abilitare l'inoltro IP) è stato abilitato l'inoltro IP all'interno di Azure per l'interfaccia di rete della macchina virtuale. All'interno della macchina virtuale è necessario che il sistema operativo o un'applicazione in esecuzione nella macchina virtuale sia anche in grado di inoltrare il traffico di rete. Abilitare l'inoltro IP all'interno del sistema operativo della macchina virtuale *myVmNva*.
 
-Creare una sessione Desktop remoto alla macchina virtuale *myVmNva* con il comando seguente di PowerShell:
+Da un prompt dei comandi nella macchina virtuale *myVmPrivate*, avviare una sessione Desktop remoto con *myVmNva*:
 
 ``` 
 mstsc /v:myvmnva
 ```
     
-Per abilitare l'inoltro IP nel sistema operativo, immettere il comando seguente in PowerShell:
+Per abilitare l'inoltro IP nel sistema operativo, immettere il comando seguente in PowerShell dalla macchina virtuale *myVmNva*:
 
 ```powershell
 Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
 ```
     
-Riavviare la macchina virtuale. Con questa operazione verrà anche disconnessa la sessione Desktop remoto.
+Riavviare la macchina virtuale *myVmNva*. Con questa operazione verrà anche disconnessa la sessione Desktop remoto.
 
-Mentre si è ancora connessi alla macchina virtuale *myVmPrivate*, dopo il riavvio della macchina virtuale *myVmNva*, creare una sessione Desktop remoto alla macchina virtuale *myVmPublic* con il comando seguente:
+Mentre si è ancora connessi alla macchina virtuale *myVmPrivate*, creare una sessione Desktop remoto alla macchina virtuale *myVmPublic* dopo il riavvio della macchina virtuale *myVmNva*:
 
 ``` 
 mstsc /v:myVmPublic
 ```
     
-Abilitare il protocollo ICMP tramite Windows Firewall immettendo il comando seguente da PowerShell:
+Abilitare il protocollo ICMP tramite Windows Firewall immettendo il comando seguente da PowerShell nella VM *myVmPublic*:
 
 ```powershell
-New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
+New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 ```
 
-Per testare il routing del traffico di rete alla macchina virtuale *myVmPrivate* dalla macchina virtuale *myVmPublic*, immettere il comando seguente da PowerShell:
+Per testare il routing del traffico di rete alla macchina virtuale *myVmPrivate* dalla macchina virtuale *myVmPublic*, immettere il comando seguente da PowerShell nella macchina virtuale *myVmPublic*:
 
 ```
 tracert myVmPrivate
@@ -293,10 +293,11 @@ over a maximum of 30 hops:
 Trace complete.
 ```
       
-È possibile notare che il primo hop è 10.0.2.4, cioè l'indirizzo IP privato dell'appliance virtuale di rete. Il secondo hop è 10.0.1.4, ossia l'indirizzo IP privato della macchina virtuale *myVmPrivate*. A causa della route aggiunta alla tabella di route *myRouteTablePublic* e associata alla subnet *Public*, Azure ha indirizzato il traffico di Azure attraverso l'appliance virtuale di rete, invece che direttamente alla subnet *Private*.
+Come si può notare, il primo hop è 10.0.2.4, cioè l'indirizzo IP privato dell'appliance virtuale di rete. Il secondo hop è 10.0.1.4, ossia l'indirizzo IP privato della macchina virtuale *myVmPrivate*. A causa della route aggiunta alla tabella di route *myRouteTablePublic* e associata alla subnet *Public*, Azure ha indirizzato il traffico di Azure attraverso l'appliance virtuale di rete, invece che direttamente alla subnet *Private*.
 
 Chiudere la sessione Desktop remoto alla macchina virtuale *myVmPublic*. Si rimarrà tuttavia connessi alla macchina virtuale *myVmPrivate*.
-Per testare il routing del traffico di rete alla macchina virtuale *myVmPublic* dalla macchina virtuale *myVmPrivate*, immettere il comando seguente da un prompt dei comandi:
+
+Per testare il routing del traffico di rete alla macchina virtuale *myVmPublic* dalla macchina virtuale *myVmPrivate*, immettere il comando seguente da un prompt dei comandi nella macchina virtuale *myVmPrivate*:
 
 ```
 tracert myVmPublic
@@ -309,7 +310,7 @@ Tracing route to myVmPublic.vpgub4nqnocezhjgurw44dnxrc.bx.internal.cloudapp.net 
 over a maximum of 30 hops:
     
 1     1 ms     1 ms     1 ms  10.0.0.4
-    
+   
 Trace complete.
 ```
 
@@ -327,9 +328,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stata creata una tabella di route per poi associarla a una subnet. È stata creata una semplice appliance virtuale di rete che ha indirizzato il traffico da una subnet pubblica a una subnet privata. Distribuire una varietà di appliance virtuali di rete preconfigurate che svolgono funzioni di rete come la protezione tramite firewall e l'ottimizzazione della WAN da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Prima di distribuire tabelle di route per l'uso in produzione, è consigliabile familiarizzare con il [routing in Azure](virtual-networks-udr-overview.md), la [gestione delle tabelle di route](manage-route-table.md) e i [limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+In questo articolo è stata creata una tabella di route per poi associarla a una subnet. È stata creata una semplice appliance virtuale di rete che ha indirizzato il traffico da una subnet pubblica a una subnet privata. Distribuire una varietà di appliance virtuali di rete preconfigurate che svolgono funzioni di rete come la protezione tramite firewall e l'ottimizzazione della WAN da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Per altre informazioni sul routing, vedere [Panoramica del routing](virtual-networks-udr-overview.md) e [Gestire una tabella di route](manage-route-table.md).
 
-Benché sia possibile distribuire molte risorse di Azure all'interno di una rete virtuale, non è possibile distribuire le risorse per alcuni servizi PaaS di Azure in una rete virtuale. È comunque possibile limitare l'accesso alle risorse di alcuni servizi PaaS di Azure al traffico da una sola subnet della rete virtuale. Passare all'esercitazione successiva per informazioni su come limitare l'accesso alla rete alle risorse PaaS di Azure.
-
-> [!div class="nextstepaction"]
-> [Limitare l'accesso alla rete alle risorse PaaS](tutorial-restrict-network-access-to-resources-powershell.md)
+Benché sia possibile distribuire molte risorse di Azure all'interno di una rete virtuale, non è possibile distribuire le risorse per alcuni servizi PaaS di Azure in una rete virtuale. È comunque possibile limitare l'accesso alle risorse di alcuni servizi PaaS di Azure al traffico da una sola subnet della rete virtuale. Per informazioni su come fare, vedere [Limitare l'accesso alla rete alle risorse PaaS](tutorial-restrict-network-access-to-resources-powershell.md).

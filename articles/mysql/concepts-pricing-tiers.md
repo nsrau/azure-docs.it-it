@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 9d4e42df3137108248a043bb0d9def181d766c7a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c9a74aa00ee263b8fb4e19b77ad5be418e31c7d6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Piani tariffari di Database di Azure per MySQL
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/03/2018
 | Generazione di calcolo | Generazione 4, Generazione 5 | Generazione 4, Generazione 5 | Generazione 5 |
 | vCore | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memoria per vCore | Di base | 2x Basic | 2x Utilizzo generico |
-| Dimensioni della risorsa di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 1 TB | Da 5 GB a 1 TB |
+| Dimensioni della risorsa di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 2 TB | Da 5 GB a 2 TB |
 | Tipo di archiviazione | Archiviazione Standard di Azure | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
 | Periodo di conservazione dei backup dei database | Da 7 a 35 giorni | Da 7 a 35 giorni | Da 7 a 35 giorni |
 
@@ -46,9 +46,9 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 |:---|:----------:|:--------------------:|
 | Stati Uniti centrali |  | X |
 | Stati Uniti orientali | X | X |
-| Stati Uniti orientali 2 | X |  |
+| Stati Uniti orientali 2 | X | X |
 | Stati Uniti centro-settentrionali | X |  |
-| Stati Uniti centro-meridionali | X |  |
+| Stati Uniti centro-meridionali | X | X |
 | Stati Uniti occidentali | X | X |
 | Stati Uniti occidentali 2 |  | X |
 | Canada centrale | X | X |
@@ -63,20 +63,20 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 | Australia orientale |  | X |
 | India centrale | X |  |
 | India occidentale | X |  |
-| Giappone orientale | X |  |
-| Giappone occidentale | X |  |
+| Giappone orientale | X | X |
+| Giappone occidentale | X | X |
 | Corea meridionale |  | X |
 
 A seconda del piano tariffario, il provisioning di ogni vCore viene effettuato con una quantità di memoria specifica. Quando si aumenta o diminuisce il numero di vCore per il server, la memoria aumenta o diminuisce proporzionalmente. Il piano Utilizzo generico fornisce il doppio della memoria per ogni vCore rispetto al piano Basic. Il piano Con ottimizzazione per la memoria fornisce il doppio della memoria rispetto al piano Utilizzo generico.
 
 ## <a name="storage"></a>Archiviazione
 
-Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di archiviazione disponibile per il Database di Azure per server MySQL. Lo spazio di archiviazione viene usato per i file del database, i file temporanei, i log delle transazioni e i log del server MySQL. Lo spazio di archiviazione totale di cui si esegue il provisioning definisce anche la capacità di I/O disponibile per il server.
+Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di archiviazione disponibile per il server Database di Azure per MySQL. Lo spazio di archiviazione viene usato per i file del database, i file temporanei, i log delle transazioni e i log del server MySQL. Lo spazio di archiviazione totale di cui si effettua il provisioning definisce anche la capacità di I/O disponibile per il server.
 
 |    | **Basic** | **Utilizzo generico** | **Con ottimizzazione per la memoria** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo di archiviazione | Archiviazione Standard di Azure | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
-| Dimensioni della risorsa di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 1 TB | Da 5 GB a 1 TB |
+| Dimensioni della risorsa di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 2 TB | Da 5 GB a 2 TB |
 | Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB | 1 GB |
 | IOPS | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo |
 

@@ -1,13 +1,13 @@
 ---
-title: "Aggiornamenti automatici del sistema operativo con i set di scalabilità di macchine virtuali di Azure | Microsoft Docs"
-description: "Informazioni su come aggiornare automaticamente il sistema operativo nelle istanze di macchina virtuale in un set di scalabilità"
+title: Aggiornamenti automatici del sistema operativo con i set di scalabilità di macchine virtuali di Azure | Microsoft Docs
+description: Informazioni su come aggiornare automaticamente il sistema operativo nelle istanze di macchina virtuale in un set di scalabilità
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 59dad832977c4afc39db3773edf9789cd1a704e7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 28a9b3d68037aac0c1198da4232c045487b01174
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Aggiornamenti automatici del sistema operativo per un set di scalabilità di macchine virtuali di Azure
 
@@ -93,9 +93,9 @@ Attualmente sono supportati i seguenti SKU (ne verranno aggiunti altri a breve):
 > [!NOTE]
 > Questa sezione si applica solo ai set di scalabilità senza Service Fabric. Service Fabric ha un concetto proprio di integrità dell'applicazione. Quando si usano gli aggiornamenti automatici del sistema operativo con Service Fabric, la nuova immagine del sistema operativo viene implementata in un dominio di aggiornamento alla volta per mantenere un'elevata disponibilità dei servizi in esecuzione in Service Fabric. Per altre informazioni sulle caratteristiche di durabilità dei cluster di Service Fabric, vedere [questa documentazione](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
-Durante un aggiornamento del sistema operativo, le istanze di macchina virtuale in un set di scalabilità vengono aggiornate un batch alla volta. L'aggiornamento deve continuare solo se l'applicazione del cliente è integra nelle istanze di macchina virtuale aggiornate. È consigliabile che l'applicazione fornisca segnali di integrità al motore di aggiornamento del sistema operativo del set di scalabilità. Per impostazione predefinita, durante gli aggiornamenti del sistema operativo la piattaforma prende in considerazione lo stato di alimentazione della macchina virtuale e lo stato di provisioning dell'estensione per determinare se un'istanza di macchina virtuale è integra dopo un aggiornamento. Durante l'aggiornamento del sistema operativo di un'istanza di macchina virtuale, il disco del sistema operativo in un'istanza di macchina virtuale viene sostituito con un nuovo disco in base alla versione più recente dell'immagine. Una volta completato l'aggiornamento del sistema operativo, le estensioni configurate vengono eseguite in queste macchine virtuali. L'applicazione viene considerata integra solo dopo che è stato effettuato correttamente il provisioning di tutte le estensioni in una macchina virtuale. 
+Durante un aggiornamento del sistema operativo, le istanze di macchina virtuale in un set di scalabilità vengono aggiornate un batch alla volta. L'aggiornamento deve continuare solo se l'applicazione del cliente è integra nelle istanze di macchina virtuale aggiornate. Per questo motivo, è necessario che l'applicazione fornisca segnali di integrità al motore di aggiornamento del sistema operativo del set di scalabilità. Durante gli aggiornamenti del sistema operativo la piattaforma prende in considerazione lo stato di alimentazione della macchina virtuale e lo stato di provisioning dell'estensione per determinare se un'istanza di macchina virtuale è integra dopo un aggiornamento. Durante l'aggiornamento del sistema operativo di un'istanza di macchina virtuale, il disco del sistema operativo in un'istanza di macchina virtuale viene sostituito con un nuovo disco in base alla versione più recente dell'immagine. Una volta completato l'aggiornamento del sistema operativo, le estensioni configurate vengono eseguite in queste macchine virtuali. L'applicazione viene considerata integra solo dopo che è stato effettuato correttamente il provisioning di tutte le estensioni in una macchina virtuale. 
 
-Un set di scalabilità può facoltativamente essere configurato con probe di integrità dell'applicazione per fornire alla piattaforma informazioni accurate sullo stato dell'applicazione. I probe di integrità delle applicazioni sono probe del servizio di bilanciamento del carico personalizzati usati come un segnale di integrità. L'applicazione in esecuzione in un'istanza di macchina virtuale del set di scalabilità può rispondere a richieste HTTP o TCP esterne per indicare se è integra. Per altre informazioni sul funzionamento dei probe di bilanciamento del carico personalizzati, vedere [Informazioni sui probe di bilanciamento del carico](../load-balancer/load-balancer-custom-probe-overview.md). Un probe di integrità dell'applicazione non è necessario per gli aggiornamenti automatici del sistema operativo, ma è vivamente consigliato.
+Inoltre, il set di scalabilità *deve* essere configurato con probe di integrità dell'applicazione per fornire alla piattaforma informazioni accurate sullo stato dell'applicazione. I probe di integrità delle applicazioni sono probe del servizio di bilanciamento del carico personalizzati usati come un segnale di integrità. L'applicazione in esecuzione in un'istanza di macchina virtuale del set di scalabilità può rispondere a richieste HTTP o TCP esterne per indicare se è integra. Per altre informazioni sul funzionamento dei probe di bilanciamento del carico personalizzati, vedere [Informazioni sui probe di bilanciamento del carico](../load-balancer/load-balancer-custom-probe-overview.md).
 
 Se il set di scalabilità è configurato per l'uso di più gruppi di posizionamento, è necessario usare probe con un [servizio di bilanciamento del carico standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
@@ -110,7 +110,7 @@ Le procedure consigliate per ripristinare le macchine virtuali e abilitare di nu
 * Distribuire il set di scalabilità aggiornato, che aggiornerà tutte le istanze di macchina virtuale, incluse quelle in errore. 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Configurazione di un probe di bilanciamento del carico personalizzato come probe di integrità dell'applicazione in un set di scalabilità
-Come procedura consigliata, creare un probe di bilanciamento del carico in modo esplicito per l'integrità del set di scalabilità. Può essere usato lo stesso endpoint per un probe HTTP o TCP esistente, ma un probe di integrità può richiedere un comportamento diverso da un probe di bilanciamento del carico tradizionale. Ad esempio, un probe di bilanciamento del carico tradizionale può restituire uno stato non integro se il carico sull'istanza è troppo elevato, mentre questo potrebbe non essere appropriato per determinare l'integrità dell'istanza durante un aggiornamento automatico del sistema operativo. Configurare il probe con un tasso di probing elevato, inferiore a due minuti.
+È *necessario* creare un probe di bilanciamento del carico in modo esplicito per l'integrità del set di scalabilità. Può essere usato lo stesso endpoint per un probe HTTP o TCP esistente, ma un probe di integrità può richiedere un comportamento diverso da un probe di bilanciamento del carico tradizionale. Ad esempio, un probe di bilanciamento del carico tradizionale può restituire uno stato non integro se il carico sull'istanza è troppo elevato, mentre questo potrebbe non essere appropriato per determinare l'integrità dell'istanza durante un aggiornamento automatico del sistema operativo. Configurare il probe con un tasso di probing elevato, inferiore a due minuti.
 
 È possibile fare riferimento al probe di bilanciamento del carico nell'impostazione *networkProfile* del set di scalabilità e il probe può essere associato a un servizio di bilanciamento del carico interno o pubblico, come segue:
 
@@ -227,7 +227,7 @@ Per espandere l'uso dei probe di integrità delle applicazioni, gli aggiornament
 2. Identificare il batch successivo di istanze di macchina virtuale per l'aggiornamento, dove un batch che comprende al massimo il 20% del numero totale di istanze.
 3. Aggiornare il sistema operativo del batch successivo di istanze di macchina virtuale.
 4. Se più del 20% delle istanze aggiornate non è integro, interrompere l'aggiornamento; in caso contrario, procedere.
-5. Se il cliente ha configurato probe di integrità delle applicazioni, l'aggiornamento attende fino a 5 minuti che i probe diventino integri, quindi continua immediatamente con il batch successivo; in caso contrario, attende 30 minuti prima di passare al batch successivo.
+5. Per i set di scalabilità che non fanno parte di un cluster di Service Fabric, l'aggiornamento rimane in attesa dell'integrità dei probe fino a 5 minuti, quindi procede immediatamente al batch successivo. Per i set di scalabilità che fanno parte di un cluster di Service Fabric, il set di scalabilità attende 30 minuti prima di passare al batch successivo.
 6. Se sono presenti ulteriori istanze da aggiornare, procedere al passaggio 1) per il batch successivo; in caso contrario, l'aggiornamento è stato completato.
 
 Il motore di aggiornamento del sistema operativo del set di scalabilità verifica l'integrità complessiva delle istanze di macchina virtuale prima di eseguire l'aggiornamento di ogni batch. Durante l'aggiornamento di un batch, possono essere in corso altre attività di manutenzione pianificate o non pianificate nei data center di Azure che potrebbero influire sulla disponibilità delle macchine virtuali. Di conseguenza, è possibile che temporaneamente più del 20% delle istanze risulti inattivo. In questi casi, alla fine del batch corrente, l'aggiornamento del set di scalabilità si interrompe.
@@ -237,7 +237,8 @@ Il motore di aggiornamento del sistema operativo del set di scalabilità verific
 
 È possibile usare il modello seguente per distribuire un set di scalabilità che usa gli aggiornamenti automatici <a href='https://github.com/Azure/vm-scale-sets/blob/master/preview/upgrade/autoupdate.json'>Aggiornamenti automatici in sequenza - Ubuntu 16.04-LTS</a>
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
 
