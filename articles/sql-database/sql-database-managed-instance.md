@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/03/2018
 ms.author: bonova
-ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Informazioni su Istanza gestita (anteprima)
 
@@ -69,6 +69,23 @@ La tabella seguente mostra diverse proprietà, accessibili tramite Transact SQL,
 
 ![Single Sign-On](./media/sql-database-managed-instance/sso.png) 
 
+## <a name="vcore-based-purchasing-model"></a>Modello di acquisto in base ai vCore
+
+Il modello di acquisto in base ai vCore offre flessibilità, controllo e trasparenza, consentendo di convertire con facilità i requisiti dei carichi di lavoro locali per il cloud. Questo modello consente di ridimensionare le risorse di calcolo, memoria e archiviazione in base alle esigenze dei carichi di lavoro. Il modello in base ai vCore dà anche diritto a un risparmio fino al 30% sul [Vantaggio Azure Hybrid Use per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+
+La memoria centrale virtuale rappresenta la CPU logica offerta con la possibilità di scegliere tra generazioni di hardware diverse.
+- Le CPU logiche Generazione 4 si basano su processori Intel E5-2673 v3 (Haswell) a 2,4 GHz.
+- Le CPU logiche Generazione 5 si basano su processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz.
+
+La tabella seguente aiuta a capire come selezionare la configurazione ottimale delle risorse di calcolo, memoria, archiviazione e I/O.
+
+||Generazione 4|Generazione 5|
+|----|------|-----|
+|Hardware|Processori Intel E5-2673 v3 (Haswell) a 2,4 GHz, con unità vCore SSD = 1 PP (core fisico)|Processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz, unità SSD eNVM veloce, vCore = 1 LP (hyperthread)|
+|Livelli di prestazioni|8, 16, 24 vCore|8, 16, 24, 32, 40 vCore|
+|Memoria|7 GB per vCore|5,5 GB per vCore|
+||||
+
 ## <a name="managed-instance-service-tier"></a>Livello di servizio di Istanza gestita
 
 Istanza gestita è inizialmente disponibile con un livello di servizio singolo, Utilizzo generico, progettato per le applicazioni con disponibilità tipica e requisiti di latenza di I/O comuni.
@@ -89,11 +106,11 @@ Di seguito sono indicate le funzionalità principali del livello di servizio Uti
 
 |Funzionalità | DESCRIZIONE|
 |---|---|
-| Numero di vCore* | 8, 16, 24|
+| Numero di vCore* | 8, 16, 24 (Generazione 4)<br>8, 16, 24, 32, 40 (Generazione 5)|
 | Versione/build di SQL Server | SQL Server (versione più recente disponibile) |
 | Dimensione minima archiviazione | 32 GB |
 | Dimensione massima archiviazione | 8 TB |
-| Quantità massima di risorse di archiviazione per database | 4 TB |
+| Quantità massima di risorse di archiviazione per database | 8 TB |
 | Archiviazione IOPS prevista | 500-7500 IOPS per ogni file di dati (dipende dal file di dati). Vedere [Archiviazione Premium](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Numero di file di dati (RIGHE) per il database | Multipli | 
 | Numero di file di log (LOG) per il database | 1 | 
@@ -106,7 +123,7 @@ Di seguito sono indicate le funzionalità principali del livello di servizio Uti
 | Supporto del portale | Sì|
 |||
 
-\* La memoria centrale virtuale rappresenta la CPU logica offerta con la possibilità di scegliere tra generazioni di hardware. Le CPU logiche di quarta generazione sono basate su processori Intel E5-2673 v3 (Haswell) a 2,4 GHz e le CPU logiche di quinta generazione sono basate su processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz.  
+\* La memoria centrale virtuale rappresenta la CPU logica offerta con la possibilità di scegliere tra generazioni di hardware. Le CPU logiche di quarta generazione sono basate su processori Intel E5-2673 v3 (Haswell) a 2,4 GHz e le CPU logiche di quinta generazione sono basate su processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz. 
 
 ## <a name="advanced-security-and-compliance"></a>Sicurezza e conformità avanzate 
 
@@ -152,7 +169,7 @@ Il database SQL consente di gestire a livello centralizzato le identità degli u
 Per autenticazione del database SQL si intende il modo in cui l'utente dimostra la propria identità durante la connessione al database. Il database SQL supporta due tipi di autenticazione:  
 
 - L'autenticazione SQL, che usa un nome utente e una password.
-- L'autenticazione di Azure Active Directory, che usa identità gestite da Azure Active Directory ed è supportata per i domini gestiti e integrati.  
+- L'autenticazione di Azure Active Directory, che usa identità gestite da Azure Active Directory ed è supportata per i domini gestiti e integrati. 
 
 ### <a name="authorization"></a>Authorization
 
@@ -160,11 +177,11 @@ Per autorizzazione si intendono le operazioni che l'utente può eseguire in un d
 
 ## <a name="database-migration"></a>Migrazione di database 
 
-Il servizio Istanza gestita è destinato a scenari utente con migrazione di massa di database da implementazioni di database locali o IaaS.  Istanza gestita supporta diverse opzioni di migrazione di database: 
+Il servizio Istanza gestita è destinato a scenari utente con migrazione di massa di database da implementazioni di database locali o IaaS. Istanza gestita supporta diverse opzioni di migrazione di database: 
 
 ### <a name="data-migration-service"></a>Servizio di migrazione dei dati
 
-Il Servizio Migrazione del database di Azure è un servizio completamente gestito progettato per abilitare le migrazioni senza interruzioni da più origini di database alle piattaforme di dati di Azure con tempi di inattività minimi.   Questo servizio semplifica le attività necessarie per spostare database di SQL Server e di terze parti in Azure. Le opzioni di distribuzione includono il database SQL di Azure, Istanza gestita e SQL Server in una macchina virtuale di Azure nell'anteprima pubblica. Vedere [come eseguire la migrazione del database locale in Istanza gestita tramite DMS](https://aka.ms/migratetoMIusingDMS).  
+Il Servizio Migrazione del database di Azure è un servizio completamente gestito progettato per abilitare le migrazioni senza interruzioni da più origini di database alle piattaforme di dati di Azure con tempi di inattività minimi. Questo servizio semplifica le attività necessarie per spostare database di SQL Server e di terze parti in Azure. Le opzioni di distribuzione includono il database SQL di Azure, Istanza gestita e SQL Server in una macchina virtuale di Azure nell'anteprima pubblica. Vedere [come eseguire la migrazione del database locale in Istanza gestita tramite DMS](https://aka.ms/migratetoMIusingDMS). 
 
 ### <a name="backup-and-restore"></a>Backup e ripristino  
 
@@ -174,7 +191,7 @@ L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione di BLOB di
 
 Istanza gestita mira a offrire una compatibilità della superficie di attacco prossima al 100% con SQL Server in locale disponibile a fasi fino alla disponibilità generale del servizio. Per un elenco di confronto delle funzionalità, vedere [Confronto tra le funzionalità: database SQL di Azure e SQL Server](sql-database-features.md).
  
-Istanza gestita supporta la compatibilità con le versioni precedenti per i database di SQL 2008.  È supportata la migrazione diretta da server di database di SQL 2005, il livello di compatibilità per i database di SQL 2005 migrati viene aggiornato a SQL 2008. 
+Istanza gestita supporta la compatibilità con le versioni precedenti per i database di SQL 2008. È supportata la migrazione diretta da server di database di SQL 2005, il livello di compatibilità per i database di SQL 2005 migrati viene aggiornato a SQL 2008. 
  
 Il diagramma seguente illustra la compatibilità della superficie di attacco in Istanza gestita:  
 
@@ -182,7 +199,7 @@ Il diagramma seguente illustra la compatibilità della superficie di attacco in 
 
 ### <a name="key-differences-between-sql-server-on-premises-and-managed-instance"></a>Differenze principali tra SQL Server in locale e Istanza gestita 
 
-Istanza gestita offre vantaggi derivanti dall'essere sempre aggiornati nel cloud, mentre alcune funzionalità di SQL Server in locale possono essere obsolete, essere state ritirate o sostituite con alternative.  In alcuni casi specifici gli strumenti devono riconoscere che una determinata funzionalità funziona in modo leggermente diverso o che il servizio non funziona in un ambiente di cui non si ha il controllo completo: 
+Istanza gestita offre vantaggi derivanti dall'essere sempre aggiornati nel cloud, mentre alcune funzionalità di SQL Server in locale possono essere obsolete, essere state ritirate o sostituite con alternative. In alcuni casi specifici gli strumenti devono riconoscere che una determinata funzionalità funziona in modo leggermente diverso o che il servizio non funziona in un ambiente di cui non si ha il controllo completo: 
 
 - La disponibilità elevata è incorporata e preconfigurata. Le funzionalità di disponibilità elevata Always On non sono esposte nello stesso modo delle implementazioni IaaS SQL 
 - Backup automatici e ripristino temporizzato. Il cliente può avviare backup `copy-only` che non interferiscono con la catena di backup automatica. 
@@ -192,7 +209,7 @@ Istanza gestita offre vantaggi derivanti dall'essere sempre aggiornati nel cloud
  
 ### <a name="managed-instance-administration-features"></a>Funzionalità di amministrazione di Istanza gestita  
 
-Istanza gestita consente all'amministratore di sistema di concentrarsi sugli aspetti più importanti per l'azienda. Molte attività dell'amministratore di sistema o di database non sono necessarie o sono semplici. Ad esempio, l'installazione del sistema operativo o di RDBMS e l'applicazione di patch, il ridimensionamento dinamico e la configurazione delle istanze, i backup, la replica di database (inclusi i database di sistema), la configurazione a elevata disponibilità e la configurazione di flussi di dati di monitoraggio dell'integrità e delle prestazioni.  
+Istanza gestita consente all'amministratore di sistema di concentrarsi sugli aspetti più importanti per l'azienda. Molte attività dell'amministratore di sistema o di database non sono necessarie o sono semplici. Ad esempio, l'installazione del sistema operativo o di RDBMS e l'applicazione di patch, il ridimensionamento dinamico e la configurazione delle istanze, i backup, la replica di database (inclusi i database di sistema), la configurazione a elevata disponibilità e la configurazione di flussi di dati di monitoraggio dell'integrità e delle prestazioni. 
 
 > [!IMPORTANT]
 > Per un elenco delle funzionalità supportate, parzialmente supportate e non supportate, vedere [Funzionalità del Database SQL](sql-database-features.md). Per un elenco delle differenze di T-SQL nelle istanze gestite rispetto a SQL Server, vedere [Differenze di T-SQL in Istanza gestita rispetto a SQL Server](sql-database-managed-instance-transact-sql-information.md)
