@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e35a33cbe77d9d29b975ede8535abbded2cde4c3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Mapping delle attestazioni in Azure Active Directory (anteprima pubblica)
 
@@ -234,7 +234,7 @@ Le attestazioni con restrizioni non possono essere modificate usando i criteri. 
 |http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>Proprietà di criteri di mapping di attestazioni
-Usare le proprietà dei criteri di mapping delle attestazioni per controllare quali attestazioni vengono generate e da quali origini provengono i dati. Se non sono impostati criteri, il sistema emette token contenenti il set di attestazioni core, il set di attestazioni di base ed eventuali attestazioni facoltative che l'applicazione ha scelto di ricevere.
+Usare le proprietà dei criteri di mapping delle attestazioni per controllare quali attestazioni vengono generate e da quali origini provengono i dati. Se non sono impostati criteri, il sistema emette token contenenti il set di attestazioni core, il set di attestazioni di base ed eventuali [attestazioni facoltative](develop/active-directory-optional-claims.md) che l'applicazione ha scelto di ricevere.
 
 ### <a name="include-basic-claim-set"></a>Includere set di attestazioni di base
 
@@ -419,7 +419,7 @@ I criteri di mapping delle attestazioni possono essere assegnati solo a oggetti 
 
 In molti scenari di Azure AD è possibile personalizzare le attestazioni generate nei token per specifiche entità servizio. In questa sezione vengono illustrati alcuni scenari comuni che permettono di comprendere come usare il tipo di criteri di mapping delle attestazioni.
 
-#### <a name="prerequisites"></a>Prerequisiti
+#### <a name="prerequisites"></a>prerequisiti
 Gli esempi seguenti mostrano come creare, aggiornare, collegare ed eliminare criteri per le entità servizio. Se non si ha familiarità con Azure AD, è consigliabile capire come ottenere un tenant di Azure AD prima di procedere con questi esempi. 
 
 Per iniziare, seguire questa procedura:

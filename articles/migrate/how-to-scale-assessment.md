@@ -1,16 +1,16 @@
 ---
-title: "Individuazione e valutazione della scalabilità tramite Azure Migrate | Microsoft Docs"
+title: Individuazione e valutazione della scalabilità tramite Azure Migrate | Microsoft Docs
 description: Questo articolo descrive come valutare un elevato numero di computer locali usando il servizio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 9d9ebef66be269c63a62d393eda76254946b13e7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 934f32228d2c37db58c52cf4820ccc331fccd1d3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Individuare e valutare un ambiente VMware di grandi dimensioni
 
@@ -29,9 +29,9 @@ Pianificare le individuazioni e le valutazioni in base ai limiti seguenti:
 
 | **Entità** | **Limite di computer** |
 | ---------- | ----------------- |
-| Project    | 1.500              | 
-| Individuazione  | 1.500              |
-| Valutazione | 1.500               |
+| Project    | 1.500             |
+| Individuazione  | 1.500             |
+| Valutazione | 1.500             |
 
 <!-- 
 - If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
@@ -40,12 +40,12 @@ Pianificare le individuazioni e le valutazioni in base ai limiti seguenti:
 - If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
     - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
     - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
--->
+      -->
 
 ## <a name="plan-multiple-discoveries"></a>Pianificare più individuazioni
 
 È possibile usare lo stesso agente di raccolta di Azure Migrate per eseguire più individuazioni in uno o più progetti. Tenere presente le considerazioni seguenti sulla pianificazione:
- 
+
 - Quando si esegue un'individuazione tramite l'agente di raccolta di Azure Migrate, è possibile impostare l'ambito di individuazione su una cartella, un data center, un cluster o un host del server vCenter.
 - Per eseguire più individuazioni, verificare nel server vCenter che le macchine virtuali che si vuole individuare siano incluse in cartelle, data center, cluster o host che supportano il limite di 1.500 computer.
 - Ai fini della valutazione, è consigliabile tenere i computer con interdipendenze all'interno dello stesso progetto e della stessa valutazione. Nel server vCenter verificare quindi che i computer dipendenti si trovino nello stesso data center, la stessa cartella o lo stesso cluster per la valutazione.
@@ -73,18 +73,28 @@ In presenza di più progetti, occorre scaricare l'appliance dell'agente di racco
 2. In **Individua macchine virtuali** fare clic su **Scarica** per scaricare il file con estensione ova.
 3. In **Copiare le credenziali del progetto** copiare l'ID e la chiave del progetto. Queste informazioni sono necessarie per configurare l'agente di raccolta.
 
-   
+
 ### <a name="verify-the-collector-appliance"></a>Verificare l'appliance dell'agente di raccolta
 
 Prima di distribuire il file con estensione ova, verificarne la sicurezza:
 
 1. Nel computer in cui è stato scaricato il file aprire una finestra di comando con privilegi di amministratore.
+
 2. Eseguire il comando seguente per generare il valore hash per il file con estensione ova:
 
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
    Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+
 3. Verificare che il valore hash generato corrisponda alle impostazioni seguenti.
+
+    Per OVA versione 1.0.9.7
+
+    **Algoritmo** | **Valore hash**
+    --- | ---
+    MD5 | d5b6a03701203ff556fa78694d6d7c35
+    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
     Per OVA versione 1.0.9.5
 
@@ -109,7 +119,7 @@ Prima di distribuire il file con estensione ova, verificarne la sicurezza:
     MD5 | 71139e24a532ca67669260b3062c3dad
     SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
     SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
- 
+
     Per OVA versione 1.0.8.49:
 
     **Algoritmo** | **Valore hash**
@@ -136,11 +146,11 @@ Importare il file scaricato nel server vCenter:
 
 2. Nella procedura guidata Distribuire il modello OVF > **Origine** specificare il percorso del file con estensione ova.
 3. In **Name** (Nome) e **Location** (Posizione) specificare un nome descrittivo per la macchina virtuale dell'agente di raccolta e l'oggetto dell'inventario in cui verrà ospitata la macchina virtuale.
-5. In **Host/Cluster** specificare l'host o il cluster in cui verrà eseguita la macchina virtuale dell'agente di raccolta.
-7. Nell'area relativa ai dati di archiviazione specificare la destinazione di archiviazione per la macchina virtuale dell'agente di raccolta.
-8. In **Disk Format** (Formato disco) specificare il tipo e la dimensione del disco.
-9. In **Network Mapping** (Mapping di rete) specificare la rete a cui si connetterà la macchina virtuale dell'agente di raccolta. La rete richiede la connettività Internet per l'invio dei metadati ad Azure. 
-10. Rivedere e confermare le impostazioni e quindi selezionare **Fine**.
+4. In **Host/Cluster** specificare l'host o il cluster in cui verrà eseguita la macchina virtuale dell'agente di raccolta.
+5. Nell'area relativa ai dati di archiviazione specificare la destinazione di archiviazione per la macchina virtuale dell'agente di raccolta.
+6. In **Disk Format** (Formato disco) specificare il tipo e la dimensione del disco.
+7. In **Network Mapping** (Mapping di rete) specificare la rete a cui si connetterà la macchina virtuale dell'agente di raccolta. La rete richiede la connettività Internet per l'invio dei metadati ad Azure. 
+8. Rivedere e confermare le impostazioni e quindi selezionare **Fine**.
 
 ## <a name="identify-the-id-and-key-for-each-project"></a>Identificare la chiave e l'ID di ogni progetto
 
@@ -157,16 +167,16 @@ Di seguito è riportato l'elenco dei contatori delle prestazioni che vengono rac
 
 La tabella seguente indica anche i risultati della valutazione che saranno compromessi se un determinato contatore non viene raccolto.
 
-|Contatore                                  |Level    |Livello per dispositivo  |Impatto sulla valutazione                               |
-|-----------------------------------------|---------|------------------|------------------------------------------------|
-|cpu.usage.average                        | 1       |ND                |Dimensione e costi consigliati della macchina virtuale                    |
-|mem.usage.average                        | 1       |ND                |Dimensione e costi consigliati della macchina virtuale                    |
-|virtualDisk.read.average                 | 2       |2                 |Dimensione disco, costi di archiviazione e dimensione della macchina virtuale         |
-|virtualDisk.write.average                | 2       |2                 |Dimensione disco, costi di archiviazione e dimensione della macchina virtuale         |
-|virtualDisk.numberReadAveraged.average   | 1       |3                 |Dimensione disco, costi di archiviazione e dimensione della macchina virtuale         |
-|virtualDisk.numberWriteAveraged.average  | 1       |3                 |Dimensione disco, costi di archiviazione e dimensione della macchina virtuale         |
-|net.received.average                     | 2       |3                 |Dimensione della macchina virtuale e costi della rete                        |
-|net.transmitted.average                  | 2       |3                 |Dimensione della macchina virtuale e costi della rete                        |
+| Contatore                                 | Level | Livello per dispositivo | Impatto sulla valutazione                    |
+| --------------------------------------- | ----- | ---------------- | ------------------------------------ |
+| cpu.usage.average                       | 1     | ND               | Dimensione e costi consigliati della macchina virtuale         |
+| mem.usage.average                       | 1     | ND               | Dimensione e costi consigliati della macchina virtuale         |
+| virtualDisk.read.average                | 2     | 2                | Dimensione disco, costi di archiviazione e dimensione della macchina virtuale |
+| virtualDisk.write.average               | 2     | 2                | Dimensione disco, costi di archiviazione e dimensione della macchina virtuale |
+| virtualDisk.numberReadAveraged.average  | 1     | 3                | Dimensione disco, costi di archiviazione e dimensione della macchina virtuale |
+| virtualDisk.numberWriteAveraged.average | 1     | 3                | Dimensione disco, costi di archiviazione e dimensione della macchina virtuale |
+| net.received.average                    | 2     | 3                | Dimensione della macchina virtuale e costi della rete             |
+| net.transmitted.average                 | 2     | 3                | Dimensione della macchina virtuale e costi della rete             |
 
 > [!WARNING]
 > Se è stato appena impostato un livello più alto per le statistiche, la generazione dei contatori delle prestazioni richiederà fino a un giorno. È quindi consigliabile eseguire l'individuazione dopo un giorno.
@@ -175,28 +185,28 @@ La tabella seguente indica anche i risultati della valutazione che saranno compr
 
 Per ogni individuazione da eseguire, è necessario eseguire l'agente di raccolta per individuare le macchine virtuali nell'ambito richiesto. Eseguire le individuazioni una di seguito all'altra. Le individuazioni simultanee non sono supportate e per ogni individuazione deve essere definito un ambito diverso.
 
-1. Nella console di vSphere Client fare clic con il pulsante destro del mouse su VM > **Open Console** (Apri console).
-2. Specificare le preferenze relative alla lingua, al fuso orario e alla password per l'appliance.
-3. Sul desktop selezionare il collegamento **Esegui agente di raccolta**.
-4. Nell'agente di raccolta di Azure Migrate aprire **Set Up Prerequisites** (Configura prerequisiti) ed eseguire queste operazioni:
+1.  Nella console di vSphere Client fare clic con il pulsante destro del mouse su VM > **Open Console** (Apri console).
+2.  Specificare le preferenze relative alla lingua, al fuso orario e alla password per l'appliance.
+3.  Sul desktop selezionare il collegamento **Esegui agente di raccolta**.
+4.  Nell'agente di raccolta di Azure Migrate aprire **Set Up Prerequisites** (Configura prerequisiti) ed eseguire queste operazioni:
 
-   a. Accettare le condizioni di licenza e leggere le informazioni di terze parti.
+    a. Accettare le condizioni di licenza e leggere le informazioni di terze parti.
 
-   L'agente di raccolta verifica che la macchina virtuale abbia accesso a Internet.
-   
-   b. Se la macchina virtuale accede a Internet tramite un proxy, selezionare **Impostazioni proxy** e specificare l'indirizzo e la porta di ascolto del proxy. Se il proxy richiede l'autenticazione, specificare le credenziali.
+    L'agente di raccolta verifica che la macchina virtuale abbia accesso a Internet.
 
-   L'agente di raccolta verifica che il servizio dell'agente di raccolta sia in esecuzione. Il servizio è installato per impostazione predefinita nella macchina virtuale dell'agente di raccolta.
+    b. Se la macchina virtuale accede a Internet tramite un proxy, selezionare **Impostazioni proxy** e specificare l'indirizzo e la porta di ascolto del proxy. Se il proxy richiede l'autenticazione, specificare le credenziali.
 
-   c. Scaricare e installare VMware PowerCLI.
+    L'agente di raccolta verifica che il servizio dell'agente di raccolta sia in esecuzione. Il servizio è installato per impostazione predefinita nella macchina virtuale dell'agente di raccolta.
 
-5. In **Specify vCenter Server details** (Specificare i dettagli del Server vCenter) eseguire queste operazioni:
+    c. Scaricare e installare VMware PowerCLI.
+
+5.  In **Specify vCenter Server details** (Specificare i dettagli del Server vCenter) eseguire queste operazioni:
     - Specificare il nome completo (FQDN) o l'indirizzo IP del server vCenter.
     - In **Nome utente** e **Password** specificare le credenziali dell'account di sola lettura che verranno usate dall'agente di raccolta per individuare le macchine virtuali nel server vCenter.
     - In **Ambito raccolta** selezionare un ambito per l'individuazione delle macchine virtuali. L'agente di raccolta può individuare solo le macchine virtuali all'interno dell'ambito specificato. L'ambito può essere impostato su una cartella, un data center o un cluster, ma non deve contenere più di 1.000 macchine virtuali. 
 
-6. In **Il progetto di migrazione specifica** specificare l'ID e la chiave per il progetto. Se questi valori non sono stati copiati, aprire il portale di Azure dalla macchina virtuale dell'agente di raccolta. Nella pagina **Panoramica** del progetto selezionare **Individua macchine virtuali** e copiare i valori.  
-7. In **Visualizzare lo stato di raccolta** monitorare il processo di individuazione e verificare che i metadati raccolti dalle macchine virtuali siano inclusi nell'ambito. L'agente di raccolta indica un tempo di individuazione approssimativo.
+6.  In **Il progetto di migrazione specifica** specificare l'ID e la chiave per il progetto. Se questi valori non sono stati copiati, aprire il portale di Azure dalla macchina virtuale dell'agente di raccolta. Nella pagina **Panoramica** del progetto selezionare **Individua macchine virtuali** e copiare i valori.  
+7.  In **Visualizzare lo stato di raccolta** monitorare il processo di individuazione e verificare che i metadati raccolti dalle macchine virtuali siano inclusi nell'ambito. L'agente di raccolta indica un tempo di individuazione approssimativo.
 
 
 ### <a name="verify-vms-in-the-portal"></a>Verificare le macchine virtuali nel portale

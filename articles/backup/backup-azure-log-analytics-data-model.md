@@ -2,10 +2,10 @@
 title: Modello di dati di Log Analytics per Backup di Azure
 description: Questo articolo illustra i dettagli del modello di dati di Log Analytics per i dati di Backup di Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: dfd5c73d-0d34-4d48-959e-1936986f9fc0
 ms.service: backup
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.workload: storage-backup-recovery
 ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 041a8835a1dd185739b23d4073fd5811bb4490b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d55ec8ac4416fe0a082812584552462292b6dbb7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modello di dati di Log Analytics per i dati di Backup di Azure
-In questo articolo viene descritto il modello di dati usato per il push dei dati di reporting a Log Analytics. Usando questo modello di dati, è possibile creare query personalizzate e dashboard e usarle in OMS. 
+In questo articolo viene descritto il modello di dati usato per il push dei dati di reporting a Log Analytics. Usando questo modello di dati, è possibile creare query personalizzate e dashboard e usarle in Log Analytics. 
 
 ## <a name="using-azure-backup-data-model"></a>Uso del modello di dati di Backup di Azure
 È possibile usare i campi seguenti forniti come parte del modello di dati per creare oggetti visivi, query personalizzate e dashboard in base alle esigenze.
@@ -286,4 +286,4 @@ Questa tabella offre dettagli sui campi relativi all'insieme di credenziali.
 | ResourceType |Text |Questo campo rappresenta il tipo di risorsa per la quale sono stati raccolti i dati - Insiemi di credenziali |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver verificato il modello di dati per la creazione di report di Backup di Azure, è possibile iniziare [la creazione di dashboard](../log-analytics/log-analytics-dashboards.md) in Log Analytics e OMS.
+Dopo aver verificato il modello di dati per la creazione di report di Backup di Azure, è possibile iniziare [la creazione di dashboard](../log-analytics/log-analytics-dashboards.md) in Log Analytics.

@@ -1,24 +1,19 @@
 ---
-title: Eseguire il debug di Analisi di flusso di Azure con i ricevitori dell'hub eventi | Documentazione Microsoft
+title: Risolvere i problemi dei ricevitori dell'hub eventi in Analisi di flusso di Azure
 description: Procedure consigliate di query per considerare i gruppi di consumer dell'hub eventi nei processi di Analisi di flusso.
-keywords: limite dell'hub eventi, gruppo di consumer
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 48fa5d0274549aa35e67526a758eef1f34198a6a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: 20614986fc6c6afa9a92d163bf973a148e0517c0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>Eseguire il debug di Analisi di flusso di Azure con i ricevitori dell'hub eventi
 
@@ -79,7 +74,7 @@ Per le query in cui tre o più input sono connessi allo stesso gruppo di consume
 
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per ottenere assistenza aggiuntiva, provare ad accedere al [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ottenere assistenza aggiuntiva, provare ad accedere al [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Presentazione di Analisi di flusso](stream-analytics-introduction.md)

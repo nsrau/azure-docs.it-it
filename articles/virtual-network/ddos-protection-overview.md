@@ -5,9 +5,9 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 6b15be022ba3b8373cfb852be8fc6915824801dc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb19baae1bc03633b7646fd2255ca910532595c5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Panoramica di Protezione DDoS di Azure Standard
 
@@ -65,7 +65,7 @@ Le funzionalità di Protezione DDoS Standard includono:
 - **Protezione dal livello 3 a livello 7:** fornisce la protezione DDoS dello stack completo, se usata con un gateway applicazione.
 - **Scala di mitigazione completa:** è possibile mitigare più di 60 tipi diversi di attacchi con capacità globale, per una protezione dai più noti attacchi DDoS. 
 - **Metriche degli attacchi:** tramite Monitoraggio di Azure è possibile accedere al riepilogo delle metriche per ogni attacco.
-- **Avviso in caso di attacco:** è possibile configurare avvisi all'inizio e alla fine di un attacco, oltre che nel corso dell'attacco, usando le metriche integrate relative agli attacchi. Gli avvisi si integrano nel software operativo, come Microsoft Operations Management Suite, Splunk, Archiviazione di Azure, posta elettronica e il portale di Azure.
+- **Avviso in caso di attacco:** è possibile configurare avvisi all'inizio e alla fine di un attacco, oltre che nel corso dell'attacco, usando le metriche integrate relative agli attacchi. Gli avvisi si integrano nel software operativo, come Microsoft Azure Log Analytics, Splunk, Archiviazione di Azure, posta elettronica e il portale di Azure.
 - **Garanzia di costo:** crediti per il servizio di scalabilità orizzontale dell'applicazione e il trasferimento dei dati per gli attacchi DDoS documentati.
 
 ## <a name="ddos-protection-standard-mitigation"></a>Mitigazione di Protezione DDoS Standard

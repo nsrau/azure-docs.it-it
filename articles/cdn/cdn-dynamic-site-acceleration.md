@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: rli
-ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: rli; v-deasim
+ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Accelerazione sito dinamico tramite la rete CDN di Azure
 
@@ -26,7 +26,7 @@ A causa dell'elevata diffusione di social media, e-commerce e Web iper-personali
 
 Le funzionalità standard della rete per la distribuzione di contenuti (CDN) includono la possibilità di memorizzare nella cache file in posizioni più vicine agli utenti finali per accelerare la distribuzione di file statici. Tuttavia, con le applicazioni Web dinamiche la memorizzazione nella cache di tali contenuti in posizioni periferiche non è possibile, in quanto il server genera il contenuto in risposta al comportamento degli utenti. È più difficile accelerare la distribuzione di tali contenuti rispetto alla memorizzazione nella cache perimetrale tradizionale e a questo scopo è necessaria una soluzione end-to-end in grado di ottimizzare ogni elemento insieme all'intero percorso dei dati, dalle fasi iniziali alla distribuzione. L'ottimizzazione Accelerazione sito dinamico della rete CDN di Azure migliora in modo misurabile le prestazioni delle pagine Web con contenuto dinamico.
 
-La **rete CDN di Azure con tecnologia Akamai** e la **rete CDN di Azure con tecnologia Verizon** offrono entrambe l'ottimizzazione basata su Accelerazione sito dinamico tramite il menu **Ottimizzato per** durante la creazione degli endpoint.
+La **rete CDN di Azure di Akamai** e la **rete CDN di Azure di Verizon** offrono entrambe l'ottimizzazione basata su Accelerazione sito dinamico tramite il menu **Ottimizzato per** durante la creazione degli endpoint.
 
 > [!Important]
 > Per i profili di **rete CDN di Azure con tecnologia Akamai**, è possibile modificare l'ottimizzazione di un endpoint di rete CDN dopo che è stato creato.
@@ -58,7 +58,7 @@ Per configurare un endpoint di rete CDN in modo da ottimizzare la distribuzione 
    Una volta creato l'endpoint di rete CDN, questo applica le ottimizzazioni basate su Accelerazione sito dinamico per tutti i file che soddisfano determinati criteri. 
 
 
-**Per configurare un endpoint esistente per Accelerazione sito dinamico (solo profili di rete CDN di Azure con tecnologia Akamai):**
+**Per configurare un endpoint esistente per Accelerazione sito dinamico (solo profili di rete CDN di Azure di Akamai):**
 
 1. Nella pagina **Profilo rete CDN** selezionare l'endpoint che si vuole modificare.
 
@@ -168,7 +168,7 @@ Per i profili di **rete CDN Premium di Azure con tecnologia Verizon** è possibi
 
 Per accedere al motore regole:
     
-1. Nella pagina **Profilo rete CDN**selezionare**Gestisci**.  
+1. Nella pagina **Profilo rete CDN** selezionare **Gestisci**.  
     
     ![Pulsante di gestione del profilo della rete CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 

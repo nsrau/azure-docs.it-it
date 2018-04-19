@@ -1,24 +1,19 @@
 ---
-title: Eseguire il debug delle query di Analisi di flusso di Azure mediante SELECT INTO | Documentazione Microsoft
-description: Campionare i dati intermedi di una query mediante istruzioni SELECT INTO in Analisi di flusso
-keywords: ''
+title: Eseguire il debug delle query di Analisi di flusso di Azure tramite SELECT INTO
+description: Questo articolo descrive come campionare i dati intermedi di una query in un processo di Analisi di flusso di Azure tramite istruzioni SELECT INTO nella sintassi della query.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 9952e2cf-b335-4a5c-8f45-8d3e1eda2e20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: f232ba9804886f416ac0941ddc7e602782b6ebe2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: ccaa6203e4bfe52758e26416646f9152ac5378ea
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="debug-queries-by-using-select-into-statements"></a>Eseguire il debug delle query mediante istruzioni SELECT INTO
 
@@ -73,7 +68,7 @@ Questa volta i dati nell'output vengono formattati e popolati come previsto.
 
 ## <a name="get-help"></a>Ottenere aiuto
 
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

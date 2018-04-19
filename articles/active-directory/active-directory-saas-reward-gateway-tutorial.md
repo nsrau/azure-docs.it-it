@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 6e46668804da237e789cea73d25982953a31edef
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 76e34b2d170ad1a47dca180fe7caf8c015d17634
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Esercitazione: Integrazione di Azure Active Directory con Reward Gateway
 
@@ -127,7 +127,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori contattare il [team di supporto di Reward Gateway](mailto:clientsupport@rewardgateway.com).
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, configurare l'integrazione nel portale di gestione di Reward. Per informazioni dettagliate, vedere http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
  
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -137,7 +137,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_400.png)
 
-6. Per configurare l'accesso Single Sign-On sul lato **Reward Gateway**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di Reward Gateway](mailto:clientsupport@rewardgateway.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+6. Per configurare l'accesso Single Sign-On in **Reward Gateway**, configurare l'integrazione nel portale di gestione di Reward. Usare i metadati scaricati per ottenere il certificato di firma e caricarlo durante la configurazione. Per informazioni dettagliate, vedere http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).

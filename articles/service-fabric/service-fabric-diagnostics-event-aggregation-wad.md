@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: dekapur;srrengar
-ms.openlocfilehash: ede128d23ca73dc46f2d4dc4b1dd4b1f83a2bc3f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 65e5e45300e66cd8c3acc44a91335de45a919eb5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregazione e raccolta di eventi con Diagnostica di Microsoft Azure
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/28/2018
 
 Quando si esegue un cluster Azure Service Fabric, è consigliabile raccogliere i log da tutti i nodi in una posizione centrale. Il salvataggio dei log in una posizione centrale semplifica l'analisi e la risoluzione di eventuali problemi nel cluster o nelle applicazioni e nei servizi in esecuzione nel cluster.
 
-Un modo per caricare e raccogliere i log consiste nell'usare l'estensione Diagnostica di Microsoft Azure, che carica i log in Archiviazione di Azure e offre anche la possibilità di inviarli ad Azure Application Insights o Hub eventi. È anche possibile usare un processo esterno per leggere gli eventi dalla risorsa di archiviazione e inserirli in una piattaforma di analisi come [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) o un'altra soluzione di analisi di log.
+Un modo per caricare e raccogliere i log consiste nell'usare l'estensione Diagnostica di Microsoft Azure, che carica i log in Archiviazione di Azure e offre anche la possibilità di inviarli ad Azure Application Insights o Hub eventi. È anche possibile usare un processo esterno per leggere gli eventi dalla risorsa di archiviazione e inserirli in una piattaforma di analisi come [Log Analytics](../log-analytics/log-analytics-service-fabric.md) o in un'altra soluzione di analisi di log.
 
 ## <a name="prerequisites"></a>prerequisiti
 Per eseguire alcune delle operazioni descritte in questo documento vengono usati gli strumenti seguenti:
@@ -285,11 +285,11 @@ L'invio dei dati di monitoraggio e diagnostica ad Application Insights può esse
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato correttamente Diagnostica di Azure, sarà possibile visualizzare i dati nelle tabelle di archiviazione dai log EventSource ed ETW. Se si sceglie di usare OMS, Kibana o qualsiasi altra piattaforma di analisi e visualizzazione dati non configurata direttamente nel modello di Resource Manager, assicurarsi di configurare la piattaforma scelta per la lettura dei dati da queste tabelle di archiviazione. Questa operazione in OMS è relativamente semplice ed è illustrata nell'articolo relativo all'[analisi di eventi e log tramite OMS](service-fabric-diagnostics-event-analysis-oms.md). Application Insights è un caso particolare sotto questo aspetto, perché può essere configurato nell'ambito della configurazione dell'estensione Diagnostica. Se si sceglie di usare Application Insights, vedere l'[articolo appropriato](service-fabric-diagnostics-event-analysis-appinsights.md).
+Dopo aver configurato correttamente Diagnostica di Azure, sarà possibile visualizzare i dati nelle tabelle di archiviazione dai log EventSource ed ETW. Se si sceglie di usare Log Analytics, Kibana o qualsiasi altra piattaforma di analisi e visualizzazione dati non configurata direttamente nel modello di Resource Manager, assicurarsi di configurare la piattaforma scelta per la lettura dei dati da queste tabelle di archiviazione. Questa operazione, relativamente semplice per Log Analytics, è illustrata in [Analisi e visualizzazione degli eventi](service-fabric-diagnostics-event-analysis-oms.md). Application Insights è un caso particolare sotto questo aspetto, perché può essere configurato nell'ambito della configurazione dell'estensione Diagnostica. Se si sceglie di usare Application Insights, vedere l'[articolo appropriato](service-fabric-diagnostics-event-analysis-appinsights.md).
 
 >[!NOTE]
 >Attualmente non è possibile filtrare o eliminare gli eventi inviati alla tabella. Se non si implementa un processo per rimuovere gli eventi dalla tabella, le dimensioni della tabella continueranno ad aumentare. È attualmente disponibile un esempio di servizio di eliminazione dati in esecuzione nel [watchdog di esempio](https://github.com/Azure-Samples/service-fabric-watchdog-service). È consigliabile scriverne uno personalizzato, a meno che non esista un motivo valido per archiviare i log per un intervallo di tempo superiore a 30 o 90 giorni.
 
 * [Informazioni su come raccogliere i contatori delle prestazioni o i log mediante l'estensione Diagnostica](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) (Analisi e visualizzazione di eventi con Application Insights)
-* [Event Analysis and Visualization with OMS](service-fabric-diagnostics-event-analysis-oms.md) (Analisi e visualizzazione di eventi con OMS)
+* [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) (Analisi e visualizzazione degli eventi con Application Insights)
+* [Analisi e visualizzazione degli eventi con OMS](service-fabric-diagnostics-event-analysis-oms.md)

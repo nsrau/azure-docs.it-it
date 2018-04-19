@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: ba2239b1a4cd14f7723e88ee83f7ad93da717e0a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c9fa74304e8672bc18f403aae138a3c1dbea3d4e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Monitoraggio delle prestazioni del database nel database SQL di Azure
 Il monitoraggio delle prestazioni di un database SQL in Azure inizia con il monitoraggio dell'utilizzo delle risorse rispetto al livello di prestazioni scelto per il database. Il monitoraggio consente di determinare se il database ha capacità in eccesso o se presenta problemi perché è stato superato il limite massimo di risorse e quindi decidere se è opportuno modificare il livello di prestazioni e il [livello di servizio](sql-database-service-tiers.md) del database. È possibile monitorare il database con strumenti grafici nel [portale di Azure](https://portal.azure.com) o con le [viste a gestione dinamica di SQL](https://msdn.microsoft.com/library/ms188754.aspx).
@@ -59,15 +59,15 @@ Le stesse metriche esposte nel portale sono disponibili anche tramite le viste d
 * [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
 #### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
-È possibile usare la vista [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) in ogni database SQL. La vista **sys.dm_db_resource_stats** mostra i dati recenti sull'uso delle risorse rispetto al livello di servizio. Informazioni relative a percentuali medie della CPU, dati I/O, scritture nei log e memoria vengono registrate ogni 15 secondi e vengono mantenute per un'ora.
+È possibile usare la vista [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) in ogni database SQL. La vista **sys.dm_db_resource_stats** mostra i dati recenti sull'uso delle risorse rispetto al livello di servizio. Le percentuali medie relative a CPU, I/O dei dati, scritture nei log e memoria vengono registrate ogni 15 secondi e vengono mantenute per un'ora.
 
 Poiché questa vista fornisce una visione più granulare sull'uso delle risorse, usare prima **sys.dm_db_resource_stats** per eventuali analisi o risoluzioni di problemi allo stato corrente. Ad esempio, questa query descrive l'uso medio e massimo delle risorse per il database corrente nell'ultima ora:
 
     SELECT  
         AVG(avg_cpu_percent) AS 'Average CPU use in percent',
         MAX(avg_cpu_percent) AS 'Maximum CPU use in percent',
-        AVG(avg_data_io_percent) AS 'Average data I/O in percent',
-        MAX(avg_data_io_percent) AS 'Maximum data I/O in percent',
+        AVG(avg_data_io_percent) AS 'Average data IO in percent',
+        MAX(avg_data_io_percent) AS 'Maximum data IO in percent',
         AVG(avg_log_write_percent) AS 'Average log write use in percent',
         MAX(avg_log_write_percent) AS 'Maximum log write use in percent',
         AVG(avg_memory_usage_percent) AS 'Average memory use in percent',
@@ -117,8 +117,8 @@ L'esempio successivo mostra i diversi modi in cui è possibile usare la vista de
         SELECT
             avg(avg_cpu_percent) AS 'Average CPU use in percent',
             max(avg_cpu_percent) AS 'Maximum CPU use in percent',
-            avg(avg_data_io_percent) AS 'Average physical data I/O use in percent',
-            max(avg_data_io_percent) AS 'Maximum physical data I/O use in percent',
+            avg(avg_data_io_percent) AS 'Average physical data IO use in percent',
+            max(avg_data_io_percent) AS 'Maximum physical data IO use in percent',
             avg(avg_log_write_percent) AS 'Average log write use in percent',
             max(avg_log_write_percent) AS 'Maximum log write use in percent',
             avg(max_session_percent) AS 'Average % of sessions',
@@ -127,7 +127,7 @@ L'esempio successivo mostra i diversi modi in cui è possibile usare la vista de
             max(max_worker_percent) AS 'Maximum % of workers'
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-3. Con queste informazioni sui valori medi e massimi di ogni metrica delle risorse è possibile valutare l'idoneità del livello di prestazioni scelto in rapporto al carico di lavoro. I valori medi di **sys.resource_stats** offrono in genere una buona baseline da usare nelle dimensioni di destinazione. Deve trattarsi dello strumento di misurazione principale. È ad esempio possibile che si usi il livello di servizio Standard con il livello di prestazioni S2. Le percentuali medie di uso per la CPU e per operazioni di scrittura e lettura I/O sono inferiori al 40%, il numero medio di thread di lavoro è inferiore a 50 e il numero medio di sessioni è inferiore a 200. Il carico di lavoro potrebbe essere idoneo per il livello di prestazioni S1. È facile verificare se il database rientra nei limiti dei thread di lavoro e delle sessioni. Per verificare se un database può rientrare in un livello di prestazioni inferiore prendendo in considerazione la CPU e le operazioni di lettura e scrittura, è sufficiente dividere il numero di DTU del livello di prestazioni inferiore per il numero di DTU del livello di prestazioni corrente e moltiplicare il risultato per 100:
+3. Con queste informazioni sui valori medi e massimi di ogni metrica delle risorse è possibile valutare l'idoneità del livello di prestazioni scelto in rapporto al carico di lavoro. I valori medi di **sys.resource_stats** offrono in genere una buona baseline da usare nelle dimensioni di destinazione. Deve trattarsi dello strumento di misurazione principale. È ad esempio possibile che si usi il livello di servizio Standard con il livello di prestazioni S2. Le percentuali medie di uso per la CPU e per le operazioni I/O di scrittura e lettura sono inferiori al 40%, il numero medio di ruoli di lavoro è inferiore a 50 e il numero medio di sessioni è inferiore a 200. Il carico di lavoro potrebbe essere idoneo per il livello di prestazioni S1. È facile verificare se il database rientra nei limiti dei thread di lavoro e delle sessioni. Per verificare se un database può rientrare in un livello di prestazioni inferiore prendendo in considerazione la CPU e le operazioni di lettura e scrittura, è sufficiente dividere il numero di DTU del livello di prestazioni inferiore per il numero di DTU del livello di prestazioni corrente e moltiplicare il risultato per 100:
    
     **S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
    
@@ -153,7 +153,7 @@ L'esempio successivo mostra i diversi modi in cui è possibile usare la vista de
         SELECT
         (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
         ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent'
-        ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data I/O fit percent'
+        ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data IO fit percent'
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
    

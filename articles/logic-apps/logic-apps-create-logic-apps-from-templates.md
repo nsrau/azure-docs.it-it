@@ -1,11 +1,11 @@
 ---
-title: Creare flussi di lavoro da modelli - App per la logica di Azure | Documentazione Microsoft
-description: "Creare flussi di lavoro più rapidamente usando i modelli di app per la logica"
+title: Creare flussi di lavoro da modelli - App per la logica di Azure | Microsoft Docs
+description: Creare flussi di lavoro più rapidamente usando i modelli di app per la logica
 author: kevinlam1
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9145b9cb85cda9179f7ce46de017a0ab3a38924
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a2e939143d7181722df17ea7837658d96272e3a3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Creare flussi di lavoro di app per la logica da modelli predefiniti
 
@@ -27,7 +27,7 @@ Per creare più rapidamente i flussi di lavoro, è possibile usare i modelli di 
 
 Ecco alcune categorie di modelli:
 
-| Tipo di modello | DESCRIZIONE | 
+| Tipo di modello | Descrizione | 
 | ------------- | ----------- | 
 | Modelli cloud dell'organizzazione | Per l'integrazione di BLOB di Azure, Dynamics CRM, Salesforce, Box e include altri connettori per le esigenze cloud dell'organizzazione. Ad esempio, è possibile usare questi modelli per organizzare i clienti potenziali o creare un backup dei dati dei file aziendali. | 
 | Modelli per la produttività personale | Migliorare la produttività personale impostando promemoria giornalieri, trasformando importanti elementi di lavoro in elenchi di attività e automatizzando le attività di lunga durata fino ad avere un singolo passaggio di approvazione dell'utente. | 
@@ -50,13 +50,13 @@ Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di A
 
    ![Specificare i dettagli dell'app per la logica](./media/logic-apps-create-logic-apps-from-templates/logic-app-settings.png)
 
-   | Impostazione | Valore | DESCRIZIONE | 
+   | Impostazione | Valore | Descrizione | 
    | ------- | ----- | ----------- | 
    | **Nome** | *nome-app-per-la-logica* | Specificare un nome univoco per l'app per la logica. | 
    | **Sottoscrizione** | *nome-sottoscrizione-di-Azure* | Selezionare la sottoscrizione di Azure da usare. | 
    | **Gruppo di risorse** | *nome-gruppo-di-risorse-di-Azure* | Creare o selezionare un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) per questa app per la logica e per organizzare tutte le risorse associate a questa app. | 
    | **Posizione** | *area-data-center-di-Azure* | Selezionare l'area del data center per la distribuzione dell'app per la logica, ad esempio Stati Uniti occidentali. | 
-   | **Log Analytics** | **Off** (impostazione predefinita) o **On** | Attivare la [registrazione diagnostica](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) per l'app per la logica usando [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Richiede la disponibilità di un'area di lavoro di [Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md). | 
+   | **Log Analytics** | **Off** (impostazione predefinita) o **On** | Attivare la [registrazione diagnostica](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) per l'app per la logica usando [Azure Log Analytics](../log-analytics/log-analytics-overview.md). È necessario disporre già di un'area di lavoro di Log Analytics. | 
    |||| 
 
 4. Al termine, selezionare **Aggiungi al dashboard**. L'app per la logica verrà così visualizzata nel dashboard di Azure e aperta dopo la distribuzione. Scegliere **Create**.

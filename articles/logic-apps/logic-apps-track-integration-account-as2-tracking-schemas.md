@@ -1,11 +1,11 @@
 ---
-title: Schemi di rilevamento AS2 per il monitoraggio B2B - App per la logica di Azure | Documenti di Microsoft
+title: Schemi di rilevamento AS2 per il monitoraggio B2B - App per la logica di Azure | Microsoft Docs
 description: Utilizzare gli schemi di rilevamento AS2 per il monitoraggio dei messaggi B2B dalle transazioni nell'account di integrazione di Azure.
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31bd296dc5ed5ac6998a6c05ee80fd38b12d662c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8605950f3cc07730ee13b91999076e3a093e8d92
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>Avviare o attivare il rilevamento dei messaggi AS2 e di MDN per monitorare il completamento dell'operazione, gli errori e le proprietà dei messaggi
 È possibile utilizzare questi schemi di rilevamento AS2 nell'account di integrazione di Azure per monitorare le transazioni business-to-business (B2B):
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
     }
 ````
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | type | Descrizione |
 | --- | --- | --- |
 | senderPartnerName | string | Nome partner del mittente del messaggio AS2. Facoltativa |
 | receiverPartnerName | string | Nome partner del destinatario del messaggio AS2. Facoltativa |
@@ -111,7 +111,7 @@ ms.lasthandoff: 10/11/2017
     }
 ````
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | type | Descrizione |
 | --- | --- | --- |
 | senderPartnerName | string | Nome partner del mittente del messaggio AS2. Facoltativa |
 | receiverPartnerName | string | Nome partner del destinatario del messaggio AS2. Facoltativa |
@@ -136,4 +136,4 @@ ms.lasthandoff: 10/11/2017
 * Altre informazioni sul [monitoraggio dei messaggi B2B](logic-apps-monitor-b2b-message.md).   
 * Altre informazioni sugli [schemi di rilevamento B2B personalizzati](logic-apps-track-integration-account-custom-tracking-schema.md).   
 * Altre informazioni sugli [schemi di rilevamento X12](logic-apps-track-integration-account-x12-tracking-schema.md).   
-* Altre informazioni sul [rilevamento dei messaggi B2B nel portale di Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Altre informazioni sul [rilevamento dei messaggi B2B in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).

@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 0339dc2ecc93fb9ec260ede9d3f2e9b7b1419b08
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 54cd9864f6ff4bd8234e8ec55e158f4213f9f11b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 Il servizio di controllo del database SQL di Azure tiene traccia degli eventi di database e li registra in un log di controllo nell'account di archiviazione di Azure dell'utente. Inoltre, il servizio di controllo:
@@ -118,7 +118,7 @@ Per visualizzare i log del controllo BLOB sono disponibili diversi metodi:
 
     4. Il file unito verrà aperto in SSMS, dove potrà essere visualizzato, analizzato ed esportato in un file XEL o CSV o in una tabella.
 
-* Usare l'[applicazione di sincronizzazione](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) che è stata creata. L'applicazione viene eseguita in Azure e utilizza le API pubbliche di Operations Management Suite (OMS) Log Analytics per effettuare il push dei log di controllo SQL in OMS, per l'utilizzo tramite il dashboard di OMS Log Analytics.
+* Usare l'[applicazione di sincronizzazione](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) che è stata creata. L'applicazione, eseguita in Azure, utilizza le API pubbliche di Log Analytics per effettuare il push dei log di controllo SQL in Log Analytics, per l'utilizzo tramite il dashboard di Log Analytics.
 
 * Usare Power BI. È possibile visualizzare e analizzare i dati dei log di controllo in Power BI. Per altre informazioni, vedere il post di blog su [Power BI e l'accesso a un modello scaricabile](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 

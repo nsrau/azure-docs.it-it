@@ -1,13 +1,29 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 04/03/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: 6381f8f0e68853183fc3e17e76b4ab93b152b48b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/05/2018
+---
 | Risorsa | Limite predefinito |
 | --- | --- |
 | Numero di account di archiviazione per area | 200<sup>1</sup> |
 | Capacità massima dell'account di archiviazione | 500 TiB<sup>2</sup> |
 | Numero massimo di contenitori BLOB, BLOB, condivisioni file, tabelle, code, entità o messaggi per account di archiviazione | Nessun limite |
 | Frequenza massima di richieste per account di archiviazione | 20.000 richieste al secondo<sup>2</sup> |
-| Traffico in ingresso massimo<sup>3</sup> per account di archiviazione (aree degli Stati Uniti) | 10 Gbps con archiviazione RA-GRS/GRS/ZRS<sup>4</sup> abilitata, 20 Gbps per l'archiviazione con ridondanza locale<sup>2</sup> |
-| Traffico in uscita massimo<sup>3</sup> per account di archiviazione (aree degli Stati Uniti) | 20 Gbps con archiviazione RA-GRS/GRS/ZRS<sup>4</sup> abilitata, 30 Gbps per LRS<sup>2</sup> |
-| Traffico in ingresso massimo<sup>3</sup> per account di archiviazione (aree non degli Stati Uniti) | 5 Gbps con archiviazione RA-GRS/GRS/ZRS<sup>4</sup> abilitata, 10 Gbps per l'archiviazione con ridondanza locale<sup>2</sup> |
-| Traffico in uscita massimo<sup>3</sup> per account di archiviazione (aree non degli Stati Uniti) | 10 Gbps con archiviazione RA-GRS/GRS/ZRS<sup>4</sup> abilitata, 15 Gbps per LRS<sup>2</sup> |
+| Traffico in ingresso massimo<sup>3</sup> per account di archiviazione (aree degli Stati Uniti) | 10 Gbps con archiviazione RA-GRS/GRS abilitata, 20 Gbps per LRS/ZRS<sup>4</sup> |
+| Traffico in uscita massimo<sup>3</sup> per account di archiviazione (aree degli Stati Uniti) | 20 Gbps con archiviazione RA-GRS/GRS abilitata, 30 Gbps per LRS/ZRS<sup>4</sup> |
+| Traffico in ingresso massimo<sup>3</sup> per account di archiviazione (aree non degli Stati Uniti) | 5 Gbps con archiviazione RA-GRS/GRS abilitata, 10 Gbps per LRS/ZRS<sup>4</sup> |
+| Traffico in uscita massimo<sup>3</sup> per account di archiviazione (aree non degli Stati Uniti) | 10 Gbps con archiviazione RA-GRS/GRS abilitata, 15 Gbps per LRS/ZRS<sup>4</sup> |
 
 <sup>1</sup>Sono inclusi gli account di archiviazione Standard e Premium. Se sono necessari più di 200 account di archiviazione, inviare una richiesta tramite il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/). Il team di Archiviazione di Azure esaminerà il caso aziendale e potrà approvare fino a un massimo di 250 account di archiviazione. 
 

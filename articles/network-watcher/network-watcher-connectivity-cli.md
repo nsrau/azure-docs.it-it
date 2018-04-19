@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: dfe77b0a9620ccb8ac91fa8843d01d1cb7bdc44f
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9554c7f564836d9e7ac94367ade6719a1ee5b5c7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli-20"></a>Risolvere i problemi relativi alle connessioni con Azure Network Watcher usando l'interfaccia della riga di comando di Azure 2.0
 
@@ -36,7 +36,7 @@ Questo articolo presuppone che l'utente disponga delle risorse seguenti:
 * Risolvere i problemi di connessione con le macchine virtuali.
 
 > [!IMPORTANT]
-> La risoluzione dei problemi di connessione richiede un'estensione macchina virtuale `AzureNetworkWatcherExtension`. Per installare l'estensione in una VM Windows, vedere [Estensione macchina virtuale agente Azure Network Watcher per Windows](../virtual-machines/windows/extensions-nwa.md) e per una VM Linux VM vedere [Estensione macchina virtuale Azure Network Watcher Agent per Linux](../virtual-machines/linux/extensions-nwa.md).
+> Per la risoluzione dei problemi di connessione, è necessario che nella macchina virtuale da cui si risolvono i problemi sia installata l'estensione `AzureNetworkWatcherExtension`. Per installare l'estensione in una VM Windows, vedere [Estensione macchina virtuale agente Azure Network Watcher per Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e per una VM Linux VM vedere [Estensione macchina virtuale Azure Network Watcher Agent per Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Non è richiesta l'estensione nell'endpoint di destinazione.
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Controllare la connettività a una macchina virtuale
 

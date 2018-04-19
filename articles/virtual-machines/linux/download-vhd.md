@@ -2,12 +2,12 @@
 title: Scaricare un disco rigido virtuale Linux da Azure | Microsoft Docs
 description: Scaricare un disco rigido virtuale Linux usando l'interfaccia della riga di comando di Azure e il portale di Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 20af28dd4caa6ee5487b9a2ed83715b9b16fad48
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d177e8de7ace571c57a0b8b39c8834fb5b115365
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Scaricare un disco rigido virtuale Linux da Azure
 
@@ -35,10 +35,10 @@ Un disco rigido virtuale non può essere scaricato da Azure se è collegato a un
 
 Per usare il disco rigido virtuale come immagine per la creazione di altre macchine virtuali, completare questi passaggi:
 
-1. Usare il protocollo SSH, il nome dell'account e l'indirizzo IP pubblico della macchina virtuale per connettersi ad essa ed effettuarne il deprovisioning. Il parametro +user rimuove anche l'ultimo account utente di cui è stato effettuato il provisioning. Se si sta effettuando il back-up delle credenziali dell'account nella macchina virtuale, omettere questo parametro +user. Nell'esempio seguente viene rimosso l'ultimo account utente di cui è stato effettuato il provisioning:
+1. Usare il protocollo SSH, il nome dell'account e l'indirizzo IP pubblico della macchina virtuale per connettersi ad essa ed effettuarne il deprovisioning. È possibile cercare un indirizzo IP pubblico con [az network public-ip show](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#az-network-public-ip-show). Il parametro +user rimuove anche l'ultimo account utente di cui è stato effettuato il provisioning. Se si sta effettuando il back-up delle credenziali dell'account nella macchina virtuale, omettere questo parametro +user. Nell'esempio seguente viene rimosso l'ultimo account utente di cui è stato effettuato il provisioning:
 
     ```bash
-    ssh azureuser@40.118.249.235
+    ssh azureuser@<publicIpAddress>
     sudo waagent -deprovision+user -force
     exit 
     ```

@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 43dcdf9ab0fee5f7e61ecdc42aaf40430e272d92
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Pubblicare in un argomento personalizzato per la Griglia di eventi di Azure
 
@@ -91,8 +91,34 @@ Ad esempio, uno schema di dati evento valido è:
 }]
 ```
 
+## <a name="response"></a>Risposta
+
+Dopo la pubblicazione nell'endpoint dell'argomento, si riceve una risposta. La risposta è un codice di risposta HTTP standard. Alcune risposte comuni sono:
+
+|Risultato  |Risposta  |
+|---------|---------|
+|Success  | 200 - OK  |
+|Endpoint non corretto | 404 - Non trovato |
+|Chiave di accesso non valida | 401 - Non autorizzato |
+|I dati di evento hanno un formato non corretto | 400 - Richiesta non valida |
+
+Per gli errori, il corpo del messaggio ha il formato seguente:
+
+```json
+{
+    "error": {
+        "code": "<HTTP status code>",
+        "message": "<description>",
+        "details": [{
+            "code": "<HTTP status code>",
+            "message": "<description>"
+    }]
+  }
+}
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un'introduzione al routing degli eventi personalizzati, vedere [Creare e instradare eventi personalizzati con l'interfaccia della riga di comando di Azure e Griglia di eventi](custom-event-quickstart.md) o [Creare e instradare eventi personalizzati con Azure PowerShell e Griglia di eventi](custom-event-quickstart-powershell.md).
+* Per informazioni sul monitoraggio dei recapiti degli eventi, vedere [Monitorare il recapito dei messaggi di Griglia di eventi di Azure](monitor-event-delivery.md).
 * Per altre informazioni sulla chiave di autenticazione, vedere [Sicurezza e autenticazione di Griglia di eventi](security-authentication.md).
 * Per altre informazioni sulla creazione di una sottoscrizione di Griglia di eventi di Azure, vedere [Schema di sottoscrizione per Griglia di eventi](subscription-creation-schema.md).

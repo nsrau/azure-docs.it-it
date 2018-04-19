@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 50965010d821d4edf94e2f5727546cb56f61f5db
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 42fdfa2eb629351c38fb72c20a62cd7d78acf229
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -70,7 +70,7 @@ Il parametro **mode** (modalità) determina quali tipi di risorse verranno valut
 * `all`: vengono valutati i gruppi di risorse e tutti i tipi di risorse 
 * `indexed`: vengono valutati solo i tipi di risorse che supportano tag e il percorso
 
-Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** su `all`. Tutte le definizioni di criteri create tramite il portale usano la modalità `all`. Se si usa PowerShell o l'interfaccia della riga di comando di Azure, è necessario specificare il parametro **mode** manualmente.
+Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** su `all`. Tutte le definizioni di criteri create tramite il portale usano la modalità `all`. Se si usa PowerShell o l'interfaccia della riga di comando di Azure, è necessario specificare il parametro **mode** manualmente. Se la definizione dei criteri non contiene un valore **mode**, come valore predefinito viene usato `indexed` per compatibilità con le versioni precedenti.
 
 `indexed` deve essere usato quando la creazione di criteri consente di applicare tag o percorsi. Anche se questo non è necessario, così facendo le risorse che non supportano tag e percorsi saranno visualizzate come non conformi nei risultati sulla conformità. L'unica eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che tentano di applicare percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroup`. Per un esempio, vedere [Applicare tag di gruppi di risorse](scripts/enforce-tag-rg.md).
 
@@ -102,6 +102,8 @@ Nella proprietà dei metadati è possibile usare **strongType** per fornire un e
 * `"resourceTypes"`
 * `"storageSkus"`
 * `"vmSKUs"`
+* `"existingResourceGroups"`
+* `"omsWorkspace"`
 
 Nella regola dei criteri, fare riferimento ai parametri con la sintassi seguente:
 

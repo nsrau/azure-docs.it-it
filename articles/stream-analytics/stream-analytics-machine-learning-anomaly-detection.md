@@ -1,22 +1,19 @@
 ---
-title: Guida all'utilizzo del rilevamento delle anomalie in Azure (anteprima)| Microsoft Docs
-description: Usare l'analisi di flusso e Machine Learning per rilevare le anomalie.
+title: Rilevamento delle anomalie in Analisi di flusso di Azure (anteprima)
+description: Questo articolo descrive come rilevare le anomalie usando Analisi di flusso di Azure e Azure Machine Learning insieme.
 services: stream-analytics
-documentationcenter: ''
 author: dubansal
-manager: katicad
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 02/12/2018
 ms.author: dubansal
-ms.openlocfilehash: 9d301f8586038f635ee97a3acdc9c4dc8a2bbcc6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 02/12/2018
+ms.openlocfilehash: cda5c26d4256720a8cf9af0e9abd604c979422a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Rilevamento delle anomalie in Analisi di flusso di Azure
 

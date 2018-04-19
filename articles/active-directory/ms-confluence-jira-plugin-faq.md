@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sul plug-in Single Sign-On di Microsoft Azure Active Directory | Microsoft Docs
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Microsoft Azure Active Directory single sign-on for JIRA.
+title: Domande frequenti sul plug-in Single Sign-On di Azure Active Directory | Microsoft Docs
+description: Risposte alle domande frequenti sulla configurazione del Single Sign-On tra Azure Active Directory e Jira/Confluence.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,70 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 571fbd5078f66375f6e81cba2a790121366f9d60
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b642d6de9fd9265d7f7ee11b827a36d20e5bcce7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="microsoft-azure-active-directory-single-sign-on-plugin-faq"></a>Domande frequenti sul plug-in Single Sign-On di Microsoft Azure Active Directory 
+# <a name="faq-for-the-azure-active-directory-sso-plug-in"></a>Domande frequenti sul plug-in Single Sign-On di Azure Active Directory 
 
-## <a name="1-whats-the-microsoft-sso-add-on"></a>1. Che cos'è il componente aggiuntivo Single Sign-On di Microsoft?
+## <a name="what-does-the-plug-in-do"></a>A cosa serve il plug-in?
 
-Questo componente aggiuntivo fornisce funzionalità di accesso Single Sign-On per applicazioni software JIRA (tra cui JIRA Core, JIRA Software, JIRA Service Desk) e Atlassian locali. Interagisce con Azure Active Directory come provider di identità.
+Il plug-in fornisce funzionalità di accesso Single Sign-On per il software locale Atlassian Jira (tra cui JIRA Core, JIRA Software, JIRA Service Desk) e Confluence. Il plug-in funziona con Azure Active Directory (Azure AD) come provider di identità.
 
-## <a name="2-add-on-works-with-which-atlassian-products"></a>2. Questo componente aggiuntivo funziona con i prodotti Atlassian?
+## <a name="which-atlassian-products-does-the-plug-in-work-with"></a>Con quali prodotti Atlassian si può usare il plug-in?
 
-Per il momento questo componente aggiuntivo funziona solo con versioni locali di JIRA and Confluence.
+Il plug-in funziona solo con le versioni locali di Jira e Confluence.
 
-## <a name="3-does-this-add-on-work-on-cloud-version"></a>3. Questo componente aggiuntivo funziona con le versioni cloud?
+## <a name="does-the-plug-in-work-on-cloud-versions"></a>Il plug-in funziona con le versioni cloud?
 
-No. Sono supportate solo le versioni locali di JIRA e Confluence.
+di serie Il plug-in supporta solo le versioni locali di Jira e Confluence.
 
-## <a name="4-which-versions-of-jira-and-confluence-are-supported"></a>4. Quali versioni di JIRA e Confluence sono supportate?
+## <a name="which-versions-of-jira-and-confluence-does-the-plug-in-support"></a>Quali sono le versioni di Jira e Confluence supportate dal plug-in?
 
-Di seguito è riportato l'elenco delle versioni supportate:
+Il plug-in supporta queste versioni:
 
-* JIRA Core e Software: da 6.0 a 7.2.2 
-* JIRA Service Desk: da 3.0 a 3.2 
+* Jira Core e Software: da 6.0 a 7.2.2 
+* Jira Service Desk: da 3.0 a 3.2 
 * Confluence: da 5.0 a 5.10
 
-## <a name="5-is-this-add-on-free-or-paid"></a>5. Questo componente aggiuntivo è gratuito o a pagamento?
+## <a name="is-the-plug-in-free-or-paid"></a>Il plug-in è gratuito o a pagamento?
 
-È un componente aggiuntivo gratuito che può essere installato dal marketplace di Atlassian.
+È un componente aggiuntivo gratuito. È possibile installarlo dal marketplace di Atlassian.
 
-## <a name="6-do-i-need-to-restart-jiraconfluence-once-i-deploy-the-add-on"></a>6. È necessario riavviare JIRA/Confluence dopo aver distribuito questo componente aggiuntivo?
+## <a name="do-i-need-to-restart-jira-or-confluence-after-i-deploy-the-plug-in"></a>È necessario riavviare Jira o Confluence dopo aver distribuito questo plug-in?
 
-Non è necessario eseguire il riavvio dopo aver distribuito questo componente aggiuntivo. Dopo averlo distribuito, è possibile iniziare subito a usarlo.
+Il riavvio non è necessario. È possibile iniziare a usare il plug-in immediatamente.
 
-## <a name="7-how-do-i-get-support-for-the-add-on"></a>7. Come è possibile ottenere assistenza per questo componente aggiuntivo?
+## <a name="how-do-i-get-support-for-the-plug-in"></a>Come è possibile ottenere assistenza per questo plug-in?
 
-È possibile contattare: <email>. Verrà fornita una risposta entro <> ore. È possibile anche aprire un ticket di assistenza con Microsoft tramite il canale del portale di Azure. È possibile anche chiamare il numero : <Number> tra le <> e le <> durante i giorni feriali.
+Contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Il team risponde in 24-48 ore. 
 
-## <a name="8-would-this-add-on-work-on-mac-or-ubuntu-installation-of-jira-and-confluence"></a>8. Questo componente aggiuntivo funziona anche con installazioni di JIRA e Confluence su sistemi Mac e Ubuntu?
+È possibile anche aprire un ticket di assistenza con Microsoft tramite il canale del portale di Azure.
 
-Questo componente aggiuntivo è stato testato solo su installazioni di JIRA e Confluence in server Windows a 64 bit.
+## <a name="would-the-plug-in-work-on-a-mac-or-ubuntu-installation-of-jira-and-confluence"></a>Il plug-in funziona anche con installazioni di Jira e Confluence su sistemi Mac e Ubuntu?
 
-## <a name="9-does-this-add-on-work-with-other-idps-than-azure-ad"></a>9. Questo componente aggiuntivo funziona anche con provider di identità diversi da Azure Active Directory?
+Questo plug-in è stato testato solo su installazioni di Jira e Confluence in Windows Server a 64 bit.
 
-No. Questo componente aggiuntivo funziona solo con Azure Active Directory.
+## <a name="does-the-plug-in-work-with-idps-other-than-azure-ad"></a>Il plug-in funziona con provider di identità diversi da Azure AD?
 
-## <a name="10-what-version-of-saml-does-the-add-on-work-with"></a>10. Con quale versione di SAML funziona questo componente aggiuntivo?
+di serie Funziona solo con Azure AD.
 
-Questo componente aggiuntivo funziona con SAML 2.0.
+## <a name="what-version-of-saml-does-the-plug-in-work-with"></a>Con quale versione di SAML funziona questo plug-in?
 
-## <a name="11-does-the-add-on-do-use-provisioning-as-well"></a>11. Questo componente aggiuntivo usa anche il provisioning?
+Funziona con SAML 2.0.
 
-No. Per il momento questo componente aggiuntivo fornisce solo accesso Single Sign-On basato su SAML 2.0. È quindi necessario che venga eseguito il provisioning dell'utente nell'applicazione prima di poter effettuare l'accesso Single Sign-On.
+## <a name="does-the-plug-in-do-user-provisioning"></a>Il plug-in esegue il provisioning degli utenti?
 
-## <a name="12-are-cluster-versions-of-jira-and-confluence-supported-by-add-on"></a>12. Sono supportate le versioni cluster di JIRA e Confluence dal componente aggiuntivo?
+di serie Il plug-in fornisce solo accesso Single Sign-On basato su SAML 2.0. È quindi necessario che venga eseguito il provisioning dell'utente nell'applicazione prima di poter effettuare l'accesso Single Sign-On.
 
-No. Questo componente aggiuntivo funziona solo con le versioni locali di JIRA and Confluence.
+## <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>Il plug-in supporta le versioni cluster di Jira e Confluence?
 
-## <a name="13-would-this-plugin-work-with-http-version-of-jira-and-confluence"></a>13. Questo plug-in funziona con le versioni HTTP di JIRA e Confluence?
+di serie Il plug-in funziona solo con le versioni locali di Jira e Confluence.
 
-No. Questo componente aggiuntivo funziona solo con installazioni abilitate per HTTPS.
+## <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>Il plug-in funziona con le versioni HTTP di Jira e Confluence?
 
-## <a name="14-do-i-need-to-buy-license-of-the-add-on"></a>14. È necessario acquistare una licenza del componente aggiuntivo?
-
-No, è gratuito.
+di serie Questo plug-in funziona solo con installazioni abilitate per HTTPS.

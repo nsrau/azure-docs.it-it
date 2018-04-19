@@ -6,13 +6,13 @@ keywords: ansible, ruoli, matrice, versione, azure, devops
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/19/2018
+ms.date: 03/25/2018
 ms.topic: article
-ms.openlocfilehash: f62cc2df9e4ce815c4427b80e271ddc672748e4f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 011cb173ffdecc7a22c2e470209719ccaf6bda58
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="ansible-module-and-version-matrix"></a>Modulo Ansible e matrice della versione
 
@@ -20,7 +20,7 @@ ms.lasthandoff: 02/01/2018
 Ansible viene fornito di serie con un insieme di moduli che è possibile eseguire tramite playbook o direttamente in host remoti.
 Questo articolo elenca i moduli Ansible per Azure che possono effettuare il provisioning di risorse cloud di Azure, ad esempio macchine virtuali, reti e servizi contenitore. È possibile ottenere i moduli dalla versione ufficiale di Ansible o dai seguenti ruoli dei playbook pubblicati da Microsoft.
 
-| Modulo Ansible per Azure                   |  Ansible 2.4 |  Ruolo playbook [azure_module](#introduction-to-azuremodule) |  Ruolo playbook [azure_preview_module](#introduction-to-azurepreviewmodule) | 
+| Modulo Ansible per Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ruolo playbook [azure_preview_module](#introduction-to-azurepreviewmodule) | 
 |---------------------------------------------|--------------|-----------------------------|-------------------------------------| 
 | **Calcolo**                    |           |                          |                                  | 
 | azure_rm_availabilityset                    | Sì          | Sì                         | Sì                                 | 
@@ -54,7 +54,7 @@ Questo articolo elenca i moduli Ansible per Azure che possono effettuare il prov
 | azure_rm_appgwroute_facts                   | -            | -                           | Sì                                 |
 | azure_rm_appgwroutetable                    | -            | -                           | Sì                                 |
 | azure_rm_securitygroup                      | Sì          | Sì                         | Sì                                 | 
-| azure_rm_appgwroutetable_facts              | Sì          | Sì                         | Sì                                 | 
+| azure_rm_appgwroutetable_facts              | -            | -                           | Sì                                 | 
 | **Archiviazione**                    |           |                          |                                  | 
 | azure_rm_storageaccount                     | Sì          | Sì                         | Sì                                 | 
 | azure_rm_storageaccount_facts               | Sì          | Sì                         | Sì                                 | 
@@ -76,7 +76,7 @@ Questo articolo elenca i moduli Ansible per Azure che possono effettuare il prov
 | azure_rm_functionapp_facts                  | Sì          | Sì                         | Sì                                 | 
 | **Database**                    |           |                          |                                  | 
 | azure_rm_sqlserver                          | -            | Sì                         | Sì                                 | 
-| azure_rm_sqlserver_facts                    | -            | -                           | Sì                                 | 
+| azure_rm_sqlserver_facts                    | -            | Sì                         | Sì                                 | 
 | azure_rm_sqldatabase                        | -            | Sì                         | Sì                                 | 
 | azure_rm_sqldatabase_facts                  | -            | -                           | Sì                                 | 
 | azure_rm_sqlelasticpool                     | -            | -                           | Sì                                 | 
@@ -100,17 +100,13 @@ Questo articolo elenca i moduli Ansible per Azure che possono effettuare il prov
 | azure_rm_postgresqlconfiguration            | -            | -                           | Sì                                 | 
 | azure_rm_postgresqlconfiguration_facts      | -            | -                           | Sì                                 | 
 | **Insieme di credenziali di chiave**                    |           |                          |                                  | 
-| azure_rm_keyvault                           | -            | -                           | Sì                                 |
+| azure_rm_keyvault                           | -            | Sì                         | Sì                                 |
 | azure_rm_keyvault_facts                     | -            | -                           | Sì                                 |
-| azure_rm_keyvaultkey                        | -            | -                           | Sì                                 |
-| azure_rm_keyvaultsecret                     | -            | -                           | Sì                                 |
+| azure_rm_keyvaultkey                        | -            | Sì                         | Sì                                 |
+| azure_rm_keyvaultsecret                     | -            | Sì                         | Sì                                 |
 
-## <a name="introduction-to-azuremodule"></a>Introduzione ad azure_module
-Il [ruolo playbook azure_module](https://galaxy.ansible.com/Azure/azure_modules/) include le ultime modifiche e correzioni di bug per i moduli di Azure ottenute dal [ramo sviluppo del repository Ansible](https://github.com/ansible/ansible/tree/devel). Se non è possibile attendere la versione successiva di Ansible, è opportuno installare il ruolo azure_module.
 
-Il ruolo playbook azure_module viene rilasciato ogni tre settimane.
-
-## <a name="introduction-to-azurepreviewmodule"></a>Introduzione ad azure_preview_module
+## <a name="introduction-to-playbook-role-for-azure"></a>Introduzione al ruolo playbook per Azure
 Il [ruolo playbook azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) è il ruolo più completo e include tutti i più recenti moduli di Azure. Gli aggiornamenti e le correzioni di bug vengono apportati in modo più tempestivo rispetto alla versione ufficiale di Ansible. Se si usa Ansible per il provisioning di risorse di Azure, si consiglia di installare il ruolo azure_preview_module.
 
 Il ruolo playbook azure_preview_module viene rilasciato ogni tre settimane.

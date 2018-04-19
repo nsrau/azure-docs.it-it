@@ -9,13 +9,13 @@ ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 3806b165e0124e979f59b51d5583cdbb1f949366
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Distribuire ed esplorare un'applicazione di database multi-tenant partizionato che usa il database SQL di Azure
 
@@ -45,7 +45,7 @@ Tutti gli utenti possono scaricare il codice sorgente C# e PowerShell per Wingti
 
 È disponibile una serie di esercitazioni correlate, basate su questa distribuzione iniziale, che consentono di esaminare vari modelli di progettazione e gestione SaaS. Nel corso delle esercitazioni gli utenti sono incoraggiati a eseguire gli script passo per passo in modo da osservare la modalità di implementazione dei diversi modelli SaaS.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
@@ -57,7 +57,7 @@ Per completare questa esercitazione, verificare che i prerequisiti seguenti sian
 
 Nei passaggi di questa sezione si forniscono un valore *utente* usato per assicurare che i nomi delle risorse siano univoci a livello globale e un nome per il *gruppo di risorse* contenente tutte le risorse create da una distribuzione dell'app. Per un utente di nome *Ann Finley* si consiglia:
 - *Utente:* **af1***, ossia le iniziali e un numero. Usare un valore diverso, ad esempio af2, se si distribuisce l'app una seconda volta.*
-- *Gruppo di risorse:* **wingtip-dpt-af1** *: wingtip dpt indica che si tratta dell'app con un database per ogni tenant. L'aggiunta del nome utente af1 correla il nome del gruppo di risorse con i nomi delle risorse in esso contenute.*
+- *Gruppo di risorse:* **wingtip-mt-af1** *: wingtip-mt indica che si tratta dell'app multi-tenant partizionata. L'aggiunta del nome utente af1 correla il nome del gruppo di risorse con i nomi delle risorse in esso contenute.*
 
 Scegliere ora i nomi e annotarli. 
 
@@ -123,7 +123,7 @@ Ogni sede è associata a un'app Web personalizzata in cui sono elencati i relati
 In una pagina Web centrale **Events Hub** (Hub eventi) sono elencati i collegamenti ai tenant nella distribuzione specifica. Attenersi alla seguente procedura per provare la pagina Web **Events Hub** (Hub eventi) e un'app Web singola:
 
 1. Aprire la pagina **Events Hub** (Hub eventi) nel Web browser:
-    - http://events.wingtip-mt.&lt;utente&gt;.trafficmanager.net &nbsp; *(sostituire &lt;utente&gt; con il valore relativo all'utente della distribuzione).*
+    - http://events.wingtip-mt.&lt;utente&gt;.trafficmanager.net &nbsp; *Sostituire &lt;utente&gt; con il valore corrispondente all'utente della distribuzione.*
 
     ![Hub eventi](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -135,7 +135,7 @@ In una pagina Web centrale **Events Hub** (Hub eventi) sono elencati i collegame
 
 Per controllare la distribuzione delle richieste in ingresso, l'app usa [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md). La pagina degli eventi per ogni tenant include il nome del tenant nell'URL. Ogni URL include anche il valore di utente specifico. Ogni URL rispetta il formato indicato usando la procedura seguente:
 
-- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;utente&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. L'app degli eventi analizza il nome del tenant nell'URL. Il nome del tenant è *fabrikamjazzclub* nell'URL di esempio precedente.
 2. L'app esegue quindi l'hash del nome del tenant per creare una chiave di accesso a un catalogo usando il [gestore delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md).

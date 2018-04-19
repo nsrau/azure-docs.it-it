@@ -2,10 +2,10 @@
 title: Gestire l'accesso guest con le verifiche di accesso di Azure AD | Microsoft Docs
 description: Gestire gli utenti guest come membri di un gruppo o assegnati a un'applicazione con le verifiche di accesso di Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 8d5cc8035d085ac9c8fc46077376836726afbb1a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 564f4f4a3f7532a7419e15b91fdbae9ee12088fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gestire l'accesso guest con le verifiche di accesso di Azure AD
 
@@ -105,15 +105,15 @@ In alcune organizzazioni i guest potrebbero non essere consapevoli delle proprie
 > [!NOTE]
 > Le versioni precedenti del portale di Azure non consentivano l'accesso amministrativo da parte degli utenti con l'attributo UserType impostato su Guest. In alcuni casi, un amministratore nella directory potrebbe avere modificato il valore dell'attributo UserType del guest su membro tramite PowerShell. Se questa modifica è avvenuta in precedenza nella directory, la query precedente potrebbe non includere tutti gli utenti guest che avevano diritti di accesso amministrativo. In questo caso è necessario modificare l'attributo UserType del guest o includere manualmente il guest nell'appartenenza al gruppo.
 
-1. Creare un gruppo di sicurezza di Azure AD con i guest come membri, se non ne esiste già un gruppo appropriato. Ad esempio, è possibile creare un gruppo con un'appartenenza gestita manualmente di guest. In alternativa, è possibile creare un gruppo dinamico con un nome, ad esempio "Guest di Contoso" per gli utenti nel tenant Contoso con l'attributo UserType impostato su valore Guest.
+1. Creare un gruppo di sicurezza di Azure AD con i guest come membri, se non ne esiste già un gruppo appropriato. Ad esempio, è possibile creare un gruppo con un'appartenenza gestita manualmente di guest. In alternativa, è possibile creare un gruppo dinamico con un nome, ad esempio "Guest di Contoso" per gli utenti nel tenant Contoso con l'attributo UserType impostato su valore Guest.  Per una maggiore efficienza, verificare che il gruppo sia composto essenzialmente da membri guest: non selezionare un gruppo composto da utenti che non devono essere sottoposti a verifica.
 
 2. Per iniziare una verifica di accesso per questo gruppo, selezionare come revisori i membri stessi. Per altre informazioni, vedere l'articolo su come [creare una verifica di accesso](active-directory-azure-ad-controls-create-access-review.md).
 
-3. Chiedere a ogni guest di verificare la propria appartenenza. Per impostazione predefinita, ogni guest che ha accettato un invito riceverà un messaggio di posta elettronica da Azure AD con un collegamento alla verifica di accesso nel pannello di accesso dell'organizzazione. Azure AD include istruzioni per i guest su [come verificare l'accesso](active-directory-azure-ad-controls-perform-access-review.md).
+3. Chiedere a ogni guest di verificare la propria appartenenza. Per impostazione predefinita, ogni guest che ha accettato un invito riceverà un messaggio di posta elettronica da Azure AD con un collegamento alla verifica di accesso nel pannello di accesso dell'organizzazione. Azure AD include istruzioni per i guest su [come verificare l'accesso](active-directory-azure-ad-controls-perform-access-review.md).  I guest che non hanno accettato l'invito verranno visualizzati nei risultati della verifica come "Senza notifica".
 
 4. Dopo che i revisori avranno espresso il proprio giudizio, interrompere la verifica di accesso. Per altre informazioni, vedere l'articolo su come [completare una verifica di accesso](active-directory-azure-ad-controls-complete-access-review.md).
 
-5. Rimuovere l'accesso guest per i guest per cui è stato negato l'accesso, che non hanno completato la verifica o non hanno accettato in precedenza l'invito. Se alcuni guest sono contatti che erano stati selezionati per partecipare alla verifica perché non avevano accettato un invito in precedenza, è possibile disabilitare i relativi account usando il portale di Azure o PowerShell. Se il guest non necessita più dell'accesso e non è un contatto, è possibile rimuovere il relativo oggetto utente dalla directory usando il portale di Azure o PowerShell.
+5. Rimuovere l'accesso guest per i guest per cui è stato negato l'accesso, che non hanno completato la verifica o non hanno accettato in precedenza l'invito. Se alcuni guest sono contatti che erano stati selezionati per partecipare alla verifica o non avevano accettato un invito in precedenza, è possibile disabilitare i relativi account usando il portale di Azure o PowerShell. Se il guest non necessita più dell'accesso e non è un contatto, è possibile rimuovere il relativo oggetto utente dalla directory usando il portale di Azure o PowerShell per eliminare l'oggetto utente guest.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

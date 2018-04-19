@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 53d8c099d68fd7eb3f00fb4d1be7ec54404521ff
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 43bac88a7ab6320c5fdcc9dc0fb6b5209bdbcaa3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di un database SQL di Azure multi-tenant partizionato in un'app SaaS multi-tenant
 
@@ -49,7 +49,7 @@ La gestione delle prestazioni dei database comprende la compilazione e l'analisi
 
 Il [portale di Azure](https://portal.azure.com) include funzionalità di monitoraggio e avviso predefinite per la maggior parte delle risorse. Per il database SQL, le funzionalità di monitoraggio e avviso sono disponibili sui database. Le funzionalità di monitoraggio e avviso predefinite sono specifiche delle risorse, quindi è comodo usarle per un numero limitato di risorse, mentre non sono utili quando si usano molte risorse.
 
-Per gli scenari con volumi elevati in cui si lavora con molte risorse, si può usare [Log Analytics (OMS)](https://azure.microsoft.com/services/log-analytics/). Si tratta di un servizio di Azure separato che fornisce funzionalità di analisi per log di diagnostica e dati di telemetria raccolti in un'area di lavoro di Log Analytics. Log Analytics consente di raccogliere dati di telemetria da molti servizi e supporta l'esecuzione di query e l'impostazione di avvisi.
+Per gli scenari con volumi elevati, in cui si lavora con molte risorse, è possibile usare [Log Analytics](https://azure.microsoft.com/services/log-analytics/). Si tratta di un servizio di Azure separato che fornisce funzionalità di analisi per log di diagnostica e dati di telemetria raccolti in un'area di lavoro di Log Analytics. Log Analytics consente di raccogliere dati di telemetria da molti servizi e supporta l'esecuzione di query e l'impostazione di avvisi.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Ottenere gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant Wingtip Tickets
 

@@ -1,6 +1,6 @@
 ---
 title: Gestire il costo dei dati in Azure Log Analytics | Microsoft Docs
-description: Informazioni su come modificare il piano tariffario e gestire il volume e i criteri di conservazione dei dati per l'area di lavoro di Log Analytics nel portale di Azure.
+description: Informazioni su come modificare il piano tariffario e gestire il volume e i criteri di conservazione dei dati per l'area di lavoro di Log Analytics in Azure.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 629031310eba21bc3308754706bd7ba227009ac6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8fb20fc9e6249a2d19d62df1ce331ce873d5fd3d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="manage-cost-by-controlling-data-volume-and-retention-with-your-log-analytics-workspace"></a>Gestire i costi controllando il volume e i criteri di conservazione dei dati con l'area di lavoro di Log Analytics
+# <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gestire i costi controllando i volumi e la conservazione di dati in Log Analytics
 Log Analytics è un servizio progettato per offrire scalabilità e supportare la raccolta, l'indicizzazione e l'archiviazione di grandi quantità di dati al giorno da qualsiasi origine aziendale o distribuita in Azure.  Anche se si tratta di uno strumento importante per l'organizzazione, è comunque fondamentale ottimizzare i costi. A tale scopo, è importante comprendere che il costo di un'area di lavoro di Log Analytics non si basa solo sul volume dei dati raccolti, ma dipende anche dal piano selezionato e dal periodo di tempo di archiviazione dei dati generati dalle origini connesse.  
 
 In questo articolo viene esaminato come monitorare in modo proattivo il volume dei dati e l'aumento dello spazio di archiviazione e definire i limiti per controllare i costi associati. 

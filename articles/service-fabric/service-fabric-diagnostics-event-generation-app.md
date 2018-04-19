@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: f3e7b9c7432538c0f78662213544d4d691652f13
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7af0dd37b5c16e48ce4e504211e68a29cf8bce77
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="application-and-service-level-logging"></a>Registrazione a livello di applicazione e servizio
 
@@ -36,10 +36,11 @@ Quando si crea una soluzione di Azure Service Fabric da un modello in Visual Stu
 
 È importante pianificare con attenzione la strumentazione del codice. Il piano di strumentazione corretto può consentire di evitare la potenziale destabilizzazione della codebase e la conseguente necessità di ripetere la strumentazione del codice. Per ridurre il rischio, è possibile scegliere una libreria di strumentazione come [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/), inclusa in Microsoft ASP.NET Core. ASP.NET Core ha un'interfaccia [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) che può essere usata con il provider preferito, riducendo al minimo l'effetto sul codice esistente. È possibile usare il codice in ASP.NET Core in Windows e Linux e in .NET Framework completo, in modo da standardizzare la strumentazione del codice.
 
-## <a name="choosing-a-logging-provider"></a>Scelta di un provider di registrazione
+## <a name="application-insights-sdk"></a>Application Insights SDK
 
-Se l'applicazione si basa sulle prestazioni elevate, **EventSource** è in genere l'approccio ottimale. **EventSource** usa *in genere* un numero minore di risorse e offre prestazioni migliori rispetto alla registrazione di ASP.NET Core o di eventuali soluzioni di terze parti disponibili.  Non è un problema per molti servizi, ma se il servizio è orientato alle prestazioni **EventSource** si rivela la scelta più indicata. Tuttavia per ottenere questi vantaggi della registrazione strutturata, **EventSource** richiede un investimento maggiore da parte del team tecnico. Se possibile, effettuare un rapido prototipo di alcune opzioni di registrazione e quindi scegliere quello che meglio soddisfa le esigenze dell'utente.
+Application Insights offre un'integrazione avanzata predefinita con Service Fabric. Gli utenti possono aggiungere i pacchetti nuget di intelligenza artificiale per Service Fabric e ricevere dati e log creati e raccolti visualizzabili nel portale di Azure. Inoltre, gli utenti sono invitati ad aggiungere i propri dati di telemetria per diagnosticare ed eseguire il debug delle applicazioni e rilevare i servizi e le parti dell'applicazione usate con maggior frequenza. La classe [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) nell'SDK offre diversi modi per rilevare la telemetria nelle applicazioni. Consultare un esempio su come instrumentare e aggiungere Application Insights all'applicazione in questa esercitazione per il [monitoraggio e la diagnosi di un'applicazione .NET](service-fabric-tutorial-monitoring-aspnet.md)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver scelto il provider di accesso per instrumentare le applicazioni e i servizi, è necessario aggregare i log e gli eventi prima di inviarli a una piattaforma. Per meglio comprendere alcune delle opzioni consigliate leggere altre informazioni su [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) e [WAD](service-fabric-diagnostics-event-aggregation-wad.md).
+Dopo aver scelto il provider di accesso per instrumentare le applicazioni e i servizi, è necessario aggregare i log e gli eventi prima di inviarli a una piattaforma. Per comprendere meglio alcune delle opzioni consigliate, vedere gli articoli relativi a [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md), [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) e [WAD](service-fabric-diagnostics-event-aggregation-wad.md).

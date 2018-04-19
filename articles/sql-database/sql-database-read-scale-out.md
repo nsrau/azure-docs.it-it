@@ -1,0 +1,104 @@
+---
+title: Database SQL di Azure - Leggere le query nelle repliche | Microsoft Docs
+description: Il database SQL di Azure consente di bilanciare il carico dei carichi di lavoro di sola lettura usando la funzionalità delle repliche di sola lettura, chiamata scalabilità in lettura.
+services: sql-database
+author: anosov1960
+manager: craigg
+ms.service: sql-database
+ms.custom: monitor & tune
+ms.topic: article
+ms.date: 04/04/2018
+ms.author: sashan
+ms.openlocfilehash: 26204d5bd61d193a3d08e26f98faf77ecc367a94
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/05/2018
+---
+# <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Usare le repliche di sola lettura per bilanciare il carico dei carichi di lavoro di query di sola lettura (anteprima)
+
+La **scalabilità in lettura** consente di bilanciare il carico dei carichi di lavoro di sola lettura del database SQL di Azure usando la funzionalità delle repliche di sola lettura. 
+
+## <a name="overview-of-read-scale-out"></a>Panoramica della scalabilità in lettura
+
+Di ogni database nel livello Premium ([modello di acquisto basato su DTU](sql-database-service-tiers.md#dtu-based-purchasing-model)) o nel livello Business Critical ([modello di acquisto basato su vCore](sql-database-service-tiers.md#vcore-based-purchasing-model-preview)) viene effettuato il provisioning automatico con diverse repliche Always On per supportare il contratto di servizio per la disponibilità. Il provisioning di queste repliche viene effettuato con lo stesso livello di prestazioni della replica di lettura/scrittura usata dalle normali connessioni di database. La funzionalità di **scalabilità in lettura** consente di bilanciare il carico dei carichi di lavoro di sola lettura del database SQL usando la capacità delle repliche di sola lettura invece di condividere la replica di lettura/scrittura. In questo modo il carico di lavoro di sola lettura verrà isolato dal carico di lavoro principale di lettura/scrittura e non ne comprometterà le prestazioni. La funzionalità è destinata alle applicazioni che includono carichi di lavoro di sola lettura separati in modo logico, ad esempio dati di analisi, e quindi potrebbero migliorare le prestazioni usando questa ulteriore capacità senza costi aggiuntivi.
+
+Per usare la funzionalità di scalabilità in lettura con un determinato database, è necessario abilitarla in modo esplicito quando si crea il database oppure in seguito modificandone la configurazione con PowerShell richiamando i cmdlet [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) oppure tramite l'API REST di Azure Resource Manager con il metodo [Databases - Create or Update](/rest/api/sql/databases/createorupdate) (Database - Creare o aggiornare). 
+
+Dopo che la scalabilità in lettura è stata abilitata per un database, le applicazioni che si connettono a tale database verranno indirizzate alla replica di lettura/scrittura o a una replica di sola lettura di tale database a seconda della proprietà `ApplicationIntent` configurata nella stringa di connessione dell'applicazione. Per informazioni sulla proprietà `ApplicationIntent`, vedere [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) (Specifica della finalità dell'applicazione).
+
+> [!NOTE]
+> Durante l'anteprima, Query Data Store ed Eventi estesi non sono supportati nelle repliche di sola lettura.
+
+## <a name="data-consistency"></a>Coerenza dei dati
+
+Uno dei vantaggi di AlwaysOn è che le repliche sono sempre in uno stato coerente a livello di transazione, ma per temporizzazioni diverse potrebbe verificarsi una breve latenza tra le diverse repliche. La scalabilità in lettura supporta la coerenza a livello di sessione. Se quindi la sessione di sola lettura si riconnette dopo un errore di connessione causato dalla mancata disponibilità della replica, può essere reindirizzata a una replica non aggiornata al 100% con la replica di lettura/scrittura. Analogamente, se un'applicazione scrive i dati usando una sessione di lettura/scrittura e li legge immediatamente usando una sessione di sola lettura, gli aggiornamenti più recenti potrebbero non essere immediatamente visibili. La fase di rollforward del log delle transazioni per le repliche è infatti asincrona.
+
+> [!NOTE]
+> Le latenze di replica nell'area sono basse e questa situazione è rara.
+
+
+## <a name="connecting-to-a-read-only-replica"></a>Connessione a una replica di sola lettura
+
+Quando si abilita la scalabilità in lettura per un database, l'opzione `ApplicationIntent` nella stringa di connessione fornita dal client indica se la connessione viene instradata alla replica in scrittura o a una replica di sola lettura. In particolare, se il valore di `ApplicationIntent` è `ReadWrite` (valore predefinito), la connessione verrà indirizzata alla replica di lettura/scrittura del database. È un comportamento identico a quello esistente. Se il valore di `ApplicationIntent` è `ReadOnly`, la connessione viene instradata a una replica leggibile.
+
+La stringa di connessione seguente, ad esempio, connette il client a una replica di sola lettura (sostituendo gli elementi nelle parentesi acute con i valori corretti per l'ambiente ed eliminando le parentesi acute):
+
+```SQL
+Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
+```
+
+Entrambe la stringhe di connessione seguenti connettono il client a una replica di lettura/scrittura (sostituendo gli elementi nelle parentesi acute con i valori corretti per l'ambiente ed eliminando le parentesi acute):
+
+```SQL
+Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadWrite;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
+
+Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
+```
+
+## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Abilitare e disabilitare la scalabilità in lettura usando Azure PowerShell
+
+Per gestire la scalabilità in lettura in Azure PowerShell, è necessaria la versione di Azure PowerShell di dicembre 2016 o una successiva. Per la versione più recente di PowerShell, vedere [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+
+Abilitare o disabilitare la scalabilità in lettura in Azure PowerShell richiamando il cmdlet [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) e passando il valore desiderato (`Enabled` o `Disabled`) per il parametro `-ReadScale`. In alternativa, è possibile usare il cmdlet [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) per creare un nuovo database con la scalabilità in lettura abilitata.
+
+Ad esempio, per abilitare la scalabilità in lettura per un database esistente (sostituendo gli elementi nelle parentesi acute con i valori corretti per l'ambiente ed eliminando le parentesi acute):
+
+```powershell
+Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
+```
+
+Per disabilitare la scalabilità in lettura per un database esistente (sostituendo gli elementi nelle parentesi acute con i valori corretti per l'ambiente ed eliminando le parentesi acute):
+
+```powershell
+Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
+```
+
+Per creare un nuovo database con la scalabilità in lettura abilitata (sostituendo gli elementi nelle parentesi acute con i valori corretti per l'ambiente ed eliminando le parentesi acute):
+
+```powershell
+New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
+```
+
+## <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Abilitazione e disabilitazione della scalabilità in lettura tramite l'API REST del database SQL di Azure
+
+Per creare un database con la scalabilità in lettura abilitata oppure per abilitare o disabilitare la scalabilità in lettura per un database esistente, creare o aggiornare l'entità del database corrispondente con la proprietà `readScale` impostata su `Enabled` o `Disabled`, come nella richiesta di esempio seguente.
+
+```rest
+Method: PUT
+URL: https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{GroupName}/providers/Microsoft.Sql/servers/{ServerName}/databases/{DatabaseName}?api-version= 2014-04-01-preview
+Body:
+{
+   "properties":
+   {
+      "readScale":"Enabled"
+   }
+} 
+```
+
+Per altre informazioni, vedere [Databases - Create or Update](/rest/api/sql/databases/createorupdate) (Database - Creare o aggiornare).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Per informazioni sull'uso di PowerShell per impostare la scalabilità in lettura, vedere i cmdlet [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
+- Per informazioni sull'uso dell'API REST per impostare la scalabilità in lettura, vedere [Databases - Create or Update](/rest/api/sql/databases/createorupdate) (Database - Creare o aggiornare).

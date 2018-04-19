@@ -2,20 +2,20 @@
 title: Distribuire moduli nei dispositivi IoT Edge usando l'estensione IoT per l'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
 description: Distribuire moduli nei dispositivi IoT Edge usando l'estensione IoT per l'interfaccia della riga di comando di Azure 2.0
 services: iot-edge
-keywords: 
+keywords: ''
 author: chrissie926
 manager: timlt
 ms.author: menchi
 ms.date: 03/02/2018
 ms.topic: article
 ms.service: iot-edge
-ms.custom: mvc
+ms.custom: ''
 ms.reviewer: kgremban
-ms.openlocfilehash: 25f1becff11138e59595c211802acbf791094e53
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1f71fdfb7090dce24ba73f1fa01e287c52b065f8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Distribuire moduli nei dispositivi IoT Edge usando l'estensione IoT per l'interfaccia della riga di comando di Azure 2.0
 
@@ -23,7 +23,7 @@ L'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/en
 
 L'interfaccia della riga di comando di Azure 2.0 consente di gestire le risorse dell'hub IoT di Azure, le istanze del servizio Device Provisioning e gli hub collegati predefiniti. La nuova estensione IoT arricchisce l'interfaccia della riga di comando di Azure 2.0 con funzionalità quali la gestione dei dispositivi e le funzionalità complete di IoT Edge.
 
-In questa esercitazione viene completata prima di tutto la procedura per la configurazione dell'interfaccia della riga di comando di Azure 2.0 e dell'estensione IoT. Vengono quindi fornite informazioni su come distribuire moduli in un dispositivo IoT Edge usando i comandi disponibili dell'interfaccia della riga di comando.
+In questo articolo vengono configurate l'interfaccia della riga di comando di Azure 2.0 e l'estensione IoT. Vengono quindi fornite informazioni su come distribuire moduli in un dispositivo IoT Edge usando i comandi disponibili dell'interfaccia della riga di comando.
 
 ## <a name="prerequisites"></a>prerequisiti
 

@@ -1,8 +1,8 @@
 ---
 title: Raccogliere log personalizzati in Azure Log Analytics | Microsoft Docs
-description: "Log Analytics può raccogliere gli eventi dai file di testo nei computer Windows e Linux.  Questo articolo descrive come definire un nuovo log personalizzato e i dettagli dei record creati nell'area di lavoro di Log Analytics."
+description: Log Analytics può raccogliere gli eventi dai file di testo nei computer Windows e Linux.  Questo articolo descrive come definire un nuovo log personalizzato e i dettagli dei record creati nell'area di lavoro di Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 04/04/2018
 ms.author: bwren
-ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: bf9acd5d7130a5e35182271f07593adab19d448b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log personalizzati in Log Analytics
 L'origine dati dei log personalizzati in Log Analytics consente di raccogliere gli eventi dai file di testo nei computer Windows e Linux. Molte applicazioni registrano le informazioni nei file di testo invece di usare servizi di registrazione standard come il registro eventi di Windows o Syslog.  Al termine della raccolta, è possibile analizzare ogni record dell'accesso ai singoli campi usando la funzionalità [Campi personalizzati](log-analytics-custom-fields.md) di Log Analytics.
@@ -31,7 +31,7 @@ I file di log da raccogliere devono soddisfare i criteri seguenti.
 
     AAAA-MM-GG HH:MM:SS <br>M/G/AAAA HH:MM:SS AM/PM <br>Lun GG,AAAA HH:MM:SS
 
-- Il file di log non deve consentire aggiornamenti circolari in cui il file viene sovrascritto con le nuove voci.
+- Il file di log non deve consentire registrazioni circolari o rotazioni dei log in cui il file viene sovrascritto con le nuove voci.
 - Il file di log deve usare la codifica ASCII o UTF-8.  Non sono supportati altri formati, ad esempio UTF-16.
 
 >[!NOTE]
@@ -70,7 +70,7 @@ Ad esempio, un'applicazione potrebbe creare un file di log ogni giorno con la da
 
 La tabella seguente fornisce esempi di percorsi validi per specificare file di log diversi.
 
-| DESCRIZIONE | path |
+| Descrizione | path |
 |:--- |:--- |
 | Tutti i file in *C:\Logs* con estensione txt nell'agente Windows |C:\Logs\\\*.txt |
 | Tutti i file in *C:\Logs* il cui nome inizia con log e aventi un'estensione txt nell'agente Windows |C:\Logs\log\*.txt |
@@ -118,7 +118,7 @@ L'intero contenuto della voce di log viene scritto in una singola proprietà den
 ## <a name="custom-log-record-properties"></a>Proprietà dei record del log personalizzato
 Il tipo dei record del log personalizzato corrisponde al nome del log specificato e le proprietà sono indicate nella tabella seguente.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--- |:--- |
 | TimeGenerated |Data e ora di raccolta del record con Log Analytics.  Se il log usa un delimitatore basato sul tempo, questa proprietà indica la data e l'ora raccolte dalla voce. |
 | SourceSystem |Tipo di agente da cui è stato raccolto il record. <br> OpsManager: agente Windows, con connessione diretta o System Center Operations Manager <br> Linux – Tutti gli agenti Linux |
@@ -130,7 +130,7 @@ I record dei log personalizzati vengono archiviati nell'area di lavoro di Log An
 
 La tabella seguente mostra alcuni esempi di ricerche nei log che recuperano i record dai log personalizzati.
 
-| Query | DESCRIZIONE |
+| Query | Descrizione |
 |:--- |:--- |
 | MyApp_CL |Tutti gli eventi da un log personalizzato denominato MyApp_CL. |
 | MyApp_CL &#124; where Severity_CF=="error" |Tutti gli eventi di un log personalizzato denominato MyApp_CL con un valore di *error* in un campo personalizzato denominato *Severity_CF*. |

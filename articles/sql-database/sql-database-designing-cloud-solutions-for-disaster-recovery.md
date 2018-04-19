@@ -1,5 +1,5 @@
 ---
-title: Progettare un servizio a disponibilità elevata con database SQL di Azure | Documentazione Microsoft
+title: Progettare un servizio a disponibilità elevata con database SQL di Azure | Microsoft Docs
 description: Informazioni sulla progettazione di applicazioni per servizi a disponibilità elevata con database SQL di Azure.
 keywords: ripristino di emergenza cloud, soluzioni di ripristino di emergenza, backup dei dati delle app, replica geografica, pianificazione della continuità aziendale
 services: sql-database
@@ -8,21 +8,21 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c596006e33c2c4f0228c14a65f58e82bcf300727
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d19087743740799ec9972bed7a602073afea9f26
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Progettazione di servizi a disponibilità elevata con database SQL di Azure
 
 Quando si compilano e si distribuiscono servizi a disponibilità elevata nel database SQL di Azure, [i gruppi di failover e la replica geografica attiva](sql-database-geo-replication-overview.md) consentono di garantire resilienza in caso di interruzioni a livello di area ed errori irreversibili, nonché un rapido ripristino nei database secondari. Questo articolo esamina modelli di applicazione comuni e illustra vantaggi e svantaggi di ogni opzione. Per informazioni sulla replica geografica attiva con i pool elastici, vedere [Strategie di ripristino di emergenza per applicazioni che usano il pool elastico del database SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 > [!NOTE]
-> Se si usano pool e database Premium, è possibile renderli resistenti alle interruzioni a livello di area convertendoli in una configurazione di distribuzione con ridondanza della zona (attualmente in anteprima). Vedere [Database con ridondanza della zona](sql-database-high-availability.md).  
+> Se si usano pool elastici e database Premium o Business Critical (anteprima), è possibile renderli resistenti alle interruzioni a livello di area convertendoli in una configurazione di distribuzione con ridondanza della zona (attualmente in anteprima). Vedere [Database con ridondanza della zona](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scenario 1: Uso di due aree di Azure per la continuità aziendale con tempo di inattività minimo
 In questo scenario le applicazioni presentano le caratteristiche seguenti: 

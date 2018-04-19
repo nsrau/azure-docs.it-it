@@ -1,29 +1,24 @@
 ---
-title: 'Output di Analisi di flusso: opzioni per archiviazione, analisi | Microsoft Docs'
+title: Tipi di output di processi di Analisi di flusso di Azure
 description: Informazioni sulla destinazione di opzioni di output dei dati di Analisi di flusso tra cui Power BI per i risultati dell'analisi.
-keywords: trasformazione dei dati, risultati dell'analisi, opzioni di archiviazione dati
-services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
-documentationcenter: ''
-author: SnehaGunda
+services: stream-analytics
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 02/18/2017
-ms.author: sngun
-ms.openlocfilehash: a641c7e5e792b020be54a2ebc4bac63b545ce71e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: afaadc12d056f42a75795073d480fe26757649d8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Output di Analisi di flusso: opzioni per archiviazione, analisi
+# <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>Output di Analisi di flusso: opzioni per l'archiviazione e l'analisi
 Quando si crea un processo di Analisi di flusso di Azure, una considerazione da fare riguarda l'uso dei dati risultanti. Come è possibile visualizzare i risultati del processo di Analisi di flusso di Azure e dove è possibile archiviarli?
 
-Per poter abilitare un'ampia gamma di modelli dell'applicazione, Analisi di flusso di Azure offre metodi diversi per archiviare l'output e visualizzare i risultati dell'analisi. In questo modo è possibile sia visualizzare facilmente l'output del processo che ottenere flessibilità nell'uso e nell'archiviazione dell'output del processo per il data warehouse e altri scopi. Qualsiasi elemento output configurato nel processo deve esistere prima che il processo venga avviato e gli eventi avviino il flusso. Ad esempio, se si utilizza l'archiviazione Blob come output, il processo non crea un account di archiviazione automaticamente. Creare un account di archiviazione prima dell'avvio del processo di Analisi di flusso di Azure.
+Per poter abilitare un'ampia gamma di modelli dell'applicazione, Analisi di flusso di Azure offre metodi diversi per archiviare l'output e visualizzare i risultati dell'analisi. In questo modo è possibile sia visualizzare facilmente l'output del processo che ottenere flessibilità nell'uso e nell'archiviazione dell'output del processo per il data warehouse e altri scopi. Qualsiasi elemento output configurato nel processo deve esistere prima che il processo venga avviato e gli eventi avviino il flusso. Ad esempio, se si utilizza l'archiviazione BLOB come output, il processo non crea un account di archiviazione automaticamente. Creare un account di archiviazione prima dell'avvio del processo di Analisi di flusso di Azure.
 
 ## <a name="azure-data-lake-store"></a>Archivio Azure Data Lake
 Analisi di flusso supporta [Archivio Data Lake di Azure](https://azure.microsoft.com/services/data-lake-store/). Questa archiviazione consente di archiviare dati di qualsiasi dimensione, tipo e velocità di inserimento per le analisi esplorative e operative. Inoltre, Analisi di flusso deve essere autorizzato ad accedere ad Archivio Data Lake. I dettagli sull'autorizzazione e su come iscriversi per Data Lake Store (se necessario) sono forniti nell'[articolo relativo agli output di Data Lake](stream-analytics-data-lake-output.md).
@@ -313,7 +308,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 
 L'elenco seguente illustra i nomi delle proprietà e la relativa descrizione per la creazione di un output Azure Cosmos DB.
 
-* **Alias di output** : alias per fare riferimento a questo output nella query di analisi di flusso di Azure  
+* **Alias di output**: alias per fare riferimento a questo output nella query di analisi di flusso di Azure  
 * **Nome account**: nome o URI endpoint dell'account Cosmos DB.  
 * **Chiave account** : chiave di accesso condiviso per l'account Cosmos DB.  
 * **Database**: nome del database Cosmos DB.  
@@ -342,7 +337,7 @@ Quando non avviene alcun evento in un intervallo di tempo, non viene generato al
 
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Passaggi successivi
 È stato presentato Analisi di flusso, un servizio gestito per l'analisi di flusso su dati provenienti da Internet delle cose. Per altre informazioni su questo servizio, vedere:

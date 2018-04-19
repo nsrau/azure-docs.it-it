@@ -7,13 +7,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5d55ae225ca1b550bbf70314e2f48fc0161ad107
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2d8760476fd7b8a5a11d01a434a383ec1ba27ef1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introduzione ai processi di Database Elastici
 I processi di database elastico (anteprima) per il database SQL di Azure consentono di eseguire in modo affidabile script T-SQL che si estendono su più database, effettuando tentativi automatici per garantire il completamento delle operazioni. Per altre informazioni sulla funzionalità del processo Database elastico, vedere [Processi elastici](sql-database-elastic-jobs-overview.md).
@@ -460,7 +460,7 @@ Tutte le righe dalla tabella **Clienti** , archiviate in diverse partizioni sono
 È ora possibile usare le funzioni dei dati di Excel. Usare la stringa di connessione con il nome del server, il nome del database e le credenziali per connettere gli strumenti di integrazione e di Business Intelligence al database di query elastico. Assicurarsi che SQL Server sia supportato come origine dati per lo strumento. Fare riferimento al database di query elastico e alle tabelle esterne come a qualsiasi database di SQL Server e tabella di SQL Server a cui ci si connette con lo strumento.
 
 ### <a name="cost"></a>Costi
-L'uso della funzione di query di database elastico non comporta alcun costo aggiuntivo. In questo momento questa funzionalità è disponibile solo sui database premium come punto finale, tuttavia, le partizioni possono essere di qualsiasi livello di servizio.
+L'uso della funzione di query di database elastico non comporta alcun costo aggiuntivo. In questo momento, tuttavia, questa funzionalità è disponibile solo con database e pool elastici Premium e Business Critical (anteprima) come endpoint, ma le partizioni possono essere di qualsiasi livello di servizio.
 
 Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 

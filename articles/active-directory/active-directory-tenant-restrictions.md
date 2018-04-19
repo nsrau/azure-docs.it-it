@@ -2,23 +2,23 @@
 title: Gestire l'accesso alle app cloud limitando i tenant - Azure | Microsoft Docs
 description: Come usare Restrizioni dei tenant per gestire gli utenti che possono accedere alle app in base ai tenant di Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
 editor: yossib
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 04/03/2018
 ms.author: kgremban
-ms.openlocfilehash: 63e0fa54433a60fe7384d21cf7d215cc8283afca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a6b498b38e76dfa2553bf3a916b723cd774d950d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usare Restrizioni dei tenant per gestire l'accesso alle applicazioni cloud SaaS
 
@@ -112,7 +112,9 @@ Fare riferimento al [documento aggiornato sull'autenticazione moderna di Office 
 
 Restrizioni dei tenant è attualmente supportata nelle applicazioni Office 365 basate su browser come il portale di Office, Yammer, i siti SharePoint, Outlook sul Web e così via. Per i thick client come Outlook, Skype for Business, Word, Excel, PowerPoint e così via, Restrizioni dei tenant può essere applicata solo quando si usa l'autenticazione moderna.  
 
-I client Outlook e Skype for Business che supportano l'autenticazione moderna possono comunque usare protocolli legacy con tenant dove l'autenticazione moderna non è abilitata, ignorando di fatto Restrizioni dei tenant. In Outlook per Windows, i clienti possono scegliere di implementare delle restrizioni per impedire agli utenti finali di aggiungere ai propri profili account di posta elettronica non approvati. Ad esempio, vedere l'impostazione di criteri di gruppo [Impedisci l'aggiunta di account di Exchange non predefiniti](http://gpsearch.azurewebsites.net/default.aspx?ref=1). Per Outlook su piattaforme non Windows e per Skype for Business su tutte le piattaforme, il supporto completo per le restrizioni del tenant non è attualmente disponibile.
+I client Outlook e Skype for Business che supportano l'autenticazione moderna possono comunque usare protocolli legacy con tenant dove l'autenticazione moderna non è abilitata, ignorando di fatto Restrizioni dei tenant. Le applicazioni che usano protocolli legacy potrebbero essere bloccate da Restrizioni dei tenant se contattano login.microsoftonline.com, login.microsoft.com o login.windows.net durante l'autenticazione.
+
+In Outlook per Windows, i clienti possono scegliere di implementare delle restrizioni per impedire agli utenti finali di aggiungere ai propri profili account di posta elettronica non approvati. Ad esempio, vedere l'impostazione di criteri di gruppo [Impedisci l'aggiunta di account di Exchange non predefiniti](http://gpsearch.azurewebsites.net/default.aspx?ref=1). Per Outlook su piattaforme non Windows e per Skype for Business su tutte le piattaforme, il supporto completo per le restrizioni del tenant non è attualmente disponibile.
 
 ## <a name="testing"></a>Test
 

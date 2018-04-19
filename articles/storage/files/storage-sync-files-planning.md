@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 3f3ed53e3c6606ca540cc2e760f2f6280ccf5cc2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 9af1a82530d6e2d694f56322b7107796df73a2d5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure (anteprima)
 È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -173,6 +173,7 @@ Sincronizzazione file di Azure è disponibile in anteprima solo nelle aree segue
 |--------|---------------------|
 | Australia orientale | New South Wales |
 | Canada centrale | Toronto |
+| Canada orientale | Quebec City |
 | Stati Uniti centrali | Iowa |
 | Asia orientale | Hong Kong - R.A.S. |
 | Stati Uniti orientali | Virginia |
@@ -180,7 +181,6 @@ Sincronizzazione file di Azure è disponibile in anteprima solo nelle aree segue
 | Europa settentrionale | Irlanda |
 | Asia sudorientale | Singapore |
 | Regno Unito meridionale | Londra |
-| Stati Uniti centro-occidentali |
 | Europa occidentale | Paesi Bassi |
 | Stati Uniti occidentali | California |
 

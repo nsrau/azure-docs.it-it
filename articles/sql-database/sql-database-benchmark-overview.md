@@ -1,5 +1,5 @@
 ---
-title: Informazioni generali sul benchmark del database SQL di Azure
+title: Panoramica sul benchmark DTU del database SQL di Azure
 description: Questo argomento illustra il benchmark ASDB (Azure SQL Database Benchmark) usato per la misurazione delle prestazioni del database SQL di Azure.
 services: sql-database
 author: jan-eng
@@ -7,17 +7,20 @@ manager: jhubbard
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 06/21/2016
+ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: 25685f663d976674ad877bcfa1409ef016dd02ae
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0dae04ab3de16e2ef51134ec6979c6c289a6da3f
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-sql-database-benchmark-overview"></a>Informazioni generali sul benchmark del database SQL di Azure
+# <a name="azure-sql-database-dtu-benchmark-overview"></a>Panoramica sul benchmark DTU del database SQL di Azure
 ## <a name="overview"></a>Panoramica
-Il database SQL di Microsoft Azure offre tre [livelli di servizio](sql-database-service-tiers.md) con diversi livelli di prestazioni. Ogni livello di prestazioni fornisce un maggiore set di risorse, o potenza, progettato per garantire un aumento della velocità effettiva.
+Nel modello di acquisto basato su DTU, il database SQL di Microsoft Azure offre tre [livelli di servizio](sql-database-service-tiers.md) con diversi livelli delle prestazioni. Ogni livello di prestazioni fornisce un maggiore set di risorse, o potenza, progettato per garantire un aumento della velocità effettiva.
+
+> [!IMPORTANT]
+> Il database SQL di Azure ora supporta anche un modello di acquisto in base ai vCore (anteprima). Per informazioni, vedere [Modello di acquisto in base ai vCore (anteprima)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
 
 È importante riuscire a quantificare il modo in cui la potenza crescente di ogni livello di prestazioni corrisponda a un aumento delle prestazioni del database. A tale scopo, Microsoft ha sviluppato il benchmark ASDB (Azure SQL Database Benchmark), che esegue una combinazione di operazioni di base presenti in tutti i carichi di lavoro OLTP. Viene misurata la velocità effettiva raggiunta per i database in esecuzione in ogni livello di prestazioni.
 

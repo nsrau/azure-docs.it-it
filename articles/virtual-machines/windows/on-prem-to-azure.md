@@ -2,12 +2,12 @@
 title: Eseguire la migrazione da AWS e altre piattaforme a Managed Disks in Azure | Documentazione Microsoft
 description: Creare macchine virtuali in Azure usando dischi rigidi virtuali caricati da altri cloud, come AWS o altre piattaforme di virtualizzazione, e sfruttare i vantaggi di Azure Managed Disks.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 02dce319c055f7988355cfadbc1d63df5e268e53
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: b7fe27ed8615b9684e14276d6d0f5bf84ee5ee81
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Eseguire la migrazione da Amazon Web Services (AWS) e altre piattaforme a Managed Disks in Azure
 
@@ -55,6 +55,7 @@ Il servizio Azure Managed Disks semplifica la gestione delle macchine virtuali, 
 
 Questa sezione consente di prendere le decisioni migliori sui tipi di macchina virtuale e disco.
 
+Se si intende pianificare la migrazione da dischi non gestiti a dischi gestiti, occorre tener presente che gli utenti con il ruolo [Collaboratore Macchina virtuale](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) non saranno in grado di modificare le dimensioni della macchina virtuale com'era possibile prima della conversione. Il motivo è che le macchine virtuali con dischi gestiti richiedono che gli utenti abbiano l'autorizzazione Microsoft.Compute/disks/write per i dischi del sistema operativo.
 
 ### <a name="location"></a>Località
 

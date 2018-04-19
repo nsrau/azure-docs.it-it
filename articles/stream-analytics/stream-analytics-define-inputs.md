@@ -1,24 +1,19 @@
 ---
-title: 'Connessione dati: input di flussi di dati da un flusso di eventi | Microsoft Docs'
-description: Informazioni sulla configurazione di una connessione dati ad Analisi di flusso denominata 'input'. Gli input includono un flusso di dati dagli eventi, oltre a dati di riferimento.
-keywords: flusso di dati, connessione dati, flusso di eventi
+title: Input di flussi di dati da un flusso di eventi in Analisi di flusso di Azure
+description: Informazioni sulla configurazione di una connessione dati in Analisi di flusso di Azure. Gli input includono un flusso di dati dagli eventi, oltre a dati di riferimento.
 services: stream-analytics
-documentationcenter: ''
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: sngun
-ms.openlocfilehash: 0ddc3187e9fc0664838dd07f781f4d7e2e4a7fe0
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0a90e97779416db7b7244cce9d6bdad740161051
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Connessione dati: informazioni sugli input del flusso di dati dagli eventi ad Analisi di flusso
 La connessione dati a un processo di Analisi di flusso è un flusso di eventi da un'origine dati, definito *input* del processo. Analisi di flusso si integra perfettamente con le origini del flusso dei dati di Azure, come [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), [Hub IoT di Azure](https://azure.microsoft.com/services/iot-hub/) e [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/). Queste origini di input possono appartenere alla stessa sottoscrizione di Azure del processo di analisi o a un'altra sottoscrizione.
@@ -176,7 +171,7 @@ FROM Input
 ````
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Sono state apprese le opzioni di connessione dei dati in Azure per i processi di Analisi di flusso. Per altre informazioni su Analisi di flusso, vedere:

@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: e30f096a9f02214839550c2dc143ab665e1cd85c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 86a5bc31639cbbcdac1468f3bc2e35a547068882
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuire ed esplorare un'applicazione autonoma a singolo tenant che usa il database SQL di Azure
 
@@ -73,16 +73,16 @@ L'app illustra le sedi che ospitano gli eventi.  Le sedi sono i tenant dell'appl
 
 1. Aprire la pagina degli eventi per ognuno dei tre tenant in schede separate del browser:
 
-    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
-    - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
+    - http://events.contosoconcerthall.&lt;utente&gt;.trafficmanager.net
+    - http://events.dogwooddojo.&lt;utente&gt;.trafficmanager.net
+    - http://events.fabrikamjazzclub.&lt;utente&gt;.trafficmanager.net
 
     In ogni URL sostituire &lt;user&gt; con il valore relativo all'utente della distribuzione specifica.
 
    ![Eventi](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Per controllare la distribuzione delle richieste in ingresso, l'app usa [*Gestione traffico di Microsoft Azure*](../traffic-manager/traffic-manager-overview.md). Ogni istanza dell'app specifica del tenant include il nome del tenant come parte del nome di dominio nell'URL. Gli URL di tutti i tenant includono valori di **User** specifici. Gli URL hanno il formato seguente:
-- http://events.&lt;venuename&gt;.&lt;user&gt;.trafficmanager.net
+- http://events.&lt;nomeluogo&gt;.&lt;utente&gt;.trafficmanager.net
 
 La **posizione** del database di ogni tenant è inclusa nelle impostazioni dell'app distribuita corrispondente.
 

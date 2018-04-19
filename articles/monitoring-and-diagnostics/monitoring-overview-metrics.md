@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: ancav
-ms.openlocfilehash: 4598267e92716529774f42d22ab7c47d944d4495
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 537213fdf106da1c07d549d65b1d8cf71887db9f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Panoramica delle metriche in Microsoft Azure
 In questo articolo sono descritte le metriche disponibili in Microsoft Azure, i loro vantaggi e come iniziare a usarle.  
@@ -47,7 +47,7 @@ Le metriche presentano le caratteristiche seguenti:
 
 * Configurare una **regola di avviso per la metrica che invia una notifica o esegue un'azione automatica** quando la metrica supera la soglia definita. Il ridimensionamento automatico è un'azione speciale automatica che consente di aumentare le istanze di una risorsa per soddisfare le richieste in entrata o i carichi sul sito Web o sulle risorse di calcolo. È possibile configurare una regola di impostazione del ridimensionamento automatico per aumentare o ridurre le istanze in base a una metrica che supera una soglia.
 
-* **Reindirizzare** tutte le metriche a Application Insights o a Log Analytics (OMS) per abilitare le analisi istantanee, la funzione di ricerca e gli avvisi personalizzati sui dati delle metriche provenienti dalle risorse. È inoltre possibile trasmettere le metriche a un hub eventi, per poi avere la possibilità di reindirizzarle all'analisi di flusso di Azure o alle app personalizzate per effettuare un'analisi quasi in tempo reale. Impostare il flusso di Hub eventi usando le impostazioni di diagnostica.
+* **Reindirizzare** tutte le metriche a Application Insights o a Log Analytics per abilitare le analisi istantanee, la funzione di ricerca e gli avvisi personalizzati sui dati delle metriche provenienti dalle risorse. È inoltre possibile trasmettere le metriche a un hub eventi, per poi avere la possibilità di reindirizzarle all'analisi di flusso di Azure o alle app personalizzate per effettuare un'analisi quasi in tempo reale. Impostare il flusso di Hub eventi usando le impostazioni di diagnostica.
 
 * **Archiviare le metriche da conservare** per un lungo periodo o usarle per creare report offline. È possibile reindirizzare le metriche all'archiviazione BLOB di Azure quando si configurano le impostazioni di diagnostica per la risorsa.
 
@@ -100,11 +100,18 @@ Monitoraggio di Azure ha anche una nuova esperienza di creazione di grafici per 
 Per una procedura ancor più dettagliata con le API REST del Monitoraggio di Azure, vedere [Procedura dettagliata sull'API REST del Monitoraggio di Azure](monitoring-rest-api-walkthrough.md).
 
 ## <a name="export-metrics"></a>Esportare le metriche
-È possibile accedere al pannello **Log di diagnostica** nella scheda **Monitoraggio** e visualizzare le opzioni di esportazione delle metriche. È possibile selezionare le metriche (e i log di diagnostica) da reindirizzare nell'archiviazione BLOB, negli Hub eventi di Azure o in OMS per i casi d'uso descritti in precedenza in questo articolo.
+È possibile accedere al pannello **Log di diagnostica** nella scheda **Monitoraggio** e visualizzare le opzioni di esportazione delle metriche. È possibile selezionare le metriche (e i log di diagnostica) da reindirizzare nell'archiviazione BLOB, negli Hub eventi di Azure o in Log Analytics per i casi d'uso descritti in precedenza in questo articolo.
 
  ![Opzioni di esportazione per le metriche nel monitoraggio di Azure](./media/monitoring-overview-metrics/MetricsOverview3.png)
 
 È possibile configurare questa opzione tramite i modelli di Resource Manager, [PowerShell](insights-powershell-samples.md), l'[interfaccia della riga di comando di Azure](insights-cli-samples.md) o l'[API REST](https://msdn.microsoft.com/library/dn931943.aspx).
+
+> [!NOTE]
+> L'invio delle metriche multidimensionali tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione.
+>
+> *Ad esempio*: la metrica 'Messaggi in ingresso' su un hub eventi può essere esplorata e rappresentata in un grafico a livello di singola coda. Tuttavia, in caso di esportazione tramite impostazione di diagnostica, la metrica verrà rappresentata come tutti i messaggi in ingresso in tutte le code nell'hub eventi.
+>
+>
 
 ## <a name="take-action-on-metrics"></a>Eseguire operazioni sulle metriche
 Per ricevere notifiche o eseguire azioni automatizzate su dati delle metriche, è possibile configurare regole di avviso o impostazioni di ridimensionamento automatico.

@@ -4,7 +4,7 @@ description: La memorizzazione nella cache è il processo di archiviazione dei d
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
-ms.openlocfilehash: 26a0478f8713cb3584045f59c181c0a38331ea97
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: rli; v-deasim
+ms.openlocfilehash: 88c1b98a9dcaa1d22cdc1be3853b1fa7116c8a48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-caching-works"></a>Funzionamento della memorizzazione nella cache
 
@@ -110,11 +110,11 @@ Quando la cache non è aggiornata, vengono usati validator della cache HTTP per 
 
 Non tutte le risorse possono essere memorizzate nella cache. La tabella seguente mostra le risorse che possono essere memorizzate nella cache, in base al tipo di risposta HTTP. Non è possibile memorizzare nella cache le risorse distribuite con risposte HTTP che non soddisfano tutte queste condizioni. Solo per la **rete CDN Premium di Azure con tecnologia Verizon** è possibile usare il motore regole per personalizzare alcune di queste condizioni.
 
-|                   | Rete CDN di Azure con tecnologia Verizon | Rete CDN di Azure con tecnologia Akamai            |
+|                   | Rete CDN di Azure di Verizon | Rete CDN di Azure di Akamai            |
 |------------------ |------------------------|----------------------------------|
 | Codici di stato HTTP | 200                    | 200, 203, 300, 301, 302 e 401 |
 | Metodo HTTP       | GET                    | GET                              |
-| Dimensioni file         | 300 GB                 | - Ottimizzazione distribuzione Web generale: 1,8 GB<br />- Ottimizzazioni dello streaming multimediale: 1,8 GB<br />- Ottimizzazione di file di grandi dimensioni: 150 GB |
+| Dimensioni complete         | 300 GB                 | - Ottimizzazione distribuzione Web generale: 1,8 GB<br />- Ottimizzazioni dello streaming multimediale: 1,8 GB<br />- Ottimizzazione di file di grandi dimensioni: 150 GB |
 
 ## <a name="default-caching-behavior"></a>Comportamento predefinito di memorizzazione nella cache
 

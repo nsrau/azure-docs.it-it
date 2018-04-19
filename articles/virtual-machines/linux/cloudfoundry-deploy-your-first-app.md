@@ -2,12 +2,12 @@
 title: Distribuire la prima app a Cloud Foundry in Microsoft Azure | Microsoft Docs
 description: Distribuire un'applicazione a Cloud Foundry in Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: seanmck
-manager: timlt
-editor: 
-tags: 
-keywords: 
+manager: jeconnoc
+editor: ''
+tags: ''
+keywords: ''
 ms.assetid: 8fa04a58-56ad-4e6c-bef4-d02c80d4b60f
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: b617127fc0a3f8dcae293e356ea669edcfa5deff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e7b321c9fc8f8568cd8109cea0ae877048d3663
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Distribuire la prima app a Cloud Foundry in Microsoft Azure
 
@@ -35,7 +35,7 @@ Esistono diverse opzioni per la creazione di un ambiente Cloud Foundry in Azure:
 - [Distribuire i pacchetti open source di Cloud Foundry direttamente][oss-cf-bosh] impostando un [BOSH](http://bosh.io) director, una macchina virtuale che coordina la distribuzione dell'ambiente Cloud Foundry.
 
 > [!IMPORTANT] 
-> Se si distribuisce PCF da Azure Marketplace, annotare il SYSTEMDOMAINURL e le credenziali amministratore necessarie per accedere al gestore di app di Pivotal, entrambi descritti nella Guida alla distribuzione dal marketplace. Questi elementi sono necessari per completare questa esercitazione. Per le distribuzioni dal marketplace, il SYSTEMDOMAINURL è nel formato https://system.*indirizzo-ip*.cf.pcfazure.com.
+> Se si distribuisce PCF da Azure Marketplace, annotare il SYSTEMDOMAINURL e le credenziali amministratore necessarie per accedere al gestore di app di Pivotal, entrambi descritti nella Guida alla distribuzione dal marketplace. Questi elementi sono necessari per completare questa esercitazione. Per le distribuzioni dal marketplace, il SYSTEMDOMAINURL è nel formato https://system.*ip-address*.cf.pcfazure.com.
 
 ## <a name="connect-to-the-cloud-controller"></a>Connettersi al controller del cloud
 

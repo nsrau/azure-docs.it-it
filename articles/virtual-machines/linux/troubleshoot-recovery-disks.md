@@ -2,10 +2,10 @@
 title: Usare una macchina virtuale per la risoluzione dei problemi relativi a Linux con l'interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
 description: Informazioni su come risolvere i problemi delle macchine virtuali Linux connettendo il disco del sistema operativo a una macchina virtuale di ripristino tramite l'interfaccia della riga di comando di Azure 2.0
 services: virtual-machines-linux
-documentationCenter: 
+documentationCenter: ''
 authors: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-ms.openlocfilehash: 9f1ac319e87f321306a2239b2e17725d281fbf59
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: e96f31b3e91066bfc04af62c2bf82db200f35002
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Risolvere i problemi relativi a una VM Linux collegando il disco del sistema operativo a una VM di ripristino tramite l'interfaccia della riga di comando di Azure 2.0
 Se nella VM Linux viene rilevato un errore di avvio o del disco, potrebbe essere necessario eseguire dei passaggi per la risoluzione dei problemi sul disco rigido virtuale stesso. Un esempio comune è una voce non valida in `/etc/fstab` che impedisce il corretto avvio della macchina virtuale. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure 2.0 per connettere il disco rigido virtuale a un'altra VM Linux al fine di risolvere eventuali errori e quindi ricreare la VM originale. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -59,7 +59,7 @@ az vm show --resource-group myResourceGroup --name myVM \
     --query [storageProfile.osDisk.vhd.uri] --output tsv
 ```
 
-L'URI è analogo a **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**.
+L'URI è simile a **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**.
 
 ## <a name="delete-existing-vm"></a>Eliminare la VM esistente
 In Azure, i dischi rigidi virtuali e le macchine virtuali sono due risorse distinte. In un disco rigido virtuale sono archiviati il sistema operativo, le applicazioni e le configurazioni. La macchina virtuale è invece costituita da metadati che definiscono le dimensioni o il percorso, e da risorse di riferimento, ad esempio un disco rigido virtuale o una scheda di interfaccia di rete virtuale. A ogni disco rigido virtuale associato a una macchina virtuale viene assegnato un lease. È possibile collegare e scollegare i dischi dati anche quando la macchina virtuale è in esecuzione, mentre non è possibile scollegare il disco del sistema operativo, a meno che la risorsa di macchina non sia stata eliminata. Il lease continua ad associare il disco del sistema operativo e la macchina virtuale anche quando questa viene arrestata e deallocata.
@@ -151,7 +151,7 @@ Dopo aver risolto gli errori, smontare e scollegare il disco rigido virtuale esi
         --query '[].{Disk:vhd.uri}' --output table
     ```
 
-    Annotare il valore del disco rigido virtuale esistente. Il nome di un disco con l'URI **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** è, ad esempio, **myVHD**. 
+    Annotare il valore del disco rigido virtuale esistente. Ad esempio, il nome di un disco con URI **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** è **myVHD**. 
 
     Scollegare il disco dati dalla macchina virtuale con il comando [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_detach). Nell'esempio seguente il disco denominato `myVHD` viene scollegato dalla macchina virtuale denominata `myVMRecovery` nel gruppo di risorse `myResourceGroup`:
 

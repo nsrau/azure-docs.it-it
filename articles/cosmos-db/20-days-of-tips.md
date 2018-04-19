@@ -2,22 +2,22 @@
 title: 20 giorni di suggerimenti su Azure Cosmos DB | Microsoft Docs
 description: Tutti i suggerimenti della serie "20 days of Azure Cosmos DB tips" (20 giorni di suggerimenti su Azure Cosmos DB) di Simona Cotin riuniti in un'unica posizione.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: cda
-ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 79ef4a8c22143ed77535e1190b5f7e8eb5d17bb0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>20 giorni di suggerimenti su Azure Cosmos DB
 
@@ -61,7 +61,7 @@ Suggerimento 4: i grafi Gremlin sono un problema? Non per #cosmosdb. È possibil
 
 ## <a name="tip-5-try-azure-cosmos-db-free"></a>Suggerimento 5: provare gratuitamente Azure Cosmos DB
 
-Suggerimento 5: si desidera provare Azure #CosmosDB gratuitamente? Non occorrono sottoscrizioni o carte di credito. Basta andare alla pagina [https://aka.ms/d81vxr](https://aka.ms/d81vxr) e iniziare a scrivere codice.  
+Suggerimento 5: si desidera provare Azure #CosmosDB gratuitamente? Non occorrono sottoscrizioni o carte di credito. È sufficiente andare alla pagina [https://aka.ms/d81vxr](https://aka.ms/d81vxr) e iniziare a scrivere codice.  
 
 > [!VIDEO https://www.youtube.com/embed/Vf8iZCmoG2E]
 
@@ -77,7 +77,7 @@ Suggerimento 6: è MEAN l'obiettivo? Ecco le informazioni su come migrare facilm
 
 ## <a name="tip-8-build-a-nodejs-app-by-using-sql-api"></a>Suggerimento 8: creare un'app Node.js tramite l'API SQL
 
-Suggerimento 8: creare un'app @nodejs tramite l'API SQL e Azure #CosmosDB. Per altre informazioni vedere la pagina di Docs [https://aka.ms/Bd77a8](https://aka.ms/Bd77a8)  
+Suggerimento 8: creare un'app @nodejs tramite l'API SQL e Azure #CosmosDB. Per altre informazioni, vedere la pagina della documentazione [https://aka.ms/Bd77a8](https://aka.ms/Bd77a8)  
 
 > [!VIDEO https://www.youtube.com/embed/_gd9ZY-rHtM]
 
@@ -85,7 +85,7 @@ Suggerimento 8: creare un'app @nodejs tramite l'API SQL e Azure #CosmosDB. Per a
 
 ## <a name="tip-9-query-using-mongodb-in-nodejs"></a>Suggerimento 9: eseguire una query mediante MongoDB in Node.js
 
-Suggerimento 9: eseguire una query in Azure #CosmosDB tramite l'API MongoDB in Node.js. Per altre informazioni vedere la pagina di Docs [https://aka.ms/Dert0r](https://aka.ms/Dert0r)  
+Suggerimento 9: eseguire una query in Azure #CosmosDB tramite l'API MongoDB in Node.js. Per altre informazioni, vedere la pagina della documentazione [https://aka.ms/Dert0r](https://aka.ms/Dert0r)  
 
 ![Eseguire una query con MongoDB](./media/20-days-of-tips/cosmos-db-tip-9-mongodb-query.png)
 
@@ -93,7 +93,7 @@ Suggerimento 9: eseguire una query in Azure #CosmosDB tramite l'API MongoDB in N
 
 ## <a name="tip-10-copy-mongodb-data-using-studio-3t"></a>Suggerimento 10: copiare dati MongoDB mediante Studio 3T
 
-Suggerimento 10: informazioni su come copiare i dati di MongoDB in Azure Cosmos DB mediante Studio 3T (MongoChef). Articolo all'indirizzo [https://aka.ms/apzhww](https://aka.ms/apzhww)
+Suggerimento 10: informazioni su come copiare i dati di MongoDB in Azure Cosmos DB mediante Studio 3T (MongoChef). La pagina della documentazione è disponibile all'indirizzo [https://aka.ms/apzhww](https://aka.ms/apzhww)
 
 > [!VIDEO https://www.youtube.com/embed/Qa4YpShYEcI]
 
@@ -109,7 +109,7 @@ Articolo: [Creare un'app MongoDB con React e Azure Cosmos DB](https://docs.micro
 
 ## <a name="tip-12-go-serverless"></a>Suggerimento 12: operatività senza server
 
-Suggerimento 12: operatività senza server con Azure #CosmosDB e @AzureFunctions! Articolo completo all'indirizzo [https://aka.ms/Pmic1j](https://aka.ms/Pmic1j)
+Suggerimento 12: operatività senza server con Azure #CosmosDB e @AzureFunctions! La documentazione completa è disponibile all'indirizzo [https://aka.ms/Pmic1j](https://aka.ms/Pmic1j)
 
 > [!VIDEO https://www.youtube.com/embed/U--3mfisNCs]
 
@@ -133,7 +133,7 @@ Articolo: [Casi d'uso comuni di Azure Cosmos DB](https://aka.ms/Ihpf00)
 
 ## <a name="tip-15-vs-code-integration"></a>Suggerimento 15: integrazione di Visual Studio Code
 
-Suggerimento 15: creare nuovi account di Azure #CosmosDB senza mai lasciare @code. Installare l'estensione da [https://aka.ms/Wy547u](https://aka.ms/Wy547u) 
+Suggerimento 15: creare nuovi account di Azure #CosmosDB senza mai lasciare @code. Installare l'estensione dall'indirizzo [https://aka.ms/Wy547u](https://aka.ms/Wy547u) 
 
 > [!VIDEO https://www.youtube.com/embed/w8HyW8AHHZQ]
 
@@ -142,7 +142,7 @@ Suggerimento 15: creare nuovi account di Azure #CosmosDB senza mai lasciare @cod
 
 ## <a name="tip-16-functions-and-twilio-demo"></a>Suggerimento 16: funzioni e demo di Twilio
 
-Suggerimento 16: interessante demo su come integrare Azure #CosmosDB, funzioni e @twilio per inviare un SMS per qualsiasi modifica al database. Vedere l'articolo all'indirizzo [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 
+Suggerimento 16: interessante demo su come integrare Azure #CosmosDB, funzioni e @twilio per inviare un SMS per qualsiasi modifica al database. Vedere la documentazione all'indirizzo [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 
 
 > [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
 
@@ -151,7 +151,7 @@ Suggerimento 16: interessante demo su come integrare Azure #CosmosDB, funzioni e
 
 ## <a name="tip-17-using-mongoose-discriminators"></a>Suggerimento 17: uso di discriminatori Mongoose
 
-Suggerimento 17: ottimizzare il costo usando discriminatori Mongoose per archiviare più entità in un'unica raccolta #CosmosDB ([https://aka.ms/M488jm](https://aka.ms/M488jm))
+Suggerimento 17: ottimizzare il costo usando discriminatori Mongoose per archiviare più entità in un'unica raccolta #CosmosDB [https://aka.ms/M488jm](https://aka.ms/M488jm)
 
 Post di blog: [Using Mongoose Discriminators to Store Multiple Entities in a Single Cosmos DB Collection](https://aka.ms/M488jm) (Uso di discriminatori Mongoose per archiviare più entità in un'unica raccolta Cosmos DB) di Anthony Chu
 
@@ -159,7 +159,7 @@ Post di blog: [Using Mongoose Discriminators to Store Multiple Entities in a Sin
 
 ## <a name="tip-18-request-units"></a>Suggerimento 18: unità richiesta
 
-Suggerimento 18: informazioni sulle unità richiesta (UR) e su come configurarle in Azure #CosmosDB. Altre informazioni nell'articolo all'indirizzo [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
+Suggerimento 18: informazioni sulle unità richiesta (UR) e su come configurarle in Azure #CosmosDB. Altre informazioni sulla documentazione sono disponibili all'indirizzo [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
 
 Articolo: [Unità richiesta in Azure Cosmos DB](https://aka.ms/Kt2nbn)
 
@@ -167,7 +167,7 @@ Articolo: [Unità richiesta in Azure Cosmos DB](https://aka.ms/Kt2nbn)
 
 ## <a name="tip-19-partition-partition-partition"></a>Suggerimento 19: partizionamento Partizionamento Partizionamento 
 
-Suggerimento 19: partizionamento Partizionamento Partizionamento Tutti i perché e i come in Azure #CosmosDB. Articolo all'indirizzo [https://aka.ms/Ts5pon](https://aka.ms/Ts5pon)  
+Suggerimento 19: partizionamento Partizionamento Partizionamento Tutti i perché e i come in Azure #CosmosDB. La pagina della documentazione è disponibile all'indirizzo [https://aka.ms/Ts5pon](https://aka.ms/Ts5pon)  
 
 > [!VIDEO https://www.youtube.com/embed/I_tVk3hKvSI]
 

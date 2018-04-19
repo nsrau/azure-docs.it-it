@@ -1,6 +1,6 @@
 ---
 title: Disponibilità di SAP HANA nelle macchine virtuali di Azure | Microsoft Docs
-description: Operazioni di SAP HANA in macchine virtuali native di Azure
+description: Descrive le operazioni di SAP HANA nelle macchine virtuali di Azure native.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -16,56 +16,59 @@ ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b22f89750234a4715d2b7fd2df6ad8740b1d085
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d5694207f9283a5db5a937d9f8867d1a5f661aac
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="sap-hana-high-availability-guide-for-azure-virtual-machines"></a>Guida alla disponibilità elevata di SAP HANA per macchine virtuali di Azure
-Azure offre numerose funzionalità che consentono di distribuire database di importanza strategica come SAP HANA nelle macchine virtuali di Azure. Questo documento fornisce istruzioni su come ottenere la disponibilità per le istanze di SAP HANA ospitate nelle macchine virtuali di Azure. All'interno del documento vengono descritti numerosi scenari che possono essere implementati nell'infrastruttura di Azure per aumentare la disponibilità di SAP HANA in Azure. 
+# <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>Disponibilità elevata di SAP HANA per macchine virtuali di Azure
+
+È possibile usare numerose funzionalità di Azure per distribuire database di importanza strategica come SAP HANA nelle macchine virtuali di Azure. Questo articolo fornisce istruzioni su come ottenere la disponibilità per le istanze di SAP HANA ospitate nelle macchine virtuali di Azure. L'articolo descrive numerosi scenari che è possibile implementare usando l'infrastruttura di Azure per aumentare la disponibilità di SAP HANA in Azure. 
 
 ## <a name="prerequisites"></a>prerequisiti
-La guida presuppone che l'utente abbia familiarità con le nozioni di base sull'infrastruttura distribuita come servizio (IaaS) in Azure, ad esempio: 
+
+L'articolo presuppone che l'utente abbia familiarità con le nozioni di base sull'infrastruttura distribuita come servizio (IaaS) in Azure, tra cui: 
 
 - Come distribuire macchine virtuali o reti virtuali tramite il portale di Azure o PowerShell.
-- L'interfaccia della riga di comando multipiattaforma di Azure che include l'opzione per l'uso dei modelli JSON (JavaScript Object Notification).
+- Uso dell'interfaccia della riga di comando multipiattaforma di Azure che include l'opzione per l'uso dei modelli JSON (JavaScript Object Notation).
 
-La guida presuppone anche che l'utente abbia familiarità con l'installazione, l'amministrazione e l'uso delle istanze di SAP HANA, in particolare con la configurazione e le operazioni relative alla replica di sistema SAP HANA o con attività come il backup e il ripristino di database SAP HANA.
+L'articolo presuppone anche che l'utente abbia familiarità con l'installazione, l'amministrazione e l'uso delle istanze di SAP HANA. È particolarmente importante avere familiarità con la configurazione e le operazioni della replica di sistema HANA, incluse le attività come il backup e ripristino dei database SAP HANA.
 
-Altri articoli che forniscono una buona panoramica degli argomenti relativi a SAP HANA in Azure sono i seguenti:
+Questi articoli forniscono una buona panoramica dell'uso di SAP HANA in Azure:
 
 - [Installazione manuale di SAP HANA a istanza singola nelle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
 - [Configurare la replica di sistema SAP HANA nelle macchine virtuali di Azure](sap-hana-high-availability.md)
-- [Guida del backup di SAP HANA in macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+- [Eseguire il backup di SAP HANA in VM di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 
-L'elenco seguente indica gli articoli e i contenuti con i quali è opportuno acquisire familiarità per SAP HANA:
+È anche consigliabile avere familiarità con il contenuto di questi articoli su SAP HANA:
 
 - [Disponibilità elevata per SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/6d252db7cdd044d19ad85b46e6c294a4.html)
 - [Domande frequenti: Disponibilità elevata per SAP HANA](https://archive.sap.com/documents/docs/DOC-66702)
-- [How to Perform System Replication for SAP HANA](https://archive.sap.com/documents/docs/DOC-47702) (Come eseguire la replica di sistema per SAP HANA)
-- [SAP HANA 2.0 SPS 01 What’s New: High Availability](https://blogs.sap.com/2017/05/15/sap-hana-2.0-sps-01-whats-new-high-availability-by-the-sap-hana-academy/) (Novità di SAP HANA 2.0 SPS 01: disponibilità elevata)
-- [Network Recommendations for SAP HANA System Replication](https://www.sap.com/documents/2016/06/18079a1c-767c-0010-82c7-eda71af511fa.html) (Raccomandazioni sulla rete per la replica di sistema SAP HANA)
-- [SAP HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) (Replica di sistema SAP HANA)
-- [SAP HANA Service Auto-Restart](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html) (Riavvio automatico del servizio SAP HANA)
-- [Configuring SAP HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/676844172c2442f0bf6c8b080db05ae7.html) (Configurazione della replica di sistema SAP HANA)
+- [Perform system replication for SAP HANA](https://archive.sap.com/documents/docs/DOC-47702) (Eseguire la replica di sistema per SAP HANA)
+- [SAP HANA 2.0 SPS 01 What's new: High availability](https://blogs.sap.com/2017/05/15/sap-hana-2.0-sps-01-whats-new-high-availability-by-the-sap-hana-academy/) (Novità di SAP HANA 2.0 SPS 01: disponibilità elevata)
+- [Network recommendations for SAP HANA system replication](https://www.sap.com/documents/2016/06/18079a1c-767c-0010-82c7-eda71af511fa.html) (Raccomandazioni sulla rete per la replica di sistema SAP HANA)
+- [SAP HANA system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) (Replica di sistema SAP HANA)
+- [SAP HANA service auto-restart](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html) (Riavvio automatico del servizio SAP HANA)
+- [Configure SAP HANA system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/676844172c2442f0bf6c8b080db05ae7.html) (Configurare la replica di sistema SAP HANA)
 
+Oltre ad avere familiarità con la distribuzione di macchine virtuali in Azure, prima di definire l'architettura di disponibilità in Azure, è consigliabile vedere [Gestire la disponibilità delle macchine virtuali Windows in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
 
-Oltre ad avere familiarità con la distribuzione di macchine virtuali in Azure, è anche consigliabile vedere l'articolo [Gestire la disponibilità delle macchine virtuali Windows in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) prima di proseguire con la definizione dell'architettura di disponibilità in Azure.
+## <a name="service-level-agreements-for-azure-components"></a>Contratti di servizio per componenti di Azure
 
-## <a name="service-level-agreements-for-different-azure-components"></a>Contratti di servizio per diversi componenti di Azure
-Azure offre contratti di servizio di disponibilità differenti per i diversi componenti, ad esempio reti, archiviazione e macchine virtuali. Tutti questi contratti di servizio sono documentati ed elencati nella pagina dei [Contratti di servizio di Microsoft Azure](https://azure.microsoft.com/support/legal/sla/). Come si può notare esaminando il [contratto di servizio per le macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/), Azure offre due contratti di servizio diversi con due configurazioni distinte. I contratti di servizio sono definiti come segue:
+Azure offre contratti di servizio di disponibilità differenti per i diversi componenti, ad esempio reti, archiviazione e macchine virtuali. Tutti i contratti di servizio sono documentati. Per altre informazioni, vedere [Contratti di servizio di Microsoft Azure](https://azure.microsoft.com/support/legal/sla/). 
 
-- Una singola macchina virtuale che usa [Archiviazione Premium di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) per il disco del sistema operativo e tutti i dischi dati fornisce una percentuale di tempo di attività mensile pari al 99,9%
-- Più macchine virtuali (almeno due) organizzate in un [set di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) forniscono una percentuale di tempo di attività mensile pari al 99,95%
+[Contratto di Servizio per Macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) descrive due diversi contratti di servizio, per due diverse configurazioni:
 
-Determinare i propri requisiti di disponibilità rispetto ai contratti di servizio offerti dai componenti di Azure e quindi scegliere i diversi scenari da implementare con SAP HANA per ottenere la disponibilità che è necessario fornire.
+- Una VM singola che usa [Archiviazione Premium di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) per il disco del sistema operativo e tutti i dischi dati. Questa opzione offre un tempo di attività mensile del 99,9%.
+- Più macchine virtuali (almeno due) organizzate in un [set di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Questa opzione offre un tempo di attività mensile del 99,95%.
+
+Confrontare il requisito di disponibilità con i contratti di servizio che i componenti di Azure possono fornire. Scegliere quindi gli scenari per SAP HANA per ottenere il livello di disponibilità necessario.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Passare ai documenti:
 
-- [Disponibilità di SAP HANA in un'area di Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
-- [Disponibilità di SAP HANA tra aree di Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions) 
+- Informazioni sulla [disponibilità di SAP HANA in un'area di Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region).
+- Informazioni sulla [disponibilità di SAP HANA tra aree di Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions). 
 
 
 

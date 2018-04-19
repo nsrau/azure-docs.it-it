@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2018
 ms.author: jdial
-ms.openlocfilehash: 0d550d3bda119cfcb9ecc6f852006d5e325fdfa3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b0eb10d373f47191933eb1c3c22b779e9e8d6685
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>Monitorare le connessioni di rete con Azure Network Watcher usando il portale di Azure
 
@@ -29,7 +29,7 @@ Prima di completare i passaggi descritti in questo articolo, è necessario soddi
 
 * Un'istanza di Network Watcher nell'area di cui si vuole monitorare una connessione. Se non si dispone già di un'istanza, è possibile crearne una completando i passaggi descritti in [Creare un'istanza di Azure Network Watcher](network-watcher-create.md).
 * Una macchina virtuale da cui eseguire il monitoraggio. Per informazioni sulla creazione di una macchina virtuale, vedere l'articolo su come creare una macchina virtuale [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-* `AzureNetworkWatcherExtension` installato nella macchina virtuale da cui si vuole monitorare una connessione. Per installare l'estensione in una macchina virtuale Windows, vedere [Estensione macchina virtuale agente Azure Network Watcher per Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), mentre per installare l'estensione in una macchina virtuale Linux, vedere [Estensione macchina virtuale Azure Network Watcher Agent per Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+* `AzureNetworkWatcherExtension` installato nella macchina virtuale da cui si vuole monitorare una connessione. Per installare l'estensione in una macchina virtuale Windows, vedere [Estensione macchina virtuale agente Azure Network Watcher per Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), mentre per installare l'estensione in una macchina virtuale Linux, vedere [Estensione macchina virtuale Azure Network Watcher Agent per Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Non è richiesta l'estensione nell'endpoint di destinazione che si vuole monitorare.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure 
 

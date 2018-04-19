@@ -1,5 +1,5 @@
 ---
-title: Indirizzare gli eventi di archiviazione BLOB di Azure a un endpoint Web personalizzato - Powershell | Microsoft Docs
+title: Indirizzare gli eventi di archiviazione BLOB di Azure a un endpoint Web personalizzato - PowerShell | Microsoft Docs
 description: Usare la Griglia di eventi di Azure per sottoscrivere eventi di archiviazione BLOB.
 services: storage,event-grid
 keywords: ''
@@ -8,24 +8,22 @@ ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 374a24448eb1bf366e26bb55fdf09e470b030c89
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e5524732185d7b80ebf16a9bce6de9ca0183c27e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato con PowerShell
 
 La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo articolo illustra come usare Azure PowerShell per sottoscrivere eventi di archiviazione BLOB, attivare un evento e visualizzare il risultato. 
 
-In genere, si inviano eventi a un endpoint che risponde all'evento, ad esempio un webhook o una funzione di Azure. Per semplificare l'esempio illustrato in questo articolo, gli eventi vengono inviati a un URL che raccoglie semplicemente i messaggi. È possibile creare questo URL usando strumenti di terze parti da [RequestBin](https://requestb.in/) o [Hookbin](https://hookbin.com/).
+In genere, si inviano eventi a un endpoint che risponde all'evento, ad esempio un webhook o una funzione di Azure. Per semplificare l'esempio illustrato in questo articolo, gli eventi vengono inviati a un URL che raccoglie semplicemente i messaggi. È possibile creare questo URL mediante uno strumento di terze parti da [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **RequestBin** e **Hookbin** non sono destinati all'utilizzo con velocità effettiva elevata. Questi strumenti vengono usati esclusivamente per scopi dimostrativi. Se si esegue il push di più di un evento alla volta, è possibile che non vengano visualizzati tutti gli eventi nello strumento.
+> **Hookbin** non è destinato all'utilizzo con velocità effettiva elevata. Questo strumento viene usato esclusivamente per scopi dimostrativi. Se si esegue il push di più di un evento alla volta, è possibile che non vengano visualizzati tutti gli eventi nello strumento.
 
 Al termine della procedura descritta in questo articolo, si potrà notare che i dati dell'evento sono stati inviati a un endpoint.
-
-![Dati dell'evento](./media/storage-blob-event-quickstart/request-result.png)
 
 ## <a name="setup"></a>Configurazione
 
@@ -84,7 +82,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>Creare un endpoint del messaggio
 
-Prima di sottoscrivere l'argomento, creare l'endpoint per il messaggio dell'evento. Anziché scrivere codice per rispondere all'evento, creare un endpoint che raccoglie i messaggi per poterli visualizzare. RequestBin e Hookbin sono strumenti di terze parti che consentono di creare un endpoint e visualizzare le richieste inviate a questo endpoint. Passare a [RequestBin](https://requestb.in/) e fare clic su **Create a RequestBin** (Crea RequestBin) oppure passare a [Hookbin](https://hookbin.com/) e fare clic su **Create New Endpoint** (Crea nuovo endpoint). Copiare l'URL del contenitore e sostituire `<bin URL>` nello script seguente.
+Prima di sottoscrivere l'argomento, creare l'endpoint per il messaggio dell'evento. Anziché scrivere codice per rispondere all'evento, creare un endpoint che raccoglie i messaggi per poterli visualizzare. Hookbin è uno strumento di terze parti che consente di creare un endpoint e visualizza le richieste che gli vengono inviate. Passare a [Hookbin](https://hookbin.com/) e fare clic su **Create New Endpoint** (Crea nuovo endpoint). Copiare l'URL del contenitore e sostituire `<bin URL>` nello script seguente.
 
 ```powershell
 $binEndPoint = "<bin URL>"
@@ -92,7 +90,7 @@ $binEndPoint = "<bin URL>"
 
 ## <a name="subscribe-to-your-storage-account"></a>Sottoscrivere l'account di archiviazione
 
-Si sottoscrive un argomento per indicare alla griglia di eventi gli eventi di cui si vuole tenere traccia. L'esempio seguente sottoscrive l'account di archiviazione creato e passa l'URL di RequestBin o Hookbin come endpoint per la notifica degli eventi. 
+Si sottoscrive un argomento per indicare alla griglia di eventi gli eventi di cui si vuole tenere traccia. L'esempio seguente sottoscrive l'account di archiviazione creato e passa l'URL di Hookbin come endpoint per la notifica degli eventi. 
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id

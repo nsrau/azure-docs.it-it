@@ -2,18 +2,18 @@
 title: Risolvere i problemi di sincronizzazione dati SQL (anteprima) | Microsoft Docs
 description: Informazioni su come risolvere i problemi comuni di sincronizzazione dati SQL di Azure (anteprima).
 services: sql-database
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: a24e16abd78a89d6143c00fc08a3ef91d7dd8202
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e29c93f37017a88aa4b6d69168e649f7397d56b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Risolvere i problemi della sincronizzazione dati SQL (anteprima)
 
@@ -442,7 +442,7 @@ Per altre informazioni sulla sincronizzazione dati SQL (anteprima), vedere:
 -   [Sincronizzare i dati tra più database cloud e locali con l'anteprima di sincronizzazione dati SQL di Azure](sql-database-sync-data.md)  
 -   [Impostare la sincronizzazione dati SQL di Azure (anteprima)](sql-database-get-started-sql-data-sync.md)  
 -   [Procedure consigliate per la sincronizzazione dati SQL di Azure (anteprima)](sql-database-best-practices-data-sync.md)  
--   [Monitorare sincronizzazione dati SQL di Azure (anteprima) con Log Analytics di OMS](sql-database-sync-monitor-oms.md)  
+-   [Monitorare la sincronizzazione dati SQL di Azure (anteprima) con Log Analytics](sql-database-sync-monitor-oms.md)  
 -   Esempi di PowerShell completi che illustrano come configurare la sincronizzazione dati SQL (anteprima):  
     -   [Usare PowerShell per sincronizzare più database SQL di Azure](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Usare PowerShell per la sincronizzazione tra un database SQL di Azure e un database locale di SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)  

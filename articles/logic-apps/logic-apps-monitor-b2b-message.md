@@ -3,9 +3,9 @@ title: Monitorare e configurare la registrazione per le transazioni B2B - App pe
 description: Monitorare i messaggi AS2, X12 ed EDIFACT, avviare la registrazione diagnostica per l'account di integrazione
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
 ms.workload: integration
@@ -15,22 +15,22 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f717dae9a70a96944b623f22b90cf8c5a943f382
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6afab12b9e2d6e8686ecbc95be9743afbe70d98c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-and-set-up-diagnostics-logging-for-b2b-communication-in-integration-accounts"></a>Monitorare e configurare la registrazione diagnostica per la comunicazione B2B negli account di integrazione
 
-Dopo avere configurato la comunicazione B2B tra due processi o applicazioni aziendali in esecuzione usando l'account di integrazione, tali entità possono scambiarsi messaggi. Per verificare che la comunicazione funziona come previsto, è possibile impostare il monitoraggio per i messaggi AS2, X12 ed EDIFACT, nonché la registrazione diagnostica per l'account di integrazione attraverso il servizio [Log Analytics di Azure](../log-analytics/log-analytics-overview.md). Questo servizio di [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) consente di monitorare il cloud e gli ambienti locali, di gestirne la disponibilità e le prestazioni e di raccogliere dettagli ed eventi di runtime per ottimizzare il debug. È anche possibile [usare i dati diagnostici con altri servizi](#extend-diagnostic-data), ad esempio Archiviazione di Azure e Hub eventi di Azure.
+Dopo avere configurato la comunicazione B2B tra due processi o applicazioni aziendali in esecuzione usando l'account di integrazione, tali entità possono scambiarsi messaggi. Per verificare che la comunicazione funziona come previsto, è possibile impostare il monitoraggio per i messaggi AS2, X12 ed EDIFACT, nonché la registrazione diagnostica per l'account di integrazione attraverso il servizio [Log Analytics di Azure](../log-analytics/log-analytics-overview.md). Questo servizio consente di monitorare il cloud e gli ambienti locali, di gestirne la disponibilità e le prestazioni e di raccogliere dettagli ed eventi di runtime per ottimizzare il debug. È anche possibile [usare i dati diagnostici con altri servizi](#extend-diagnostic-data), ad esempio Archiviazione di Azure e Hub eventi di Azure.
 
 ## <a name="requirements"></a>Requisiti
 
 * Un'app per la logica configurata con la registrazione diagnostica. Informazioni su [come configurare la registrazione per l'app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
   > [!NOTE]
-  > Soddisfatto questo requisito, sarà disponibile un'area di lavoro in [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Quando si configura la registrazione per l'account di integrazione è consigliabile usare la stessa area di lavoro di OMS. Se non si ha un'area di lavoro OMS, vedere [come crearne una](../log-analytics/log-analytics-get-started.md).
+  > Soddisfatto questo requisito, sarà disponibile un'area di lavoro in Log Analytics. Quando si configura la registrazione per l'account di integrazione è consigliabile usare la stessa area di lavoro di Log Analytics. Se non si dispone di un'area di lavoro di Log Analytics, vedere [Creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
 * Un account di integrazione collegato all'app per la logica. Informazioni su [come creare un account di integrazione con un collegamento all'app per la logica](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
@@ -58,17 +58,17 @@ Dopo avere configurato la comunicazione B2B tra due processi o applicazioni azie
 
    ![Attivare la diagnostica di Azure](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-4. Selezionare ora l'area di lavoro di OMS e i dati da usare per la registrazione, come indicato:
+4. Selezionare ora l'area di lavoro di Log Analytics e i dati da usare per la registrazione, come indicato:
 
    1. Selezionare **Invia a Log Analytics**. 
    2. In **Log Analytics** scegliere **Configura**. 
-   3. In **Aree di lavoro OMS** selezionare l'area di lavoro di OMS da usare per la registrazione.
+   3. In **Aree di lavoro OMS** selezionare l'area di lavoro di Log Analytics da usare per la registrazione.
    4. In **Log** selezionare la categoria **IntegrationAccountTrackingEvents**.
    5. Scegliere **Salva**.
 
    ![Impostare Log Analytics in modo da inviare i dati di diagnostica a un log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-5. [Impostare la registrazione per i messaggi B2B in OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+5. [Impostare la registrazione per i messaggi B2B in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 <a name="azure-monitor-service"></a>
 
@@ -92,17 +92,17 @@ Dopo avere configurato la comunicazione B2B tra due processi o applicazioni azie
 
    ![Attivare la diagnostica di Azure](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-4. Selezionare ora l'area di lavoro di OMS e la categoria di eventi per la registrazione, come indicato:
+4. Selezionare ora l'area di lavoro di Log Analytics e la categoria di eventi per la registrazione, come indicato:
 
    1. Selezionare **Invia a Log Analytics**. 
    2. In **Log Analytics** scegliere **Configura**. 
-   3. In **Aree di lavoro OMS** selezionare l'area di lavoro di OMS da usare per la registrazione.
+   3. In **Aree di lavoro OMS** selezionare l'area di lavoro di Log Analytics da usare per la registrazione.
    4. In **Log** selezionare la categoria **IntegrationAccountTrackingEvents**.
    5. Al termine dell'operazione, scegliere **Salva**.
 
    ![Impostare Log Analytics in modo da inviare i dati di diagnostica a un log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-5. [Impostare la registrazione per i messaggi B2B in OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+5. [Impostare la registrazione per i messaggi B2B in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Estendere l'uso dei dati di diagnostica con altri servizi
 
@@ -133,6 +133,6 @@ Azure supporta questi tipi di schemi di rilevamento, che sono tutti fissi ad ecc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Tenere traccia dei messaggi B2B in OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Tenere traccia dei messaggi B2B in OMS")
+* [Tenere traccia dei messaggi B2B in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Tenere traccia dei messaggi B2B in OMS")
 * [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")
 
