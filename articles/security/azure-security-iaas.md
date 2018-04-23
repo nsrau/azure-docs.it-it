@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 376a3e47e5099aa4d74732e0b6ed14ed9af14091
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8561d9ca2570975f4cd20a0606ce5b9cdee632b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
 
@@ -83,7 +83,7 @@ Il ricorso all'amministrazione JIT evita di avere account con diritti elevati ne
 
 L'uso di Azure negli ambienti lab e di sviluppo offre alle organizzazioni una maggiore agilità a livello di sviluppo e testing, grazie all'eliminazione dei ritardi dovuti all'approvvigionamento dell'hardware. Sfortunatamente, la mancanza di esperienza o il desiderio di accelerarne l'adozione può portare un amministratore a un'eccessiva permissività nell'assegnazione dei diritti. Tale rischio può esporre involontariamente l'organizzazione ad attacchi interni, perché alcuni utenti potrebbero vedersi concedere un accesso molto più avanzato del necessario.
 
-Il servizio [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) fa uso del [controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-what-is.md), che permette di organizzare i compiti all'interno del team in ruoli, che concedono solo il livello di accesso necessario agli utenti per svolgere il proprio lavoro. Il controllo degli accessi in base al ruolo prevede i ruoli predefiniti di proprietario, utente lab e collaboratore, che possono anche essere usati per assegnare diritti a partner esterni e semplificare notevolmente la collaborazione.
+Il servizio [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) fa uso del [controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md), che permette di organizzare i compiti all'interno del team in ruoli, che concedono solo il livello di accesso necessario agli utenti per svolgere il proprio lavoro. Il controllo degli accessi in base al ruolo prevede i ruoli predefiniti di proprietario, utente lab e collaboratore, che possono anche essere usati per assegnare diritti a partner esterni e semplificare notevolmente la collaborazione.
 
 L'uso del controllo degli accessi in base al ruolo in DevTest Labs permette di creare [ruoli personalizzati](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md) aggiuntivi. DevTest Labs non si limita a semplificare la gestione delle autorizzazioni, ma semplifica anche il processo di provisioning degli ambienti e permette di gestire altre problematiche tipiche dei team che operano in ambienti di sviluppo e test. Richiede un po' di preparazione, ma con il tempo permette di semplificare il lavoro del team.
 

@@ -1,23 +1,23 @@
 ---
-title: "Comprendere le identità di Azure | Microsoft Docs"
-description: "Ottenere una conoscenza di base dei termini, dei concetti e delle raccomandazioni relativi alle soluzioni di gestione delle identità di Microsoft Azure, per migliorare il processo decisionale in termini di governance delle identità per la propria organizzazione."
-keywords: 
+title: Comprendere le identità di Azure | Microsoft Docs
+description: Ottenere una conoscenza di base dei termini, dei concetti e delle raccomandazioni relativi alle soluzioni di gestione delle identità di Microsoft Azure, per migliorare il processo decisionale in termini di governance delle identità per la propria organizzazione.
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/17/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 4438917db93c37ddbba3e7ee692b2e3c065d2beb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5f76bd5da8ff040ea184544b96eb245c42d4dc2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Informazioni sulle soluzioni di gestione delle identità di Azure
 Microsoft Azure Active Directory (Azure AD) è una soluzione cloud completa per la gestione delle identità e degli accessi che fornisce servizi di directory, governance delle identità e gestione dell'accesso alle applicazioni. Azure AD [abilita il single sign-on (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) rapidamente su oltre 1000 applicazioni preintegrate commerciali e personalizzate nella [raccolta di applicazioni Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Molte di queste applicazioni sono già in uso, ad esempio Office 365, Salesforce.com, Box, ServiceNow e Workday.
@@ -53,7 +53,7 @@ Ora che si conoscono i termini di base di identità di Azure, si devono ottenere
 |-----|-----|
 |[Associare le sottoscrizioni di Azure ad Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) |Ogni sottoscrizione di Azure ha una relazione di trust con una directory di Azure AD, necessaria per autenticare gli utenti, i servizi e i dispositivi. *Più sottoscrizioni possono considerare attendibile la stessa directory di Azure AD, ma una sottoscrizione considererà attendibile solo una singola directory di Azure AD*. Questa relazione di trust è diversa dalla relazione tra la sottoscrizione e le altre risorse in Azure, ad esempio siti Web, database e così via, le quali sono da considerarsi più come risorse figlio di una sottoscrizione. Se la sottoscrizione scade, non sarà più possibile accedere alle risorse associate alla sottoscrizione diversa da Azure AD. Tuttavia, la directory Azure AD rimane in Azure, quindi sarà possibile associarvi un'altra sottoscrizione e continuare a gestire le risorse del tenant.|
 |[Come funzionano le licenze di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-get-started-azure-portal) | Quando si acquista o si attiva Enterprise Mobility Suite, Azure AD Premium o Azure AD Basic, la directory viene aggiornata con la sottoscrizione, inclusi il relativo periodo di validità e le licenze prepagate. Quando la sottoscrizione è attiva, il servizio può essere gestito dagli amministratori globali di Azure AD e usato dagli utenti dotati di licenza. Le informazioni relative alla sottoscrizione, tra cui il numero di licenze disponibili o assegnate, sono disponibili nel portale di Azure nel pannello **Licenze** >  **di Azure Active Directory**. Questa è anche la posizione migliore per gestire le assegnazioni delle licenze.|
-|[Controllo di accesso basato sui ruoli nel portale di Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)|Il controllo di accesso in base al ruolo aiuta nella gestione specifica degli accessi per le risorse di Azure. Un numero eccessivo di autorizzazioni può esporre un account agli attacchi. Un numero di autorizzazioni insufficiente ostacola l'efficienza del lavoro dei dipendenti. Il modello di controllo di accesso in base al ruolo consente di assegnare ai dipendenti le esatte autorizzazioni necessarie in base ai tre ruoli di base validi per tutti i gruppi di risorse: proprietario, collaboratore, lettore. È inoltre possibile creare fino a 2.000 [ruoli Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) per soddisfare esigenze specifiche. |
+|[Controllo di accesso basato sui ruoli nel portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)|Il controllo di accesso in base al ruolo aiuta nella gestione specifica degli accessi per le risorse di Azure. Un numero eccessivo di autorizzazioni può esporre un account agli attacchi. Un numero di autorizzazioni insufficiente ostacola l'efficienza del lavoro dei dipendenti. Il modello di controllo di accesso in base al ruolo consente di assegnare ai dipendenti le esatte autorizzazioni necessarie in base ai tre ruoli di base validi per tutti i gruppi di risorse: proprietario, collaboratore, lettore. È inoltre possibile creare fino a 2.000 [ruoli Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) per soddisfare esigenze specifiche. |
 |[Identità ibrida](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)|L'identità ibrida viene ottenuta tramite l'integrazione di AD DS locale con Azure AD tramite [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect). Ciò consente quindi di fornire agli utenti un'identità comune per le applicazioni di Office 365, Azure e delle app locali o e SaaS integrate con Azure AD. Con l'identità ibrida è possibile estendere in modo efficace l'ambiente locale al cloud per la gestione dell'accesso e delle identità.|
 
 ### <a name="the-difference-between-windows-server-ad-ds-and-azure-ad"></a>Differenza tra Windows Server AD DS e Azure AD

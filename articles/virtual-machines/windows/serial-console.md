@@ -14,50 +14,50 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 2ff0dcba0912461d8528fc76c7c67d90febc0324
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console seriale per macchine virtuali (anteprima) 
 
 
-La console seriale per macchine virtuali in Azure fornisce l'accesso a una console basata su testo per macchine virtuali Linux e Windows. Questa connessione seriale viene stabilita con la porta seriale COM1 della macchina virtuale, fornisce l'accesso alla macchina virtuale e non è correlata allo stato del sistema operativo o della rete della macchina virtuale. L'accesso alla console seriale per una macchina virtuale attualmente può essere eseguito solo tramite il portale di Azure e consentito solo per gli utenti che hanno l'accesso Collaboratore Macchina virtuale o superiore alla macchina virtuale. 
+La console seriale per macchine virtuali in Azure fornisce l'accesso a una console basata su testo per macchine virtuali Linux e Windows. Questa connessione seriale viene stabilita con la porta seriale COM1 della macchina virtuale, fornisce l'accesso alla macchina virtuale e non è correlata allo stato del sistema operativo o della rete della macchina virtuale. L'accesso alla console seriale per una macchina virtuale attualmente può essere eseguito solo tramite il portale di Azure ed è consentito solo agli utenti che hanno l'accesso Collaboratore macchine virtuali o superiore alla VM. 
 
 > [!Note] 
-> Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le condizioni d'uso. Per altre informazioni, vedere [Condizioni per l'utilizzo aggiuntive per Anteprima di Microsoft Azure]. (https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Questo servizio è attualmente in **anteprima pubblica** e l'accesso alla console seriale per le macchine virtuali è disponibile per le aree di Azure globali. La console seriale per il momento non è disponibile per il cloud Azure per enti pubblici, Azure Germania e Azure Cina.
+> Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le condizioni d'uso. Per altre informazioni, vedere [Condizioni Supplementari per l'Utilizzo delle Anteprime di Microsoft Azure]. (https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Questo servizio è attualmente in **anteprima pubblica** e l'accesso alla console seriale per le macchine virtuali è disponibile per le aree di Azure globali. La console seriale per il momento non è disponibile per il cloud Azure per enti pubblici, Azure Germania e Azure Cina.
 
  
 
 ## <a name="prerequisites"></a>prerequisiti 
 
 * La macchina virtuale DEVE avere la [diagnostica di avvio](boot-diagnostics.md) abilitata 
-* L'account che usa la console seriale deve avere il [ruolo Collaboratore](../../active-directory/role-based-access-built-in-roles.md) per la VM e l'account di archiviazione della [diagnostica di avvio](boot-diagnostics.md). 
+* L'account che usa la console seriale deve avere il [ruolo Collaboratore](../../role-based-access-control/built-in-roles.md) per la VM e l'account di archiviazione della [diagnostica di avvio](boot-diagnostics.md). 
 
 ## <a name="open-the-serial-console"></a>Aprire la console seriale
 La console seriale per le macchine virtuali è accessibile solo tramite il [portale di Azure](https://portal.azure.com). Di seguito sono riportati i passaggi per accedere alla console seriale per macchine virtuali tramite il portale 
 
   1. Aprire il portale di Azure
-  2. Dal menu a sinistra selezionare Macchine virtuali.
-  3. Fare clic sulla VM nell'elenco. Viene visualizzata la pagina Panoramica relativa alla VM.
+  2. Nel menu a sinistra selezionare Macchine virtuali.
+  3. Fare clic sulla macchina virtuale nell'elenco. Viene visualizzata la pagina Panoramica relativa alla VM.
   4. Scorrere verso il basso fino alla sezione Supporto e risoluzione dei problemi e fare clic sull'opzione Console seriale (anteprima). Verrà aperto un nuovo riquadro con la console seriale e verrà avviata la connessione.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
 ### <a name="disable-feature"></a>Disabilitare la funzionalità
-È possibile disattivare la funzionalità della console seriale per macchine virtuali specifiche disabilitando l'impostazione della diagnostica di avvio di una determinata macchina virtuale.
+È possibile disattivare la funzionalità della console seriale per macchine virtuali specifiche disabilitando l'impostazione della diagnostica di avvio per tali macchine virtuali.
 
 ## <a name="serial-console-security"></a>Sicurezza della console seriale 
 
 ### <a name="access-security"></a>Sicurezza dell'accesso 
-L'accesso alla console seriale è limitato agli utenti che hanno l'accesso [Collaboratore Macchina virtuale](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) o superiore per la macchina virtuale. Se il tenant di AAD richiede Multi-Factor Authentication, MFA sarà necessario anche per l'accesso alla console seriale perché l'accesso viene stabilito tramite il [portale di Azure](https://portal.azure.com).
+L'accesso alla console seriale è limitato agli utenti che hanno l'accesso [Collaboratore macchine virtuali](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) o superiore per la macchina virtuale. Se il tenant di AAD richiede Multi-Factor Authentication, MFA sarà necessario anche per l'accesso alla console seriale perché l'accesso viene stabilito tramite il [portale di Azure](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Sicurezza del canale
 Tutti i dati inviati in entrambe le direzioni vengono crittografati durante il transito.
 
 ### <a name="audit-logs"></a>Log di controllo
-Ogni accesso alla console seriale viene attualmente registrato nei log di [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) della macchina virtuale. L'accesso a questi log è di proprietà dell'amministratore della macchina virtuale, che ne ha anche il controllo.  
+Ogni accesso alla console seriale viene attualmente registrato nei log di [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) della macchina virtuale. L'accesso a questi log è di proprietà dell'amministratore della macchina virtuale di Azure, che ne ha anche il controllo.  
 
 >[!CAUTION] 
 Anche se non vengono registrate password di accesso per la console, se i comandi eseguiti nella console contengono o visualizzano password, segreti, nomi utente o qualsiasi altra forma di informazioni personali, tali elementi verranno scritti nei log di diagnostica di avvio della macchina virtuale, con qualsiasi altro testo visibile, durante l'implementazione della funzionalità di scorrimento all'indietro della console seriale. Questi log sono circolari e solo gli utenti con autorizzazioni di lettura per l'account di archiviazione di diagnostica possono accedervi, ma è preferibile seguire la procedura consigliata che prevede l'uso di Desktop remoto per tutto ciò che può implicare segreti e/o informazioni personali. 
@@ -562,17 +562,17 @@ La maggior parte degli errori è di natura temporanea e, per risolverli, è suff
 
 Tipi di errore                            |   Mitigazione 
 :---------------------------------|:--------------------------------------------|
-Non è possibile recuperare le impostazione di diagnostica per "<VMNAME>". Per usare la console seriale, assicurarsi che la diagnostica di avvio sia abilitata per questa macchina virtuale. | Assicurarsi che la VM abbia la [diagnostica di avvio](boot-diagnostics.md) abilitata. 
-La macchina virtuale è in uno stato arrestato deallocato. Avviare la macchina virtuale e provare a stabilire di nuovo la connessione alla console seriale. | La macchina virtuale deve essere in uno stato avviato per accedere alla console seriale
+Impossibile recuperare le impostazione di diagnostica per "<VMNAME>". Per usare la console seriale, assicurarsi che la diagnostica di avvio sia abilitata per questa macchina virtuale. | Assicurarsi che la VM abbia la [diagnostica di avvio](boot-diagnostics.md) abilitata. 
+La macchina virtuale è in uno stato arrestato deallocato. Avviare la VM e provare a stabilire di nuovo la connessione alla console seriale. | La macchina virtuale deve essere in uno stato avviato per accedere alla console seriale
 Non si hanno le autorizzazioni necessarie per usare questa console seriale per la VM. Assicurarsi di avere almeno le autorizzazioni del ruolo Collaboratore Macchina virtuale.| L'accesso alla console seriale richiede determinate autorizzazioni. Per informazioni dettagliate, vedere i [requisiti di accesso](#prerequisites)
-Non è possibile determinare il gruppo di risorse per l'account di archiviazione della diagnostica di avvio "<STORAGEACCOUNTNAME>". Verificare che la diagnostica di avvio sia abilitata per questa macchina virtuale e di avere accesso a questo account di archiviazione. | L'accesso alla console seriale richiede determinate autorizzazioni. Per informazioni dettagliate, vedere i [requisiti di accesso](#prerequisites)
+Impossibile determinare il gruppo di risorse per l'account di archiviazione della diagnostica di avvio "<STORAGEACCOUNTNAME>". Verificare che la diagnostica di avvio sia abilitata per questa macchina virtuale e di avere accesso a questo account di archiviazione. | L'accesso alla console seriale richiede determinate autorizzazioni. Per informazioni dettagliate, vedere i [requisiti di accesso](#prerequisites)
 
 ## <a name="known-issues"></a>Problemi noti 
 Poiché l'accesso alla console seriale è ancora in fase di anteprima, è in corso la soluzione di alcuni problemi noti. Di seguito è riportato un elenco di questi problemi con le possibili soluzioni alternative 
 
 Problema                           |   Mitigazione 
 :---------------------------------|:--------------------------------------------|
-Non sono disponibili opzioni per la console seriale dell'istanza del set di scalabilità di macchine virtuali | In fase di anteprima, l'accesso alla console seriale per le istanze del set di scalabilità di macchine virtuali non è supportato.
+Non sono disponibili opzioni per la console seriale dell'istanza del set di scalabilità di macchine virtuali | In fase di anteprima l'accesso alla console seriale per le istanze del set di scalabilità di macchine virtuali non è supportato.
 Premendo INVIO dopo il banner della connessione, non viene visualizzato un prompt di accesso | [Premendo INVIO, non accade nulla](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
 Durante la connessione a una macchina virtuale Windows, vengono visualizzate solo informazioni sull'integrità| [Segnali di integrità di Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md)
 Non è possibile digitare nel prompt SAC se è abilitato il debug del kernel | Effettuare una connessione RDP ed eseguire `bcdedit /debug {current} off` da un prompt dei comandi con privilegi elevati. Se non è possibile effettuare una connessione RDP, è invece possibile collegare il disco del sistema operativo a un'altra macchina virtuale di Azure e modificarlo mentre è collegato come disco dati usando `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, quindi effettuare lo swapping del disco.
@@ -586,7 +586,7 @@ R. Per inviare commenti e suggerimenti, andare a https://aka.ms/serialconsolefee
 
 R. Si tratta di un problema noto. Per risolverlo, è sufficiente aprire [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) in modalità Bash e riprovare.
 
-**D. Non è possibile accedere alla console seriale. Dove è possibile inserire un caso di supporto?**
+**D. Impossibile accedere alla console seriale. Dove è possibile inserire un caso di supporto?**
 
 R. Questa funzionalità di anteprima è soggetta alle condizioni per l'anteprima di Azure. Per ottenere supporto, è consigliabile usare i canali indicati in precedenza. 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/02/2018
 ms.author: maheshu
-ms.openlocfilehash: 5d65ce4c199c9ddc54e0120fe1c456a95a34f649
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4122052e48e57a27492433d01ee93536a9bbcf35
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Abilitare la sincronizzazione dell'hash delle password con Azure Active Directory Domain Services
 Nelle attività precedenti è stato abilitato Azure Active Directory Domain Services per il tenant di Azure Active Directory (Azure AD). L'attività successiva prevede l'abilitazione della sincronizzazione dell'hash delle password, necessaria per l'autenticazione NTLM (NT LAN Manager) e Kerberos ad Azure AD Domain Services. Al termine della configurazione della sincronizzazione dell'hash delle password, gli utenti potranno accedere al dominio gestito con le credenziali aziendali.
@@ -64,7 +64,7 @@ Di seguito sono riportate le istruzioni che è necessario fornire agli utenti fi
     ![Fare clic su "Cambia password"](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
    > [!TIP]
-   > Se l'opzione **Cambia password** non è visualizzata nella finestra del pannello di accesso, verificare che l'organizzazione abbia configurato la [gestione delle password in Azure AD](../active-directory/active-directory-passwords-getting-started.md).
+   > Se l'opzione **Cambia password** non è visualizzata nella finestra del pannello di accesso, verificare che l'organizzazione abbia configurato la [gestione delle password in Azure AD](../active-directory/authentication/quickstart-sspr.md).
    >
    >
 4. Nella pagina **Cambia password** digitare la password esistente (precedente) e quindi digitare e confermare una nuova password.
@@ -77,7 +77,7 @@ Dopo alcuni minuti dalla modifica, la nuova password è utilizzabile in Azure Ac
 
 ## <a name="related-content"></a>Contenuti correlati
 * [Come aggiornare la password](../active-directory/active-directory-passwords-update-your-own-password.md)
-* [Introduzione alla gestione delle password in Azure AD](../active-directory/active-directory-passwords-getting-started.md)
+* [Introduzione alla gestione delle password in Azure AD](../active-directory/authentication/quickstart-sspr.md)
 * [Abilitare la sincronizzazione dell'hash delle password in Azure Active Directory Domain Services per un tenant di Azure AD sincronizzato](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Amministrare un dominio gestito di Azure Active Directory Domain Services](active-directory-ds-admin-guide-administer-domain.md)
 * [Aggiungere una macchina virtuale Windows a un dominio gestito di Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)

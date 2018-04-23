@@ -2,10 +2,10 @@
 title: Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi end-to-end | Documentazione Microsoft
 description: Usare questa procedura per configurare la rotazione delle chiavi e i log di controllo dell'insieme di credenziali delle chiavi.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: swgriffith
 manager: mbaldwin
-tags: 
+tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: jodehavi;stgriffi
-ms.openlocfilehash: edc9a870257536235c2bef139dc4d1ead7dd7a8f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.author: stgriffi
+ms.openlocfilehash: 01f1f719545b554b22ef79b38f95087341c65e83
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi end-to-end
 ## <a name="introduction"></a>Introduzione
@@ -38,7 +38,7 @@ Questo articolo illustra un esempio di uso dell'insieme di credenziali delle chi
 Per consentire a un'applicazione di recuperare un segreto dall'insieme di credenziali delle chiavi, è prima necessario creare il segreto e caricarlo nell'insieme di credenziali. Per eseguire queste operazioni, avviare una sessione di Azure PowerShell e accedere all'account Azure con il comando seguente:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Nella finestra del browser a comparsa, immettere il nome utente e la password dell'account Azure. PowerShell recupera tutte le sottoscrizioni associate a questo account e usa la prima per impostazione predefinita.
@@ -201,7 +201,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Add-AzureRmAccount `
+    Connect-AzureRmAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `

@@ -1,25 +1,17 @@
 ---
 title: Importazione di dati in Ricerca di Azure | Microsoft Docs
 description: Informazioni su come caricare i dati in un indice in Ricerca di Azure
-services: search
-documentationcenter: 
-author: ashmaka
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: aa8d47c1-4ae6-4209-a8ce-48d5a9474707
+author: HeidiSteen
+manager: cgronlun
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/05/2018
-ms.author: ashmaka
-ms.openlocfilehash: 8394475572502df9d57256dc5123fcdfa72765a6
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.author: heidist
+ms.openlocfilehash: 3f5f6c4ea8ba45d0fefb84e7338ffdc44f852246
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="indexing-in-azure-search"></a>Indicizzazione in Ricerca di Azure
 > [!div class="op_single_selector"]

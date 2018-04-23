@@ -1,11 +1,11 @@
 ---
-title: "Creare una VM (classica) con più schede di interfaccia di rete - Azure PowerShell | Microsoft Docs"
-description: "Informazioni su come creare una VM (classica) con più schede di interfaccia di rete mediante PowerShell."
+title: Creare una VM (classica) con più schede di interfaccia di rete - Azure PowerShell | Microsoft Docs
+description: Informazioni su come creare una VM (classica) con più schede di interfaccia di rete mediante PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
-editor: 
+author: genli
+manager: cshepard
+editor: ''
 tags: azure-service-management
 ms.assetid: 6e50f39a-2497-4845-a5d4-7332dbc203c5
 ms.service: virtual-network
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
-ms.author: jdial
+ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 824af3f0f5f6d42341f6f1dc94104f6009b568b8
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: a86a3cecffa50143afbb7aad20b1a40baeb87c38
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Creare una macchina virtuale (classica) con più schede di interfaccia di rete usando PowerShell
 

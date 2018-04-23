@@ -1,11 +1,11 @@
 ---
-title: "Progettazione di una soluzione ibrida di gestione delle identità: requisiti di autenticazione a più fattori in Azure | Microsoft Docs"
+title: 'Progettazione di una soluzione ibrida di gestione delle identità: requisiti di autenticazione a più fattori in Azure | Microsoft Docs'
 description: Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche definite durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
-documentationcenter: 
+documentationcenter: ''
 services: active-directory
 author: femila
 manager: billmath
-editor: 
+editor: ''
 ms.assetid: 9c59fda9-47d0-4c7e-b3e7-3575c29beabe
 ms.service: active-directory
 ms.devlang: na
@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bbdf60ed22a720f4f735108da79fe3b2ace1660a
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 998aebfc38c4a0971a5071faebdeae4dbca86690
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti dell'autenticazione a più fattori per la soluzione di identità ibrida
 Nell'era della mobilità, in cui gli utenti accedono a dati e applicazioni nel cloud con qualsiasi dispositivo, proteggere queste informazioni è diventata un'esigenza assoluta.  Ogni giorno viene data notizia di una nuova violazione della sicurezza.  Sebbene non esista una soluzione in grado di fornire una protezione assoluta contro tali violazioni, l'autenticazione a più fattori fornisce un livello aggiuntivo di sicurezza nel tentativo di contrastarle.
 In primo luogo, quindi, è opportuno valutare i requisiti aziendali per l'autenticazione a più fattori, ovvero stabilire gli elementi che l'azienda desidera proteggere.  Questa valutazione è importante per definire i requisiti tecnici a cui attenersi per configurare e abilitare gli utenti aziendali per l'autenticazione a più fattori.
 
 > [!NOTE]
-> Se non si ha familiarità con l'autenticazione a più fattori, è consigliabile leggere l'articolo [Informazioni su Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) prima di andare avanti.
+> Se non si ha familiarità con l'autenticazione a più fattori, è consigliabile leggere l'articolo [Informazioni su Azure Multi-Factor Authentication](authentication/multi-factor-authentication.md) prima di andare avanti.
 > 
 > 
 

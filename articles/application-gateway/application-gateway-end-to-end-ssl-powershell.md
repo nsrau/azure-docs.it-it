@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/27/2018
 ms.author: victorh
-ms.openlocfilehash: f4552960cf16e8f7cb89868a03e4b4699eba2540
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 08d31bb15b7bd710a51858f2100fb52219314673
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurare SSL end-to-end usando un gateway applicazione con PowerShell
 
@@ -58,7 +58,7 @@ Questa sezione descrive la creazione di un gruppo di risorse che contiene il gat
    1. Accedere all'account Azure.
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 

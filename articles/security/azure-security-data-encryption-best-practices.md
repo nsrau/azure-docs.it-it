@@ -1,6 +1,6 @@
 ---
 title: Procedure consigliate per la sicurezza dei dati e la crittografia | Documentazione Microsoft
-description: "Questo articolo presenta una serie di procedure consigliate per la sicurezza dei dati e la crittografia usando le funzionalità integrate di Azure."
+description: Questo articolo presenta una serie di procedure consigliate per la sicurezza dei dati e la crittografia usando le funzionalità integrate di Azure.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0cebc7ae5279b720e8fd0d6c986e1706d944476f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: dae93a622bad3ddfb1d9492d17b700d82e9969c0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedure consigliate per la sicurezza dei dati e la crittografia in Azure
 Uno degli aspetti fondamentali della protezione dei dati nel cloud consiste nel tenere conto dei possibili stati in cui possono trovarsi i dati e dei controlli disponibili per tale stato. Per quanto concerne le procedure consigliate per la sicurezza dei dati e la crittografia in Azure, le raccomandazioni riguarderanno gli stati dei dati seguenti:
@@ -58,16 +58,16 @@ Ad esempio, se Azure MFA viene applicato per gli utenti e configurato per l'uso 
 
 In alternativa, le organizzazioni che vogliono mantenere il controllo di autenticazione in locale possono usare il [server Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), denominato anche MFA locale. Questo metodo consentirà comunque di applicare l'autenticazione a più fattori, mantenendo il server MFA in locale.
 
-Per altre informazioni su Azure MFA, vedere l'articolo [Introduzione ad Azure Multi-Factor Authentication nel cloud](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+Per altre informazioni su Azure MFA, vedere l'articolo [Introduzione ad Azure Multi-Factor Authentication nel cloud](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="use-role-based-access-control-rbac"></a>Usare il controllo degli accessi in base al ruolo
 Limitare l'accesso in base al principio [solo quando necessario](https://en.wikipedia.org/wiki/Need_to_know) e al [principio dei privilegi minimi](https://en.wikipedia.org/wiki/Principle_of_least_privilege) in materia di sicurezza. Questo è fondamentale per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati. Il controllo degli accessi in base al ruolo di Azure consente di assegnare autorizzazioni a utenti, gruppi e applicazioni in un determinato ambito. L'ambito di un'assegnazione di ruolo può essere una sottoscrizione, un gruppo di risorse o una singola risorsa.
 
-Per assegnare privilegi agli utenti, è possibile sfruttare i [ruoli predefiniti del controllo degli accessi in base al ruolo](../active-directory/role-based-access-built-in-roles.md) disponibili in Azure. Si consiglia di usare *Collaboratore Account di archiviazione* per gli operatori cloud che devono gestire gli account di archiviazione e il ruolo *Collaboratore Account di archiviazione classico* per gestire gli account di archiviazione classici. Per quanto riguarda gli operatori di cloud che hanno necessità di gestire le macchine virtuali e l'account di archiviazione, è consigliabile aggiungerli al ruolo *Collaboratore Macchina virtuale*.
+Per assegnare privilegi agli utenti, è possibile sfruttare i [ruoli predefiniti del controllo degli accessi in base al ruolo](../role-based-access-control/built-in-roles.md) disponibili in Azure. Si consiglia di usare *Collaboratore Account di archiviazione* per gli operatori cloud che devono gestire gli account di archiviazione e il ruolo *Collaboratore Account di archiviazione classico* per gestire gli account di archiviazione classici. Per quanto riguarda gli operatori di cloud che hanno necessità di gestire le macchine virtuali e l'account di archiviazione, è consigliabile aggiungerli al ruolo *Collaboratore Macchina virtuale*.
 
 Le organizzazioni che non applicano il controllo di accesso ai dati con funzionalità come Controllo degli accessi in base al ruolo potrebbero concedere più privilegi del necessario ai propri utenti. Questo può comportare la compromissione dei dati perché ad alcuni utenti potrebbe essere concesso un accesso ai dati di cui non dovrebbero disporre.
 
-Per altre informazioni sul controllo degli accessi in base al ruolo di Azure, vedere l'articolo [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md).
+Per altre informazioni sul controllo degli accessi in base al ruolo di Azure, vedere l'articolo [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="encrypt-azure-virtual-machines"></a>Crittografare le macchine virtuali di Azure
 Per molte organizzazioni, la [crittografia dei dati inattivi](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) è un passaggio obbligatorio per assicurare la privacy, la conformità e la sovranità dei dati. Crittografia dischi di Azure consente agli amministratori IT di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. Crittografia dischi di Azure si basa sulla funzionalità BitLocker standard di settore disponibile in Windows e sulla funzionalità DM-Crypt di Linux per offrire la crittografia del volume per i dischi dei dati e del sistema operativo.

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/30/2018
 ms.author: victorh
 ms.openlocfilehash: 2f62f01c1178f9529eb46051f088affccc5279a7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Panoramica del monitoraggio dell'integrità del gateway applicazione
 
@@ -59,7 +59,7 @@ Una volta specificati, i criteri di corrispondenza possono essere associati alla
 
 ### <a name="default-health-probe-settings"></a>Impostazioni del probe di integrità predefinito
 
-| Proprietà probe | Valore | Descrizione |
+| Proprietà probe | Valore | DESCRIZIONE |
 | --- | --- | --- |
 | URL probe |http://127.0.0.1:\<porta\>/ |Percorso URL |
 | Interval |30 |Intervallo di probe in secondi |
@@ -79,12 +79,12 @@ I probe personalizzati consentono un controllo più granulare sul monitoraggio d
 
 La tabella seguente fornisce le definizioni delle proprietà di un probe di integrità personalizzato.
 
-| Proprietà probe | Descrizione |
+| Proprietà probe | DESCRIZIONE |
 | --- | --- |
-| Nome |Nome del probe. Questo nome viene usato per fare riferimento al probe nelle impostazioni HTTP back-end |
+| NOME |Nome del probe. Questo nome viene usato per fare riferimento al probe nelle impostazioni HTTP back-end |
 | Protocollo |Protocollo usato per inviare il probe. Il probe usa il protocollo definito nelle impostazioni HTTP del back-end. |
 | Host |Nome host per inviare il probe. Applicabile solo quando vengono configurati più siti nel gateway applicazione. In caso contrario, usare "127.0.0.1". Questo valore è diverso dal nome host della VM. |
-| Percorso |Percorso relativo del probe. Il percorso valido inizia da "/". |
+| path |Percorso relativo del probe. Il percorso valido inizia da "/". |
 | Interval |Intervallo di probe in secondi. Questo valore è l'intervallo di tempo tra due probe consecutivi. |
 | Timeout |Timeout del probe in secondi. Se non viene ricevuta una risposta valida entro questo periodo di timeout, il probe viene contrassegnato come non riuscito.  |
 | Soglia non integra |Numero di tentativi di probe. Il server back-end viene contrassegnato come inattivo dopo che il numero di errori di probe consecutivi ha raggiunto una soglia non integra. |

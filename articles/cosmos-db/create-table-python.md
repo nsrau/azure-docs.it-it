@@ -11,14 +11,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/16/2017
+ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: acf0dddc717ff78acce7af792368312f7e1963b5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 001275353e2f34978fde6808185597abd680d28f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app dell'API Tabelle con Python e Azure Cosmos DB
 
@@ -51,28 +51,25 @@ Eseguire anche queste operazioni:
 
 ## <a name="add-sample-data"></a>Aggiungere dati di esempio
 
-È ora possibile aggiungere dati alla nuova tabella usando Esplora dati.
-
-1. In Esplora dati espandere **sample-table**, fare clic su **Entità** e quindi su **Aggiungi entità**.
-
-   ![Creare nuove entità in Esplora dati nel portale di Azure](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. Aggiungere ora i dati alle caselle dei valori di PartitionKey e RowKey e quindi fare clic su **Aggiungi entità**.
-
-   ![Configurare la chiave di partizione e la chiave di riga per una nuova entità](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
-  
-    È ora possibile aggiungere altre entità alla tabella, modificare le entità o eseguire query sui dati in Esplora dati. Esplora dati è anche lo strumento in cui è possibile ridimensionare la velocità effettiva e aggiungere stored procedure, funzioni definite dall'utente e trigger alla tabella.
+[!INCLUDE [cosmos-db-create-table-add-sample-data](../../includes/cosmos-db-create-table-add-sample-data.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonare l'applicazione di esempio
 
 A questo punto è possibile clonare un'app Table da GitHub, impostare la stringa di connessione ed eseguirla. Come si noterà, è facile usare i dati a livello di codice. 
 
-1. Aprire una finestra del terminale Git, ad esempio git bash, ed eseguire il comando `cd` per passare a una cartella in cui installare l'app di esempio. 
+1. Aprire un prompt dei comandi, creare una nuova cartella denominata git-samples e quindi chiudere il prompt dei comandi.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Aprire una finestra del terminale Git, ad esempio Git Bash, ed eseguire il comando `cd` per passare a una nuova cartella in cui installare l'app di esempio.
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Eseguire il comando seguente per clonare l'archivio di esempio. Questo comando crea una copia dell'app di esempio nel computer in uso. 
+3. Eseguire il comando seguente per clonare l'archivio di esempio. Questo comando crea una copia dell'app di esempio nel computer in uso. 
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-python-getting-started.git

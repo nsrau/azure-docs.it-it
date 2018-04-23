@@ -5,9 +5,9 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 478a2ebfa6a4cc504119734ac2f67b1f7c77dd5a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 79b84e3231886f62bf5978195562339d5c3275b6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Aggiungere, modificare o rimuovere indirizzi IP per un'interfaccia di rete di Azure
 
@@ -34,14 +34,14 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 
 - Se non si ha un account Azure, registrarsi per ottenere un [account per la versione di prova gratuita](https://azure.microsoft.com/free).
 - Se si usa il portale, aprire https://portal.azure.com e accedere con l'account Azure.
-- Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo di Azure PowerShell 5.2.0 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
+- Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo di Azure PowerShell 5.2.0 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
 - Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questa esercitazione richiede l'interfaccia della riga di comando di Azure versione 2.0.26 o successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
 
 ## <a name="add-ip-addresses"></a>Aggiungere indirizzi IP
 
 È possibile aggiungere a un'interfaccia di rete il numero di indirizzi [IPv4](#ipv4) [privati](#private) e [pubblici](#public) necessari, entro i limiti elencati nell'articolo relativo ai [limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Non è possibile usare il portale per aggiungere un indirizzo IPv6 a un'interfaccia di rete esistente (sebbene sia possibile usare il portale per aggiungere un indirizzo IPv6 privato a un'interfaccia di rete quando la si crea). È possibile usare PowerShell o l'interfaccia della riga di comando per aggiungere un indirizzo IPv6 privato a una [configurazione IP secondaria](#secondary) (purché non siano presenti configurazioni IP secondarie) per un'interfaccia di rete esistente che non è collegata a una macchina virtuale. Non è possibile usare strumenti per aggiungere un indirizzo IPv6 pubblico a un'interfaccia di rete. Vedere [IPv6](#ipv6) per informazioni dettagliate sull'uso di indirizzi IPv6. 
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account avente almeno le autorizzazioni del ruolo Collaboratore Rete per la sottoscrizione. Leggere l'articolo sui [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) per altre informazioni sull'assegnazione dei ruoli e le autorizzazioni degli account.
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account avente almeno le autorizzazioni del ruolo Collaboratore Rete per la sottoscrizione. Leggere l'articolo sui [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) per altre informazioni sull'assegnazione dei ruoli e le autorizzazioni degli account.
 2. Nella casella che contiene il testo *Cerca risorse* nella parte superiore del portale di Azure digitare *interfacce di rete*. Fare clic su **Interfacce di rete** quando viene visualizzato nei risultati della ricerca.
 3. Nel pannello **Interfacce di rete** che viene visualizzato fare clic sull'interfaccia di rete per cui aggiungere l'indirizzo IPv4.
 4. Fare clic su **Configurazioni IP** nella sezione **IMPOSTAZIONI** del pannello relativo all'interfaccia di rete selezionata.
@@ -67,7 +67,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 
 Può essere necessario modificare il metodo di assegnazione di un indirizzo IPv4, modificare l'indirizzo IPv4 statico o modificare l'indirizzo IP pubblico assegnato a un'interfaccia di rete. Se si modifica l'indirizzo IPv4 privato di una configurazione IP secondaria associata a un'interfaccia di rete secondaria in una macchina virtuale (ulteriori informazioni sulle [interfacce di rete principali e secondarie](virtual-network-network-interface-vm.md)), mettere la macchina virutale in stato di arresto (deallocato) prima di completare i passaggi seguenti: 
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account avente almeno le autorizzazioni del ruolo Collaboratore Rete per la sottoscrizione. Leggere l'articolo sui [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) per altre informazioni sull'assegnazione dei ruoli e le autorizzazioni degli account.
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account avente almeno le autorizzazioni del ruolo Collaboratore Rete per la sottoscrizione. Leggere l'articolo sui [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) per altre informazioni sull'assegnazione dei ruoli e le autorizzazioni degli account.
 2. Nella casella che contiene il testo *Cerca risorse* nella parte superiore del portale di Azure digitare *interfacce di rete*. Fare clic su **Interfacce di rete** quando viene visualizzato nei risultati della ricerca.
 3. Nel pannello **Interfacce di rete** visualizzato fare clic sull'interfaccia da visualizzare o per la quale modificare le impostazioni dell'indirizzo IP.
 4. Fare clic su **Configurazioni IP** nella sezione **IMPOSTAZIONI** del pannello relativo all'interfaccia di rete selezionata.
@@ -88,7 +88,7 @@ Può essere necessario modificare il metodo di assegnazione di un indirizzo IPv4
 
 È possibile rimuovere indirizzi IP [privati](#private) e [pubblici](#public) da un'interfaccia di rete, ma un'interfaccia di rete deve sempre avere almeno un indirizzo IPv4 privato assegnato.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account avente almeno le autorizzazioni del ruolo Collaboratore Rete per la sottoscrizione. Leggere l'articolo sui [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) per altre informazioni sull'assegnazione dei ruoli e le autorizzazioni degli account.
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account avente almeno le autorizzazioni del ruolo Collaboratore Rete per la sottoscrizione. Leggere l'articolo sui [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) per altre informazioni sull'assegnazione dei ruoli e le autorizzazioni degli account.
 2. Nella casella che contiene il testo *Cerca risorse* nella parte superiore del portale di Azure digitare *interfacce di rete*. Fare clic su **Interfacce di rete** quando viene visualizzato nei risultati della ricerca.
 3. Nel pannello **Interfacce di rete** che viene visualizzato fare clic sull'interfaccia di rete da cui rimuovere gli indirizzi IP.
 4. Fare clic su **Configurazioni IP** nella sezione **IMPOSTAZIONI** del pannello relativo all'interfaccia di rete selezionata.

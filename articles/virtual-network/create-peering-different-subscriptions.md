@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: eccfdf519d16595f2bda77675d62bff4bf14b4f8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 45856f759b7d11a7712a032a00d2d1a4fb2043d2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Creare un peering di rete virtuale - Resource Manager, sottoscrizioni diverse 
 
@@ -179,7 +179,7 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
 
 1. Installare la versione più recente del modulo [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) di PowerShell. Se non si ha familiarità con Azure PowerShell, vedere [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Panoramica di Azure PowerShell).
 2. Avviare una sessione di PowerShell.
-3. In PowerShell accedere ad Azure come UserA immettendo il comando `login-azurermaccount`. L'account con cui si esegue l'accesso deve avere le autorizzazioni necessarie per la creazione di un peering di rete virtuale. Per un elenco di autorizzazioni, vedere [Autorizzazioni di peering di reti virtuali](virtual-network-manage-peering.md#permissions).
+3. In PowerShell accedere ad Azure come UserA immettendo il comando `Connect-AzureRmAccount`. L'account con cui si esegue l'accesso deve avere le autorizzazioni necessarie per la creazione di un peering di rete virtuale. Per un elenco di autorizzazioni, vedere [Autorizzazioni di peering di reti virtuali](virtual-network-manage-peering.md#permissions).
 4. Creare un gruppo di risorse e una rete virtuale A. Copiare lo script seguente in un editor di testo nel PC. Sostituire `<SubscriptionA-Id>` con l'ID di SubscriptionA. Se l'ID sottoscrizione non è noto, immettere il comando `Get-AzureRmSubscription` per visualizzarlo. Il valore di **Id** nell'output restituito è l'ID sottoscrizione. Per eseguire lo script, copiare lo script modificato, incollarlo in PowerShell e quindi premere `Enter`.
 
     ```powershell

@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
 ms.openlocfilehash: bd8888d911730831435b87d3a60b48a7797eea98
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Trovare le esecuzioni con la precisione migliore e la durata minima
 Date più esecuzioni, un caso d'uso consiste ad esempio nel trovare le esecuzioni con la precisione migliore. Uno degli approcci perseguibili prevede l'uso dell'interfaccia della riga di comando con una query [JMESPath](http://jmespath.org/). Per altre informazioni su come usare JMESPath nell'interfaccia della riga di comando di Azure, vedere [Uso di query JMESPath con l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). Nell'esempio seguente vengono create quattro esecuzioni con i valori di precisione 0, 0,98, 1 e 1. Le esecuzioni vengono filtrate se si trovano nell'intervallo `[MaxAccuracy-Threshold, MaxAccuracy]` in cui `Threshold = .03`.

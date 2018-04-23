@@ -2,10 +2,10 @@
 title: Come codificare un asset di Azure mediante Media Encoder Standard| Microsoft Docs
 description: Informazioni su come usare Media Encoder Standard per codificare contenuti multimediali in Servizi multimediali di Azure. Negli esempi di codice viene usata l'API REST.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 2a7273c6-8a22-4f82-9bfe-4509ff32d4a4
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: a58cf1402d31538cb4d9753a66846f683839810c
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: efd4df24baaaf40ba90dd171d5227f61d1c0b36e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Come codificare un asset mediante Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -72,9 +72,9 @@ Richiesta:
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer <token value>
-    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
-    Host: media.windows.net
+        Authorization: Bearer <ENCODED JWT TOKEN> 
+        x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+        Host: media.windows.net
 
     {"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "Adaptive Streaming", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",  "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
 
@@ -114,7 +114,7 @@ In molti scenari di applicazione, gli sviluppatori desiderano creare una serie d
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer <token value>
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
     {  
@@ -156,7 +156,7 @@ Nell'esempio seguente viene illustrato come utilizzare l'elaborazione batch ODat
     Content-Type: multipart/mixed; boundary=batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e
     Accept: multipart/mixed
     Accept-Charset: UTF-8
-    Authorization: Bearer <token>
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
     Host: media.windows.net
@@ -176,7 +176,7 @@ Nell'esempio seguente viene illustrato come utilizzare l'elaborazione batch ODat
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept-Charset: UTF-8
-    Authorization: Bearer <token>
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
@@ -193,7 +193,7 @@ Nell'esempio seguente viene illustrato come utilizzare l'elaborazione batch ODat
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept-Charset: UTF-8
-    Authorization: Bearer <token>
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
@@ -219,7 +219,7 @@ L'esempio seguente mostra come creare JobTemplate con un'entità TaskTemplate de
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer <token value>
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
 
 
@@ -246,7 +246,7 @@ L'esempio seguente mostra come creare un processo che fa riferimento all'ID di u
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer <token value>
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
 
 

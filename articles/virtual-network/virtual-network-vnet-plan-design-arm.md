@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e41dae2f4e93fe2e3cef689596612a6a192c844
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Pianificare e progettare reti virtuali di Azure
 Creare una rete virtuale a scopi sperimentali è abbastanza semplice, ma è probabile che si distribuiscano più reti virtuali nel corso del tempo per supportare le esigenze di produzione dell'organizzazione. Con una pianificazione e una progettazione adeguate è possibile distribuire reti virtuali e connettere le risorse necessarie in modo più efficace. Se non si ha familiarità con le reti virtuali, è consigliabile [acquisire informazioni sulle reti virtuali](virtual-networks-overview.md) e su [come distribuirne](quick-create-portal.md) una prima di procedere.
@@ -87,12 +87,12 @@ Per impostazione predefinita, la rete virtuale usa la [risoluzione dei nomi offe
 Esaminare i limiti di rete nell'articolo [Limiti di Azure](../azure-subscription-service-limits.md#networking-limits) per garantire che il modello non entri in conflitto con uno dei limiti. Alcun limiti possono essere aumentati aprendo un ticket di supporto.
 
 ### <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
-È possibile usare il [controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-built-in-roles.md) per controllare il livello di accesso di utenti diversi a risorse diverse in Azure. In questo modo è possibile isolare il lavoro svolto dal proprio team in base alle esigenze.
+È possibile usare il [controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md) per controllare il livello di accesso di utenti diversi a risorse diverse in Azure. In questo modo è possibile isolare il lavoro svolto dal proprio team in base alle esigenze.
 
 Per quanto riguarda le reti virtuali, gli utenti con ruolo di **collaboratore di rete** hanno pieno controllo sulle risorse della rete virtuale di Gestione risorse di Azure. Allo stesso modo, gli utenti con ruolo di **collaboratore di rete classico** hanno pieno controllo sulle risorse della rete virtuale classica.
 
 > [!NOTE]
-> È anche possibile [creare ruoli personalizzati](../active-directory/role-based-access-control-configure.md) per separare le esigenze amministrative.
+> È anche possibile [creare ruoli personalizzati](../role-based-access-control/role-assignments-portal.md) per separare le esigenze amministrative.
 >
 >
 

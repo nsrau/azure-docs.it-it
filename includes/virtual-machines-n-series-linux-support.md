@@ -9,10 +9,10 @@ ms.date: 04/03/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: e925dba3805ec8994aeba730e325c407468a5c87
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/20/2018
 ---
 ## <a name="supported-distributions-and-drivers"></a>Driver e distribuzioni supportati
 

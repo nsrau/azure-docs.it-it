@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: a9b9bec4fd48c44ece9d762b539cd3d6e10c1858
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 92a7b46469bad56af2e08de98a1f79b4b8059eda
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="viewing-recommendations"></a>Visualizzazione delle raccomandazioni
 
-Per visualizzare e applicare le raccomandazioni, sono necessarie le autorizzazioni di [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) corrette in Azure. Le autorizzazioni **Lettore** e **Collaboratore Database SQL** sono necessarie per visualizzare le raccomandazioni, mentre le autorizzazioni **Proprietario** e **Collaboratore Database SQL** sono necessarie per eseguire qualsiasi operazione, creare o eliminare indici e annullare la creazione di un indice.
+Per visualizzare e applicare le raccomandazioni, sono necessarie le autorizzazioni di [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) corrette in Azure. Le autorizzazioni **Lettore** e **Collaboratore Database SQL** sono necessarie per visualizzare le raccomandazioni, mentre le autorizzazioni **Proprietario** e **Collaboratore Database SQL** sono necessarie per eseguire qualsiasi operazione, creare o eliminare indici e annullare la creazione di un indice.
 
 Usare la procedura seguente per trovare raccomandazioni per le prestazioni nel portale di Azure:
 
@@ -154,5 +154,5 @@ Monitorare le raccomandazioni e continuare ad applicarle in modo da migliorare l
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Archivio query](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md)
+* [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md)
 

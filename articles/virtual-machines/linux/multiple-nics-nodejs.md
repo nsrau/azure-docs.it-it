@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 20e3a65c28e95849822d81076b6780e05a2aebbf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5a4e19f232abce8701e6d2e12a876c55079b91a2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>Creare una macchina virtuale Linux con più schede di interfaccia di rete usando l'interfaccia della riga di comando di Azure 1.0
 È possibile creare una macchina virtuale (VM) in Azure con più interfacce di rete virtuale (NIC) collegate. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end oppure una rete dedicata a una soluzione di monitoraggio o backup. In questo articolo vengono presentati i comandi rapidi per creare una macchina virtuale con più schede di rete collegate. Le differenti [dimensioni della macchina virtuale](sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
@@ -163,7 +163,7 @@ Ulteriori informazioni sulla [creazione di più istanze utilizzando *Copia*](../
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-È possibile consultare un esempio completo di [creazione di più schede di rete utilizzando i modelli di Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+È possibile consultare un esempio completo di [creazione di più schede di rete utilizzando i modelli di Resource Manager](../../virtual-network/template-samples.md).
 
 Quando si aggiungono più schede di rete a una macchina virtuale Linux, è necessario creare regole di routing. Queste regole consentono alla VM di inviare e ricevere traffico appartenente a una scheda di rete specifica. In caso contrario, il traffico appartenente a eth1, ad esempio, non potrà essere elaborato correttamente dalla route predefinita specificata. Per risolvere questo problema di routing, vedere [Configura sistema operativo guest per più schede di interfaccia di rete](multiple-nics.md#configure-guest-os-for-multiple-nics).
 

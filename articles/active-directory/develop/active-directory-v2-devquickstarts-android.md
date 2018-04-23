@@ -2,10 +2,10 @@
 title: App Android v2.0 di Azure Active Directory | Documentazione Microsoft
 description: Come compilare un'app per Android che consente agli utenti di accedere con un account Microsoft personale, aziendale o dell'istituto di istruzione e chiama l'API Graph usando librerie di terze parti.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: danieldobalian
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 16294c07-f27d-45c9-833f-7dbb12083794
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 05/07/2017
 ms.author: dadobali
 ms.custom: aaddev
 ms.openlocfilehash: b1c30362a7b14c8f7f0c44d911c46c491b3de3c0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/17/2018
 ---
 # <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Aggiungere informazioni di accesso a un'app Android usando una libreria di terze parti con l'API Graph mediante l'endpoint v2.0
 La piattaforma delle identità Microsoft usa standard aperti, ad esempio OAuth2 e OpenID Connect. Gli sviluppatori possono usare qualsiasi libreria che desiderano integrare ai servizi. Per aiutare gli sviluppatori a usare la piattaforma con altre librerie, sono state scritte alcune procedure dettagliate come questa, che illustrano come configurare le librerie di terze parti per connettersi alla piattaforma delle identità Microsoft. La maggior parte delle librerie che implementano [la specifica OAuth2 RFC6749](https://tools.ietf.org/html/rfc6749) possono connettersi alla piattaforma delle identità Microsoft.

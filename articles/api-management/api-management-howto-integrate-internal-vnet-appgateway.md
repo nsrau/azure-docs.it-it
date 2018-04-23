@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
-ms.openlocfilehash: f9bc3ffda9f943a37fd5aadf440abf7d33a6d1de
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9a6e63e95b833c960356b82a19127ec91a791b98
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrare Gestione API in una rete virtuale interna con un gateway applicazione 
 
@@ -32,7 +32,7 @@ La combinazione di Gestione API in una rete virtuale interna con il gateway appl
 * Uso di una singola risorsa di Gestione API e disponibilità di un sottoinsieme di API definite in Gestione API per gli utenti esterni.
 * Predisposizione di un modo veloce per attivare e disattivare l'accesso a Gestione API dalla rete Internet pubblica. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
@@ -84,7 +84,7 @@ Assicurarsi di usare la versione più recente di Azure PowerShell. Altre informa
 Accedere ad Azure
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Eseguire l'autenticazione con le proprie credenziali.<BR>

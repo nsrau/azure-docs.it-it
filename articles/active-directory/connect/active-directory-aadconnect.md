@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 02849fb63a8d696fa4296f5ec885a2d24f9adca1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7112b8af792dc245c1a2a68e130328d82b4958b3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrare le directory locali con Azure Active Directory
 Azure AD Connect integra le directory locali con Azure Active Directory. Consente quindi di fornire agli utenti un'identità comune per le applicazioni di Office 365, Azure e SaaS integrate con Azure AD. Questo argomento fornisce una guida dettagliata sulle procedure di pianificazione, distribuzione e funzionamento. Include una raccolta di collegamenti agli argomenti correlati a questa area.
@@ -97,7 +97,7 @@ Azure AD Connect include numerose funzionalità che è possibile abilitare o che
 
 La [sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-hash-synchronization.md) consente di sincronizzare l'hash delle password di Active Directory con Azure AD. L'utente finale può usare la stessa password in locale e nel cloud, ma gestirla da una sola posizione. Poiché usa l'istanza di Active Directory locale come autorità di certificazione, è anche possibile usare i criteri password personali.
 
-[writeback delle password](../active-directory-passwords-getting-started.md) consente agli utenti di modificare e reimpostare le proprie password nel cloud, applicando i criteri per le password locali.
+[writeback delle password](../authentication/quickstart-sspr.md) consente agli utenti di modificare e reimpostare le proprie password nel cloud, applicando i criteri per le password locali.
 
 [writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md) consente il writeback di un dispositivo registrato in Azure AD nell'istanza di Active Directory locale, affinché possa essere usato per l'accesso condizionale.
 
@@ -110,7 +110,7 @@ La funzionalità di [prevenzione delle eliminazioni accidentali](active-director
 | --- | --- |
 |Configurare il filtro | [Servizio di sincronizzazione Azure AD Connect: Configurare il filtro](active-directory-aadconnectsync-configure-filtering.md)|
 |Sincronizzazione dell'hash delle password | [Servizio di sincronizzazione Azure AD Connect: Implementare la sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
-|writeback delle password | [Introduzione alla gestione delle password](../active-directory-passwords-getting-started.md)|
+|writeback delle password | [Introduzione alla gestione delle password](../authentication/quickstart-sspr.md)|
 |Writeback dispositivi | [Abilitazione del writeback dei dispositivi in Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
 |prevenzione delle eliminazioni accidentali | [Servizio di sincronizzazione Azure AD Connect: Impedire eliminazioni accidentali](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |aggiornamento automatico | [Azure AD Connect: aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md)|

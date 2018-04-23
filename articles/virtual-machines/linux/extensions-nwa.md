@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 487eca98b9be20faaa52c0a8952e84c6027ee1f0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 83e2c726228e43612caf94bd8564abc9df3882f9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale Network Watcher Agent per Linux
 
 ## <a name="overview"></a>Panoramica
 
-[Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/) è un servizio di monitoraggio delle prestazioni di rete, diagnostica e analisi che consente di monitorare le reti di Azure. L'estensione macchina virtuale Network Watcher Agent è un requisito per alcune funzionalità di Network Watcher nelle macchine virtuali di Azure, tra cui l'acquisizione del traffico di rete su richiesta e altre funzionalità avanzate.
+[Azure Network Watcher](/azure/network-watcher/) è un servizio di monitoraggio delle prestazioni di rete, diagnostica e analisi che consente di monitorare le reti di Azure. L'estensione macchina virtuale Network Watcher Agent è un requisito per alcune funzionalità di Network Watcher nelle macchine virtuali di Azure, tra cui l'acquisizione del traffico di rete su richiesta e altre funzionalità avanzate.
 
 Questo documento descrive in dettaglio le piattaforme e le opzioni di distribuzione supportate per l'estensione macchina virtuale Network Watcher Agent per Linux. L'installazione dell'agente non causa l'interruzione, né richiede il riavvio della macchina virtuale.
 
@@ -49,7 +49,7 @@ Si noti che CoreOS non è attualmente supportato.
 
 ### <a name="internet-connectivity"></a>Connettività Internet
 
-Alcune delle funzionalità di Network Watcher Agent richiedono che la macchina virtuale di destinazione sia connessa a Internet. Se non vi è la possibilità di stabilire connessioni in uscita, alcune funzionalità di Network Watcher Agent potrebbero non funzionare correttamente o non essere disponibili. Per maggiori dettagli, vedere la [documentazione di Network Watcher](https://review.docs.microsoft.com/azure/network-watcher/).
+Alcune delle funzionalità di Network Watcher Agent richiedono che la macchina virtuale di destinazione sia connessa a Internet. Se non vi è la possibilità di stabilire connessioni in uscita, alcune funzionalità di Network Watcher Agent potrebbero non funzionare correttamente o non essere disponibili. Per maggiori dettagli, vedere la [documentazione di Network Watcher](/azure/network-watcher/).
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 

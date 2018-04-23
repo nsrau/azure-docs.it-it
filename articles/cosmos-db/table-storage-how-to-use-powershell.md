@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: robinsh
-ms.openlocfilehash: c09809e9cf513dbb9420f675bbf431c176f740bd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0f6ceaa976263164c468eb573b119dd84c0d2429
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Eseguire operazioni di Archiviazione tabelle di Azure con Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -47,10 +47,10 @@ Install-Module AzureRmStorageTable
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere alla sottoscrizione di Azure con il comando `Login-AzureRmAccount` e seguire le istruzioni visualizzate.
+Accedere alla sottoscrizione di Azure con il comando `Connect-AzureRmAccount` e seguire le istruzioni visualizzate.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="retrieve-list-of-locations"></a>Recuperare un elenco di posizioni

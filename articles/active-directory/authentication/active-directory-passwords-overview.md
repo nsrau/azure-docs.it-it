@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 810c585e104f6b7bc63222594375527c45c6082d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e084db41cd199a9609e3edaf8b427a85ab2366b4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Reimpostazione self-service delle password di Azure AD per i professionisti IT
 
@@ -42,7 +42,7 @@ La reimpostazione self-service della password di Azure AD consente di:
 * **Mobilità dell'unità** poiché gli utenti possono reimpostare le password da qualsiasi posizione.
 * **Conservare il controllo** dei criteri di sicurezza. Gli amministratori possono continuare ad applicare i criteri che hanno attualmente.
 
-Se si è pronti, è possibile iniziare a usare la reimpostazione self-service della password di Azure AD usando le [istruzioni per l'avvio rapido](../active-directory-passwords-getting-started.md). È possibile consentire agli utenti di reimpostare rapidamente le loro password.
+Se si è pronti, è possibile iniziare a usare la reimpostazione self-service della password di Azure AD usando le [istruzioni per l'avvio rapido](quickstart-sspr.md). È possibile consentire agli utenti di reimpostare rapidamente le loro password.
 
 ## <a name="azure-ad-sspr-availability"></a>Disponibilità della reimpostazione self-service della password di Azure AD
 
@@ -65,7 +65,7 @@ Informazioni più dettagliate su licenze, prezzi e piani futuri sono disponibili
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Quando si è pronti per iniziare a usare la reimpostazione della password self-service, vedere [Configurare la reimpostazione self-service della password di Azure AD](../active-directory-passwords-getting-started.md).
+* Quando si è pronti per iniziare a usare la reimpostazione della password self-service, vedere [Configurare la reimpostazione self-service della password di Azure AD](quickstart-sspr.md).
 * Pianificare la distribuzione della reimpostazione self-service della password seguendo le istruzioni disponibili nella [Guida all'implementazione](howto-sspr-deployment.md).
 * [Reimpostare o modificare la password](../active-directory-passwords-update-your-own-password.md).
 * [Registrarsi per la reimpostazione della password self-service](../active-directory-passwords-reset-register.md).

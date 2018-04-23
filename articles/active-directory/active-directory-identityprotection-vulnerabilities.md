@@ -1,9 +1,9 @@
 ---
-title: "Vulnerabilità rilevate da Azure Active Directory Identity Protection | Documentazione Microsoft"
-description: "Panoramica delle vulnerabilità rilevate da Azure Active Directory Identity Protection"
+title: Vulnerabilità rilevate da Azure Active Directory Identity Protection | Documentazione Microsoft
+description: Panoramica delle vulnerabilità rilevate da Azure Active Directory Identity Protection
 services: active-directory
-keywords: "azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
-documentationcenter: 
+keywords: azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 65b1ae76794c812f9fcf2955d09e023195ef6342
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 90fb659abfcff09eb715fcc29bbfb7e4facd3a6b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilità rilevate da Azure Active Directory Identity Protection
 Le vulnerabilità sono punti deboli in un ambiente che possono essere sfruttati da un utente malintenzionato. È consigliabile risolvere le vulnerabilità per migliorare le condizioni di sicurezza dell'organizzazione e impedire che vengano sfruttate da utenti malintenzionati.
@@ -38,7 +38,7 @@ L'autenticazione a più fattori di Azure fornisce un secondo livello di sicurezz
 
 È consigliabile richiedere l'autenticazione a più fattori di Azure per l'accesso degli utenti. L'autenticazione a più fattori svolge un ruolo chiave nei criteri di accesso condizionale basati sul rischio disponibili tramite Identity Protection.
 
-Per altre informazioni, vedere la pagina relativa ad [Informazioni su Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+Per altre informazioni, vedere la pagina relativa ad [Informazioni su Azure Multi-Factor Authentication](authentication/multi-factor-authentication.md)
 
 ## <a name="unmanaged-cloud-apps"></a>App per cloud non gestite
 Questa vulnerabilità consente di identificare le app per cloud non gestite all'interno dell'organizzazione.

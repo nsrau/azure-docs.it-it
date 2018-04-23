@@ -1,25 +1,25 @@
 ---
-title: "Autenticazione RADIUS del gateway VPN protetto di Azure con il server NPS per l'autenticazione a più fattori | Microsoft Docs"
-description: "Descrive come integrare l'autenticazione RADIUS del gateway di Azure con server NPS per l'autenticazione a più fattori."
+title: Autenticazione RADIUS del gateway VPN protetto di Azure con il server NPS per l'autenticazione a più fattori | Microsoft Docs
+description: Descrive come integrare l'autenticazione RADIUS del gateway di Azure con server NPS per l'autenticazione a più fattori.
 services: vpn-gateway
 documentationcenter: na
 author: ahmadnyasin
 manager: willchen
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2018
 ms.author: genli
-ms.openlocfilehash: f0d95cc0dabb253a72afdbc1bc518df882c4d861
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 39ee42d41b41cf7c1844a49286746080db71e973
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrare l'autenticazione RADIUS del gateway VPN di Azure con server NPS per l'autenticazione a più fattori 
 
@@ -50,7 +50,7 @@ Per abilitare l'autenticazione a più fattori, gli utenti devono usare Azure Act
  
 ### <a name="step-2-configure-the-nps-for-azure-mfa"></a>Passaggio 2 - Configurare i criteri di rete per Azure MFA
 
-1. Sul server NPS, [installare l'estensione NPS per Multi-Factor Authentication di Azure](../multi-factor-authentication/multi-factor-authentication-nps-extension.md#install-the-nps-extension).
+1. Sul server NPS, [installare l'estensione NPS per Multi-Factor Authentication di Azure](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
 2. Aprire la console NSP, fare clic con il tasto destro del mouse su **Client RADIUS**, quindi selezionare **Nuovo**. Creare il client RADIUS specificando le impostazioni seguenti:
 
     - **Nome descrittivo**: digitare qualsiasi nome.
@@ -81,4 +81,4 @@ Per abilitare l'autenticazione a più fattori, gli utenti devono usare Azure Act
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
-- [Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-nps-extension.md)
+- [Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-nps-extension.md)

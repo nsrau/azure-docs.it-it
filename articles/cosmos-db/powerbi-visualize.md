@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: sngun
 ms.openlocfilehash: 7f884589cc198bed95a4a5fe51325a72cb799b69
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Esercitazione su Power BI per Azure Cosmos DB: visualizzare dati tramite il connettore per Power BI
 [PowerBI.com](https://powerbi.microsoft.com/) è un servizio online dove è possibile creare e condividere dashboard e report con dati importanti per gli utenti e l'organizzazione.  Power BI Desktop è uno strumento per la creazione di report dedicato che consente di recuperare dati da diverse origini dati, unire e trasformare i dati, creare visualizzazioni e report potenti e pubblicare i report in Power BI.  Con la versione più recente di Power BI Desktop è ora possibile connettersi al proprio account Azure Cosmos DB tramite il connettore Azure Cosmos DB per Power BI.   

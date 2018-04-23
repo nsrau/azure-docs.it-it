@@ -2,7 +2,7 @@
 title: Usare Hive di Hadoop con PowerShell in HDInsight - Azure | Microsoft Docs
 description: Usare PowerShell per eseguire query Hive in Hadoop in HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: cb795b7c-bcd0-497a-a7f0-8ed18ef49195
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: fbd5ad2aedf0c3022e702a63f8e3d12735b41313
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 20ae2c93a231051d3802e8b2329d218d207204e3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="run-hive-queries-using-powershell"></a>Esecuzione di query Hive usando PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -30,7 +28,7 @@ Questo documento fornisce un esempio di come usare Azure PowerShell nel gruppo d
 > [!NOTE]
 > Questo documento non fornisce una descrizione dettagliata delle operazioni eseguite dalle istruzioni HiveQL usate negli esempi. Per informazioni sul codice HiveQL usato in questo esempio, vedere [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un cluster Hadoop basato su Linux in HDInsight versione 3.4 o successiva.
 
@@ -47,7 +45,7 @@ Azure PowerShell fornisce *cmdlet* che consentono di eseguire in modalità remot
 
 Durante l'esecuzione di query Hive in un cluster HDInsight remoto, vengono usati i seguenti cmdlet:
 
-* `Add-AzureRmAccount`: esegue l'autenticazione di Azure PowerShell nella sottoscrizione di Azure.
+* `Connect-AzureRmAccount`: esegue l'autenticazione di Azure PowerShell nella sottoscrizione di Azure.
 * `New-AzureRmHDInsightHiveJobDefinition`: crea una *definizione del processo* usando le istruzioni HiveQL specificate.
 * `Start-AzureRmHDInsightJob`: invia la definizione del processo ad HDInsight e avvia il processo. Viene restituito un oggetto del *processo*.
 * `Wait-AzureRmHDInsightJob`: usa l'oggetto processo per verificare lo stato del processo. Attende che il processo venga completato o che scada il periodo di attesa previsto.
@@ -91,7 +89,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
    >
    > Per altre informazioni su **Here-Strings**, vedere <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell "Here-Strings"</a> (Uso di Here-Strings di Windows PowerShell).
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se al termine del processo non viene restituita alcuna informazione, visualizzare i log degli errori. Per visualizzare le informazioni sugli errori relative a questo processo, aggiungere il codice seguente alla fine del file `hivejob.ps1`, salvare il file e quindi eseguirlo nuovamente.
 

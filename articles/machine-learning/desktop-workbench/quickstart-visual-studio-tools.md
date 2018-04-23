@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.openlocfilehash: bbcb2ea5a7ceeb976f590393608cc29c67d9a49e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools for AI
 Visual Studio Tools for AI è un'estensione di sviluppo per la compilazione, il test e la distribuzione di soluzioni per apprendimento avanzato e intelligenza artificiale. Offre l'integrazione senza problemi con Azure Machine Learning e in particolare una visualizzazione della cronologia di esecuzione, con informazioni dettagliate sulle prestazioni dei training precedenti e metriche personalizzate. Offre una visualizzazione di esplorazione degli esempi, che consente di esplorare e avviare un nuovo progetto con [Microsoft Cognitive Toolkit (noto in precedenza come CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) e altri framework per Deep Learning. Fornisce infine una visualizzazione di esplorazione per le destinazioni di calcolo, che consente di inviare processi per eseguire il training dei modelli in ambienti remoti come Macchine virtuali di Azure o server Linux con GPU. Offre anche un accesso facilitato ad [Azure Batch per intelligenza artificiale (anteprima)](https://docs.microsoft.com/azure/batch-ai/).

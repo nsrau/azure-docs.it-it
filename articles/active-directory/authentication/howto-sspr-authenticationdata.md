@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: cd5adf8e78fd6a1a39e41896502185fbadd936cc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 790ca2ccb2d365876e15ca57e1aa199ac519fd73
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuire la reimpostazione della password senza richiedere la registrazione dell'utente finale
 
@@ -154,7 +154,7 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [Domande sulle licenze](concept-sspr-licensing.md)
 * [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
 * [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)
-* [Panoramica del writeback delle password](../active-directory-passwords-writeback.md)
+* [Panoramica del writeback delle password](howto-sspr-writeback.md)
 * [Come creare un report sull'attività relativa alla reimpostazione della password self-service](howto-sspr-reporting.md)
 * [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
 * [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)

@@ -1,3 +1,19 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: active-directory-b2c
+author: davidmu1
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: davidmu
+ms.custom: include file
+ms.openlocfilehash: 8363d023e89c77aabc0d123f19264c9a0758a656
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/18/2018
+---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
 Per registrare l'applicazione per dispositivi mobili o nativa, usare le impostazioni specificate nella tabella.
@@ -8,7 +24,7 @@ Per registrare l'applicazione per dispositivi mobili o nativa, usare le impostaz
 | ------------ | ------- | -------------------------------------------------- |
 | **Nome** | App Contoso B2C | Immettere un **Nome** per l'applicazione che descriva l'applicazione agli utenti. |
 | **Client nativo** | Sì | Selezionare **Sì** per un'applicazione per dispositivi mobili o nativa. |
-| **URI di reindirizzamento personalizzato** | `com.onmicrosoft.contoso.appname://redirect/path` | Immettere un URI di reindirizzamento con uno schema personalizzato. Assicurarsi di scegliere un [URI di reindirizzamento valido](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-native-application-redirect-uri) e di non includere caratteri speciali come i caratteri di sottolineatura. |
+| **URI di reindirizzamento personalizzato** | `com.onmicrosoft.contoso.appname://redirect/path` | Immettere un URI di reindirizzamento con uno schema personalizzato. Assicurarsi di scegliere un [URI di reindirizzamento valido](../articles/active-directory-b2c/active-directory-b2c-app-registration.md) e di non includere caratteri speciali come i caratteri di sottolineatura. |
 
 Fare clic su **Crea** per registrare l'applicazione.
 

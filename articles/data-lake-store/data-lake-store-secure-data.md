@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4d926ee08da593e590aa77a2ca09d8d1e1f6bb46
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5d91d8d00a37422dcead195354447d602b801f9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Protezione dei dati presenti in Archivio Data Lake di Azure
 La protezione dei dati presenti in Archivio Data Lake di Azure prevede un approccio suddiviso in tre fasi.  Il controllo degli accessi in base al ruolo e gli elenchi di controllo di accesso devono essere impostati in modo da consentire completamente l'accesso ai dati per utenti e gruppi di sicurezza.
 
-1. Creazione di gruppi di sicurezza in Azure Active Directory, Questi gruppi di sicurezza vengono usati per implementare il controllo degli accessi in base al ruolo nel portale di Azure. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo in Microsoft Azure](../active-directory/role-based-access-control-configure.md).
+1. Creazione di gruppi di sicurezza in Azure Active Directory, Questi gruppi di sicurezza vengono usati per implementare il controllo degli accessi in base al ruolo nel portale di Azure. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo in Microsoft Azure](../role-based-access-control/role-assignments-portal.md).
 2. Assegnazione dei gruppi di sicurezza AAD all'account di Archivio Data Lake di Azure. In questo modo è possibile controllare l'accesso all'account di Archivio Data Lake dal portale e le operazioni di gestione dal portale o dalle API.
 3. Assegnazione dei gruppi di sicurezza AAD come elenchi di controllo di accesso al file system di Archivio Data Lake.
 4. È anche possibile impostare un intervallo di indirizzi IP per i client che possono accedere ai dati in Archivio Data Lake.

@@ -9,15 +9,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 9fb77f3b435491b5ac5b16327d6ce74f90664a79
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c9cdebd2fb7f650b042fa04f345ac440e0b41cb8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controllo degli accessi in base al ruolo in Automazione di Azure
 
-Il controllo degli accessi in base al ruolo consente di gestire gli accessi per le risorse di Azure. Con il [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) è possibile separare i compiti all'interno del team e concedere a utenti, gruppi e applicazioni solo il livello di accesso necessario per svolgere le proprie attività. È possibile concedere l'accesso in base al ruolo agli utenti tramite il portale di Azure, gli strumenti da riga di comando di Azure o le API di gestione di Azure.
+Il controllo degli accessi in base al ruolo consente di gestire gli accessi per le risorse di Azure. Con il [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md) è possibile separare i compiti all'interno del team e concedere a utenti, gruppi e applicazioni solo il livello di accesso necessario per svolgere le proprie attività. È possibile concedere l'accesso in base al ruolo agli utenti tramite il portale di Azure, gli strumenti da riga di comando di Azure o le API di gestione di Azure.
 
 ## <a name="roles-in-automation-accounts"></a>Ruoli negli account di Automazione
 In Automazione di Azure l'accesso viene concesso assegnando il ruolo Controllo degli accessi in base al ruolo appropriato a utenti, gruppi e applicazioni nell'ambito dell'account di automazione. Di seguito sono elencati i ruoli predefiniti supportati da un account di automazione:
@@ -307,7 +307,7 @@ L'utente non può accedere nemmeno per visualizzare i webhook associati a un run
 ![Nessun accesso ai webhook](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)  
 
 ## <a name="configure-rbac-for-your-automation-account-using-azure-powershell"></a>Configurare il controllo degli accessi in base al ruolo per l'account di Automazione usando Azure PowerShell
-L'accesso in base al ruolo per un account di Automazione può essere configurato anche con i [cmdlet di Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md) seguenti:
+L'accesso in base al ruolo per un account di Automazione può essere configurato anche con i [cmdlet di Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) seguenti:
 
 • [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) elenca tutti i ruoli del controllo degli accessi in base al ruolo disponibili in Azure Active Directory. È possibile usare questo comando con la proprietà **Name** per elencare tutte le azioni che possono essere eseguite da un ruolo specifico.
 
@@ -380,7 +380,7 @@ Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remov
 Negli esempi precedenti sostituire l'**ID di accesso**, l'**ID sottoscrizione**, il **nome del gruppo di risorse** e il **nome dell'account di Automazione** con i dettagli del proprio account. Scegliere **Sì** quando viene richiesto di confermare se si vuole rimuovere un'assegnazione di ruolo per un utente.   
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni sulle diverse modalità disponibili per configurare il controllo degli accessi in base al ruolo per Automazione di Azure, vedere [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
+* Per informazioni sulle diverse modalità disponibili per configurare il controllo degli accessi in base al ruolo per Automazione di Azure, vedere [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Per informazioni dettagliate sulle diverse modalità di avvio dei runbook, vedere [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
 * Per informazioni sui diversi tipi di runbook, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)
 

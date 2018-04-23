@@ -1,11 +1,11 @@
 ---
 title: Aggiornare un insieme di credenziali di backup a un insieme di credenziali di Servizi di ripristino di Backup di Azure | Microsoft Docs
-description: "Aggiornare un insieme di credenziali di backup a un insieme di credenziali di Servizi di ripristino per disporre di nuove funzionalità quali, ad esempio, il backup di macchine virtuali di Resource Manager, la protezione avanzata, il backup di macchine virtuali VMware e il backup dello stato del sistema per server Windows"
+description: Aggiornare un insieme di credenziali di backup a un insieme di credenziali di Servizi di ripristino per disporre di nuove funzionalità quali, ad esempio, il backup di macchine virtuali di Resource Manager, la protezione avanzata, il backup di macchine virtuali VMware e il backup dello stato del sistema per server Windows
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: 
+editor: ''
 keyword: backup vault; upgrade vault; recovery services vault
 ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 7c340f60bc648909d073821f1987036da9633458
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Insieme di credenziali di backup aggiornato a un insieme di credenziali di Servizi di ripristino
 In questo articolo viene fornita una panoramica delle caratteristiche dell'insieme di credenziali di Servizi di ripristino, le domande frequenti relative all'aggiornamento dell'insieme di credenziali di backup esistente all'insieme di credenziali di Servizi di ripristino e i passaggi successivi all'aggiornamento. Un insieme di credenziali di Servizi di ripristino è l'equivalente di Azure Resource Manager di un insieme di credenziali di backup che contiene i dati di backup. I dati sono in genere copie di dati o informazioni di configurazione per macchine virtuali, carichi di lavoro, server o workstation, sia locali che in Azure.
@@ -34,7 +34,7 @@ Gli insiemi di credenziali di Servizi di ripristino si basano sul modello di Azu
 
 - **Monitoraggio centralizzato per l'ambiente IT ibrido**: con gli insiemi di credenziali di Servizi di ripristino, è possibile monitorare non solo le [macchine virtuali IaaS di Azure](backup-azure-manage-vms.md) ma anche le [risorse locali](backup-azure-manage-windows-server.md#manage-backup-items) da un portale centrale. [Altre informazioni](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
-- **Controllo degli accessi in base al ruolo o RBAC** : il controllo degli accessi in base al ruolo consente un controllo della gestione degli accessi con granularità fine in Azure. [Azure offre diversi ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md) mentre Backup di Azure dispone di tre [ruoli predefiniti per la gestione dei punti di ripristino](backup-rbac-rs-vault.md). Gli insiemi di credenziali di Servizi di ripristino sono compatibili con il controllo degli accessi in base al ruolo, che consente di limitare il backup e ripristinare l'accesso a insiemi definiti di ruoli utente. [Altre informazioni](backup-rbac-rs-vault.md)
+- **Controllo degli accessi in base al ruolo o RBAC** : il controllo degli accessi in base al ruolo consente un controllo della gestione degli accessi con granularità fine in Azure. [Azure offre diversi ruoli predefiniti](../role-based-access-control/built-in-roles.md) mentre Backup di Azure dispone di tre [ruoli predefiniti per la gestione dei punti di ripristino](backup-rbac-rs-vault.md). Gli insiemi di credenziali di Servizi di ripristino sono compatibili con il controllo degli accessi in base al ruolo, che consente di limitare il backup e ripristinare l'accesso a insiemi definiti di ruoli utente. [Altre informazioni](backup-rbac-rs-vault.md)
 
 - **Protezione di tutte le configurazioni delle macchine virtuali di Azure**: gli insiemi di credenziali di Servizi di ripristino proteggono le macchine virtuali basate su Resource Manager tra cui i dischi Premium, i dischi gestiti e le macchine virtuali crittografate. L'aggiornamento di un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino offre l'opportunità di aggiornare le macchine virtuali basate su Service Manager alle macchine virtuali basate su Resource Manager. Durante l'aggiornamento dell'insieme di credenziali, è possibile mantenere i punti di ripristino della macchina virtuale basata su Service Manager e configurare la protezione per le macchine virtuali aggiornate abilitate per Resource Manager. [Altre informazioni](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 

@@ -2,7 +2,7 @@
 title: Ottimizzare le query Hive in Azure HDInsight | Microsoft Docs
 description: Informazioni su come ottimizzare le query Hive per Hadoop in HDInsight
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: d6174c08-06aa-42ac-8e9b-8b8718d9978e
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 3577b06bfb23457c17099902a7ac9fb8eb6e3087
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 8fc4a1c1759ad857502a540d6c3be11b0f607c79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Ottimizzare le query Hive in Azure HDInsight
 

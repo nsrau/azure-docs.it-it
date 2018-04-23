@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: 680e70ce572e182aa35c736f61036415d8714ea0
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 14d2a29e65bf2f3a974f2713f36d9b9fa497ee1c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installazione personalizzata di Azure AD Connect
 **Impostazioni personalizzate** di Azure AD Connect viene usato quando sono necessarie altre opzioni per l'installazione. Viene usato se sono presenti più foreste o per configurare funzionalità facoltative non incluse nell'installazione rapida. Viene usato in tutti i casi in cui l'opzione di [**installazione rapida**](active-directory-aadconnect-get-started-express.md) non soddisfa la distribuzione o la topologia.
@@ -166,7 +166,7 @@ Questa schermata consente di selezionare le funzionalità facoltative per gli sc
 | Cartelle pubbliche della posta di Exchange | La funzionalità Cartelle pubbliche della posta di Exchange consente di sincronizzare gli oggetti cartella pubblica abilitata alla posta elettronica dall'istanza locale di Active Directory ad Azure AD. |
 | Filtro attributi e app di Azure AD |Se si abilita questa opzione, il set di attributi sincronizzati può essere adattato. Questa opzione aggiunge altre due pagine di configurazione alla procedura guidata. Per altre informazioni, vedere [Filtro attributi e app Azure AD](#azure-ad-app-and-attribute-filtering). |
 | Sincronizzazione dell'hash delle password |Se è stata selezionata la federazione come soluzione di accesso, è possibile abilitare questa opzione. La sincronizzazione dell'hash delle password può quindi essere usata come opzione di backup. Per altre informazioni, vedere [Sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-hash-synchronization.md). </br></br>Se si seleziona l'autenticazione pass-through, questa opzione può essere abilitata per garantire il supporto per i client legacy e come opzione di backup. Per altre informazioni, vedere [Sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-hash-synchronization.md).|
-| writeback delle password |Se si abilita il writeback delle password, le modifiche delle password generate da Azure AD vengono riscritte nella directory locale. Per altre informazioni, vedere [Introduzione alla gestione delle password](../active-directory-passwords-getting-started.md). |
+| writeback delle password |Se si abilita il writeback delle password, le modifiche delle password generate da Azure AD vengono riscritte nella directory locale. Per altre informazioni, vedere [Introduzione alla gestione delle password](../authentication/quickstart-sspr.md). |
 | Writeback dei gruppi |Se si usa la funzionalità **Office 365 Groups** , i gruppi possono essere rappresentati nell'istanza locale di Active Directory. Questa opzione è disponibile solo se si dispone di Exchange in Active Directory locale. Per altre informazioni, vedere [Writeback dei gruppi](active-directory-aadconnect-feature-preview.md#group-writeback). |
 | Writeback dispositivi |Consente di eseguire il writeback degli oggetti dispositivo in Azure AD in Active Directory locale per scenari di accesso condizionale. Per altre informazioni, vedere [Abilitazione del writeback dei dispositivi in Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md). |
 | Sincronizzazione attributi estensione della directory |Se si abilita questa opzione, gli attributi specificati vengono sincronizzati in Azure AD. Per altre informazioni, vedere [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md). |

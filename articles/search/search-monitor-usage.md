@@ -1,25 +1,19 @@
 ---
-title: "Monitorare l’utilizzo e le statistiche in Ricerca di Azure | Microsoft Docs"
+title: Monitorare l’utilizzo e le statistiche in Ricerca di Azure | Microsoft Docs
 description: Tenere traccia delle dimensioni di indice e consumo delle risorse per la Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure.
-services: search
-documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 
 ms.service: search
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: fe852afedfc1cce99d81b8ab53c6c80df34ac6d6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b8c07d5965876cba45f03fa8c5ffb473c6ca3bc2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitoring-an-azure-search-service"></a>Monitoraggio di un servizio di Ricerca di Azure
 

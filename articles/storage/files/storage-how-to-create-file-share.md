@@ -2,11 +2,11 @@
 title: Come creare una condivisione file di Azure | Microsoft Docs
 description: Come creare una condivisione file di Azure in File di Azure usando il portale di Azure, PowerShell e l'interfaccia della riga di comando di Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: bc01e5427f32e9532e39694f6de9f0b1146eda35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4dfc4bca4453b5a8027086bd7c3625efc8feda03
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Creare una condivisione file in File di Azure
 È possibile creare condivisioni file di Azure usando il [portale di Azure](https://portal.azure.com/), i cmdlet di PowerShell per Archiviazione di Azure, le librerie client di archiviazione di Azure o l'API REST di Archiviazione di Azure. In questa esercitazione si apprenderà:
@@ -69,7 +69,7 @@ Per prepararsi all'uso di PowerShell, scaricare e installare i cmdlet di Azure P
 
 ## <a name="create-file-share-through-command-line-interface-cli"></a>Creare una condivisione file tramite l'interfaccia della riga di comando
 1. **Per prepararsi a usare un'interfaccia della riga di comando, scaricare e installare l'interfaccia della riga di comando di Azure.**  
-    Vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2.md) e [Introduzione all'interfaccia della riga di comando di Azure 2.0](/cli/azure/get-started-with-azure-cli.md).
+    Vedere [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) e [Introduzione all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 2. **Creare una stringa di connessione all'account di archiviazione in cui si vuole creare la condivisione.**  
     Sostituire ```<storage-account>``` e ```<resource_group>``` con il nome e il gruppo di risorse dell'account di archiviazione nell'esempio seguente:

@@ -134,24 +134,24 @@
 #### [Uso dei certificati](active-directory-reporting-api-with-certificates.md)
 
 ## Gestire le password
-### [Panoramica delle password](active-directory-passwords-overview.md)
+### [Panoramica delle password](authentication/active-directory-passwords-overview.md)
 ### Documenti degli utenti
 #### [Reimpostare o modificare la password](active-directory-passwords-update-your-own-password.md)
 #### [Procedure consigliate per le password](active-directory-secure-passwords.md)
 #### [Registrarsi per la reimpostazione della password self-service](active-directory-passwords-reset-register.md)
-### [Funzionamento di SSPR](active-directory-passwords-how-it-works.md)
-### [Guida alla distribuzione di SSPR](active-directory-passwords-best-practices.md)
+### [Funzionamento di SSPR](authentication/concept-sspr-howitworks.md)
+### [Guida alla distribuzione di SSPR](authentication/howto-sspr-deployment.md)
 ### [SSPR e Windows 10](active-directory-passwords-login.md)
-### [Criteri di SSPR](active-directory-passwords-policy.md)
-### [Personalizzazione di SSPR](active-directory-passwords-customize.md)
-### [Requisiti relativi ai dati di SSPR](active-directory-passwords-data.md)
-### [Creazione di report di SSPR](active-directory-passwords-reporting.md)
+### [Criteri di SSPR](authentication/concept-sspr-policy.md)
+### [Personalizzazione di SSPR](authentication/concept-sspr-customization.md)
+### [Requisiti relativi ai dati di SSPR](authentication/howto-sspr-authenticationdata.md)
+### [Creazione di report di SSPR](authentication/howto-sspr-reporting.md)
 ### Amministratori IT: reimpostare le password
 #### [Portale di Azure](active-directory-users-reset-password-azure-portal.md)
-### [Concedere in licenza SSPR](active-directory-passwords-licensing.md)
+### [Concedere in licenza SSPR](authentication/concept-sspr-licensing.md)
 ### [Writeback delle password](active-directory-passwords-writeback.md)
-### [Risolvere i problemi](active-directory-passwords-troubleshoot.md)
-### [DOMANDE FREQUENTI](active-directory-passwords-faq.md)
+### [Risolvere i problemi](authentication/active-directory-passwords-troubleshoot.md)
+### [DOMANDE FREQUENTI](authentication/active-directory-passwords-faq.md)
 
 
 ## Gestire i dispositivi

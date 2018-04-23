@@ -2,7 +2,7 @@
 title: Creare dashboard di Azure a livello di codice | Microsoft Docs
 description: Questo articolo descrive come creare dashboard di Azure a livello di codice.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: adamab
 manager: timlt
 editor: tysonn
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 0e84ff61346f2788cf475cee2783ba2056a091ad
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3d72c8b026dd7c72be01aabcb47e76174d7afd6b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creare dashboard di Azure a livello di codice
 
@@ -55,7 +55,7 @@ Dopo aver configurato il dashboard in base alle preferenze, il passaggio success
 
 ![Comando Condividi](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Facendo clic sul comando Condividi, viene visualizzata una finestra di dialogo che chiede in quale sottoscrizione e gruppo di risorse eseguire la pubblicazione. Tenere presente che [è necessario avere accesso in scrittura](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) alla sottoscrizione e al gruppo di risorse scelti.
+Facendo clic sul comando Condividi, viene visualizzata una finestra di dialogo che chiede in quale sottoscrizione e gruppo di risorse eseguire la pubblicazione. Tenere presente che [è necessario avere accesso in scrittura](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) alla sottoscrizione e al gruppo di risorse scelti.
 
 ![Condivisione e accesso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

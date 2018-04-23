@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2216a2d5c30e95fcd02b4df56305153335511e0
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: fb3b78cd91a1554e278230cd85e5f4da8d43a26a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure
 
@@ -420,7 +420,7 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -472,7 +472,7 @@ Questi articoli descrivono le distribuzioni SAP in Azure:
 
 Queste note su SAP sono correlate all'argomento relativo a SAP in Azure:
 
-| Numero della nota | Titolo |
+| Numero della nota | Title |
 | --- | --- |
 | [1928533] |Applicazioni SAP in Azure: dimensioni e prodotti supportati |
 | [2015553] |SAP in Microsoft Azure: prerequisiti per il supporto |
@@ -1233,7 +1233,7 @@ La configurazione di un controllo di condivisione file del cluster prevede quest
 
   _**Figura 38:** Conferma della riconfigurazione del cluster_
 
-Dopo aver installato correttamente il Cluster di failover Windows, è necessario modificare alcune soglie per adattare il rilevamento del failover alle condizioni in Azure. I parametri da modificare sono documentati in questo blog: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Supponendo che le due VM che compongono la configurazione del cluster Windows per ASCS/SCS siano nella stessa SubNet, è necessario modificare i parametri seguenti impostando i valori indicati:
+Dopo aver installato correttamente il Cluster di failover Windows, è necessario modificare alcune soglie per adattare il rilevamento del failover alle condizioni in Azure. I parametri da modificare sono documentati in questo blog: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/. Supponendo che le due VM che compongono la configurazione del cluster Windows per ASCS/SCS siano nella stessa SubNet, è necessario modificare i parametri seguenti impostando i valori indicati:
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 
@@ -1389,7 +1389,7 @@ La configurazione del sistema DBMS non viene descritta perché varia a seconda d
 Non esistono particolari considerazioni per il caso in cui servizi DBMS differenti interagiscono con questa configurazione di SAP ASCS/SCS in cluster in Azure.
 
 > [!NOTE]
-> La procedura di installazione dei sistemi SAP NetWeaver ABAP, Java e ABAP + Java è praticamente identica. La differenza principale è che un sistema SAP ABAP ha un'istanza di ASCS. Il sistema SAP Java ha un'istanza di SCS. Il sistema SAP ABAP + Java ha un'istanza ASCS e un'istanza SCS in esecuzione nello stesso gruppo di cluster di failover Microsoft. Eventuali differenze di installazione per ogni stack di installazione di SAP NetWeaver verranno indicate in modo esplicito. Si presume che tutte le altre parti siano uguali.  
+> La procedura di installazione dei sistemi SAP NetWeaver ABAP, Java e ABAP + Java è praticamente identica. La differenza principale è che un sistema SAP ABAP ha un'istanza di ASCS. Il sistema SAP Java ha un'istanza di SCS. Il sistema SAP ABAP + Java ha un'istanza di ASCS e un'istanza di SCS in esecuzione nello stesso gruppo cluster di failover Microsoft. Eventuali differenze di installazione per ogni stack di installazione di SAP NetWeaver verranno indicate in modo esplicito. Si presume che tutte le altre parti siano uguali.  
 >
 >
 

@@ -14,13 +14,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/22/2017
   ms.author: philmea
-  ms.openlocfilehash: 0b9146284f12cdb39edb870779d911053d1f233a
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.openlocfilehash: afd5a0c6167e89b1c4657ef1211a02d1a0807782
+  ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 04/18/2018
 abstract:
-  description: "Servizi Location Based di Azure (anteprima) offre agli sviluppatori di tutti i settori potenti funzionalità geospaziali che includono i dati mappa aggiornati necessari per fornire contesto geografico alle applicazioni Web e per dispositivi mobili. Questo servizio è un set di API REST conforme con Azure OneAPI, accompagnato da un controllo JavaScript basato sul Web, che rende lo sviluppo semplice, flessibile e compatibile con più supporti."
+  description: Servizi Location Based di Azure (anteprima) offre agli sviluppatori di tutti i settori potenti funzionalità geospaziali che includono i dati mappa aggiornati necessari per fornire contesto geografico alle applicazioni Web e per dispositivi mobili. Questo servizio è un set di API REST conforme con Azure OneAPI, accompagnato da un controllo JavaScript basato sul Web, che rende lo sviluppo semplice, flessibile e compatibile con più supporti.
 sections:
 - title: Guide introduttive di 5 minuti
   items:
@@ -36,14 +36,14 @@ sections:
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: "Compilare un'applicazione Web geospaziale per cercare i punti di interesse e trovare gli itinerari per le località usando Servizi Location Based di Azure (anteprima)."
+    text: Compilare un'applicazione Web geospaziale per cercare i punti di interesse e trovare gli itinerari per le località usando Servizi Location Based di Azure (anteprima).
   - type: list
     style: ordered
     items:
     - html: <a href="/azure/location-based-services/tutorial-search-location">Cercare i punti di interesse</a>
     - html: <a href="/azure/location-based-services/tutorial-route-location">Itinerario per un punto di interesse</a>
-    - html: "<a href=\"/azure/location-based-services/tutorial-prioritized-routes\">Itinerari per modalità di viaggio</a>"
-- title: Riferimento
+    - html: <a href="/azure/location-based-services/tutorial-prioritized-routes">Itinerari per modalità di viaggio</a>
+- title: riferimento
   items:
   - type: list
     style: cards

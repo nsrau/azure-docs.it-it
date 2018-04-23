@@ -2,7 +2,7 @@
 title: Creare e condividere i dashboard del portale di Azure | Microsoft Docs
 description: Questo articolo illustra come creare e modificare i dashboard nel portale di Azure.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: sewatson
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-ms.openlocfilehash: 7f90c882285170bac34bfe020831d3ac04010a11
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4e5a5ae944b5f0059ee78a2171a9688902aaf6db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Creare e condividere dashboard nel portale di Azure
 È possibile creare più dashboard e condividerli con altri utenti che hanno accesso alle sottoscrizioni di Azure.  Questo articolo illustra le nozioni di base della creazione, della modifica, della pubblicazione e della gestione dell'accesso dei dashboard.
@@ -75,7 +75,7 @@ Quando si crea un dashboard, per impostazione predefinita il dashboard è privat
 
 ![Condividere il dashboard](./media/azure-portal-dashboards/share-dashboard.png)
 
-Viene chiesto di scegliere una sottoscrizione e un gruppo di risorse in cui pubblicare il dashboard. Per facilitare l'integrazione dei dashboard nell'ecosistema, i dashboard condivisi sono stati implementati come risorse di Azure. Non è quindi possibile eseguire la condivisione digitando un indirizzo di posta elettronica.  L'accesso alle informazioni visualizzate nella maggior parte dei riquadri del portale è regolato dal [controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md). Dal punto di vista del controllo di accesso, i dashboard condivisi non sono diversi da una macchina virtuale o da un account di archiviazione.  
+Viene chiesto di scegliere una sottoscrizione e un gruppo di risorse in cui pubblicare il dashboard. Per facilitare l'integrazione dei dashboard nell'ecosistema, i dashboard condivisi sono stati implementati come risorse di Azure. Non è quindi possibile eseguire la condivisione digitando un indirizzo di posta elettronica.  L'accesso alle informazioni visualizzate nella maggior parte dei riquadri del portale è regolato dal [controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md). Dal punto di vista del controllo di accesso, i dashboard condivisi non sono diversi da una macchina virtuale o da un account di archiviazione.  
 
 Si supponga di avere una sottoscrizione di Azure e che ai membri del team siano stati assegnati i ruoli di **proprietario**, **collaboratore** o **lettore** della sottoscrizione.  Gli utenti con il ruolo di proprietario o collaboratore possono elencare, visualizzare, creare, modificare o eliminare dashboard nella sottoscrizione.  Gli utenti con il ruolo di lettore possono elencare e visualizzare i dashboard, ma non modificarli o eliminarli.  Gli utenti con accesso in lettura possono apportare modifiche locali a un dashboard condiviso, ma non pubblicarle nel server.  Possono tuttavia creare una copia privata del dashboard per uso personale.  Come sempre, i singoli riquadri del dashboard applicano proprie regole di controllo di accesso in base alle risorse corrispondenti.  
 

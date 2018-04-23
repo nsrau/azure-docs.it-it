@@ -5,15 +5,15 @@ services: azure-policy
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/17/2018
+ms.date: 04/18/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 42fdfa2eb629351c38fb72c20a62cd7d78acf229
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c98712b8fb2f8d6a85906b2c78fb678fc0f970b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -67,7 +67,7 @@ Tutti i modelli di Criteri di Azure di esempio sono disponibili nella pagina [Mo
 ## <a name="mode"></a>Mode
 
 Il parametro **mode** (modalità) determina quali tipi di risorse verranno valutate per l'assegnazione dei criteri. Le modalità supportate sono:
-* `all`: vengono valutati i gruppi di risorse e tutti i tipi di risorse 
+* `all`: vengono valutati i gruppi di risorse e tutti i tipi di risorse
 * `indexed`: vengono valutati solo i tipi di risorse che supportano tag e il percorso
 
 Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** su `all`. Tutte le definizioni di criteri create tramite il portale usano la modalità `all`. Se si usa PowerShell o l'interfaccia della riga di comando di Azure, è necessario specificare il parametro **mode** manualmente. Se la definizione dei criteri non contiene un valore **mode**, come valore predefinito viene usato `indexed` per compatibilità con le versioni precedenti.

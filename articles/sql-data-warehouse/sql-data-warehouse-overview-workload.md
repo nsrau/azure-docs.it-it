@@ -2,24 +2,19 @@
 title: Informazioni sulle operazioni di Azure SQL Data Warehouse | Documentazione Microsoft
 description: "L'elasticità di SQL Data Warehouse consente di aumentare, ridurre o sospendere la potenza di calcolo usando una scala scorrevole di unità data warehouse (DWU). Questo articolo illustra le metriche del data warehouse e come sono correlate alle DWU. "
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: cadffa9c-589d-4db7-888a-1f202a753bc5
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: 629ce22bf669a760d041bbd006b836d2da5d237b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: e48d0a3028d5ebcb5d1bc0afbfc96a391bf4c076
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-warehouse-workload"></a>Carico di lavoro del data warehouse
 Per carico di lavoro del data warehouse si intendono tutte le operazioni che passano attraverso un data warehouse. Tale carico di lavoro include pertanto l'intero processo di caricamento dei dati nel data warehouse, l'esecuzione dell'analisi e la creazione dei report a esso relativi, la gestione dei dati in esso contenuti e l'esportazione dei dati da esso. La profondità e l'estensione di questi componenti sono spesso proporzionali al livello di maturità del data warehouse.

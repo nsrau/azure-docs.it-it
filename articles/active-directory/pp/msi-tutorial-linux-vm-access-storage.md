@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5ae0e4e8149772d79190ee196cdd1c1bef344681
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4a1a2d0c40012649f6cd89193fd3f704f325e38a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Usare un'identità del servizio gestito assegnata dall'utente su una macchina virtuale Linux per accedere ad Archiviazione di Azure
 
@@ -96,10 +96,10 @@ Creare prima di tutto una nuova macchina virtuale Linux. In alternativa, è anch
 
 A differenza di un'identità del servizio gestito assegnata dal sistema, un'identità del servizio gestito assegnata dall'utente può essere usata dai client in più risorse di Azure. Ai fini della presente esercitazione assegnare tale entità a una singola macchina virtuale. È anche possibile assegnarla a più di una macchina virtuale.
 
-Assegnare l'identità del servizio gestito assegnata dall'utente alla macchina virtuale Linux tramite [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<VM NAME>` con valori personalizzati. Usare la proprietà `id` restituita nel passaggio precedente per il valore del parametro `--identities`:
+Assegnare l'identità del servizio gestito assegnata dall'utente alla macchina virtuale Linux tramite [az vm assign-identity](/cli/azure/vm#az-vm-identity-assign). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<VM NAME>` con valori personalizzati. Usare la proprietà `id` restituita nel passaggio precedente per il valore del parametro `--identities`:
 
 ```azurecli-interactive
-az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
+az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
 ```
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione 
@@ -189,7 +189,7 @@ Per completare questi passaggi, è necessario disporre di un client SSH. Se si u
 4. A questo punto usare il token di accesso per accedere ad Archiviazione di Azure, ad esempio per leggere il contenuto del file di esempio caricato in precedenza nel contenitore. Sostituire i valori di `<STORAGE ACCOUNT>`, `<CONTAINER NAME>` e `<FILE NAME>` con i valori specificati in precedenza, e `<ACCESS TOKEN>` con il token restituito nel passaggio precedente.
 
    ```bash
-   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME>?api-version=2017-11-09 -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME> -H "x-ms-version: 2017-11-09" -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
    La risposta contiene il contenuto del file:

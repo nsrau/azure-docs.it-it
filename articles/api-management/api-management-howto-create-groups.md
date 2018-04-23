@@ -3,7 +3,7 @@ title: Gestire gli account di sviluppatori tramite i gruppi in Gestione API di A
 description: Informazioni su come gestire gli account di sviluppatori tramite i gruppi in Gestione API di Azure.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 184c8fff35a59715407989589d6d69b3dc2481e0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: df2e25bca907e90c12d18ea76f9c6a94c38a4ece
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Come creare e usare gruppi per gestire account di sviluppatori in Gestione API di Azure
 In Gestione API i gruppi permettono di gestire quali prodotti sono visibili per gli sviluppatori. I prodotti vengono innanzitutto resi visibili ai gruppi, quindi gli sviluppatori in quei gruppi possono visualizzare e sottoscriversi ai prodotti associati ai gruppi. 
