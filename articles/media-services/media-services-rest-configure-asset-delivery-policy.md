@@ -271,7 +271,7 @@ Ad esempio:
 ### <a name="link-asset-with-asset-delivery-policy"></a>Collegare un asset ai criteri di distribuzione
 Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_delivery_policy)
 
-## <a id="types"></a>
+## <a id="types"></a>Tipi utilizzati durante la definizione di AssetDeliveryPolicy
 
 ### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
 
