@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1ac3c341f7ffc1911fc063202c043351e412843f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 682998bb979c9b155b7b1389d8f605018ae135b6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere a SQL di Azure
 
@@ -101,7 +101,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Successivamente, aggiungere l'identità del servizio gestito della macchina virtuale al gruppo.  È necessario l'**ObjectId** dell'identità del servizio gestito, che è possibile recuperare usando Azure PowerShell.  Scaricare innanzitutto [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Accedere quindi usando `Login-AzureRmAccount` ed eseguire i comandi seguenti per:
+Successivamente, aggiungere l'identità del servizio gestito della macchina virtuale al gruppo.  È necessario l'**ObjectId** dell'identità del servizio gestito, che è possibile recuperare usando Azure PowerShell.  Scaricare innanzitutto [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Accedere quindi usando `Connect-AzureRmAccount` ed eseguire i comandi seguenti per:
 - Verificare che il contesto della sessione sia impostato sulla sottoscrizione di Azure desiderata, se si dispone di più sessioni.
 - Elencare le risorse disponibili nella sottoscrizione di Azure, verificare i nomi del gruppo di risorse corretto e della macchina virtuale.
 - Ottenere le proprietà dell'identità del servizio gestito usando i valori appropriati per `<RESOURCE-GROUP>` e `<VM-NAME>`.

@@ -22,7 +22,7 @@ Aprire la finestra di Powershell ISE o Powershell in modalità amministrativa e 
 1. Accedere all'account Microsoft Azure in modalità Gestione risorse e selezionare la sottoscrizione come segue:
    
    ```Powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Impostare il nome del gruppo di risorse e il nome della VM come segue:
@@ -65,7 +65,7 @@ Aprire la finestra di Powershell ISE o Powershell in modalità amministrativa e 
 1. Accedere all'account Microsoft Azure in modalità Gestione risorse e selezionare la sottoscrizione come segue:
    
    ```Powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Impostare il nome del gruppo di risorse e il nome della VM come segue:
@@ -109,7 +109,7 @@ In questo articolo sono stati usati i moduli Azure Resource Manager di Powershel
 Dischi non gestiti:
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
@@ -122,7 +122,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 Dischi gestiti:
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'

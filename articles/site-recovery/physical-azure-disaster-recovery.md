@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: d460da197c6e9f0bface402d83d4788f8164cc9c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 207ff17f7b113bf4a94bb6c157cf53e7b1c46b45
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurare il ripristino di emergenza in Azure per server fisici locali
 
@@ -54,7 +54,7 @@ Ottenere un [account Microsoft Azure](http://azure.microsoft.com/).
 Verificare che l'account di Azure disponga delle autorizzazioni per la replica di macchine virtuali in Azure.
 
 - Rivedere le [autorizzazioni](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) necessarie per la replica di macchine in Azure.
-- Verificare e modificare le autorizzazioni per gli [accessi in base al ruolo](../active-directory/role-based-access-control-configure.md). 
+- Verificare e modificare le autorizzazioni per gli [accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md). 
 
 
 

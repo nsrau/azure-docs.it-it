@@ -2,17 +2,16 @@
 title: Cercare dati semistrutturati nell'archiviazione cloud di Azure
 description: Ricerca di dati BLOB semistrutturati tramite Ricerca di Azure.
 author: roygara
-manager: timlt
+manager: cgronlun
 ms.service: search
 ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
-ms.custom: mvc
-ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f05e9dd12a838199b23deddb4f6c4fb4c2fced08
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Parte 2: Cercare dati semistrutturati nell'archiviazione cloud
 
@@ -30,13 +29,13 @@ Nella parte 2 si apprenderà come:
 > [!NOTE]
 > Questa esercitazione si basa sul supporto della matrice JSON, che è attualmente una anteprima funzionalità di Ricerca di Azure. Non è disponibile nel portale di Azure. Per questo motivo, si usano l'API REST in anteprima che fornisce questa funzionalità e uno strumento client REST per chiamare l'API.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Completamento dell'[esercitazione precedente](../storage/blobs/storage-unstructured-search.md), durante la quale vengono forniti l'account di archiviazione e il servizio di ricerca.
 
 * Installazione di un client REST e raccolta di informazioni su come costruire una richiesta HTTP. Per gli scopi di questa esercitazione viene usato [Postman](https://www.getpostman.com/). Ritenersi liberi di usare un altro client REST con cui si ha già familiarità.
 
-## <a name="set-up-postman"></a>Impostare Postman
+## <a name="set-up-postman"></a>Configurare Postman
 
 Avviare Postman e configurare una richiesta HTTP. Se non si ha familiarità con questo strumento, vedere [Esplorare le API REST di Ricerca di Azure con Fiddler o Postman](search-fiddler.md) per altre informazioni.
 

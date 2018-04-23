@@ -2,23 +2,23 @@
 
 # Panoramica
 ## [Informazioni su Azure Multi-Factor Authentication](multi-factor-authentication.md)
-## [Funzionamento](multi-factor-authentication-how-it-works.md)
-## [Come ottenere Azure MFA](multi-factor-authentication-versions-plans.md)
+## [Funzionamento](../active-directory/authentication/concept-mfa-howitworks.md)
+## [Come ottenere Azure MFA](../active-directory/authentication/concept-mfa-licensing.md)
 
 # Attività iniziali
-## [Scegliere dove eseguire la distribuzione](multi-factor-authentication-get-started.md)
-## [MFA nel cloud](multi-factor-authentication-get-started-cloud.md)
+## [Scegliere dove eseguire la distribuzione](../active-directory/authentication/concept-mfa-whichversion.md)
+## [MFA nel cloud](../active-directory/authentication/howto-mfa-getstarted.md)
 ## [MFA locale](multi-factor-authentication-get-started-server.md)
 ## [MFA per utenti di Office 365](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 ## [Procedure di sicurezza consigliate](multi-factor-authentication-security-best-practices.md)
 
 # Procedure
 ## Distribuire e usare
-### [Configurare le impostazioni](multi-factor-authentication-whats-next.md)
+### [Configurare le impostazioni](../active-directory/authentication/howto-mfa-mfasettings.md)
 ### [Report in MFA](multi-factor-authentication-manage-reports.md)
-### [Usare server di criteri di rete esistenti](multi-factor-authentication-nps-extension.md)
-#### [Configurazione avanzata per l'estensione Server dei criteri di rete](nps-extension-advanced-configuration.md)
-### [Creare un provider di autenticazione](multi-factor-authentication-get-started-auth-provider.md)
+### [Usare server di criteri di rete esistenti](../active-directory/authentication/howto-mfa-nps-extension.md)
+#### [Configurazione avanzata per l'estensione Server dei criteri di rete](../active-directory/authentication/howto-mfa-nps-extension-advanced.md)
+### [Creare un provider di autenticazione](../active-directory/authentication/concept-mfa-authprovider.md)
 ### Distribuire MFA in locale
 #### [Installare il portale utenti](multi-factor-authentication-get-started-portal.md)
 #### [Configurazioni VPN avanzate](multi-factor-authentication-advanced-vpn-configurations.md)
@@ -38,9 +38,9 @@
 ### [VPN](nps-extension-vpn.md)
 ### Integrare MFA in locale
 #### [Federation Services](multi-factor-authentication-get-started-adfs.md)
-##### [Usare AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
+##### [Usare AD FS](../active-directory/authentication/howto-mfa-adfs.md)
 ##### [Usare AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
-##### [Usare Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
+##### [Usare Windows Server 2012 R2 AD FS](../active-directory/authentication/howto-mfaserver-adfs-2012.md)
 #### Directory
 ##### [Autenticazione LDAP](multi-factor-authentication-get-started-server-ldap.md)
 ##### [Autenticazione RADIUS](multi-factor-authentication-get-started-server-radius.md)
@@ -54,7 +54,7 @@
 ## Risolvere problemi
 ### [Domande frequenti](multi-factor-authentication-faq.md)
 ### [Porre una domanda](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
-### [Errori dell'estensione del Server dei criteri di rete](multi-factor-authentication-nps-errors.md)
+### [Errori dell'estensione del Server dei criteri di rete](../active-directory/authentication/howto-mfa-nps-extension-errors.md)
 
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)

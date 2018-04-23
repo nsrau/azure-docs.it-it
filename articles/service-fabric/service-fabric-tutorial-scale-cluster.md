@@ -1,12 +1,12 @@
 ---
 title: Ridimensionare un cluster di Azure Service Fabric | Microsoft Docs
-description: "In questa esercitazione si apprenderà come ridimensionare rapidamente un cluster di Service Fabric."
+description: In questa esercitazione si apprenderà come ridimensionare rapidamente un cluster di Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 21ef6d1981464d5943338c20fb06a218fc0e447d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e80fad4d0bddff89ff4dda7feed90fc622369ee9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster"></a>Esercitazione: Ridimensionare un cluster di Service Fabric
 
@@ -51,7 +51,7 @@ Prima di iniziare questa esercitazione:
 Accedere al proprio account di Azure e selezionare la sottoscrizione prima di eseguire i comandi di Azure.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```

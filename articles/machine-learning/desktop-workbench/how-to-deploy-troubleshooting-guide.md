@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 11/16/2017
 ms.openlocfilehash: 7b8d2f4fb52c6d4faed8e813779e3b01d1817355
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Risoluzione dei problemi di distribuzione dei servizi e di configurazione dell'ambiente
 Le informazioni seguenti consentono di determinare la causa degli errori quando si configura l'ambiente di gestione modelli.

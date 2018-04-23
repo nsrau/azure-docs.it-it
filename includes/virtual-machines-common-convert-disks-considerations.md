@@ -3,7 +3,7 @@
 
 * La conversione non è reversibile. 
 
-* Tenere presente che tutti gli utenti con il ruolo [Collaboratore macchine virtuali](../articles/active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) non potranno modificare le dimensioni della macchina virtuale, come invece potevano in fase di pre-conversione. Il motivo è che le macchine virtuali con dischi gestiti richiedono che gli utenti abbiano l'autorizzazione Microsoft.Compute/disks/write per i dischi del sistema operativo.
+* Tenere presente che tutti gli utenti con il ruolo [Collaboratore macchine virtuali](../articles/role-based-access-control/built-in-roles.md#virtual-machine-contributor) non potranno modificare le dimensioni della macchina virtuale, come invece potevano in fase di pre-conversione. Il motivo è che le macchine virtuali con dischi gestiti richiedono che gli utenti abbiano l'autorizzazione Microsoft.Compute/disks/write per i dischi del sistema operativo.
 
 * Assicurarsi di testare la conversione. Eseguire la migrazione di una macchina virtuale di test prima di eseguire la migrazione nell'ambiente di produzione.
 

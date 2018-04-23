@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eb305986982432d7a432204e3fae8a1dff6a5d74
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurare le porte a disponibilità elevata per un servizio di bilanciamento del carico interno
 
@@ -39,12 +39,6 @@ La figura mostra la configurazione dell'esempio di distribuzione descritto in qu
 ![Distribuzione di esempio delle porte a disponibilità elevata](./media/load-balancer-configure-ha-ports/haports.png)
 
 
-## <a name="preview-sign-up"></a>Iscrizione all'anteprima
-
-Per partecipare all'anteprima della funzionalità Porte a disponibilità elevata nel servizio Load Balancer Standard, registrare la sottoscrizione per poter accedere usando l'interfaccia della riga di comando di Azure 2.0 o PowerShell. Registrare la sottoscrizione per [l'anteprima di Load Balancer Standard](https://aka.ms/lbpreview#preview-sign-up).
-
->[!NOTE]
->La registrazione dell'anteprima di Load Balancer Standard potrebbe richiedere fino a un'ora.
 
 ## <a name="configure-high-availability-ports"></a>Configurare le porte a disponibilità elevata
 

@@ -1,25 +1,18 @@
 ---
 title: Autenticazione e autorizzazioni utente in Azure Analysis Services | Microsoft Docs
 description: Informazioni sull'autenticazione e le autorizzazioni utente in Azure Analysis Services.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 1011e2c8351839cc8c93fc74a7d6f51f29e52410
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: ede05667d794267443babacaa8b016206d86ab2c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticazione e autorizzazioni utente
 Azure Analysis Services usa Azure Active Directory (Azure AD) per la gestione delle identità e l'autenticazione degli utenti. Qualsiasi utente che crea, gestisce o si connette a un server Azure Analysis Services deve disporre di un'identità utente valida in un [tenant di Azure AD](../active-directory/active-directory-administer.md) nella stessa sottoscrizione.
@@ -69,7 +62,7 @@ Gli **utenti del database** si connettono ai database modello tramite applicazio
 
 ![Controllo di accesso nel portale di Azure](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-I ruoli di questo livello si applicano agli utenti o agli account che devono eseguire attività completabili nel portale o tramite i modelli di Azure Resource Manager. Per altre informazioni, vedere l'articolo relativo al [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md). 
+I ruoli di questo livello si applicano agli utenti o agli account che devono eseguire attività completabili nel portale o tramite i modelli di Azure Resource Manager. Per altre informazioni, vedere l'articolo relativo al [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md). 
 
 
 ## <a name="database-roles"></a>Ruoli del database
@@ -85,4 +78,4 @@ I ruoli di questo livello si applicano agli utenti o agli account che devono ese
 [Gestire l'accesso alle risorse tramite i gruppi di Azure Active Directory](../active-directory/active-directory-manage-groups.md)   
 [Gestire ruoli e utenti del database](analysis-services-database-users.md)  
 [Gestire gli amministratori di server](analysis-services-server-admins.md)  
-[Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md)  
+[Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md)  

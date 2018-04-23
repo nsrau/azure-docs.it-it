@@ -71,14 +71,12 @@ items:
     items:
       - name: Distribuzione globale
         href: distribute-data-globally.md
-      - name: Consistency
-        href: consistency-levels.md
       - name: Partizionamento
         href: partition-data.md
       - name: Velocità effettiva
         href: request-units.md
-      - name: Costo totale di proprietà
-        href: 'https://aka.ms/cosmosdb-tco-paper'
+      - name: Consistency
+        href: consistency-levels.md
       - name: Database senza server
         href: serverless-computing-database.md
       - name: Sicurezza
@@ -86,10 +84,10 @@ items:
         items:
           - name: Crittografia di dati inattivi
             href: database-encryption-at-rest.md
-          - name: Supporto del firewall
-            href: firewall-support.md
           - name: Protezione dell'accesso ai dati
             href: secure-access-to-data.md
+      - name: Costo totale di proprietà
+        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Casi d'uso
         href: use-cases.md
         items:
@@ -180,7 +178,7 @@ items:
                     href: sql-api-sql-query-metrics.md
               - name: Indice
                 href: indexing-policies.md
-              - name: Dati di partizione
+              - name: Partizionamento dei dati SQL
                 href: sql-api-partition-data.md
               - name: 'Stored procedure, trigger e UDF'
                 href: programming.md
@@ -233,8 +231,8 @@ items:
                   - name: Sfruttare il driver ODBC per la visualizzazione dei dati
                     href: odbc-driver.md
                   - name: Usare Spring Boot Starter con le API SQL
-                    href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-          - name: Riferimenti
+                    href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
+          - name: riferimento
             items:
               - name: Async Java
                 href: sql-api-sdk-async-java.md
@@ -346,6 +344,8 @@ items:
                 href: tutorial-global-distribution-graph.md
           - name: Guide pratiche
             items:
+              - name: Partizionamento Graph
+                href: graph-partitioning.md
               - name: Integrare
                 items:
                   - name: Connettersi a Spark GraphX
@@ -398,7 +398,7 @@ items:
                 href: table-storage-how-to-use-ruby.md
               - name: PowerShell
                 href: table-storage-how-to-use-powershell.md
-          - name: riferimento
+          - name: Riferimenti
             items:
               - name: .NET
                 href: table-sdk-dotnet.md
@@ -434,6 +434,8 @@ items:
         href: manage-account.md
       - name: Velocità effettiva
         href: set-throughput.md
+      - name: Supporto del firewall
+        href: firewall-support.md
       - name: Metriche
         href: use-metrics.md
       - name: Monitorare i contratti di servizio
@@ -466,5 +468,3 @@ items:
         href: faq.md
       - name: La coerenza dei dati spiegata attraverso il baseball
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
-      - name: Risolvere i problemi di Azure Cosmos DB
-        href: troubleshoot-azure-cosmosdb.md

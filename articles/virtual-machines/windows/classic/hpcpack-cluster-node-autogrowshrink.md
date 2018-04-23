@@ -1,10 +1,10 @@
 ---
-title: "Scalabilità automatica dei nodi di calcolo del cluster HPC Pack | Microsoft Docs"
+title: Scalabilità automatica dei nodi di calcolo del cluster HPC Pack | Microsoft Docs
 description: Aumentare e ridurre automaticamente il numero di nodi di calcolo del cluster HPC Pack in Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: 
+manager: ''
 editor: tysonn
 ms.assetid: 38762cd1-f917-464c-ae5d-b02b1eb21e3f
 ms.service: virtual-machines-windows
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 ms.author: danlep
-ms.openlocfilehash: 0c8a5aacd19d83b26cfeb3750d57dd783687f1c4
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 4a2350183bc0cb9360e9315cd8a351be20b66584
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Aumentare e ridurre automaticamente le risorse del cluster HPC Pack in Azure in base al carico di lavoro del cluster
 Se si distribuiscono nodi "burst" di Azure nel cluster HPC Pack o si crea un cluster HPC Pack nelle macchine virtuali di Azure, può essere necessario avere a disposizione un modo per aumentare o ridurre automaticamente le risorse del cluster di Azure, ad esempio i nodi o core, in base al carico di lavoro del cluster. Ridimensionando le risorse del cluster in questo modo, è possibile usare le risorse di Azure in modo più efficiente e controllare i costi.
@@ -50,13 +50,13 @@ Attualmente è possibile solo aumentare e ridurre automaticamente i nodi di calc
     ```powershell
         cd $env:CCP_HOME\bin
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     ```
         
     Se l'account si trova in più di un tenant di Azure Active Directory o in più sottoscrizioni di Azure, è possibile eseguire il comando seguente per selezionare il tenant e la sottoscrizione corretti:
   
     ```powershell
-        Login-AzureRMAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
+        Connect-AzureRmAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
     ```     
        
     Eseguire questo comando per visualizzare il tenant e la sottoscrizione attualmente selezionati:
@@ -186,12 +186,12 @@ Per impostazione predefinita, **SoaJobGrowThreshold** è impostata su 50000 e **
 * **Cluster HPC Pack 2012 R2 Update 1 o versione successiva**: lo script **AzureAutoGrowShrink.ps1** è installato nella cartella %CCP_HOME%bin. Il nodo head del cluster può essere distribuito in locale o in una macchina virtuale di Azure. Vedere [Configurare un cluster ibrido con HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) per iniziare con un nodo head locale e i nodi "burst" di Azure. Vedere lo [script di distribuzione IaaS di HPC Pack](hpcpack-cluster-powershell-script.md) per distribuire velocemente un cluster HPC Pack in macchine virtuali di Azure o usare un [modello di avvio rapido di Azur](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
 * **Azure PowerShell 1.4.0**: lo script attualmente dipende da questa versione specifica di Azure PowerShell.
 * **Per un cluster con nodi burst di Azure** - Eseguire lo script in un computer client in cui è installato HPC Pack o nel nodo head. In caso di esecuzione in un computer client, assicurarsi di impostare la variabile $env:CCP_SCHEDULER in modo che punti al nodo head. I nodi "burst" di Azure devono essere aggiunti al cluster, ma possono essere nello stato Non distribuito.
-* **Per un cluster distribuito in macchine virtuali di Azure (modello di distribuzione di Resource Manager)**: per un cluster di macchine virtuali di Azure distribuite nel modello di distribuzione di Resource Manager, lo script supporta due metodi per l'autenticazione di Azure: accedere al proprio account Azure per eseguire lo script ogni volta, eseguendo `Login-AzureRmAccount`, oppure configurare un'entità servizio per l'autenticazione con un certificato. HPC Pack fornisce lo script **ConfigARMAutoGrowShrinkCert.ps** per creare un'entità servizio con certificato. Lo script crea un'applicazione Azure Active Directory (Azure AD) e un'entità servizio e assegna il ruolo di collaboratore all'entità servizio. Per eseguire lo script, avviare Azure PowerShell come amministratore ed eseguire i comandi seguenti:
+* **Per un cluster distribuito in macchine virtuali di Azure (modello di distribuzione di Resource Manager)**: per un cluster di macchine virtuali di Azure distribuite nel modello di distribuzione di Resource Manager, lo script supporta due metodi per l'autenticazione di Azure: accedere al proprio account Azure per eseguire lo script ogni volta, eseguendo `Connect-AzureRmAccount`, oppure configurare un'entità servizio per l'autenticazione con un certificato. HPC Pack fornisce lo script **ConfigARMAutoGrowShrinkCert.ps** per creare un'entità servizio con certificato. Lo script crea un'applicazione Azure Active Directory (Azure AD) e un'entità servizio e assegna il ruolo di collaboratore all'entità servizio. Per eseguire lo script, avviare Azure PowerShell come amministratore ed eseguire i comandi seguenti:
 
     ```powershell
     cd $env:CCP_HOME\bin
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -PfxFile "d:\yourcertificate.pfx"
     ```

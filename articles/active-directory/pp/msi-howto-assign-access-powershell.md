@@ -1,11 +1,11 @@
 ---
-title: "Come assegnare all'Identità del servizio gestito l'accesso a una risorsa di Azure tramite PowerShell"
-description: "Istruzioni dettagliate per assegnare a un'Identità del servizio gestito in una risorsa l'accesso a un'altra risorsa, tramite PowerShell."
+title: Come assegnare all'Identità del servizio gestito l'accesso a una risorsa di Azure tramite PowerShell
+description: Istruzioni dettagliate per assegnare a un'Identità del servizio gestito in una risorsa l'accesso a un'altra risorsa, tramite PowerShell.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c9f146e829e463fbdaf1bcff8747ffc5dd055ecb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ac8cca1e80defca33a879db5d4c160362314931a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>Assegnare a un'Identità del servizio gestito, ovvero MSI, l'accesso a una risorsa tramite PowerShell
 
@@ -36,10 +36,10 @@ Installare anche [Azure PowerShell, versione 4.3.1](https://www.powershellgaller
 
 Dopo aver abilitato l'Identità del servizio gestito in una risorsa di Azure, [ad esempio in una macchina virtuale di Azure](msi-qs-configure-powershell-windows-vm.md):
 
-1. Accedere ad Azure tramite il cmdlet `Login-AzureRmAccount`. Usare un account associato alla sottoscrizione di Azure in cui si desidera configurare l'Identità del servizio gestito:
+1. Accedere ad Azure tramite il cmdlet `Connect-AzureRmAccount`. Usare un account associato alla sottoscrizione di Azure in cui si desidera configurare l'Identità del servizio gestito:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 2. In questo esempio, viene concesso l'accesso alla macchina virtuale di Azure in un account di archiviazione. Prima di tutto viene usato il comando [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) per ottenere l'entità servizio per la macchina virtuale denominata "myVM", che è stata creata quando è stata abilitata l'Identità del servizio gestito. Quindi, si usa [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) per assegnare alla macchina virtuale l'accesso in "Lettura" a un account di archiviazione denominato "myStorageAcct":
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 026a22355ab1d35fa1fe6b7ba624fed5d10b3e38
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7575e25f06014caf962a4b7241a8a2d6bca8c918
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-management-in-azure"></a>Gestione della sicurezza in Azure
 I sottoscrittori di Azure possono gestire i propri ambienti cloud da più dispositivi, tra cui workstation di gestione, PC per sviluppatori e dispositivi di utenti finali con privilegi elevati con autorizzazioni specifiche per le attività. In alcuni casi le funzioni amministrative vengono eseguite tramite console basate sul Web, ad esempio il [portale di Azure](https://azure.microsoft.com/features/azure-portal/). In altri casi è possibile che vengano usate connessioni dirette ad Azure da sistemi locali su reti private virtuali (VPN), Servizi terminal, protocolli applicativi client oppure, a livello di codice, l'API Gestione dei servizi di Azure (SMAPI). Gli endpoint client possono essere inoltre aggiunti a un dominio o isolati e non gestiti, ad esempio tablet o smartphone.
@@ -64,7 +64,7 @@ Il consolidamento delle risorse di accesso e l'eliminazione degli endpoint non g
 ### <a name="providing-security-for-azure-remote-management"></a>Sicurezza per la gestione remota di Azure
 Azure offre meccanismi di sicurezza utili per gli amministratori che gestiscono servizi cloud e macchine virtuali di Azure, ad esempio:
 
-* Autenticazione e [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md).
+* Autenticazione e [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md).
 * Monitoraggio, registrazione e controllo.
 * Certificati e comunicazioni crittografate.
 * Portale di gestione Web.

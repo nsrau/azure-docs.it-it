@@ -5,8 +5,8 @@ services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 83491c4902dabc6bab1e222551298cfaffbaecf4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 8a2c04c2f79f310b7e70e7add7a8d5f318f056d2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Configurare la raccolta di metriche delle risorse PaaS di Azure con Log Analytics
 
@@ -57,7 +57,7 @@ Eseguire la procedura seguente per scaricare ed eseguire lo script.
     PS C:\> save-script -Name Enable-AzureRMDiagnostics -Path "C:\users\<username>\desktop\temp"
     ```
 
-3. Eseguire `Login-AzureRmAccount` per creare una connessione con Azure.   
+3. Eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.   
 4. Eseguire lo script seguente `.\Enable-AzureRmDiagnostics.ps1` senza parametri per abilitare la raccolta dei dati da una risorsa specifica nella sottoscrizione o con il parametro `-ResourceGroup <myResourceGroup>` per specificare una risorsa in un determinato gruppo di risorse.   
 5. Se si hanno più sottoscrizioni, selezionare quella appropriata dall'elenco immettendo il valore corretto.<br><br> ![Selezionare la sottoscrizione restituita dallo script](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> In caso contrario, viene automaticamente selezionata una singola sottoscrizione disponibile.
 6. Lo script restituisce quindi un elenco delle aree di lavoro di Log Analytics registrate nella sottoscrizione.  Selezionare l'area di lavoro appropriata dall'elenco.<br><br> ![Selezionare l'area di lavoro restituita dallo script](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 

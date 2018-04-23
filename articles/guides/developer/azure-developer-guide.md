@@ -1,12 +1,12 @@
 ---
 title: Guida introduttiva per gli sviluppatori in Azure | Microsoft Docs
 description: Questo argomento offre informazioni essenziali per gli sviluppatori che vogliono iniziare a usare la piattaforma Microsoft Azure per le proprie esigenze di sviluppo.
-services: 
-cloud: 
-documentationcenter: 
+services: ''
+cloud: ''
+documentationcenter: ''
 author: ggailey777
 manager: erikre
-ms.assetid: 
+ms.assetid: ''
 ms.service: na
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: e740b655cbd22a08aab988e83a057cc770e8dfe3
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: b1cda302636d8bd4d0f14536f186c7b4951c09c1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
@@ -233,7 +233,7 @@ Azure si basa su un set di API REST che supportano l'interfaccia utente del Port
 Oltre alle API REST, molti servizi di Azure consentono di gestire a livello di codice le risorse dalle applicazioni tramite Azure SDK specifici di ogni piattaforma, tra cui gli SDK per le piattaforme di sviluppo seguenti:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.js](http://azure.github.io/azure-sdk-for-node/)
+-   [Node.JS](http://azure.github.io/azure-sdk-for-node/)
 -   [Java](https://docs.microsoft.com/java/api/)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
@@ -295,7 +295,7 @@ Quando si consente l'accesso alle risorse di Azure, la procedura sempre consigli
 
     >**Uso consigliato**: quando è necessaria una gestione degli accessi specifica per utenti e gruppi.
 
-    >**Come iniziare**: per altre informazioni, vedere [Introduzione alla gestione degli accessi nel Portale di Azure](../../active-directory/role-based-access-control-what-is.md).
+    >**Come iniziare**: per altre informazioni, vedere [Introduzione alla gestione degli accessi nel Portale di Azure](../../role-based-access-control/overview.md).
 
 -   **Oggetti entità servizio**: oltre a concedere l'accesso a entità utente e a gruppi, è possibile concedere lo stesso tipo di accesso a un'entità servizio.
 

@@ -1,11 +1,11 @@
 ---
 title: Evitare costi imprevisti e gestire la fatturazione - Azure | Microsoft Docs
-description: "Informazioni su come evitare addebiti imprevisti nella fattura di Azure. Usare le funzionalità di gestione e verifica dei costi per una sottoscrizione di Microsoft Azure."
-services: 
-documentationcenter: 
+description: Informazioni su come evitare addebiti imprevisti nella fattura di Azure. Usare le funzionalità di gestione e verifica dei costi per una sottoscrizione di Microsoft Azure.
+services: ''
+documentationcenter: ''
 author: tonguyen10
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: a13552e36b4c74b6d3165168c727dbcc8a00704e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitare addebiti imprevisti con la gestione dei costi e della fatturazione di Azure
 
@@ -172,7 +172,7 @@ Per verificare se si è l'amministratore dell'account, passare al [pannello Sott
 
 ![Screenshot del ruolo dell'utente nella visualizzazione Sottoscrizioni nel portale di Azure](./media/billing-getting-started/sub-blade-view.PNG)
 
-Se non si è l'amministratore dell'account, è probabile che qualcuno abbia concesso l'accesso parziale tramite il [controllo degli accessi in base al ruolo di Azure Active Directory](../active-directory/role-based-access-control-configure.md). Per gestire le sottoscrizioni e modificare le informazioni di fatturazione, [individuare l'amministratore dell'account](billing-subscription-transfer.md#whoisaa) e chiedere all'amministratore di eseguire le attività oppure il [trasferimento di proprietà della sottoscrizione](billing-subscription-transfer.md).
+Se non si è l'amministratore dell'account, è probabile che qualcuno abbia concesso l'accesso parziale tramite il [controllo degli accessi in base al ruolo di Azure Active Directory](../role-based-access-control/role-assignments-portal.md). Per gestire le sottoscrizioni e modificare le informazioni di fatturazione, [individuare l'amministratore dell'account](billing-subscription-transfer.md#whoisaa) e chiedere all'amministratore di eseguire le attività oppure il [trasferimento di proprietà della sottoscrizione](billing-subscription-transfer.md).
 
 Se l'amministratore dell'account non fa più parte dell'organizzazione ed è necessario gestire la fatturazione, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico

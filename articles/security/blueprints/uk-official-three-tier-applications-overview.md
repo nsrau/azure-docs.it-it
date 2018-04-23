@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure Security and Compliance Blueprint - Automazione di applicazioni Web su tre livelli UK-OFFICIAL
 
@@ -211,7 +211,7 @@ I clienti possono prendere in considerazione l'uso di un [modello amministrativo
 
 **Gestione delle risorse**: le risorse di Azure, ad esempio le macchine virtuali, le reti virtuali e i servizi di bilanciamento del carico, vengono gestite tramite il raggruppamento in [gruppi di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource). I ruoli di controllo di accesso in base alle risorse possono essere quindi assegnati a ogni gruppo di risorse per limitare l'accesso ai soli utenti autorizzati.
 
-**Restrizioni di controllo di accesso**: usare il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) per gestire le risorse nell'applicazione tramite [ruoli personalizzati](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles). È possibile usare il controllo degli accessi in base al ruolo per limitare le operazioni consentite a DevOps su ogni livello. Quando si concedono autorizzazioni, usare il [principio dei privilegi minimi necessari](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registrare tutte le operazioni amministrative ed eseguire controlli regolari per assicurare che eventuali modifiche alla configurazione siano state pianificate.
+**Restrizioni di controllo di accesso**: usare il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) per gestire le risorse nell'applicazione tramite [ruoli personalizzati](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). È possibile usare il controllo degli accessi in base al ruolo per limitare le operazioni consentite a DevOps su ogni livello. Quando si concedono autorizzazioni, usare il [principio dei privilegi minimi necessari](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registrare tutte le operazioni amministrative ed eseguire controlli regolari per assicurare che eventuali modifiche alla configurazione siano state pianificate.
 
 **Accesso a Internet**: questa architettura di riferimento usa il [gateway applicazione di Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) come gateway Internet e servizio di bilanciamento del carico. È consigliabile che alcuni clienti prendano in considerazione anche l'uso di appliance di rete virtuali di terze parti per livelli aggiuntivi di sicurezza di rete come alternativa al [gateway applicazione di Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
 

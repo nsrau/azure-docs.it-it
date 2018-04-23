@@ -1,11 +1,11 @@
 ---
-title: Informazioni di riferimento sui modelli di dati per i modelli di Gestione API di Azure | Microsoft Docs
-description: "Informazioni sulle rappresentazioni di entità e tipi per elementi comuni usati nei modelli di dati per i modelli del portale per sviluppatori in Gestione API di Azure."
+title: Informazioni di riferimento sui modelli di dati per i modelli di Gestione API di Azure | Documentazione Microsoft
+description: Informazioni sulle rappresentazioni di entità e tipi per elementi comuni usati nei modelli di dati per i modelli del portale per sviluppatori in Gestione API di Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b0ad7e15-9519-4517-bb73-32e593ed6380
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
 ms.openlocfilehash: 0f27b6b529c2591e37d48e3386190077fc8efc32
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Informazioni di riferimento sui modelli di dati per i modelli di Gestione API di Azure
 Questo argomento descrive le rappresentazioni di entità e tipi per elementi comuni usati nei modelli di dati per i modelli del portale per sviluppatori in Gestione API di Azure.  
@@ -135,7 +135,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |--------------|----------|-----------------|  
 |ID|stringa|Identificatore univoco per il problema.|  
 |ApiID|stringa|ID per l'API per cui è stato segnalato il problema.|  
-|Title|stringa|Titolo del problema.|  
+|Titolo|stringa|Titolo del problema.|  
 |DESCRIZIONE|stringa|Descrizione del problema.|  
 |SubscriptionDeveloperName|stringa|Nome dello sviluppatore che ha segnalato il problema.|  
 |IssueState|stringa|Stato attuale del problema. I valori possibili sono Proposto, Aperto e Chiuso.|  
@@ -248,7 +248,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |Proprietà|type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
 |ID|stringa|Identificatore di risorsa. Identifica in modo univoco il prodotto all'interno dell'istanza del servizio Gestione API corrente. Il valore è un URL relativo valido nel formato `products/{pid}` dove `{pid}` è un identificatore di prodotto. Questa proprietà è di sola lettura.|  
-|Titolo|stringa|Nome del prodotto. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
+|Title|stringa|Nome del prodotto. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
 |DESCRIZIONE|stringa|Descrizione del prodotto. Non deve essere vuoto. Può includere tag di formattazione HTML. La lunghezza massima consentita è di 1000 caratteri.|  
 |Termini|stringa|Condizioni per l'utilizzo del prodotto. Gli sviluppatori che tentano di sottoscrivere il prodotto vengono presentati e devono accettare queste condizioni prima di poter completare il processo di sottoscrizione.|  
 |ProductState|number|Specifica se il prodotto è pubblicato o no. I prodotti pubblicati possono essere individuati dagli sviluppatori nel portale per sviluppatori. I prodotti non pubblicati sono visibili solo agli amministratori.<br /><br /> I valori consentiti per lo stato del prodotto sono:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  

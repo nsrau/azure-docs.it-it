@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 18f904a2bac70bce3e1208945a7b94b59f6225f7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0466b0e911736d2e1e7fc50649feda932c3163e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Creare e gestire server e database del database SQL di Azure
 
@@ -46,7 +46,7 @@ Un server logico del database di Azure:
 - È la risorsa padre per database, pool elastici e data warehouse
 - Fornisce uno spazio dei nomi per database, pool elastici e data warehouse
 - È un contenitore logico con semantica rigida per la durata: l'eliminazione di un server comporta l'eliminazione di database, pool elastici e data warehouse in esso contenuti
-- Partecipa al [controllo degli accessi in base al ruolo (RBAC) di Azure](/active-directory/role-based-access-control-what-is): i database, i pool elastici e i data warehouse all'interno di un server ereditano i diritti di accesso dal server
+- Partecipa al [controllo degli accessi in base al ruolo (RBAC) di Azure](/azure/role-based-access-control/overview): i database, i pool elastici e i data warehouse all'interno di un server ereditano i diritti di accesso dal server
 - È un elemento di ordine superiore dell'identità di database, pool elastici e data warehouse ai finiti della gestione delle risorse di Azure (vedere lo schema dell'URL per database e pool)
 - Colloca risorse in un'area
 - Fornisce un endpoint di connessione per l'accesso ai database (<serverName>.database.windows.net)
@@ -79,9 +79,8 @@ Per creare un database SQL di Azure tramite il [portale di Azure](https://portal
 
 > [!IMPORTANT]
 > Per informazioni sulla selezione del piano tariffario per il database, vedere [Livelli di servizio](sql-database-service-tiers.md).
->
 
-Per creare un'istanza di Istanza gestita, vedere [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md) (Creare un'istanza di Istanza gestita).
+Per creare un'istanza di Istanza gestita, vedere [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) (Creare un'istanza di Istanza gestita).
 
 ### <a name="manage-an-existing-sql-server"></a>Gestire un server SQL Server esistente
 
@@ -103,7 +102,7 @@ Per gestire un database esistente, passare alla pagina **Database SQL** e fare c
 
 Per creare e gestire server, database e firewall SQL di Azure con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps). Per creare e gestire i pool elastici, vedere [Pool elastici](sql-database-elastic-pool.md).
 
-| Cmdlet | Descrizione |
+| Cmdlet | DESCRIZIONE |
 | --- | --- |
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Crea un database |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Recupera uno o più database|
@@ -128,7 +127,7 @@ Per creare e gestire server, database e firewall SQL di Azure con Azure PowerShe
 
 Per creare e gestire server, database e firewall SQL di Azure con l'[interfaccia della riga di comando di Azure](/cli/azure), usare i comandi seguenti dell'[interfaccia della riga di comando di Azure per il database SQL](/cli/azure/sql/db). Usare [Cloud Shell](/azure/cloud-shell/overview) per eseguire l'interfaccia della riga di comando nel browser o [installarla](/cli/azure/install-azure-cli) in macOS, Linux o Windows. Per creare e gestire i pool elastici, vedere [Pool elastici](sql-database-elastic-pool.md).
 
-| Cmdlet | Descrizione |
+| Cmdlet | DESCRIZIONE |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Crea un database|
 |[az sql db list](/cli/azure/sql/db#az_sql_db_list)|Elenca tutti i database e i data warehouse in un server o tutti i database in un pool elastico|
@@ -162,7 +161,7 @@ Per creare e gestire server, database e firewall SQL di Azure con Transact-SQL, 
 > Non è possibile creare o eliminare un server con Transact-SQL.
 >
 
-| Comando | Descrizione |
+| Comando | DESCRIZIONE |
 | --- | --- |
 |[CREATE DATABASE (database SQL di Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Crea un nuovo database. Per creare un nuovo database è necessario essere connessi al database master.|
 | [ALTER DATABASE (database SQL di Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Modifica un database SQL di Azure. |
@@ -188,7 +187,7 @@ Per creare e gestire server, database e firewall SQL di Azure con Transact-SQL, 
 
 Per creare e gestire server, database e firewall SQL di Azure, usare queste richieste dell'API REST.
 
-| Comando | Descrizione |
+| Comando | DESCRIZIONE |
 | --- | --- |
 |[Servers - Create Or Update](/rest/api/sql/servers/createorupdate)|Crea o aggiorna un nuovo server.|
 |[Servers - Delete](/rest/api/sql/servers/delete)|Elimina un server SQL.|
