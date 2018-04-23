@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 03/23/2018
+ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 40da83c0214e3c493fdb72504753b5b59ea20b3e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b09807e1fa7624ed134a24c7df4a61abf2a1d723
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="design-your-first-azure-sql-database-using-ssms"></a>Progettare il primo database SQL di Azure con SSMS
 
@@ -74,7 +74,7 @@ Per creare un database SQL vuoto, attenersi alla procedura seguente.
 
 5. Fare clic su **Seleziona**.
 
-6. Fare clic su **Piano tariffario** per specificare il livello di servizio, il numero di DTU e la quantità di risorse di archiviazione. Esplorare le opzioni relative al numero di DTU e di risorse di archiviazione disponibile per ogni livello di servizio. 
+6. Fare clic su **Piano tariffario** per specificare il livello di servizio, il numero di DTU o vCores e la quantità di risorse di archiviazione. Esplorare le opzioni relative al numero di DTU/vCores e di risorse di archiviazione disponibile per ogni livello di servizio. 
 
 7. Per questa esercitazione selezionare il livello di servizio **Standard** e quindi usare il dispositivo di scorrimento per selezionare **100 DTU (S3)** e **400** GB di archiviazione.
 
@@ -85,7 +85,7 @@ Per creare un database SQL vuoto, attenersi alla procedura seguente.
    > [!IMPORTANT]
    > \* Le dimensioni di archiviazione superiori alla quantità di risorse di archiviazione incluse sono disponibili in anteprima e vengono applicati costi aggiuntivi. Per ulteriori informazioni, vedere [Database SQL Prezzi](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Nel livello Premium sono attualmente disponibili più di 1 TB di risorse di archiviazione nelle aree seguenti: Australia orientale, Australia sud-orientale, Brasile meridionale, Canada centrale, Canada orientale, Stati Uniti centrali, Francia centrale, Germania centrale, Giappone orientale, Giappone occidentale, Corea centrale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Regno Unito orientale, Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia ed Europa occidentale. Vedere [Limitazioni correnti per P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Nel livello Premium sono attualmente disponibili più di 1 TB di risorse di archiviazione nelle aree seguenti: Australia orientale, Australia sud-orientale, Brasile meridionale, Canada centrale, Canada orientale, Stati Uniti centrali, Francia centrale, Germania centrale, Giappone orientale, Giappone occidentale, Corea centrale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Regno Unito orientale, Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia ed Europa occidentale. Vedere [Limitazioni correnti per P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Dopo la selezione del livello di servizio, del numero di DTU e della quantità di risorse di archiviazione, fare clic su **Applica**.  
@@ -108,7 +108,7 @@ Il servizio di database SQL crea un firewall a livello di server che impedisce a
 
 1. Al termine della distribuzione, scegliere **Database SQL** dal menu a sinistra e fare clic su **mySampleDatabase** nella pagina **Database SQL**. Si apre la pagina di panoramica per il database che visualizza il nome completo del server, ad esempio **mynewserver-20170824.database.windows.net**, e offre altre opzioni di configurazione. 
 
-2. Copiare il nome completo del server per connettersi al server e ai relativi database nelle guide introduttive successive. 
+2. Copiare il nome completo del server per connettersi al server e ai relativi database nelle esercitazioni introduttive successive. 
 
    ![Nome del server](./media/sql-database-get-started-portal/server-name.png) 
 

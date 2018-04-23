@@ -7,13 +7,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5685c1e1c502b5f3700fb1c4487778d38ff19d1e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8a9b0b2c0541504954c4a1352180552cc650a31f
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-dependent-routing"></a>Routing dipendente dei dati
 **Routing dipendente dei dati** è la possibilità di usare i dati in una query per instradare la richiesta a un database appropriato. Questo costituisce un criterio fondamentale quando si usano database partizionati. Per instradare la richiesta è anche possibile usare il contesto della richiesta stessa, soprattutto se la chiave di partizionamento orizzontale non fa parte della query. Ogni query o transazione specifica in un'applicazione che usa il routing dipendente può accedere a un unico database per richiesta. Per gli strumenti elastici del database SQL di Azure, il routing viene eseguito con la classe **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager) o [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)).

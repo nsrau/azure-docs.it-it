@@ -1,11 +1,11 @@
 ---
 title: Introduzione all'integrazione di Azure AD con le app | Documentazione Microsoft
-description: "Questo articolo è una guida introduttiva per l'integrazione di Azure Active Directory (AD) con applicazioni locali e applicazioni cloud."
+description: Questo articolo è una guida introduttiva per l'integrazione di Azure Active Directory (AD) con applicazioni locali e applicazioni cloud.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: bf8ef28b49a3a12772965e7ebc85539c1a86e10f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: dd118dbda9b7b0bee27bf9c97627bb8269e2d9b4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guida introduttiva all'integrazione di Azure Active Directory con le applicazioni
 ## <a name="overview"></a>Panoramica
@@ -51,7 +51,7 @@ Prima di iniziare a integrare applicazioni con Azure AD, è importante avere un 
 * Sarà necessario pulire i database di utenti/gruppi prima dell'integrazione?  Questa è una domanda molto importante. La qualità del risultato dipende dalla qualità dei dati di partenza.
 
 ### <a name="access-management-inventory"></a>Inventario della gestione degli accessi
-* In che modo si gestisce attualmente l'accesso utente alle applicazioni? È necessario modificarlo?  Sono stati valutati altri modi per gestire l'accesso, ad esempio [RBAC](role-based-access-control-configure.md) ?
+* In che modo si gestisce attualmente l'accesso utente alle applicazioni? È necessario modificarlo?  Sono stati valutati altri modi per gestire l'accesso, ad esempio [RBAC](../role-based-access-control/role-assignments-portal.md) ?
 * Chi deve accedere a cosa?
 
 È possibile che non siano immediatamente disponibili le risposte a tutte queste domande.  Questa guida è utile per rispondere ad alcune domande e prendere decisioni informate.

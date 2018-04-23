@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 12f673a8d3ca9c0bb03b9cd2d8c33ae866039289
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c4f27f59412fbfc72e193f916895c3e67091f5f6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiare dati da o nel database SQL di Azure tramite Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -127,7 +127,7 @@ Per usare l'autenticazione token dell'applicazione di AAD basata sull'entità se
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
             },
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
@@ -492,7 +492,7 @@ Si noti che la tabella di destinazione contiene una colonna identity.
 
 Si noti che la tabella di origine e la tabella di destinazione hanno schemi diversi (la destinazione include una colonna aggiuntiva identity). In questo scenario è necessario specificare la proprietà **structure** nella definizione del set di dati di destinazione che non include la colonna identity.
 
-## <a name="invoke-stored-procedure-from-sql-sink"></a>Chiamare una stored procedure da un sink SQL
+## <a name="invoking-stored-procedure-for-sql-sink"></a> Chiamare una stored procedure da un sink SQL
 
 Quando si copiano dati in un database SQL di Azure, è possibile configurare e richiamare una stored procedure specificata da un utente con parametri aggiuntivi.
 

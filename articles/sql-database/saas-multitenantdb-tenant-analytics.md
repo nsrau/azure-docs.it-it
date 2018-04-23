@@ -8,13 +8,14 @@ manager: jhubbard
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/08/2017
-ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 7f04ca4bf324586e0cb34effa324b1703d92d065
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/01/2018
+ms.author: anjangsh
+ms.reviewer: billgib, genemi
+ms.openlocfilehash: 6ce67afc2959580699798dd70417ca235e743552
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Analisi su più tenant con dati estratti
 

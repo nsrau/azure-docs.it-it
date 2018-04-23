@@ -1,11 +1,11 @@
 ---
 title: 'Esercitazione: Creare una pipeline di Azure Data Factory per copiare dati (portale di Azure) | Microsoft Docs'
-description: "In questa esercitazione si usa il portale di Azure per creare una pipeline di Azure Data Factory con un'attività di copia per copiare i dati da un archivio BLOB di Azure a un database SQL di Azure."
+description: In questa esercitazione si usa il portale di Azure per creare una pipeline di Azure Data Factory con un'attività di copia per copiare i dati da un archivio BLOB di Azure a un database SQL di Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: d9317652-0170-4fd3-b9b2-37711272162b
 ms.service: data-factory
 ms.workload: data-services
@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7f42cfda1684b7ff5bd2a1655154b6a11d4ffd31
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c4e8de6b229fe027e43a2b13f2a7ad54b7c3eaf2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Esercitazione: Usare il portale di Azure per creare una pipeline di Data Factory pipeline per copiare dati 
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -99,7 +99,7 @@ Una data factory può comprendere una o più pipeline. Una pipeline può compren
    6. Fare clic su **Crea**.
       
       > [!IMPORTANT]
-      > Per creare istanze di data factory, è necessario essere membri del ruolo [Collaboratore Data factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.
+      > Per creare istanze di data factory, è necessario essere membri del ruolo [Collaboratore Data factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.
       > 
       > Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.                
       > 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: b7d6e48a6f34472bc38947fd70e850b1c3bf6f8a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console seriale per macchine virtuali (anteprima) 
 
@@ -29,10 +29,10 @@ La console seriale per macchine virtuali in Azure fornisce l'accesso a una conso
 > Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le condizioni d'uso. Per altre informazioni, vedere [Condizioni Supplementari per l'Utilizzo delle Anteprime di Microsoft Azure]. (https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Questo servizio è attualmente in **anteprima pubblica** e l'accesso alla console seriale per le macchine virtuali è disponibile per le aree di Azure globali. La console seriale per il momento non è disponibile per il cloud Azure per enti pubblici, Azure Germania e Azure Cina.
 
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>prerequisiti 
 
 * La macchina virtuale DEVE avere la [diagnostica di avvio](boot-diagnostics.md) abilitata 
-* L'account che usa la console seriale deve avere il [ruolo Collaboratore](../../active-directory/role-based-access-built-in-roles.md) per la VM e l'account di archiviazione della [diagnostica di avvio](boot-diagnostics.md). 
+* L'account che usa la console seriale deve avere il [ruolo Collaboratore](../../role-based-access-control/built-in-roles.md) per la VM e l'account di archiviazione della [diagnostica di avvio](boot-diagnostics.md). 
 * Per le impostazioni specifiche per le distribuzioni di Linux, vedere [Accessing the serial console for Linux](#accessing-serial-console-for-linux) (Accedere alla console seriale per Linux)
 
 
@@ -56,7 +56,7 @@ La console seriale per le macchine virtuali è accessibile solo tramite il [port
 ## <a name="serial-console-security"></a>Sicurezza della console seriale 
 
 ### <a name="access-security"></a>Sicurezza dell'accesso 
-L'accesso alla console seriale è limitato agli utenti che hanno l'accesso [Collaboratore macchine virtuali](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) o superiore per la macchina virtuale. Se il tenant di AAD richiede l'autenticazione a più fattori, quest'ultima sarà necessaria anche per l'accesso alla console seriale perché l'accesso viene stabilito tramite il [portale di Azure](https://portal.azure.com).
+L'accesso alla console seriale è limitato agli utenti che hanno l'accesso [Collaboratore macchine virtuali](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) o superiore per la macchina virtuale. Se il tenant di AAD richiede Multi-Factor Authentication, MFA sarà necessario anche per l'accesso alla console seriale perché l'accesso viene stabilito tramite il [portale di Azure](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Sicurezza del canale
 Tutti i dati inviati in entrambe le direzioni vengono crittografati durante il transito.

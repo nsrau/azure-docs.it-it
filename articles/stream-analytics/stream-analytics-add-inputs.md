@@ -1,25 +1,19 @@
 ---
-title: Aggiungere un input di dati ai processi di analisi di flusso | Microsoft Docs
+title: Aggiungere input dati ai processi di Analisi di flusso di Azure | Microsoft Azure
 description: Informazioni su come associare un'origine dati al processo di analisi di flusso come input di dati di streaming proveniente dall'hub eventi o dati di riferimento provenienti dall'archiviazione BLOB.
-keywords: input di dati, flusso di dati
-documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: ryanw
-editor: ''
-ms.assetid: 9e59bd24-2a80-4ecb-b6b2-309a07c70bcd
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 441cc2d1c6d2cdc6ce4bbd14306ec8ae71c38c55
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 713b830717cce7b4b2b0fb1171596659c2275b85
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Aggiungere un input di dati di streaming o dati di riferimento a un processo di analisi di flusso
 Informazioni su come associare un'origine dati al processo di Analisi di flusso come input di dati di streaming provenienti da Hub eventi o dati di riferimento provenienti dall'archivio BLOB.
@@ -73,7 +67,7 @@ Per aggiungere un input al processo di analisi di flusso:
     ![Verificare la connessione dell'input dei flussi di dati](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
 
 ## <a name="get-help-with-streaming-data-inputs"></a>Ottenere aiuto per gli input dei dati di streaming
-Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)

@@ -1,11 +1,11 @@
 ---
 title: Come usare il servizio di e-mail SendGrid (Node.js) | Microsoft Docs
 description: Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid disponibile in Azure. Gli esempi di codice sono scritti mediante l'API Node.js.
-services: 
+services: ''
 documentationcenter: nodejs
 author: erikre
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: cac444b4-26b0-45ea-9c3d-eca28d57dacb
 ms.service: multiple
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: 327cea3a24cc47a9cc463b37cc2346ebc475ef7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Come inviare messaggi di posta elettronica usando SendGrid da Node.js
 Questa guida illustra come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti usando l'API Node.js. Gli scenari presentati includono **creazione di messaggi di posta elettronica**, **invio di messaggi di posta elettronica**, **aggiunta di allegati**, **uso di filtri** e **aggiornamento delle proprietà**. Per altre informazioni su SendGrid e sull'invio della posta elettronica, vedere la sezione [Passaggi successivi](#next-steps) .
@@ -161,7 +161,7 @@ Negli esempi seguenti vengono illustrati i filtri per abilitare il piè di pagin
     sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>Procedura: Aggiornare le proprietà dei messaggi di posta elettronica
-È possibile sovrascrivere alcune proprietà delle e-mail usando **set*Property*** oppure aggiungerle usando  **add*Property***. Ad esempio, è possibile aggiungere altri destinatari usando
+È possibile sovrascrivere alcune proprietà dei messaggi di posta elettronica usando **set*Property*** oppure aggiungerle con **add*Property***. Ad esempio, è possibile aggiungere altri destinatari usando
 
     email.addTo('jeff@contoso.com');
 
@@ -179,7 +179,7 @@ SendGrid offre API basate sul Web che è possibile usare per sfruttare altre fun
 A questo punto, dopo aver appreso le nozioni di base del servizio di posta elettronica SendGrid, usare i collegamenti seguenti per altre informazioni.
 
 * Repository del modulo SendGrid per Node.js: [sendgrid-nodejs][sendgrid-nodejs]
-* Documentazione relativa all'API SendGrid: <https://sendgrid.com/docs>
+* Documentazione dell'API SendGrid: <https://sendgrid.com/docs>
 * Offerta speciale SendGrid per i clienti di Azure: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
 [special offer]: https://sendgrid.com/windowsazure.html

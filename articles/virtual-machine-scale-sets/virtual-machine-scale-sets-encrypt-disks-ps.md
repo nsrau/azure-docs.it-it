@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 856d4bc7dd636b3a2f3d072a10989cafd7efd6a6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d24189e94cade36eca3349c1f46810ee6daa2a49
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>Crittografare il disco del sistema operativo e i dischi dati collegati in un set di scalabilità di macchine virtuali
 Per proteggere i dati inattivi tramite la tecnologia di crittografia standard di settore, i set di scalabilità di macchine virtuali supportano Crittografia dischi di Azure. La crittografia può essere abilitata per i set di scalabilità di macchine virtuali Windows e Linux. Per altre informazioni, vedere [Crittografia dischi di Azure per Windows e Linux](../security/azure-security-disk-encryption.md).
@@ -35,13 +35,13 @@ Crittografia dischi di Azure è supportata per le risorse seguenti:
 - Volumi di dati nei set di scalabilità Linux. Nell'anteprima corrente la crittografia del disco del sistema operativo NON è supportata per i set di scalabilità Linux.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questo articolo richiede il modulo Azure PowerShell 5.3.0 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 Registrare la propria sottoscrizione di Azure per l'anteprima della crittografia dischi per i set di scalabilità di macchine virtuali con [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature): 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 

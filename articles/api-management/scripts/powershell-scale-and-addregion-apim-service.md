@@ -1,11 +1,11 @@
 ---
-title: 'Esempio di script di Azure PowerShell: ridimensionare l''istanza del servizio | Microsoft Docs'
-description: 'Esempio di script di Azure PowerShell: ridimensionare l''istanza del servizio'
+title: "Esempio di script di Azure PowerShell: ridimensionare l'istanza del servizio | Microsoft Docs"
+description: "Esempio di script di Azure PowerShell: ridimensionare l'istanza del servizio"
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: d412676e54cf23436607951cbc0367774676c9a6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 96a0e3789988e29a8287633941203c499d68b387
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="scale-the-service-instance"></a>Ridimensionare l'istanza del servizio
 
@@ -25,7 +25,7 @@ Questo script di esempio ridimensiona l'istanza del servizio Gestione API e aggi
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 3.6 o successiva. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 3.6 o successiva. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
 
 ## <a name="sample-script"></a>Script di esempio
 

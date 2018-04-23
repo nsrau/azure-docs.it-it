@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e05be2131ca89a084da5eeffc0b025b38432a8d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 0466b0e911736d2e1e7fc50649feda932c3163e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Creare e gestire server e database del database SQL di Azure
 
@@ -46,14 +46,14 @@ Un server logico del database di Azure:
 - È la risorsa padre per database, pool elastici e data warehouse
 - Fornisce uno spazio dei nomi per database, pool elastici e data warehouse
 - È un contenitore logico con semantica rigida per la durata: l'eliminazione di un server comporta l'eliminazione di database, pool elastici e data warehouse in esso contenuti
-- Partecipa al [controllo degli accessi in base al ruolo (RBAC) di Azure](/active-directory/role-based-access-control-what-is): i database, i pool elastici e i data warehouse all'interno di un server ereditano i diritti di accesso dal server
+- Partecipa al [controllo degli accessi in base al ruolo (RBAC) di Azure](/azure/role-based-access-control/overview): i database, i pool elastici e i data warehouse all'interno di un server ereditano i diritti di accesso dal server
 - È un elemento di ordine superiore dell'identità di database, pool elastici e data warehouse ai finiti della gestione delle risorse di Azure (vedere lo schema dell'URL per database e pool)
 - Colloca risorse in un'area
 - Fornisce un endpoint di connessione per l'accesso ai database (<serverName>.database.windows.net)
 - Fornisce accesso ai metadati riguardanti le risorse contenute tramite DMV, connettendosi a un database master 
 - Fornisce l'ambito per i criteri di gestione che si applicano ai database: account di accesso, firewall, controllo, rilevamento minacce e così via 
 - È limitato da una quota nella sottoscrizione padre: sei server per sottoscrizione per impostazione predefinita - [vedere i limiti relativi alle sottoscrizioni qui](../azure-subscription-service-limits.md)
-- Fornisce l'ambito per la quota database e la quota DTU per le risorse in esso contenute, ad esempio 45.000 DTU
+- Fornisce l'ambito per la quota database e la quota DTU o vCore per le risorse in esso contenute, ad esempio 45.000 DTU
 - Rappresenta l'ambito di controllo delle versioni per le funzionalità abilitate sulle risorse contenute 
 - Gli account di accesso all'entità a livello di server possono gestire tutti i database in un server
 - Può contenere account di accesso simili a quelli delle istanze di SQL Server in locale che dispongono dell'accesso a uno o più database nel server ed è possibile concedere diritti amministrativi limitati. Per altre informazioni, vedere [Autenticazione e autorizzazione per database SQL: concessione dell'accesso](sql-database-manage-logins.md).
@@ -79,9 +79,8 @@ Per creare un database SQL di Azure tramite il [portale di Azure](https://portal
 
 > [!IMPORTANT]
 > Per informazioni sulla selezione del piano tariffario per il database, vedere [Livelli di servizio](sql-database-service-tiers.md).
->
 
-Per creare un'istanza di Istanza gestita, vedere [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md) (Creare un'istanza di Istanza gestita).
+Per creare un'istanza di Istanza gestita, vedere [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) (Creare un'istanza di Istanza gestita).
 
 ### <a name="manage-an-existing-sql-server"></a>Gestire un server SQL Server esistente
 

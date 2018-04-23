@@ -1,5 +1,5 @@
 ---
-title: Usare il server di Backup di Azure per eseguire il backup dei carichi di lavoro in Azure | Documentazione Microsoft
+title: Usare il server di Backup di Azure per eseguire il backup dei carichi di lavoro in Azure | Microsoft Docs
 description: Usare il server di Backup di Azure per proteggere o eseguire il backup dei carichi di lavoro nel portale di Azure.
 services: backup
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: 95c11de3a1aed680d37dd86c1783ac8bee7ffec3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3b37afc9d768313f6cc202eeecca22528cc57b07
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparazione del backup dei carichi di lavoro con il server di Backup di Azure
 > [!div class="op_single_selector"]
@@ -183,7 +183,7 @@ Al termine del processo di estrazione, selezionare la casella per avviare il fil
 2. Nella schermata iniziale fare clic sul pulsante **Avanti** . Verrà visualizzata la sezione *Prerequisite Checks* (Controlli dei prerequisiti). In questa schermata fare clic su **Controlla** per determinare se i prerequisiti hardware e software per il server di Backup di Azure sono stati soddisfatti. Se tutti i prerequisiti sono soddisfatti, verrà visualizzato un messaggio che indica che il computer soddisfa i requisiti. Fare clic sul pulsante **Avanti** .
 
     ![Server di backup di Azure - Pagina iniziale e controllo dei prerequisiti](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
-3. Il server di Backup di Microsoft Azure richiede SQL Server Standard e il pacchetto di installazione del server di Backup di Azure include i file binari appropriati di SQL Server necessari. Quando si avvia una nuova installazione del server di Backup di Azure, è consigliabile selezionare l'opzione **Installa una nuova istanza di SQL Server con questa installazione** e fare clic sul pulsante **Controlla e installa**. Una volta che i prerequisiti vengono installati correttamente, fare clic su **Avanti**.
+3. Il server di Backup di Microsoft Azure richiede SQL Server Standard. Inoltre, il pacchetto di installazione del server di Backup di Azure include i file binari appropriati di SQL Server necessari, se non si vogliono usare i propri file SQL. Quando si avvia una nuova installazione del server di Backup di Azure, è consigliabile selezionare l'opzione **Installa una nuova istanza di SQL Server con questa installazione** e fare clic sul pulsante **Controlla e installa**. Una volta che i prerequisiti vengono installati correttamente, fare clic su **Avanti**.
 
     ![Server di backup di Azure - Controllo SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 

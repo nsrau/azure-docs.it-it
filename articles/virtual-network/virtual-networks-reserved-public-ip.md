@@ -3,8 +3,8 @@ title: Gestire gli indirizzi IP riservati di Azure (versione classica) - PowerSh
 description: Comprendere gli indirizzi IP riservati (classica) e come gestirli tramite PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genlin
+manager: cshepard
 editor: tysonn
 ms.assetid: 34652a55-3ab8-4c2d-8fb2-43684033b191
 ms.service: virtual-network
@@ -13,20 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
-ms.author: jdial
-ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: genli
+ms.openlocfilehash: 25fe3c5361ff58f8d62d5d083b7a69f517d2a267
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="reserved-ip-addresses-classic"></a>Indirizzi IP riservati (classica)
 
 > [!div class="op_single_selector"]
-> * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Portale di Azure](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Interfaccia della riga di comando di Azure](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Modello](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md) (PowerShell (classico))
 
 Gli indirizzi IP in Azure rientrano in due categorie: indirizzi dinamici e indirizzi riservati. Gli indirizzi IP pubblici gestiti da Azure sono dinamici per impostazione predefinita. Questo significa che l'indirizzo IP usato per un determinato servizio cloud (VIP) oppure per accedere direttamente a una macchina virtuale o a un'istanza del ruolo (ILPIP) può essere arrestato o interrotto (deallocato).

@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 18d03ffcd586a809b37cbc1ca9a7843c25c7758d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c0cff73e8164bd493554b663d4ffbbf20f5155cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Query Performance Insight del database SQL di Azure
 La gestione e l'ottimizzazione delle prestazioni dei database relazionali è un'attività complessa che richiede un'esperienza significativa e un investimento elevato in termini di tempo. Le Informazioni dettagliate sulle prestazioni delle query consentono di dedicare meno tempo alla risoluzione dei problemi delle prestazioni del database, offrendo i vantaggi seguenti:​
@@ -29,7 +29,7 @@ La gestione e l'ottimizzazione delle prestazioni dei database relazionali è un'
 * Per Informazioni dettagliate sulle prestazioni delle query è necessario che l' [archivio query](https://msdn.microsoft.com/library/dn817826.aspx) sia attivo nel database. Se l'archivio query non è in esecuzione, il portale richiede di attivarlo.
 
 ## <a name="permissions"></a>Autorizzazioni
-Le autorizzazioni di [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) seguenti sono necessarie per usare Query Performance Insight: 
+Le autorizzazioni di [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) seguenti sono necessarie per usare Query Performance Insight: 
 
 * Le autorizzazioni **Lettore**, **Proprietario**, **Collaboratore**, **Collaboratore database SQL** o **Collaboratore SQL Server** sono necessarie per visualizzare le query principali che usano le risorse e i grafici. 
 * Le autorizzazioni **Proprietario**, **Collaboratore**, **Collaboratore database SQL** o **Collaboratore SQL Server** sono necessarie per visualizzare il testo della query.

@@ -3,8 +3,8 @@ title: Risolvere i problemi delle visualizzazioni dei costi aziendali - Azure | 
 description: Informazioni su come risolvere i problemi con le visualizzazioni dei costi aziendali nel portale di Azure.
 author: rthorn17
 manager: rithorn
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: article
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/22/2017
 ms.author: rithorn
-ms.openlocfilehash: 54c7610f1a0d3de2503ef471ca9adc0db423f530
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 527e12cdcc4eaebf98708c389dd21e8ac6ae4ac7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Risolvere i problemi delle visualizzazioni dei costi aziendali 
 
-Nelle registrazioni Enterprise sono disponibili varie impostazioni che potrebbero impedire agli utenti di visualizzare i costi all'interno della registrazione.  Queste impostazioni sono gestite dall'amministratore delle registrazioni o dal partner nel caso di registrazioni non acquistate direttamente da Microsoft.  Questo articolo illustra queste impostazioni e l'impatto che hanno sulla registrazione. Queste impostazioni sono indipendenti dai [ruoli di Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
+Nelle registrazioni Enterprise sono disponibili varie impostazioni che potrebbero impedire agli utenti di visualizzare i costi all'interno della registrazione.  Queste impostazioni sono gestite dall'amministratore delle registrazioni o dal partner nel caso di registrazioni non acquistate direttamente da Microsoft.  Questo articolo illustra queste impostazioni e l'impatto che hanno sulla registrazione. Queste impostazioni sono indipendenti dai [ruoli di Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
 
 
 ## <a name="enabling-access-to-costs"></a>Abilitazione dell'accesso ai costi
@@ -44,4 +44,4 @@ Se si riceve un messaggio di errore del tipo "Questa risorsa non è disponibile"
 ![asset-not-found](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Contattare l'amministratore della sottoscrizione o dei gruppi di gestione per ottenere l'accesso.  
-* Per le sottoscrizioni, fare riferimento al documento [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) per informazioni sul ruolo necessario.
+* Per le sottoscrizioni, fare riferimento al documento [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) per informazioni sul ruolo necessario.

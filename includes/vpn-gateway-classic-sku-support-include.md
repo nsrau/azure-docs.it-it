@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f135665b6fa7eb640526be513d2757c8e17ab8df
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 > [!NOTE]
 > I nuovi SKU di gateway VPN (VpnGw1, VpnGw2 e VpnGw3) sono supportati solo per il modello di distribuzione Resource Manager. Le reti virtuali di tipo classico devono continuare a usare gli SKU di versione precedente.

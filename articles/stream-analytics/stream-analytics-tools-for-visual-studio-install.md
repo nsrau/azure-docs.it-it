@@ -1,29 +1,24 @@
 ---
-title: Istruzioni di installazione per gli strumenti di Analisi di flusso di Azure per Visual Studio | Microsoft Docs
-description: Istruzioni di installazione per gli strumenti di Analisi di flusso di Azure per Visual Studio
-keywords: Visual Studio
-documentationcenter: ''
+title: Installare gli strumenti di Analisi di flusso di Azure per Visual Studio
+description: Questo articolo descrive i requisiti di installazione degli strumenti di Analisi di flusso di Azure per Visual Studio e illustra come installare questi ultimi.
 services: stream-analytics
 author: su-jie
-manager: ''
-ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 9/19/2017
 ms.author: sujie
-ms.openlocfilehash: fe1f2158439b2c04e8232eb6fe3c9faf79641ffe
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 09/19/2017
+ms.openlocfilehash: 511658fc0e2b480987455007dac5f55cd7850feb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="installation-instructions-for-stream-analytics-tools-for-visual-studio"></a>Istruzioni di installazione per gli strumenti di Analisi di flusso per Visual Studio
-Gli strumenti di Analisi di flusso di Azure supportano ora Visual Studio 2017, 2015 e 2013. In questo documento viene descritto come installare e disinstallare gli strumenti.
+# <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Installare gli strumenti di Analisi di flusso di Azure per Visual Studio
+Gli strumenti di Analisi di flusso di Azure supportano ora Visual Studio 2017, 2015 e 2013. Questo documento descrive come installare e disinstallare gli strumenti.
 
-Informazioni su come usare gli [strumenti di Analisi di flusso di Azure per Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Per altre informazioni sull'uso degli strumenti, vedere [Usare gli strumenti di Analisi di flusso di Azure per Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## <a name="install"></a>Installa
 ### <a name="visual-studio-2017"></a>Visual Studio 2017

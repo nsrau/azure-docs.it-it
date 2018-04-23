@@ -1,11 +1,11 @@
 ---
-title: "Come configurare l'Identità del servizio gestito in una macchina virtuale di Azure tramite PowerShell"
-description: "Istruzioni dettagliate per la configurazione di un'Identità del servizio gestito in una macchina virtuale di Azure, tramite PowerShell."
+title: Come configurare l'Identità del servizio gestito in una macchina virtuale di Azure tramite PowerShell
+description: Istruzioni dettagliate per la configurazione di un'Identità del servizio gestito in una macchina virtuale di Azure, tramite PowerShell.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: cb87dd88c0425383243edcf12b946cb1821aabe5
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9a466a5c695277a7b5833f997e2ad7281c962f3f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Configurare un'Identità del servizio gestito della macchina virtuale tramite PowerShell
 
@@ -61,10 +61,10 @@ Per creare una VM abilitata per MSI:
 
 Se è necessario abilitare l'Identità del servizio gestito su una macchina virtuale esistente:
 
-1. Accedere al portale di Azure con `Login-AzureRmAccount`. Usare un account associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nella VM, ad esempio "Collaboratore macchine virtuali":
+1. Accedere al portale di Azure con `Connect-AzureRmAccount`. Usare un account associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nella VM, ad esempio "Collaboratore macchine virtuali":
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 2. Recuperare innanzitutto le proprietà della macchina virtuale usando il cmdlet `Get-AzureRmVM`. Per abilitare l'Identità del servizio gestito, usare il commutatore `-IdentityType` nel cmdlet [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm):
@@ -85,10 +85,10 @@ Se è necessario abilitare l'Identità del servizio gestito su una macchina virt
 
 Se si dispone di una macchina virtuale che non richiede più un'Identità del servizio gestito, è possibile usare il cmdlet `RemoveAzureRmVMExtension` per rimuovere l'Identità del servizio gestito dalla macchina virtuale:
 
-1. Accedere al portale di Azure con `Login-AzureRmAccount`. Usare un account associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nella VM, ad esempio "Collaboratore macchine virtuali":
+1. Accedere al portale di Azure con `Connect-AzureRmAccount`. Usare un account associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nella VM, ad esempio "Collaboratore macchine virtuali":
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 2. Usare il parametro `-Name` con il cmdlet [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) specificando lo stesso nome utilizzato quando è stata aggiunta l'estensione:

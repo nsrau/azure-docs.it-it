@@ -2,10 +2,10 @@
 title: Gestire le autorizzazioni alle risorse per ogni utente nello Stack di Azure (amministratore del servizio e tenant) | Documenti Microsoft
 description: Come amministratore del servizio o tenant, informazioni su come gestire le autorizzazioni RBAC.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: fenila
-editor: 
+editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na

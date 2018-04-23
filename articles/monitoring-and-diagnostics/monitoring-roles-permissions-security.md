@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 248d45a59fa2769c4cfcc4b169bd9e61059f11b0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure
 Molti team hanno bisogno di regolare rigorosamente l'accesso ai dati e alle impostazioni di monitoraggio. Ad esempio, se si dispone di membri del team che lavorano esclusivamente sul monitoraggio (tecnici del supporto, tecnici DevOps) o si usa un provider di servizi gestiti, si consiglia di concedere loro l'accesso ai dati di monitoraggio solo limitandone la possibilità di creare, modificare o eliminare le risorse. In questo articolo viene illustrato come applicare rapidamente un ruolo di monitoraggio predefinito nel Controllo degli accessi in base al ruolo a un utente in Azure o creare il proprio ruolo personalizzato per un utente che ha bisogno di autorizzazioni di monitoraggio limitate. Vengono poi esposte alcune considerazioni sulla sicurezza per le risorse legate al monitoraggio di Azure e viene illustrato come è possibile limitare l'accesso ai dati che contengono.
@@ -71,7 +71,7 @@ Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono 
 > 
 
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Autorizzazioni per il monitoraggio e ruoli personalizzati nel Controllo degli accessi in base al ruolo
-Se i precedenti ruoli predefiniti non soddisfano le esigenze esatte del team, è possibile [creare un ruolo personalizzato nel Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-custom-roles.md) con autorizzazioni più granulari. Di seguito sono riportate le più comuni operazioni nel Controllo degli accessi in base al ruolo di monitoraggio di Azure con le relative descrizioni.
+Se i precedenti ruoli predefiniti non soddisfano le esigenze esatte del team, è possibile [creare un ruolo personalizzato nel Controllo degli accessi in base al ruolo](../role-based-access-control/custom-roles.md) con autorizzazioni più granulari. Di seguito sono riportate le più comuni operazioni nel Controllo degli accessi in base al ruolo di monitoraggio di Azure con le relative descrizioni.
 
 | Operazione | DESCRIZIONE |
 | --- | --- |
@@ -125,7 +125,7 @@ Tutti e tre questi tipi di dati possono essere archiviati in un account di archi
 
 * Usare un account di archiviazione singolo e dedicato per il monitoraggio dei dati. Se è necessario separare i dati di monitoraggio in più account di archiviazione, non condividere mai l'uso di un account di archiviazione tra dati relativi al monitoraggio e non relativi al monitoraggio, perché in questo modo si potrebbe inavvertitamente fornire l'accesso ai dati non relativi al monitoraggio a chi ha bisogno solo dei dati di monitoraggio (ad esempio SIEM di terze parti).
 * Usare un singolo bus di servizio o spazio dei nomi dell'hub eventi dedicato in tutte le impostazioni di diagnostica per lo stesso motivo specificato sopra.
-* Limitare l'accesso agli hub eventi o agli account di archiviazione relativi al monitoraggio tenendoli in un gruppo di risorse separato e [usare l'ambito](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) nei ruoli di monitoraggio per limitare l'accesso solo a tale gruppo di risorse.
+* Limitare l'accesso agli hub eventi o agli account di archiviazione relativi al monitoraggio tenendoli in un gruppo di risorse separato e [usare l'ambito](../role-based-access-control/overview.md#basics-of-access-management-in-azure) nei ruoli di monitoraggio per limitare l'accesso solo a tale gruppo di risorse.
 * Non concedere mai l'autorizzazione ListKeys ad account di archiviazione o hub eventi nell'ambito della sottoscrizione quando un utente ha bisogno solo dell'accesso ai dati di monitoraggio. Piuttosto, assegnare queste autorizzazioni all'utente nell'ambito di una risorsa o di un gruppo di risorse (se si dispone di un gruppo di risorse di monitoraggio dedicato).
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Limitare l'accesso agli account di archiviazione relativi al monitoraggio
@@ -178,6 +178,6 @@ Un modello simile può essere seguito con gli hub eventi, tuttavia è innanzitut
    ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Controllo degli accessi in base al ruolo e autorizzazioni in Resource Manager](../active-directory/role-based-access-control-what-is.md)
+* [Controllo degli accessi in base al ruolo e autorizzazioni in Resource Manager](../role-based-access-control/overview.md)
 * [Panoramica sul monitoraggio in Azure](monitoring-overview.md)
 

@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 04/01/2018
 ms.author: bonova
-ms.openlocfilehash: 36ce6889cccbf5ae7df519c5c73846f12eed4a08
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3175236306f05831a78ae8ca01911d0c5d19f893
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gestire i dati cronologici nelle tabelle temporali con criteri di conservazione
 Le tabelle temporali possono aumentare le dimensioni del database più delle tabelle normali, in particolare se si conservano i dati cronologici per un periodo di tempo più lungo. Di conseguenza, i criteri di conservazione per i dati cronologici sono un aspetto importante della pianificazione e della gestione del ciclo di vita di ogni tabella temporale. Le tabelle temporali nel database SQL Azure sono dotate di un meccanismo di conservazione di facile uso che aiuta a eseguire questa operazione.
@@ -102,7 +102,7 @@ ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 
 ## <a name="how-sql-database-deletes-aged-rows"></a>In che modo vengono eliminate le righe obsolete dal database SQL?
 Il processo di pulizia dipende dal layout indice della tabella di cronologia. È importante notare che *solo nelle tabelle di cronologia con un indice cluster (struttura B-tree o columnstore) è possibile avere la configurazione dei criteri di conservazione definiti*. Viene creata un'attività in background per eseguire la pulizia dei dati obsoleti per tutte le tabelle temporali con periodo di conservazione definito.
-La logica di pulizia per l'indice in cluster rowstore (B-tree) elimina la riga obsoleta in blocchi più piccoli (fino a 10.000) riducendo al minimo pressione sul log del database e sul sottosistema I/O. Anche se la logica di pulizia usa un indice B-tree obbligatorio, l'ordine di eliminazione per le righe antecedenti il periodo di conservazione non può essere garantito saldamente. Di conseguenza, *non è consentito accettare le dipendenze nell'ordine di pulizia nelle applicazioni*.
+La logica di pulizia per l'indice in cluster rowstore (B-tree) elimina la riga obsoleta in blocchi più piccoli (fino a 10.000) riducendo al minimo la pressione sul log del database e sul sottosistema I/O. Anche se la logica di pulizia usa un indice B-tree obbligatorio, l'ordine di eliminazione per le righe antecedenti il periodo di conservazione non può essere garantito saldamente. Di conseguenza, *non è consentito accettare le dipendenze nell'ordine di pulizia nelle applicazioni*.
 
 L'attività di pulizia per columnstore in cluster rimuove interi [gruppi di righe](https://msdn.microsoft.com/library/gg492088.aspx) in una sola volta (in genere ogni gruppo contiene un milione di righe); questa procedura è molto efficace, soprattutto quando vengono generati dati cronologici a ritmo elevato.
 

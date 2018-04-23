@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 03/04/2018
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 500fb11627fa0ce7ac838c650a582dd9d49b598c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 94a066c43d1b04161a46dac15e5b373d97cc063d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Ruolo amministrativo differente in Azure AD PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -67,7 +67,7 @@ Se si vuole concedere a un altro utente l'accesso per la gestione all'interno de
 ## <a name="roles-not-managed-in-pim"></a>Ruoli non gestiti in PIM
 I ruoli in Exchange Online o SharePoint Online, ad eccezione di quelli indicati in precedenza, non sono rappresentati in Azure AD e quindi non sono visibili in PIM. Per altre informazioni sulla modifica delle assegnazioni di ruolo specifiche in questi servizi di Office 365, vedere [Autorizzazioni in Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-In Azure AD non sono rappresentati neanche i gruppi di risorse e le sottoscrizioni di Azure. Per informazioni su come gestire le sottoscrizioni di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../billing/billing-add-change-azure-subscription-administrator.md). Per altre informazioni su controllo degli accessi in base al ruolo di Azure, vedere [Controllo degli accessi in base al ruolo di Azure](role-based-access-control-configure.md).
+In Azure AD non sono rappresentati neanche i gruppi di risorse e le sottoscrizioni di Azure. Per informazioni su come gestire le sottoscrizioni di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../billing/billing-add-change-azure-subscription-administrator.md). Per altre informazioni su controllo degli accessi in base al ruolo di Azure, vedere [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 

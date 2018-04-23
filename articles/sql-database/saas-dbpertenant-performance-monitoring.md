@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 352b0d48ab223a236b96c633526f792b6f8a703d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f76a9f0aa5e68e729c67dad52f6dae4e01fdb56a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di database SQL di Azure e di pool in un'app SaaS multi-tenant
 
@@ -54,7 +54,7 @@ I pool e i database nei pool devono essere monitorati per assicurarsi che rimang
 
 Il [portale di Azure](https://portal.azure.com) include funzionalità di monitoraggio e avviso predefinite per la maggior parte delle risorse. Per il database SQL, il monitoraggio e gli avvisi sono disponibili per database e pool. Le funzionalità di monitoraggio e avviso predefinite sono specifiche delle risorse, quindi è comodo usarle per un numero limitato di risorse, mentre non sono altrettanto utili quando si usano molte risorse.
 
-Per gli scenari con volumi elevati in cui si lavora con molte risorse, si può usare [Log Analytics (OMS)](saas-dbpertenant-log-analytics.md). Si tratta di un servizio di Azure separato che fornisce funzionalità di analisi per log di diagnostica e dati di telemetria raccolti in un'area di lavoro di Log Analytics. Log Analytics consente di raccogliere dati di telemetria da molti servizi e supporta l'esecuzione di query e l'impostazione di avvisi.
+Per gli scenari con volumi elevati, in cui si lavora con molte risorse, è possibile usare [Log Analytics](saas-dbpertenant-log-analytics.md). Si tratta di un servizio di Azure separato che fornisce funzionalità di analisi per log di diagnostica e dati di telemetria raccolti in un'area di lavoro di Log Analytics. Log Analytics consente di raccogliere dati di telemetria da molti servizi e supporta l'esecuzione di query e l'impostazione di avvisi.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione del database per tenant SaaS Wingtip Tickets
 

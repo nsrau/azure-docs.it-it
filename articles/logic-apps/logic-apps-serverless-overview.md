@@ -1,12 +1,12 @@
 ---
 title: Panoramica dell'architettura senza server di Azure | Microsoft Docs
 description: Creare potenti soluzioni nel cloud senza preoccuparsi dell'infrastruttura.
-keywords: 
+keywords: ''
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5cc6837ed0b0f4467e48c736f5d596a51a799fae
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 30c7dd36efca5ffcae770fe310a43a107d9136af
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Panoramica dell'architettura senza server di Azure con Funzioni e App per la logica
 
@@ -45,7 +45,7 @@ Per iniziare ad acquisire familiarità con App per la logica, [creare una prima 
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Come è possibile compilare e distribuire applicazioni senza server in Azure?
 
-Azure offre un'ampia gamma di strumenti di sviluppo, distribuzione e gestione per app senza server.  Le app possono essere compilate direttamente nel portale di Azure oppure con [gli strumenti di Visual Studio](logic-apps-serverless-get-started-vs.md).  Dopo essere stata sviluppata, un'applicazione può essere [immediatamente distribuita](logic-apps-create-deploy-template.md).  Azure fornisce anche strumenti per il monitoraggio di app senza server,  accessibili dal portale di Azure, tramite l'API o SDK o con gli strumenti integrati in OMS e Application Insights.
+Azure offre un'ampia gamma di strumenti di sviluppo, distribuzione e gestione per app senza server.  Le app possono essere compilate direttamente nel portale di Azure oppure con [gli strumenti di Visual Studio](logic-apps-serverless-get-started-vs.md).  Dopo essere stata sviluppata, un'applicazione può essere [immediatamente distribuita](logic-apps-create-deploy-template.md).  Azure fornisce anche strumenti per il monitoraggio di app senza server,  accessibili dal portale di Azure, tramite l'API o gli SDK o con gli strumenti integrati in Log Analytics e Application Insights.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

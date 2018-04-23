@@ -2,10 +2,10 @@
 title: Esempio di script di Azure PowerShell - Creare un'app Web e distribuire il codice nell'ambiente di gestione temporanea | Microsoft Docs
 description: Esempio di script di Azure PowerShell - Creare un'app Web e distribuire il codice nell'ambiente di gestione temporanea
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 27cf0680-c3a9-4a58-9f71-6dec09f6b874
 ms.service: app-service-web
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 55adc13350eb0f4711efa3c901f6e4e7755dfb27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 179e4afec2250da76fa0e7554e804d290d28c785
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>Creare un'App Web e distribuire il codice in un ambiente di gestione temporanea
 
 Questo script di esempio crea un'App Web nel servizio app con uno slot di distribuzione aggiuntivo denominato "staging" e quindi distribuisce un'app di esempio allo slot "staging".
 
-Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](/powershell/azure/overview) e quindi eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
+Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](/powershell/azure/overview) e quindi eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -51,7 +51,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | [Set-AzureRmAppServicePlan](/powershell/module/azurerm.websites/set-azurermappserviceplan) | Modifica un piano di servizio app per cambiarne il piano tariffario. |
 | [New-AzureRmWebAppSlot](/powershell/module/azurerm.websites/new-azurermwebappslot) | Crea uno slot di distribuzione per un'app Web. |
 | [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Modificare una risorsa in un gruppo di risorse. |
-| [Swap-AzureRmWebAppSlot](/powershell/module/azurerm.websites/swap-azurermwebappslot) | Trasferisce uno slot di distribuzione dell'app Web nell'ambiente di produzione. |
+| [Switch-AzureRmWebAppSlot](/powershell/module/azurerm.websites/switch-azurermwebappslot) | Trasferisce uno slot di distribuzione dell'app Web nell'ambiente di produzione. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

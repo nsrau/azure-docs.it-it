@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/10/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 583f827fe77ef7721b3098dee01c418c9e5cccd8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ff3fd8ea331c02aa2666ec20b56dbbaef473a4df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisiti dei certificati di infrastruttura a chiave pubblica Stack Azure
+# <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisiti dei certificati di infrastruttura a chiave pubblica Azure Stack
 
 Stack Azure dispone di una rete pubblica infrastruttura utilizzano accessibile dall'esterno indirizzi IP pubblici assegnati a un piccolo set di servizi di Azure Stack ed eventualmente macchine virtuali tenant. I certificati PKI con i nomi DNS appropriati per questi endpoint infrastruttura pubblica Azure Stack sono necessari durante la distribuzione di Azure Stack. In questo articolo contiene informazioni su:
 
@@ -67,10 +67,10 @@ Per la distribuzione, [region] e [externalfqdn] i valori devono corrispondere i 
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
 | Portale pubblico | portal.&lt;region>.&lt;fqdn> | Portali | &lt;region>.&lt;fqdn> |
 | Portale di amministrazione | adminportal.&lt;region>.&lt;fqdn> | Portali | &lt;region>.&lt;fqdn> |
-| Pubblico di gestione risorse di Azure | management.&lt;region>.&lt;fqdn> | Gestione risorse di Azure | &lt;region>.&lt;fqdn> |
+| Pubblico di gestione risorse di Azure | gestione. &lt;area >. &lt;fqdn > | Gestione risorse di Azure | &lt;region>.&lt;fqdn> |
 | Amministrazione di gestione risorse di Azure | adminmanagement.&lt;region>.&lt;fqdn> | Gestione risorse di Azure | &lt;region>.&lt;fqdn> |
 | ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) | Archiviazione BLOB | blob.&lt;region>.&lt;fqdn> |
-| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) | Archiviazione tabelle | table.&lt;region>.&lt;fqdn> |
+| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) | Archiviazione tabelle | tavolo. &lt;area >. &lt;fqdn > |
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) | Archiviazione di accodamento | queue.&lt;region>.&lt;fqdn> |
 | Insieme di credenziali delle chiavi | *.vault.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) | Insieme di credenziali di chiave | vault.&lt;region>.&lt;fqdn> |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) |  Keyvault interno |  adminvault.&lt;region>.&lt;fqdn> |
@@ -81,10 +81,10 @@ Per la distribuzione, [region] e [externalfqdn] i valori devono corrispondere i 
 |-----|-----|-----|-----|
 |Portale pubblico|portal.*&lt;region>.&lt;fqdn>*|Portali|*&lt;region>.&lt;fqdn>*|
 |Portale di amministrazione|adminportal.*&lt;region>.&lt;fqdn>*|Portali|*&lt;region>.&lt;fqdn>*|
-|Pubblico di gestione risorse di Azure|management.*&lt;region>.&lt;fqdn>*|Gestione risorse di Azure|*&lt;region>.&lt;fqdn>*|
-|Amministrazione di gestione risorse di Azure|adminmanagement.*&lt;region>.&lt;fqdn>*|Gestione risorse di Azure|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|Un certificato con caratteri jolly multi-sottodominio con nomi alternativi soggetto per:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Archiviazione|blob.*&lt;region>.&lt;fqdn>*<br>table.*&lt;region>.&lt;fqdn>*<br>queue.*&lt;region>.&lt;fqdn>*|
-|Insieme di credenziali delle chiavi|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(Certificato SSL con carattere jolly)|Insieme di credenziali di chiave|vault.*&lt;region>.&lt;fqdn>*|
+|Pubblico di gestione risorse di Azure|Gestione.  *&lt;area >.&lt; nome di dominio completo >*|Gestione risorse di Azure|*&lt;region>.&lt;fqdn>*|
+|Amministrazione di gestione risorse di Azure|adminmanagement.  *&lt;area >.&lt; nome di dominio completo >*|Gestione risorse di Azure|*&lt;region>.&lt;fqdn>*|
+|ACS<sup>1</sup>|Un certificato con caratteri jolly multi-sottodominio con nomi alternativi soggetto per:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Archiviazione|blob.*&lt;region>.&lt;fqdn>*<br>tavolo.  *&lt;area >.&lt; nome di dominio completo >*<br>coda.  *&lt;area >.&lt; nome di dominio completo >*|
+|Insieme di credenziali delle chiavi|&#42;.Vault.  *&lt;area >.&lt; nome di dominio completo >*<br>(Certificato SSL con carattere jolly)|Insieme di credenziali di chiave|insieme di credenziali.  *&lt;area >.&lt; nome di dominio completo >*|
 |KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Certificato SSL con carattere jolly)|Keyvault interno|adminvault.*&lt;region>.&lt;fqdn>*|
 |
 <sup>1</sup> certificato del servizio ACS richiede tre SAN con caratteri jolly in un solo certificato. Carattere jolly più reti SAN in un singolo certificato potrebbe non essere supportata da tutte le autorità di certificazione pubblica. 

@@ -2,10 +2,10 @@
 title: Indicizzazione dei file multimediali con Azure Media Indexer 2 Preview | Microsoft Docs
 description: Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto dei file multimediali e di generare una trascrizione full-text per i sottotitoli codificati e le parole chiave. Questo argomento illustra come usare Media Indexer 2 Preview.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -86,7 +86,7 @@ Azure Media Indexer 2 Preview supporta il riconoscimento vocale per le lingue se
 * Giapponese [JaJp]
 * Russo [RuRu]
 * Inglese britannico [EnGb]
-* Spagnolo messicano [EsMx] 
+* Spagnolo (Messico) [EsMx] 
 
 ## <a name="supported-file-types"></a>Tipi di file supportati
 

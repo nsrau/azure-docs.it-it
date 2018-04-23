@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 03/20/2018
 ms.author: ccompy
-ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 54257ae3e02a00c5097aa7880fa356da3bc0ecce
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -175,31 +175,10 @@ Dopo aver definito i gruppi di sicurezza di rete, assegnarli alla subnet in cui 
 
 ## <a name="routes"></a>Route ##
 
-Le route sono un elemento critico del tunneling forzato e del modo in cui viene gestito. In una rete virtuale di Azure il routing viene eseguito in base all'algoritmo LPM (Longest Prefix Match). Se è presente più di una route con la stessa corrispondenza LPM, viene selezionata la route in base all'origine nell'ordine seguente:
+Si definisce tunneling forzato l'impostazione delle route nella rete virtuale in modo che il traffico in uscita non passi direttamente a Internet ma altrove, ad esempio in un gateway ExpressRoute o in un dispositivo virtuale.  Se è necessario configurare l'ambiente del servizio app in questo modo, leggere il documento in [Configurare l'ambiente del servizio app con il tunneling forzato][forcedtunnel].  Questo documento indica le opzioni disponibili per l'uso di ExpressRoute e del tunneling forzato.
 
-- Route definita dall'utente
-- Route BGP (quando viene utilizzato ExpressRoute)
-- La route di sistema
-
-Per altre informazioni sul routing in una rete virtuale, vedere [Route definite dall'utente e inoltro degli indirizzi IP][UDRs].
-
-Il database SQL di Azure che l'ambiente del servizio app usa per gestire il sistema è dotato di un firewall. Richiede che le comunicazioni provengano dall'indirizzo VIP pubblico dell'ambiente del servizio app. Le connessioni al database SQL dall'ambiente del servizio app verranno negate se vengono inviate alla connessione ExpressRoute e a un altro indirizzo IP.
-
-Se le risposte alle richieste di gestione in ingresso vengono inviate a ExpressRoute, l'indirizzo di risposta è diverso da quello di destinazione originale. Questa mancata corrispondenza interrompe la comunicazione TCP.
-
-Per il corretto funzionamento dell'ambiente del servizio app quando la rete virtuale è configurata con ExpressRoute, la cosa più semplice da fare è:
-
--   Configurare ExpressRoute in modo che annunci _0.0.0.0/0_. Per impostazione predefinita, tutto il traffico locale in uscita viene forzato.
--   Creare una route definita dall'utente. Applicarla alla subnet contenente l'ambiente del servizio app, con un prefisso dell'indirizzo _0.0.0.0/0_ e tipo di hop successivo _Internet_.
-
-Se si apportano queste due modifiche, il traffico destinato a Internet, proveniente dalla subnet dell'ambiente del servizio app, non verrà forzato verso ExpressRoute e l'ambiente del servizio app potrà funzionare. 
-
-> [!IMPORTANT]
-> Le route definite in una route definita dall'utente devono essere sufficientemente specifiche per avere la precedenza su qualsiasi route annunciata dalla configurazione di ExpressRoute. Nell'esempio precedente viene usato l'intervallo di indirizzi ampio 0.0.0.0/0. Può essere accidentalmente sostituito dagli annunci di route che usano intervalli di indirizzi più specifici.
->
-> Gli ambienti del servizio app non sono supportati con le configurazioni di ExpressRoute con annuncio incrociato di route dal percorso di peering pubblico al percorso di peering privato. Le configurazioni di ExpressRoute con peering pubblico configurato riceveranno gli annunci di route da Microsoft. Gli annunci contengono un ampio set di intervalli di indirizzi IP di Microsoft Azure. In caso di annuncio incrociato di questi intervalli di indirizzi nel percorso di peering privato, tutti i pacchetti di rete in uscita dalla subnet dell'ambiente del servizio app verranno sottoposti a tunneling forzato verso un'infrastruttura di rete locale del cliente. Questo flusso di rete non è attualmente supportato con ambienti del servizio app. Una soluzione a questo problema consiste nell'interrompere l'annuncio incrociato di route dal percorso di peering pubblico al percorso di peering privato.
-
-Per creare una route definita dall'utente, seguire questi passaggi:
+Quando si crea un ambiente del servizio app nel portale, viene creato anche un set di tabelle di route nella subnet creata con l'ambiente del servizio app.  Tali route indicano semplicemente di inviare il traffico in uscita direttamente a Internet.  
+Per creare le stesse route manualmente, seguire questa procedura:
 
 1. Accedere al portale di Azure. Selezionare **Rete** > **Tabelle route**.
 
@@ -217,17 +196,15 @@ Per creare una route definita dall'utente, seguire questi passaggi:
 
     ![Gruppi di sicurezza di rete e route][7]
 
-### <a name="deploy-into-existing-azure-virtual-networks-that-are-integrated-with-expressroute"></a>Distribuzione nelle reti virtuali di Azure esistenti integrate con ExpressRoute ###
+## <a name="service-endpoints"></a>Endpoint servizio ##
 
-Per distribuire l'ambiente del servizio app in una rete virtuale integrata con ExpressRoute, preconfigurare la subnet in cui si desidera distribuire l'ambiente del servizio app. Quindi, usare un modello di Resource Manager per distribuirla. Per creare un ambiente del servizio app in una rete virtuale per cui è già configurato ExpressRoute:
+Gli endpoint servizio consentono di limitare l'accesso ai servizi multi-tenant a un set di reti e subnet virtuali di Azure. Per altre informazioni sugli endpoint servizio, vedere la pagina [Endpoint del servizio Rete virtuale][serviceendpoints] della documentazione. 
 
-- Creare una subnet per ospitare l'ambiente del servizio app.
+Quando si abilitano gli endpoint del servizio su una risorsa, alcune route sono create con una priorità maggiore rispetto a tutte le altre route. Se si usano gli endpoint servizio con un ambiente del servizio app con tunneling forzato, il tunneling del traffico di gestione di SQL di Azure e Archiviazione di Azure non viene forzato. 
 
-    > [!NOTE]
-    > La subnet non può contenere altro oltre all'ambiente del servizio app. Assicurarsi di scegliere uno spazio di indirizzi che consente la crescita futura. Non è possibile modificare questa impostazione in un secondo momento. È consigliabile una dimensione pari a `/25` con 128 indirizzi.
+Quando gli endpoint servizio sono abilitati in una subnet con un'istanza di SQL di Azure, tutte le istanze di SQL di Azure verso cui si esegue la connessione da tale subnet devono avere gli endpoint servizio abilitati. Se si desidera accedere a più istanze di SQL di Azure dalla stessa subnet, non è possibile abilitare gli endpoint servizio in un'istanza di SQL di Azure e non in un'altra. Il comportamento di Archiviazione di Azure è diverso da quello di SQL di Azure. Quando si abilitano gli endpoint servizio con Archiviazione di Azure, si blocca l'accesso a tale risorsa dalla propria subnet ma è comunque possibile accedere ad altri account di archiviazione di Azure, anche se non hanno gli endpoint servizio abilitati.  
 
-- Creare route definite dall'utente (per esempio tabelle di route) come descritto in precedenza e impostarle sulla subnet.
-- Creare l'ambiente del servizio app usando un modello di Resource Manager come descritto in [Come creare un ambiente del servizio app usando modelli di Azure Resource Manager][MakeASEfromTemplate].
+![Endpoint servizio][8]
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
@@ -237,6 +214,7 @@ Per distribuire l'ambiente del servizio app in una rete virtuale integrata con E
 [5]: ./media/network_considerations_with_an_app_service_environment/networkase-outboundnsg.png
 [6]: ./media/network_considerations_with_an_app_service_environment/networkase-udr.png
 [7]: ./media/network_considerations_with_an_app_service_environment/networkase-subnet.png
+[8]: ./media/network_considerations_with_an_app_service_environment/serviceendpoint.png
 
 <!--Links-->
 [Intro]: ./intro.md
@@ -258,3 +236,6 @@ Per distribuire l'ambiente del servizio app in una rete virtuale integrata con E
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[forcedtunnel]: ./forced-tunnel-support.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md

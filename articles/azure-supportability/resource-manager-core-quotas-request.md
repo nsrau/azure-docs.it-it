@@ -3,15 +3,15 @@ title: Richieste di aumento della quota di vCPU per Azure Resource Manager | Mic
 description: Richieste di aumento della quota di vCPU per Azure Resource Manager
 author: ganganarayanan
 ms.author: gangan
-ms.date: 3/15/2018
+ms.date: 1/18/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: a42fa8e4e8dae140db4fcc8977bda335455b97a1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Richieste di aumento della quota di vCPU per Resource Manager
 
@@ -24,22 +24,21 @@ Per richiedere un aumento, creare un caso di supporto per la quota delle vCPU ne
 > [!NOTE]
 > Informazioni su come [creare una richiesta di supporto](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) nel portale di Azure
 
-1. Selezionare **Sottoscrizioni**.
+1. Nella pagina della nuova richiesta di supporto selezionare "Quota" in Tipo di problema e quindi scegliere "Core" in Tipo di quota.
 
-   ![Sottoscrizioni](./media/resource-manager-core-quotas-request/subscriptions.png)
+    ![Pannello Informazioni di base della quota](./media/resource-manager-core-quotas-request/Basics-blade.png)
 
-2. Selezionare la sottoscrizione per cui è necessario ottenere un aumento della quota.
+2. In Modello di distribuzione selezionare "Resource Manager" e quindi scegliere una località.
 
-   ![Selezionare la sottoscrizione](./media/resource-manager-core-quotas-request/select-subscription.png)
+    ![Pannello Problema della quota](./media/resource-manager-core-quotas-request/Problem-step.png)
 
-3. Selezionare **Utilizzo e quote**.
+3. Selezionare le famiglie di SKU per cui si richiede l'aumento.
 
-   ![Selezionare Utilizzo e quote](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+    ![Serie SKU selezionata](./media/resource-manager-core-quotas-request/SKU-selected.png)
 
-4. Nell'angolo superiore destro selezionare **Richiedi aumento**.
+4. Immettere i nuovi limiti da applicare alla sottoscrizione.
 
-   ![Richiedi aumento](./media/resource-manager-core-quotas-request/request-increase.png)
+    ![Richiesta di nuova quota per lo SKU](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
 
-5. Selezionare **Core** come tipo di quota. 
-
-   ![Compilare i moduli](./media/resource-manager-core-quotas-request/forms.png)
+- Per rimuovere una riga, deselezionare lo SKU dall'elenco a discesa delle famiglie di SKU oppure fare clic sull'icona di eliminazione "x".
+Dopo aver immesso la quota desiderata per ogni famiglia di SKU, fare clic su "Avanti" nella pagina del passaggio del problema per procedere con la creazione della richiesta di supporto.

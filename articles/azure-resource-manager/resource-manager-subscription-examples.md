@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Esempi di implementazione di scaffold enterprise di Azure
 In questo argomento vengono forniti esempi di come un'azienda può implementare gli elementi consigliati per uno [scaffold  enterprise di Azure](resource-manager-subscription-governance.md). Usa una società fittizia denominata Contoso per illustrare le procedure consigliate per scenari comuni.
@@ -56,10 +56,10 @@ Dave assegna i ruoli seguenti per la sottoscrizione:
 
 | Ruolo | Assegnato a | DESCRIZIONE |
 | --- | --- | --- |
-| [Proprietario](../active-directory/role-based-access-built-in-roles.md#owner) |ID gestito da Active Directory di Contoso |Questo ID è controllato con accesso Just in Time (JIT) tramite lo strumento di gestione delle identità di Contoso e assicura il totale controllo degli accessi dei proprietari delle sottoscrizioni |
-| [Gestore della sicurezza SQL](../active-directory/role-based-access-built-in-roles.md#security-manager) |Reparto di gestione dei rischi e della sicurezza |Questo ruolo consente agli utenti di esaminare il Centro sicurezza di Azure e lo stato delle risorse |
-| [Collaboratore di rete](../active-directory/role-based-access-built-in-roles.md#network-contributor) |Team di rete |Questo ruolo consente team di rete di Contoso gestire la VPN da sito a sito e le reti virtuali |
-| *Ruolo personalizzato* |Proprietario dell'applicazione |Dave crea un ruolo che concede la possibilità di modificare le risorse all'interno del gruppo di risorse. Per altre informazioni, vedere [Ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-custom-roles.md) |
+| [Proprietario](../role-based-access-control/built-in-roles.md#owner) |ID gestito da Active Directory di Contoso |Questo ID è controllato con accesso Just in Time (JIT) tramite lo strumento di gestione delle identità di Contoso e assicura il totale controllo degli accessi dei proprietari delle sottoscrizioni |
+| [Gestore della sicurezza SQL](../role-based-access-control/built-in-roles.md#security-manager) |Reparto di gestione dei rischi e della sicurezza |Questo ruolo consente agli utenti di esaminare il Centro sicurezza di Azure e lo stato delle risorse |
+| [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor) |Team di rete |Questo ruolo consente team di rete di Contoso gestire la VPN da sito a sito e le reti virtuali |
+| *Ruolo personalizzato* |Proprietario dell'applicazione |Dave crea un ruolo che concede la possibilità di modificare le risorse all'interno del gruppo di risorse. Per altre informazioni, vedere [Ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/custom-roles.md) |
 
 ### <a name="policies"></a>Criteri
 Dave dispone dei requisiti seguenti per gestire le risorse nella sottoscrizione:

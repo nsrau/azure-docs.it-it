@@ -148,7 +148,7 @@ L'uso di estensioni di terze parti di Criteri di gruppo di Active Directory per 
 
 #### <a name="known-browser-limitations"></a>Limitazioni note dei browser
 
-L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox e nel browser Edge. Non funziona nemmeno in Internet Explorer se il browser è in esecuzione in modalità protetta avanzata.
+L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox e nel browser Microsoft Edge. Non funziona nemmeno in Internet Explorer se il browser è in esecuzione in modalità protetta avanzata.
 
 ## <a name="step-4-test-the-feature"></a>Passaggio 4: Testare la funzionalità
 

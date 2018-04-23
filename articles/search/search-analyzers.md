@@ -2,21 +2,17 @@
 title: Analizzatori in Ricerca di Azure | Documentazione Microsoft
 description: Assegnare degli analizzatori ai campi di testo di ricerca in un indice per sostituire lo standard Lucene predefinito con alternative specifiche per lingua, predefinite o personalizzate.
 services: search
-manager: jhubbard
-author: HeidiSteen
-documentationcenter: 
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: heidist
-ms.openlocfilehash: 1b9dea2978c11955da3ea4df8b90dc10a866d3f1
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+manager: cgronlun
+author: HeidiSteen
+ms.openlocfilehash: e858966fb5a15b84af1952399a5eff3ca50d0d59
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="analyzers-in-azure-search"></a>Analizzatori in Ricerca di Azure
 

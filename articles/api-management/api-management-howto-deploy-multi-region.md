@@ -1,11 +1,11 @@
 ---
-title: "Distribuire servizi di Gestione API di Azure in più aree di Azure | Documentazione Microsoft"
-description: "Informazioni su come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure."
+title: Distribuire servizi di Gestione API di Azure in più aree di Azure | Documentazione Microsoft
+description: Informazioni su come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 6f84c1b2092f71eaeba0005a36018390242869ea
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ff0101bde54f99f99461d0f042af520b1642d0df
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure
 Gestione API supporta la distribuzione in più aree che consente agli autori di API di distribuire un solo servizio Gestione API in qualsiasi numero di aree di Azure. Ciò consente di ridurre la latenza delle richieste percepita dagli utenti dell'API distribuiti geograficamente, oltre a migliorare la disponibilità del servizio se un'area viene portata offline. 

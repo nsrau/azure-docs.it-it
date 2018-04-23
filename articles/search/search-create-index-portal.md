@@ -1,23 +1,19 @@
 ---
 title: 'Creare un indice: portale e Ricerca di Azure | Microsoft Docs'
 description: Creare un indice nel portale di Azure.
-services: search
-manager: jhubbard
+manager: cgronlun
 author: heidisteen
-documentationcenter: 
-ms.assetid: 
+services: search
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 06/20/2017
 ms.author: heidist
-ms.openlocfilehash: a7d98ab0937a7d3f932d5df34c19ae091129804e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ea05cd34e5ba3f55b2f5400f1252f729401c5d6a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-an-azure-search-index-using-the-azure-portal"></a>Creare un indice di Ricerca di Azure nel portale di Azure
 > [!div class="op_single_selector"]

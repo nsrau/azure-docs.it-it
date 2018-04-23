@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: terrylan
-ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 22eee6c2253e6b1ff92de0cebf4fea451a0a8fe5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)
 
@@ -41,7 +41,7 @@ Un modo per ridurre l'esposizione agli attacchi di forza bruta consiste nel limi
 
 Quando è abilitata la funzionalità Just-in-Time, Centro sicurezza protegge il traffico in ingresso alle macchine virtuali di Azure creando una regola NSG. Selezionare le porte nella macchina virtuale per cui proteggere il traffico in ingresso. Queste porte sono controllate dalla soluzione Just-in-Time.
 
-Quando un utente richiede l'accesso a una macchina virtuale, il Centro sicurezza controlla che abbuia le autorizzazioni di [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) che forniscono l'accesso in scrittura alla VM. Se l'utente dispone delle autorizzazioni di scrittura, la richiesta viene approvata e Centro sicurezza configura automaticamente i gruppi di sicurezza di rete per consentire il traffico in entrata alle porte di gestione per il periodo di tempo specificato. Al termine di questo periodo, Centro sicurezza ripristina gli stati precedenti dei gruppi di sicurezza di rete.
+Quando un utente richiede l'accesso a una macchina virtuale, il Centro sicurezza controlla che abbuia le autorizzazioni di [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md) che forniscono l'accesso in scrittura alla VM. Se l'utente dispone delle autorizzazioni di scrittura, la richiesta viene approvata e Centro sicurezza configura automaticamente i gruppi di sicurezza di rete per consentire il traffico in entrata alle porte di gestione per il periodo di tempo specificato. Al termine di questo periodo, Centro sicurezza ripristina gli stati precedenti dei gruppi di sicurezza di rete.
 
 > [!NOTE]
 > L'accesso Just-in-Time alle macchine virtuali in Centro sicurezza attualmente supporta solo le macchine virtuali distribuite tramite Azure Resource Manager. Per altre informazioni sui modelli di distribuzione classica e con Azure Resource Manager, vedere [Distribuzione Azure Resource Manager o classica](../azure-resource-manager/resource-manager-deployment-model.md).

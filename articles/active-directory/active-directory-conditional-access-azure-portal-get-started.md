@@ -1,12 +1,12 @@
 ---
 title: Introduzione all'accesso condizionale in Azure Active Directory | Microsoft Docs
-description: "Verificare l'accesso condizionale usando una condizione della località."
+description: Verificare l'accesso condizionale usando una condizione della località.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c780efe92ec69ff692b42a586f55a1036d2ec952
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 04a7736e85c0b149cb627411f61fc147220769ad
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Introduzione all'accesso condizionale in Azure Active Directory
 
@@ -30,7 +30,7 @@ Questo argomento fornisce istruzioni per testare un accesso condizionale in base
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
-In molte organizzazioni è necessaria solo l'autenticazione a più fattori per l'accesso alle app che non viene eseguito dalla Intranet aziendale. Azure Active Directory permette di ottenere facilmente questo risultato mediante la configurazione di criteri di accesso condizionale basati sulla località. Questo argomento fornisce istruzioni dettagliate per la configurazione di criteri correlati, che fanno uso di [indirizzi IP attendibili](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) per distinguere tra i tentativi di accesso eseguiti dalla Intranet aziendale e da tutte le altre località.
+In molte organizzazioni è necessaria solo l'autenticazione a più fattori per l'accesso alle app che non viene eseguito dalla Intranet aziendale. Azure Active Directory permette di ottenere facilmente questo risultato mediante la configurazione di criteri di accesso condizionale basati sulla località. Questo argomento fornisce istruzioni dettagliate per la configurazione di criteri correlati, che fanno uso di [indirizzi IP attendibili](authentication/howto-mfa-mfasettings.md#trusted-ips) per distinguere tra i tentativi di accesso eseguiti dalla Intranet aziendale e da tutte le altre località.
 
 
 ## <a name="prerequisites"></a>prerequisiti
@@ -47,7 +47,7 @@ Per testare questo scenario, seguire questa procedura:
 
 - Configurare indirizzi IP attendibili.
 
-Per altre informazioni sull'argomento, vedere [Indirizzi IP attendibili](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+Per altre informazioni sull'argomento, vedere [Indirizzi IP attendibili](authentication/howto-mfa-mfasettings.md#trusted-ips).
 
 
 ## <a name="policy-configuration-steps"></a>Procedura di configurazione dei criteri

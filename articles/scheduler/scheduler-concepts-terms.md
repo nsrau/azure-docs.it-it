@@ -1,11 +1,11 @@
 ---
-title: "Entità, termini e concetti dell'Utilità di pianificazione | Documentazione Microsoft"
-description: "Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure, inclusi processi e raccolte di processi.  Fornisce un esempio completo di un processo pianificato."
+title: Entità, termini e concetti dell'Utilità di pianificazione | Documentazione Microsoft
+description: Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure, inclusi processi e raccolte di processi.  Fornisce un esempio completo di un processo pianificato.
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91302d57c43a6c9d14aeeee95df3d61fa6f73172
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione
 ## <a name="scheduler-entity-hierarchy"></a>Gerarchia di entità dell'Utilità di pianificazione
@@ -176,7 +176,7 @@ Se un'utilità di pianificazione non riesce, è possibile specificare un criteri
 
 Per impostare un criterio di ripetizione, è possibile specificare due impostazioni aggiuntive: un intervallo tra i tentativi (**retryInterval**) e il numero di tentativi (**retryCount**).
 
-L'intervallo tra tentativi, specificato con l'oggetto **retryInterval** , è l'intervallo di tempo tra i tentativi. Il valore predefinito è 30 secondi, il valore minimo configurabile è 15 secondi e il valore massimo è 18 mesi. I processi inclusi nelle raccolte di processi del livello Gratuito hanno un valore minimo configurabile di 1 ora.  Viene definito nel formato ISO 8601. Analogamente, il valore del numero di tentativi è specificato con l'oggetto **retryCount** e specifica quanti tentativi verranno eseguiti. Il valore predefinito è 4 e il valore massimo è 20\. I valori **retryInterval** e **retryCount** sono facoltativi. A questi oggetti vengono assegnati i valori predefiniti se **retryType** è impostato su **fixed** e non sono specificati valori in modo esplicito.
+L'intervallo tra tentativi, specificato con l'oggetto **retryInterval** , è l'intervallo di tempo tra i tentativi. Il valore predefinito è 30 secondi, il valore minimo configurabile è 15 secondi e il valore massimo è 18 mesi. Viene definito nel formato ISO 8601. Analogamente, il valore del numero di tentativi è specificato con l'oggetto **retryCount** e specifica quanti tentativi verranno eseguiti. Il valore predefinito è 4 e il valore massimo è 20\. I valori **retryInterval** e **retryCount** sono facoltativi. A questi oggetti vengono assegnati i valori predefiniti se **retryType** è impostato su **fixed** e non sono specificati valori in modo esplicito.
 
 ## <a name="see-also"></a>Vedere anche 
  [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)

@@ -2,28 +2,25 @@
 title: Gestione delle risorse di Azure con Cloud Explorer | Documentazione Microsoft
 description: Informazioni su come usare Cloud Explorer per esplorare e gestire le risorse di Azure in Visual Studio.
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 6347dc53-f497-49d5-b29b-e8b9f0e939d7
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: 6347dc53-f497-49d5-b29b-e8b9f0e939d7
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 03/25/2017
 ms.author: ghogen
-ms.openlocfilehash: 676feb0b01ec5622feff4351ade54e9856e54b13
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9d8ae465e80ab38c1d7b0f6082865c110c0ff06b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>Gestire le risorse associate agli account di Azure in Visual Studio Cloud Explorer
 Cloud Explorer consente di visualizzare le risorse di Azure e i gruppi di risorse, controllare le relative proprietà ed eseguire azioni di diagnostica fondamentali per gli sviluppatori dall'interno di Visual Studio. 
 
-Cloud Explorer è basato sullo stack di Azure Resource Manager, proprio come il [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Pertanto riconosce risorse, come i gruppi di risorse di Azure e i servizi di Azure, come le app per la logica e le app per le API. Supporta infine il [controllo degli accessi in base al ruolo](active-directory/role-based-access-control-configure.md) (RBAC). 
+Cloud Explorer è basato sullo stack di Azure Resource Manager, proprio come il [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Pertanto riconosce risorse, come i gruppi di risorse di Azure e i servizi di Azure, come le app per la logica e le app per le API. Supporta infine il [controllo degli accessi in base al ruolo](role-based-access-control/role-assignments-portal.md) (RBAC). 
 
 ## <a name="prerequisites"></a>prerequisiti
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) con il **carico di lavoro di Azure** selezionato o una versione precedente di Visual Studio con [Microsoft Azure SDK per .NET 2.9](https://www.microsoft.com/en-us/download/details.aspx?id=51657).

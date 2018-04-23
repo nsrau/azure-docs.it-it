@@ -2,7 +2,7 @@
 title: Usare un'azione script per installare Solr in HDInsight basato su Linux | Documentazione Microsoft
 description: Informazioni su come installare Solr nei cluster HDInsight Hadoop basati su Linux utilizzando azioni di Script.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: cc93ed5c-a358-456a-91a4-f179185c0e98
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: f642a1f8060f566ec95b23995d0f82191b0c5315
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8a642b569389d960e7a3a1fa2c7cb0f2d87bd809
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Installare e usare Solr nei cluster Hadoop di HDInsight
 
@@ -194,7 +192,7 @@ Dopo aver stabilito un tunnel SSH, seguire questa procedura per usare il dashboa
 
         Salvare il valore restituito, poiché verrà usato in un secondo momento.
 
-2. Nel browser connettersi a **http://NOMEHOST:8983/solr/#/**, dove **NOMEHOST** è il nome stabilito nei passaggi precedenti.
+2. Nel browser connettersi a **http://HOSTNAME:8983/solr/#/**, dove **HOSTNAME** è il nome stabilito nei passaggi precedenti.
 
     La richiesta viene instradata attraverso il tunnel SSH all'interfaccia utente Web di Solr nel cluster. La pagina appare simile alla seguente immagine:
 

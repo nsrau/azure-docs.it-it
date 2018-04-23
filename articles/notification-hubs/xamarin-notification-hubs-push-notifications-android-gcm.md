@@ -3,7 +3,7 @@ title: Introduzione a Hub di notifica per le app per Xamarin.Android | Documenta
 description: Questa esercitazione contiene informazioni su come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione per Xamarin Android.
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 services: notification-hubs
 documentationcenter: xamarin
 ms.assetid: 0be600fe-d5f3-43a5-9e5e-3135c9743e54
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: 1cb6fbc82c493e17815dc60ddcff183a47513bc6
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 7fee7813bbdcf902d5f5ae2d0af7540c8899ad25
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-notification-hubs-for-xamarinandroid-apps"></a>Introduzione a Hub di notifica per le app per Xamarin.Android
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -95,6 +95,20 @@ Creare prima di tutto un nuovo progetto.
 3. Cercare **Xamarin.Firebase.Messaging** e aggiungerlo al progetto.
 
 ### <a name="set-up-notification-hubs-in-your-project"></a>Configurare Hub di notifica nel progetto
+
+#### <a name="registering-with-firebase-cloud-messaging"></a>Registrazione con Firebase Cloud Messaging
+
+Aprire il file **AndroidManifest.xml** e inserire gli elementi `<receiver>` seguenti nell'elemento `<application>`:
+
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+          <intent-filter>
+            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+            <category android:name="${applicationId}" />
+          </intent-filter>
+        </receiver>
+
 1. Raccogliere le informazioni seguenti per l'app Android e l'hub di notifica:
    
    * **Stringa di connessione Listen**: nel dashboard del [portale di Azure] scegliere **Visualizza stringhe di connessione**. Copiare la stringa di connessione *DefaultListenSharedAccessSignature* per questo valore.

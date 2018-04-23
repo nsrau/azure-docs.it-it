@@ -1,5 +1,5 @@
 ---
-title: Esercitazione sul modello SaaS di database per tenant - Database SQL di Azure | Microsoft Docs
+title: Esercitazione sul modello SaaS di un database per ogni tenant - Database SQL di Azure | Microsoft Docs
 description: Distribuire ed esplorare l'applicazione SaaS multi-tenant Wingtip Tickets, che illustra il modello di database per tenant e altri modelli SaaS usando il database SQL di Azure.
 keywords: esercitazione database SQL
 services: sql-database
@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: c62817b6bb60d99a4762e433510cc54d15add35a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 84e6f2303bcfd6a2c91f29e9e9afdc2b84f990ca
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Distribuire ed esplorare un'app SaaS multi-tenant che usa il modello di database per tenant con il database SQL
 
@@ -34,9 +34,9 @@ In questa esercitazione si apprenderà:
 
 Una [serie di esercitazioni correlate](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) consente di esplorare i vari modelli di progettazione e gestione SaaS. Gli argomenti trattati nelle esercitazioni non si limitano a questa distribuzione iniziale. Nel corso delle esercitazioni è possibile esaminare gli script disponibili per vedere come vengono implementati i diversi modelli SaaS. Gli script illustrano come le funzionalità del database SQL semplificano lo sviluppo di applicazioni SaaS.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per completare questa esercitazione, verificare di aver installato Azure PowerShell. Per altre informazioni, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Per completare questa esercitazione, verificare di aver installato Azure PowerShell. Per altre informazioni, vedere [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
 
 ## <a name="deploy-the-wingtip-tickets-saas-application"></a>Distribuire l'applicazione SaaS Wingtip Tickets
 
@@ -82,7 +82,7 @@ Durante la distribuzione dell'applicazione, scaricare il codice sorgente e gli s
 > I contenuti eseguibili (script e DLL) possono essere bloccati da Windows quando si scaricano e si estraggono i file con estensione zip provenienti da un'origine esterna. Seguire i passaggi per sbloccare il file con estensione zip prima di estrarre gli script. L'operazione di sblocco consente di verificare che gli script possono essere eseguiti.
 
 1. Passare al [repository WingtipTicketsSaaS-DbPerTenant di GitHub][github-wingtip-dpt].
-2. Selezionare **Clone or download** (Clona o scarica).
+2. Selezionare **Clona o scarica**.
 3. Selezionare **Download ZIP** (Scarica ZIP) e salvare il file.
 4. Fare clic con il pulsante destro del mouse sul file **WingtipTicketsSaaS-DbPerTenant-master.zip** e quindi scegliere **Proprietà**.
 5. Nella scheda **Generale** selezionare **Annulla blocco** > **Applica**.
@@ -106,9 +106,9 @@ L'app illustra le sedi che ospitano gli eventi. I tipi di sede includono sale co
 
 All'interno dell'app ogni tenant ha un database SQL distribuito in un pool elastico SQL.
 
-Una pagina centrale **Events Hub** visualizza un elenco di collegamenti ai tenant nella distribuzione.
+Una pagina centrale **Events Hub** (Hub eventi) visualizza un elenco di collegamenti ai tenant nella distribuzione.
 
-1. Usare l'URL per aprire la pagina Events Hub nel Web browser: http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net. Sostituire &lt;utente&gt; con il valore relativo all'utente della distribuzione.
+1. Usare l'URL per aprire l'hub eventi nel Web browser: http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net. Sostituire &lt;utente&gt; con il valore relativo all'utente della distribuzione.
 
     ![Hub eventi](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
@@ -124,10 +124,10 @@ L'applicazione Wingtip usa [*Gestione traffico di Azure*](../traffic-manager/tra
 
     Le parti del formato precedente sono illustrate nella tabella seguente.
 
-    | Parte URL        | Descrizione       |
+    | Parte URL        | DESCRIZIONE       |
     | :-------------- | :---------------- |
     | http://events.wingtip-dpt | Le parti degli eventi dell'app Wingtip.<br /><br /> *-dpt* distingue l'implementazione di *database per tenant* dell'app Wingtip Tickets dalle altre implementazioni, ad esempio quelle di app per tenant *autonome* (*-sa*) o di *database multi-tenant* (*-mt*). |
-    | .*&lt;utente&gt;* | *af1* nell'esempio. |
+    | .*&lt;user&gt;* | *af1* nell'esempio. |
     | .trafficmanager.net/ | Gestione traffico, URL di base. |
     | fabrikamjazzclub | Identifica il tenant denominato Fabrikam Jazz Club. |
     | &nbsp; | &nbsp; |

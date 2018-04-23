@@ -14,10 +14,10 @@ ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.openlocfilehash: c5e904c741c96808555718b0d90368e1bf770ecb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Supporto Gremlin Graph di Azure Cosmos DB
 Azure Cosmos DB supporta il linguaggio di attraversamento di grafi [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) di [Apache Tinkerpop](http://tinkerpop.apache.org), ovvero un'API Graph per la creazione di entità di grafi e l'esecuzione di operazioni di query sui grafi. È possibile usare il linguaggio Gremlin per creare le entità dei grafi (vertici e archi), modificare proprietà all'interno di tali entità, eseguire query e attraversamenti ed eliminare entità. 

@@ -1,11 +1,11 @@
 ---
-title: "Creare una VM Linux in Azure con più schede di interfaccia di rete | Documentazione Microsoft"
-description: "Informazioni su come creare una VM Linux con più schede di interfaccia di rete collegate usando l'interfaccia della riga di comando di Azure 2.0 o i modelli di Resource Manager."
+title: Creare una VM Linux in Azure con più schede di interfaccia di rete | Documentazione Microsoft
+description: Informazioni su come creare una VM Linux con più schede di interfaccia di rete collegate usando l'interfaccia della riga di comando di Azure 2.0 o i modelli di Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 635d1373a51f2f2e4d4f7ab5053e520f5b9363a6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1968222940888c1e5399e257a9694d47adce2e45
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Come creare una macchina virtuale Linux in Azure con più schede di interfaccia di rete
 È possibile creare una macchina virtuale (VM) in Azure con più interfacce di rete virtuale (NIC) collegate. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end oppure una rete dedicata a una soluzione di monitoraggio o backup. Questo articolo illustra come creare una VM con più schede di interfaccia di rete collegate e come aggiungere o rimuovere le schede di interfaccia di rete da una VM esistente. Le differenti [dimensioni della macchina virtuale](sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
@@ -87,7 +87,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nics"></a>Creare una macchina virtuale e collegare le schede di interfaccia di rete
 Quando si crea la macchina virtuale, specificare le schede di interfaccia di rete create con `--nics`. L'utente deve anche fare attenzione quando seleziona la dimensione della macchina virtuale. Esistono dei limiti per quanto riguarda il numero totale di schede di rete che è possibile aggiungere. Ulteriori informazioni sulle [dimensioni delle macchine virtuali di Linux](sizes.md). 
 
-Creare una VM con il comando [az vm create](/cli/azure/vm#az_vm_create). L'esempio seguente crea una VM denominata *myVM*:
+Creare una VM con il comando [az vm create](/cli/azure/vm#az_vm_create). L'esempio seguente crea una macchina virtuale denominata *myVM*:
 
 ```azurecli
 az vm create \
@@ -99,6 +99,8 @@ az vm create \
     --generate-ssh-keys \
     --nics myNic1 myNic2
 ```
+
+Aggiungere le tabelle di routing al sistema operativo guest. A tale scopo, completare i passaggi descritti in [Configurare il sistema operativo guest per più schede di interfaccia di rete](#configure-guest-os-for- multiple-nics).
 
 ## <a name="add-a-nic-to-a-vm"></a>Aggiungere una scheda di interfaccia di rete a una VM
 I passaggi precedenti hanno consentito di creare una VM con più schede di interfaccia di rete. È anche possibile aggiungere schede di interfaccia di rete a una VM esistente con l'interfaccia della riga di comando di Azure 2.0. Le differenti [dimensioni della macchina virtuale](sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza. Se necessario, è possibile [ridimensionare una VM](change-vm-size.md).
@@ -135,6 +137,8 @@ Avviare la VM con [az vm start](/cli/azure/vm#az_vm_start):
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
 ```
+
+Aggiungere le tabelle di routing al sistema operativo guest. A tale scopo, completare i passaggi descritti in [Configurare il sistema operativo guest per più schede di interfaccia di rete](#configure-guest-os-for- multiple-nics).
 
 ## <a name="remove-a-nic-from-a-vm"></a>Rimuovere una scheda di interfaccia di rete da una VM
 Per rimuovere una scheda di interfaccia di rete da una VM esistente, deallocare prima di tutto la VM con [az vm deallocate](/cli/azure/vm#az_vm_deallocate). L'esempio seguente dealloca la VM denominata *myVM*:
@@ -177,8 +181,9 @@ Ulteriori informazioni sulla [creazione di più istanze utilizzando *Copia*](../
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-È possibile consultare un esempio completo di [creazione di più schede di rete utilizzando i modelli di Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+È possibile consultare un esempio completo di [creazione di più schede di rete utilizzando i modelli di Resource Manager](../../virtual-network/template-samples.md).
 
+Aggiungere le tabelle di routing al sistema operativo guest. A tale scopo, completare i passaggi descritti in [Configurare il sistema operativo guest per più schede di interfaccia di rete](#configure-guest-os-for- multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Configurare il sistema operativo guest per più schede di rete
 Quando si aggiungono più schede di rete a una macchina virtuale Linux, è necessario creare regole di routing. Queste regole consentono alla VM di inviare e ricevere traffico appartenente a una scheda di rete specifica. In caso contrario, il traffico appartenente a *eth1*, ad esempio, non può essere elaborato correttamente dalla route predefinita specificata.
@@ -190,7 +195,7 @@ echo "200 eth0-rt" >> /etc/iproute2/rt_tables
 echo "201 eth1-rt" >> /etc/iproute2/rt_tables
 ```
 
-Per applicare e rendere permanente la modifica durante l'attivazione dello stack di rete, modificare */etc/sysconfig/network-scipts/ifcfg-eth0* e */etc/sysconfig/network-scipts/ifcfg-eth1*. Modificare la riga *"NM_CONTROLLED = yes"* in *"NM_CONTROLLED = no"*. Senza questo passaggio, le regole aggiuntive o il routing aggiuntivo non vengono applicati automaticamente.
+Per applicare e rendere permanente la modifica durante l'attivazione dello stack di rete, modificare */etc/sysconfig/network-scripts/ifcfg-eth0* e */etc/sysconfig/network-scripts/ifcfg-eth1*. Modificare la riga *"NM_CONTROLLED = yes"* in *"NM_CONTROLLED = no"*. Senza questo passaggio, le regole aggiuntive o il routing aggiuntivo non vengono applicati automaticamente.
  
 Estendere quindi le tabelle di routing. Si supponga che sia disponibile la configurazione seguente:
 

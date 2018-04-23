@@ -3,7 +3,7 @@ title: Informazioni su HBase in Azure HDInsight | Microsoft Docs
 description: Introduzione ad Apache HBase in HDInsight, un database NoSQL basato su Hadoop. Informazioni sui casi di utilizzo e confronto di HBase con altri cluster Hadoop.
 keywords: BigTable, NoSQL, informazioni su HBase, Apache HBase, HBase, panoramica di HBbase,
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -11,17 +11,15 @@ editor: cgronlun
 ms.assetid: d2a76d53-133a-4849-a30c-88d9c794391c
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 9b1453828c61d9944938b695b329aebec5ab06e4
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 36c6a16520d78d4fa2465a1fdea585a3b3c88cd7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a>Informazioni su HBase in HDInsight: un database NoSQL che fornisce funzionalità di tipo BigTable per Hadoop
 Apache HBase è un database NoSQL open source basato su Hadoop e modellato su Google BigTable. HBase fornisce accesso casuale e coerenza assoluta per quantità elevate di dati non strutturati e semistrutturati in un database privo di schema organizzato per famiglie di colonne.

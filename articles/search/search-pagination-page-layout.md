@@ -1,24 +1,19 @@
 ---
 title: Come impaginare i risultati della ricerca in Ricerca di Azure | Documentazione Microsoft
-description: "L’impaginazione in Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure."
-services: search
-documentationcenter: 
+description: L’impaginazione in Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: a0a1d315-8624-4cdf-b38e-ba12569c6fcc
+manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 1054e15a2751c53aad5dbc8054c4cec41102dee9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ef946c6c0ab9c111932b3145fd46ae6ef2684cd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Come impaginare i risultati della ricerca in Ricerca di Azure
 In questo articolo vengono fornite indicazioni su come utilizzare l'API REST del servizio Ricerca di Azure per implementare elementi standard di una pagina di risultati di ricerca, ad esempio i conteggi totali, il recupero di documenti, i criteri di ordinamento e la navigazione.

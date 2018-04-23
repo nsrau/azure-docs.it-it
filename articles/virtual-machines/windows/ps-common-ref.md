@@ -2,9 +2,9 @@
 title: Comandi di PowerShell comuni per le macchine virtuali di Azure | Microsoft Docs
 description: Comandi di PowerShell comuni utili per iniziare a creare e gestire le macchine virtuali Windows in Azure.
 services: virtual-machines-windows
-documentationcenter: 
-author: davidmu1
-manager: timlt
+documentationcenter: ''
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ba3839a2-f3d5-4e19-a5de-95bfb1c0e61e
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/17/2017
-ms.author: davidmu
-ms.openlocfilehash: 7744f0bef5969a41130c09635d608df1a2952993
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cynthn
+ms.openlocfilehash: 313a313764f8ba14c9661429d1f6a8463778c934
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>Comandi di PowerShell comuni per la creazione e la gestione di macchine virtuali di Azure
 

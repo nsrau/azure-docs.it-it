@@ -1,12 +1,12 @@
----
+﻿---
 title: Usare l'API di Azure Cosmos DB per MongoDB per creare un'app Web | Microsoft Docs
 description: Esercitazione di Azure Cosmos DB per creare un'app Web di database online usando l'API per MongoDB.
 keywords: esempi di mongodb
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
+manager: kfile
+editor: ''
+documentationcenter: ''
 ms.assetid: 61a2ab3a-2fc3-4d49-a263-ed87c66628f6
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: f7aed1c69e930bdd5e5b451fa2726a75b78515eb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 76a8e19bacdbde938758bf41ed7f209521f513aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB: Connettersi a un'app MongoDB usando .NET
 
@@ -54,7 +54,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="update-your-connection-string"></a>Aggiornare la stringa di connessione
 
 1. Nella pagina **Azure Cosmos DB** del portale di Azure selezionare l'account dell'API per MongoDB. 
-2. Nella barra a sinistra del pannello Account fare clic su **Guida introduttiva**. 
+2. Nella barra a sinistra del pannello Account fare clic su **Avvio rapido**. 
 3. Scegliere la piattaforma (*driver .NET*, *driver Node.js*, *MongoDB Shell*, *driver Java*, *driver Python*). Se il driver o lo strumento non è visualizzato nell'elenco, tenere presente che altri frammenti di codice di connessione vengono continuamente documentati. 
 4. Copiare e incollare il frammento di codice nell'app MongoDB per iniziare.
 

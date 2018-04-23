@@ -1,25 +1,18 @@
 ---
 title: Gestire gli amministratori del server in Azure Analysis Services | Microsoft Docs
 description: Informazioni su come gestire gli amministratori del server per un server Analysis Services in Azure.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: d90f1e3df8f5934d5c334ec72b5726f105842ca1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: def09f2853f761f3fefca80f341e6cc0557bac86
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-server-administrators"></a>Gestire gli amministratori del server
 Gli amministratori del server devono essere un utente o un gruppo valido in Azure Active Directory (Azure AD) per il tenant in cui si trova il server. È possibile usare **Amministratori di Analysis Services** per il server nel portale di Azure o Proprietà server in SSMS per gestire gli amministratori del server. 
@@ -41,5 +34,5 @@ Gli amministratori del server devono essere un utente o un gruppo valido in Azur
 ## <a name="next-steps"></a>Passaggi successivi 
 [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md)  
 [Gestire ruoli e utenti del database](analysis-services-database-users.md)  
-[Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md)  
+[Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md)  
 

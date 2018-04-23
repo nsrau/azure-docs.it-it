@@ -1,23 +1,19 @@
 ---
-title: Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure | Microsoft Docs
-description: Eseguire i meccanismi di query avanzate con funzioni JavaScript definite dall'utente
-keywords: javascript, funzioni definite dall'utente, udf
+title: Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure
+description: Questo articolo descrive come eseguire meccanismi di query avanzati con funzioni JavaScript definite dall'utente in Analisi di flusso di Azure.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: f2b14029ebea7f9cf1fa74a384ecbb72b08b7ad6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 462bd55dfae3a2c471d1111637a6de0bc95e6bfa
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure
 L'Analisi di flusso di Azure supporta le funzioni definite dall'utente nel linguaggio JavaScript. Con il vasto set di metodi **String**, **RegExp**, **Math**, **Array** e **Date** offerti da JavaScript, risulta più facile creare trasformazioni di dati complessi con processi di Analisi di flusso.
@@ -138,7 +134,7 @@ FROM
 ```
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)

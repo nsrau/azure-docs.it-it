@@ -11,49 +11,49 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: c991a1535b82a76a3d0b9bdbf4ede8f3e22bc866
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4b4a5b9199fe648425304eaa8db0130bb1b4264d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch (anteprima)
 
 Usando l'interfaccia della riga di comando di Azure è possibile eseguire processi di Batch senza scrittura del codice.
 
-Creare e usare file modello con l'interfaccia della riga di comando di Azure per creare pool, processi e attività di Batch. I file di input dei processi possono essere caricati facilmente nell'account di archiviazione associato all'account Batch. È inoltre possibile scaricare i file di output dei processi.
+Creare e usare file modello con l'interfaccia della riga di comando di Azure per creare pool, processi e attività di Batch. Caricare facilmente i file di input dei processi nell'account di archiviazione associato all'account Batch e scaricare i file di output dei processi.
 
 ## <a name="overview"></a>Panoramica
 
-Un'estensione dell'interfaccia della riga di comando di Azure consente a utenti non sviluppatori di usare Batch end-to-end. È possibile creare un pool, caricare i dati di input, creare processi e attività associate e scaricare i dati di output risultanti senza necessità di codice, usando direttamente l'interfaccia della riga di comando o integrandola in script.
+Un'estensione dell'interfaccia della riga di comando di Azure consente a utenti non sviluppatori di usare Batch end-to-end. Con i soli comandi dell'interfaccia della riga di comando, è possibile creare un pool, caricare dati di input, creare processi e attività associate e scaricare i dati di output risultanti. Non è necessario alcun codice aggiuntivo. Eseguire i comandi dell'interfaccia della riga di comando direttamente o integrarli negli script.
 
-I modelli di Batch sono basati sul [supporto di Batch esistente nell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/batch/batch-cli-get-started#json-files-for-resource-creation), che consente ai file JSON di specificare i valori delle proprietà per la creazione di pool, processi, attività e altri elementi. Con i modelli di Batch, vengono aggiunte le funzionalità seguenti a ciò che è possibile fare con i file JSON:
+I modelli di Batch sono basati sul [supporto di Batch esistente nell'interfaccia della riga di comando di Azure](batch-cli-get-started.md#json-files-for-resource-creation) per i file JSON e consentono di specificare i valori delle proprietà per la creazione di pool, processi, attività e altri elementi. Con i modelli di Batch, vengono aggiunte le funzionalità seguenti a ciò che è possibile fare con i file JSON:
 
 -   È possibile definire parametri. Quando viene usato il modello, per creare l'elemento vengono specificati solo i valori dei parametri, mentre gli altri valori delle proprietà dell'elemento sono specificati nel corpo del modello. Un utente che conosce Batch e le applicazioni che devono essere eseguite da Batch può creare modelli, specificando i valori delle proprietà di pool, processi e attività. Un utente che ha meno familiarità con Batch e/o con le applicazioni può specificare solo i valori per i parametri definiti.
 
 -   Le factory delle attività di processo creano una o più attività associate a un processo, evitando di dover creare diverse definizioni di attività e semplificando così notevolmente l'invio di processi.
 
 
-È necessario fornire file di dati di input per i processi e spesso vengono generati file di dati di output. Per impostazione predefinita, a ogni account Batch è associato un account di archiviazione e i file possono essere facilmente trasferiti da e verso questo account di archiviazione usando l'interfaccia della riga di comando, senza necessità di codici o credenziali di archiviazione.
+I processi in genere usano file di dati di input e producono file di dati di output. Un account di archiviazione è associato, per impostazione predefinita, ad ogni account Batch. È possibile trasferire i file da e verso questo account di archiviazione usando l'interfaccia della riga di comando, senza alcun codice e senza credenziali di archiviazione.
 
-Ad esempio, [ffmpeg](http://ffmpeg.org/) è una diffusa applicazione che elabora i file audio e video. L'interfaccia della riga di comando di Azure Batch può essere usata per richiamare ffmpeg per la transcodifica di file video di origine in file con risoluzioni diverse.
+Ad esempio, [ffmpeg](http://ffmpeg.org/) è una diffusa applicazione che elabora i file audio e video. Di seguito è illustrata la procedura con l'interfaccia della riga di comando di Azure Batch per richiamare ffmpeg per la transcodifica di file video di origine in file con risoluzioni diverse.
 
--   Viene creato un modello di pool. L'utente che crea il modello sa come chiamare l'applicazione ffmpeg e conosce i relativi requisiti. Specifica i valori appropriati per sistema operativo, dimensioni VM, modalità di installazione di ffmpeg (ad esempio da un pacchetto dell'applicazione o usando uno strumento di gestione pacchetti) e altri valori delle proprietà del pool. I parametri vengono creati in modo che quando il modello viene usato, è necessario specificare solo l'ID del pool e il numero di VM.
+-   Creare un modello di pool. L'utente che crea il modello sa come chiamare l'applicazione ffmpeg e conosce i relativi requisiti. Specifica i valori appropriati per sistema operativo, dimensioni VM, modalità di installazione di ffmpeg (ad esempio da un pacchetto dell'applicazione o usando uno strumento di gestione pacchetti) e altri valori delle proprietà del pool. I parametri vengono creati in modo che quando il modello viene usato, è necessario specificare solo l'ID del pool e il numero di VM.
 
--   Viene creato un modello di processo. L'utente che crea il modello sa come si deve richiamare ffmpeg per eseguire la transcodifica di un video di origine in un file con una risoluzione diversa e specifica la riga di comando dell'attività. L'utente sa inoltre che è presente una cartella contenente i file video di origine, con un'attività necessaria per ogni file di input.
+-   Creare un modello di processo. L'utente che crea il modello sa come si deve richiamare ffmpeg per eseguire la transcodifica di un video di origine in un file con una risoluzione diversa e specifica la riga di comando dell'attività. L'utente sa inoltre che è presente una cartella contenente i file video di origine, con un'attività necessaria per ogni file di input.
 
 -   Un utente finale con un set di file video di cui eseguire la transcodifica deve prima di tutto creare un pool usando il modello di pool, specificando solo l'ID del pool e il numero di VM necessarie. Può quindi caricare i file di origine per la transcodifica. È quindi possibile inviare un processo usando il modello di processo, specificando solo l'ID del pool e il percorso dei file di origine caricati. Viene creato il processo di batch con un'attività per ogni file di input generato. Infine, i file di output transcodificati possono essere scaricati.
 
 ## <a name="installation"></a>Installazione
 
-Il modello e le funzionalità di trasferimento di file richiedono l'installazione di un'estensione.
+Installare un'estensione dell'interfaccia della riga di comando di Azure Batch per usare il modello e le funzionalità di trasferimento di file.
 
-Per istruzioni su come installare l'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Per istruzioni su come installare l'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli).
 
-Dopo avere installato l'interfaccia della riga di comando di Azure, è possibile installare la versione più recente dell'estensione di Batch mediante il comando dell'interfaccia della riga di comando seguente:
+Dopo aver installato l'interfaccia della riga di comando di Azure, installare la versione più recente dell'estensione di Batch mediante il comando dell'interfaccia della riga di comando seguente:
 
 ```azurecli
-az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.1/azure_batch_cli_extensions-2.0.1-py2.py3-none-any.whl
+az extension add --name azure-batch-cli-extensions
 ```
 
 Per ulteriori informazioni sull'estensione del Batch, vedere [Estensioni per interfaccia della riga di comando Batch di Microsoft Azure per Windows, Mac e Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux).
@@ -76,23 +76,23 @@ I modelli di Azure Batch sono simili ai modelli di Azure Resource Manager per qu
 
 -   **Variabili**
 
-    -   È possibile specificare valori dei parametri semplici o complessi in un'unica posizione e usarli in una o più posizioni nel corpo del modello. Le variabili possono semplificare il modello e ridurne le dimensioni, oltre che rendere più facile la sua gestione, grazie alla presenza di un'unica posizione per modificare le proprietà il cui valore può cambiare.
+    -   È possibile specificare valori dei parametri semplici o complessi in un'unica posizione e usarli in una o più posizioni nel corpo del modello. Le variabili possono semplificare il modello e ridurne le dimensioni, oltre che renderne più facile la gestione, grazie alla presenza di un'unica posizione per la modifica delle proprietà.
 
 -   **Costrutti di livello superiore**
 
-    -   Nel modello sono disponibili alcuni costrutti di livello superiore che non sono ancora disponibili nelle API di Batch. È ad esempio possibile definire una factory di attività in un modello di processo che crea più attività per il processo usando una definizione di attività comune. Questi costrutti evitano la necessità di usare codice per creare dinamicamente più file JSON, ad esempio un file per ogni attività, oltre che creare file di script per installare le applicazioni tramite uno strumento di gestione pacchetti, ad esempio.
+    -   Nel modello sono disponibili alcuni costrutti di livello superiore che non sono ancora disponibili nelle API di Batch. È ad esempio possibile definire una factory di attività in un modello di processo che crea più attività per il processo usando una definizione di attività comune. Questi costrutti evitano la necessità di usare codice per creare dinamicamente più file JSON, ad esempio un file per ogni attività, oltre che di creare file di script per installare le applicazioni tramite uno strumento di gestione pacchetti.
 
-    -   A un certo punto, dove applicabile, questi costrutti possono essere aggiunti al servizio Batch e disponibili nelle API, nell'interfaccia utente e in altre posizioni di Batch.
+    -   A un certo punto, questi costrutti possono essere aggiunti al servizio Batch e vengono resi disponibili nelle API di Batch, nell'interfaccia utente e in altre posizioni.
 
 ### <a name="pool-templates"></a>Modelli di pool
 
-Oltre alle funzionalità standard di parametri e variabili dei modelli, il modello di pool supporta i costrutti di livello superiore seguenti:
+I modelli di pool supportano le funzionalità standard di parametri e variabili dei modelli. Supportano anche il costrutto di livello superiore seguente:
 
 -   **Riferimenti ai pacchetti**
 
-    -   Facoltativamente, è possibile copiare il software in nodi del pool usando strumenti di gestione dei pacchetti. Vengono specificati lo strumento di gestione dei pacchetti e l'ID del pacchetto. La possibilità di dichiarare uno o più pacchetti evita la necessità di creare uno script che ottiene i pacchetti necessari, installare lo script ed eseguire lo script in ogni nodo del pool.
+    -   Facoltativamente, è possibile copiare il software in nodi del pool usando strumenti di gestione dei pacchetti. Vengono specificati lo strumento di gestione dei pacchetti e l'ID del pacchetto. Dichiarando uno o più pacchetti, si evita di creare uno script che ottiene i pacchetti necessari, installare lo script ed eseguirlo in ogni nodo del pool.
 
-Di seguito è riportato un esempio di un modello che crea un pool di VM Linux con l'applicazione ffmpeg installata e richiede solo una stringa di ID del pool e il numero di VM da fornire:
+Di seguito è riportato un esempio di un modello che crea un pool di macchine virtuali Linux con ffmpeg installato. Per usarlo, fornire solo una stringa di ID del pool e il numero di macchine virtuali nel pool:
 
 ```json
 {
@@ -139,7 +139,7 @@ Di seguito è riportato un esempio di un modello che crea un pool di VM Linux co
 }
 ```
 
-Se il nome del file del modello fosse _pool-ffmpeg.json_, sarebbe possibile richiamare il modello nel modo seguente:
+Se il nome del file del modello fosse _pool-ffmpeg.json_, richiamare il modello nel modo seguente:
 
 ```azurecli
 az batch pool create --template pool-ffmpeg.json
@@ -147,13 +147,13 @@ az batch pool create --template pool-ffmpeg.json
 
 ### <a name="job-templates"></a>Modelli di processo
 
-Oltre alle funzionalità standard di parametri e variabili dei modelli, il modello di processo supporta i costrutti di livello superiore seguenti:
+I modelli di processo supportano le funzionalità standard di parametri e variabili dei modelli. Supportano anche il costrutto di livello superiore seguente:
 
 -   **Factory di attività**
 
     -   Vengono create più attività per un processo da una definizione di attività. Sono supportati tre tipi di factory di attività: processo parametrico di organizzazione, attività per file e raccolta di attività.
 
-Di seguito è riportato un esempio di un modello che crea un processo che usa ffmpeg per eseguire la transcodifica di file video MP4 in file con una di due risoluzioni inferiori, con un'attività creata per ogni file video di origine:
+Di seguito è riportato un esempio di un modello che crea un processo per eseguire la transcodifica di file video MP4 in file con una di due risoluzioni inferiori usando ffmpeg. Viene creata un'attività per ogni file video di origine:
 
 ```json
 {
@@ -229,7 +229,7 @@ Di seguito è riportato un esempio di un modello che crea un processo che usa ff
 }
 ```
 
-Se il nome del file del modello fosse _job-ffmpeg.json_, sarebbe possibile richiamare il modello nel modo seguente:
+Se il nome del file del modello fosse _job-ffmpeg.json_, richiamare il modello nel modo seguente:
 
 ```azurecli
 az batch job create --template job-ffmpeg.json
@@ -237,11 +237,11 @@ az batch job create --template job-ffmpeg.json
 
 ## <a name="file-groups-and-file-transfer"></a>Gruppi e trasferimenti di file
 
-La maggior parte dei processi e delle attività richiede file di input e produce file di output. Sia i file di input che i file di output in genere devono essere trasferiti dal client al nodo o dal nodo al client. L'estensione dell'interfaccia della riga di comando di Azure Batch consente di evitare il trasferimento di file e usa l'account di archiviazione creato per impostazione predefinita per ogni account Batch.
+La maggior parte dei processi e delle attività richiede file di input e produce file di output. In genere, sia i file di input che i file di output devono essere trasferiti dal client al nodo o dal nodo al client. L'estensione dell'interfaccia della riga di comando di Azure Batch consente di evitare il trasferimento di file e usa l'account di archiviazione creato per impostazione predefinita per ogni account Batch.
 
 Un gruppo di file equivale a un contenitore creato nell'account di archiviazione di Azure. Il gruppo di file può avere sottocartelle.
 
-L’estensione per interfaccia della riga di comando Batch fornisce comandi che consentono di caricare i file da un client a un gruppo di file specificato e di scaricare i file dal gruppo di file specificato a un client.
+L'estensione dell'interfaccia della riga di comando di Batch fornisce comandi che consentono di caricare i file da un client a un gruppo di file specificato e di scaricare i file dal gruppo di file specificato a un client.
 
 ```azurecli
 az batch file upload --local-path c:\source_videos\*.mp4 
@@ -251,9 +251,9 @@ az batch file download --file-group ffmpeg-output --local-path
     c:\output_lowres_videos
 ```
 
-I modelli di processo e di pool consentono di specificare che i file archiviati in gruppi di file vengano copiati nei nodi del pool o dai nodi del pool a un gruppo di file. Nel modello di processo illustrato in precedenza, ad esempio, viene specificato il gruppo di file "ffmpeg-input" per la factory di attività come posizione dei file video di origine copiati nel nodo per la transcodifica. Il gruppo di file "ffmpeg-output" viene usato come posizione in cui vengono copiati i file di output transcodificati dal nodo che esegue ogni attività.
+I modelli di processo e di pool consentono di specificare che i file archiviati in gruppi di file vengano copiati nei nodi del pool o dai nodi del pool a un gruppo di file. Nel modello di processo illustrato in precedenza, ad esempio, viene specificato il gruppo di file "ffmpeg-input" per la factory di attività come posizione dei file video di origine copiati nel nodo per la transcodifica. Il gruppo di file "ffmpeg-output" costituisce la posizione in cui vengono copiati i file di output transcodificati dal nodo che esegue ogni attività.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Il supporto per i modelli e il trasferimento di file è stato attualmente aggiunto solo all'interfaccia della riga di comando di Azure. L'obiettivo è quello di allargare il numero di utenti che possono usare Batch, consentendone l'utilizzo anche a ricercatori, utenti IT e così via che non hanno la necessità di sviluppare codice usando le API di Batch. Senza dover scrivere il codice, gli utenti che conoscono Azure Batch e le applicazioni che devono essere eseguite da Batch possono creare modelli per la creazione di pool e processi. Con i parametri dei modelli, gli utenti che non hanno una conoscenza approfondita di Batch e delle applicazioni possono usare i modelli.
 

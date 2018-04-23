@@ -12,16 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/19/2018
+ms.date: 4/6/2018
 ms.author: raiye
-ms.openlocfilehash: c42986e4cdae1d5156863d92eb946220805f7b48
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5631fb8df6453cf7a1806947f0e29ab7fff7093e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## <a name="march-guest-os"></a>Sistema operativo guest di marzo
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| Rel 18-03 | [4088787], [4088776] |Sicurezza di Windows 10 |5.17 |13 marzo 2018 |
+| Rel 18-03 | [4088878], [4088880], [4088879] |Solo sicurezza di Windows |2.72, 3.59, 4.52 |13 marzo 2018 |
+| Rel 18-03 | [4089187] |Internet Explorer |2.72, 3.59, 4.52 |13 marzo 2018 |
+| Rel 18-03 | [4074595] |Lampeggiante |3.59, 4.52, 5.17 |13 marzo 2018 |
+| N/D | [4074598] |Rollup del mese di febbraio non correlato alla sicurezza |2.72 |13 febbraio 2018 |
+| N/D | [4074593] |Rollup del mese di febbraio non correlato alla sicurezza |3.59 |13 febbraio 2018 |
+| N/D | [4074594] |Rollup del mese di febbraio non correlato alla sicurezza |4.52 |13 febbraio 2018 |
+| N/D | [4074837] |Aggiornamento del fuso orario |2.72, 3.59, 4.52 |13 febbraio 2018 |
+
 
 ## <a name="february-guest-os"></a>Sistema operativo guest di febbraio
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -213,7 +226,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Rel 17-03 |  [4012213] |Unico aggiornamento di qualità della sicurezza del mese di marzo 2017 per Windows 8.1 e Windows Server 2012 R2 |4.40 |14 marzo 2017 |
 | Rel 17-03 |  [4012214] |Unico aggiornamento di qualità della sicurezza del mese di marzo 2017 per Windows Server 2012|3.47 |14 marzo 2017 |
 | Rel 17-03 |  [4012204] |Aggiornamento della sicurezza per Internet Explorer |2.60, 3.47, 4.40, 5.5 |14 marzo 2017 |
-| N/D |  [4012864] |Modifiche dell'ora legale in Windows per il Cipro del Nord, la Mongolia e la regione russa di Saratov |2.60, 3.47, 4.40 |14 marzo 2017 |
+| N/D |  [4012864] |Modifiche dell'ora legale in Windows per Cipro, la Mongolia e la regione russa di Saratov |2.60, 3.47, 4.40 |14 marzo 2017 |
 | N/D |  [3212646] |Rollup di qualità mensile per la sicurezza di gennaio 2017 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.60 |14 marzo 2017 |
 | N/D |  [3205409] |Rollup di qualità mensile per la sicurezza di dicembre 2016 per Windows Server 2012 |3.47 |14 marzo 2017 |
 | N/D |  [3205401] |Rollup di qualità mensile per la sicurezza di dicembre 2016 per Windows 8.1 e Windows Server 2012 R2 |4.40 |14 marzo 2017 |
@@ -601,6 +614,17 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[2999802] |In Windows vengono stampate linee a tinta unita invece che linee tratteggiate |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2896881] |È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
 
+[4088787]: http://support.microsoft.com/kb/4088787
+[4088776]: http://support.microsoft.com/kb/4088776 
+[4088878]: http://support.microsoft.com/kb/4088878
+[4088880]: http://support.microsoft.com/kb/4088880
+[4088879]: http://support.microsoft.com/kb/4088879
+[4089187]: http://support.microsoft.com/kb/4089187
+[4088785]: http://support.microsoft.com/kb/4088785
+[4074598]: http://support.microsoft.com/kb/4074598
+[4074593]: http://support.microsoft.com/kb/4074593
+[4074594]: http://support.microsoft.com/kb/4074594
+[4074837]: http://support.microsoft.com/kb/4074837
 
 [4074590]: http://support.microsoft.com/kb/4074590
 [4074588]: http://support.microsoft.com/kb/4074588 

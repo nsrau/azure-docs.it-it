@@ -2,10 +2,10 @@
 title: Eseguire l'aggiornamento al proxy di applicazione di Azure AD | Microsoft Docs
 description: Scegliere la soluzione del proxy migliore se si esegue l'aggiornamento da Microsoft Forefront o Unified Access Gateway.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -45,7 +45,7 @@ Usare questa tabella per comprendere come vengono confrontate tra loro Threat Ma
 | Autenticazione con intestazioni | - | Sì | - | Sì, con PingAccess | 
 | Sicurezza a livello di cloud | - | - | - | Sì | 
 | Accesso condizionale | - | Sì | - | Sì |
-| Nessun componente all'interno della zona demilitarizzata (DMZ) | - | - | - | Sì |
+| Nessun componente all'interno della rete perimetrale | - | - | - | Sì |
 | Nessuna connessione in ingresso | - | - | - | Sì |
 
 Per la maggior parte degli scenari, è consigliabile l'applicazione Azure AD come soluzione moderna. Il Proxy applicazione Web è preferito esclusivamente in scenari che richiedono un server proxy per il servizio federativo AD e non è possibile usare domini personalizzati in Azure Active Directory. 

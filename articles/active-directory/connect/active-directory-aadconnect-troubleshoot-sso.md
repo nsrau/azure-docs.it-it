@@ -28,7 +28,7 @@ Questo articolo consente di trovare informazioni utili per risolvere i problemi 
 
 - In alcuni casi, l'abilitazione dell'accesso Single Sign-On facile può richiedere fino a 30 minuti.
 - Se si disabilita e si abilita di nuovo l'accesso Single Sign-On facile nel tenant, gli utenti non potranno usare l'accesso Single Sign-On fino alla scadenza dei ticket Kerberos memorizzati nella cache, validi in genere per 10 ore.
-- Non è disponibile il supporto per il browser Edge.
+- Non è disponibile il supporto per il browser Microsoft Edge.
 - Se l'accesso SSO facile ha esito positivo, l'utente non ha la possibilità di scegliere **Mantieni l'accesso**. A causa di questo comportamento, gli scenari di mapping di SharePoint e OneDrive non funzionano.
 - I client Office con versione precedente alla 16.0.8730.xxxx non supportano l'accesso non interattivo con l'accesso Single Sign-On facile. Per eseguire l'accesso in quei client, gli utenti devono immettere il nome utente ma non la password.
 - L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox.

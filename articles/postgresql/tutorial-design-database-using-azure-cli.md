@@ -1,5 +1,21 @@
--- titolo: 'Esercitazione: Progettare un'istanza di Database di Azure per PostgreSQL con l'interfaccia della riga di comando di Azure' descrizione: Questa esercitazione illustra come creare e configurare il primo server Database di Azure per PostgreSQL ed eseguire query con l'interfaccia della riga di comando di Azure.
-services: postgresql author: rachel-msft ms.author: raagyema manager: kfile editor: jasonwhowell ms.service: postgresql ms.custom: mvc ms.devlang: azure-cli ms.topic: tutorial ms.date: 04/01/2018
+---
+title: "Esercitazione: Progettare un'istanza di Database di Azure per PostgreSQL con l'interfaccia della riga di comando di Azure"
+description: Questa esercitazione illustra come creare e configurare il primo server Database di Azure per PostgreSQL ed eseguire query con l'interfaccia della riga di comando di Azure.
+services: postgresql
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
+editor: jasonwhowell
+ms.service: postgresql
+ms.custom: mvc
+ms.devlang: azure-cli
+ms.topic: tutorial
+ms.date: 04/01/2018
+ms.openlocfilehash: acba480631ba69a81da3029aadfb9cb51797549a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Esercitazione: Progettare un'istanza di Database di Azure per PostgreSQL con l'interfaccia della riga di comando di Azure 
 In questa esercitazione, si usano l'interfaccia della riga di comando di Azure e altre utilità per informazioni su come:
@@ -27,31 +43,6 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 Creare un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo. Nell'esempio seguente viene creato un gruppo di risorse denominato `myresourcegroup` nella posizione `westus`.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
-```
-
-## <a name="add-the-extension"></a>Aggiungere l'estensione
-Aggiungere l'estensione di gestione di Database di Azure per PostgreSQL aggiornata con il comando seguente:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Verificare che sia installata la versione dell'estensione corretta. 
-```azurecli-interactive
-az extension list
-```
-
-Il codice JSON restituito includerà gli elementi seguenti: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Se non viene restituita la versione 0.0.5, eseguire questo comando per aggiornare l'estensione: 
-```azurecli-interactive
-az extension update --name rdbms
 ```
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Creare un database di Azure per il server PostgreSQL

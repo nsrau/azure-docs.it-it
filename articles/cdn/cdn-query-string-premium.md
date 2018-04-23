@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mazha
-ms.openlocfilehash: 87845df92c77ace484a7afdde3ee20b570cf9cbb
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9d92602ef5071579e0c741dd24a4e3e9f7b2c747
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Controllare il comportamento di memorizzazione nella cache con stringhe di query della rete CDN di Azure: livello Premium
 > [!div class="op_single_selector"]
@@ -44,9 +44,10 @@ Sono disponibili tre modalità di stringa di query:
 
 - **no-cache**: in questa modalità le richieste con stringhe di query non vengono memorizzate nella cache nel nodo POP della rete CDN. Il nodo POP recupera l'asset direttamente dal server di origine e lo passa al richiedente a ogni richiesta.
 
-- **unique-cache**: in questa modalità ogni richiesta con URL univoco, compresa la stringa di query, viene considerata un asset univoco con la propria cache. Ad esempio, la risposta inviata dal server di origine per una richiesta di `example.ashx?q=test1` viene memorizzata nella cache nel nodo POP e restituita per le memorizzazioni nella cache successive con la stessa stringa di query. Una richiesta di `example.ashx?q=test2` viene memorizzata nella cache come asset separato con la propria impostazione di durata (TTL).
+- **unique-cache**: in questa modalità ogni richiesta con URL univoco, compresa la stringa di query, viene considerata un asset univoco con la propria cache. Ad esempio, la risposta inviata dal server di origine per una richiesta di example.ashx?q=test1 viene memorizzata nella cache nel nodo POP e restituita per le memorizzazioni nella cache successive con la stessa stringa di query. Una richiesta di example.ashx?q=test2 viene memorizzata nella cache come asset separato con la propria impostazione di durata (TTL).
    
-    Non usare questa modalità quando la stringa di query contiene parametri che vengono modificati con ogni richiesta, ad esempio un ID di sessione o un nome utente, poiché si avrà come risultato una bassa percentuale di riscontri nella cache.
+    >[!IMPORTANT] 
+    > Non usare questa modalità quando la stringa di query contiene parametri che vengono modificati con ogni richiesta, ad esempio un ID di sessione o un nome utente, poiché si avrà come risultato una bassa percentuale di riscontri nella cache.
 
 ## <a name="changing-query-string-caching-settings-for-premium-cdn-profiles"></a>Modifica delle impostazioni di memorizzazione nella cache della stringa di query per i profili premium della rete CDN
 1. Aprire il profilo della rete CDN e quindi fare clic su **Manage** (Gestisci).
@@ -62,6 +63,6 @@ Sono disponibili tre modalità di stringa di query:
 3. Selezionare una modalità della stringa di query e quindi fare clic su **Aggiorna**.
 
 > [!IMPORTANT]
-> Le modifiche alle impostazioni di memorizzazione nella cache delle stringhe possono non essere immediatamente visibili perché la propagazione della registrazione nella rete CDN richiede tempo. La propagazione dei profili della **rete CDN Premium di Azure con tecnologia Verizon** viene in genere completata entro 90 minuti.
+> Le modifiche delle impostazioni di memorizzazione nella cache delle stringhe non sono immediatamente visibili perché la propagazione della registrazione nella rete CDN richiede tempo. La propagazione dei profili della **rete CDN Premium di Azure con tecnologia Verizon** viene in genere completata entro 90 minuti.
  
 

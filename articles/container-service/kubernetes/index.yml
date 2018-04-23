@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
-  ms.openlocfilehash: ed019936961b2dbec616c867a9752c096da9d2ed
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.openlocfilehash: 93abd74e649577abff9ce27f68c6b8456258d9b9
+  ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/11/2017
+  ms.lasthandoff: 04/16/2018
 abstract:
   description: Il servizio contenitore di Azure consente di distribuire rapidamente un cluster Kubernetes pronto per l'ambiente di produzione. Informazioni su come usare il servizio contenitore di Azure insieme a Kubernetes con guide introduttive, esercitazioni ed esempi.
 sections:
@@ -46,7 +46,7 @@ sections:
     - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application">Eseguire le immagini del contenitore in Kubernetes</a>
     - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale">Ridimensionare un'applicazione e l'infrastruttura Kubernetes</a>
     - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update">Aggiornare un'applicazione in esecuzione in Kubernetes</a>
-    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">Monitorare Kubernetes con OMS</a>
+    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">Monitorare Kubernetes con Log Analytics</a>
 - title: Esempi
   items:
   - type: list

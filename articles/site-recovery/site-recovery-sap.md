@@ -2,11 +2,11 @@
 title: Proteggere una distribuzione di applicazioni SAP NetWeaver multilivello usando Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive come proteggere le distribuzioni di applicazioni SAP NetWeaver con Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
@@ -89,7 +89,7 @@ Il diagramma seguente illustra uno scenario di ripristino di emergenza da Azure 
 
 ![Diagramma di uno scenario di replica da Azure ad Azure](./media/site-recovery-sap/sap-replication-scenario.png)
 
-* Il data center principale è a Singapore (area Asia sud-orientale di Azure). Il data center di ripristino di emergenza è a Hong Kong (area Asia orientale di Azure). In questo scenario, la disponibilità elevata locale viene resa disponibile con due VM che eseguono SQL Server AlwaysOn in modalità sincrona a Singapore.
+* Il data center principale è a Singapore (area Asia sud-orientale di Azure). Il data center di ripristino di emergenza è nella RAS di Hong Kong (area Asia orientale di Azure). In questo scenario, la disponibilità elevata locale viene resa disponibile con due VM che eseguono SQL Server AlwaysOn in modalità sincrona a Singapore.
 * La condivisione file SAP ASCS offre disponibilità elevata per il singolo punto di guasto SAP. La condivisione file ASCS non richiede un disco condiviso del cluster. Non sono necessarie applicazioni come SIOS.
 * La protezione tramite ripristino di emergenza per il livello DBMS viene ottenuta con replica asincrona.
 * Questo scenario mostra "ripristino di emergenza simmetrico". Questo termine descrive una soluzione di ripristino di emergenza che corrisponde a una replica esatta di produzione. La soluzione di ripristino di emergenza SQL Server ha una disponibilità locale elevata. Il ripristino di emergenza simmetrico non è obbligatorio per il livello di database. Molti clienti sfruttano la flessibilità delle distribuzioni cloud per creare rapidamente un nodo a disponibilità locale elevata dopo un evento di ripristino di emergenza.

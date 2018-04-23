@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 65c40885a8dde2e07deb2a4f94a3dc6a05ef78d0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 28128e07b4beb03b1a8ecdd8546d54c19145689f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiare più tabelle in blocco con Azure Data Factory
 Questa esercitazione illustra la **copia di alcune tabelle dal database SQL di Azure ad Azure SQL Data Warehouse**. È possibile applicare lo stesso modello anche in altri scenari di copia, ad esempio per la copia di tabelle da SQL Server/Oracle in database SQL di Azure/SQL Data Warehouse/archivio BLOB di Azure o la copia di percorsi diversi dall'archivio BLOB alle tabelle del database SQL di Azure.
@@ -81,7 +81,7 @@ Per il database SQL e per SQL Data Warehouse è necessario consentire ai servizi
     Eseguire questo comando e immettere il nome utente e la password usati per accedere al portale di Azure:
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
     Eseguire questo comando per visualizzare tutte le sottoscrizioni per l'account:
 

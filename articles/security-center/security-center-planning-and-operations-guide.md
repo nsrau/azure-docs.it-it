@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 8a44542091ea4dddc214a4954766c63dacd3e2a2
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: b9198f7621c74ae6cbe98fd526cc9bf8eadc9e70
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guida alla pianificazione e alla gestione del Centro sicurezza di Azure
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud le cui organizzazioni intendano usare il Centro sicurezza di Azure.
@@ -75,7 +75,7 @@ Il Centro sicurezza consente a questi utenti di svolgere i relativi ruoli, Ad es
 * Analizza gli attacchi
 * Collabora con il proprietario del carico di lavoro cloud per applicare la correzione. 
 
-Il Centro sicurezza usa il [controllo degli accessi in base al ruolo (RBAC)o](../active-directory/role-based-access-control-configure.md), che fornisce [ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md) assegnabili a utenti, gruppi e servizi in Azure. Quando un utente apre il Centro sicurezza, visualizza solo informazioni correlate alle risorse a cui ha accesso. All'utente viene infatti assegnato il ruolo Proprietario, Collaboratore o Lettore per la sottoscrizione o il gruppo di risorse a cui appartiene la risorsa. Oltre a questi ruoli, esistono due ruoli specifici del Centro sicurezza:
+Il Centro sicurezza usa il [controllo degli accessi in base al ruolo (RBAC)o](../role-based-access-control/role-assignments-portal.md), che fornisce [ruoli predefiniti](../role-based-access-control/built-in-roles.md) assegnabili a utenti, gruppi e servizi in Azure. Quando un utente apre il Centro sicurezza, visualizza solo informazioni correlate alle risorse a cui ha accesso. All'utente viene infatti assegnato il ruolo Proprietario, Collaboratore o Lettore per la sottoscrizione o il gruppo di risorse a cui appartiene la risorsa. Oltre a questi ruoli, esistono due ruoli specifici del Centro sicurezza:
 
 - **Ruolo con autorizzazioni di lettura per la sicurezza**: un utente che appartiene a questo ruolo può visualizzare solo le configurazioni del Centro sicurezza, inclusi avvisi, criteri, raccomandazioni e integrità, ma non potrà apportare modifiche.
 - **Amministratore della protezione**: come il ruolo con autorizzazioni di lettura per la sicurezza, ma è anche in grado di aggiornare i criteri di sicurezza e di ignorare raccomandazioni e avvisi.
@@ -138,7 +138,7 @@ Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito pe
 Prima di configurare i criteri di sicurezza, è consigliabile esaminare tutte le [raccomandazioni sulla sicurezza](https://docs.microsoft.com/azure/security-center/security-center-recommendations)e determinare se sono appropriate per le varie sottoscrizioni e i vari gruppi di risorse usati. È importante sapere anche quali azioni devono essere eseguite in relazione alle raccomandazioni sulla sicurezza e quali utenti dell'organizzazione sono responsabili del monitoraggio per le nuove raccomandazioni e dell'adozione delle misure necessarie.
 
 ## <a name="data-collection-and-storage"></a>Raccolta dati e archiviazione
-Il Centro sicurezza di Azure usa Microsoft Monitoring Agent, lo stesso agente usato da Operations Management Suite e dal servizio Log Analytics, per raccogliere dati di protezione dalle macchine virtuali. I [dati raccolti](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) dall'agente verranno archiviati nelle aree di lavoro di Log Analytics.
+Il Centro sicurezza di Azure usa Microsoft Monitoring Agent, lo stesso agente usato dal servizio Log Analytics, per raccogliere dati di protezione dalle macchine virtuali. I [dati raccolti](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) dall'agente verranno archiviati nelle aree di lavoro di Log Analytics.
 
 ### <a name="agent"></a>Agente
 

@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
-ms.openlocfilehash: c4693d91fe81ce55c6faa6610ea19219ac5cfcb5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7fcd8e12a7109218387788e47eddad48e72797bb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Data center virtuale di Microsoft Azure: una prospettiva di rete
 **Microsoft Azure**: maggiore velocità, risparmi sui costi e possibilità di integrare app e dati in locale
@@ -259,9 +259,9 @@ In un data center virtuale è molto importante tenere traccia dei log dei gruppi
 
 Tutti i log possono essere archiviati negli account di archiviazione di Azure a scopo di controllo, analisi statica o backup. Quando i log vengono archiviati in un account di archiviazione di Azure, i clienti possono usare tipi diversi di framework per recuperare, preparare, analizzare e visualizzare questi dati per segnalare lo stato e l'integrità delle risorse cloud.
 
-Le grandi imprese devono avere già acquisito un framework standard per il monitoraggio dei sistemi locali e possono estendere tale framework per integrare i log generati dalle distribuzioni cloud. Per le organizzazioni che vogliono tenere tutte le registrazioni nel cloud, [Microsoft Operations Management Suite (OMS)][OMS] è la scelta ideale. Poiché OMS viene implementato come servizio basato sul cloud, è possibile renderlo operativo rapidamente con un investimento minimo nei servizi di infrastruttura. OMS può anche essere integrato con i componenti di System Center, come System Center Operations Manager, per estendere al cloud gli investimenti per la gestione già esistenti.
+Le grandi imprese devono avere già acquisito un framework standard per il monitoraggio dei sistemi locali e possono estendere tale framework per integrare i log generati dalle distribuzioni cloud. Per le organizzazioni che vogliono tenere tutte le registrazioni nel cloud, [Log Analytics][LogAnalytics] è la scelta ideale. Poiché Log Analytics viene implementato come servizio basato sul cloud, è possibile renderlo operativo rapidamente con un investimento minimo nei servizi di infrastruttura. Log Analytics può anche essere integrato con i componenti di System Center, come System Center Operations Manager, per estendere al cloud gli investimenti per la gestione già esistenti.
 
-Log Analytics di OMS è un componente del framework OMS che consente di raccogliere, correlare, cercare e modificare i dati dei log e delle prestazioni generati da sistemi operativi, applicazioni e componenti cloud dell'infrastruttura. Fornisce ai clienti informazioni operative in tempo reale usando la ricerca integrata e i dashboard personalizzati per analizzare tutti i record in tutti i carichi di lavoro di un data center virtuale.
+Log Analytics è un servizio di Azure che consente di raccogliere, correlare, cercare e modificare i dati dei log e delle prestazioni generati da sistemi operativi, applicazioni e componenti cloud dell'infrastruttura. Fornisce ai clienti informazioni operative in tempo reale usando la ricerca integrata e i dashboard personalizzati per analizzare tutti i record in tutti i carichi di lavoro di un data center virtuale.
 
 #### <a name="component-type-workloads"></a>Tipo di componente: carichi di lavoro
 Nei componenti di tipo carico di lavoro si trovano le applicazioni e i servizi effettivi. Sono anche i componenti a cui i team di sviluppo di applicazioni dedicano più tempo.
@@ -332,7 +332,7 @@ In questo documento sono state illustrate le funzionalità seguenti. Per altre i
 |Funzionalità di rete|Bilanciamento del carico.|Connettività|
 |[Reti virtuali di Azure][VNet]</br>[Gruppi di sicurezza di rete][NSG]</br>[Log per i gruppi di sicurezza di rete][NSGLog]</br>[Routing definito dall'utente][UDR]</br>[Network Virtual Appliances][NVA] (Appliance virtuali di rete)</br>[Indirizzi IP pubblici][PIP]|[Azure Load Balancer (L3) ][ALB]</br>[Gateway applicazione (L7) ][AppGW]</br>[Web application firewall][WAF]</br>[Gestione traffico di Azure][TM] |[Peering reti virtuali][VNetPeering]</br>[Rete privata virtuale][VPN]</br>[ExpressRoute][ExR]
 |Identità</br>|Monitoraggio</br>|Procedure consigliate</br>|
-|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Controlli degli accessi in base ai ruoli][RBAC]</br>[Ruoli predefiniti AAD][Roles] |[Log attività][ActLog]</br>[Log di diagnostica][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[Procedure consigliate per le reti perimetrali][DMZ]</br>[Gestione sottoscrizioni][SubMgmt]</br>[Gestione di gruppi di risorse][RGMgmt]</br>[Limiti delle sottoscrizioni di Azure][Limits] |
+|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Controlli degli accessi in base ai ruoli][RBAC]</br>[Ruoli predefiniti AAD][Roles] |[Log attività][ActLog]</br>[Log di diagnostica][DiagLog]</br>[Log Analytics][LogAnalytics]</br> |[Procedure consigliate per le reti perimetrali][DMZ]</br>[Gestione sottoscrizioni][SubMgmt]</br>[Gestione di gruppi di risorse][RGMgmt]</br>[Limiti delle sottoscrizioni di Azure][Limits] |
 |Altri servizi di Azure|
 |[App Web di Azure][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[Hub eventi][EventHubs]</br>[Bus di servizio][ServiceBus]|
 
@@ -379,7 +379,7 @@ In questo documento sono state illustrate le funzionalità seguenti. Per altre i
 [ActLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs 
 [DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
-[OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
+[LogAnalytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-overview
 [WebApps]: https://docs.microsoft.com/azure/app-service/
 [HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 

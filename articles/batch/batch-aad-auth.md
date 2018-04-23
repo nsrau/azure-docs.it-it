@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: e2d97929ada820a1ce969c59fb69b3518fe2eb6c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e67ae32902c989f74cee0c1d223dacc770c0d387
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticare le soluzioni del servizio Batch con Active Directory
 
@@ -139,7 +139,7 @@ Per eseguire l'autenticazione con un'entità servizio, è necessario assegnare i
 1. Nel portale di Azure passare all'account Batch usato dall'applicazione.
 2. Nel pannello **Impostazioni** per l'account Batch selezionare **Controllo di accesso (IAM)**.
 3. Fare clic su **Add** . 
-4. Dall'elenco a discesa **Ruolo** scegliere il ruolo _Collaboratore_ o _Lettore_ per l'applicazione. Per altre informazioni sui ruoli, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../active-directory/role-based-access-control-what-is.md).  
+4. Dall'elenco a discesa **Ruolo** scegliere il ruolo _Collaboratore_ o _Lettore_ per l'applicazione. Per altre informazioni sui ruoli, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).  
 5. Nel campo **Seleziona** immettere il nome dell'applicazione. Selezionare l'applicazione dall'elenco e fare clic su **Salva**.
 
 L'applicazione dovrebbe ora essere visualizzata nelle impostazioni di controllo di accesso con un ruolo con controllo degli accessi in base al ruolo assegnato. 
@@ -312,13 +312,13 @@ public static async Task PerformBatchOperations()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Azure AD, vedere [Documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Esempi dettagliati dell'uso di ADAL sono disponibili nella libreria degli [esempi di codice per Azure](https://azure.microsoft.com/resources/samples/?service=active-directory).
+* Per altre informazioni su Azure AD, vedere [Documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Esempi dettagliati dell'uso di ADAL sono disponibili nella libreria degli [esempi di codice per Azure](https://azure.microsoft.com/resources/samples/?service=active-directory).
 
-Per altre informazioni sull'entità servizio, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). Per creare un'entità servizio tramite il portale di Azure, vedere [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](../resource-group-create-service-principal-portal.md). È anche possibile creare un'entità servizio con PowerShell o con l'interfaccia della riga di comando di Azure.
+* Per altre informazioni sull'entità servizio, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). Per creare un'entità servizio tramite il portale di Azure, vedere [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](../resource-group-create-service-principal-portal.md). È anche possibile creare un'entità servizio con PowerShell o con l'interfaccia della riga di comando di Azure.
 
-Per eseguire l'autenticazione di applicazioni di gestione batch con Azure AD, vedere [Authenticate Batch Management solutions with Active Directory](batch-aad-auth-management.md) (Autenticare le soluzioni di gestione batch con Active Directoy).
+* Per eseguire l'autenticazione di applicazioni di gestione batch con Azure AD, vedere [Authenticate Batch Management solutions with Active Directory](batch-aad-auth-management.md) (Autenticare le soluzioni di gestione batch con Active Directoy).
 
-Per un esempio Python di come creare un client Batch autenticato con un token di Azure AD, vedere l'esempio di [autenticazione di Azure Active Directory](http://azure-sdk-for-python.readthedocs.io/en/latest/batch.html#azure-active-directory-authentication) nella documentazione di Azure SDK per Python.
+* Per un esempio di Python sulla creazione di un client di Batch autenticato tramite token di Azure AD, vedere l'esempio [Deploying Azure Batch Custom Image with a Python Script](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) (Distribuzione di un'immagine personalizzata di Azure Batch con uno script Python).
 
 [aad_about]: ../active-directory/active-directory-whatis.md "Informazioni su Azure Active Directory"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md

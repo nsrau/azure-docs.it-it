@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/04/2018
 ms.author: babanisa
-ms.openlocfilehash: 4fd44387ac1c3dad9f0194f1b2c97d6350f9b15d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concetti di Griglia di eventi di Azure
 
@@ -32,9 +32,11 @@ Gli autori classificano gli eventi in argomenti. L'argomento include un endpoint
 
 Gli argomenti di sistema sono argomenti predefiniti forniti dai servizi di Azure. Gli argomenti personalizzati sono argomenti di applicazioni e di terze parti.
 
+Quando si progetta l'applicazione, creare un argomento personalizzato per ogni categoria di eventi correlati. Ad esempio, si consideri un'applicazione che invia gli eventi correlati alla modifica di account utente e all'elaborazione degli ordini. È improbabile che un gestore eventi richieda entrambe le categorie di eventi. Creare due argomenti personalizzati e consentire ai gestori di eventi di sottoscrivere all'argomento di interesse. Quando si esegue la sottoscrizione all'argomento personalizzato, il gestore eventi può filtrare in base al tipo di evento.
+
 ## <a name="event-subscriptions"></a>Sottoscrizioni di eventi
 
-Una sottoscrizione indica a Griglia di eventi gli eventi relativi a un argomento che il sottoscrittore è interessato a ricevere.  Una sottoscrizione contiene anche informazioni su come recapitare gli eventi al sottoscrittore.
+Una sottoscrizione indica a Griglia di eventi gli eventi relativi a un argomento che il sottoscrittore è interessato a ricevere. Una sottoscrizione contiene anche informazioni su come recapitare gli eventi al sottoscrittore.
 
 ## <a name="event-handlers"></a>Gestori eventi
 

@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: java
 author: suhuruli
 manager: msfussell
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: quickstart
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ab860b8525bcb77d3ab35d3f649532713c661b61
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e41a7754e6e170dda7818bceadab7858a9d9fa76
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-azure"></a>Guida introduttiva: Distribuire un'applicazione Spring Boot Java in Azure
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori. 
@@ -28,16 +28,15 @@ Questa guida introduttiva illustra come distribuire un'applicazione Spring Boot 
 
 ![Screenshot dell'applicazione](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
-Questa guida introduttiva spiega come:
+In questa guida introduttiva si apprende come:
 
-> [!div class="checklist"]
-> * Distribuire un'applicazione Spring Boot in Service Fabric
-> * Distribuire l'applicazione nel cluster locale 
-> * Distribuire l'applicazione in un cluster in Azure
-> * Scalare orizzontalmente l'applicazione in più nodi
-> * Eseguire il failover del servizio senza compromettere la disponibilità
+* Distribuire un'applicazione Spring Boot in Service Fabric
+* Distribuire l'applicazione nel cluster locale 
+* Distribuire l'applicazione in un cluster in Azure
+* Scalare orizzontalmente l'applicazione in più nodi
+* Eseguire il failover del servizio senza compromettere la disponibilità
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare questa guida introduttiva:
 1. [Installare Service Fabric SDK e l'interfaccia della riga di comando di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Installare Git](https://git-scm.com/)
@@ -45,13 +44,13 @@ Per completare questa guida introduttiva:
 4. [Configurare l'ambiente Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
-In una finestra di comando eseguire il comando seguente per clonare l'app di esempio Introduzione a Spring Boot nel computer locale.
-```
+In una finestra del terminale eseguire il comando seguente per clonare l'app di esempio Introduzione a Spring Boot nel computer locale.
+```bash
 git clone https://github.com/spring-guides/gs-spring-boot.git
 ```
 
 ## <a name="package-the-spring-boot-application"></a>Creare il pacchetto dell'applicazione Spring Boot 
-1. All'interno della directory `gs-spring-boot` clonata, eseguire il comando `yo azuresfguest`. 
+1. All'interno della directory `gs-spring-boot` nel clone, eseguire il comando `yo azuresfguest`. 
 
 2. Rispondere alle richieste specificando le informazioni seguenti. 
 
@@ -101,21 +100,40 @@ In questa fase è stata creata un'applicazione di Service Fabric per il progetto
 ### <a name="set-up-your-azure-service-fabric-cluster"></a>Configurare il cluster di Azure Service Fabric
 Per distribuire l'applicazione in un cluster di Azure, creare un cluster personale.
 
-I party cluster sono cluster di Service Fabric gratuiti disponibili per un periodo di tempo limitato, ospitati in Azure. Sono gestiti dal team di Service Fabric e consentono a chiunque di distribuirvi applicazioni e imparare a usare la piattaforma. Per ottenere l'accesso a un cluster di entità, [seguire le istruzioni](http://aka.ms/tryservicefabric). 
+I cluster di entità sono cluster di Service Fabric gratuiti disponibili per un periodo di tempo limitato, ospitati in Azure ed eseguiti dal team di Service Fabric. È possibile usare i cluster di entità per distribuire le applicazioni e ottenere informazioni sulla piattaforma. Il cluster usa un solo certificato autofirmato per la sicurezza da nodo a nodo e da client a nodo.
 
-Per eseguire operazioni di gestione sul cluster di entità sicuro, è possibile usare Service Fabric Explorer, l'interfaccia della riga di comando o PowerShell. Per usare Service Fabric Explorer, sarà necessario scaricare il file PFX dal sito Web del cluster di entità e importare il certificato nell'archivio certificati (Windows o Mac) oppure nel browser stesso (Ubuntu). Non sono previste password per i certificati autofirmati dal cluster di entità. 
-
-Per eseguire operazioni di gestione con PowerShell o con l'interfaccia della riga di comando, sarà necessario il file PFX (PowerShell) o il file PEM (interfaccia della riga di comando). Per convertire il file PFX in un file PEM, eseguire il comando seguente:  
-
-```bash
-openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
-```
-
-Per informazioni sulla creazione di un cluster, vedere l'articolo su come [creare un cluster di Service Fabric in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Eseguire l'accesso e aggiungere un [cluster Linux](http://aka.ms/tryservicefabric). Scaricare il certificato PFX nel computer facendo clic sul collegamento **PFX**. Fare clic sul collegamento **ReadMe** (Leggimi) per trovare la password del certificato e le istruzioni per configurare diversi ambienti per usare il certificato. Tenere aperte entrambe le pagine **Welcome** (Benvenuto) e **ReadMe** (Leggimi) perché si useranno alcune delle istruzioni nei passaggi seguenti. 
 
 > [!Note]
+> È disponibile un numero limitato di cluster di entità ogni ora. Se viene restituito un errore quando si prova a registrarsi a un cluster di entità, è possibile attendere e riprovare in seguito oppure seguire i passaggi descritti in [Creare un cluster di Service Fabric in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) per creare un cluster nella propria sottoscrizione. 
+>
 > Il servizio Spring Boot è configurato per l'ascolto del traffico in ingresso sulla porta 8080. Assicurarsi che tale porta sia aperta nel cluster. Se si usa il cluster di entità, questa porta è aperta.
 >
+
+Service Fabric fornisce numerosi strumenti che è possibile usare per gestire un cluster e le applicazioni:
+
+- Service Fabric Explorer, uno strumento basato su browser.
+- Interfaccia della riga di comando di Service Fabric, la cui esecuzione si basa sull'interfaccia della riga di comando di Azure 2.0.
+- Comandi di PowerShell. 
+
+In questa guida introduttiva si usano l'interfaccia della riga di comando di Service Fabric e Service Fabric Explorer. 
+
+Per usare l'interfaccia della riga di comando, è necessario creare un file PEM basato sul file PFX scaricato. Per convertire il file, usare il comando seguente. Per i cluster di entità, è possibile copiare un comando specifico nel file PFX dalle istruzioni della pagina **ReadMe** (Leggimi).
+
+    ```bash
+    openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
+    ``` 
+
+Per usare Service Fabric Explorer, è necessario importare il file PFX del certificato scaricato dal sito Web del cluster di entità nell'archivio certificati (Windows o Mac) oppure nel browser stesso (Ubuntu). È necessaria la password della chiave privata PFX, che è possibile ottenere dalla pagina **ReadMe** (Leggimi).
+
+Usare il metodo preferito per importare il certificato nel sistema. Ad esempio: 
+
+- In Windows: fare doppio clic sul file PFX e seguire i prompt per installare il certificato nell'archivio personale, `Certificates - Current User\Personal\Certificates`. In alternativa, è possibile usare il comando di PowerShell nelle istruzioni di **ReadMe** (Leggimi).
+- In Mac: fare doppio clic sul file PFX e seguire i prompt per installare il certificato nel keychain.
+- In Ubuntu: Mozilla Firefox è il browser predefinito in Ubuntu 16.04. Per importare il certificato in Firefox, fare clic sul pulsante di menu nell'angolo in alto a destra del browser, quindi fare clic su **Opzioni**. Nella pagina **Preferenze** usare la casella di ricerca per cercare "certificati". Fare clic su **Mostra certificati**, selezionare la scheda **Certificati personali**, fare clic su **Importa** e seguire i prompt per importare il certificato.
+ 
+   ![Installare il certificato in Firefox](./media/service-fabric-quickstart-java-spring-boot/install-cert-firefox.png) 
+
 
 ### <a name="deploy-the-application-using-cli"></a>Distribuire l'applicazione tramite l'interfaccia della riga di comando
 Ora che l'applicazione e il cluster sono pronti, è possibile procedere alla distribuzione in un cluster direttamente dalla riga di comando.
@@ -138,18 +156,18 @@ Ora che l'applicazione e il cluster sono pronti, è possibile procedere alla dis
     ./install.sh
     ```
 
-4. Aprire il Web browser preferito e accedere all'applicazione tramite **http://\<ConnectionIPOrUrl>:8080**. 
+4. Aprire il Web browser e accedere all'applicazione tramite **http://\<ConnectionIPOrUrl>:8080**. 
 
     ![Front-end locale dell'applicazione](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
     
-È ora possibile accedere all'applicazione Spring Boot distribuita in un cluster di Service Fabric.  
+È ora possibile accedere all'applicazione Spring Boot in esecuzione in un cluster di Service Fabric in Azure.  
     
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Ridimensionare applicazioni e servizi in un cluster
-I servizi possono essere facilmente ridimensionati in un cluster per supportare le modifiche del carico sui servizi. È possibile ridimensionare un servizio modificando il numero di istanze in esecuzione nel cluster. Sono disponibili diversi sistemi per garantire la scalabilità dei servizi: è infatti possibile usare gli script o i comandi dell'interfaccia della riga di comando di Service Fabric (sfctl). In questo esempio si usa Service Fabric Explorer.
+I servizi possono essere facilmente ridimensionati in un cluster per supportare le modifiche del carico sui servizi. È possibile ridimensionare un servizio modificando il numero di istanze in esecuzione nel cluster. Sono disponibili diversi sistemi per garantire il ridimensionamento dei servizi. È ad esempio possibile usare gli script o i comandi dell'interfaccia della riga di comando di Service Fabric (sfctl). I passaggi seguenti usano Service Fabric Explorer.
 
-Service Fabric Explorer è in esecuzione in tutti i cluster di Service Fabric ed è accessibile da un browser, passando alla porta di gestione HTTP (19080) del cluster, ad esempio `http://localhost:19080`.
+Service Fabric Explorer è in esecuzione in tutti i cluster di Service Fabric ed è accessibile da un browser passando alla porta di gestione HTTP (19080) del cluster, ad esempio `http://localhost:19080`.
 
-Per scalare il servizio front-end Web, seguire questa procedura:
+Per ridimensionare il servizio front-end Web, seguire questa procedura:
 
 1. Aprire Service Fabric Explorer nel cluster, ad esempio `http://localhost:19080`.
 2. Fare clic sui puntini di sospensione accanto al nodo **fabric:/SpringServiceFabric/SpringGettingStarted** nella visualizzazione struttura ad albero e scegliere **Scale Service** (Ridimensiona servizio).
@@ -176,7 +194,7 @@ Per scalare il servizio front-end Web, seguire questa procedura:
 
     Il servizio ha tre istanze. Nella visualizzazione ad albero viene indicato in quali nodi vengono eseguite.
 
-Con questa semplice attività di gestione vengono aumentate le risorse disponibili per il servizio Spring per l'elaborazione del carico dell'utente. È importante comprendere che non sono necessarie più istanze di un servizio perché questo venga eseguito in modo affidabile. In caso di problemi di un servizio, Service Fabric assicura l'esecuzione di una nuova istanza del servizio nel cluster.
+Con questa semplice attività di gestione, sono state raddoppiate le risorse disponibili per il servizio front-end per l'elaborazione del carico utente. È importante comprendere che non sono necessarie più istanze di un servizio perché questo venga eseguito in modo affidabile. In caso di problemi di un servizio, Service Fabric assicura l'esecuzione di una nuova istanza del servizio nel cluster.
 
 ## <a name="fail-over-services-in-a-cluster"></a>Servizi di failover in un cluster 
 Per dimostrare il failover del servizio, viene simulato il riavvio di un nodo tramite Service Fabric Explorer. Verificare che sia in esecuzione una sola istanza del servizio. 
@@ -192,13 +210,13 @@ Per dimostrare il failover del servizio, viene simulato il riavvio di un nodo tr
 ## <a name="next-steps"></a>Passaggi successivi
 In questa guida introduttiva si è appreso come:
 
-> [!div class="checklist"]
-> * Distribuire un'applicazione Spring Boot in Service Fabric
-> * Distribuire l'applicazione nel cluster locale 
-> * Distribuire l'applicazione in un cluster in Azure
-> * Scalare orizzontalmente l'applicazione in più nodi
-> * Eseguire il failover del servizio senza compromettere la disponibilità
+* Distribuire un'applicazione Spring Boot in Service Fabric
+* Distribuire l'applicazione nel cluster locale 
+* Distribuire l'applicazione in un cluster in Azure
+* Scalare orizzontalmente l'applicazione in più nodi
+* Eseguire il failover del servizio senza compromettere la disponibilità
 
-* Altre informazioni sulla [creazione di microservizi Java usando i modelli di programmazione di Service Fabric](service-fabric-quickstart-java-reliable-services.md)
-* Altre informazioni sulla [configurazione di integrazione e distribuzione continue tramite Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
-* Fare riferimento ad altri [esempi di Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+Per altre informazioni sull'uso di app Java in Service Fabric, continuare con l'esercitazione sulle app Java.
+
+> [!div class="nextstepaction"]
+> [Distribuire un'app Java](./service-fabric-tutorial-create-java-app.md)

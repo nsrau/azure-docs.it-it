@@ -3,9 +3,8 @@ title: Suggerimenti sulle prestazioni di Azure Cosmos DB per Java | Microsoft Do
 description: Informazioni sulle opzioni di configurazione client per migliorare le prestazioni del database Azure Cosmos DB
 keywords: Come migliorare le prestazioni del database
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: dfe8f426-3c98-4edc-8094-092d41f2795e
 ms.service: cosmos-db
@@ -14,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
-ms.author: mimig
-ms.openlocfilehash: 3a6c7c51810375574895643cea2e0e24508fa382
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: sngun
+ms.openlocfilehash: ace817bc7a703ed2aa1dcd71f7d84f91ee16cce6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 > [!div class="op_single_selector"]
+> * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
@@ -80,7 +80,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
    <a id="max-connection"></a>
 3. **Aumentare MaxPoolSize per host quando si usa la modalità Gateway**
 
-    Quando si usa la modalità Gateway, le richieste di Azure Cosmos DB vengono eseguite su HTTPS/REST e sono soggette ai limiti di connessione predefiniti per ogni nome host o indirizzo IP. Può essere necessario impostare MaxPoolSize su un valore più alto (200-1000) in modo che la libreria client possa usare più connessioni simultanee ad Azure Cosmos DB. Nell'SDK per Java il valore predefinito per [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) è 100. Usare [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) per modificare il valore.
+    Quando si usa la modalità Gateway, le richieste di Azure Cosmos DB vengono eseguite su HTTPS/REST e sono soggette ai limiti di connessione predefiniti per ogni nome host o indirizzo IP. Può essere necessario impostare MaxPoolSize su un valore più alto (200-1000) in modo che la libreria client possa usare più connessioni simultanee ad Azure Cosmos DB. Nell'SDK per Java il valore predefinito per [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.getmaxpoolsize) è 100. Usare [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) per modificare il valore.
 
 4. **Ottimizzazione delle query parallele per le raccolte partizionate**
 
@@ -103,7 +103,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
 7. **Usare l'indirizzamento basato sul nome**
 
-    Usare l'indirizzamento basato sul nome, in cui il formato dei collegamenti è `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, invece dei selflink (_self), il cui formato è `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>`, per evitare di recuperare l'ID di tutte le risorse usate per costruire il collegamento. Inoltre, poiché queste risorse vengono ricreate (possibilmente con stesso nome), la relativa memorizzazione nella cache potrebbe essere controproducente.
+    Usare l'indirizzamento basato sul nome, in cui il formato dei collegamenti è `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, invece dei selflink (\_self), il cui formato è `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>`, per evitare di recuperare l'ID di tutte le risorse usate per costruire il collegamento. Inoltre, poiché queste risorse vengono ricreate (possibilmente con stesso nome), la relativa memorizzazione nella cache potrebbe essere controproducente.
 
    <a id="tune-page-size"></a>
 8. **Modificare le dimensioni di pagina per le query o i feed di lettura per ottenere prestazioni migliori**

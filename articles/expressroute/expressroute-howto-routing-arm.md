@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/3/2018
 ms.author: osamaz, jaredr80
-ms.openlocfilehash: 8b16bb057da5aed6229d4228c87e7746ac029333
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d4f8f0e6c8fab5dfb4efcc4f1659ba90336c8bf0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Creare e modificare il peering per un circuito ExpressRoute usando PowerShell
 
@@ -86,7 +86,7 @@ Questa sezione consente di creare, ottenere, aggiornare ed eliminare la configur
   Accedere al proprio account.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Selezionare la sottoscrizione desiderata per creare il circuito ExpressRoute.
@@ -213,7 +213,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
   Accedere al proprio account.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Selezionare la sottoscrizione desiderata per creare il circuito ExpressRoute.
@@ -350,7 +350,7 @@ Questa sezione consente di creare, ottenere, aggiornare ed eliminare la configur
   Accedere al proprio account.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Selezionare la sottoscrizione desiderata per creare il circuito ExpressRoute.

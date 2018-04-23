@@ -1,26 +1,21 @@
 ---
-title: Usare gli strumenti di Analisi di flusso di Azure per Visual Studio per configurare l'integrazione continua e il processo di distribuzione | Microsoft Docs
-description: Esercitazione sullo sviluppo di strumenti di Analisi di flusso per Visual Studio per creare ed eseguire il debug di processi Edge di analisi di flusso.
-keywords: visual studio, NuGet, DevOps, processi Edge, Analisi di flusso
-documentationcenter: ''
+title: Processi Edge negli strumenti di Analisi di flusso di Azure per Visual Studio
+description: Questo articolo descrive come creare e modificare i processi Edge di Analisi di flusso ed eseguirne il debug usando gli strumenti di Analisi di flusso per Visual Studio.
 services: stream-analytics
 author: su-jie
-manager: ''
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/13/2018
 ms.author: sujie
-ms.openlocfilehash: c6e1d0693035ef343e20cee4b09f0669e089afee
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/13/2018
+ms.openlocfilehash: ec916ea2104df9d694aad2462df7ca5a487017f2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="develop-stream-analytics-edge-jobs-by-using-visual-studio-tools"></a>Sviluppare processi Edge di analisi di flusso usando gli strumenti di Visual Studio
+# <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Sviluppare processi Edge di Analisi di flusso usando gli strumenti di Visual Studio
 
 Questa esercitazione illustra come usare gli strumenti di Analisi di flusso per Visual Studio per creare ed eseguire il debug di processi Edge di analisi di flusso. Dopo aver creato e testato il processo, è possibile passare al portale di Azure per distribuirlo ai dispositivi. 
 

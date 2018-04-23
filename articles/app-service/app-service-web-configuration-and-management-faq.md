@@ -185,7 +185,7 @@ Nell'ambiente del servizio app, si ha il controllo totale sul traffico in ingres
 3. Verificare che la scheda **Rete** sia selezionata, quindi selezionare il pulsante **Riproduci** di colore verde.
 4. Eseguire i passaggi per riprodurre il problema.
 5. Selezionare il pulsante **Termina** di colore rosso.
-6. Selezionare il pulsante **Salva** (icona del disco) e salvare il file HAR (in Internet Explorer ed Edge) *o* il file HAR, quindi scegliere **Salva come HAR con contenuto** (in Chrome).
+6. Selezionare il pulsante **Salva** (icona del disco) e salvare il file HAR (in Internet Explorer e Microsoft Edge) *o* il file HAR, quindi scegliere **Salva come HAR con contenuto** (in Chrome).
 
 ### <a name="f12-console-output"></a>Output di console F12
 

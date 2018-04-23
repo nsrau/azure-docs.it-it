@@ -2,10 +2,10 @@
 title: Creare un'app Web del framework ASP.NET in Azure | Microsoft Docs
 description: Informazioni su come eseguire app Web nel servizio app di Azure distribuendo l'app Web ASP.NET predefinita.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6ce5d49fe4e58b3c89c09ef80d563d001a4abb41
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: eb1d977dddce07b3deda7eeeeb3bc93d41339de1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Creare un'app Web del framework ASP.NET in Azure
 
@@ -41,6 +41,8 @@ Per completare questa esercitazione:
 
     ![Sviluppo Web e ASP.NET e sviluppo di Azure (in Web e Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
 
+Se Visual Studio è già stato installato, aggiungere i carichi di lavoro in Visual Studio facendo clic su **Strumenti** > **Ottieni strumenti e funzionalità**.
+
 ## <a name="create-an-aspnet-web-app"></a>Creare un'app Web ASP.NET
 
 In Visual Studio creare un progetto selezionando **File > Nuovo > Progetto**. 
@@ -49,7 +51,7 @@ Nella finestra di dialogo **Nuovo progetto** selezionare **Visual C# > Web > App
 
 Assegnare all'applicazione il nome _myFirstAzureWebApp_ e fare clic su **OK**.
    
-![Finestra di dialogo Nuovo progetto](./media/app-service-web-get-started-dotnet-framework/new-project.png)
+![Finestra di dialogo Nuovo progetto](./media/app-service-web-get-started-dotnet/new-project.png)
 
 È possibile distribuire qualsiasi tipo di app Web ASP.NET in Azure. Per questa guida introduttiva, selezionare il modello **MVC** e verificare che l'autenticazione sia impostata su **Nessuna autenticazione**.
       

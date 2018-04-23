@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: f01580dce4c7fda2f3d254a7c34399044a97317b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 861fe113ef9edd4417580821ef42fc913a4cb961
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Trasformare dati nel cloud usando l'attività Spark in Azure Data Factory
 In questa esercitazione si usa Azure PowerShell per creare una pipeline di Data Factory che trasforma i dati con un'attività Spark e un servizio collegato HDInsight su richiesta. In questa esercitazione vengono completati i passaggi seguenti:
@@ -207,7 +207,7 @@ Sono state create definizioni di servizio collegato e pipeline nei file JSON. Ve
     Eseguire questo comando e immettere il nome utente e la password usati per accedere al portale di Azure:
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
     Eseguire questo comando per visualizzare tutte le sottoscrizioni per l'account:
 

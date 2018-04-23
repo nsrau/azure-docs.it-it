@@ -293,8 +293,8 @@
               href: delete-vault.md
         - name: Monitorare e risolvere i problemi
           items:
-            - name: Risolvere i problemi del failover in Azure
-              href: site-recovery-failover-to-azure-troubleshoot.md
+            - name: Risolvere i problemi relativi alla replica Hyper-V
+              href: hyper-v-azure-troubleshoot.md
             - name: Monitorare Azure Site Recovery
               href: site-recovery-monitor-and-troubleshoot.md
     - name: Da Hyper-V al sito secondario
@@ -337,7 +337,7 @@
           href: site-recovery-citrix-xenapp-and-xendesktop.md
         - name: Altri carichi di lavoro
           href: 'site-recovery-workload.md#workload-summary'
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.siterecovery

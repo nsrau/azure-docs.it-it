@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 6e373740d6b5af4b3b7d3dca8877c952d79f8b20
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9768fd96b8023ac97d8c5711e0c02f2c147e28f6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorare l'attività di sottoscrizione con il log attività di Azure
+
 Il **log attività di Azure** è un log delle sottoscrizioni che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Ciò include un intervallo di dati che vanno dai dati operativi di Azure Resource Manager agli aggiornamenti sugli eventi di integrità del servizio. Il log attività era noto in precedenza come "log di controllo" o "log operativo", perché la categoria amministrativa segnala eventi del piano di controllo per le sottoscrizioni. L'uso del log attività permette di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione. Consente inoltre di comprendere lo stato dell'operazione e altre proprietà specifiche. Il log attività non include le operazioni di lettura (GET) o quelle per le risorse che usano il modello classico/"RDFE".
 
 ![Log attività o altri tipi di log ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
@@ -37,9 +38,7 @@ Il log attività è diverso dal [log di diagnostica](monitoring-overview-of-diag
 Per recuperare eventi dal log attività è possibile usare il portale di Azure, l'interfaccia della riga di comando, i cmdlet di PowerShell e l'API REST di Monitoraggio di Azure.
 
 > [!NOTE]
-
 >  [I nuovi avvisi](monitoring-overview-unified-alerts.md) offrono un'esperienza ottimizzata per la creazione e la gestione delle regole degli avvisi del log attività.  [Altre informazioni](monitoring-activity-log-alerts-new-experience.md).
-
 
 Guardare il video seguente di introduzione al log attività.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
@@ -103,7 +102,7 @@ Un **profilo di log** controlla la modalità di esportazione del log attività. 
 * Aree o località da esportare. Assicurarsi di includere "global", perché molti eventi del log attività sono eventi globali.
 * Per quanto tempo il log attività deve essere mantenuto nell'account di archiviazione.
     - Un periodo di conservazione di zero giorni significa che i log vengono conservati all'infinito. Se impostato su zero giorni, i log vengono conservati all'infinito.
-    - Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o OMS, i criteri di conservazione non hanno alcun effetto.
+    - Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o Log Analytics, i criteri di conservazione non hanno alcun effetto.
     - I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata (UTC), i log relativi a tale giornata che non rientrano più nei criteri di conservazione verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente.
 
 È possibile usare un account di archiviazione o un hub eventi dello spazio dei nomi che non si trovi nella stessa sottoscrizione di quello che crea i log. L'utente che configura l'impostazione deve disporre dell'accesso RBAC appropriato a entrambe le sottoscrizioni.
@@ -129,12 +128,15 @@ Queste impostazioni possono essere configurate tramite l'opzione "Esporta" nel p
 4. Fare clic su **Salva** per salvare le impostazioni. Le impostazioni vengono applicate immediatamente alla sottoscrizione.
 
 ### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Configurare i profili di log tramite i cmdlet di Azure PowerShell
+
 #### <a name="get-existing-log-profile"></a>Ottenere un profilo di log esistente
+
 ```
 Get-AzureRmLogProfile
 ```
 
 #### <a name="add-a-log-profile"></a>Aggiungere un profilo di log
+
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
@@ -153,33 +155,32 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### <a name="configure-log-profiles-using-the-azure-cross-platform-cli"></a>Configurare i profili di log tramite l'interfaccia della riga di comando multipiattaforma di Azure
+### <a name="configure-log-profiles-using-the-azure-cli-20"></a>Configurare i profili di log tramite l'interfaccia della riga di comando di Azure 2.0
+
 #### <a name="get-existing-log-profile"></a>Ottenere un profilo di log esistente
+
+```azurecli
+az monitor log-profiles list
+az monitor log-profiles show --name <profile name>
 ```
-azure insights logprofile list
-```
-```
-azure insights logprofile get --name my_log_profile
-```
+
 La proprietà `name` deve essere il nome del profilo di log.
 
 #### <a name="add-a-log-profile"></a>Aggiungere un profilo di log
-```
-azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
+
+```azurecli
+az monitor log-profiles create --name <profile name> \
+    --locations <location1 location2 ...> \
+    --location <location> \
+    --categories <category1 category2 ...>
 ```
 
-| Proprietà | Obbligatoria | DESCRIZIONE |
-| --- | --- | --- |
-| name |Sì |Nome del profilo di log. |
-| storageId |No  |ID risorsa dell'account di archiviazione in cui salvare il log attività. |
-| serviceBusRuleId |No  |ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui creare gli hub eventi. Si tratta di una stringa nel formato seguente: `{service bus resource ID}/authorizationrules/{key name}`. |
-| locations |Sì |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
-| RetentionInDays |Sì |Numero di giorni per cui gli eventi devono essere mantenuti, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono mantenuti per un periodo illimitato. |
-| Categorie |No  |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
+Per la documentazione completa relativa alla creazione di un profilo di monitoraggio mediante l'interfaccia della riga di comando, vedere la documentazione di [riferimento ai comandi dell'interfaccia della riga di comando](/cli/azure/monitor/log-profiles#az-monitor-log-profiles-create)
 
 #### <a name="remove-a-log-profile"></a>Rimozione di un profilo di log
-```
-azure insights logprofile delete --name my_log_profile
+
+```azurecli
+az monitor log-profiles delete --name <profile name>
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

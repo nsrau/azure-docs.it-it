@@ -2,24 +2,24 @@
 title: Esercitazione su MongoDB, React e Node.js per Azure | Microsoft Docs
 description: Informazioni su come creare un'app MongoDB con React e Node.js in Azure Cosmos DB mediante le stesse API usate per MongoDB con questa serie di esercitazioni basate su video.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 96cd397a7f04fe579b9c6331423abe107ad1c6d9
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: c2cb4b30cb056303c07d5e82861e4022489c7072
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Creare un'app MongoDB con React e Azure Cosmos DB  
 

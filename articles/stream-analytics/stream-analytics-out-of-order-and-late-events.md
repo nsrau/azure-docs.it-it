@@ -1,24 +1,19 @@
 ---
-title: Gestione dell'ordine degli eventi e del ritardo con Analisi di flusso di Azure | Documentazione Microsoft
-description: Informazioni su come funziona Analisi di flusso con gli eventi non in ordine o in ritardo nei flussi di dati.
-keywords: non in ordine, in ritardo, eventi
-documentationcenter: ''
+title: Gestione dell'ordine e del ritardo degli eventi in Analisi di flusso di Azure
+description: Questo articolo descrive in che modo Analisi di flusso gestisce gli eventi non in ordine o in ritardo nei flussi di dati.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 3c1924ad87715f7a44c3666991e792adc3a20af9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Considerazioni sull'ordine degli eventi con Analisi di flusso di Azure
 
@@ -132,7 +127,7 @@ Analisi di flusso di Azure implementa questa funzionalità usando la clausola [T
 * Quando si combinano più sequenze temporali, la mancanza di dati in una delle origini o delle partizioni può ritardare l'output di un'ulteriore finestra di tolleranza per arrivo in ritardo.
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per ottenere assistenza aggiuntiva, provare ad accedere al [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ottenere assistenza aggiuntiva, provare ad accedere al [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Presentazione di Analisi di flusso](stream-analytics-introduction.md)

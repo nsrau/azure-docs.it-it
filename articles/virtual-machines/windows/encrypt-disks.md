@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/07/2018
 ms.author: iainfou
-ms.openlocfilehash: 4f21e457b266fdd0106992dad29578eef6e89144
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 442ff942150af8a8dec89164fbc017a9e6f360e8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-windows-vm"></a>Come crittografare i dischi virtuali in una VM di Windows
 Per migliorare gli aspetti di sicurezza e conformità delle macchine virtuali (VM), i dischi virtuali in Azure possono essere crittografati. I dischi vengono crittografati usando chiavi di crittografia protette in un insieme di credenziali delle chiavi di Azure. È possibile controllare queste chiavi di crittografia e il loro uso. Questo articolo descrive come crittografare i dischi virtuali in una VM di Windows tramite Azure PowerShell. È inoltre possibile [crittografare una VM di Linux usando l'interfaccia della riga di comando di Azure 2.0](../linux/encrypt-disks.md).
@@ -102,7 +102,7 @@ Add-AzureKeyVaultKey -VaultName $keyVaultName `
 ## <a name="create-the-azure-active-directory-service-principal"></a>Creare un'entità servizio di Azure Active Directory
 Al momento di crittografare o decrittografare i dischi virtuali, specificare un account per gestisce l'autenticazione e lo scambio delle chiavi di crittografia dall'insieme di credenziali delle chiavi. Tale account, un'entità servizio di Azure Active Directory, consente alla piattaforma Azure di richiedere le chiavi di crittografia appropriate per conto della VM. Un'istanza di Azure Active Directory predefinita è già disponibile nella sottoscrizione, anche se molte organizzazioni hanno directory di Azure Active Directory dedicate.
 
-Creare un'entità servizio in Azure Active Directory con [New AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal). Per specificare una password sicura seguire [Restrizioni e criteri password in Azure Active Directory](../../active-directory/active-directory-passwords-policy.md):
+Creare un'entità servizio in Azure Active Directory con [New AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal). Per specificare una password sicura seguire [Restrizioni e criteri password in Azure Active Directory](../../active-directory/authentication/concept-sspr-policy.md):
 
 ```powershell
 $appName = "My App"
@@ -124,7 +124,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $keyvaultName `
 ```
 
 
-## <a name="create-virtual-machine"></a>Creare una macchina virtuale
+## <a name="create-virtual-machine"></a>Crea macchina virtuale
 Per testare il processo di crittografia, creare una VM con [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm). L'esempio seguente crea una VM denominata *myVM* usando un'immagine di *Windows Server 2016 Datacenter*. Quando vengono richieste le credenziali, immettere un nome utente e una password da usare per la VM:
 
 ```powershell

@@ -3,9 +3,9 @@ title: 'Controllare lo stato, configurare la registrazione e ottenere avvisi: Ap
 description: Monitorare lo stato e le prestazioni per le app per la logica, registrare i dati di diagnostica e configurare gli avvisi
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorare lo stato, configurare la registrazione diagnostica e attivare gli avvisi per App per la logica di Azure
 
@@ -76,9 +76,9 @@ Per ottenere notifiche sugli errori o su altri possibili problemi, configurare g
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Attivare la registrazione diagnostica per l'app per la logica
 
-Per il debug avanzato con dettagli ed eventi di runtime, è possibile configurare la registrazione diagnostica con [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics è un servizio di [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) che consente di monitorare gli ambienti cloud e locali per garantirne la disponibilità e le prestazioni. 
+Per il debug avanzato con dettagli ed eventi di runtime, è possibile configurare la registrazione diagnostica con [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics è un servizio incluso in Azure che monitora gli ambienti cloud e locali e consente di mantenerne la disponibilità e le prestazioni. 
 
-Prima di iniziare, è necessario avere un'area di lavoro di OMS. Informazioni su [come creare un'area di lavoro di OMS](../log-analytics/log-analytics-get-started.md).
+Prima di iniziare, è necessario avere un'area di lavoro di Log Analytics. Informazioni su [come creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. Nel [portale di Azure](https://portal.azure.com) trovare e selezionare l'app per la logica. 
 
@@ -90,16 +90,16 @@ Prima di iniziare, è necessario avere un'area di lavoro di OMS. Informazioni su
 
    ![Attivare i log di diagnostica](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. Selezionare ora l'area di lavoro di OMS e la categoria di eventi per la registrazione, come indicato:
+4. Selezionare ora l'area di lavoro di Log Analytics e la categoria di eventi per la registrazione, come indicato:
 
    1. Selezionare **Invia a Log Analytics**. 
    2. In **Log Analytics** scegliere **Configura**. 
-   3. In **Aree di lavoro OMS** selezionare l'area di lavoro di OMS da usare per la registrazione.
+   3. In **Aree di lavoro OMS** selezionare l'area di lavoro di Log Analytics da usare per la registrazione.
    4. In **Log** selezionare la categoria **WorkflowRuntime**.
    5. Scegliere l'intervallo di metrica.
    6. Al termine dell'operazione, scegliere **Salva**.
 
-   ![Selezionare l'area di lavoro di OMS e i dati per la registrazione](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+   ![Selezionare l'area di lavoro di Log Analytics e i dati per la registrazione](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
 È ora possibile trovare eventi e altri dati per eventi di attivazione, eventi di esecuzione ed eventi di azione.
 
@@ -113,23 +113,23 @@ Per trovare e visualizzare gli eventi nell'app per la logica, ad esempio eventi 
 
    ![Scegliere "Log Analytics"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
-2. In **Log Analytics** trovare e selezionare l'area di lavoro di OMS. 
+2. In **Log Analytics** trovare e selezionare l'area di lavoro di Log Analytics. 
 
-   ![Selezionare l'area di lavoro di OMS](media/logic-apps-monitor-your-logic-apps/selectla.png)
+   ![Selezionare l'area di lavoro di Log Analytics](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
 3. In **Gestione** scegliere **Portale di OMS**.
 
    ![Scegliere "Portale di OMS"](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
 
-4. Nella home page di OMS scegliere **Ricerca log**.
+4. Nella home page scegliere **Ricerca log**.
 
-   ![Nella home page di OMS scegliere "Ricerca log"](media/logic-apps-monitor-your-logic-apps/logsearch.png)
+   ![Nella home page scegliere "Ricerca log"](media/logic-apps-monitor-your-logic-apps/logsearch.png)
 
    -oppure-
 
-   ![Dal menu di OMS scegliere "Ricerca log"](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
+   ![Dal menu scegliere "Ricerca log"](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
 
-5. Nella casella di ricerca specificare un campo che si vuole trovare e premere **INVIO**. Quando si inizia a digitare, OMS mostra le corrispondenze e operazioni che è possibile usare. 
+5. Nella casella di ricerca specificare un campo che si vuole trovare e premere **INVIO**. Quando si inizia a digitare, vengono visualizzate le corrispondenze e le operazioni che è possibile usare. 
 
    Per trovare, ad esempio, i primi 10 eventi che si sono verificati, immettere e selezionare questa query di ricerca: **search Category == "WorkflowRuntime" | limit 10**
 

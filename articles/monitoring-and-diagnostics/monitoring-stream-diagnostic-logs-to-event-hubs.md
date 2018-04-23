@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 72876e38f77aa7a13c0dd9a8cdf9479e058f4a0d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1f5a97f5af47a3c5731d5c5d4d5e8cf17097ae60
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Trasmettere log di diagnostica di Azure a un hub eventi
-I **[log di diagnostica di Azure](monitoring-overview-of-diagnostic-logs.md)** possono essere trasmessi quasi in tempo reale a qualsiasi applicazione con l'opzione "Esporta in hub eventi" incorporata nel portale oppure abilitando l'ID della regola di autorizzazione dell'hub eventi in un'impostazione di diagnostica tramite i cmdlet di Azure PowerShell o l'interfaccia della riga di comando di Azure.
+I **[log di diagnostica di Azure](monitoring-overview-of-diagnostic-logs.md)** possono essere trasmessi quasi in tempo reale a qualsiasi applicazione con l'opzione "Esporta in hub eventi" incorporata nel portale oppure abilitando l'ID della regola di autorizzazione dell'hub eventi in un'impostazione di diagnostica tramite i cmdlet di Azure PowerShell o l'interfaccia della riga di comando di Azure 2.0.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>Che cosa si può fare con i log di diagnostica e Hub eventi
 Ecco alcuni esempi di come è possibile usare la funzionalità di trasmissione per i log di diagnostica:
 
 * **Trasmettere log a sistemi di registrazione e telemetria di terze parti**: è possibile trasmettere tutti i log di diagnostica a un singolo hub eventi per inviare pipe di dati registro a uno strumento SIEM o di analisi dei log di terze parti.
 * **Visualizzare lo stato di integrità del servizio mediante la trasmissione di dati sul "percorso critico" a Power BI**: Hub eventi, Stream Analytics e Power BI permettono di trasformare facilmente i dati di diagnostica in informazioni quasi in tempo reale sui servizi di Azure. [Questo articolo della documentazione offre un'utile panoramica della configurazione di Hub eventi, dell'elaborazione di dati con analisi di flusso e dell'uso di Power BI come output](../stream-analytics/stream-analytics-power-bi-dashboard.md). Ecco alcuni suggerimenti per la configurazione dei log di diagnostica:
-  
+
   * Viene creato automaticamente un hub eventi per una categoria di log di diagnostica quando si seleziona l'opzione nel portale o lo si abilita tramite PowerShell. Nello spazio dei nomi del bus di servizio è quindi consigliabile selezionare l'hub eventi il cui nome inizia con **insights-**.
   * Il codice SQL di esempio seguente è una query di esempio di analisi di flusso che è possibile usare per analizzare tutti i dati di log in una tabella di Power BI:
 
@@ -45,16 +45,23 @@ Ecco alcuni esempi di come è possibile usare la funzionalità di trasmissione p
 * **Compilare una piattaforma di registrazione e telemetria personalizzata** : se è disponibile una piattaforma di telemetria personalizzata o si intende crearne una, le caratteristiche di pubblicazione-sottoscrizione altamente scalabili di Hub eventi offrono grande flessibilità per l'inserimento dei log di diagnostica. [Vedere la guida all'uso di Hub eventi in una piattaforma di telemetria su scala globale di Dan Rosanova](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>Abilitare la trasmissione dei log di diagnostica
+
 È possibile abilitare la trasmissione dei log di diagnostica a livello di codice tramite il portale o tramite le [API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). In entrambi i casi, si crea un'impostazione di diagnostica in cui specificare uno spazio dei nomi dell'hub eventi e le categorie di log e le metriche che si vuole inviare nello spazio dei nomi. Nello spazio dei nomi per ogni categoria di log abilitata viene creato un hub eventi. Una **categoria di log** di diagnostica è un tipo di log che una risorsa può raccogliere.
 
 > [!WARNING]
 > Per abilitare la trasmissione dei log di diagnostica da risorse di calcolo, ad esempio le macchine virtuali o Service Fabric, è necessario [seguire una procedura diversa](../event-hubs/event-hubs-streaming-azure-diags-data.md).
-> 
-> 
 
 Lo spazio dei nomi di Hub eventi non deve trovarsi nella stessa sottoscrizione della risorsa che crea i log, purché l'utente che configura l'impostazione disponga dell'accesso RBAC appropriato a entrambe le sottoscrizioni.
 
+> [!NOTE]
+> L'invio delle metriche multidimensionali tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione.
+>
+> *Ad esempio*: la metrica 'Messaggi in ingresso' su un hub eventi può essere esplorata e rappresentata in un grafico a livello di singola coda. Tuttavia, in caso di esportazione tramite impostazione di diagnostica, la metrica verrà rappresentata come tutti i messaggi in ingresso in tutte le code nell'hub eventi.
+>
+>
+
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Eseguire lo streaming dei log di diagnostica usando il portale
+
 1. Nel portale passare a Monitoraggio di Azure e fare clic su **Impostazioni di diagnostica**
 
     ![Sezione relativa al monitoraggio di Monitoraggio di Azure](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-blade.png)
@@ -70,9 +77,9 @@ Lo spazio dei nomi di Hub eventi non deve trovarsi nella stessa sottoscrizione d
    !["Add diagnostic setting" (Aggiungi impostazione di diagnostica) - impostazioni esistenti](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-multiple.png)
 
 3. Assegnare un nome all'impostazione, selezionare la casella per **Streaming in un hub eventi**, quindi selezionare uno spazio dei nomi di Hub eventi.
-   
+
    !["Add diagnostic setting" (Aggiungi impostazione di diagnostica) - impostazioni esistenti](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
-    
+
    Se si trasmettono i log di diagnostica per la prima volta, nello spazio dei nomi selezionato viene creato l'hub eventi. Se esistono già risorse che trasmettono tale categoria di log a questo spazio dei nomi, l'hub eventi vi viene trasmesso. I criteri definiscono le autorizzazioni del meccanismo di trasmissione. Al momento, per trasmettere a un hub eventi sono necessarie autorizzazioni di gestione, invio e ascolto. È possibile creare o modificare i criteri di accesso condiviso per lo spazio dei nomi di Hub eventi nel portale nella scheda Configura relativa allo spazio dei nomi. Per aggiornare una di queste impostazioni di diagnostica, il client deve avere l'autorizzazione ListKey per la regola di autorizzazione di Hub eventi. È anche possibile specificare un nome per l'hub di eventi, se lo si desidera. Se si specifica un nome per l'hub eventi, i log vengono indirizzati a tale hub anziché a un hub eventi appena creato per ogni categoria di log.
 
 4. Fare clic su **Save**.
@@ -80,6 +87,7 @@ Lo spazio dei nomi di Hub eventi non deve trovarsi nella stessa sottoscrizione d
 Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa risorsa e vengono trasmessi i log di diagnostica a tale hub eventi non appena vengono generati nuovi dati di eventi.
 
 ### <a name="via-powershell-cmdlets"></a>Tramite i cmdlet di PowerShell
+
 Per abilitare la trasmissione tramite i [cmdlet di Azure PowerShell](insights-powershell-samples.md), è possibile usare il cmdlet `Set-AzureRmDiagnosticSetting` con i parametri seguenti:
 
 ```powershell
@@ -88,16 +96,29 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizati
 
 L'ID della regola di autorizzazione dell'hub eventi è una stringa nel formato seguente: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, ad esempio `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Non è attualmente possibile selezionare un nome di hub eventi specifico con PowerShell.
 
-### <a name="via-azure-cli"></a>Tramite l'interfaccia della riga di comando di Azure
-Per abilitare la trasmissione tramite l'[interfaccia della riga di comando di Azure](insights-cli-samples.md), è possibile usare il comando `insights diagnostic set` come segue:
+### <a name="via-azure-cli-20"></a>Tramite l'interfaccia della riga di comando di Azure 2.0
+
+Per abilitare lo streaming tramite l'[interfaccia della riga di comando di Azure 2.0](insights-cli-samples.md), è possibile usare il comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ```azurecli
-azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --event-hub <event hub name> \
+    --event-hub-rule <event hub rule ID> \
+    --resource <target resource object ID> \
+    --logs '[
+    {
+        "category": <category name>,
+        "enabled": true
+    }
+    ]'
 ```
 
-Usare lo stesso formato per l'ID della regola di autorizzazione dell'hub eventi, come illustrato per il cmdlet di PowerShell. Non è attualmente possibile selezionare un nome di hub eventi specifico con l'interfaccia della riga di comando di Azure.
+È possibile aggiungere altre categorie al log di diagnostica aggiungendo dizionari alla matrice JSON passata come parametro `--logs`.
+
+L'argomento `--event-hub-rule` usa lo stesso formato per l'ID della regola di autorizzazione dell'hub eventi, come illustrato per il cmdlet di PowerShell.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Come utilizzare i dati di log da Hub eventi
+
 Di seguito è riportato un esempio di dati di output da Hub eventi:
 
 ```json
@@ -161,7 +182,7 @@ Di seguito è riportato un esempio di dati di output da Hub eventi:
 }
 ```
 
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | DESCRIZIONE |
 | --- | --- |
 | records |Matrice di tutti gli eventi di log nel payload. |
 | time |Ora in cui si è verificato l'evento. |
@@ -174,9 +195,10 @@ Di seguito è riportato un esempio di dati di output da Hub eventi:
 Per un elenco di tutti i provider di risorse che supportano la trasmissione a Hub eventi, vedere [questo articolo](monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="stream-data-from-compute-resources"></a>Eseguire lo streaming di dati dalle risorse di calcolo
+
 È anche possibile eseguire lo streaming di log di diagnostica dalle risorse di calcolo usando l'agente di Diagnostica di Microsoft Azure. Per informazioni sulla configurazione, [vedere questo articolo](../event-hubs/event-hubs-streaming-azure-diags-data.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Altre informazioni sui log di diagnostica di Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-

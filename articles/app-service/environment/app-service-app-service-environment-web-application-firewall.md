@@ -2,7 +2,7 @@
 title: Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app
 description: Informazioni su come configurare un Web application firewall davanti all'ambiente del servizio app.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: erikre
 editor: jimbe
@@ -12,18 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/17/2016
+ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: mvc
-ms.openlocfilehash: bfe36ee5365e71db4280e8e2ccff6db8e552dd39
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: bc59d8671d904cf5096d616213cc4674ef5743b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app
 ## <a name="overview"></a>Panoramica
-Grazie all'analisi del traffico Web in ingresso i web application firewall, ad esempio [Barracuda WAF for Azure](https://www.barracuda.com/programs/azure) disponibile nella pagina [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/), consentono di proteggere le applicazioni Web individuando e bloccando attacchi SQL injection, attacchi tramite script da altri siti, caricamenti di malware, attacchi DDoS destinati alle applicazioni e altri tipi di attacchi. Esamina anche le risposte provenienti dai server Web back-end per la prevenzione della perdita dei dati. In associazione all'isolamento e alla scalabilità aggiuntiva fornita dagli ambienti del servizio app, costituisce un ambiente ideale per le applicazioni Web critiche per l'azienda, che devono sostenere richieste dannose e un volume elevato di traffico.
+
+I Web application firewall (WAF) consentono di proteggere le applicazioni Web controllando il traffico Web in ingresso per bloccare SQL injection, attacchi tramite script da altri siti, caricamenti di malware, DDoS di applicazioni e altri attacchi. Esaminano anche le risposte provenienti dai server Web back-end per la prevenzione della perdita dei dati. In associazione all'isolamento e alla scalabilità aggiuntiva fornita dagli ambienti del servizio app, costituisce un ambiente ideale per le applicazioni Web critiche per l'azienda, che devono sostenere richieste dannose e un volume elevato di traffico. Azure offre una funzionalità WAF con il [gateway applicazione](http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).  Per informazioni su come integrare l'ambiente del servizio app con un gateway applicazione, vedere il documento [Integrare l'ambiente del servizio app con bilanciamento del carico interno con un gateway applicazione](http://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway).
+
+In [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) sono disponibili diverse opzioni oltre al gateway applicazione di Azure, ad esempio [Barracuda WAF per Azure](https://www.barracuda.com/programs/azure). La parte restante di questo documento illustra come integrare l'ambiente del servizio app con un dispositivo Barracuda WAF.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 
@@ -62,7 +65,7 @@ Aggiungere l'endpoint di gestione, come illustrato nell'immagine seguente, per c
 
 ![Aggiungere l'endpoint di gestione][AddManagementEndpoint]
 
-Usare un browser per passare all'endpoint di gestione nel servizio cloud. Se il servizio cloud si chiama test.cloudapp.net, si accederà a questo endpoint passando a http://test.cloudapp.net:8000. Dovrebbe essere visualizzata una pagina di accesso come quella illustrata nell'immagine seguente, a cui è possibile accedere usando le credenziali specificate in fase di configurazione delle VM WAF.
+Usare un browser per passare all'endpoint di gestione nel servizio cloud. Se il servizio cloud è denominato test.cloudapp.net, si accederà a questo endpoint passando a http://test.cloudapp.net:8000. Dovrebbe essere visualizzata una pagina di accesso come quella illustrata nell'immagine seguente, a cui è possibile accedere usando le credenziali specificate in fase di configurazione delle VM WAF.
 
 ![Pagina di accesso gestione][ManagementLoginPage]
 

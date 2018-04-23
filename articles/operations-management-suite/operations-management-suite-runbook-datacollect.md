@@ -2,10 +2,10 @@
 title: Raccolta di dati di Log Analytics con un runbook in Automazione di Azure | Microsoft Docs
 description: Esercitazione dettagliata che illustra la creazione di un runbook in Automazione di Azure per la raccolta di dati nel repository OMS per la successiva analisi da parte di Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: operations-management-suite
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 59f674c9c6404da7f5384539189f41a4ba1a939a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0784e2317fbc98561b486547654ca27bb30e76c3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Raccogliere dati in Log Analytics con un runbook di Automazione di Azure
 È possibile raccogliere una quantità significativa di dati in Log Analytics da una serie di origini, tra cui [origini dati](../log-analytics/log-analytics-data-sources.md) negli agenti e [dati raccolti da Azure](../log-analytics/log-analytics-azure-storage.md).  Esistono tuttavia scenari in cui è necessario raccogliere dati non accessibili tramite queste origini standard.  In questi casi è possibile usare l'[API di raccolta dati HTTP](../log-analytics/log-analytics-data-collector-api.md) per inviare dati a Log Analytics da qualsiasi client dell'API REST.  Un modo comune per eseguire questa raccolta dati è usare un runbook in Automazione di Azure.   
@@ -97,7 +97,7 @@ Automazione di Azure offre un editor nel portale in cui è possibile modificare 
         # Code copied from the runbook AzureAutomationTutorial.
         $connectionName = "AzureRunAsConnection"
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
             -ServicePrincipal `
             -TenantId $servicePrincipalConnection.TenantId `
             -ApplicationId $servicePrincipalConnection.ApplicationId `

@@ -1,5 +1,5 @@
 ---
-title: "Funzionalità di sicurezza per Archiviazione di Azure | Documentazione Microsoft"
+title: Funzionalità di sicurezza per Archiviazione di Azure | Documentazione Microsoft
 description: " Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure che possono essere usate con Archiviazione di Azure. "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: a118bde2290e68c9a741e40cda210d47db918047
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8160ede71930bf4c15969044deb3fced855f03e6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-security-overview"></a>Panoramica sulla sicurezza di Archiviazione di Azure
 Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazioni moderne basate su durata, disponibilità e scalabilità per soddisfare le esigenze dei clienti. Archiviazione di Azure offre un set completo di funzionalità di sicurezza:
@@ -44,11 +44,11 @@ Qui di seguito sono elencati gli argomenti trattati in questo articolo:
 * Azure Key Vault
 
 ## <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
-È possibile proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo. Per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati è fondamentale limitare l'accesso in base a principi di [riservatezza](https://en.wikipedia.org/wiki/Need_to_know) e [privilegi minimi](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Questi diritti di accesso vengono concessi assegnando il ruolo di controllo degli accessi appropriato a gruppi e applicazioni in un ambito specifico. È possibile usare i [ruoli predefiniti del controllo degli accessi in base al ruolo](../active-directory/role-based-access-built-in-roles.md), ad esempio Collaboratore Account di archiviazione, per assegnare privilegi agli utenti.
+È possibile proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo. Per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati è fondamentale limitare l'accesso in base a principi di [riservatezza](https://en.wikipedia.org/wiki/Need_to_know) e [privilegi minimi](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Questi diritti di accesso vengono concessi assegnando il ruolo di controllo degli accessi appropriato a gruppi e applicazioni in un ambito specifico. È possibile usare i [ruoli predefiniti del controllo degli accessi in base al ruolo](../role-based-access-control/built-in-roles.md), ad esempio Collaboratore Account di archiviazione, per assegnare privilegi agli utenti.
 
 Altre informazioni:
 
-* [Controllo degli accessi in base al ruolo di Azure Active Directory](../active-directory/role-based-access-control-configure.md)
+* [Controllo degli accessi in base al ruolo di Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="delegated-access-to-storage-objects"></a>Accesso delegato agli oggetti di archiviazione
 Una firma di accesso condiviso (SAS) fornisce accesso delegato alle risorse nell'account di archiviazione. Questa firma di accesso condiviso significa che è possibile concedere a un client autorizzazioni limitate per BLOB, code o tabelle per un periodo di tempo specificato e con un set di autorizzazioni. È possibile concedere queste autorizzazioni limitate senza la necessità di condividere le chiavi di accesso all'account. La firma di accesso condiviso è un URI che racchiude nei parametri di query tutte le informazioni necessarie per l'accesso autenticato a una risorsa di archiviazione. Per accedere alle risorse di archiviazione con la firma di accesso condiviso, il client deve solo passare la firma al costruttore o al metodo appropriato.

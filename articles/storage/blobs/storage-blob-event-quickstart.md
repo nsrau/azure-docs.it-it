@@ -2,30 +2,28 @@
 title: Indirizzare gli eventi di archiviazione BLOB di Azure a un endpoint Web personalizzato | Microsoft Docs
 description: Usare la Griglia di eventi di Azure per sottoscrivere eventi di archiviazione BLOB.
 services: storage,event-grid
-keywords: 
+keywords: ''
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 4f10d9b26cb75bee8103d986b7fa1197168c692f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f0764ebc423cfb5323f2b634ce5a5ecbe075135c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato con l'interfaccia della riga di comando di Azure
 
 La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per sottoscrivere eventi di archiviazione BLOB e attivare l'evento per visualizzare il risultato. 
 
-In genere, si inviano eventi a un endpoint che risponde all'evento, ad esempio un webhook o una funzione di Azure. Per semplificare l'esempio mostrato in questo articolo, gli eventi vengono inviati a un URL che raccoglie semplicemente i messaggi. È possibile creare questo URL usando strumenti di terze parti da [RequestBin](https://requestb.in/) o [Hookbin](https://hookbin.com/).
+In genere, si inviano eventi a un endpoint che risponde all'evento, ad esempio un webhook o una funzione di Azure. Per semplificare l'esempio mostrato in questo articolo, gli eventi vengono inviati a un URL che raccoglie semplicemente i messaggi. È possibile creare questo URL mediante uno strumento di terze parti da [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **RequestBin** e **Hookbin** non sono destinati a un utilizzo con velocità effettiva elevata. L'uso di questi strumenti è esclusivamente dimostrativo. Se si esegue il push di più di un evento alla volta, è possibile che non vengano visualizzati tutti gli eventi nello strumento.
+> **Hookbin** non è destinato all'utilizzo con velocità effettiva elevata. Questo strumento viene usato esclusivamente per scopi dimostrativi. Se si esegue il push di più di un evento alla volta, è possibile che non vengano visualizzati tutti gli eventi nello strumento.
 
 Al termine della procedura descritta in questo articolo, si potrà notare che i dati dell'evento sono stati inviati a un endpoint.
-
-![Dati dell'evento](./media/storage-blob-event-quickstart/request-result.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,10 +47,10 @@ az group create --name <resource_group_name> --location westcentralus
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Per usare eventi di archiviazione BLOB, è necessario un [account di archiviazione BLOB](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) o un [account di archiviazione per utilizzo generico versione 2](../common/storage-account-options.md#general-purpose-v2). Gli account di archiviazione per **utilizzo generico versione 2** supportano tutte le funzionalità di tutti i servizi di archiviazione, inclusi oggetti BLOB, file, code e tabelle. Gli **account di archiviazione di oggetti BLOB** sono account di archiviazione specializzati per l'archiviazione di dati non strutturati come BLOB (oggetti) in Archiviazione di Azure. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico e includono tutte le straordinarie caratteristiche di durabilità, disponibilità, scalabilità e prestazioni che si usano già normalmente, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta. Per applicazioni che richiedono solo archivi BLOB in blocchi o BLOB di aggiunta, è consigliabile usare account di archiviazione BLOB. 
+Per usare eventi di archiviazione BLOB, è necessario un [account di archiviazione BLOB](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) o un [account di archiviazione per utilizzo generico versione 2](../common/storage-account-options.md#general-purpose-v2). Gli account di archiviazione per **utilizzo generico versione 2** supportano tutte le funzionalità di tutti i servizi di archiviazione, inclusi quelli relativi a BLOB, file, code e tabelle. Gli **account di archiviazione BLOB** sono account specializzati per l'archiviazione di dati non strutturati come BLOB (oggetti) in Archiviazione di Azure. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico e includono tutte le straordinarie caratteristiche di durabilità, disponibilità, scalabilità e prestazioni che si usano già normalmente, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta. Per applicazioni che richiedono solo archivi BLOB in blocchi o BLOB di aggiunta, è consigliabile usare account di archiviazione BLOB. 
 
 > [!NOTE]
-> La disponibilità per gli eventi di Archiviazione è associata alla [disponibilità](../../event-grid/overview.md) di Griglia di eventi. Gli eventi di Archiviazione saranno disponibili in altre aree man mano che la disponibilità di Griglia di eventi si diffonde.
+> La disponibilità degli eventi di archiviazione è legata alla [disponibilità](../../event-grid/overview.md) di Griglia di eventi. Gli eventi di archiviazione saranno disponibili nelle aree geografiche in cui si renderà disponibile Griglia di eventi.
 
 Sostituire `<storage_account_name>` con un nome univoco per l'account di archiviazione e `<resource_group_name>` con il gruppo di risorse creato in precedenza.
 
@@ -68,11 +66,11 @@ az storage account create \
 
 ## <a name="create-a-message-endpoint"></a>Creare un endpoint del messaggio
 
-Prima di sottoscrivere l'argomento, creare l'endpoint per il messaggio dell'evento. Anziché scrivere codice per rispondere all'evento, creare un endpoint che raccoglie i messaggi per poterli visualizzare. RequestBin e Hookbin sono strumenti di terze parti che consentono di creare un endpoint e di visualizzare le richieste che vengono inviate a questo. Passare a [RequestBin](https://requestb.in/) e fare clic su **Create a RequestBin** (Crea RequestBin) o passare a [Hookbin](https://hookbin.com/) e fare clic su **Create New Endpoint** (Crea nuovo endpoint).  Copiare l'URL del contenitore, necessario per sottoscrivere l'argomento.
+Prima di sottoscrivere l'argomento, creare l'endpoint per il messaggio dell'evento. Anziché scrivere codice per rispondere all'evento, creare un endpoint che raccoglie i messaggi per poterli visualizzare. Hookbin è uno strumento di terze parti che consente di creare un endpoint e visualizza le richieste che gli vengono inviate. Passare a [Hookbin](https://hookbin.com/) e fare clic su **Create New Endpoint** (Crea nuovo endpoint).  Copiare l'URL del contenitore, necessario per sottoscrivere l'argomento.
 
 ## <a name="subscribe-to-your-storage-account"></a>Sottoscrivere l'account di archiviazione
 
-Si sottoscrive un argomento per indicare alla griglia di eventi gli eventi di cui si vuole tenere traccia. L'esempio seguente sottoscrive l'account di archiviazione creato e passa l'URL da RequestBin o da Hookbin come endpoint per la notifica degli eventi. Sostituire `<event_subscription_name>` con un nome univoco per la sottoscrizione all'evento e `<endpoint_URL>` con il valore specificato nella sezione precedente. Se durante la sottoscrizione si specifica un endpoint, la griglia di eventi gestisce il routing degli eventi verso tale endpoint. Per `<resource_group_name>` e `<storage_account_name>` usare i valori creati in precedenza.  
+Si sottoscrive un argomento per indicare alla griglia di eventi gli eventi di cui si vuole tenere traccia. L'esempio seguente sottoscrive l'account di archiviazione creato e passa l'URL di Hookbin come endpoint per la notifica degli eventi. Sostituire `<event_subscription_name>` con un nome univoco per la sottoscrizione all'evento e `<endpoint_URL>` con il valore specificato nella sezione precedente. Se durante la sottoscrizione si specifica un endpoint, la griglia di eventi gestisce il routing degli eventi verso tale endpoint. Per `<resource_group_name>` e `<storage_account_name>` usare i valori creati in precedenza.  
 
 ```azurecli-interactive
 storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)

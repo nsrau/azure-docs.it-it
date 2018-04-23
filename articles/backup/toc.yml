@@ -29,6 +29,8 @@
   items:
     - name: Azure PowerShell
       href: powershell-backup-samples.md
+    - name: Modelli di Gestione risorse
+      href: backup-rm-template-samples.md
 - name: Concetti
   items:
     - name: Domande frequenti
@@ -85,8 +87,6 @@
           href: backup-azure-files.md
         - name: Domande frequenti sull'esecuzione del backup di condivisioni di File di Azure
           href: backup-azure-files-faq.md
-        - name: Risolvere i problemi del backup delle condivisioni di File di Azure
-          href: troubleshoot-azure-files.md
     - name: Macchine virtuali di Azure
       items:
         - name: Preparare la macchina virtuale
@@ -102,7 +102,7 @@
         - name: Eseguire il backup delle VM
           items:
             - name: Eseguire il backup di VM di Azure in un insieme di credenziali di Servizi di ripristino
-              href: backup-azure-arm-vms.md
+              href: backup-azure-vms-first-look-arm.md
             - name: Eseguire il backup di VM crittografate
               href: backup-azure-vms-encryption.md
             - name: Abilitare il backup di una VM durante la creazione
@@ -181,24 +181,32 @@
           href: backup-azure-delete-vault.md
     - name: Risolvere problemi
       items:
-        - name: Problemi relativi al backup delle macchine virtuali di Azure nel portale di Azure
+        - name: Macchina virtuale di Azure
           href: backup-azure-vms-troubleshoot.md
-        - name: 'Errore di backup delle VM di Azure: non è stato possibile comunicare con l''agente della macchina virtuale per lo stato dello snapshot a causa del timeout della sottoattività di creazione snapshot della macchina virtuale'
+        - name: Timeout dell'agente di Backup di Azure o dell'estensione della VM
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
-        - name: Rallentamento delle prestazioni di backup di file e cartelle in Backup di Azure
+        - name: Il backup di file e cartelle è lento
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
-        - name: Risolvere i problemi del server di Backup di Azure
+        - name: Server di backup di Azure
           href: backup-azure-mabs-troubleshoot.md
-        - name: Risolvere i problemi relativi a System Center Data Protection Manager
+        - name: System Center DPM
           href: backup-azure-scdpm-troubleshooting.md
-        - name: Risolvere i problemi dell'agente di Backup di Azure
+        - name: Agente di Backup di Azure
           href: backup-azure-mars-troubleshoot.md
-- name: riferimento
+        - name: Condivisione file di Azure
+          href: troubleshoot-azure-files.md
+- name: Riferimenti
   items:
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.recoveryservices.backup
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+    - name: Interfaccia della riga di comando di Azure 2.0
+      href: /cli/azure/backup?view=azure-cli-latest
+    - name: PowerShell
+      href: /powershell/module/azurerm.recoveryservices.backup
+    - name: REST - Backup
+      href: /rest/api/backup/
+    - name: REST - Insieme di credenziali di Servizi di ripristino
+      href: /rest/api/recoveryservices/
 - name: Risorse
   items:
     - name: Roadmap per Azure

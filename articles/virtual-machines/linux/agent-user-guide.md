@@ -1,11 +1,11 @@
 ---
-title: Panoramica dell'agente di VM Linux di Azure | Documentazione Microsoft
+title: Panoramica dell'agente di VM Linux di Azure | Microsoft Docs
 description: Informazioni su come installare e configurare l'agente Linux (waagent) per gestire l'interazione della macchina virtuale con il controller di infrastruttura di Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: szarkos
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: be3955c670382af1a2b558e8e7d656ca5a1f353d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Informazioni e uso dell'agente Linux di Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -62,7 +62,7 @@ L'agente Linux di Microsoft Azure (waagent) gestisce il provisioning di Linux e 
 * **Estensione VM**
   
   * Inserire il componente creato da Microsoft e partner in VM Linux (IaaS) per attivare il software e l'automazione di configurazione
-  * Implementazione di riferimento di estensione VM in [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Implementazione di riferimento dell'estensione VM disponibile all'indirizzo [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Comunicazione
 Il flusso di informazioni dalla piattaforma all'agente avviene tramite due canali:

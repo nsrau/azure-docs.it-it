@@ -2,10 +2,10 @@
 title: Creare un hub IoT di Azure con un modello (PowerShell) | Documentazione Microsoft
 description: Come usare un modello di Azure Resource Manager per creare un hub IoT con PowerShell.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7eade855-c289-4ffb-b5ef-02be8c5f670f
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 242c50b61b00bbf71b26e2aea1a66e2b2c55dbd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0e5f95d98f772b226e162f601939bc94bf8fb78b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Creare un hub IoT usando un modello di Azure Resource Manager (PowerShell)
 
@@ -42,7 +42,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 In un prompt dei comandi di PowerShell, immettere il comando seguente per accedere alla sottoscrizione di Azure:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Se si usano più sottoscrizioni Azure e si esegue l'accesso ad Azure, è possibile accedere a tutte le sottoscrizioni di Azure associate alle credenziali. Usare il comando seguente per elencare gli account Azure che è possibile usare:

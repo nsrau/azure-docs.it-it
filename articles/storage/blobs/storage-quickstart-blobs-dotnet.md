@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: b84a56996a335f8a137c4219c55b9878e39b5a3b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a34a94a9421c65a2b1d4ce5c390732e0adbb69d6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con .NET
 
@@ -56,26 +56,15 @@ Usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell
 git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 ```
 
-Questo comando consente di duplicare il repository nella cartella locale git. Per aprire la soluzione di Visual Studio, cercare la cartella storage-blobs-dotnet-quickstart, aprirla e fare doppio clic su storage-blobs-dotnet-quickstart.sln. 
+Questo comando consente di duplicare il repository nella cartella locale git. Per aprire la soluzione di Visual Studio, cercare la cartella *storage-blobs-dotnet-quickstart*, aprirla e fare doppio clic su *storage-blobs-dotnet-quickstart.sln*. 
+
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Configurare la stringa di connessione di archiviazione
 
-Per eseguire l'applicazione, è necessario specificare la stringa di connessione per l'account di archiviazione. Copiare la stringa di connessione dal portale di Azure e scriverla in una nuova variabile di ambiente. L'esempio legge la stringa di connessione dalla variabile di ambiente e la usa per l'autenticazione delle richieste ad Archiviazione di Azure.
+Per eseguire l'applicazione, è necessario specificare la stringa di connessione per l'account di archiviazione. L'applicazione di esempio legge la stringa di connessione da una variabile di ambiente e la usa per l'autenticazione delle richieste ad Archiviazione di Azure.
 
-### <a name="copy-your-connection-string-from-the-azure-portal"></a>Copiare la stringa di connessione dal portale di Azure
-
-Per copiare la stringa di connessione:
-
-1. Passare al [portale di Azure](https://portal.azure.com).
-2. Individuare l'account di archiviazione.
-3. Nella sezione **Impostazioni** della panoramica dell'account di archiviazione selezionare **Chiavi di accesso**.
-4. Trovare il valore **Stringa di connessione** in **key1** e fare clic sul pulsante **Copia** per copiare la stringa di connessione.  
-
-    ![Screenshot che mostra come copiare una stringa di connessione dal portale di Azure](media/storage-quickstart-blobs-dotnet/portal-connection-string.png)
-
-## <a name="write-your-connection-string-to-an-environment-variable"></a>Scrivere la stringa di connessione in una variabile di ambiente
-
-Scrivere quindi la nuova variabile di ambiente nel computer locale che esegue l'applicazione. Per impostare la variabile di ambiente, aprire una finestra della console e seguire le istruzioni per il sistema operativo specifico. Sostituire `<yourconnectionstring>` con la stringa di connessione effettiva:
+Dopo aver copiato la stringa di connessione, scriverla in una nuova variabile di ambiente nel computer locale che esegue l'applicazione. Per impostare la variabile di ambiente, aprire una finestra della console e seguire le istruzioni per il sistema operativo specifico. Sostituire `<yourconnectionstring>` con la stringa di connessione effettiva:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 

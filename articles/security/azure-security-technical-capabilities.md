@@ -1,12 +1,12 @@
 ---
-title: "Funzionalità tecniche per la sicurezza di Azure | Microsoft Docs"
-description: "Informazioni sui servizi di calcolo basati sul cloud che includono un'ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell'applicazione o dell'organizzazione."
+title: Funzionalità tecniche per la sicurezza di Azure | Microsoft Docs
+description: Informazioni sui servizi di calcolo basati sul cloud che includono un'ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell'applicazione o dell'organizzazione.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 536745d869ea3bcd0beedad3712597b00e600796
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 489b2a66cadb77a338f9ae00443c072a4e19edfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
 
@@ -166,7 +166,7 @@ La fatturazione costituisce il punto di partenza per il controllo di accesso in 
 
 Le sottoscrizioni dispongono anche di un'associazione a una directory. Una directory definisce un set di utenti. Possono essere utenti dell'azienda o dell'istituto di istruzione che ha creato la directory oppure utenti esterni, ossia utenti con account Microsoft. Le sottoscrizioni sono accessibili da un sottogruppo di questi utenti della directory che sono stati nominati Amministratori del servizio (SA) o Co-amministratori (CA); l'unica eccezione è che, per motivi di compatibilità, gli account Microsoft (precedentemente Windows Live ID) possono essere nominati SA o CA senza essere presenti nella directory.
 
-Le aziende orientate sulla sicurezza devono concedere ai propri dipendenti la quantità esatta di autorizzazioni di cui necessitano. un numero eccessivo di autorizzazioni può esporre un account agli attacchi. Un numero di autorizzazioni insufficiente impedisce ai dipendenti di svolgere il proprio lavoro in modo efficiente. Il [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) consente di risolvere questo problema offrendo una gestione specifica degli accessi per Azure.
+Le aziende orientate sulla sicurezza devono concedere ai propri dipendenti la quantità esatta di autorizzazioni di cui necessitano. un numero eccessivo di autorizzazioni può esporre un account agli attacchi. Un numero di autorizzazioni insufficiente impedisce ai dipendenti di svolgere il proprio lavoro in modo efficiente. Il [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) consente di risolvere questo problema offrendo una gestione specifica degli accessi per Azure.
 
 ![Accesso protetto alle risorse ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 

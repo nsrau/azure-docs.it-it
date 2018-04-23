@@ -1,5 +1,5 @@
 ---
-title: Considerazioni sulla sicurezza in Azure Data Factory | Documentazione Microsoft
+title: Considerazioni sulla sicurezza in Azure Data Factory | Microsoft Docs
 description: Descrive l'infrastruttura di sicurezza di base usata dai servizi di spostamento dei dati in Azure Data Factory per proteggere i dati.
 services: data-factory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 56602e269a441f9541314424190da04be2c4add5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 46d4962040a78942adbad443d5cbde64755ddadf
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerazioni sulla sicurezza dello spostamento dei dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -136,14 +136,14 @@ Le immagini seguenti mostrano come usare il runtime di integrazione self-hosted 
 
 ![VPN IPSec con gateway](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-addresses"></a>Configurazioni del firewall e inserimento nell'elenco elementi consentiti degli indirizzi IP
+### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a> Configurazioni del firewall e inserimento nell'elenco elementi consentiti degli indirizzi IP
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisiti del firewall per la rete locale/privata  
 In un'azienda il firewall aziendale viene eseguito nel router centrale dell'organizzazione. Windows Firewall viene eseguito come daemon nel computer locale in cui è stato installato il runtime di integrazione self-hosted. 
 
 La tabella seguente indica la porta in uscita e i requisiti di dominio per i firewall aziendale:
 
-| Nomi di dominio                  | Porte in uscita | DESCRIZIONE                              |
+| Nomi di dominio                  | Porte in uscita | Descrizione                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443            | Richieste dal runtime di integrazione self-hosted per connettersi ai servizi di spostamento dei dati in Data Factory. |
 | `*.core.windows.net`          | 443            | Usata dal runtime di integrazione self-hosted per connettersi all'account di archiviazione di Azure quando si usa la funzionalità di [copia temporanea](copy-activity-performance.md#staged-copy). |
@@ -156,7 +156,7 @@ La tabella seguente indica la porta in uscita e i requisiti di dominio per i fir
 
 Nella tabella seguente vengono indicati i requisiti relativi alla porta in ingresso per Windows Firewall:
 
-| Porte in ingresso | DESCRIZIONE                              |
+| Porte in ingresso | Descrizione                              |
 | ------------- | ---------------------------------------- |
 | 8050 (TCP)    | Richiesta dal cmdlet di crittografia PowerShell, come descritto in [Crittografare le credenziali per gli archivi dati locali in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), e dall'applicazione di gestione delle credenziali per impostare in modo sicuro le credenziali per gli archivi dati locali nel runtime di integrazione self-hosted. |
 

@@ -6,7 +6,7 @@ documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: d0f835db8a9fbe3833a9c7931ad1d8b4a778f016
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: d40a56ca3c07bfadcf6e24d407b059a39522ca2b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Eseguire operazioni dell'API di tabella di Azure Cosmos DB con Azure PowerShell 
 
@@ -55,10 +55,10 @@ Ottenere il gruppo di risorse e il nome dell'account di database dal portale. È
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere alla sottoscrizione di Azure con il comando `Login-AzureRmAccount` e seguire le istruzioni visualizzate.
+Accedere alla sottoscrizione di Azure con il comando `Connect-AzureRmAccount` e seguire le istruzioni visualizzate.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-a-table-or-reference-a-table"></a>Creare una tabella o fare riferimento a una tabella

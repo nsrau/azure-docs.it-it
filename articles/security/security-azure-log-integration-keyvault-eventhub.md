@@ -5,17 +5,17 @@ services: security
 author: barclayn
 manager: MBaldwin
 editor: TomShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: e5bd27c94569228693d1a9c80c6e5362b50c4a44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 42c30a825e44c289c42d0fb0a40a442c4ac950d7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Esercitazione sull'integrazione dei log di Azure: elaborazione degli eventi di Azure Key Vault tramite Hub eventi
 
@@ -81,7 +81,7 @@ Per poter completare la procedura descritta in questo articolo, è necessario qu
 
    ![Elenco dei moduli caricati](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-3. Immettere il comando `Login-AzureRmAccount`. Nella finestra di accesso inserire le informazioni sulle credenziali per la sottoscrizione che verrà usata per questa esercitazione.
+3. Immettere il comando `Connect-AzureRmAccount`. Nella finestra di accesso inserire le informazioni sulle credenziali per la sottoscrizione che verrà usata per questa esercitazione.
 
    >[!NOTE]
    >Se questa è la prima volta che si accede ad Azure da questo computer, allora si visualizzerà un messaggio su come consentire a Microsoft di raccogliere dati sull'uso di PowerShell. È consigliabile abilitare la raccolta dati perché verrà usata per migliorare Azure PowerShell.

@@ -37,7 +37,7 @@ Per l'accesso Single Sign-On basato su password il browser dell'utente finale pu
 -   Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
 
 >[!NOTE]
->L'estensione SSO basata su password sarà disponibile per Edge in Windows 10 quando le estensioni del browser saranno supportate per Edge.
+>L'estensione SSO basata su password sarà disponibile per Microsoft Edge in Windows 10 quando le estensioni del browser saranno supportate per Microsoft Edge.
 >
 >
 

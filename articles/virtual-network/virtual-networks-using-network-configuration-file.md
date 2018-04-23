@@ -2,10 +2,10 @@
 title: Configurare una rete virtuale di Azure (classica) usando un file di configurazione di rete | Microsoft Docs
 description: Informazioni su come creare e modificare le reti virtuali (classiche) esportando, modificando e importando un file di configurazione di rete.
 services: virtual-network
-documentationcenter: 
-author: jimdial
-manager: timlt
-editor: 
+documentationcenter: ''
+author: genlin
+manager: cshepard
+editor: ''
 tags: azure-service-management
 ms.assetid: c29b9059-22b0-444e-bbfe-3e35f83cde2f
 ms.service: virtual-network
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/23/2017
-ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 1bb75b8bd1d525f3104fb517cb4a09b2e33caaca
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: genli
+ms.custom: ''
+ms.openlocfilehash: ed47a5d1449ba634f90e93a82f15daf6e44a553e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configurare una rete virtuale (classica) usando un file di configurazione di rete
 > [!IMPORTANT]

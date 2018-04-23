@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Azure Resource Manager | Documentazione Microsoft
-description: "Viene descritto come utilizzare Gestione risorse di Azure per la distribuzione, la gestione e il controllo dell’accesso delle risorse in Azure."
+description: Viene descritto come utilizzare Gestione risorse di Azure per la distribuzione, la gestione e il controllo dell’accesso delle risorse in Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: cc3402b56b12e82653f673d7a5ab527231599c5b
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: a7e3d817923b0f9a691d5acaba606bdcd0012e60
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-resource-manager-overview"></a>Panoramica di Gestione risorse di Microsoft Azure
 L'infrastruttura per l'applicazione è in genere costituita da vari componenti, ad esempio una macchina virtuale, un account di archiviazione e una rete virtuale oppure un'app Web, un database, un server di database e servizi di terze parti. Questi componenti non appaiono come entità separate, ma come parti correlate e interdipendenti di una singola entità e devono essere distribuite, gestite e monitorate come gruppo. Gestione risorse di Azure consente di usare le risorse incluse nella soluzione come un gruppo. È possibile distribuire, aggiornare o eliminare tutte le risorse della soluzione con un'unica operazione coordinata. Per la distribuzione viene usato un modello; questo modello può essere usato per diversi ambienti, ad esempio di testing, staging e produzione. Gestione risorse offre funzionalità di sicurezza, controllo e categorizzazione che semplificano la gestione delle risorse dopo la distribuzione. 
@@ -215,7 +215,7 @@ Azure offre anche diversi ruoli specifici delle risorse. Alcuni ruoli comuni son
 4. Collaboratore SQL Server: può gestire server e database SQL, ma non i criteri di sicurezza correlati
 5. Collaboratore Sito Web: può gestire i siti Web, ma non i piani Web cui sono connessi
 
-Per l'elenco completo dei ruoli e delle azioni consentite, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md). Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md). 
+Per l'elenco completo dei ruoli e delle azioni consentite, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../role-based-access-control/built-in-roles.md). Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md). 
 
 In alcuni casi si vuole eseguire un codice o uno script che accede alle risorse, ma non con le credenziali di un utente. Si vuole invece creare un'identità chiamata "entità servizio" per l'applicazione e assegnare il ruolo appropriato per l'entità servizio. Resource Manager consente di creare le credenziali per l'applicazione e di autenticarla a livello di codice. Per altre informazioni sulla creazione di entità servizio, vedere uno degli argomenti seguenti:
 

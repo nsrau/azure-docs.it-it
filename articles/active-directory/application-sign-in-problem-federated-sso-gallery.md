@@ -2,10 +2,10 @@
 title: Problemi di accesso a un'applicazione della raccolta configurata per il Single Sign-On federato | Microsoft Docs
 description: Linee guida per errori durante l'accesso a un'applicazione configurata per il Single Sign-On federato basato su SAML con Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: fa1387c3eb11899bb74418b2ff1af4a5d22a73d9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemi di accesso a un'applicazione della raccolta configurata per il Single Sign-On federato
 
@@ -31,7 +31,7 @@ Per risolvere il problema, è necessario verificare la configurazione dell'appli
 
 ## <a name="application-not-found-in-directory"></a>Applicazione non trovata nella directory
 
-*Error AADSTS70001: Application with Identifier 'https://contoso.com' was not found in the directory* (Errore AADSTS70001: applicazione con identificatore 'https://contoso.com' non trovata nella directory).
+*Errore ADSTS70001: applicazione con identificatore "https://contoso.com" non trovata nella directory*.
 
 **Causa possibile**
 
@@ -63,7 +63,7 @@ Dopo aver aggiornato il valore dell'identificatore in Azure AD in modo che corri
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>L'indirizzo di risposta non corrisponde agli indirizzi di risposta configurati per l'applicazione.
 
-*Errore AADSTS50011: l'indirizzo di risposta 'https://contoso.com' non corrisponde agli indirizzi risposta configurati per l'applicazione*
+*Errore AADSTS50011: l'indirizzo di risposta "https://contoso.com" non corrisponde agli indirizzi di risposta configurati per l'applicazione*
 
 **Causa possibile**
 

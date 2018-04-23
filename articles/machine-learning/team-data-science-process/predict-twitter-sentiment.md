@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev
-ms.openlocfilehash: f22da892868a10ac18fdcd703249eaa172f8bf65
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 47c8b9c9d364a7959066132a873b93c2bb001e26
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Prevedere il sentiment in Twitter con rappresentazioni distribuite delle parole usando Team Data Science Process
 
-Questo articolo mostra come collaborare in modo efficace usando l'algoritmo di rappresentazione distribuita delle parole _Word2Vec_ e l'algoritmo _Sentiment-Specific Word Embedding (SSWE)_ per prevedere il sentiment in Twitter con [Azure Machine Learning](../preview/index.yml). Per altre informazioni sulla previsione della polarità del sentiment in Twitter, vedere il [repository MachineLearningSamples-TwitterSentimentPrediction](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) in GitHub. L'aspetto chiave per favorire una collaborazione efficace del team in progetti di data science consiste nello standardizzare la struttura e la documentazione per i progetti con un ciclo di vita di data science stabilito. [Team Data Science Process (TDSP)](overview.md) offre questo tipo di [ciclo di vita](lifecycle.md) strutturato. 
+Questo articolo mostra come collaborare in modo efficace usando l'algoritmo di rappresentazione distribuita delle parole _Word2Vec_ e l'algoritmo _Sentiment-Specific Word Embedding (SSWE)_ per prevedere il sentiment in Twitter con [Azure Machine Learning](../service/index.yml). Per altre informazioni sulla previsione della polarità del sentiment in Twitter, vedere il [repository MachineLearningSamples-TwitterSentimentPrediction](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) in GitHub. L'aspetto chiave per favorire una collaborazione efficace del team in progetti di data science consiste nello standardizzare la struttura e la documentazione per i progetti con un ciclo di vita di data science stabilito. [Team Data Science Process (TDSP)](overview.md) offre questo tipo di [ciclo di vita](lifecycle.md) strutturato. 
 
-La creazione di progetti di data science con _Team Data Science Process (TDSP)_ offre il framework standardizzato per progetti di Azure Machine Learning. In passato il team di TDSP ha reso disponibile un [repository GitHub per la struttura e i modelli di progetto di TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Oggi sono disponibili progetti di Machine Learning di cui vengono create istanze con [modelli di TDSP per Azure Machine Learning](https://github.com/amlsamples/tdsp). Per istruzioni, vedere come usare [progetti di struttura di TDSP con un modello di TDSP](../preview/how-to-use-tdsp-in-azure-ml.md) in Azure Machine Learning. 
+La creazione di progetti di data science con _Team Data Science Process (TDSP)_ offre il framework standardizzato per progetti di Azure Machine Learning. In passato il team di TDSP ha reso disponibile un [repository GitHub per la struttura e i modelli di progetto di TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Oggi sono disponibili progetti di Machine Learning di cui vengono create istanze con [modelli di TDSP per Azure Machine Learning](https://github.com/amlsamples/tdsp). Per istruzioni, vedere come usare [progetti di struttura di TDSP con un modello di TDSP](../desktop-workbench/how-to-use-tdsp-in-azure-ml.md) in Azure Machine Learning. 
 
 
 ## <a name="twitter-sentiment-polarity-sample"></a>Esempio di polarità del sentiment in Twitter
@@ -131,7 +131,7 @@ Il passaggio finale consiste nella distribuzione del modello di previsione del s
 
 ![Dashboard Kubernetes](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-Per altre informazioni sul processo di operazionalizzazione, vedere [Distribuzione di un modello di Machine Learning come servizio Web](../preview/model-management-service-deploy.md).
+Per altre informazioni sul processo di operazionalizzazione, vedere [Distribuzione di un modello di Machine Learning come servizio Web](../desktop-workbench/model-management-service-deploy.md).
 
 ## <a name="conclusion"></a>Conclusioni
 
@@ -143,8 +143,8 @@ In questo articolo si è appreso come eseguire il training di un modello di rapp
 * [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [How to use Team Data Science Process (TDSP) in Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml) (Come usare Team Data Science Process, TDSP, in Azure Machine Learning)
 * [TDSP project template for Azure Machine Learning](https://aka.ms/tdspamlgithubrepo) (Modello di progetto di TDSP per Azure Machine Learning)
-* [Azure Machine Learning Workbench](../preview/index.yml)
+* [Azure Machine Learning Workbench](../service/index.yml)
 * [Set di dati sul reddito degli Stati Uniti del repository UCI per l'apprendimento automatico](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Riconoscimento di entità biomediche con un modello di Team Data Science Process (TDSP)](../preview/scenario-tdsp-biomedical-recognition.md)
+* [Riconoscimento di entità biomediche con un modello di Team Data Science Process (TDSP)](../desktop-workbench/scenario-tdsp-biomedical-recognition.md)
 * [Mikolov, Tomas, et al. "Distributed Representations of Words and Phrases and their Compositionality. Advances in neural information processing systems" (Rappresentazioni distribuite di parole e frasi e composizionalità. Progressi nei sistemi neurali di elaborazione delle informazioni) 2013.](https://arxiv.org/abs/1310.4546)
 * [Tang, Duyu, et al. "Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification" (Apprendimento della rappresentazione distribuita delle parole specifica del sentiment per la classificazione del sentiment in Twitter) ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

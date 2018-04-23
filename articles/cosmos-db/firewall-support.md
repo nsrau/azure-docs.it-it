@@ -67,7 +67,7 @@ L'accesso agli altri servizi di Azure viene abilitato per impostazione predefini
 
 Per semplificare lo sviluppo, il portale di Azure consente di identificare e aggiungere l'indirizzo IP del computer client all'elenco di indirizzi consentiti, in modo che le app in esecuzione nella macchina virtuale possano accedere all'account Azure Cosmos DB. L'indirizzo IP del client viene rilevato in base a quanto visualizzato dal portale. Potrebbe trattarsi dell'indirizzo IP del client della macchina virtuale oppure dell'indirizzo IP del gateway di rete. Non dimenticare di rimuoverlo prima di passare all'ambiente di produzione.
 
-Per abilitare il proprio indirizzo IP corrente, selezionare **Add my current IP** (Aggiungi indirizzo IP corrente), in modo da aggiungere l'indirizzo all'elenco, e quindi fare clic su **Salva**.
+Per abilitare il proprio indirizzo IP corrente, selezionare **Aggiungi indirizzo IP corrente**, in modo da aggiungere l'indirizzo all'elenco, e quindi fare clic su **Salva**.
 
 ![Screenshot che mostra come configurare le impostazioni del firewall per l'IP corrente](./media/firewall-support/enable-current-ip.png)
 

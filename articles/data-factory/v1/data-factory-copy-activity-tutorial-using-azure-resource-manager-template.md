@@ -2,10 +2,10 @@
 title: 'Esercitazione: Creare una pipeline usando il modello di Resource Manager | Documentazione Microsoft'
 description: In questa esercitazione si crea una pipeline di Azure Data Factory usando un modello di Azure Resource Manager. La pipeline copia i dati da un archivio BLOB di Azure a un database SQL di Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 1274e11a-e004-4df5-af07-850b2de7c15e
 ms.service: data-factory
 ms.workload: data-services
@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6d4006389fffe999ce83d3c2535505869ecc0519
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c8f96ffa44cb584cef3c3a5f785c20469aac38bd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Esercitazione: Usare un modello di Azure Resource Manager per creare una pipeline di Data Factory per copiare dati 
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -319,7 +319,7 @@ Creare un file JSON denominato **ADFCopyTutorialARM-Parameters.json** contenente
    * Eseguire il comando seguente e immettere il nome utente e la password usati per accedere al portale di Azure.
    
     ```PowerShell
-    Login-AzureRmAccount    
+    Connect-AzureRmAccount      
     ```  
    * Eseguire il comando seguente per visualizzare tutte le sottoscrizioni per l'account.
    

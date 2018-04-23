@@ -67,7 +67,7 @@ Se si vuole eseguire il push di un annuncio solo per un sottoinsieme di utenti c
 * Impostazioni locali: impostazioni locali
 * Dimensioni schermo: dimensioni dello schermo
 * **Posizione**      
-* Ultima area nota: paese, regione, località
+* Ultima area nota: paese, area geografica, località
 * Geo-fencing in tempo reale: elenco di punti di interesse (nome, azioni), POI circolare (nome, latitudine, longitudine, raggio in metri)
 * **Feedback di copertura**     
 * Feedback annuncio: annuncio, feedback

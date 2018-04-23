@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: de20dae10ae6b43adcbc5040a8a71ba5650bafec
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f53ffdaa6c99d63bdab91f30ffa6b2b182c53848
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="build-a-python-and-postgresql-web-app-in-azure"></a>Creare un'app Web Python e PostgreSQL in Azure
+# <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>Esercitazione: Creare un'app Web Python e PostgreSQL in Azure
 
 > [!NOTE]
 > Questo articolo consente di distribuire un'app nel servizio app in Windows. Per la distribuzione nel servizio app in _Linux_, vedere [Compilare un'app Web Python Docker e PostgreSQL in Azure](./containers/tutorial-docker-python-postgresql-app.md).
@@ -168,19 +168,19 @@ Quando il database di Azure termina la creazione del server PostgreSQL, l'interf
 
 ### <a name="configure-server-firewall"></a>Configurare il firewall del server
 
-Eseguire il comando dell'interfaccia della riga di comando di Azure seguente per consentire l'accesso al database da tutti gli indirizzi IP.
+Eseguire il comando dell'interfaccia della riga di comando di Azure seguente per consentire l'accesso al database da tutti gli indirizzi IP. Quando sia l'IP iniziale che l'IP finale sono impostati su 0.0.0.0, il firewall viene aperto solo per le altre risorse di Azure. 
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=255.255.255.255 --name AllowAllIPs
+az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0 --name AllowAzureIPs
 ```
 
 L'interfaccia della riga di comando di Azure conferma la creazione della regola del firewall con un output simile all'esempio seguente:
 
 ```json
 {
-  "endIpAddress": "255.255.255.255",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAllIPs",
-  "name": "AllowAllIPs",
+  "endIpAddress": "0.0.0.0",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAzureIPs",
+  "name": "AllowAzureIPs",
   "resourceGroup": "myResourceGroup",
   "startIpAddress": "0.0.0.0",
   "type": "Microsoft.DBforPostgreSQL/servers/firewallRules"
@@ -226,7 +226,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Passare a http://localhost:5000 in un browser. Fare clic su **Registra!** e creare una registrazione test. I dati vengono ora scritti nel database in Azure.
+Andare a http://localhost:5000 in un browser. Fare clic su **Registra!** e creare una registrazione test. I dati vengono ora scritti nel database in Azure.
 
 ![Applicazione Python Flask in esecuzione in locale](./media/app-service-web-tutorial-python-postgresql/local-app.png)
 

@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: giladm
-ms.openlocfilehash: 1dc34f021fa6482c65cce0e922951ae329987c43
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6a66c9fe3716935a717dca984d1995ca371d9499
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-your-sql-database"></a>Protezione del Database SQL
 
@@ -48,7 +48,7 @@ Per altre informazioni, vedere [Get started with SQL DB Data Discovery & Classif
 Il database SQL protegge i dati limitando l'accesso al database usando regole del firewall, i meccanismi di autenticazione che richiedono agli utenti di dimostrare la propria identità e l'autorizzazione per i dati tramite le appartenenze basate sui ruoli e le autorizzazioni, oltre che tramite la sicurezza a livello di riga e la maschera dati dinamica. Per informazioni sull'uso delle funzionalità di controllo dell'accesso nel database SQL, vedere [Controllo dell'accesso](sql-database-control-access.md).
 
 > [!IMPORTANT]
-> La gestione dei database e dei server logici in Azure è controllata dalle assegnazioni di ruolo dell'account del portale utenti. Per altre informazioni su questo articolo, vedere [Controllo degli accessi in base al ruolo nel portale di Azure](../active-directory/role-based-access-control-what-is.md).
+> La gestione dei database e dei server logici in Azure è controllata dalle assegnazioni di ruolo dell'account del portale utenti. Per altre informazioni su questo articolo, vedere [Controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).
 >
 
 ### <a name="firewall-and-firewall-rules"></a>Firewall e regole del firewall

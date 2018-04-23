@@ -10,10 +10,10 @@ ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: d5bad277e6a54b23f0e3ef7321e82d212ae885d3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device---preview"></a>Sviluppare e distribuire un modulo Python per IoT Edge in un dispositivo simulato - Anteprima
 
@@ -63,7 +63,7 @@ La procedura seguente illustra come creare un modulo Python per IoT Edge tramite
     pip install -U cookiecutter
     ```
 
-3. Creare un progetto per il nuovo modulo. Il comando seguente crea la cartella del progetto, **FilterModule**, e il repository del contenitore. Il parametro di `image_repository` deve essere nel formato `<your container registry name>.azurecr.io/filtermodule` se si usa il Registro contenitori di Azure. Nella cartella di lavoro corrente immettere il comando seguente:
+3. Creare un progetto per il nuovo modulo. Il comando seguente crea la cartella del progetto, **FilterModule**, con il repository del contenitore. Il parametro di `image_repository` deve essere nel formato `<your container registry name>.azurecr.io/filtermodule` se si usa il Registro contenitori di Azure. Nella cartella di lavoro corrente immettere il comando seguente:
 
     ```cmd/sh
     cookiecutter --no-input https://github.com/Azure/cookiecutter-azure-iot-edge-module module_name=FilterModule image_repository=<your container registry address>/filtermodule
@@ -148,9 +148,9 @@ La procedura seguente illustra come creare un modulo Python per IoT Edge tramite
         
    Usare il nome utente, la password e il server di accesso copiati quando è stato creato il registro di sistema del contenitore di Azure.
 
-2. Nello strumento di esplorazione di VS Code fare clic con il pulsante destro del mouse sul file **module.json** e quindi su **Build and Push IoT Edge module Docker image** (Compilazione e push dell'immagine Docker del modulo per IoT Edge). Nella casella a discesa popup nella parte superiore della finestra di VS Code selezionare la piattaforma del contenitore, ad esempio **amd64** per il contenitori di Linux. VS Code include nel contenitore `main.py` e le dipendenze richieste, quindi ne esegue il push nel registro contenitori specificato. La prima volta che si compila l'immagine potrebbero essere necessari alcuni minuti.
+2. Nello strumento di esplorazione di Visual Studio Code fare clic con il pulsante destro del mouse sul file **module.json** e quindi scegliere **Build and Push IoT Edge module Docker image** (Compilazione e push dell'immagine Docker del modulo per IoT Edge). Nella casella a discesa popup nella parte superiore della finestra di VS Code selezionare la piattaforma del contenitore, ad esempio **amd64** per il contenitori di Linux. VS Code include nel contenitore `main.py` e le dipendenze richieste, quindi ne esegue il push nel registro contenitori specificato. La prima volta che si compila l'immagine potrebbero essere necessari alcuni minuti.
 
-3. È possibile ottenere l'indirizzo completo dell'immagine del contenitore con tag nel terminale integrato di VS Code. Per altre informazioni sulla definizione di build e push, è possibile fare riferimento al file `module.json`.
+3. È possibile ottenere l'indirizzo completo dell'immagine del contenitore con tag nel terminale integrato di VS Code. Per altre informazioni sulla definizione di compilazione e push, è possibile fare riferimento al file `module.json`.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Aggiungere le credenziali del registro al runtime di Edge
 Aggiungere le credenziali per il registro al runtime di Edge nel computer in cui si esegue il dispositivo perimetrale, in modo da consentire al runtime l'accesso per il pull del contenitore. 

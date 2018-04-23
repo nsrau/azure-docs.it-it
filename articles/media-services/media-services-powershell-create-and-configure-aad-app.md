@@ -2,10 +2,10 @@
 title: Usare PowerShell per creare un'app Azure AD per l'accesso all'API Servizi multimediali di Azure | Microsoft Docs
 description: Informazioni su come usare PowerShell per creare un'app Azure Active Directory (Azure AD) e configurarla per accedere all'API Servizi multimediali di Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: eea0f3a03dd77ce56484f32b192299bd97c05300
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 734f40e7fad993783999dfec00a4213e34da801b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>Usare PowerShell per creare un'app Azure AD da usare con l'API Servizi multimediali di Azure
 
@@ -33,7 +33,7 @@ Informazioni su come usare uno script di PowerShell per creare un'applicazione e
 ## <a name="create-an-azure-ad-app-by-using-powershell"></a>Creare un'app Azure AD usando PowerShell  
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Import-Module AzureRM.Resources
 Set-AzureRmContext -SubscriptionId $SubscriptionId
 $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
@@ -55,7 +55,7 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 Per altre informazioni, vedere gli articoli seguenti:
 
 - [Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-- [Gestire il controllo degli accessi in base al ruolo usando Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+- [Gestire il controllo degli accessi in base al ruolo usando Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
 - [Come configurare manualmente le app daemon usando i certificati](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md#add-the-certificate-as-a-key-for-the-todolistdaemonwithcert-application-in-azure-ad)
 
 ## <a name="next-steps"></a>Passaggi successivi

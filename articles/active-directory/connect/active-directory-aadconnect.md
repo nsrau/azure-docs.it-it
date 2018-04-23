@@ -15,17 +15,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: febe055348efb49ea1e6bc670333f435de654cfc
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7112b8af792dc245c1a2a68e130328d82b4958b3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrare le directory locali con Azure Active Directory
 Azure AD Connect integra le directory locali con Azure Active Directory. Consente quindi di fornire agli utenti un'identità comune per le applicazioni di Office 365, Azure e SaaS integrate con Azure AD. Questo argomento fornisce una guida dettagliata sulle procedure di pianificazione, distribuzione e funzionamento. Include una raccolta di collegamenti agli argomenti correlati a questa area.
 
 > [!IMPORTANT]
 > [Azure AD Connect è il modo migliore per collegare la directory locale con Azure AD e Office 365. Questo è il momento giusto per eseguire l'aggiornamento ad Azure AD Connect dallo strumento di sincronizzazione di Windows Azure Active Directory (DirSync) o Azure AD Sync in quanto questi strumenti sono stati deprecati e non sono più supportati a partire dal 13 aprile 2017.](active-directory-aadconnect-dirsync-deprecated.md)  Tenere presente anche quanto segue:
+
+
+
 > 
 > - La sincronizzazione degli utenti con Azure AD è una **funzionalità gratuita** per cui non è necessario che i clienti abbiano una sottoscrizione a pagamento.
 >- Agli utenti sincronizzati **non viene automaticamente concessa** *alcuna* licenza. Gli amministratori mantengono il controllo totale sull'assegnazione delle licenze. 
@@ -51,6 +54,10 @@ Azure Active Directory Connect è costituito da tre componenti principali: i ser
 * Monitoraggio dell'integrità: Azure AD Connect Health può offrire un monitoraggio affidabile e una posizione centralizzata nel portale di Azure per visualizzare questa attività. Per altre informazioni, vedere [Azure Active Directory Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 ## <a name="install-azure-ad-connect"></a>Installare Azure AD Connect
+
+> [!IMPORTANT]
+> Microsoft non supporta la modifica o l'uso del servizio di sincronizzazione Azure AD Connect al di fuori delle azioni descritte in modo formale. Ognuna di queste azioni potrebbe provocare uno stato incoerente o non supportato del sevizio di sincronizzazione Azure AD Connect. Microsoft pertanto non offre il supporto tecnico per distribuzioni di questo tipo.
+
 Il download per Azure AD Connect è disponibile nell' [Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 | Soluzione | Scenario |
@@ -73,7 +80,7 @@ Il download per Azure AD Connect è disponibile nell' [Area download Microsoft](
 |Dopo l'installazione | [Verificare l'installazione e assegnare le licenze ](active-directory-aadconnect-whats-next.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Altre informazioni su come installare Azure AD Connect
-Preparazione per la gestione delle attività [operative](active-directory-aadconnectsync-operations.md) . È consigliabile avere un server in standby per agevolare il failover in caso di [emergenza](active-directory-aadconnectsync-operations.md#disaster-recovery). Se si prevede di apportare modifiche frequenti alla configurazione, è consigliabile valutare l'uso di un server in [modalità di staging](active-directory-aadconnectsync-operations.md#staging-mode) .
+Preparazione per la gestione delle attività [operative](active-directory-aadconnectsync-operations.md) . È consigliabile avere un server di standby per agevolare il failover in caso di [emergenza](active-directory-aadconnectsync-operations.md#disaster-recovery). Se si prevede di apportare modifiche frequenti alla configurazione, è consigliabile valutare l'uso di un server in [modalità di staging](active-directory-aadconnectsync-operations.md#staging-mode) .
 
 |Argomento |Collegamento|  
 | --- | --- |
@@ -90,7 +97,7 @@ Azure AD Connect include numerose funzionalità che è possibile abilitare o che
 
 La [sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-hash-synchronization.md) consente di sincronizzare l'hash delle password di Active Directory con Azure AD. L'utente finale può usare la stessa password in locale e nel cloud, ma gestirla da una sola posizione. Poiché usa l'istanza di Active Directory locale come autorità di certificazione, è anche possibile usare i criteri password personali.
 
-[writeback delle password](../active-directory-passwords-getting-started.md) consente agli utenti di modificare e reimpostare le proprie password nel cloud, applicando i criteri per le password locali.
+[writeback delle password](../authentication/quickstart-sspr.md) consente agli utenti di modificare e reimpostare le proprie password nel cloud, applicando i criteri per le password locali.
 
 [writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md) consente il writeback di un dispositivo registrato in Azure AD nell'istanza di Active Directory locale, affinché possa essere usato per l'accesso condizionale.
 
@@ -103,7 +110,7 @@ La funzionalità di [prevenzione delle eliminazioni accidentali](active-director
 | --- | --- |
 |Configurare il filtro | [Servizio di sincronizzazione Azure AD Connect: Configurare il filtro](active-directory-aadconnectsync-configure-filtering.md)|
 |Sincronizzazione dell'hash delle password | [Servizio di sincronizzazione Azure AD Connect: Implementare la sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
-|writeback delle password | [Introduzione alla gestione delle password](../active-directory-passwords-getting-started.md)|
+|writeback delle password | [Introduzione alla gestione delle password](../authentication/quickstart-sspr.md)|
 |Writeback dispositivi | [Abilitazione del writeback dei dispositivi in Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
 |prevenzione delle eliminazioni accidentali | [Servizio di sincronizzazione Azure AD Connect: Impedire eliminazioni accidentali](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |aggiornamento automatico | [Azure AD Connect: aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md)|

@@ -2,10 +2,10 @@
 title: Configurare l'accesso WinRM per una macchina virtuale di Azure | Documentazione Microsoft
 description: Configurare l'accesso WinRM per l'uso con una macchina virtuale di Azure creata con il modello di distribuzione Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 9718e85b-d360-4621-90b8-0b0b84a21208
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 2d6533462400bc1d93d0d3b0227769784e2658a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fa82dd4a85ff2e62848df0fdc6006922005a84b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configurare l'accesso WinRM per le macchine virtuali in Azure Resource Manager
 ## <a name="winrm-in-azure-service-management-vs-azure-resource-manager"></a>WinRM nella gestione del servizio Azure e Azure Resource Manager
@@ -88,7 +88,7 @@ Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretV
 Durante il provisioning della VM, il provider di risorse Microsoft.Compute necessita dell'URL della chiave privata all'interno dell'insieme di credenziali delle chiavi. Ciò consente al provider di risorse Microsoft.Compute di scaricare la chiave privata e creare il certificato equivalente nella VM.
 
 > [!NOTE]
-> L'URL della chiave privata deve includerne anche la versione. Di seguito è riportato un esempio di URL: https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
+> L'URL della chiave privata deve includerne anche la versione. Un URL di esempio è simile a https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve di seguito
 > 
 > 
 

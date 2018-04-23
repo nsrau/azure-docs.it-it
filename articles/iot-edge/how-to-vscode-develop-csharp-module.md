@@ -2,24 +2,24 @@
 title: Usare Visual Studio Code per sviluppare un modulo C# con Azure IoT Edge | Microsoft Docs
 description: Sviluppare e distribuire un modulo C# con Azure IoT Edge in Visual Studio Code senza cambio di contesto.
 services: iot-edge
-keywords: 
+keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4cf07d5c4a21fa989e7de6e996cc62424099e3e5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 48c6cacebdeb7505c8dc2bcaed099c33862589ac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/17/2018
 ---
 # <a name="use-visual-studio-code-to-develop-a-c-module-with-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare un modulo C# con Azure IoT Edge
 Questo articolo fornisce istruzioni dettagliate per usare [Visual Studio Code](https://code.visualstudio.com/) come strumento principale per lo sviluppo e la distribuzione di moduli Azure IoT Edge. 
 
-## <a name="prerequisites"></a>Prerequisiti
-Questa esercitazione presuppone che si usi un computer o una macchina virtuale Windows o Linux come computer di sviluppo. Il dispositivo IoT Edge può essere un altro dispositivo fisico oppure è possibile simulare il dispositivo IoT Edge nel computer di sviluppo.
+## <a name="prerequisites"></a>prerequisiti
+Questo articolo presuppone che si usi un computer o una macchina virtuale Windows o Linux come computer di sviluppo. Il dispositivo IoT Edge può essere un altro dispositivo fisico oppure è possibile simulare il dispositivo IoT Edge nel computer di sviluppo.
 
 Completare le esercitazioni seguenti prima di procedere con queste istruzioni:
 - Distribuire Azure IoT Edge su un dispositivo simulato in [Windows](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-windows) o [Linux](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux)
@@ -86,7 +86,7 @@ Installare e avviare il runtime di Azure IoT Edge nel dispositivo. Distribuire u
 Nell'esercitazione [Sviluppare un modulo C#](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module) si aggiorna, crea e pubblica l'immagine del modulo in Visual Studio Code e quindi si accede al portale di Azure per distribuire il modulo C#. Questa sezione illustra come usare Visual Studio Code per distribuire e monitorare il modulo C#.
 
 ### <a name="start-a-local-docker-registry"></a>Avviare un registro Docker locale
-È possibile usare qualsiasi registro compatibile con Docker per questa esercitazione. Due servizi molto diffusi per il registro Docker disponibili sul cloud sono il [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). In questa sezione viene usato un [registro Docker locale](https://docs.docker.com/registry/deploying/), più semplice da usare a scopo di test durante la fase di sviluppo iniziale.
+È possibile usare qualsiasi registro compatibile con Docker per questo articolo. Due servizi molto diffusi per il registro Docker disponibili sul cloud sono il [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). In questa sezione viene usato un [registro Docker locale](https://docs.docker.com/registry/deploying/), più semplice da usare a scopo di test durante la fase di sviluppo iniziale.
 Nel **terminale integrato** di Visual Studio Code (CTRL+') eseguire il comando seguente per avviare un registro locale:  
 
 ```cmd/sh
@@ -296,7 +296,7 @@ La procedura seguente illustra come creare un modulo di IoT Edge basato su .NET 
     "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
     ```
    > [!NOTE]
-   > Le regole dichiarative nel runtime definiscono la destinazione del flusso di messaggi. In questa esercitazione sono necessarie due route. La prima route trasporta i messaggi dal sensore della temperatura al modulo del filtro tramite l'endpoint "input1", ovvero l'endpoint configurato con il gestore FilterMessages. La seconda route trasporta i messaggi dal modulo del filtro all'hub IoT. In questa route, upstream è una destinazione speciale che indica all'hub IoT Edge di inviare messaggi all'hub IoT.
+   > Le regole dichiarative nel runtime definiscono la destinazione del flusso di messaggi. In questo articolo sono necessarie due route. La prima route trasporta i messaggi dal sensore della temperatura al modulo del filtro tramite l'endpoint "input1", ovvero l'endpoint configurato con il gestore FilterMessages. La seconda route trasporta i messaggi dal modulo del filtro all'hub IoT. In questa route, upstream è una destinazione speciale che indica all'hub IoT Edge di inviare messaggi all'hub IoT.
 
 3. Salvare questo file.
 4. Nel riquadro comandi selezionare **Edge: Create deployment for Edge device** (Edge: Crea distribuzione per dispositivo Edge). Selezionare quindi l'ID del dispositivo IoT Edge per creare una distribuzione. In alternativa, fare clic con il pulsante destro del mouse sull'elenco dei dispositivi e scegliere **Create deployment for Edge device** (Crea distribuzione per dispositivo Edge).
@@ -317,7 +317,4 @@ La procedura seguente illustra come creare un modulo di IoT Edge basato su .NET 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato creato un modulo IoT Edge, successivamente distribuito nel dispositivo IoT Edge in Visual Studio Code. Per informazioni su altri scenari durante lo sviluppo di Azure IoT Edge in Visual Studio Code, vedere l'esercitazione seguente:
-
-> [!div class="nextstepaction"]
-> [Eseguire il debug del modulo C# in Visual Studio Code](how-to-vscode-debug-csharp-module.md)
+[Eseguire il debug del modulo C# in Visual Studio Code](how-to-vscode-debug-csharp-module.md)

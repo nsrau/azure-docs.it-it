@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 7b9f42607f313f5570f414e810eafc6775ea18b9
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-monitoring-solutions"></a>Soluzioni di monitoraggio della rete 
 
@@ -60,9 +60,11 @@ Monitoraggio prestazioni rete per ExpressRoute offre una soluzione di monitoragg
 
 * Rilevamento automatico dei circuiti ExpressRoute associati alla sottoscrizione
 * Rilevamento della topologia di rete da applicazioni locali ad applicazioni cloud
-* Pianificazione della capacità, analisi dell'uso
+* Pianificazione della capacità, analisi dell'uso, uso della larghezza di banda per ogni rete virtuale
 * Monitoraggio e avviso per percorsi primari e secondari
 * Rilevamento della riduzione delle prestazioni della connettività delle reti virtuali
+
+![Mappa geografica che mostra il traffico tra le varie aree geografiche](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
 Per altre informazioni, vedere gli articoli seguenti:
 
@@ -116,7 +118,6 @@ Sviluppata per amministratori DNS, questa soluzione raccoglie, analizza e mette 
 Collegamenti correlati:
 * [Post di blog](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [documentazione](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="miscellaneous"></a>Miscellaneous
 
-* [Configurare Monitoraggio prestazioni rete](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
-* [Configurare Monitoraggio prestazioni rete per ExpressRoute](../expressroute/how-to-npm.md)
+* [Nuovo piano tariffario](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

@@ -1,6 +1,42 @@
 - name: Identità dei servizi gestiti
   href: overview.md
   items:
+    - name: Guide introduttive
+      items:
+        - name: Usare un'identità del servizio gestito della VM per accedere ad Azure Resource Manager
+          items:
+            - name: Macchina virtuale Windows
+              href: tutorial-windows-vm-access-arm.md
+            - name: VM Linux
+              href: tutorial-linux-vm-access-arm.md
+    - name: Esercitazioni
+      items:
+        - name: Macchina virtuale/set di scalabilità di macchine virtuali Windows
+          items:
+            - name: Accedere ad Azure Data Lake Store
+              href: tutorial-windows-vm-access-datalake.md
+            - name: Accedere ad Archiviazione di Azure con una chiave di accesso
+              href: tutorial-windows-vm-access-storage.md
+            - name: Accedere ad Archiviazione di Azure con una firma di accesso condiviso
+              href: tutorial-windows-vm-access-storage-sas.md
+            - name: Accedere ad Azure SQL
+              href: tutorial-windows-vm-access-sql.md
+            - name: Accedere ad Azure Key Vault
+              href: tutorial-windows-vm-access-nonaad.md
+            - name: Accedere ad Azure Cosmos DB
+              href: tutorial-windows-vm-access-cosmos-db.md
+        - name: Macchina virtuale/set di scalabilità di macchine virtuali Linux
+          items:
+            - name: Accedere ad Azure Data Lake Store
+              href: tutorial-linux-vm-access-datalake.md
+            - name: Accedere ad Archiviazione di Azure con una chiave di accesso
+              href: tutorial-linux-vm-access-storage-access-key.md
+            - name: Accedere ad Archiviazione di Azure con una firma di accesso condiviso
+              href: tutorial-linux-vm-access-storage-sas.md
+            - name: Accedere ad Azure Key Vault
+              href: tutorial-linux-vm-access-nonaad.md
+            - name: Accedere ad Azure Cosmos DB
+              href: tutorial-linux-vm-access-cosmos-db.md
     - name: Configurare MSI per macchine virtuali di Azure
       items:
         - name: Uso del portale di Azure
@@ -37,35 +73,9 @@
           href: how-to-use-vm-sign-in.md
         - name: Uso con Azure SDK
           href: how-to-use-vm-sdk.md
-    - name: Usare un'identità gestita per VM/set di scalabilità di macchine virtuali Windows
-      items:
-        - name: Accedere ad Azure Data Lake Store
-          href: tutorial-windows-vm-access-datalake.md
-        - name: Accedere ad Azure Resource Manager
-          href: tutorial-windows-vm-access-arm.md
-        - name: Accedere ad Azure SQL
-          href: tutorial-windows-vm-access-sql.md
-        - name: Accedere ad Archiviazione di Azure con una chiave di accesso
-          href: tutorial-windows-vm-access-storage.md
-        - name: Accedere ad Archiviazione di Azure con una firma di accesso condiviso
-          href: tutorial-windows-vm-access-storage-sas.md
-        - name: Accedere ad Azure Key Vault
-          href: tutorial-windows-vm-access-nonaad.md
-    - name: Usare un'identità gestita per VM/set di scalabilità di macchine virtuali Linux
-      items:
-        - name: Accedere ad Azure Data Lake Store
-          href: tutorial-linux-vm-access-datalake.md
-        - name: Accedere ad Azure Resource Manager
-          href: tutorial-linux-vm-access-arm.md
-        - name: Accedere ad Archiviazione di Azure con una chiave di accesso
-          href: tutorial-linux-vm-access-storage.md
-        - name: Accedere ad Archiviazione di Azure con una firma di accesso condiviso
-          href: tutorial-linux-vm-access-storage-sas.md
-        - name: Accedere ad Azure Key Vault
-          href: tutorial-linux-vm-access-nonaad.md
     - name: Domande frequenti e problemi noti
       href: known-issues.md
-    - name: riferimento
+    - name: Riferimenti
       items:
         - name: CLI
           href: /cli/azure/identity

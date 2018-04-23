@@ -57,6 +57,8 @@
       href: asdk-register.md
     - name: Configurare le impostazioni di telemetria di Azure Stack
       href: asdk-telemetry.md
+    - name: Avviare e arrestare il ASDK
+      href: asdk-start-stop.md
     - name: risoluzione dei problemi
       href: asdk-troubleshooting.md
 - name: Riferimenti

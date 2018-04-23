@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: davidmu
-ms.openlocfilehash: 8d96af009055a5c0349f0ac17054bebee4e54d36
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: dd6455622a7fecd99c23aef1b181035ffe6061dd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb-by-using-azure-resource-manager"></a>Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB) tramite Gestione risorse di Azure
 
@@ -63,7 +63,7 @@ Assicurarsi di passare alla modalità PowerShell per usare i cmdlet di Gestione 
 ### <a name="step-1"></a>Passaggio 1
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ### <a name="step-2"></a>Passaggio 2

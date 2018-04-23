@@ -2,27 +2,27 @@
 title: Avviare e arrestare dello Stack di Azure | Documenti Microsoft
 description: Informazioni su come avviare e arrestare dello Stack di Azure.
 services: azure-stack
-documentationcenter: 
-author: mattbriggs
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 43BF9DCF-F1B7-49B5-ADC5-1DA3AF9668CA
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
-ms.author: mabrigg
-ms.openlocfilehash: 98bf75f5883b734c785ed1a3ed924afca1737c56
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.date: 04/09/2018
+ms.author: jeffgilb
+ms.reviewer: misainat
+ms.openlocfilehash: 53015ba5c282bbe9c7b8185b080ffb6d834b6c75
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="start-and-stop-azure-stack"></a>Avviare e arrestare Azure Stack
-
-*Si applica a: Azure Stack integrati sistemi (versione 1712 e versioni successive)*
+È consigliabile seguire le procedure descritte in questo articolo per arrestare e riavviare i servizi Azure Stack correttamente. 
 
 ## <a name="stop-azure-stack"></a>Arrestare Azure Stack 
 
@@ -86,4 +86,4 @@ Se i servizi di infrastruttura e del tenant non avviare 2 ore dopo il risparmio 
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-Ulteriori informazioni sullo strumento di diagnostica Azure Stack e di eseguire la registrazione, vedere [strumenti di diagnostica di Azure Stack. Strumenti di diagnostica Stack Azure. Strumenti di diagnostica Stack Azure. Strumenti di diagnostica Stack Azure.
+Altre informazioni sullo strumento di diagnostica Azure Stack e rilasciare la registrazione, vedere [strumenti di diagnostica Azure Stack](azure-stack-diagnostics.md).

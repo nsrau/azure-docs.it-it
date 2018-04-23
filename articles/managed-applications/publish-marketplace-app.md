@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 61815098a4935983f19b3dcea6e001230aee4771
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 753e13ea0dbfc7fe0c74987e1383f71329b76a63
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Applicazioni gestite di Azure nel marketplace
 
@@ -93,7 +93,7 @@ Uno SKU viene visualizzato sotto l'offerta padre nel marketplace e come entità 
    * **Summary (Riepilogo)**: immettere un breve riepilogo per questo SKU, che viene visualizzato sotto il titolo.
    * **Description (Descrizione)**: immettere una descrizione dettagliata sullo SKU.
    * **SKU Type** (Tipo di SKU): i valori consentiti sono *Managed Application* (Applicazione gestita) e *Solution Templates* (Modelli di soluzioni). In questo caso, selezionare *Managed Application* (Applicazione gestita).
-   * **Country/Region availability** (Disponibilità paese/regione): selezionare i paesi in cui l'applicazione gestita è disponibile.
+   * **Country/Region availability** (Disponibilità paese/area geografica): selezionare i paesi in cui l'applicazione gestita è disponibile.
    * **Pricing** (Prezzi): indica il prezzo della gestione dell'applicazione. Prima di impostare il prezzo, selezionare i paesi disponibili.
 
 1. Aggiungere un nuovo pacchetto. Compilare la sezione dei **dettagli del pacchetto** nel formato seguente:
@@ -107,7 +107,7 @@ Uno SKU viene visualizzato sotto l'offerta padre nel marketplace e come entità 
 
 È possibile aggiungere più autorizzazioni. È consigliabile creare un gruppo di utenti di AD e specificare il relativo ID in **PrincipalId**. In questo modo è possibile aggiungere più utenti al gruppo di utenti senza che sia necessario aggiornare lo SKU.
 
-Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../active-directory/role-based-access-control-what-is.md).
+Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).
 
 ## <a name="marketplace-form"></a>Modulo Marketplace
 

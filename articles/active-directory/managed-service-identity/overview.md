@@ -1,24 +1,24 @@
 ---
-title: "Identità del servizio gestito per Azure Active Directory"
-description: "Panoramica dell'Identità del servizio gestito per le risorse di Azure."
+title: Identità del servizio gestito per Azure Active Directory
+description: Panoramica dell'Identità del servizio gestito per le risorse di Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: 2d711d4fa48a1d10d4c37b9591a66e5b746f1ca7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e4f9d9e4e0f84610ad072d889abf68b62c0dd41f
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Identità del servizio gestito per le risorse di Azure
 
@@ -38,7 +38,7 @@ Di seguito è riportato un esempio di come Identità del servizio gestito funzio
 2. Azure Resource Manager crea un'entità servizio in Azure AD per rappresentare l'identità della macchina virtuale. L'entità servizio viene creata nel tenant di Azure AD considerata attendibile da questa sottoscrizione.
 3. Azure Resource Manager consente di configurare i dettagli dell'entità servizio nell'estensione dell'Identità del servizio gestito della macchina virtuale.  Questo passaggio include la configurazione dell'ID client e del certificato usato dall'estensione per ottenere i token di accesso da Azure AD.
 4. Ora che l'identità dell'entità servizio della macchina virtuale è nota, è possibile concedere l'accesso alle risorse di Azure.  Ad esempio, se il codice deve chiamare Azure Resource Manager, è necessario assegnare all'entità servizio della macchina virtuale il ruolo appropriato usando il controllo degli accessi in base ai ruoli in Azure AD.  Se il codice deve chiamare Key Vault, è necessario concedere al codice l'accesso alla chiave o al segreto specifico in Key Vault.
-5. Il codice in esecuzione nella macchina virtuale richiede un token da un endpoint locale ospitato dall'estensione della macchina virtuale per l'Identità del servizio gestito: http://localhost:50342/oauth2/token.  Il parametro della risorsa specifica il servizio a cui viene inviato il token. Ad esempio, se si desidera che il codice venga autenticato in Azure Resource Manager, si userà resource=https://management.azure.com/.
+5. Il codice in esecuzione nella macchina virtuale richiede un token da un endpoint locale ospitato dall'estensione della macchina virtuale per l'identità del servizio gestito: http://localhost:50342/oauth2/token.  Il parametro della risorsa specifica il servizio a cui viene inviato il token. Ad esempio, se si desidera che il codice venga autenticato in Azure Resource Manager, si userà resource=https://management.azure.com/.
 6. L'estensione della macchina virtuale per l'Identità del servizio gestito usa l'ID client configurato e un certificato per richiedere un token di accesso da Azure AD.  Azure AD restituisce un token di accesso JSON Web.
 7. Il codice invia il token di accesso in una chiamata a un servizio che supporta l'autenticazione di Azure AD.
 
@@ -62,7 +62,7 @@ Eseguire un'esercitazione relativa a Identità del servizio gestito per informaz
 |                    | [Accedere ad Archiviazione di Azure tramite firma di accesso condiviso con un'identità del servizio gestito di una macchina virtuale Linux](tutorial-linux-vm-access-storage-sas.md) |
 |                    | [Accedere a una risorsa non Azure AD con l'identità del servizio gestito di una macchina virtuale Linux e con Azure Key Vault](tutorial-linux-vm-access-nonaad.md) |
 | Servizio app di Azure  | [Usare Identità del servizio gestito con Funzioni di Azure o Servizio app di Azure](/azure/app-service/app-service-managed-service-identity) |
-| Funzione di Azure     | [Usare Identità del servizio gestito con Funzioni di Azure o Servizio app di Azure](/azure/app-service/app-service-managed-service-identity) |
+| Funzioni di Azure    | [Usare Identità del servizio gestito con Funzioni di Azure o Servizio app di Azure](/azure/app-service/app-service-managed-service-identity) |
 | Bus di servizio di Azure  | [Usare l'identità del servizio gestito con il bus di servizio di Azure](../../service-bus-messaging/service-bus-managed-service-identity.md) |
 | Hub eventi di Azure   | [Usare l'identità del servizio gestito con Hub eventi di Azure](../../event-hubs/event-hubs-managed-service-identity.md) |
 
@@ -78,8 +78,10 @@ I servizi di Azure seguenti supportano Identità del servizio gestito.
 | ------- | ------ | ---- | --------- | ----------- |
 | Macchine virtuali di Azure | Preview | Settembre 2017 | [Portale di Azure](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[Interfaccia della riga di comando di Azure](qs-configure-cli-windows-vm.md)<br>[Modelli di Gestione risorse di Azure](qs-configure-template-windows-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
 | Servizio app di Azure | Preview | Settembre 2017 | [Portale di Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modello di Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Funzioni di Azure | Preview | Settembre 2017 | [Portale di Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modello di Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Funzioni di Azure<sup>1</sup> | Preview | Settembre 2017 | [Portale di Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modello di Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Data Factory V2 | Preview | Novembre 2017 | [Portale di Azure](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
+
+<sup>1</sup> Il supporto di Funzioni di Azure consente al codice utente di usare un'identità, anche se i trigger e le associazioni potrebbe continuare a richiedere le stringhe di connessione.
 
 ### <a name="azure-services-that-support-azure-ad-authentication"></a>Servizi di Azure che supportano l'autenticazione di Azure AD
 

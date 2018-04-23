@@ -1,8 +1,7 @@
 ---
-title: "Azure Active Directory B2C: informazioni di riferimento: personalizzare l'interfaccia utente di un percorso utente con i criteri personalizzati | Microsoft Docs"
-description: Un argomento sui criteri personalizzati di Azure Active Directory B2C
+title: Personalizzare l'interfaccia utente di un percorso utente con criteri personalizzati | Microsoft Docs
+description: Informazioni sui criteri personalizzati di Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
 editor: ''
@@ -11,18 +10,18 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: b0f68f76bfb746b91cb82b2b7e9e750f15f14253
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4fe9e90996c56773480eb147e5aef7475453fe43
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizzare l'interfaccia utente di un percorso utente con criteri personalizzati
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 > [!NOTE]
-> Questo articolo descrive in modo approfondito come funziona la personalizzazione dell'interfaccia utente e come abilitarla con i criteri personalizzati B2C, usando il framework di esperienza di gestione delle identità
+> Questo articolo descrive in modo approfondito come funziona la personalizzazione dell'interfaccia utente e come abilitarla con i criteri personalizzati di Azure AD B2C, usando il framework dell'esperienza di gestione delle identità.
 
 
 Un'esperienza utente integrata è fondamentale per qualsiasi soluzione Business to Consumer. Per esperienza utente integrata si intende un'esperienza, con un dispositivo o un browser, in cui il percorso di un utente nel servizio non sia distinguibile da quello del servizio clienti usato.
@@ -66,7 +65,7 @@ Per assicurarsi che tutto funzioni come previsto, è necessario:
 - Assicurarsi che il contenuto sia conforme a HTML5 e accessibile
 - Assicurarsi che il server di contenuti sia abilitato per CORS.
 - Rendere disponibile il contenuto tramite HTTPS.
-- Usare URL assoluti, ad esempio https://yourdomain/content per tutti i collegamenti e il contenuto CSS.
+- Usare URL assoluti, ad esempio https://yourdomain/content, per tutti i collegamenti e il contenuto CSS.
 
 > [!TIP]
 > Per verificare che CORS sia abilitato per il sito su cui si ospita il contenuto e per testare le richieste CORS, usare il sito http://test-cors.org/. Da questo sito è possibile inviare la richiesta CORS a un server remoto (per verificare se CORS è supportato) oppure a un server di test (per esplorare determinate funzionalità di CORS).
@@ -115,7 +114,7 @@ Se è stata eseguita la procedura precedente, i file HTML5 e CSS di *UI-Customiz
 
 ## <a name="ensure-the-storage-account-has-cors-enabled"></a>Assicurarsi che CORS sia abilitato per l'account di archiviazione
 
-La condivisione di risorse tra le origini (CORS) deve essere abilitata nell'endpoint in modo che Azure AD B2C Premium possa caricare il contenuto, dal momento che il contenuto è ospitato in un dominio diverso rispetto a quello da cui Azure AD B2C Premium rende disponibile la pagina.
+La condivisione di risorse tra le origini (CORS) deve essere abilitata nell'endpoint in modo che Azure AD B2C possa caricare il contenuto. Infatti il contenuto è ospitato in un dominio diverso dal dominio da cui Azure AD B2C renderà disponibile la pagina.
 
 Per verificare che CORS sia abilitato per la risorsa di archiviazione in cui si ospita il contenuto, procedere con i passaggi seguenti:
 
@@ -138,7 +137,7 @@ L'account di archiviazione ora includerà un contenitore BLOB denominato *b2c* n
 
 La tabella seguente descrive lo scopo delle pagine HTML5 precedenti.
 
-| Modello HTML5 | DESCRIZIONE |
+| Modello HTML5 | Descrizione |
 |----------------|-------------|
 | *phonefactor.html* | Questa pagina può essere usata come modello per una pagina di autenticazione a più fattori. |
 | *resetpassword.html* | Questa pagina può essere usata come modello per una pagina Password dimenticata. |
@@ -154,7 +153,7 @@ I modelli HTML5/CSS da usare nel percorso utente devono essere specificati in un
 
 La tabella seguente descrive il set di ID definizione del contenuto riconosciuti dal motore di esperienza di gestione delle identità di Azure AD B2C e il tipo di pagine correlate.
 
-| ID definizione del contenuto | DESCRIZIONE |
+| ID definizione del contenuto | Descrizione |
 |-----------------------|-------------|
 | *api.error* | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. |
 | *api.idpselections* | **Pagina di selezione del provider di identità**. Questa pagina contiene un elenco dei provider di identità che l'utente può scegliere durante la procedura di accesso. Sono presenti provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali (basati su indirizzo di posta elettronica o nome utente). |
@@ -163,8 +162,8 @@ La tabella seguente descrive il set di ID definizione del contenuto riconosciuti
 | *api.localaccountsignin* | **Pagina di accesso dell'account locale**. Questa pagina contiene un modulo di accesso che l'utente deve compilare per eseguire l'accesso con un account locale basato su indirizzo di posta elettronica o nome utente. Il modulo può contenere una casella di input di testo e una casella di immissione della password. |
 | *api.localaccountsignup* | **Pagina di iscrizione dell'account locale**. Questa pagina contiene un modulo di iscrizione che l'utente deve compilare per eseguire l'iscrizione a un account locale basato su indirizzo di posta elettronica o nome utente. Il modulo può contenere diversi controlli di input, ad esempio caselle per l'immissione di testo, caselle per l'immissione della password, pulsanti di opzione, caselle a discesa a selezione singola e caselle di controllo con selezione multipla. |
 | *api.phonefactor* | **Pagina dell'autenticazione a più fattori**. In questa pagina gli utenti possono verificare il proprio numero di telefono (tramite SMS o chiamata vocale) durante la procedura di iscrizione o di accesso. |
-| *api.selfasserted* | **Pagina di iscrizione dell'account locale**. Questa pagina contiene un modulo di iscrizione che l'utente deve compilare per effettuare l'iscrizione usando un account esistente di un provider di identità basato su social network, ad esempio Facebook o Google+. Questa pagina è simile alla precedente pagina di iscrizione dell'account locale, a eccezione dei campi di immissione della password. |
-| *api.selfasserted.profileupdate* | **Pagina di aggiornamento del profilo**. Questa pagina contiene un modulo che l'utente può usare per aggiornare il profilo. Questa pagina è simile alla precedente pagina di iscrizione dell'account locale, a eccezione dei campi di immissione della password. |
+| *api.selfasserted* | **Pagina di iscrizione dell'account di social networking**. Questa pagina contiene un modulo di iscrizione che l'utente deve compilare per effettuare l'iscrizione usando un account esistente di un provider di identità basato su social network, ad esempio Facebook o Google+. Questa pagina è simile a quella precedente di iscrizione dell'account di social networking, a eccezione dei campi di immissione della password. |
+| *api.selfasserted.profileupdate* | **Pagina di aggiornamento del profilo**. Questa pagina contiene un modulo che l'utente può usare per aggiornare il profilo. Questa pagina è simile a quella precedente di iscrizione dell'account di social networking, a eccezione dei campi di immissione della password. |
 | *api.signuporsignin* | **Pagina unificata per l'iscrizione o l'accesso**.  Questa pagina consente di gestire sia l'iscrizione che l'accesso degli utenti, che possono usare provider di identità aziendali, provider di identità basati su social network come Facebook o Google+ o account locali.
 
 ## <a name="next-steps"></a>Passaggi successivi

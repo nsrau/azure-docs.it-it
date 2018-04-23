@@ -1,5 +1,5 @@
 ---
-title: Panoramica della sicurezza in Data Lake Store | Microsoft Docs
+title: Panoramica della sicurezza in Data Lake Store | Documentazione Microsoft
 description: Comprendere il motivo per cui Azure Data Lake Store è un archivio Big Data più sicuro
 services: data-lake-store
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 65319df8db339b1c124be47f27a841bbd7141921
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4dc1b070f7933f23ee615501dfbc68551068210c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Sicurezza in Archivio Azure Data Lake
 Molte aziende sfruttano l'analisi di Big Data per una visione completa dell'attività e per prendere decisioni appropriate. Un'organizzazione potrebbe presentare un ambiente complesso e regolamentato, con un numero crescente di utenti diversi. Per un'azienda è essenziale assicurarsi che i dati critici vengano archiviati in modo più sicuro e con un corretto livello di accesso concesso ai singoli utenti. Azure Data Lake Store è progettato per contribuire a soddisfare questi requisiti di sicurezza. Questo articolo fornisce informazioni sulle funzionalità di sicurezza di Data Lake Store, tra cui:
@@ -35,14 +35,14 @@ L'autenticazione è il processo con il quale l'identità di un utente viene veri
 Ogni sottoscrizione Azure può essere associata a un'istanza di Azure Active Directory. Solo gli utenti e le identità del servizio definite nel servizio Azure Active Directory possono accedere all'account di Data Lake Store usando il portale di Azure, gli strumenti da riga di comando o le applicazioni client create dall'organizzazione con Azure Data Lake Store SDK. I vantaggi principali dell'uso di Azure Active Directory come meccanismo di controllo di accesso centralizzato sono:
 
 * Gestione semplificata del ciclo di vita dell'identità. L'identità di un utente o un servizio (un'identità dell'entità servizio) può essere creata e revocata in modo rapido semplicemente eliminando o disabilitando l'account nella directory.
-* Autenticazione a più fattori [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) offre un livello di sicurezza aggiuntivo per l'accesso degli utenti e le transazioni.
+* Autenticazione a più fattori [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) offre un livello di sicurezza aggiuntivo per l'accesso degli utenti e le transazioni.
 * Autenticazione da qualsiasi client usando un protocollo aperto standard, ad esempio OAuth oppure OpenID.
 * Federazione con provider di identità cloud e servizi di directory dell'organizzazione.
 
 ## <a name="authorization-and-access-control"></a>Autorizzazione e controllo di accesso
 Dopo che Azure Active Directory ha autenticato un utente in modo che possa accedere ad Azure Data Lake Store, l'autorizzazione controlla le autorizzazioni di accesso per Data Lake Store. Data Lake Store separa l'autorizzazione per le attività relative all'account e relative ai dati nel modo seguente:
 
-* [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) (RBAC) fornito da Azure per la gestione degli account.
+* [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) (RBAC) fornito da Azure per la gestione degli account.
 * POSIX ACL per l'accesso ai dati nell'archivio
 
 ### <a name="rbac-for-account-management"></a>Controllo degli accessi in base al ruolo per la gestione degli account

@@ -5,7 +5,7 @@ services: security
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5e757abe-16f6-41d5-b1be-e647100036d8
 ms.service: security
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 6541d09d7f1a7e85333f54797dba7db79328e9de
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ddddf72d1ded0fb7952a641c287a4a5696e3aaef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Procedure consigliate per la sicurezza delle VM di Azure
 
@@ -49,14 +49,14 @@ L'articolo esamina le seguenti procedure consigliate di sicurezza per le VM:
 
 Il primo passo per proteggere la VM è garantire che solo gli utenti autorizzati possano configurare la VM. È possibile usare [i criteri di Azure](../azure-policy/azure-policy-introduction.md) per definire le convenzioni per le risorse nell'organizzazione, creare criteri personalizzati e applicarli alle risorse, ad esempio ai [gruppi di risorse](../azure-resource-manager/resource-group-overview.md).
 
-Le VM che appartengono a un gruppo di risorse ereditano naturalmente i suoi criteri. Sebbene questo approccio alla gestione delle VM sia consigliabile, è possibile controllare l'accesso ai singoli criteri della MV usando il [controllo degli accessi in base al ruolo (RBAC)](../active-directory/role-based-access-control-configure.md).
+Le VM che appartengono a un gruppo di risorse ereditano naturalmente i suoi criteri. Sebbene questo approccio alla gestione delle VM sia consigliabile, è possibile controllare l'accesso ai singoli criteri della MV usando il [controllo degli accessi in base al ruolo (RBAC)](../role-based-access-control/role-assignments-portal.md).
 
 Quando si abilitano i criteri di Resource Manager e controllo degli accessi in base al ruolo per controllare l'accesso alla VM, si migliora la sicurezza complessiva della VM. Si consiglia di consolidare le VM con lo stesso ciclo di vita nello stesso gruppo di risorse. Usando i gruppi di risorse è possibile distribuire, monitorare ed eseguire il rollup dei costi di fatturazione per le risorse. Per consentire agli utenti di accedere e configurare le VM, usare un [approccio con privilegi minimi](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). E quando si assegnano privilegi agli utenti prevedere di usare i seguenti ruoli predefiniti di Azure:
 
-- [Collaboratore Macchina virtuale](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): può gestire le VM, ma non la rete virtuale o l'account di archiviazione a cui sono connesse.
-- [Collaboratore Macchina virtuale classica](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): può gestire le VM create usando il modello di distribuzione classico ma non la rete virtuale o l'account di archiviazione a cui le VM sono connesse.
-- [Gestore sicurezza](../active-directory/role-based-access-built-in-roles.md#security-manager): può gestire i componenti di sicurezza, i criteri di sicurezza e le VM.
-- [Utente DevTest Labs](../active-directory/role-based-access-built-in-roles.md#devtest-labs-user): può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestare le VM.
+- [Collaboratore Macchina virtuale](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): può gestire le VM, ma non la rete virtuale o l'account di archiviazione a cui sono connesse.
+- [Collaboratore Macchina virtuale classica](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): può gestire le VM create usando il modello di distribuzione classico ma non la rete virtuale o l'account di archiviazione a cui le VM sono connesse.
+- [Gestore sicurezza](../role-based-access-control/built-in-roles.md#security-manager): può gestire i componenti di sicurezza, i criteri di sicurezza e le VM.
+- [Utente DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user): può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestare le VM.
 
 Non condividere account e password tra gli amministratori e non riutilizzare le password per più account utente o servizi, in particolare quelle dei social media o di altre attività non amministrative. Si consiglia di usare i modelli di [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) per configurare in sicurezza le VM. Usando questo approccio è possibile rafforzare le opzioni di distribuzione e applicare le impostazioni di sicurezza per la distribuzione.
 

@@ -11,6 +11,8 @@
   items:
     - name: Creare e connettere - Portale
       href: create-data-warehouse-portal.md
+    - name: Creazione - PowerShell
+      href: create-data-warehouse-powershell.md
     - name: Sospendere e riprendere le risorse di calcolo
       items:
         - name: Portale
@@ -35,8 +37,6 @@
       items:
         - name: Architettura MPP
           href: massively-parallel-processing-mpp-architecture.md
-        - name: Livelli di prestazioni
-          href: performance-tiers.md
         - name: Unità di data warehouse
           href: what-is-a-data-warehouse-unit-dwu-cdwu.md
         - name: 'Aumentare il numero di istanze, sospendere e riprendere'
@@ -79,8 +79,10 @@
           href: how-to-use-elastic-query-with-sql-data-warehouse.md
     - name: Prestazioni delle query
       items:
-        - name: Classi di risorse
+        - name: Classi di risorse e gestione del carico di lavoro
           href: resource-classes-for-workload-management.md
+        - name: Limiti di concorrenza e memoria
+          href: memory-and-concurrency-limits.md
         - name: Compressione columnstore
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
     - name: Monitorare
@@ -172,9 +174,7 @@
         - name: BCP
           href: sql-data-warehouse-load-with-bcp.md
         - name: Data factory
-          href: sql-data-warehouse-load-with-data-factory.md
-        - name: AzCopy
-          href: sql-data-warehouse-load-from-sql-server-with-polybase.md
+          href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
         - name: RedGate
           href: sql-data-warehouse-load-with-redgate.md
         - name: SSIS

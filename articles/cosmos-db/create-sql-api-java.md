@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 99b400d17164881f75cb8313c939d713610c221e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5be05ebd201796707934eac665793dd2c1dc8f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Creare un database di documenti con Java e il portale di Azure
 
@@ -54,43 +54,11 @@ Per poter creare un database di documenti, è prima necessario creare un account
 <a id="add-sample-data"></a>
 ## <a name="add-sample-data"></a>Aggiungere dati di esempio
 
-È ora possibile aggiungere dati alla nuova raccolta usando Esplora dati.
-
-1. Espandere la raccolta **Elementi** e fare clic su **Documenti** > **Nuovo documento**.
-
-   ![Creare nuovi documenti in Esplora dati nel portale di Azure](./media/create-sql-api-java/azure-cosmosdb-data-explorer-new-document.png)
-  
-2. Aggiungere ora un documento alla raccolta con la struttura seguente e fare clic su **Salva**. Usare il pulsante **Copia** nella casella del codice per copiare il codice JSON negli Appunti.
-
-     ```json
-     {
-         "id": "1",
-         "category": "personal",
-         "name": "groceries",
-         "description": "Pick up apples and strawberries.",
-         "isComplete": false
-     }
-     ```
-
-    ![Copiare i dati JSON e fare clic su Salva in Esplora dati nel portale di Azure](./media/create-sql-api-java/azure-cosmosdb-data-explorer-save-document.png)
-
-3.  Creare e salvare un altro documento in cui si imposta `id` su 2 e si modificano le altre proprietà in base alle proprie esigenze. I nuovi documenti possono avere la struttura desiderata, perché Azure Cosmos DB non impone alcuno schema per i dati.
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
 ## <a name="query-your-data"></a>Eseguire query sui dati
 
-È ora possibile usare le query in Esplora dati per recuperare e filtrare i dati.
-
-1. Per impostazione predefinita, la query è impostata su `SELECT * FROM c`. La query predefinita recupera e visualizza tutti i documenti nella raccolta. 
-
-    ![La query predefinita in Esplora dati è 'SELECT * FROM c'](./media/create-sql-api-java/azure-cosmosdb-data-explorer-query.png)
-
-2. Restare nella scheda **Documenti** e modificare la query facendo clic sul pulsante **Modifica filtro**, aggiungendo `ORDER BY c._ts DESC` nella casella del predicato della query e quindi facendo clic su **Applica filtro**.
-
-    ![Modificare la query predefinita aggiungendo ORDER BY c._ts DESC e facendo clic su Applica filtro.](./media/create-sql-api-java/azure-cosmosdb-data-explorer-edit-query.png)
-
-La query modificata elenca i documenti in ordine decrescente in base al timestamp, pertanto il secondo documento creato appare ora in cima all'elenco. Se si ha familiarità con la sintassi SQL, è possibile immettere in questa casella una qualsiasi delle [query SQL](sql-api-sql-query.md) supportate. 
-
-Con questa azione si completa il lavoro in Esplora dati. Prima di passare all'uso del codice, si noti che è possibile usare Esplora dati anche per creare stored procedure, UDF e trigger per eseguire la logica di business lato server, nonché scalare la velocità effettiva. Esplora dati espone tutti i tipi di accesso ai dati a livello di codice predefiniti disponibili nelle API, ma consente anche di accedere facilmente ai dati nel portale di Azure.
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonare l'applicazione di esempio
 

@@ -1,11 +1,11 @@
 ---
 title: Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory | Microsoft Docs
-description: Utilizzare Azure Active Directory per abilitare Single Sign-On su tutte le applicazioni Web e SaaS necessarie per l'azienda.
+description: Usare Azure Active Directory per abilitare Single Sign-On su tutte le applicazioni Web e SaaS necessarie per l'azienda.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 42a24654eb059894a855474c922a4dd2da185149
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f19d33c905d6153dffa1e7d5cdaea92ed1b94ff7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory
 Single Sign-On indica la possibilità di accedere a tutte le applicazioni e risorse necessarie per svolgere attività commerciali, effettuando l'accesso solo una volta con un singolo account utente. Dopo aver effettuato l'accesso, è possibile accedere a tutte le applicazioni necessarie senza dover ripetere una seconda volta l'autenticazione (ad esempio, digitando una password).
@@ -68,7 +68,7 @@ La configurazione di Single Sign-On basato su password consente agli utenti dell
 Azure AD supporta Single Sign-On basato su password per qualunque applicazione basata su cloud con pagina di accesso basata su HTML. Utilizzando un plug-in del browser personalizzato, AAD automatizza il processo di accesso dell’utente recuperando in modo sicuro le credenziali dell'applicazione come il nome utente e la password dalla directory e immettendole nella pagina di accesso dell’applicazione per conto dell'utente. Esistono due casi di utilizzo:
 
 1. **L’amministratore gestisce le credenziali** : gli amministratori possono creare e gestire le credenziali dell'applicazione e assegnare le credenziali a utenti o gruppi che devono accedere all'applicazione. In questi casi, l'utente finale non deve necessariamente conoscere le credenziali, ma comunque ottiene l’accesso Single Sign-On all'applicazione semplicemente facendo clic su di esso nel proprio pannello di accesso o tramite un collegamento fornito. Questo consente sia la gestione del ciclo di vita delle credenziali da parte dell’amministratore, che la comodità per gli utenti finali che non devono necessariamente ricordare o gestire le password specifiche dell’app. Le credenziali vengono nascoste all'utente finale durante il processo di accesso automatico; tuttavia, esse sono tecnicamente individuabili dall'utente utilizzando strumenti di debug Web; gli utenti e gli amministratori devono seguire gli stessi criteri di sicurezza utilizzati se le credenziali fossero presentate direttamente all'utente. Le credenziali fornite dall’amministratore sono utili quando si fornisce un accesso all'account condiviso tra più utenti, ad esempio i social media o applicazioni di condivisione dei documenti.
-2. **L’utente gestisce le credenziali** : gli amministratori possono assegnare le applicazioni agli utenti finali o ai gruppi e consentire agli utenti finali di immettere le proprie credenziali direttamente quando accedono all'applicazione per la prima volta nel proprio pannello di accesso. Questo crea una comodità per gli utenti finali poiché essi non devono immettere continuamente le password specifiche delle applicazioni ogni volta che accedono ad esse. Questo caso di utilizzo può essere usato anche come tappa della gestione amministrativa delle credenziali, poiché l'amministratore può impostare nuove credenziali per l'applicazione in un secondo momento senza modificare l'esperienza di accesso dell'utente finale all’app.
+2. **L’utente gestisce le credenziali** : gli amministratori possono assegnare le applicazioni agli utenti finali o ai gruppi e consentire agli utenti finali di immettere le proprie credenziali direttamente quando accedono all'applicazione per la prima volta nel proprio pannello di accesso. Questo crea una comodità per gli utenti finali poiché essi non devono immettere continuamente le password specifiche delle applicazioni ogni volta che accedono ad esse. Gli utenti possono continuare a gestire le password aggiornandole o eliminandole in base alle proprie esigenze. Questo caso di utilizzo può essere usato anche come tappa della gestione amministrativa delle credenziali, poiché l'amministratore può impostare nuove credenziali per l'applicazione in un secondo momento senza modificare l'esperienza di accesso dell'utente finale all’app.
 
 In entrambi i casi, le credenziali vengono archiviate in formato crittografato nella directory e vengono trasferite solo tramite HTTPS durante il processo di accesso automatico. Usando Single Sign-On basato su password, Azure AD offre una soluzione di gestione dell'accesso all'identità pratica per le applicazioni che non sono in grado di supportare i protocolli di federazione.
 
@@ -76,7 +76,7 @@ Single Sign-On basato su password si basa su un'estensione del browser per recup
 
 Per l'accesso Single Sign-On basato su password il browser dell'utente finale può essere uno dei seguenti:
 * Internet Explorer 8, 9, 10, 11 su Windows 7 o versioni successive
-* Edge su Windows 10 Anniversary Edition o versioni successive 
+* Microsoft Edge su Windows 10 Anniversary Edition o versioni successive 
 * Chrome in Windows 7 o versione successiva e MacOS X o versione successiva
 * Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
 
@@ -151,7 +151,7 @@ Azure AD fornisce diverse soluzioni personalizzabili per distribuire le applicaz
 I metodi che è possibile scegliere per la distribuzione nell'organizzazione sono a discrezione dell'utente.
 
 ### <a name="azure-ad-access-panel"></a>Pannello di accesso di Azure AD
-Il pannello di accesso in https://myapps.microsoft.com è un portale basato sul Web che consente a un utente finale con un account aziendale in Azure Active Directory di visualizzare e avviare applicazioni basate sul cloud a cui l'amministratore di Azure AD ha concesso l'accesso. Se si è un utente finale con [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), è anche possibile usare le funzionalità di gestione di gruppi in modalità self-service tramite il riquadro di accesso.
+Il pannello di accesso disponibile all'indirizzo https://myapps.microsoft.com è un portale basato sul Web che consente agli utenti finali con account aziendale in Azure Active Directory di visualizzare e avviare applicazioni basate sul cloud per le quali l'amministratore di Azure AD ha concesso i diritti di accesso. Se si è un utente finale con [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), è anche possibile usare le funzionalità di gestione di gruppi in modalità self-service tramite il riquadro di accesso.
 
 ![Pannello di accesso di Azure AD](media/active-directory-appssoaccess-whatis/azure-ad-access-panel.png)
 

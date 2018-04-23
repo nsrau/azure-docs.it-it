@@ -1,5 +1,5 @@
 ---
-title: Abilitare la registrazione diagnostica per eventi di Batch - Azure | Documentazione Microsoft
+title: Abilitare la registrazione diagnostica per eventi di Batch - Azure | Microsoft Docs
 description: Registrare e analizzare gli eventi di registrazione diagnostica per le risorse dell'account Azure Batch, come pool e attività.
 services: batch
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c41c8c9f8fd9302c610ce356b0485e33ea3c967d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c4c68df9650fa300ea20ea0621c732cb96d167ef
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Registrare gli eventi per la diagnostica e il monitoraggio delle soluzioni Batch
 
@@ -30,7 +30,7 @@ Come per molti servizi di Azure, il servizio Batch genera eventi di log per dete
 > 
 > 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * [Account Azure Batch](batch-account-create-portal.md)
 * [Account di archiviazione di Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
   
@@ -97,7 +97,7 @@ Oltre ad archiviare gli eventi dei log di diagnostica in un account di archiviaz
   Trasmettere in streaming il flusso di eventi diagnostici di Batch al servizio dati in ingresso a scalabilità elevata, Hub eventi. Hub eventi è in grado di inserire milioni di eventi al secondo, che è quindi possibile trasformare e archiviare tramite un qualsiasi provider di analisi in tempo reale.
 * [Analizzare i log di diagnostica di Azure con Log Analytics](../log-analytics/log-analytics-azure-storage.md)
   
-  Inviare i log diagnostici a Log Analytics, in cui è possibile analizzarli nel portale di Operations Management Suite (OMS) o esportarli per l'analisi in Excel o Power BI.
+  Inviare i log di diagnostica a Log Analytics, in cui è possibile analizzarli nel portale di Azure o esportarli per l'analisi in Power BI o Excel.
 
 [pool_create]: https://msdn.microsoft.com/library/azure/mt743615.aspx
 [pool_delete_start]: https://msdn.microsoft.com/library/azure/mt743610.aspx

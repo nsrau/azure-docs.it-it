@@ -2,7 +2,7 @@
 title: Gestire cluster Hadoop in HDInsight tramite il portale di Azure | Microsoft Docs
 description: Informazioni su come creare e gestire cluster HDInsight tramite il portale di Azure.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: b0a9b808f2c1a65d10c1c12500325a9b5a34bc5a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ea5b19abed0b9d2a2b8131f2be3be14e94e17405
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Hadoop in HDInsight tramite il portale di Azure
 
@@ -63,7 +61,7 @@ Quando si crea un cluster HDInsight, è necessario specificare una sottoscrizion
     1. Accedere al [portale di Azure](https://portal.azure.com).
     2. Fare clic su **Sottoscrizione** dal menu a sinistra. Viene visualizzata un'icona gialla a forma di chiave. Verrà visualizzato un elenco di sottoscrizioni.
     3. Fare clic sulla sottoscrizione che verrà usate per creare l cluster. 
-    4. Fare clic su **Autorizzazioni personali**.  Viene visualizzato il [ruolo](../active-directory/role-based-access-control-what-is.md#built-in-roles) dell'utente nella sottoscrizione. Per creare cluster HDInsight è necessario almeno l'accesso come collaboratore.
+    4. Fare clic su **Autorizzazioni personali**.  Viene visualizzato il [ruolo](../role-based-access-control/overview.md#built-in-roles) dell'utente nella sottoscrizione. Per creare cluster HDInsight è necessario almeno l'accesso come collaboratore.
 
 - Per usare un gruppo di risorse esistente:
 
@@ -89,7 +87,7 @@ Se viene visualizzato l'errore NoRegisteredProviderFound o l'errore MissingSubsc
 
     **Menu a sinistra:**
     * **Log attività**: visualizza ed effettua una query dei log attività.
-    * **Controllo di accesso (IAM)**: usa le assegnazioni di ruolo.  Vedere [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../active-directory/role-based-access-control-configure.md).
+    * **Controllo di accesso (IAM)**: usa le assegnazioni di ruolo.  Vedere [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../role-based-access-control/role-assignments-portal.md).
     * **Tag**: consente di impostare coppie chiave/valore per definire una tassonomia dei servizi cloud personalizzata. Ad esempio, è possibile creare una chiave denominata **progetto**e usare un valore comune per tutti i servizi associati a un progetto specifico.
     * **Diagnostica e risoluzione dei problemi**: visualizza informazioni per la risoluzione dei problemi.
     * **Blocchi**: aggiunge un blocco per impedire la modifica o l'eliminazione del cluster.
@@ -103,7 +101,7 @@ Se viene visualizzato l'errore NoRegisteredProviderFound o l'errore MissingSubsc
     * **Metastore esterni**: visualizza i metastore Hive e Oozie. I metastore possono essere configurati solo durante il processo di creazione dei cluster. Vedere [Usare metastore Hive/Oozie](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Azioni script**: esegue script Bash nel cluster. Vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
     * **Applicazioni**: aggiungere/rimuovere applicazioni HDInsight.  Vedere [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).
-    * **Monitoraggio**: consente di monitorare il cluster in Azure Operations Management Suite e Azure Log Analytics.
+    * **Monitoraggio**: monitorare il cluster in Azure Log Analytics.
     * **Proprietà**: visualizza le proprietà del cluster.
     * **Account di archiviazione**: visualizza gli account di archiviazione e le chiavi. Gli account di archiviazione vengono configurati durante il processo di creazione dei cluster.
     * **Accesso a Data Lake Store**: consente di configurare l'accesso a Data Lake Store.  Vedere [Creare cluster HDInsight con Data Lake Store tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).

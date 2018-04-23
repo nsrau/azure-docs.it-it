@@ -5,7 +5,7 @@ services: cdn
 documentationcenter: .net
 author: zhangmanling
 manager: zhangmanling
-editor: 
+editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
 ms.service: cdn
 ms.devlang: multiple
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: f6d008a92677d28d0184e64637dcb2e093299519
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: aaec713a7680aeda8317f5af41b9b99bcbdca4b7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Protezione di asset della rete per la distribuzione di contenuti (CDN) di Azure con l'autenticazione basata su token
+# <a name="securing-azure-cdn-assets-with-token-authentication"></a>Protezione di asset della rete CDN di Azure con l'autenticazione basata su token
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Panoramica
 
-L'autenticazione basata su token è un meccanismo che consente di impedire alla rete CDN di distribuire asset ai client non autorizzati, L'autenticazione basata su token viene eseguita generalmente per evitare il "collegamento attivo" del contenuto, in cui un altro sito Web, come ad esempio una bacheca, usa gli asset senza autorizzazione. Il collegamento attivo può avere effetto sui costi di distribuzione di contenuti. Abilitando l'autenticazione del token nella rete CDN, le richieste vengono autenticate dal server perimetrale della rete CDN prima che questa distribuisca i contenuti. 
+L'autenticazione basata su token è un meccanismo che consente di impedire alla rete CDN di distribuire asset ai client non autorizzati, L'autenticazione basata su token viene eseguita generalmente per evitare il *collegamento attivo* del contenuto, in cui un altro sito Web, come ad esempio una bacheca, usa gli asset senza autorizzazione. Il collegamento attivo può avere effetto sui costi di distribuzione di contenuti. Abilitando l'autenticazione del token nella rete CDN, le richieste vengono autenticate dal server perimetrale della rete CDN prima che questa distribuisca i contenuti. 
 
 ## <a name="how-it-works"></a>Funzionamento
 
@@ -42,6 +42,9 @@ L'autenticazione basata su token verifica che le richieste vengano generate da u
 
 Per altre informazioni, vedere gli esempi di configurazione dettagliati per ogni parametro in [Configurazione dell'autenticazione basata su token](#setting-up-token-authentication).
 
+>[!IMPORTANT] 
+> Se per un qualsiasi percorso in questo account è abilitata l'autorizzazione basata su token, è possibile usare solo la modalità standard-cache per la memorizzazione nella cache delle stringhe di query. Per altre informazioni, vedere [Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con stringhe di query](cdn-query-string-premium.md).
+
 ## <a name="reference-architecture"></a>Architettura di riferimento
 
 Il diagramma di flusso di lavoro seguente descrive il modo in cui la rete CDN usa l'autenticazione basata su token per il funzionamento con l'app Web.
@@ -56,11 +59,11 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
 
 ## <a name="setting-up-token-authentication"></a>Configurazione dell'autenticazione basata su token
 
-1. Dal [portale di Azure](https://portal.azure.com) passare al profilo di rete CDN e quindi fare clic su **Manage** (Gestisci) per avviare il portale supplementare.
+1. Dal [portale di Azure](https://portal.azure.com) passare al profilo di rete CDN e quindi selezionare **Manage** (Gestisci) per avviare il portale supplementare.
 
     ![Pulsante Manage (Gestisci) del profilo di rete CDN](./media/cdn-token-auth/cdn-manage-btn.png)
 
-2. Passare il puntatore su **HTTP Large** (Large HTTP) e quindi fare clic su **Token Auth** (Autenticazione token) nel riquadro a comparsa. È poi possibile impostare i parametri di crittografia e la chiave di crittografia come indicato di seguito:
+2. Passare il puntatore su **HTTP Large** (Large HTTP) e quindi selezionare **Token Auth** (Autenticazione token) nel riquadro a comparsa. È poi possibile impostare i parametri di crittografia e la chiave di crittografia come indicato di seguito:
 
     1. Creare uno o più chiavi di crittografia. Una chiave di crittografia fa distinzione tra maiuscole e minuscole e può contenere qualsiasi combinazione di caratteri alfanumerici. Eventuali altri tipi di caratteri, inclusi gli spazi, non sono consentiti. La lunghezza massima consentita è di 250 caratteri. Per garantire che le chiavi di crittografia vengano generate in modo casuale, è consigliabile crearle usando lo [strumento OpenSSL](https://www.openssl.org/). 
 
@@ -76,7 +79,7 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
     
     2. Immettere una chiave di crittografia univoca nella casella **Primary Key** (Chiave primaria) e, facoltativamente, immettere una chiave di backup nella casella **Backup Key** (Chiave di backup).
 
-    3. Selezionare la versione minima di crittografia per ogni chiave nel relativo elenco **Minimum Encryption Version** (Versione minima di crittografia) e quindi fare clic su **Update** (Aggiorna):
+    3. Selezionare la versione minima di crittografia per ogni chiave nel relativo elenco **Minimum Encryption Version** (Versione minima di crittografia) e quindi selezionare **Update** (Aggiorna):
        - **V2**: indica che la chiave può essere usata per generare token di versione 2.0 e 3.0. Usare questa opzione solo se si esegue una transizione da una chiave di crittografia legacy versione 2.0 a una chiave di versione 3.0.
        - **V3**: (impostazione consigliata) indica che la chiave può essere usata solo per generare token di versione 3.0.
 
@@ -156,27 +159,29 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
     
     6. Selezionare una versione di crittografia dall'elenco **Encryption Version** (Versione di crittografia): **V2** per la versione 2 o **V3** per versione 3 (scelta consigliata). 
 
-    7. Fare clic su **Crittografa** per generare il token.
+    7. Selezionare **Encrypt** (Crittografa) per generare il token.
 
     Il token generato viene visualizzato nella casella **Generated Token** (Token generato). Per usare il token, aggiungerlo come stringa di query alla fine del file nel percorso dell'URL, Ad esempio, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    8. Facoltativamente, verificare il token con lo strumento per decrittografare in modo che sia possibile visualizzare i parametri del token. Incollare il valore del token nella casella **Token to Decrypt** (Token da decrittografare). Selezionare la chiave di crittografia da usare dall'elenco **Key to Decrypt** (Chiave da decrittografare) e fare clic su **Decrittografa**.
+    8. Facoltativamente, verificare il token con lo strumento per decrittografare in modo che sia possibile visualizzare i parametri del token. Incollare il valore del token nella casella **Token to Decrypt** (Token da decrittografare). Selezionare la chiave di crittografia da usare dall'elenco **Key to Decrypt** (Chiave da decrittografare) e quindi selezionare **Decrypt** (Decrittografa).
 
     I parametri del token decrittografato vengono visualizzati nella casella **Original Parameters** (Parametri originali).
 
-    9. Facoltativamente, è possibile personalizzare il tipo di codice di risposta restituito quando viene negata una richiesta. Selezionare **Abilitato**, quindi selezionare il codice di risposta dall'elenco **Codice di risposta**. Il **Nome intestazione** viene impostato automaticamente su **Posizione**. Fare clic su **Salva** per implementare il nuovo codice di risposta. Per alcuni codici di risposta è anche necessario immettere l'URL della pagina di errore nella casella **Valore intestazione**. Il codice di risposta **403** (Forbidden (Non consentito)) è selezionato per impostazione predefinita. 
+    9. Facoltativamente, è possibile personalizzare il tipo di codice di risposta restituito quando viene negata una richiesta. Selezionare **Abilitato**, quindi selezionare il codice di risposta dall'elenco **Codice di risposta**. Il **Nome intestazione** viene impostato automaticamente su **Posizione**. Selezionare **Save** (Salva) per implementare il nuovo codice di risposta. Per alcuni codici di risposta è anche necessario immettere l'URL della pagina di errore nella casella **Valore intestazione**. Il codice di risposta **403** (Forbidden (Non consentito)) è selezionato per impostazione predefinita. 
 
-3. In **HTTP Large** (HTTP grande) fare clic su **Rules Engine** (Motore regole di business). Il motore di regole di business consente di definire i percorsi per applicare la funzionalità, abilitare la funzionalità di autenticazione basata su token e altre funzionalità correlate all'autenticazione basata su token. Per altre informazioni, vedere [Informazioni di riferimento sul motore regole](cdn-rules-engine-reference.md).
+3. In **HTTP Large** (HTTP grande) selezionare **Rules Engine** (Motore regole di business). Il motore di regole di business consente di definire i percorsi per applicare la funzionalità, abilitare la funzionalità di autenticazione basata su token e altre funzionalità correlate all'autenticazione basata su token. Per altre informazioni, vedere [Informazioni di riferimento sul motore regole](cdn-rules-engine-reference.md).
 
     1. Selezionare una regola esistente o crearne una nuova per definire l'asset o il percorso per il quale applicare l'autenticazione basata su token. 
-    2. Per abilitare l'autenticazione basata su token in una regola, selezionare **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)** (Autenticazione basata su token) dall'elenco **Features** (Funzionalità) e fare clic su **Abilitato**. Fare clic su **Update** (Aggiorna) se si aggiorna una regola o su **Add** (Aggiungi) se si crea una regola.
+    2. Per abilitare l'autenticazione basata su token in una regola, selezionare **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)** (Autenticazione basata su token) dall'elenco **Features** (Funzionalità) e fare clic su **Abilitato**. Selezionare **Update** (Aggiorna) se si aggiorna una regola o su **Add** (Aggiungi) se si crea una regola.
         
     ![Esempio di abilitazione dell'autenticazione basata su token nel motore di regole di business della rete CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. Nel motore di regole di business è anche possibile abilitare altre funzionalità correlate all'autenticazione basata su token. Per abilitare le funzionalità seguenti, selezionarle dall'elenco **Features** (Funzionalità) e fare clic su **Abilitato**.
     
     - **[Token Auth Denial Code](cdn-rules-engine-reference-features.md#token-auth-denial-code)** (Codice negazione autenticazione token): determina il tipo di risposta restituita all'utente quando viene negata una richiesta. Le regole impostate qui sostituiscono il codice di risposta impostato nella sezione **Custom Denial Handling** (Gestione negazione personalizzata) della pagina di autenticazione basata su token.
+
     - **[Token Auth Ignore URL Case (Maiuscole/minuscole URL rifiuto autenticazione token)](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: determina se l'URL usato per convalidare il token applica la distinzione tra maiuscole e minuscole.
+
     - **[Token Auth Parameter (Parametro autenticazione token)](cdn-rules-engine-reference-features.md#token-auth-parameter)**: rinomina il parametro della stringa di query dell'autenticazione basata su token visualizzato nell'URL richiesto. 
         
     ![Esempio di impostazioni di autenticazione basata su token nel motore di regole di business della rete CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
@@ -193,4 +198,4 @@ I linguaggi disponibili includono:
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Prezzi dei provider e funzionalità della rete CDN di Azure
 
-Per informazioni sulle funzionalità, vedere [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md). Per informazioni sui prezzi, vedere [Prezzi della rete per la distribuzione di contenuti](https://azure.microsoft.com/pricing/details/cdn/).
+Per informazioni sulle funzionalità, vedere [le funzionalità del prodotto della rete CDN di Azure](cdn-features.md). Per informazioni sui prezzi, vedere [Prezzi della rete per la distribuzione di contenuti](https://azure.microsoft.com/pricing/details/cdn/).

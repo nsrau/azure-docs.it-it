@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: a060ac1051f56b123f76606c771f0957096d2457
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2f9ec088f7a0853817df032164c08d9dfedc405e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>Creare una data factory di Azure con PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,7 @@ Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni desc
 2. Eseguire questo comando e immettere lo stesso nome utente e la stessa password di Azure usati per accedere al portale di Azure:
        
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
 3. Eseguire questo comando per visualizzare tutte le sottoscrizioni per l'account:
 

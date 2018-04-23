@@ -8,13 +8,13 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: 0f23a76506a6692dd907a0b9fc7cfadfe7cd8f40
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7830a8a4bfc43e158069cc7cdc186e289e166751
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights
 
@@ -220,7 +220,7 @@ Per altre informazioni sull'ottimizzazione delle prestazioni delle query, vedere
 
 ### <a name="what-is-happening"></a>Situazione
 
-Questo modello di prestazioni rilevabili indica una condizione delle prestazioni del database in cui è presente un collo di bottiglia di thread che tentano di accedere a risorse di tempDB. (Questa condizione non è correlata all'I/O.) Lo scenario tipico per questo problema di prestazioni è la presenza di centinaia di query simultanee che creano, usano e rilasciano tutte le tabelle tempDB di piccole dimensioni. Il sistema ha rilevato che il numero di query simultanee che usano le stesse tabelle tempDB è aumentato in modo statisticamente significativo sufficiente da influire sulle prestazioni del database rispetto alla baseline delle prestazioni degli ultimi sette giorni.
+Questo modello di prestazioni rilevabili indica una condizione delle prestazioni del database in cui è presente un collo di bottiglia di thread che tentano di accedere a risorse di tempDB. Questa condizione non è correlata all'I/O. Lo scenario tipico per questo problema di prestazioni è la presenza di centinaia di query simultanee che creano, usano e rilasciano tutte le tabelle tempDB di piccole dimensioni. Il sistema ha rilevato che il numero di query simultanee che usano le stesse tabelle tempDB è aumentato in modo statisticamente significativo sufficiente da influire sulle prestazioni del database rispetto alla baseline delle prestazioni degli ultimi sette giorni.
 
 ### <a name="troubleshooting"></a>risoluzione dei problemi
 

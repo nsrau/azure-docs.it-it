@@ -1,25 +1,25 @@
 ---
-title: Monitorare l'archiviazione in memoria XTP | Documentazione Microsoft
-description: Stimare e monitorare l'uso e la capacità delle risorse di archiviazione in memoria XTP e risolvere l'errore di capacità 41823
+title: Monitorare l'archiviazione in memoria XTP | Microsoft Docs
+description: Stimare e monitorare l'uso e la capacità dell'archiviazione in memoria XTP e risolvere l'errore di capacità 41823
 services: sql-database
 author: jodebrui
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: c1adc6e98f7d101a6e5f3227f44b0035d9b9d157
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0802a3b51847236efb64e628ed259dc7776bac4e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Monitorare l'archiviazione OLTP in memoria
-Quando si usa [OLTP in memoria](sql-database-in-memory.md), i dati nelle tabelle ottimizzate per la memoria e le variabili di tabella si trovano nell'archiviazione OLTP in memoria. Ogni livello di servizio Premium ha dimensioni massime di archiviazione OLTP in memoria documentate nell'articolo sui [limiti delle risorse del database singolo](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) e sui [limiti delle risorse del pool elastico](sql-database-resource-limits.md#elastic-pool-change-storage-size). Dopo il superamento di questo limite, è possibile che le operazioni di inserimento e aggiornamento abbiano esito negativo con errore 41823 per i database autonomi ed errore 41840 per i pool elastici. A questo punto è necessario eliminare dati per recuperare memoria oppure aggiornare il livello di prestazioni del database.
+Quando si usa [OLTP in memoria](sql-database-in-memory.md), i dati nelle tabelle ottimizzate per la memoria e le variabili di tabella si trovano nell'archiviazione OLTP in memoria. Ogni livello di servizio Premium e Business Critical ha dimensioni massime di archiviazione OLTP in memoria documentate in [Limiti delle risorse basate su DTU](sql-database-dtu-resource-limits.md) e [Limiti delle risorse basate su vCore](sql-database-vcore-resource-limits.md). Dopo il superamento di questo limite, è possibile che le operazioni di inserimento e aggiornamento abbiano esito negativo con errore 41823 per i database autonomi ed errore 41840 per i pool elastici. A questo punto è necessario eliminare dati per recuperare memoria oppure aggiornare il livello di prestazioni del database.
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Determinare se i dati rientrano nel limite di archiviazione OLTP in memoria
-Determinare i limiti di archiviazione dei diversi livelli di servizio Premium. Vedere le informazioni sui [limiti delle risorse del database singolo](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) e sui [limiti delle risorse del pool elastico](sql-database-resource-limits.md#elastic-pool-change-storage-size).
+Determinare i limiti di archiviazione dei diversi livelli di servizio. Vedere [Limiti delle risorse basate su DTU](sql-database-dtu-resource-limits.md) e [Limiti delle risorse basate su vCore](sql-database-vcore-resource-limits.md).
 
 La stima dei requisiti di memoria per una tabella ottimizzata per la memoria in SQL Server è analoga alla stima eseguita nel database SQL di Azure. È consigliabile rivedere l'articolo corrispondente in [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 
@@ -32,7 +32,7 @@ Le righe di tabella, le righe di variabile di tabella e gli indici vengono inclu
 2. Selezionare la metrica `In-Memory OLTP Storage percentage`.
 3. Per aggiungere un avviso, selezionare la casella Utilizzo risorse per aprire il pannello Metrica, quindi fare clic su Aggiungi avviso.
 
-In alternativa, usare la query seguente per visualizzare l'utilizzo delle risorse di archiviazione in memoria:
+In alternativa, usare la query seguente per visualizzare l'utilizzo dell'archiviazione in memoria:
 
     SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
 
@@ -48,7 +48,7 @@ Per risolvere l'errore:
 * Aggiornare il livello di servizio selezionandone uno con risorse di archiviazione in memoria sufficienti per i dati da mantenere nelle tabelle ottimizzate per la memoria.
 
 > [!NOTE] 
-> In rari casi, gli errori 41823 e 41840 possono essere temporanei, con il risultato che lo spazio di archiviazione OLTP in memoria si rivela sufficiente ed è possibile eseguire nuovamente l'operazione con esito positivo. Pertanto, quando si verifica l'errore 41823 o 41840 per la prima volta, è consigliabile monitorare lo spazio complessivo di archiviazione OLTP in memoria e provare a eseguire nuovamente l'operazione. Per altre informazioni sulla logica di ripetizione dei tentativi, vedere [Rilevamento dei conflitti e logica di ripetizione dei tentativi](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
+> In rari casi, gli errori 41823 e 41840 possono essere temporanei, con il risultato che lo spazio di archiviazione OLTP in memoria si rivela sufficiente ed è possibile eseguire nuovamente l'operazione con esito positivo. Pertanto, quando si verifica l'errore 41823 o 41840 per la prima volta, è consigliabile monitorare lo spazio complessivo di archiviazione OLTP in memoria e provare a eseguire nuovamente l'operazione. Per altre informazioni sulla logica di ripetizione dei tentativi, vedere [Rilevamento dei conflitti e logica di ripetizione dei tentativi](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per le linee guida sul monitoraggio, vedere [Monitoraggio del database SQL di Azure tramite le visualizzazioni di gestione dinamica](sql-database-monitoring-with-dmvs.md).

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 537032ade9e6569def84499ca6d2d937f77312e3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: db012097011d57434e35ef395ebe69a2156c92f4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Attività IfCondition in Azure Data Factory
 L'attività IfCondition svolge la stessa funzione dell'istruzione If nei linguaggi di programmazione. Valuta un set di attività se la condizione restituisce `true` e un altro set di attività se la condizione restituisce `false`. 
@@ -252,7 +252,7 @@ La pipeline imposta **folderPath** sul valore del parametro **outputPath1** o **
 Questi comandi presuppongono che i file JSON siano stati salvati nella cartella C:\ADF. 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription "<Your subscription name>"
 
 $resourceGroupName = "<Resource Group Name>"

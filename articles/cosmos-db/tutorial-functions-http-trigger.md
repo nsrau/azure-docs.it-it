@@ -2,23 +2,23 @@
 title: Creare un trigger HTTP con un'associazione di input di Azure Cosmos DB | Microsoft Docs
 description: Informazioni su come usare Funzioni di Azure con i trigger HTTP per eseguire query su Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 3fca64db9e19f8295fc462b790beb95f6796ae4c
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Creare un trigger HTTP di Funzioni di Azure con un'associazione di input di Azure Cosmos DB
 

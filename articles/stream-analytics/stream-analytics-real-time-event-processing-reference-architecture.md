@@ -1,24 +1,19 @@
 ---
-title: Elaborazione degli eventi in tempo reale con l'elaborazione degli eventi dell'analisi di flusso | Microsoft Docs
-description: Informazioni su come un set di servizi di Azure è in grado di interagire per consentire l’elaborazione e l’analisi in tempo reale degli eventi.
-keywords: elaborazione in tempo reale, elaborazione di eventi, architettura di riferimento
-services: stream-analytics,event-hubs,storage,sql-database
-documentationcenter: ''
+title: Elaborazione di eventi in tempo reale con l'elaborazione eventi di Analisi di flusso di Azure
+description: Questo articolo descrive l'architettura di riferimento per ottenere processi di elaborazione e analisi in tempo reale usando Analisi di flusso di Azure.
+services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 11af48bc-313c-4527-8c80-91088dc9f3c6
-ms.service: stream-analytics
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/24/2017
 ms.author: jeanb
-ms.openlocfilehash: cf11a80a93a923f038b7d6a0f02a35938794c242
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 01/24/2017
+ms.openlocfilehash: 8a5d426d67916e010c7fff048eebdc77b93c5c38
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Architettura di riferimento: elaborazione di eventi in tempo reale con Analisi di flusso di Microsoft Azure
 L'architettura di riferimento per l'elaborazione di eventi in tempo reale con Analisi dei flussi di Azure è destinata a fornire un progetto generico per la distribuzione in tempo reale di una soluzione di elaborazione dei flussi PaaS con Microsoft Azure.
@@ -50,7 +45,7 @@ Microsoft Azure fornisce un catalogo esteso di tecnologie di analisi in grado di
 **Download:** [Elaborazione di eventi in tempo reale con Analisi dei flussi di Microsoft Azure](http://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)

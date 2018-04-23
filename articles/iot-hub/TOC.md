@@ -85,7 +85,7 @@
 ### Routing dei messaggi
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
-#### [Node.JS](iot-hub-node-node-process-d2c.md)
+#### [Node.js](iot-hub-node-node-process-d2c.md)
 #### [Python](iot-hub-python-python-process-d2c.md)
 ### Inviare messaggi da cloud a dispositivo
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
@@ -121,7 +121,7 @@
 #### [Back-end .NET/Dispositivo .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Back-end Java/Dispositivo Java](iot-hub-java-java-twin-how-to-configure.md)
 #### [Back-end Python/Dispositivo Python](iot-hub-python-python-twin-how-to-configure.md)
-### Usare processi del dispositivo per aggiornarne il firmware
+### Usare dispositivi gemelli per aggiornarne il firmware
 #### [Back-end Node/Dispositivo Node](iot-hub-node-node-firmware-update.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-firmware-update.md)
 #### [Back-end .NET/Dispositivo .NET](iot-hub-csharp-csharp-firmware-update.md)

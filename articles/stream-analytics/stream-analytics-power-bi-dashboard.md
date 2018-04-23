@@ -1,24 +1,19 @@
 ---
-title: Dashboard di Power BI in Analisi di flusso di Azure | Microsoft Docs
-description: Utilizzare un dashboard di Power BI streaming in tempo reale per raccogliere intelligence aziendali e analizzare i dati di volumi elevati di un processo di Analisi di flusso.
-keywords: dashboard di analisi, dashboard in tempo reale
+title: Integrazione del dashboard di Power BI con Analisi di flusso di Azure
+description: Questo articolo descrive come usare un dashboard di Power BI in tempo reale per visualizzare i dati al di fuori di un processo di Analisi di flusso di Azure.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/27/2017
 ms.author: jeanb
-ms.openlocfilehash: e1f1d960c312362e0e0cd6d2f83599c28c8c3f05
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/27/2017
+ms.openlocfilehash: 15b8548e8b5b6ff8d2f5722d2a4031f8e52d044b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Analisi di flusso e Power BI: dashboard di analisi in tempo reale per lo streaming dei dati
 Analisi di flusso di Azure permette di usare uno dei principali strumenti di Business Intelligence, [Microsoft Power BI](https://powerbi.com/). Questo articolo illustra come creare strumenti di Business Intelligence usando Power BI come output per i processi di Analisi di flusso di Azure. Illustra anche come creare e usare un dashboard in tempo reale.
@@ -249,7 +244,7 @@ Se si tenta di avviare un processo dopo che il token è scaduto, si verifica un 
 Dopo aver aggiornato l'autorizzazione con Power BI, viene visualizzato un avviso verde nell'area di autorizzazione che indica che il problema è stato risolto.
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)

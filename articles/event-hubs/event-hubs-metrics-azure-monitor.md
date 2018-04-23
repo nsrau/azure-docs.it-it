@@ -5,20 +5,20 @@ services: event-hubs
 documentationcenter: .NET
 author: ShubhaVijayasarathy
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 04/12/2018
 ms.author: sethm
-ms.openlocfilehash: c3ee6a87592145801167b35ff281c04062e525da
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 445b439ff77a88a4b7783427f5fab0e40a485542
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Metriche degli hub eventi di Azure in Monitoraggio di Azure (anteprima)
 
@@ -46,7 +46,7 @@ Per le metriche che supportano le dimensioni, è necessario filtrare specificand
 
 ## <a name="billing"></a>Fatturazione
 
-L'uso delle metriche in Monitoraggio di Azure è attualmente gratuito durante la fase di anteprima. Se tuttavia si usano soluzioni aggiuntive per inserire i dati delle metriche, è possibile che la fatturazione venga effettuata da tali soluzioni. Ad esempio, la fatturazione viene effettuata da Archiviazione di Azure se i dati relativi alle metriche vengono archiviati in un account di Archiviazione di Azure. La fatturazione viene effettuata da Operations Management Suite (OMS) anche se si esegue lo streaming dei dati relativi alle metriche verso OMS per analisi avanzate.
+L'uso delle metriche in Monitoraggio di Azure è attualmente gratuito durante la fase di anteprima. Se tuttavia si usano soluzioni aggiuntive per inserire i dati delle metriche, è possibile che la fatturazione venga effettuata da tali soluzioni. Ad esempio, la fatturazione viene effettuata da Archiviazione di Azure se i dati relativi alle metriche vengono archiviati in un account di Archiviazione di Azure. La fatturazione viene effettuata da Azure anche se si esegue lo streaming dei dati relativi alle metriche verso Log Analytics per l'esecuzione di analisi avanzate.
 
 Le metriche seguenti offrono una panoramica dell'integrità del servizio. 
 

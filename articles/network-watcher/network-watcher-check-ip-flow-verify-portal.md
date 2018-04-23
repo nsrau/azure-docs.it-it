@@ -1,11 +1,11 @@
 ---
 title: Verificare il traffico con la verifica del flusso IP di Network Watcher di Azure - Portale di Azure | Documentazione Microsoft
-description: "Questo articolo descrive come verificare se il traffico da o verso una macchina virtuale è consentito o negato"
+description: Questo articolo descrive come verificare se il traffico da o verso una macchina virtuale è consentito o negato
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e0e3e9a8-70eb-409a-a744-0ce9deb27148
 ms.service: network-watcher
 ms.devlang: na
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 8333ccfd1e4cc917c8af4b3006292e43b77ecc7f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b6d929f025c8b95709b7c0eb28ee78310e5f12a5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-to-or-from-a-vm-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Controllare se il traffico da o verso una macchina virtuale è consentito o negato con la verifica del flusso IP, una funzionalità di Network Watcher di Azure
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-check-ip-flow-verify-portal.md)
+> - [Portale di Azure](network-watcher-check-ip-flow-verify-portal.md)
 > - [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 > - [Interfaccia della riga di comando 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
 > - [Interfaccia della riga di comando 2.0](network-watcher-check-ip-flow-verify-cli.md)
@@ -59,7 +59,7 @@ Come illustrato nella figura seguente, il traffico diventa in ingresso e la port
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se il traffico risulta bloccato e non dovrebbe esserlo, vedere [Gestire i gruppi di sicurezza di rete](../virtual-network/virtual-network-manage-nsg-arm-portal.md) per individuare il gruppo di sicurezza di rete e le relative regole di sicurezza definite.
+Se il traffico risulta bloccato e non dovrebbe esserlo, vedere [Gestire i gruppi di sicurezza di rete](../virtual-network/manage-network-security-group.md) per individuare il gruppo di sicurezza di rete e le relative regole di sicurezza definite.
 
 [1]: ./media/network-watcher-check-ip-flow-verify-portal/figure1.png
 [2]: ./media/network-watcher-check-ip-flow-verify-portal/figure2.png

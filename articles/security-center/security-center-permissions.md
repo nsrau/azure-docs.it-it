@@ -6,7 +6,7 @@ cloud: na
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-ms.assetid: 
+ms.assetid: ''
 ms.service: security-center
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: terrylan
-ms.openlocfilehash: 0aaa99dda44d2020afd3e841e84020eb4ff87a85
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f85f49bd54eacbca67143b35eaf555cfb744a41d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorizzazioni nel Centro sicurezza di Azure
 
-Il Centro sicurezza di Azure usa il [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md), con [ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md) che possono essere assegnati a utenti, gruppi e servizi in Azure.
+Il Centro sicurezza di Azure usa il [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md), con [ruoli predefiniti](../role-based-access-control/built-in-roles.md) che possono essere assegnati a utenti, gruppi e servizi in Azure.
 
 Centro sicurezza consente di valutare la configurazione delle risorse per identificare problemi di sicurezza e vulnerabilità. In Centro sicurezza gli utenti possono visualizzare solo informazioni relative a una risorsa quando dispongono del ruolo di proprietario, collaboratore o lettore per la sottoscrizione o il gruppo di risorse cui tali risorse appartengono.
 

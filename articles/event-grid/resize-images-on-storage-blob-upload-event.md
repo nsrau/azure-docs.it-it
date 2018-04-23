@@ -1,10 +1,10 @@
 ---
 title: Usare Griglia di eventi di Azure per automatizzare il ridimensionamento delle immagini caricate | Microsoft Docs
-description: "Griglia di eventi di Azure può attivare i caricamenti BLOB in Archiviazione di Azure. Ciò consente di inviare file di immagini caricati in Archiviazione di Azure ad altri servizi, ad esempio a Funzioni di Azure, perché vengano ridimensionati o migliorati."
+description: Griglia di eventi di Azure può attivare i caricamenti BLOB in Archiviazione di Azure. Ciò consente di inviare file di immagini caricati in Archiviazione di Azure ad altri servizi, ad esempio a Funzioni di Azure, perché vengano ridimensionati o migliorati.
 services: event-grid, functions
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 68343c3ffd87496ed4ae89b478ee5c8119ed67f5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0edf5648ddef58db74273635c84d7473e17e1b30
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi
 
@@ -26,7 +26,7 @@ Questa esercitazione è la seconda parte di una serie di esercitazioni sull'arch
 
 Usare l'interfaccia della riga di comando di Azure e il portale di Azure per aggiungere le funzionalità di ridimensionamento a un'app esistente di caricamento di immagini.
 
-![App Web pubblicata nel browser Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![App Web pubblicata nel browser Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 In questa esercitazione si apprenderà come:
 
@@ -90,7 +90,7 @@ storageConnectionString=$(az storage account show-connection-string \
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
 --settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbs
+myContainerName=thumbnails
 ```
 
 È ora possibile distribuire un progetto di codice funzione in quest'app per le funzioni.
@@ -157,7 +157,7 @@ Fare clic sull'area **Upload photos** (Carica foto) per selezionare e caricare u
 
 Si noti che quando l'immagine caricata scompare, nella sequenza video **Generated thumbnails** (Anteprime generate) viene mostrata una copia dell'immagine caricata. Questa immagine è stata ridimensionata dalla funzione, aggiunta al contenitore *anteprime* e scaricata dal client Web.
 
-![App Web pubblicata nel browser Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![App Web pubblicata nel browser Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

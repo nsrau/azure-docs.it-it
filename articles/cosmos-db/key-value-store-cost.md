@@ -3,11 +3,10 @@ title: 'Azure Cosmos DB come archivio di valori chiave: Panoramica dei costi | M
 description: Informazioni sui costi ridotti correlati all'uso di Azure Cosmos DB come archivio di valori chiave.
 keywords: archivio di valori chiave
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: 
-tags: 
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+tags: ''
+documentationcenter: ''
 ms.assetid: 7f765c17-8549-4509-9475-46394fc3a218
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: mimig
-ms.openlocfilehash: e6f87cd82ebe31965fcaac1f66d2df03fd58294f
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: sngun
+ms.openlocfilehash: 9854ed30672ea16650fbdd98e991fb3916afef07
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB come archivio di valori chiave: Panoramica dei costi
 

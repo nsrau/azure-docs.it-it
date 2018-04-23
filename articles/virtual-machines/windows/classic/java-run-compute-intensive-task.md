@@ -1,11 +1,11 @@
 ---
 title: Applicazione Java a elevato utilizzo di calcolo in una macchina virtuale | Microsoft Docs
-description: "Informazioni su come creare una macchina virtuale di Azure nella quale è in esecuzione un'applicazione Java a elevato utilizzo di calcolo che può essere monitorata da un'altra applicazione Java."
+description: Informazioni su come creare una macchina virtuale di Azure nella quale è in esecuzione un'applicazione Java a elevato utilizzo di calcolo che può essere monitorata da un'altra applicazione Java.
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: ae6f2737-94c7-4569-9913-d871450c2827
 ms.service: virtual-machines-windows
@@ -93,7 +93,7 @@ Per creare uno spazio dei nomi del servizio:
    ![Schermata nodo bus di servizio][svc_bus_node]
 4. Nella finestra di dialogo **Crea un nuovo spazio dei nomi servizio** immettere uno spazio dei nomi servizio in **Spazio dei nomi** e quindi, per assicurarsi che sia univoco, fare clic sul pulsante **Verifica disponibilità**.  
    ![Schermata Create a New Namespace][create_namespace]
-5. Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato e fare clic sul pulsante **Create Namespace** .  
+5. Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area geografica in cui dovrà essere ospitato e fare clic sul pulsante **Create Namespace** .  
    
    Lo spazio dei nomi creato verrà quindi visualizzato nel portale di Azure e sarà necessario attendere qualche istante affinché venga attivato. Prima di continuare, attendere che lo stato sia **Active** .
 

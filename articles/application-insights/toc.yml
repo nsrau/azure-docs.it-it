@@ -69,6 +69,8 @@
       items:
         - name: JavaScript
           href: app-insights-javascript.md
+    - name: Monitorare Funzioni di Azure
+      href: 'https://docs.microsoft.com/azure/azure-functions/functions-monitoring'
     - name: Monitorare le altre piattaforme
       items:
         - name: Siti di SharePoint
@@ -196,6 +198,8 @@
               href: app-insights-usage-segmentation.md
             - name: Grafici a imbuto
               href: usage-funnels.md
+            - name: Coorte
+              href: app-insights-usage-cohorts.md
             - name: Impatto
               href: app-insights-usage-impact.md
             - name: Conservazione
@@ -286,6 +290,8 @@
   items:
     - name: Linguaggio di query di Analytics
       href: 'https://docs.loganalytics.io/'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/?view=azurermps-5.7.0#monitor'
     - name: .NET
       href: 'https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights'
     - name: Java
@@ -294,6 +300,8 @@
       href: 'https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md'
     - name: API di accesso ai dati
       href: 'https://dev.applicationinsights.io/'
+    - name: API REST
+      href: 'https://docs.microsoft.com/rest/api/application-insights/'
     - name: Modello di dati
       href: application-insights-data-model.md
       items:

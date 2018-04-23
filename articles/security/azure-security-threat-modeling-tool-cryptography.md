@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 96e74371fe51a8050a91c86215e3eefab07bbed8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e5d487c4c793a49ce1d4ac17f6fcd672e09bb90
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Infrastruttura di sicurezza: crittografia - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="cipher-length"></a>Usare solo crittografie a blocchi simmetriche e lunghezze di chiave approvate
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="vector-ciphers"></a>Usare modalità di crittografia a blocchi approvate e vettori di inizializzazione per crittografie simmetriche
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -66,18 +66,18 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="numgen"></a>Usare generatori di numeri casuali approvati
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passaggi** | <p>I prodotti devono usare generatori di numeri casuali approvati. Le funzioni pseudocasuali, ad esempio la funzione runtime C rand, la classe .NET Framework System.Random o le funzioni di sistema come GetTickCount, non devono quindi mai essere usate in tale codice. L'uso dell'algoritmo DUAL_EC_DRBG (Dual Elliptic Curve Deterministic Random Bit Generator) è proibito.</p><ul><li>**CNG**: BCryptGenRandom. È consigliato l'uso del flag BCRYPT_USE_SYSTEM_PREFERRED_RNG a meno che il chiamante non possa essere eseguito con un IRQL maggiore di 0, ovvero PASSIVE_LEVEL.</li><li>**CAPI**: cryptGenRandom.</li><li>**Win32/64**: RtlGenRandom (le nuove implementazioni devono usare BCryptGenRandom o CryptGenRandom) * rand_s * SystemPrng (per la modalità kernel)</li><li>**.NET**: RNGCryptoServiceProvider o RNGCng.</li><li>**Applicazioni Windows Store**: Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom o .GenerateRandomNumber.</li><li>**Apple OS X (10.7+)/iOS(2.0+):** int SecRandomCopyBytes (SecRandomRef random, size_t count, uint8_t *byte)</li><li>**Apple OS X (<10.7)-** Usare /dev/random per recuperare numeri casuali</li><li>**Java(compreso il codice Java di Google per Android) -** classe java.security.SecureRandom. Tenere presente che, per Android 4.3 (Jelly Bean), gli sviluppatori devono seguire la soluzione alternativa consigliata da Android e aggiornare le applicazioni per inizializzare il generatore PRNG con l'entropia da /dev/urandom o /dev/random.</li></ul>|
+| **Passaggi** | <p>I prodotti devono usare generatori di numeri casuali approvati. Le funzioni pseudocasuali, ad esempio la funzione runtime C rand, la classe .NET Framework System.Random o le funzioni di sistema come GetTickCount, non devono quindi mai essere usate in tale codice. L'uso dell'algoritmo DUAL_EC_DRBG (Dual Elliptic Curve Deterministic Random Bit Generator) è proibito.</p><ul><li>**CNG**: BCryptGenRandom. È consigliato l'uso del flag BCRYPT_USE_SYSTEM_PREFERRED_RNG a meno che il chiamante non possa essere eseguito con un IRQL maggiore di 0, ovvero PASSIVE_LEVEL.</li><li>**CAPI**: cryptGenRandom.</li><li>**Win32/64**: RtlGenRandom (le nuove implementazioni devono usare BCryptGenRandom o CryptGenRandom) * rand_s * SystemPrng (per la modalità kernel)</li><li>**.NET**: RNGCryptoServiceProvider o RNGCng.</li><li>**Applicazioni Windows Store**: Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom o .GenerateRandomNumber.</li><li>**Apple OS X (10.7+)/iOS(2.0+)-** int SecRandomCopyBytes (SecRandomRef random, size_t count, uint8_t \*byte)</li><li>**Apple OS X (<10.7)-** Usare /dev/random per recuperare numeri casuali</li><li>**Java(compreso il codice Java di Google per Android) -** classe java.security.SecureRandom. Tenere presente che, per Android 4.3 (Jelly Bean), gli sviluppatori devono seguire la soluzione alternativa consigliata da Android e aggiornare le applicazioni per inizializzare il generatore PRNG con l'entropia da /dev/urandom o /dev/random.</li></ul>|
 
 ## <a id="stream-ciphers"></a>Non usare crittografie di flusso simmetriche
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -88,7 +88,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="mac-hash"></a>Usare algoritmi MAC/HMAC/hash con chiave
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -132,7 +132,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="securables-db"></a>Aggiungere la firma digitale alle entità a protezione diretta del database critiche
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -143,7 +143,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="ekm-keys"></a>Usare EKM di SQL Server per proteggere le chiavi di crittografia
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -154,7 +154,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="keys-engine"></a>Usare la funzionalità AlwaysEncrypted se le chiavi di crittografia non devono essere rivelate al motore di database
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -165,7 +165,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="keys-iot"></a>Archiviare le chiavi di crittografia in modo sicuro nel dispositivo IoT
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase SDL**               | Compilare |  
@@ -188,7 +188,7 @@ Come si può osservare, la chiave primaria del dispositivo non è presente nel c
 
 ## <a id="random-hub"></a>Generare una chiave simmetrica casuale sufficientemente lunga per l'autenticazione nell'hub IoT
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway IoT cloud | 
 | **Fase SDL**               | Compilare |  
@@ -210,7 +210,7 @@ Come si può osservare, la chiave primaria del dispositivo non è presente nel c
 
 ## <a id="bitlocker"></a>Assicurarsi che sia attivo un criterio di gestione dei dispositivi che richiede PIN/password/blocco automatico e crittografa tutti i dati (ad esempio, Bitlocker)
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Client Dynamics CRM per Outlook | 
 | **Fase SDL**               | Compilare |  
@@ -221,7 +221,7 @@ Come si può osservare, la chiave primaria del dispositivo non è presente nel c
 
 ## <a id="rolled-server"></a>Assicurarsi che venga eseguito il rollover delle chiavi di firma quando si usa Identity Server
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Identity Server | 
 | **Fase SDL**               | Distribuzione |  
@@ -232,7 +232,7 @@ Come si può osservare, la chiave primaria del dispositivo non è presente nel c
 
 ## <a id="client-server"></a>Assicurarsi che vengano usati un ID client e un segreto client con crittografia complessa in Identity Server
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Identity Server | 
 | **Fase SDL**               | Compilare |  

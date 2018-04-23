@@ -126,6 +126,8 @@
               href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: Abilitare e visualizzare le metriche
               href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Eseguire la migrazione alle nuove metriche di archiviazione
+              href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Trasferire i dati
       items:
         - name: Spostare dati da e verso Archiviazione
@@ -136,7 +138,7 @@
           href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Esempi
       href: 'https://azure.microsoft.com/documentation/samples/?service=storage&term=file'
-- name: riferimento
+- name: Riferimenti
   items:
     - name: PowerShell
       href: /powershell/module/azure.storage

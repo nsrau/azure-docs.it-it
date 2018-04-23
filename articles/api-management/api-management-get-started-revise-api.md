@@ -2,10 +2,10 @@
 title: Usare le revisioni per apportare modifiche non di rilievo in modo sicuro in Gestione API di Azure | Microsoft Docs
 description: Seguire le procedure di questa esercitazione per apprendere come apportare modifiche non di rilievo usando le revisioni in Gestione API.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 50d7ac17faebb34f1a1f9a3259aa0196950391d9
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: b4812ea8d93e4bfb784370e3a3196a5d20e47519
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Usare le revisioni per apportare modifiche non di rilievo in modo sicuro
 Se l'API è pronta e inizia a essere usata dagli sviluppatori, è in genere necessario fare attenzione alle modifiche apportate a tale API e contemporaneamente non interrompere i chiamanti dell'API. È anche utile far conoscere agli sviluppatori le modifiche apportate. A tal fine, in Gestione API di Azure sono disponibili le **revisioni**. Per altre informazioni, vedere [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) (Versioni e revisioni) e [API Versioning with Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/) (Controllo delle versioni delle API con Gestione API di Azure).
@@ -37,8 +37,6 @@ In questa esercitazione si apprenderà come:
 
 + Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 + Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="add-a-new-revision"></a>Aggiungere una nuova revisione
 

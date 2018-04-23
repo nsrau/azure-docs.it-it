@@ -7,17 +7,16 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 08/25/2017
+ms.date: 04/04/2018
 ms.author: sashan
-ms.openlocfilehash: 160e65130efc78bc1a98a0feceb1c824cf226156
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: carlrab
+ms.openlocfilehash: 46236c11b15f86c26be5e8c1311ba35e8bdd90f2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 
@@ -27,25 +26,25 @@ Questa panoramica descrive le funzionalità offerte dal database SQL di Azure pe
 
 Il database SQL offre diverse funzionalità di continuità aziendale, inclusi i backup automatici e la replica facoltativa del database. Ogni funzionalità presenta caratteristiche diverse in termini di tempo di recupero stimato (ERT) e di potenziale perdita di dati per le transazioni recenti. Dopo aver compreso le opzioni disponibili, è possibile scegliere una di esse o, nella maggior parte dei casi, usarle in modo combinato per i diversi scenari. Quando si sviluppa il piano di continuità aziendale, è necessario comprendere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo l'evento di arresto improvviso. Si tratta dell'obiettivo del tempo di ripristino (RTO). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti (intervallo di tempo) che l'applicazione è in grado di tollerare durante il ripristino dopo l'evento di arresto improvviso, ovvero l'obiettivo del punto di recupero (RPO).
 
-La tabella seguente mette a confronto i valori ERT e RPO per i tre scenari più comuni.
+La tabella seguente mette a confronto i valori ERT e RPO per ogni livello di servizio relativi ai tre scenari più comuni.
 
-| Funzionalità | Livello Basic | Livello Standard | Livello Premium |
-| --- | --- | --- | --- |
-| Ripristino temporizzato dal backup |Qualsiasi punto di ripristino entro 7 giorni |Qualsiasi punto di ripristino entro 35 giorni |Qualsiasi punto di ripristino entro 35 giorni |
-| Ripristino geografico dai backup con replica geografica |ERT < 12 ore, RPO < 1 ora |ERT < 12 ore, RPO < 1 ora |ERT < 12 ore, RPO < 1 ora |
-| Ripristino dall'insieme di credenziali di Backup di Azure |ERT < 12 ore, RPO < 1 sett |ERT < 12 ore, RPO < 1 sett |ERT < 12 ore, RPO < 1 sett |
-| Replica geografica attiva |ERT < 30 sec, RPO < 5 sec |ERT < 30 sec, RPO < 5 sec |ERT < 30 sec, RPO < 5 sec |
+| Funzionalità | Basic | Standard | Premium  | Utilizzo generico | Business Critical
+| --- | --- | --- | --- |--- |--- |
+| Ripristino temporizzato dal backup |Qualsiasi punto di ripristino entro 7 giorni |Qualsiasi punto di ripristino entro 35 giorni |Qualsiasi punto di ripristino entro 35 giorni |Qualsiasi punto di ripristino entro il periodo configurato (fino a 35 giorni)|Qualsiasi punto di ripristino entro il periodo configurato (fino a 35 giorni)|
+| Ripristino geografico dai backup con replica geografica |ERT < 12 ore, RPO < 1 ora |ERT < 12 ore, RPO < 1 ora |ERT < 12 ore, RPO < 1 ora |ERT < 12 ore, RPO < 1 ora|ERT < 12 ore, RPO < 1 ora|
+| Ripristino dall'insieme di credenziali di Backup di Azure |ERT < 12 ore, RPO < 1 sett |ERT < 12 ore, RPO < 1 sett |ERT < 12 ore, RPO < 1 sett |ERT < 12 ore, RPO < 1 sett|ERT < 12 ore, RPO < 1 sett|
+| Replica geografica attiva |ERT < 30 sec, RPO < 5 sec |ERT < 30 sec, RPO < 5 sec |ERT < 30 sec, RPO < 5 sec |ERT < 30 sec, RPO < 5 sec|ERT < 30 sec, RPO < 5 sec|
 
-### <a name="use-database-backups-to-recover-a-database"></a>Usare backup del database per il ripristinare
+### <a name="use-point-in-time-restore-to-recover-a-database"></a>Usare il ripristino temporizzato per recuperare un database
 
-Il database SQL esegue automaticamente una combinazione di backup completi su base settimanale, backup differenziali del database di backup ogni ora e backup dei log delle transazioni ogni 5-10 minuti per proteggere l'azienda dalla perdita di dati. Questi backup vengono archiviati nel servizio di archiviazione con ridondanza geografica per 35 giorni per i database dei livelli di servizio Standard e Premium e per 7 giorni per il database del livello Basic. Per altre informazioni, vedere [livelli di servizio](sql-database-service-tiers.md). Se il periodo di memorizzazione per il livello di servizio non soddisfa i requisiti aziendali, è possibile aumentare il periodo di memorizzazione [modificando il livello di servizio](sql-database-service-tiers.md). I backup completi e differenziali del database vengono replicati anche su un [data center abbinato](../best-practices-availability-paired-regions.md) per la protezione da un'interruzione del data center. Per altre informazioni, vedere [backup automatici del database SQL](sql-database-automated-backups.md).
+Il database SQL esegue automaticamente una combinazione di backup completi su base settimanale, backup differenziali del database di backup ogni ora e backup dei log delle transazioni ogni 5-10 minuti per proteggere l'azienda dalla perdita di dati. Questi backup vengono archiviati nel servizio di archiviazione RA-GRS per 35 giorni per i database dei livelli di servizio Standard e Premium e per 7 giorni per il database del livello Basic. Nei livelli di servizio Utilizzo generico e Business critical (anteprima) il periodo di conservazione dei backup è configurabile fino a 35 giorni. Per altre informazioni, vedere [livelli di servizio](sql-database-service-tiers.md). Se il periodo di memorizzazione per il livello di servizio non soddisfa i requisiti aziendali, è possibile aumentare il periodo di memorizzazione [modificando il livello di servizio](sql-database-service-tiers.md). I backup completi e differenziali del database vengono replicati anche su un [data center abbinato](../best-practices-availability-paired-regions.md) per la protezione da un'interruzione del data center. Per altre informazioni, vedere [backup automatici del database SQL](sql-database-automated-backups.md).
 
-Se il periodo di memorizzazione predefinito non è sufficiente per l'applicazione, è possibile estenderlo configurando criteri di conservazione a lungo termine per il database. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
+Se il periodo di conservazione massimo supportato del ripristino temporizzato non è sufficiente per l'applicazione, è possibile estenderlo configurando i criteri di conservazione a lungo termine per il database. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
 
 È possibile usare questi backup automatici del database per ripristinare un database da una serie di eventi di arresto improvviso, sia all'interno del proprio data center sia verso un altro data center. Il tempo stimato per il ripristino tramite backup automatici del database dipende da diversi fattori, tra cui il numero totale di database in fase di ripristino nella stessa area contemporaneamente, le dimensioni del database, le dimensioni del log delle transazioni e la larghezza di banda della rete. Il tempo di recupero di solito è inferiore a 12 ore. Durante il ripristino verso un'altra area dati, la potenziale perdita di dati è limitata a 1 ora per l'archiviazione con ridondanza geografica dei backup differenziali del database che si verificano ogni ora.
 
 > [!IMPORTANT]
-> Per eseguire il ripristino tramite i backup automatici, è necessario essere un membro del ruolo di collaboratore di SQL Server o proprietario della sottoscrizione. Vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md). Per il ripristino, è possibile usare il portale di Azure, PowerShell o l'API REST. Non è possibile usare Transact-SQL.
+> Per eseguire il ripristino tramite i backup automatici, è necessario essere un membro del ruolo di collaboratore di SQL Server o proprietario della sottoscrizione. Vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../role-based-access-control/built-in-roles.md). Per il ripristino, è possibile usare il portale di Azure, PowerShell o l'API REST. Non è possibile usare Transact-SQL.
 >
 
 Usare i backup automatici come meccanismo di continuità e ripristino aziendale, se l'applicazione:
@@ -55,7 +54,7 @@ Usare i backup automatici come meccanismo di continuità e ripristino aziendale,
 * Ha una bassa frequenza di modifica dei dati, ovvero poche transazioni per ora, e la perdita di un massimo di un'ora di modifica dei dati è accettabile.
 * Dipende dal costo.
 
-Se è necessario un ripristino più veloce, usare la [Replica geografica attiva](sql-database-geo-replication-overview.md) (più avanti). Se è necessario essere in grado di ripristinare i dati da un periodo antecedente a 35 giorni, usare la [conservazione dei backup a lungo termine](sql-database-long-term-retention.md). 
+Se è necessario un ripristino più veloce, usare la [Replica geografica attiva](sql-database-geo-replication-overview.md) (più avanti). Se è necessario essere in grado di ripristinare i dati da un periodo antecedente a 35 giorni, usare la [conservazione a lungo termine](sql-database-long-term-retention.md). 
 
 ### <a name="use-active-geo-replication-and-auto-failover-groups-in-preview-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Usare la replica geografica attiva e i gruppi di failover automatico (in anteprima) per ridurre il tempo di recupero e limitare la perdita di dati associata a un ripristino
 
@@ -77,12 +76,12 @@ Usare la replica geografica attiva e i gruppi con failover automatico (in antepr
 * Ha una frequenza elevata di modifica dei dati e la perdita di un'ora di dati non è accettabile.
 * Il costo aggiuntivo della replica geografica attiva è inferiore rispetto alla potenziale responsabilità finanziaria e alla perdita di profitto associata.
 
->
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Ripristinare un database in seguito a errore di un'applicazione o un utente
-* Nessuno è perfetto! Un utente potrebbe accidentalmente eliminare alcuni dati, una tabella importante o addirittura un intero database. In alternativa un'applicazione potrebbe sovrascrivere accidentalmente dei dati con dati errati a causa di un difetto dell'applicazione.
+
+Può sempre capitare di commettere un errore. Un utente potrebbe accidentalmente eliminare alcuni dati, una tabella importante o addirittura un intero database. In alternativa un'applicazione potrebbe sovrascrivere accidentalmente dei dati con dati errati a causa di un difetto dell'applicazione.
 
 In questo scenario, ecco sono le opzioni di ripristino.
 
@@ -101,8 +100,9 @@ Per altre informazioni e per i passaggi dettagliati per il ripristino di un data
 >
 >
 
-### <a name="restore-from-azure-backup-vault"></a>Ripristino dall'insieme di credenziali di Backup di Azure
-Se la perdita di dati si è verificata fuori dal periodo di memorizzazione corrente per i backup automatici e il database è configurato per la conservazione a lungo termine, è possibile eseguire il ripristino da un backup settimanale nell'insieme di credenziali di Backup di Azure in un nuovo database. A questo punto, è possibile sostituire il database originale con il database ripristinato o copiare i dati necessari dai dati ripristinati nel database originale. Se si vuole recuperare una versione precedente del database prima di un aggiornamento importante dell'applicazione oppure soddisfare una richiesta dei revisori o di carattere legale, è possibile creare un database usando un backup completo salvato nell'insieme di credenziali di Backup di Azure.  Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
+### <a name="restore-backups-from-long-term-retention"></a>Ripristinare i backup dalla conservazione a lungo termine
+
+Se la perdita di dati si è verificata fuori dal periodo di memorizzazione corrente per i backup automatici e il database è configurato per la conservazione a lungo termine, è possibile eseguire il ripristino da un backup settimanale nella risorsa di archiviazione della conservazione a lungo termine in un nuovo database. A questo punto, è possibile sostituire il database originale con il database ripristinato o copiare i dati necessari dai dati ripristinati nel database originale. Se si vuole recuperare una versione precedente del database prima di un aggiornamento importante dell'applicazione oppure soddisfare una richiesta dei revisori o di carattere legale, è possibile creare un database usando un backup completo salvato nell'insieme di credenziali di Backup di Azure.  Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Ripristinare un database in un'altra area da un'interruzione del data center regionale di Azure
 <!-- Explain this scenario -->

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f91ebe0f94c57c9ad217ffe280f9aa0a9aa6acb9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Che cos'è Azure AD Privileged Identity Management?
 
@@ -72,7 +72,7 @@ Per i ruoli di Azure RBAC, le assegnazioni per altri amministratori di Azure AD 
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Panoramica di Privileged Identity Management (Punto di ingresso)
 
-Azure AD Privileged Identity Management supporta l'amministrazione dei ruoli della directory di Azure AD e le risorse di Azure (Anteprima). La funzione di ruoli per le risorse di Azure differisce dai ruoli amministrativi in Azure AD. I ruoli delle risorse di Azure forniscono le autorizzazioni di granularità per la risorsa in cui sono assegnati e tutte le risorse subordinate nella gerarchia di risorse (nota come ereditarietà). [Altre informazioni su RBAC, gerarchia delle risorse ed ereditarietà](role-based-access-control-configure.md). È possibile amministrare PIM sia per i ruoli della directory di Azure AD che per le Risorse di Azure (Anteprima) accedendo al collegamento appropriato nella sezione Gestisci del menu di spostamento a sinistra del punto di ingresso della Panoramica di PIM.
+Azure AD Privileged Identity Management supporta l'amministrazione dei ruoli della directory di Azure AD e le risorse di Azure (Anteprima). La funzione di ruoli per le risorse di Azure differisce dai ruoli amministrativi in Azure AD. I ruoli delle risorse di Azure forniscono le autorizzazioni di granularità per la risorsa in cui sono assegnati e tutte le risorse subordinate nella gerarchia di risorse (nota come ereditarietà). [Altre informazioni su RBAC, gerarchia delle risorse ed ereditarietà](../role-based-access-control/role-assignments-portal.md). È possibile amministrare PIM sia per i ruoli della directory di Azure AD che per le Risorse di Azure (Anteprima) accedendo al collegamento appropriato nella sezione Gestisci del menu di spostamento a sinistra del punto di ingresso della Panoramica di PIM.
 
 PIM offre un comodo accesso per l'attivazione di ruoli, la visualizzazione delle attivazioni/richieste in sospeso, delle approvazioni in sospeso (per i ruoli della directory di Azure AD) e delle verifiche in sospeso in attesa della risposta dell'utente dalla sezione Attività nel menu di spostamento a sinistra.
 

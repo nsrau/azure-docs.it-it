@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 01/10/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 5f9f0a5921951669d451a9755c5da2091287c909
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f306eba91adf574f8bb20b2aa459f890b97bb732
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Usare PowerShell per aggiornare lo schema di sincronizzazione in un gruppo di sincronizzazione esistente
 
@@ -34,7 +34,7 @@ Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati
 
 Questo esempio richiede il modulo Azure PowerShell 4.2 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
-Eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
+Eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
 
 ## <a name="examples"></a>Esempi
 
@@ -97,7 +97,7 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 -   [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](../sql-database-sync-data.md)
 -   [Configurare la sincronizzazione dati SQL](../sql-database-get-started-sql-data-sync.md)
 -   [Procedure consigliate per la sincronizzazione dati SQL di Azure](../sql-database-best-practices-data-sync.md)
--   [Monitorare la sincronizzazione dati SQL di Azure con OMS Log Analytics](../sql-database-sync-monitor-oms.md)
+-   [Monitorare la sincronizzazione dati SQL con Log Analytics](../sql-database-sync-monitor-oms.md)
 -   [Risolvere i problemi della sincronizzazione dati SQL di Azure](../sql-database-troubleshoot-data-sync.md)
 
 -   Esempi di PowerShell completi che illustrano come configurare la sincronizzazione dati SQL:

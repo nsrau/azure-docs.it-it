@@ -1,11 +1,11 @@
 ---
-title: "Creare e gestire VM Windows in Azure che usano più schede di interfaccia di rete | Microsoft Docs"
-description: "Informazioni su come creare e gestire una VM Windows a cui sono collegate più schede di interfaccia di rete usando i modelli di Azure PowerShell o Resource Manager."
+title: Creare e gestire VM Windows in Azure che usano più schede di interfaccia di rete | Microsoft Docs
+description: Informazioni su come creare e gestire una VM Windows a cui sono collegate più schede di interfaccia di rete usando i modelli di Azure PowerShell o Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 9bff5b6d-79ac-476b-a68f-6f8754768413
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: b08e2b7315d180a387f27ab2082b7f9f6a9bbfff
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Creare e gestire una macchina virtuale Windows che ha più schede di interfaccia di rete
 Alle macchine virtuali (VM) in Azure possono essere collegate più schede di interfaccia di rete virtuale. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end oppure una rete dedicata a una soluzione di monitoraggio o backup. Questo articolo illustra come creare una macchina virtuale a cui sono collegate più schede di interfaccia di rete e come aggiungere o rimuovere le schede di interfaccia di rete da una VM esistente. Le differenti [dimensioni della macchina virtuale](sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
@@ -116,11 +116,13 @@ Ora è possibile iniziare con la configurazione della macchina virtuale. Ad ogni
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
     ```
 
-5. Creare infine la VM con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
+5. Creare la macchina virtuale con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
 
     ```powershell
     New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
     ```
+
+6. Aggiungere le route per le schede di interfaccia di rete secondarie al sistema operativo completando i passaggi descritti in [Configurare il sistema operativo per più schede di interfaccia di rete](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Aggiungere una scheda di interfaccia di rete a una VM esistente
 Per aggiungere una scheda di interfaccia di rete virtuale a una VM esistente, si dealloca la VM, si aggiunge la scheda di interfaccia di rete virtuale, quindi si avvia la VM. Le differenti [dimensioni della macchina virtuale](sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza. Se necessario, è possibile [ridimensionare una VM](resize-vm.md).
@@ -175,6 +177,8 @@ Per aggiungere una scheda di interfaccia di rete virtuale a una VM esistente, si
     ```powershell
     Start-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
+
+5. Aggiungere le route per le schede di interfaccia di rete secondarie al sistema operativo completando i passaggi descritti in [Configurare il sistema operativo per più schede di interfaccia di rete](#configure-guest-os-for-multiple-nics).
 
 ## <a name="remove-a-nic-from-an-existing-vm"></a>Rimuovere una scheda di interfaccia di rete da una VM esistente
 Per rimuovere una scheda di interfaccia di rete virtuale da una VM esistente, si dealloca la VM, si rimuove la scheda di interfaccia di rete virtuale, quindi si avvia la VM.
@@ -231,7 +235,9 @@ Per altre informazioni, vedere [Creazione di più istanze con *copy*](../../reso
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-È possibile consultare un esempio completo di [creazione di più schede di interfaccia di rete tramite i modelli di Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+È possibile consultare un esempio completo di [creazione di più schede di interfaccia di rete tramite i modelli di Resource Manager](../../virtual-network/template-samples.md).
+
+Aggiungere le route per le schede di interfaccia di rete secondarie al sistema operativo completando i passaggi descritti in [Configurare il sistema operativo per più schede di interfaccia di rete](#configure-guest-os-for-multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Configurare il sistema operativo guest per più schede di rete
 

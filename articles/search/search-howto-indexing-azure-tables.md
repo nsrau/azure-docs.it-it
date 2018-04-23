@@ -1,24 +1,19 @@
 ---
 title: Indicizzazione in Archiviazione tabelle di Azure con Ricerca di Azure | Microsoft Docs
 description: Informazioni su come indicizzare i dati archiviati in Archiviazione tabelle di Azure con Ricerca di Azure
-services: search
-documentationcenter: 
 author: chaosrealm
-manager: pablocas
-editor: 
-ms.assetid: 1cc27411-d0cc-40ed-8aed-c7cb9ab402b9
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: eugenesh
-ms.openlocfilehash: b167f69f853f6ecdfd56179e6ffb946cdf2f45b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a065454e274abc9c032b0ac69f42dd72f059443
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indicizzare in Archiviazione tabelle di Azure con Ricerca di Azure
 In questo articolo viene illustrato come usare Ricerca di Azure per indicizzare i dati archiviati in Archiviazione tabelle di Azure.
@@ -27,7 +22,7 @@ In questo articolo viene illustrato come usare Ricerca di Azure per indicizzare 
 
 È possibile configurare un indicizzatore dell'Archiviazione tabelle di Azure mediante queste risorse:
 
-* [Azure portal](https://ms.portal.azure.com)
+* [Portale di Azure](https://ms.portal.azure.com)
 * [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) Ricerca di Azure
 * [.NET SDK](https://aka.ms/search-sdk) Ricerca di Azure
 

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 961b783b44b95a871c98f96d3783f3429636f295
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2fcbbc2532e5cb9963922b4987ba0c7080fdb170
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-azure-automation"></a>Introduzione ad Automazione di Azure
 
@@ -33,13 +33,13 @@ Per automatizzare la distribuzione e la gestione delle risorse nel data center l
 
 È possibile distribuire più ruoli di lavoro ibridi per runbook. Usare i ruoli di lavoro ibridi per runbook per garantire un'elevata disponibilità per i runbook e il bilanciamento del carico dei processi dei runbook. In alcuni casi, è possibile dedicare i processi dei runbook a specifici carichi di lavoro o ambienti. Microsoft Monitoring Agent nel ruolo di lavoro ibrido per runbook avvia la comunicazione con il servizio Automazione sulla porta TCP 443. Per i ruoli di lavoro ibridi per runbook non sono previsti requisiti del firewall in entrata.  
 
-Può essere necessario che un runbook in esecuzione in un ruolo di lavoro ibrido per runbook esegua attività di gestione su altri computer o servizi nell'ambiente in uso. In questo scenario, il runbook potrebbe avere anche la necessità di accedere ad altre porte. Se i criteri di sicurezza IT non consentono ai computer della rete di connettersi a Internet, vedere [Gateway OMS](../log-analytics/log-analytics-oms-gateway.md). Il gateway di Operations Management Suite (OMS) funge da proxy per il ruolo di lavoro ibrido per runbook. Raccoglie lo stato dei processi e riceve le informazioni di configurazione dall'account di Automazione.
+Può essere necessario che un runbook in esecuzione in un ruolo di lavoro ibrido per runbook esegua attività di gestione su altri computer o servizi nell'ambiente in uso. In questo scenario, il runbook potrebbe avere anche la necessità di accedere ad altre porte. Se i criteri di sicurezza IT non consentono ai computer della rete di connettersi a Internet, vedere [Gateway OMS](../log-analytics/log-analytics-oms-gateway.md). Il gateway di OMS svolge la funzione di proxy per il ruolo di lavoro ibrido per runbook. Raccoglie lo stato dei processi e riceve le informazioni di configurazione dall'account di Automazione.
 
 I runbook eseguiti in un ruolo di lavoro ibrido per runbook vengono eseguiti nel contesto dell'account di sistema locale nel computer. È consigliabile un contesto di sicurezza quando si eseguono azioni amministrative nel computer Windows locale. Se si vuole che il runbook esegua attività in risorse esterne al computer locale, potrebbe essere necessario definire asset di credenziali sicure nell'account di Automazione, a cui accedere dal runbook e da usare per l'autenticazione con la risorsa esterna. È possibile usare gli asset [Credenziali](automation-credentials.md), [Certificato](automation-certificates.md) e [Connessione](automation-connections.md) nel runbook. Usare gli asset con i cmdlet che è possibile usare per specificare le credenziali per l'autenticazione.
 
-È possibile applicare configurazioni DSC che vengono archiviate in Automazione di Azure nelle macchine virtuali. Altri computer fisici e altre macchine virtuali possono richiedere configurazioni al server di pull di Automation DSC. Non è necessario distribuire un'infrastruttura per supportare il server di pull di Automation DSC per gestire le configurazioni dei sistemi Windows e Linux locali, fisici o virtuali. È solo necessario l'accesso a Internet in uscita da ogni sistema che verrà gestito con Automation DSC. La comunicazione avviene sulla porta TCP 443 al servizio OMS.   
+È possibile applicare configurazioni DSC che vengono archiviate in Automazione di Azure nelle macchine virtuali. Altri computer fisici e altre macchine virtuali possono richiedere configurazioni al server di pull di Automation DSC. Non è necessario distribuire un'infrastruttura per supportare il server di pull di Automation DSC per gestire le configurazioni dei sistemi Windows e Linux locali, fisici o virtuali. È solo necessario l'accesso a Internet in uscita da ogni sistema che verrà gestito con Automation DSC. La comunicazione avviene sulla porta TCP 443 al servizio Log Analytics.   
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="automation-dsc"></a>Automation DSC
 È possibile usare Automation DSC per gestire questi computer:
@@ -125,9 +125,9 @@ Gli articoli seguenti illustrano una panoramica e i passaggi di implementazione 
 Per l'account RunAs di Azure e l'account RunAs classico, l'articolo [Aggiornare l'account RunAs di Automazione](automation-create-runas-account.md) descrive come aggiornare l'account di Automazione esistente con account RunAs tramite il portale. Viene anche descritto come usare PowerShell, se l'account di Automazione non è stato configurato in origine con un account RunAs o un account RunAs classico. È possibile creare un account RunAs e un account RunAs classico usando un certificato rilasciato dall'Autorità di certificazione globale (enterprise). Vedere [Aggiornare l'account RunAs di Automazione](automation-create-runas-account.md) per informazioni sulla procedura per creare gli account usando questa configurazione.     
  
 ## <a name="network-planning"></a>Pianificare la rete
-Per connettersi e registrarsi a OMS, il ruolo di lavoro ibrido per runbook deve avere accesso al numero di porta e agli URL descritti in questa sezione, in aggiunta [alle porte e agli URL necessari per la connessione di Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) a OMS. 
+Per connettersi e registrarsi a Log Analytics, il ruolo di lavoro ibrido per runbook deve avere accesso al numero di porta e agli URL descritti in questa sezione, in aggiunta [alle porte e agli URL necessari per la connessione di Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) a Log Analytics. 
 
-Se si usa un server proxy per la comunicazione tra l'agente e il servizio OMS, verificare che le risorse appropriate siano accessibili. Se si usa un firewall per limitare l'accesso a Internet, è necessario configurare il firewall per consentire l'accesso.
+Se si usa un server proxy per la comunicazione tra l'agente e il servizio Log Analytics, verificare che le risorse appropriate siano accessibili. Se si usa un firewall per limitare l'accesso a Internet, è necessario configurare il firewall per consentire l'accesso.
 
 La porta e gli URL seguenti sono necessari affinché il ruolo di lavoro ibrido per runbook comunichi con Automazione:
 
@@ -167,36 +167,36 @@ La tabella seguente introduce i metodi per la creazione di un account di Automaz
 
 |Metodo | DESCRIZIONE |
 |-------|-------------|
-| Selezionare **Automazione e controllo** in Azure Marketplace | Offerta di Azure Marketplace che crea sia un account di Automazione che un'area di lavoro OMS collegati e nello stesso gruppo di risorse e nella stessa area. L'integrazione con OMS offre anche il vantaggio di poter usare Log Analytics per monitorare e analizzare lo stato del processo del runbook e i flussi di processo nell'arco di un periodo di tempo, nonché di usare le funzionalità avanzate in Log Analytics per inoltrare o esaminare i problemi. Questa offerta distribuisce le soluzioni **Rilevamento modifiche** e **Gestione aggiornamenti**, abilitate per impostazione predefinita. |
-| Selezionare **Automazione** nel Marketplace | Questo metodo crea un account di Automazione in un gruppo di risorse nuovo o esistente che non è collegato a un'area di lavoro OMS. Non include alcuna soluzione disponibile dall'offerta **Automazione e controllo**. Questo metodo è una configurazione di base introduttiva per il servizio Automazione. Può essere utile per imparare a scrivere i runbook e le configurazioni DSC, oltre a imparare a usare le funzionalità del servizio. |
-| Selezionare soluzioni **Gestione** | Se si seleziona una soluzione **Gestione**, tra cui [Gestione aggiornamenti](../operations-management-suite/oms-solution-update-management.md), [Avvia/Arresta macchine virtuali durante gli orari di minore attività](automation-solution-vm-management.md) o [Rilevamento modifiche](../log-analytics/log-analytics-change-tracking.md), la soluzione richiede di selezionare un account di Automazione e un'area di lavoro OMS esistenti. La soluzione offre la possibilità di creare un account di Automazione e l'area di lavoro OMS come richiesto per la soluzione da distribuire nella sottoscrizione. |
+| Selezionare **Automazione e controllo** in Azure Marketplace | Offerta di Azure Marketplace che crea sia un account di Automazione che un'area di lavoro di Log Analytics collegati, nello stesso gruppo di risorse e nella stessa area. L'integrazione con Log Analytics offre anche il vantaggio di poterlo usare per monitorare e analizzare lo stato del processo del runbook e i flussi di processo nell'arco di un periodo di tempo, nonché di usare le funzionalità avanzate in Log Analytics per inoltrare o esaminare i problemi. Questa offerta distribuisce le soluzioni **Rilevamento modifiche** e **Gestione aggiornamenti**, abilitate per impostazione predefinita. |
+| Selezionare **Automazione** nel Marketplace | Questo metodo crea un account di Automazione in un gruppo di risorse nuovo o esistente che non è collegato a un'area di lavoro di Log Analytics. Non include alcuna soluzione disponibile dall'offerta **Automazione e controllo**. Questo metodo è una configurazione di base introduttiva per il servizio Automazione. Può essere utile per imparare a scrivere i runbook e le configurazioni DSC, oltre a imparare a usare le funzionalità del servizio. |
+| Selezionare soluzioni **Gestione** | Se si seleziona una soluzione **Gestione**, tra cui [Gestione aggiornamenti](../operations-management-suite/oms-solution-update-management.md), [Avvia/Arresta macchine virtuali durante gli orari di minore attività](automation-solution-vm-management.md) o [Rilevamento modifiche](../log-analytics/log-analytics-change-tracking.md), la soluzione richiede di selezionare un account di Automazione e un'area di lavoro di Log Analytics esistenti. La soluzione offre la possibilità di creare un account di Automazione e l'area di lavoro di Log Analytics come richiesto per la soluzione da distribuire nella sottoscrizione. |
 
-### <a name="create-an-automation-account-thats-integrated-with-oms"></a>Creare un account di Automazione integrato con OMS
-Per l'onboarding del servizio Automazione, è consigliabile selezionare l'offerta **Automazione e controllo** in Marketplace. Questo metodo crea un account di Automazione e stabilisce l'integrazione con un'area di lavoro OMS. Quando si usa questo metodo, è anche possibile scegliere di installare le soluzioni di gestione disponibili con l'offerta.  
+### <a name="create-an-automation-account-thats-integrated-with-log-analytics"></a>Creare un account di Automazione integrato con Log Analytics
+Per l'onboarding del servizio Automazione, è consigliabile selezionare l'offerta **Automazione e controllo** in Marketplace. Questo metodo crea un account di Automazione e stabilisce l'integrazione con un'area di lavoro di Log Analytics. Quando si usa questo metodo, è anche possibile scegliere di installare le soluzioni di gestione disponibili con l'offerta.  
 
-L'articolo [Creare un account di Automazione autonomo](automation-create-standalone-account.md) illustra il processo di creazione di un account di Automazione e un'area di lavoro OMS con l'onboarding dell'offerta **Automazione e controllo**. È possibile scoprire come creare un account di Automazione autonomo per testare il servizio o esaminarlo in anteprima.  
+L'articolo [Creare un account di Automazione autonomo](automation-create-standalone-account.md) illustra il processo di creazione di un account di Automazione e un'area di lavoro di Log Analytics con l'onboarding dell'offerta **Automazione e controllo**. È possibile scoprire come creare un account di Automazione autonomo per testare il servizio o esaminarlo in anteprima.  
 
-Per creare un account di Automazione e l'area di lavoro OMS tramite l'offerta del Marketplace **Automazione e controllo**:
+Per creare un account di Automazione e l'area di lavoro di Log Analytics tramite l'offerta del Marketplace **Automazione e controllo**:
 
 1. Accedere al portale di Azure con un account membro del ruolo Amministratori della sottoscrizione e coamministratore della sottoscrizione.
 2. Selezionare **Nuovo**.<br><br> ![Selezionare Nuovo nel portale di Azure](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 3. Cercare **Automazione**. Nei risultati della ricerca selezionare **Automazione e controllo**.<br><br> ![Cercare e selezionare Automazione e controllo in Azure Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
 4. Leggere la descrizione dell'offerta e quindi selezionare **Crea**.  
-5. In **Automazione e controllo** selezionare **Area di lavoro OMS**. In **Aree di lavoro OMS** selezionare un'area di lavoro OMS collegata alla sottoscrizione di Azure in cui è incluso l'account di Automazione. Se non è disponibile un'area di lavoro OMS, selezionare **Crea una nuova area di lavoro**. In **Area di lavoro OMS**: 
+5. In **Automazione e controllo** selezionare **Area di lavoro OMS**. In **Aree di lavoro OMS** selezionare un'area di lavoro di Log Analytics collegata alla sottoscrizione di Azure in cui è incluso l'account di Automazione. Se non è disponibile un'area di lavoro di Log Analytics, selezionare **Crea una nuova area di lavoro**. In **Area di lavoro OMS**: 
   1. In **Area di lavoro OMS** immettere un nome per la nuova area di lavoro.
   2. In **Sottoscrizione** selezionare una sottoscrizione a cui collegarsi. Se la selezione predefinita non è la sottoscrizione che si vuole usare, selezionare la sottoscrizione nell'elenco a discesa.
   3. In **Gruppo di risorse** è possibile selezionare un gruppo di risorse esistente o crearne uno.  
   4. In **Località** selezionare un'area. Per altre informazioni, vedere le [aree in cui è disponibile Automazione di Azure](https://azure.microsoft.com/regions/services/). Le soluzioni sono offerte in due livelli, ovvero quello gratuito e il livello per nodo (OMS). Il livello gratuito presenta un limite per la quantità di dati raccolti al giorno, il periodo di memorizzazione e i minuti di esecuzione dei processi dei runbook. Il livello per nodo (OMS) non ha limiti per la quantità di dati raccolti quotidianamente.  
-  5. Selezionare **Account di Automazione**.  Se si crea una nuova area di lavoro OMS, è necessario creare anche un account di Automazione associato alla nuova area di lavoro OMS. Includere la sottoscrizione, il gruppo di risorse e l'area di Azure. 
+  5. Selezionare **Account di Automazione**.  Se si crea una nuova area di lavoro di Log Analytics, è necessario creare anche un account di Automazione associato alla nuova area di lavoro di Log Analytics. Includere la sottoscrizione, il gruppo di risorse e l'area di Azure. 
     1. Selezionare **Crea un account di automazione**.
     2. In **Account di automazione**, nel campo **Nome** immettere il nome dell'account di Automazione.
-    Tutte le altre opzioni vengono popolate automaticamente in base all'area di lavoro OMS selezionata e non è possibile modificarle. 
+    Tutte le altre opzioni vengono popolate automaticamente in base all'area di lavoro di Log Analytics selezionata. e non è possibile modificarle. 
     3. Il metodo di autenticazione predefinito per l'offerta è un account RunAs di Azure. Dopo aver selezionato **OK**, le opzioni di configurazione vengono convalidate e viene creato l'account di Automazione. Per tenere traccia dello stato, scegliere **Notifiche** dal menu. 
-    4. In alternativa, selezionare un account RunAs di Automazione esistente. L'account selezionato non può essere già collegato a un'altra area di lavoro OMS. In questo caso, viene visualizzato un messaggio di notifica. Se l'account è già collegato a un'area di lavoro OMS, selezionare un account RunAs di Automazione diverso o crearne uno.
+    4. In alternativa, selezionare un account RunAs di Automazione esistente. L'account selezionato non può essere già collegato a un'altra area di lavoro di Log Analytics. In questo caso, viene visualizzato un messaggio di notifica. Se l'account è già collegato a un'area di lavoro di Log Analytics, selezionare un account RunAs di Automazione diverso o crearne uno.
     5. Dopo aver immesso o selezionato le informazioni necessarie, selezionare **Crea**. Le informazioni vengono verificate e vengono creati l'account di Automazione e gli account RunAs. Si torna automaticamente al riquadro **Area di lavoro OMS**.  
 6. Dopo aver immesso o selezionato le informazioni necessarie nel riquadro **Area di lavoro OMS** selezionare **Crea**.  Le informazioni vengono verificate e viene creata l'area di lavoro. Per tenere traccia dello stato, scegliere **Notifiche** dal menu. Viene visualizzato nuovamente il riquadro **Aggiungi soluzione**.  
 7. Nelle impostazioni **Automazione e controllo** confermare che si vogliono installare le soluzioni preselezionate consigliate. Se si modifica una qualsiasi delle opzioni predefinite, è possibile installare le soluzioni singolarmente in un secondo momento.  
-8. Per procedere all'onboarding di Automazione e di un'area di lavoro OMS, selezionare **Crea**. Tutte le impostazioni vengono convalidate e Azure tenta di distribuire l'offerta nella sottoscrizione. Questo processo può richiedere alcuni secondi. Per tenere traccia dello stato, scegliere **Notifiche** dal menu. 
+8. Per procedere all'onboarding di Automazione e di un'area di lavoro di Log Analytics, selezionare **Crea**. Tutte le impostazioni vengono convalidate e Azure tenta di distribuire l'offerta nella sottoscrizione. Questo processo può richiedere alcuni secondi. Per tenere traccia dello stato, scegliere **Notifiche** dal menu. 
 
 Al termine dell'onboarding dell'offerta è possibile eseguire le attività seguenti:
 * Iniziare a creare i runbook.

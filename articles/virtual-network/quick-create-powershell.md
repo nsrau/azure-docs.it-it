@@ -1,36 +1,37 @@
 ---
-title: Creare una rete virtuale di Azure - PowerShell | Microsoft Docs
-description: Apprendere a creare rapidamente una rete virtuale usando PowerShell. Una rete virtuale consente alle risorse di Azure, come le macchine virtuali, di comunicare privatamente tra loro e con Internet.
+title: 'Creare una rete virtuale: guida introduttiva - Azure PowerShell | Microsoft Docs'
+description: Questa guida introduttiva illustra come creare una rete virtuale usando il portale di Azure. Una rete virtuale consente alle risorse di Azure, come le macchine virtuali, di comunicare privatamente tra loro e con Internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: ''
+ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
-ms.custom: ''
-ms.openlocfilehash: fe171000f83c27f23972569b93e351340f4426ad
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.custom: mvc
+ms.openlocfilehash: b8b67b235b54fb5bde738ed5cc1605e08d182a69
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="create-a-virtual-network-using-powershell"></a>Creare una rete virtuale usando PowerShell
+# <a name="quickstart-create-a-virtual-network-using-powershell"></a>Guida introduttiva: Creare una rete virtuale con PowerShell
 
-Una rete virtuale consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente tra loro e con Internet. Questo articolo illustra come creare una rete virtuale. Dopo avere creato una rete virtuale, si distribuiscono due VM nella rete virtuale. Quindi si effettua la connessione a una VM da Internet e si comunica privatamente tra le due VM.
+Una rete virtuale consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente tra loro e con Internet. Questa guida introduttiva illustra come creare una rete virtuale. Dopo avere creato una rete virtuale, si distribuiscono due VM nella rete virtuale. Quindi si effettua la connessione a una VM da Internet e si comunica privatamente tra le due VM.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo AzureRM PowerShell 5.4.1 o versione successiva. Per trovare la versione installata, eseguire ` Get-Module -ListAvailable AzureRM`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in locale, per questa guida introduttiva è necessario il modulo AzureRM di PowerShell 5.4.1 o versione successiva. Per trovare la versione installata, eseguire ` Get-Module -ListAvailable AzureRM`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
@@ -124,9 +125,9 @@ mstsc /v:<publicIpAddress>
 
 Viene creato e scaricato nel computer un file Remote Desktop Protocol con estensione rdp. Aprire il file con estensione rdp scaricato. Quando richiesto, selezionare **Connetti**. Immettere il nome utente e la password specificati al momento della creazione della VM. Potrebbe essere necessario selezionare **Altre opzioni**, quindi **Usa un altro account** per specificare le credenziali immesse al momento della creazione della VM. Selezionare **OK**. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se viene visualizzato l'avviso, selezionare **Sì** o **Continua** per procedere con la connessione.
 
-## <a name="communicate-privately-between-vms"></a>Comunicare privatamente tra VM
+## <a name="communicate-between-vms"></a>Stabilire la comunicazione tra le macchine virtuali
 
-Da PowerShell nella VM *myVm1* immettere `ping myvm2`. Il ping non riesce, dal momento che usa il protocollo Internet Control Message Protocol (ICMP) e ICMP non è consentito in Windows Firewall per impostazione predefinita.
+Da PowerShell nella VM *myVm1* immettere `ping myvm2`. Il ping non riesce, perché usa il protocollo Internet Control Message Protocol (ICMP) che per impostazione predefinita non è consentito da Windows Firewall.
 
 Per consentire a *myVm2* di effettuare il ping in *myVm1* in un passaggio successivo, immettere il comando seguente da PowerShell, che consente il protocollo ICMP in ingresso in Windows Firewall:
 
@@ -154,9 +155,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sono state create una rete virtuale predefinita e due VM. È stata effettuata la connessione a una VM da Internet e si è comunicato privatamente tra le due VM. Per altre informazioni sulle impostazioni della rete virtuale, vedere [Manage a virtual network](manage-virtual-network.md) (Gestire una rete virtuale). 
+In questa guida introduttiva sono state create una rete virtuale predefinita e due VM. È stata effettuata la connessione a una VM da Internet ed è stata stabilita una comunicazione privata tra la VM e un'altra VM. Per altre informazioni sulle impostazioni della rete virtuale, vedere [Manage a virtual network](manage-virtual-network.md) (Gestire una rete virtuale). 
 
-Per impostazione predefinita, Azure consente comunicazioni private senza restrizioni tra le macchine virtuali, ma permette solo connessioni Desktop remoto in ingresso alle VM Windows da Internet. Per informazioni su come consentire o limitare i diversi tipi di comunicazione di rete da e verso le VM, passare all'esercitazione successiva.
-
-> [!div class="nextstepaction"]
-> [Filtrare il traffico di rete](tutorial-filter-network-traffic.md)
+Per impostazione predefinita, Azure consente comunicazioni private senza restrizioni tra le macchine virtuali, ma permette solo connessioni Desktop remoto in ingresso alle VM Windows da Internet. Per informazioni su come consentire o limitare i diversi tipi di comunicazione di rete da e verso le VM, passare all'esercitazione [Filtrare il traffico di rete](tutorial-filter-network-traffic.md).

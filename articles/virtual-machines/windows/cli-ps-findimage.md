@@ -2,10 +2,10 @@
 title: Selezionare immagini di VM Windows in Azure | Microsoft Docs
 description: Imparare a usare Azure PowerShell per determinare l'editore, l'offerta, lo SKU e la versione per le immagini di VM del Marketplace.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 188b8974-fabd-4cd3-b7dc-559cbb86b98a
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
-ms.openlocfilehash: 6d88eea96d95ac998575b9b034ac970eabc38913
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 858b5976ef422ab410f42c44f94473aa4fd10970
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Come trovare immagini di VM Windows in Azure Marketplace con Azure PowerShell
 
@@ -80,7 +80,7 @@ Specificare il nome dello SKU scelto ed eseguire i comandi seguenti:
 
 ```powershell
 $skuName="<SKU>"
-Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku skuName | Select Version
+Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
 Dall'output del comando `Get-AzureRMVMImage` è possibile selezionare un'immagine di versione per distribuire una nuova macchina virtuale.

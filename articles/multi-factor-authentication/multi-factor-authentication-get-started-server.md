@@ -1,9 +1,9 @@
 ---
 title: Introduzione al server Azure Multi-Factor Authentication | Microsoft Docs
-description: "Questa è la pagina di Azure Multi-Factor Authentication in cui viene descritto come iniziare a utilizzare Azure MFA."
+description: Questa è la pagina di Azure Multi-Factor Authentication in cui viene descritto come iniziare a utilizzare Azure MFA.
 services: multi-factor-authentication
 keywords: server di autenticazione, pagina di attivazione dell'app azure multi factor authentication, download server di autenticazione
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: e94120e4-ed77-44b8-84e4-1c5f7e186a6b
@@ -16,11 +16,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: c87e62ad82470f2d159da13f02a1f97b629e7fbb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4455fbbf28e32d1f65e5f78c4f2c64bfd8e0f1b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introduzione al server Azure Multi-Factor Authentication
 

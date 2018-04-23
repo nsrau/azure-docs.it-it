@@ -2,10 +2,10 @@
 title: Informazioni generali sull'API REST di Servizi multimediali | Microsoft Docs
 description: Informazioni generali sull'API REST di Servizi multimediali
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: juliako;johndeu
-ms.openlocfilehash: 066959058576af830103aa98a12f0c36acfdbb14
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 472408f1c367984d5f4e0e435366c4a0af2e5b34
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Informazioni generali sull'API REST di Servizi multimediali
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -42,7 +42,7 @@ Quando si usa REST, si applicano le considerazioni seguenti:
         DataServiceVersion: 3.0
         MaxDataServiceVersion: 3.0
         x-ms-version: 2.17
-        Authorization: Bearer <token> 
+        Authorization: Bearer <ENCODED JWT TOKEN> 
         Host: media.windows.net
   
         {

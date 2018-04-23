@@ -1,12 +1,12 @@
 ---
 title: Isolamento nel cloud pubblico di Azure | Microsoft Docs
-description: "Informazioni sui servizi di calcolo basati sul cloud che includono un'ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell'applicazione o dell'organizzazione."
+description: Informazioni sui servizi di calcolo basati sul cloud che includono un'ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell'applicazione o dell'organizzazione.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a153d70e077ad63a042e76d0c4ae40e3cc067a2a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 996079e0062bf1e24ae2bf24354a94167e6adff3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 ##  <a name="introduction"></a>Introduzione
@@ -52,7 +52,7 @@ Nell'area di lavoro abilitata per il cloud, un tenant può essere definito come 
 Ogni directory di Azure AD è distinta e separata dalle altre directory di Azure AD. Proprio come un edificio di uffici è un asset sicuro specifico solo dell'organizzazione che vi ha sede, anche una directory di Azure AD è stata progettata per essere un asset sicuro usato solo dall'organizzazione proprietaria. L'architettura di Azure AD isola le informazioni relative all'identità e i dati dei clienti evitando che si combinino con altri. Questo significa che gli utenti e gli amministratori di una directory di Azure AD non possono accedere accidentalmente o con dolo ai dati presenti in un'altra directory.
 
 ### <a name="azure-tenancy"></a>Tenancy di Azure
-Il concetto di tenancy di Azure (sottoscrizione di Azure) si riferisce a una relazione "cliente/fatturazione" e a un [tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) univoco in [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). L'isolamento a livello di tenant in Microsoft Azure si ottiene usando Azure Active Directory e i [controlli in base al ruolo](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) messi a disposizione da questa applicazione. Ogni sottoscrizione di Azure è associata a una directory di Azure Active Directory (AD).
+Il concetto di tenancy di Azure (sottoscrizione di Azure) si riferisce a una relazione "cliente/fatturazione" e a un [tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) univoco in [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). L'isolamento a livello di tenant in Microsoft Azure si ottiene usando Azure Active Directory e i [controlli in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview) messi a disposizione da questa applicazione. Ogni sottoscrizione di Azure è associata a una directory di Azure Active Directory (AD).
 
 Gli utenti, i gruppi e le applicazioni da tale directory possono gestire le risorse nella sottoscrizione di Azure. È possibile assegnare questi diritti di accesso tramite il portale di Azure, gli strumenti da riga di comando di Azure o le API Gestione di Azure. Un tenant di Azure AD viene isolato in modo logico usando limiti di sicurezza in modo che nessun cliente possa accedere agli altri tenant e comprometterli, intenzionalmente o accidentalmente. Azure AD viene eseguito nei server "bare metal" isolati in un segmento di rete separato, in cui il filtraggio dei pacchetti a livello di host e Windows Firewall bloccano connessioni e traffico indesiderati.
 
@@ -80,7 +80,7 @@ Il concetto dei contenitori di tenant è profondamente radicato nel servizio dir
 Anche quando i metadati di più tenant di Azure Active Directory vengono archiviati nello stesso disco fisico, non esistono relazioni tra i contenitori tranne quelle definite dal servizio directory, a sua volta determinato dall'amministratore tenant.
 
 ### <a name="azure-role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo di Azure
-Il [controllo degli accessi in base al ruolo di Azure (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) consente di condividere i vari componenti disponibili all'interno di una sottoscrizione di Azure fornendo la gestione degli accessi con granularità fine per Azure. Il controllo degli accessi in base al ruolo di Azure consente di separare i compiti all'interno dell'organizzazione e di concedere l'accesso in base alle attività che i singoli utenti devono svolgere. Invece di concedere a tutti autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, è possibile consentire solo determinate azioni.
+Il [controllo degli accessi in base al ruolo di Azure (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) consente di condividere i vari componenti disponibili all'interno di una sottoscrizione di Azure fornendo la gestione degli accessi con granularità fine per Azure. Il controllo degli accessi in base al ruolo di Azure consente di separare i compiti all'interno dell'organizzazione e di concedere l'accesso in base alle attività che i singoli utenti devono svolgere. Invece di concedere a tutti autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, è possibile consentire solo determinate azioni.
 
 Il Controllo degli accessi in base al ruolo di Azure include di tre ruoli di base che si applicano a tutti i tipi di risorsa:
 
@@ -94,7 +94,7 @@ Il Controllo degli accessi in base al ruolo di Azure include di tre ruoli di bas
 
 Il resto dei ruoli RBAC in Azure consente la gestione di risorse di Azure specifiche. Ad esempio, il ruolo Collaboratore Macchina virtuale consente all'utente di creare e gestire macchine virtuali, ma non concede l'accesso alla rete virtuale di Azure o alla subnet a cui la macchina virtuale si connette.
 
-[Ruoli predefiniti per il controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) elenca i ruoli disponibili in Azure. Specifica le operazioni e l'ambito che ogni ruolo predefinito concede agli utenti. Per definire ruoli personalizzati per un maggiore controllo, vedere come creare [ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
+[Ruoli predefiniti per il controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) elenca i ruoli disponibili in Azure. Specifica le operazioni e l'ambito che ogni ruolo predefinito concede agli utenti. Per definire ruoli personalizzati per un maggiore controllo, vedere come creare [ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
 Altre funzionalità di Azure Active Directory includono:
 - Azure AD abilita SSO nelle applicazioni SaaS, indipendentemente da dove vengono ospitate. Alcune applicazioni sono federate con Azure AD e altre usano SSO basato su password. Le applicazioni federate possono anche supportare il provisioning utenti e l'[insieme di credenziali delle password](https://www.techopedia.com/definition/31415/password-vault).

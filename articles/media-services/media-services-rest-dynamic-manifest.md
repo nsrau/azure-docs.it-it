@@ -1,11 +1,11 @@
 ---
 title: Creazione di filtri con l'API REST di Servizi multimediali di Azure | Microsoft Docs
-description: "Questo argomento descrive come creare filtri che il client può usare per trasmettere in streaming sezioni specifiche di un flusso. Servizi multimediali crea manifesti dinamici per consentire questo streaming selettivo."
+description: Questo argomento descrive come creare filtri che il client può usare per trasmettere in streaming sezioni specifiche di un flusso. Servizi multimediali crea manifesti dinamici per consentire questo streaming selettivo.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: f7d23daf-7cd2-49c7-a195-ab902912ab3c
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 98df3b6592ed865fc0eb4b942d298b26e930365f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: ce234d23c30f08f2c98c855b148bc98e90d118cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali di Azure
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Intestazioni richiesta
     Content-Type: application/json 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host:media.windows.net 
@@ -115,7 +115,7 @@ Intestazioni richiesta
     Content-Type: application/json 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net  
@@ -165,7 +165,7 @@ Per elencare i filtri, usare le richieste HTTP seguenti:
     MaxDataServiceVersion: 3.0 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     Host: media.windows.net 
 
@@ -176,7 +176,7 @@ Per elencare i filtri, usare le richieste HTTP seguenti:
     MaxDataServiceVersion: 3.0 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
@@ -188,7 +188,7 @@ Per elencare i filtri, usare le richieste HTTP seguenti:
     MaxDataServiceVersion: 3.0 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000
 
@@ -210,7 +210,7 @@ Intestazioni della richiesta:
     Content-Type: application/json 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
@@ -250,7 +250,7 @@ Intestazioni della richiesta:
     Content-Type: application/json 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
@@ -288,7 +288,7 @@ Per eliminare un filtro globale, usare le richieste HTTP seguenti:
     MaxDataServiceVersion: 3.0 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN>  
     x-ms-version: 2.17 
     Host: media.windows.net 
 
@@ -302,7 +302,7 @@ Per eliminare un AssetFilter locale, usare le richieste HTTP seguenti:
     MaxDataServiceVersion: 3.0 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     Host: media.windows.net 
 

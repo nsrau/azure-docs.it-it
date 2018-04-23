@@ -2,10 +2,10 @@
 title: Usare l'interfaccia della riga di comando 2.0 per creare un'app Azure AD e configurarla per l'accesso all'API Servizi multimediali di Azure | Microsoft Docs
 description: Questo argomento illustra come usare l'interfaccia della riga di comando 2.0 per creare un'app Azure AD e configurarla per l'accesso all'API Servizi multimediali di Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 205e554fa42b1c28ed78add3e84c046855875872
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b640455b151d0e5d4701b8c076ee1a587b92f5b6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>Usare l'interfaccia della riga di comando 2.0 per creare un'app AAD e configurarla per l'accesso all'API Servizi multimediali di Azure
 
@@ -61,7 +61,7 @@ Ad esempio, può essere definito a uno dei livelli seguenti:
 
 Per altre informazioni, vedere [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
 
-Vedere anche [Gestire il controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md). 
+Vedere anche [Gestire il controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

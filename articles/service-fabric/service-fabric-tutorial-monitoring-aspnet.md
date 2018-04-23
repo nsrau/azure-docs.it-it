@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 030c6fbfb5eb76a745a1089acab54e74ce7a01e3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: febeb2b7e6ada69db78cb0553b4fa90874f5f2eb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Esercitazione: Monitorare e diagnosticare un'applicazione ASP.NET Core in Service Fabric
 Questa è la quarta di una serie di esercitazioni. Analizza i passaggi per configurare il monitoraggio e la diagnostica per un'applicazione ASP.NET Core in esecuzione in un cluster di Service Fabric con Application Insights. Verranno raccolti i dati di telemetria dall'applicazione sviluppata nella prima parte dell'esercitazione, [Creare un'applicazione di Service Fabric .NET](service-fabric-tutorial-create-dotnet-app.md). 
@@ -89,8 +89,12 @@ Di seguito sono riportati i passaggi per configurare NuGet:
 1. Fare clic con il pulsante destro del mouse sulla **soluzione "Voting"** nella parte superiore di Esplora soluzioni e fare clic su **Gestisci pacchetti NuGet per la soluzione...**.
 2. Fare clic su **Sfoglia** nel menu di navigazione superiore della finestra "NuGet - soluzione" e selezionare la casella **Includi versione preliminare** accanto alla barra di ricerca.
 3. Cercare `Microsoft.ApplicationInsights.ServiceFabric.Native` e fare clic sul pacchetto NuGet appropriato.
+
+>[!NOTE]
+>Potrebbe essere necessario installare il pacchetto Microsoft.ServiceFabric.Diagnistics.Internal in modo simile, se non è preinstallato, prima di installare il pacchetto Application Insights
+
 4. Sulla destra, fare clic su due caselle di controllo accanto ai due servizi dell'applicazione, **VotingWeb** e **VotingData** e fare clic su **Installa**.
-    ![Registrazione di AI completata](./media/service-fabric-tutorial-monitoring-aspnet/aisdk-sf-nuget.png)
+    ![NuGet AI SDK](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. Fare clic su **OK** nella finestra di dialogo *Rivedi modifiche* visualizzata e selezionare *l'Accettazione della licenza*. In questo modo verrà completata l'aggiunta di NuGet ai servizi.
 6. A questo punto, è necessario configurare l'inizializzatore della telemetria nei due servizi. A questo scopo, aprire *VotingWeb.cs* e *VotingData.cs*. Per entrambi, eseguire i due passaggi seguenti:
     1. Aggiungere queste due istruzioni *using* nella parte superiore di ogni  *\<ServiceName>.cs*:
@@ -114,6 +118,7 @@ Di seguito sono riportati i passaggi per configurare NuGet:
                 .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
         .UseContentRoot(Directory.GetCurrentDirectory())
         .UseStartup<Startup>()
+        .UseApplicationInsights()
         .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
         .UseUrls(url)
         .Build();
@@ -137,6 +142,19 @@ Di seguito sono riportati i passaggi per configurare NuGet:
         .Build();
     ```
 
+Controllare che il metodo `UseApplicationInsights()` venga chiamato in entrambi i file, come illustrato sopra. 
+
+>[!NOTE]
+>Questa app di esempio usa http per consentire ai servizi di comunicare. Se si sviluppa un'app con la versione 2 della comunicazione remota con i servizi, è necessario aggiungere anche le righe di codice seguenti nella stessa posizione, come è stato fatto sopra
+
+```csharp
+ConfigureServices(services => services
+    ...
+    .AddSingleton<ITelemetryModule>(new ServiceRemotingDependencyTrackingTelemetryModule())
+    .AddSingleton<ITelemetryModule>(new ServiceRemotingRequestTrackingTelemetryModule())
+)
+```
+
 A questo punto, si è pronti per distribuire l'applicazione. Fare clic su **Start** nella parte superiore (o su **F5**), e Visual Studio eseguirà il build e il pacchetto dell'applicazione, configurerà il cluster locale e distribuirà l'applicazione nello stesso. 
 
 Una volta eseguita la distribuzione dell'applicazione, procedere a [localhost:8080](localhost:8080), dove si dovrebbe poter vedere l'applicazione della pagina singola Esempio di voto. Votare per alcuni elementi diversi di propria scelta per creare alcuni dati e dati di telemetria di esempio; in questo caso sono stati scelti i dessert.
@@ -147,9 +165,7 @@ Una volta eseguita la distribuzione dell'applicazione, procedere a [localhost:80
 
 ## <a name="view-telemetry-and-the-app-map-in-application-insights"></a>Visualizzare i dati di telemetria e la mappa app in Application Insights 
 
-Passare alla risorsa di Application Insights nel portale di Azure e, nella barra di spostamento a sinistra della risorsa, fare clic su **Anteprime** in *Configura*. **Attivare** la *Mappa delle applicazioni multiruolo* nell'elenco di anteprime disponibili.
-
-![Abilitare AppMap di AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-appmap-enable.png)
+Passare alla risorsa di Application Insights nel portale di Azure.
 
 Fare clic su **Panoramica** per tornare alla pagina di destinazione della risorsa. Quindi fare clic su **Ricerca** nella parte superiore per visualizzare le tracce in arrivo. Sono necessari alcuni minuti per visualizzare le tracce in Application Insights. Nel caso in cui non ne venga visualizzata alcuna, attendere un minuto e premere il pulsante **Aggiorna** nella parte superiore.
 ![Visualizzazione tracce in AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
@@ -160,9 +176,9 @@ Scorrendo verso il basso nella finestra *Ricerca* verranno visualizzati tutti i 
 
 ![Dettagli traccia AI](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
 
-Inoltre, poiché è stata abilitata la mappa app, nella pagina *Panoramica*, facendo clic sull'icona **mappa app** verranno visualizzati entrambi i servizi connessi.
+È anche possibile fare clic su *Mappa delle applicazioni* nel menu a sinistra della pagina Panoramica oppure fare clic sull'icona **Mappa delle app** per passare alla mappa delle app in cui vengono visualizzati i due servizi connessi.
 
-![Dettagli traccia AI](./media/service-fabric-tutorial-monitoring-aspnet/app-map.png)
+![Dettagli traccia AI](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
 La mappa app può aiutare a comprendere meglio la topologia dell'applicazione, soprattutto quando si inizia ad aggiungere più servizi diversi che interagiscono tra di loro. Inoltre, offre dati di base sulle percentuali di successo della richiesta e può aiutare a diagnosticare le richieste non riuscite per comprendere dove può essersi verificato un errore. Per ulteriori informazioni sull'utilizzo della mappa app, vedere [Mappa delle applicazioni in Application Insights](../application-insights/app-insights-app-map.md).
 

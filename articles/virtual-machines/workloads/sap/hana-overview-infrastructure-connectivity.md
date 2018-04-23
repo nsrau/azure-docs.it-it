@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 43debeb710e5ab5112f9f0a85a76761cde3051a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastruttura e connettività a SAP HANA (istanze di grandi dimensioni) in Azure 
 
@@ -49,9 +49,9 @@ Dopo aver finalizzato l'acquisto di SAP HANA in Azure (istanze Large) con il tea
 - Dati per ogni sistema di istanze HANA di grandi dimensioni:
   - Nome host da usare, preferibilmente con un nome di dominio completo
   - Indirizzo IP da usare per l'unità di istanze Large di HANA non compresa nell'intervallo del pool di indirizzi IP del server, tenendo presente che i primi 30 indirizzi IP nell'intervallo del pool di indirizzi IP del server sono riservati per uso interno nelle istanze Large di HANA
-  - Nome SID di SAP HANA per l'istanza di SAP HANA (obbligatorio per creare i volumi disco richiesti legati a SAP HANA). Il nome SID di HANA è necessario per la creazione di autorizzazioni per <sidadm> nei volumi NFS, che dovranno essere associate all'unità di istanze Large di HANA. Viene usato anche come uno dei componenti del nome dei volumi disco che devono essere montati. Se si vuole eseguire più di un'istanza HANA sull'unità, è necessario elencare più nomi SID di HANA, ognuno dei quali ottiene un set separato di volumi assegnati.
-  - L'ID gruppo dell'utente hana-sidadm nel sistema operativo Linux OS è necessario per creare i volumi disco correlati a SAP HANA. L'installazione di SAP HANA crea in genere il gruppo sapsys con l'ID gruppo 1001 e l'utente hana-sidadm fa parte di tale gruppo
-  - L'ID utente dell'utente hana-sidadm nel sistema operativo Linux OS è necessario per creare i volumi disco correlati a SAP HANA. Se sull'unità vengono eseguite più istanze HANA, è necessario elencare tutti gli utenti <sid>adm 
+  - Nome SID di SAP HANA per l'istanza di SAP HANA (obbligatorio per creare i volumi disco richiesti legati a SAP HANA). Il nome SID di HANA è necessario per la creazione di autorizzazioni per sidadm nei volumi NFS, che dovranno essere associate all'unità di istanze Large di HANA. Viene usato anche come uno dei componenti del nome dei volumi disco che devono essere montati. Se si vuole eseguire più di un'istanza HANA sull'unità, è necessario elencare più nomi SID di HANA, ognuno dei quali ottiene un set separato di volumi assegnati.
+  - L'ID gruppo dell'utente sidadm nel sistema operativo Linux OS è necessario per creare i volumi disco correlati a SAP HANA. L'installazione di SAP HANA crea in genere il gruppo sapsys con l'ID gruppo 1001 e l'utente sidadm fa parte di tale gruppo
+  - L'ID utente dell'utente sidadm nel sistema operativo Linux OS è necessario per creare i volumi disco correlati a SAP HANA. Se sull'unità vengono eseguite più istanze HANA, è necessario elencare tutti gli utenti <sid>adm 
 - ID sottoscrizione di Azure per la sottoscrizione di Azure a cui SAP HANA in Azure (istanze Large) verrà connesso direttamente. L'ID sottoscrizione fa riferimento alla sottoscrizione di Azure che verrà addebitata con le unità di istanze Large di HANA.
 
 Dopo aver specificato tali informazioni, Microsoft effettua il provisioning di SAP HANA in Azure (istanze Large) e restituisce le informazioni necessarie per collegare le reti virtuali di Azure a istanze Large di HANA e per accedere alle relative unità.

@@ -2,12 +2,12 @@
 title: Esempio di script di Azure PowerShell - Aggiungere la certificazione dell'applicazione a un cluster | Microsoft Docs
 description: Esempio di script di Azure PowerShell - Aggiungere la certificazione dell'applicazione a un cluster di Service Fabric.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: c9cf6485c2621f839b93da162e5f4d82a8d287a4
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: be097f88f774df9e4a6429af444c6c742737f4c9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Aggiungere la certificazione dell'applicazione a un cluster di Service Fabric.
 
 Questo script di esempio crea un certificato autofirmato nell'insieme di credenziali delle chiavi di Azure e lo installa in tutti i nodi del cluster di Service Fabric. Il certificato viene scaricato anche in una cartella locale. Il nome del certificato scaricato è identico al nome del certificato nell'insieme di credenziali delle chiavi. Personalizzare i parametri in base alle esigenze.
 
-Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](/powershell/azure/overview) e quindi eseguire `Login-AzureRmAccount` per creare una connessione con Azure. 
+Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](/powershell/azure/overview) e quindi eseguire `Connect-AzureRmAccount` per creare una connessione con Azure. 
 
 ## <a name="sample-script"></a>Script di esempio
 

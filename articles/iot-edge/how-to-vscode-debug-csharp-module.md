@@ -9,29 +9,26 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c2a1acd2c249bdbc92119bc92f055b095f318f00
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 65f2fb4526f1048ae88193f85a552a2202afa1d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Usare Visual Studio Code per eseguire il debug di un modulo C# con Azure IoT Edge
 Questo articolo fornisce istruzioni dettagliate per l'uso di [Visual Studio Code](https://code.visualstudio.com/) come strumento di sviluppo principale per eseguire il debug dei moduli Azure IoT Edge.
 
-## <a name="prerequisites"></a>Prerequisiti
-Questa esercitazione presuppone che si usi un computer o una macchina virtuale Windows o Linux come computer di sviluppo. Il dispositivo IoT Edge può essere un altro dispositivo fisico oppure è possibile simulare il dispositivo IoT Edge nel computer di sviluppo.
+## <a name="prerequisites"></a>prerequisiti
+Questo articolo presuppone che si usi un computer o una macchina virtuale Windows o Linux come computer di sviluppo. Il dispositivo IoT Edge può essere un altro dispositivo fisico oppure è possibile simulare il dispositivo IoT Edge nel computer di sviluppo.
 
-Completare l'esercitazione seguente prima di procedere con queste istruzioni:
-- [Sviluppare una soluzione IoT Edge con più moduli in Visual Studio Code](tutorial-multiple-modules-in-vscode.md)
-
-Dopo aver completato l'esercitazione precedente, è necessario avere a disposizione quanto segue:
+Prima di seguire le istruzioni riportate in questo articolo, completare i passaggi descritti in [Sviluppare una soluzione IoT Edge con più moduli in Visual Studio Code](tutorial-multiple-modules-in-vscode.md). Successivamente, è necessario disporre degli elementi seguenti:
 - Un registro Docker locale in esecuzione nel computer di sviluppo. È consigliabile usare un registro Docker locale come prototipo e a scopo di test. È possibile aggiornare il registro contenitori nel file `module.json` in ogni cartella di modulo.
 - Un'area di lavoro di un progetto di soluzione IoT Edge in cui è inclusa la sottocartella di un modulo C#.
 - Il file `Program.cs` con il codice del modulo più recente.
 - Un runtime Edge in esecuzione nel computer di sviluppo.
 
 ## <a name="build-your-iot-edge-c-module-for-debugging"></a>Compilare il modulo C# di IoT Edge per il debug
-1. Per iniziare il debug, è necessario usare **Dockerfile.amd64.debug** per ricompilare l'immagine Docker e distribuire nuovamente la soluzione Edge. Nello strumento di esplorazione di Visual Studio Code passare al file `deployment.template.json`. Aggiornare l'URL dell'immagine della funzione aggiungendo `.debug` alla fine.
+1. Per iniziare il debug, è necessario usare **Dockerfile.amd64.debug** per ricompilare l'immagine Docker e distribuire nuovamente la soluzione Edge. In Esplora codice di Visual Studio passare al file `deployment.template.json`. Aggiornare l'URL dell'immagine della funzione aggiungendo `.debug` alla fine.
 
 2. Ricompilare la soluzione. Nel riquadro comandi di Visual Studio Code digitare ed eseguire il comando **Edge: Build IoT Edge solution** (Edge: Compila soluzione IoT Edge).
 
@@ -55,8 +52,5 @@ Dopo aver completato l'esercitazione precedente, è necessario avere a disposizi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato creato un modulo IoT Edge, successivamente distribuito per il debug. Ne è stato quindi avviato il debug in Visual Studio Code. Per informazioni su altri scenari durante lo sviluppo di Azure IoT Edge in Visual Studio Code, vedere: 
-
-> [!div class="nextstepaction"]
-> [Sviluppare una soluzione IoT Edge con più moduli in Visual Studio Code](tutorial-multiple-modules-in-vscode.md)
+[Usare Visual Studio Code per eseguire il debug di Funzioni di Azure con Azure IoT Edge](how-to-vscode-debug-azure-function.md)
 

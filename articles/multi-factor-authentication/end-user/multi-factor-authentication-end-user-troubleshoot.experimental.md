@@ -3,7 +3,7 @@ title: Risoluzione dei problemi di verifica in due passaggi | Microsoft Docs
 description: Questo documento fornisce informazioni sulle operazioni da eseguire se si verifica un problema con Azure multi-Factor Authentication.
 services: multi-factor-authentication
 keywords: client di multi-factor authentication, problema di autenticazione, ID di correlazione
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
@@ -16,11 +16,11 @@ ms.date: 07/06/2017
 ms.author: barlan
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 20a90aa36b727b18fb37aaf658da884b5997cd44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 736a1f03ef87850fdaaee7ce636d8dd0f3ae1a84
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-help-with-two-step-verification"></a>Informazioni sulla verifica in due passaggi
 Questo articolo contiene le risposte alle domande più comuni degli utenti sulla verifica in due passaggi. 
@@ -86,7 +86,7 @@ Se non è stato configurato un altro metodo, contattare il supporto tecnico azie
 Se si hanno spesso ritardi a causa della scarsa qualità del segnale, è consigliabile usare l'[app Microsoft Authenticator](microsoft-authenticator-app-how-to.md) sullo smartphone. L'app può generare codici di sicurezza casuali che consentono di accedere e che non richiedono segnale telefonico o connessione Internet.
 
 ## <a name="app-passwords-are-not-working"></a>Le password dell'app non funzionano
-Assicurarsi prima di tutto di avere immesso correttamente la password dell'app. La password dell'app generata sostituisce la normale password, ma solo per le applicazioni desktop precedenti che non supportano la verifica in due passaggi. Se ancora non funziona, provare ad accedere e [creare una nuova password dell'app](multi-factor-authentication-end-user-app-passwords.md).  Se il problema persiste, contattare il supporto tecnico aziendale e chiedere di [eliminare le password dell'app esistenti](../multi-factor-authentication-manage-users-and-devices.md) in modo da poter creare una nuova password.
+Assicurarsi prima di tutto di avere immesso correttamente la password dell'app. La password dell'app generata sostituisce la normale password, ma solo per le applicazioni desktop precedenti che non supportano la verifica in due passaggi. Se ancora non funziona, provare ad accedere e [creare una nuova password dell'app](multi-factor-authentication-end-user-app-passwords.md).  Se il problema persiste, contattare il supporto tecnico aziendale e chiedere di [eliminare le password dell'app esistenti](../../active-directory/authentication/howto-mfa-userdevicesettings.md) in modo da poter creare una nuova password.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Nessuna risposta al problema riscontrato.
 Se dopo aver provato queste procedure i problemi persistono, contattare il supporto tecnico aziendale per assistenza.

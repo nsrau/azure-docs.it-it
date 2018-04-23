@@ -3,10 +3,10 @@ title: Uso di dati di monitoraggio in Azure | Microsoft Docs
 description: Informazioni su tutte le origini dati di monitoraggio disponibili in Azure al momento.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2017
 ms.author: johnkem
-ms.openlocfilehash: c7075c2e1a2500eca1d0aa9b3a797e8a0e903ede
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b10e95cd6b335468201b4cd123b3a29fb5d1bcdb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Uso di dati di monitoraggio in Azure
 
@@ -45,7 +45,7 @@ Nella piattaforma di Azure il monitoraggio dati e la pipeline di Monitoraggio di
 | Avvisi delle metriche di Monitoraggio di Azure | Notifiche | [Vedere l'elenco di seguito](monitoring-supported-metrics.md) | <ul><li>**Webhook:** [avvisi delle metriche di Azure](insights-webhooks-alerts.md)</li></ul> |
 | Avvisi di Log attività di Monitoraggio di Azure | Notifiche | Tutti i servizi di Azure | <ul><li>**Webhook:** avvisi di Log attività di Azure</li></ul> |
 | Notifiche relative alla scalabilità automatica | Notifiche | [Vedere l'elenco di seguito](monitoring-overview-autoscale.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [schema di payload del webhook di notifica di scalabilità automatica](insights-autoscale-to-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Avvisi di query di ricerca log OMS | Notifiche | Log Analytics OMS | <ul><li>**Webhook:**[Avvisi Log Analytics](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
+| Avvisi di query di ricerca log | Notifiche | Log Analytics | <ul><li>**Webhook:**[Avvisi Log Analytics](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
 | Avvisi relativi alle metriche in Application Insights | Notifiche | Application Insights | <ul><li>**Webhook:** [avvisi in Application Insights](../application-insights/app-insights-alerts.md)</li></ul> |
 | Test Web in Application Insights | Notifiche | Application Insights | <ul><li>**Webhook:** [avvisi in Application Insights](../application-insights/app-insights-alerts.md)</li></ul> |
 

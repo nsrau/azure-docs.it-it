@@ -1,12 +1,12 @@
 ---
 title: Sicurezza di rete di Azure | Microsoft Docs
-description: "Informazioni sui servizi di calcolo basati sul cloud che includono un'ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell'applicazione o dell'organizzazione."
+description: Informazioni sui servizi di calcolo basati sul cloud che includono un'ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell'applicazione o dell'organizzazione.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f0cc1716daa70bf7c860373819568774cf6f95d9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: cc64ef8d820db6a072b708323eb110d62ed0a83c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-network-security"></a>Sicurezza di rete di Azure
 
@@ -392,7 +392,7 @@ Il Web application firewall del gateway applicazione permette anche di monitorar
 
 Il log in formato JSON passa direttamente all'account di archiviazione del cliente. L'utente ha il controllo completo sui log e può applicare i propri criteri di conservazione.
 
-È anche possibile inserire i log nel proprio sistema di analisi usando l'[integrazione dei log di Azure](https://aka.ms/AzLog). I log WAF sono anche integrati con [Operations Management Suite (OMS)](https://www.microsoft.com/cloud-platform/operations-management-suite). Questo permette di usare Log Analytics di OMS per eseguire query sofisticate con granularità fine.
+È anche possibile inserire i log nel proprio sistema di analisi usando l'[integrazione dei log di Azure](https://aka.ms/AzLog). I log WAF sono anche integrati con [Log Analytics](../log-analytics/log-analytics-overview.md). Questo permette di usare Log Analytics per eseguire query sofisticate con granularità fine.
 
 #### <a name="azure-web-application-firewall-waf"></a>Web application firewall (WAF) di Azure
 
@@ -606,7 +606,7 @@ Network Watcher offre una visualizzazione dei log di diagnostica contenente tutt
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) è un servizio di [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) che consente di monitorare gli ambienti cloud e locali per garantirne la disponibilità e le prestazioni. Raccoglie i dati generati dalle risorse negli ambienti cloud e locali e da altri strumenti di monitoraggio per analizzare più origini.
+[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) è un servizio incluso in Azure che monitora gli ambienti cloud e locali per mantenerne la disponibilità e le prestazioni. Raccoglie i dati generati dalle risorse negli ambienti cloud e locali e da altri strumenti di monitoraggio per analizzare più origini.
 
 Log Analytics offre le seguenti soluzioni per il monitoraggio delle reti:
 

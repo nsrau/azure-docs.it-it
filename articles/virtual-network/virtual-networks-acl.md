@@ -3,9 +3,9 @@ title: Informazioni sugli elenchi di controllo di accesso di rete di Azure
 description: Informazioni sugli elenchi di controllo di accesso in Azure
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
+author: genlin
+manager: cshepard
+editor: ''
 tags: azure-service-management
 ms.assetid: 83d66c84-8f6b-4388-8767-cd2de3e72d76
 ms.service: virtual-network
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
-ms.openlocfilehash: 9a0c85367968c9b38104012d75b1f3975be82cc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: 0f22bae1e1e40d3ea735861b9a633ae46eae5c33
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>Informazioni sugli elenchi di controllo di accesso agli endpoint
 

@@ -3,9 +3,9 @@ title: Controllare il routing in una rete virtuale di Azure - PowerShell - Model
 description: Informazioni su come controllare il routing in reti virtuali usando PowerShell | Classico
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
-editor: 
+author: genlin
+manager: cshepard
+editor: ''
 tags: azure-service-management
 ms.assetid: d8d07c16-cbe5-4536-acd6-870269346fe3
 ms.service: virtual-network
@@ -14,20 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
-ms.author: jdial
-ms.openlocfilehash: 09a8c1bbfc42146098f5f4aa799a39e589c175e7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: genli
+ms.openlocfilehash: 930676a396ae316ec761ba5d03ad1a1d0fd7a425
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Controllare il routing e usare dispositivi virtuali di rete (distribuzione classica) mediante PowerShell
 
 > [!div class="op_single_selector"]
 > * [PowerShell](tutorial-create-route-table-powershell.md)
 > * [Interfaccia della riga di comando di Azure](tutorial-create-route-table-cli.md)
-> * [Modello](virtual-network-create-udr-arm-template.md)
-> * [PowerShell (versione classica)](virtual-network-create-udr-classic-ps.md)
+> * [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md) (PowerShell (classico))
 > * [Interfaccia della riga di comando (versione classica)](virtual-network-create-udr-classic-cli.md)
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]

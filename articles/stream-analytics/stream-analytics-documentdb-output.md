@@ -1,26 +1,21 @@
 ---
-title: Output JSON per Analisi di flusso | Microsoft Docs
-description: Informazioni su come l'analisi di flusso può usare Azure Cosmos DB per l'output JSON, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati.
-keywords: Output JSON
-documentationcenter: ''
-services: stream-analytics,documentdb
+title: Output di Analisi di flusso di Azure in Cosmos DB
+description: Questo articolo descrive come usare Analisi di flusso di Azure per salvare output JSON in Azure Cosmos DB, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati.
+services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 8bda2abda6f2b7207a5a7195c24b07da9089fb06
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: f7115f7d19cd44ae7d0812d3aa6c48d8dd58c20d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Usare Azure Cosmos DB per l'output JSON dell'analisi di flusso
+# <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Output di Analisi di flusso di Azure in Azure Cosmos DB  
 L'analisi di flusso può usare [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) per l'output JSON, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati. Questo documento descrive alcune procedure consigliate per l'implementazione di questa configurazione.
 
 Se non si ha familiarità con Cosmos DB, vedere l'articolo che descrive il [percorso di apprendimento di Azure Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/) per un’introduzione. 
@@ -35,7 +30,7 @@ L'output di Azure Cosmos DB nell'analisi di flusso consente la scrittura dei ris
 Di seguito sono descritte alcune delle opzioni per le raccolte di Cosmos DB.
 
 ## <a name="tune-consistency-availability-and-latency"></a>Ottimizzare coerenza, disponibilità e latenza
-In base ai requisiti dell'applicazione, Cosmos DB consente di ottimizzare il database e le raccolte e di bilanciare coerenza, disponibilità e latenza. A seconda dei livelli di coerenza di lettura richiesti dello scenario rispetto alla latenza di lettura e scrittura, è possibile scegliere un livello di coerenza per l'account del database. Per impostazione predefinita, Cosmos DB consente anche l'indicizzazione sincrona per ogni operazione CRUD nella raccolta. Si tratta di un'altra opzione utile per controllare le prestazioni di lettura/scrittura di Cosmos DB. Per altre informazioni su questo argomento, vedere l'articolo relativo a come [modificare i livelli di coerenza del database e delle query](../cosmos-db/consistency-levels.md) .
+In base ai requisiti dell'applicazione, Cosmos DB consente di ottimizzare il database e le raccolte e di bilanciare coerenza, disponibilità e latenza. A seconda dei livelli di coerenza di lettura richiesti dello scenario rispetto alla latenza di lettura e scrittura, è possibile scegliere un livello di coerenza per l'account del database. Per impostazione predefinita, Cosmos DB consente anche l'indicizzazione sincrona per ogni operazione CRUD nella raccolta. Si tratta di un'altra opzione utile per controllare le prestazioni di lettura/scrittura di Cosmos DB. Per altre informazioni, rivedere l'articolo relativo a come [modificare i livelli di coerenza del database e delle query](../cosmos-db/consistency-levels.md).
 
 ## <a name="upserts-from-stream-analytics"></a>Upsert di Analisi di flusso
 L'integrazione dell'analisi di flusso con Cosmos DB consente di inserire o aggiornare i record nella raccolta di Cosmos DB in base a una determinata colonna ID documento. Questa implementazione è detta anche *upsert*.

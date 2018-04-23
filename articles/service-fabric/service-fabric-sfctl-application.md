@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3a10437d0a2d680e586ada6a87750a69453c1f0c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: fe0ef5c81b1ef6bef298e65cde3649c9464089d8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sfctl-application"></a>sfctl application
 Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni.
@@ -143,7 +143,7 @@ Restituisce lo stato di integrità dell'applicazione di Service Fabric. La rispo
 | --debug                                 | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h                               | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o                             | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query                                 | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
+| --query                                 | Stringa di query JMESPath. Per altre informazioni, vedere http://jmespath.org/.|
 | --verbose                               | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-application-info"></a>sfctl application info
@@ -166,7 +166,7 @@ Restituisce le informazioni sull'applicazione creata o in corso di creazione nel
 | --debug                      | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h                    | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o                  | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.             Predefinito: json.|
-| --query                      | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
+| --query                      | Stringa di query JMESPath. Per altre informazioni, vedere http://jmespath.org/.|
 | --verbose                    | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-application-list"></a>sfctl application list
@@ -212,7 +212,7 @@ Restituisce le informazioni di carico sull'applicazione creata o in corso di cre
 |--debug                    | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
     --help -h                  | Mostra questo messaggio della Guida e l'uscita.|
     --output -o                | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-    --query                    | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
+    --query                    | Stringa di query JMESPath. Per altre informazioni, vedere http://jmespath.org/.|
     --verbose                  | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-application-manifest"></a>sfctl application manifest
@@ -235,15 +235,13 @@ Mostra il manifesto che descrive un tipo di applicazione. La risposta contiene i
 | --debug                           | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h                         | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o                       | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.                  Predefinito: json.|
-| --query                           | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
+| --query                           | Stringa di query JMESPath. Per altre informazioni, vedere http://jmespath.org/.|
 | --verbose                         | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-application-provision"></a>sfctl application provision
 Esegue il provisioning o registra un tipo di applicazione di Service Fabric con il cluster mediante il pacchetto SFPKG nell'archivio esterno o mediante il pacchetto dell'applicazione nell'archivio immagini.
 
-Esegue il provisioning di un tipo di applicazione di Service Fabric con il cluster. È necessario eseguire questa operazione prima di creare un'istanza per una nuova applicazione. L'operazione di provisioning può essere eseguita sul pacchetto dell'applicazione specificato da relativePathInImageStore o usando l'URI del pacchetto SFPKG esterno. A meno che non sia impostato --external-provision, questo comando prevede il provisioning dell'archivio
-
-immagini.
+Esegue il provisioning di un tipo di applicazione di Service Fabric con il cluster. È necessario eseguire questa operazione prima di creare un'istanza per una nuova applicazione. L'operazione di provisioning può essere eseguita sul pacchetto dell'applicazione specificato da relativePathInImageStore o usando l'URI del pacchetto SFPKG esterno. A meno che non sia impostato --external-provision, questo comando esegue il provisioning del pacchetto dell'applicazione dall'archivio immagini.
         
 
 
@@ -266,7 +264,7 @@ immagini.
 | --debug                              | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h                            | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o                          | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query                              | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
+| --query                              | Stringa di query JMESPath. Per altre informazioni, vedere http://jmespath.org/.|
 | --verbose                            | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
 
 ## <a name="sfctl-application-type"></a>sfctl application type
@@ -317,7 +315,7 @@ Rimuove o annulla la registrazione di un tipo di applicazione di Service Fabric 
 | --debug                           | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h                         | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o                       | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.                  Predefinito: json.|
-| --query                           | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
+| --query                           | Stringa di query JMESPath. Per altre informazioni, vedere http://jmespath.org/.|
 | --verbose                         | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-application-upgrade"></a>sfctl application upgrade
@@ -377,7 +375,7 @@ Facoltativamente, è possibile visualizzare lo stato di caricamento per ogni fil
 | --debug       | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h     | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o   | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query       | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
+| --query       | Stringa di query JMESPath. Per altre informazioni, vedere http://jmespath.org/.|
 | --verbose     | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="next-steps"></a>Passaggi successivi

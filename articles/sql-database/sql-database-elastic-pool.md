@@ -7,40 +7,40 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 03/02/2018
-ms.author: carlrab
+ms.date: 04/04/2018
+ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 7e819e50db4c57b47f9aa7a2cff7a2d62be37f08
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6c2e4e7f99aeec3028e8df520dc6896234b5c969
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>I pool di database elastici consentono di gestire e ridimensionare più database SQL
+# <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Uso dei pool di database elastici per gestire e ridimensionare più database SQL
 
-I pool elastici di database SQL offrono una soluzione semplice e conveniente per la gestione e il ridimensionamento di più database con esigenze di utilizzo variabili e imprevedibili. I database in un pool elastico si trovano in un server di database SQL di Azure singolo e condividono un determinato numero di risorse ([unità di transazione di database elastico](sql-database-what-is-a-dtu.md) (eDTU)) a un prezzo specifico. I pool elastici nel database SQL di Azure consentono agli sviluppatori di SaaS di ottimizzare i costi per un gruppo di database all'interno di un budget definito, garantendo allo stesso tempo prestazioni elastiche per ogni database. 
+I pool elastici di database SQL offrono una soluzione semplice e conveniente per la gestione e il ridimensionamento di più database con esigenze di utilizzo variabili e imprevedibili. I database in un pool elastico si trovano in un server di database SQL di Azure singolo e condividono un determinato numero di risorse a un prezzo specifico. I pool elastici nel database SQL di Azure consentono agli sviluppatori di SaaS di ottimizzare i costi per un gruppo di database all'interno di un budget definito, garantendo allo stesso tempo prestazioni elastiche per ogni database.
 
-## <a name="what-are-sql-elastic-pools"></a>Definizione di pool elastici SQL 
+## <a name="what-are-sql-elastic-pools"></a>Definizione di pool elastici SQL
 
-Gli sviluppatori di SaaS compilano applicazioni basate su livelli di dati su larga scala costituiti da più database. Un modello di applicazione comune è il provisioning di un database singolo per ogni cliente. Clienti diversi, tuttavia, hanno spesso modelli di utilizzo differenti e non prevedibili. Per questo motivo, è difficile stabilire a priori i requisiti di risorse di ogni singolo utente di database. In genere, le opzioni erano due: 
+Gli sviluppatori di SaaS compilano applicazioni basate su livelli di dati su larga scala costituiti da più database. Un modello di applicazione comune è il provisioning di un database singolo per ogni cliente. Clienti diversi, tuttavia, hanno spesso modelli di utilizzo differenti e non prevedibili. Per questo motivo, è difficile stabilire a priori i requisiti di risorse di ogni singolo utente di database. In genere, le opzioni erano due:
 
 - Effettuare il provisioning di risorse eccessivo in base all'utilizzo massimo e pagare più del necessario, o
-- Ricorrere al provisioning insufficiente per risparmiare sui costi, a scapito delle prestazioni e della soddisfazione del cliente durante i picchi. 
+- Ricorrere al provisioning insufficiente per risparmiare sui costi, a scapito delle prestazioni e della soddisfazione del cliente durante i picchi.
 
 I pool elastici risolvono il problema assicurando ai database l'ottenimento delle risorse di prestazioni necessarie, quando richieste. Forniscono un meccanismo semplice di allocazione delle risorse che rientra in un budget prevedibile. Per altre informazioni sui modelli di progettazione per applicazioni SaaS con pool elastici, vedere l'articolo relativo ai [modelli di progettazione per applicazioni SaaS multi-tenant con database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-I pool elastici consentono agli sviluppatori di acquistare [unità di transazione di database elastico](sql-database-what-is-a-dtu.md) (eDTU) per un pool condiviso da più database, per supportare periodi di utilizzo imprevisti da parte dei singoli database. Il requisito di eDTU di un pool è determinato dall'utilizzo aggregato dei relativi database. Il numero di eDTU disponibile per il pool dipende dal budget dello sviluppatore. Lo sviluppatore aggiunge semplicemente database al pool, imposta il limite minimo e massimo di eDTU per i database e quindi imposta il numero di eDTU del pool in base al budget. Utilizzando i pool, lo sviluppatore può aumentare con facilità i servizi offerti da una piccola nuova impresa fino a un'azienda matura in continua crescita.
+I pool elastici consentono agli sviluppatori di acquistare risorse per un pool condiviso da più database, in modo da supportare periodi di utilizzo imprevisti da parte dei singoli database. È possibile configurare le risorse per il pool in base al [modello di acquisto basato su DTU (anteprima)](sql-database-service-tiers.md#dtu-based-purchasing-model) o al [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). Il requisito di risorse per un pool è determinato dall'utilizzo aggregato dei relativi database. La quantità di risorse disponibili per il pool dipende dal budget dello sviluppatore. Lo sviluppatore aggiunge semplicemente database al pool, imposta la quantità minima e massima di risorse per i database, ovvero il numero minimo e massimo di DTU o vCore a seconda del modello di risorse selezionato, e quindi imposta le risorse del pool in base al proprio budget. Utilizzando i pool, lo sviluppatore può aumentare con facilità i servizi offerti da una piccola nuova impresa fino a un'azienda matura in continua crescita.
 
-All'interno del pool i singoli database sono sufficientemente flessibili da assicurare una scalabilità automatica nell'ambito di parametri prefissati. Se il carico di lavoro è importante, un database può utilizzare più eDTU per soddisfare la domanda. Se invece il carico di lavoro è più leggero, i database in assenza di carico non utilizzano gli eDTU. La possibilità di effettuare il provisioning delle risorse per l'intero pool e non per i singoli database semplifica le attività di gestione. Il budget del pool, inoltre, è facilmente prevedibile. È possibile aggiungere altre eDTU a un pool esistente senza causare tempi di inattività del database, tranne per il fatto che potrebbe essere necessario spostare i database per fornire risorse di calcolo aggiuntive per le nuove eDTU riservate. Analogamente, se gli eDTU aggiuntivi non sono più necessari, è possibile rimuoverli da un pool esistente in qualsiasi momento. È possibile aggiungere e rimuovere database dal pool. Se si prevede che un database sottoutilizzerà le proprie risorse, è possibile rimuoverlo.
+All'interno del pool i singoli database sono sufficientemente flessibili da assicurare una scalabilità automatica nell'ambito di parametri prefissati. Se il carico di lavoro è importante, un database può utilizzare più risorse per soddisfare la domanda. Se invece il carico di lavoro è più leggero, i database in assenza di carico non utilizzano risorse. La possibilità di effettuare il provisioning delle risorse per l'intero pool e non per i singoli database semplifica le attività di gestione. Il budget del pool, inoltre, è facilmente prevedibile. È possibile aggiungere altre risorse a un pool esistente senza causare tempi di inattività, ad eccezione del caso in cui sia necessario spostare i database per fornire risorse di calcolo aggiuntive per le nuove eDTU riservate. Analogamente, se le risorse aggiuntive non sono più necessarie, è possibile rimuoverle da un pool esistente in qualsiasi momento. È possibile aggiungere e rimuovere database dal pool. Se si prevede che un database sottoutilizzerà le proprie risorse, è possibile rimuoverlo.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Quando considerare un pool elastico del database SQL
 
 I pool sono adatti per un numero elevato di database con modelli di utilizzo specifici. Per un determinato database, questo modello è caratterizzato da un utilizzo medio ridotto con picchi di utilizzo relativamente poco frequenti.
 
-Più database è possibile aggiungere a un pool, maggiori diventano i risparmi. In base al modello di uso dell'applicazione, è possibile osservare un risparmio con soli due database S3. 
+Più database è possibile aggiungere a un pool, maggiori diventano i risparmi. In base al modello di uso dell'applicazione, è possibile osservare un risparmio con soli due database S3.
 
 Le sezioni seguenti aiutano a comprendere se l'insieme specifico di database può trarre vantaggio dall'uso di un pool. Gli esempi utilizzano pool Standard, ma gli stessi principi si applicano anche ai pool Basic e Premium.
 
@@ -54,7 +54,7 @@ Per il periodo di cinque minuti illustrato, DB1 raggiunge picchi fino a 90 DTU, 
 
 Un pool consente la condivisione tra più database di queste DTU inutilizzate e quindi riduce le DTU richieste e i costi complessivi.
 
-Compila l'esempio precedente, si supponga che vi sono altri database con i modelli di utilizzo simili come DB1. Nelle due figure seguenti viene accostato un grafico di utilizzo di quattro database e uno di 20 database, per mostrare come non vi sia sovrapposizione nell'utilizzo nel tempo:
+Compila l'esempio precedente, si supponga che vi sono altri database con i modelli di utilizzo simili come DB1. Nelle due figure seguenti vengono presentati in parallelo l'utilizzo di quattro database e quello di 20 database all'interno di uno stesso grafico per mostrare l'assenza di sovrapposizione degli elementi che rappresentano l'utilizzo dei database nel tempo quando viene usato il modello di acquisto basato su DTU:
 
    ![quattro database con un modello di utilizzo adatto per un pool](./media/sql-database-elastic-pool/four-databases.png)
 
@@ -64,56 +64,60 @@ Dalla riga di colore nera nella figura precedente viene illustrato l'utilizzo di
 
 In questo esempio è ideale per i motivi seguenti:
 
-* Esistono grandi differenze tra i picchi di utilizzo e l'utilizzo medio per ogni database. 
+* Esistono grandi differenze tra i picchi di utilizzo e l'utilizzo medio per ogni database.
 * Il picco di utilizzo per ogni database si verifica in diversi momenti nel tempo.
 * Le eDTU vengono condivise tra più database.
 
-Il prezzo di un pool è una funzione delle eDTU del pool. Mentre il prezzo unitario delle eDTU di un pool è 1,5 volte maggiore del prezzo unitario delle DTU per un database singolo, le **eDTU del pool possono essere condivise da molti database ed è necessario un minor numero totale di eDTU**. Queste distinzioni nella determinazione dei prezzi e nella condivisione di eDTU costituiscono la base del potenziale risparmio sul prezzo che il pool è in grado di fornire. 
+Il prezzo di un pool è una funzione delle eDTU del pool. Mentre il prezzo unitario delle eDTU di un pool è 1,5 volte maggiore del prezzo unitario delle DTU per un database singolo, le **eDTU del pool possono essere condivise da molti database ed è necessario un minor numero totale di eDTU**. Queste distinzioni nella determinazione dei prezzi e nella condivisione di eDTU costituiscono la base del potenziale risparmio sul prezzo che il pool è in grado di fornire.
 
 Le seguenti regole relative al numero e all'utilizzo del database consentono di garantire che un pool offra una riduzione dei costi rispetto all'utilizzo di livelli di prestazioni per database singoli.
 
 ### <a name="minimum-number-of-databases"></a>Numero minimo di database
 
-Se la somma di DTU di livelli di prestazioni per singoli database è superiore di 1,5x rispetto ai DTU necessari per il pool, allora un pool elastico è più conveniente. Per le dimensioni disponibili, vedere [Limiti di archiviazione e di eDTU per i pool elastici e dei database elastici](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
+Se la quantità di risorse per i singoli database è 1,5 volte maggiore rispetto alle risorse necessarie per il pool, un pool elastico è più conveniente.
 
-***Esempio***<br>
+***Esempio di modello di acquisto basato su DTU***<br>
 Sono necessari almeno due database S3 o 15 database S0 perché un pool di 100 eDTU risulti più conveniente rispetto all'uso di livelli di prestazioni per database singoli.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Numero massimo di picco contemporaneamente database
 
-Condividendo eDTU, non tutti i database in un pool possono utilizzare contemporaneamente eDTU fino al limite disponibile quando si utilizzano livelli di prestazioni per singoli database. Meno database raggiungono il picco contemporaneamente, minore è il valore da impostare per le eDTU del pool e quindi più redditizio diventa il pool stesso. In generale, non più di un 2/3 (o 67%) dei database nel pool deve raggiungere il picco contemporaneamente al limite delle relative eDTU.
+Condividendo le risorse, non tutti i database in un pool possono usare contemporaneamente le risorse fino al limite disponibile per i singoli database. Meno database raggiungono il picco contemporaneamente, minore è il valore da impostare per le risorse del pool e quindi più redditizio diventa il pool stesso. In generale, non più di 2/3 (o del 67%) dei database nel pool dovrebbe raggiungere contemporaneamente il picco di utilizzo delle risorse.
 
-***Esempio***<br>
+***Esempio di modello di acquisto basato su DTU***<br>
 Per ridurre i costi relativi a tre database S3 in un pool di 200 eDTU, al massimo due dei tre database possono raggiungere il picco di utilizzo contemporaneamente. In caso contrario, se più di due di questi quattro database S3 raggiungono il picco contemporaneamente, il pool dovrebbe essere ridimensionato a più di 200 eDTU. Se il pool viene ridimensionato a più di 200 eDTU, più database S3 dovranno essere aggiunti al pool per mantenere i costi inferiori rispetto a quelli dei livelli di prestazioni per singoli database.
 
 Si noti in questo esempio non prende in considerazione l'utilizzo di altri database nel pool. Se tutti i database con alcune utilizzo in qualsiasi punto nel tempo, minore di 2/3 (o 67%) dei database possono picco contemporaneamente.
 
-### <a name="dtu-utilization-per-database"></a>Utilizzo di DTU per ogni database
+### <a name="resource-utilization-per-database"></a>Utilizzo delle risorse per ogni database
 Una notevole differenza tra il picco e l'utilizzo medio di un database indica periodi prolungati di utilizzo ridotto e brevi periodi di utilizzo elevato. Questo modello di utilizzo è ideale per la condivisione delle risorse tra database. Un database deve essere considerato per un pool quando relativo picchi di utilizzo sono circa 1.5 volte maggiore relativo utilizzo medio.
 
-***Esempio***<br>
+***Esempio di modello di acquisto basato su DTU***<br>
 Un database S3 con picchi di 100 DTU e un utilizzo medio di 67 DTU o meno è un buon candidato per la condivisione di eDTU in un pool. In alternativa, un database S1 con picchi di 20 DTU e utilizzo medio di 13 DTU o meno è un buon candidato per un pool.
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>Come scegliere le dimensioni più adatte del pool
 
-La dimensione ottimale per un pool dipende dalle eDTU di aggregazione e dalle risorse di archiviazione necessarie per tutti i database nel pool. Questo richiede di stabilire il valore maggiore tra i seguenti:
+La dimensione ottimale per un pool dipende dalle risorse di aggregazione e dalle risorse di archiviazione necessarie per tutti i database nel pool. È quindi necessario stabilire quanto segue:
 
-* Dtu massima utilizzata da tutti i database nel pool.
-* Byte di archiviazione massima utilizzati da tutti i database nel pool.
+* Quantità massima di risorse utilizzate da tutti i database nel pool, ovvero numero massimo di DTU o vCore in base al modello di risorse selezionato.
+* Quantità massima di byte di archiviazione utilizzati da tutti i database nel pool.
 
-Per le dimensioni disponibili, vedere [Limiti di archiviazione e di eDTU per i pool elastici e dei database elastici](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
+Per i livelli di servizio disponibili per ogni modello di risorse, vedere il [modello di acquisto basato su DTU](sql-database-service-tiers.md#dtu-based-purchasing-model) o il [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
 
 Database SQL valuta automaticamente la cronologia d’utilizzo delle risorse dei database in un server di database SQL esistente e consiglia una configurazione appropriata del pool nel portale di Azure. Oltre alle raccomandazioni, una funzionalità incorporata stima l'utilizzo di eDTU per un gruppo personalizzato di database del server. Ciò consente di eseguire un'analisi di simulazione tramite l'aggiunta interattiva di database al pool e la relativa rimozione in modo da ottenere un'analisi di utilizzo delle risorse e suggerimenti di ridimensionamento prima di eseguire il commit delle modifiche. Per le procedure, vedere [Monitorare e gestire un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md).
 
 Nei casi in cui non è possibile utilizzare gli strumenti, le seguenti istruzioni dettagliate consentono di stimare se un pool è più conveniente rispetto ai database singoli:
 
-1. Stimare le eDTU necessarie per il pool come segue:
+1. Stimare le eDTU o i vCore necessari per il pool come segue:
 
-   MAX (<*numero totale di database* X *utilizzo medio di DTU per DB*>,<br>
-   <*numero di database in picco contemporaneamente* X *picco di utilizzo di DTU per DB*)
-2. Stimare lo spazio di archiviazione necessario per il pool aggiungendo il numero di byte necessari per tutti i database nel pool. Determinare quindi la dimensione del pool in eDTU che fornisce la quantità di spazio di archiviazione. Per i limiti di archiviazione del pool in base alla dimensione del pool espressa in eDTU, vedere [Limiti di archiviazione e di eDTU dei pool elastici e dei database elastici](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
-3. Considerare la stima eDTU maggiore tra il Passaggio 1 e il Passaggio 2.
-4. Vedere la pagina [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/) e trovare la dimensione di pool in eDTU più piccola, che sia maggiore della stima del Passaggio 3.
+   Per il modello di acquisto basato su DTU: MAX(<*numero totale di database* X *utilizzo medio di DTU per database*>,<br>
+   <*numero di database in picco contemporaneamente* X *picco di utilizzo di DTU per database*)
+
+   Per il modello di acquisto basato su vCore: MAX(<*numero totale di database* X *utilizzo medio di vCore per database*>,<br>
+   <*numero di database in picco contemporaneamente* X *picco di utilizzo di vCore per database*)
+
+2. Stimare lo spazio di archiviazione necessario per il pool aggiungendo il numero di byte necessari per tutti i database nel pool. Determinare quindi la dimensione del pool in eDTU che fornisce la quantità di spazio di archiviazione.
+3. Per il modello di acquisto basato su DTU, considerare la stima di eDTU maggiore tra il Passaggio 1 e il Passaggio 2. Per il modello di acquisto basato su vCore, considerare la stima di vCore del Passaggio 1.
+4. Vedere la [pagina sui prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/) e trovare la dimensione di pool più piccola, che sia maggiore della stima del Passaggio 3.
 5. Confrontare il prezzo di pool dal Passaggio 5 con il prezzo dell'utilizzo di livelli di prestazioni appropriati per database singoli.
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>Uso di altre funzionalità del database SQL con i pool elastici
@@ -137,154 +141,68 @@ I database in pool supportano in genere le stesse [funzionalità di continuità 
 
 ### <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Creare un nuovo pool elastico del database SQL tramite il portale di Azure
 
-Esistono due modi per creare un pool elastico nel portale di Azure. È possibile farlo da zero se si conosce la configurazione del pool da usare oppure iniziare con una raccomandazione fornita dal servizio. Il database SQL integra informazioni in base alle quali viene suggerita una configurazione del pool elastico nel caso risulti più conveniente secondo i dati di telemetria relativi all'uso precedente dei database. 
-
-La creazione di un pool elastico da una pagina del server esistente nel portale è il modo più semplice per trasferire i database esistenti in un pool elastico. È anche possibile creare un pool elastico cercando **Pool elastico SQL** nel **Marketplace** o facendo clic su **+Aggiungi** nella pagina dei pool elastici SQL. È possibile specificare un server nuovo o esistente nel flusso di lavoro dei provisioning del pool.
+Esistono due modi per creare un pool elastico nel portale di Azure.
+1. È possibile creare un pool elastico cercando **pool elastico SQL** nel **Marketplace** o facendo clic su **+Aggiungi** nel pannello Pool elastici SQL. È possibile specificare un server nuovo o esistente nel flusso di lavoro dei provisioning del pool.
+2. In alternativa, è possibile creare un pool elastico selezionando un server SQL esistente e facendo clic su **Crea pool** per creare un pool direttamente in tale server. L'unica differenza è che in questo caso si ignora il passaggio in cui si specifica il server durante il flusso di lavoro di provisioning del pool.
 
 > [!NOTE]
 > È possibile creare più pool in un server, ma non aggiungere database da diversi server nello stesso pool.
-> 
 
-Il piano tariffario del pool determina le funzionalità disponibili per i database elastici nel pool e il numero massimo di eDTU (MAX eDTU) e la memoria (GB) disponibili per ciascun database. Per informazioni vedere [Limiti delle risorse per il pool elastico](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
+Il livello di servizio del pool determina le funzionalità disponibili per i database elastici nel pool e la quantità massima di risorse disponibili per ogni database. Per informazioni dettagliate, vedere i limiti delle risorse per i pool elastici nel [modello basato su DTU](sql-database-dtu-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels) e nel [modello basato su vCore](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
-Per modificare il piano tariffario per il pool, fare clic su **Piano tariffario**, scegliere il piano e quindi fare clic su **Seleziona**.
+Per configurare le risorse e i prezzi del pool, fare clic su **Configura pool**. Selezionare quindi un livello di servizio, aggiungere database al pool e configurare i limiti delle risorse per il pool e i relativi database.
 
-> [!IMPORTANT]
-> Dopo aver scelto il piano tariffario e aver eseguito il commit delle modifiche facendo clic su **OK** nell'ultimo passaggio, non sarà più possibile modificare il piano tariffario del pool. Per modificare il piano tariffario per un pool di database elastici esistente, creare un pool elastico nel piano tariffario desiderato ed eseguire la migrazione dei database in questo nuovo pool.
->
+Al termine della configurazione del pool, è possibile fare clic su Applica, assegnare un nome al pool e fare clic su OK per creare il pool.
 
-Se i dati di telemetria cronologici relativi all'utilizzo disponibili per i database correnti sono sufficienti, il grafico **Utilizzo di eDTU e GB** e il grafico a barre **Utilizzo di eDTU effettivo** vengono aggiornati per semplificare le decisioni relative alla configurazione. Il servizio potrebbe anche visualizzare un messaggio di raccomandazione per facilitare la scelta delle dimensioni corrette per il pool.
-
-Il servizio di database SQL valuta la cronologia di utilizzo e suggerisce uno o più pool quando questo approccio è più conveniente rispetto all'uso di singoli database. Ogni raccomandazione viene configurata con un subset univoco di database del server che meglio si adatta al pool.
-
-![pool consigliato](./media/sql-database-elastic-pool-create-portal/recommended-pool.png) 
-
-La raccomandazione per il pool include:
-
-- Piano tariffario per il pool (Basic, Standard o Premium).
-- **eDTU POOL** appropriato, detto anche eDTU max per pool.
-- **MAX eDTU** e **Min eDTU** per ogni database.
-- Elenco di database consigliati per il pool.
-
-> [!IMPORTANT]
-> Il servizio prende in considerazione la telemetria degli ultimi 30 giorni per la raccomandazione dei pool. Per far sì che un database possa essere considerato un candidato per un pool elastico, deve esistere da almeno 7 giorni. I database che si trovano già in pool elastici non vengono considerati come possibili candidati, in linea con i consigli relativi ai pool elastici.
->
-
-Il servizio valuta le risorse necessarie e la convenienza dello spostamento di singoli database in ogni livello di servizio nei pool dello stesso livello. Ad esempio, vengono valutati tutti i database Standard in un server per l’utilizzo in un pool elastico Standard. Ciò significa che il servizio non effettua consigli relativi a livelli diversi, ad esempio lo spostamento di un database Standard in un pool Premium.
-
-Dopo aver aggiunto i database al pool, le indicazioni verranno generate dinamicamente in base all'uso storico dei database selezionati. Queste indicazioni vengono visualizzate nel grafico relativo all'uso di eDTU e GB, oltre che in un banner di suggerimenti nella parte superiore della pagina **Configura pool**. Queste indicazioni sono concepite per facilitare la creazione di un pool elastico ottimizzato per database specifici.
-
-![Indicazioni dinamiche](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
-
-### <a name="manage-and-monitor-an-elastic-pool"></a>Gestire e monitorare un pool elastico
+### <a name="monitor-an-elastic-pool-and-its-databases"></a>Monitorare un pool elastico e i relativi database
 
 Dal portale di Azure è possibile monitorare l'uso di un pool elastico e dei database al suo interno. È anche possibile apportare un set di modifiche al pool elastico e inviare tutte le modifiche contemporaneamente. Le modifiche includono l'aggiunta o la rimozione di database, la modifica delle impostazioni del pool elastico o la modifica delle impostazioni del database.
 
-L'immagine seguente illustra un esempio di pool elastico. La visualizzazione include:
+Per avviare il monitoraggio del pool elastico, trovare e aprire un pool elastico nel portale. Verrà visualizzata una schermata che offre una panoramica dello stato del pool elastico. Sono inclusi:
 
-* Grafici per il monitoraggio dell'utilizzo delle risorse da parte del pool elastico e dei database al suo interno.
-* Il pulsante **Configura pool** per apportare modifiche al pool elastico.
-* Il pulsante **Crea database** per creare un database e aggiungerlo al pool elastico corrente.
-* Processi elastici che consentono di gestire un numero elevato di database tramite l'esecuzione di script Transact SQL in tutti i database in un elenco.
+* Grafici di monitoraggio che illustrano l'utilizzo delle risorse del pool elastico
+* Avvisi recenti e suggerimenti, se disponibili, per il pool elastico
+
+L'immagine seguente illustra un esempio di pool elastico:
 
 ![Visualizzazione del pool](./media/sql-database-elastic-pool-manage-portal/basic.png)
 
-È possibile passare a un pool specifico per visualizzarne l'utilizzo delle risorse. Per impostazione predefinita, il pool è configurato per mostrare l'utilizzo di eDTU e risorse di archiviazione relativo all'ultima ora. È possibile configurare il grafico per mostrare diverse metriche in diversi intervalli di tempo. Fare clic sul grafico **Utilizzo risorse** in **Monitoraggio pool elastico** per mostrare una visualizzazione dettagliata delle metriche specificate nell'intervallo di tempo specificato.
+Per visualizzare altre informazioni relative al pool è possibile fare clic su una qualsiasi delle informazioni disponibili in questa panoramica. Facendo clic sul grafico **Utilizzo risorse**, viene aperta la visualizzazione di Monitoraggio di Azure in cui è possibile personalizzare le metriche e l'intervallo di tempo visualizzati nel grafico. Facendo clic su una qualsiasi delle notifiche disponibili, viene visualizzato un pannello che mostra tutti i dettagli dell'avviso o del suggerimento.
 
-![Monitoraggio di pool elastici](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
-
-![Pagina metrica](./media/sql-database-elastic-pool-manage-portal/metric.png)
-
-### <a name="to-customize-the-chart-display"></a>Per personalizzare la visualizzazione del grafico
-
-È possibile modificare il grafico e la pagina Metrica per visualizzare altre metriche, ad esempio la percentuale di CPU, la percentuale di IO dei dati e la percentuale di IO del log usata.
-
-![Fare clic su Modifica](./media/sql-database-elastic-pool-manage-portal/edit-metric.png)
-
-Nel modulo **Modifica grafico** selezionare un intervallo di tempo, ad esempio ora precedente, oggi o settimana precedente, oppure fare clic su **personalizzato** per selezionare un intervallo di tempo nelle due settimane precedenti. È possibile scegliere tra un grafico a barre o un grafico a linee e quindi selezionare le risorse da monitorare.
-
-> [!Note]
-> Solo le metriche con la stessa unità di misura possono essere visualizzate nel grafico nello stesso momento. Se ad esempio si seleziona "eDTU percentage" (Percentuale eDTU), sarà possibile selezionare solo altre metriche con percentuale come unità di misura.
->
-
-![Fare clic su Modifica](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
-
-### <a name="manage-and-monitor-databases-in-an-elastic-pool"></a>Gestire e monitorare database in un pool elastico
-
-È possibile monitorare anche i singoli database per potenziali problemi. In **Monitoraggio database elastico**è disponibile un grafico che mostra le metriche relative a cinque database. Per impostazione predefinita, il grafico mostra i primi cinque database nel pool per utilizzo di eDTU medio nell'ora precedente. 
-
-![Monitoraggio di pool elastici](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
-
-Fare clic su **eDTU usage for databases for the past hour** (Uso di eDTU per i database nell'ora precedente) in **Monitoraggio database elastico**. Verrà visualizzato **Utilizzo risorse database** che offre una visualizzazione dettagliata dell'uso del database nel pool. La griglia nella parte inferiore della pagina consente di selezionare fino a cinque database nel pool per visualizzarne l'uso nel grafico. È anche possibile personalizzare le metriche e l'intervallo di tempo visualizzati nel grafico facendo clic su **Modifica grafico**.
+Per monitorare i database all'interno del pool, è possibile fare clic su **Utilizzo risorse database** nella sezione **Monitoraggio** del menu delle risorse a sinistra.
 
 ![Pagina Utilizzo risorse database](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
-### <a name="to-customize-the-view"></a>Per personalizzare la visualizzazione
+#### <a name="to-customize-the-chart-display"></a>Per personalizzare la visualizzazione del grafico
 
-È possibile modificare il grafico per selezionare un intervallo di tempo, ad esempio ora precedente o ultime 24 ore, oppure fare clic su **personalizzato** per selezionare un giorno diverso nelle 2 settimane precedenti.
+È possibile modificare il grafico e la pagina Metrica per visualizzare altre metriche, ad esempio la percentuale di CPU, la percentuale di IO dei dati e la percentuale di IO del log usata.
 
-![Fare clic su Modifica grafico](./media/sql-database-elastic-pool-manage-portal/db-utilization-blade.png)
+Nel modulo **Modifica grafico** è possibile specificare un intervallo di tempo fisso, oppure fare clic su **personalizzato** per selezionare un periodo qualsiasi di 24 ore nelle ultime due settimane, e quindi selezionare le risorse da monitorare.
 
-![Fare clic su personalizzato](./media/sql-database-elastic-pool-manage-portal/editchart-date-time.png)
+#### <a name="to-select-databases-to-monitor"></a>Per selezionare i database da monitorare
 
-È anche possibile fare clic sull'elenco a discesa **Confronta database in base a** e selezionare una metrica diversa da usare per il confronto dei database.
+Per impostazione predefinita, il grafico nel pannello **Utilizzo risorse database** mostra i cinque database più utilizzati in base a DTU o CPU, a seconda del livello di servizio. È possibile visualizzare i dati relativi ad altri database nel grafico selezionando e deselezionando i database dall'elenco sottostante tramite le caselle di controllo a sinistra.
 
-![Modificare il grafico](./media/sql-database-elastic-pool-manage-portal/edit-comparison-metric.png)
-
-### <a name="to-select-databases-to-monitor"></a>Per selezionare i database da monitorare
-
-Nell'elenco dei database della pagina **Utilizzo risorse database** è possibile trovare database specifici scorrendo le pagine dell'elenco o digitando il nome di un database. Usare la casella di controllo per selezionare il database.
-
-![Cercare i database da monitorare](./media/sql-database-elastic-pool-manage-portal/select-dbs.png)
-
-
-### <a name="add-an-alert-to-an-elastic-pool-resource"></a>Aggiungere un avviso a una risorsa di pool elastico
-
-È possibile aggiungere regole a un pool elastico per l'invio di messaggi di posta elettronica a persone oppure stringhe di avviso a endpoint di URL quando il pool elastico raggiunge la soglia d'uso impostata.
-
-**Per aggiungere un avviso a una risorsa qualsiasi:**
-
-1. Fare clic sul grafico **Utilizzo risorse** per aprire la pagina **Metrica**. Fare clic su **Aggiungi avviso** e inserire le informazioni nella pagina **Aggiungi una regola di avviso**. La **risorsa** viene impostata automaticamente come pool corrente.
-2. Inserire un **Nome** e una **Descrizione** che serviranno a identificare l'avviso per l'utente e i destinatari.
-3. Scegliere una **Metrica** in base alla quale creare un avviso dall'elenco.
-
-   Il grafico mostra in modo dinamico l'utilizzo delle risorse per la metrica selezionata in modo da scegliere una soglia.
-
-4. Scegliere una **Condizione**, ad esempio maggiore di, minore di e così via, e una **Soglia**.
-5. Scegliere un **Periodo** di tempo entro il quale la regola della metrica deve essere soddisfatta prima dell'attivazione dell'avviso.
-6. Fare clic su **OK**.
+È inoltre possibile selezionare altre metriche da visualizzare in modalità affiancata in questa tabella di database per ottenere una visione più dettagliata delle prestazioni dei database.
 
 Per altre informazioni, vedere [Usare il portale di Azure per creare avvisi per il database SQL di Azure](sql-database-insights-alerts-portal.md).
 
-### <a name="move-a-database-into-an-elastic-pool"></a>Spostare un database in un pool elastico
+### <a name="manage-an-elastic-pool-and-its-databases"></a>Gestire un pool elastico e i relativi database
 
-È possibile aggiungere o rimuovere i database da un pool esistente. I database possono trovarsi in altri pool. Tuttavia, è possibile aggiungere solo i database che sono nello stesso server logico.
+Tutte le impostazioni del pool sono reperibili in una stessa area dell'interfaccia, ovvero il pannello **Configura pool**. Per accedervi, individuare un pool elastico nel portale e fare clic su **Configura pool** nella parte superiore del pannello o nel menu delle risorse a sinistra.
 
- ![Fare clic su Configura pool](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
+Da qui è possibile eseguire una combinazione qualsiasi di modifiche tra quelle elencate di seguito e salvarle in un unico batch:
+1. Modificare il livello di servizio del pool
+2. Aumentare o ridurre le prestazioni (DTU o vCore) e le risorse di archiviazione
+3. Aggiungere database nel pool o rimuoverli
+4. Impostare un limite di prestazioni minimo (garantito) e massimo per i database nei pool
+5. Rivedere il riepilogo dei costi per visualizzare le variazioni nella fattura in seguito alle nuove selezioni
 
-![Fare clic su Aggiungi al pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
-
-![Selezionare i database da aggiungere](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
-
-![Aggiunte di pool in sospeso](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
-
-![Fare clic su Salva.](./media/sql-database-elastic-pool-manage-portal/click-save.png)
-
-### <a name="move-a-database-out-of-an-elastic-pool"></a>Spostare un database da un pool elastico
-
-![elenchi di database](./media/sql-database-elastic-pool-manage-portal/select-pools-removal.png)
-
-### <a name="change-performance-settings-of-an-elastic-pool"></a>Modificare le impostazioni delle prestazioni di un pool elastico
-
-Durante il monitoraggio dell'utilizzo delle risorse di un pool elastico possono rendersi necessarie alcune modifiche, ad esempio dei limiti di archiviazione o di prestazioni. Si potrebbe voler modificare le impostazioni del database nel pool. È possibile modificare la configurazione del pool in qualsiasi momento per ottenere il miglior compromesso tra prestazioni e costi. Per altre informazioni, vedere [Quando usare un pool elastico](sql-database-elastic-pool.md).
-
-Per modificare i limiti di archiviazione o eDTU per il pool e il numero di eDTU per il database:
-
-![Utilizzo delle risorse del pool elastico](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
+![Pannello di configurazione del pool elastico](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
 
 ## <a name="manage-elastic-pools-and-databases-using-powershell"></a>Gestire i pool di database elastici e i database tramite PowerShell
 
-Per creare e gestire pool elastici del database SQL con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps). Per creare e gestire i database, i server e le regole del firewall, vedere [Creare e gestire i server e i database di database SQL di Azure con PowerShell](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-powershell). 
+Per creare e gestire pool elastici del database SQL con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps). Per creare e gestire i database, i server e le regole del firewall, vedere [Creare e gestire i server e i database di database SQL di Azure con PowerShell](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-powershell).
 
 > [!TIP]
 > Per gli script di esempio di PowerShell, vedere [Creare pool elastici e spostare i database tra i pool e al loro esterno usando PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) e [Usare PowerShell per il monitoraggio e il ridimensionamento di un pool elastico SQL nel database SQL di Azure](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -309,7 +227,7 @@ Per creare e gestire pool elastici del database SQL con Azure PowerShell, usare 
 
 ## <a name="manage-elastic-pools-and-databases-using-the-azure-cli"></a>Gestire i pool elastici e i database SQL tramite l'interfaccia della riga di comando di Azure
 
-Per creare e gestire pool elastici del database SQL con l'[interfaccia della riga di comando di Azure](/cli/azure), usare i comandi seguenti del [database SQL per l'interfaccia della riga di comando di Azure](/cli/azure/sql/db). Usare [Cloud Shell](/azure/cloud-shell/overview) per eseguire l'interfaccia della riga di comando nel browser o [installarla](/cli/azure/install-azure-cli) in macOS, Linux o Windows. 
+Per creare e gestire pool elastici del database SQL con l'[interfaccia della riga di comando di Azure](/cli/azure), usare i comandi seguenti del [database SQL per l'interfaccia della riga di comando di Azure](/cli/azure/sql/db). Usare [Cloud Shell](/azure/cloud-shell/overview) per eseguire l'interfaccia della riga di comando nel browser o [installarla](/cli/azure/install-azure-cli) in macOS, Linux o Windows.
 
 > [!TIP]
 > Per gli script di esempio dell'interfaccia della riga di comando di Azure, vedere [Usare l'interfaccia della riga di comando per spostare un database SQL di Azure in un pool elastico SQL](scripts/sql-database-move-database-between-pools-cli.md) e [Usare l'interfaccia della riga di comando di Azure per ridimensionare un pool elastico SQL nel database SQL di Azure](scripts/sql-database-scale-pool-cli.md).

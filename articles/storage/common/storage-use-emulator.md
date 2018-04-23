@@ -1,8 +1,8 @@
 ---
 title: Usare l'emulatore di archiviazione di Azure per sviluppo e test | Microsoft Docs
-description: "L'emulatore di archiviazione di Azure offre un ambiente di sviluppo locale gratuito per sviluppare e testare applicazioni di Archiviazione di Azure. Informazioni sulle modalità di autenticazione delle richieste, su come connettersi all'emulatore dall'applicazione e su come usare lo strumento da riga di comando."
+description: L'emulatore di archiviazione di Azure offre un ambiente di sviluppo locale gratuito per sviluppare e testare applicazioni di Archiviazione di Azure. Informazioni sulle modalità di autenticazione delle richieste, su come connettersi all'emulatore dall'applicazione e su come usare lo strumento da riga di comando.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
-ms.openlocfilehash: 13aee7bbbe58c0a4183eddc0881aaed8cbebd956
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f98b8c3a8217b60fd0ba3754ac4ba72e09039f24
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -27,7 +27,7 @@ L'emulatore di archiviazione di Microsoft Azure offre un ambiente locale che emu
 ## <a name="get-the-storage-emulator"></a>Ottenere l'emulatore di archiviazione
 L'emulatore di archiviazione è disponibile come parte di [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). È anche possibile installare l'emulatore di archiviazione usando il [programma di installazione autonomo](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (download diretto). Per installare l'emulatore di archiviazione, è necessario avere privilegi di amministratore nel computer.
 
-L'emulatore di archiviazione attualmente viene eseguito solo in Windows. Per coloro che stanno valutando un emulatore di archiviazione per Linux, un'opzione è l'emulatore di archiviazione open source gestito dalla community [Azurite](https://github.com/arafato/azurite).
+L'emulatore di archiviazione attualmente viene eseguito solo in Windows. Per coloro che stanno valutando un emulatore di archiviazione per Linux, un'opzione è l'emulatore di archiviazione open source gestito dalla community [Azurite](https://github.com/azure/azurite).
 
 > [!NOTE]
 > I dati creati in una versione dell'emulatore di archiviazione non sono necessariamente accessibili quando si usa una versione diversa. Se è necessario rendere persistenti i dati a lungo termine, è consigliabile archiviare i dati in un account di archiviazione di Azure invece che nell'emulatore di archiviazione.

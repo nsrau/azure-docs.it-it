@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: robb
-ms.openlocfilehash: 8f7df424b27e6899821a9bdd2f1d8397a0de35a7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ca9df36c642334d9323736abb51a931a6610fd3e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Creare avvisi delle metriche classici in Monitoraggio di Azure per i servizi di Azure - PowerShell
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/03/2018
 ## <a name="overview"></a>Panoramica
 
 > [!NOTE]
-> Questo articolo descrive come creare versioni meno recenti degli avvisi classici delle metriche. Monitoraggio di Azure supporta ora [avvisi delle metriche più recenti e migliori](monitoring-near-real-time-metric-alerts.md). Questi avvisi possono monitorare più metriche e consentire le segnalazioni sulle metriche dimensionali. Il supporto di PowerShell per i nuovi avvisi delle metriche sarà presto disponibile.
+> Questo articolo descrive come creare avvisi delle metriche classici di tipo precedente. Monitoraggio di Azure supporta ora [avvisi delle metriche più recenti e migliori](monitoring-near-real-time-metric-alerts.md). Questi avvisi possono monitorare più metriche e consentire le segnalazioni sulle metriche dimensionali. Il supporto di PowerShell per i nuovi avvisi delle metriche sarà presto disponibile.
 >
 >
 
@@ -62,7 +62,7 @@ Per altre informazioni è sempre possibile digitare ```Get-Help``` e quindi il c
 1. Accedere ad Azure.   
 
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     ```
 2. Visualizzare l'elenco delle sottoscrizioni disponibili. Assicurarsi di lavorare con la giusta sottoscrizione. In caso contrario, impostare la sottoscrizione giusta usando l'output di `Get-AzureRmSubscription`.

@@ -4,7 +4,7 @@ description: È possibile usare le regole di memorizzazione nella cache della re
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
-ms.openlocfilehash: 735978a0986b2b16b4f96faca78c06d798915002
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: rli; v-deasim
+ms.openlocfilehash: 60693b919fad6808bfe60b504d2a70caf80fbe48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole di memorizzazione nella cache
 
 > [!NOTE] 
-> Le regole di memorizzazione nella cache sono disponibili solo per la **rete CDN di Azure di Verizon Standard** e la **rete CDN di Azure di Akamai Standard**. Per la **rete CDN di Azure di Verizon Premium** è possibile usare il [motore delle regole della rete CDN di Azure](cdn-rules-engine.md) nel portale a cui si accedere tramite il pulsante **Gestisci** per funzionalità analoghe.
+> Le regole di memorizzazione nella cache sono disponibili solo per la **rete CDN Standard di Azure con tecnologia Verizon** e la **rete CDN Standard di Azure con tecnologia Akamai**. Per la **rete CDN Premium di Azure con tecnologia Verizon** è possibile usare il [motore delle regole della rete CDN di Azure](cdn-rules-engine.md) nel portale a cui si accedere tramite il pulsante **Gestisci** per funzionalità analoghe.
  
 La rete per la distribuzione di contenuti (CDN) di Azure offre due modi per controllare la modalità di memorizzazione nella cache dei file: 
 

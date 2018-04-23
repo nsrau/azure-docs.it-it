@@ -5,7 +5,7 @@ services: application-gateway
 documentationcenter: na
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 68feb660-7fa4-4f69-a7e4-bdd7bdc474db
 ms.service: application-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 344d6922d1649449e26f2500e538b5a0b440476d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5d17a05f964367ff12a58c3e301a1741181003fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Creare un probe personalizzato per il gateway applicazione di Azure con PowerShell per Azure Resource Manager
 
@@ -39,10 +39,10 @@ Questo articolo illustra come aggiungere un probe personalizzato a un gateway ap
 
 ### <a name="sign-in-and-create-resource-group"></a>Eseguire l'accesso e creare un gruppo di risorse
 
-1. Usare `Login-AzureRmAccount` per eseguire l'autenticazione.
+1. Usare `Connect-AzureRmAccount` per eseguire l'autenticazione.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
 1. Acquisire le sottoscrizioni per l'account.

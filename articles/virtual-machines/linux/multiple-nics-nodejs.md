@@ -1,12 +1,12 @@
 ---
-title: "Creare una VM Linux in Azure con più schede di interfaccia di rete | Documentazione Microsoft"
-description: "Informazioni su come creare una VM Linux con più schede di interfaccia di rete collegate utilizzando l'interfaccia della riga di comando di Azure o i modelli di Resource Manager."
+title: Creare una VM Linux in Azure con più schede di interfaccia di rete | Documentazione Microsoft
+description: Informazioni su come creare una VM Linux con più schede di interfaccia di rete collegate utilizzando l'interfaccia della riga di comando di Azure o i modelli di Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 93a32ae7ec0cf73825791e8c8bc3d388cf999ece
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 5a4e19f232abce8701e6d2e12a876c55079b91a2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>Creare una macchina virtuale Linux con più schede di interfaccia di rete usando l'interfaccia della riga di comando di Azure 1.0
 È possibile creare una macchina virtuale (VM) in Azure con più interfacce di rete virtuale (NIC) collegate. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end oppure una rete dedicata a una soluzione di monitoraggio o backup. In questo articolo vengono presentati i comandi rapidi per creare una macchina virtuale con più schede di rete collegate. Le differenti [dimensioni della macchina virtuale](sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
@@ -143,6 +143,8 @@ azure vm create \
     --ssh-publickey-file ~/.ssh/id_rsa.pub
 ```
 
+Quando si aggiungono più schede di rete a una macchina virtuale Linux, è necessario creare regole di routing. Queste regole consentono alla VM di inviare e ricevere traffico appartenente a una scheda di rete specifica. In caso contrario, il traffico appartenente a eth1, ad esempio, non potrà essere elaborato correttamente dalla route predefinita specificata. Per risolvere questo problema di routing, vedere [Configura sistema operativo guest per più schede di interfaccia di rete](multiple-nics.md#configure-guest-os-for-multiple-nics).
+
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>Creare più schede di interfaccia di rete usando i modelli di Resource Manager
 I modelli di Azure Resource Manager utilizzano i file JSON dichiarativi per definire l'ambiente. È possibile consultare una [panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). I modelli di Resource Manager offrono un modo di creare più istanze di una risorsa durante la distribuzione, come ad esempio la creazione di più schede di rete. Utilizzare *Copia* per specificare il numero di istanze da creare:
 
@@ -161,7 +163,9 @@ Ulteriori informazioni sulla [creazione di più istanze utilizzando *Copia*](../
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-È possibile consultare un esempio completo di [creazione di più schede di rete utilizzando i modelli di Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+È possibile consultare un esempio completo di [creazione di più schede di rete utilizzando i modelli di Resource Manager](../../virtual-network/template-samples.md).
+
+Quando si aggiungono più schede di rete a una macchina virtuale Linux, è necessario creare regole di routing. Queste regole consentono alla VM di inviare e ricevere traffico appartenente a una scheda di rete specifica. In caso contrario, il traffico appartenente a eth1, ad esempio, non potrà essere elaborato correttamente dalla route predefinita specificata. Per risolvere questo problema di routing, vedere [Configura sistema operativo guest per più schede di interfaccia di rete](multiple-nics.md#configure-guest-os-for-multiple-nics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Assicurarsi di consultare [Dimensioni delle macchine virtuali di Linux](sizes.md) durante il tentativo di creazione di una macchina virtuale con più schede di rete. Prestare attenzione al numero massimo di schede di rete supportato per ogni dimensione della macchina virtuale. 

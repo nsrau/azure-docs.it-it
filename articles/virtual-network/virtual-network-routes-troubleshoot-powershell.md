@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bf7dc5e7-9399-460e-8e0d-8992dbed98a6
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: ac7f8ddaf84ba94075a9c9c3195bd57534c6821b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2d501419dde633f89a5760af9f82604006de6b6f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Risoluzione dei problemi di route con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Per visualizzare le route di aggregazione applicate a una VM, completare i passa
 ### <a name="view-effective-routes-for-a-network-interface"></a>Visualizzare le route valide per un'interfaccia di rete
 Per visualizzare le route di aggregazione applicate a un'interfaccia di rete, completare i passaggi seguenti:
 
-1. Avviare una sessione di Azure PowerShell e accedere ad Azure. Se non si ha dimestichezza con Azure PowerShell, leggere l'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/overview) . All'account deve essere assegnata l'operazione *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* per l'interfaccia di rete. Per informazioni su come assegnare operazioni agli account, vedere [Creare ruoli personalizzati per il controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Avviare una sessione di Azure PowerShell e accedere ad Azure. Se non si ha dimestichezza con Azure PowerShell, leggere l'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/overview) . All'account deve essere assegnata l'operazione *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* per l'interfaccia di rete. Per informazioni su come assegnare operazioni agli account, vedere [Creare ruoli personalizzati per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Il comando seguente restituisce tutte le route applicate a un'interfaccia di rete denominata *VM1 NIC1* nel gruppo di risorse *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

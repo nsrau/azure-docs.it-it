@@ -1,5 +1,5 @@
 ---
-title: Integrare l'ambiente del servizio app con bilanciamento del carico interno con un gateway applicazione
+title: Integrare l'ambiente del servizio app con bilanciamento del carico interno con il gateway applicazione di Azure
 description: Descrizione dettagliata dell'integrazione di un'app dell'ambiente del servizio app con bilanciamento del carico interno con un gateway applicazione
 services: app-service
 documentationcenter: na
@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 03/03/2018
 ms.author: ccompy
-ms.openlocfilehash: c64b686d7a9016b3834096ebc88179db8972098f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 31aea1d19ed6da856bb5fc634a919819513cb6b2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="integrate-your-ilb-app-service-environment-with-an-application-gateway"></a>Integrare l'ambiente del servizio app con bilanciamento del carico interno con un gateway applicazione #
+# <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrare l'ambiente del servizio app con bilanciamento del carico interno con il gateway applicazione di Azure #
 
 L'[ambiente del servizio app](./intro.md) è una distribuzione del servizio app di Azure nella subnet della rete virtuale di Azure di un cliente. Può essere distribuito con un endpoint pubblico o privato per l'accesso dell'app. La distribuzione dell'ambiente del servizio app con un endpoint privato, ovvero un servizio di bilanciamento del carico interno, viene definita ambiente del servizio app con bilanciamento del carico interno.  
 
-Il gateway applicazione di Azure è un'appliance virtuale che offre bilanciamento del carico di livello 7, offload SSL e protezione web application firewall (WAF). Può essere in ascolto su un indirizzo IP pubblico e instradare il traffico all'endpoint applicazione. 
+I dispositivi WAF (Web Application Firewall) consentono di proteggere le applicazioni Web controllando il traffico Web in ingresso per bloccare SQL injection, attacchi tramite script da altri siti, caricamenti di malware, DDoS di applicazioni e altri attacchi. Esaminano anche le risposte provenienti dai server Web back-end per la prevenzione della perdita dei dati. È possibile ottenere un dispositivo WAF da Azure Marketplace oppure usare il [gateway applicazione di Azure][appgw].
 
-Le informazioni seguenti illustrano come integrare un gateway applicazione configurato WAF con un'app di un ambiente del servizio app con bilanciamento del carico interno.  
+Il gateway applicazione di Azure è un'appliance virtuale che offre bilanciamento del carico di livello 7, offload SSL e protezione WAF. Può essere in ascolto su un indirizzo IP pubblico e instradare il traffico all'endpoint applicazione. Le informazioni seguenti illustrano come integrare un gateway applicazione configurato WAF con un'app di un ambiente del servizio app con bilanciamento del carico interno.  
 
 L'integrazione del gateway applicazione con l'ambiente del servizio app con bilanciamento del carico interno viene eseguita a livello di app. La configurazione del gateway applicazione con l'ambiente del servizio app con bilanciamento del carico interno viene eseguita per app specifiche nell'ambiente del servizio app con bilanciamento del carico interno. Questa tecnica consente l'hosting di applicazioni multitenant sicure in un unico ambiente del servizio app con bilanciamento del carico interno.  
 
@@ -33,14 +33,14 @@ L'integrazione del gateway applicazione con l'ambiente del servizio app con bila
 
 In questa procedura dettagliata si eseguiranno i passaggi seguenti:
 
-* Creare un gateway applicazione.
+* Creare un gateway applicazione di Azure.
 * Configurare il gateway applicazione in modo che punti a un'app nell'ambiente del servizio app con bilanciamento del carico interno.
 * Configurare l'app in modo che rispetti il nome di dominio personalizzato.
 * Modificare il nome host DNS pubblico che punta al gateway applicazione.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Per integrare il gateway applicazione con l'ambiente del servizio app con bilanciamento del carico interno sono necessari:
+Per integrare il gateway applicazione con l'ambiente del servizio app con bilanciamento del carico interno è necessario quanto segue:
 
 * Un ambiente del servizio app con bilanciamento del carico interno.
 * Un'app in esecuzione nell'ambiente del servizio app con bilanciamento del carico interno.
@@ -95,7 +95,7 @@ Non è possibile inserire il gateway nemmeno nella subnet usata dall'ambiente de
     
 4. Nella sezione **Riepilogo** verificare le impostazioni e selezionare **OK**. Per completare la configurazione del gateway applicazione possono essere necessari poco più di 30 minuti.  
 
-5. Al termine della configurazione del gateway applicazione, passare al portale del gateway applicazione. Selezionare **Pool back-end**. Aggiungere l'indirizzo del servizio di bilanciamento del carico interno dell'ambiente del servizio app.
+5. Al termine della configurazione del gateway applicazione, passare al portale del gateway. Selezionare **Pool back-end**. Aggiungere l'indirizzo del servizio di bilanciamento del carico interno dell'ambiente del servizio app.
 
    ![Configurare il pool back-end][4]
 
@@ -107,7 +107,7 @@ Non è possibile inserire il gateway nemmeno nella subnet usata dall'ambiente de
 
    ![Configurare le impostazioni HTTP][6]
     
-8. Passare alla sezione **Panoramica** del gateway applicazione e copiare l'indirizzo IP pubblico usato per il gateway applicazione. Impostare tale indirizzo IP come record A per il nome di dominio dell'app o usare il nome DNS di tale indirizzo in un record CNAME. Selezionare l'indirizzo IP pubblico e copiarlo dall'interfaccia utente dell'indirizzo IP pubblico è più facile che copiarlo dal collegamento nella sezione **Panoramica** del gateway applicazione. 
+8. Passare alla sezione **Panoramica** del gateway applicazione e copiare l'indirizzo IP pubblico usato per il gateway. Impostare tale indirizzo IP come record A per il nome di dominio dell'app o usare il nome DNS di tale indirizzo in un record CNAME. È più facile selezionare l'indirizzo IP pubblico e copiarlo dall'interfaccia utente dell'indirizzo IP pubblico che non copiarlo dal collegamento nella sezione **Panoramica** del gateway applicazione. 
 
    ![Portale del gateway applicazione][7]
 

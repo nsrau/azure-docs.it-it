@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b44bbd9cb2f54107d2593b1ab7f07f07fcc41e57
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="archive-azure-monitoring-data"></a>Archiviare i dati di monitoraggio di Azure
 
@@ -22,11 +22,11 @@ I diversi livelli dell'ambiente Azure producono dati di metrica e log che posson
 
 > [!div class="checklist"]
 > * Creare un account di archiviazione per conservare i dati di monitoraggio
-> * Indirizzarvi i registri della sottoscrizione 
-> * Indirizzarvi i dati della risorsa 
-> * Indirizzarvi i dati della macchina virtuale, ovvero del sistema operativo guest 
-> * Visualizzare i dati di monitoraggio nell'account di archiviazione 
-> * Pulire le risorse 
+> * Indirizzarvi i registri della sottoscrizione
+> * Indirizzarvi i dati della risorsa
+> * Indirizzarvi i dati della macchina virtuale, ovvero del sistema operativo guest
+> * Visualizzare i dati di monitoraggio nell'account di archiviazione
+> * Pulire le risorse
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -69,7 +69,7 @@ Ora vengono configurati i dati a livello di risorsa, ovvero le metriche delle ri
 1. Fare clic sul pulsante **Monitoraggio** nell'elenco di navigazione a sinistra, quindi su **Impostazioni di diagnostica**. Di seguito viene visualizzato un elenco di tutte le risorse nella sottoscrizione che genera dati di monitoraggio tramite Monitoraggio di Azure. Se nell'elenco non sono presenti risorse, è possibile [creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) prima di procedere in modo da avere una risorsa per cui è possibile configurare un'impostazione di diagnostica.
 
 2. Fare clic su una risorsa nell'elenco e quindi fare clic su **Attiva diagnostica**.
-   
+
    ![Attivare la diagnostica](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
 
    Se è stata già configurata un'impostazione, vengono visualizzate le impostazioni esistenti e un pulsante per **aggiungere un'impostazione di diagnostica**. Fare clic su questo pulsante.
@@ -87,12 +87,19 @@ Ora vengono configurati i dati a livello di risorsa, ovvero le metriche delle ri
 5. Selezionare tutte le caselle in **Log** e **Metrica**. A seconda del tipo di risorsa, si può avere solo una di queste opzioni. Queste caselle di controllo consentono di controllare le categorie di log e dati di metrica disponibili per il tipo di risorsa che vengono inviate alla destinazione selezionata, in questo caso, un account di archiviazione.
 
    ![Categorie di impostazioni di diagnostica](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-categories.png)
-   
+
 6. Impostare il dispositivo di scorrimento **Retention (days)** (Conservazione (giorni)) su 30. Questo dispositivo di scorrimento consente di impostare un numero di giorni per conservare i dati di monitoraggio nell'account di archiviazione. Monitoraggio di Azure elimina automaticamente i dati precedenti al numero di giorni specificato. Se il valore di conservazione è zero giorni, i dati vengono conservati all'infinito.
 
 7. Fare clic su **Save**.
 
 Il monitoraggio dei dati nella risorsa viene quindi trasmesso all'account di archiviazione.
+
+> [!NOTE]
+> L'invio delle metriche multidimensionali tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat.
+>
+> *Ad esempio*: la metrica 'Messaggi in ingresso' su un hub eventi può essere esplorata e rappresentata in un grafico a livello di singola coda. In caso tuttavia di esportazione tramite impostazione di diagnostica, la metrica verrà rappresentata come tutti i messaggi in ingresso in tutte le code nell'hub eventi.
+>
+>
 
 ## <a name="route-virtual-machine-guest-os-data-to-the-storage-account"></a>Indirizzare i dati della macchina virtuale, ovvero del sistema operativo guest, all'account di archiviazione
 
@@ -113,7 +120,7 @@ Il monitoraggio dei dati nella risorsa viene quindi trasmesso all'account di arc
 6. Dopo aver salvato correttamente l'impostazione di diagnostica, la scheda **Panoramica** mostra un elenco di dati raccolti e il relativo percorso di archiviazione. Fare clic sulla sezione **Contatori di prestazioni** per esaminare l'insieme di contatori delle prestazioni di Windows raccolto.
 
    ![Impostazione dei contatori delle prestazioni](media/monitor-tutorial-archive-monitoring-data/guest-perf-counters.png)
-   
+
 7. Fare clic sulla scheda **Log** e selezionare le caselle di controllo per i log a livello di **Informazioni** nei log Applicazione e Sistema.
 
    ![Impostazioni dei log](media/monitor-tutorial-archive-monitoring-data/guest-logs.png)
@@ -166,16 +173,16 @@ Ora sono stati configurati correttamente i dati di monitoraggio da archiviare in
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato descritto come configurare i dati di monitoraggio dell'ambiente di Azure, ovvero sottoscrizione, risorse e sistema operativo guest, da archiviare in un account di archiviazione. 
+In questa esercitazione è stato descritto come configurare i dati di monitoraggio dell'ambiente di Azure, ovvero sottoscrizione, risorse e sistema operativo guest, da archiviare in un account di archiviazione.
 
 
 > [!div class="checklist"]
 > * Creare un account di archiviazione per conservare i dati di monitoraggio
-> * Indirizzarvi i registri della sottoscrizione 
-> * Indirizzarvi i dati della risorsa 
-> * Indirizzarvi i dati della macchina virtuale, ovvero del sistema operativo guest 
-> * Visualizzare i dati di monitoraggio nell'account di archiviazione 
-> * Pulire le risorse 
+> * Indirizzarvi i registri della sottoscrizione
+> * Indirizzarvi i dati della risorsa
+> * Indirizzarvi i dati della macchina virtuale, ovvero del sistema operativo guest
+> * Visualizzare i dati di monitoraggio nell'account di archiviazione
+> * Pulire le risorse
 
 Per sfruttare al meglio i dati e derivare informazioni aggiuntive, inviare i dati anche a Log Analytics.
 

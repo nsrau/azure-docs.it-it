@@ -1,25 +1,19 @@
 ---
 title: 'Caricare dati: .NET e Ricerca di Azure | Microsoft Docs'
 description: Informazioni su come caricare dati in un indice di Ricerca di Azure tramite .NET SDK.
-services: search
-documentationcenter: 
 author: brjohnstmsft
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 0e0e7e7b-7178-4c26-95c6-2fd1e8015aca
+manager: jlembicz
+ms.author: brjohnst
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 01/13/2017
-ms.author: brjohnst
-ms.openlocfilehash: bdd952869143c6ca6374bb9264db5bcba1f32b50
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: fb8fb153c7393af0e084cb96ee2f5e82fba5b220
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Caricare dati in Ricerca di Azure tramite .NET SDK
 > [!div class="op_single_selector"]

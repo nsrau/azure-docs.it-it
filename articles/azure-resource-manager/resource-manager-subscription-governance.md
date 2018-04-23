@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 3b5087faaf3db087b15b77fedac8df0d7e4a899a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 02553bb59cb37bab21d53adafc42fddcf08795a7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Scaffold Azure enterprise: governance prescrittiva per le sottoscrizioni
 Le organizzazioni stanno adottando sempre di più il cloud pubblico per la sua agilità e la sua flessibilità. Usano i punti di forza del cloud per generare ricavi o ottimizzare le risorse per l'azienda. Microsoft Azure fornisce numerosi servizi che le organizzazioni possono assemblare come blocchi predefiniti per affrontare le esigenze di una vasta gamma di applicazioni e carichi di lavoro. 
@@ -135,7 +135,7 @@ Ambiente di tipo "Agile" per una business unit che crea applicazioni cloud
 > 
 
 ### <a name="audit---what-happened"></a>Controllo: cos'è successo?
-Per visualizzare il funzionamento dell'ambiente, è necessario controllare l'attività dell'utente. La maggior parte dei tipi di risorse all'interno di Azure crea log di diagnostica che è possibile analizzare tramite uno strumento di log o in Azure Operations Management Suite. È possibile raccogliere log attività tra più sottoscrizioni per fornire una visualizzazione a livello di reparto o di azienda. I record di controllo sono allo stesso tempo un importante strumento di diagnostica e un meccanismo fondamentale per attivare gli eventi nell'ambiente di Azure.
+Per visualizzare il funzionamento dell'ambiente, è necessario controllare l'attività dell'utente. La maggior parte dei tipi di risorse all'interno di Azure crea log di diagnostica che è possibile analizzare tramite uno strumento di log o in Azure Log Analytics. È possibile raccogliere log attività tra più sottoscrizioni per fornire una visualizzazione a livello di reparto o di azienda. I record di controllo sono allo stesso tempo un importante strumento di diagnostica e un meccanismo fondamentale per attivare gli eventi nell'ambiente di Azure.
 
 I log attività da distribuzioni Resource Manager consentono di determinare le **operazioni** che hanno avuto luogo e chi le ha eseguite. I log attività possono essere raccolti e aggregati tramite  strumenti quali Log Analytics.
 

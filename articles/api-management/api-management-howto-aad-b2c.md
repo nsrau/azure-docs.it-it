@@ -3,9 +3,9 @@ title: Autorizzare gli account per sviluppatore usando Azure Active Directory B2
 description: Informazioni su come autorizzare gli utenti usando Azure Active Directory B2C in Gestione API.
 services: api-management
 documentationcenter: API Management
-author: juliako
+author: miaojiang
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: d843757c2ed63c4f8cff09d809c2de382b2aeb59
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 1268905d8a992d0cac65174142f6a3870f38f0d8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/16/2018
 ---
 > [!WARNING]
 > L'integrazione di Azure Active Directory B2C è disponibile solo nei livelli [Developer e Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/).

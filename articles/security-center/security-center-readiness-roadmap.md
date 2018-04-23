@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
+ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 0de8dda6f88f31208c3fe7d560a461fea46a67e6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 88b95c28cd64afb97fb34d2bced09161c3aa9312
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Guida di orientamento alla preparazione del Centro sicurezza di Azure
 Questo documento fornisce una guida di orientamento alla preparazione utile per iniziare a usare il Centro sicurezza di Azure.
@@ -94,8 +94,9 @@ Le macchine virtuali di Azure possono sfruttare i vantaggi delle funzionalità d
 
 Usare le risorse seguenti per ottenere informazioni sull'uso di queste funzionalità nel Centro sicurezza.
 
-Video   
+Video  
 * [Azure Security Center – Just-in-Time VM Access](https://youtu.be/UOQb2FcdQnU) (Centro sicurezza di Azure - Accesso JIT alle VM)
+* [Azure Security Center - Adaptive Application Controls](https://youtu.be/wWWekI1Y9ck) (Centro sicurezza di Azure - Controlli delle applicazioni adattivi)
 
 Articoli    
 * [Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
@@ -105,6 +106,7 @@ Articoli
 
 * [Security Center hands-on lab](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72) (Laboratorio pratico sul Centro sicurezza)
 * [Web Application Firewall (WAF) recommendation playbook in Security Center](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff) (Playbook di consigli per web application firewall nel Centro sicurezza)
+* [Azure Security Center Playbook: Security Alerts](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046) (Playbook del Centro sicurezza di Azure: Avvisi di sicurezza)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Pagina di documentazione del Centro sicurezza](https://docs.microsoft.com/azure/security-center/)
@@ -115,6 +117,7 @@ Articoli
 * [Procedure consigliate per la sicurezza di rete](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [Consigli relativi a PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Conformità](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
+* [OMS customers can now use Azure Security Center to protect their hybrid cloud workloads](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/) (I clienti di OMS possono ora usare il Centro sicurezza di Azure per proteggere i propri carichi di lavoro cloud ibridi)
 
 ## <a name="community-resources"></a>Risorse della community
 

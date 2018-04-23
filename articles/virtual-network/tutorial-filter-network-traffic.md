@@ -1,6 +1,6 @@
 ---
-title: Filtrare il traffico di rete - Azure PowerShell | Microsoft Docs
-description: In questo articolo viene illustrato come filtrare il traffico di rete a una subnet, con un gruppo di sicurezza di rete, usando PowerShell.
+title: Filtrare il traffico di rete - Esercitazione - Azure PowerShell | Microsoft Docs
+description: Questa esercitazione illustra come filtrare il traffico di rete a una subnet, con un gruppo di sicurezza di rete, usando PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -11,21 +11,21 @@ Customer intent: I want to filter network traffic to virtual machines that perfo
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
-ms.custom: ''
-ms.openlocfilehash: 53406150cfc2ec4229ecd9cf3356ad03d60f8e7e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.custom: mvc
+ms.openlocfilehash: 63dfa89af64e500e8ed0292ab282150636e57ab3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrare il traffico di rete con un gruppo di sicurezza di rete usando PowerShell
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-powershell"></a>Esercitazione: Filtrare il traffico di rete con un gruppo di sicurezza di rete usando PowerShell
 
-È possibile filtrare il traffico di rete in ingresso e in uscita in una subnet di rete virtuale con un gruppo di sicurezza di rete. I gruppi di sicurezza di rete contengono regole di sicurezza per filtrare il traffico di rete in base a indirizzo IP, porta e protocollo. Le regole di sicurezza vengono applicate alle risorse distribuite in una subnet. In questo articolo viene spiegato come:
+È possibile filtrare il traffico di rete in ingresso e in uscita da una subnet di rete virtuale con un gruppo di sicurezza di rete. I gruppi di sicurezza di rete contengono regole di sicurezza per filtrare il traffico di rete in base a indirizzo IP, porta e protocollo. Le regole di sicurezza vengono applicate alle risorse distribuite in una subnet. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un gruppo di sicurezza di rete e le regole di sicurezza
@@ -33,21 +33,21 @@ ms.lasthandoff: 04/03/2018
 > * Distribuire le macchine virtuali in una subnet
 > * Testare i filtri del traffico
 
-Se si preferisce, è possibile completare questo articolo usando l'[interfaccia della riga di comando di Azure](tutorial-filter-network-traffic-cli.md).
+Se si preferisce, è possibile completare questa esercitazione usando l'[interfaccia della riga di comando di Azure](tutorial-filter-network-traffic-cli.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Azure PowerShell 5.4.1 o versione successiva. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure. 
+Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell 5.4.1 o versione successiva. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure. 
 
 ## <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
-Un gruppo di sicurezza di rete contiene regole di sicurezza. Le regole di sicurezza specificano un'origine e destinazione. Le origini e le destinazioni possono essere gruppi di sicurezza dell'applicazione.
+Un gruppo di sicurezza di rete contiene regole di sicurezza. Le regole di sicurezza specificano un'origine e una destinazione. Le origini e le destinazioni possono essere gruppi di sicurezza delle applicazioni.
 
 ### <a name="create-application-security-groups"></a>Creare gruppi di sicurezza dell'applicazione
 
-Creare prima di tutto un gruppo di risorse con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) per tutte le risorse create in questo articolo. L'esempio seguente crea un gruppo di risorse denominato nella località *eastus*: 
+Creare prima di tutto un gruppo di risorse con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) per tutte le risorse create in questa esercitazione. L'esempio seguente crea un gruppo di risorse nella località *eastus*: 
 
 
 ```azurepowershell-interactive
@@ -70,7 +70,7 @@ $mgmtAsg = New-AzureRmApplicationSecurityGroup `
 
 ### <a name="create-security-rules"></a>Creare regole di sicurezza
 
-Creare una regola di sicurezza con [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). L'esempio seguente crea una regola che consenta il traffico in ingresso proveniente da Internet per il gruppo di sicurezza dell'applicazione *myWebServers* sulle porte 80 e 443:
+Creare una regola di sicurezza con [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). L'esempio seguente crea una regola che consente il traffico in ingresso proveniente da Internet al gruppo di sicurezza delle applicazioni *myWebServers* sulle porte 80 e 443:
 
 ```azurepowershell-interactive
 $webRule = New-AzureRmNetworkSecurityRuleConfig `
@@ -98,7 +98,7 @@ $mgmtRule = New-AzureRmNetworkSecurityRuleConfig `
   -DestinationPortRange 3389
 ```
 
-In questo articolo RDP (porta 3389) è esposto a Internet per la VM *myAsgMgmtServers*. Per gli ambienti di produzione, anziché esporre la porta 3389 a Internet, è consigliabile connettersi alle risorse di Azure da gestire con una connessione di rete [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [privata](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+In questa esercitazione, RDP (porta 3389) è esposto a Internet per la VM *myAsgMgmtServers*. Per gli ambienti di produzione, anziché esporre la porta 3389 a Internet, è consigliabile connettersi alle risorse di Azure da gestire con una connessione di rete [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [privata](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
@@ -207,7 +207,7 @@ New-AzureRmVM `
   -AsJob
 ```
 
-Creare una VM che funga da server di gestione:
+Creare una VM che funge da server di gestione:
 
 ```azurepowershell-interactive
 # Create user object
@@ -297,9 +297,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato creato un gruppo di sicurezza di rete che è stato associato a una subnet di rete virtuale. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Panoramica dei gruppi di sicurezza di rete](security-overview.md) e [Gestire un gruppo di sicurezza di rete](virtual-network-manage-nsg-arm-ps.md).
+In questa esercitazione è stato creato un gruppo di sicurezza di rete, che è stato associato a una subnet di rete virtuale. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Panoramica dei gruppi di sicurezza di rete](security-overview.md) e [Gestire un gruppo di sicurezza di rete](manage-network-security-group.md).
 
-Per impostazione predefinita, Azure instrada il traffico tra subnet. È anche possibile ad esempio scegliere di instradare il traffico tra subnet tramite una VM che funge da firewall. Per informazioni su come creare una tabella di route, passare all'articolo successivo.
+Per impostazione predefinita, Azure instrada il traffico tra subnet. È anche possibile ad esempio scegliere di instradare il traffico tra subnet tramite una VM che funge da firewall. Per informazioni su come creare una tabella di route, passare all'esercitazione successiva.
 
 > [!div class="nextstepaction"]
 > [Creare una tabella di route](./tutorial-create-route-table-portal.md)

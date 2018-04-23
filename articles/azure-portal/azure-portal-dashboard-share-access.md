@@ -2,7 +2,7 @@
 title: Condividere i dashboard del portale di Azure tramite l'uso di RBAC | Microsoft Docs
 description: Questo articolo illustra come condividere un dashboard nel portale di Azure tramite il Controllo degli accessi in base al ruolo.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: 33ddfef1e23a6ff0c2cb8e359d408d2c42cbcf3a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 75f06e49aa317fc887831a9e04861d9a7989bdb2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Condividere i dashboard di Azure tramite il Controllo degli accessi in base al ruolo
-Dopo aver configurato un dashboard, è possibile pubblicarlo e condividerlo con altri utenti nell'organizzazione. Si consente ad altri utenti di visualizzare il proprio dashboard tramite il [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) di Azure. Si assegna un utente o gruppo di utenti a un ruolo e questo ruolo definisce se gli utenti possono visualizzare o modificare il dashboard pubblicato. 
+Dopo aver configurato un dashboard, è possibile pubblicarlo e condividerlo con altri utenti nell'organizzazione. Si consente ad altri utenti di visualizzare il proprio dashboard tramite il [Controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md) di Azure. Si assegna un utente o gruppo di utenti a un ruolo e questo ruolo definisce se gli utenti possono visualizzare o modificare il dashboard pubblicato. 
 
 Tutti i dashboard pubblicati vengono implementati come risorse di Azure, di conseguenza costituiscono elementi gestibili all'interno della sottoscrizione e sono contenuti in un gruppo di risorse.  Dal punto di vista del controllo di accesso, i dashboard non sono diversi da altre risorse, ad esempio una macchina virtuale o un account di archiviazione.
 
@@ -74,6 +74,6 @@ Il dashboard viene pubblicato. Se le autorizzazioni ereditate dalla sottoscrizio
      ![Ruoli assegnati](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un elenco di ruoli, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md).
+* Per un elenco di ruoli, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../role-based-access-control/built-in-roles.md).
 * Per altre informazioni sulla gestione delle risorse, vedere [Gestire le risorse di Azure mediante il portale](resource-group-portal.md).
 

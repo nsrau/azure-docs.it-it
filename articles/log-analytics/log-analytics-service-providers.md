@@ -1,11 +1,11 @@
 ---
-title: "Funzionalità di Log Analytics per i provider di servizi | Documentazione Microsoft"
+title: Funzionalità di Log Analytics per i provider di servizi | Documentazione Microsoft
 description: Log Analytics aiuta i provider dei servizi gestiti (MSP), le aziende di grandi dimensioni, i fornitori di software indipendenti (ISV) e i provider di servizi di hosting a gestire e monitorare i server nell'infrastruttura cloud o locale del cliente.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6934e92df562099122eaede39fd26cf51cf1ee44
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Funzionalità di Log Analytics per i provider di servizi
 Log Analytics aiuta i provider dei servizi gestiti (MSP), le aziende di grandi dimensioni, i fornitori di software indipendenti (ISV) e i provider di servizi di hosting a gestire e monitorare i server nell'infrastruttura cloud o locale del cliente. 
@@ -40,7 +40,7 @@ In qualità di *Provider di soluzioni cloud* è possibile:
 Per accedere alla sottoscrizione del tenant è necessario specificare l'identificatore del tenant. L'identificatore del tenant corrisponde spesso all'ultima parte dell'indirizzo di posta elettronica con cui si esegue l'accesso.
 
 * Nel portale di OMS, aggiungere `?tenant=contoso.com` nell'URL per il portale. Ad esempio: `mms.microsoft.com/?tenant=contoso.com`
-* In PowerShell, usare il parametro `-Tenant contoso.com` quando si usa il cmdlet `Add-AzureRmAccount`
+* In PowerShell, usare il parametro `-Tenant contoso.com` quando si usa il cmdlet `Connect-AzureRmAccount`
 * L'identificatore del tenant viene aggiunto automaticamente quando si usa il collegamento `OMS portal` dal portale di Azure per aprire e accedere al portale di OMS per l'area di lavoro selezionata
 
 In qualità di *cliente* di un provider di soluzioni cloud è possibile:

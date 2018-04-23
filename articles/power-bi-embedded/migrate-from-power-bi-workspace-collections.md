@@ -2,23 +2,23 @@
 title: Come eseguire la migrazione del contenuto delle raccolte di aree di lavoro di Power BI a Power BI Embedded | Microsoft Docs
 description: Informazioni su come eseguire la migrazione dalle raccolte di aree di lavoro di Power BI a Power BI Embedded e sfruttare i miglioramenti per l'incorporamento nelle app.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
-ms.openlocfilehash: 069f31c8213bd0d8586f7ca50e543acfdad8a2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: d138b0c26ffc0a44947f79811fd586dda7df4509
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-migrate-power-bi-workspace-collection-content-to-power-bi-embedded"></a>Come eseguire la migrazione del contenuto delle raccolte di aree di lavoro di Power BI a Power BI Embedded
 
@@ -122,7 +122,7 @@ I set di dati memorizzati nella cache si riferiscono a file PBIX con dati import
 3. Salvare il file PBIX.
 4. Chiamare l'API Importazione PBIX per l'area di lavoro di Power BI Embedded.
 5. Aggiornare la stringa di connessione chiamando - POST https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections
-6. Ottenere ID GW e ID origine dati chiamando - GET https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources
+6. Ottenere l'ID GW e l'ID origine dati chiamando - GET https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources
 7. Aggiornare le credenziali dell'utente chiamando - PATCH https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}
 
 #### <a name="old-dataset-and-reports"></a>Set di dati e report precedenti

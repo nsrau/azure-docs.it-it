@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: ae8e9f46923928853c0c63e8c50f4e95b915e277
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: fa6a994f30c301fd6c7b431467aebc9d3489c6bc
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: account e autorizzazioni
 L'installazione guidata di Azure AD Connect offre due percorsi diversi:
@@ -90,7 +90,7 @@ Le autorizzazioni necessarie dipendono dalle funzionalità facoltative abilitate
 | Sincronizzazione delle password |<li>Replica modifiche directory</li>  <li>Replica modifiche directory - Tutto |
 | Distribuzione ibrida di Exchange |Autorizzazioni di scrittura per gli attributi documentati in [Writeback della distribuzione ibrida Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) per utenti, gruppi e contatti. |
 | Cartelle pubbliche della posta di Exchange |Autorizzazioni di lettura per gli attributi documentati in [Cartelle pubbliche della posta di Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) per le cartelle pubbliche. | 
-| writeback delle password |Autorizzazioni di scrittura per gli attributi documentati in [Introduzione alla gestione delle password](../active-directory-passwords-writeback.md) per gli utenti. |
+| writeback delle password |Autorizzazioni di scrittura per gli attributi documentati in [Introduzione alla gestione delle password](../authentication/howto-sspr-writeback.md) per gli utenti. |
 | Writeback dispositivi |Autorizzazioni concesse con uno script di PowerShell come descritto in [Writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md). |
 | Writeback dei gruppi |Lettura, creazione, aggiornamento ed eliminazione di oggetti di gruppo per i **gruppi di Office 365** sincronizzati.  Per altre informazioni, vedere [Writeback dei gruppi](active-directory-aadconnect-feature-preview.md#group-writeback).|
 

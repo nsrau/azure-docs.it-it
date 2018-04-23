@@ -115,14 +115,14 @@ Per raccogliere Event Trace for Windows, seguire questa procedura:
 2. Premere F12 per avviare Strumenti di sviluppo. Se necessario, deselezionare l'impostazione **Cancella voci durante l'esplorazione**.
 3. Fare clic sulla scheda **Rete** e avviare l'acquisizione del traffico di rete:
  - In Chrome selezionare **Preserve log** (Mantieni log). La registrazione viene avviata automaticamente. Un cerchio rosso indica che è in corso l'acquisizione del traffico. Se non viene visualizzato, fare clic sul cerchio nero per avviarla.
- - Anche in Edge/Internet Explorer la registrazione viene avviata automaticamente. In caso contrario, fare clic sul pulsante di esecuzione verde.
+ - Anche in Microsoft Edge/Internet Explorer la registrazione viene avviata automaticamente. In caso contrario, fare clic sul pulsante di esecuzione verde.
 4. Provare a riprodurre l'errore.
 5. Dopo aver riscontrato l'errore durante la registrazione, arrestare la registrazione e salvare una copia dell'attività registrata:
  - In Chrome fare clic con il pulsante destro del mouse su **Save as HAR with content** (Salva come HAR con contenuto). In questo modo i log vengono compressi ed esportati come file con estensione har.
- - In Edge/Internet Explorer fare clic sull'icona **Esporta traffico catturato**. In questo modo il log viene compresso ed esportato.
+ - In Microsoft Edge/Internet Explorer fare clic sull'icona **Esporta traffico catturato**. In questo modo il log viene compresso ed esportato.
 6. Passare alla scheda **Console** per verificare la presenza di eventuali avvisi o errori. Per salvare il log della console:
  - In Chrome fare clic con il pulsante destro del mouse in un punto qualsiasi del log della console. Selezionare **Salva con nome** per esportare e comprimere il log.
- - In Edge/Internet Explorer fare clic con il pulsante destro del mouse sugli errori e selezionare **Copia tutto**.
+ - In Microsoft Edge/Internet Explorer fare clic con il pulsante destro del mouse sugli errori e selezionare **Copia tutto**.
 7. Chiudere Strumenti di sviluppo.
 
 

@@ -1,23 +1,19 @@
 ---
 title: Versioni dell'API di Ricerca di Azure | Microsoft Azure | API di ricerca
 description: Version policy for Azure Search REST APIs and the client library in the .NET SDK.
-services: search
-documentationcenter: 
 author: brjohnstmsft
-manager: pablocas
-editor: 
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 1a7f5b9c53d3258e5f8eda40401c61a85971d8c7
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dfa3e1996ecbd3d78fef9f85facb7da1c209fafa
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="api-versions-in-azure-search"></a>Versioni API in Ricerca di Azure
 Il servizio Ricerca di Azure Search distribuisce regolarmente aggiornamenti delle funzionalità. A volte, ma non sempre, questi aggiornamenti richiedono la pubblicazione di una nuova versione dell'API per mantenere la compatibilità con le versioni precedenti. Questa pubblicazione consente di controllare come e quando integrare gli aggiornamenti del servizio di ricerca nel codice.

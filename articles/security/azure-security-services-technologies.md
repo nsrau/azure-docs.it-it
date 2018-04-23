@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 1ea707d3d149734dad2d5c76d853ddd667cbf73b
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 20d3eb9a1843e1a223ba7fb060df46a22f9315b0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-security-services-and-technologies"></a>Servizi e tecnologie per la sicurezza di Azure
 I clienti attuali e futuri di Azure spesso chiedono se è disponibile un elenco di tutte le tecnologie e i servizi relativi alla sicurezza offerti da Azure.
@@ -54,11 +54,11 @@ Di seguito è disponibile un primo elenco. L'elenco verrà modificato e accresci
 * [Controllo del database SQL di Azure](../sql-database/sql-database-auditing.md)
 
 ## <a name="azure-identity-and-access-management"></a>Gestione delle identità e degli accessi di Azure
-* [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md)
+* [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md)
 * [Azure Active Directory](../active-directory/active-directory-whatis.md)
 * [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
 * [Servizi di dominio Azure Active Directory](../active-directory-domain-services/active-directory-ds-overview.md)
-* [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+* [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
 
 ## <a name="backup-and-disaster-recovery"></a>Backup e ripristino di emergenza
 * [Backup di Azure](https://azure.microsoft.com/documentation/services/backup/)

@@ -5,7 +5,7 @@ services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: afe83109-b89f-4f18-bddd-b8b4a30f11b4
 ms.service: devtest-lab
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 24a3220a21280684a34405ac4c3d9f9eab9e3683
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: d8b9e48db9e75fb41ecad1958b3aa930a6bce3aa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Domande frequenti su Azure DevTest Labs
 Ottenere le risposte ad alcune delle domande più comuni relative ad Azure DevTest Labs.
@@ -55,7 +55,7 @@ DevTest Labs è un servizio gratuito. La creazione di lab e la configurazione di
 
 **Sicurezza**
 ## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Quali sono i diversi livelli di sicurezza in DevTest Labs?
-L'accesso sicuro è determinato dal [controllo degli accessi in base al ruolo](../active-directory/role-based-access-built-in-roles.md). Per comprendere il funzionamento dell'accesso, è utile conoscere le differenze tra un'autorizzazione, un ruolo e un ambito, come definiti dal controllo degli accessi in base al ruolo.
+L'accesso sicuro è determinato dal [controllo degli accessi in base al ruolo](../role-based-access-control/built-in-roles.md). Per comprendere il funzionamento dell'accesso, è utile conoscere le differenze tra un'autorizzazione, un ruolo e un ambito, come definiti dal controllo degli accessi in base al ruolo.
 
 * **Autorizzazione**: un'autorizzazione è un accesso definito per un'azione specifica. Un'autorizzazione può ad esempio essere l'accesso in lettura a tutte le macchine virtuali.
 * **Ruolo**: un ruolo è un set di autorizzazioni che possono essere raggruppate e assegnate a un utente. Un utente con il ruolo di proprietario della sottoscrizione ha ad esempio accesso a tutte le risorse all'interno di una sottoscrizione.
@@ -159,7 +159,7 @@ Per trovare l'account di archiviazione di destinazione associato al lab:
     $labName = "<Enter lab name here>"
 
     # Sign in to your Azure account.
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     # Select the Azure subscription that has the lab. This step is optional
     # if you have only one subscription.

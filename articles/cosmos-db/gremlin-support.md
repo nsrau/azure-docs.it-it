@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: b13e31be58502d670b11dace1f646b0632a2f039
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c3d80fcaa38d0f1d7fa1770879ca9b40642bb796
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Supporto Gremlin Graph di Azure Cosmos DB
 Azure Cosmos DB supporta il linguaggio di attraversamento di grafi [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) di [Apache Tinkerpop](http://tinkerpop.apache.org), ovvero un'API Graph per la creazione di entità di grafi e l'esecuzione di operazioni di query sui grafi. È possibile usare il linguaggio Gremlin per creare le entità dei grafi (vertici e archi), modificare proprietà all'interno di tali entità, eseguire query e attraversamenti ed eliminare entità. 
@@ -153,12 +153,6 @@ Ogni proprietà può archiviare più valori all'interno di una matrice.
 | Proprietà | DESCRIZIONE |
 | --- | --- |
 | value | Valore della proprietà
-
-## <a name="gremlin-partitioning"></a>Partizionamento di Gremlin
-
-In Azure Cosmos DB i grafi vengono archiviati all'interno di contenitori che possono essere scalati in modo indipendente in termini di memoria e velocità effettiva (espressa in richieste normalizzate al secondo). Ogni contenitore deve definire una proprietà della chiave di partizione facoltativa, ma consigliata, che determina un limite della partizione logica per i dati correlati. Ogni vertice/arco deve possedere una proprietà `id` univoca per le entità all'interno del valore della chiave di partizione. I dettagli sono descritti in [Partitioning in Azure Cosmos DB](partition-data.md) (Partizionamento in Azure Cosmos DB).
-
-Le operazioni Gremlin funzionano senza problemi su dati a grafo che si estendono su più partizioni in Azure Cosmos DB. Tuttavia, si consiglia di scegliere una chiave di partizione per i grafi che venga comunemente usata come filtro nelle query, abbia molti valori distinti e una frequenza di accesso a questi valori simile. 
 
 ## <a name="gremlin-steps"></a>Step di Gremlin
 Verranno ora esaminati gli step di Gremlin supportati da Azure Cosmos DB. Per informazioni complete su Gremlin, vedere [TinkerPop reference](http://tinkerpop.apache.org/docs/current/reference) (Riferimento a TinkerPop).

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 018893a2124f1ab9c98e0728bc90ad0a69cf471f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3f553b9ea3629a38ab9dea0e93b16c62aebe301f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Esercitazione: Integrazione di Azure Active Directory con Amazon Web Service (AWS)
 
@@ -32,7 +32,7 @@ L'integrazione di Amazon Web Service (AWS) con Azure AD offre i vantaggi seguent
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Amazon Web Service (AWS), sono necessari gli elementi seguenti:
 
@@ -117,7 +117,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | Nome attributo  | Valore attributo | Spazio dei nomi |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-    | Role            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
+    | Ruolo            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     
     >[!TIP]
     >È necessario configurare il provisioning dell'utente in Azure AD per recuperare tutti i ruoli dalla Console AWS. Vedere la procedura di provisioning seguente.
@@ -140,7 +140,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Collegamento di download del certificato](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_certificate.png) 
 
-7. Fare clic sul pulsante **Salva**.
+7. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_400.png)
 
@@ -190,7 +190,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
   
     d. Fare clic su **Next: Permissions** (Avanti: Autorizzazioni).
 
-16. Nella finestra di dialogo **Attach Permissions Policies** (Collega criteri di autorizzazione) fare clic su **Next: Review** (Avanti: Riepilogo).  
+16. Nella finestra di dialogo **Attach Permissions Policies** (Collega i criteri di autorizzazione) fare clic su **Next: Review** (Avanti: Riepilogo).  
     
     ![Configurare criteri dell'accesso Single Sign-On][33]
 
@@ -202,9 +202,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Nella casella di testo **Role description** (Descrizione ruolo) immettere la descrizione.
 
-    a. Fare clic su **Crea ruolo**.
+    c. Fare clic su **Crea ruolo**.
 
-    b. Creare tutti i ruoli necessari in base alle esigenze ed eseguirne il mapping per il Provider di identità.
+    d. Creare tutti i ruoli necessari in base alle esigenze ed eseguirne il mapping per il Provider di identità.
 
 18. Usare le credenziali dell'account del servizio AWS per recuperare i ruoli dall'account AWS nel provisioning utenti di Azure AD. A tale scopo, aprire la pagina home della console AWS.
 
@@ -224,7 +224,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Creazione di un nuovo criterio](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-    a. Nella sezione **Create policy** (Crea criterio) fare clic sulla scheda **JSON**.
+    a. Nella sezione **"Crea criterio"**, fare clic sulla scheda **"JSON"**.
 
     b. Nel documento del criterio aggiungere il codice JSON seguente.
     
@@ -268,18 +268,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. In **Descrizione** è possibile digitare **Questo criterio consente di recuperare i ruoli dagli account AWS**.
     
-    c. Fare clic sul pulsante **Create policy** (Crea criterio).
+    c. Fare clic sul pulsante **"Crea criterio"**.
 
-24. Nella finestra di dialogo **Review** seguire questa procedura:   
-    
-    ![Riepilogo della configurazione dell'accesso Single Sign-On][34] 
-
-    a. Fare clic su **Crea ruolo**.
-
-    b. Creare tutti i ruoli necessari in base alle esigenze ed eseguirne il mapping per il Provider di identità.
-
-
-25. Creare un nuovo account utente nel servizio AWS IAM seguendo questa procedura:
+24. Creare un nuovo account utente nel servizio AWS IAM seguendo questa procedura:
 
     a. Fare clic sulla voce **Utenti** nella console AWS IAM.
 
@@ -299,7 +290,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     * Fare clic sul pulsante **Next Permissions** (Autorizzazioni successive) nell'angolo inferiore destro.
 
-26. Ora creare un nuovo criterio per l'utente seguendo questa procedura:
+25. Ora creare un nuovo criterio per l'utente seguendo questa procedura:
 
     ![Add user](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
@@ -309,7 +300,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     c. Selezionare il **criterio** e quindi fare clic sul pulsante **Next: Review** (Avanti: Riepilogo).
 
-27. Controllare il criterio per l'utente collegato seguendo questa procedura:
+26. Controllare il criterio per l'utente collegato seguendo questa procedura:
 
     ![Add user](./media/active-directory-saas-amazon-web-service-tutorial/adduser3.png)
     
@@ -317,7 +308,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     b. Fare clic sul pulsante **Crea utente** nell'angolo inferiore destro per creare l'utente.
 
-28. Scaricare le credenziali dell'utente seguendo questa procedura:
+27. Scaricare le credenziali dell'utente seguendo questa procedura:
 
     ![Add user](./media/active-directory-saas-amazon-web-service-tutorial/adduser4.png)
     
@@ -327,11 +318,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     c. Fare clic sul pulsante **Chiudi** in basso.
 
-29. Passare alla sezione **Provisioning utente** dell'app Amazon Web Services nel portale di gestione di Azure AD.
+28. Passare alla sezione **Provisioning utente** dell'app Amazon Web Services nel portale di gestione di Azure AD.
 
     ![Add user](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-30. Immettere la **chiave di accesso** e il **segreto** rispettivamente nei campi **Segreto client** e **Token segreto**.
+29. Immettere la **chiave di accesso** e il **segreto** rispettivamente nei campi **Segreto client** e **Token segreto**.
 
     ![Add user](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
@@ -343,7 +334,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     d. Salvare l'impostazione facendo clic sul pulsante **Salva** nella parte superiore.
  
-31. Assicurarsi che Stato provisioning sia impostato su **Attivato** nella sezione Impostazioni e fare clic sul pulsante **Salva** nella parte superiore.
+30. Assicurarsi che Stato provisioning sia impostato su **Attivato** nella sezione Impostazioni e fare clic sul pulsante **Salva** nella parte superiore.
 
     ![Add user](./media/active-directory-saas-amazon-web-service-tutorial/provisioning2.png)
 

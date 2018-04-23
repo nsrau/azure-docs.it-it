@@ -3,8 +3,8 @@ title: Indirizzo IP privato interno statico - Macchina virtuale di Azure - Versi
 description: Informazioni sugli indirizzi IP interni statici (DIP) e su come gestirli
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genlin
+manager: cshepard
 editor: tysonn
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
-ms.author: jdial
-ms.openlocfilehash: cf9ee59ca4e44ed01836c2efb1f4df5f073bf6e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: 1cdf33632c282a872d0eb83dd1a1b1c639fc14bd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Come impostare un indirizzo IP privato interno statico tramite PowerShell (classico)
 Nella maggior parte dei casi non è necessario specificare un indirizzo IP interno statico per la macchina virtuale. Le macchine virtuali in una rete virtuale infatti ricevono automaticamente un indirizzo IP interno da un intervallo specificato. In alcuni casi è tuttavia opportuno specificare un indirizzo IP statico per una determinata macchina virtuale, ad esempio se questa eseguirà DNS o sarà un controller di dominio. Un indirizzo IP interno statico resta associato alla macchina virtuale anche in caso di passaggio allo stato di arresto/deprovisioning. 

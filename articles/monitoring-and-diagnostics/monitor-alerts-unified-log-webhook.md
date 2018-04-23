@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2018
+ms.date: 04/09/2018
 ms.author: vinagara
-ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a786ac2e241657cc0020ecfe9438e3d1a5e4c5fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Azioni webhook per le regole di avviso relative ai log
 Quando [viene creato un avviso in Avvisi di Azure](monitor-alerts-unified-usage.md), è possibile scegliere di [configurarlo con gruppi di azioni](monitoring-action-groups.md) in modo da eseguire una o più azioni.  Questo articolo descrive le diverse azioni webhook disponibili e spiega come configurare un webhook personalizzato basato su JSON.
@@ -54,22 +54,26 @@ I webhook includono un URL e un payload in fermato JSON che corrisponde ai dati 
 | Ora di inizio dell'intervallo di ricerca |#searchintervalstarttimeutc |Ora di inizio per la query in formato UTC. 
 | SearchQuery |#searchquery |Query di ricerca nei log usata dalla regola di avviso. |
 | SearchResults |"IncludeSearchResults": true|Record restituiti dalla query come tabella JSON, limitati ai primi 1000 record, se il codice "IncludeSearchResults": true viene aggiunto nella definizione personalizzata del webhook JSON come proprietà di primo livello. |
-| WorkspaceID |#workspaceid |ID dell'area di lavoro di Log Analytics (OMS). |
+| WorkspaceID |#workspaceid |ID dell'area di lavoro di Log Analytics. |
 | ID applicazione |#applicationid |ID dell'app Application Insights. |
 | ID sottoscrizione |#subscriptionid |ID della sottoscrizione di Azure usata con Application Insights. 
 
 
 Ad esempio, è possibile specificare il payload personalizzato seguente che include un singolo parametro denominato *text*.  Il servizio chiamato da questo webhook si aspetta questo parametro.
 
+```json
+
     {
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
-
+```
 Il payload di esempio viene risolto in una stringa di simile alla seguente quando viene inviato al webhook.
 
+```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
+```
 
 Per includere i risultati della ricerca in un payload personalizzato, verificare che **IncudeSearchResults** sia impostata come proprietà di primo livello nel payload JSON. 
 
@@ -77,7 +81,7 @@ Per includere i risultati della ricerca in un payload personalizzato, verificare
 Questa sezione mostra un esempio di payload di webhook per gli avvisi di log, facendo distinzione tra payload standard e personalizzato.
 
 > [!NOTE]
-> Per garantire la compatibilità con le versioni precedenti, il payload di webhook standard per gli avvisi generati in base ad Azure Log Analytics corrisponde a quello della [gestione degli avvisi OMS](../log-analytics/log-analytics-alerts-creating.md). Per gli avvisi del log generati tramite [Application Insights](../application-insights/app-insights-analytics.md), tuttavia, il payload di webhook standard si basa sullo schema del gruppo di azioni.
+> Per garantire la compatibilità con le versioni precedenti, il payload di webhook standard per gli avvisi generati in base ad Azure Log Analytics corrisponde a quello della [gestione degli avvisi di Log Analytics](../log-analytics/log-analytics-alerts-creating.md). Per gli avvisi del log generati tramite [Application Insights](../application-insights/app-insights-analytics.md), tuttavia, il payload di webhook standard si basa sullo schema del gruppo di azioni.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Webhook standard per gli avvisi di log 
 In entrambi questi esempi è specificato un payload fittizio con solo due colonne e due righe.
@@ -85,7 +89,8 @@ In entrambi questi esempi è specificato un payload fittizio con solo due colonn
 #### <a name="log-alert-for-azure-log-analytics"></a>Avviso di log per Azure Log Analytics
 Di seguito è riportato un payload di esempio per un'azione webhook standard *senza l'uso di un'opzione JSON personalizzata* per gli avvisi del log basati su Log Analytics.
 
-    {
+```json
+{
     "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
     "AlertRuleName":"AcmeRule","SearchQuery":"search *",
     "SearchResult":
@@ -95,7 +100,7 @@ Di seguito è riportato un payload di esempio per un'azione webhook standard *se
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -104,7 +109,7 @@ Di seguito è riportato un payload di esempio per un'azione webhook standard *se
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -114,15 +119,14 @@ Di seguito è riportato un payload di esempio per un'azione webhook standard *se
     "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
     "Severity": "Warning"
-    }
-    
-
+ }
+ ```   
 
 #### <a name="log-alert-for-azure-application-insights"></a>Avviso di log per Azure Application Insights
 Di seguito è riportato un payload di esempio per un'azione webhook standard *senza opzione JSON personalizzata* se usato per gli avvisi del log basati su Application Insights.
     
-
-    {
+```json
+{
     "schemaId":"Microsoft.Insights/LogAlert","data":
     { 
     "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
@@ -134,7 +138,7 @@ Di seguito è riportato un payload di esempio per un'azione webhook standard *se
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -143,7 +147,7 @@ Di seguito è riportato un payload di esempio per un'azione webhook standard *se
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -152,10 +156,11 @@ Di seguito è riportato un payload di esempio per un'azione webhook standard *se
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error"
+    "Severity": "Error",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
-    }
+}
+```
 
 > [!NOTE]
 > Gli avvisi di log per Application Insights sono attualmente disponibili in anteprima pubblica. Le funzionalità e l'esperienza utente sono soggette a modifiche.
@@ -163,14 +168,16 @@ Di seguito è riportato un payload di esempio per un'azione webhook standard *se
 #### <a name="log-alert-with-custom-json-payload"></a>Avviso di log con payload JSON personalizzato
 Per creare un payload personalizzato che includa solo il nome dell'avviso e i risultati della ricerca, è ad esempio possibile usare il codice seguente: 
 
+```json
     {
        "alertname":"#alertrulename",
        "IncludeSearchResults":true
     }
+```
 
 Di seguito è riportato un esempio di payload per un'azione webhook personalizzata per qualsiasi avviso di log.
     
-
+```json
     {
     "alertname":"AcmeRule","IncludeSearchResults":true,
     "SearchResult":
@@ -180,7 +187,7 @@ Di seguito è riportato un esempio di payload per un'azione webhook personalizza
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -191,8 +198,7 @@ Di seguito è riportato un esempio di payload per un'azione webhook personalizza
                 ]
         }
     }
-
-
+```
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,24 +1,18 @@
 ---
 title: Aggiungere un'entità servizio al ruolo di amministratore del server Azure Analysis Services | Microsoft Docs
 description: Informazioni su come aggiungere un'entità servizio di automazione al ruolo di amministratore del server
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 8e51b80e184b2b1ff24b1051b55088fbc54c271c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: minewiskan
+ms.openlocfilehash: 9c6417e069bbed38b1f6e9317636a10834ce7197
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-a-service-principle-to-the-server-administrator-role"></a>Aggiungere un'entità servizio al ruolo di amministratore del server 
 
@@ -47,7 +41,7 @@ Per completare questa attività, è necessario avere autorizzazioni di [amminist
 
 
 > [!NOTE]
-> Per le operazioni server con i cmdlet di AzureRM, l'entità servizio che esegue l'utilità di pianificazione deve appartenere anche al ruolo **Proprietario** per la risorsa in [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-what-is.md). 
+> Per le operazioni server con i cmdlet di AzureRM, l'entità servizio che esegue l'utilità di pianificazione deve appartenere anche al ruolo **Proprietario** per la risorsa in [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md). 
 
 ## <a name="related-information"></a>Informazioni correlate
 

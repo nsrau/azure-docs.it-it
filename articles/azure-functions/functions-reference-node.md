@@ -16,14 +16,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: 9d63c95c849c8ef6011557c72240e56071ba614f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e593f58f6b92e562067401381cfce06d5fb18e29
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 L'esperienza JavaScript per Funzioni di Azure semplifica l'esportazione di una funzione, che viene passata come oggetto `context` per la comunicazione con il runtime e per la ricezione e l'invio di dati tramite associazioni.
 

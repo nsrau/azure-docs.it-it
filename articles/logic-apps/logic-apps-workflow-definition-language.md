@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
 ms.openlocfilehash: 42932e6d1727a1444c62f565ae3c48dc178aeb2b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Schema del linguaggio di definizione del flusso di lavoro per App per la logica di Azure
 
@@ -133,7 +133,7 @@ Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e r
 |"parameters"|Vengono restituiti i caratteri di tipo 'parameters'.|  
 |"parameters[1]"|Vengono restituiti i caratteri di tipo 'parameters[1]'.|  
 |"@@"|Viene restituita una stringa da 1 carattere che contiene \'\@\'.|  
-|\" \@\"|Viene restituita una stringa da 2 caratteri che contiene ' @'.|  
+|\" \@\"|Viene restituita una stringa da 2 caratteri che contiene \'\@\'.|  
   
 Con l'*interpolazione della stringa* è possibile inserire le espressioni anche all'interno delle stringhe in cui viene eseguito il wrapping delle espressioni in `@{ ... }`. Ad esempio:  <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 

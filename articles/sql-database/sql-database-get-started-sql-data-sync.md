@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: f9318b5baa46ab991b5e72e12a89a25e4f635db3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 72e0ed535139c088c4235b43a12ea96da080dc8a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Impostare l'anteprima di sincronizzazione dati SQL
 In questa esercitazione si imparerà a configurare sincronizzazione dati SQL di Azure creando un gruppo di sincronizzazione ibrido che contiene sia istanze del database SQL di Azure che istanze di SQL Server. Il nuovo gruppo di sincronizzazione ha una configurazione completa ed esegue la sincronizzazione in base alla pianificazione impostata.
@@ -275,7 +275,7 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 
 -   [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md)
 -   [Procedure consigliate per la sincronizzazione dati SQL di Azure](sql-database-best-practices-data-sync.md)
--   [Monitorare la sincronizzazione dati SQL di Azure con OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Monitorare la sincronizzazione dati SQL con Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Risolvere i problemi della sincronizzazione dati SQL di Azure](sql-database-troubleshoot-data-sync.md)
 
 -   Esempi di PowerShell completi che illustrano come configurare la sincronizzazione dati SQL:

@@ -2,25 +2,25 @@
 title: Usare Visual Studio Code per sviluppare e distribuire Funzioni di Azure con Azure IoT Edge | Microsoft Docs
 description: Sviluppare e distribuire Funzioni di Azure in C# con Azure IoT Edge in Visual Studio Code senza cambio di contesto
 services: iot-edge
-keywords: 
+keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
 ms.date: 12/20/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 219474a4577a76f5ceb9a9efaa3c349d633de047
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 47d420b4b283b390f67719233c4bea59495a589a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/17/2018
 ---
 # <a name="use-visual-studio-code-to-develop-and-deploy-azure-functions-to-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare e distribuire Funzioni di Azure con Azure IoT Edge
 
 Questo articolo fornisce istruzioni dettagliate per usare [Visual Studio Code](https://code.visualstudio.com/) come strumento di sviluppo principale per sviluppare e distribuire Funzioni di Azure in IoT Edge. 
 
-## <a name="prerequisites"></a>Prerequisiti
-Questa esercitazione presuppone che si usi un computer o una macchina virtuale Windows o Linux come computer di sviluppo. Il dispositivo IoT Edge può essere un altro dispositivo fisico oppure è possibile simulare il dispositivo IoT Edge nel computer di sviluppo.
+## <a name="prerequisites"></a>prerequisiti
+Questo articolo presuppone che si usi un computer o una macchina virtuale Windows o Linux come computer di sviluppo. Il dispositivo IoT Edge può essere un altro dispositivo fisico oppure è possibile simulare il dispositivo IoT Edge nel computer di sviluppo.
 
 Completare le esercitazioni seguenti prima di procedere con queste istruzioni.
 - Distribuire Azure IoT Edge su un dispositivo simulato in [Windows](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-windows) o [Linux](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux)
@@ -47,7 +47,7 @@ L'elenco di controllo seguente illustra gli elementi che è necessario avere a d
 Nell'esercitazione [Distribuire Funzioni di Azure](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function) si aggiornano, creano e pubblicano le immagini del modulo funzione in Visual Studio Code e quindi si accede al portale di Azure per distribuire Funzioni di Azure. Questa sezione illustra come usare Visual Studio Code per distribuire e monitorare Funzioni di Azure.
 
 ### <a name="start-a-local-docker-registry"></a>Avviare un registro Docker locale
-È possibile usare qualsiasi registro compatibile con Docker per questa esercitazione. Due servizi molto diffusi per il registro Docker disponibili sul cloud sono il [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). In questa sezione viene usato un [registro Docker locale](https://docs.docker.com/registry/deploying/), che è più semplice da usare a scopo di test durante la fase di sviluppo iniziale.
+È possibile usare qualsiasi registro compatibile con Docker per questo articolo. Due servizi molto diffusi per il registro Docker disponibili sul cloud sono il [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). In questa sezione viene usato un [registro Docker locale](https://docs.docker.com/registry/deploying/), più semplice da usare a scopo di test durante la fase di sviluppo iniziale.
 Nel **terminale integrato** di Visual Studio Code (CTRL+') eseguire i comandi seguenti per avviare un registro locale.  
 
 ```cmd/sh
@@ -55,10 +55,10 @@ docker run -d -p 5000:5000 --name registry registry:2
 ```
 
 > [!NOTE]
-> L'esempio precedente mostra le configurazioni del registro appropriate solo per scenari di test. Un registro destinato alla produzione deve essere protetto da TLS e dovrebbe preferibilmente usare un meccanismo di controllo di accesso. Per distribuire moduli IoT Edge pronti per l'ambiente di produzione è consigliabile usare [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) o [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags).
+> L'esempio precedente mostra le configurazioni del registro appropriate solo per scenari di test. Un registro pronto per la produzione deve essere protetto da TLS e dovrebbe usare preferibilmente un meccanismo di controllo di accesso. Per distribuire moduli IoT Edge pronti per l'ambiente di produzione è consigliabile usare [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) o [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags).
 
 ### <a name="create-a-function-project"></a>Creare un progetto per le funzioni
-La procedura seguente illustra come creare un modulo di IoT Edge basato su .NET Core 2.0 tramite Visual Studio Code e l'estensione Azure IoT Edge. Se si è completata questa sezione nell'esercitazione precedente, è possibile ignorarla.
+La procedura seguente illustra come creare un modulo di IoT Edge basato su .NET Core 2.0 tramite Visual Studio Code e l'estensione Azure IoT Edge. Se si è completata questa sezione in un'esercitazione precedente, è possibile ignorarla.
 
 1. In Visual Studio Code selezionare **Visualizza** > **Terminale integrato** per aprire il terminale integrato di Visual Studio Code.
 2. Per installare o aggiornare il modello **AzureIoTEdgeFunction** in dotnet, eseguire il comando seguente nel terminale integrato:
@@ -182,7 +182,7 @@ La procedura seguente illustra come creare un modulo di IoT Edge basato su .NET 
        }
    ```
    > [!NOTE]
-   > Le regole dichiarative nel runtime definiscono la destinazione del flusso di messaggi. In questa esercitazione sono necessarie due route. La prima route trasporta i messaggi dal sensore della temperatura alla funzione di filtro tramite l'endpoint "input1", ovvero l'endpoint configurato con il gestore FilterMessages. La seconda route trasporta i messaggi dalla funzione di filtro all'hub IoT. In questa route, upstream è una destinazione speciale che indica all'hub Edge di inviare messaggi all'hub IoT.
+   > Le regole dichiarative nel runtime definiscono la destinazione del flusso di messaggi. In questo articolo sono necessarie due route. La prima route trasporta i messaggi dal sensore della temperatura alla funzione di filtro tramite l'endpoint "input1", ovvero l'endpoint configurato con il gestore FilterMessages. La seconda route trasporta i messaggi dalla funzione di filtro all'hub IoT. In questa route, upstream è una destinazione speciale che indica all'hub Edge di inviare messaggi all'hub IoT.
 
 3. Salvare questo file.
 4. Nel riquadro comandi selezionare **Edge: Create deployment for Edge device** (Edge: Crea distribuzione per dispositivo Edge). Selezionare quindi l'ID del dispositivo IoT Edge per creare una distribuzione. In alternativa, fare clic con il pulsante destro del mouse sull'elenco dei dispositivi e scegliere **Create deployment for Edge device** (Crea distribuzione per dispositivo Edge).
@@ -202,7 +202,4 @@ La procedura seguente illustra come creare un modulo di IoT Edge basato su .NET 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata creata una funzione di Azure in IoT Edge e successivamente è stata distribuita in un dispositivo IoT Edge in Visual Studio Code. Per informazioni su altri scenari durante lo sviluppo di Azure IoT Edge in Visual Studio Code, è possibile continuare con l'esercitazione seguente.
-
-> [!div class="nextstepaction"]
-> [Eseguire il debug di Funzioni di Azure in Visual Studio Code](how-to-vscode-debug-azure-function.md)
+[Eseguire il debug di Funzioni di Azure in Visual Studio Code](how-to-vscode-debug-azure-function.md)

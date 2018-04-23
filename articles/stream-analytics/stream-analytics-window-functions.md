@@ -1,24 +1,19 @@
 ---
-title: Introduzione alle funzioni finestra di Analisi di flusso | Documentazione Microsoft
-description: Informazioni sulle tre funzioni finestra in Analisi di flusso (finestra a cascata, finestra di salto, finestra temporale scorrevole).
-keywords: finestra a cascata, finestra temporale scorrevole, finestra di salto
-documentationcenter: ''
+title: Introduzione alle funzioni delle finestre di Analisi di flusso di Azure
+description: Questo articolo descrive le tre funzioni delle finestre (cascata, salto, scorrimento) usate nei processi di Analisi di flusso di Azure.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 3757834ff816fffc4571aeef8c164c2230c0f7c2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: c6f5dbe49cb60e3c7b2bc6562acf2d7fd79096ec
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Introduzione alle funzioni finestra di Analisi di flusso
 In molti scenari di flusso in tempo reale è necessario eseguire operazioni solo sui dati contenuti in finestre temporali. Il supporto nativo delle funzioni finestra è una funzionalità cruciale di Analisi di flusso di Azure che pone l'accento sulla produttività degli sviluppatori per la creazione di processi di elaborazione di flussi complessi. Analisi di flusso consente agli sviluppatori di usare finestre [**a cascata**](https://msdn.microsoft.com/library/dn835055.aspx), [**di salto**](https://msdn.microsoft.com/library/dn835041.aspx) e [**temporali scorrevoli**](https://msdn.microsoft.com/library/dn835051.aspx) per eseguire operazioni temporali sui dati di flusso. Vale la pena di sottolineare che tutte le operazioni [finestra](https://msdn.microsoft.com/library/dn835019.aspx) restituiscono i risultati alla **fine** della finestra. L'output della finestra sarà un singolo evento basato sulla funzione di aggregazione usata. All'evento sarà associato il timestamp di fine della finestra e tutte le funzioni finestra sono definite con una lunghezza fissa. Infine, è importante segnalare che tutte le funzioni finestra devono essere usate in una clausola [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx).
@@ -41,7 +36,7 @@ Le funzioni finestra temporale scorrevole, diversamente dalle finestre a cascata
 ![Introduzione alle funzioni finestra temporale scorrevole di Analisi di flusso](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
 ## <a name="getting-help-with-window-functions"></a>Risorse della Guida per le funzioni finestra
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)

@@ -1,13 +1,13 @@
 ---
-title: "Disponibilità elevata in Macchine virtuali di Azure per SAP NetWeaver | Documentazione Microsoft"
-description: "Guida alle funzionalità di disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure"
+title: Disponibilità elevata in Macchine virtuali di Azure per SAP NetWeaver | Microsoft Docs
+description: Guida alle funzionalità di disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d00db895ffcf9ba9a51e3df2dae5d33c0277dd6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Disponibilità elevata in Macchine virtuali di Azure per SAP NetWeaver
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configurazione della disponibilità elevata per SAP a più SID)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -188,7 +188,7 @@ Questi articoli descrivono le distribuzioni SAP in Azure:
 
 Queste note su SAP sono correlate all'argomento relativo a SAP in Azure:
 
-| Numero della nota | Titolo |
+| Numero della nota | Title |
 | --- | --- |
 | [1928533] |Applicazioni SAP in Azure: dimensioni e prodotti supportati |
 | [2015553] |SAP in Microsoft Azure: prerequisiti per il supporto |
@@ -954,7 +954,7 @@ La configurazione di un controllo di condivisione file del cluster prevede quest
 
   _**Figura 38:** Conferma della riconfigurazione del cluster_
 
-Dopo aver installato correttamente il Cluster di failover Windows, è necessario modificare alcune soglie per adattare il rilevamento del failover alle condizioni in Azure. I parametri da modificare sono documentati in questo blog: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Supponendo che le due VM che compongono la configurazione del cluster Windows per ASCS/SCS siano nella stessa SubNet, è necessario modificare i parametri seguenti impostando i valori indicati:
+Dopo aver installato correttamente il Cluster di failover Windows, è necessario modificare alcune soglie per adattare il rilevamento del failover alle condizioni in Azure. I parametri da modificare sono documentati in questo blog: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/. Supponendo che le due VM che compongono la configurazione del cluster Windows per ASCS/SCS siano nella stessa SubNet, è necessario modificare i parametri seguenti impostando i valori indicati:
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 
@@ -1110,7 +1110,7 @@ La configurazione del sistema DBMS non viene descritta perché varia a seconda d
 Non esistono particolari considerazioni per il caso in cui servizi DBMS differenti interagiscono con questa configurazione di SAP ASCS/SCS in cluster in Azure.
 
 > [!NOTE]
-> La procedura di installazione dei sistemi SAP NetWeaver ABAP, Java e ABAP + Java è praticamente identica. La differenza principale è che un sistema SAP ABAP ha un'istanza di ASCS. Il sistema SAP Java ha un'istanza di SCS. Il sistema SAP ABAP + Java ha un'istanza ASCS e un'istanza SCS in esecuzione nello stesso gruppo di cluster di failover Microsoft. Eventuali differenze di installazione per ogni stack di installazione di SAP NetWeaver verranno indicate in modo esplicito. Si presume che tutte le altre parti siano uguali.  
+> La procedura di installazione dei sistemi SAP NetWeaver ABAP, Java e ABAP + Java è praticamente identica. La differenza principale è che un sistema SAP ABAP ha un'istanza di ASCS. Il sistema SAP Java ha un'istanza di SCS. Il sistema SAP ABAP + Java ha un'istanza di ASCS e un'istanza di SCS in esecuzione nello stesso gruppo cluster di failover Microsoft. Eventuali differenze di installazione per ogni stack di installazione di SAP NetWeaver verranno indicate in modo esplicito. Si presume che tutte le altre parti siano uguali.  
 >
 >
 
@@ -1212,7 +1212,7 @@ Per aggiungere una porta probe:
 
   Il numero della porta è definito nei modelli di Azure Resource Manager per SAP. È possibile assegnare il numero della porta in PowerShell.
 
-  Per impostare un nuovo valore di ProbePort per la risorsa cluster **SAP <*SID*> IP**, eseguire il seguente script di PowerShell. Aggiornare le variabili PowerShell per l'ambiente. Dopo l'esecuzione dello script, verrà richiesto di riavviare il gruppo di cluster SAP per attivare le modifiche.
+  Per impostare un nuovo valore di ProbePort per la risorsa cluster **SAP <*SID*> IP**, eseguire lo script di PowerShell seguente. Aggiornare le variabili PowerShell per l'ambiente. Dopo l'esecuzione dello script, verrà richiesto di riavviare il gruppo di cluster SAP per attivare le modifiche.
 
   ```PowerShell
   $SAPSID = "PR1"      # SAP <SID>
@@ -1270,7 +1270,7 @@ Per aggiungere una porta probe:
   }
   ```
 
-  Dopo avere portato online il ruolo cluster **SAP <*SID*>**, verificare che **ProbePort** sia impostato sul nuovo valore.
+  Dopo avere portato online il ruolo cluster **<*SID*> di SAP**, verificare che **ProbePort** sia impostata sul nuovo valore.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
@@ -1318,7 +1318,7 @@ Installare l'istanza di Primary Application Server (PAS) <*SID*>-di-0 nella macc
 
 ### <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> Installare Additional Application Server (AAS) SAP
 
-Installare un'istanza di Additional Application Server (AAS) SAP in tutte le macchine virtuali designate per ospitare un'istanza del server applicazioni SAP. Ad esempio, in <*SID*>-di-1 per <*SID*>-di-&lt;n&gt;.
+Installare un'istanza di Additional Application Server (AAS) SAP in tutte le macchine virtuali designate per ospitare un'istanza del server applicazioni SAP. Ad esempio, in <*SID*>-di-1 fino a <*SID*>-di-&lt;n&gt;.
 
 > [!NOTE]
 > Questa operazione completa l'installazione di un sistema SAP NetWeaver a disponibilità elevata. Procedere quindi con il test del failover.

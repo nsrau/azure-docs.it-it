@@ -7,9 +7,9 @@
 ### [Overview](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
-### [.NET](active-directory-devquickstarts-dotnet.md)
-### [Windows](active-directory-devquickstarts-windowsstore.md)
-### [Xamarin](active-directory-devquickstarts-xamarin.md)
+### [.NET (Windows Desktop)](active-directory-devquickstarts-dotnet.md)
+### [.NET (Windows Universal)](active-directory-devquickstarts-windowsstore.md)
+### [.NET (Xamarin)](active-directory-devquickstarts-xamarin.md)
 ### [Cordova](active-directory-devquickstarts-cordova.md)
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
 ## App Web
@@ -17,6 +17,7 @@
 ### [ASP.NET](GuidedSetups/active-directory-aspnetwebapp-v1.md)
 ### [ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore)
 ### [Java](active-directory-devquickstarts-webapp-java.md)
+### [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)
 ### [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ## App a pagina singola
@@ -67,7 +68,7 @@
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 ## [Migrazione del servizio di controllo di accesso](active-directory-acs-migration.md)
 ## [Procedure consigliate per la gestione degli errori di ADAL](active-directory-devhowto-adal-error-handling.md)
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Librerie di autenticazione (ADAL)](active-directory-authentication-libraries.md)
 ## [Articolo sugli esempi di codice](active-directory-code-samples.md)
@@ -96,11 +97,16 @@
 ### App per dispositivi mobili e desktop
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
-#### [.NET per Windows Desktop](guidedsetups/active-directory-windesktop.md)
+#### [.NET (Windows Desktop)](guidedsetups/active-directory-windesktop.md)
 ### App Web
-#### [JavaScript SPA](guidedsetups/active-directory-javascriptspa.md)
-#### [Server Web ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
-#### [App Web NodeJS](active-directory-v2-devquickstarts-node-web.md)
+#### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
+#### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
+### App a singola pagina
+#### [JavaScript](guidedsetups/active-directory-javascriptspa.md)
+### API Web
+#### [NodeJS](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
+### Da servizio a servizio
+#### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Guide
 ### [Registrare un'app](active-directory-v2-app-registration.md)
 ## Riferimenti
@@ -111,9 +117,9 @@
 #### [Concessione implicita OAuth 2.0](active-directory-v2-protocols-implicit.md)
 #### [Concessione di credenziali client OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Flusso on-behalf-of di OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
-#### [Informazioni si riferimento sul token](active-directory-v2-tokens.md)
 #### [Credenziali di un certificato](active-directory-certificate-credentials.md)
-### [Ambiti](active-directory-v2-scopes.md)
+### [Token](active-directory-v2-tokens.md)
+### [Ambiti e consenso](active-directory-v2-scopes.md)
 # Risorse
 ## [Assistenza e supporto](active-directory-develop-help-support.md)
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)

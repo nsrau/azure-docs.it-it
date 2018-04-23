@@ -1,11 +1,11 @@
 ---
 title: Creare un'app Web PHP e MySQL in Azure | Microsoft Docs
-description: "Informazioni su come ottenere un'app PHP che è possibile usare in Azure con connessione a un database MySQL in Azure."
+description: Informazioni su come ottenere un'app PHP che è possibile usare in Azure con connessione a un database MySQL in Azure.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 39bfc4e6a4f4066e8aeda0da387fe570525b6086
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ecf83dd21b0803a6ceb4139d117a8b989b070403
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="build-a-php-and-mysql-web-app-in-azure"></a>Creare un'app Web PHP e MySQL in Azure
+# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Esercitazione: Creare un'app Web PHP e MySQL in Azure
 
 > [!NOTE]
 > Questo articolo consente di distribuire un'app nel servizio app in Windows. Per la distribuzione nel servizio app in _Linux_, vedere [Creare un'app Web PHP e MySQL nel servizio app di Azure in Linux](./containers/tutorial-php-mysql-app.md).
@@ -154,7 +154,7 @@ Per arrestare il server PHP, digitare `Ctrl + C` nel terminale.
 
 ## <a name="create-mysql-in-azure"></a>Creare MySQL in Azure
 
-In questo passaggio viene creato un database MySQL nel [database di Azure per MySQL (anteprima)](/azure/mysql). Successivamente viene configurata l'applicazione PHP per la connessione al database.
+In questo passaggio viene creato un database MySQL in [Database di Azure per MySQL](/azure/mysql). Successivamente viene configurata l'applicazione PHP per la connessione al database.
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -162,7 +162,7 @@ In questo passaggio viene creato un database MySQL nel [database di Azure per My
 
 ### <a name="create-a-mysql-server"></a>Creare un server MySQL
 
-In Cloud Shell creare un server in Database di Azure per MySQL (anteprima) con il comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+In Cloud Shell creare un server in Database di Azure per MySQL con il comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
 Nel comando seguente sostituire il segnaposto _&lt;mysql_server_name>_ con il nome del server MySQL (i caratteri validi sono `a-z`, `0-9` e `-`). Poiché questo nome fa parte del nome host del server MySQL (`<mysql_server_name>.database.windows.net`) è necessario che sia univoco a livello globale.
 
@@ -192,16 +192,11 @@ Al termine della creazione del server MySQL, l'interfaccia della riga di comando
 
 ### <a name="configure-server-firewall"></a>Configurare il firewall del server
 
-In Cloud Shell creare una regola del firewall per il server MySQL per consentire le connessioni client usando il comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create).
+In Cloud Shell creare una regola del firewall per il server MySQL per consentire le connessioni client usando il comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create). Quando sia l'IP iniziale che l'IP finale sono impostati su 0.0.0.0, il firewall viene aperto solo per le altre risorse di Azure. 
 
 ```azurecli-interactive
-az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
-
-> [!NOTE]
-> Database di Azure per MySQL (anteprima) attualmente non limita le connessioni solo ai servizi di Azure. Poiché gli indirizzi IP in Azure sono assegnati dinamicamente, è consigliabile abilitare tutti gli indirizzi IP. Il servizio è disponibile in anteprima. Verranno resi disponibili metodi migliori per la protezione del database.
->
->
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Connettersi al server MySQL di produzione in locale
 
@@ -236,7 +231,7 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>Connettere l'app a MySQL di Azure
 
-In questo passaggio l'applicazione PHP viene connessa al database MySQL creato in Database di Azure per MySQL (anteprima).
+In questo passaggio si connette l'applicazione PHP al database MySQL creato in Database di Azure per MySQL.
 
 <a name="devconfig"></a>
 
@@ -260,7 +255,7 @@ MYSQL_SSL=true
 Salvare le modifiche.
 
 > [!TIP]
-> Per proteggere le informazioni di connessione MySQL, il file è già escluso dal repository Git (vedere _.gitignore_ nella radice del repository). Successivamente verrà illustrato come configurare le variabili di ambiente nel servizio app per connettere il database in Database di Azure per MySQL (anteprima). Con le variabili di ambiente non è necessario il file *.env* nel servizio app.
+> Per proteggere le informazioni di connessione MySQL, il file è già escluso dal repository Git (vedere _.gitignore_ nella radice del repository). Successivamente verrà illustrato come configurare le variabili di ambiente nel servizio app per la connessione al database in Database di Azure per MySQL. Con le variabili di ambiente non è necessario il file *.env* nel servizio app.
 >
 
 ### <a name="configure-ssl-certificate"></a>Configurare il certificato SSL
@@ -283,7 +278,7 @@ Per praticità, nel repository è disponibile il certificato `BaltimoreCyberTrus
 
 ### <a name="test-the-application-locally"></a>Testare l'applicazione in locale
 
-Eseguire le migrazioni del database di Laravel con _.env.production_ come file dell'ambiente per creare le tabelle nel proprio database MySQL nel database di Azure per MySQL (anteprima). Tenere presente che _. env.production_ include le informazioni di connessione al database MySQL in Azure.
+Eseguire le migrazioni del database Laravel con _.env.production_ come file dell'ambiente per creare le tabelle nel database MySQL in Database di Azure per MySQL. Tenere presente che _. env.production_ include le informazioni di connessione al database MySQL in Azure.
 
 ```bash
 php artisan migrate --env=production --force
@@ -305,7 +300,7 @@ Accedere a `http://localhost:8000`. Se la pagina viene caricata senza errori, l'
 
 Nella pagina aggiungere alcune attività.
 
-![PHP si connette correttamente al database di Azure per MySQL (anteprima)](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
+![Connessione di PHP a Database di Azure per MySQL](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
 Per arrestare PHP, digitare `Ctrl + C` nel terminale.
 

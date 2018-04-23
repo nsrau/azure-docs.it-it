@@ -2,10 +2,9 @@
 title: Distribuire un'app Web con un modello - Azure Cosmos DB | Microsoft Docs
 description: Informazioni su come distribuire un account Azure Cosmos DB, app Web del servizio app di Azure e un'applicazione Web di esempio usando un modello di Azure Resource Manager.
 services: cosmos-db, app-service\web
-author: mimig1
-manager: jhubbard
-editor: monicar
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: 087d8786-1155-42c7-924b-0eaba5a8b3e0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 89513d6c1b9aa9f4709359d6d7681bff9c291618
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 468edd78e0ef8e13b2783485004a9db21906f1fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Distribuire Azure Cosmos DB e app Web del servizio app di Azure tramite un modello di Azure Resource Manager
 Questa esercitazione illustra come usare un modello di Azure Resource Manager per distribuire e integrare [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), un'app Web del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) e un'applicazione Web di esempio.
@@ -33,7 +32,7 @@ Dopo aver completato questa esercitazione, si potrà rispondere alle domande seg
 
 <a id="Prerequisites"></a>
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 > [!TIP]
 > Anche se questa esercitazione non presuppone alcuna esperienza nell'uso di JSON o dei modelli di Azure Resource Manager, se si vogliono modificare i modelli o le opzioni di distribuzione cui viene fatto riferimento, è necessario conoscere ciascuna di queste aree.
 > 
@@ -77,7 +76,7 @@ Si procederà ora alla distribuzione del primo modello.
    ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/create-website/TemplateDeployment6.png)
 7. Al termine della distribuzione, viene aperto il riquadro del gruppo di risorse.
    ![Screenshot del riquadro del gruppo di risorse](./media/create-website/TemplateDeployment7.png)  
-8. Per usare l'applicazione, passare all'URL dell'app Web. Nell'esempio precedente l'URL sarebbe http://mydemodocdbwebapp.azurewebsites.net.  Verrà visualizzata l'applicazione Web seguente:
+8. Per usare l'applicazione, passare all'URL dell'app Web. Nell'esempio precedente l'URL sarebbe http://mydemodocdbwebapp.azurewebsites.net).  Verrà visualizzata l'applicazione Web seguente:
    
    ![Applicazione di esempio](./media/create-website/image2.png)
 9. Proseguire e creare qualche attività nell'app Web, quindi tornare al riquadro del gruppo di risorse nel portale di Azure. Fare clic sulla risorsa dell'account Azure Cosmos DB nell'elenco delle risorse e quindi su **Esplora dati**.

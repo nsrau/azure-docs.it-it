@@ -2,10 +2,10 @@
 title: Completare una verifica di accesso dei membri di un gruppo o degli utenti con accesso a un'applicazione con Azure AD| Microsoft Docs
 description: Informazioni su come completare una verifica di accesso per i membri di un gruppo o gli utenti con accesso a un'applicazione in Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: de853d633aa65c9f08f5e28088d5240c2e4d7fa6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c4efdbf5a355ddc9a31091517665f91dd8e68ec0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Completare una verifica di accesso dei membri di un gruppo o degli utenti che accedono a un'applicazione in Azure AD
 
-Gli amministratori possono usare Azure Active Directory (Azure AD) per [creare una verifica di accesso](active-directory-azure-ad-controls-create-access-review.md) per gli utenti o i membri del gruppo assegnati a un'applicazione. Azure AD invia automaticamente ai revisori un messaggio di posta elettronica in cui viene chiesto di verificare l'accesso. Se un utente non ha ricevuto il messaggio di posta elettronica, è possibile inviargli le istruzioni su [come eseguire una verifica di accesso](active-directory-azure-ad-controls-perform-access-review.md). Al termine del periodo della verifica di accesso o se l'amministratore interrompe la verifica, seguire la procedura descritta in questo articolo per esaminare e applicare i risultati.
+Gli amministratori possono usare Azure Active Directory (Azure AD) per [creare una verifica di accesso](active-directory-azure-ad-controls-create-access-review.md) per gli utenti o i membri del gruppo assegnati a un'applicazione. Azure AD invia automaticamente ai revisori un messaggio di posta elettronica in cui viene chiesto di verificare l'accesso. Se un utente non ha ricevuto il messaggio di posta elettronica, è possibile inviargli le istruzioni su [come eseguire una verifica di accesso](active-directory-azure-ad-controls-perform-access-review.md). Tenere presente che i guest a cui è stato assegnato il ruolo di revisore ma che non hanno accettato l'invito non riceveranno un messaggio di posta elettronica dalle verifiche di accesso, poiché dovranno accettare l'invito prima di poter eseguire la verifica. Al termine del periodo della verifica di accesso o se l'amministratore interrompe la verifica, seguire la procedura descritta in questo articolo per esaminare e applicare i risultati.
 
 ## <a name="view-an-access-review-in-the-azure-portal"></a>Visualizzare una verifica di accesso nel portale di Azure
 
@@ -35,13 +35,15 @@ Se la verifica non ha raggiunto la data di fine pianificata, un amministratore p
 
 ## <a name="apply-the-changes"></a>Applicare le modifiche. 
 
-Al termine di una verifica di accesso, sia che abbia raggiunto la data di fine o che sia stata interrotta manualmente da un amministratore, selezionare **Applica**. Il risultato della verifica viene implementato aggiornando il gruppo o l'applicazione. Se l'accesso di un utente è stato negato durante la verifica, Azure AD rimuoverà l'assegnazione dell'applicazione o l'appartenenza quando l'amministratore seleziona questa opzione. 
+Al termine di una verifica di accesso, sia che abbia raggiunto la data di fine o che sia stata interrotta manualmente da un amministratore, e se per la verifica non è stata configurata l'applicazione automatica, selezionare **Applica** per applicare manualmente le modifiche. Il risultato della verifica viene implementato aggiornando il gruppo o l'applicazione. Se l'accesso di un utente è stato negato durante la verifica, Azure AD rimuoverà l'assegnazione dell'applicazione o l'appartenenza quando l'amministratore seleziona questa opzione. 
 
-Se si seleziona **Applica**, non si avrà alcun effetto su un gruppo che ha origine in una directory locale o in un gruppo dinamico. Per modificare un gruppo che ha origine in locale, scaricare i risultati e applicare queste modifiche alla rappresentazione del gruppo in questa directory.
+Al termine di una verifica di accesso, se è stata configurata l'applicazione automatica, lo stato della verifica passerà da Completato ad Applicato attraverso alcuni stati intermedi. È possibile che, dopo alcuni minuti, eventuali utenti negati vengano rimossi dall'appartenenza al gruppo di risorse o dall'assegnazione all'app.
+
+Se per una verifica si configura l'applicazione automatica o si seleziona **Applica**, questa operazione non avrà alcun effetto su un gruppo che ha origine in una directory locale o in un gruppo dinamico. Per modificare un gruppo che ha origine in locale, scaricare i risultati e applicare queste modifiche alla rappresentazione del gruppo in questa directory.
 
 ## <a name="download-the-results-of-the-review"></a>Scaricare i risultati della verifica
 
-Per recuperare i risultati della verifica, selezionare **Approvazioni** e quindi selezionare **Scarica**. Il file CSV risultante può essere visualizzato in Excel o in altri programmi idonei.
+Per recuperare i risultati della verifica, selezionare **Approvazioni** e quindi selezionare **Scarica**. Il file CSV risultante può essere visualizzato in Excel o in altri programmi aperti in file CSV con codifica UTF-8.
 
 ## <a name="optional-delete-a-review"></a>Facoltativo: eliminare una verifica
 È possibile eliminare una verifica che non è più utile. Selezionare **Eliminare** per rimuovere la verifica da Azure AD.

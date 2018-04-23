@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 03/06/2018
 ms.author: rolyon
 ms.openlocfilehash: 0b8c8823c6d21df96dcfd926db1855169f1570e4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni di provider di risorse con Azure Resource Manager
 
@@ -1258,7 +1258,7 @@ Questo documento elenca le operazioni disponibili per ciascun provider di risors
 |/servers/providers/Microsoft.Insights/diagnosticSettings/read|Ottiene l'impostazione di diagnostica per la risorsa|
 |/servers/providers/Microsoft.Insights/diagnosticSettings/write|Crea o aggiorna l'impostazione di diagnostica per la risorsa|
 |/servers/providers/Microsoft.Insights/metricDefinitions/read|Restituisce i tipi di metriche disponibili per i database|
-|/servers/read|Restituisce l'elenco di server o ottiene le proprietà per il server specificato.|
+|/servers/read|Restituisce l'elenco di server o ottiene le proprietà per il server specificato|
 |/servers/recoverableServers/read|Restituisce le informazioni recuperabili del server MySQL|
 |/servers/virtualNetworkRules/delete|Elimina una regola di rete virtuale esistente|
 |/servers/virtualNetworkRules/read|Restituisce l'elenco di regole di rete virtuale o ottiene le proprietà per la regola di rete virtuale specificata.|
@@ -1279,7 +1279,7 @@ Questo documento elenca le operazioni disponibili per ciascun provider di risors
 |/servers/providers/Microsoft.Insights/diagnosticSettings/write|Crea o aggiorna l'impostazione di diagnostica per la risorsa|
 |/servers/providers/Microsoft.Insights/logDefinitions/read|Restituisce i tipi di log disponibili per i database|
 |/servers/providers/Microsoft.Insights/metricDefinitions/read|Restituisce i tipi di metriche disponibili per i database|
-|/servers/read|Restituisce l'elenco di server o ottiene le proprietà per il server specificato.|
+|/servers/read|Restituisce l'elenco di server o ottiene le proprietà per il server specificato|
 |/servers/recoverableServers/read|Restituisce le informazioni recuperabili del server PostgreSQL|
 |/servers/virtualNetworkRules/delete|Elimina una regola di rete virtuale esistente|
 |/servers/virtualNetworkRules/read|Restituisce l'elenco di regole di rete virtuale o ottiene le proprietà per la regola di rete virtuale specificata.|
@@ -3044,7 +3044,7 @@ Questo documento elenca le operazioni disponibili per ciascun provider di risors
 |/servers/databases/queryStore/queryTexts/read|Restituisce la raccolta dei testi delle query che corrispondono ai parametri specificati.|
 |/servers/databases/queryStore/read|Restituisce i valori correnti delle impostazioni Query Store per il database.|
 |/servers/databases/queryStore/write|Aggiorna le impostazioni di Archivio query per il database|
-|/servers/databases/read|Restituisce l'elenco dei database o ottiene le proprietà per il database specificato.|
+|/servers/databases/read|Restituisce l'elenco dei database o ottiene le proprietà per il database specificato|
 |/servers/databases/replicationLinks/delete|Termina forzatamente la relazione di replica e con potenziale perdita di dati|
 |/servers/databases/replicationLinks/failover/action|Failover dopo la sincronizzazione di tutte modifiche dal database primario, rendendo questo database primario nella relazione di replica e rendendo il database primario remoto il database secondario|
 |/servers/databases/replicationLinks/forceFailoverAllowDataLoss/action|Esegue immediatamente il failover con potenziale perdita di dati, rendendo questo database primario nella relazione di replica e rendendo il database primario remoto il database secondario|
@@ -3149,7 +3149,7 @@ Questo documento elenca le operazioni disponibili per ciascun provider di risors
 |/servers/keys/write|Crea una chiave con i parametri specificati o aggiorna le proprietà o i tag per la chiave server specificata.|
 |/servers/operationResults/read|Ottiene le operazioni del server in corso|
 |/servers/providers/Microsoft.Insights/metricDefinitions/read|Restituisce i tipi di metrica disponibili per i server|
-|/servers/read|Restituisce l'elenco di server o ottiene le proprietà per il server specificato.|
+|/servers/read|Restituisce l'elenco di server o ottiene le proprietà per il server specificato|
 |/servers/recommendedElasticPools/databases/read|Recupera le metriche per i pool di database elastici consigliati per un determinato server|
 |/servers/recommendedElasticPools/read|Recupera il consiglio per i pool di database elastici per ridurre i costi o migliorare le prestazioni in base all’utilizzo storico delle risorse|
 |/servers/recoverableDatabases/read|Questa operazione viene utilizzata per il ripristino di emergenza di database attivi, per ripristinare il database a un punto di backup noto come valido. Restituisce informazioni sull'ultimo backup valido, ma in realtà non ripristina il database.|

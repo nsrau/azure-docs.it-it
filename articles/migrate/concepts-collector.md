@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="collector-appliance"></a>Appliance Agente di raccolta
 
@@ -53,7 +53,7 @@ L'appliance dell'agente di raccolta deve essere connessa a Internet per inviare 
 1. Si può configurare Agente di raccolta per disporre di connettività Internet diretta.
 2. Si può configurare Agente di raccolta per la connessione tramite un server proxy.
     * Se il server proxy richiede l'autenticazione, è possibile specificare il nome utente e la password nelle impostazioni di connessione.
-    * L'IP indirizzo/FQDN del server proxy deve essere in formato http://IndirizzoIP o http://FQDN. È supportato solo il proxy HTTP.
+    * L'IP indirizzo/FQDN del server proxy deve essere in formato http://IPaddress o http://FQDN. È supportato solo il proxy HTTP.
 
 > [!NOTE]
 > I server proxy basati su HTTPS non sono supportati dall'agente di raccolta.
@@ -126,7 +126,7 @@ Dopo la connessione a vCenter, è possibile selezionare un ambito di individuazi
 
 1. L'ambito può essere un data center, una cartella o un host ESXi. 
 2. È possibile selezionare solo un ambito alla volta. Per selezionare più macchine virtuali, è possibile completare un'individuazione e riavviare il processo di individuazione con un nuovo ambito.
-3. È possibile selezionare solo un ambito con *meno di 1000 macchine virtuali*. Se si seleziona un ambito con più di 1000 macchine virtuali, è necessario suddividere l'ambito in unità più piccole mediante la creazione di cartelle. Successivamente, è necessario eseguire individuazioni indipendenti nelle cartelle più piccole.
+3. È possibile selezionare solo un ambito con *meno di 1500 macchine virtuali*.
 
 ## <a name="specify-migration-project"></a>Specificare il progetto di migrazione
 
@@ -197,6 +197,16 @@ In base al numero di macchine virtuali nell'ambito selezionato, sono necessari f
 5. Fare clic con il pulsante destro del mouse sul file Setup.ps1, selezionare Run with PowerShell (Esegui con PowerShell) e quindi seguire le istruzioni visualizzate sullo schermo per installare l'aggiornamento.
 
 ### <a name="list-of-updates"></a>Elenco degli aggiornamenti
+
+#### <a name="upgrade-to-version-1097"></a>Eseguire l'aggiornamento alla versione 1.0.9.7
+
+Per eseguire l'aggiornamento alla 1.0.9.7, scaricare questo [pacchetto](https://aka.ms/migrate/col/upgrade_9_7)
+
+**Algoritmo** | **Valore hash**
+--- | ---
+MD5 | 01ccd6bc0281f63f2a672952a2a25363
+SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
+SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
 
 #### <a name="upgrade-to-version-1095"></a>Eseguire l'aggiornamento alla versione 1.0.9.5
 

@@ -2,7 +2,7 @@
 title: Creare cluster Hadoop mediante modelli - Azure Microsoft Azure HDInsight | Documentazione Microsoft
 description: Informazioni su come creare cluster per HDInsight usando modelli di Resource Manager
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -11,16 +11,14 @@ ms.assetid: 00a80dea-011f-44f0-92a4-25d09db9d996
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 15edd860a86f5d865a6bcb52700b43eaca4ff5c6
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 1c50c3fbef5495171693b64e410f858af6176147
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Creare cluster Hadoop in HDInsight mediante modelli di Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 5ade2a09d0729f48c075a5bcaa20bee079ead47d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e6438c353d84510ee918df120e6d54df0607c89d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="network-connectivity"></a>Connettività di rete
 Questo articolo fornisce informazioni sull'infrastruttura di rete di Azure Stack utili per decidere come integrare più Stack di Azure nell'ambiente di rete esistente. 
@@ -40,7 +40,7 @@ La tabella seguente illustra le reti logiche e associare gli intervalli di subne
 
 | Rete logica | DESCRIZIONE | Dimensione | 
 | -------- | ------------- | ------------ | 
-| VIP pubblico | Indirizzi IP pubblici per un piccolo set di servizi di Azure Stack, con il resto venga utilizzato dalle macchine virtuali tenant. L'infrastruttura di Azure Stack utilizza 32 indirizzi da questa rete. Se si prevede di utilizzare il provider di risorse SQL e di servizio App, vengono utilizzati 7 più indirizzi. | / 26 (62 host) - /22 (1022 host)<br><br>Consigliato = /24 (254 host) | 
+| VIP pubblico | Stack di Azure viene utilizzato un totale di 32 indirizzi da questa rete. Otto indirizzi IP pubblici vengono usati per un piccolo set di servizi di Azure Stack e gli altri vengono utilizzati dalle macchine virtuali tenant. Se si prevede di utilizzare il provider di risorse SQL e di servizio App, vengono utilizzati 7 più indirizzi. | / 26 (62 host) - /22 (1022 host)<br><br>Consigliato = /24 (254 host) | 
 | Infrastruttura switch | Gli indirizzi IP Point to Point a scopo di routing, dedicato passare le interfacce di gestione e gli indirizzi di loopback assegnati al commutatore. | /26 | 
 | Infrastruttura | Utilizzato per i componenti interni dello Stack di Azure per comunicare. | /24 |
 | Privato | Utilizzato per la rete di archiviazione e gli indirizzi VIP privato. | /24 | 
@@ -70,7 +70,7 @@ Questo/24 rete dedicato per i componenti interni dello Stack di Azure in modo ch
 Questo/27 rete è compreso nell'intervallo piccola tra la subnet dell'infrastruttura Azure Stack indicata in precedenza, non richiede indirizzi IP pubblici, ma richiede l'accesso a internet tramite un dispositivo NAT o un Proxy trasparente. Questa rete verrà allocata per emergenze ripristino Console di sistema (ERCS), la VM ERCS richiede l'accesso a internet durante la registrazione in Azure e durante i backup di infrastruttura. La VM ERCS deve essere instradabile alla rete di gestione per la risoluzione dei problemi.
 
 ### <a name="public-vip-network"></a>Rete pubblica di indirizzi VIP
-Rete pubblica VIP viene assegnata al controller di rete nello Stack di Azure. Non è una rete logica del commutatore. Il SLB utilizza il pool di indirizzi e assegna/32 di reti per carichi di lavoro tenant. Nella tabella di routing di commutatore, questi indirizzi IP di 32 vengono annunciate come non disponibili tramite il protocollo BGP. Questa rete contiene gli indirizzi IP pubblici o esterni accessibili. L'infrastruttura di Azure Stack utilizza almeno 8 indirizzi da questa rete VIP pubblico, mentre il resto viene utilizzato da macchine virtuali tenant. Le dimensioni della subnet di rete possono variare da un minimo di /26 (64 host) a un massimo di /22 (1022 host), è consigliabile pianificare un /24 rete.
+Rete pubblica VIP viene assegnata al controller di rete nello Stack di Azure. Non è una rete logica del commutatore. Il SLB utilizza il pool di indirizzi e assegna/32 di reti per carichi di lavoro tenant. Nella tabella di routing di commutatore, questi indirizzi IP di 32 vengono annunciate come non disponibili tramite il protocollo BGP. Questa rete contiene gli indirizzi IP pubblici o esterni accessibili. L'infrastruttura di Azure Stack utilizza 8 indirizzi da questa rete VIP pubblico, mentre il resto viene usato da macchine virtuali tenant. Le dimensioni della subnet di rete possono variare da un minimo di /26 (64 host) a un massimo di /22 (1022 host), è consigliabile pianificare un /24 rete.
 
 ### <a name="switch-infrastructure-network"></a>Rete infrastruttura commutatore
 Questo/26 rete è la subnet contenente subnet di /30 IP instradabile Point to Point (IP host 2) e i loopback di cui dedicati/32 subnet per in banda passare gestione e l'ID del router BGP. Questo intervallo di indirizzi IP deve essere instradabile dall'esterno della soluzione dello Stack di Azure al Data Center, possono essere indirizzi IP pubblici o privati.

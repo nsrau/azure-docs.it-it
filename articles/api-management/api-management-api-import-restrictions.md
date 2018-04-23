@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: d4229a3ecbcf8aa044eb448290c243e9920bd5cb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ab4bc4024248675c6325159b5507add1274addc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Problemi noti e limitazioni dell'importazione dell'API
 ## <a name="about-this-list"></a>Informazioni sull'elenco
@@ -27,9 +27,11 @@ Quando si importa un'API è possibile riscontrare delle restrizioni o identifica
 ## <a name="open-api"></a>Aprire l'API/Swagger
 Se si ricevono errori durante l'importazione del documento Open API, assicurarsi che sia stato convalidato: usare la finestra di progettazione nel portale di Azure (Progettazione - Front End - Aprire l'editor della specifica API) o usare uno strumento di terze parti come <a href="http://www.swagger.io">Swagger Editor</a>.
 
-* **Nome host** Gestione API richiede un attributo per il nome host.
-* **Percorso base** Gestione API richiede un attributo per il percorso base.
-* **Schemi** Gestione API richiede una matrice di schemi.
+* È supportato solo il formato JSON per OpenAPI.
+* Gli schemi a cui viene fatto riferimento tramite le proprietà **$ref** non possono contenere altre proprietà **$ref**.
+* I puntatori **$ref** non possono fare riferimento a file esterni.
+* **x-ms-paths** e **x-servers** sono le uniche estensioni supportate.
+* Le estensioni personalizzate vengono ignorate in fase di importazione e non vengono salvate o mantenute per l'esportazione.
 
 > [!IMPORTANT]
 > Vedere questo [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) per informazioni importanti e suggerimenti correlati all'importazione OpenAPI.

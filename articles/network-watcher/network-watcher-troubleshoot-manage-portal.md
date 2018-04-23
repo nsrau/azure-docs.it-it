@@ -5,7 +5,7 @@ services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f6f0a813-38b6-4a1f-8cfc-1dfdf979f595
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: fb8f60eea0eaa24649f584ae4183aa8e552a433e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: becc4f799e34aabba5c703f09e51a4b7d497c45a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-network-watcher-from-azure-portal"></a>Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni tramite Network Watcher dal portale di Azure
 
@@ -74,7 +74,7 @@ La scheda **Azione** offre indicazioni generiche su come risolvere il problema. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se sono state modificate le impostazioni che arrestano la connettività VPN, vedere [Gestire gruppi di sicurezza di rete](../virtual-network/virtual-network-manage-nsg-arm-portal.md) per tenere traccia del gruppo di sicurezza di rete e delle regole di sicurezza in questione.
+Se sono state modificate le impostazioni che arrestano la connettività VPN, vedere [Gestire gruppi di sicurezza di rete](../virtual-network/manage-network-security-group.md) per tenere traccia del gruppo di sicurezza di rete e delle regole di sicurezza in questione.
 
 
 [2]: ./media/network-watcher-troubleshoot-manage-portal/2.png

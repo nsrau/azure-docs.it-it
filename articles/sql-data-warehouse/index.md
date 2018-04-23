@@ -1,26 +1,25 @@
 ---
-title: Documentazione di Azure SQL Data Warehouse - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-description: Informazioni su come usare SQL Data Warehouse, l'unione di SQL Server con l'elaborazione parallela massiva. La documentazione illustra come caricare, analizzare, gestire ed esportare dati.
+title: Documentazione di Azure SQL Data Warehouse - Esercitazioni, concetti| Microsoft Docs
+description: Informazioni su come usare Azure SQL Data Warehouse, l'unione tra database relazionale SQL ed elaborazione parallela massiva. Le esercitazioni e gli altri documenti illustrano come progettare, caricare, gestire e analizzare i dati con un data warehouse.
 services: sql-data-warehouse
-author: czeumault
-manager: carolz
+author: hirokib
+manager: craigg-msft
 layout: LandingPage
-ms.assetid: 
 ms.service: sql-data-warehouse
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 47807360dd58f0c19360d90ed66f726d8922be1e
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.component: design
+ms.date: 04/11/2018
+ms.author: elbutter
+ms.reviewer: igorstan
+ms.openlocfilehash: 28e610f2d7b2f7a30045012eeac9c135e428fd62
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="sql-data-warehouse-documentation"></a>Documentazione di SQL Data Warehouse
 
-Informazioni su come usare SQL Data Warehouse, l'unione del database relazionale di SQL Server con l'elaborazione parallela massiva. Esercitazioni e altri documenti in cui viene illustrato come caricare dati in Warehouse, per poi analizzarli, gestirli ed esportarli.
+Informazioni su come usare Azure SQL Data Warehouse, l'unione tra database relazionale SQL ed elaborazione parallela massiva. Le esercitazioni e gli altri documenti illustrano come progettare, caricare, gestire e analizzare i dati con un data warehouse. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -82,7 +81,7 @@ Informazioni su come usare SQL Data Warehouse, l'unione del database relazionale
 
 ---
 
-<h2>Riferimenti</h2>
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

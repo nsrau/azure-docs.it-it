@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 81d8cc85827b29beaaec03fd258b550948798641
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: dd573a90e49197d59e6228359f57fcd4cc3f69e2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>Creare un set di scalabilità di macchine virtuali e distribuire un'app a disponibilità elevata in Windows
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile ridimensionare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'utilizzo delle risorse, ad esempio la CPU, alla richiesta di memoria o al traffico di rete. In questa esercitazione viene distribuito un set di scalabilità di macchine virtuali in Azure. Si apprenderà come:
@@ -34,7 +34,7 @@ Un set di scalabilità di macchine virtuali consente di distribuire e gestire un
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 5.6 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 5.6 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
 
 
 ## <a name="scale-set-overview"></a>Informazioni generali sui set di scalabilità
@@ -174,11 +174,12 @@ $mySubscriptionId = (Get-AzureRmSubscription)[0].Id
 $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "East US"
+$myScaleSetId = (Get-AzureRmVmss -ResourceGroupName $myResourceGroup -VMScaleSetName $myScaleSet).Id 
 
 # Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5-minute period
 $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
-  -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
+  -MetricResourceId $myScaleSetId `
   -Operator GreaterThan `
   -MetricStatistic Average `
   -Threshold 60 `
@@ -191,7 +192,7 @@ $myRuleScaleUp = New-AzureRmAutoscaleRule `
 # Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5-minute period
 $myRuleScaleDown = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
-  -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
+  -MetricResourceId $myScaleSetId `
   -Operator LessThan `
   -MetricStatistic Average `
   -Threshold 30 `
@@ -214,7 +215,7 @@ Add-AzureRmAutoscaleSetting `
   -Location $myLocation `
   -Name "autosetting" `
   -ResourceGroup $myResourceGroup `
-  -TargetResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
+  -TargetResourceId $myScaleSetId `
   -AutoscaleProfiles $myScaleProfile
 ```
 

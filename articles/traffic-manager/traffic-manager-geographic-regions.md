@@ -22,7 +22,7 @@ ms.lasthandoff: 01/29/2018
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Gerarchia di paesi/aree geografiche usata da Gestione traffico di Azure per il metodo di routing del traffico Geografico
 
-In questo articolo sono elencati i paesi e le regioni usati nel metodo di routing del traffico **Geografico** in Gestione traffico di Azure. È possibile ottenere queste informazioni anche in modo programmatico effettuando una chiamata all'[API REST di Gestione traffico di Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
+In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo di routing del traffico **Geografico** in Gestione traffico di Azure. È possibile ottenere queste informazioni anche in modo programmatico effettuando una chiamata all'[API REST di Gestione traffico di Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 - WORLD (mondo)
 
@@ -100,7 +100,7 @@ In questo articolo sono elencati i paesi e le regioni usati nel metodo di routin
 
         - ME (Montenegro)
 
-        - MK (F.Y.R.O. Macedonia)
+        - MK (Repubblica di Macedonia)
 
         - MT (Malta)
 
@@ -408,7 +408,7 @@ In questo articolo sono elencati i paesi e le regioni usati nel metodo di routin
 
         - GE (Georgia)
 
-        - HK (Hong Kong - R.A.S.)
+        - HK (RAS di Hong Kong)
 
         - ID (Indonesia)
 
@@ -622,7 +622,7 @@ In questo articolo sono elencati i paesi e le regioni usati nel metodo di routin
 
     - GEO-AP (Australia/Pacifico)
 
-        - AS (Samoa americane)
+        - AS (Isole Samoa americane)
 
         - AU (Australia)
 
@@ -688,7 +688,7 @@ In questo articolo sono elencati i paesi e le regioni usati nel metodo di routin
 
         - WF (Wallis e Futuna)
 
-        - WS (Samoa)
+        - WS (Isole Samoa)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

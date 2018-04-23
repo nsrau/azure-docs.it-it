@@ -2,10 +2,10 @@
 title: Creare un piano nello Stack di Azure | Documenti Microsoft
 description: Come un amministratore del cloud, creare un piano che consente alle macchine virtuali di provisioning ai sottoscrittori.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
 ms.workload: na
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: brenduns
-ms.reviewer: 
+ms.reviewer: ''
 ms.openlocfilehash: 5eefca3541ae9f73514f80b0f8df9e5027600f87
 ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT

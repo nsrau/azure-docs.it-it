@@ -1,24 +1,24 @@
 ---
-title: "Creare la capacità di Power BI Embedded nel portale di Azure | Microsoft Docs"
-description: "Questo articolo illustra come creare una capacità di Power BI Embedded in Microsoft Azure."
+title: Creare la capacità di Power BI Embedded nel portale di Azure | Microsoft Docs
+description: Questo articolo illustra come creare una capacità di Power BI Embedded in Microsoft Azure.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
-ms.openlocfilehash: bf7eb967760338626cd7e0465b16dc570e5f582a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: maghan
+ms.openlocfilehash: 2fadfde13aee3aaf965c6ba30188544a8a075b9d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>Creare la capacità di Power BI Embedded nel portale di Azure
 
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Per completare l'esercitazione introduttiva, sono necessari gli elementi seguenti:
 
 * **Sottoscrizione di Azure**: visitare la pagina [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/free/) per creare un account.
-* **Azure Active Directory**: la sottoscrizione deve essere associata a un tenant Azure Active Directory (AAD). È anche ***necessario effettuare l'accesso ad Azure con un account di tale tenant***. Gli account Microsoft non sono supportati. Per altre informazioni, vedere Autenticazione e autorizzazioni utente.
+* **Azure Active Directory**: la sottoscrizione deve essere associata a un tenant Azure Active Directory (AAD). È anche ***necessario effettuare l'accesso ad Azure con un account di tale tenant***. Gli account Microsoft non sono supportati. Per altre informazioni, vedere [Autenticazione e autorizzazioni utente](../analysis-services/analysis-services-manage-users.md).
 * **Tenant Power BI:** almeno un account nel tenant AAD deve aver effettuato l'iscrizione a Power BI.
 * **Gruppo di risorse**: usare un gruppo di risorse già esistente o [crearne uno nuovo](../azure-resource-manager/resource-group-overview.md).
 

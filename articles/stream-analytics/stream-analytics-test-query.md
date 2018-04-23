@@ -1,24 +1,19 @@
 ---
-title: Test delle query nella funzione analisi di flusso di Azure | Microsoft Docs
-description: Informazioni su come testare le query nei processi di analisi di flusso.
-keywords: testare query, risolvere i problemi relativi alle query
-documentation center: ''
+title: Testare le query in Analisi di flusso di Azure
+description: Questo articolo descrive come testare le query usando file di dati di esempio all'interno di processi di Analisi di flusso.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 50bfce426bf48ba986887f8a2e2873fe04ea2507
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: fb7d936dfdc543c208ce98c588f5ad83704ff5dc
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="test-azure-stream-analytics-queries-in-the-azure-portal"></a>Testare le query della funzione di analisi di flusso nel portale di Azure
 
@@ -44,7 +39,7 @@ Se si è soddisfatti dei risultati mostrati nel browser, è possibile salvare la
 
 ## <a name="get-help"></a>Ottenere aiuto
 
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

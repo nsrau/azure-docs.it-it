@@ -2,10 +2,10 @@
 title: Configurare i criteri di autorizzazione della chiave simmetrica con REST - Azure | Microsoft Docs
 description: Informazioni su come configurare i criteri di autorizzazione per una chiave simmetrica usando l'API REST di Servizi multimediali.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 7af5f9e2-8ed8-43f2-843b-580ce8759fd4
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 3f3972232a4342bfb7d8579d747d0cc4250963bc
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c7ba32073006c8e5e91e14ea38897c5b37415cf9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Crittografia dinamica: configurare i criteri di autorizzazione di una chiave simmetrica
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -42,11 +42,11 @@ Per altre informazioni, vedere gli articoli seguenti:
 * Per usare la creazione dinamica dei pacchetti e la crittografia dinamica, verificare che l'endpoint di streaming da cui si intende trasmettere i contenuti si trovi nello stato In esecuzione.
 * L'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva. Per altre informazioni, vedere l'articolo relativo alla [codifica di un asset](media-services-encode-asset.md).
 * Caricare e codificare gli asset mediante l'opzione AssetCreationOptions.StorageEncrypted.
-* Se si prevede di avere più chiavi simmetriche che richiedono una stessa configurazione di criteri, è consigliabile creare un singolo criterio di autorizzazione e applicarlo a più chiavi simmetriche.
+* Se si prevede di avere più chiavi simmetriche che richiedono la stessa configurazione di criteri, è consigliabile creare un singolo criterio di autorizzazione e applicarlo a più chiavi simmetriche.
 * Il servizio di distribuzione delle chiavi memorizza nella cache l'oggetto ContentKeyAuthorizationPolicy e gli oggetti correlati (opzioni e restrizioni) per 15 minuti. È possibile creare ContentKeyAuthorizationPolicy e specificare l'uso di una restrizione del token, testarla e quindi eseguire l'aggiornamento alla restrizione aperta. Per aggiornare i criteri alla restrizione aperta, il processo richiede circa 15 minuti.
 * Se si aggiungono o si aggiornano i criteri di distribuzione degli asset, è necessario eliminare qualsiasi localizzatore esistente e crearne uno nuovo.
 * Attualmente non è possibile crittografare i download progressivi.
-* L'endpoint di streaming di Servizi multimediali imposta il valore dell'intestazione CORS Access-Control-Allow-Origin nella risposta preliminare come il carattere jolly "\*". Questo valore funziona bene con la maggior parte dei lettori, tra cui Azure Media Player, Roku, JW Player e altri. Tuttavia, alcuni lettori che usano dash.js non funzionano perché, con la modalità delle credenziali impostata su "include", XMLHttpRequest in dash.js non è consentito il carattere jolly "\*" come valore di Access-Control-Allow-Origin. Come soluzione alternativa a questa limitazione in dash.js, se si ospita il client da un singolo dominio, Servizi multimediali può specificare tale dominio nell'intestazione della risposta preliminare. Per assistenza, aprire un ticket di supporto tramite il portale di Azure.
+* L'endpoint di streaming di Servizi multimediali imposta il valore dell'intestazione CORS (Access-Control-Allow-Origin) nella risposta preliminare come il carattere jolly "\*". Questo valore funziona bene con la maggior parte dei lettori, tra cui Azure Media Player, Roku, JW Player e altri. Tuttavia, alcuni lettori che usano dash.js non funzionano perché, con la modalità delle credenziali impostata su "include", XMLHttpRequest in dash.js non consente il carattere jolly "\*" come valore di Access-Control-Allow-Origin. Come soluzione alternativa a questa limitazione in dash.js, se si ospita il client da un singolo dominio, Servizi multimediali può specificare tale dominio nell'intestazione della risposta preliminare. Per assistenza, aprire un ticket di supporto tramite il portale di Azure.
 
 ## <a name="aes-128-dynamic-encryption"></a>Crittografia dinamica AES-128
 > [!NOTE]
@@ -71,7 +71,7 @@ Richiesta:
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423578086&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lZlyQ2%2bvH73qtJsb42%2fH3xF7r7EvQFR3UXyezuDENFU%3d
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17
     x-ms-client-request-id: d732dbfa-54fc-474c-99d6-9b46a006f389
     Host: wamsbayclus001rest-hs.cloudapp.net
@@ -107,7 +107,7 @@ Richiesta:
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423580006&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=Ref3EsonGF7fUKCwGwGgiMnZitzIzsDOvvMTeVrVVPg%3d
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17
     x-ms-client-request-id: d225e357-e60e-4f42-add8-9d93aba1409a
     Host: wamsbayclus001rest-hs.cloudapp.net
@@ -143,7 +143,7 @@ Richiesta:
     Accept: application/json
     Accept-Charset: UTF-8
     Content-Type: application/json
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423580006&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=Ref3EsonGF7fUKCwGwGgiMnZitzIzsDOvvMTeVrVVPg%3d
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17
     x-ms-client-request-id: 9847f705-f2ca-4e95-a478-8f823dbbaa29
     Host: wamsbayclus001rest-hs.cloudapp.net
@@ -164,7 +164,7 @@ Richiesta:
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423581565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=JiNSG3w6r2C0nIyfKvTZj1uPJGjuitD%2b0sbfZ%2b2JDZI%3d
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17
     x-ms-client-request-id: e613efff-cb6a-41b4-984a-f4f8fb6e76a4
     Host: wamsbayclus001rest-hs.cloudapp.net
@@ -274,7 +274,7 @@ Risposta:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:e1ef6145-46e8-4ee6-9756-b1cf96328c23","Name":"Token option for HLS","KeyDeliveryType":2,"KeyDeliveryConfiguration":null,"Restrictions":[{"Name":"Token Authorization Policy","KeyRestrictionType":1,"Requirements":"<TokenRestrictionTemplate xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1\"><AlternateVerificationKeys><TokenVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>BklyAFiPTQsuJNKriQJBZHYaKM2CkCTDQX2bw9sMYuvEC9sjW0W7GUIBygQL/+POEeUqCYPnmEU2g0o1GW2Oqg==</KeyValue></TokenVerificationKey></AlternateVerificationKeys><Audience>urn:test</Audience><Issuer>http://testacs.com/</Issuer><PrimaryVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>E5BUHiN4vBdzUzdP0IWaHFMMU3D1uRZgF16TOhSfwwHGSw+Kbf0XqsHzEIYk11M372viB9vbiacsdcQksA0ftw==</KeyValue></PrimaryVerificationKey><RequiredClaims><TokenClaim><ClaimType>urn:microsoft:azure:mediaservices:contentkeyidentifier</ClaimType><ClaimValue i:nil=\"true\" /></TokenClaim></RequiredClaims><TokenType>SWT</TokenType></TokenRestrictionTemplate>"}]}
 
 #### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Collegare ContentKeyAuthorizationPolicies con Options
-Collegare ContentKeyAuthorizationPolicies con Options, come illustrato nella sezione "[Create ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
+Collegare ContentKeyAuthorizationPolicies con Options, come illustrato nella sezione "[Creare ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
 
 #### <a name="add-an-authorization-policy-to-the-content-key"></a>Aggiungere criteri di autorizzazione alla chiave simmetrica
 Aggiungere AuthorizationPolicy a ContentKey, come illustrato nella sezione "[Aggiungere criteri di autorizzazione alla chiave simmetrica](#AddAuthorizationPolicyToKey)".
@@ -298,7 +298,7 @@ Richiesta:
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=bbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423581565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=JiNSG3w6r2C0nIyfKvTZj1uPJGjuitD%2b0sbfZ%2b2JDZI%3d
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17
     x-ms-client-request-id: 9e7fa407-f84e-43aa-8f05-9790b46e279b
     Host: wamsbayclus001rest-hs.cloudapp.net
@@ -335,7 +335,7 @@ Richiesta:
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423581565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=JiNSG3w6r2C0nIyfKvTZj1uPJGjuitD%2b0sbfZ%2b2JDZI%3d
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17
     x-ms-client-request-id: f160ad25-b457-4bc6-8197-315604c5e585
     Host: wamsbayclus001rest-hs.cloudapp.net
@@ -363,7 +363,7 @@ Risposta:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:1052308c-4df7-4fdb-8d21-4d2141fc2be0","Name":"","KeyDeliveryType":1,"KeyDeliveryConfiguration":"<PlayReadyLicenseResponseTemplate xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1\"><LicenseTemplates><PlayReadyLicenseTemplate><AllowTestDevices>false</AllowTestDevices><ContentKey i:type=\"ContentEncryptionKeyFromHeader\" /><LicenseType>Nonpersistent</LicenseType><PlayRight /></PlayReadyLicenseTemplate></LicenseTemplates></PlayReadyLicenseResponseTemplate>","Restrictions":[{"Name":"Open","KeyRestrictionType":0,"Requirements":null}]}
 
 #### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Collegare ContentKeyAuthorizationPolicies con Options
-Collegare ContentKeyAuthorizationPolicies con Options, come illustrato nella sezione "[Create ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
+Collegare ContentKeyAuthorizationPolicies con Options, come illustrato nella sezione "[Creare ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
 
 #### <a name="add-an-authorization-policy-to-the-content-key"></a>Aggiungere criteri di autorizzazione alla chiave simmetrica
 Aggiungere AuthorizationPolicy a ContentKey, come illustrato nella sezione "[Aggiungere criteri di autorizzazione alla chiave simmetrica](#AddAuthorizationPolicyToKey)".
@@ -383,7 +383,7 @@ Richiesta:
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423583561&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=5eZnkOsSv%2fLLEKmS%2bWObBlsNYyee8BQlp%2bUYbjugcJg%3d
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17
     x-ms-client-request-id: ab079b0e-2ba9-4cf1-b549-a97bfa6cd2d3
     Host: wamsbayclus001rest-hs.cloudapp.net
@@ -411,7 +411,7 @@ Risposta:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:e42bbeae-de42-4077-90e9-a844f297ef70","Name":"Token option","KeyDeliveryType":1,"KeyDeliveryConfiguration":"<PlayReadyLicenseResponseTemplate xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1\"><LicenseTemplates><PlayReadyLicenseTemplate><AllowTestDevices>false</AllowTestDevices><ContentKey i:type=\"ContentEncryptionKeyFromHeader\" /><LicenseType>Nonpersistent</LicenseType><PlayRight /></PlayReadyLicenseTemplate></LicenseTemplates></PlayReadyLicenseResponseTemplate>","Restrictions":[{"Name":"Token Authorization Policy","KeyRestrictionType":1,"Requirements":"<TokenRestrictionTemplate xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1\"><AlternateVerificationKeys><TokenVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>w52OyHVqXT8aaupGxuJ3NGt8M6opHDOtx132p4r6q4hLI6ffnLusgEGie1kedUewVoIe1tqDkVE6xsIV7O91KA==</KeyValue></TokenVerificationKey></AlternateVerificationKeys><Audience>urn:test</Audience><Issuer>http://testacs.com/</Issuer><PrimaryVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>dYwLKIEMBljLeY9VM7vWdlhps31Fbt0XXhqP5VyjQa33bJXleBtkzQ6dF5AtwI9gDcdM2dV2TvYNhCilBKjMCg==</KeyValue></PrimaryVerificationKey><RequiredClaims><TokenClaim><ClaimType>urn:microsoft:azure:mediaservices:contentkeyidentifier</ClaimType><ClaimValue i:nil=\"true\" /></TokenClaim></RequiredClaims><TokenType>SWT</TokenType></TokenRestrictionTemplate>"}]}
 
 #### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Collegare ContentKeyAuthorizationPolicies con Options
-Collegare ContentKeyAuthorizationPolicies con Options, come illustrato nella sezione "[Create ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
+Collegare ContentKeyAuthorizationPolicies con Options, come illustrato nella sezione "[Creare ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
 
 #### <a name="add-an-authorization-policy-to-the-content-key"></a>Aggiungere criteri di autorizzazione alla chiave simmetrica
 Aggiungere AuthorizationPolicy a ContentKey, come illustrato nella sezione "[Aggiungere criteri di autorizzazione alla chiave simmetrica](#AddAuthorizationPolicyToKey)".

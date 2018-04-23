@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 9b92e00f7082921586e8b8d8461ddf718ca30aeb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: daa7ea345abb6228bee2d1ca5bfcc3850aaff9c3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Guida introduttiva: Creare un'istanza di Database di Azure per PostgreSQL con l'interfaccia della riga di comando di Azure
 Il database di Azure per PostgreSQL è un servizio gestito che consente di eseguire, gestire e ridimensionare database PostgreSQL a disponibilità elevata nel cloud. L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida di avvio rapido mostra come creare un database di Azure per il server PostgreSQL in un [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) tramite l'interfaccia della riga di comando di Azure.
@@ -41,30 +41,6 @@ az account set --subscription <subscription id>
 Creare un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo. È necessario specificare un nome univoco. Nell'esempio seguente viene creato un gruppo di risorse denominato `myresourcegroup` nella posizione `westus`.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
-```
-## <a name="add-the-extension"></a>Aggiungere l'estensione
-Aggiungere l'estensione di gestione di Database di Azure per PostgreSQL aggiornata con il comando seguente:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Verificare che sia installata la versione dell'estensione corretta. 
-```azurecli-interactive
-az extension list
-```
-
-Il codice JSON restituito includerà gli elementi seguenti: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Se non viene restituita la versione 0.0.5, eseguire questo comando per aggiornare l'estensione: 
-```azurecli-interactive
-az extension update --name rdbms
 ```
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Creare un database di Azure per il server PostgreSQL

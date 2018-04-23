@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: ca3292f1b89fc461950a47116126b6f5338fb381
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ce03ee0e0936cea4b96e48fbc949f40ee0fe83a0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Risolvere i problemi di configurazione di rete non valida per il dominio gestito
 Questo articolo consente di individuare e risolvere gli errori di configurazione relativi alla rete che causano il messaggio di avviso seguente:
@@ -61,7 +61,7 @@ Usare la procedura seguente per creare un nuovo NSG con PowerShell.
 
   ```PowerShell
   # Log in to your Azure subscription.
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
 2. Creare un gruppo di sicurezza di rete con tre regole. Lo script seguente definisce tre regole per il gruppo di sicurezza di rete che consentono l'accesso alle porte necessarie per eseguire Azure AD Domain Services. Quindi, lo script crea un nuovo gruppo di sicurezza di rete contenente tali regole. Usare lo stesso formato per aggiungere altre regole che consentano il traffico in ingresso, se richiesto da carichi di lavoro distribuiti nella rete virtuale.
@@ -123,7 +123,7 @@ $VnetName = "exampleVnet"
 $SubnetName = "exampleSubnet"
 
 # Log in to your Azure subscription.
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # Allow inbound HTTPS traffic to enable synchronization to your managed domain.
 $SyncRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowSyncWithAzureAD -Description "Allow synchronization with Azure AD" `

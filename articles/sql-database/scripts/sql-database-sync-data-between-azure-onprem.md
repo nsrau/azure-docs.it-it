@@ -14,14 +14,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 07/31/2017
+ms.date: 04/01/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 31be6bc80b147e106066c064903c6eb9e1900e12
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bef2e3088bf3f3d32f59b382792608fbf3a03a60
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Usare PowerShell per la sincronizzazione tra un database SQL e un database SQL Server locale
 
@@ -29,7 +29,7 @@ Questo esempio di PowerShell consente di configurare la sincronizzazione dei dat
 
 Questo esempio richiede il modulo Azure PowerShell 4.2 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
-Eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
+Eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
 
 Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure (anteprima)](../sql-database-sync-data.md).
 
@@ -101,7 +101,7 @@ $IncludedColumnsAndTables =  "[SalesLT].[Address].[AddressID]",
 $MetadataList = [System.Collections.ArrayList]::new($IncludedColumnsAndTables)
 
 
-add-azurermaccount 
+Connect-AzureRmAccount 
 select-azurermsubscription -SubscriptionId $SubscriptionId
 
 # Use this section if it is safe to show password in the script.
@@ -395,7 +395,7 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 -   [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](../sql-database-sync-data.md)
 -   [Configurare la sincronizzazione dati SQL](../sql-database-get-started-sql-data-sync.md)
 -   [Procedure consigliate per la sincronizzazione dati SQL di Azure](../sql-database-best-practices-data-sync.md)
--   [Monitorare la sincronizzazione dati SQL di Azure con OMS Log Analytics](../sql-database-sync-monitor-oms.md)
+-   [Monitorare la sincronizzazione dati SQL con Log Analytics](../sql-database-sync-monitor-oms.md)
 -   [Risolvere i problemi della sincronizzazione dati SQL di Azure](../sql-database-troubleshoot-data-sync.md)
 
 -   Esempi di PowerShell completi che illustrano come configurare la sincronizzazione dati SQL:

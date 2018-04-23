@@ -1,24 +1,18 @@
 ---
 title: Analisi del traffico di ricerca per Ricerca di Azure | Documentazione Microsoft
 description: Abilitare Analisi del traffico di ricerca per Ricerca di Azure, un servizio di ricerca cloud ospitato in Microsoft Azure, per sbloccare informazioni dettagliate su utenti e dati.
+author: HeidiSteen
+manager: cgronlun
 services: search
-documentationcenter: 
-author: bernitorres
-manager: jlembicz
-editor: 
-ms.assetid: b31d79cf-5924-4522-9276-a1bb5d527b13
 ms.service: search
-ms.devlang: multiple
-ms.workload: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/05/2017
-ms.author: betorres
-ms.openlocfilehash: 303ca5c820f573dc0b58f1910f258403c3baad2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: heidist
+ms.openlocfilehash: ca0a00d078cd63aa8736ba9f9822fd812823304f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-search-traffic-analytics"></a>Analisi del traffico di ricerca
 Analisi del traffico di ricerca è un modello per l'implementazione di un ciclo di feedback per il servizio di ricerca. Questo modello descrive i dati necessari e come raccoglierli utilizzando Application Insights, uno strumento leader di settore per il monitoraggio dei servizi in più piattaforme.

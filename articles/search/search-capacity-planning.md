@@ -1,25 +1,18 @@
 ---
-title: "Pianificazione della capacità per Ricerca di Azure | Documentazione Microsoft"
-description: "Regolare le risorse di calcolo, ovvero partizioni e repliche, dove il prezzo di ogni risorsa è definito in unità di ricerca fatturabili, in Ricerca di Azure."
-services: search
-documentationcenter: 
+title: Pianificazione della capacità per Ricerca di Azure | Documentazione Microsoft
+description: Regolare le risorse di calcolo, ovvero partizioni e repliche, dove il prezzo di ogni risorsa è definito in unità di ricerca fatturabili, in Ricerca di Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 1dc16afe-56f9-439d-8874-1733ae1a2b74
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 47dcd5366ef8ba3d4598e6d418b11997c61bddea
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 08ae64aa92d7262b462ad105aa8e776bdaef15c0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Ridimensionare i livelli di risorse per i carichi di lavoro di indicizzazione e query in Ricerca di Azure
 Dopo aver [scelto un piano tariffario](search-sku-tier.md) ed [eseguito il provisioning di un servizio di ricerca](search-create-service-portal.md), il passaggio successivo consente di aumentare il numero di repliche o partizioni usate dal servizio. Ogni livello offre un numero fisso di unità di fatturazione. Questo articolo illustra come assegnare le unità per ottenere una configurazione ottimale che bilanci i requisiti per l'esecuzione di query, indicizzazione e archiviazione.

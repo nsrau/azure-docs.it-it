@@ -5,7 +5,7 @@ keywords: Modello gerarchico, Cosmos DB, Azure, Microsoft Azure
 services: cosmos-db
 documentationcenter: ''
 author: rafats
-manager: jhubbard
+manager: kfile
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 948fc84db2fd2d6f2059f9807b84194ebac59472
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f0fc8a977a172a859d6691a5b587135caf14e03f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Modello di risorsa gerarchico e concetti di base relativi ad Azure Cosmos DB
 

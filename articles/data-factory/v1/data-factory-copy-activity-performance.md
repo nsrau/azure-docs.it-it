@@ -14,13 +14,18 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e8cb5df31a87f72c9947f78c25a41b74399b3727
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b54138c5197d1c5870eed6fd4782e47c6a8b0300
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Versione 1 - Disponibilità generale](data-factory-copy-activity-performance.md)
+> * [Versione 2 - Anteprima](../copy-activity-performance.md)
+
 > [!NOTE]
 > Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, che è in anteprima, vedere [Copy activity performance and tuning guide for Data Factory version 2](../copy-activity-performance.md) (Guida alle prestazioni dell'attività di copia e all'ottimizzazione per Data Factory versione 2).
 

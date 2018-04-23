@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 04/05/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d562e58b86a6d5c18b10683dc4c14cf9c28c809b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 66ff1e2e02728e05cb0aeedce90de1882a8804ce
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 Le domande frequenti sulla connessione tra reti virtuali si applicano alle connessioni gateway VPN. Per informazioni sul peering reti virtuali, vedere [Peering di rete virtuale](../articles/virtual-network/virtual-network-peering-overview.md)
 
@@ -23,6 +23,10 @@ Il traffico da rete virtuale a rete virtuale nella stessa area è gratuito in en
 ### <a name="does-vnet-to-vnet-traffic-travel-across-the-internet"></a>Il traffico da rete virtuale a rete virtuale viene trasmesso su Internet?
 
 di serie Il traffico tra reti virtuali passa per il backbone di Microsoft Azure, non Internet.
+
+### <a name="can-i-establish-a-vnet-to-vnet-connection-across-aad-tenants"></a>È possibile stabilire una connessione da rete virtuale a rete virtuale tra tenant di AAD?
+
+Sì, le connessioni da rete virtuale a rete virtuale usando i gateway VPN di Azure nei tenant di AAD.
 
 ### <a name="is-vnet-to-vnet-traffic-secure"></a>Il traffico tra reti virtuali è sicuro?
 

@@ -1,11 +1,11 @@
 ---
-title: "Creare una VM (classica) con più schede di interfaccia di rete - interfaccia della riga di comando 1.0 di Azure| Documentazione Microsoft"
-description: "Informazioni su come creare una VM (classica) con più schede di interfaccia di rete usando l'interfaccia della riga di comando 1.0 di Azure."
+title: Creare una VM (classica) con più schede di interfaccia di rete - interfaccia della riga di comando 1.0 di Azure| Documentazione Microsoft
+description: Informazioni su come creare una VM (classica) con più schede di interfaccia di rete usando l'interfaccia della riga di comando 1.0 di Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
+author: genlin
+manager: cshepard
+editor: ''
 tags: azure-service-management
 ms.assetid: b436e41e-866c-439f-a7c7-7b4b041725ef
 ms.service: virtual-network
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
-ms.author: jdial
+ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5569209d3628003b3f3e169b227e069b920c03f
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 0b56ab474ff23748487c50bd34487c80242c6429
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Creare una VM (classica) con più schede di interfaccia di rete usando l'interfaccia della riga di comando 1.0 di Azure
 

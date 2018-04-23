@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 3/6/2018
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 92073cd29f29c1ddf5863e23c4a12dfdf8e21598
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 904641a433d55cc5f1d04b17ed067cd560c6b33c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurare l'ambiente del servizio app con il tunneling forzato tramite un tunnel
+# <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurare Ambiente del servizio app con il tunneling forzato
 
 L'ambiente del servizio app (ASE) è una distribuzione del servizio app di Azure in una rete virtuale di Azure di un cliente. Molti clienti configurano le proprie reti virtuali di Azure come estensioni delle proprie reti locali con VPN o connessioni Azure ExpressRoute. Per tunneling forzato si intende il reindirizzamento del traffico associato a Internet alla propria VPN o a un'appliance virtuale. Lo scopo è il controllo di tutto il traffico in uscita, spesso richiesto per motivi di sicurezza. 
 
@@ -30,7 +30,7 @@ In una rete virtuale di Azure il routing viene eseguito in base all'algoritmo LP
 
 * Route definita dall'utente
 * Route BGP (quando viene utilizzato ExpressRoute)
-* La route di sistema
+* Route di sistema
 
 Per altre informazioni sul routing in una rete virtuale, vedere [Route definite dall'utente e inoltro degli indirizzi IP][routes]. 
 
@@ -49,6 +49,8 @@ Per consentire all'ambiente del servizio app l'accesso diretto a Internet anche 
 
 Se si apportano queste due modifiche, il traffico destinato a Internet proveniente dalla subnet dell'ambiente del servizio app non verrà forzato attraverso la connessione ExpressRoute.
 
+Se la rete indirizza già il traffico in locale, è necessario creare la subnet per l'hosting dell'ambiente del servizio app e configurare la rispettiva route definita dall'utente prima di provare a distribuire l'ambiente del servizio app.  
+
 > [!IMPORTANT]
 > Le route definite in una route definita dall'utente devono essere sufficientemente specifiche per avere la precedenza su qualsiasi route annunciata dalla configurazione di ExpressRoute. Nell'esempio precedente viene usato l'intervallo di indirizzi ampio 0.0.0.0/0. Può essere accidentalmente sostituito dagli annunci di route che usano intervalli di indirizzi più specifici.
 >
@@ -56,13 +58,16 @@ Se si apportano queste due modifiche, il traffico destinato a Internet provenien
 
 ![Accesso diretto a Internet][1]
 
-## <a name="configure-your-ase-with-service-endpoints"></a>Configurare l'ambiente del servizio app con endpoint servizio
+
+## <a name="configure-your-ase-with-service-endpoints"></a>Configurare l'ambiente del servizio app con endpoint servizio ##
 
 Per instradare tutto il traffico in uscita dall'ambiente del servizio app, ad eccezione del traffico diretto a SQL di Azure e Archiviazione di Azure, procedere come segue:
 
 1. Creare una tabella di route e assegnarla alla subnet dell'ambiente del servizio app. Trovare gli indirizzi corrispondenti alla propria area qui: [Indirizzi di gestione dell'Ambiente del servizio app][management]. Creare route per tali indirizzi con hop successivo uguale a Internet. Questo passaggio è necessario perché il traffico di gestione in ingresso dell'ambiente del servizio app deve rispondere dallo stesso indirizzo al quale è stato inviato.   
 
-2. Abilitare gli endpoint servizio con SQL di Azure e Archiviazione di Azure con la subnet dell'ambiente del servizio app
+2. Abilitare gli endpoint servizio con SQL di Azure e Archiviazione di Azure con la subnet dell'ambiente del servizio app.  Dopo il completamento di questo passaggio, è possibile configurare la rete virtuale con il tunneling forzato.
+
+Per creare un ambiente del servizio app in una rete virtuale già configurata per l'indirizzamento di tutto il traffico in locale, è necessario creare l'ambiente del servizio app usando un modello di Resource Manager.  Non è possibile creare un ambiente del servizio app con il portale in una subnet già esistente.  Quando si distribuisce l'ambiente del servizio app in una rete virtuale già configurata per l'indirizzamento del traffico in uscita in locale, è necessario creare l'ambiente del servizio app usando un modello di Resource Manager che consente di specificare una subnet già esistente. Per informazioni dettagliate sulla distribuzione di un ambiente del servizio app con un modello, vedere [Creare un ambiente del servizio app usando un modello][template].
 
 Gli endpoint servizio consentono di limitare l'accesso ai servizi multi-tenant a un set di reti e subnet virtuali di Azure. Per altre informazioni sugli endpoint servizio, vedere la pagina [Endpoint del servizio Rete virtuale][serviceendpoints] della documentazione. 
 
@@ -70,7 +75,7 @@ Quando si abilitano gli endpoint del servizio su una risorsa, alcune route sono 
 
 Quando gli endpoint servizio sono abilitati in una subnet con un'istanza di SQL di Azure, tutte le istanze di SQL di Azure verso cui si esegue la connessione da tale subnet devono avere gli endpoint servizio abilitati. Se si desidera accedere a più istanze di SQL di Azure dalla stessa subnet, non è possibile abilitare gli endpoint servizio in un'istanza di SQL di Azure e non in un'altra.  Il comportamento di Archiviazione di Azure è diverso da quello di SQL di Azure.  Quando si abilitano gli endpoint servizio con Archiviazione di Azure, si blocca l'accesso a tale risorsa dalla propria subnet ma è comunque possibile accedere ad altri account di archiviazione di Azure, anche se non hanno gli endpoint servizio abilitati.  
 
-Se si configura il tunneling forzato con un'appliance di filtro rete, tenere presente che l'ambiente del servizio app ha diverse altre dipendenze oltre a SQL di Azure e Archiviazione di Azure e che è necessario consentire il relativo traffico. In caso contrario, l'ambiente del servizio app non funzionerà correttamente.
+Se si configura il tunneling forzato con un'appliance di filtro rete, tenere presente che l'ambiente del servizio app ha alcune dipendenze oltre a SQL di Azure e Archiviazione di Azure e che è necessario consentire il traffico verso tali dipendenze. In caso contrario, l'ambiente del servizio app non funzionerà correttamente.
 
 ![Tunneling forzato con gli endpoint servizio][2]
 

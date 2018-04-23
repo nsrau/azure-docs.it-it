@@ -1,24 +1,23 @@
 ---
 title: Introduzione all'archiviazione tabelle di Azure con Python | Microsoft Docs
-description: Archiviare dati strutturati nel cloud con il servizio di archiviazione tabelle di Azure, ovvero un archivio dati NoSQL.
+description: Archiviare dati non strutturati nel cloud con il servizio di archiviazione tabelle di Azure, ovvero un archivio dati NoSQL.
 services: cosmos-db
 documentationcenter: python
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/08/2018
-ms.author: mimig
-ms.openlocfilehash: 455479c9eb77093dd5611263fe5bdcf699b9d026
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: c8f35656e9db07b596cd24ecb570fa0960f540b8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>Introduzione all'archiviazione tabelle di Azure con Python
 
@@ -37,30 +36,22 @@ Questa esercitazione illustra come usare [Azure Cosmos DB Table SDK per Python](
 
 Mentre si lavora agli scenari di questa esercitazione, è possibile vedere le [informazioni di riferimento sull'API Azure Cosmos DB SDK per Python](https://azure.github.io/azure-cosmosdb-python/).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare l'esercitazione sono necessari gli elementi seguenti:
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 o 3.6
-- [Azure Cosmos DB Table SDK per Python](https://pypi.python.org/pypi/azure-cosmosdb-table/) Questo SDK si connette sia all'archiviazione tabelle di Azure sia all'API Table di Azure Cosmos DB.
+- [Azure Cosmos DB Table SDK per Python](https://pypi.python.org/pypi/azure-cosmosdb-table/) Questo SDK si connette sia all'archiviazione tabelle di Azure sia all'API Tabelle di Azure Cosmos DB.
 - [Account di archiviazione di Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account) o [account Azure Cosmos DB](https://azure.microsoft.com/en-us/try/cosmosdb/)
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
-
 ## <a name="create-an-azure-service-account"></a>Creare un account del servizio di Azure
-
-È possibile usare tabelle con l'archiviazione tabelle di Azure o con Azure Cosmos DB. Per altre informazioni sulle differenze tra i servizi, vedere [Offerte per tabelle](table-introduction.md#table-offerings). Sarà necessario creare un account per il servizio che si intende usare. 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
-Il modo più semplice per creare il primo account di archiviazione di Azure consiste nell'usare il [portale di Azure](https://portal.azure.com). Per altre informazioni, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-È possibile anche creare un account di archiviazione di Azure usando [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) o l'[interfaccia della riga di comando di Azure](../storage/common/storage-azure-cli.md).
-
-Se si preferisce non creare un account di archiviazione in questa fase, è anche possibile usare l'emulatore di archiviazione di Azure per eseguire e testare il codice in un ambiente locale. Per altre informazioni, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](../storage/common/storage-use-emulator.md).
-
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Creare un account per l'API Table di Azure Cosmos DB
-
-Per istruzioni per la creazione di un account per l'API Table di Azure Cosmos DB, vedere [Creare un account per un'API di tabella](create-table-dotnet.md#create-a-database-account).
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Creare un account per l'API di tabella di Azure Cosmos DB
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="install-the-azure-cosmos-db-table-sdk-for-python"></a>Installare Azure Cosmos DB Table SDK per Python
 

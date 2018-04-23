@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: d4b8d485906701b4f05e057996bc31232a29e620
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d4931c710bebc5e6c3ee23fb58e1432bb86da4a5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Output di runbook e messaggi in automazione di Azure
 La maggior parte dei runbook di Automazione di Azure avrà qualche forma di output, ad esempio un messaggio di errore all'utente o un oggetto complesso destinato a essere usato da un altro flusso di lavoro. Windows PowerShell fornisce [più flussi](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) per inviare l'output da uno script o flusso di lavoro. Automazione di Azure funziona con ciascuno di questi flussi in modo diverso ed è necessario seguire le procedure consigliate per utilizzarli quando si crea un runbook.
@@ -33,29 +33,32 @@ Il flusso di Output è destinato agli output degli oggetti creati da uno script 
 
 È possibile scrivere i dati per il flusso di output tramite [Write-Output](http://technet.microsoft.com/library/hh849921.aspx) o inserendo l'oggetto nella relativa riga nel runbook.
 
-    #The following lines both write an object to the output stream.
-    Write-Output –InputObject $object
-    $object
+```PowerShell
+#The following lines both write an object to the output stream.
+Write-Output –InputObject $object
+$object
+```
 
 ### <a name="output-from-a-function"></a>Output da una funzione
 Quando si scrive nel flusso di output in una funzione inclusa nel runbook, l'output viene passato nuovamente al runbook. Se il runbook assegna l'output a una variabile, allora non è scritto nel flusso di output. La scrittura in eventuali altri flussi da all'interno della funzione scriverà nel flusso corrispondente per il runbook.
 
 Si consideri il seguente esempio di runbook:
 
-    Workflow Test-Runbook
-    {
-        Write-Verbose "Verbose outside of function" -Verbose
-        Write-Output "Output outside of function"
-        $functionOutput = Test-Function
-        $functionOutput
+```PowerShell
+Workflow Test-Runbook
+{
+  Write-Verbose "Verbose outside of function" -Verbose
+  Write-Output "Output outside of function"
+  $functionOutput = Test-Function
+  $functionOutput
 
-    Function Test-Function
-     {
-        Write-Verbose "Verbose inside of function" -Verbose
-        Write-Output "Output inside of function"
-      }
-    }
-
+  Function Test-Function
+  {
+    Write-Verbose "Verbose inside of function" -Verbose
+    Write-Output "Output inside of function"
+  }
+}
+```
 
 Il flusso di output per il processo di runbook sarebbe:
 
@@ -81,13 +84,15 @@ Di seguito è riportato un elenco di tipi di output di esempio:
 
 Il runbook di esempio seguente restituisce un oggetto string e include una dichiarazione del tipo di output. Se il runbook restituisce una matrice di un determinato tipo, è comunque necessario specificare il tipo invece di una matrice del tipo.
 
-    Workflow Test-Runbook
-    {
-       [OutputType([string])]
+```PowerShell
+Workflow Test-Runbook
+{
+  [OutputType([string])]
 
-       $output = "This is some string output."
-       Write-Output $output
-    }
+  $output = "This is some string output."
+  Write-Output $output
+}
+ ```
 
 Per dichiarare un tipo di output nei runbook del flusso di lavoro grafico o del flusso di lavoro PowerShell grafico, è possibile selezionare l'opzione di menu **Input e output** e digitare il nome del tipo di output. È consigliabile usare il nome della classe .NET completo affinché sia facilmente identificabile nel riferimento da un runbook padre. Questa operazione espone tutte le proprietà di tale classe nel bus di dati del runbook e offre una notevole flessibilità quando le proprietà vengono usate per la logica condizionale, la registrazione e il riferimento come valori per altre attività del runbook.<br> ![Opzione Input e output del runbook](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
@@ -115,11 +120,13 @@ I flussi di errore e di avviso sono utili per registrare i problemi che si verif
 
 Creare un avviso o un messaggio di errore usando il cmdlet [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) o [Write-Error](http://technet.microsoft.com/library/hh849962.aspx). Anche le attività possono scrivere tali flussi.
 
-    #The following lines create a warning message and then an error message that will suspend the runbook.
+```PowerShell
+#The following lines create a warning message and then an error message that will suspend the runbook.
 
-    $ErrorActionPreference = "Stop"
-    Write-Warning –Message "This is a warning message."
-    Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
+$ErrorActionPreference = "Stop"
+Write-Warning –Message "This is a warning message."
+Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
+```
 
 ### <a name="verbose-stream"></a>Flusso dettagliato
 Il flusso del messaggio dettagliato è destinato a informazioni generali sull'operazione del runbook. Poiché il [Flusso di Debug](#Debug) non è disponibile in un runbook, i messaggi dettagliati devono essere utilizzati per le informazioni di debug. Per impostazione predefinita, i messaggi dettagliati da runbook pubblicato non vengono archiviati nella cronologia del processo. Per archiviare i messaggi dettagliati, configurare i runbook pubblicati su Registra record dettagliati nella scheda Configura del runbook nel portale di Azure. Nella maggior parte dei casi, è consigliabile mantenere l'impostazione predefinita che non registra record dettagliati per un runbook per motivi di prestazioni. Attivare questa opzione solo per risolvere i problemi o eseguire il debug di un runbook.
@@ -128,9 +135,11 @@ Quando si esegue il [test di un runbook](automation-testing-runbook.md), i messa
 
 Creare un messaggio dettagliato utilizzando il cmdlet [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx) .
 
-    #The following line creates a verbose message.
+```PowerShell
+#The following line creates a verbose message.
 
-    Write-Verbose –Message "This is a verbose message."
+Write-Verbose –Message "This is a verbose message."
+```
 
 ### <a name="debug-stream"></a>Flusso di Debug 
 Il flusso di Debug deve essere utilizzato con un utente interattivo e non deve essere utilizzato nei runbook.
@@ -168,24 +177,25 @@ In Windows PowerShell, è possibile recuperare i messaggi e gli output da un run
 
 Nell'esempio seguente viene avviato un runbook figlio e si attende il suo completamento. Una volta completato, il relativo output viene raccolto dal processo.
 
-    $job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+```PowerShell
+$job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 
-    $doLoop = $true
-    While ($doLoop) {
-       $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
-       –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
-       $status = $job.Status
-       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
-    }
+$doLoop = $true
+While ($doLoop) {
+  $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
+  $status = $job.Status
+  $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
+}
 
-    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
-    
-    # For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
-    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
-    
+Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
+
+# For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
+Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+``` 
 
 ### <a name="graphical-authoring"></a>Creazione grafica
 Per i runbook grafici, è disponibile una registrazione aggiuntiva sotto forma di traccia a livello di attività. Sono disponibili due livelli di traccia: base e dettagliato. Nella traccia di base sono indicate l'ora di inizio e di fine di ogni attività del runbook, oltre a informazioni relative a eventuali ulteriori tentativi di esecuzione dell'attività, ad esempio il numero di tentativi e l'ora di inizio dell'attività. Nella traccia dettagliata sono indicate le informazioni della traccia di base e i dati di input e output di ogni attività. Attualmente i record di traccia vengono scritti usando il flusso dettagliato. Per questa ragione è necessario abilitare la registrazione dettagliata quando si abilita la traccia. Per i runbook grafici con la traccia abilitata non è necessario registrare record di stato perché la traccia di base svolge la stessa funzione e offre maggiori informazioni.

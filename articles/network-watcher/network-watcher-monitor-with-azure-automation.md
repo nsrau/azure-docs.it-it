@@ -1,11 +1,11 @@
 ---
 title: Monitorare i gateway VPN con la risoluzione dei problemi di Azure Network Watcher | Microsoft Docs
-description: "Questo articolo illustra come diagnosticare la connettività locale con Automazione di Azure e Network Watcher"
+description: Questo articolo illustra come diagnosticare la connettività locale con Automazione di Azure e Network Watcher
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3c6efbc5da37a2ac500a575419263c0f21cca4b7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a102916bb0626f5b110fb134a8a25c902cfaefe7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorare i gateway VPN con la risoluzione dei problemi di Network Watcher
 
@@ -106,7 +106,7 @@ $cred = Get-AutomationPSCredential -Name $o365AutomationCredential
 $servicePrincipalConnection=Get-AutomationConnection -Name $runAsConnectionName
 
 "Logging in to Azure..."
-Add-AzureRmAccount `
+Connect-AzureRmAccount `
     -ServicePrincipal `
     -TenantId $servicePrincipalConnection.TenantId `
     -ApplicationId $servicePrincipalConnection.ApplicationId `

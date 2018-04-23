@@ -1,34 +1,29 @@
 ---
-title: Usare il pannello Integrità risorse nella funzionalità di analisi di flusso di Azure | Microsoft Docs
-description: Informazioni su come individuare i problemi durante la risoluzione dei processi di analisi di flusso.
-keywords: diagramma di flusso della risoluzione dei problemi, pannello delle risorse
-documentationcenter: ''
+title: Usare la pagina Integrità risorsa in Analisi di flusso di Azure | Microsoft Docs
+description: Questo articolo descrive come risolvere i problemi dei processi di Analisi di flusso di Azure tramite la pagina Integrità risorsa nel portale di Azure.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 05/01/2017
 ms.author: jeanb
-ms.openlocfilehash: 598f858c22494bc511ef0e2f04f3c3a6baad1ae8
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 05/01/2017
+ms.openlocfilehash: 27d9bd7ffd7088cbd67879e83176b66cdbbf471d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="stream-analytics-resource-health-blade"></a>Pannello Integrità risorse della funzionalità di analisi di flusso
+# <a name="stream-analytics-resource-health-page-in-the-azure-portal"></a>Pagina Integrità risorsa di Analisi di flusso nel portale di Azure
 
-Il pannello **Integrità risorse** nel portale di Azure mostra l'integrità dei processi di analisi di flusso di Azure. Mostra inoltre le azioni che possono aiutare a risolvere i problemi. 
+La pagina **Integrità risorsa** nel portale di Azure visualizza l'integrità dei processi di analisi di flusso di Azure. Mostra inoltre le azioni che possono aiutare a risolvere i problemi. 
 
-Il pannello **Integrità risorse** è progettato per aiutare a determinare più rapidamente se un problema ha origine nell'applicazione e se è causato da un evento in Azure. Aiuta a comprendere quando è consigliabile aprire un caso di supporto per ricevere assistenza.
+La pagina **Integrità risorsa** ha lo scopo di aiutare a determinare più rapidamente se un problema ha origine nell'applicazione e se è causato da un evento in Azure. Aiuta a comprendere quando è consigliabile aprire un caso di supporto per ricevere assistenza.
 
 ## <a name="troubleshooting-workflow"></a>Flusso di lavoro relativo alla risoluzione dei problemi
 
-Per vedere l'integrità delle risorse nei processi di analisi di flusso, selezionare il pannello **Integrità risorse**. 
+Per vedere l'integrità delle risorse nei processi di Analisi di flusso, selezionare la pagina **Integrità risorsa**. 
 
 ![Flusso della risoluzione dei problemi di analisi di flusso: accesso](media/stream-analytics-resource-health/stream-analytics-access-troubleshooting.png)
 
@@ -37,7 +32,7 @@ Il diagramma di flusso seguente aiuta a decidere quali aspetti considerare e qua
 ![Flusso della risoluzione dei problemi di analisi di flusso: mappa](media/stream-analytics-resource-health/stream-analytics-troubleshooting-map.png)
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per ottenere assistenza aggiuntiva, provare ad accedere al [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ottenere assistenza aggiuntiva, provare ad accedere al [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Presentazione di Analisi di flusso](stream-analytics-introduction.md)

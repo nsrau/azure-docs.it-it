@@ -48,14 +48,18 @@
       href: sql-database-design-first-database.md
     - name: '1: Progettare database con .NET'
       href: sql-database-design-first-database-csharp.md
-    - name: '2: Eseguire la migrazione al database SQL Server'
+    - name: '2: Eseguire la migrazione al database SQL Server con il servizio Migrazione del database di Azure'
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - Proteggere il database SQL
       href: sql-database-security-tutorial.md
     - name: '4: Implementare un database con distribuzione geografica'
       href: sql-database-implement-geo-distributed-database.md
     - name: '5: Creare un''istanza gestita'
-      href: sql-database-managed-instance-tutorial-portal.md
+      href: sql-database-managed-instance-create-tutorial-portal.md
+    - name: '6: Ripristinare un backup in un''istanza gestita'
+      href: sql-database-managed-instance-restore-from-backup-tutorial.md
+    - name: '7: Eseguire la migrazione a un''istanza gestita con il servizio Migrazione del database di Azure'
+      href: ../dms/tutorial-sql-server-to-managed-instance.md
 - name: Esempi
   items:
     - name: Esempi di codice
@@ -410,6 +414,10 @@
               href: saas-tenancy-cross-tenant-reporting.md
             - name: ETL per l'analisi
               href: saas-tenancy-tenant-analytics.md
+            - name: Ripristino di emergenza con il ripristino geografico
+              href: saas-dbpertenant-dr-geo-restore.md
+            - name: Ripristino di emergenza con la replica geografica del database
+              href: saas-dbpertenant-dr-geo-replication.md
         - name: Database multi-tenant
           items:
             - name: Distribuire un'applicazione di esempio
@@ -430,6 +438,8 @@
           href: sql-database-develop-cplusplus-simple.md
         - name: Excel
           href: sql-database-connect-excel.md
+        - name: Usare il connettore Spark
+          href: sql-database-spark-connector.md
 - name: Riferimenti
   items:
     - name: Azure PowerShell

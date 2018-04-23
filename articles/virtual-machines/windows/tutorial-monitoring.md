@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b908e8877162a6a1d9292616a1704c1c528e1725
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9f8f8cb7fd267e25c83ecceb98b5faa8848fb126
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Monitorare e aggiornare una macchina virtuale Windows con Azure PowerShell
 
@@ -135,7 +135,7 @@ L'abilitazione della soluzione può richiedere fino a 15 minuti. Durante questo 
 
 ### <a name="view-update-assessment"></a>Visualizzare la valutazione degli aggiornamenti
 
-Dopo aver abilitato **Gestione aggiornamenti**, viene visualizzata la schermata **Gestione aggiornamenti**. Dopo aver valutato gli aggiornamenti, viene visualizzato un elenco di aggiornamenti mancanti nella scheda **Aggiornamenti mancanti**.
+Dopo aver abilitato **Gestione aggiornamenti**, viene visualizzata la schermata **Gestione aggiornamenti**. Dopo la valutazione degli aggiornamenti, viene visualizzato un elenco di aggiornamenti mancanti nella scheda **Aggiornamenti mancanti**.
 
  ![Visualizzare lo stato degli aggiornamenti](./media/tutorial-monitoring/manageupdates-view-status-win.png)
 
@@ -201,7 +201,7 @@ Abilitare la gestione delle modifiche e dell'inventario per la macchina virtuale
 
 1. Sul lato sinistro della schermata selezionare **Macchine virtuali**.
 2. Selezionare una macchina virtuale dall'elenco.
-3. Nella sezione **Operazioni** della schermata della macchina virtuale fare clic su **Inventario** o **Rilevamento modifiche**. Viene aperta la schermata **Enable Change Tracking and Inventory** (Abilita rilevamento modifiche e inventario).
+3. Nella sezione **Operazioni** della schermata della macchina virtuale fare clic su **Inventario** o **Rilevamento modifiche**. Verrà visualizzata la schermata **Enable Change Tracking and Inventory** (Abilita rilevamento modifiche e inventario).
 
 Configurare la posizione, l'area di lavoro di Log Analytics e l'account di Automazione da usare e fare clic su **Abilita**. Se i campi sono inattivi, significa che un'altra soluzione di automazione è abilitata per la VM e devono essere usati la stessa area di lavoro e lo stesso account di Automazione. Sebbene le soluzioni siano presentate separatamente sul menu, rappresentano la stessa soluzione. L'abilitazione di una di queste le abilita entrambe per la macchina virtuale.
 
@@ -238,7 +238,7 @@ Il grafico mostra le modifiche nel tempo. Dopo aver aggiunto una connessione al 
 
 ## <a name="advanced-monitoring"></a>Monitoraggio avanzato
 
-È possibile eseguire un monitoraggio avanzato della macchina virtuale usando soluzioni quali ad esempio Gestione aggiornamenti e Modifiche e inventario disponibili in Automazione di Azure. [Operations Management Suite](../../automation/automation-intro.md).
+È possibile eseguire un monitoraggio più avanzato della macchina virtuale usando soluzioni quali Gestione aggiornamenti e Modifiche e inventario, disponibili in [Automazione di Azure](../../automation/automation-intro.md).
 
 Quando si ha accesso all'area di lavoro di Log Analytics, è possibile trovare la chiave e l'identificatore dell'area di lavoro selezionando **Impostazioni avanzate** in **IMPOSTAZIONI**. Usare il comando [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) per aggiungere l'estensione Microsoft Monitoring Agent alla macchina virtuale. Aggiornare i valori della variabile nell'esempio seguente in base alla chiave e all'ID dell'area di lavoro di Log Analytics.
 
