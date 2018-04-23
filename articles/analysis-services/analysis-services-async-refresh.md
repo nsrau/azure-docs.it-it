@@ -1,25 +1,18 @@
 ---
 title: Aggiornamento asincrono per i modelli di Analysis Services di Azure | Microsoft Docs
 description: Informazioni su come codificare l'aggiornamento asincrono tramite l'API REST.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: bb3e50c3e481bcedc436b8382fb55d6402d058b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: minewiskan
+ms.openlocfilehash: 74ef8ae45215badf2b5a83cc2d82c3db1eef8980
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Aggiornamento asincrono con l'API REST
 È possibile eseguire operazioni di aggiornamento asincrono dei dati sui modelli tabulari di Azure Analysis Services usando qualsiasi linguaggio di programmazione che supporta le chiamate REST. È inclusa la sincronizzazione delle repliche di sola lettura per la scalabilità orizzontale delle query. 

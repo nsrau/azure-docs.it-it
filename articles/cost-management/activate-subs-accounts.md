@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: a0dc2ee201c1729b10cd363553cdf5d61ec87748
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: dbbbc7ee87d53f65d51b20fd5b8ffcb6c4930f15
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Attivare sottoscrizioni e account di Azure con Gestione costi di Azure
 
@@ -29,7 +29,7 @@ Per completare le procedure illustrate in questo articolo, sono necessarie autor
 - Autorizzazione a registrare l'applicazione CloudynCollector con il tenant di Azure AD.
 - Possibilità di assegnare l'applicazione a un ruolo nelle sottoscrizioni di Azure.
 
-Nelle sottoscrizione di Azure gli account devono avere l'accesso `Microsoft.Authorization/*/Write` per assegnare l'applicazione CloudynCollector. Questa azione è concessa tramite il ruolo [Proprietario](../active-directory/role-based-access-built-in-roles.md#owner) o [Amministratore accessi utente](../active-directory/role-based-access-built-in-roles.md#user-access-administrator).
+Nelle sottoscrizione di Azure gli account devono avere l'accesso `Microsoft.Authorization/*/Write` per assegnare l'applicazione CloudynCollector. Questa azione è concessa tramite il ruolo [Proprietario](../role-based-access-control/built-in-roles.md#owner) o [Amministratore accessi utente](../role-based-access-control/built-in-roles.md#user-access-administrator).
 
 Se al proprio account è assegnato il ruolo **Collaboratore**, non è disponibile l'autorizzazione appropriata per assegnare l'applicazione. Quando si prova ad assegnare l'applicazione CloudynCollector alla sottoscrizione di Azure, viene visualizzato un errore.
 

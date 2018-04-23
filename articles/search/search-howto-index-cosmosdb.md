@@ -3,17 +3,18 @@ title: Indicizzazione di un'origine dati di Azure Cosmos DB per Ricerca di Azure
 description: Questo articolo illustra come creare un indicizzatore di Ricerca di Azure con Cosmos DB come origine dati.
 author: chaosrealm
 manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: 6e2e9c273456a1478a1240e7ade5f759f5e29a14
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3e6c7c70acbfde9d82d40c884711db8e9eb6946a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Connessione di Cosmos DB con Ricerca di Azure tramite indicizzatori
 

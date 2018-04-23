@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 6a72cc1829b7b8a5c7c588543d0b5c91f9f36bf5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2c41b2c297d8d89554950e8c77201ff5bedf743e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-elium"></a>Esercitazione: Integrazione di Azure Active Directory con Elium
 
@@ -117,7 +117,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: ` https://<platform-domain>.elium.com/login/saml2/login`
      
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, È possibile ottenere questi valori dal **file di metadati SP** che è possibile scaricare all'indirizzo `https://<platform-domain>/login/saml2/metadata` e che viene illustrato più avanti in questa esercitazione.
+    > Poiché questi non sono i valori reali, È possibile ottenere questi valori dal **file di metadati SP** che è possibile scaricare all'indirizzo `https://<platform-domain>.elium.com/login/saml2/metadata` e che viene illustrato più avanti in questa esercitazione.
 
 5. L'applicazione Elium prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione.
 

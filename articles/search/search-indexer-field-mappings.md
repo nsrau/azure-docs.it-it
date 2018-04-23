@@ -1,24 +1,19 @@
 ---
 title: Mapping dei campi negli indicizzatori di Ricerca di Azure
 description: Configurare i mapping dei campi dell'indicizzatore di Ricerca di Azure per rilevare le differenze nei nomi dei campi e nelle rappresentazioni dei dati
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-ms.assetid: 0325a4de-0190-4dd5-a64d-4e56601d973b
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: e4d6960e540641405b879064a8064d45521dc04f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 041866cd1c290bc576577771abcae31db747095e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Mapping dei campi negli indicizzatori di Ricerca di Azure
 Quando si usano gli indicizzatori di Ricerca di Azure, a volte è possibile che i dati di input non corrispondano allo schema dell'indice di destinazione. In questi casi è possibile usare i **mapping dei campi** per trasformare i dati nella forma desiderata.

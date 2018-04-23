@@ -5,21 +5,19 @@ keywords: Azure HDInsight, HDFS, domande frequenti, guida alla risoluzione dei p
 services: Azure HDInsight
 documentationcenter: na
 author: arijitt
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 4C33828F-2982-47F0-B858-C32FFF634D9E
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: 7c9d555130d806728f9d3a82f49e81b18c1e5125
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e63dbf8feb941aef3d3c76439f55527da0388b85
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Risolvere i problemi di HDFS tramite Azure HDInsight
 

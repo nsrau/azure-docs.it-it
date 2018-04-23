@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: f1e1c2aa447e35ea483665cc33e4eb6af7a41f51
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1963c4d7b2e895032862fae896c6d9ff7cf80806
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Abilitare automaticamente le impostazioni di diagnostica durante la creazione di risorse con un modello di Resource Manager
 Questo articolo illustra come usare un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) per configurare le impostazioni di diagnostica in una risorsa durante la sua creazione. Ciò consente di iniziare automaticamente a trasmettere le metriche e i log di diagnostica a Hub eventi, di memorizzarli in un account di archiviazione o di inviarli a Log Analytics quando viene creata una risorsa.
@@ -116,7 +116,7 @@ Per le risorse non di calcolo, è necessario eseguire due operazioni:
     ]
     ```
 
-Il BLOB delle proprietà per l'impostazione di diagnostica è nel [formato descritto in questo articolo](https://docs.microsoft.com/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). L'aggiunta della proprietà `metrics` consentirà anche di inviare le metriche delle risorse a questi stessi output, purché [la risorsa supporti le metriche di Monitoraggio di Azure](monitoring-supported-metrics.md).
+Il BLOB delle proprietà per l'impostazione di diagnostica è nel [formato descritto in questo articolo](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate). L'aggiunta della proprietà `metrics` consentirà anche di inviare le metriche delle risorse a questi stessi output, purché [la risorsa supporti le metriche di Monitoraggio di Azure](monitoring-supported-metrics.md).
 
 Di seguito è riportato un esempio completo che crea un'app per la logica e abilita la trasmissione agli hub eventi e la memorizzazione in un account di archiviazione.
 

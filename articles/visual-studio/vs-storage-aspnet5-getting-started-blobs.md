@@ -2,23 +2,20 @@
 title: Introduzione all'archiviazione BLOB e ai servizi connessi di Visual Studio (ASP.NET Core) | Microsoft Docs
 description: Informazioni su come iniziare a usare l'archiviazione BLOB di Azure in un progetto ASP.NET Core in Visual Studio dopo aver creato un account di archiviazione con i servizi connessi di Visual Studio
 services: storage
-documentationcenter: ''
-author: kraigb
-manager: ghogen
-editor: ''
+author: ghogen
+manager: douge
 ms.assetid: 094b596a-c92c-40c4-a0f5-86407ae79672
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/14/2017
-ms.author: kraigb
-ms.openlocfilehash: e3814533b955d5b6444692a7b565219d28002262
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: ghogen
+ms.openlocfilehash: 566e2edc0157ccd02e0b44ae7df86c4b484858b0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Introduzione all'archiviazione BLOB di Azure e ai relativi servizi di Visual Studio (ASP.NET Core)
 

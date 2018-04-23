@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 7575e25f06014caf962a4b7241a8a2d6bca8c918
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f8e9a2fbf28ace78b4ad2d361358bd394ac69ac7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-management-in-azure"></a>Gestione della sicurezza in Azure
 I sottoscrittori di Azure possono gestire i propri ambienti cloud da più dispositivi, tra cui workstation di gestione, PC per sviluppatori e dispositivi di utenti finali con privilegi elevati con autorizzazioni specifiche per le attività. In alcuni casi le funzioni amministrative vengono eseguite tramite console basate sul Web, ad esempio il [portale di Azure](https://azure.microsoft.com/features/azure-portal/). In altri casi è possibile che vengano usate connessioni dirette ad Azure da sistemi locali su reti private virtuali (VPN), Servizi terminal, protocolli applicativi client oppure, a livello di codice, l'API Gestione dei servizi di Azure (SMAPI). Gli endpoint client possono essere inoltre aggiunti a un dominio o isolati e non gestiti, ad esempio tablet o smartphone.
@@ -99,7 +99,7 @@ La configurazione dei servizi cloud di Azure viene eseguita mediante il portale 
 
 Le applicazioni distribuite in macchine virtuali forniscono strumenti e interfacce client specifiche in base alla necessità, ad esempio Microsoft Management Console (MMC), una console di gestione aziendale, ad esempio Microsoft System Center o Windows Intune, oppure un'altra applicazione di gestione, ad esempio Microsoft SQL Server Management Studio. Questi strumenti si trovano in genere in un ambiente aziendale o in una rete client. Possono dipendere da protocolli di rete specifici, ad esempio Remote Desktop Protocol (RDP), che richiedono connessioni dirette e con stato. Alcuni strumenti possono avere interfacce abilitate per il Web, che non devono essere pubblicate apertamente o accessibili tramite Internet.
 
-È possibile limitare l'accesso alla gestione dell'infrastruttura e dei servizi della piattaforma in Azure usando l'[autenticazione a più fattori](../multi-factor-authentication/multi-factor-authentication.md), i [certificati di gestione X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) e le regole del firewall. Il portale di Azure e SMAPI richiedono il protocollo TLS (Transport Layer Security). I servizi e le applicazioni distribuiti in Azure richiedono tuttavia misure di protezione appropriate in base all'applicazione. Questi meccanismi possono essere spesso abilitati con maggiore facilità tramite una configurazione di workstation con protezione avanzata standardizzata.
+È possibile limitare l'accesso alla gestione dell'infrastruttura e dei servizi della piattaforma in Azure usando l'[autenticazione a più fattori](../active-directory/authentication/multi-factor-authentication.md), i [certificati di gestione X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) e le regole del firewall. Il portale di Azure e SMAPI richiedono il protocollo TLS (Transport Layer Security). I servizi e le applicazioni distribuiti in Azure richiedono tuttavia misure di protezione appropriate in base all'applicazione. Questi meccanismi possono essere spesso abilitati con maggiore facilità tramite una configurazione di workstation con protezione avanzata standardizzata.
 
 ### <a name="management-gateway"></a>Gateway di gestione
 Per centralizzare tutto l'accesso amministrativo e semplificare il monitoraggio e la registrazione, è possibile distribuire un server [Gateway Desktop remoto](https://technet.microsoft.com/library/dd560672) dedicato nella rete locale, connesso all'ambiente Azure.
@@ -110,7 +110,7 @@ Un Gateway Desktop remoto è un servizio proxy RDP basato su criteri che applica
 * Aggiungere il Gateway Desktop remoto allo stesso [dominio di gestione](http://technet.microsoft.com/library/bb727085.aspx) delle workstation dell'amministratore. Questa operazione è necessaria quando si usa una VPN IPsec da sito a sito o ExpressRoute in un dominio con un trust unidirezionale verso Azure AD oppure se si esegue la federazione di credenziali tra l'istanza locale di Servizi di dominio Active Directory e Azure AD.
 * Configurare un [criterio di autorizzazione di connessione client](http://technet.microsoft.com/library/cc753324.aspx) per consentire al Gateway Desktop remoto di verificare che il nome del computer client sia valido (aggiunto al dominio) e che sia autorizzato ad accedere al portale di Azure.
 * Usare IPsec per la [VPN di Azure](https://azure.microsoft.com/documentation/services/vpn-gateway/) per una maggiore protezione del traffico di gestione da intercettazioni e furto di token oppure prendere in considerazione un collegamento Internet isolato tramite [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
-* Abilitare l'autenticazione a più fattori tramite [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) oppure l'autenticazione tramite smart card per gli amministratori che accedono tramite il Gateway Desktop remoto.
+* Abilitare l'autenticazione a più fattori tramite [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) oppure l'autenticazione tramite smart card per gli amministratori che accedono tramite il Gateway Desktop remoto.
 * Configurare [restrizioni per l'indirizzo IP](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) di origine o [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) in Azure per ridurre al minimo il numero di endpoint di gestione consentiti.
 
 ## <a name="security-guidelines"></a>Linee guida sulla sicurezza

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 7c340f60bc648909d073821f1987036da9633458
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ffc5f11a324b5ac65c872ca2c033f039c129c5f8
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Insieme di credenziali di backup aggiornato a un insieme di credenziali di Servizi di ripristino
 In questo articolo viene fornita una panoramica delle caratteristiche dell'insieme di credenziali di Servizi di ripristino, le domande frequenti relative all'aggiornamento dell'insieme di credenziali di backup esistente all'insieme di credenziali di Servizi di ripristino e i passaggi successivi all'aggiornamento. Un insieme di credenziali di Servizi di ripristino è l'equivalente di Azure Resource Manager di un insieme di credenziali di backup che contiene i dati di backup. I dati sono in genere copie di dati o informazioni di configurazione per macchine virtuali, carichi di lavoro, server o workstation, sia locali che in Azure.
@@ -60,7 +60,7 @@ La seconda schermata mostra i collegamenti della guida disponibili che consenton
 L'insieme di credenziali di Servizi di ripristino supporta l'indicazione delle informazioni sul fuso orario nei criteri di backup. Al termine dell'aggiornamento corretto dell'insieme di credenziali, passare al menu delle impostazioni dell'insieme di credenziali dai criteri di Backup e aggiornare le informazioni sul fuso orario per ogni criterio configurato nell'insieme di credenziali. Questa schermata mostra già l'ora di pianificazione del backup specificata in base al fuso orario locale usato durante la creazione del criterio. 
 
 ## <a name="enhanced-security"></a>Sicurezza avanzata
-Quando un insieme di credenziali di Backup viene aggiornato a un insieme di credenziali di Servizi di ripristino, le impostazioni di sicurezza per tale insieme di credenziali vengono attivate automaticamente. Quando le impostazioni di sicurezza sono attivate, determinate operazioni, ad esempio l'eliminazione di backup o la modifica di una passphrase, richiedono un PIN di [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Per altre informazioni sulla sicurezza avanzata, vedere l'articolo [Funzionalità di sicurezza per la protezione dei backup ibridi](backup-azure-security-feature.md). Quando la sicurezza avanzata è attivata, i dati vengono conservati fino a 14 giorni dopo l'eliminazione delle informazioni sul punto di recupero dall'insieme di credenziali. Ai clienti viene fatturato lo spazio di archiviazione usato per questi dati sulla sicurezza. La conservazione dei dati sulla sicurezza è applicabile ai punti di recupero acquisiti dall'agente di Backup di Azure, dal server di Backup di Azure e da System Center Data Protection Manager. 
+Quando un insieme di credenziali di Backup viene aggiornato a un insieme di credenziali di Servizi di ripristino, le impostazioni di sicurezza per tale insieme di credenziali vengono attivate automaticamente. Quando le impostazioni di sicurezza sono attivate, determinate operazioni, ad esempio l'eliminazione di backup o la modifica di una passphrase, richiedono un PIN di [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Per altre informazioni sulla sicurezza avanzata, vedere l'articolo [Funzionalità di sicurezza per la protezione dei backup ibridi](backup-azure-security-feature.md). Quando la sicurezza avanzata è attivata, i dati vengono conservati fino a 14 giorni dopo l'eliminazione delle informazioni sul punto di recupero dall'insieme di credenziali. Ai clienti viene fatturato lo spazio di archiviazione usato per questi dati sulla sicurezza. La conservazione dei dati sulla sicurezza è applicabile ai punti di recupero acquisiti dall'agente di Backup di Azure, dal server di Backup di Azure e da System Center Data Protection Manager. 
 
 ## <a name="gather-data-on-your-vault"></a>Raccogliere i dati nell'insieme di credenziali
 Dopo avere eseguito l'aggiornamento a un insieme di credenziali di Servizi di ripristino, configurare i report per Backup di Azure (per macchine virtuali IaaS e l'agente Servizi di ripristino di Microsoft Azure) e quindi usare Power BI per accedere ai report. Per altre informazioni sulla raccolta dei dati, vedere l'articolo [Configurare report di Backup di Azure](backup-azure-configure-reports.md).

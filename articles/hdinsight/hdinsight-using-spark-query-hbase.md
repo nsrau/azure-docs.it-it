@@ -2,30 +2,28 @@
 title: Usare Spark per leggere e scrivere dati HBase - Azure HDInsight | Microsoft Docs
 description: Usare il connettore HBase Spark per leggere e scrivere i dati da un cluster Spark a un cluster HBase.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: ccbcd1d9cb45da7076d73f71a2ed692e71816650
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: acad1058cbff2099a67603cc547a19d6cac022be
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-spark-to-read-and-write-hbase-data"></a>Usare Spark per leggere e scrivere dati HBase
 
 Le query in Apache HBase vengono in genere eseguite con l'API di basso livello corrispondente (scan, get e put) o con una sintassi SQL tramite Phoenix. Apache offre anche il connettore HBase Spark, che rappresenta una comoda ed efficace alternativa per eseguire query e modificare i dati archiviati da HBase.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Installazione di due cluster HDInsight separati, uno HBase e uno Spark con Spark 2.1 (HDInsight 3.6).
 * Il cluster Spark deve comunicare direttamente con il cluster HBase con latenza minima, pertanto la configurazione consigliata prevede la distribuzione di entrambi i cluster nella stessa rete virtuale. Per altre informazioni, vedere [Creare cluster basati su Linux in HDInsight tramite il portale di Azure](hdinsight-hadoop-create-linux-clusters-portal.md).

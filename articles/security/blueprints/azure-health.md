@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 700378d23f869427fb50b9dee5bcf8448ac73404
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: bdd7dbf4f39529ac76fb496f0d459577e6f929dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Progetto per la sicurezza e la conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale
 
@@ -79,14 +79,14 @@ L'architettura di base è costituita dai componenti seguenti:
 ## <a name="roles"></a>Ruoli
 
 
-Il progetto definisce due ruoli per gli utenti amministratori (operatori) e tre ruoli per gli utenti addetti alla gestione ospedaliera e alla cura dei pazienti. Viene definito un sesto ruolo di revisore incaricato della valutazione della conformità a HIPAA e ad altri regolamenti. Il controllo degli accessi in base al ruolo di Azure consente un'accurata gestione degli accessi per ogni utente della soluzione tramite ruoli predefiniti e personalizzati. Vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) e [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) per informazioni dettagliate su controllo degli accessi in base al ruolo, ruoli e autorizzazioni.
+Il progetto definisce due ruoli per gli utenti amministratori (operatori) e tre ruoli per gli utenti addetti alla gestione ospedaliera e alla cura dei pazienti. Viene definito un sesto ruolo di revisore incaricato della valutazione della conformità a HIPAA e ad altri regolamenti. Il controllo degli accessi in base al ruolo di Azure consente un'accurata gestione degli accessi per ogni utente della soluzione tramite ruoli predefiniti e personalizzati. Vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) e [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) per informazioni dettagliate su controllo degli accessi in base al ruolo, ruoli e autorizzazioni.
 
 ### <a name="site-administrator"></a>Amministratore del sito
 
 
 L'amministratore del sito è responsabile della sottoscrizione di Azure del cliente. Controlla la distribuzione globale, ma non ha accesso ai record dei pazienti.
 
--   Assegnazioni di ruolo predefinite: [Proprietario](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#owner)
+-   Assegnazioni di ruolo predefinite: [Proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 -   Assegnazioni di ruolo personalizzate: N/D
 
@@ -97,7 +97,7 @@ L'amministratore del sito è responsabile della sottoscrizione di Azure del clie
 L'analista di database amministra il database e l'istanza di SQL Server.
 Non ha accesso ai record dei pazienti.
 
--   Assegnazioni di ruolo predefinite: [Collaboratore Database SQL](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-db-contributor), [Collaboratore SQL Server](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-server-contributor)
+-   Assegnazioni di ruolo predefinite: [Collaboratore Database SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Collaboratore SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   Assegnazioni di ruolo personalizzate: N/D
 
@@ -108,7 +108,7 @@ Non ha accesso ai record dei pazienti.
 
 Il data scientist gestisce il servizio Azure Machine Learning. Può importare, esportare e gestire i dati ed eseguire report. Il data scientist ha accesso ai dati dei pazienti, ma non ha privilegi amministrativi.
 
--   Assegnazioni di ruolo predefinite: [Collaboratore Account di archiviazione](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#storage-account-contributor)
+-   Assegnazioni di ruolo predefinite: [Collaboratore Account di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
 -   Assegnazioni di ruolo personalizzate: N/D
 
@@ -138,7 +138,7 @@ Questo ruolo richiede il monitoraggio dello stato dei singoli pazienti, oltre al
 
 Il revisore valuta la soluzione per verificarne la conformità. Non ha accesso diretto alla rete.
 
--   Assegnazioni di ruolo predefinite: [Lettore](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#reader)
+-   Assegnazioni di ruolo predefinite: [Lettore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
 -   Assegnazioni di ruolo personalizzate: N/D
 
@@ -222,7 +222,7 @@ Questa sezione illustra nel dettaglio le configurazioni predefinite e le misure 
 
 -   [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) rileva le potenziali vulnerabilità che interessano le identità dell'organizzazione, consente di configurare risposte automatiche per le azioni sospette rilevate in relazione alle identità dell'organizzazione, ricerca la causa degli eventi sospetti e intraprende le azioni appropriate per risolverli.
 
--   Il [controllo degli accessi in base al ruolo di Azure](/azure/active-directory/role-based-access-control-configure) consente un'accurata gestione degli accessi per Azure. L'accesso a una sottoscrizione è limitato all'amministratore della sottoscrizione e l'accesso ad Azure Key Vault è limitato all'amministratore del sito. Sono richieste password complesse (minimo 12 caratteri con almeno una lettera maiuscola/minuscola, un numero un carattere speciale).
+-   Il [controllo degli accessi in base al ruolo di Azure](/azure/role-based-access-control/role-assignments-portal) consente un'accurata gestione degli accessi per Azure. L'accesso a una sottoscrizione è limitato all'amministratore della sottoscrizione e l'accesso ad Azure Key Vault è limitato all'amministratore del sito. Sono richieste password complesse (minimo 12 caratteri con almeno una lettera maiuscola/minuscola, un numero un carattere speciale).
 
 -   L'autenticazione a più fattori è supportata quando l'opzione -enableMFA è abilitata durante la distribuzione.
 
@@ -230,7 +230,7 @@ Questa sezione illustra nel dettaglio le configurazioni predefinite e le misure 
 
 **Ruoli:**
 
--   La soluzione usa i [ruoli predefiniti](/azure/active-directory/role-based-access-built-in-roles) per gestire l'accesso alle risorse.
+-   La soluzione usa i [ruoli predefiniti](/azure/role-based-access-control/built-in-roles) per gestire l'accesso alle risorse.
 
 -   A tutti gli utenti vengono assegnati ruoli predefiniti specifici per impostazione predefinita.
 
@@ -277,7 +277,7 @@ La funzione di Azure è stata inoltre progettata per leggere e proteggere i dati
 
 **2. Ricovero di nuovi pazienti**
 
-Quando si usa lo script di demo. .\\HealthcareDemo.ps1 con l'opzione **BulkPatientAdmission** come illustrato nella sezione relativa a** ** distribuzione ed esecuzione della demo, vengono eseguite le pipeline di elaborazione seguenti: ![](images/securetransact.png)
+Quando si usa lo script di demo. .\\HealthcareDemo.ps1 con l'opzione **BulkPatientAdmission** come illustrato nella sezione relativa a **distribuzione ed esecuzione della demo**, vengono eseguite le pipeline di elaborazione seguenti: ![](images/securetransact.png)
 **1. Funzione di Azure** attivata e la funzione richiede un [token di connessione](/rest/api/) da Azure Active Directory.
 
 **2. Key Vault** richiesto per un segreto associato al token richiesto.
@@ -356,7 +356,7 @@ La soluzione supporta Griglia di eventi di Azure, un singolo servizio per la ges
 
 
 -   [La registrazione è abilitata](/azure/machine-learning/studio/web-services-logging) per i servizi Web di Machine Learning.
-- L'uso di [Machine Learning](/azure/machine-learning/preview/experimentation-service-configuration) Workbench richiede lo sviluppo di esperimenti, per fornire la capacità di stima in un set di soluzioni. L'[integrazione con Workbench](/azure/machine-learning/preview/using-git-ml-project) può semplificare la gestione degli esperimenti.
+- L'uso di [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Workbench richiede lo sviluppo di esperimenti, per fornire la capacità di stima in un set di soluzioni. L'[integrazione con Workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) può semplificare la gestione degli esperimenti.
 
 ## <a name="security"></a>SICUREZZA
 

@@ -5,8 +5,8 @@ services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomShinder
-ms.openlocfilehash: 16ee6d9d2f02c758d7682626a8b71a3ff17f841c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9d4251e61b60d8da6ce5072ba66aeaedb60cb33a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Protezione delle applicazioni PaaS Web e per dispositivi mobili usando Archiviazione di Azure
 Questo articolo illustra un insieme di procedure consigliate di sicurezza in Archiviazione di Azure per la protezione delle applicazioni PaaS Web e per dispositivi mobili. Le procedure consigliate si basano sull'esperienza di tecnici e clienti con Azure.
@@ -75,7 +75,7 @@ Per altre informazioni, vedere [Frequently asked questions about Azure IaaS VM d
 
 È già stato illustrato l'uso di una firma di accesso condiviso (SAS) per concedere un accesso limitato agli oggetti nell'account di archiviazione, senza esporre la chiave dell'account di archiviazione. Talvolta i rischi associati a una particolare operazione su un account di archiviazione superano i benefici derivanti dall'uso della firma di accesso condiviso. Talvolta è più semplice gestire l'accesso in modi diversi.
 
-Un altro modo per gestire l'accesso è usare il [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md). Nel controllo degli accessi in base al ruolo l'aspetto principale è concedere ai dipendenti esattamente le autorizzazioni di cui necessitano, in base ai principi dei privilegi minimi e sapere solo quando è necessario. un numero eccessivo di autorizzazioni può esporre un account agli attacchi. Un numero di autorizzazioni insufficiente ostacola l'efficienza del lavoro dei dipendenti. Il controllo degli accessi in base al ruolo di Azure consente di risolvere questo problema offrendo una gestione granulare degli accessi per Azure. Questo è fondamentale per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati.
+Un altro modo per gestire l'accesso è usare il [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md). Nel controllo degli accessi in base al ruolo l'aspetto principale è concedere ai dipendenti esattamente le autorizzazioni di cui necessitano, in base ai principi dei privilegi minimi e sapere solo quando è necessario. un numero eccessivo di autorizzazioni può esporre un account agli attacchi. Un numero di autorizzazioni insufficiente ostacola l'efficienza del lavoro dei dipendenti. Il controllo degli accessi in base al ruolo di Azure consente di risolvere questo problema offrendo una gestione granulare degli accessi per Azure. Questo è fondamentale per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati.
 
 Si possono sfruttare i ruoli predefiniti del controllo degli accessi in base al ruolo in Azure per assegnare privilegi agli utenti. Si consiglia di usare Collaboratore Account di archiviazione per gli operatori cloud che devono gestire gli account di archiviazione e il ruolo Collaboratore Account di archiviazione classico per gestire gli account di archiviazione classici. Per gli operatori cloud che hanno necessità di gestire le VM ma non la rete virtuale o l'account di archiviazione a cui sono connesse, è possibile aggiungere il ruolo di Collaboratore Macchina virtuale.
 
@@ -83,8 +83,8 @@ Le organizzazioni che non applicano il controllo di accesso ai dati con funziona
 
 Per altre informazioni sul controllo degli accessi in base al ruolo, vedere:
 
-- [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md)
-- [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-built-in-roles.md)
+- [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md)
+- [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md)
 - [Azure Storage Security Guide](../storage/common/storage-security-guide.md) (Guida alla sicurezza di Archiviazione di Azure) per informazioni dettagliate su come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo
 
 ## <a name="storage-encryption"></a>Crittografia di archiviazione

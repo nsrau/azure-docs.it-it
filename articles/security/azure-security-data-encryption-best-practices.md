@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: dae93a622bad3ddfb1d9492d17b700d82e9969c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 169234195fa75924a65680ce2f3fa6ee9633daae
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedure consigliate per la sicurezza dei dati e la crittografia in Azure
 Uno degli aspetti fondamentali della protezione dei dati nel cloud consiste nel tenere conto dei possibili stati in cui possono trovarsi i dati e dei controlli disponibili per tale stato. Per quanto concerne le procedure consigliate per la sicurezza dei dati e la crittografia in Azure, le raccomandazioni riguarderanno gli stati dei dati seguenti:
@@ -50,13 +50,13 @@ Le procedure consigliate per la sicurezza dei dati e la crittografia in Azure il
 * Applicare la crittografia dei dati a livello di file
 
 ## <a name="enforce-multi-factor-authentication"></a>Applicare l'autenticazione a più fattori
-Il primo passo per accedere ai dati e controllarli in Microsoft Azure consiste nell'autenticare l'utente. [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md) è un metodo per verificare l'identità dell'utente in modo diverso rispetto alla semplice combinazione di nome utente e password. Questo metodo di autenticazione contribuisce a salvaguardare l'accesso a dati e applicazioni rispondendo alla richiesta degli utenti di poter usare un processo di accesso semplice.
+Il primo passo per accedere ai dati e controllarli in Microsoft Azure consiste nell'autenticare l'utente. [Azure Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md) è un metodo per verificare l'identità dell'utente in modo diverso rispetto alla semplice combinazione di nome utente e password. Questo metodo di autenticazione contribuisce a salvaguardare l'accesso a dati e applicazioni rispondendo alla richiesta degli utenti di poter usare un processo di accesso semplice.
 
 Quando si abilita Azure MFA per gli utenti, si aggiunge un secondo livello di sicurezza agli accessi e alle transazioni degli utenti. In questo caso, una transazione potrebbe accedere a un documento che si trova in un file server o in SharePoint Online. Grazie a Azure MFA, i reparti IT possono anche ridurre la probabilità di accesso ai dati dell'organizzazione usando credenziali compromesse.
 
 Ad esempio, se Azure MFA viene applicato per gli utenti e configurato per l'uso di una telefonata o di un messaggio di testo come verifica, qualora le credenziali dell'utente fossero compromesse un autore di attacchi non riuscirebbe ad accedere alle risorse, non avendo accesso al telefono dell'utente. Le organizzazioni che non aggiungono questo livello supplementare di protezione dell'identità sono più vulnerabili agli attacchi con furto di credenziali, con conseguente rischio di compromissione dei dati.
 
-In alternativa, le organizzazioni che vogliono mantenere il controllo di autenticazione in locale possono usare il [server Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), denominato anche MFA locale. Questo metodo consentirà comunque di applicare l'autenticazione a più fattori, mantenendo il server MFA in locale.
+In alternativa, le organizzazioni che vogliono mantenere il controllo di autenticazione in locale possono usare il [server Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfaserver-deploy.md), denominato anche MFA locale. Questo metodo consentirà comunque di applicare l'autenticazione a più fattori, mantenendo il server MFA in locale.
 
 Per altre informazioni su Azure MFA, vedere l'articolo [Introduzione ad Azure Multi-Factor Authentication nel cloud](../active-directory/authentication/howto-mfa-getstarted.md).
 

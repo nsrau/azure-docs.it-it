@@ -2,11 +2,11 @@
 title: Usare il toolkit di Marketplace per creare e pubblicare elementi del marketplace | Documenti Microsoft
 description: Informazioni su come creare rapidamente elementi del marketplace con la pubblicazione Toolkit
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na

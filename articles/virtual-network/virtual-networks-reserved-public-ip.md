@@ -3,7 +3,7 @@ title: Gestire gli indirizzi IP riservati di Azure (versione classica) - PowerSh
 description: Comprendere gli indirizzi IP riservati (classica) e come gestirli tramite PowerShell.
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: tysonn
 ms.assetid: 34652a55-3ab8-4c2d-8fb2-43684033b191
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: genli
-ms.openlocfilehash: fafb2566d1b58a37dd1d0e4bab129d7fb01a9f89
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 25fe3c5361ff58f8d62d5d083b7a69f517d2a267
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="reserved-ip-addresses-classic"></a>Indirizzi IP riservati (classica)
 

@@ -3,16 +3,17 @@ title: Limiti dei servizi in Ricerca di Azure | Microsoft Docs
 description: Limiti del servizio utilizzati per la pianificazione della capacità e limiti massimi per richieste e risposte in Ricerca di Azure.
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: heidist
-ms.openlocfilehash: 23f67099bff7cdadcee44eed50e9944ecf7c5672
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 59b6efd8459f675bc44891d7b04251260fdd38e9
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Limiti dei servizi in Ricerca di Azure
 I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti dipendono dal [piano tariffario scelto per Ricerca di Azure](search-create-service-portal.md): **Gratuito**, **Basic** o **Standard**.

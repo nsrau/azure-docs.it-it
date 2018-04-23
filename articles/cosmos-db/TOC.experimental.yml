@@ -209,17 +209,17 @@ items:
                   - name: Connettersi a Spark
                     href: spark-connector.md
                   - name: Streaming con Kafka e Spark su HDInsight
-                    href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+                    href: 'https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json'
                   - name: Distribuire un sito Web con il Servizio app di Azure
                     href: create-website.md
                   - name: Registrazione delle applicazioni con App per la logica
-                    href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
+                    href: 'https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json'
                   - name: Eseguire associazioni a Funzioni di Azure
-                    href: ../azure-functions/functions-bindings-cosmosdb.md
+                    href: 'https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json'
                   - name: Integrare Ricerca di Azure
-                    href: ../search/search-howto-index-cosmosdb.md
+                    href: 'https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json'
                   - name: Spostare dati con Azure Data Factory
-                    href: ../data-factory/connector-azure-cosmos-db.md
+                    href: 'https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json'
                   - name: Analizzare dati in tempo reale con l'analisi di flusso di Azure
                     href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
                   - name: Ottenere il record HL7 FHIR modificato tramite App per la logica
@@ -231,8 +231,8 @@ items:
                   - name: Sfruttare il driver ODBC per la visualizzazione dei dati
                     href: odbc-driver.md
                   - name: Usare Spring Boot Starter con le API SQL
-                    href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
-          - name: riferimento
+                    href: 'https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json'
+          - name: Riferimenti
             items:
               - name: Async Java
                 href: sql-api-sdk-async-java.md
@@ -350,7 +350,7 @@ items:
                 items:
                   - name: Connettersi a Spark GraphX
                     href: spark-connector-graph.md
-          - name: Riferimenti
+          - name: riferimento
             items:
               - name: .NET
                 href: graph-sdk-dotnet.md
@@ -381,7 +381,7 @@ items:
               - name: .NET
                 href: table-storage-how-to-use-dotnet.md
               - name: 'F#'
-                href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+                href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
               - name: Node.js
                 href: table-storage-cloud-service-nodejs.md
               - name: Java

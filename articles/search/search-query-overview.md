@@ -4,14 +4,15 @@ description: Compilare una query di ricerca in Ricerca di Azure e usare i parame
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/13/2017
-ms.openlocfilehash: 7429f2b3c2a75e1864f78711ad6e374475a25275
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 50e27cbc485259ea5ce744ba71feee5e90293bcb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="queries-in-azure-search"></a>Query in Ricerca di Azure
 > [!div class="op_single_selector"]

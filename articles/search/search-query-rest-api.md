@@ -1,23 +1,18 @@
 ---
 title: 'Eseguire query su un indice: API REST e Ricerca di Azure | Microsoft Docs'
 description: Compilare una query di ricerca in Ricerca di Azure e usare i parametri di ricerca per filtrare e ordinare i risultati della ricerca.
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 services: search
-documentationcenter: 
-manager: jhubbard
-author: ashmaka
-ms.assetid: 8b3ca890-2f5f-44b6-a140-6cb676fc2c9c
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 01/12/2017
-ms.author: ashmaka
-ms.openlocfilehash: 49062bec233ad35cd457f9665fa94c1855343582
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d51726ee1387b8e1cae05084d9c60eb93a28c112
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>Eseguire query su un indice di Ricerca di Azure con l'API REST
 > [!div class="op_single_selector"]

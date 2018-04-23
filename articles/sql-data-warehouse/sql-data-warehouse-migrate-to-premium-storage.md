@@ -16,10 +16,10 @@ ms.custom: migrate
 ms.date: 03/15/2018
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 3b43bc17b7f9cf80a9520c5c573be3a48d82e4e7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Eseguire la migrazione di un data warehouse proprio all'archiviazione Premium
 Azure SQL Data Warehouse ha recentemente introdotto l'[archiviazione Premium per una maggiore prevedibilità delle prestazioni][premium storage for greater performance predictability]. I data warehouse esistenti attualmente inclusi nell'archiviazione Standard possono essere migrati all'archiviazione Premium. È possibile sfruttare la migrazione automatica oppure, se si preferisce controllare quando eseguire la migrazione (che prevede tempi di inattività), è possibile eseguire la migrazione manualmente.

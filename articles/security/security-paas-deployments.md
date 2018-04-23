@@ -6,7 +6,7 @@ documentationcenter: na
 author: techlake
 manager: MBaldwin
 editor: techlake
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 4629e0ab6bbc9554128a923e92b269df79446b18
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: f19c52629a997687692eef9bce2e13b2b7894052
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-paas-deployments"></a>Protezione delle distribuzioni PaaS
 
@@ -87,12 +87,12 @@ Di seguito vengono riepilogate le procedure consigliate generali per la gestione
 
 - **Non perdere le chiavi o le credenziali** La protezione di chiavi e credenziali è essenziale per proteggere le distribuzioni PaaS. Perdere chiavi e credenziali è un problema comune. Una buona soluzione consiste nell'usare una soluzione centralizzata in cui le chiavi e i segreti possono essere archiviati in moduli di protezione hardware. Azure offre un modulo di protezione hardware nel cloud con [Azure Key Vault](../key-vault/key-vault-whatis.md).
 - **Non inserire le credenziali e altri segreti nel codice sorgente o GitHub** Un rischio ben peggiore della perdita di chiavi e credenziali consiste negli accessi non autorizzati. Gli utenti malintenzionati sono in grado di sfruttare le tecnologie bot per trovare chiavi e segreti archiviati in repository di codice come GitHub. Si consiglia pertanto di non inserire chiavi e segreti in questi archivi di codice sorgente pubblici.
-- **Proteggere le interfacce di gestione delle macchine virtuali nei servizi PaaS e IaaS ibridi** I servizi IaaS e PaaS vengono eseguiti in macchine virtuali. A seconda del tipo di servizio, sono disponibili diverse interfacce di gestione che consentono di gestire direttamente da remoto tali macchine virtuali. È possibile usare protocolli di gestione remota, ad esempio [Secure Shell Protocol (SSH)](https://en.wikipedia.org/wiki/Secure_Shell), [Remote Desktop Protocol (RDP)](https://support.microsoft.com/kb/186607) e [Remote PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting). In generale, è consigliabile non abilitare l'accesso remoto diretto alle macchine virtuali da Internet. Se disponibile, è consigliabile usare approcci alternativi, ad esempio tramite una rete virtuale privata di Azure. Se non sono disponibili soluzioni alternative, assicurarsi di usare passphrase complesse e, se disponibile, l'autenticazione a due fattori (ad esempio [Multi-Factor Authentication di Azure](../multi-factor-authentication/multi-factor-authentication.md)).
+- **Proteggere le interfacce di gestione delle macchine virtuali nei servizi PaaS e IaaS ibridi** I servizi IaaS e PaaS vengono eseguiti in macchine virtuali. A seconda del tipo di servizio, sono disponibili diverse interfacce di gestione che consentono di gestire direttamente da remoto tali macchine virtuali. È possibile usare protocolli di gestione remota, ad esempio [Secure Shell Protocol (SSH)](https://en.wikipedia.org/wiki/Secure_Shell), [Remote Desktop Protocol (RDP)](https://support.microsoft.com/kb/186607) e [Remote PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting). In generale, è consigliabile non abilitare l'accesso remoto diretto alle macchine virtuali da Internet. Se disponibile, è consigliabile usare approcci alternativi, ad esempio tramite una rete virtuale privata di Azure. Se non sono disponibili soluzioni alternative, assicurarsi di usare passphrase complesse e, se disponibile, l'autenticazione a due fattori (ad esempio [Multi-Factor Authentication di Azure](../active-directory/authentication/multi-factor-authentication.md)).
 - **Usare piattaforme di autenticazione e autorizzazione robuste**
 
   - Usare le identità federate in Azure AD invece degli archivi utente personalizzati. Quando si usano identità federate, è possibile sfruttare un approccio basato sulla piattaforma e delegare ai partner la gestione delle identità autorizzate. Un approccio con identità federate è particolarmente importante negli scenari in cui i dipendenti vengono rimossi e le modifiche devono essere applicate in più sistemi di identità e autorizzazioni.
   - Usare i meccanismi di autenticazione e autorizzazione forniti dalla piattaforma invece di un codice personalizzato poiché sviluppare un codice di autenticazione personalizzato può dare luogo a errori. La maggior parte degli sviluppatori non sarà esperta in sicurezza e probabilmente non conoscerà tutte le sfaccettature e gli ultimi sviluppi legati ad autenticazione e autorizzazione. Il codice commerciale, ad esempio quello di Microsoft, è spesso soggetto a rigorose analisi di sicurezza.
-  - Usare l'autenticazione a più fattori. L'autenticazione a più fattori è è lo standard attuale per l'autenticazione e l'autorizzazione, in quanto permette di evitare le lacune di sicurezza intrinseche nei tipi di autenticazione basati su nome utente e password. L'accesso a entrambe le interfacce di gestione di Azure, ovvero il portale e PowerShell da remoto, e ai servizi per i clienti deve essere progettato e configurato per l'uso di [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md).
+  - Usare l'autenticazione a più fattori. L'autenticazione a più fattori è è lo standard attuale per l'autenticazione e l'autorizzazione, in quanto permette di evitare le lacune di sicurezza intrinseche nei tipi di autenticazione basati su nome utente e password. L'accesso a entrambe le interfacce di gestione di Azure, ovvero il portale e PowerShell da remoto, e ai servizi per i clienti deve essere progettato e configurato per l'uso di [Azure Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md).
   - Usare protocolli di autenticazione standard come OAuth2 e Kerberos. Questi protocolli sono stati ampiamente analizzati e sono probabilmente implementati come parte delle librerie della piattaforma per autenticazione e autorizzazione.
 
 ## <a name="next-steps"></a>Passaggi successivi

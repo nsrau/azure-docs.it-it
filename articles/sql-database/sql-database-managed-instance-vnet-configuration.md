@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: e724a660f8ba2373cefdabe8595908b7bb42f4d6
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: bccc2d52c592101a23338e57791a992441e80047
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurare una rete virtuale per Istanza gestita di database SQL di Azure
 
@@ -145,5 +145,5 @@ Se lo è, vedere [Configuring a Custom DNS](sql-database-managed-instance-custom
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica, vedere [Informazioni su Istanza gestita](sql-database-managed-instance.md)
-- Per un'esercitazione sulla creazione di una rete virtuale e di un'istanza gestita e sul ripristino di un database da un backup, vedere l'articolo su come [creare un'istanza gestita di database SQL di Azure](sql-database-managed-instance-tutorial-portal.md).
+- Per un'esercitazione sulla creazione di una rete virtuale e di un'istanza gestita e sul ripristino di un database da un backup, vedere l'articolo su come [creare un'istanza gestita di database SQL di Azure](sql-database-managed-instance-create-tutorial-portal.md).
 - Per questioni relative al DNS, vedere [Configuring a Custom DNS](sql-database-managed-instance-custom-dns.md) (Configurazione di un DNS personalizzato).

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-security-guide"></a>Guida alla sicurezza di Archiviazione di Azure
 
@@ -85,16 +85,16 @@ Ecco i punti principali che occorre conoscere sull'uso del controllo degli acces
 * È possibile creare un creare un report di chi ha concesso o revocato un tipo di accesso e a chi e in quale ambito usando PowerShell o l'interfaccia della riga di comando di Azure.
 
 #### <a name="resources"></a>Risorse
-* [Controllo degli accessi in base al ruolo di Azure Active Directory](../../active-directory/role-based-access-control-configure.md)
+* [Controllo degli accessi in base al ruolo di Azure Active Directory](../../role-based-access-control/role-assignments-portal.md)
 
   Questo articolo descrive il controllo degli accessi in base al ruolo di Azure Active Directory e il relativo funzionamento.
-* [RBAC: Ruoli predefiniti](../../active-directory/role-based-access-built-in-roles.md)
+* [RBAC: Ruoli predefiniti](../../role-based-access-control/built-in-roles.md)
 
   Questo articolo illustra tutti i ruoli predefiniti disponibili nel controllo degli accessi in base al ruolo.
 * [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md)
 
   In questo articolo sono illustrati i modelli di distribuzione classica e Resource Manager e sono descritti i vantaggi dell'uso di Resource Manager e dei gruppi di risorse. Viene spiegato il funzionamento dei provider di calcolo, rete e archiviazione di Azure nel modello di Resource Manager.
-* [Gestione del controllo degli accessi in base al ruolo con l'API REST](../../active-directory/role-based-access-control-manage-access-rest.md)
+* [Gestione del controllo degli accessi in base al ruolo con l'API REST](../../role-based-access-control/role-assignments-rest.md)
 
   Questo articolo illustra come usare l'API REST per gestire il controllo degli accessi in base al ruolo.
 * [Informazioni di riferimento sulle API REST del provider di risorse di archiviazione di Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx)

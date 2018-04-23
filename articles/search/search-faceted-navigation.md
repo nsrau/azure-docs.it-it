@@ -3,15 +3,16 @@ title: Come implementare l'esplorazione in base a facet in Ricerca di Azure | Do
 description: Aggiungere Esplorazione in base a facet alle applicazioni che si integrano con la Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
-ms.openlocfilehash: 9ca289d4a8ce9849e3ec8fa4c2a3ca89f4dc311e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1bd814250a243d03f1eedc4d0ecb2719975b9c6f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Come implementare l'esplorazione in base a facet in Ricerca di Azure
 L'esplorazione in base a facet è un meccanismo di filtro che consente un'esplorazione drill-down mirata nelle applicazioni di ricerca. Il termine "esplorazione in base a facet" può essere poco noto, ma probabilmente è già stato usato in precedenza. Come illustrato nell'esempio seguente, l'esplorazione in base a facet non è rappresentata dalle categorie usate per filtrare i risultati.

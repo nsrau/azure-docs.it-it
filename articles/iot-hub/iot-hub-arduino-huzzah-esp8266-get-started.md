@@ -1,9 +1,9 @@
 ---
-title: Da ESP8266 al cloud - Connettere Feather HUZZAH ESP8266 ad Azure IoT Hub | Microsoft Docs
+title: Da ESP8266 al cloud - Connettere Feather HUZZAH ESP8266 ad Azure IoT Hub | Documentazione Microsoft
 description: Informazioni su come configurare e connettere Adafruit Feather HUZZAH ESP8266 all'hub IoT in modo che invii i dati alla piattaforma cloud di Azure in questa esercitazione.
 services: iot-hub
 documentationcenter: ''
-author: shizn
+author: rangv
 manager: timlt
 tags: ''
 keywords: ''
@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2017
-ms.author: xshi
-ms.openlocfilehash: e8f0397797d8f4c3349afcdfb02de071a6593c72
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: b850bb25d7a6d06a2d0f55ed915321badf76bb39
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Connettere Adafruit Feather HUZZAH ESP8266 ad Azure IoT Hub nel cloud
 
@@ -221,7 +221,7 @@ Una volta completato l'upload, seguire questa procedura per immettere le credenz
 1. Nella finestra del monitoraggio seriale notare i due elenchi a discesa nell'angolo inferiore destro.
 1. Selezionare **No line ending** (Senza terminazione di riga) per la casella di riepilogo a discesa a sinistra.
 1. Selezionare **115200 baud** per la casella di riepilogo a discesa a destra.
-1. Nella casella di input nella parte superiore della finestra del monitoraggio seriale immettere le informazioni seguenti, se viene richiesto di fornirle, e quindi fare clic su **Send** (Invia).
+1. Nella casella di input nella parte superiore della finestra del monitoraggio seriale immettere le informazioni seguenti, se viene richiesto di fornirle, e quindi fare clic su **Invia**.
    * Wi-Fi SSID
    * Password Wi-Fi
    * Stringa di connessione del dispositivo

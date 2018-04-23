@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 8561d9ca2570975f4cd20a0606ce5b9cdee632b7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 501364f24e61c29ac0d5909a7dff1df9e93fe6a5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
 
@@ -52,7 +52,7 @@ In passato il perimetro della rete era usato per controllare l'accesso ai dati a
 
 Una delle cose più utili da fare per proteggere un account è abilitare l'autenticazione a due fattori. Questo un metodo di autenticazione che non si limita all'uso di una password, ma permette di ridurre il rischio di accesso da parte di un utente che si sia impossessato della password di qualcun altro.
 
-[Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) permette di proteggere l'accesso ai dati e alle applicazioni, garantendo al tempo stesso agli utenti una procedura di accesso semplice. Offre un'autenticazione avanzata con una gamma di semplici opzioni di verifica, ad esempio una telefonata, un SMS o una notifica dell'app per dispositivi mobili. Gli utenti possono scegliere il metodo preferito.
+[Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) permette di proteggere l'accesso ai dati e alle applicazioni, garantendo al tempo stesso agli utenti una procedura di accesso semplice. Offre un'autenticazione avanzata con una gamma di semplici opzioni di verifica, ad esempio una telefonata, un SMS o una notifica dell'app per dispositivi mobili. Gli utenti possono scegliere il metodo preferito.
 
 Il mezzo più semplice per usare Multi-Factor Authentication è l'app per dispositivi mobili Microsoft Authenticator, disponibile per i dispositivi mobili che eseguono Windows, iOS e Android. Con la versione più recente di Windows 10 e l'integrazione dell'istanza locale di Active Directory con Azure Active Directory, è possibile usare [Windows Hello for Business](../active-directory/active-directory-azureadjoin-passport-deployment.md) per semplificare l'accesso Single Sign-On alle risorse di Azure. In tal caso il dispositivo Windows 10 viene usato come secondo fattore di autenticazione.
 
@@ -118,7 +118,7 @@ In alternativa, è possibile usare l'opzione [da punto a sito](../vpn-gateway/vp
 >[!NOTE]
 >Entrambe le opzioni VPN permettono di riconfigurare gli elenchi ACL nei gruppi di sicurezza di rete in modo da non consentire l'accesso da Internet agli endpoint di gestione.
 
-Un'altra opzione che vale la pena considerare è la distribuzione di un [Gateway Desktop remoto](../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md), utile per connettersi ai server desktop remoto in modo sicuro tramite HTTPS, applicando controlli più dettagliati alle connessioni.
+Un'altra opzione che vale la pena considerare è la distribuzione di un [Gateway Desktop remoto](../active-directory/authentication/howto-mfaserver-nps-rdg.md), utile per connettersi ai server desktop remoto in modo sicuro tramite HTTPS, applicando controlli più dettagliati alle connessioni.
 
 Le funzionalità disponibili includono:
 
