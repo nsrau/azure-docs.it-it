@@ -1,25 +1,19 @@
 ---
 title: Esercitazione di Ricerca di Azure per indicizzazione, query e filtri tramite il portale di Azure | Microsoft Docs
-description: "Nel portale di Azure usare i dati di esempio predefiniti per generare un indice in Ricerca di Azure. È possibile esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy, la ricerca geografica e altro ancora."
-services: search
-documentationcenter: 
+description: Nel portale di Azure usare i dati di esempio predefiniti per generare un indice in Ricerca di Azure. È possibile esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy, la ricerca geografica e altro ancora.
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f24777fe5bb482eb74aba4acbd7313665f22c38b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Creare, eseguire query e filtrare un indice di Ricerca di Azure nel portale
 

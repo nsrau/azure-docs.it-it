@@ -2,10 +2,10 @@
 title: Condivisione di account mediante Azure AD | Documentazione Microsoft
 description: Descrive come Azure Active Directory consente alle organizzazioni di condividere in modo sicuro gli account per le app locali e i servizi cloud di livello consumer.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e2d77104-d978-46a3-bfea-03ffdf3b61e6
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 11/13/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3b6a83d91ec5d8466669655d6c3bd7ae7b42dd2f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5c0687a2d0dd9bb42f566daf3835c1c3130054e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Condivisione di account con Azure AD
 ## <a name="overview"></a>Panoramica
@@ -69,7 +69,7 @@ Per usare Azure AD per la condivisione di un account è necessario:
 * Usare un' [assegnazione basata su gruppi](active-directory-accessmanagement-group-saasapps.md) e selezionare l'opzione per immettere le credenziali condivise
 * Facoltativo: in alcune applicazioni, ad esempio Facebook, Twitter o LinkedIn, è possibile abilitare l'opzione per l' [esecuzione automatizzata del rollover delle password di Azure AD](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
 
-Mediante Azure AD è possibile rendere l'account condiviso più sicuro tramite Multi-Factor Authentication (MFA) (altre informazioni sulla [sicurezza delle applicazioni con Azure AD](../multi-factor-authentication/multi-factor-authentication-get-started.md)) ed è possibile delegare la capacità di gestire chi deve avere accesso all'applicazione mediante la gestione dei gruppi in [modalità self-service di Azure AD](active-directory-accessmanagement-self-service-group-management.md).
+Mediante Azure AD è possibile rendere l'account condiviso più sicuro tramite Multi-Factor Authentication (MFA) (altre informazioni sulla [sicurezza delle applicazioni con Azure AD](authentication/concept-mfa-whichversion.md)) ed è possibile delegare la capacità di gestire chi deve avere accesso all'applicazione mediante la gestione dei gruppi in [modalità self-service di Azure AD](active-directory-accessmanagement-self-service-group-management.md).
 
 ## <a name="related-articles"></a>Articoli correlati
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)

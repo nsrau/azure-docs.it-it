@@ -1,6 +1,6 @@
 ---
 title: Introduzione alla sicurezza in Microsoft Azure | Documentazione Microsoft
-description: "Questo articolo offre una panoramica delle funzionalità di sicurezza di Microsoft Azure e considerazioni generali per le organizzazioni che intendono eseguire la migrazione degli asset a un provider di servizi cloud."
+description: Questo articolo offre una panoramica delle funzionalità di sicurezza di Microsoft Azure e considerazioni generali per le organizzazioni che intendono eseguire la migrazione degli asset a un provider di servizi cloud.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: e1ee07f2284df925b8bbd9050de7ae40fa66bf65
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 7d3fab20ec238bff0664fc98c2067c919e97a7c2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Introduzione alla sicurezza in Microsoft Azure
 Quando si compilano asset IT o se ne esegue la migrazione in un provider di servizi cloud, si dipende dalla capacità di tale organizzazione di proteggere le applicazioni e i dati con i servizi e i controlli forniti per gestire la sicurezza degli asset basati sul cloud.
@@ -45,7 +45,7 @@ Alcune delle altre funzionalità di gestione delle identità e dell'accesso incl
 * Azure AD abilita [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) nelle applicazioni SaaS, indipendentemente da dove vengono ospitate. Alcune applicazioni sono federate con Azure AD e altre usano SSO basato su password. Le applicazioni federate possono anche supportare il provisioning utenti e l'insieme di credenziali delle password.
 * L'accesso ai dati in [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) è controllato dall'autenticazione. Ogni account di archiviazione ha una chiave primaria ([chiave dell'account di archiviazione](https://msdn.microsoft.com/library/azure/ee460785.aspx)) e una chiave privata secondaria (firma di accesso condiviso).
 * Azure AD fornisce l'identità come servizio usando la federazione (con [Active Directory Federation Services](../active-directory/fundamentals-identity.md)), la sincronizzazione e la replica con le directory locali.
-* [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) è il servizio di autenticazione a più fattori che richiede agli utenti di verificare l'accesso usando un'app mobile, una chiamata telefonica o un SMS. Può essere usato con Azure AD per la protezione delle risorse locali con il server Azure Multi-Factor Authentication e anche con applicazioni e directory personalizzate che usano l'SDK.
+* [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) è il servizio di autenticazione a più fattori che richiede agli utenti di verificare l'accesso usando un'app mobile, una chiamata telefonica o un SMS. Può essere usato con Azure AD per la protezione delle risorse locali con il server Azure Multi-Factor Authentication e anche con applicazioni e directory personalizzate che usano l'SDK.
 * [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) consente di aggiungere le macchine virtuali di Azure a un dominio senza distribuire controller di dominio. È possibile accedere a queste macchine virtuali con le credenziali di Active Directory aziendali e amministrare le macchine virtuali aggiunte a un dominio usando Criteri di gruppo per applicare le baseline della sicurezza in tutte le macchine virtuali di Azure.
 * [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) offre un servizio di gestione delle identità globale a disponibilità elevata per le applicazioni rivolte agli utenti, con scalabilità fino a centinaia di milioni di identità. Il servizio può essere integrato tra piattaforme mobili e Web. Gli utenti possono accedere a tutte le applicazioni attraverso esperienze personalizzabili usando gli account dei propri social network esistenti o creando nuove credenziali.
 

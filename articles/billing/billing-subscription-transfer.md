@@ -1,12 +1,12 @@
 ---
-title: "Trasferire la proprietà della sottoscrizione di Azure a un altro account | Microsoft Docs"
+title: Trasferire la proprietà della sottoscrizione di Azure a un altro account | Microsoft Docs
 description: Questo articolo descrive come trasferire una sottoscrizione di Azure a un altro utente e contiene alcune domande frequenti (FAQ) sul processo
 keywords: trasferire la sottoscrizione di Azure, trasferimento della sottoscrizione di Azure, spostare una sottoscrizione di Azure su account, cambiare il proprietario della sottoscrizione di Azure, trasferire la sottoscrizione di Azure a un altro account
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
 ms.service: billing
@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e81037aeb3a8aee4f70eaf33280b1dc0d483332
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Trasferimento della proprietà di una sottoscrizione di Azure a un altro account
 
@@ -29,7 +29,7 @@ Trasferire la sottoscrizione a un altro utente nel Centro account per modificare
 
 > [!IMPORTANT]
 > 
-> Se si trasferisce una sottoscrizione a un nuovo tenant di Azure AD, tutte le assegnazioni di ruolo nel [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) vengono eliminati definitivamente dal tenant di origine e non ne viene eseguita la migrazione al tenant di destinazione.
+> Se si trasferisce una sottoscrizione a un nuovo tenant di Azure AD, tutte le assegnazioni di ruolo nel [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) vengono eliminati definitivamente dal tenant di origine e non ne viene eseguita la migrazione al tenant di destinazione.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Trasferimento della proprietà di una sottoscrizione di Azure
 
@@ -51,7 +51,7 @@ Trasferire la sottoscrizione a un altro utente nel Centro account per modificare
 
    > [!IMPORTANT]
    > 
-   > Se si trasferisce una sottoscrizione a un nuovo tenant di Azure AD, tutte le assegnazioni di ruolo nel [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) vengono eliminati definitivamente dal tenant di origine e non ne viene eseguita la migrazione al tenant di destinazione.
+   > Se si trasferisce una sottoscrizione a un nuovo tenant di Azure AD, tutte le assegnazioni di ruolo nel [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) vengono eliminati definitivamente dal tenant di origine e non ne viene eseguita la migrazione al tenant di destinazione.
 
    ![Finestra di dialogo Trasferisci sottoscrizione](./media/billing-subscription-transfer/image2.PNG)
 
@@ -75,7 +75,7 @@ L'amministratore Enterprise può trasferire la proprietà delle sottoscrizioni n
 
 1. A questo punto si è l'amministratore dell'account. Rivedere e aggiornare il ruolo dell'amministratore del servizio, il ruolo dei coamministratori e gli altri ruoli RBAC. Per altre informazioni, vedere [Aggiungere o modificare i ruoli di amministratore di Azure che gestiscono la sottoscrizione o i servizi](billing-add-change-azure-subscription-administrator.md).
 1. Aggiornare le credenziali associate ai servizi della sottoscrizione, tra cui:
-   1. Certificati di gestione che concedono all'utente privilegi di amministratore per le risorse della sottoscrizione. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](../cloud-services/cloud-services-certs-create.md)
+   1. Certificati di gestione che concedono all'utente privilegi di amministratore per le risorse della sottoscrizione. Per altre informazioni, vedere [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
    1. Chiavi di accesso per servizi quali Archiviazione. Per altre informazioni, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md).
    1. Credenziali di accesso remoto per servizi quali macchine virtuali di Azure. 
 1. [Aggiornare gli avvisi di fatturazione per questa sottoscrizione](billing-set-up-alerts.md) tramite il [Centro account di Azure](https://account.windowsazure.com/Subscriptions). 
@@ -115,7 +115,7 @@ L'amministratore account è la persona che ha eseguito l'iscrizione o ha acquist
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Vengono trasferite tutte le risorse? Anche gruppi di risorse, macchine virtuali, dischi e altri servizi in esecuzione?
 
-Tutte le risorse, come macchine virtuali, dischi e siti Web, vengono trasferite al nuovo proprietario. I [ruoli di amministratore](billing-add-change-azure-subscription-administrator.md) e i criteri di [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) eventualmente configurati, invece, non vengono trasferiti tra directory diverse. Inoltre, le [registrazioni per l'app](../active-directory//develop/active-directory-integrating-applications.md) e gli altri servizi specifici del tenant non vengono trasferiti.
+Tutte le risorse, come macchine virtuali, dischi e siti Web, vengono trasferite al nuovo proprietario. I [ruoli di amministratore](billing-add-change-azure-subscription-administrator.md) e i criteri di [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md) eventualmente configurati, invece, non vengono trasferiti tra directory diverse. Inoltre, le [registrazioni per l'app](../active-directory//develop/active-directory-integrating-applications.md) e gli altri servizi specifici del tenant non vengono trasferiti.
 
 ### <a id="no-button"></a> Perché non viene visualizzato il pulsante Trasferisci sottoscrizione?
 

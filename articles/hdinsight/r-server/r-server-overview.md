@@ -1,5 +1,5 @@
 ---
-title: Introduzione a R Server in HDInsight | Microsoft Docs
+title: Introduzione a R Server in HDInsight | Documentazione Microsoft
 description: Informazioni su come usare R Server in HDInsight per creare applicazioni per l'analisi dei Big Data.
 services: hdinsight
 documentationcenter: ''
@@ -10,16 +10,14 @@ ms.assetid: 6dc21bf5-4429-435f-a0fb-eea856e0ea96
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: nitinme
-ms.openlocfilehash: 19334e78124d1e388bc760659385388d89953644
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 19c286db9a8a2aa537badc83d98a1b74b73e9873
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introduzione a R Server e alle funzionalità R open source in HDInsight
 
@@ -35,7 +33,7 @@ I modelli o le previsioni che risultano dalle analisi possono essere scaricate p
 
 ## <a name="get-started-with-r-server-on-hdinsight"></a>Introduzione a R Server in HDInsight
 
-Per creare un cluster R Server in Azure HDInsight, selezionare il tipo di cluster **R Server** quando si crea un cluster HDInsight usando il portale di Azure. Il tipo di cluster R Server include R Server sui nodi dati del cluster e su un nodo perimetrale, che funge da destinazione per le analisi basate su R Server. Per la procedura di creazione di un cluster, vedere [Introduzione all'uso di R Server su HDInsight](r-server-get-started.md).
+Per creare un cluster R Server in Azure HDInsight, selezionare il tipo di cluster **R Server** quando si crea un cluster HDInsight usando il portale di Azure. Il tipo di cluster R Server include R Server sui nodi dati del cluster e su un nodo perimetrale, che funge da destinazione per le analisi basate su R Server. Per la procedura di creazione di un cluster, vedere [Introduzione all'uso di R Server su HDInsight](r-server-get-started.md) .
 
 ## <a name="why-choose-r-server-in-hdinsight"></a>Perché scegliere R Server in HDInsight?
 
@@ -62,7 +60,7 @@ R Server in HDInsight offre la possibilità di usare R Server in Azure. R Server
 
 Le funzionalità seguenti sono incluse in R Server su HDInsight.
 
-| Categoria funzionalità | Descrizione |
+| Categoria funzionalità | DESCRIZIONE |
 |------------------|-------------|
 | Abilitazione per R | [Pacchetti R](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) per soluzioni scritte in R, con una distribuzione open source di R e un'infrastruttura di runtime per l'esecuzione di script. |
 | Abilitazione per Python | [Moduli Python](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) per soluzioni scritte in Python, con una distribuzione open source di Python e un'infrastruttura di runtime per l'esecuzione di script.  
@@ -148,4 +146,4 @@ Per altre informazioni sull'uso di R Server in cluster HDInsight, vedere gli arg
 
 * [Introduzione a R Server in HDInsight](r-server-get-started.md)
 * [Opzioni del contesto di calcolo per R Server su HDInsight](r-server-compute-contexts.md)
-* [Soluzioni di Archiviazione di Azure per R Server su HDInsight](r-server-storage.md)
+* [Opzioni di Archiviazione di Azure per il cluster R Server in HDInsight](r-server-storage.md)

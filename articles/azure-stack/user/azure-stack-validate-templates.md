@@ -2,10 +2,10 @@
 title: Utilizzare i Validator del modello per controllare i modelli per lo Stack di Azure | Documenti Microsoft
 description: Modelli di controllo per la distribuzione in Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
 ms.service: azure-stack
 ms.workload: na

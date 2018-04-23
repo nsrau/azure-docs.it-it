@@ -2,10 +2,10 @@
 title: Creare e pubblicare un elemento del Marketplace nello Stack di Azure | Documenti Microsoft
 description: Creare e pubblicare un elemento del Marketplace nello Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
 ms.service: azure-stack
 ms.workload: na

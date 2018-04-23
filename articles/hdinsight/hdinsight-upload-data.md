@@ -1,5 +1,5 @@
 ---
-title: Caricare dati per processi Hadoop in HDInsight | Microsoft Docs
+title: Caricare dati per processi Hadoop in HDInsight | Documentazione Microsoft
 description: Informazioni su come caricare i dati per processi Hadoop e accedervi in HDInsight con Interfaccia della riga di comando di Azure, Azure Storage Explorer, Azure PowerShell, la riga di comando di Hadoop o Sqoop.
 keywords: hadoop etl, recupero dati in hadoop, caricare dati in hadoop
 services: hdinsight,storage
@@ -11,23 +11,21 @@ editor: cgronlun
 ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: ddb6291cdff7e2b65f54e89196c2b07dd6e4aaff
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3fb08a18fea056bc06eed797a2da809d25109cae
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Caricare dati per processi Hadoop in HDInsight
 
 Azure HDInsight include un file system HDFS (Hadoop Distributed File System) completo su Archiviazione di Microsoft Azure e Azure Data Lake Store. Archiviazione di Azure e Data Lake Store sono stati progettati come estensione Hadoop Distributed File System per offrire un'esperienza lineare ai clienti. Abilitano il set completo di componenti nell'ecosistema Hadoop, con possibilità di agire direttamente sui dati gestiti da Hadoop stesso. Archiviazione di Azure e Data Lake Store sono file system distinti, ottimizzati per l'archiviazione di dati e per l'esecuzione di calcoli su di essi. Per informazioni sui vantaggi dell'uso di Archiviazione di Microsoft Azure, vedere [Usare Archiviazione di Microsoft Azure con HDInsight][hdinsight-storage] e [Usare Data Lake Store con HDInsight](hdinsight-hadoop-use-data-lake-store.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare, tenere presenti i requisiti seguenti:
 

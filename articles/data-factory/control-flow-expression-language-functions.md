@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 1625b37a41082f8536d103701b1356a13a5dd837
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Espressioni e funzioni in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e r
 |"parameters"|Vengono restituiti i caratteri di tipo 'parameters'.|  
 |"parameters[1]"|Vengono restituiti i caratteri di tipo 'parameters[1]'.|  
 |"@@"|Viene restituita una stringa da 1 carattere che contiene \'\@\'.|  
-|\" \@\"|Viene restituita una stringa da 2 caratteri che contiene \' \@\'.|  
+|\" \@\"|Viene restituita una stringa da 2 caratteri che contiene '\@\'.|  
   
  Tramite una funzionalità denominata *interpolazione delle stringhe*, è possibile inserire le espressioni anche all'interno delle stringhe in cui viene eseguito il wrapping delle espressioni in `@{ ... }`. Ad esempio: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   

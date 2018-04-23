@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 792b96e4f5ba5dc0f2f943f099a2fee339407d66
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a546296749ba9373355cfe2b857b83d8af94d5a1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Panoramica del monitoraggio della rete in Azure
 
@@ -51,7 +51,7 @@ Di seguito sono elencate le funzionalità attualmente disponibili in Network Wat
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Controllo degli accessi in base al ruolo in Network Watcher
 
-Network Watcher fa uso del [modello di controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md). Di seguito sono indicate le autorizzazioni necessarie per Network Watcher. È importante assicurarsi che il ruolo usato per avviare le API di Network Watcher o per usare Network Watcher dal portale abbia l'accesso necessario.
+Network Watcher fa uso del [modello di controllo degli accessi in base al ruolo](../role-based-access-control/overview.md). Di seguito sono indicate le autorizzazioni necessarie per Network Watcher. È importante assicurarsi che il ruolo usato per avviare le API di Network Watcher o per usare Network Watcher dal portale abbia l'accesso necessario.
 
 |Risorsa| Autorizzazione|
 |---|---| 

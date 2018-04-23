@@ -2,10 +2,10 @@
 title: Limiti e restrizioni dell'endpoint 2.0 di Azure Active Directory | Documentazione Microsoft
 description: Elenco di limiti e restrizioni per l'endpoint 2.0 di Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a36f55c57a75f671b3e5eeae3d91ff60483afd37
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Perché usare l'endpoint 2.0
 Nella compilazione di applicazioni che si integrano con Azure Active Directory è necessario stabilire se l'endpoint 2.0 e i protocolli di autenticazione rispondono ai requisiti previsti. L'endpoint originale di Azure Active Directory è ancora completamente supportato e, per alcuni aspetti, include più funzionalità della versione 2.0. L'endpoint 2.0 [introduce vantaggi significativi](active-directory-v2-compare.md) per gli sviluppatori.
@@ -84,15 +84,6 @@ Gli ultimi due URI possono essere aggiunti perché si tratta di sottodomini del 
 Si noti inoltre che è possibile avere solo 20 URL di risposta per una determinata applicazione.
 
 Per informazioni su come registrare un'app nel portale di registrazione delle applicazioni, vedere [Come registrare un'app con l'endpoint 2.0](active-directory-v2-app-registration.md).
-
-## <a name="restrictions-on-services-and-apis"></a>Restrizioni relative a servizi e API
-L'endpoint 2.0 supporta attualmente l'accesso di qualsiasi app registrata nel portale di registrazione delle applicazioni e presente nell'elenco di [flussi di autenticazione supportati](active-directory-v2-flows.md). Tali app possono tuttavia acquisire il token di accesso di OAuth 2.0 per un set molto limitato di risorse. L'endpoint 2.0 rilascia token di accesso solo per gli elementi seguenti:
-
-* L'app che ha richiesto il token. Un'app può acquisire un token di accesso per se stessa, se l'app per la logica è costituita da diversi componenti o livelli. Per vedere questo scenario, consultare le esercitazioni nella sezione [introduttiva](active-directory-appmodel-v2-overview.md#getting-started) .
-* Le API REST di Posta, Calendario e Contatti di Outlook che si trovano in https://outlook.office.com. Per informazioni su come scrivere un'app in grado di accedere a queste API, vedere le esercitazioni nella [sezione introduttiva di Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
-* API Microsoft Graph. È possibile accedere ad altre informazioni su [Microsoft Graph](https://graph.microsoft.io) e sui dati disponibili per l'utente.
-
-Attualmente non sono supportati altri servizi. In futuro verranno aggiunti altri componenti di Microsoft Online Services, oltre al supporto per le API e i servizi Web personalizzati.
 
 ## <a name="restrictions-on-libraries-and-sdks"></a>Restrizioni relative alle librerie e agli SDK
 Il supporto delle librerie per l'endpoint 2.0 è attualmente limitato. Per usare l'endpoint 2.0 in un'applicazione di produzione, sono disponibili le opzioni seguenti:

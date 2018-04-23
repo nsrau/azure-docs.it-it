@@ -1,25 +1,20 @@
 ---
 title: Gestire Ricerca di Azure con script di PowerShell | Microsoft Docs
 description: Gestire il servizio Ricerca di Azure con script di PowerShell. Creare o aggiornare un servizio Ricerca di Azure e gestire le relative chiavi amministratore
-services: search
-documentationcenter: 
-author: seansaleh
-manager: mblythe
-editor: 
+author: HeidiSteen
+manager: cgronlun
 tags: azure-resource-manager
-ms.assetid: 9b3dc1f2-3619-4235-ba1f-d2d6f5c45dd5
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: powershell
+ms.devlang: powershell
+ms.topic: conceptual
 ms.date: 08/15/2016
-ms.author: seasa
-ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: heidist
+ms.openlocfilehash: 974f2df8c4c9c9730f176a1e8472199960b359f6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Gestire il servizio Ricerca di Azure con PowerShell
 > [!div class="op_single_selector"]
@@ -37,7 +32,7 @@ Questi comandi si affiancano alle opzioni di gestione disponibili nella pagina r
 
 In primo luogo, è necessario accedere a Microsoft Azure con questo comando:
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Specificare l'indirizzo e-mail del proprio account Microsoft Azure e la relativa password nella finestra di dialogo di accesso a Microsoft Azure.
 

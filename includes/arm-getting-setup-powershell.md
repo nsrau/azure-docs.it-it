@@ -26,7 +26,7 @@ Se non si ha già una sottoscrizione di Azure, è possibile attivare i [benefici
 
 Aprire un prompt dei comandi di Azure PowerShell e usare il comando seguente per accedere ad Azure.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Se si dispone di più sottoscrizioni di Azure, è possibile usare il comando seguente per visualizzarne l'elenco.
 

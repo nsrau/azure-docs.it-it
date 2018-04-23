@@ -1,10 +1,10 @@
 ---
 title: Come usare l'archiviazione tabelle di Azure o l'API Table di Azure Cosmos DB con Ruby | Microsoft Docs
-description: Archiviare dati strutturati nel cloud con l'archiviazione tabelle di Azure, ovvero un archivio dati NoSQL.
+description: Archiviare dati non strutturati nel cloud con il servizio di archiviazione tabelle di Azure, ovvero un archivio dati NoSQL.
 services: cosmos-db
 documentationcenter: ruby
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: ''
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: cosmos-db
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 02/27/2018
-ms.author: mimig
-ms.openlocfilehash: 104d793826116462f71e4889386906256b2df8f8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: 19ffdab40b3032421612ef4ba1b840eeb0d2e62b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-ruby"></a>Come usare l'archiviazione tabelle di Azure o l'API Table di Azure Cosmos DB con Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -27,9 +27,14 @@ ms.lasthandoff: 03/08/2018
 ## <a name="overview"></a>Panoramica
 Questo documento illustra come eseguire scenari comuni usando il servizio di archiviazione tabelle di Azure e l'API Table di Azure Cosmos DB. Gli esempi sono scritti in Ruby e usano la [libreria client delle tabelle di Archiviazione di Azure per Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). Gli scenari presentati includono **creazione ed eliminazione di una tabella, inserimento di entità ed esecuzione di query sulle entità in una tabella**.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## <a name="create-an-azure-service-account"></a>Creare un account del servizio di Azure
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+### <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Creare un account per l'API di tabella di Azure Cosmos DB
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="add-access-to-storage-or-azure-cosmos-db"></a>Aggiungere l'accesso ad Archiviazione o ad Azure Cosmos DB
 Per usare Archiviazione di Azure o Azure Cosmos DB, è necessario scaricare e usare il pacchetto di Azure per Ruby, che comprende un set di pratiche librerie che comunicano con i servizi REST per le tabelle.

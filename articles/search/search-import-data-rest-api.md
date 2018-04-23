@@ -1,25 +1,19 @@
 ---
 title: 'Caricare dati: API REST e Ricerca di Azure | Microsoft Docs'
 description: Informazioni su come caricare dati in un indice di Ricerca di Azure tramite l'API REST.
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 services: search
-documentationcenter: 
-author: ashmaka
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 8d0749fb-6e08-4a17-8cd3-1a215138abc6
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 12/08/2016
-ms.author: ashmaka
-ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b622cffad66dc5d09df2d737bf2c1d30543a4252
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Caricare dati in Ricerca di Azure tramite l'API REST
 > [!div class="op_single_selector"]

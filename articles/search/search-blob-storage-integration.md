@@ -2,18 +2,17 @@
 title: Aggiunta di Ricerca di Azure all'archiviazione BLOB | Microsoft Docs
 description: Creare un indice nel codice tramite l'API REST HTTP di Ricerca di Azure.
 services: search
-documentationcenter: 
-author: ashmaka
-manager: jhubbard
 ms.service: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2017
-ms.author: ashmaka
-ms.openlocfilehash: 15469e8a2d28bdf00d6e8d8c9f823c51975ee90e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+author: chaosrealm
+manager: jlembicz
+ms.author: eugenesh
+ms.openlocfilehash: 71e43920f0e6a64beb7cdb28d0707dd30502bf05
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Ricerca nell'archiviazione BLOB tramite Ricerca di Azure
 

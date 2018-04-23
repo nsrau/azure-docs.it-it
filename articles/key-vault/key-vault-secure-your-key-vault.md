@@ -2,7 +2,7 @@
 title: Proteggere l'insieme di credenziali delle chiavi | Documentazione Microsoft
 description: Gestire le autorizzazioni di accesso per un insieme di credenziali delle chiavi per controllare insiemi di credenziali, chiavi e segreti. Modello di autenticazione e autorizzazione per l'insieme di credenziali delle chiavi e istruzioni per proteggere l'insieme di credenziali delle chiavi
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a769d15fe79a56d623399d0d38b6dd9c060db36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-your-key-vault"></a>Proteggere l'insieme di credenziali delle chiavi
 Insieme di credenziali delle chiavi di Azure è un servizio cloud che consente di proteggere le chiavi di crittografia e i segreti (ad esempio, certificati, stringhe di connessione e password) per le applicazioni cloud. Poiché questi dati sono riservati e importanti per l'azienda, è opportuno limitare l'accesso agli insiemi di credenziali delle chiavi alle applicazioni e agli utenti autorizzati. Questo articolo offre una panoramica del modello di accesso all'insieme di credenziali delle chiavi, illustra i criteri di autenticazione e autorizzazione e spiega come proteggere l'accesso all'insieme di credenziali delle chiavi per le applicazioni cloud presentando un esempio.
@@ -76,7 +76,7 @@ Ogni sottoscrizione di Azure è associata a un'istanza di Azure Active Directory
 
 Con il modello di Azure Resource Manager si crea l'insieme di credenziali delle chiavi in un gruppo di risorse e si controlla l'accesso al piano di gestione dell'insieme di credenziali delle chiavi usando Azure Active Directory. È ad esempio possibile consentire agli utenti o a un gruppo di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse specifico.
 
-È possibile concedere l'accesso a utenti, gruppi e applicazioni in un ambito specifico assegnando i ruoli Controllo degli accessi in base al ruolo appropriati. Ad esempio, per concedere l'accesso a un utente in modo che possa gestire insiemi di credenziali delle chiavi, si assegna all'utente un ruolo predefinito "key vault Contributor" in un ambito specifico. In questo caso, l'ambito può essere una sottoscrizione, un gruppo di risorse o semplicemente un insieme di credenziali delle chiavi. Un ruolo assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e a tutte le risorse nell'ambito della sottoscrizione. Un ruolo assegnato a livello di gruppo di risorse si applica a tutte le risorse di tale gruppo. Un ruolo assegnato per una risorsa specifica si applica solo a tale risorsa. Esistono diversi ruoli predefiniti (vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md)) e, se questi non soddisfano specifiche esigenze, è possibile definire anche ruoli personalizzati.
+È possibile concedere l'accesso a utenti, gruppi e applicazioni in un ambito specifico assegnando i ruoli Controllo degli accessi in base al ruolo appropriati. Ad esempio, per concedere l'accesso a un utente in modo che possa gestire insiemi di credenziali delle chiavi, si assegna all'utente un ruolo predefinito "key vault Contributor" in un ambito specifico. In questo caso, l'ambito può essere una sottoscrizione, un gruppo di risorse o semplicemente un insieme di credenziali delle chiavi. Un ruolo assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e a tutte le risorse nell'ambito della sottoscrizione. Un ruolo assegnato a livello di gruppo di risorse si applica a tutte le risorse di tale gruppo. Un ruolo assegnato per una risorsa specifica si applica solo a tale risorsa. Esistono diversi ruoli predefiniti (vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../role-based-access-control/built-in-roles.md)) e, se questi non soddisfano specifiche esigenze, è possibile definire anche ruoli personalizzati.
 
 > [!IMPORTANT]
 > Si noti che, se un utente dispone di autorizzazioni di collaboratore (controllo degli accessi in base al ruolo) per un piano di gestione dell'insieme di credenziali delle chiavi, può concedere a se stesso l'accesso al piano dati impostando i criteri di accesso dell'insieme di credenziali delle chiavi, che controllano l'accesso al piano dati. È pertanto consigliabile controllare rigorosamente gli utenti che dispongono dei diritti di accesso di collaboratore all'insieme di credenziali delle chiavi per avere la sicurezza che solo le persone autorizzate possano accedere e gestire insiemi di credenziali delle chiavi, chiavi, segreti e certificati.
@@ -204,19 +204,19 @@ Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere 
 > 
 
 ## <a name="resources"></a>Risorse
-* [Controllo degli accessi in base al ruolo di Azure Active Directory](../active-directory/role-based-access-control-configure.md)
+* [Controllo degli accessi in base al ruolo di Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
   
   Questo articolo descrive il controllo degli accessi in base al ruolo di Azure Active Directory e il relativo funzionamento.
-* [Controllo degli accessi in base al ruolo: Ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md)
+* [Controllo degli accessi in base al ruolo: Ruoli predefiniti](../role-based-access-control/built-in-roles.md)
   
   Questo articolo illustra tutti i ruoli predefiniti disponibili nel controllo degli accessi in base al ruolo.
 * [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md)
   
   Questo articolo illustra i modelli di distribuzione classica e di Resource Manager e descrive i vantaggi dell'uso di Resource Manager e dei gruppi di risorse.
-* [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+* [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
   
   Questo articolo illustra come gestire il controllo degli accessi in base al ruolo con Azure PowerShell.
-* [Gestione del controllo degli accessi in base al ruolo con l'API REST](../active-directory/role-based-access-control-manage-access-rest.md)
+* [Gestione del controllo degli accessi in base al ruolo con l'API REST](../role-based-access-control/role-assignments-rest.md)
   
   Questo articolo illustra come usare l'API REST per gestire il controllo degli accessi in base al ruolo.
 * [Controllo degli accessi in base al ruolo per Microsoft Azure da Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)

@@ -1,11 +1,11 @@
 ---
-title: "Funzionalità di sicurezza per la protezione dei backup ibridi che usano Backup di Azure | Microsoft Docs"
-description: "Informazioni su come usare le funzionalità di sicurezza in Backup di Azure per rendere più sicuri i backup"
+title: Funzionalità di sicurezza per la protezione dei backup ibridi che usano Backup di Azure | Microsoft Docs
+description: Informazioni su come usare le funzionalità di sicurezza in Backup di Azure per rendere più sicuri i backup
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: 47bc8423-0a08-4191-826d-3f52de0b4cb8
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.openlocfilehash: f856303d4abf05178eb11a242b87390ff1484e1b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 2529d19dbf0ca0fb59f5abe48be3e8b14e862e29
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funzionalità di sicurezza per la protezione dei backup ibridi che usano Backup di Azure
 Le preoccupazioni riguardo ai problemi di sicurezza, come malware, ransomware e intrusioni, aumentano continuamente. Questi problemi di sicurezza possono essere costosi in termini di denaro e di dati. Per evitare questi attacchi, Backup di Azure offre ora una serie di funzionalità di sicurezza per la protezione dei backup ibridi. Questo articolo descrive come abilitare e usare queste funzionalità tramite un agente di Servizi di ripristino di Azure e il server di Backup di Azure. Queste funzionalità includono:
@@ -55,7 +55,7 @@ Se si crea un insieme di credenziali di Servizi di ripristino, è possibile usar
     ![Screenshot delle proprietà dell'insieme di credenziali di Servizi di ripristino](./media/backup-azure-security-feature/security-settings-update.png)
 
     Il collegamento Aggiorna apre il pannello **Impostazioni di sicurezza**, che contiene un riepilogo delle funzionalità e permette di abilitarle.
-5. Nell'elenco a discesa **È stata eseguita la configurazione di Azure Multi-Factor Authentication?** selezionare un valore per confermare se [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) è stato abilitato. Se è stata abilitato, verrà chiesto di eseguire l'autenticazione da un altro dispositivo, ad esempio uno smartphone, quando si accede al portale di Azure.
+5. Nell'elenco a discesa **È stata eseguita la configurazione di Azure Multi-Factor Authentication?** selezionare un valore per confermare se [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) è stato abilitato. Se è stata abilitato, verrà chiesto di eseguire l'autenticazione da un altro dispositivo, ad esempio uno smartphone, quando si accede al portale di Azure.
 
    Quando si eseguono operazioni critiche in Backup, è necessario immettere il PIN di sicurezza, disponibile nel portale di Azure. L'abilitazione di Azure Multi-Factor Authentication aggiunge un livello di sicurezza. Solo gli utenti autorizzati con credenziali di Azure valide e autenticati da un secondo dispositivo potranno accedere al portale di Azure.
 6. Per salvare le impostazioni di sicurezza, selezionare **Abilita** e fare clic su **Salva**. È possibile selezionare **Abilita** solo dopo aver selezionato un valore nell'elenco **È stata eseguita la configurazione di Azure Multi-Factor Authentication?** nel passaggio precedente.

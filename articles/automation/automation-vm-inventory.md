@@ -2,17 +2,18 @@
 title: Gestire una macchina virtuale di Azure con la raccolta dell'inventario | Microsoft Docs
 description: Gestire una macchina virtuale di Azure con la raccolta dell'inventario
 services: automation
+ms.service: automation
 keywords: inventario, automazione, modifica, gestione
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6eb1a77613c6f7784e251bb99a03e6ca7e1f7017
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0b744911d37e2d54f88ebeac3ec64a309bab22b9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gestire una macchina virtuale di Azure con la raccolta dell'inventario
 
@@ -57,7 +58,7 @@ Le tabelle seguenti forniscono informazioni sulle proprietà che possono essere 
 
 ### <a name="windows-registry"></a>Registro di sistema di Windows
 
-|Proprietà  |Descrizione  |
+|Proprietà  |DESCRIZIONE  |
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata        |
 |Item Name     | Nome descrittivo del file da rilevare        |
@@ -66,7 +67,7 @@ Le tabelle seguenti forniscono informazioni sulle proprietà che possono essere 
 
 ### <a name="windows-files"></a>File Windows
 
-|Proprietà  |Descrizione  |
+|Proprietà  |DESCRIZIONE  |
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata        |
 |Item Name     | Nome descrittivo del file da rilevare        |
@@ -75,7 +76,7 @@ Le tabelle seguenti forniscono informazioni sulle proprietà che possono essere 
 
 ### <a name="linux-files"></a>File di Linux
 
-|Proprietà  |Descrizione  |
+|Proprietà  |DESCRIZIONE  |
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata        |
 |Item Name     | Nome descrittivo del file da rilevare        |

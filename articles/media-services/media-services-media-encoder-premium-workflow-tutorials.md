@@ -1,11 +1,11 @@
 ---
 title: Esercitazioni avanzate del flusso di lavoro Premium del codificatore multimediale
-description: "Questo documento contiene procedure dettagliate che illustrano come eseguire attività avanzate con il flusso di lavoro Premium del codificatore multimediale e come creare flussi di lavoro complessi con Progettazione flussi di lavoro."
+description: Questo documento contiene procedure dettagliate che illustrano come eseguire attività avanzate con il flusso di lavoro Premium del codificatore multimediale e come creare flussi di lavoro complessi con Progettazione flussi di lavoro.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: xstof
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 1ba52865-b4a8-4ca0-ac96-920d55b9d15b
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: christoc;xpouyat;juliako
 ms.openlocfilehash: 8b714fcf001a6830cffe4df8c152dab40834c7c4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Esercitazioni avanzate del flusso di lavoro Premium del codificatore multimediale
 ## <a name="overview"></a>Panoramica

@@ -1,23 +1,18 @@
 ---
 title: 'Eseguire query su un indice: portale e Ricerca di Azure | Microsoft Docs'
 description: Inviare una query di ricerca in Esplora ricerche del portale di Azure.
+manager: cgronlun
+author: HeidiSteen
 services: search
-manager: jhubbard
-documentationcenter: 
-author: ashmaka
-ms.assetid: 8e524188-73a7-44db-9e64-ae8bf66b05d3
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 07/10/2017
-ms.author: ashmaka
-ms.openlocfilehash: dd68d8ed073bf7b8666ddef35a2f1f84df690b4b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: heidist
+ms.openlocfilehash: a3592bd0c304dfb78374eeba432c0d28203980c9
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Eseguire query su un indice di Ricerca di Azure con Esplora ricerche nel portale di Azure
 > [!div class="op_single_selector"]

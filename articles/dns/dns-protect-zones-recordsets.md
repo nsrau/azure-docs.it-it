@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2016
 ms.author: jonatul
-ms.openlocfilehash: 0b7040d6273b3a6b85cd55850d596807226b87fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a23f5fa296be6d883229d3810e0387224b6708ff
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Come proteggere le zone e i record DNS
 
 Le zone e i record DNS sono risorse critiche. L'eliminazione di una zona DNS o persino di un singolo record DNS può comportare un'interruzione del servizio totale.  È importante proteggere le zone e i record DNS critici da modifiche non autorizzate o accidentali.
 
-Questo articolo spiega come è possibile proteggere i record e le zone DNS da queste modifiche con DNS di Azure.  Si usano due potenti funzionalità di sicurezza fornite da Azure Resource Manager: il [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) e i [blocchi risorse](../azure-resource-manager/resource-group-lock-resources.md).
+Questo articolo spiega come è possibile proteggere i record e le zone DNS da queste modifiche con DNS di Azure.  Si usano due potenti funzionalità di sicurezza fornite da Azure Resource Manager: il [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) e i [blocchi risorse](../azure-resource-manager/resource-group-lock-resources.md).
 
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
-Il Controllo degli accessi in base al ruolo di Azure consente una gestione degli accessi specifica per gli utenti, i gruppi e le risorse di Azure. Il Controllo degli accessi in base al ruolo permette di concedere agli utenti esattamente il livello di accesso necessario per eseguire i propri processi. Per altre informazioni su come il Controllo degli accessi in base al ruolo facilita la gestione degli accessi, vedere l'articolo relativo al [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md).
+Il Controllo degli accessi in base al ruolo di Azure consente una gestione degli accessi specifica per gli utenti, i gruppi e le risorse di Azure. Il Controllo degli accessi in base al ruolo permette di concedere agli utenti esattamente il livello di accesso necessario per eseguire i propri processi. Per altre informazioni su come il Controllo degli accessi in base al ruolo facilita la gestione degli accessi, vedere l'articolo relativo al [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md).
 
 ### <a name="the-dns-zone-contributor-role"></a>Il ruolo di "collaboratore zona DNS"
 
@@ -35,18 +35,18 @@ Il ruolo di "collaboratore zona DNS" è un ruolo predefinito fornito da Azure pe
 
 Si supponga, ad esempio, che il gruppo di risorse "zonepersonali" contenga cinque zone per Contoso Corporation. La concessione di autorizzazioni come "collaboratore zona DNS" all'amministratore DNS per questo gruppo di risorse consente il controllo completo su queste zone DNS. Si evita anche di concedere autorizzazioni non necessarie, ad esempio l'amministratore DNS non può creare o arrestare macchine virtuali.
 
-Il modo più semplice per assegnare le autorizzazioni del Controllo degli accessi in base al ruolo è [tramite il portale di Azure](../active-directory/role-based-access-control-configure.md).  Aprire il pannello "Controllo di accesso (IAM)" per il gruppo di risorse, fare clic su "Aggiungi", quindi selezionare il ruolo di "collaboratore zona DNS" e selezionare gli utenti o i gruppi necessari per concedere le autorizzazioni.
+Il modo più semplice per assegnare le autorizzazioni del Controllo degli accessi in base al ruolo è [tramite il portale di Azure](../role-based-access-control/role-assignments-portal.md).  Aprire il pannello "Controllo di accesso (IAM)" per il gruppo di risorse, fare clic su "Aggiungi", quindi selezionare il ruolo di "collaboratore zona DNS" e selezionare gli utenti o i gruppi necessari per concedere le autorizzazioni.
 
 ![Controllo degli accessi in base al ruolo a livello di gruppo di risorse tramite il portale di Azure](./media/dns-protect-zones-recordsets/rbac1.png)
 
-Queste autorizzazioni possono essere concesse anche [tramite Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md):
+Queste autorizzazioni possono essere concesse anche [tramite Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```powershell
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
 New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
 ```
 
-Il comando equivalente è [disponibile anche tramite l'interfaccia della riga di comando di Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md):
+Il comando equivalente è [disponibile anche tramite l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md):
 
 ```azurecli
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
@@ -63,14 +63,14 @@ Si supponga, ad esempio, che il gruppo di risorse "zone personali" contenga la z
 
 ![Controllo degli accessi in base al ruolo a livello di zona DNS tramite il portale di Azure](./media/dns-protect-zones-recordsets/rbac2.png)
 
-Queste autorizzazioni possono essere concesse anche [tramite Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md):
+Queste autorizzazioni possono essere concesse anche [tramite Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```powershell
 # Grant 'DNS Zone Contributor' permissions to a specific zone
 New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
 ```
 
-Il comando equivalente è [disponibile anche tramite l'interfaccia della riga di comando di Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md):
+Il comando equivalente è [disponibile anche tramite l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md):
 
 ```azurecli
 # Grant 'DNS Zone Contributor' permissions to a specific zone
@@ -85,14 +85,14 @@ Le autorizzazioni del Controllo degli accessi in base al ruolo a livello di set 
 
 ![Controllo degli accessi in base al ruolo a livello di set di record tramite il portale di Azure](./media/dns-protect-zones-recordsets/rbac3.png)
 
-Le autorizzazioni del Controllo degli accessi in base al ruolo a livello di set di record possono anche essere [concesse tramite Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md):
+Le autorizzazioni del Controllo degli accessi in base al ruolo a livello di set di record possono anche essere [concesse tramite Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```powershell
 # Grant permissions to a specific record set
 New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
 ```
 
-Il comando equivalente è [disponibile anche tramite l'interfaccia della riga di comando di Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md):
+Il comando equivalente è [disponibile anche tramite l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md):
 
 ```azurecli
 # Grant permissions to a specific record set
@@ -136,7 +136,7 @@ La proprietà Actions definisce le autorizzazioni specifiche di DNS seguenti:
 * `Microsoft.Network/dnsZones/CNAME/*` concede il controllo completo sui record CNAME
 * `Microsoft.Network/dnsZones/read` concede l'autorizzazione per leggere le zone DNS, ma non per modificarle, consentendo di visualizzare l'area in cui viene creato il record CNAME.
 
-Le azioni rimanenti vengono copiate dal [ruolo di collaboratore zona DNS predefinito](../active-directory/role-based-access-built-in-roles.md#dns-zone-contributor).
+Le azioni rimanenti vengono copiate dal [ruolo di collaboratore zona DNS predefinito](../role-based-access-control/built-in-roles.md#dns-zone-contributor).
 
 > [!NOTE]
 > Non è efficace usare un ruolo personalizzato del Controllo degli accessi in base al ruolo per impedire l'eliminazione di set di record, consentendo tuttavia il relativo aggiornamento. Impedisce l'eliminazione di set di record, ma non la relativa modifica.  Alcune modifiche consentite sono l'aggiunta e la rimozione di record dal set di record, inclusa la rimozione di tutti i record per ottenere un set di record "vuoto". Questo è lo stesso effetto ottenuto eliminando il set di record dal punto di vista della risoluzione DNS.
@@ -157,7 +157,7 @@ azure role create -inputfile <file path>
 
 Il ruolo può quindi essere assegnato come avviene per i ruoli predefiniti, come descritto in precedenza in questo articolo.
 
-Per altre informazioni su come creare, gestire e assegnare ruoli personalizzati, vedere [Ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-custom-roles.md).
+Per altre informazioni su come creare, gestire e assegnare ruoli personalizzati, vedere [Ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/custom-roles.md).
 
 ## <a name="resource-locks"></a>Blocchi risorse
 
@@ -219,6 +219,6 @@ Usare entrambi gli approcci contemporaneamente (blocchi di risorse e ruoli perso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sull'uso del Controllo degli accessi in base al ruolo, vedere l'argomento di [introduzione alla gestione degli accessi nel portale di Azure](../active-directory/role-based-access-control-what-is.md).
+* Per altre informazioni sull'uso del Controllo degli accessi in base al ruolo, vedere l'argomento di [introduzione alla gestione degli accessi nel portale di Azure](../role-based-access-control/overview.md).
 * Per altre informazioni sull'uso dei blocchi risorse, vedere [Bloccare le risorse con Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
 

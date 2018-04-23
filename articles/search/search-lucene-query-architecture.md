@@ -1,22 +1,19 @@
 ---
-title: Architettura del motore di ricerca full-text (Lucene) in Ricerca di Azure | Microsoft Docs
+title: Architettura del motore di ricerca full-text (Lucene) in Ricerca di Azure | Documentazione Microsoft
 description: Spiegazione dell'elaborazione delle query di Lucene e dei concetti del recupero del documento per una ricerca full-text in relazione a Ricerca di Azure.
-services: search
-manager: jhubbard
+manager: jlembicz
 author: yahnoosh
-documentationcenter: ''
+services: search
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.openlocfilehash: 0b2e66cd40c1b49832b865e5bf59edcf78996eb8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d05aade97ea5713b63b921d9e39d4df0c30b8fa0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Funzionamento della ricerca full-text in Ricerca di Azure
 

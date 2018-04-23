@@ -1,24 +1,18 @@
 ---
 title: Introduzione a Ricerca di Azure in Node.js | Microsoft Docs
 description: Illustra la creazione di un'applicazione di ricerca in un servizio di ricerca cloud ospitato in Azure usando Node.js come linguaggio di programmazione.
+author: jj09
+manager: jlembicz
 services: search
-documentationcenter: 
-author: EvanBoyle
-manager: pablocas
-editor: v-lincan
-ms.assetid: 0625dc1b-9db6-40d5-ba9a-4738b75cbe19
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/26/2017
-ms.author: evboyle
-ms.openlocfilehash: 511f3327972672deaa321fb34bc5f91d355370a2
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.author: jjed
+ms.openlocfilehash: 335781a8048e1497b74f0ecf9bef337c923d95b7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Introduzione a Ricerca di Azure in Node.js
 > [!div class="op_single_selector"]

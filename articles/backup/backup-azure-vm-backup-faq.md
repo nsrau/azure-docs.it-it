@@ -2,10 +2,10 @@
 title: Domande frequenti sul servizio Backup delle macchine virtuali di Azure | Microsoft Docs
 description: Risposte alle domande frequenti sul funzionamento del backup delle macchine virtuali di Azure, sulle relative limitazioni e su cosa accade quando si modificano i criteri
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
+editor: ''
 keywords: backup di macchine virtuali di Azure, ripristino di macchine virtuali di Azure, criteri di backup
 ms.assetid: c4cd7ff6-8206-45a3-adf5-787f64dbd7e1
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: e0337a7ce1392d78eba9791095f5d7a9c7d4afdd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Domande sul servizio Backup delle macchine virtuali di Azure
 Questo articolo contiene risposte a domande comuni che consentiranno di comprendere rapidamente i componenti del servizio Backup delle macchine virtuali di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -33,7 +33,7 @@ Vedere i [sistemi operativi supportati](backup-azure-arm-vms-prepare.md#supporte
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Perché non è possibile visualizzare la macchina virtuale nella configurazione guidata del backup?
 Nella configurazione guidata del backup, Backup di Azure elenca soltanto le macchine virtuali che:
-  * Non sono già protette. Per verificare lo stato del backup di una macchina virtuale, è possibile accedere al pannello della macchina virtuale e controllare lo stato di backup dal menu Impostazioni. Altre informazioni su come [controllare lo stato del backup di una macchina virtuale](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade).
+  * Non sono già protette. Per verificare lo stato del backup di una macchina virtuale, è possibile accedere al pannello della macchina virtuale e controllare lo stato di backup dal menu Impostazioni. Altre informazioni su come [controllare lo stato del backup di una macchina virtuale](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu).
   * Appartiene alla stessa area della macchina virtuale.
 
 ## <a name="backup"></a>Backup

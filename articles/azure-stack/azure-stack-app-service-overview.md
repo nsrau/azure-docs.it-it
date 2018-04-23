@@ -2,11 +2,11 @@
 title: 'Panoramica di servizio App: Stack Azure | Documenti Microsoft'
 description: Panoramica di servizio App di Azure stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na

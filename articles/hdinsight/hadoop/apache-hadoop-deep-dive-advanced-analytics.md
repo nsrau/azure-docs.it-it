@@ -2,25 +2,22 @@
 title: Approfondimento - Analisi avanzata - Azure HDInsight | Microsoft Docs
 description: Informazioni sull'uso degli algoritmi da parte dell'analisi avanzata per elaborare i Big Data.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 61a00c902be5cd3e37dabba09c15f9226e5e88b4
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: f121a1f95eed04bf8086c03a5d4406c092dc9445
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deep-dive---advanced-analytics"></a>Approfondimento - Analisi avanzata
 
@@ -30,7 +27,7 @@ HDInsight offre la possibilità di ottenere informazioni dettagliate importanti 
 
 ## <a name="advanced-analytics-process"></a>Processo di analisi avanzata
 
-![Processo](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
+![Process](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
 
 Dopo aver identificato il problema aziendale e aver avviato la raccolta e l'elaborazione dei dati, è necessario creare un modello che rappresenti la domanda per cui generare una previsione. Il modello usa uno o più algoritmi di Machine Learning per creare il tipo di previsione più adatto alle esigenze aziendali specifiche.  La maggior parte dei dati deve essere usata per eseguire il training del modello, mentre i dati rimanenti vengono usati per testare o valutare il modello. 
 
@@ -52,7 +49,7 @@ Insieme alla selezione degli algoritmi più adatti, è necessario considerare se
 
 | Categoria algoritmo| Uso | Tipo di apprendimento | Algoritmi |
 | --- | --- | --- | -- |
-| Classificazione | Classificare oggetti o persone in gruppi | Supervisionato | Alberi delle decisioni, regressione logistica, reti neurali |
+| classificazione | Classificare oggetti o persone in gruppi | Supervisionato | Alberi delle decisioni, regressione logistica, reti neurali |
 | Clustering | Dividere un set di esempi in gruppi omogenei | Non supervisionato | Clustering K-Means |
 | Rilevamento schemi | Identificare associazioni frequenti nei dati | Non supervisionato | Regole di associazione |
 | Regressione | Prevedere risultati numerici | Supervisionato | Regressione lineare, reti neurali |

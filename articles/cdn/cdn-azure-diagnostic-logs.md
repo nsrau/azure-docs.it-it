@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 9c61fe7c62f0718d390509d3b0ff3327bd193f43
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c367cffa8f0453a0f7e230571d861d039122c291
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Log di diagnostica di Azure
 
@@ -113,7 +113,7 @@ L'esempio seguente mostra come abilitare i log di diagnostica tramite i cmdlet d
 
 Prima di tutto, accedere e selezionare una sottoscrizione:
 
-    Login-AzureRmAccount 
+    Connect-AzureRmAccount 
 
     Select-AzureSubscription -SubscriptionId 
 
@@ -288,7 +288,7 @@ Attualmente sono disponibili solo i log di analisi principale, contenenti metric
 La tabella seguente mostra un elenco di metriche disponibili nei log di analisi principale. Non tutte le metriche sono disponibili da tutti i provider, sebbene le differenze siano minime. La tabella seguente indica anche se una metrica specifica è disponibile presso un provider. Si noti che le metriche sono disponibili solo per gli endpoint della rete CDN in cui vi è traffico.
 
 
-|Metrica                     | Descrizione   | Verizon  | Akamai 
+|Metrica                     | DESCRIZIONE   | Verizon  | Akamai 
 |---------------------------|---------------|---|---|
 | RequestCountTotal         |Numero totale di riscontri della richiesta durante questo periodo| Sì  |Sì   |
 | RequestCountHttpStatus2xx |Conteggio di tutte le richieste che hanno generato un codice HTTP 2xx (ad esempio 200, 202)              | Sì  |Sì   |

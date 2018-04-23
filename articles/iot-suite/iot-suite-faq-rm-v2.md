@@ -3,10 +3,10 @@ title: Domande frequenti sul monitoraggio remoto Azure IoT Suite | Microsoft Doc
 description: Domande frequenti sulla soluzione preconfigurata di monitoraggio remoto IoT Suite
 services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
 ms.service: iot-suite
 ms.devlang: na
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 3885e40eb4ddbf61b03a467a71d4dd97d00a9042
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b0d6dbb567f66537c599d7ac3e4337988b3374c0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="frequently-asked-questions-for-iot-suite"></a>Domande frequenti su IoT Suite
+# <a name="frequently-asked-questions-for-iot-suite-remote-monitoring-preconfigured-solution"></a>Domande frequenti sulla soluzione preconfigurata di monitoraggio remoto IoT Suite
 
 Vedere anche le [domande frequenti](iot-suite-faq.md) generali.
 

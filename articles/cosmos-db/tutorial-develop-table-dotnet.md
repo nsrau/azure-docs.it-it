@@ -1,25 +1,25 @@
 ---
-title: 'Azure Cosmos DB: sviluppare con l''API Table in .NET | Documentazione Microsoft'
+title: "Azure Cosmos DB: sviluppare con l'API Table in .NET | Documentazione Microsoft"
 description: Informazioni su come sviluppare con l'API Table di Azure Cosmos DB usando .NET
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
 ms.assetid: 4b22cb49-8ea2-483d-bc95-1172cd009498
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/18/2017
-ms.author: arramac
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: bb08a60a9ec2db0fa145f75e00be96bc05664e32
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 52d91205e7b0daa82fb12c166222b1dce4c699eb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: sviluppare con l'API Table in .NET
 
@@ -173,7 +173,7 @@ Per cambiare il valore predefinito, aprire il file `app.config` da Esplora soluz
 </configuration>
 ```
 
-Ecco una breve panoramica delle operazioni eseguire nell'app. Aprire il file `Program.cs`. Come si noterà, queste righe di codice creano le risorse di tabella. 
+Ecco una breve panoramica delle operazioni da eseguire nell'app. Aprire il file `Program.cs`. Come si noterà, queste righe di codice creano le risorse di tabella. 
 
 ## <a name="create-the-table-client"></a>Creare il client di tabella
 Inizializzare `CloudTableClient` per connettersi all'account di tabella.

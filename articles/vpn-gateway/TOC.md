@@ -3,13 +3,18 @@
 # Panoramica
 ## [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md)
 ## [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md)
-## [Sottoscrizione e limiti del servizio](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Attività iniziali
 ## Creare un gateway VPN basato su route
 ### [Portale di Azure](create-routebased-vpn-gateway-portal.md)
 ### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
 ### [Interfaccia della riga di comando di Azure](create-routebased-vpn-gateway-cli.md)
+
+# Esempi
+## [Creare un gateway VPN](./scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md)
+## [Da punto a sito - Autenticazione RADIUS](./scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md)
+## [Da punto a sito - Autenticazione del certificato](./scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md)
+## [Da sito a sito](./scripts/vpn-gateway-sample-site-to-site-powershell.md)
 
 # Concetti
 ## [Pianificazione e progettazione per il gateway VPN](vpn-gateway-plan-design.md)
@@ -19,8 +24,9 @@
 ## [Informazioni su BGP e su Gateway VPN](vpn-gateway-bgp-overview.md)
 ## [Informazioni sulla connettività a disponibilità elevata](vpn-gateway-highlyavailable.md)
 ## [Informazioni sulle connessioni da punto a sito](point-to-site-about.md)
+## [Informazioni sul routing da punto a sito](vpn-gateway-about-point-to-site-routing.md)
 
-# Procedure
+# Guide alle procedure
 ## Configurare connessioni da sito a sito
 ### [Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -115,6 +121,7 @@
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Subscription and service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json) (Sottoscrizione e limiti del servizio)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Contratto di servizio](https://azure.microsoft.com/support/legal/sla)

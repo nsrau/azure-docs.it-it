@@ -7,11 +7,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: ddb1c9426874634fea54f1b67509d4ac2af70eba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b5ba316b21e0c31e0ecc99fc2d57f81b0f24c086
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Gestire il server di configurazione per le macchine virtuali VMware
 
@@ -112,7 +112,7 @@ Facoltativamente, è possibile eliminare il server di configurazione usando Powe
 1. [Installare](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) il modulo Azure PowerShell.
 2. Accedere al proprio account di Azure con il seguente comando:
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. Selezionare la sottoscrizione dell'insieme di credenziali.
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

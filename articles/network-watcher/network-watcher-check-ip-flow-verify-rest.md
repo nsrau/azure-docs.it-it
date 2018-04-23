@@ -1,11 +1,11 @@
 ---
 title: 'Verificare il traffico con la verifica del flusso IP di Azure Network Watcher: REST | Microsoft Docs'
-description: "Questo articolo descrive come verificare se il traffico da o verso una macchina virtuale è consentito o negato"
+description: Questo articolo descrive come verificare se il traffico da o verso una macchina virtuale è consentito o negato
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3307a79f-03be-46a0-aaaf-b2079cb5f3b2
 ms.service: network-watcher
 ms.devlang: na
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3ccef9ef521b86ffc1eb6047174f4f9e5d9e4296
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c3d38f776db63e777174b7dca8b09a0d19c387e8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Controllare se il traffico è consentito o negato con la verifica del flusso IP, una funzionalità di Azure Network Watcher
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-check-ip-flow-verify-portal.md)
+> - [Portale di Azure](network-watcher-check-ip-flow-verify-portal.md)
 > - [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 > - [Interfaccia della riga di comando 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
 > - [Interfaccia della riga di comando 2.0](network-watcher-check-ip-flow-verify-cli.md)
@@ -165,7 +165,7 @@ La risposta che viene restituita indica se il traffico è consentito o negato. L
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se il traffico risulta bloccato e non dovrebbe esserlo, vedere [Gestire gruppi di sicurezza di rete](../virtual-network/virtual-network-manage-nsg-arm-portal.md) per informazioni al riguardo.
+Se il traffico risulta bloccato e non dovrebbe esserlo, vedere [Gestire gruppi di sicurezza di rete](../virtual-network/manage-network-security-group.md) per informazioni al riguardo.
 
 
 

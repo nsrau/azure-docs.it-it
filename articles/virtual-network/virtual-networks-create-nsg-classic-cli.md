@@ -3,8 +3,8 @@ title: Creare un gruppo di sicurezza di rete (versione classica) con l'interfacc
 description: Informazioni su come creare e distribuire un gruppo di sicurezza di rete (versione classica) con l'interfaccia della riga di comando di Azure 1.0.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: genlin
+manager: cshepard
 editor: ''
 tags: azure-service-management
 ms.assetid: 17d98950-5fbb-4653-bef6-d822ab37541e
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
-ms.author: jdial
-ms.openlocfilehash: 67b959378521e5a456a2e464d6dd04bbdcab4f30
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: genli
+ms.openlocfilehash: 5468801e56849498d712f51e71cfb31bf068398a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-a-network-security-group-classic-using-the-azure-cli-10"></a>Creare un gruppo di sicurezza di rete (versione classica) con l'interfaccia della riga di comando di Azure 1.0
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]

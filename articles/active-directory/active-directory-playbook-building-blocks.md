@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 019785ae0bde58b33cc4b09e2e2746f3fd474b70
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Playbook dei modelli di verifica di Azure Active Directory: blocchi predefiniti
 
@@ -380,8 +380,8 @@ Tempo previsto per il completamento: 15 minuti
 | Prerequisito. | Risorse |
 | --- | --- |
 | Abilitare la gestione delle password self-service nel tenant. | [Reimpostazione delle password in Azure Active Directory per gli amministratori IT](active-directory-passwords-update-your-own-password.md) |
-| Abilitare il writeback delle password per gestire le password in locale. Si noti che questa operazione richiede versioni specifiche di Azure AD Connect | [Prerequisiti per il writeback delle password](active-directory-passwords-writeback.md) |
-| Identificare gli utenti del modello di verifica che useranno questa funzionalità e verificare che siano membri di un gruppo di sicurezza. Gli utenti devono essere non amministratori per presentare completamente la funzionalità | [Personalizzare: Gestione delle password di Azure Active Directory: Limitare l'accesso per la reimpostazione delle password](active-directory-passwords-writeback.md) |
+| Abilitare il writeback delle password per gestire le password in locale. Si noti che questa operazione richiede versioni specifiche di Azure AD Connect | [Prerequisiti per il writeback delle password](authentication/howto-sspr-writeback.md) |
+| Identificare gli utenti del modello di verifica che useranno questa funzionalità e verificare che siano membri di un gruppo di sicurezza. Gli utenti devono essere non amministratori per presentare completamente la funzionalità | [Personalizzare: Gestione delle password di Azure Active Directory: Limitare l'accesso per la reimpostazione delle password](authentication/howto-sspr-writeback.md) |
 
 
 ### <a name="steps"></a>Passaggi
@@ -412,7 +412,7 @@ Tempo previsto per il completamento: 10 minuti
 | Prerequisito. | Risorse |
 | --- | --- |
 | Identificare gli utenti del modello di verifica che useranno MFA  |  |
-| Telefono con buona ricezione per la richiesta di connessione MFA  | [Informazioni su Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) |
+| Telefono con buona ricezione per la richiesta di connessione MFA  | [Informazioni su Azure Multi-Factor Authentication](authentication/multi-factor-authentication.md) |
 
 ### <a name="steps"></a>Passaggi
 
@@ -421,7 +421,7 @@ Tempo previsto per il completamento: 10 minuti
 | Passare al pannello "Utenti e gruppi" nel portale di gestione di Azure AD | [Portale di gestione di Azure AD: Utenti e gruppi](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | Scegliere il pannello "Tutti gli utenti" |  |
 | Nella barra superiore scegliere il pulsante "Multi-Factor Authentication" | URL diretto per il portale di Azure MFA: https://aka.ms/mfaportal |
-| Nelle impostazioni "Utente" selezionare gli utenti del modello di verifica e abilitarli per MFA | [Stati utente in Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
+| Nelle impostazioni "Utente" selezionare gli utenti del modello di verifica e abilitarli per MFA | [Stati utente in Azure Multi-Factor Authentication](authentication/howto-mfa-userstates.md) |
 | Eseguire l'accesso come utente del modello di verifica e seguire la procedura di registrazione  |  |
 
 ### <a name="considerations"></a>Considerazioni
@@ -457,7 +457,7 @@ Tempo previsto per il completamento: 10 minuti
 
 ### <a name="considerations"></a>Considerazioni
 
-Se si usa la federazione, è possibile usare il provider di identità locale (IdP) per comunicare lo stato interno/esterno della rete aziendale con attestazioni. È possibile usare questa tecnica senza dover gestire l'elenco di indirizzi IP che può essere complesso da valutare e gestire nelle organizzazioni di grandi dimensioni. In tale impostazione è necessario un account per lo scenario "roaming di rete" (un utente accede dalla rete interna e mentre è connesso cambia la posizione, ad esempio un bar) e assicurarsi di comprendere le implicazioni. Altre informazioni: [Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS: Indirizzi IP attendibili per utenti federati](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md#trusted-ips-for-federated-users)
+Se si usa la federazione, è possibile usare il provider di identità locale (IdP) per comunicare lo stato interno/esterno della rete aziendale con attestazioni. È possibile usare questa tecnica senza dover gestire l'elenco di indirizzi IP che può essere complesso da valutare e gestire nelle organizzazioni di grandi dimensioni. In tale impostazione è necessario un account per lo scenario "roaming di rete" (un utente accede dalla rete interna e mentre è connesso cambia la posizione, ad esempio un bar) e assicurarsi di comprendere le implicazioni. Altre informazioni: [Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS: Indirizzi IP attendibili per utenti federati](authentication/howto-mfa-adfs.md#trusted-ips-for-federated-users)
 
 ## <a name="privileged-identity-management-pim"></a>Privileged Identity Management (PIM)
 

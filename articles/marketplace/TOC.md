@@ -1,10 +1,12 @@
 # [Documentazione su Azure Marketplace](index.md)
 ## [Guida alla pubblicazione per Azure Marketplace e AppSource](marketplace-publishers-guide.md)
 ## [Favorire lo sviluppo della propria azienda con Azure Marketplace](grow-your-business-azure-marketplace.md)
+## [Informazioni su AppSource](marketplace-what-is-appsource.md)
+## [Favorire lo sviluppo della propria azienda con AppSource](marketplace-grow-your-business-with-appsource.md)
 ## [Servizi di consulenza in Azure Marketplace](consulting-services.md)
 ## [Guida tecnica alla pubblicazione di applicazioni SaaS in Azure Marketplace](marketplace-saas-applications-technical-publishing-guide.md)
 ## [Portale per Cloud Partner](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)
-## Riferimenti
+## riferimento
 ### [Elementi dell'interfaccia utente](../managed-applications/create-uidefinition-elements.md?toc=%2fazure%2fmarketplace%2ftoc.json)
 #### Comune
 ##### [DropDown](../managed-applications/microsoft-common-dropdown.md?toc=%2fazure%2fmarketplace%2ftoc.json)

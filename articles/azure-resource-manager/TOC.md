@@ -47,6 +47,7 @@
 ### [Portale di Azure](resource-group-portal.md)
 ### [Usare tag per organizzare le risorse](resource-group-using-tags.md)
 ### [Spostare le risorse in un nuovo gruppo o sottoscrizione](resource-group-move-resources.md)
+### [Creare una sottoscrizione EA a livello di programmazione](programmatically-create-subscription.md)
 ### [Creare gruppi di gestione](management-groups-create.md)
 ### [Gestire i gruppi di gestione](management-groups-manage.md)
 ### [Esempi di governance](resource-manager-subscription-examples.md)
@@ -79,7 +80,7 @@
 ### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### [Problemi di distribuzione di Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
-# Riferimenti
+# riferimento
 ## [Formato del modello](/azure/templates/)
 ## [Funzioni di modello](resource-group-template-functions.md)
 ### [Matrici e funzioni oggetto](resource-group-template-functions-array.md)

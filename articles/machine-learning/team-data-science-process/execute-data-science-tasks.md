@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: bradsev
-ms.openlocfilehash: da09ab7daba115e570bb8b97549cc5f01e7496b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f0e0c04e48a551db6d7d7cd221a35e267dc0a63f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Eseguire attività di data science: esplorazione, modellazione e distribuzione
 
 Le tipiche attività di data science includono esplorazione, modellazione e distribuzione. Questo articolo illustra come usare le utilità **IDEAR (Interactive Data Exploration, Analysis, and Reporting)** e **AMAR (Automated Modeling and Reporting)** per completare alcune attività comuni di data science, come l'esplorazione interattiva dei dati, l'analisi dei dati, la creazione di report e la creazione di modelli. Vengono inoltre illustrate le opzioni per la distribuzione di un modello in un ambiente di produzione usando una vasta gamma di toolkit e piattaforme di dati, ad esempio:
 
-- [Azure Machine Learning](../preview/index.yml)
+- [Azure Machine Learning](../service/index.yml)
 - [SQL-Server con Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
@@ -32,7 +32,7 @@ Le tipiche attività di data science includono esplorazione, modellazione e dist
 
 Un data scientist può esplorare i dati e creare report in diversi modi, usando le librerie e i pacchetti disponibili per Python (ad esempio matplotlib) o con R (ad esempio ggplot o reticolo). I data scientist possono personalizzare il codice in base alle esigenze di esplorazione dei dati per scenari specifici. Le esigenze quando si gestiscono i dati strutturati sono diverse rispetto a quelle per i dati non strutturati, ad esempio testo o immagini. 
 
-Prodotti come Azure Machine Learning Workbench consentono anche la [preparazione avanzata dei dati](../preview/tutorial-bikeshare-dataprep.md) per la gestione e l'esplorazione, inclusa la creazione di caratteristiche. L'utente deve scegliere gli strumenti, le librerie e i pacchetti più adatti alle proprie esigenze. 
+Prodotti come Azure Machine Learning Workbench consentono anche la [preparazione avanzata dei dati](../desktop-workbench/tutorial-bikeshare-dataprep.md) per la gestione e l'esplorazione, inclusa la creazione di caratteristiche. L'utente deve scegliere gli strumenti, le librerie e i pacchetti più adatti alle proprie esigenze. 
 
 Il risultato finale alla fine di questa fase è un report di esplorazione dei dati. Il report deve fornire una vista abbastanza completa dei dati da usare per la modellazione e una valutazione del fatto che i dati siano o meno adatti per procedere con il passaggio di modellazione. L'utilità TDSP (Team Data Science Process) descritta nelle sezioni seguenti per l'esplorazione semi-automatica, la modellazione e la creazione di report offre anche esplorazione dei dati standard e report di modellazione. 
 
@@ -75,7 +75,7 @@ Per altre informazioni, vedere [Automated Modeling and Reporting Utility in TDSP
 ### <a name="model-management"></a>Gestione di modelli
 Dopo aver creato più modelli, è in genere necessario usare un sistema per registrarli e gestirli. Solitamente, sono necessari una combinazione di script o API e un database back-end o un sistema di controllo delle versioni. Ecco alcune opzioni che è possibile prendere in considerazione per queste attività di gestione:
 
-1. [Azure Machine Learning - servizio Gestione modelli](../preview/index.yml)
+1. [Azure Machine Learning - servizio Gestione modelli](../service/index.yml)
 2. [ModelDB del MIT](https://mitdbg.github.io/modeldb/) 
 3. [SQL Server come sistema di gestione dei modelli](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
@@ -88,7 +88,7 @@ La distribuzione nell'ambiente di produzione consente di usare attivamente un mo
 Ci sono diversi approcci e piattaforme per usare un modello in ambiente di produzione. Ecco alcune opzioni:
 
 
-- [Distribuzione di modelli in Azure Machine Learning](../preview/model-management-overview.md)
+- [Distribuzione di modelli in Azure Machine Learning](../desktop-workbench/model-management-overview.md)
 - [Distribuzione di un modello in SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

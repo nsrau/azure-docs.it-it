@@ -2,27 +2,25 @@
 title: Panoramica dell'apprendimento automatico - Azure HDInsight | Microsoft Docs
 description: Descrive le opzioni di apprendimento automatico disponibili in HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nitinme
-ms.openlocfilehash: ff99a7a60573cad5e6dd30d4ca48903423e9f87f
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b80c49b67c7cca835ae08346561984e168e3df4e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="machine-learning-on-hdinsight"></a>Apprendimento automatico in HDInsight
+# <a name="machine-learning-on-hdinsight"></a>Machine Learning in HDInsight
 
 HDInsight permette di usare l'apprendimento automatico con Big Data, per ottenere informazioni approfondite di grande utilità da ingenti quantità (fino a diversi petabyte o addirittura exabyte) di dati strutturati, non strutturati e che cambiano rapidamente. HDInsight include diverse opzioni di apprendimento automatico: SparkML e MLlib, R, Hive e Microsoft Cognitive Toolkit.
 

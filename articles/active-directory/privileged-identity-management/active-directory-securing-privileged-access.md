@@ -2,7 +2,7 @@
 title: Protezione dell'accesso con privilegi in Azure AD | Documentazione Microsoft
 description: Argomento che descrive gli approcci per la protezione dell'accesso con privilegi ai servizi Azure, Azure Active Directory e Microsoft Online Services.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
 editor: mwahl
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 6611bd07ad4c65953349c62cae3ece735fd85e70
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f49d5a629b9643df81253c57ee8e3458b43b0c59
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Protezione dell'accesso con privilegi in Azure AD
 La protezione dell'accesso con privilegi è il primo passaggio fondamentale per proteggere gli asset aziendali in un'organizzazione moderna. Gli account con privilegi sono gli account che amministrano e gestiscono i sistemi IT. Gli utenti malintenzionati usano questi account per ottenere l'accesso ai dati e ai sistemi di un'organizzazione. Per proteggere l'accesso con privilegi, è necessario isolare gli account e i sistemi dal rischio di esposizione a utenti malintenzionati.
@@ -63,7 +63,7 @@ Per ridurre il tempo di esposizione dei privilegi e aumentare la visibilità del
 Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche selezionate durante l'autenticazione di un utente e prima di consentire l'accesso a un'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
 
 ## <a name="related-articles"></a>Articoli correlati
-* Abilitare [Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
+* Abilitare [Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
 * Abilitare [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
 * Abilitare [Azure AD Identity Protection](../active-directory-identityprotection.md)
 * Abilitare i [controlli di accesso condizionale](../active-directory-conditional-access-azure-portal.md)

@@ -61,7 +61,7 @@
 # Risorse correlate
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
-## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+## [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
 
 # Risorse
 ## [Forum di commenti e suggerimenti su Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory)

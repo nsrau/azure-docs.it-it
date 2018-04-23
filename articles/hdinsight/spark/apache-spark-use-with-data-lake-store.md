@@ -2,7 +2,7 @@
 title: Usare Apache Spark per analizzare i dati in Azure Data Lake Store | Microsoft Docs
 description: Eseguire processi Spark per analizzare i dati archiviati in Azure Data Lake Store
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 1f174323-c17b-428c-903d-04f0e272784c
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 6e44ffc26bbb618e0ff14d412ed77e4827232b42
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fa6f93231cba46e29206ec312fb82ad120ed45f6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>Usare il cluster HDInsight Spark per analizzare i dati in Data Lake Store
 

@@ -1,11 +1,11 @@
 ---
-title: "Visualizzazione in tempo reale dei dati del sensore dall'hub IoT di Azure – App Web | Microsoft Docs"
-description: "Usare la funzionalità App Web di Azure del Servizio app di Microsoft Azure per visualizzare i dati su temperatura e umidità raccolti tramite il sensore e inviati all'hub IoT di Azure."
+title: Visualizzazione in tempo reale dei dati del sensore dall'hub IoT di Azure – App Web | Microsoft Docs
+description: Usare la funzionalità App Web di Azure del Servizio app di Microsoft Azure per visualizzare i dati su temperatura e umidità raccolti tramite il sensore e inviati all'hub IoT di Azure.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
+tags: ''
 keywords: visualizzazione dei dati in tempo reale, visualizzazione dei dati dal vivo, visualizzazione dei dati del sensore
 ms.assetid: e42b07a8-ddd4-476e-9bfb-903d6b033e91
 ms.service: iot-hub
@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2017
-ms.author: xshi
-ms.openlocfilehash: 54a2defd6bfe2396e24584c686698d3215893cfd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 0edf72595f67dd9f6b33f9bfeaf4cd98405dc3ca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualizzare i dati del sensore in tempo reale dall'hub IoT di Azure usando la funzionalità App Web del Servizio App di Azure
 

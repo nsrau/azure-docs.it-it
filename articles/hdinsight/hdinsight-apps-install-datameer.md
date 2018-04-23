@@ -12,15 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 8a898b4f82cf2d7e05e8c3895e5eddd8cf02b173
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 5008056ae2274d058706649f286b91b71feadc27
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---datameer"></a>Installare un'applicazione pubblicata - Datameer
 
@@ -30,7 +28,7 @@ Questo articolo descrive come installare ed eseguire l'applicazione Hadoop pubbl
 
 Datameer è un'applicazione nativa per la piattaforma Hadoop che estende le funzionalità esistenti di HDInsight di Azure e fornisce strumenti di integrazione rapida, preparazione e analisi di dati strutturati e non strutturati. Datameer può accedere a più di 70 origini e formati: strutturati, semistrutturati e non strutturati. È possibile caricare direttamente i dati oppure usare i rispettivi collegamenti univoci per eseguire il pull dei dati su richiesta. La familiare interfaccia basata su foglio di calcolo e le funzionalità self-service di Datameer contribuiscono a ridurre la complessità delle tecnologie di Big Data e ad accelerare il tempo di analisi. L'interfaccia basata su foglio di calcolo, in particolare, offre un meccanismo semplice per immettere formule dichiarative che vengono quindi convertite in processi Hadoop ottimizzati. Combinando Datameer con le competenze personali in Excel e strumenti di Business Intelligence, è possibile usare rapidamente Hadoop nel cloud. Per altre informazioni, vedere la [documentazione su Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per installare questa app in un nuovo cluster HDInsight o in un cluster esistente, è necessario disporre della configurazione seguente:
 

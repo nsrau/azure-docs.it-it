@@ -1,11 +1,10 @@
 ---
-title: SDK e risorse .NET dell'API di tabella di CosmosDB di Azure | Microsoft Docs
+title: SDK e risorse .NET dell'API di tabella di CosmosDB di Azure | Documentazione Microsoft
 description: Informazioni sull'API Table di Azure Cosmos DB, incluse le date di rilascio, le date di ritiro e le modifiche apportate nelle diverse versioni.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
-manager: jhubbard
-editor: cgronlun
+manager: kfile
 ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/26/2018
-ms.author: mimig
-ms.openlocfilehash: 2afd7df65e7b223845752fc6bea5bc0ab4d3efd8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: rnagpal
+ms.openlocfilehash: 7e012e07b8f93554ea44404c611a7bc0eb64a0d0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET di tabella di CosmosDB di Azure: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -66,7 +65,7 @@ Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte so
 Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiutata dal servizio.
 <br/>
 
-| Versione | Data di rilascio | Data di ritiro |
+| Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
 | [1.1.1](#1.1.1) |26 marzo 2018|--- |
 | [1.1.0](#1.1.0) |21 febbraio 2018|--- |

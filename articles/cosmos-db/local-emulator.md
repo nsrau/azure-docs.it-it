@@ -5,7 +5,7 @@ services: cosmos-db
 documentationcenter: ''
 keywords: Emulatore di Azure Cosmos DB
 author: David-Noble-at-work
-manager: jhubbard
+manager: kfile
 editor: ''
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
 ms.author: danoble
-ms.openlocfilehash: e0d23a163f16763dd4764eb7857dec8076f4754c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 810e3e8af5295348ba73b4f7433e3203f47f4554
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Usare l'emulatore di Azure Cosmos DB per sviluppo e test locali
 
@@ -493,7 +493,7 @@ Oltre ad aggiornare i servizi dell'emulatore per la parità con i servizi cloud 
 
 2. Il modulo Microsoft.Azure.CosmosDB.Emulator PowerShell include ora un manifesto, che non era presente nella prima versione.
 
-### <a name="1201084-released-on-february-14-2018"></a>Versione 1.20.108.4 rilasciata il 14 febbraio 2018
+### <a name="1201084-released-on-february-14-2018"></a>La versione 1.20.108.4 è stata rilasciata il 14 febbraio 2018
 
 Questa versione include una nuova funzionalità e due correzioni di bug. Si ringraziano i clienti che hanno contribuito all'individuazione e alla correzione di questi problemi.
 
@@ -515,7 +515,7 @@ Questa versione include una nuova funzionalità e due correzioni di bug. Si ring
 
 Molti clienti hanno richiesto di rendere gestibile tramite script l'emulatore. In questa versione sono state quindi aggiunte alcune funzionalità di script. L'emulatore include ora un modulo di PowerShell per l'avvio, l'arresto, il recupero dello stato e la disinstallazione dell'emulatore: `Microsoft.Azure.CosmosDB.Emulator`. 
 
-### <a name="120911-released-on-january-26-2018"></a>Versione 1.20.91.1 rilasciata il 26 gennaio 2018
+### <a name="120911-released-on-january-26-2018"></a>La versione 1.20.91.1 è stata rilasciata il 26 gennaio 2018
 
 * È stata abilitata per impostazione predefinita la pipeline di aggregazione di MongoDB.
 

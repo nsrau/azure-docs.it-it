@@ -1,6 +1,6 @@
 ---
-title: "Panoramica concettuale delle funzionalità di anteprima di Azure Machine Learning | Microsoft Docs"
-description: "Una panoramica concettuale delle funzionalità di anteprima di Azure Machine Learning ad esempio sottoscrizioni, account, aree di lavoro, progetti e così via."
+title: Panoramica concettuale delle funzionalità di anteprima di Azure Machine Learning | Microsoft Docs
+description: Una panoramica concettuale delle funzionalità di anteprima di Azure Machine Learning ad esempio sottoscrizioni, account, aree di lavoro, progetti e così via.
 services: machine-learning
 author: serinakaye
 ms.author: serinak
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
 ms.openlocfilehash: ea9da6f23fd08c09f9e805519487648480816f35
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-machine-learning---concepts"></a>Azure Machine Learning - Concetti
 

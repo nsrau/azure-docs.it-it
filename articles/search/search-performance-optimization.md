@@ -1,24 +1,19 @@
 ---
 title: Considerazioni sulle prestazioni e sull'ottimizzazione di Ricerca di Azure | Microsoft Docs
-description: "Ottimizzare le prestazioni di Ricerca di Azure e configurare una scalabilità ottimale"
-services: search
-documentationcenter: 
+description: Ottimizzare le prestazioni di Ricerca di Azure e configurare una scalabilità ottimale
 author: LiamCavanagh
-manager: pablocas
-editor: 
-ms.assetid: 4d3cd864-29d2-4921-be0d-a3f1a819de46
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: f4e371fc16bc57e6963f1ec51c0ea864fa568f0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89c0352723f1ed00784250b566902028af853d10
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Considerazioni sulle prestazioni e sull'ottimizzazione di Ricerca di Azure
 Un'esperienza eccellente è la chiave del successo per molti dispositivi mobili e applicazioni Web. Dal mercato immobiliare, passando per il mercato dell'usato dei veicoli fino ai negozi online, la ricerca veloce e i risultati rilevanti influiscono sull'esperienza dell'utente. Questo documento aiuta l'utente a scoprire le procedure consigliate su come ottenere il massimo da Ricerca di Azure, in particolare per scenari avanzati con requisiti di scalabilità avanzati, con supporto multilingue o classificazione personalizzata.  Questo documento illustra anche i meccanismi interni e descrive gli approcci efficienti per le applicazioni reali dei clienti.

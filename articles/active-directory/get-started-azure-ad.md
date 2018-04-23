@@ -1,25 +1,25 @@
 ---
 title: Introduzione ad Azure Active Directory | Microsoft Docs
-description: "Ottenere licenze, aggiungere il nome di dominio, creare una pagina di accesso personalizzata e aggiungere la funzionalità di reimpostazione password self-service in Azure Active Directory"
-keywords: 
+description: Ottenere licenze, aggiungere il nome di dominio, creare una pagina di accesso personalizzata e aggiungere la funzionalità di reimpostazione password self-service in Azure Active Directory
+keywords: ''
 author: curtand
 manager: mtillman
 ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: active-directory
 ms.workload: identity
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: eedcb80038179cf74666880816cb0b5416ac63fd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Introduzione ad Azure AD
 La gestione delle identità moderna richiede un'affidabilità scalabile e coerente per garantire la disponibilità di applicazioni e servizi solo agli utenti autenticati. Per supportare adeguatamete le esigenze di gestione delle identità degli utenti, il reparto IT ha bisogno di un modo per fornire l'accesso alle app pubbliche software as a service (SaaS), un modo per ospitare una linea interna di app aziendali e anche modi per migliorare lo sviluppo e l'utilizzo delle app localmente. Tutti questi requisiti evidenziano la necessità di una soluzione di gestione delle identità basata su cloud.      
@@ -81,7 +81,7 @@ Per impostare le regole, si può usare l'assegnazione delle licenze in base al g
 Vedere le licenze assegnate e disponibili in **Azure Active Directory** > **Licenze** > **Tutti i prodotti**.
 
 ## <a name="configure-self-service-password-reset"></a>Configurare la reimpostazione self-service delle password
-La [reimpostazione self-service della password (SSPR)](active-directory-passwords-getting-started.md) offre agli amministratori IT una modalità semplice per consentire agli utenti di reimpostare o sbloccare le password o gli account. Il sistema include report dettagliati per tenere traccia del momento in cui gli utenti usano il sistema, oltre a notifiche per segnalare usi impropri.
+La [reimpostazione self-service della password (SSPR)](authentication/quickstart-sspr.md) offre agli amministratori IT una modalità semplice per consentire agli utenti di reimpostare o sbloccare le password o gli account. Il sistema include report dettagliati per tenere traccia del momento in cui gli utenti usano il sistema, oltre a notifiche per segnalare usi impropri.
 
 ### <a name="verification-step"></a>Passaggio di verifica
 Vedere le proprietà SSPR abilitate in **Azure Active Directory** > **Reimpostazione password**, per assicurarsi che siano state eseguite le assegnazioni corrette di utenti e gruppi. 

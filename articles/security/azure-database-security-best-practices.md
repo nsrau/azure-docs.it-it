@@ -6,7 +6,7 @@ documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3c019e8e1518c661eb75065f061ee681f0231efa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-database-security-best-practices"></a>Procedure consigliate per la sicurezza del database di Azure
 
@@ -112,7 +112,7 @@ Anche quando l'intera risorsa di archiviazione è crittografata, è molto import
 Dato che un utente autorizzato, ad esempio un amministratore della sicurezza o un amministratore di database, può accedere ai dati anche se il database è crittografato con TDE, è consigliabile seguire anche le raccomandazioni seguenti:
 
 -   Abilitare l'autenticazione SQL a livello di database.
--   Usare l'autenticazione di Azure AD con i ruoli di [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
+-   Usare l'autenticazione di Azure AD con i ruoli di [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview).
 -   Gli utenti e le applicazioni dovrebbero usare account separati per l'autenticazione. In questo modo è possibile limitare le autorizzazioni concesse a utenti e applicazioni e ridurre i rischi di attività dannose.
 -   Implementare la sicurezza a livello di database usando i ruoli predefiniti del database, ad esempio db_datareader o db_datawriter, oppure creare ruoli personalizzati per l'applicazione per concedere autorizzazioni esplicite su determinati oggetti di database.
 

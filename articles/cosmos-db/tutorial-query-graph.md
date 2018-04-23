@@ -4,7 +4,7 @@ description: Informazioni sull'esecuzione di query sui dati grafo in Azure Cosmo
 services: cosmos-db
 documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
+manager: kfile
 editor: ''
 tags: ''
 ms.assetid: 8bde5c80-581c-4f70-acb4-9578873c92fa
@@ -16,11 +16,11 @@ ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: eb1da11c8b27a429ffcf9ea8fb50b6c7cee26ec0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: efeee797a537a16b1b44174ed2d6f7ea3348a25a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>Esercitazione: Eseguire query nell'API Graph di Azure Cosmos DB con Gremlin
 

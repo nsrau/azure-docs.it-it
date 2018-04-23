@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 04d9e6152c87a49a5f1b1b1a29c16d80de00f4e9
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: af011cb3eea27498107cdfd650518552cd63bdf3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="governance-in-azure"></a>Governance in Azure
 
@@ -147,7 +147,7 @@ Quando Azure è stato originariamente rilasciato, i controlli degli accessi a un
 
 La proliferazione di sottoscrizioni non è più necessaria. Con il controllo degli accessi in base al ruolo, è possibile assegnare ruoli standard agli utenti (ad esempio tipi di ruoli comuni come "lettore" e "scrittore"). È inoltre possibile definire ruoli personalizzati.
 
-[Controllo degli accessi in base al ruolo di Azure (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) consente una gestione specifica degli accessi per Azure. L'uso del Controllo degli accessi in base al ruolo permette di concedere agli utenti solo il livello di accesso necessario per lavorare. Le aziende orientate sulla sicurezza devono concedere ai propri dipendenti la quantità esatta di autorizzazioni di cui necessitano. Un numero eccessivo di autorizzazioni espone un account a utenti malintenzionati. Un numero insufficiente di autorizzazioni impedisce ai dipendenti di svolgere efficientemente il proprio lavoro. Il Controllo degli accessi in base al ruolo di Azure (RBAC) aiuta a risolvere questo problema offrendo la gestione specifica degli accessi per Azure. RBAC aiuta a separare i compiti all'interno del team e a concedere agli utenti l'accesso solo nella misura necessaria per consentire loro di svolgere il lavoro. Invece di concedere a tutti autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, è possibile consentire solo determinate azioni.
+[Controllo degli accessi in base al ruolo di Azure (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) consente una gestione specifica degli accessi per Azure. L'uso del Controllo degli accessi in base al ruolo permette di concedere agli utenti solo il livello di accesso necessario per lavorare. Le aziende orientate sulla sicurezza devono concedere ai propri dipendenti la quantità esatta di autorizzazioni di cui necessitano. Un numero eccessivo di autorizzazioni espone un account a utenti malintenzionati. Un numero insufficiente di autorizzazioni impedisce ai dipendenti di svolgere efficientemente il proprio lavoro. Il Controllo degli accessi in base al ruolo di Azure (RBAC) aiuta a risolvere questo problema offrendo la gestione specifica degli accessi per Azure. RBAC aiuta a separare i compiti all'interno del team e a concedere agli utenti l'accesso solo nella misura necessaria per consentire loro di svolgere il lavoro. Invece di concedere a tutti autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, è possibile consentire solo determinate azioni.
 
 Ad esempio, usare il Controllo degli accessi in base al ruolo per consentire a un dipendente di gestire le macchine virtuali in una sottoscrizione, mentre un altro utente può gestire i database SQL della stessa sottoscrizione.
 
@@ -161,7 +161,7 @@ Il Controllo degli accessi in base al ruolo di Azure include di tre ruoli di bas
 
 Il resto dei ruoli RBAC in Azure consente la gestione di risorse di Azure specifiche. Ad esempio, il ruolo Collaboratore Macchina virtuale consente all'utente di creare e gestire macchine virtuali, ma non concede l'accesso alla rete virtuale o alla subnet a cui la macchina virtuale si connette.
 
-[Controllo degli accessi in base al ruolo: ruoli predefiniti](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) elenca i ruoli disponibili in Azure. Specifica le operazioni e l'ambito che ogni ruolo predefinito concede agli utenti.
+[Controllo degli accessi in base al ruolo: ruoli predefiniti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) elenca i ruoli disponibili in Azure. Specifica le operazioni e l'ambito che ogni ruolo predefinito concede agli utenti.
 
 Concedere l'accesso assegnando i ruoli Controllo degli accessi in base al ruolo appropriati a utenti, gruppi e applicazioni in un ambito specifico. L'ambito di un'assegnazione di ruolo può essere una sottoscrizione, un gruppo di risorse o una singola risorsa. Un ruolo assegnato a un ambito padre concede anche l'accesso agli elementi figlio contenuti al suo interno.
 
@@ -169,9 +169,9 @@ Ad esempio, un utente con accesso a un gruppo di risorse può gestire tutte le r
 
 Il Controllo degli accessi in base al ruolo di Azure supporta solo operazioni di gestione delle risorse di Azure nel portale di Azure e nelle API di Azure Resource Manager. Non tutte le operazioni a livello di dati svolte sulle risorse di Azure possono essere autorizzate tramite RBAC. Ad esempio, è possibile autorizzare un utente a gestire gli account di archiviazione, ma non i BLOB e le tabelle all'interno di un account di archiviazione. Analogamente, può essere gestito un database SQL, ma non le tabelle in esso contenute.
 
-Per altri dettagli sulla gestione degli accessi, vedere l'articolo relativo al [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
+Per altri dettagli sulla gestione degli accessi, vedere l'articolo relativo al [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
-In Controllo degli accessi in base al ruolo (RBAC), è possibile anche [creare un ruolo personalizzato](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) se nessuno dei ruoli incorporati soddisfa le necessità specifiche di accesso dell'azienda. I ruoli personalizzati possono essere creati usando [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell), [l'interfaccia della riga di comando di Azure (CLI)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli) e la [API REST](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-rest). Analogamente ai ruoli predefiniti, i ruoli personalizzati possono essere assegnati a utenti, gruppi e applicazioni nell'ambito della sottoscrizione, del gruppo di risorse e delle risorse.
+In Controllo degli accessi in base al ruolo (RBAC), è possibile anche [creare un ruolo personalizzato](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) se nessuno dei ruoli incorporati soddisfa le necessità specifiche di accesso dell'azienda. I ruoli personalizzati possono essere creati usando [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [l'interfaccia della riga di comando di Azure (CLI)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) e la [API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Analogamente ai ruoli predefiniti, i ruoli personalizzati possono essere assegnati a utenti, gruppi e applicazioni nell'ambito della sottoscrizione, del gruppo di risorse e delle risorse.
 
 In ogni sottoscrizione è possibile concedere fino a 2000 assegnazioni di ruolo.
 
@@ -271,7 +271,7 @@ Applicare **ReadOnly** può causare risultati imprevisti perché alcune operazio
 
 Per fare un altro esempio: assegnare un blocco ReadOnly a una risorsa Servizio app impedisce a Visual Studio Server Explorer di visualizzare i file della risorsa perché questa interazione richiede l'accesso in scrittura.
 
-Diversamente dal controllo degli accessi in base al ruolo, i blocchi di gestione consentono di applicare una restrizione a tutti gli utenti e i ruoli. Per informazioni sull'impostazione delle autorizzazioni per utenti e ruoli, vedere [Controllo degli accessi in base al ruolo nel Portale di Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+Diversamente dal controllo degli accessi in base al ruolo, i blocchi di gestione consentono di applicare una restrizione a tutti gli utenti e i ruoli. Per informazioni sull'impostazione delle autorizzazioni per utenti e ruoli, vedere [Controllo degli accessi in base al ruolo nel Portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 Quando si applica un blocco in un ambito padre, tutte le risorse in tale ambito ereditano lo stesso blocco. Anche le risorse aggiunte successivamente ereditano il blocco dal padre. Il blocco più restrittivo nell'ereditarietà ha la precedenza.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 3b935d3a3c37b63386dfb2cbd25ceba59d91a998
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f57a4b87c239126d248cba5106e005103d8372b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="network-security"></a>Sicurezza di rete
 
@@ -35,7 +35,7 @@ Quando un gruppo di sicurezza di rete è associato sia a un'interfaccia di rete 
 - **Traffico in ingresso**: il gruppo di sicurezza di rete associato alla subnet in cui si trova l'interfaccia di rete viene valutato per primo. Tutto il traffico consentito tramite il gruppo di sicurezza di rete associato alla subnet viene quindi valutato in base al gruppo di sicurezza di rete associato all'interfaccia di rete. Può ad esempio essere necessario l'accesso in ingresso da Internet a una macchina virtuale sulla porta 80. Se si associa un gruppo di sicurezza di rete sia all'interfaccia di rete che alla subnet in cui si trova tale interfaccia, il gruppo di sicurezza di rete associato alla subnet e all'interfaccia di rete deve consentire la porta 80. Se la porta 80 è stata consentita solo tramite il gruppo di sicurezza di rete associato alla subnet o all'interfaccia di rete in cui si trova la subnet, la comunicazione non riesce a causa delle regole di sicurezza predefinite. Per informazioni dettagliate, vedere [Regole di sicurezza predefinite](#default-security-rules). Se è stato applicato un gruppo di sicurezza di rete solo alla subnet o all'interfaccia di rete e il gruppo contiene una regola che consente il traffico in ingresso sulla porta 80, ad esempio, la comunicazione ha esito positivo. 
 - **Traffico in uscita**: il gruppo di sicurezza di rete associato all'interfaccia di rete viene valutato per primo. Tutto il traffico consentito tramite il gruppo di sicurezza di rete associato all'interfaccia di rete viene quindi valutato in base al gruppo di sicurezza di rete associato alla subnet.
 
-È possibile che non sempre si conosca quando i gruppi di sicurezza di rete sono applicati sia a un'interfaccia di rete che a una subnet. Le regole di aggregazione applicate a un'interfaccia di rete possono essere verificate facilmente visualizzando le [regole di sicurezza effettive](virtual-network-nsg-troubleshoot-portal.md) per un'interfaccia di rete. È anche possibile usare la funzionalità di [verifica del flusso IP](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) in Azure Network Watcher per determinare se è consentita la comunicazione da o verso un'interfaccia di rete. Lo strumento indica se la comunicazione è consentita e quale regola di sicurezza di rete consente o impedisce il traffico.
+È possibile che non sempre si conosca quando i gruppi di sicurezza di rete sono applicati sia a un'interfaccia di rete che a una subnet. Le regole di aggregazione applicate a un'interfaccia di rete possono essere verificate facilmente visualizzando le [regole di sicurezza effettive](virtual-network-network-interface.md#view-effective-security-rules) per un'interfaccia di rete. È anche possibile usare la funzionalità di [verifica del flusso IP](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) in Azure Network Watcher per determinare se è consentita la comunicazione da o verso un'interfaccia di rete. Lo strumento indica se la comunicazione è consentita e quale regola di sicurezza di rete consente o impedisce il traffico.
  
 > [!NOTE]
 > I gruppi di sicurezza di rete sono associati a subnet oppure a macchine virtuali e servizi cloud distribuiti con il modello di distribuzione classica, anziché a interfacce di rete nel modello di distribuzione Resource Manager. Per altre informazioni in proposito, vedere le [informazioni sui modelli di distribuzione di Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

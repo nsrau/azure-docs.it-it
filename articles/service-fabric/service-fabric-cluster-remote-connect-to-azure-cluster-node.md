@@ -3,7 +3,7 @@ title: Connettersi in remoto a un nodo di cluster di Azure Service Fabric | Micr
 description: Informazioni su come connettersi in remoto a un'istanza di set di scalabilità, ovvero a un nodo di cluster di Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
-ms.author: chackdan
-ms.openlocfilehash: 8c7d5446429089a0fc931175b55e81e1ad0c97a0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: aljo
+ms.openlocfilehash: 68e3b8ae5bdaa3ad9f1c470294ef5c3bcf0c1893
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Connettersi in remoto a un'istanza di set di scalabilità di macchine virtuali o a un nodo di cluster
+# <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Connessione remota a un'istanza di set di scalabilità di macchine virtuali o a un nodo del cluster
 In un cluster di Service Fabric in esecuzione in Azure, ogni tipo di nodo del cluster definito [configura un'istanza separata di set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md).  È possibile connettersi in remoto a istanze specifiche di set di scalabilità (o nodi del cluster).  Diversamente dalle macchine virtuali a istanza singola, le istanze dei set di scalabilità non ottengono un proprio indirizzo IP virtuale. Può quindi essere difficile cercare un indirizzo IP e una porta da usare per connettersi in remoto a un'istanza specifica.
 
 Per trovare un indirizzo IP e una porta da usare per connettersi in remoto a un'istanza specifica, completare questi passaggi.
@@ -54,7 +54,7 @@ Per trovare un indirizzo IP e una porta da usare per connettersi in remoto a un'
 
 3. Connettersi in remoto all'istanza specifica del set di scalabilità.
 
-    Nella figura seguente viene usata Connessione Desktop remoto per connettersi all'istanza del set di scalabilità FrontEnd_1:
+    Nella figura seguente viene usata Connessione Desktop remoto per connettersi al set di istanza di scalabilità FrontEnd_1:
     
     ![Connessione Desktop remoto][RDP]
 

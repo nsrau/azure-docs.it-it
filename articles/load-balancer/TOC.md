@@ -12,15 +12,15 @@
 ## [Metriche e diagnostica di Load Balancer Standard](load-balancer-standard-diagnostics.md)
 
 # Attività iniziali
-## [Creare un'istanza di Load Balancer Basic](load-balancer-get-started-internet-portal.md)
-### [Creare un'istanza di Load Balancer Basic (interfaccia della riga di comando)](load-balancer-get-started-internet-arm-cli.md)
-### [Creare un'istanza di Load Balancer Basic (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-## [Creare un'istanza di Load Balancer Standard](load-balancer-standard-public-portal.md)
-### [Creare un'istanza di Load Balancer Standard (interfaccia della riga di comando)](load-balancer-standard-public-cli.md)
+## [Creare un'istanza di Load Balancer Basic](quickstart-create-basic-load-balancer-portal.md)
+### [Creare un'istanza di Load Balancer Basic (interfaccia della riga di comando)](quickstart-create-basic-load-balancer-cli.md)
+### [Creare un'istanza di Load Balancer Basic (PowerShell)](quickstart-create-basic-load-balancer-powershell.md)
+## [Creare un'istanza di Load Balancer Standard](quickstart-load-balancer-standard-public-portal.md)
+### [Creare un'istanza di Load Balancer Standard (interfaccia della riga di comando)](quickstart-load-balancer-standard-public-cli.md)
 
 # Procedure
 
-## [Creare un'istanza di Load Balancer Standard pubblica con ridondanza della zona](load-balancer-get-started-internet-az-portal.md)
+## [Creare un'istanza di Load Balancer Standard pubblica con ridondanza della zona](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
 ### [Creare un'istanza di Load Balancer Standard pubblica con ridondanza della zona (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
 ### [Creare un'istanza di Load Balancer Standard pubblica con ridondanza della zona (interfaccia della riga di comando)](load-balancer-get-started-internet-az-cli.md)
 ## [Creare un'istanza di Load Balancer Standard pubblica a livello di zona](load-balancer-get-started-internet-availability-zones-zonal-portal.md)
@@ -59,7 +59,7 @@
 #### [Configurare il servizio di bilanciamento del carico pubblico (cloud classico)](load-balancer-get-started-internet-classic-cloud.md)
 #### [Configurare il servizio di bilanciamento del carico pubblico (interfaccia della riga di comando classica)](load-balancer-get-started-internet-classic-cli.md)
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
 ## [Azure PowerShell](/powershell/module/azurerm.network)
 ## [Interfaccia della riga di comando di Azure per Azure](/cli/azure/network/lb)

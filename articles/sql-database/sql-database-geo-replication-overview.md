@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d241bfb6245eb5a70f1e4fcedc86c969766019f4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: fc3dca82bea17b44f66b433f59e5861da3bb0ca2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Panoramica: gruppi di failover e replica geografica attiva
 La replica geografica attiva consente di configurare fino a quattro database secondari accessibili in lettura nella stessa posizione del data center o in posizioni (aree) diverse. Sono disponibili database secondari per l'esecuzione di query e per il failover in caso di interruzione di un data center o di impossibilità di connettersi al database primario. Il failover deve essere avviato manualmente dall'applicazione dell'utente. Dopo il failover, il nuovo database primario dispone di un endpoint di connessione diverso. 
@@ -131,11 +131,11 @@ A causa della latenza elevata delle reti WAN, per la copia continua viene usato 
 ## <a name="programmatically-managing-failover-groups-and-active-geo-replication"></a>Gestione a livello di codice dei gruppi di failover e della replica geografica attiva
 Come indicato in precedenza, i gruppi di failover automatico (in anteprima) e la replica geografica attiva possono anche essere gestiti a livello di codice usando Azure PowerShell e l'API REST. Le tabelle seguenti descrivono il set di comandi disponibili.
 
-**API di Azure Resource Manager e sicurezza basata sui ruoli**: la replica geografica attiva include un set di API di Azure Resource Manager per la gestione, compresa l'[API REST del Database SQL di Azure](https://docs.microsoft.com/rest/api/sql/) e i [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Queste API richiedono l'uso di gruppi di risorse e supportano la sicurezza basata sui ruoli (Controllo degli accessi in base al ruolo). Per altre informazioni su come implementare i ruoli di accesso, vedere [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-what-is.md).
+**API di Azure Resource Manager e sicurezza basata sui ruoli**: la replica geografica attiva include un set di API di Azure Resource Manager per la gestione, compresa l'[API REST del Database SQL di Azure](https://docs.microsoft.com/rest/api/sql/) e i [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Queste API richiedono l'uso di gruppi di risorse e supportano la sicurezza basata sui ruoli (Controllo degli accessi in base al ruolo). Per altre informazioni su come implementare i ruoli di accesso, vedere [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md).
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>Gestire il failover del database SQL con Transact-SQL
 
-| Comando | Descrizione |
+| Comando | DESCRIZIONE |
 | --- | --- |
 | [ALTER DATABASE (database SQL di Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Usare l'argomento ADD SECONDARY ON SERVER per creare un database secondario per un database esistente e avviare la replica dei dati |
 | [ALTER DATABASE (database SQL di Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Usare FAILOVER o FORCE_FAILOVER_ALLOW_DATA_LOSS per passare un database secondario al ruolo di database primario per avviare il failover |
@@ -148,7 +148,7 @@ Come indicato in precedenza, i gruppi di failover automatico (in anteprima) e la
 
 ## <a name="manage-sql-database-failover-using-powershell"></a>Gestire il failover del database SQL con PowerShell
 
-| Cmdlet | Descrizione |
+| Cmdlet | DESCRIZIONE |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Ottiene uno o più database. |
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Crea un database secondario per un database esistente e avvia la replica dei dati. |
@@ -167,7 +167,7 @@ Come indicato in precedenza, i gruppi di failover automatico (in anteprima) e la
 >
 
 ## <a name="manage-sql-database-failover-using-the-rest-api"></a>Gestire il failover del database SQL con L'API REST
-| API | Descrizione |
+| API | DESCRIZIONE |
 | --- | --- |
 | [Creare o aggiornare database (createMode=Restore)](/rest/api/sql/Databases/CreateOrUpdate) |Crea, aggiorna o ripristina un database primario o secondario. |
 | [Get Create or Update Database Status](/rest/api/sql/Databases/CreateOrUpdate) |Restituisce lo stato durante un'operazione di creazione. |

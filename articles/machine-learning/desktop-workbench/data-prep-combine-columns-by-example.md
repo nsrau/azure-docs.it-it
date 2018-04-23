@@ -12,10 +12,10 @@ ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
 ms.openlocfilehash: 469fefa48ea795a56b0e7525f99634c5149a780f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Trasformazione "Combine Columns by Example" (Combina colonne in base all'esempio)
 Questa trasformazione consente all'utente di aggiungere una nuova colonna combinando i valori di più colonne. L'utente può specificare un separatore o fornire esempi di valori combinati per eseguire questa trasformazione. Quando l'utente fornisce esempi di combinazione, la trasformazione viene gestita dallo stesso motore **By-Example** usato nella trasformazione **Derive Column by Example** (Deriva colonna in base all'esempio).

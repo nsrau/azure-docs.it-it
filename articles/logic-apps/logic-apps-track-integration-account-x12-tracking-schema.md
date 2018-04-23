@@ -3,9 +3,9 @@ title: Schemi di rilevamento X12 per il monitoraggio B2B - App per la logica di 
 description: Utilizzare gli schemi di rilevamento X12 per il monitoraggio dei messaggi B2B dalle transazioni nell'account di integrazione di Azure.
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3782c0a76ea8728a146b3d73774f74c31187cbfd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5a43b9bdf522b6b26f27c082f5cb623f7a76a8b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="start-or-enable-tracking-of-x12-messages-to-monitor-success-errors-and-message-properties"></a>Avviare o attivare il rilevamento dei messaggi X12 per monitorare il completamento dell'operazione, gli errori e le proprietà dei messaggi
 È possibile usare questi schemi di rilevamento X12 nell'account di integrazione di Azure per monitorare le transazioni business-to-business (B2B):
@@ -354,5 +354,5 @@ ms.lasthandoff: 10/11/2017
 * Altre informazioni sul [monitoraggio dei messaggi B2B](logic-apps-monitor-b2b-message.md).
 * Altre informazioni sugli [schemi di rilevamento AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md).
 * Altre informazioni sugli [schemi di rilevamento B2B personalizzati](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md).
-* Altre informazioni sul [rilevamento dei messaggi B2B nel portale di Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Altre informazioni sul [rilevamento dei messaggi B2B in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 * Altre informazioni su [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).  

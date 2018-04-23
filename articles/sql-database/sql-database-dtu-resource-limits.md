@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: c4c85395856756e8ec6a788aa958b479a297892d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a56ff1d70d56b742966c9980f01b4de03f7f30b2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-database-dtu-based-resource-model-limits"></a>Limiti del modello delle risorse basate su DTU del database SQL di Azure
 
@@ -39,7 +39,7 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 ### <a name="standard-service-tier"></a>Livello di servizio Standard
 | **Livello di prestazioni** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
-| Numero max DTU** | 10 | 20 | 50 | 100 |
+| Max DTU | 10 | 20 | 50 | 100 |
 | Risorse di archiviazione incluse (GB) | 250 | 250 | 250 | 250 |
 | Opzioni per lo spazio di archiviazione massimo (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | Spazio di archiviazione OLTP in memoria max (GB) | N/D | N/D | N/D | N/D |
@@ -51,7 +51,7 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 ### <a name="standard-service-tier-continued"></a>Livello di servizio Standard (continua)
 | **Livello di prestazioni** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|---:|
-| Numero max DTU** | 200 | 400 | 800 | 1600 | 3000 |
+| Max DTU | 200 | 400 | 800 | 1600 | 3000 |
 | Risorse di archiviazione incluse (GB) | 250 | 250 | 250 | 250 | 250 |
 | Opzioni per lo spazio di archiviazione massimo (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | Spazio di archiviazione OLTP in memoria max (GB) | N/D | N/D | N/D | N/D |N/D |
@@ -78,8 +78,6 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 >
 >\* Nel livello Premium sono attualmente disponibili più di 1 TB di risorse di archiviazione nelle aree seguenti: Australia orientale, Australia sud-orientale, Brasile meridionale, Canada centrale, Canada orientale, Stati Uniti centrali, Francia centrale, Germania centrale, Giappone orientale, Giappone occidentale, Corea centrale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Regno Unito orientale, Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia ed Europa occidentale. Vedere [Limitazioni correnti per P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
->\*\* Il numero massimo di DTU per database uguale o superiore a 200 nei siti Web Standard è disponibile in anteprima.
->
 
 
 ## <a name="single-database-change-storage-size"></a>Database singolo: modifica delle dimensioni di archiviazione

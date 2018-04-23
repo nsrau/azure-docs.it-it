@@ -94,7 +94,7 @@ Sono disponibili contatori di PerfMon per il processore, la memoria e ogni disco
 | **Max. memoria** |Quantità di memoria necessaria per eseguire correttamente un'applicazione. |% byte vincolati in uso |Use vmstat |
 | **Max. CPU** |Quantità di CPU necessaria per eseguire correttamente un'applicazione. |% tempo processore |%util |
 
-Altre informazioni su [iostat](http://linuxcommand.org/man_pages/iostat1.html) e [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
+Altre informazioni su [iostat](https://linux.die.net/man/1/iostat) e [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
 ## <a name="optimizing-application-performance"></a>Ottimizzazione delle prestazioni dell'applicazione
 I fattori principali che influenzano le prestazioni di un'applicazione in esecuzione nell'Archiviazione Premium sono costituiti dalla natura delle richieste I/O, dalle dimensioni della VM e del disco, dal numero di dischi, dalla memorizzazione nella cache del disco, dal multithreading e dalla profondità della coda. È possibile controllare alcuni di questi fattori con manopole fornite dal sistema. È possibile che la maggior parte delle applicazioni non consenta di modificare direttamente le dimensioni di I/O e la profondità della coda. Ad esempio, se si usa SQL Server, non sarà possibile scegliere le dimensioni di I/O e la profondità della coda. SQL Server sceglie i valori ottimali per le dimensioni di I/O e la profondità della coda per ottenere le prestazioni migliori possibili. È importante comprendere gli effetti di entrambi i tipi di fattori sulle prestazioni dell'applicazione, in modo da effettuare il provisioning delle risorse appropriate per soddisfare le esigenze relative alle prestazioni.

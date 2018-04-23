@@ -5,7 +5,7 @@ services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 272945134b534a5ded794379ce5e96b0902a4227
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: f6a70f33b143a5b9354411af9717d2a21e24af0c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Creare e condividere i dashboard dei dati di Log Analytics
 
@@ -48,7 +48,7 @@ Questa azione crea un nuovo dashboard privato vuoto e attiva la modalità di per
 
 Quando si crea un dashboard, per impostazione predefinita il dashboard è privato e può quindi essere visualizzato solo dall'utente da cui è stato creato. Per renderlo visibile ad altri utenti, usare il pulsante **Condividi** visualizzato insieme agli altri comandi relativi ai dashboard.<br> ![Condividere un nuovo dashboard nel portale di Azure](media/log-analytics-tutorial-dashboards/log-analytics-share-dashboard.png) 
 
-Viene chiesto di scegliere una sottoscrizione e un gruppo di risorse in cui pubblicare il dashboard. Per praticità, l'esperienza di pubblicazione del portale propone un modello che prevede l'inserimento dei dashboard in un gruppo di risorse denominato **dashboards**(dashboard).  Verificare la sottoscrizione selezionata e quindi fare clic su **Pubblica**.  L'accesso alle informazioni visualizzate nel dashboard è controllato con il [controllo degli accessi in base alle risorse di Azure](../active-directory/role-based-access-control-configure.md).   
+Viene chiesto di scegliere una sottoscrizione e un gruppo di risorse in cui pubblicare il dashboard. Per praticità, l'esperienza di pubblicazione del portale propone un modello che prevede l'inserimento dei dashboard in un gruppo di risorse denominato **dashboards**(dashboard).  Verificare la sottoscrizione selezionata e quindi fare clic su **Pubblica**.  L'accesso alle informazioni visualizzate nel dashboard è controllato con il [controllo degli accessi in base alle risorse di Azure](../role-based-access-control/role-assignments-portal.md).   
 
 ## <a name="visualize-a-log-search"></a>Visualizzare una ricerca log
 

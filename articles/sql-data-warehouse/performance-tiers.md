@@ -1,11 +1,11 @@
 ---
 title: Livelli di prestazioni di Azure SQL Data Warehouse | Microsoft Docs
-description: "Introduzione ai livelli di prestazioni ottimizzati per il calcolo e per l'elasticità disponibili in Azure SQL Data Warehouse."
+description: Introduzione ai livelli di prestazioni ottimizzati per il calcolo e per l'elasticità disponibili in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
 ms.openlocfilehash: 03881c12faed723999e97431e4a69fdeb6bfa10d
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Livelli di prestazioni di Azure SQL Data Warehouse (Anteprima)
 Sono disponibili due livelli di prestazioni di SQL Data Warehouse ottimizzati per carichi di lavoro analitici. L'articolo spiega i concetti dei livelli di prestazioni per scegliere il livello più adatto per il carico di lavoro. 

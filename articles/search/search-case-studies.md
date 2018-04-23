@@ -1,25 +1,20 @@
 ---
 title: 'Chi usa Ricerca di Azure: case study e casi di successo dei clienti | Microsoft Docs'
 description: Case study e casi di successo dei clienti sulla Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure.
-services: search
-documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: ad48e927-aaf9-48f5-8efd-48150cfe79b2
+services: search
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: e7cbbdc606920b9698b30e4b7a9c3325a0f866e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc15d214d48978b2f8a6bceb3d1a0e945f10bd67
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="whos-using-azure-search-case-studies-and-customer-stories"></a>Chi usa Ricerca di Azure: case study e casi di successo dei clienti
 Informazioni su come le organizzazioni seguenti hanno sviluppato le proprie attività grazie all'integrazione di esperienze di ricerca avanzate di Azure nelle applicazioni online.

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mbaldwin
-ms.openlocfilehash: e3a0bbe75177ac25a0aeff89d171dfe88bd0880f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c716f54a1361d41dbad00e2e45562d5fbf8fd6ca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Introduzione ai modelli privati nel portale di Azure
 Un modello di [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) è un modello dichiarativo usato per definire la distribuzione. Permette di definire le risorse da distribuire per una soluzione e di specificare i parametri e le variabili che consentono di immettere valori per diversi ambienti. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione.
@@ -103,7 +103,7 @@ Viene visualizzata una notifica che conferma il salvataggio del modello.
 ![Modello di distribuzione](media/deploy-template-portal1b.png)
 
 ## <a name="share-a-template-resource"></a>Condividere una risorsa modello
-È possibile condividere le risorse **modello** con altri utenti. La condivisione funziona in modo simile all' [assegnazione di ruoli per qualsiasi risorsa di Azure](../active-directory/role-based-access-control-configure.md). Il proprietario del **modello** fornisce le autorizzazioni ad altri utenti, che possono interagire con la risorsa modello. L'utente o il gruppo di utenti con cui viene condiviso il **modello** può visualizzare il modello di Resource Manager e le relative proprietà della raccolta.
+È possibile condividere le risorse **modello** con altri utenti. La condivisione funziona in modo simile all' [assegnazione di ruoli per qualsiasi risorsa di Azure](../role-based-access-control/role-assignments-portal.md). Il proprietario del **modello** fornisce le autorizzazioni ad altri utenti, che possono interagire con la risorsa modello. L'utente o il gruppo di utenti con cui viene condiviso il **modello** può visualizzare il modello di Resource Manager e le relative proprietà della raccolta.
 
 ### <a name="access-control-for-the-microsoftgallery-resources"></a>Controllo di accesso per le risorse Microsoft.Gallery
 | Ruolo | Autorizzazioni |

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1f52079e00c7c5f4e70acf8c86f648ed9281744e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a7d44e421162cf5784dde58f757e235d12b63cba
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>Governance delle macchine virtuali con l'interfaccia della riga di comando di Azure
 
@@ -43,15 +43,15 @@ Il gruppo di risorse è attualmente vuoto.
 
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
-Si vuole che gli utenti dell'organizzazione dispongano del giusto livello di accesso a queste risorse. Non si vuole concedere un accesso illimitato agli utenti, ma si vuole comunque avere la certezza che tutti possano svolgere il proprio lavoro. Il [controllo degli accessi in base al ruolo](../../active-directory/role-based-access-control-what-is.md) consente di stabilire quali utenti sono autorizzati a completare specifiche azioni in un determinato ambito.
+Si vuole che gli utenti dell'organizzazione dispongano del giusto livello di accesso a queste risorse. Non si vuole concedere un accesso illimitato agli utenti, ma si vuole comunque avere la certezza che tutti possano svolgere il proprio lavoro. Il [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) consente di stabilire quali utenti sono autorizzati a completare specifiche azioni in un determinato ambito.
 
 Per creare e rimuovere assegnazioni di ruoli, gli utenti devono disporre di accesso `Microsoft.Authorization/roleAssignments/*`. Questo accesso viene concesso tramite il ruolo Proprietario o Amministratore accessi utente.
 
 Per la gestione di soluzioni di macchine virtuali, sono disponibili tre ruoli specifici delle risorse che forniscono l'accesso in genere necessario:
 
-* [Collaboratore macchine virtuali](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Collaboratore di rete](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Collaboratore account di archiviazione](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Collaboratore macchine virtuali](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Collaboratore di rete](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Collaboratore account di archiviazione](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Invece di assegnare ruoli ai singoli utenti, è spesso più facile [creare un gruppo di Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) per gli utenti che devono eseguire azioni simili. Assegnare quindi tale gruppo al ruolo appropriato. Per semplificare questo articolo, creare un gruppo di Azure Active Directory senza membri. È comunque possibile assegnare questo gruppo a un ruolo per un ambito. 
 

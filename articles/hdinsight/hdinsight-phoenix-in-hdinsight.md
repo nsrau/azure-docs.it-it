@@ -1,26 +1,24 @@
 ---
 title: Apache Phoenix in HDInsight - Azure HDInsight | Microsoft Docs
-description: 
+description: ''
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: a82ddc4a94688df87043ef93f24956efb93220c4
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 5d96b5656881815a82c89e0d159ba2bf556946b9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix in HDInsight
 
@@ -47,7 +45,7 @@ CREATE INDEX ix_purchasetype on SALTEDWEBLOGS (purchasetype, transactiondate) IN
 
 Questo approccio può produrre un aumento significativo delle prestazioni rispetto all'esecuzione di query con singola indicizzazione. Questo tipo di indice secondario è un **indice di copertura**, contenente tutte le colonne incluse nella query. Pertanto, la tabella di ricerca non è necessaria e l'indice soddisfa l'intera query.
 
-### <a name="views"></a>Viste
+### <a name="views"></a>Visualizzazioni
 
 Le viste Phoenix consentono di superare un limite di HBase, a causa del quale le prestazioni iniziano a diminuire quando si creano più di circa 100 tabelle fisiche. Le viste Phoenix consentono a più *tabelle virtuali* di condividere una sola tabella HBase fisica sottostante.
 

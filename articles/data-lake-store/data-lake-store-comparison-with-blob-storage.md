@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: acdd829785c44f6683c356c135587be183cce392
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d394c856b2f27446ab28c44fe4fed2dfd59ae62f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Confronto tra Azure Data Lake Store e l'archivio BLOB di Azure
 Questo articolo propone una tabella di riepilogo delle differenze tra Azure Data Lake Store e l'archivio BLOB di Azure, insieme ad alcuni aspetti fondamentali dell'elaborazione dei Big Data. L'archivio BLOB di Azure è un archivio di oggetti generico e scalabile, progettato per un'ampia gamma di scenari di archiviazione. Azure Data Lake Store è un repository su vasta scala ottimizzato per carici di lavoro di analisi dei Big Data.
@@ -37,7 +37,7 @@ Questo articolo propone una tabella di riepilogo delle differenze tra Azure Data
 | Operazioni sui dati: autorizzazione |Elenchi di controllo di accesso (ACL) POSIX.  Gli ACL basati su identità di Azure Active Directory possono essere impostati a livello di file e cartella. |Per l'autorizzazione a livello di account: usare [Chiavi di accesso dell'account](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Per l'autorizzazione relativa all'account, al contenitore o al BLOB: usare [Chiavi di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Operazioni sui dati: controllo |Disponibile. Per altre informazioni, fare clic [qui](data-lake-store-diagnostic-logs.md) . |Disponibile |
 | Crittografia dei dati inattivi |<ul><li>Trasparente, lato server</li> <ul><li>Con chiavi gestite dal servizio</li><li>Con chiavi gestite dal cliente nell'insieme di credenziali delle chiavi di Azure</li></ul></ul> |<ul><li>Trasparente, lato server</li> <ul><li>Con chiavi gestite dal servizio</li><li>Con chiavi gestite dal cliente in Azure Key Vault (anteprima)</li></ul><li>crittografia lato client</li></ul> |
-| Operazioni di gestione, come la creazione di account |[Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) (RBAC) fornito da Azure per la gestione degli account. |[Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) (RBAC) fornito da Azure per la gestione degli account. |
+| Operazioni di gestione, come la creazione di account |[Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) (RBAC) fornito da Azure per la gestione degli account. |[Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) (RBAC) fornito da Azure per la gestione degli account. |
 | SDK per sviluppatori |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS |
 | Prestazioni del carico di lavoro di analisi |Prestazioni ottimizzate per carichi di lavoro di analisi parallela. IOPS e velocità effettiva elevata. |Prestazioni ottimizzate per carichi di lavoro di analisi parallela. |
 | Limiti di dimensioni |Nessun limite di dimensioni per l'account, i file o il numero di file |Limiti specifici documentati [qui](../storage/common/storage-scalability-targets.md). Per ottenere limiti più elevati per gli account, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/) |

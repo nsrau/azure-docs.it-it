@@ -1,12 +1,12 @@
 ---
-title: "Pianificazione della capacità per i ruoli server di servizio App di Azure nello Stack di Azure | Documenti Microsoft"
-description: "Pianificazione della capacità per i ruoli server di servizio App di Azure nello Stack di Azure"
+title: Pianificazione della capacità per i ruoli server di servizio App di Azure nello Stack di Azure | Documenti Microsoft
+description: Pianificazione della capacità per i ruoli server di servizio App di Azure nello Stack di Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na

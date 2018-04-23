@@ -1,8 +1,8 @@
 ---
 title: Scenari di dati con Data Lake Store | Microsoft Docs
-description: "Scoprire i diversi scenari e gli strumenti che è possibile usare per inserire, elaborare, scaricare e visualizzare i dati in un Archivio Data Lake"
+description: Scoprire i diversi scenari e gli strumenti che è possibile usare per inserire, elaborare, scaricare e visualizzare i dati in un Archivio Data Lake
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: bd69d3c353c7f44efb37e2359412aa3a9f3e8f8d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f8cd666af9e05b543b6794612ec5acf6f8a27756
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Uso di Archivio Data Lake di Azure per requisiti Big Data
 L'elaborazione di Big Data prevede quattro fasi principali:
@@ -131,4 +131,4 @@ In questi casi, è possibile usare le opzioni seguenti:
 ![Visualizzare i dati in Data Lake Store](./media/data-lake-store-data-scenarios/visualize-data.png "Visualizzare i dati in Data Lake Store")
 
 * Iniziare usando [Azure Data Factory per spostare i dati da Data Lake Store ad Azure SQL Data Warehouse](../data-factory/copy-activity-overview.md)
-* Successivamente è possibile [integrare Power BI con Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) per creare la rappresentazione visiva dei dati.
+* Successivamente è possibile [integrare Power BI con Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) per creare la rappresentazione visiva dei dati.

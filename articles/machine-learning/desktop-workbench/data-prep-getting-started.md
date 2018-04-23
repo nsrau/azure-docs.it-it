@@ -1,6 +1,6 @@
 ---
 title: Introduzione alla preparazione dati per Azure Machine Learning | Microsoft Docs
-description: "Questa è la guida introduttiva della sezione relativa alla preparazione dati del Workbench di Azure Machine Learning"
+description: Questa è la guida introduttiva della sezione relativa alla preparazione dati del Workbench di Azure Machine Learning
 services: machine-learning
 author: cforbe
 ms.author: cforbe
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
 ms.openlocfilehash: b0fbb0af433cfad6693b022d7a00373dc39533aa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="getting-started-with-data-preparation"></a>Introduzione alla preparazione dati
 

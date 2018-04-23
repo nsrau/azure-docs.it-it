@@ -9,17 +9,15 @@ editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: ab959d2cdaf840a1a88a71a0b8f29d84a8979330
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: caa10682f8419cfbc0837e5069357e02ee1e5f64
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-hdinsight-cluster-management-solutions-to-log-analytics"></a>Aggiungere soluzioni di gestione di cluster HDInsight in Log Analytics
 
@@ -27,7 +25,7 @@ HDInsight offre soluzioni di gestione specifiche per i cluster che è possibile 
 
 Questo articolo descrive come aggiungere soluzioni di gestione specifiche per i cluster in un'area di lavoro di Log Analytics.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * È necessario aver configurato un cluster HDInsight per l'uso di Azure Log Analytics. Per istruzioni, vedere [Usare Azure Log Analytics con i cluster HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 

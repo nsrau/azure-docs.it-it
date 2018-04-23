@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b8497e8f7b268c52878648d08f94dde6bb81ff94
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ca8d5a26205e65668d46be6b558d596ab066c5f8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Esercitazione: Creare una data factory con Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -60,7 +60,7 @@ Di seguito sono elencati i passaggi da eseguire nell'ambito di questa procedura 
   
 ### <a name="prerequisites"></a>prerequisiti
 1. Vedere la [panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) ed eseguire i passaggi relativi ai **prerequisiti** . È anche possibile selezionare l'opzione **Panoramica e prerequisiti** nell'elenco a discesa in alto per passare a tale articolo. Dopo aver completato i prerequisiti, tornare a questo articolo selezionando l'opzione **Visual Studio** nell'elenco a discesa.
-2. Per creare istanze di data factory, è necessario essere membri del ruolo [Collaboratore Data factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.  
+2. Per creare istanze di data factory, è necessario essere membri del ruolo [Collaboratore Data factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.  
 3. È necessario disporre dei seguenti prodotti installati nel computer in uso:
    * Visual Studio 2013 o Visual Studio 2015
    * Download di Azure SDK per Visual Studio 2013 o Visual Studio 2015. Passare alla [pagina di download di Azure](https://azure.microsoft.com/downloads/) e fare clic su **VS 2013** o **VS 2015** nella sezione **.NET**.

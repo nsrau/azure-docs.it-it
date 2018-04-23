@@ -1,23 +1,18 @@
 ---
 title: Creare un servizio di Ricerca di Azure nel portale | Documentazione Microsoft
 description: Eseguire il provisioning di un servizio Ricerca di Azure nel portale.
-services: search
-manager: jhubbard
+manager: cgronlun
 author: HeidiSteen
-documentationcenter: 
-ms.assetid: c8c88922-69aa-4099-b817-60f7b54e62df
+services: search
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: b31844dd0dad1168b12d91ce536589099ab16a7e
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 1837fc6511ac734766c55bd1c2a2a7a40219c31a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creare un servizio di Ricerca di Azure nel portale
 

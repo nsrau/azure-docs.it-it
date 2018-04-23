@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: d19e63e10f2d42d97bb6fabca9c9e47028cbaf39
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 377a8255961a4c7fa55f8bbc5cb98ae4deff3205
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Accesso utente con l'autenticazione pass-through di Azure Active Directory
 
@@ -39,7 +39,7 @@ Questa funzionalità è un'alternativa rispetto alla [sincronizzazione dell'hash
 - *Miglioramento dell'esperienza utente*
   - Gli utenti usano le stesse password per accedere ad applicazioni in locale e basate su cloud.
   - Gli utenti passano meno tempo con il supporto tecnico per risolvere problemi relativi alle password.
-  - Gli utenti possono completare le attività di[ gestione self-service delle password](../active-directory-passwords-overview.md) nel cloud.
+  - Gli utenti possono completare le attività di[ gestione self-service delle password](../authentication/active-directory-passwords-overview.md) nel cloud.
 - *Facilità di distribuzione e gestione*
   - Non sono necessarie distribuzioni locali o configurazioni di rete complesse.
   - È necessario solo installare un agente leggero in locale.
@@ -56,7 +56,7 @@ Questa funzionalità è un'alternativa rispetto alla [sincronizzazione dell'hash
 - Supporta l'accesso utente in tutte le applicazioni basate su browser e nelle applicazioni client di Microsoft Office che usano l'[autenticazione moderna](https://aka.ms/modernauthga).
 - I nomi utente per l'accesso possono essere il nome utente predefinito locale (`userPrincipalName`) o un altro attributo configurato in Azure AD Connect (noto come `Alternate ID`).
 - La funzionalità opera senza problemi con gli [accessi condizionali](../active-directory-conditional-access-azure-portal.md) come ad esempio l'autenticazione a più fattori (MFA) per garantire la sicurezza degli utenti.
-- Può essere integrata con la [gestione delle password self-service](../active-directory-passwords-overview.md) basata sul cloud, che include le attività di writeback delle password in Active Directory locale e di protezione delle password tramite il divieto di specificare password usate comunemente.
+- Può essere integrata con la [gestione delle password self-service](../authentication/active-directory-passwords-overview.md) basata sul cloud, che include le attività di writeback delle password in Active Directory locale e di protezione delle password tramite il divieto di specificare password usate comunemente.
 - Gli ambienti a più foreste sono supportati se sono presenti relazioni di trust tra le foreste AD e se il routing del suffisso del nome è configurato correttamente.
 - È una funzionalità gratuita e non serve alcuna delle edizioni a pagamento di Azure AD per utilizzarla.
 - È possibile abilitarla tramite [Azure AD Connect](active-directory-aadconnect.md).

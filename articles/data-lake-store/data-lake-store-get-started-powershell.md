@@ -2,7 +2,7 @@
 title: Usare PowerShell per iniziare a usare Azure Data Lake Store | Documentazione Microsoft
 description: Usare Azure PowerShell per creare un account di Data Lake Store ed eseguire operazioni di base
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 31c98b930ccb8203316e3a3b13c3c0dc7d74dd9c
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 57b7755bda499cd7113f84d9950b1b06175e11b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-powershell"></a>Introduzione all'archivio Azure Data Lake mediante Azure PowerShell
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Questo articolo usa un approccio di autenticazione più semplice con Data Lake S
 1. Dal desktop aprire una nuova finestra di Windows PowerShell. Immettere il frammento di codice seguente per accedere al proprio account di Azure, impostare la sottoscrizione e registrare il provider di Data Lake Store. Quando viene richiesto di effettuare l'accesso, assicurarsi di accedere come amministratore/proprietario della sottoscrizione:
 
         # Log in to your Azure account
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 
         # List all the subscriptions associated to your account
         Get-AzureRmSubscription
