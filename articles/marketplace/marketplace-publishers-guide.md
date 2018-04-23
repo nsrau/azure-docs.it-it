@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 07fb601b2cf6e3fe3cc9bfb7bca3bdcbec7e9ca7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f090bcd56377d167dddab1b8f942d473aecb66a2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guida alla pubblicazione per Azure Marketplace e AppSource
 
@@ -121,8 +121,7 @@ Ogni vetrina supporta più opzioni di pubblicazione e tipi di offerta correlati.
 Usare l'opzione Contattami quando la partecipazione a livello di valutazione o a livello di transazione non è fattibile. Il vantaggio di questo approccio è dato dall'opportunità offerta agli editori di mettere subito in commercio una soluzione per iniziare a ricevere clienti potenziali a cui presentare offerte di base per dare impulso alla propria azienda. Lo svantaggio consiste invece nel coinvolgimento limitato del cliente rispetto ad altri tipi di offerta.
 
 >[!IMPORTANT]
-<<<<<<< Il coinvolgimento dei clienti è migliore con le offerte Valutazione e Transazione. Il lead ricevuto rappresenta il valore dell'opzione Contattami. Se si sceglie questo tipo di offerta, assicurarsi che la destinazione del lead sia configurata e di essere pronti a sfruttare al meglio il lead. ======= Il tipo di offerta Contattami è sconsigliata. e deve essere usato solo in situazioni in cui non è possibile stabilire un'esperienza di valutazione. Il coinvolgimento dei clienti è migliore con le offerte per la valutazione e la transazione. Se si dispone di un tipo di esperienza di valutazione, durante il processo di onboarding l'utente viene guidato a una di queste opzioni, a seconda dello scenario.
->>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
+>Il coinvolgimento dei clienti è migliore con le offerte Valutazione e Transazione. Il lead ricevuto rappresenta il valore dell'opzione Contattami. Se si sceglie questo tipo di offerta, assicurarsi che la destinazione del lead sia configurata e di essere pronti a sfruttare al meglio il lead. 
 
 Quando l'offerta è costituita principalmente da servizi professionali, ad esempio valutazioni, implementazioni o workshop, usare il tipo di offerta Servizi di consulenza. È necessario definire con precisione l'ambito, la durata e il prezzo dell'offerta. Il servizio deve essere limitato a un singolo cliente e fornito presso la sua sede.
 
@@ -493,7 +492,6 @@ La sezione seguente include l'elenco delle opzioni di supporto per Azure Marketp
 
 |Canale di supporto  |DESCRIZIONE  |
 |---------|---------|
-|Slack: [Aderire a Marketplace su Slack](https://join.marketplace.azure.com)    |   Ambiente Slack per il supporto tecnico dei partner. Attualmente più di 350 partner usano questo ambiente.        |
 |Forum MSDN: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Forum di Microsoft Developer Network.         |
 |Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Ambiente di Stack Overflow per ottenere soluzioni e porre domande su qualsiasi argomento relativo ad Azure e al Marketplace:<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Macchine virtuali di Azure](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
 
