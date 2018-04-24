@@ -3,18 +3,18 @@ title: Progettare un processo ELT anziché ETL per Azure SQL Data Warehouse | Mi
 description: Invece di ETL, progettare un processo di estrazione, caricamento e trasformazione (ELT, Extract, Load, Transform) per il caricamento di dati in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: jhubbard
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 03/28/2018
+ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 18d5f4131718021de82328719e0538db759dde9c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3cea41a7c129ee5a691226097d087539f943bec6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Progettazione ELT (Extract, Load, Transform) per Azure SQL Data Warehouse
 
@@ -48,8 +48,8 @@ Per caricare i dati con PolyBase, è possibile usare una di queste opzioni di ca
 
 - [PolyBase con T-SQL](load-data-from-azure-blob-storage-using-polybase.md): ideale quando i dati sono nell'archivio BLOB di Azure o in Azure Data Lake Store. Questa opzione offre il massimo controllo sul processo di caricamento, ma richiede anche di definire oggetti dati esterni. Gli altri metodi definiscono questi oggetti dietro le quinte, man mano che si esegue il mapping di tabelle di origine e tabelle di destinazione.  Per orchestrare i caricamenti con T-SQL, è possibile usare Azure Data Factory, SSIS o funzioni di Azure. 
 - [PolyBase con SSIS](/sql/integration-services/load-data-to-sql-data-warehouse): ideale quando i dati di origine sono in SQL Server, in locale o nel cloud. SSIS definisce i mapping delle tabelle di origine e di destinazione, oltre a orchestrare il caricamento. Se sono già disponibili pacchetti SSIS, è possibile modificarli per utilizzare la nuova destinazione di data warehouse. 
-- [PolyBase con Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) è un altro strumento di orchestrazione,  che definisce una pipeline e pianifica i processi. È possibile utilizzare il file di definizione dell'applicazione (ADF) per analizzare i dati JSON e caricarli in SQL Data Warehouse.
-- [PolyBase con Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) trasferisce i dati da Azure Data Lake Store a SQL Data Warehouse. È possibile usare Azure DataBricks per analizzare i dati JSON e caricarli in SQL Data Warehouse. 
+- [PolyBase con Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) è un altro strumento di orchestrazione,  che definisce una pipeline e pianifica i processi. 
+- [PolyBase con Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) trasferisce i dati da una tabella di SQL Data Warehouse in un dataframe di Databricks e/o scrive i dati da un dataframe di Databricks in una tabella di SQL Data Warehouse.
 
 ### <a name="polybase-external-file-formats"></a>Formati di file esterni PolyBase
 
@@ -70,11 +70,8 @@ Per trasferire i dati in Archiviazione di Azure, è possibile spostarli nell'[ar
 Questi sono gli strumenti e i servizi che è possibile usare per spostare i dati in Archiviazione di Azure.
 
 - Il servizio [Azure ExpressRoute](../expressroute/expressroute-introduction.md) migliora la velocità effettiva della rete, le prestazioni e la prevedibilità. ExpressRoute è un servizio che instrada i dati tramite una connessione privata dedicata ad Azure. Le connessioni ExpressRoute non instradano i dati attraverso la rete Internet pubblica. Queste connessioni offrono maggiore affidabilità, velocità più elevate, latenze minori e sicurezza superiore rispetto alle tipiche connessioni tramite la rete Internet pubblica.
-- L'[utilità AZCopy](../storage/common/storage-use-azcopy.md) sposta i dati in Archiviazione di Azure tramite la rete Internet pubblica. Si tratta di un'opzione appropriata se le dimensioni dei dati sono inferiori a 10 TB. Per eseguire regolarmente caricamenti con AZCopy, assicurasi che la velocità di rete sia accettabile. 
-- [Azure Data Factory (ADF)](../data-factory/introduction.md) include un gateway che è possibile installare nel server locale. È quindi possibile creare una pipeline per spostare i dati dal server locale ad Archiviazione di Azure.
-
-Per altre informazioni, vedere [Spostamento dei dati da e verso Archiviazione di Azure](../storage/common/storage-moving-data.md).
-
+- L'[utilità AZCopy](../storage/common/storage-moving-data.md) sposta i dati in Archiviazione di Azure tramite la rete Internet pubblica. Si tratta di un'opzione appropriata se le dimensioni dei dati sono inferiori a 10 TB. Per eseguire regolarmente caricamenti con AZCopy, assicurasi che la velocità di rete sia accettabile. 
+- [Azure Data Factory (ADF)](../data-factory/introduction.md) include un gateway che è possibile installare nel server locale. È quindi possibile creare una pipeline per spostare i dati dal server locale ad Archiviazione di Azure. Per l'uso di Data Factory con SQL Data Warehouse, vedere [Caricare dati in Azure SQL Data Warehouse tramite Azure Data Factory](/azure/data-factory/load-azure-sql-data-warehouse).
 
 ## <a name="prepare-data"></a>Preparazione dei dati
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ac869cc45d352bdeed16bb3ca926ec7a921d1f75
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 47629350967026f6901441ff20d182cd7fd5be3a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure
 
@@ -38,7 +38,7 @@ Le associazioni Cosmos DB per la versione 1.x di Funzioni sono incluse nel pacch
 
 ## <a name="trigger"></a>Trigger
 
-Il trigger di Azure Cosmos DB usa il [feed di modifiche di Azure Cosmos DB](../cosmos-db/change-feed.md) per ascoltare le modifiche nelle partizioni. Il feed delle modifiche pubblica aggiunte e aggiornamenti, non eliminazioni. 
+Il trigger di Azure Cosmos DB usa il [feed di modifiche di Azure Cosmos DB](../cosmos-db/change-feed.md) per ascoltare le modifiche nelle partizioni. Il feed delle modifiche pubblica aggiunte e aggiornamenti, non eliminazioni. Il trigger viene richiamato per ogni aggiunta o aggiornamento eseguito nella raccolta monitorata. 
 
 ## <a name="trigger---example"></a>Trigger - esempio
 
@@ -767,7 +767,7 @@ Per impostazione predefinita, quando si scrive nel parametro di output della fun
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione | riferimento |
+| Associazione | Riferimento |
 |---|---|
 | Cosmos DB | [Codici di errore di CosmosDB](https://docs.microsoft.com/en-us/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
