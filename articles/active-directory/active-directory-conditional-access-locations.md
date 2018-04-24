@@ -3,24 +3,24 @@ title: Condizioni della posizione nell'accesso condizionale di Azure Active Dire
 description: Informazioni su come usare la condizione della posizione per controllare l'accesso alle app cloud in base al percorso di rete dell'utente.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2018
+ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c9712cf0cf20bbcfc089eb18896370f9e02eb571
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 687f3c4a5f70154b6335563d65443c12463b0b74
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Condizioni della posizione nell'accesso condizionale di Azure Active Directory 
 
@@ -43,9 +43,16 @@ Una posizione è un'etichetta per un percorso di rete che rappresenta una posizi
 
 Con le posizioni specifiche è possibile creare raggruppamenti logici di intervalli di indirizzi IP, paesi e aree geografiche. 
 
- Una posizione specifica ha le caratteristiche seguenti:
+È possibile accedere a specifiche posizioni dalla sezione **Gestisci** della pagina Accesso condizionale.
 
-![Località](./media/active-directory-conditional-access-locations/42.png)
+![Posizioni](./media/active-directory-conditional-access-locations/02.png)
+
+ 
+
+
+Una posizione specifica ha le caratteristiche seguenti:
+
+![Posizioni](./media/active-directory-conditional-access-locations/42.png)
 
 - **Nome**: nome visualizzato di una posizione specifica.
 
@@ -68,13 +75,13 @@ Il numero di località denominate che è possibile configurare è limitato dalle
 
 ## <a name="trusted-ips"></a>Indirizzi IP attendibili
 
-È inoltre possibile configurare gli intervalli di indirizzi IP che rappresentano la Intranet locale dell'organizzazione nelle [impostazioni del servizio di autenticazione a più fattori](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Questa funzionalità consente di configurare fino a 50 intervalli di indirizzi IP. Gli intervalli di indirizzi IP sono in formato CIDR. Per altre informazioni, vedere [IP attendibili](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
+È inoltre possibile configurare gli intervalli di indirizzi IP che rappresentano la Intranet locale dell'organizzazione nelle [impostazioni del servizio di autenticazione a più fattori](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Questa funzionalità consente di configurare fino a 50 intervalli di indirizzi IP. Gli intervalli di indirizzi IP sono in formato CIDR. Per altre informazioni, vedere [IP attendibili](authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
 Se si dispone di indirizzi IP attendibili configurati, vengono visualizzati come **Indirizzi IP attendibili MFA** nell'elenco dei percorsi per la condizione della posizione.   
 
 ### <a name="skipping-multi-factor-authentication"></a>Ignorare l'autenticazione a più fattori
 
-Nella pagina delle impostazioni del servizio di autenticazione a più fattori, è possibile identificare gli utenti della rete Intranet aziendale selezionando **Ignora l'autenticazione a più fattori per le richieste provenienti da utenti federati nella Intranet**. Questa impostazione indica che l'attestazione della rete aziendale interna, rilasciata da AD FS, deve essere attendibile e usata per identificare l'utente come appartenente alla rete aziendale. Per altre informazioni, vedere [Abilitare la funzionalità degli indirizzi IP attendibili tramite l'accesso condizionale](../multi-factor-authentication/multi-factor-authentication-whats-next.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+Nella pagina delle impostazioni del servizio di autenticazione a più fattori, è possibile identificare gli utenti della rete Intranet aziendale selezionando **Ignora l'autenticazione a più fattori per le richieste provenienti da utenti federati nella Intranet**. Questa impostazione indica che l'attestazione della rete aziendale interna, rilasciata da AD FS, deve essere attendibile e usata per identificare l'utente come appartenente alla rete aziendale. Per altre informazioni, vedere [Abilitare la funzionalità degli indirizzi IP attendibili tramite l'accesso condizionale](authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
 
 Dopo aver selezionato questa opzione, inclusa la posizione specifica, gli **Indirizzi IP attendibili MFA** verranno applicati a tutti i criteri con l'opzione selezionata.
 

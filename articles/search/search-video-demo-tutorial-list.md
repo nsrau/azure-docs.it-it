@@ -1,25 +1,17 @@
 ---
 title: Video, esempi ed esercitazioni in Ricerca di Azure | Microsoft Docs
-description: Elenco centrale di tutti i video, gli esempi, le demo e le esercitazioni create per la Ricerca di Azure, un servizio cloud ospitato in Microsoft Azure.
-services: search
-documentationcenter: 
+description: Elenco centrale di tutti i video, gli esempi, le demo e le esercitazioni creati per Ricerca di Azure, un servizio cloud ospitato in Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 4ffa17a3-9e2b-4172-ad77-30c6a1354b24
+manager: cgronlun
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: heidist
-ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dd2e689e3f21877bdbaee83ef48dc9eaf438090
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Ricerca di Azure: esempi di codice, demo, video ed esercitazioni
 Velocizzare le operazioni con i video, le demo, le esercitazioni e le applicazioni di esempio indicati di seguito.
