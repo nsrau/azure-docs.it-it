@@ -7,9 +7,9 @@ Prima di tutto è necessario che sia installata ed eseguita la versione più rec
 > 
 > 
 
-Eseguire il cmdlet [**Add-AzureRmAccount**](http://msdn.microsoft.com/library/mt619267.aspx) per visualizzare una schermata di accesso in cui immettere le credenziali. Usare le stesse credenziali usate per l'accesso al portale di Azure.
+Eseguire il cmdlet [**Connect-AzureRmAccount**](http://msdn.microsoft.com/library/mt619267.aspx) per visualizzare una schermata di accesso in cui immettere le credenziali. Usare le stesse credenziali usate per l'accesso al portale di Azure.
 
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
 
 Se si hanno più sottoscrizioni, usare il cmdlet [**Set-AzureRmContext**](http://msdn.microsoft.com/library/mt619263.aspx) per selezionare la sottoscrizione da usare nella sessione di PowerShell. Per visualizzare la sottoscrizione in uso nella sessione corrente di PowerShell, eseguire [**Get-AzureRmContext**](http://msdn.microsoft.com/library/mt619265.aspx). Per visualizzare tutte le sottoscrizioni, eseguire [**Get-AzureRmSubscription**](http://msdn.microsoft.com/library/mt619284.aspx).
 
