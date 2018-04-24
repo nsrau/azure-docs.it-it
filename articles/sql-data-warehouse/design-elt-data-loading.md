@@ -10,11 +10,11 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 3cea41a7c129ee5a691226097d087539f943bec6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5ceb8cfd8efea66dbf17b8c522316b9a010e437d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Progettazione ELT (Extract, Load, Transform) per Azure SQL Data Warehouse
 
@@ -56,7 +56,7 @@ Per caricare i dati con PolyBase, è possibile usare una di queste opzioni di ca
 PolyBase carica i dati da file di testo delimitati con codifica UTF-8 e UTF-16. Oltre ai file di testo delimitati, supporta il caricamento da formati di file Hadoop, ovvero RC, ORC e Parquet. PolyBase può caricare dati da file compressi Gzip e Snappy. PolyBase non supporta attualmente i formati ASCII esteso, a larghezza fissa e annidati, come WinZip, JSON e XML.
 
 ### <a name="non-polybase-loading-options"></a>Opzioni di caricamento non PolyBase
-Se i dati non sono compatibili con PolyBase, è possibile usare [bcp](sql-data-warehouse-load-with-bcp.md) o l'[API SQLBulkCopy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). bcp carica direttamente i dati in SQL Data Warehouse senza dover passare attraverso l'archivio BLOB di Azure ed è destinato esclusivamente a piccoli caricamenti. Si noti che le prestazioni di caricamento di queste opzioni sono notevolmente inferiori rispetto a PolyBase. 
+Se i dati non sono compatibili con PolyBase, è possibile usare [bcp](/sql/tools/bcp-utility) o l'[API SQLBulkCopy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). bcp carica direttamente i dati in SQL Data Warehouse senza dover passare attraverso l'archivio BLOB di Azure ed è destinato esclusivamente a piccoli caricamenti. Si noti che le prestazioni di caricamento di queste opzioni sono notevolmente inferiori rispetto a PolyBase. 
 
 
 ## <a name="extract-source-data"></a>Estrarre i dati di origine

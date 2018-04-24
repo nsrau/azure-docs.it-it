@@ -1,23 +1,28 @@
 ---
-title: Migrare un database SQL Server nel database SQL di Azure | Documentazione Microsoft
-description: Informazioni sulla migrazione di un database SQL Server a un database SQL di Azure.
+title: Eseguire la migrazione di un database di SQL Server al database SQL di Azure con Servizio Migrazione del database | Microsoft Docs
+description: Informazioni su come eseguire la migrazione di un database di SQL Server al database SQL di Azure usando Servizio Migrazione del database.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: c4b4354cb1090b9abc388da9d1d1b135f135144d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 14e9949fe0c292a366fa55e3f16d14d885606f6b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrare un database SQL Server in un database SQL di Azure
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>Migrazione di un database di SQL Server al database SQL di Azure con Servizio Migrazione del database
 
-La migrazione di un database SQL Server a un database SQL di Azure è un'operazione semplice che prevede la creazione di un database SQL vuoto in Azure e quindi l'uso di [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) per l'importazione del database in Azure. In questa esercitazione si apprenderà come:
+La migrazione di un database di SQL Server a un database singolo di Database SQL di Azure è un processo semplice che prevede la creazione di un database SQL vuoto in Azure e quindi l'uso di [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) per importare il database in Azure. Per altre opzioni di migrazione, vedere l'articolo relativo alla [migrazione di un database al database SQL di Azure](sql-database-cloud-migrate.md).
+
+> [!IMPORTANT]
+> Per eseguire la migrazione a Istanza gestita di database SQL di Azure, vedere l'articolo relativo alla [migrazione da SQL Server a Istanza gestita](sql-database-managed-instance-migrate.md).
+
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un database SQL di Azure vuoto nel portale di Azure (usando un server di database SQL di Azure nuovo o esistente)

@@ -2,10 +2,10 @@
 title: Domande frequenti su Azure Active Directory | Microsoft Docs
 description: Le domande frequenti su Azure Active Directory offrono una risposta alle domande comuni su Azure e Azure Active Directory, sulla gestione delle password e sull'accesso alle applicazioni.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 80df81f365ac884bc1f44268e615975407f485f0
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: be5f5a6c39e27ae7fedab32fea12f5cf9b7cd3bd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-faq"></a>Domande frequenti su Azure Active Directory
 Azure Active Directory (Azure AD) è una soluzione IDaaS (Identity as a Service) completa che si estende a tutti gli aspetti relativi a identità, gestione degli accessi e sicurezza.
@@ -29,7 +29,7 @@ Per altre informazioni, vedere [Informazioni su Azure Active Directory](active-d
 ## <a name="access-azure-and-azure-active-directory"></a>Accedere ad Azure e Azure Active Directory
 **D: Perché viene visualizzato il messaggio "Non sono state trovate sottoscrizioni" quando si prova ad accedere ad Azure AD nel portale di Azure?**
 
-**R:** Per accedere al portale di Azure, ogni utente deve avere autorizzazioni per una sottoscrizione di Azure. Se si ha una sottoscrizione di Office 365 o Azure AD a pagamento, accedere a [https://aka.ms/accessAAD](https://aka.ms/accessAAD) per eseguire un passaggio di attivazione una tantum. In caso contrario sarà necessario attivare un [account Azure](https://azure.microsoft.com/pricing/free-trial/) gratuito o una sottoscrizione a pagamento.
+**R:** Per accedere al portale di Azure, ogni utente deve avere autorizzazioni per una sottoscrizione di Azure. Se si ha una sottoscrizione di Office 365 o Azure AD a pagamento, accedere a [https://aka.ms/accessAAD](https://aka.ms/accessAAD) per un passaggio di attivazione una tantum. In caso contrario sarà necessario attivare un [account Azure](https://azure.microsoft.com/pricing/free-trial/) gratuito o una sottoscrizione a pagamento.
 
 Per altre informazioni, vedere:
 
@@ -112,18 +112,18 @@ Per altre informazioni, vedere [Monitorare l'infrastruttura di gestione delle id
 
 **R:** Il writeback delle password viene eseguito in tempo reale.
 
-Per altre informazioni, vedere [Introduzione alla gestione delle password](active-directory-passwords-getting-started.md).
+Per altre informazioni, vedere [Introduzione alla gestione delle password](authentication/quickstart-sspr.md).
 
 - - -
 **D: È possibile usare il writeback delle password con password gestite da un amministratore?**
 
 **R:** Sì. Se il writeback delle password è abilitato, le operazioni relative alle password eseguite da un amministratore vengono sottoposte a writeback nell'ambiente locale.  
 
-Per altre risposte a domande relative alle password, vedere [Domande frequenti sulla gestione delle password](active-directory-passwords-faq.md).
+Per altre risposte a domande relative alle password, vedere [Domande frequenti sulla gestione delle password](authentication/active-directory-passwords-faq.md).
 - - -
 **D: Cosa si può fare se non si ricorda la password di Office 365/Azure AD esistente durante il tentativo di modificare la password?**
 
-**R:** In situazioni di questo tipo è possibile procedere in due modi.  Usare la reimpostazione password self-service (SSPR), se disponibile.  La disponibilità della funzione SSPR dipende dalla sua configurazione.  Per altre informazioni, vedere [Funzionamento del portale di reimpostazione delle password](active-directory-passwords-best-practices.md).
+**R:** In situazioni di questo tipo è possibile procedere in due modi.  Usare la reimpostazione password self-service (SSPR), se disponibile.  La disponibilità della funzione SSPR dipende dalla sua configurazione.  Per altre informazioni, vedere [Funzionamento del portale di reimpostazione delle password](authentication/howto-sspr-deployment.md).
 
 Per gli utenti di Office 365, l'amministratore può reimpostare la password seguendo la procedura descritta in [Reimpostare le password degli utenti](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 

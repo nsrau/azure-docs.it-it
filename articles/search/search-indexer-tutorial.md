@@ -1,25 +1,18 @@
 ---
 title: Esercitazione per l'indicizzazione dei database SQL di Azure SQL in Ricerca di Azure | Microsoft Docs
 description: Effettuare una ricerca per indicizzazione in un database SQL di Azure per estrarre dati ricercabili e popolare un indice di Ricerca di Azure.
-services: search
-documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: cgronlun
 ms.service: search
 ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f123b4f5d0a51a4ab5015a2a0008a76fbfa0318e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Come effettuare una ricerca per indicizzazione in un database SQL di Azure usando gli indicizzatori di Ricerca di Azure
 
@@ -95,7 +88,7 @@ In Esplora soluzioni aprire **appsettings.json**, in modo che sia possibile popo
 4. Copiarlo e incollarlo come prima voce in **appsettings.json** in Visual Studio.
 
   > [!Note]
-  > Un nome del servizio è parte dell'endpoint che include search.windows.net. Se interessati, è possibile visualizzare l'URL completo in **Informazioni di base** nella pagina Panoramica. L'aspetto dell'URL è simile all'esempio seguente: https://nome-servizio.search.windows.net
+  > Un nome del servizio è parte dell'endpoint che include search.windows.net. Se interessati, è possibile visualizzare l'URL completo in **Informazioni di base** nella pagina Panoramica. L'URL è simile all'esempio seguente: https://your-service-name.search.windows.net
 
 5. A sinistra in **Impostazioni** > **Chiavi** copiare una delle chiavi amministratore e incollarla come seconda voce in **appsettings.json**. Le chiavi sono stringhe alfanumeriche generate per il servizio durante il provisioning e sono necessarie per l'accesso autorizzato alle operazioni del servizio. 
 

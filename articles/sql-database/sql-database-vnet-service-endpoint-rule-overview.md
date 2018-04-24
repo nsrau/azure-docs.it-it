@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 7622c6e6ffb1410cc2cbd42f6ac3601d281832da
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Usare gli endpoint del servizio Rete virtuale e le regole per il database SQL di Azure
 
@@ -129,8 +129,8 @@ Per il database SQL di Azure, la funzionalità delle regole della rete virtuale 
 
 - Le regole della rete virtuale si applicano solo alle reti virtuali di Azure Resource Manager e non alle reti con un [modello di distribuzione classica][arm-deployment-model-568f].
 
-- L'attivazione degli endpoint di servizio di rete virtuale nel Database SQL di Azure abilita anche gli endpoint per i servizi MySQL e PostGres Azure. Tuttavia, con gli endpoint attivati i tentativi di connessione dagli endpoint alle istanze di MySQL o Postgres avranno esito negativo.
-    - La causa principale è che MySQL e PostGres attualmente non supportano ACLing.
+- L'attivazione degli endpoint di servizio di rete virtuale nel database SQL di Azure abilita anche gli endpoint per i servizi MySQL e PostgreSQL Azure. Tuttavia, con gli endpoint attivati i tentativi di connessione dagli endpoint alle istanze di MySQL o PostgreSQL avranno esito negativo.
+    - La causa principale è che MySQL e PostgreSQL attualmente non supportano ACLing.
 
 - Nel firewall, gli intervalli di indirizzi IP si applicano ai seguenti elementi di rete, ma non le regole della rete virtuale:
     - [VPN (rete privata virtuale) da sito a sito (S2S)][vpn-gateway-indexmd-608y]
@@ -226,6 +226,10 @@ Un elenco di diversi messaggi di errore del database SQL è disponibile [qui][sq
 
 Questa sezione illustra come usare il [portale di Azure] [http-azure-portal-link-ref-477t] per creare una *regola della rete virtuale* nel database di SQL Azure. La regola indica al database SQL di accettare le comunicazioni da una subnet specifica contrassegnata come *endpoint del servizio Rete virtuale*.
 
+> [!NOTE]
+> Verificare che gli endpoint di servizio siano attivati per la rete virtuale/subnet che si desidera aggiungere alle regole del firewall della rete virtuale del server.
+> Se gli endpoint del servizio sono disattivati per la rete virtuale/subnet, verrà richiesto di attivarli nel portale; a tal fine, fare clic su Abilita nel pannello in cui si aggiunge la regola.
+
 #### <a name="powershell-alternative"></a>Alternativa PowerShell
 
 Anche uno script di PowerShell può creare regole della rete virtuale. Ad esempio, il cmdlet essenziale **New-AzureRmSqlServerVirtualNetworkRule**. Se interessati, vedere [Usare PowerShell per creare un endpoint del servizio virtuale e una regola per il database SQL di Azure][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
@@ -315,7 +319,7 @@ La funzionalità delle regole della rete virtuale per il database SQL di Azure �
 
 [expressroute-indexmd-744v]: ../expressroute/index.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]:../role-based-access-control/overview.md
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
 
