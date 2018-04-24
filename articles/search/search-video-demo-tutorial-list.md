@@ -3,15 +3,16 @@ title: Video, esempi ed esercitazioni in Ricerca di Azure | Microsoft Docs
 description: Elenco centrale di tutti i video, gli esempi, le demo e le esercitazioni creati per Ricerca di Azure, un servizio cloud ospitato in Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: heidist
-ms.openlocfilehash: 3dd2e689e3f21877bdbaee83ef48dc9eaf438090
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e71a8abcebb95f2d34dee2f26dc2c7f341465a55
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Ricerca di Azure: esempi di codice, demo, video ed esercitazioni
 Velocizzare le operazioni con i video, le demo, le esercitazioni e le applicazioni di esempio indicati di seguito.
@@ -20,7 +21,7 @@ Velocizzare le operazioni con i video, le demo, le esercitazioni e le applicazio
 
 Iniziare da qui se non si ha familiarità con Ricerca di Azure. La revisione di tutte le risorse richiede circa un'ora.
 
-| Titolo | DESCRIZIONE | Data |
+| Title | DESCRIZIONE | Data |
 |-------|-------------|------|
 | [Guardare questo video introduttivo](https://channel9.msdn.com/Events/Connect/2016/138) | Introduzione di 9 min e 38 sec alle funzioni, creazione di un servizio e query. | Novembre 2016 |
 | [Creare un servizio](search-get-started-portal.md) | Procedura per configurare la Ricerca di Azure nel portale. | Febbraio 2017 |

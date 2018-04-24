@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/05/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0531406ce50cf8cb549965d1f30b327afe52b003
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f8a93e873f79e99777fe2d8675c9426f5fc5ecda
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Esercitazione: Eseguire il rendering di una scena con Azure Batch 
 
@@ -50,7 +50,7 @@ az group create \
     --location eastus2
 ```
 
-Creare un account di archiviazione per uso generico nel gruppo di risorse con il comando [az storage account create](/cli/azure/storage/account#az_storage_account_create). In questa esercitazione l'account di archiviazione viene usato per archiviare una scena 3ds Max di input e l'output sottoposto a rendering.
+Creare un account di Archiviazione di Azure nel gruppo di risorse con il comando [az storage account create](/cli/azure/storage/account#az_storage_account_create). In questa esercitazione l'account di archiviazione viene usato per archiviare una scena 3ds Max di input e l'output sottoposto a rendering.
 
 ```azurecli-interactive
 az storage account create \
