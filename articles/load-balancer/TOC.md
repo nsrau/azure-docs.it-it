@@ -28,7 +28,8 @@
 ### [Creare un'istanza di Load Balancer Standard pubblica a livello di zona (interfaccia della riga di comando)](load-balancer-get-started-internet-availability-zones-zonal-cli.md)
 ## [Bilanciare il carico delle macchine virtuali tra zone di disponibilità](load-balancer-standard-public-availability-zones-portal.md)
 ###  [Bilanciare il carico delle macchine virtuali tra zone di disponibilità (interfaccia della riga di comando)](load-balancer-standard-public-zone-redundant-cli.md)
-##  [Bilanciare il carico delle macchine virtuali entro una zona (interfaccia della riga di comando)](load-balancer-standard-public-zonal-cli.md)   
+## [Bilanciare il carico delle macchine virtuali entro una zona](tutorial-load-balancer-standard-public-zonal-portal.md)  
+###  [Bilanciare il carico delle macchine virtuali entro una zona (interfaccia della riga di comando)](load-balancer-standard-public-zonal-cli.md)   
 ## [Creare un'istanza di Load Balancer Basic (modello)](load-balancer-get-started-internet-arm-template.md)
 ## [Creare il servizio di bilanciamento del carico pubblico con IPv6](load-balancer-ipv6-internet-ps.md)
 ### [Creare il servizio di bilanciamento del carico pubblico con IPv6 (interfaccia della riga di comando)](load-balancer-ipv6-internet-cli.md)
@@ -59,7 +60,7 @@
 #### [Configurare il servizio di bilanciamento del carico pubblico (cloud classico)](load-balancer-get-started-internet-classic-cloud.md)
 #### [Configurare il servizio di bilanciamento del carico pubblico (interfaccia della riga di comando classica)](load-balancer-get-started-internet-classic-cli.md)
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
 ## [Azure PowerShell](/powershell/module/azurerm.network)
 ## [Interfaccia della riga di comando di Azure per Azure](/cli/azure/network/lb)

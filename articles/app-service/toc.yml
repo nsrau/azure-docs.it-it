@@ -29,7 +29,7 @@
       href: app-service-web-get-started-html.md
 - name: Esercitazioni
   items:
-    - name: 1 - App con DB
+    - name: App con DB
       items:
         - name: .NET Core con SQL DB
           href: app-service-web-tutorial-dotnetcore-sqldb.md
@@ -43,15 +43,17 @@
           href: app-service-web-tutorial-java-mysql.md
         - name: Python con PostgreSQL
           href: app-service-web-tutorial-python-postgresql.md
-    - name: 1 - Ospitare un'API RESTful
+    - name: Accedere al database SQL in modo sicuro
+      href: app-service-web-tutorial-connect-msi.md
+    - name: Ospitare un'API RESTful
       href: app-service-web-tutorial-rest-api.md
-    - name: 2 - Eseguire il mapping di un dominio personalizzato
+    - name: Eseguire il mapping di un dominio personalizzato
       href: app-service-web-tutorial-custom-domain.md
-    - name: 3 - Associare un certificato SSL
+    - name: Associare un certificato SSL
       href: app-service-web-tutorial-custom-ssl.md
-    - name: 4 - Aggiungere una rete CDN
+    - name: Aggiungere una rete CDN
       href: app-service-web-tutorial-content-delivery-network.md
-    - name: 5 - Autenticare gli utenti
+    - name: Autenticare gli utenti
       href: app-service-web-tutorial-auth-aad.md
 - name: Esempi
   items:
@@ -69,6 +71,8 @@
       href: azure-web-sites-web-hosting-plans-in-depth-overview.md
     - name: Funzionalità del sistema operativo
       href: web-sites-available-operating-system-functionality.md
+    - name: IP in ingresso e in uscita
+      href: app-service-ip-addresses.md
     - name: Autenticazione e autorizzazione
       href: app-service-authentication-overview.md
     - name: Connessioni ibride
@@ -143,6 +147,8 @@
               href: app-service-mobile-how-to-configure-twitter-authentication.md
         - name: Personalizzare l'autenticazione
           href: app-service-authentication-how-to.md
+        - name: Limitare gli indirizzi IP
+          href: app-service-ip-restrictions.md
         - name: Usare l'identità dei servizi gestiti
           href: app-service-managed-service-identity.md
         - name: Usare un certificato SSL nel codice dell'applicazione
@@ -181,7 +187,7 @@
           href: web-sites-create-web-jobs.md
         - name: Sviluppare processi Web con Visual Studio
           href: websites-dotnet-deploy-webjobs.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/appservice

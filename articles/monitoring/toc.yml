@@ -1,5 +1,5 @@
 - name: Documentazione di Monitoraggio di Azure
-  href: management-overview-monitoring.md
+  href: index.md
 - name: Panoramica
   items:
     - name: Monitoraggio in Azure
@@ -86,8 +86,10 @@
       items:
         - name: Uso
           items:
-            - name: Aggiungere una soluzione
-              href: ..//log-analytics/log-analytics-add-solutions.md?toc=%2fazure%2fmonitoring%2ftoc.json
+            - name: Installare e usare le soluzioni
+              href: monitoring-solutions.md
+            - name: Inventario delle soluzioni
+              href: monitoring-solutions-inventory.md
             - name: Soluzioni di destinazione
               href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Create

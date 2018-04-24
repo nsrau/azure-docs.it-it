@@ -43,6 +43,8 @@
       href: container-instances-environment-variables.md
     - name: Risolvere i problemi delle distribuzioni
       href: container-instances-troubleshooting.md
+    - name: Agenti di compilazione Jenkins su ACI
+      href: container-instances-jenkins.md
     - name: Configurare i volumi di dati
       items:
         - name: File di Azure
@@ -53,7 +55,7 @@
           href: container-instances-volume-gitrepo.md
         - name: secret
           href: container-instances-volume-secret.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/container
