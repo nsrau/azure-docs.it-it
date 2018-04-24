@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: fd0f021d451dbf722fe23da7bc414ceb523af17a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 38556392624e87611d59e3b96ae63ce8ea30afbd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -52,7 +52,7 @@ L'estensione di Server dei criteri di rete è progettata per funzionare con l'in
 
 ### <a name="licenses"></a>Licenze
 
-L'estensione di Server dei criteri di rete per Azure MFA è disponibile per i clienti dotati di [licenze per Multi-Factor Authentication di Azure](../../multi-factor-authentication/multi-factor-authentication.md), tra cui una licenza autonoma di Azure AD Premium, EMS o MFA. Le licenze in base al consumo per Azure MFA, ad esempio le licenze per utente o per autenticazione, non sono compatibili con l'estensione Server dei criteri di rete. 
+L'estensione di Server dei criteri di rete per Azure MFA è disponibile per i clienti dotati di [licenze per Multi-Factor Authentication di Azure](multi-factor-authentication.md), tra cui una licenza autonoma di Azure AD Premium, EMS o MFA. Le licenze in base al consumo per Azure MFA, ad esempio le licenze per utente o per autenticazione, non sono compatibili con l'estensione Server dei criteri di rete. 
 
 ### <a name="software"></a>Software
 
@@ -124,7 +124,7 @@ Prima di distribuire l'estensione completa di Server dei criteri di rete, è nec
 Seguire questa procedura per avviare un account di test:
 1. Accedere a [https://aka.ms/mfasetup](https://aka.ms/mfasetup) con un account di prova. 
 2. Seguire le richieste per configurare un metodo di verifica.
-3. Creare un criterio di accesso condizionale o [modificare lo stato dell'utente](../../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) per richiedere la verifica in due passaggi per l'account di test. 
+3. Creare un criterio di accesso condizionale o [modificare lo stato dell'utente](howto-mfa-userstates.md) per richiedere la verifica in due passaggi per l'account di test. 
 
 Gli utenti devono inoltre eseguire la procedura per la registrazione prima di potersi autenticare con l'estensione del server dei criteri di rete.
 
@@ -176,7 +176,7 @@ In questa sezione sono disponibili considerazioni e suggerimenti sulla progettaz
 ### <a name="configuration-limitations"></a>Limitazioni di configurazione
 
 - L'estensione di Server dei criteri di rete per Azure MFA non include strumenti per la migrazione degli utenti e impostazioni dal Server MFA al cloud. Per questo motivo, è consigliabile usare l'estensione per le distribuzioni nuove piuttosto che per quelle esistenti. Se si usano le estensioni in una distribuzione esistente, gli utenti dovranno ripetere il processo di registrazione per popolare i dettagli di Azure MFA nel cloud.  
-- L'estensione di Server dei criteri di rete usa UPN dell'Active Directory locale per identificare l'utente in Azure MFA che deve eseguire l'autenticazione secondaria. L'estensione può essere configurata per usare un identificatore differente come ID di accesso alternativo o campo Active Directory personalizzato diverso dall'UPN. Per altre informazioni, vedere [Opzioni di configurazione avanzate per l'estensione NPS per Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-advanced-vpn-configurations.md).
+- L'estensione di Server dei criteri di rete usa UPN dell'Active Directory locale per identificare l'utente in Azure MFA che deve eseguire l'autenticazione secondaria. L'estensione può essere configurata per usare un identificatore differente come ID di accesso alternativo o campo Active Directory personalizzato diverso dall'UPN. Per altre informazioni, vedere [Opzioni di configurazione avanzate per l'estensione NPS per Multi-Factor Authentication](howto-mfaserver-nps-vpn.md).
 - Non tutti i protocolli di crittografia supportano tutti i metodi di verifica.
    - **PAP** supporta la chiamata telefonica, gli SMS unidirezionali, la notifica dell'app per dispositivi mobili e il codice di verifica app per dispositivi mobili
    - **CHAPV2** e **EAP** supportano la chiamata telefonica e la notifica dell'app per dispositivi mobili
@@ -247,6 +247,6 @@ Verificare che https://adnotifications.windowsazure.com sia raggiungibile dal se
 
 - Configurare gli ID alternativi per l'accesso o impostare un elenco di eccezioni per gli indirizzi IP che non devono eseguire la verifica in due passaggi in [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md) (Opzioni di configurazione avanzate per l'estensione del server dei criteri di rete per Multi-Factor Authentication).
 
-- Informazioni su come integrare [Gateway Desktop remoto](../../multi-factor-authentication/nps-extension-remote-desktop-gateway.md) e [server VPN](../../multi-factor-authentication/nps-extension-vpn.md) usando l'estensione NPS
+- Informazioni su come integrare [Gateway Desktop remoto](howto-mfa-nps-extension-rdg.md) e [server VPN](howto-mfa-nps-extension-vpn.md) usando l'estensione NPS
 
 - [Risolvere i messaggi di errore dall'estensione del Server dei criteri di rete per Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md)

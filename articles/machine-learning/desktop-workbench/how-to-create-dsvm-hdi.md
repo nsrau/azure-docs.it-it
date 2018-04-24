@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
 ms.openlocfilehash: 15cdee0fb3994874c88b16bebec35f5eae9f8de2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Creare cluster DSVM e HDI Spark come destinazioni di calcolo
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/08/2018
 
 È possibile creare un DSVM dal portale di Azure. 
 
-1. Accedere al portale di Azure dall’indirizzo https://portal.azure.com
+1. Accedere al portale di Azure da https://portal.azure.com
 2. Fare clic sul collegamento **+NUOVO** e cercare "macchina virtuale di data science per Linux".
     ![Ubuntu](media/how-to-create-dsvm-hdi/ubuntu_dsvm.png)
 4. Scegliere **Macchina virtuale di data science per Linux (Ubuntu)** dall'elenco e seguire le istruzioni sulla schermata per creare il DSVM.
@@ -154,7 +154,7 @@ La macchina virtuale Linux di Azure viene in genere fornita con un disco del sis
 
 Per eseguire i processi di scalabilità orizzontale di Spark, è necessario creare un cluster Apache Spark per Azure HDInsight nel portale di Azure.
 
-1. Accedere al portale di Azure dall’indirizzo https://portal.azure.com
+1. Accedere al portale di Azure da https://portal.azure.com
 2. Fare clic sul collegamento **+NUOVO** e cercare "HDInsight".
 
     ![Trovare hdi](media/how-to-create-dsvm-hdi/hdi.png)
