@@ -6,11 +6,11 @@ description: Informazioni su come compilare e gestire applicazioni avanzate usan
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 704305431ff8dff8dbed67bfacc395696c96a9bb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ea272619638c8794a17bcd62f818cc9f230167ef
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -207,10 +207,7 @@ Go</a>
                                                 <h4>AI e servizi cognitivi</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/machine-learning/">Machine Learning</a></li>
-                                                    <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">API Visione artificiale</a></li>
-                                                    <li><a class="barLink" href="/azure/cognitive-services/face/">API Viso</a></li>
-                                                    <li><a class="barLink" href="/bot-framework/">Servizio Azure Bot</a></li>
-                                                    <li><a class="barLink" href="/azure/cognitive-services/luis/">LUIS</a></li>
+                                                    <li><a class="barLink" href="/azure/cognitive-services/">Servizi cognitivi</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -694,7 +691,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/translator/">
                                                 <img src="media/index/API_TranslatorText.svg" alt="" />
-                                                <p>API Traduzione testuale</p>
+                                                <p>Traduzione testuale</p>
                                             </a>
                                         </li>
                                         <li>
@@ -722,13 +719,13 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/Bing-Autosuggest">
+                                            <a href="/azure/cognitive-services/Bing-Autosuggest/">
                                                 <img src="media/index/API_Bing_AutoSuggest.svg" alt="" />
                                                 <p>Suggerimenti automatici Bing</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-custom-search">
+                                            <a href="/azure/cognitive-services/bing-custom-search/">
                                                 <img src="media/index/API_Bing_Custom_Search.svg" alt="" />
                                                 <p>Ricerca personalizzata Bing</p>
                                             </a>
@@ -740,7 +737,7 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-image-search">
+                                            <a href="/azure/cognitive-services/bing-image-search/">
                                                 <img src="media/index/API_Bing_Image_Search.svg" alt="" />
                                                 <p>Ricerca immagini Bing</p>
                                             </a>
@@ -2615,184 +2612,24 @@ Terraform </a>
                                     </div>
                                 </a>
                             </li>
-                            <li class="fullSpan">
-                                <h2 style="margin-top:24px;margin-bottom:18px;">Servizi cognitivi</h2>
-                                <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
-                                                        <h3>Visione</h3>
-                                                        <ul class="noBullet">
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/computer-vision/"><img src="media/index/API_Computer_Vision.svg" alt="" />Visione artificiale</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/content-moderator/overview"><img src="media/index/API_Content_Moderator.svg" alt="" />Content Moderator</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Custom-Vision-Service/home"><img src="media/index/API_Custom_Vision.svg" alt="" /><span>Servizio visione artificiale personalizzato&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/emotion/home"><img src="media/index/API_Emotion.svg" alt="" /><span>API Emozioni&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/face/"><img src="media/index/API_Face.svg" alt="" />API Viso</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/video-indexer/video-indexer-overview"><img src="media/index/API_VideoIndexer.svg" alt="" /><span>Video Indexer&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a>
-                                                            </li>
-                                                        </ul>
+                            <li>
+                                <a href="/azure/cognitive-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
                                                     </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Servizi cognitivi</h3>
+                                                    <p>Inserire intelligence in app, siti Web e bot per vedere, ascoltare, parlare e comprendere</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
-                                                        <h3>Sintesi vocale</h3>
-                                                        <ul class="noBullet">
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/speech/home"><img src="media/index/API_Bing_Speech.svg" alt="" />Servizio di riconoscimento vocale Bing</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><img src="media/index/API_Custom_Speech.svg" alt="" /><span>Servizio di riconoscimento vocale personalizzato&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/speaker-recognition/home"><img src="media/index/API_Speaker_Recognition.svg" alt="" /><span>Riconoscimento del parlante&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="https://docs.microsofttranslator.com/speech-translate.html"><img src="media/index/API_TranslatorSpeech.svg" alt="" />Traduzione vocale</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
-                                                        <h3>Linguaggio</h3>
-                                                        <ul class="noBullet">
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Controllo ortografico Bing</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Language Understanding (LUIS)</span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>Analisi linguistica&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/text-analytics/"><img src="media/index/API_TextAnalytics.svg" alt="" />Analisi del testo</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/translator/translator-info-overview"><img src="media/index/API_TranslatorText.svg" alt="" />Traduzione testuale</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/web-language-model/home"><img src="media/index/API_WebLanguageModel.svg" alt="" /><span>Modelli linguaggio Web&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
-                                                        <h3>Conoscenza</h3>
-                                                        <ul class="noBullet">
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview"><img src="media/index/API_Custom_Decision_Service.svg" alt="" /><span>Servizio decisionale personalizzato&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/qnamaker/home"><img src="media/index/API_QnAMaker.svg" alt="" /><span>QnAMaker&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="media/index/API_Recommendations.svg" alt="" /><span>Raccomandazioni&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
-                                                        <h3>Ricerca</h3>
-                                                        <ul class="noBullet">
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Ricerca notizie Bing</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Ricerca video Bing</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />Ricerca Web Bing</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Suggerimenti automatici Bing</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" />Ricerca personalizzata Bing</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" />Ricerca entità Bing</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />Ricerca immagini Bing</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
-                                                        <h3>Lab</h3>
-                                                        <ul class="noBullet">
-                                                            <li>
-                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-gesture"><img src="media/index/labs-hand-gesture.svg" alt="" />Movimento</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-event-tracking"><img src="media/index/labs-event-tracker.svg" alt="" />Registrazione degli eventi</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge"><img src="media/index/API_Know_Academic.svg" alt="" />Academic Knowledge</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-local-insights"><img src="media/index/labs-local-insight.svg" alt="" />Informazioni dettagliate locali</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration"><img src="media/index/API_KnowledgeExploration.svg" alt="" /><span>Knowledge Exploration Service</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-entity-linking"><img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" /><span>Collegamento delle entità</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                                    </div>
+                                </a>
                             </li>
                         </ul>
                     </li>

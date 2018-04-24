@@ -195,11 +195,13 @@
                   href: active-directory-b2c-reference-password-change-custom.md
                 - name: Abilitare Mantieni l'accesso
                   href: active-directory-b2c-reference-kmsi-custom.md
+            - name: Verifica del comportamento utente
+              href: active-directory-b2c-custom-guide-eventlogger-appins.md
             - name: risoluzione dei problemi
               items:
                 - name: Raccogliere i log tramite Application Insights
                   href: active-directory-b2c-troubleshoot-custom.md
-        - name: Riferimenti
+        - name: riferimento
           items:
             - name: Note sulla versione
               href: active-directory-b2c-developer-notes-custom.md

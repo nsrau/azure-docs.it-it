@@ -17,7 +17,7 @@
 ## [Configurare la personalizzazione aziendale](customize-branding.md)
 ## [Aggiungere utenti ad Azure AD](add-users-azure-active-directory.md)
 ## [Assegna licenze agli utenti](license-users-groups.md)
-## [Configurare la reimpostazione self-service delle password](active-directory-passwords-getting-started.md)
+## [Configurare la reimpostazione self-service delle password](authentication/quickstart-sspr.md)
 
 
 # Procedure
@@ -63,6 +63,8 @@
 #### [Gruppi dinamici e utenti B2B](active-directory-b2b-dynamic-groups.md)
 #### [Controllo e report](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B per organizzazioni ibride](active-directory-b2b-hybrid-organizations.md)
+##### [Concedere l'accesso alle app locali agli utenti di B2B](active-directory-b2b-hybrid-cloud-to-on-premises.md)
+##### [Concedere l'accesso alle app cloud agli utenti locali](active-directory-b2b-hybrid-on-premises-to-cloud.md)
 #### [Condivisione esterna di Office 365 e B2B](active-directory-b2b-o365-external-user.md)
 #### [Licenze B2B](active-directory-b2b-licensing.md)
 #### [Limitazioni correnti](active-directory-b2b-current-limitations.md)
@@ -115,10 +117,11 @@
 #### [Trovare report sull'attività](active-directory-reporting-migration.md)
 #### [Usare il pacchetto di contenuto Power BI di Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
 #### [Correggere gli utenti contrassegnati per il rischio](active-directory-report-security-user-at-risk-remediation.md)
-### Riferimenti
+### riferimento
 #### [Conservazione](active-directory-reporting-retention.md)
 #### [Latenze](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
+#### [Informazioni di riferimento sulle attività di controllo](active-directory-reporting-activity-audit-reference.md)
 #### [Codici errore relativi alle attività di accesso](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Autenticazione a più fattori](active-directory-reporting-activity-sign-ins-mfa.md)
 ### Risolvere problemi
@@ -141,7 +144,7 @@
 #### [Registrarsi per la reimpostazione della password self-service](active-directory-passwords-reset-register.md)
 ### [Funzionamento di SSPR](authentication/concept-sspr-howitworks.md)
 ### [Guida alla distribuzione di SSPR](authentication/howto-sspr-deployment.md)
-### [SSPR e Windows 10](active-directory-passwords-login.md)
+### [SSPR e Windows 10](authentication/tutorial-sspr-windows.md)
 ### [Criteri di SSPR](authentication/concept-sspr-policy.md)
 ### [Personalizzazione di SSPR](authentication/concept-sspr-customization.md)
 ### [Requisiti relativi ai dati di SSPR](authentication/howto-sspr-authenticationdata.md)
@@ -149,7 +152,7 @@
 ### Amministratori IT: reimpostare le password
 #### [Portale di Azure](active-directory-users-reset-password-azure-portal.md)
 ### [Concedere in licenza SSPR](authentication/concept-sspr-licensing.md)
-### [Writeback delle password](active-directory-passwords-writeback.md)
+### [Writeback delle password](authentication/howto-sspr-writeback.md)
 ### [Risolvere i problemi](authentication/active-directory-passwords-troubleshoot.md)
 ### [DOMANDE FREQUENTI](authentication/active-directory-passwords-faq.md)
 

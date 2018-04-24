@@ -5,7 +5,7 @@
 ## [Che cos'è l'hub IoT di Azure?](iot-hub-what-is-iot-hub.md)
 ## [Panoramica della gestione dei dispositivi](iot-hub-device-management-overview.md)
 
-# [Introduzione](iot-hub-get-started.md)
+# [Get started](iot-hub-get-started.md)
 
 ## Configurare il dispositivo
 ### [Simulare un dispositivo sul PC](iot-hub-get-started-simulated.md)
@@ -13,6 +13,7 @@
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.JS](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
+#### [iOS (Swift)](quickstart-send-telemetry-ios.md)
 
 ### [Usare un simulatore online](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
@@ -85,17 +86,18 @@
 ### Routing dei messaggi
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
-#### [Node.js](iot-hub-node-node-process-d2c.md)
+#### [Node.JS](iot-hub-node-node-process-d2c.md)
 #### [Python](iot-hub-python-python-process-d2c.md)
 ### Inviare messaggi da cloud a dispositivo
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.JS](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
+#### [iOS](iot-hub-ios-swift-c2d.md)
 ### Caricare file da dispositivi
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
-#### [Node.JS](iot-hub-node-node-file-upload.md)
+#### [Node.js](iot-hub-node-node-file-upload.md)
 #### [Python](iot-hub-python-python-file-upload.md)
 ### Introduzione ai dispositivi gemelli
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-twin-getstarted.md)
@@ -166,7 +168,7 @@
 #### [Introduzione alla sicurezza con certificati X.509 dell'autorità di certificazione](iot-hub-security-x509-get-started.md)
 ##### [Creare certificati - PowerShell](iot-hub-security-x509-create-certificates.md)
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/iot)
 ## [.NET (servizio)](/dotnet/api/microsoft.azure.devices)

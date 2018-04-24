@@ -48,6 +48,7 @@
 ### [Procedura dettagliata per la soluzione di manutenzione predittiva](iot-suite-predictive-walkthrough.md)
 
 ## Connected factory
+### [Informazioni su connected factory](iot-suite-connected-factory-features.md)
 ### [Panoramica della soluzione di connected factory](iot-suite-connected-factory-overview.md)
 ### [Procedura dettagliata per la soluzione di connected factory](iot-suite-connected-factory-sample-walkthrough.md)
 

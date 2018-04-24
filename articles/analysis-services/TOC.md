@@ -31,6 +31,7 @@
 ### [Gestire gli amministratori di server](analysis-services-server-admins.md)
 ### [Monitorare le metriche del server](analysis-services-monitor.md)
 ### [Configurare la registrazione diagnostica](analysis-services-logging.md)
+### [Usare il gateway per le origini dati su VNET](analysis-services-vnet-gateway.md)
 ## Connettere
 ### [Ottenere le librerie client](analysis-services-data-providers.md)
 ### [Stabilire la connessione con Excel](analysis-services-connect-excel.md)
