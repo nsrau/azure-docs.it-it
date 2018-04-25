@@ -1,11 +1,11 @@
 ---
-title: "Individuare l'hop successivo con la funzionalità Hop successivo di Network Watcher di Azure - REST | Documentazione Microsoft"
-description: "Questo articolo descrive come individuare il tipo di hop successivo e l'indirizzo IP mediante la funzionalità Hop successivo usando l'API REST di Azure"
+title: Individuare l'hop successivo con la funzionalità Hop successivo di Network Watcher di Azure - REST | Documentazione Microsoft
+description: Questo articolo descrive come individuare il tipo di hop successivo e l'indirizzo IP mediante la funzionalità Hop successivo usando l'API REST di Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2216c059-45ba-4214-8304-e56769b779a6
 ms.service: network-watcher
 ms.devlang: na
@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: b541cd5cb7e49468af2c522b16c3a3b9fe75fd54
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-aure-network-watcher-using-azure-rest-api"></a>Individuare il tipo di hop successivo tramite la funzionalità Hop successivo di Network Watcher di Azure usando l'API REST di Azure
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-check-next-hop-portal.md)
+> - [Portale di Azure](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [Interfaccia della riga di comando 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [Interfaccia della riga di comando 2.0](network-watcher-check-next-hop-cli.md)
