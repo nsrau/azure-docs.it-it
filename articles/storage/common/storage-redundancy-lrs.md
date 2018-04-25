@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeking
 ms.openlocfilehash: ae8bc3ac24d8c3012c9643c33e0a5fe5c7f11b07
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>Archiviazione con ridondanza locale: ridondanza dei dati a basso costo per l'Archiviazione di Azure
 
@@ -21,5 +21,5 @@ ms.lasthandoff: 04/03/2018
 ## <a name="see-also"></a>Vedere anche 
 
 - [Replica di Archiviazione di Azure](storage-redundancy.md)
-- [Archiviazione con ridondanza della zona: applicazioni di Archiviazione Azure a disponibilità elevata](storage-redundancy-zrs.md)
+- [Archiviazione con ridondanza della zona (ZRS): applicazioni di Archiviazione di Azure a disponibilità elevata](storage-redundancy-zrs.md)
 - [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy-grs.md)
