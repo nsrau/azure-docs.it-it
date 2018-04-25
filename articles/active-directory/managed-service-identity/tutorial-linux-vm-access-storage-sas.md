@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ed3b7b86f6170b9bfbae1194d189b3d258e24d45
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 724d05ab931254c9db372612fedb035a93c393a5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Usare un'identità del servizio gestito di una macchina virtuale Linux per accedere ad Archiviazione di Azure tramite credenziali di firma di accesso condiviso
 
@@ -120,7 +120,7 @@ Per completare questi passaggi, è necessario disporre di un client SSH. Se si u
     Di seguito sono illustrate la richiesta e la risposta CURL per il token di accesso:
     
     ```bash
-    curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -H Metadata:true    
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true    
     ```
     
     > [!NOTE]

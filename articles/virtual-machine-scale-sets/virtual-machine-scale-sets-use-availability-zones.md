@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: iainfou
-ms.openlocfilehash: 660f75440d7d93562a3a17f646d5d284196e073d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 9093fcf008f199cc1a78d50979f6387a2e1b5262
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità
 
@@ -78,7 +78,7 @@ Il set di scalabilità e le risorse di supporto, ad esempio Azure Load Balancer 
 
 ## <a name="use-the-azure-cli-20"></a>Usare l'interfaccia della riga di comando di Azure 2.0
 
-La procedura per creare un set di scalabilità che usa una zona di disponibilità è identica a quella descritta in dettaglio nell'[articolo introduttivo](quick-create-cli.md). Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata ed eseguire la [registrazione per l'anteprima delle zone di disponibilità](http://aka.ms/azenroll).
+La procedura per creare un set di scalabilità che usa una zona di disponibilità è identica a quella descritta in dettaglio nell'[articolo introduttivo](quick-create-cli.md). Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata.
 
 Aggiungere il parametro `--zones` al comando [az vmss create](/cli/azure/vmss#az_vmss_create) e specificare quale zona usare, ad esempio la zona *1*, *2* o *3*. L'esempio seguente crea un set di scalabilità a zona singola denominato *myScaleSet* nella zona *1*:
 

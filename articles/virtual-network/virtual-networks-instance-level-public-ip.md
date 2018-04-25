@@ -3,7 +3,7 @@ title: Indirizzi IP pubblici a livello di istanza di Azure (classico) | Microsof
 description: Informazioni sugli IP pubblici a livello di istanza (ILPIP) e su come gestirli tramite PowerShell.
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: tysonn
 ms.assetid: 07eef6ec-7dfe-4c4d-a2c2-be0abfb48ec5
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: genli
-ms.openlocfilehash: 631b667b12941781a7e69361a0e731f94b7119f8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4b4350e6b1616450ce45f9e947cc3b639a341ae7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Panoramica sugli indirizzi IP pubblici (classici) a livello di istanza
 Un indirizzo IP pubblico a livello di istanza (ILPIP) è un indirizzo IP pubblico che è possibile assegnare direttamente all'istanza del ruolo della macchina virtuale o dei servizi cloud in cui risiede l'istanza del ruolo o la macchina virtuale. Un ILPIP non sostituisce l'indirizzo IP virtuale (VIP) assegnato al servizio cloud. Piuttosto, si tratta di un indirizzo IP aggiuntivo che è possibile usare per connettersi direttamente all'istanza della macchina virtuale o del ruolo.

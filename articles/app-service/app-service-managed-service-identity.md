@@ -9,28 +9,24 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 04/12/2018
 ms.author: mahender
-ms.openlocfilehash: 09e848abaf09811ff3f2b8ad009cd23dedb6645d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a2aacc28a70a5150c1903a60c7a697409e2bbbe7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Come usare Identità del servizio gestito di Azure (anteprima pubblica) nel Servizio App e in Funzioni di Azure
 
 > [!NOTE] 
-> Identità del servizio gestito in Servizio App e Funzioni di Azure è attualmente disponibile in anteprima.
+> Identità del servizio gestito in Servizio App e Funzioni di Azure è attualmente disponibile in anteprima. Servizio app su Linux e le app Web per contenitori non sono attualmente supportati.
 
 Questo argomento illustra come creare un'identità di applicazione gestita per le applicazioni di Servizio App e Funzioni di Azure e come usarla per accedere ad altre risorse. Un'identità del servizio gestito da Azure Active Directory consente all'app di accedere facilmente ad altre risorse protette da Azure come ad esempio Azure Key Vault. L'identità viene gestita dalla piattaforma Azure e non è necessario eseguire il provisioning o ruotare alcun segreto. Per altre informazioni sull'identità del servizio gestito, vedere il [Identità del servizio gestito per le risorse di Azure](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="creating-an-app-with-an-identity"></a>Creazione di un'app con un'identità
 
 La creazione di un'app con un'identità richiede l'impostazione di una proprietà aggiuntiva nell'applicazione.
-
-> [!NOTE] 
-> Solo lo slot principale per un sito riceverà l'identità. Le identità del servizio gestito per gli slot di distribuzione non sono ancora supportate.
-
 
 ### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
@@ -48,11 +44,11 @@ Per impostare un'identità del servizio gestito nel portale, è prima necessario
 
 ### <a name="using-the-azure-cli"></a>Uso dell'interfaccia della riga di comando di Azure
 
-Per configurare un'identità del servizio gestito usando l'interfaccia della riga di comando di Azure, è necessario usare il comando `az webapp assign-identity` sull'applicazione esistente. Sono disponibili tre opzioni per l'esecuzione degli esempi di questa sezione:
+Per configurare un'identità del servizio gestito usando l'interfaccia della riga di comando di Azure, è necessario usare il comando `az webapp identity assign` sull'applicazione esistente. Sono disponibili tre opzioni per l'esecuzione degli esempi di questa sezione:
 
 - Usare [Azure Cloud Shell](../cloud-shell/overview.md) dal portale di Azure.
 - Usare Azure Cloud Shell incorporato tramite il pulsante "Prova", che si trova nell'angolo in alto a destra di ogni blocco di codice indicato di seguito.
-- [Installare la versione più recente dell'interfaccia della riga di comando 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale. 
+- [Installare la versione più recente dell'interfaccia della riga di comando 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale. 
 
 La procedura seguente consente di creare di un'app Web e assegnarle un'identità usando l'interfaccia della riga di comando:
 
@@ -65,14 +61,14 @@ La procedura seguente consente di creare di un'app Web e assegnarle un'identità
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location westus
-    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
-    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    az appservice plan create --name myPlan --resource-group myResourceGroup --sku S1
+    az webapp create --name myApp --resource-group myResourceGroup --plan myPlan
     ```
 
-3. Eseguire il comando `assign-identity` per creare l'identità per l'applicazione:
+3. Eseguire il comando `identity assign` per creare l'identità per l'applicazione:
 
     ```azurecli-interactive
-    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    az webapp identity assign --name myApp --resource-group myResourceGroup
     ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>Uso di un modello di Azure Resource Manager

@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 09ee56627f6c254362d9fbc3c665494418efb1dc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 109a5b50688ca0b2c4edc63b6ba5c89bac74a6d3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -118,7 +118,7 @@ Valutare gli account assegnati o idonei per il ruolo di amministratore globale. 
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Attivare l'autenticazione a più fattori e registrare tutti gli altri account amministratore con privilegi elevati non federati per utente singolo 
 
-Richiedere Azure Multi-Factor Authentication (MFA) all'accesso per tutti i singoli utenti a cui sono assegnati in modo permanente uno o più ruoli di amministratore di Azure AD: amministratore globale, amministratore del ruolo con privilegi, amministratore di Exchange Online e amministratore di SharePoint Online. Usare la guida per abilitare [Multi-Factor Authentication (MFA) per gli account amministratore](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) e assicurarsi che tali utenti abbiano tutti eseguito la registrazione in [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Altre informazioni sono disponibili nei passaggi 2 e 3 della guida [Proteggere l'accesso a dati e servizi in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Richiedere Azure Multi-Factor Authentication (MFA) all'accesso per tutti i singoli utenti a cui sono assegnati in modo permanente uno o più ruoli di amministratore di Azure AD: amministratore globale, amministratore del ruolo con privilegi, amministratore di Exchange Online e amministratore di SharePoint Online. Usare la guida per abilitare [Multi-Factor Authentication (MFA) per gli account amministratore](authentication/howto-mfa-userstates.md) e assicurarsi che tali utenti abbiano tutti eseguito la registrazione in [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Altre informazioni sono disponibili nei passaggi 2 e 3 della guida [Proteggere l'accesso a dati e servizi in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Fase 2: attenuazione delle tecniche di attacco usate più di frequente
 
@@ -164,8 +164,8 @@ Azure AD consiglia di richiedere l'uso di Multi-Factor Authentication (MFA) per 
 
 Attivare:
 
-* [MFA per gli account molto esposti](../multi-factor-authentication/multi-factor-authentication-security-best-practices.md), ad esempio gli account dei dirigenti di un'organizzazione 
-* [MFA per ogni account amministratore associato a un singolo utente](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) per altre app SaaS connesse 
+* [MFA per gli account molto esposti](authentication/multi-factor-authentication-security-best-practices.md), ad esempio gli account dei dirigenti di un'organizzazione 
+* [MFA per ogni account amministratore associato a un singolo utente](authentication/howto-mfa-userstates.md) per altre app SaaS connesse 
 * MFA per tutti gli amministratori per le app SaaS Microsoft, inclusi gli amministratori con ruoli gestiti in Exchange Online e nel portale di Office
 
 Se si usa Windows Hello for Business, è possibile soddisfare il requisito MFA con l'esperienza di accesso di Windows Hello. Per altre informazioni, vedere [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 

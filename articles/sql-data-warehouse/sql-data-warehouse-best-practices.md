@@ -7,14 +7,14 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/12/2018
+ms.date: 04/18/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 7c5eb4d2176e12874a4fd7be8c29f4ce6ffe17ba
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c39adbfbb85173f7ac3fa129e7551efab6ddefd6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Procedure consigliate per Azure SQL Data Warehouse
 Questo articolo è una raccolta di procedure consigliate che consentono di ottenere prestazioni ottimali da Azure SQL Data Warehouse.  Alcuni concetti in questo articolo sono basilari e facili da spiegare, mentre altri sono più avanzati e verranno solo analizzati brevemente.  Lo scopo dell'articolo è quello di offrire alcune indicazioni di base e di far capire quali sono gli aspetti importanti su cui focalizzarsi per la creazione di un data warehouse.  Ogni sezione presenta un concetto e rimanda ad articoli più dettagliati che analizzano il concetto in modo più approfondito.
@@ -121,7 +121,7 @@ Per inviare richieste di funzionalità è possibile usare la pagina dei [comment
 [Load data]: ./design-elt-data-loading.md
 [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
 [Load data with Azure Data Factory]: ../data-factory/load-azure-sql-data-warehouse.md
-[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Load data with bcp]: /sql/tools/bcp-utility
 [Load data with PolyBase]: ./load-data-wideworldimportersdw.md
 [Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
 [Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk

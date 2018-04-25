@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: a4bf44dc444c144991e3a96efc130ec97b90ec9f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c65e2dc3d1b7a754bda54bb9127bbc777b514768
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Usare un'Identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Key Vault 
 
@@ -108,25 +108,25 @@ In primo luogo, si userà l'Identità del servizio gestito della macchina virtua
     Richiesta di PowerShell:
     
     ```powershell
-    PS C:\> $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net -Method GET -Headers @{Metadata="true"} 
+    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -Method GET -Headers @{Metadata="true"} 
     ```
     
     Estrarre quindi la risposta completa, archiviata come stringa in formato JSON (JavaScript Object Notation) nell'oggetto $response.  
     
     ```powershell
-    PS C:\> $content = $response.Content | ConvertFrom-Json 
+    $content = $response.Content | ConvertFrom-Json 
     ```
     
     Estrarre poi il token di accesso dalla risposta.  
     
     ```powershell
-    PS C:\> $KeyVaultToken = $content.access_token 
+    $KeyVaultToken = $content.access_token 
     ```
     
     Infine, usare il comando Invoke-WebRequest di PowerShell per recuperare il segreto creato in precedenza nell'insieme di credenziali delle chiavi, passando il token di accesso nell'intestazione dell'autorizzazione.  È necessario l'URL dell'insieme di credenziali delle chiavi che si trova nella sezione **Informazioni di base** della pagina **Panoramica** dell'insieme di credenziali delle chiavi.  
     
     ```powershell
-    PS C:\> (Invoke-WebRequest -Uri https://<your-key-vault-URL>/secrets/<secret-name>?api-version=2016-10-01 -Method GET -Headers @{Authorization="Bearer $KeyVaultToken"}).content 
+    (Invoke-WebRequest -Uri https://<your-key-vault-URL>/secrets/<secret-name>?api-version=2016-10-01 -Method GET -Headers @{Authorization="Bearer $KeyVaultToken"}).content 
     ```
     
     La risposta avrà l'aspetto seguente: 

@@ -3,7 +3,7 @@ title: Binding dell'archiviazione BLOB di Azure per Funzioni di Azure
 description: Informazioni su come usare trigger e associazioni dell'archiviazione BLOB di Azure in Funzioni di Azure.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
-ms.author: glenga
-ms.openlocfilehash: eccaf205ae4705848b591442ca0fdb2aab44b9c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: tdykstra
+ms.openlocfilehash: 447f9867649c7c3a44c8a0ba894e037040023f79
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Binding dell'archiviazione BLOB di Azure per Funzioni di Azure
 
@@ -763,7 +763,7 @@ In JavaScript si accede a dati del BLOB di input usando `context.bindings.<name 
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione |  riferimento |
+| Associazione |  Riferimenti |
 |---|---|
 | BLOB | [Codici di errore BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
 | Blob, Table, Queue |  [Codici di errore di archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
