@@ -2,24 +2,25 @@
 title: Analizzare il carico di lavoro in Azure SQL Data Warehouse | Microsoft Docs
 description: Tecniche per l'analisi della definizione della priorità delle query per il carico di lavoro in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: sqlmojo
-manager: jhubbard
+author: kevinvngo
+manager: craigg-msft
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 03/28/2018
-ms.author: joeyong
-ms.reviewer: jrj
-ms.openlocfilehash: 7fa5bbd8d9a50bb1dcd1ab5be73f4e248cbbf8fc
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: c2f6e1092b9375a90eb1909696a196c9ab4b5dad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="analyze-your-workload"></a>Analizzare il carico di lavoro
+# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analizzare il carico di lavoro in Azure SQL Data Warehouse
 Tecniche per l'analisi della definizione della priorità delle query per il carico di lavoro in Azure SQL Data Warehouse.
 
 ## <a name="workload-groups"></a>Gruppi di carichi di lavoro 
-SQL Data Warehouse implementa le classi di risorse utilizzando i gruppi del carico di lavoro. Esistono in totale otto gruppi di carichi di lavoro che controllano il comportamento delle classi di risorse nelle DWU di varie dimensioni. Per qualsiasi DWU, SQL Data Warehouse usa solo quattro degli otto gruppi del carico di lavoro. Il senso di questo approccio è assegnare a ogni gruppo di carichi di lavoro una delle quattro classi di risorse, tra smallrc, mediumrc, largerc o xlargerc. È importante comprendere per alcuni gruppi di carichi di lavoro viene impostato il livello di *priorità*più elevato. La priorità viene usata per la pianificazione della CPU. Le query eseguite con priorità alta otterranno tre volte più cicli della CPU rispetto a quelle con priorità media. Di conseguenza, i mapping degli slot della concorrenza determinano anche la priorità della CPU. Quando una query utilizza 16 o più slot, viene eseguita con priorità alta.
+SQL Data Warehouse implementa le classi di risorse utilizzando i gruppi del carico di lavoro. Esistono in totale otto gruppi di carichi di lavoro che controllano il comportamento delle classi di risorse nelle DWU di varie dimensioni. Per qualsiasi DWU, SQL Data Warehouse usa solo quattro degli otto gruppi del carico di lavoro. Il senso di questo approccio è assegnare a ogni gruppo di carichi di lavoro una delle quattro classi di risorse, tra smallrc, mediumrc, largerc o xlargerc. È importante comprendere per alcuni gruppi di carichi di lavoro viene impostato il livello di *priorità*più elevato. La priorità viene usata per la pianificazione della CPU. Le query eseguite con priorità alta ottengono tre volte più cicli della CPU rispetto alle query eseguite con priorità media. Di conseguenza, i mapping degli slot della concorrenza determinano anche la priorità della CPU. Quando una query utilizza 16 o più slot, viene eseguita con priorità alta.
 
 Nella tabella seguente vengono riportati i mapping di priorità per ogni gruppo di carichi di lavoro.
 
@@ -38,7 +39,7 @@ Nella tabella seguente vengono riportati i mapping di priorità per ogni gruppo 
 | SloDWGroupC08   | 256                      | 25.600                         | 64.000                      | Alto               |
 
 <!-- where are the allocation and consumption of concurrency slots charts? -->
-Come illustrato nel grafico **Allocation and consumption of concurrency slots** (Allocazione e utilizzo degli slot di concorrenza), DW500 utilizza 1, 4, 8 o 16 slot di concorrenza per smallrc, mediumrc, largerc e xlargerc rispettivamente. È possibile cercare questi valori nel grafico precedente per identificare la priorità di ciascuna classe di risorse.
+Il grafico **Allocation and consumption of concurrency slots** (Allocazione e utilizzo degli slot di concorrenza) illustra che DW500 usa 1, 4, 8 o 16 slot di concorrenza per smallrc, mediumrc, largerc e xlargerc rispettivamente. Per identificare la priorità di ogni classe di risorse, è possibile cercare questi valori nel grafico precedente.
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Mapping dell'importanza delle classi di risorse in DW500
 | classe di risorse | Gruppo del carico di lavoro | Numero di slot di concorrenza usati | MB/Distribuzione | priorità |
@@ -57,7 +58,7 @@ Come illustrato nel grafico **Allocation and consumption of concurrency slots** 
 | staticrc80     | SloDWGroupC03  | 16                     | 1.600             | Alto       |
 
 ## <a name="view-workload-groups"></a>Visualizzare i gruppi di carichi di lavoro
-Per esaminare in dettaglio le differenze nell'allocazione delle risorse di memoria dal punto di vista di resource governor o per analizzare l'utilizzo attivo e cronologico dei gruppi di carichi di lavoro in caso di risoluzione dei problemi, è possibile usare la query DMV seguente:
+La query seguente visualizza i dettagli dell'allocazione delle risorse di memoria dal punto di vista di Resource Governor. Ciò risulta utile per l'analisi dell'utilizzo attivo e della cronologia di utilizzo dei gruppi di carico di lavoro durante la risoluzione dei problemi.
 
 ```sql
 WITH rg
@@ -106,7 +107,7 @@ ORDER BY
 ```
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Rilevamento di query in coda e altre viste a gestione dinamica
-È possibile utilizzare la DMV `sys.dm_pdw_exec_requests` per identificare le query in attesa in una coda di concorrenza. Le query in attesa di uno slot di concorrenza saranno in stato **sospeso**.
+È possibile utilizzare la DMV `sys.dm_pdw_exec_requests` per identificare le query in attesa in una coda di concorrenza. Le query in attesa di uno slot di concorrenza sono in stato **sospeso**.
 
 ```sql
 SELECT  r.[request_id]                           AS Request_ID
@@ -146,7 +147,7 @@ SQL Data Warehouse prevede i tipi di attesa seguenti.
 * **LocalQueriesConcurrencyResourceType**: query che si trovano all'esterno del framework di slot di concorrenza. Le query DMV e le funzioni di sistema  come `SELECT @@VERSION` sono esempi di query locali.
 * **UserConcurrencyResourceType**: query che si trovano all'interno del framework di slot di concorrenza. Le query sulle tabelle dell'utente finale rappresentano esempi in cui si usa questo tipo di risorsa.
 * **DmsConcurrencyResourceType**: attese risultanti dalle operazioni di spostamento dei dati.
-* **BackupConcurrencyResourceType**: indica che è in esecuzione il backup di un database. Il valore massimo per questo tipo di risorsa è 1. Se più copie di backup sono stati richieste contemporaneamente, le altre verranno accodate.
+* **BackupConcurrencyResourceType**: indica che è in esecuzione il backup di un database. Il valore massimo per questo tipo di risorsa è 1. Se sono stati richiesti più backup contemporaneamente, gli altri vengono accodati.
 
 La DMV `sys.dm_pdw_waits` può essere usata per visualizzare le risorse per cui una richiesta è in attesa.
 

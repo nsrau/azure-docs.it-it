@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9cd12808f7e3bbb8a4edfe0d8de1e5b0a007770a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2c164406b3b988b5848f662d544ffa78bd6955d0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -292,7 +292,7 @@ ms.lasthandoff: 04/05/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -372,7 +372,7 @@ Per informazioni sull'argomento relativo alle distribuzioni SAP in Azure sono di
 
 Le note seguenti su SAP sono correlate all'argomento relativo a SAP in Azure:
 
-| Numero della nota | Titolo |
+| Numero della nota | Title |
 | --- | --- |
 | [1928533] |Applicazioni SAP in Azure: dimensioni e prodotti supportati |
 | [2015553] |SAP in Microsoft Azure: prerequisiti per il supporto |
@@ -966,7 +966,7 @@ Lo scopo di questo scenario è caricare un file VHD, con o senza sistema operati
 
 **PowerShell**
 
-* Accedere alla sottoscrizione con *Login-AzureRmAccount*
+* Accedere alla sottoscrizione con *Connect-AzureRmAccount*
 * Impostare la sottoscrizione del contesto con *Set-AzureRmContext* e il parametro SubscriptionId o SubscriptionName. Vedere <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Caricare il disco rigido virtuale in un account di Archiviazione di Azure con *Add-AzureRmVhd*. Vedere <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (Facoltativo) Creare un disco gestito dal disco rigido virtuale usando *New-AzureRMDisk*. Vedere <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk>
@@ -993,7 +993,7 @@ Lo scopo di questo scenario è caricare un file VHD, con o senza sistema operati
 Per caricare una VM o un disco rigido virtuale esistente dalla rete locale per usarlo come immagine di VM di Azure, è necessario che siano soddisfatti i requisiti elencati nel capitolo [Preparazione per la distribuzione di una VM con un'immagine specifica del cliente per SAP][planning-guide-5.2.2] di questo documento.
 
 * Usare *sysprep* in Windows o *waagent-deprovision* in Linux per generalizzare la VM. Vedere [Documentazione tecnica su Sysprep](https://technet.microsoft.com/library/cc766049.aspx) per Windows o [Come acquisire una macchina virtuale Linux da usare come modello di Resource Manager][capture-image-linux-step-2-create-vm-image] per Linux
-* Accedere alla sottoscrizione con *Login-AzureRmAccount*
+* Accedere alla sottoscrizione con *Connect-AzureRmAccount*
 * Impostare la sottoscrizione del contesto con *Set-AzureRmContext* e il parametro SubscriptionId o SubscriptionName. Vedere <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Caricare il disco rigido virtuale in un account di Archiviazione di Azure con *Add-AzureRmVhd*. Vedere <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (Facoltativo) Creare un'immagine del disco gestito dal disco rigido virtuale usando *New-AzureRmImage*. Vedere <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage>

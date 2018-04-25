@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 04/09/2018
 ms.author: carlrab
-ms.openlocfilehash: a7fde828c7a88f440cf69e3a4b26bb6c75cdaafb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 38b7749ae83f1c4b037ec1996c84a9ffca1de50e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Scegliere un'opzione di SQL Server cloud: database SQL di Azure (PaaS) o SQL Server in VM di Azure (IaaS)
 Azure offre due opzioni per l'hosting dei carichi di lavoro di SQL Server in Microsoft Azure:
@@ -74,7 +74,10 @@ Una startup con pochi fondi o un team di un'azienda consolidata con vincoli di b
 #### <a name="billing-and-licensing-basics"></a>Nozioni di base su fatturazione e licenze
 **SQL Database** viene venduto ai clienti come servizio e non con una licenza.  [SQL Server in macchine virtuali di Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) viene venduto con una licenza inclusa, pagata al minuto. È anche possibile usare una licenza esistente, se disponibile.  
 
-Attualmente il **database SQL** è disponibile i livelli di servizio la cui fatturazione vien applicata su base oraria a una tariffa fissa, a seconda dei livelli di servizio e delle prestazioni scelti. Viene inoltre fatturato il traffico Internet in uscita a una [velocità di trasferimento dati](https://azure.microsoft.com/pricing/details/data-transfers/)normale. I livelli di servizio Basic, Standard e Premium sono progettati per offrire prestazioni prevedibili con più livelli di prestazioni in modo da soddisfare i requisiti massimi dell'applicazione. È possibile modificare i livelli di servizio e i livelli di prestazioni per soddisfare le diverse esigenze di velocità effettiva dell'applicazione. Se il database ha un volume di transazioni elevato e deve supportare molti utenti simultanei, è consigliabile il livello di servizio Premium. Per le informazioni più recenti sui livelli di servizio attualmente supportati, vedere [Livelli di servizio del database SQL di Azure](sql-database-service-tiers.md). È anche possibile creare [pool elastici](sql-database-elastic-pool.md) per condividere le risorse delle prestazioni tra le istanze del database.
+Attualmente il **database SQL** è disponibile i livelli di servizio la cui fatturazione vien applicata su base oraria a una tariffa fissa, a seconda dei livelli di servizio e delle prestazioni scelti. Viene inoltre fatturato il traffico Internet in uscita a una [velocità di trasferimento dati](https://azure.microsoft.com/pricing/details/data-transfers/)normale. I livelli di servizio Basic, Standard, Premium, Utilizzo generico e Business Critical sono progettati per offrire prestazioni prevedibili con più livelli di prestazioni in modo da soddisfare i requisiti massimi dell'applicazione. È possibile modificare i livelli di servizio e i livelli di prestazioni per soddisfare le diverse esigenze di velocità effettiva dell'applicazione. Per le informazioni più recenti sui livelli di servizio attualmente supportati, vedere [Livelli di servizio del database SQL di Azure](sql-database-service-tiers.md). È anche possibile creare [pool elastici](sql-database-elastic-pool.md) per condividere le risorse delle prestazioni tra le istanze del database.
+
+> [!IMPORTANT]
+> Se il database ha un volume di transazioni elevato e deve supportare molti utenti simultanei, è consigliabile il livello di servizio Premium e Business Critical. Per ridurre al minimo la latenza tra l'applicazione e il database SQL, individuare l'applicazione nella stessa area del database e quindi eseguire test delle prestazioni, aumentando il livello di prestazioni e di servizio in base alle esigenze.
 
 Con il **database SQL**, Microsoft configura automaticamente il software del database, applica le patch ed esegue l'aggiornamento, riducendo quindi i costi amministrativi. Le funzionalità di [backup predefinite](sql-database-automated-backups.md) consentono anche di ottenere una significativa riduzione dei costi, specialmente per un numero elevato di database.
 
@@ -112,7 +115,7 @@ Con **SQL Server in macchine virtuali di Azure**si ha il pieno controllo del sis
 ### <a name="service-level-agreement-sla"></a>Contratto di servizio (SLA)
 Per molti reparti IT rispettare gli obblighi relativi al tempo di attività di un contratto di servizio è della massima priorità. Questa sezione spiega le condizioni applicate dal contratto di servizio per ogni opzione di hosting del database.
 
-Per i livelli di servizio Basic, Standard e Premium del **database SQL** Microsoft fornisce un contratto di servizio con disponibilità del 99,99%. Per le informazioni più recenti, vedere [Contratto di servizio](https://azure.microsoft.com/support/legal/sla/sql-database/). Per le informazioni più recenti sui livelli di servizio del database SQL e sui piani di continuità aziendale supportati, vedere [Livelli di servizio](sql-database-service-tiers.md).
+Per i livelli di servizio Basic, Standard, Premium, Utilizzo generico e Business Critical del **database SQL** Microsoft fornisce un contratto di servizio con disponibilità del 99,99%. Per le informazioni più recenti, vedere [Contratto di servizio](https://azure.microsoft.com/support/legal/sla/sql-database/). Per le informazioni più recenti sui livelli di servizio del database SQL e sui piani di continuità aziendale supportati, vedere [Livelli di servizio](sql-database-service-tiers.md).
 
 Per **SQL Server in esecuzione nelle macchine virtuali di Azure**Microsoft fornisce un contratto di servizio con disponibilità del 99,95% che copre solo alla macchina virtuale. Questo contratto di servizio non comprende i processi, ad esempio SQL Server, in esecuzione nella macchina virtuale e richiede che siano ospitate almeno due istanze di VM in un set di disponibilità. Per le informazioni più recenti, vedere il [Contratto di servizio per macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Per la disponibilità elevata del database all'interno delle macchine virtuali, è necessario configurare una delle opzioni di disponibilità elevata supportate in SQL Server, ad esempio [Gruppi di disponibilità AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). L'uso di un'opzione di disponibilità elevata supportata non fornisce un contratto di servizio aggiuntivo, ma permette di ottenere una disponibilità del database superiore al 99,99%.
 

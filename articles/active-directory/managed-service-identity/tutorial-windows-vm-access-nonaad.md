@@ -1,8 +1,8 @@
 ---
-title: "Usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Key Vault"
-description: "Esercitazione che illustra come usare un'identità  del servizio gestito di una macchina virtuale Windows per accedere ad Azure Key Vault."
+title: Usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Key Vault
+description: Esercitazione che illustra come usare un'identità  del servizio gestito di una macchina virtuale Windows per accedere ad Azure Key Vault.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 3c1f41f407dc85eac40d1aa545c588426db6a382
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a4bf44dc444c144991e3a96efc130ec97b90ec9f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Usare un'Identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Key Vault 
 
@@ -58,7 +58,7 @@ Per questa esercitazione si creerà una nuova macchina virtuale Windows, ma è a
 
 ## <a name="enable-msi-on-your-vm"></a>Abilitare identità del servizio gestito nella macchina virtuale 
 
-Un'identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. L'abilitazione dell'identità del servizio gestito indica ad Azure di creare un'identità gestita per la macchina virtuale. A livello sottostante, quando si abilita identità del servizio gestito, si eseguono due operazioni, ovvero si installa l'estensione della macchina virtuale per l'identità del servizio gestito nella macchina virtuale e si abilita l'identità del servizio gestito in Azure Resource Manager.
+Un'identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. L'abilitazione dell'identità del servizio gestito indica ad Azure di creare un'identità gestita per la macchina virtuale. L'abilitazione dell'identità del servizio gestito comporta due operazioni: la registrazione della macchina virtuale con Azure Active Directory per creare la relativa identità gestita e la configurazione dell'identità sulla macchina virtuale.
 
 1.  Selezionare la **macchina virtuale** in cui si vuole abilitare identità del servizio gestito.  
 2.  Nella barra di spostamento a sinistra fare clic su **Configurazione**. 
@@ -66,10 +66,6 @@ Un'identità del servizio gestito per una macchina virtuale consente di ottenere
 4.  Assicurarsi di fare clic su **Salva** per salvare la configurazione.  
 
     ![Testo immagine alt](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Per verificare le estensioni installate nella macchina virtuale, fare clic su **Estensioni**. Se identità del servizio gestito è abilitata, nell'elenco sarà inclusa la voce **ManagedIdentityExtensionforWindows**.
-
-    ![Testo immagine alt](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Concedere alla macchina virtuale l'accesso a un segreto archiviato nell'insieme di credenziali delle chiavi 
  
@@ -112,7 +108,7 @@ In primo luogo, si userà l'Identità del servizio gestito della macchina virtua
     Richiesta di PowerShell:
     
     ```powershell
-    PS C:\> $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://vault.azure.net"} -Headers @{Metadata="true"} 
+    PS C:\> $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net -Method GET -Headers @{Metadata="true"} 
     ```
     
     Estrarre quindi la risposta completa, archiviata come stringa in formato JSON (JavaScript Object Notation) nell'oggetto $response.  

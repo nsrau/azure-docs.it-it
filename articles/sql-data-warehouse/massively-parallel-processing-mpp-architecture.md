@@ -1,30 +1,26 @@
 ---
-title: Architettura MPP - Azure SQL Data Warehouse | Microsoft Docs
-description: "Informazioni su come Azure SQL Data Warehouse combina l'elaborazione parallela elevata (Massively Parallel Processing, MPP) con l'archiviazione di Azure per ottenere prestazioni e scalabilità elevate."
+title: Azure SQL Data Warehouse - Architettura MPP | Microsoft Docs
+description: Informazioni su come Azure SQL Data Warehouse combina l'elaborazione parallela elevata (Massively Parallel Processing, MPP) con l'archiviazione di Azure per ottenere prestazioni e scalabilità elevate.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: architecture
-ms.date: 11/15/2017
-ms.author: jrj;barbkess
-ms.openlocfilehash: 4c230eb0633b2917b90a5c1f9f4176882bfd0290
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: dd148b8fdf6a816233f7adc0a8a22f87c417a156
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse - Architettura MPP (Massively Parallel Processing)
 Informazioni su come Azure SQL Data Warehouse combina l'elaborazione parallela elevata (Massively Parallel Processing, MPP) con l'archiviazione di Azure per ottenere prestazioni e scalabilità elevate. 
 
 ## <a name="mpp-architecture-components"></a>Componenti dell'architettura MPP
-SQL Data Warehouse usa un'architettura a scalabilità orizzontale per distribuire l'elaborazione computazionale dei dati su più nodi. L'unità di scalabilità è un'astrazione della potenza di calcolo nota come unità di data warehouse. SQL Data Warehouse separa il calcolo dall'archiviazione e consente agli utenti di scalare il calcolo indipendentemente dai dati nel sistema.
+SQL Data Warehouse usa un'architettura a scalabilità orizzontale per distribuire l'elaborazione computazionale dei dati su più nodi. L'unità di scalabilità è un'astrazione della potenza di calcolo nota come unità di data warehouse. SQL Data Warehouse separa il calcolo dall'archiviazione e consente di scalare il calcolo indipendentemente dai dati nel sistema.
 
 ![Architettura di SQL Data Warehouse](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 

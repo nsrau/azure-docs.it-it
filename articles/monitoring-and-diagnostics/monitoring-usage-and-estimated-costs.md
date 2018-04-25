@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f87705ebbdd14b1bbf7cade481a7dbe7dd3d5131
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ce295c449b01de4fa99df9198805a6b0727c0d18
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitoraggio dell'utilizzo e dei costi stimati
 
@@ -61,12 +61,16 @@ Si noterà un set diverso di contatori, corrispondenti al nuovo modello tariffar
 3. Application Insights\Dati in eccedenza Basic
 4. Application Insights\Dati inclusi
 
-vengono combinati in un nuovo contatore comune per l'inserimento dati chiamato **Servizi condivisi\Inserimento dati** poiché il nuovo modello tariffario non ha allocazioni di dati inclusi in base ai nodi.
+vengono combinati in un nuovo contatore comune per l'inserimento dati chiamato **Servizi condivisi\Inserimento dati** poiché il nuovo modello tariffario non ha diritti per i dati inclusi per nodo.
 
 Un'altra modifica che si noterà è che i dati inseriti in Log Analytics o Application Insights in aree con costi più elevati verranno visualizzati con i nuovi contatori a livello di area in modo da riflettere correttamente questa differenza, ad esempio **Inserimento dati (Stati Uniti centro-occidentali)**.
 
 > [!NOTE]
-> Se si dispone di una sottoscrizione Operations Management Suite (OMS), si riceveranno allocazioni di inserimento dati di Log Analytics e Application Insights per ogni nodo acquistato. Essendo applicata a livello di account (anziché di sottoscrizione), questa stima non può visualizzare l'effetto di queste allocazioni. Contattare il rappresentante Microsoft per una discussione più approfondita del nuovo modello tariffario in un caso come questo.
+> I costi stimati per sottoscrizione non vengono presi in considerazione nei diritti per nodo a livello di account della sottoscrizione Operations Management Suite (OMS). Contattare il rappresentante Microsoft per una discussione più approfondita del nuovo modello tariffario in un caso come questo.
+
+## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Nuovo modello tariffario e diritti della sottoscrizione di Operations Management Suite
+
+I clienti che hanno acquistato Microsoft Operations Management Suite E1 ed E2 possono usufruire dei diritti di inserimento dati per nodo per [Log Analytics](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Per ricevere questi diritti per le aree di lavoro di Log Analytics o le risorse di Application Insights in una determinata sottoscrizione, il modello tariffario della sottoscrizione deve essere un modello antecedente ad aprile 2018 in cui sono disponibili il piano tariffario "Per nodo (OMS)" di Log Analytics e il piano tariffario "Enterprise" di Application Insights. A seconda del numero di nodi della suite acquistata dall'organizzazione, potrebbe essere vantaggioso spostare alcune sottoscrizioni al nuovo modello tariffario, ma è necessario fare prima un'attenta valutazione. 
 
 ## <a name="changes-when-moving-to-the-new-pricing-model"></a>Modifiche in caso di passaggio al nuovo modello tariffario
 

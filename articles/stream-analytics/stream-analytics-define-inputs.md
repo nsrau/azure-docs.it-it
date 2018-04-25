@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.openlocfilehash: 0a90e97779416db7b7244cce9d6bdad740161051
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2db5398b7f252f723f342c1b978b27dd273321ec
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Connessione dati: informazioni sugli input del flusso di dati dagli eventi ad Analisi di flusso
 La connessione dati a un processo di Analisi di flusso è un flusso di eventi da un'origine dati, definito *input* del processo. Analisi di flusso si integra perfettamente con le origini del flusso dei dati di Azure, come [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), [Hub IoT di Azure](https://azure.microsoft.com/services/iot-hub/) e [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/). Queste origini di input possono appartenere alla stessa sottoscrizione di Azure del processo di analisi o a un'altra sottoscrizione.
@@ -129,6 +129,8 @@ Per gli scenari con grandi quantità di dati non strutturati da archiviare nel c
 Il timestamp predefinito degli eventi dell'archiviazione BLOB in Analisi di flusso è il timestamp dell'ultima modifica del BLOB, ovvero `BlobLastModifiedUtcTime`. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
 Gli input in formato CSV *richiedono* una riga di intestazione per definire i campi per il set di dati. Inoltre, tutti i campi delle righe di intestazione devono essere univoci.
+
+Se il messaggio originale (JSON, CSV o AVRO) è stato indirizzato da IoT o Hub eventi ad Archiviazione BLOB nel formato AVRO, Analisi di flusso non sarà in grado di deserializzare tali input Archiviazione BLOB.
 
 > [!NOTE]
 > Analisi di flusso di Azure non supporta l'aggiunta di contenuto a un file di BLOB esistente. Analisi di flusso di Azure visualizza ogni file una sola volta e tutte le modifiche apportate al file dopo che il processo ha letto i dati non vengono elaborate. La procedura consigliata consiste nel caricare simultaneamente tutti i dati per un file di BLOB e quindi aggiungere gli altri eventi più nuovi in un nuovo file di BLOB diverso.

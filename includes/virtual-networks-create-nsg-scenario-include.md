@@ -1,16 +1,32 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: virtual-network
+author: genli
+ms.service: virtual-network
+ms.topic: include
+ms.date: 04/13/2018
+ms.author: genli
+ms.custom: include file
+ms.openlocfilehash: 09c6871fc5243296da2f2defd594afb80c62ac95
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="scenario"></a>Scenario
-Per illustrare meglio come creare un NSG, in questo documento verrà utilizzato lo scenario seguente.
+Per illustrare meglio come creare un gruppo di sicurezza di rete, in questo documento verrà usato lo scenario seguente.
 
 ![Scenario di una rete virtuale](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
 
-In questo scenario si creerà un NSG per ogni subnet nella rete virtuale **TestVNet** , come illustrato di seguito: 
+In questo scenario si creerà un gruppo di sicurezza di rete per ogni subnet nella rete virtuale **TestVNet**, come illustrato di seguito: 
 
-* **NSG-FrontEnd**. Il front-end NSG verrà applicato per il subnet *front-end* , e contiene due regole:    
-  * **regola-rdp**. Questa regola consente il traffico RDP verso il subnet *front-end* .
-  * **regola-web**. Questa regola consente il traffico HTTP verso il subnet *front-end* .
-* **Back-end di NSG**. Il back-end NSG verrà applicato per il subnet *back-end* , e contiene due regole:    
-  * **regola sql**. Questa regola consente il traffico SQL solo dal subnet *front-end* .
-  * **regola-web**. Questa regola nega tutto il traffico associato ad internet proveniente dal subnet *back-end* .
+* **NSG-FrontEnd**. Il gruppo di sicurezza di rete front-end verrà applicato alla subnet *FrontEnd* e contiene due regole:    
+  * **regola-rdp**. Consente il traffico RDP verso la subnet *FrontEnd*.
+  * **regola-web**. Consente il traffico HTTP verso la subnet *FrontEnd*.
+* **Back-end di NSG**. Il gruppo di sicurezza di rete back-end verrà applicato alla subnet *BackEnd* e contiene due regole:    
+  * **regola sql**. Consente il traffico SQL solo dalla subnet *FrontEnd*.
+  * **regola-web**. Nega tutto il traffico associato ad internet proveniente dalla subnet *BackEnd*.
 
 La combinazione di queste regole crea uno scenario simile alla rete perimetrale, dove la subnet di back-end può solo ricevere traffico in ingresso per SQL dalla subnet front-end e non dispone dell'accesso a Internet, mentre la subnet front-end può comunicare con Internet e ricevere solo le richieste HTTP in ingresso.
 

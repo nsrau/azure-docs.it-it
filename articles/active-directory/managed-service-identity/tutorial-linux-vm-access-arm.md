@@ -1,8 +1,8 @@
 ---
-title: "Usare l'Identità del servizio gestito di una macchina virtuale Linux per accedere ad Azure Resource Manager"
-description: "Esercitazione che illustra come usare un'Identità del servizio gestito di una macchina virtuale Linux per accedere ad Azure Resource Manager."
+title: Usare l'Identità del servizio gestito di una macchina virtuale Linux per accedere ad Azure Resource Manager
+description: Esercitazione che illustra come usare un'Identità del servizio gestito di una macchina virtuale Linux per accedere ad Azure Resource Manager.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: bryanla
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 842e0b42dee7e03f0ddb3f3a2445007a812ceb7e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 97c6fec26a79352a12eebff451eb294a87455ed6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Usare un'identità del servizio gestito per una macchina virtuale Linux per accedere ad Azure Resource Manager
 
@@ -56,7 +56,7 @@ Per questa esercitazione si creerà una nuova macchina virtuale Linux, ma è anc
 
 ## <a name="enable-msi-on-your-vm"></a>Abilitare identità del servizio gestito nella macchina virtuale
 
-Un'Identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. A livello sottostante, quando si abilita Identità del servizio gestito, si eseguono due operazioni, ovvero si installa l'estensione di Identità del servizio gestito nella macchina virtuale e si abilita la funzionalità per tale macchina.  
+Un'identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. L'abilitazione dell'identità del servizio gestito in una macchina virtuale comporta due operazioni: la registrazione della macchina virtuale con Azure Active Directory per creare la relativa identità gestita e la configurazione dell'identità sulla macchina virtuale.
 
 1. Selezionare la **macchina virtuale** in cui si vuole abilitare identità del servizio gestito.
 2. Nella barra di spostamento a sinistra fare clic su **Configurazione**.
@@ -64,10 +64,6 @@ Un'Identità del servizio gestito per una macchina virtuale consente di ottenere
 4. Assicurarsi di fare clic su **Salva** per salvare la configurazione.
 
     ![Testo immagine alt](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Per verificare le estensioni installate nella **macchina virtuale Linux**, fare clic su **Estensioni**. Se la funzione Identità del servizio gestito è abilitata, nell'elenco è inclusa la voce **ManagedIdentityExtensionforLinux**.
-
-    ![Testo immagine alt](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>Concedere alla macchina virtuale l'accesso a un gruppo di risorse in Azure Resource Manager 
 
@@ -94,7 +90,7 @@ Per completare questi passaggi, è necessario disporre di un client SSH. Se si u
     La richiesta CURL per il token di accesso è mostrata di seguito.  
     
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
+    curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -H Metadata:true   
     ```
     
     > [!NOTE]

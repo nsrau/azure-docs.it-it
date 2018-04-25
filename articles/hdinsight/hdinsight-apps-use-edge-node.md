@@ -1,26 +1,24 @@
 ---
 title: Usare i nodi perimetrali vuoti sui cluster Hadoop in HDInsight - Azure | Documentazione Microsoft
-description: "Come aggiungere un nodo perimetrale vuoto al cluster HDInsight che può essere usato come un client, quindi testare oppure ospitare le applicazioni HDInsight."
+description: Come aggiungere un nodo perimetrale vuoto al cluster HDInsight che può essere usato come un client, quindi testare oppure ospitare le applicazioni HDInsight.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: mumian
 tags: azure-portal
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cdc7d1b4-15d7-4d4d-a13f-c7d3a694b4fb
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: jgao
-ms.openlocfilehash: 7c09b2aefac1248a0bad06b913a8da56e73c0e4d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 0e5e05a1a5c084854cd911188777dedf40817227
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Usare i nodi perimetrali vuoti sui cluster Hadoop in HDInsight
 
@@ -69,7 +67,7 @@ Dopo aver creato un nodo perimetrale, è possibile connettersi al nodo stesso tr
 > * [Forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
 > * [http://stackoverflow.com](http://stackoverflow.com).
 >
-> Se si utilizza una tecnologia Apache, è possibile ottenere assistenza tramite i siti di progetto Apache su [http://apache.org](http://apache.org), ad esempio il sito [Hadoop](http://hadoop.apache.org/).
+> Se si usa una tecnologia Apache, è possibile ottenere assistenza tramite i siti di progetto Apache su [http://apache.org](http://apache.org), ad esempio il sito [Hadoop](http://hadoop.apache.org/).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Aggiungere un nodo perimetrale a un cluster esistente
 In questa sezione si userà un modello di Resource Manager per aggiungere un nodo perimetrale a un cluster HDInsight esistente.  Il modello di Resource Manager è disponibile in [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). Il modello di Resource Manager chiama un'azione script disponibile in https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Lo script non esegue alcuna azione.  Per illustrare la chiamata all'azione script da un modello di Resource Manager.

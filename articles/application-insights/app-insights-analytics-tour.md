@@ -2,7 +2,7 @@
 title: Presentazione di Analisi in Azure Application Insights | Microsoft Docs
 description: Brevi esempi di tutte le principali query in Analisi, lo strumento di ricerca avanzato di Application Insights.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9727e3b715334837b959f22dd526caba221be62c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Presentazione dello strumento Analisi in Application Insights
 L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Log Analytics.
@@ -170,7 +170,7 @@ Altri esempi:
 
 ```
 
-[Riferimento su date e ore](https://docs.loganalytics.io/concepts/concepts_datatypes_datetime.html).
+[Riferimento su date e ore](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
 ## <a name="projecthttpsdocsloganalyticsioquerylanguagequerylanguageprojectoperatorhtml-select-rename-and-compute-columns"></a>[Project](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): selezionare, rinominare e calcolare le colonne
@@ -541,7 +541,7 @@ Ad esempio, se l'applicazione include:
 ```csharp
 
     var dimensions = new Dictionary<string, string>
-                     {{"p1", "v1"},{"p2", "v2"}};
+                     {{"p1", "v1"},{"p2.d2", "v2"}};
     var measurements = new Dictionary<string, double>
                      {{"m1", 42.0}, {"m2", 43.2}};
     telemetryClient.TrackEvent("myEvent", dimensions, measurements);
@@ -554,7 +554,6 @@ Per estrarre questi valori in Dati di analisi:
     customEvents
     | extend p1 = customDimensions.p1,
       m1 = todouble(customMeasurements.m1) // cast to expected type
-
 ```
 
 Per verificare se una dimensione personalizzata è di tipo specifico:
@@ -565,6 +564,18 @@ Per verificare se una dimensione personalizzata è di tipo specifico:
     | extend p1 = customDimensions.p1,
       iff(notnull(todouble(customMeasurements.m1)), ...
 ```
+
+### <a name="special-characters"></a>Caratteri speciali
+
+Agli identificatori i cui nomi contengono caratteri speciali o parole chiave del linguaggio è necessario accedere tramite `['` e `']` o tramite `["` e `"]`.
+
+```AIQL
+
+    customEvents
+    | extend p2d2 = customDimensions.['p2.d2'], ...
+```
+
+[Informazioni di riferimento sulle regole di denominazione degli identificatori](https://docs.loganalytics.io/docs/Learn/References/Naming-principles)
 
 ## <a name="dashboards"></a>Dashboard
 È possibile aggiungere i risultati a un dashboard in modo da riunire tutti i grafici e le tabelle più importanti.

@@ -1,8 +1,8 @@
 ---
-title: "Usare l'Identità del servizio gestito di una macchina virtuale Windows per accedere ad Azure Resource Manager"
-description: "Esercitazione che illustra come usare un'Identità del servizio gestito di una macchina virtuale Windows per accedere ad Azure Resource Manager."
+title: Usare l'Identità del servizio gestito di una macchina virtuale Windows per accedere ad Azure Resource Manager
+description: Esercitazione che illustra come usare un'Identità del servizio gestito di una macchina virtuale Windows per accedere ad Azure Resource Manager.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 616bbc9c657d5d6afba962c676d44ac0baa6841e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0e1a01eec7080c3520dfe63954e91802843c18a4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere a Gestione risorse
 
@@ -54,17 +54,13 @@ Per questa esercitazione si creerà una nuova macchina virtuale Windows,  ma è 
 
 ## <a name="enable-msi-on-your-vm"></a>Abilitare identità del servizio gestito nella macchina virtuale 
 
-Un'Identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. L'abilitazione dell'Identità del servizio gestito indica ad Azure di creare un'identità gestita per la macchina virtuale. A livello sottostante, quando si abilita Identità del servizio gestito, si eseguono due operazioni, ovvero si installa l'estensione della macchina virtuale per l'Identità del servizio gestito nella macchina virtuale e si abilita l'Identità del servizio gestito in Azure Resource Manager.
+Un'Identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. L'abilitazione dell'identità del servizio gestito in una macchina virtuale comporta due operazioni: la registrazione della macchina virtuale con Azure Active Directory per creare la relativa identità gestita e la configurazione dell'identità sulla macchina virtuale.
 
 1.  Selezionare la **macchina virtuale** in cui si vuole abilitare identità del servizio gestito.  
 2.  Nella barra di spostamento a sinistra fare clic su **Configurazione**. 
 3.  Viene visualizzato **Managed Service Identity** (identità del servizio gestito). Per registrare e abilitare identità del servizio gestita, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No. 
 4.  Assicurarsi di fare clic su **Salva** per salvare la configurazione.  
     ![Testo immagine alt](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Per verificare le estensioni installate nella macchina virtuale, fare clic su **Estensioni**. Se Identità del servizio gestita è abilitata, nell'elenco sarà inclusa la voce **ManagedIdentityExtensionforWindows**.
-
-    ![Testo immagine alt](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Concedere alla macchina virtuale l'accesso a un gruppo di risorse in Gestione risorse
 Usando identità del servizio gestito, il codice può ottenere i token di accesso per autenticarsi alle risorse che supportano l'autenticazione di Azure AD.  Azure Resource Manager supporta l'autenticazione di Azure AD.  In primo luogo, è necessario concedere all'identità della macchina virtuale l'accesso a una risorsa di Gestione risorse, in questo caso al gruppo di risorse che contiene la macchina virtuale.  
@@ -89,7 +85,7 @@ In questa sezione è necessario usare **PowerShell**.  Se non è installato, sca
 4.  Usando Invoke-WebRequest di PowerShell, eseguire una richiesta all'endpoint locale di Identità del servizio gestito per ottenere un token di accesso per Azure Resource Manager.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]

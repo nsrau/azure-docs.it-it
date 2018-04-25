@@ -1,8 +1,8 @@
 ---
-title: "Usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Archiviazione di Azure"
-description: "Questa esercitazione illustra come usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Archiviazione di Azure."
+title: Usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Archiviazione di Azure
+description: Questa esercitazione illustra come usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Archiviazione di Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 2e78fb3344d77f33907c97e66ce262f79d13f778
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1237040b32975f3481fb7750d4878651932b74cc
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Archiviazione di Azure tramite una chiave di accesso
 
@@ -56,7 +56,7 @@ Per questa esercitazione si creerà una nuova macchina virtuale Windows, ma è a
 
 ## <a name="enable-msi-on-your-vm"></a>Abilitare identità del servizio gestito nella macchina virtuale
 
-Un'identità del servizio gestita per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. A livello sottostante, quando si abilita Identità del servizio gestita, si eseguono due operazioni, ovvero si installa l'estensione di Identità del servizio gestita nella macchina virtuale e si abilita la funzionalità per tale macchina.  
+Un'identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. L'abilitazione dell'identità del servizio gestito comporta due operazioni: la registrazione della macchina virtuale con Azure Active Directory per creare la relativa identità gestita e la configurazione dell'identità sulla macchina virtuale.
 
 1. Passare al gruppo di risorse della nuova macchina virtuale e selezionare la macchina virtuale creata nel passaggio precedente.
 2. Nella sezione "Impostazioni" della macchina virtuale a sinistra fare clic su **Configurazione**.
@@ -64,10 +64,6 @@ Un'identità del servizio gestita per una macchina virtuale consente di ottenere
 4. Assicurarsi di fare clic su **Salva** per salvare la configurazione.
 
     ![Testo immagine alt](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Per verificare le estensioni installate nella macchina virtuale, fare clic su **Estensioni**. Se Identità del servizio gestito è abilitata, nell'elenco sarà inclusa la voce **ManagedIdentityExtensionforWindows**.
-
-    ![Testo immagine alt](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione 
 
@@ -119,7 +115,7 @@ In questa sezione è necessario usare i cmdlet PowerShell di Azure Resource Mana
 4. Usando Invoke-WebRequest di PowerShell, eseguire una richiesta all'endpoint locale di Identità del servizio gestito per ottenere un token di accesso per Azure Resource Manager.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]

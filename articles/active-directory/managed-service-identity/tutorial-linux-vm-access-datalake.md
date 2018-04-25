@@ -1,11 +1,11 @@
 ---
-title: "Usare l'identità del servizio gestito per una VM Linux per accedere ad Azure Data Lake Store"
-description: "Esercitazione che illustra come usare l'identità del servizio gestito per una VM Linux per accedere ad Azure Data Lake Store."
+title: Usare l'identità del servizio gestito per una VM Linux per accedere ad Azure Data Lake Store
+description: Esercitazione che illustra come usare l'identità del servizio gestito per una VM Linux per accedere ad Azure Data Lake Store.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: bef549a0cb8a876bbf8fbf281a6c2d1d489736af
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f9dc1e87dee83aa3f10d5319ac3df3933b7d96a9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Usare l'identità del servizio gestito per una VM Linux per accedere ad Azure Data Lake Store
 
@@ -58,16 +58,13 @@ Per questa esercitazione si creerà una nuova macchina virtuale Linux, ma è anc
 
 ## <a name="enable-msi-on-your-vm"></a>Abilitare identità del servizio gestito nella macchina virtuale
 
-È possibile usare l'identità del servizio gestito per una macchina virtuale per ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. Quando si abilita l'identità del servizio gestito, l'estensione della macchina virtuale per l'identità del servizio gestito viene installata nella VM e l'identità del servizio gestito viene abilitata in Azure Resource Manager.  
+Un'Identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. L'abilitazione dell'identità del servizio gestito in una macchina virtuale comporta due operazioni: la registrazione della macchina virtuale con Azure Active Directory per creare la relativa identità gestita e la configurazione dell'identità sulla macchina virtuale.
 
 1. Per **Macchina virtuale** selezionare la macchina virtuale in cui si vuole abilitare l'identità del servizio gestito.
 2. Nel riquadro sinistro selezionare **Configurazione**.
 3. Verrà visualizzata l'opzione **Identità del servizio gestito**. Per registrare e abilitare l'identità del servizio gestito, selezionare **Sì**. Per disabilitarla, selezionare **No**.
    ![Selezione per "Registra con Azure Active Directory"](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. Selezionare **Salva**.
-5. Per verificare le estensioni presenti nella VM Linux, selezionare **Estensioni**. Se l'identità del servizio gestito è abilitata, nell'elenco sarà inclusa la voce **ManagedIdentityExtensionforLinux**.
-
-   ![Elenco delle estensioni](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Concedere alla VM l'accesso ad Azure Data Lake Store
 
@@ -105,7 +102,7 @@ Per completare questi passaggi, è necessario disporre di un client SSH. Se si u
 3. Nella finestra del terminale usare cURL per inviare una richiesta all'endpoint locale dell'identità del servizio gestito per ottenere un token di accesso per il file system di Data Lake Store. L'identificatore della risorsa per Data Lake Store è "https://datalake.azure.net/".  È importante includere la barra finale nell'identificatore della risorsa.
     
    ```bash
-   curl http://localhost:50342/oauth2/token --data "resource=https://datalake.azure.net/" -H Metadata:true   
+   curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F -H Metadata:true   
    ```
     
    Una risposta con esito positivo restituisce il token di accesso che viene usato per l'autenticazione a Data Lake Store:

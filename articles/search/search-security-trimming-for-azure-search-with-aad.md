@@ -1,18 +1,17 @@
 ---
-title: "Filtri di sicurezza per limitare i risultati di Ricerca di Azure tramite le identità di Active Directory | Microsoft Docs"
-description: "Controllo di accesso sul contenuto di Ricerca di Azure con i filtri di sicurezza e le identità di Active Directory."
-services: search
+title: Filtri di sicurezza per limitare i risultati di Ricerca di Azure tramite le identità di Active Directory | Microsoft Docs
+description: Controllo di accesso sul contenuto di Ricerca di Azure con i filtri di sicurezza e le identità di Active Directory.
 author: revitalbarletz
 manager: jlembicz
 ms.service: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: d7df9ede1851680fb6327cac7eed0a479928cea0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtri di sicurezza per limitare i risultati di Ricerca di Azure usando le identità di Active Directory
 

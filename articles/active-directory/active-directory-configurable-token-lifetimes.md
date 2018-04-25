@@ -3,7 +3,7 @@ title: Durata dei token configurabili in Azure Active Directory | Microsoft Docs
 description: Informazioni su come impostare la durata per i token rilasciati da Azure AD.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: hpsin
 manager: mtillman
 editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
-ms.author: billmath
+ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 553283f246b701b5084f0a3a9914d7ceb8826fe4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 840cd28b1b5781428e23f36fe5904cd445942e69
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durata dei token configurabili in Azure Active Directory (anteprima pubblica)
 È possibile specificare la durata di un token rilasciato da Azure Active Directory (Azure AD). La durata dei token può essere impostata per tutte le app di un'organizzazione, per un'applicazione multi-tenant (più organizzazioni) o per un'entità servizio specifica in un'organizzazione.
@@ -45,19 +45,19 @@ In Azure AD, un oggetto criteri rappresenta un set di regole applicate a singole
 È possibile impostare i criteri di durata dei token per i token di aggiornamento, i token di accesso, i token di sessione e i token ID.
 
 ### <a name="access-tokens"></a>Token di accesso
-I client usano i token di accesso per accedere a una risorsa protetta. I token di accesso possono essere usati solo per una combinazione specifica di utente, client e risorsa. Non è possibile revocare i token di accesso, che rimangono validi fino alla scadenza. Un attore malintenzionato può usare un eventuale token di accesso ottenuto per la sua intera durata. Regolare la durata dei token di accesso significa trovare un compromesso tra il miglioramento delle prestazioni di sistema e l'aumento dell'intervallo di tempo durante il quale il client conserva l'accesso dopo che l'account dell'utente è stato disabilitato. Il miglioramento delle prestazioni di sistema si ottiene riducendo il numero delle volte in cui un client deve acquisire un token di accesso aggiornato.
+I client usano i token di accesso per accedere a una risorsa protetta. I token di accesso possono essere usati solo per una combinazione specifica di utente, client e risorsa. Non è possibile revocare i token di accesso, che rimangono validi fino alla scadenza. Un attore malintenzionato può usare un eventuale token di accesso ottenuto per la sua intera durata. Regolare la durata dei token di accesso significa trovare un compromesso tra il miglioramento delle prestazioni di sistema e l'aumento dell'intervallo di tempo durante il quale il client conserva l'accesso dopo che l'account dell'utente è stato disabilitato. Il miglioramento delle prestazioni di sistema si ottiene riducendo il numero delle volte in cui un client deve acquisire un token di accesso aggiornato.  Il valore predefinito è un'ora. Dopo un'ora, il client deve usare il token di aggiornamento per acquisire un nuovo token di aggiornamento e un nuovo token di accesso (in genere in modo automatico). 
 
 ### <a name="refresh-tokens"></a>Token di aggiornamento
-Quando un client acquisisce un token di accesso per accedere a una risorsa protetta, riceve sia un token di aggiornamento che un token di accesso. Il token di aggiornamento consente di ottenere nuove coppie di token di accesso/aggiornamento alla scadenza del token di accesso attuale. Il token di aggiornamento è associato a una combinazione di utente e client e può essere revocato. La validità del token di aggiornamento viene quindi controllata ogni volta che viene usato.
+Quando un client acquisisce un token di accesso per accedere a una risorsa protetta, riceve anche un token di aggiornamento. Il token di aggiornamento consente di ottenere nuove coppie di token di accesso/aggiornamento alla scadenza del token di accesso attuale. Il token di aggiornamento è associato a una combinazione di utente e client e può essere [revocato in qualsiasi momento](develop/active-directory-token-and-claims.md#token-revocation). La validità del token di aggiornamento viene quindi controllata ogni volta che viene usato.  
 
-È importante distinguere tra client riservati e client pubblici. Per altre informazioni sui diversi tipi di client, vedere la specifica [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
+È importante distinguere tra client riservati e client pubblici, perché questa caratteristica influisce sulla durata del periodo in cui i token di aggiornamento possono essere usati. Per altre informazioni sui diversi tipi di client, vedere la specifica [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Durata dei token con token di aggiornamento per client riservati
-I client riservati sono applicazioni che possono archiviare in modo sicuro una password client, ovvero un segreto, e possono dimostrare che le richieste provengono dall'applicazione client e non da un attore malintenzionato. Un'app Web, ad esempio, è un client riservato perché può archiviare un segreto client nel server Web e non viene esposto. I token di aggiornamento rilasciati per questi flussi più sicuri hanno una durata `until-revoked`, che non può essere modificata tramite i criteri e non può essere revocata con reimpostazioni di password volontarie.
+I client riservati sono applicazioni che possono archiviare in modo sicuro una password client, ovvero un segreto, e possono dimostrare che le richieste provengono dall'applicazione client protetta e non da un attore malintenzionato. Un'app Web, ad esempio, è un client riservato perché può archiviare un segreto client nel server Web e non viene esposto. I token di aggiornamento rilasciati per questi flussi più sicuri hanno una durata `until-revoked`, che non può essere modificata tramite i criteri e non può essere revocata con reimpostazioni di password volontarie.
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Durata dei token con token di aggiornamento per client pubblici
 
-I client pubblici non possono archiviare in modo sicuro una password client, ovvero un segreto. Un'app iOS o Android, ad esempio, non può offuscare un segreto dal proprietario della risorsa e per questo è considerata un client pubblico. È possibile impostare criteri sulle risorse per evitare che i token di aggiornamento di client pubblici precedenti a un periodo specificato ottengano una nuova coppia di token di accesso/aggiornamento. A tale scopo, usare la proprietà Tempo inattività massimo token di aggiornamento. È anche possibile usare i criteri per impostare un intervallo di tempo oltre il quale i token di aggiornamento non vengono più accettati. A tale scopo, usare la proprietà Validità massima del token di aggiornamento. È possibile regolare la durata dei token di aggiornamento per controllare quando e con quale frequenza viene richiesto all'utente di immettere di nuovo le credenziali durante l'uso di un'applicazione client pubblica, anziché rieseguirne automaticamente l'autenticazione.
+I client pubblici non possono archiviare in modo sicuro una password client, ovvero un segreto. Un'app iOS o Android, ad esempio, non può offuscare un segreto dal proprietario della risorsa e per questo è considerata un client pubblico. È possibile impostare criteri sulle risorse per evitare che i token di aggiornamento di client pubblici precedenti a un periodo specificato ottengano una nuova coppia di token di accesso/aggiornamento. A tale scopo, usare la proprietà Tempo inattività massimo token di aggiornamento (`MaxInactiveTime`). È anche possibile usare i criteri per impostare un intervallo di tempo oltre il quale i token di aggiornamento non vengono più accettati. A tale scopo, usare la proprietà Validità massima del token di aggiornamento. È possibile regolare la durata dei token di aggiornamento per controllare quando e con quale frequenza viene richiesto all'utente di immettere di nuovo le credenziali durante l'uso di un'applicazione client pubblica, anziché rieseguirne automaticamente l'autenticazione.
 
 ### <a name="id-tokens"></a>Token ID
 I token ID vengono passati a siti Web e client nativi e contengono informazioni relative al profilo di un utente. Ogni token ID è associato a una combinazione specifica di utente e client ed è considerato valido fino alla relativa scadenza. La durata della sessione di un utente in un'applicazione Web corrisponde in genere alla durata del token ID rilasciato per l'utente. È possibile regolare la durata del token ID per controllare con quale frequenza si verifica la scadenza di una sessione in un'applicazione Web ed è necessario rieseguire l'autenticazione dell'utente con Azure AD, in modo automatico o interattivo.
