@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 67d75a28ba65dbdc0a3a105f9e41a1c4f02f2615
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f870bf1a282d7a044bb876e0015962b4f520a15f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Ripetere il training di un servizio Web predittivo esistente
 Questo documento descrive il processo di ripetizione del training nello scenario seguente:
@@ -26,8 +26,8 @@ Questo documento descrive il processo di ripetizione del training nello scenario
 * Si dispone di un esperimento di training e di un esperimento predittivo distribuito come un servizio Web operativo.
 * Si hanno a disposizione nuovi dati che si vuole vengano usati dal servizio Web predittivo per assegnarne il punteggio.
 
-> [!NOTE] 
-> Per distribuire un nuovo servizio Web è necessario disporre delle autorizzazioni sufficienti nella sottoscrizione a cui si sta distribuendo il servizio Web. Per altre informazioni, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](manage-new-webservice.md). 
+> [!NOTE]
+> Per distribuire un nuovo servizio Web è necessario disporre delle autorizzazioni sufficienti nella sottoscrizione a cui si sta distribuendo il servizio Web. Per altre informazioni, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](manage-new-webservice.md).
 
 Seguire questa procedura usando il servizio Web e gli esperimenti esistenti:
 
@@ -54,7 +54,7 @@ Per aggiornare l'esperimento di training:
 
 Eseguire l'esperimento.
 
-Sarà quindi necessario distribuire l'esperimento di training come un servizio Web che produce un modello sottoposto a training e risultati di valutazione del modello.  
+Sarà quindi necessario distribuire l'esperimento di training come un servizio Web che produce un modello sottoposto a training e risultati di valutazione del modello.
 
 Nella parte inferiore dell'area di disegno dell'esperimento fare clic su **Set Up Web Service** (Configura servizio Web) e selezionare **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]). Il portale dei servizi Web Microsoft Azure Machine Learning visualizzerà la pagina **Deploy Web Service** (Distribuisci servizio Web). Digitare un nome per il servizio Web, scegliere un piano di pagamento e quindi fare clic su **Deploy**(Distribuisci). È possibile usare solo il metodo Esecuzione batch per la creazione di modelli di training.
 
@@ -84,7 +84,7 @@ Individuare la dichiarazione **apikey**:
 Nella sezione **Basic consumption info** (Informazioni di base sul consumo) della pagina **Consume** (Uso) individuare la chiave primaria e copiarla nella dichiarazione **apikey**.
 
 ### <a name="update-the-azure-storage-information"></a>Aggiornare le informazioni di archiviazione di Azure
-Il codice di esempio BES carica un file da un'unità locale (ad esempio, "C:\temp\CensusIpnput.csv") in Archiviazione di Azure, lo elabora e scrive i risultati in Archiviazione di Azure.  
+Il codice di esempio BES carica un file da un'unità locale (ad esempio, "C:\temp\CensusIpnput.csv") in Archiviazione di Azure, lo elabora e scrive i risultati in Archiviazione di Azure.
 
 Dopo aver eseguito l'esperimento, il flusso di lavoro risultante dovrebbe essere simile al seguente:
 
@@ -126,7 +126,7 @@ Di seguito è riportato un output di ripetizione del training di esempio:
 ## <a name="evaluate-the-retraining-results"></a>Valutare i risultati della ripetizione del training
 Quando si esegue l'applicazione, l'output include l'URL e il token di firma di accesso condiviso necessari per accedere ai risultati della valutazione.
 
-È possibile visualizzare i risultati sulle prestazioni del modello sottoposto nuovamente a training combinando *BaseLocation*, *RelativeLocation* e *SasBlobToken* dai risultati di output per *output2* (come illustrato nell'immagine precedente dell'output di ripetizione del training) e incollando l'URL completo nella barra degli indirizzi del browser.  
+È possibile visualizzare i risultati sulle prestazioni del modello sottoposto nuovamente a training combinando *BaseLocation*, *RelativeLocation* e *SasBlobToken* dai risultati di output per *output2* (come illustrato nell'immagine precedente dell'output di ripetizione del training) e incollando l'URL completo nella barra degli indirizzi del browser.
 
 Esaminare i risultati per determinare se le prestazioni del modello appena sottoposto a training sono abbastanza elevate da sostituire quello esistente.
 
@@ -136,7 +136,7 @@ Copiare *BaseLocation*, *RelativeLocation* e *SasBlobToken* dai risultati di out
 Quando si ripete il training di un nuovo servizio Web, si aggiorna la definizione del servizio Web predittivo perché faccia riferimento al nuovo modello sottoposto a training. La definizione del servizio Web è una rappresentazione interna del modello sottoposto a training del servizio Web e non è direttamente modificabile. Assicurarsi di recuperare la definizione del servizio Web per l'esperimento predittivo e non per l'esperimento di training.
 
 ## <a name="sign-in-to-azure-resource-manager"></a>Accedere a Azure Resource Manager
-È prima necessario accedere al proprio account Azure dall'interno dell'ambiente di PowerShell tramite il cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx).
+È prima necessario accedere al proprio account Azure dall'interno dell'ambiente di PowerShell tramite il cmdlet [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
 
 ## <a name="get-the-web-service-definition-object"></a>Ottenere l'oggetto definizione del servizio Web
 È quindi necessario ottenere l'oggetto definizione del servizio Web chiamando il cmdlet [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx).

@@ -1,12 +1,12 @@
 ---
-title: "Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager | Microsoft Docs"
-description: "Informazioni su come creare ambienti con più macchine virtuali e risorse PaaS in Azure DevTest Labs con un modello di Azure Resource Manager"
+title: Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager | Microsoft Docs
+description: Informazioni su come creare ambienti con più macchine virtuali e risorse PaaS in Azure DevTest Labs con un modello di Azure Resource Manager
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: devtest-lab
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: v-craic
-ms.openlocfilehash: b4582dd03ceb1c2104f6e93c55a65e5a2b968c0a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 38e048e9ec4985d16632f8891e42c2b6394c83d6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager
 
@@ -102,7 +102,7 @@ Dopo aver configurato un repository di modelli di Azure Resource Manager nel lab
 
     ![Scegli una base](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)
   
-1. Nel riquadro **Aggiungi** immettere un valore in **Nome ambiente**. Il nome dell'ambiente è quello visualizzato agli utenti nel laboratorio. I campi di input rimanenti vengono definiti nel modello di Azure Resource Manager. Se i valori predefiniti sono definiti nel modello o se è presente il file `azuredeploy.parameter.json`, i valori predefiniti vengono visualizzati in tali campi di input. Per i parametri di tipo *stringa protetta*, è possibile usare i segreti archiviati nell'[archivio segreto personale](https://azure.microsoft.com/en-us/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store) del lab.
+1. Nel riquadro **Aggiungi** immettere un valore in **Nome ambiente**. Il nome dell'ambiente è quello visualizzato agli utenti nel laboratorio. I campi di input rimanenti vengono definiti nel modello di Azure Resource Manager. Se i valori predefiniti sono definiti nel modello o se è presente il file `azuredeploy.parameter.json`, i valori predefiniti vengono visualizzati in tali campi di input. Per i parametri di tipo *stringa protetta*, è possibile usare i segreti archiviati nell'[archivio segreto personale](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store) del lab.
 
     ![Riquadro Aggiungi](./media/devtest-lab-create-environment-from-arm/add.png)
 

@@ -1,25 +1,18 @@
 ---
-title: 'Lezione supplementare dell''esercitazione su Azure Analysis Services: righe di dettaglio | Microsoft Docs'
+title: "Lezione supplementare dell'esercitazione su Azure Analysis Services: righe di dettaglio | Microsoft Docs"
 description: Descrive come creare un'espressione di righe di dettaglio nell'esercitazione su Azure Analysis Services.
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 5a4dc7004245923fa6bda779114166ecf08d075f
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 02e9edd966e64c0bfa32e2b80f4c26f797e58582
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Lezione supplementare: Righe di dettaglio
 
@@ -39,11 +32,11 @@ Prima di aggiungere un'espressione di righe di dettaglio, verrà esaminata in de
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. Nella tabella pivot fare doppio clic su un valore aggregato per un anno e un nome di area. In questo esempio sono stati selezionati l'Australia e l'anno 2014. Viene aperto un nuovo foglio contenente alcuni dati, ma non molto utili.
+3. Nella tabella pivot fare doppio clic su un valore aggregato per un anno e un nome di area. Il valore per l'Australia e l'anno 2014. Viene aperto un nuovo foglio contenente alcuni dati, ma non molto utili.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   
-In questo caso, sarebbe invece utile una tabella contenente colonne e righe dei dati che contribuiscono al risultato aggregato della misura InternetTotalSales. A tale scopo, è possibile aggiungere un'espressione di righe di dettaglio come proprietà della misura.
+L'obiettivo è una tabella contenente colonne e righe dei dati che contribuiscono al risultato aggregato della misura InternetTotalSales. A tale scopo, aggiungere un'espressione di righe di dettaglio come proprietà della misura.
 
 ## <a name="add-a-detail-rows-expression"></a>Aggiungere un'espressione di righe di dettaglio
 
@@ -80,6 +73,8 @@ In questo caso, sarebbe invece utile una tabella contenente colonne e righe dei 
 
   
 ## <a name="see-also"></a>Vedere anche   
-[SELECTCOLUMNS Function (DAX)](https://msdn.microsoft.com/library/mt761759.aspx) (Funzione SELECTCOLUMNS - DAX)  
-[Lezione supplementare: Sicurezza dinamica](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
-[Lezione supplementare: Gerarchie incomplete](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+
+[SELECTCOLUMNS Function (DAX) (Funzione DAX SELECTCOLUMNS)](https://msdn.microsoft.com/library/mt761759.aspx)   
+[Lezione supplementare: sicurezza dinamica](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
+[Lezione supplementare: Gerarchie incomplete](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
+ 

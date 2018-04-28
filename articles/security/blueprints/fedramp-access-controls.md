@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 73ce33bc6136b9b76661dc9e29b3a11c3eabc5f8
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 3d30f889c4d7ed0dafcf8559e8987090c03f4d5e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-control-ac"></a>Controllo di accesso
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto implementa il dashboard Identità e accesso della soluzione Sicurezza e controllo di OMS. Questo dashboard consente ai responsabili degli account di monitorare l'uso degli account del sistema informatico. |
+| **Cliente** | Questo progetto implementa il dashboard Identità e accesso della soluzione Sicurezza e controllo. Questo dashboard consente ai responsabili degli account di monitorare l'uso degli account del sistema informatico. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto implementa il dashboard Identità e accesso della soluzione Sicurezza e controllo di OMS. Questo dashboard consente ai responsabili degli account di monitorare l'uso degli account del sistema informatico. È possibile configurare OMS per inviare avvisi in caso di attività atipica sospetta o se si verificano altri eventi predefiniti. |
+| **Cliente** | Questo progetto implementa il dashboard Identità e accesso della soluzione Sicurezza e controllo. Questo dashboard consente ai responsabili degli account di monitorare l'uso degli account del sistema informatico. Può essere configurato per inviare avvisi in caso di attività atipica sospetta o se si verificano altri eventi predefiniti. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto implementa questi tipi di account del sistema: utenti di Azure Active Directory, utenti del sistema operativo Windows, account del servizio SQL Server. Le azioni di gestione degli account Azure Active Directory generano un evento nel log attività di Azure. Le azioni di gestione degli account a livello di sistema operativo generano un evento nel log di sistema. Questi log vengono raccolti da Log Analytics e archiviati nel repository di OMS. È possibile configurare OMS per inviare avvisi quando si verificano eventi predefiniti.  |
+| **Cliente** | Questo progetto implementa questi tipi di account del sistema: utenti di Azure Active Directory, utenti del sistema operativo Windows, account del servizio SQL Server. Le azioni di gestione degli account Azure Active Directory generano un evento nel log attività di Azure. Le azioni di gestione degli account a livello di sistema operativo generano un evento nel log di sistema. Questi log vengono raccolti da Log Analytics e archiviati nell'area di lavoro di Log Analytics. È possibile configurare Log Analytics per inviare avvisi quando si verificano eventi predefiniti.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto implementa il dashboard Identità e accesso della soluzione Sicurezza e controllo di OMS. Questo dashboard consente ai responsabili degli account di monitorare l'uso degli account del sistema informatico. È possibile interrogare la soluzione per segnalare le assegnazioni di ruolo con privilegi. |
+| **Cliente** | Questo progetto implementa il dashboard Identità e accesso della soluzione Sicurezza e controllo. Questo dashboard consente ai responsabili degli account di monitorare l'uso degli account del sistema informatico. È possibile interrogare la soluzione per segnalare le assegnazioni di ruolo con privilegi. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto implementa il dashboard Identità e accesso della soluzione Sicurezza e controllo di OMS. Questo dashboard consente ai responsabili degli account di monitorare i tentativi di accesso sulle risorse distribuite. |
+| **Cliente** | Questo progetto implementa il dashboard Identità e accesso della soluzione Sicurezza e controllo. Questo dashboard consente ai responsabili degli account di monitorare i tentativi di accesso sulle risorse distribuite. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto implementa il dashboard Identità e accesso della soluzione Sicurezza e controllo di OMS. Questo dashboard consente ai responsabili degli account di monitorare i tentativi di accesso sulle risorse distribuite. È possibile configurare la soluzione per inviare avvisi in caso di attività atipica sospetta o se si verificano altri eventi predefiniti. |
+| **Cliente** | Questo progetto implementa il dashboard Identità e accesso della soluzione Sicurezza e controllo. Questo dashboard consente ai responsabili degli account di monitorare i tentativi di accesso sulle risorse distribuite. È possibile configurare la soluzione per inviare avvisi in caso di attività atipica sospetta o se si verificano altri eventi predefiniti. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -609,7 +609,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto implementa il servizio Log Analytics in OMS. Le macchine virtuali e gli account di archiviazione di Diagnostica di Azure distribuiti sono origini connesse a Log Analytics che garantiscono il controllo dell'esecuzione di funzioni con privilegi. |
+| **Cliente** | Questo progetto implementa il servizio Log Analytics. Le macchine virtuali e gli account di archiviazione di Diagnostica di Azure distribuiti sono origini connesse a Log Analytics che garantiscono il controllo dell'esecuzione di funzioni con privilegi. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto consente l'accesso remoto al sistema informatico tramite il portale di Azure, una connessione Desktop remoto con un jumpbox e un'applicazione Web implementata dal cliente. Gli accessi tramite il portale di Azure e le sessioni Desktop remoto vengono controllati e possono essere monitorati con OMS. Il cliente deve implementare controlli di accesso remoto, in base a quanto necessario, per l'applicazione Web. |
+| **Cliente** | Questo progetto consente l'accesso remoto al sistema informatico tramite il portale di Azure, una connessione Desktop remoto con un jumpbox e un'applicazione Web implementata dal cliente. Gli accessi tramite il portale di Azure e le sessioni Desktop remoto vengono controllati e possono essere monitorati con Log Analytics. Il cliente deve implementare controlli di accesso remoto, in base a quanto necessario, per l'applicazione Web. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 

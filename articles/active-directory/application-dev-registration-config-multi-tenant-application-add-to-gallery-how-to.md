@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 82f7abbe5814f9b154b6888d5b599e7706eb879b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 51a088ccdcc018b85a70f72a5f88fab8de3c7363
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Aggiungere un'applicazione multi-tenant alla raccolta di applicazioni di Azure AD
 
@@ -28,9 +28,9 @@ Azure Active Directory (Azure AD) è un servizio per la gestione delle identità
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Se l'applicazione supporta SAML o OpenIDConnect
 Se si dispone di un'applicazione multi-tenant che si vuole inserire nella raccolta di applicazioni di Azure AD, è prima necessario assicurarsi che l'applicazione supporti una delle tecnologie seguenti Single Sign-On:
 
-- **OpenID Connect**: per includere l'app nell'elenco, creare l'applicazione multi-tenant in Azure AD e implementare il [framework di consenso di Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) per l'applicazione. Inviare la richiesta di accesso all'endpoint comune, in modo che qualsiasi cliente possa fornire il consenso all'applicazione. È possibile controllare l'accesso utente in base all'ID del tenant e all'UPN dell'utente ricevuti nel token. Inviare l'applicazione usando il processo descritto in [Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **OpenID Connect**: per includere l'app nell'elenco, creare l'applicazione multi-tenant in Azure AD e implementare il [framework di consenso di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) per l'applicazione. Inviare la richiesta di accesso all'endpoint comune, in modo che qualsiasi cliente possa fornire il consenso all'applicazione. È possibile controllare l'accesso utente in base all'ID del tenant e all'UPN dell'utente ricevuti nel token. Inviare l'applicazione usando il processo descritto in [Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-- **SAML**: se l'applicazione supporta SAML 2.0, l'app può essere inclusa nella raccolta. Attenersi alle istruzioni descritte in [Inserimento dell'applicazione nella raccolta di applicazioni di Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **SAML**: se l'applicazione supporta SAML 2.0, l'app può essere inclusa nella raccolta. Attenersi alle istruzioni descritte in [Inserimento dell'applicazione nella raccolta di applicazioni di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Se l'applicazione non supporta SAML o OpenIDConnect
 Le applicazioni che non supportano SAML o OpenIDConnect possono comunque essere integrate in una raccolta di app tramite la tecnologia Single Sign-On basata su password.
@@ -38,8 +38,8 @@ Le applicazioni che non supportano SAML o OpenIDConnect possono comunque essere 
 La tecnologia Single Sign-On basata su password, definita anche insieme di credenziali delle password, consente di gestire l'accesso degli utenti e le password per le applicazioni Web che non supportano la federazione delle identità. Risulta utile anche negli scenari in cui più utenti devono condividere un unico account, ad esempio agli account di app di social media dell'organizzazione. 
 
 Per inserire l'applicazione nella raccolta tramite questa tecnologia:
-1. Creare un'applicazione Web con una pagina di accesso HTML per configurare l'[accesso Single Sign-On basato su password](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis). 
-2. Inviare la richiesta come descritto in [Inserimento dell'applicazione nella raccolta di applicazioni di Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
+1. Creare un'applicazione Web con una pagina di accesso HTML per configurare l'[accesso Single Sign-On basato su password](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). 
+2. Inviare la richiesta come descritto in [Inserimento dell'applicazione nella raccolta di applicazioni di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## <a name="escalations"></a>Escalation
 

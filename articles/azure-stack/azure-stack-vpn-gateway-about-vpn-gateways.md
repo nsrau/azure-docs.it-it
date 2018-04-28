@@ -1,11 +1,11 @@
 ---
 title: Sul gateway VPN per lo Stack di Azure | Documenti Microsoft
-description: "Informazioni e configurare il gateway VPN che è utilizzare con lo Stack di Azure."
+description: Informazioni e configurare il gateway VPN che è utilizzare con lo Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: ba9642d8c51f57623aded44b84d7127334806bc1
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: MT
+ms.openlocfilehash: 9c821f20ce5826666a05121e1a39882fae0930d3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Sul gateway VPN per lo Stack di Azure
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
@@ -87,13 +87,14 @@ Nella scelta di uno SKU, considerare quanto segue:
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Velocità effettiva aggregata stimata per SKU
 La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregata stimata per SKU di gateway.
 
-|   | Velocità effettiva Gateway VPN *(1)* |Tunnel IPsec max Gateway VPN |
+|   | Velocità effettiva Gateway VPN *(1)* | Tunnel IPsec max Gateway VPN *(2)* |
 |-------|-------|-------|
-|**SKU Basic** ***(2)***    | 100 Mbps  | 10    |
+|**SKU Basic** ***(3)***    | 100 Mbps  | 10    |
 |**SKU standard**       | 100 Mbps  | 10    |
-|**SKU con prestazioni elevate** | 200 Mbps    | 30    |
+|**SKU con prestazioni elevate** | 200 Mbps    | 5 |
 ***(1)***  Velocità effettiva di VPN non è una velocità effettiva garantita per le connessioni cross-premise via Internet. È la misura massima possibile per la velocità effettiva.  
-***(2)***  BGP non è supportato per SKU Basic.
+***(2)***  Tunnel n. max corrisponde al totale per ogni distribuzione di Azure Stack per tutte le sottoscrizioni.
+***(3)***  BGP non è supportato per lo SKU Basic.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su [delle impostazioni per il gateway VPN](azure-stack-vpn-gateway-settings.md) per lo Stack di Azure.

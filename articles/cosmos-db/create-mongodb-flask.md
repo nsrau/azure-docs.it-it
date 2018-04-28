@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/2/2017
 ms.author: hshapiro
-ms.openlocfilehash: 7fd25a1181e1a4d69bf8233b34a4c416378e0181
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d089dd24df3308994aab0cf135da8be9a3e28d79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: compilare un'app Flask con l'API MongoDB
 
@@ -42,8 +42,19 @@ Questa guida introduttiva usa l'[esempio di Flask](https://github.com/Azure-Samp
 
 Clonare ora un'app per le API MongoDB di Flask da GitHub, impostare la stringa di connessione ed eseguirla. Come si noterà, è facile usare i dati a livello di codice.
 
-1. Aprire una finestra del terminale Git, ad esempio Git Bash, ed eseguire il comando `cd` per passare a una directory di lavoro.
-2. Eseguire il comando seguente per clonare l'archivio di esempio.
+1. Aprire un prompt dei comandi, creare una nuova cartella denominata git-samples e quindi chiudere il prompt dei comandi.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Aprire una finestra del terminale Git, ad esempio Git Bash, ed eseguire il comando `cd` per passare a una nuova cartella in cui installare l'app di esempio.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Eseguire il comando seguente per clonare l'archivio di esempio. Questo comando crea una copia dell'app di esempio nel computer in uso.
 
     ```bash
     git clone https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample.git
@@ -57,7 +68,9 @@ Clonare ora un'app per le API MongoDB di Flask da GitHub, impostare la stringa d
 
 ## <a name="review-the-code"></a>Esaminare il codice
 
-Ecco una breve analisi di ciò che accade nell'app. Aprire il file **app.py** nella directory radice. Come si nota, queste righe di codice creano la connessione di Azure Cosmos DB. Il codice seguente usa la stringa di connessione per l'emulatore di Azure Cosmos DB locale. La password deve essere suddivisa come illustrato sotto per contenere le barre che non possono essere analizzate in altro modo.
+Questo passaggio è facoltativo. Per scoprire in che modo le risorse del database vengono create nel codice, è possibile esaminare i frammenti di codice seguenti. Altrimenti è possibile passare direttamente a [Eseguire l'app Web](#run-the-web-app). 
+
+Tutti i frammenti di codice seguenti sono tratti dal file app.py e usano la stringa di connessione per l'emulatore di Azure Cosmos DB locale. La password deve essere suddivisa come illustrato sotto per contenere le barre che non possono essere analizzate in altro modo.
 
 * Inizializzare il client MongoDB, recuperare il database ed eseguire l'autenticazione.
 
@@ -142,10 +155,7 @@ Se non si vuole creare un fork di questo repository, è anche possibile fare cli
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se non si intende continuare a usare l'app, eliminare tutte le risorse create tramite questa guida di avvio rapido nel portale di Azure eseguendo questi passaggi:
-
-1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi fare clic sul nome della risorsa creata.
-2. Nella pagina del gruppo di risorse fare clic su **Elimina**, digitare il nome della risorsa da eliminare nella casella di testo e quindi fare clic su **Elimina**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

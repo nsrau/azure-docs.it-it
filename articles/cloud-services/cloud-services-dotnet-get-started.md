@@ -1,11 +1,11 @@
 ---
 title: Introduzione a Servizi cloud di Azure e ASP.NET | Documentazione Microsoft
-description: "Informazioni sulla creazione di un app a più livelli con ASP.NET MVC e Azure. L'app viene eseguita in un servizio cloud, con un ruolo Web e un ruolo di lavoro. Usa Entity Framework, il database SQL e le code e i BLOB di archiviazione di Azure."
+description: Informazioni sulla creazione di un app a più livelli con ASP.NET MVC e Azure. L'app viene eseguita in un servizio cloud, con un ruolo Web e un ruolo di lavoro. Usa Entity Framework, il database SQL e le code e i BLOB di archiviazione di Azure.
 services: cloud-services, storage
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 704391a60b4ba777b8fd2b156db2ea5587498383
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16d35a6b36f4dd85db430e05abdff898affbfd67
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
 
@@ -34,8 +34,8 @@ Questa applicazione è un BBS pubblicitario. Gli utenti creano un'inserzione tra
 
 L'applicazione usa il [modello di lavoro incentrato sulle code](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) per delegare a un processo back-end il lavoro di creazione delle anteprime, che comporta un utilizzo elevato della CPU.
 
-## <a name="alternative-architecture-websites-and-webjobs"></a>Architettura alternativa: siti Web e processi Web
-Questa esercitazione mostra come eseguire front-end e back-end in un servizio cloud di Azure. In alternativa, si può eseguire il front-end in un [sito Web di Azure](/services/web-sites/) e si può usare la funzionalità [Processi Web](http://go.microsoft.com/fwlink/?LinkId=390226), attualmente disponibile in anteprima, per il back-end. Per un'esercitazione che usa Processi Web, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Per informazioni su come scegliere i servizi ideali per lo scenario specifico, vedere [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure](../app-service/choose-web-site-cloud-service-vm.md).
+## <a name="alternative-architecture-web-apps-and-webjobs"></a>Architettura alternativa: app Web e processi Web
+Questa esercitazione mostra come eseguire front-end e back-end in un servizio cloud di Azure. In alternativa, si può eseguire il front-end in un'[app Web di Azure](/azure/app-service/) e si può usare la funzionalità [Processi Web](http://go.microsoft.com/fwlink/?LinkId=390226) per il back-end. Per un'esercitazione che usa Processi Web, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Per informazioni su come scegliere i servizi ideali per lo scenario specifico, vedere [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## <a name="what-youll-learn"></a>Contenuto dell'esercitazione
 * Abilitare il sistema per lo sviluppo in Azure installando Azure SDK.
@@ -767,7 +767,6 @@ Di seguito sono indicate alcune applicazioni di esempio per servizi cloud che il
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Concettualmente simile a Contoso Ads, implementa però più funzionalità e procedure più simili a quelle del mondo reale.
 * [Applicazione multilivello di Servizi cloud di Azure con tabelle, code e BLOB](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduce le tabelle di archiviazione di Azure, nonché i BLOB e le code. Basata su una versione precedente di Azure SDK per .NET, richiederà alcune modifiche per funzionare con la versione corrente.
-* [Nozioni fondamentali su Servizi cloud in Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Un esempio completo che illustra una vasta gamma di procedure consigliate, creato dal gruppo Microsoft Patterns and Practices.
 
 Per informazioni generali sullo sviluppo per il cloud, vedere l'articolo relativo alla [creazione di applicazioni cloud funzionanti con Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
@@ -777,5 +776,5 @@ Per altre informazioni, vedere le seguenti risorse:
 
 * [Servizi cloud di Azure - Parte 1: Introduzione](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Come gestire i servizi cloud](cloud-services-how-to-manage-portal.md)
-* [Archiviazione di Azure](/documentation/services/storage/)
+* [Archiviazione di Azure](https://docs.microsoft.com/azure/storage/)
 * [Come scegliere un provider di servizi cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

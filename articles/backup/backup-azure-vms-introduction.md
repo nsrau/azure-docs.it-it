@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 47d5da880f47831274fe05817ac9c488464d3096
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: markgal;trinadhk;sogup
+ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Pianificare l'infrastruttura di backup delle VM in Azure
 Questo articolo fornisce suggerimenti relativi alle prestazioni e alle risorse per semplificare la pianificazione dell'infrastruttura di backup delle macchine virtuali. Definisce anche gli elementi fondamentali del servizio Backup. Questi aspetti possono essere essenziali per determinare l'architettura, la pianificazione della capacità e la pianificazione generale. Se è stato [preparato l'ambiente](backup-azure-arm-vms-prepare.md), la pianificazione è il passaggio successivo prima di iniziare a [eseguire il backup delle VM](backup-azure-arm-vms.md). Per altre informazioni sulle macchine virtuali di Azure, vedere [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -99,7 +99,8 @@ Nonostante la maggior parte del tempo di backup venga impiegata per la lettura e
 
 * Tempo necessario per l' [installazione o l'aggiornamento dell'estensione per il backup](backup-azure-arm-vms.md).
 * Tempo dello snapshot, ovvero il tempo impiegato per attivare uno snapshot. Gli snapshot vengono attivati vicino al momento del backup pianificato.
-* Tempo di attesa di coda. Poiché il servizio di backup elabora i backup di più clienti, è possibile che la copia dei dati di backup dallo snapshot nell'insieme di credenziali di Backup o di Servizi di ripristino non venga avviata immediatamente. Nei periodi di massimo carico, l'attesa può durare al massimo 8 ore a causa del numero di backup in corso di elaborazione. Tuttavia, il tempo di backup totale della macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
+* Tempo di attesa di coda. Poiché il servizio di backup elabora i backup di più clienti, è possibile che la copia dei dati di backup dallo snapshot nell'insieme di credenziali di Backup o di Servizi di ripristino non venga avviata immediatamente. Nei periodi di massimo carico, l'attesa può durare al massimo 8 ore a causa del numero di backup in corso di elaborazione. Tuttavia, il tempo di backup totale della macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri. <br>
+**Questo vale solo per i backup incrementali e non per il primo backup. Il tempo del primo backup è proporzionale e può essere superiore a 24 ore in base alle dimensioni dei dati e all'ora in cui si esegue il backup.**
 * L'ora del trasferimento dati, necessaria al servizio di backup per calcolare le modifiche incrementali da backup e trasferimento precedenti, cambia nell'archiviazione dell'insieme di credenziali.
 
 ### <a name="why-am-i-observing-longer12-hours-backup-time"></a>Perché si registrano tempi di backup superiori alle 12 ore?

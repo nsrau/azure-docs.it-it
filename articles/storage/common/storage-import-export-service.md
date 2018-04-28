@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: cc36fdde962ec44d679dc0e96f440b0437a84fa8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4d6177fe0a50c531ba6c4b3e87eaa08299af2ddd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati in Archiviazione di Azure
 Questo articolo fornisce istruzioni dettagliate sull'uso del servizio Importazione/Esportazione di Azure per trasferire in modo sicuro grandi quantità di dati in Archiviazione di Azure e in File di Azure tramite la spedizione delle unità disco a un data center di Azure. È anche possibile usare questo servizio per trasferire i dati da Archiviazione di Azure a unità disco rigido per la spedizione al sito locale. È possibile importare i dati da un'unica unità disco SATA interna ad Archiviazione BLOB di Azure o a File di Azure. 
@@ -29,7 +29,7 @@ Seguire la procedura seguente se è necessario importare i dati sul disco in Arc
 2.  In base alle dimensioni totali dei dati, procurare il numero necessario di unità SSD da 2,5 pollici o dischi rigidi SATA II/III da 2,5 o 3,5 pollici.
 3.  Collegare i dischi rigidi a un computer Windows usando direttamente SATA o gli adattatori USB esterni.
 1.  Creare un singolo volume NTFS in ogni disco rigido e assegnare una lettera di unità al volume. Nessun punto di montaggio.
-2.  Per abilitare la crittografia nel computer Windows, è necessario abilitare la crittografia BitLocker sul volume NTFS. Usare le istruzioni in https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+2.  Per abilitare la crittografia nel computer Windows, è necessario abilitare la crittografia BitLocker sul volume NTFS. Usare le istruzioni in https://technet.microsoft.com/library/cc731549(v=ws.10).aspx.
 3.  Copiare tutti i dati nei volumi NTFS crittografati sui dischi usando le funzionalità di copia e incolla o di trascinamento, oppure usare uno strumento come Robocopy.
 7.  Scaricare WAImportExport V1 da https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Decomprimere il file nella cartella waimportexportv1 predefinita. Ad esempio, C:\WaImportExportV1  
@@ -560,7 +560,7 @@ La dimensione massima di un BLOB di pagine è 1 TB.
 
 Per impostazione predefinita, il servizio Importazione/Esportazione di Azure usa la crittografia bitlocker AES 128, ma può usare AES 256 eseguendo la crittografia manuale con bitlocker prima che i dati vengono copiati. 
 
-Se si usa [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), di seguito viene indicato un comando di esempio
+Se si usa [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), di seguito viene indicato un comando di esempio
 ```
 WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
 ```

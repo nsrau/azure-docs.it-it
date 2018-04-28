@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2018
 ms.author: yurid
-ms.openlocfilehash: e2e8b16bf720e2be8b8bc8ae81fc944af79dddab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0c5f7a932cef904abbca25b63cf8e0d96db73c29
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del Centro sicurezza di Azure
 Questa guida è destinata a professionisti IT, analisti della sicurezza delle informazioni e amministratori cloud le cui organizzazioni usano il Centro sicurezza di Azure e devono risolvere i problemi correlati.
@@ -39,7 +39,7 @@ Questa guida illustra come risolvere i problemi correlati al Centro sicurezza. L
 Il log di controllo contiene tutte le operazioni di scrittura (PUT, POST, DELETE) eseguite sulle risorse, ma non include quelle di lettura (GET).
 
 ## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
-Il Centro sicurezza usa Microsoft Monitoring Agent, lo stesso agente usato da Operations Management Suite e dal servizio Log Analytics, per raccogliere dati di protezione dalle macchine virtuali di Azure. Dopo avere abilitato la raccolta dei dati e installato correttamente l'agente nel computer di destinazione, sarà in esecuzione il processo seguente:
+Il Centro sicurezza usa Microsoft Monitoring Agent, lo stesso agente usato dal servizio Log Analytics, per raccogliere dati sulla sicurezza dalle macchine virtuali di Azure. Dopo avere abilitato la raccolta dei dati e installato correttamente l'agente nel computer di destinazione, sarà in esecuzione il processo seguente:
 
 * HealthService.exe
 
@@ -84,7 +84,7 @@ Esistono due scenari di installazione che possono produrre risultati diversi qua
 Per far sì che gli agenti si connettano e si registrino con il Centro sicurezza, devono avere accesso alle risorse di rete, compresi gli URL di dominio e i numeri di porta.
 
 - Per i server proxy, è necessario assicurarsi che le risorse del server proxy appropriate siano configurate nelle impostazioni dell'agente. Leggere questo articolo per altre informazioni su [come modificare le impostazioni del proxy](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
-- Per i firewall che limitano l'accesso a Internet, è necessario configurare il firewall per consentire l'accesso a OMS. Non è necessaria alcuna azione sulle impostazioni dell'agente.
+- Per i firewall che limitano l'accesso a Internet, è necessario configurare il firewall per consentire l'accesso a Log Analytics. Non è necessaria alcuna azione sulle impostazioni dell'agente.
 
 Nella tabella seguente vengono visualizzate le risorse necessarie per la comunicazione.
 

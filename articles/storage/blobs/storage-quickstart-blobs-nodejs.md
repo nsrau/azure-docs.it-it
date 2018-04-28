@@ -1,19 +1,19 @@
 ---
-title: 'Guida introduttiva di Azure: Caricare, scaricare ed elencare BLOB in Archiviazione di Azure con Node.js | Microsoft Docs'
-description: In questa guida introduttiva viene creato un account di archiviazione e un contenitore. Si usa quindi la libreria client di archiviazione per Node.js per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
+title: Guida introduttiva di Azure - Creare un BLOB nell'archivio oggetti con Node.js | Microsoft Docs
+description: In questa guida introduttiva si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). Si usa quindi la libreria client di archiviazione per Node.js per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 services: storage
 author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: 8783b83a1a94caf4a49f9da7a2dd30c9cb52df22
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 30a64ec6fd4df63eba9c35f1774c81c35fa3506f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Node.js
 
@@ -82,7 +82,7 @@ Di seguito è descritto lo scopo di questi moduli:
 - *dotenv* carica le variabili di ambiente definite in un file denominato *.env* nel contesto di esecuzione corrente
 - *path* è necessario per determinare il percorso assoluto del file da caricare nell'archivio BLOB
 - *yargs* espone un'interfaccia semplice per accedere agli argomenti della riga di comando
-- *azure-storage* è il modulo [Azure Storage SDK](/nodejs/api/azure-storage) per Node.js
+- *azure-storage* è il modulo [Azure Storage SDK](https://docs.microsoft.com/javascript/api/azure-storage) per Node.js
 
 Viene quindi inizializzata una serie di variabili:
 
@@ -294,4 +294,4 @@ Questa guida introduttiva mostra come caricare un file tra un disco locale e Arc
 > [!div class="nextstepaction"]
 > [Procedura relativa alle operazioni di archiviazione BLOB](storage-nodejs-how-to-use-blob-storage.md)
 
-Per informazioni di riferimento su Node.js per Archiviazione di Azure, vedere [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest).
+Per informazioni di riferimento su Node.js per Archiviazione di Azure, vedere [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage).

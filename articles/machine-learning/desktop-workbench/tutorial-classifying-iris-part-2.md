@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: b0d268937300abd105349d340f7bf1dae398fa8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 24ac4d699a511cc99936cb2cd4b245de01984163
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Esercitazione 2: Classificare i dati Iris - Creare un modello
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -280,7 +280,7 @@ In Azure Machine Learning Workbench l'esecuzione di ogni script viene acquisita 
    >[!IMPORTANT]
    >È necessario usare questa finestra dell'interfaccia della riga di comando per completare i passaggi successivi.
 
-1. Accedere ad Azure nella finestra dell'interfaccia della riga di comando. [Altre informazioni su az login](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1. Accedere ad Azure nella finestra dell'interfaccia della riga di comando. [Altre informazioni su az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
    È possibile che l'accesso sia già stato eseguito. In questo caso è possibile ignorare questo passaggio.
 

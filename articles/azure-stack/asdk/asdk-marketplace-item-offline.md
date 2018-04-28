@@ -2,11 +2,11 @@
 title: Aggiungere un elemento del marketplace dello Stack di Azure da un'origine locale | Documenti Microsoft
 description: Viene descritto come aggiungere un'immagine del sistema operativo locale a Azure Marketplace dello Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 296719ddd23fb9ee717455420906e9a634a71a8d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
-ms.translationtype: MT
+ms.openlocfilehash: 815dc055e19a38a61cbb3e927c3d7e92393b17dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-add-an-azure-stack-marketplace-item-from-a-local-source"></a>Esercitazione: aggiungere un elemento del marketplace dello Stack di Azure da un'origine locale
 
@@ -84,7 +84,7 @@ Utilizzare questa opzione se è stato distribuito Azure Stack in uno scenario di
         -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
         -EnvironmentName AzureStackAdmin
 
-      Login-AzureRmAccount `
+      Connect-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID 
       ```
@@ -112,7 +112,7 @@ Utilizzare questa opzione se è stato distribuito Azure Stack in uno scenario di
       -ADFS `
       -EnvironmentName "AzureStackAdmin" 
 
-      Login-AzureRmAccount `
+      Connect-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID 
       ```

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7abdb674b9d6bb000ce9a8e1861d012c1882f2a5
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 7a7529f9a0ebe43c9fd6e473baff6f7a3b61e5e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="risk-assessment-ra"></a>Valutazione dei rischi
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto distribuisce la soluzione OMS Sicurezza e controllo. Questa soluzione offre una panoramica completa delle condizioni di sicurezza. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. La valutazione baseline valuta un set di chiavi del Registro di sistema, impostazioni dei criteri di controllo e impostazioni di criteri di sicurezza, oltre ai valori consigliati di Microsoft per queste impostazioni. La valutazione dell'aggiornamento valuta lo stato degli aggiornamenti disponibili su tutte le macchine virtuali distribuite. |
+| **Cliente** | Questo progetto distribuisce la soluzione Sicurezza e controllo. Questa soluzione offre una panoramica completa delle condizioni di sicurezza. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. La valutazione baseline valuta un set di chiavi del Registro di sistema, impostazioni dei criteri di controllo e impostazioni di criteri di sicurezza, oltre ai valori consigliati di Microsoft per queste impostazioni. La valutazione dell'aggiornamento valuta lo stato degli aggiornamenti disponibili su tutte le macchine virtuali distribuite. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto distribuisce la soluzione OMS Sicurezza e controllo. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. Ai problemi individuati vengono assegnati punteggi di gravità. Per le regole di valutazione baseline sono forniti ID di enumerazione della configurazione comune.  |
+| **Cliente** | Questo progetto distribuisce la soluzione Sicurezza e controllo. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. Ai problemi individuati vengono assegnati punteggi di gravità. Per le regole di valutazione baseline sono forniti ID di enumerazione della configurazione comune.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto distribuisce la soluzione OMS Sicurezza e controllo. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. I criteri con cui queste soluzioni eseguono la valutazione sono aggiornati automaticamente. |
+| **Cliente** | Questo progetto distribuisce la soluzione Sicurezza e controllo. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. I criteri con cui queste soluzioni eseguono la valutazione sono aggiornati automaticamente. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto distribuisce la soluzione OMS Sicurezza e controllo. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. I criteri con cui queste soluzioni eseguono la valutazione sono aggiornati automaticamente. |
+| **Cliente** | Questo progetto distribuisce la soluzione Sicurezza e controllo. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. I criteri con cui queste soluzioni eseguono la valutazione sono aggiornati automaticamente. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto distribuisce la soluzione OMS Sicurezza e controllo. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. La valutazione degli aggiornamenti esegue le valutazioni sia con macchine virtuali Windows sia Linux. La valutazione baseline esegue le valutazioni con macchine virtuali Windows che utilizzano una baseline sviluppata da Windows in base alle procedure consigliate del settore. |
+| **Cliente** | Questo progetto distribuisce la soluzione Sicurezza e controllo. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. La valutazione degli aggiornamenti esegue le valutazioni sia con macchine virtuali Windows sia Linux. La valutazione baseline esegue le valutazioni con macchine virtuali Windows che utilizzano una baseline sviluppata da Windows in base alle procedure consigliate del settore. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | OMS offre la possibilità di creare riquadri del dashboard personalizzati per analizzare i dati raccolti da Log Analytics e Microsoft Monitoring Agent. Questi riquadri possono essere personalizzati per visualizzare le tendenze nel tempo. |
+| **Cliente** | Azure offre la possibilità di creare riquadri del dashboard personalizzati per analizzare i dati raccolti da Log Analytics e Microsoft Monitoring Agent. Questi riquadri possono essere personalizzati per visualizzare le tendenze nel tempo. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -329,5 +329,5 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto distribuisce la soluzione OMS Sicurezza e controllo. Questa soluzione offre una panoramica completa delle condizioni di sicurezza. Il dashboard Sicurezza e controllo offre informazioni di alto livello sullo stato di sicurezza delle risorse distribuite usando i dati disponibili nelle soluzioni OMS distribuite. |
+| **Cliente** | Questo progetto distribuisce la soluzione Sicurezza e controllo. Questa soluzione offre una panoramica completa delle condizioni di sicurezza. Il dashboard Sicurezza e controllo offre informazioni di alto livello sullo stato di sicurezza delle risorse distribuite usando i dati disponibili nelle soluzioni di gestione distribuite. |
 | **Provider (Microsoft Azure)** | Non applicabile |

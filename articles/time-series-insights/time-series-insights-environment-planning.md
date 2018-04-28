@@ -1,6 +1,6 @@
 ---
 title: Ridimensionare l'ambiente Time Series Insights di Azure | Microsoft Docs
-description: "In questo articolo viene descritto come seguire le procedure consigliate durante la pianificazione di un ambiente Azure Time Series Insights, ad esempio relativamente a capacità di archiviazione, conservazione dei dati, capacità in ingresso e monitoraggio."
+description: In questo articolo viene descritto come seguire le procedure consigliate durante la pianificazione di un ambiente Azure Time Series Insights, ad esempio relativamente a capacità di archiviazione, conservazione dei dati, capacità in ingresso e monitoraggio.
 services: time-series-insights
 ms.service: time-series-insights
 author: jasonwhowell
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 5fb158ba162dd199f419f9568de08a7a18c833dd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 991db58db1bb07f338c0f80aa4db69ddb868dcab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Pianificare l'ambiente Azure Time Series Insights
 
@@ -32,6 +32,8 @@ Prendere in considerazione gli attributi seguenti per ottimizzare la pianificazi
 - Capacità di archiviazione
 - Periodo di conservazione dei dati
 - Capacità in ingresso 
+- Forme degli eventi
+- Assicurarsi di avere dati di riferimento a disposizione
 
 ## <a name="understand-storage-capacity"></a>Introduzione alla capacità di archiviazione
 Per impostazione predefinita, Time Series Insights conserva i dati in base alla quantità di spazio di archiviazione di cui è stato eseguito il provisioning (unità moltiplicate per la quantità di spazio di archiviazione per unità) e al traffico in ingresso.
@@ -74,15 +76,26 @@ Ad esempio, se è presente un'unica SKU S1 e i dati in ingresso hanno una veloci
 
 Non è possibile determinare in anticipo la quantità di dati di cui si prevede di eseguire il push. In questo caso è possibile fare riferimento ai dati di telemetria relativi a [Hub IoT di Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) e [Hub eventi di Azure](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) nel portale di Azure. Questi dati di telemetria consentono di determinare come eseguire il provisioning dell'ambiente. Nel portale di Azure usare la pagina **Metriche** relativa all'origine dell'evento desiderata per visualizzare i dati di telemetria corrispondenti. Dopo aver analizzato attentamente le metriche relative all'origine evento, è possibile eseguire in modo più efficiente la pianificazione e il provisioning dell'ambiente Time Series Insights.
 
-## <a name="calculate-ingress-requirements"></a>Calcolare i requisiti del traffico in ingresso
+### <a name="calculate-ingress-requirements"></a>Calcolare i requisiti del traffico in ingresso
 
 - Verificare se la capacità in ingresso è superiore alla velocità media al minuto e se le dimensioni dell'ambiente sono sufficienti per la gestione del traffico in ingresso previsto a una capacità doppia per meno di un'ora.
 
 - Se si verificano picchi del traffico in ingresso che durano più di un'ora, usare la velocità di picco come media ed eseguire il provisioning di un ambiente usando tale capacità per gestire la velocità di picco.
  
-## <a name="mitigate-throttling-and-latency"></a>Ridurre la limitazione e la latenza
+### <a name="mitigate-throttling-and-latency"></a>Ridurre la limitazione e la latenza
 
 Per informazioni su come evitare la limitazione e la latenza, vedere [Ridurre la limitazione e la latenza](time-series-insights-environment-mitigate-latency.md). 
+
+## <a name="shaping-your-events"></a>Forme degli eventi
+È importante assicurarsi che la modalità di invio degli eventi a Time Series Insights usata supporti le dimensioni dell'ambiente di cui si esegue il provisioning. In alternativa, è possibile mappare le dimensioni dell'ambiente al numero di eventi letti da Time Series Insights e alle dimensioni di ogni evento.  Analogamente, è importante tenere conto degli attributi che potrebbe essere necessario sezionare e filtrare durante l'esecuzione di query sui dati.  Considerando questi aspetti, è consigliabile esaminare la sezione dedicata alle forme JSON supportate nella documentazione *Inviare eventi* [documentazione] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-send-events).  Questa sezione è verso la fine della pagina.  
+
+## <a name="ensuring-you-have-reference-data-in-place"></a>Assicurarsi di avere dati di riferimento a disposizione
+Un set di dati di riferimento è una raccolta di elementi che aumentano gli eventi dell'origine evento. Il motore in ingresso di Time Series Insights crea un join tra ogni evento dell'origine evento e la riga di dati corrispondente nel set di dati di riferimento. Questo evento aumentato sarà quindi disponibile per le query. Questo join è basato sulla colonna o le colonne di chiavi primarie definite nel set di dati di riferimento.
+
+Si noti che non viene creato un join dei dati di riferimento in maniera retroattiva. Questo significa che solo i dati in ingresso correnti e futuri vengono uniti in join al set di dati di riferimento, appena viene configurato e caricato.  Se si prevede di inviare molti dati cronologici a Time Series Insights e non si caricano o creano i dati di riferimento in Time Series Insights prima di tutto, potrebbe essere necessario rieseguire il lavoro.  
+
+Per altre informazioni su come creare, caricare e gestire i dati di riferimento in Time Series Insights, vedere la documentazione dedicata ai *dati di riferimento* [documentazione] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Come aggiungere un'origine evento di un hub eventi](time-series-insights-how-to-add-an-event-source-eventhub.md)

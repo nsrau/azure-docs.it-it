@@ -1,11 +1,11 @@
 ---
 title: Chiamare i programmi Spark da Azure Data Factory | Microsoft Docs
-description: "Informazioni su come chiamare programmi Spark da una data factory di Azure usando l'attività MapReduce."
+description: Informazioni su come chiamare programmi Spark da una data factory di Azure usando l'attività MapReduce.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9df8b0987378fef37c7ca8f24070a88cbfc42f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Chiamare i programmi Spark dalle pipeline Azure Data Factory
 
@@ -59,7 +59,7 @@ Di seguito viene illustrata la procedura usata in genere per creare una pipeline
 
 2. Creare un cluster Spark in HDInsight seguendo le istruzioni riportate nell'esercitazione [Creare un cluster Spark in HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associare l'account di archiviazione creato al passaggio 1 a questo cluster.
 
-3. Scaricare e leggere il file di script Python **test.py** disponibile nel sito Web all'indirizzo [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
+3. Scaricare ed esaminare il file di script di Python **test.py** che si trova in [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
 
 4. Caricare **test.py** nella cartella **pyFiles** nel contenitore **adfspark** nell'archiviazione BLOB. Creare la cartella e il contenitore, se non esistono.
 
@@ -84,7 +84,7 @@ Per creare una data factory, seguire questa procedura:
 7. Selezionare **Create**.
 
    > [!IMPORTANT]
-   > Per creare istanze di data factory, l'utente deve essere membro del ruolo [Collaboratore Data factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.
+   > Per creare istanze di data factory, l'utente deve essere membro del ruolo [Collaboratore Data factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.
 
 8. Nel dashboard del portale di Azure viene visualizzata la data factory creata.
 

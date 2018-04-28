@@ -12,19 +12,19 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 01/05/2018
+ms.topic: article
+ms.date: 04/18/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51ae5c9d5e4f363f3762389347de865212b45b9b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e6a29e184a47e3b4304f9c4683e76feab3e75dd4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Backup di macchine virtuali di Azure in insiemi di credenziali di Servizi di ripristino
+# <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Backup di macchine virtuali di Azure in insiemi di credenziali di Servizi di ripristino
 
-Questa esercitazione illustra i passaggi per creare un insieme di credenziali dei servizi di ripristino e per eseguire il backup di una macchina virtuale (VM) di Azure. Gli insiemi di credenziali dei servizi di ripristino proteggono:
+Questo articolo illustra le modalità di configurazione della protezione per una macchina virtuale dal menu Operazioni macchina virtuale o dall'insieme di credenziali di Servizi di ripristino. Gli insiemi di credenziali di Servizi di ripristino proteggono:
 
 * VM distribuite in Azure Resource Manager
 * Macchine virtuali classiche
@@ -36,18 +36,18 @@ Questa esercitazione illustra i passaggi per creare un insieme di credenziali de
 
 Per altre informazioni sulla protezione di macchine virtuali di Archiviazione Premium, vedere l'articolo [Backup e ripristino di macchine virtuali di Archiviazione Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Per altre informazioni sul supporto per macchine virtuali con Managed Disks, vedere [Backup e ripristino di macchine virtuali in Managed Disks](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Per altre informazioni sul framework di script pre-snapshot e post-snapshot per il backup di macchine virtuali Linux, vedere [Backup di macchine virtuali Linux coerente con le applicazioni tramite script pre-snapshot e post-snapshot](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
-Per altre informazioni sui casi in cui è possibile o non è possibile eseguire il backup, fare riferimento [qui](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
+Per altre informazioni su ciò di cui è possibile/non è possibile eseguire il backup, vedere [Preparare l'ambiente per eseguire il backup di macchine virtuali di Azure](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
 
 > [!NOTE]
 > Questa esercitazione presuppone che sia disponibile una VM nella sottoscrizione di Azure e che al servizio Backup sia stato concesso l'accesso alla VM.
 >
 >
 
-A seconda del numero di macchine virtuali da proteggere, è possibile iniziare da diversi punti. Se si desidera eseguire il backup di più macchine virtuali in un'unica operazione, passare all'insieme di credenziali di Servizi di ripristino e [avviare il processo di backup nel dashboard dell'insieme di credenziali](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Se si desidera eseguire il backup di una singola macchina virtuale, è possibile avviarne il processo dal pannello di gestione della macchina virtuale.
+A seconda del numero di macchine virtuali da proteggere, è possibile iniziare da diversi punti. Se si desidera eseguire il backup di più macchine virtuali in un'unica operazione, passare all'insieme di credenziali di Servizi di ripristino e [avviare il processo di backup nel dashboard dell'insieme di credenziali](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Se si desidera eseguire il backup di una singola macchina virtuale, [avviare il processo dal menu Operazioni macchina virtuale](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu).
 
-## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>Configurare il processo di backup dal pannello di gestione della macchina virtuale
+## <a name="configure-the-backup-job-from-the-vm-operations-menu"></a>Configurare il processo di backup dal menu Operazioni macchina virtuale
 
-Usare i passaggi seguenti per configurare il processo di backup dal pannello di gestione della macchina virtuale nel portale di Azure. La procedura seguente è applicabile solo alle macchine virtuali nel portale di Azure.
+Usare i passaggi seguenti per configurare il processo di backup dal menu Operazioni macchina virtuale. La procedura è applicabile solo alle macchine virtuali nel portale di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Tutti i servizi** nel menu Hub e digitare **Macchine virtuali** nella finestra di dialogo Filtro. Durante la digitazione verrà filtrato l'elenco di risorse. Dopo averla individuata, selezionare la voce Macchine virtuali.
@@ -62,59 +62,58 @@ Usare i passaggi seguenti per configurare il processo di backup dal pannello di 
 
   ![Verrà visualizzato l'elenco di macchine virtuali nella sottoscrizione.](./media/backup-azure-vms-first-look-arm/list-of-vms-selected.png)
 
-  Quando si seleziona la macchina virtuale, l'elenco di macchine virtuali si sposta a sinistra e si aprono il pannello di gestione e la dashboard della macchina virtuale. </br>
- ![Pannello di gestione della VM](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
+  Quando si seleziona la macchina virtuale, l'elenco di macchine virtuali si sposta a sinistra e si aprono il menu di gestione e il dashboard della macchina virtuale.
 
-4. Nel pannello di gestione della macchina virtuale, nella sezione **Impostazioni** fare clic su **Backup**. </br>
+4. Nel menu di gestione della macchina virtuale, nella sezione **Operazioni** fare clic su **Backup**. </br>
 
-  ![Opzione di backup nel pannello di gestione della macchina virtuale](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
+  ![Opzione di backup nel menu di gestione della macchina virtuale](./media/backup-azure-vms-first-look-arm/vm-management-menu.png)
 
-  Verrà aperto il pannello Abilita backup.
+  Verrà aperto il menu Abilita backup.
 
-  ![Opzione di backup nel pannello di gestione della macchina virtuale](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+  ![Opzione di backup nel menu di gestione della macchina virtuale](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup.png)
 
-5. Per l'insieme di credenziali di Servizi di ripristino, fare clic su **Seleziona esistente** e scegliere l'insieme di credenziali dall'elenco a discesa.
+5. Nell'area insieme di credenziali di Servizi di ripristino, fare clic su **Seleziona esistente** e scegliere l'insieme di credenziali dall'elenco a discesa.
 
-  ![Procedura guidata Abilita backup](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+  ![Procedura guidata Abilita backup](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
   Se non sono presenti insiemi di credenziali di Servizi di ripristino o se si desidera usare un nuovo insieme, fare clic su **Crea nuovo** e inserire un nome per il nuovo insieme di credenziali. Viene creato un nuovo insieme nello stesso gruppo di risorse e nella stessa area geografica della macchina virtuale. Se si desidera creare un insieme di credenziali di Servizi di ripristino con valori diversi, vedere la sezione su [come creare un insieme di credenziali di Servizi di ripristino](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm).
 
-6. Per visualizzare i dettagli dei criteri di backup, fare clic su **Criteri di backup**.
+6. Dal menu Scegliere i criteri di backup, selezionare un criterio. I dettagli del criterio selezionato saranno visualizzati sotto il menu a discesa.
 
-  Viene visualizzato il pannello **Criteri di backup** che indica i dettagli del criterio selezionato. Se sono presenti altri criteri, usare il menu a discesa per scegliere un diverso criterio di backup. Per creare un criterio, selezionare **Crea nuovo** dal menu a discesa. Per istruzioni sulla definizione di un criterio di backup, vedere [Definizione di un criterio di backup](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Per salvare le modifiche al criterio di backup e tornare al pannello Abilita backup, fare clic su **OK**.
+  Per creare un nuovo criterio o modificare i criteri esistenti, fare clic su **Crea (o modifica) un nuovo criterio** per aprire l'editor Criteri di backup. Per istruzioni sulla definizione di un criterio di backup, vedere [Definizione di un criterio di backup](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Per salvare le modifiche al criterio di backup e tornare al menu Abilita backup, fare clic su **OK**.
 
-  ![Selezionare il criterio di backup](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new-2.png)
+  ![Selezionare il criterio di backup](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
-7. Nel pannello Abilita backup, fare clic su **Abilita backup** per distribuire il criterio. La distribuzione del criterio consente di associarlo all'insieme di credenziali e alle macchine virtuali.
+7. Per applicare i criteri di backup e l'insieme di credenziali di servizi di ripristino alla macchina virtuale, fare clic su **Abilita backup** per distribuire il criterio. La distribuzione del criterio consente di associarlo all'insieme di credenziali e alle macchine virtuali.
 
-  ![Pulsante Abilita backup](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
+  ![Pulsante Abilita backup](./media/backup-azure-vms-first-look-arm/vm-management-menu-enable-backup-button.png)
 
 8. È possibile monitorare l'avanzamento della configurazione tramite le notifiche visualizzate nel portale. L'esempio seguente mostra che la distribuzione ha avuto inizio.
 
   ![Notifica di Abilita backup](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
 
-9. Dopo aver completato la configurazione, fare clic su **Backup** nel pannello di gestione della macchina virtuale per aprire il pannello Elemento di backup e visualizzare i dettagli.
+9. Dopo aver completato la configurazione, fare clic su **Backup** nel menu di gestione della macchina virtuale per aprire il menu Backup e visualizzare i dettagli disponibili.
 
-  ![Visualizzazione dell'elemento di backup della macchina virtuale](./media/backup-azure-vms-first-look-arm/backup-item-view.png)
+  ![Visualizzazione dell'elemento di backup della macchina virtuale](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
-  Fino al completamento del backup iniziale, lo **stato dell'ultimo backup** è **Avviso (backup iniziale in sospeso)**. Per visualizzare la data e l'ora del processo di backup pianificato successivo, fare clic sul nome del criterio in **Criteri di backup**. Viene visualizzato il pannello Criteri di backup in cui viene indicata l'ora del backup pianificato.
+  Fino al completamento del backup iniziale, lo **stato dell'ultimo backup** è **Avviso (backup iniziale in sospeso)**. Per visualizzare la data e l'ora del processo di backup successivo pianificato, fare clic sul nome del criterio in **Riepilogo**. Viene visualizzato il menu Criteri di backup in cui viene indicata l'ora del backup pianificato.
 
-10. Per eseguire un processo di backup e creare il punto di ripristino iniziale, fare clic su **Esegui backup ora** nel pannello Insieme di credenziali di backup.
+10. Per proteggere la macchina virtuale, fare clic su **Esegui backup ora**. 
 
-  ![Fare clic su Esegui backup ora per eseguire il backup iniziale](./media/backup-azure-vms-first-look-arm/backup-now.png)
+  ![Fare clic su Esegui backup ora per eseguire il backup iniziale](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-  Si apre il pannello Esegui backup ora.
+  Si aprirà il menu Esegui backup ora. 
 
   ![mostra il pannello Esegui backup ora](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
-11. Nel pannello Esegui backup ora fare clic sull'icona del calendario, usare il comando del calendario per selezionare l'ultimo giorno di conservazione di tale punto di ripristino e fare clic su **Esegui backup**.
+11. Nel menu Esegui backup ora, fare clic sull'icona del calendario, usare il comando del calendario per selezionare l'ultimo giorno di conservazione di tale punto di recupero e fare clic su **OK**.
 
   ![impostare l'ultimo giorno di conservazione del punto di ripristino di Esegui backup ora](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
   Le notifiche sulla distribuzione consentono di sapere che il processo di backup è stato attivato e che è possibile monitorare lo stato di avanzamento del processo nella pagina Processi di backup.
 
 ## <a name="configure-the-backup-job-from-the-recovery-services-vault"></a>Configurare il processo di backup dall'insieme di credenziali di Servizi di ripristino
-Per configurare il processo di backup, seguire questa procedura.  
+Per configurare il processo di backup, seguire questa procedura.
 
 1. Creare un insieme di credenziali di Servizi di ripristino per una macchina virtuale.
 2. Usare il portale di Azure per selezionare uno scenario, impostare criteri di backup e identificare gli elementi da proteggere.
@@ -142,7 +141,7 @@ Per creare un insieme di credenziali dei servizi di ripristino:
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    Verrà visualizzato il pannello degli insiemi di credenziali dei servizi di ripristino, in cui viene richiesto di specificare **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Località**.
+    Verrà visualizzato il menu degli insiemi di credenziali di Servizi di ripristino, in cui viene richiesto di specificare **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Località**.
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
@@ -164,7 +163,7 @@ Per creare un insieme di credenziali dei servizi di ripristino:
   > Se si non è certi dell'area geografica della macchina virtuale, chiudere la finestra di dialogo di creazione dell'insieme di credenziali e passare all'elenco di macchine virtuali nel portale. Se si hanno macchine virtuali in più aree, creare un insieme di credenziali di Servizi di ripristino in ogni area. Creare l'insieme di credenziali nella prima area geografica prima di passare a quella successiva. Non è necessario specificare gli account di archiviazione usati per archiviare i dati di backup, perché l'insieme di credenziali di Servizi di ripristino e il servizio Backup di Azure gestiscono l'archiviazione automaticamente.
   >
 
-8. Nella parte inferiore del pannello Insieme di credenziali dei servizi di ripristino fare clic su **Crea**.
+8. Nella parte inferiore del menu Insieme di credenziali di Servizi di ripristino fare clic su **Crea**.
 
     La creazione dell'insieme di credenziali dei servizi di ripristino può richiedere alcuni minuti. Monitorare le notifiche di stato nell'area superiore destra del portale. L'insieme di credenziali, dopo essere stato creato, viene visualizzato negli insiemi di credenziali di Servizi di ripristino. Se l'insieme di credenziali non viene visualizzato dopo qualche minuto, fare clic su **Aggiorna**.
 
@@ -179,19 +178,21 @@ L'opzione della replica di archiviazione consente di scegliere tra l'archiviazio
 
 Per modificare le impostazioni di replica di archiviazione:
 
-1. Nel pannello **Insieme di credenziali dei servizi di ripristino** selezionare il nuovo insieme di credenziali.
+1. Nel menu **Insieme di credenziali di Servizi di ripristino** selezionare il nuovo insieme di credenziali.
 
   ![Selezionare il nuovo insieme di credenziali dall'elenco corrispondente per Servizi di ripristino](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
-  Quando si seleziona l'insieme di credenziali, si aprono il pannello Impostazioni, *con il nome dell'insieme di credenziali nella parte superiore*, e il pannello dei dettagli dell'insieme di credenziali.
+  Quando si seleziona l'insieme di credenziali, si aprono il menu Impostazioni, *con il nome dell'insieme di credenziali nella parte superiore* e il dashboard dell'insieme di credenziali.
 
-  ![Visualizzare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+  ![Visualizzare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-update.png)
 
-2. Nel pannello Impostazioni del nuovo insieme di credenziali usare il dispositivo di scorrimento verticale per passare alla sezione Gestisci e fare clic su **Infrastruttura di backup**.
-    Verrà visualizzato il pannello Infrastruttura di backup.
-3. Nel pannello Infrastruttura di backup fare clic su **Configurazione backup** per aprire il pannello **Configurazione backup**.
+2. Nel menu di gestione del nuovo insieme di credenziali, usare il dispositivo di scorrimento verticale per passare alla sezione Gestisci e fare clic su **Infrastruttura di backup** per aprire il menu corrispondente.
+ 
+   ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/set-storage-config-bkup-infra.png)
 
-    ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+3. Nel menu Infrastruttura di backup fare clic su **Configurazione backup** per aprire il menu **Configurazione backup**.
+
+    ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/set-storage-open-infra.png)
 4. Scegliere l'opzione di replica di archiviazione appropriata per l'insieme di credenziali.
 
     ![opzioni di configurazione dell'archiviazione](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
@@ -212,43 +213,43 @@ Prima di registrare una macchina virtuale in un insieme di credenziali, eseguire
 
     Nell'elenco degli insiemi di credenziali di Servizi di ripristino selezionare un insieme di credenziali per aprire il relativo dashboard.
 
-     ![Pannello dell'insieme di credenziali aperto](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
+     ![Menu dell'insieme di credenziali aperto](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
 
-2. Scegliere **Backup** dal menu del dashboard dell'insieme di credenziali per aprire il pannello Backup.
+2. Scegliere **Backup** dal menu del dashboard dell'insieme di credenziali per aprire il menu Backup.
 
-    ![Pannello Backup aperto](./media/backup-azure-arm-vms-prepare/backup-button.png)
+    ![Aprire il menu Backup](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-    Si aprono i pannelli Backup e Obiettivo del backup.
+    Verranno visualizzati i menu Backup e Obiettivo del backup.
 
-    ![Pannello Scenario aperto](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
-3. Nel pannello Obiettivo di backup selezionare Azure dal menu **Dove è in esecuzione il carico di lavoro**. Dal menu a discesa **What do you want to backup?** (Elementi per il backup), scegliere Macchina virtuale, quindi fare clic su **OK**.
+    ![Menu Scenario aperto](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
+3. Nel menu Obiettivo del backup, dal menu a discesa **Posizione di esecuzione del carico di lavoro** selezionare Azure. Dal menu a discesa **What do you want to backup?** (Elementi per il backup), scegliere Macchina virtuale, quindi fare clic su **OK**.
 
-    Queste azioni registrano l'estensione della macchina virtuale nell'insieme di credenziali. Il pannello Obiettivo di backup si chiude e viene visualizzato il pannello **Criterio di backup**.
+    Queste azioni registrano l'estensione della macchina virtuale nell'insieme di credenziali. Il menu Obiettivo del backup verrà chiuso e verrà aperto il menu **Criteri di backup**.
 
-    ![Pannello Scenario aperto](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
+    ![Menu Scenario aperto](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
 
-4. Nel pannello Criterio di backup selezionare il criterio di backup che si vuole applicare all'insieme di credenziali.
+4. Nel menu Criteri di backup selezionare il criterio di backup da applicare all'insieme di credenziali.
 
     ![Selezionare il criterio di backup](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
     I dettagli dei criteri predefiniti vengono elencati nel menu a discesa. Per creare un criterio, selezionare **Crea nuovo** dal menu a discesa. Per istruzioni sulla definizione di un criterio di backup, vedere [Definizione di un criterio di backup](backup-azure-vms-first-look-arm.md#defining-a-backup-policy).
     Fare clic su **OK** per associare il criterio di backup all'insieme di credenziali.
 
-    Il pannello Criterio di backup si chiude e viene visualizzato il pannello **Seleziona macchine virtuali**.
-5. Nel pannello **Seleziona macchine virtuali** scegliere le macchine virtuali da associare al criterio specificato e fare clic su **OK**.
+    Il menu Criteri di backup verrà chiuso e verrà visualizzato il menu **Seleziona macchine virtuali**.
+5. Nel menu **Seleziona macchine virtuali** scegliere le macchine virtuali da associare al criterio specificato e fare clic su **OK**.
 
     ![Selezionare il carico di lavoro](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     Viene convalidata la macchina virtuale selezionata. Se le macchine virtuali previste non sono visibili, verificare che si trovino nella stessa posizione di Azure dell'insieme di credenziali di Servizi di ripristino e che non siano già protette. La posizione dell'insieme dei credenziali dei Servizi di ripristino viene visualizzata nel dashboard dell'insieme.
 
-6. Dopo aver definito tutte le impostazioni per l'insieme di credenziali, nel pannello Backup fare clic su **Abilita backup** per distribuire il criterio nell'insieme di credenziali e nelle macchine virtuali. La distribuzione del criterio di backup non crea il punto di ripristino iniziale per la macchina virtuale.
+6. Dopo avere definito tutte le impostazioni per l'insieme di credenziali, nel menu Backup fare clic su **Abilita backup** per distribuire il criterio nell'insieme di credenziali e nelle macchine virtuali. La distribuzione del criterio di backup non crea il punto di ripristino iniziale per la macchina virtuale.
 
     ![Abilita backup](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
 Dopo avere abilitato correttamente il backup, il criterio di backup verrà eseguito come pianificato. Tuttavia, procedere con l'avvio del primo processo di backup.
 
 ## <a name="initial-backup"></a>Backup iniziale
-Distribuire un criterio di backup nella macchina virtuale non significa eseguire il backup dei dati. Per impostazione predefinita, il primo backup pianificato (definito nel criterio di backup) è il backup iniziale. Fino all'esecuzione del backup iniziale, lo stato dell'ultimo backup nel pannello **Processi di Backup** è **Avviso (backup iniziale in sospeso)**.
+Distribuire un criterio di backup nella macchina virtuale non significa eseguire il backup dei dati. Per impostazione predefinita, il primo backup pianificato (definito nel criterio di backup) è il backup iniziale. Fino all'esecuzione del backup iniziale, lo stato dell'ultimo backup nel menu **Processi di backup** è **Avviso (backup iniziale in sospeso)**.
 
 ![Backup in sospeso](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
@@ -259,11 +260,11 @@ Per eseguire il processo di backup iniziale:
 1. Nel dashboard dell'insieme di credenziali fare clic sul numero sotto **Elementi di backup** oppure fare clic sul riquadro **Elementi di backup**. <br/>
   ![Icona Impostazioni](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
-  Si apre il pannello **Elementi di backup** .
+  Si aprirà l'elenco **Elementi di backup**.
 
   ![Elementi di backup](./media/backup-azure-vms-first-look-arm/back-up-items-list.png)
 
-2. Nel pannello **Elementi di backup** selezionare l'elemento.
+2. Nel menu **Elementi di backup** selezionare l'elemento.
 
   ![Icona Impostazioni](./media/backup-azure-vms-first-look-arm/back-up-items-list-selected.png)
 
@@ -283,11 +284,11 @@ Per eseguire il processo di backup iniziale:
 
   ![Menu di scelta rapida](./media/backup-azure-vms-first-look-arm/context-menu-small-backup-now.png)
 
-  Si apre il pannello Esegui backup ora.
+  Si aprirà il menu Esegui backup ora.
 
-  ![mostra il pannello Esegui backup ora](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+  ![mostra il menu Esegui backup ora](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
-5. Nel pannello Esegui backup ora fare clic sull'icona del calendario, usare il comando del calendario per selezionare l'ultimo giorno di conservazione di tale punto di ripristino e fare clic su **Esegui backup**.
+5. Nel menu Esegui backup ora, fare clic sull'icona del calendario, usare il comando del calendario per selezionare l'ultimo giorno di conservazione di tale punto di recupero e fare clic su **Backup**.
 
   ![impostare l'ultimo giorno di conservazione del punto di ripristino di Esegui backup ora](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
@@ -297,11 +298,11 @@ Per eseguire il processo di backup iniziale:
 
   ![Riquadro dei processi di backup](./media/backup-azure-vms-first-look-arm/open-backup-jobs-1.png)
 
-  Si apre il pannello dei processi di backup.
+  Si aprirà il menu Processi di backup.
 
   ![Riquadro dei processi di backup](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view-1.png)
 
-  Nel pannello **Processi di backup** è possibile visualizzare lo stato di tutti i processi. Controllare se il processo di backup per la macchina virtuale è ancora in corso o se è terminato. Al termine del processo di backup, lo stato è *Completato*.
+  Nel menu **Processi di backup** è possibile visualizzare lo stato di tutti i processi. Controllare se il processo di backup per la macchina virtuale è ancora in corso o se è terminato. Al termine del processo di backup, lo stato è *Completato*.
 
   > [!NOTE]
   > Come parte dell'operazione di backup, il servizio Backup di Azure esegue un comando nell'estensione di backup in ogni VM per scaricare tutte le scritture e creare uno snapshot coerente.

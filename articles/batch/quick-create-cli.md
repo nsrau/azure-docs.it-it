@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8d0e827dd3658d711de3830453c92af581786ad0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: de0ff088b3a61c48ddcbdff01f105884870886e1
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Guida introduttiva: Eseguire il primo processo Batch con l'interfaccia della riga di comando di Azure
 
@@ -40,7 +40,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-È possibile collegare un account di archiviazione di Azure per uso generico all'account Batch. Anche se non è necessario per questa guida introduttiva, l'account di archiviazione è utile per distribuire applicazioni e archiviare dati di input e output per la maggior parte dei carichi di lavoro concreti. Creare un account di archiviazione nel gruppo di risorse con il comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+È possibile collegare un account di archiviazione di Azure all'account Batch. Anche se non è necessario per questa guida introduttiva, l'account di archiviazione è utile per distribuire applicazioni e archiviare dati di input e output per la maggior parte dei carichi di lavoro concreti. Creare un account di archiviazione nel gruppo di risorse con il comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create \

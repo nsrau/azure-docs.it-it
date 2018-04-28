@@ -2,25 +2,25 @@
 title: Incorporare un report nelle raccolte di aree di lavoro di Power BI | Microsoft Docs
 description: Informazioni su come incorporare nell'applicazione un report che si trova nelle raccolte di aree di lavoro di Power BI.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 56e7ca90132527c0ef9d4bd478e99b75ca055272
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: b6fa46b1cf3a251d6116e7de6ef41a9e6d265c29
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Incorporare un report nelle raccolte di aree di lavoro di Power BI
 

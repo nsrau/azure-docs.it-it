@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/19/2018
 ms.author: tomsh
-ms.openlocfilehash: dfc0128247ad86e9fa6932f8b05c91ae7da0d950
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 29a479ffee3488768f1882c0938b0ecfdd55218b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-white-papers"></a>White paper sulla sicurezza di Azure
 | | |
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/23/2018
 |[Sicurezza della rete di Azure](azure-network-security.md)|Presenta l'ampia gamma di controlli di rete che è possibile configurare per migliorare la sicurezza delle soluzioni distribuite in Azure. Al centro dell'attenzione si trovano i controlli di sicurezza di rete rivolti ai clienti.|
 |[Sicurezza operativa di Azure](azure-operational-security.md)|Offre una panoramica completa delle tecnologie e dei servizi operativi destinati ai clienti disponibili in Azure.|
 |[Funzionalità tecniche per la sicurezza di Azure](azure-security-technical-capabilities.md)|Incentrato sulle caratteristiche e sulle funzionalità che supportano Archiviazione di Azure, il database SQL di Azure e il modello di macchina virtuale di Azure, nonché gli strumenti e l'infrastruttura che ne consentono la gestione.|
-|[Guida alla sicurezza di Archiviazione di Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Offre una panoramica di ognuna delle funzionalità di sicurezza che possono essere usate con Archiviazione di Azure. Tratta la sicurezza del piano di gestione e dei dati del piano, la crittografia di dati inattivi e in esecuzione e l'analisi dell'archiviazione.|
+|[Guida alla sicurezza di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Offre una panoramica di ognuna delle funzionalità di sicurezza che possono essere usate con Archiviazione di Azure. Tratta la sicurezza del piano di gestione e dei dati del piano, la crittografia di dati inattivi e in esecuzione e l'analisi dell'archiviazione.|
 |[Classificazione dei dati in preparazione al cloud](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03) |Questo documento scaricabile presenta le nozioni di base della classificazione dei dati e del loro valore nel contesto del cloud computing. Questo documento può essere utile soprattutto alle organizzazioni che stanno valutando l'uso futuro del cloud computing o a quelle che già usano servizi cloud e sono alla ricerca di modi per ottimizzare la gestione dei dati.|
 |[Governance in Azure](governance-in-azure.md)|Illustra le funzionalità di sicurezza e governance incorporate in Azure. I problemi principali di governance trattati sono: criteri, processi e procedure di implementazione per gli obiettivi dell'organizzazione; sicurezza e conformità continua agli standard dell'organizzazione; avvisi e monitoraggio.
 |[Isolamento nel cloud pubblico di Azure](azure-isolation.md)|Descrive in che modo Azure garantisce l'isolamento dagli utenti malintenzionati e non. Funge da guida per la progettazione di soluzioni cloud, offrendo agli architetti diverse opzioni di isolamento. L'argomento principale sono i controlli di sicurezza destinati ai clienti. Non tratta contratti di servizio, modelli tariffari e attività DevOps.|

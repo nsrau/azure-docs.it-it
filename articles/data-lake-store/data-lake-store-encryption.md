@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 53d5f413f58cea7bc8eab081d46eff2ab83e7ecb
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2328f7e233025d9f9ee9113aa28fb74754dd9193
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Crittografia dei dati in Azure Data Lake Store
 
@@ -138,3 +138,6 @@ Tenere presente che, se si usano le opzioni predefinite per la crittografia, i d
     ![Screenshot della finestra Data Lake Store con il messaggio e Ruota chiave in evidenza](./media/data-lake-store-encryption/rotatekey.png)
 
 Questa operazione richiederà meno di due minuti e non sono previsti tempi di inattività a causa della rotazione della chiave. Al termine dell'operazione, sarà in uso la nuova versione della chiave.
+
+> [!IMPORTANT]
+> Al termine dell'operazione di rotazione delle chiavi, la versione precedente della chiave non viene più usata attivamente per la crittografia dei dati.  In rari casi di errori imprevisti che interessano anche le copie ridondanti dei dati, è tuttavia possibile che i dati vengano ripristinati da un backup che usa ancora la chiave precedente. Per assicurare che i dati siano accessibili in tali circostanze rare, mantenere una copia della versione precedente della chiave di crittografia. Per procedure consigliate per la pianificazione del ripristino di emergenza, vedere [Linee guida sul ripristino di emergenza dei dati in Data Lake Store](data-lake-store-disaster-recovery-guidance.md). 

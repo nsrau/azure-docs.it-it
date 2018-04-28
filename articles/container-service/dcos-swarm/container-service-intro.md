@@ -3,17 +3,17 @@ title: Hosting di contenitore Docker nel cloud di Azure
 description: Il servizio contenitore di Azure fornisce un modo per semplificare la creazione, la configurazione e la gestione di un cluster di macchine virtuali che sono preconfigurate per eseguire le applicazioni nei contenitori.
 services: container-service
 author: rgardler
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 94ae759803bc3a65ec7dc9a8e01486625a638368
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: d89e9b4dcfe44648f1e3ddd95fb01b62a36295df
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Introduzione alle soluzioni di hosting di contenitori Docker con il servizio contenitore di Azure 
 

@@ -3,23 +3,23 @@ title: Tabella API per Python di Azure Cosmos DB | Microsoft Docs
 description: Informazioni sull'API Table di Azure Cosmos DB, incluse le date di rilascio, le date di ritiro e le modifiche apportate nelle diverse versioni.
 services: cosmos-db
 documentationcenter: python
-author: mimig
-manager: jhubbard
-editor: 
-ms.assetid: 
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 11/20/2017
-ms.author: mimig1
-ms.custom: 
-ms.openlocfilehash: 70315d93b7211351c19a17553db88962f25d8acb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: sngun
+ms.custom: ''
+ms.openlocfilehash: 760f79bf50ea3e6e76beb26d2cd8419a8404a3ab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Azure Cosmos DB Table API SDK per Python: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/21/2017
 |**Documentazione sull'API**|[Documentazione di riferimento delle API di Python](https://azure.github.io/azure-cosmosdb-python/)|
 |**Istruzioni per l'installazione dell'SDK**|[Istruzioni per l'installazione dell'SDK di Python](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Contribuire all'SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
-|**Piattaforma attualmente supportata**|[Python 2.7](https://www.python.org/downloads/) o [Python 3.3, 3.4, 3.5, or 3.6] (https://www.python.org/downloads/)|
+|**Piattaforma attualmente supportata**|[Python 2.7](https://www.python.org/downloads/) o [Python 3.3, 3.4, 3.5 o 3.6] (https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
 > Se si è creato un account dell'API di tabella durante l'anteprima, creare un [nuovo account dell'API di tabella](create-table-dotnet.md#create-a-database-account) per usare gli SDK dell'API di tabella disponibili a livello generale.

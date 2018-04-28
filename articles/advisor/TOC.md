@@ -12,7 +12,7 @@
 # Attività iniziali
 ## [Introduzione ad Advisor](advisor-get-started.md)
 
-# riferimento
+# Riferimenti
 ## [API REST](https://docs.microsoft.com/rest/api/advisor)
 ## [Interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/advisor)
 
@@ -23,7 +23,7 @@
 ## [Servizio app](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
 
 # Risorse
-## [Video di Azure Advisor](https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor)
+## [Video di Azure Advisor](https://azure.microsoft.com/resources/videos/index/?services=advisor)
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 
