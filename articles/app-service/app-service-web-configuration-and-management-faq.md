@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6aa0c08fad98eeff7c937f817ca0a8fa20238c4a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -84,7 +84,7 @@ Per ottenere l'elenco di indirizzi IP in uscita per un'app Web:
 
 Viene visualizzato l'elenco di indirizzi IP in uscita.
 
-Se il sito Web è ospitato nell'ambiente del servizio app per PowerApps, per informazioni su come ottenere l'indirizzo IP in uscita, vedere [Indirizzi di rete in uscita](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
+Per informazioni su come ottenere l'indirizzo IP in uscita se il sito Web è ospitato in un Ambiente del servizio app, vedere [Indirizzi di rete in uscita](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>Come si ottiene un indirizzo IP in ingresso dedicato o riservato per un'app Web?
 
@@ -185,7 +185,7 @@ Nell'ambiente del servizio app, si ha il controllo totale sul traffico in ingres
 3. Verificare che la scheda **Rete** sia selezionata, quindi selezionare il pulsante **Riproduci** di colore verde.
 4. Eseguire i passaggi per riprodurre il problema.
 5. Selezionare il pulsante **Termina** di colore rosso.
-6. Selezionare il pulsante **Salva** (icona del disco) e salvare il file HAR (in Internet Explorer e Microsoft Edge) *o* il file HAR, quindi scegliere **Salva come HAR con contenuto** (in Chrome).
+6. Selezionare il pulsante **Salva** (icona del disco) e salvare il file HAR (in Internet Explorer ed Edge) *o* il file HAR, quindi scegliere **Salva come HAR con contenuto** (in Chrome).
 
 ### <a name="f12-console-output"></a>Output di console F12
 
@@ -268,7 +268,7 @@ Come indica il messaggio, il processo di verifica della frode potrebbe richieder
 Se il certificato di servizio app continua a visualizzare questo messaggio dopo 24 ore, eseguire il seguente script di PowerShell. Lo script contatta direttamente il [provider del certificato](https://www.godaddy.com/) per risolvere il problema.
 
 ```
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"

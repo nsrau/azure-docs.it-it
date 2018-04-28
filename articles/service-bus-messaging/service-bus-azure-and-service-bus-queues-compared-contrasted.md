@@ -5,7 +5,7 @@ services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Analogie e differenze tra le code di archiviazione e le code del bus di servizio
 Questo articolo analizza le differenze e le analogie presenti tra i due tipi di code offerte attualmente da Microsoft Azure: code di archiviazione e code del bus di servizio. Grazie a queste informazioni, è possibile confrontare e contrapporre le rispettive tecnologie ed essere quindi in grado di fare una scelta più oculata riguardo alla soluzione che soddisfa meglio le proprie esigenze.
@@ -39,7 +39,7 @@ Durante la determinazione della tecnologia di accodamento in grado di soddisfare
 
 Gli architetti e gli sviluppatori di soluzioni **dovrebbero considerare l'uso delle code di Azure** quando:
 
-* L'applicazione deve archiviare in una coda oltre 80 GB di messaggi la cui durata è inferiore a 7 giorni.
+* L'applicazione deve archiviare oltre 80 GB di messaggi in una coda.
 * L'applicazione deve tenere traccia dello stato dell'elaborazione di un messaggio all'interno della coda. Ciò si rivela utile se si verifica un arresto anomalo del processo di lavoro tramite cui si elabora il messaggio. Queste informazioni possono quindi essere usate in un processo di lavoro successivo per continuare dal punto in cui è stato interrotto il processo di lavoro precedente.
 * Sono necessari i log sul lato server di tutte le transazioni eseguite nelle code.
 
@@ -51,7 +51,6 @@ Gli architetti e gli sviluppatori di soluzioni **dovrebbero considerare l'uso de
 * La soluzione deve essere in grado di eseguire il rilevamento duplicato automatico.
 * L'applicazione deve elaborare i messaggi come flussi paralleli a esecuzione prolungata (i messaggi sono associati a un flusso tramite la proprietà [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) del messaggio). In questo modello ogni nodo dell'applicazione che utilizza il servizio entra in competizione con gli altri nodi per l'acquisizione dei flussi anziché dei messaggi. Quando un flusso viene assegnato a un nodo basato sul servizio, tale nodo può esaminare lo stato del flusso dell'applicazione mediante transazioni.
 * Per la soluzione sono necessari atomicità e comportamento transazionale in caso di invio o ricezione di più messaggi da una coda.
-* La caratteristica relativa alla durata (TTL) del carico di lavoro specifico dell'applicazione può superare il periodo di 7 giorni.
 * L'applicazione gestisce messaggi che possono superare i 64 KB ma che probabilmente non si avvicineranno al limite dei 256 KB
 * È necessario fornire un modello di accesso basato sui ruoli alle code e autorizzazioni/diritti diversi per mittenti e destinatari.
 * Le dimensioni della coda non supereranno gli 80 GB.
@@ -133,7 +132,7 @@ Questa sezione confronta le code di Azure e le code del bus di servizio in termi
 | --- | --- | --- |
 | Dimensioni massime della coda |**500 TB**<br/><br/>(limitate alla [capacità di un singolo account di archiviazione](../storage/common/storage-introduction.md#queue-storage)) |**Da 1 GB a 80 GB**<br/><br/>(valori definiti al momento della creazione della coda e dell'[abilitazione del partizionamento](service-bus-partitioning.md). Vedere la sezione "Informazioni aggiuntive"). |
 | Dimensioni massime del messaggio |**64 KB**<br/><br/>(48 KB quando si usa una codifica **Base64**)<br/><br/>Azure supporta messaggi di grandi dimensioni combinando code e BLOB. È quindi possibile accodare fino a 200 GB per un unico elemento. |**256 KB** o **1 MB**<br/><br/>(inclusi l'intestazione e il corpo, dimensioni massime dell'intestazione: 64 KB).<br/><br/>Dipende dal [livello di servizio](service-bus-premium-messaging.md). |
-| Durata TTL massima del messaggio |**7 giorni** |**TimeSpan.Max** |
+| Durata TTL massima del messaggio |**Infinito** (a partire da api-version 2017-07-27) |**TimeSpan.Max** |
 | Numero massimo di code |**Illimitato** |**10.000**<br/><br/>(per spazio dei nomi del servizio) |
 | Numero massimo di client concorrenti |**Illimitato** |**Illimitato**<br/><br/>(limite di 100 connessioni simultanee applicato solo alla comunicazione basata su protocollo TCP) |
 

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/15/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7722891af15111fd0151055c35bf24100ed79b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparare i server VMware locali per il ripristino di emergenza in Azure
 
@@ -25,9 +25,12 @@ Questa esercitazione descrive come preparare l'infrastruttura VMware locale per 
 > * Esaminare i requisiti dei server VMware
 > * Esaminare i requisiti delle macchine virtuali VMware
 
-In questa serie di esercitazioni viene illustrato come eseguire il backup di una singola macchina virtuale usando Azure Site Recovery. Se si prevede di proteggere più macchine virtuali VMware, è consigliabile scaricare lo strumento [Deployment Planner](https://aka.ms/asr-deployment-planner) per la replica VMware. Questo strumento consente di raccogliere informazioni sulla compatibilità delle macchine virtuali, sui dischi per ogni macchina virtuale e sulla varianza dati per ogni disco. Lo strumento specifica anche i requisiti della larghezza di banda di rete e l'infrastruttura di Azure necessaria per la corretta esecuzione della replica e il failover del test. Vedere le [altre informazioni](site-recovery-deployment-planner.md) sull'esecuzione dello strumento.
+In questa serie di esercitazioni viene illustrato come eseguire la replica di una singola macchina virtuale usando Azure Site Recovery. 
 
 Questa è la seconda esercitazione della serie. Assicurarsi di aver [configurato i componenti di Azure](tutorial-prepare-azure.md) come descritto nell'esercitazione precedente.
+
+Se si esegue la replica di più macchine virtuali, scaricare lo [strumento Deployment Planner](https://aka.ms/asr-deployment-planner) per la replica VMware. [Altre informazioni](site-recovery-deployment-planner.md).
+
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Preparare un account per l'individuazione automatica
 

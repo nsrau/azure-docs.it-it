@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: e7fc12c9b4cc79109975e34f64f236394c33af25
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c161b8fb70f20ef7d82834e6c61daff759726b93
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -170,7 +170,7 @@ Per altre informazioni, vedere [Create or update a virtual machine scale set](ht
     ```powershell
     Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
     ```
@@ -402,9 +402,9 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 È possibile trovare il valore extensionName in `$vmss`.
    
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-operations-management-suite"></a>È disponibile un esempio di modello di set di scalabilità di macchine virtuali che si integra con Operations Management Suite?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>È disponibile un esempio di modello di set di scalabilità di macchine virtuali che si integra con Log Analytics?
 
-Per un esempio di modello di set di scalabilità di macchine virtuali che si integra con Operations Management Suite, vedere il secondo esempio in [Deploy an Azure Service Fabric cluster and enable monitoring by using Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric) (Distribuire un cluster di Azure Service Fabric e abilitare il monitoraggio usando Log Analytics).
+Per un esempio di modello di set di scalabilità di macchine virtuali che si integra con Log Analytics, vedere il secondo esempio in [Deploy an Azure Service Fabric cluster and enable monitoring by using Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric) (Distribuire un cluster di Azure Service Fabric e abilitare il monitoraggio usando Log Analytics).
    
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Le estensioni vengono eseguite apparentemente in parallelo nei set di scalabilità di macchine virtuali. Ciò provoca un errore dell'estensione di script personalizzata. Come si può risolvere questo problema?
 
@@ -693,9 +693,9 @@ Sì, è possibile usare l'operazione di ricreazione dell'immagine per ripristina
 
 Per altre informazioni, vedere [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set) (Gestire tutte le VM in un set di scalabilità di macchine virtuali).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>È possibile integrare i set di scalabilità con Azure OMS (Operations Management Suite)?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>È possibile integrare i set di scalabilità con Azure Log Analytics?
 
-Sì, è possibile installando l'estensione OMS nelle macchine virtuali dei set di scalabilità. Di seguito è riportato un esempio dell'interfaccia della riga di comando di Azure:
+Sì, è possibile installando l'estensione Log Analytics nelle VM dei set di scalabilità. Di seguito è riportato un esempio dell'interfaccia della riga di comando di Azure:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```

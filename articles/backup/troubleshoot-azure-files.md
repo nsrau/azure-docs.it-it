@@ -9,11 +9,11 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 2e067e0a1f673480bc08abfee61d2b1b2c92f885
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 225d11c8609c81ed7877283e8dc0fd920b14d838
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Risolvere i problemi del backup di file di Azure
 È possibile risolvere i problemi e gli errori rilevati durante l'uso del backup di file di Azure con le informazioni elencate nelle tabelle seguenti.
@@ -59,6 +59,7 @@ La configurazione del backup è illustrata nella tabella seguente:
 | Il ripristino non riesce perché uno dei file nell'origine non esiste. | <ul><li> Gli elementi selezionati non sono presenti nei dati del punto di ripristino. Per ripristinare i file, fornire l'elenco di file corretto. <li> Lo snapshot di condivisione file che corrisponde al punto di ripristino è stato eliminato manualmente. Selezionare un altro punto di ripristino e ripetere l'operazione di ripristino. |
 | È in corso un processo di ripristino nella stessa destinazione. | <ul><li>Il backup di condivisioni file non supporta il ripristino parallelo nella stessa condivisione file di destinazione. <li>Attendere che termini il ripristino in corso e quindi riprovare. Se non si trova un processo di ripristino nell'insieme di credenziali di Servizi di ripristino, verificare altri insiemi di credenziali di Servizi di ripristino della stessa sottoscrizione. |
 | L'operazione di ripristino non è riuscita perché la condivisione file di destinazione è piena. | Aumentare la quota delle dimensioni della condivisione file di destinazione affinché possa contenere i dati di ripristino e ripetere l'operazione. |
+| Non è stato possibile completare l'operazione di ripristino perché si è verificato un errore durante l'esecuzione delle operazioni preliminari al ripristino nelle risorse del servizio Sincronizzazione file associate alla condivisione file di destinazione. | Attendere qualche minuto e riprovare. Se il problema persiste, contattare il supporto tecnico Microsoft. |
 | Non è stato possibile ripristinare correttamente uno o più file. Per altre informazioni, vedere l'elenco di file con errori nel percorso sopra specificato. | <ul> <li> Le cause dell'errore di ripristino sono elencate in un file il cui percorso è indicato nei dettagli del processo. Risolvere gli errori e ripetere l'operazione di ripristino solo per i file con errori. <li> Cause comuni degli errori di ripristino file: <br/> - verificare che i file con errori non siano in uso, <br/> - nella directory padre è presente una directory con lo stesso nome del file con errori. |
 
 ## <a name="see-also"></a>Vedere anche

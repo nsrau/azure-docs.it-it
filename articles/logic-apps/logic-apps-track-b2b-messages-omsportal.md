@@ -1,11 +1,11 @@
 ---
-title: 'Tenere traccia dei messaggi B2B in Operations Management Suite: App per la logica di Azure | Microsoft Docs'
-description: Tenere traccia delle comunicazioni B2B per l'account di integrazione e le app per la logica in Operations Management Suite (OMS) con Azure Log Analytics
+title: Tracciare i messaggi B2B con Azure Log Analytics - App per la logica di Azure | Microsoft Docs
+description: Tenere traccia delle comunicazioni B2B per l'account di integrazione e le app per la logica con Azure Log Analytics
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
 ms.workload: integration
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: d62be25678044ead469f65362b6f47c1a2df893b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 48523e1f1bc8d5b810cc7c9d1a7308f1aaadf8bb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Tenere traccia delle comunicazioni B2B in Microsoft Operations Management Suite (OMS)
+# <a name="track-b2b-communication-with-azure-log-analytics"></a>Tenere traccia delle comunicazioni B2B con Azure Log Analytics
 
-Dopo avere configurato la comunicazione B2B tra due processi o applicazioni aziendali in esecuzione tramite l'account di integrazione, tali entità possono scambiarsi messaggi. Per controllare se questi messaggi vengono elaborati correttamente, è possibile tenere traccia dei messaggi AS2, X12 ed EDIFACT con [Azure Log Analytics](../log-analytics/log-analytics-overview.md) in [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). È ad esempio possibile usare queste funzionalità di rilevamento basate sul Web per tenere traccia dei messaggi:
+Dopo avere configurato la comunicazione B2B tra due processi o applicazioni aziendali in esecuzione usando l'account di integrazione, tali entità possono scambiarsi messaggi. Per controllare se questi messaggi vengono elaborati correttamente, è possibile tenere traccia dei messaggi AS2, X12 ed EDIFACT con [Azure Log Analytics](../log-analytics/log-analytics-overview.md). È ad esempio possibile usare queste funzionalità di rilevamento basate sul Web per tenere traccia dei messaggi:
 
 * Conteggio e stato dei messaggi
 * Stato degli acknowledgment
@@ -36,30 +36,30 @@ Dopo avere configurato la comunicazione B2B tra due processi o applicazioni azie
 
 * Un account di integrazione configurato con il monitoraggio e la registrazione. Informazioni su [come creare un account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) e [come configurare il monitoraggio e la registrazione per tale account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Se non è già stato fatto, [pubblicare i dati di diagnostica in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) in OMS.
+* Se non è già stato fatto, [pubblicare i dati di diagnostica in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 > [!NOTE]
-> Dopo avere soddisfatto i requisiti precedenti, sarà presente un'area di lavoro in [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). È consigliabile usare la stessa area di lavoro di OMS per tenere traccia delle comunicazioni B2B in OMS. 
+> Soddisfatti i requisiti precedenti, sarà disponibile un'area di lavoro in Log Analytics. È consigliabile usare la stessa area di lavoro per tenere traccia delle comunicazioni B2B in Log Analytics. 
 >  
-> Se non si ha un'area di lavoro di OMS, vedere [come crearne una](../log-analytics/log-analytics-get-started.md).
+> Se non si dispone di un'area di lavoro di Log Analytics, vedere [Creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="add-the-logic-apps-b2b-solution-to-the-operations-management-suite-oms"></a>Aggiungere la soluzione B2B di App per la logica a Operations Management Suite (OMS)
+## <a name="add-the-logic-apps-b2b-solution-to-log-analytics"></a>Aggiungere la soluzione B2B di App per la logica a Log Analytics
 
-Per fare in modo che OMS tenga traccia dei messaggi B2B per l'app per la logica, è necessario aggiungere la soluzione **App per la logica B2B** al portale di OMS. Informazioni sull'[aggiunta di soluzioni a OMS](../log-analytics/log-analytics-get-started.md).
+Per fare in modo che Log Analytics tenga traccia dei messaggi B2B per l'app per la logica, è necessario aggiungere la soluzione **App per la logica B2B** al portale di OMS. Informazioni sull'[aggiunta di soluzioni a Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. Nel [portale di Azure](https://portal.azure.com) scegliere **Tutti i servizi**. Cercare "Log Analytics" e quindi scegliere **Log Analytics**, come illustrato qui:
 
    ![Trovare Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
-2. In **Log Analytics** trovare e selezionare l'area di lavoro di OMS. 
+2. In **Log Analytics** trovare e selezionare l'area di lavoro di Log Analytics. 
 
-   ![Selezionare l'area di lavoro di OMS](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+   ![Selezionare l'area di lavoro di Log Analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
 3. In **Gestione** scegliere **Portale di OMS**.
 
    ![Scegliere Portale di OMS](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. Quando si apre la home page di OMS, scegliere **Raccolta soluzioni**.    
+4. Quando si apre la home page, scegliere **Raccolta soluzioni**.    
 
    ![Scegliere Raccolta soluzioni](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
 
@@ -71,21 +71,21 @@ Per fare in modo che OMS tenga traccia dei messaggi B2B per l'app per la logica,
 
    ![Scegliere Aggiungi](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
 
-   Nella home page di OMS viene ora visualizzato il riquadro **Messaggi per le app per la logica B2B**. 
+   Nella home page viene ora visualizzato il riquadro **Messaggi per le app per la logica B2B**. 
    Questo riquadro aggiorna il numero di messaggi B2B quando vengono elaborati.
 
-   ![Home page di OMS, riquadro Messaggi per le app per la logica B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
+   ![Home page, riquadro Messaggi per le app per la logica B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
-## <a name="track-message-status-and-details-in-the-operations-management-suite"></a>Tenere traccia dello stato e dei dettagli dei messaggi in Operations Management Suite
+## <a name="track-message-status-and-details-in-log-analytics"></a>Tenere traccia dello stato e dei dettagli dei messaggi in Log Analytics
 
-1. Dopo che i messaggi B2B sono stati elaborati, è possibile visualizzarne lo stato e i dettagli. Nella home page di OMS scegliere il riquadro **Messaggi per le app per la logica B2B**.
+1. Dopo che i messaggi B2B sono stati elaborati, è possibile visualizzarne lo stato e i dettagli. Nella home page scegliere il riquadro **Messaggi per le app per la logica B2B**.
 
    ![Numero di messaggi aggiornato](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
 
    > [!NOTE]
-   > Per impostazione predefinita, il riquadro **Messaggi per le app per la logica B2B** visualizza i dati relativi a un solo giorno. Per impostare l'ambito dei dati su un intervallo diverso, scegliere il controllo dell'ambito nella parte superiore della pagina di OMS:
+   > Per impostazione predefinita, il riquadro **Messaggi per le app per la logica B2B** visualizza i dati relativi a un solo giorno. Per impostare l'ambito dei dati su un intervallo diverso, scegliere il controllo dell'ambito nella parte superiore della pagina:
    > 
    > ![Modificare l'ambito dei dati](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
    >
@@ -240,7 +240,7 @@ Ecco i formati dei nomi per ogni cartella e file di messaggi EDIFACT scaricati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Cercare i messaggi B2B in Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Query per i messaggi B2B in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [Schemi di rilevamento AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [Schemi di rilevamento X12](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [Schemi di rilevamento personalizzati](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

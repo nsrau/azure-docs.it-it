@@ -1,27 +1,24 @@
 ---
-title: Viste di sistema di SQL Data Warehouse | Microsoft Docs
-description: Collegamenti al contenuto relativo alle viste di sistema per SQL Data Warehouse.
+title: Visualizzazioni di sistema - Azure SQL Data Warehouse | Microsoft Docs
+description: Collegamenti alla documentazione per le visualizzazioni di sistema supportate in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-ms.date: 01/22/2018
-ms.author: barbkess
-ms.openlocfilehash: 96bd74a9c68cc77d35832836afa966958ed37264
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 59929a851bca967e36e5d4cf9a02a20dae117928
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="system-views"></a>Viste di sistema
+# <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Visualizzazioni di sistema supportate in Azure SQL Data Warehouse
+Collegamenti alla documentazione per le istruzioni T-SQL supportate in Azure SQL Data Warehouse.
+
 ## <a name="sql-data-warehouse-catalog-views"></a>Viste del catalogo di SQL Data Warehouse
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
 * [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
@@ -233,14 +230,4 @@ Le DMV seguenti sono applicabili a SQL Data Warehouse, ma devono essere eseguite
 * [VIEWS](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di riferimento di SQL Data Warehouse][panoramica degli argomenti di riferimento di SQL Data Warehouse].
-
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-
-<!--Other Web references-->
+Per altre informazioni, vedere [Istruzioni T-SQL in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md) e [Elementi del linguaggio T-SQL in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md).

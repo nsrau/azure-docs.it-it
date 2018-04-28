@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: caf2c54c986f8c4dd951628fd6908d42e7ddd281
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparare l’ambiente per il backup di macchine virtuali distribuite con Resource Manager
 
-Questo articolo illustra i passaggi per preparare l'ambiente per il backup di una macchina virtuale (VM) distribuita con Azure Resource Manager. I passaggi descritti nelle procedure usano il portale di Azure. Archiviare i dati di backup della macchina virtuale in un insieme di credenziali di Servizi di ripristino. L'insieme di credenziali contiene i dati di backup per le macchine virtuali distribuite con il modello di distribuzione classica o Resource Manager.
+Questo articolo illustra i passaggi per preparare l'ambiente per il backup di una macchina virtuale (VM) distribuita con Azure Resource Manager. I passaggi descritti nelle procedure usano il portale di Azure. Quando si esegue il backup di una macchina virtuale, i dati di backup o i punti di ripristino vengono archiviati in un insieme di credenziali dei servizi di ripristino. Gli insiemi di credenziali dei servizi di ripristino archiviano i dati di backup per le macchine virtuali distribuite con il modello di distribuzione classica o Resource Manager.
 
 > [!NOTE]
 > Azure offre due modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Prima di proteggere una macchina virtuale distribuita con Resource Manager o eseguirne il backup, assicurarsi di rispettare questi prerequisiti:
 
-* Creare un insieme di credenziali di Servizi di ripristino o identificarne uno esistente *nella stessa area della VM*.
+* Creare o identificare un insieme di credenziali di servizi di ripristino *nella stessa area della macchina virtuale*.
 * Selezionare uno scenario, definire i criteri di backup e specificare gli elementi da proteggere.
-* Verificare l'installazione di un agente di macchine virtuali nella VM.
+* Verificare l'installazione di un agente di macchine virtuali (estensione) nella macchina virtuale.
 * Controllare la connettività di rete.
 * Per le VM Linux, se si vuole personalizzare l'ambiente di backup per backup coerenti con l'applicazione, seguire i [passaggi per configurare gli script pre-snapshot e post-snapshot](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
@@ -51,11 +51,11 @@ Prima di preparare l'ambiente, assicurarsi di conoscere queste limitazioni:
 * Il backup di macchine virtuali con più di 16 dischi dati non è supportato.
 * Il backup di macchine virtuali con un indirizzo IP riservato e nessun endpoint definito non è supportato.
 * Il backup di VM Linux crittografate con la crittografia Linux Unified Key Setup (LUKS) non è supportato.
-* Non è consigliabile eseguire il backup di VM contenenti la configurazione di volumi condivisi del cluster o file server di scalabilità orizzontale, per cui durante un'attività di snapshot è necessario il coinvolgimento di tutte le VM incluse nella configurazione cluster. Backup di Azure non supporta la coerenza tra più macchine virtuali. 
+* Non è consigliabile eseguire il backup di VM contenenti la configurazione di volumi condivisi del cluster o file server di scalabilità orizzontale, in caso contrario, potranno verificarsi errori dei writer CSV per cui durante un'attività di snapshot è necessario il coinvolgimento di tutte le VM incluse nella configurazione cluster. Backup di Azure non supporta la coerenza tra più macchine virtuali. 
 * I dati di backup non includono le unità di rete montate che sono collegate a una VM.
 * La sostituzione di una macchina virtuale esistente durante il ripristino non è supportata. Se si tenta di ripristinare una macchina virtuale che esiste, l'operazione di ripristino non viene eseguita.
 * L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.
-* Il backup e il ripristino di macchine virtuali tramite dischi non gestiti negli account di archiviazione con regole di rete applicate non sono supportati. 
+* Il backup e il ripristino di macchine virtuali tramite dischi non gestiti negli account di archiviazione con regole di rete applicate non sono supportati per i clienti nel precedente stack di backup di macchine virtuali. 
 * Durante la configurazione del backup, verificare che le impostazioni di **Firewall e reti virtuali** per l'account di archiviazione consentano l'accesso da Tutte le reti.
 * È possibile eseguire il backup di macchine virtuali in tutte le aree pubbliche di Azure. Vedere l'[elenco di controllo](https://azure.microsoft.com/regions/#services) delle aree supportate. Se l'area desiderata non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
 * Il ripristino di un controller di dominio di VM che fa parte di una configurazione con controller di dominio è supportato solo tramite PowerShell. Per altre informazioni, vedere la sezione relativa al [ripristino di un controller di dominio con più controller di dominio](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
@@ -167,7 +167,7 @@ Prima di registrare una macchina virtuale in un insieme di credenziali di Serviz
 
    ![Pulsante Abilita backup](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
-Dopo che il backup è stato abilitato, i criteri di backup verranno eseguiti come pianificato. Se si vuole generare un processo di backup su richiesta per eseguire subito il backup delle macchine virtuali, vedere [Attivazione del processo di backup](./backup-azure-arm-vms.md#triggering-the-backup-job).
+Dopo che il backup è stato abilitato, i criteri di backup verranno eseguiti come pianificato. Se si vuole generare un processo di backup su richiesta per eseguire subito il backup delle macchine virtuali, vedere [Attivazione del processo di backup](./backup-azure-vms-first-look-arm.md#initial-backup).
 
 In caso di problemi con la registrazione della VM, vedere le informazioni seguenti relative all'installazione dell'agente di macchine virtuali e alla connettività di rete. Probabilmente le informazioni seguenti non sono necessarie se si stanno proteggendo macchine virtuali create in Azure. Se è stata eseguita la migrazione delle macchine virtuali ad Azure, tuttavia, assicurarsi che l'agente di macchine virtuali sia installato correttamente e che la VM possa comunicare con la rete virtuale.
 
@@ -208,6 +208,10 @@ Per aggiungere gli intervalli IP dei data center di Azure all'elenco elementi co
 È possibile consentire le connessioni alle risorse di archiviazione dell'area specifica usando [tag di servizio](../virtual-network/security-overview.md#service-tags). Verificare che la regola che consente l'accesso all'account di archiviazione abbia priorità più alta rispetto alla regola che blocca l'accesso a Internet. 
 
 ![NSG con i tag di archiviazione per un'area](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+Il video seguente illustra la procedura dettagliata per configurare i tag di servizio: 
+
+>[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
 > [!WARNING]
 > I tag di servizio delle risorse di archiviazione sono disponibili in anteprima solo in aree specifiche. Per un elenco delle aree, vedere i [tag di servizio per Archiviazione](../virtual-network/security-overview.md#service-tags).

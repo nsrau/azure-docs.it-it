@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 5fa1d17e68ce04b1f67081479518279be6cca099
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 708c57c1d7b79d3fd3c129de9a7ce4099ab6ac36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-requirements-for-pci-dss-compliant-environments"></a>Requisiti per il monitoraggio per ambienti conformi a PCI DSS 
 ## <a name="pci-dss-requirement-10"></a>Requisito 10 di PCI DSS
@@ -145,7 +145,7 @@ La disponibilità di meccanismi di registrazione e la possibilità di tenere tra
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Gli strumenti FIM e dei sistemi di rilevamento intrusioni vengono implementati all'interno dell'ambiente Microsoft Azure. Microsoft Azure usa EWS per supportare l'analisi in tempo reale degli eventi all'interno dell'ambiente operativo. I sistemi MA e AIMS generano avvisi quasi in tempo reale per gli eventi che potrebbero compromettere il sistema. <br /><br />La registrazione degli eventi di servizi, utenti e sicurezza (log del server Web, log del server FTP e così via) è abilitata e i log vengono conservati a livello centralizzato. Azure limita l'accesso ai log di controllo al personale autorizzato in base alle responsabilità professionali. I registri eventi vengono archiviati nell'infrastruttura di archiviazione sicura di Azure e vengono conservati per 180 giorni. |
-| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore prevede il controllo di tutti gli elementi in OMS. Il backup su un'origine esterna può essere eseguito con [Backup di Azure](https://azure.microsoft.com/services/backup/).|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore fornisce il controllo di tutti gli elementi in Azure. Il backup su un'origine esterna può essere eseguito con [Backup di Azure](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -158,7 +158,7 @@ La disponibilità di meccanismi di registrazione e la possibilità di tenere tra
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Vedere la sezione "Microsoft Azure" relativa al [requisito 10.5](#pci-dss-requirement-10-5). |
-| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore prevede il controllo di tutti gli elementi in OMS. Il backup su un'origine esterna può essere eseguito con [Backup di Azure](https://azure.microsoft.com/services/backup/).|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore fornisce il controllo di tutti gli elementi in Azure. Il backup su un'origine esterna può essere eseguito con [Backup di Azure](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -171,7 +171,7 @@ La disponibilità di meccanismi di registrazione e la possibilità di tenere tra
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Vedere la sezione "Microsoft Azure" relativa al [requisito 10.5](#pci-dss-requirement-10-5). |
-| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore prevede il controllo di tutti gli elementi in OMS. Il backup su un'origine esterna può essere eseguito con [Backup di Azure](https://azure.microsoft.com/services/backup/).|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore fornisce il controllo di tutti gli elementi in Azure. Il backup su un'origine esterna può essere eseguito con [Backup di Azure](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -184,7 +184,7 @@ La disponibilità di meccanismi di registrazione e la possibilità di tenere tra
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Vedere la sezione "Microsoft Azure" relativa al [requisito 10.5](#pci-dss-requirement-10-5). |
-| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore prevede il controllo di tutti gli elementi in OMS. Il backup su un'origine esterna può essere eseguito con [Backup di Azure](https://azure.microsoft.com/services/backup/).|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore fornisce il controllo di tutti gli elementi in Azure. Il backup su un'origine esterna può essere eseguito con [Backup di Azure](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -197,7 +197,7 @@ La disponibilità di meccanismi di registrazione e la possibilità di tenere tra
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Vedere la sezione "Microsoft Azure" relativa al [requisito 10.5](#pci-dss-requirement-10-5). |
-| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore prevede il controllo di tutti gli elementi in OMS. Il backup su un'origine esterna può essere eseguito con [Backup di Azure](https://azure.microsoft.com/services/backup/).|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore fornisce il controllo di tutti gli elementi in Azure. Il backup su un'origine esterna può essere eseguito con [Backup di Azure](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -210,7 +210,7 @@ La disponibilità di meccanismi di registrazione e la possibilità di tenere tra
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Vedere la sezione "Microsoft Azure" relativa al [requisito 10.5](#pci-dss-requirement-10-5). |
-| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore prevede il controllo di tutti gli elementi in OMS. Il backup su un'origine esterna può essere eseguito con [Backup di Azure](https://azure.microsoft.com/services/backup/).|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore fornisce il controllo di tutti gli elementi in Azure. Il backup su un'origine esterna può essere eseguito con [Backup di Azure](https://azure.microsoft.com/services/backup/).|
 
 
 

@@ -6,14 +6,14 @@ author: srdjan-bozovic
 manager: craigg
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: f02311026e3f28d4cf41dfe9b155f928885ae938
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1eecd28d5e7043acae5cfd52edf93e8d301bd31e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connettere un'applicazione a Istanza gestita di database SQL di Azure
 
@@ -79,4 +79,4 @@ Configurare una connessione da punto a sito a una rete virtuale in base agli art
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni in proposito, vedere [Informazioni su Istanza gestita](sql-database-managed-instance.md).
-- Per un'esercitazione, vedere [Creare un'istanza gestita](sql-database-managed-instance-tutorial-portal.md).
+- Per un'esercitazione che illustra come creare una nuova istanza gestita, vedere [Creare un'istanza gestita](sql-database-managed-instance-create-tutorial-portal.md).

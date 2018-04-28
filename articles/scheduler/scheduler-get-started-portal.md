@@ -1,11 +1,11 @@
 ---
-title: "Introduzione all'Utilità di pianificazione di Azure nel portale di Azure | Documentazione di Microsoft"
-description: "Introduzione all'Utilità di pianificazione di Azure nel portale di Azure"
+title: Introduzione all'Utilità di pianificazione di Azure nel portale di Azure | Documentazione di Microsoft
+description: Introduzione all'Utilità di pianificazione di Azure nel portale di Azure
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f03ddb475835b30e9b931b7f057c062b57ac45f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Introduzione all'Utilità di pianificazione di Azure nel portale di Azure
 L'Utilità di pianificazione di Azure permette di creare facilmente processi pianificati. In questa esercitazione si apprenderà come creare un processo. Si apprenderanno anche le funzionalità di monitoraggio e gestione dell'Utilità di pianificazione.
@@ -28,7 +28,7 @@ L'Utilità di pianificazione di Azure permette di creare facilmente processi pia
 2. Fare clic su **+Nuovo**, digitare *Utilità di pianificazione* nella casella di ricerca, selezionare **Utilità di pianificazione** tra i risultati e quindi fare clic su **Crea**.
    
     ![][marketplace-create]
-3. Creiamo un processo che accede semplicemente a http://www.microsoft.com/ con una richiesta GET. Nella schermata **Processo dell'Utilità di pianificazione** immettere le informazioni seguenti:
+3. È ora possibile creare un processo che accede semplicemente a http://www.microsoft.com/ con una richiesta GET. Nella schermata **Processo dell'Utilità di pianificazione** immettere le informazioni seguenti:
    
    1. **Nome:** `getmicrosoft`  
    2. **Sottoscrizione:** sottoscrizione di Azure   
@@ -105,7 +105,7 @@ La scheda **Cronologia** mostra le metriche selezionate per ogni esecuzione di p
    ![][job-history-details]
 
 ### <a name="users"></a>Utenti
-Il controllo degli accessi in base al ruolo di Azure consente una gestione degli accessi specifica per l'Utilità di pianificazione di Azure. Per informazioni sull'uso della scheda Utenti, vedere [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md)
+Il controllo degli accessi in base al ruolo di Azure consente una gestione degli accessi specifica per l'Utilità di pianificazione di Azure. Per informazioni sull'uso della scheda Utenti, vedere [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="see-also"></a>Vedere anche 
  [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)

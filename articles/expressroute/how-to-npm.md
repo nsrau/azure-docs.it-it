@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 7d6f064be21f717c825843780fac28bc874f46ce
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0d8bee936717a5668e16fbd66d416fcc4e738814
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurare Monitoraggio prestazioni rete per ExpressRoute
 
@@ -73,7 +73,7 @@ Creare un'area di lavoro nella sottoscrizione che includa il collegamento delle 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare la sottoscrizione che include le reti virtuali di cui è stato eseguito il peer al circuito ExpressRoute. Cercare quindi "Monitoraggio prestazioni rete" nell'elenco dei servizi nel **Marketplace**. Nell'elenco dei risultati fare clic per aprire la pagina **Monitoraggio prestazioni rete**.
 
    >[!NOTE]
-   >È possibile creare una nuova area di lavoro o usarne una esistente.  Se si vuole usare un'area di lavoro esistente, assicurarsi che sia stata eseguita la migrazione dell'area di lavoro al nuovo linguaggio di query. [Altre informazioni...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >È possibile creare una nuova area di lavoro o usarne una esistente.  Se si vuole usare un'area di lavoro esistente, assicurarsi che sia stata eseguita la migrazione dell'area di lavoro al nuovo linguaggio di query. [Altre informazioni...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
    ![portal](.\media\how-to-npm\3.png)<br><br>
@@ -118,7 +118,7 @@ Si consiglia di installare almeno due agenti su ogni lato della connessione Expr
   >
   
   >[!NOTE]
-  >Gli agenti di cui esegue il push SCOM (include [MMA](https://technet.microsoft.com/en-us/library/dn465154(v=sc.12).aspx)) potrebbero non essere in grado di rilevare in modo coerente la loro posizione, se sono ospitati in Azure.  È consigliabile non usare questi agenti in reti virtuali di Azure per monitorare ExpressRoute.
+  >Gli agenti di cui esegue il push SCOM (include [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) potrebbero non essere in grado di rilevare in modo coerente la loro posizione, se sono ospitati in Azure.  È consigliabile non usare questi agenti in reti virtuali di Azure per monitorare ExpressRoute.
   >
   >
 

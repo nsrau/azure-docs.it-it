@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2f6ff1d30eef1fe34e55457d9bdd4295804ec16a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 0aec94ce4d53e1d0f5ecfbc7c667f7d4ceea1d2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparare le risorse di Azure per la replica dei computer locali
 
@@ -21,8 +21,9 @@ ms.lasthandoff: 02/23/2018
 Questa esercitazione spiega come preparare i componenti di Azure quando si vuole eseguire la replica di macchine virtuali locali (Hyper-V o VMware) o server fisici Windows/Linux in Azure. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Verificare che l'account abbia le autorizzazioni di replica.
-> * Creare un account di archiviazione di Azure
+> * Verificare che l'account Azure abbia le autorizzazioni di replica.
+> * Creare un account di archiviazione di Azure I dati replicati vengono archiviati in tale account.
+> * Creare un insieme di credenziali dei servizi di ripristino.
 > * Impostare una rete di Azure. Le macchine virtuali di Azure create dopo il failover vengono aggiunte a questa rete di Azure.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare.
@@ -39,7 +40,7 @@ Se è appena stato creato l'account Azure gratuito, si è amministratori della p
 - Creare una macchina virtuale nella rete virtuale selezionata.
 - Scrivere nell'account di archiviazione selezionato.
 
-Il ruolo predefinito Collaboratore Macchina virtuale ha le autorizzazioni elencate. È necessario anche avere l'autorizzazione per la gestione delle operazioni di Site Recovery. Il ruolo Collaboratore di Site Recovery ha tutte le autorizzazioni necessarie per la gestione delle operazioni di Site Recovery in un insieme di credenziali dei servizi di ripristino.
+Per completare queste attività, è necessario che all'account sia assegnato il ruolo predefinito Collaboratore Macchina virtuale. Per gestire le operazioni di Site Recovery in un insieme di credenziali, è necessario che all'account sia assegnato il ruolo predefinito Collaboratore di Site Recovery.
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 

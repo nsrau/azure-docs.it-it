@@ -171,7 +171,7 @@
 ## [Procedure consigliate per il servizio app](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
-## [Prezzi](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [Prezzi](https://azure.microsoft.com/pricing/details/app-service/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)

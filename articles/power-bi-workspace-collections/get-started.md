@@ -2,11 +2,11 @@
 title: Introduzione alle raccolte di aree di lavoro di Microsoft Power BI
 description: Le raccolte di aree di lavoro di Power BI sono un servizio di Azure che consente agli sviluppatori di applicazioni di aggiungere report interattivi di Power BI alle proprie applicazioni.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 4787cf44-5d1c-4bc3-b3fd-bf396e5c1176
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 4ee113ed25142507f381d8c9d49b25ee6553c525
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: ce8638bab55b18ec4f15ed9fc11f3256659bfbd9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Introduzione alle raccolte di aree di lavoro di Microsoft Power BI
 
@@ -42,7 +42,7 @@ Una **Raccolta di aree di lavoro** è la risorsa di primo livello di Azure e un 
 
 Di seguito è descritta la procedura per compilare una **Raccolta di aree di lavoro** tramite il portale di Azure.
 
-1. Aprire il **portale di Azure**ed eseguire l'accesso: [http://portal.azure.com](http://portal.azure.com).
+1. Aprire e accedere al **portale di Azure**: [http://portal.azure.com](http://portal.azure.com).
 2. Selezionare **+ Nuovo** nel pannello in alto.
    
    ![+ Nuovo nel portale di Azure](media/get-started/create-workspace-1.png)

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ffb13d1190535dacbe3a0781a1d3b425a970d26e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -42,7 +42,7 @@ Le reti virtuali di Azure hanno i log dei flussi dei gruppi di sicurezza di rete
 - **Log dei flussi dei gruppi di sicurezza di rete (NSG)**: permettono di visualizzare le informazioni sul traffico IP in ingresso e in uscita attraverso un gruppo di sicurezza di rete. Sono scritti in formato JSON e mostrano i flussi in ingresso e in uscita per ogni regola, la scheda di rete a cui si applica il flusso, informazioni a 5 tuple relative al flusso (indirizzo IP di origine/destinazione, porta di origine/destinazione e protocollo) e se il traffico è consentito o meno. Per altre informazioni sui log dei flussi dei gruppi di sicurezza di rete, vedere [Log dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md).
 - **Log Analytics**: servizio di Azure che raccoglie i dati di monitoraggio e li archivia in un repository centrale. Questi dati possono includere eventi, dati sulle prestazioni o dati personalizzati forniti tramite l'API di Azure. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione. Le applicazioni di monitoraggio, ad esempio Monitoraggio prestazioni rete e Analisi del traffico, sono basate su Log Analytics. Per altre informazioni, vedere [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Area di lavoro di Log Analytics**: istanza di Log Analytics, in cui vengono archiviati i dati relativi a un account Azure. Per altre informazioni sulle aree di lavoro di Log Analytics, vedere [Creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Network Watcher**: servizio a livello di area che permette di monitorare e diagnosticare le condizioni al livello di scenario di rete in Azure. Con Network Watcher è possibile attivare e disattivare i log dei flussi dei gruppi di sicurezza di rete. Per altre informazioni, vedere [Network Watcher](network-watcher-monitoring-overview.md#network-watcher).
+- **Network Watcher**: servizio a livello di area che permette di monitorare e diagnosticare le condizioni al livello di scenario di rete in Azure. Con Network Watcher è possibile attivare e disattivare i log dei flussi dei gruppi di sicurezza di rete. Per altre informazioni, vedere [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Come funziona Analisi del traffico 
 

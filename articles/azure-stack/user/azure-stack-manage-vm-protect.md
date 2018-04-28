@@ -3,7 +3,7 @@ title: Proteggere le macchine virtuali distribuite nello Stack di Azure | Docume
 description: Linee guida su come proteggere le macchine virtuali distribuite nello Stack di Azure.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
@@ -11,20 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 02get-started-article
-ms.date: 02/27/2018
-ms.author: mabrigg
+ms.topic: get-started-article
+ms.date: 04/25/2018
+ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 0e74c6af36130d206456634548f452a1f1a2d4af
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b49a8650611472b5e35c4bdf8373a1d7e3a45589
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Proteggere le macchine virtuali distribuite nello Stack di Azure
-
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
-
 Questo articolo vengono illustrate le linee guida su come proteggere le macchine virtuali utente distribuite nello Stack di Azure.
 
 Per evitare la perdita di dati e i tempi di inattività non pianificato, è necessario implementare un piano di ripristino di backup o ripristino di emergenza per le applicazioni utente e i dati. Questo piano è univoco per ogni applicazione ma segue una struttura definita dal completa continuità aziendale dell'organizzazione e dalla strategia di ripristino (BC/ripristino di emergenza) di emergenza. Per modelli generali e procedure consigliate per l'applicazione di disponibilità e resilienza consultare [la progettazione di applicazioni Azure resilienti](https://docs.microsoft.com/azure/architecture/resiliency) nel centro di architettura di Azure.
@@ -147,7 +144,8 @@ Considerazioni importanti per la distribuzione di Azure Stack:
 ## <a name="next-steps"></a>Passaggi successivi 
 
 In questo articolo sono descritte le linee guida su come proteggere le macchine virtuali utente distribuite nello Stack di Azure. Per ulteriori informazioni su come proteggere le macchine virtuali tramite servizi di Azure, vedere:
- - [Supporto tecnico di Azure Backup Server per lo Stack di Azure](https://docs.microsoft.com/en-us/azure/backup/ ) 
- - [Supporto tecnico di Azure Site Recovery per lo Stack di Azure](https://docs.microsoft.com/en-us/azure/site-recovery/)  
+ - [Utilizzare Backup di Azure per eseguire il backup di file e le applicazioni nello Stack di Azure](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
+ - [Supporto tecnico di Azure Backup Server per lo Stack di Azure](https://docs.microsoft.com/azure/backup/ ) 
+ - [Supporto tecnico di Azure Site Recovery per lo Stack di Azure](https://docs.microsoft.com/azure/site-recovery/)  
  
 Per ulteriori informazioni sui prodotti partner che offrono protezione delle macchine Virtuali nello Stack di Azure, fare riferimento a "[proteggere applicazioni e dati Azure stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)."

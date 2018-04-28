@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bb8f2f8a6f0905716c34796a5b16c38f406ae64c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guida alla conversione di ruoli di lavoro e Web in servizi senza stato di Service Fabric
 Questo articolo descrive come eseguire la migrazione di ruoli di lavoro e Web di Servizi cloud a servizi senza stato di Service Fabric. Questo è il percorso di migrazione più semplice da Servizi cloud a Service Fabric per le applicazioni la cui architettura complessiva rimarrà approssimativamente la stessa.
@@ -207,7 +207,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 ## <a name="startup-tasks"></a>Attività di avvio
 Le attività di avvio sono azioni eseguite prima dell'avvio di un'applicazione. Un'attività di avvio viene in genere usata per eseguire script di installazione con privilegi elevati. Sia Servizi Cloud che Service Fabric supportano attività di avvio. La differenza principale riguarda il fatto che in Servizi cloud un'attività di avvio è collegata a una VM, perché fa parte di un'istanza del ruolo, mentre in Service Fabric un'attività di avvio è collegata a un servizio che non è associato a una VM specifica.
 
-| Servizi cloud | Service Fabric |
+| Service Fabric | Servizi cloud |
 | --- | --- | --- |
 | Percorso di configurazione |ServiceDefinition.csdef |
 | Privilegi |"limitato" o "con privilegi elevati" |

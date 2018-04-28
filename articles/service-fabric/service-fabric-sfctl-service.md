@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/23/2018
 ms.author: ryanwi
 ms.openlocfilehash: 5b30d3732ff00e5bb79e2d58a9f0b3e5b29dedf8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-service"></a>sfctl service
 Creare, eliminare e gestire servizi, tipi di servizio e pacchetti di servizi.
@@ -93,7 +93,7 @@ Crea il servizio Service Fabric specificato dalla descrizione.
 | --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query               | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-service-delete"></a>sfctl service delete
@@ -116,7 +116,7 @@ Elimina un servizio Service Fabric esistente. Prima di poter essere eliminato, u
 | --debug             | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h           | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o         | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query             | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query             | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose           | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-service-description"></a>Descrizione del servizio sfctl
@@ -138,7 +138,7 @@ Mostra la descrizione di un servizio di Service Fabric esistente. Prima di poter
 | --debug             | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h           | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o         | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query             | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query             | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose           | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-service-health"></a>Integrità dei servizi sfctl
@@ -186,7 +186,7 @@ Mostra le informazioni relative al servizio specifico appartenente all'applicazi
 | --debug                 | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h               | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o             | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito:             json.|
-| --query                 | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query                 | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose               | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-service-list"></a>sfctl service list
@@ -210,7 +210,7 @@ Restituisce le informazioni su tutti i servizi appartenenti all'applicazione spe
 | --debug                 | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h               | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o             | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito:             json.|
-| --query                 | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query                 | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose               | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-service-manifest"></a>sfctl service manifest
@@ -234,7 +234,7 @@ Mostra il manifesto che descrive un tipo di servizio. La risposta contiene il ma
 | --debug                           | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h                         | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o                       | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.                       Predefinito: json.|
-| --query                           | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query                           | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose                         | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-service-recover"></a>sfctl service recover
@@ -256,7 +256,7 @@ Indica al cluster di Service Fabric che deve tentare di ripristinare il servizio
 | --debug             | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h           | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o         | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query             | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query             | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose           | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-service-resolve"></a>sfctl service resolve
@@ -281,7 +281,7 @@ Consente di risolvere una partizione del servizio Service Fabric per ottenere gl
 | --debug             | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h           | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o         | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query             | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query             | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose           | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-service-update"></a>sfctl service update
@@ -315,7 +315,7 @@ Aggiorna il servizio specificato usando la descrizione di aggiornamento specific
 | --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query               | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="next-steps"></a>Passaggi successivi

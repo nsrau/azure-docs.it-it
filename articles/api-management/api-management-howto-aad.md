@@ -3,9 +3,9 @@ title: Autorizzare gli account per sviluppatori usando Azure Active Directory - 
 description: Informazioni su come autorizzare gli utenti usando Azure Active Directory in Gestione API.
 services: api-management
 documentationcenter: API Management
-author: juliako
+author: miaojiang
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d89257cba70fb82d56fb1beef8a8efe66a8af02d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9f3669d205ab4bd24ccba53ffb532fe1d88131ac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
 
@@ -26,7 +26,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 > [!NOTE]
 > L'integrazione di Azure AD è disponibile solo nei livelli [Developer, Standard e Premium](https://azure.microsoft.com/pricing/details/api-management/).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 - Importare e pubblicare un'istanza di Gestione API di Azure. Per altre informazioni, vedere [Importare e pubblicare un'API](import-and-publish.md).
@@ -34,7 +34,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizzare gli account per sviluppatori usando Azure AD
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
-2. Selezionare ![freccia](./media/api-management-howto-aad/arrow.png).
+2. Select ![freccia](./media/api-management-howto-aad/arrow.png).
 3. Nella casella di ricerca digitare **api**.
 4. Selezionare **Servizi Gestione API**.
 5. Selezionare l'istanza del servizio Gestione API in esecuzione.
@@ -51,7 +51,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
    ![Passaggi per l'aggiunta di un provider di identità nel portale di Azure](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. Nel browser aprire una scheda diversa. 
 11. Accedere al [portale di Azure](https://portal.azure.com).
-12. Selezionare ![freccia](./media/api-management-howto-aad/arrow.png).
+12. Select ![freccia](./media/api-management-howto-aad/arrow.png).
 13. Digitare **active**. Verrà visualizzato il riquadro **Azure Active Directory**.
 14. Selezionare **Azure Active Directory**.
 15. In **GESTISCI** selezionare **Registrazioni per l'app**.
@@ -62,7 +62,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
     Sulla destra verrà visualizzato il riquadro **Crea**. È qui che occorre immettere le informazioni rilevanti per l'app Azure AD.
 17. Immettere un nome per l'applicazione.
 18. Selezionare **App Web/API** per il tipo di applicazione.
-19. In URL accesso immettere l'URL di accesso del portale per sviluppatori. In questo esempio l'URL di accesso è https://apimwithaad.portal.azure-api.net/signin.
+19. In URL accesso immettere l'URL di accesso del portale per sviluppatori. In questo esempio, l'URL di accesso è https://apimwithaad.portal.azure-api.net/signin.
 20. Selezionare **Crea** per creare l'applicazione.
 21. Per trovare l'app, selezionare **Registrazioni per l'app** ed eseguire una ricerca in base al nome.
 

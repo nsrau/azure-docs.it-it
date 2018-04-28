@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: ac9c762327dd8d2eb9e4dd9a79fc2bfa87241f14
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 52c910609930bbeecd21b75549c71ee9ed4e1e3b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Creare, modificare o eliminare un peering reti virtuali
 
@@ -31,7 +31,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 
 - Se non si ha un account Azure, registrarsi per ottenere un [account per la versione di prova gratuita](https://azure.microsoft.com/free).
 - Se si usa il portale, aprire https://portal.azure.com e accedere con un account con le [autorizzazioni necessarie](#permissions) per l'utilizzo dei peering.
-- Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo di Azure PowerShell 5.5.0 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è necessario eseguire anche `Login-AzureRmAccount` con un account con le [autorizzazioni necessarie](#permissions) all'utilizzo dei peering, per creare una connessione ad Azure.
+- Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo di Azure PowerShell 5.5.0 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è necessario eseguire anche `Connect-AzureRmAccount` con un account con le [autorizzazioni necessarie](#permissions) all'utilizzo dei peering, per creare una connessione ad Azure.
 - Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.29 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è necessario eseguire anche `az login` con un account con le [autorizzazioni necessarie](#permissions) all'utilizzo dei peering, per creare una connessione ad Azure.
 
 ## <a name="create-a-peering"></a>Creare un peering
@@ -129,8 +129,8 @@ Per far comunicare le reti virtuali non sempre, ma solo in alcuni casi, invece d
 - Le sottoscrizione in cui si trovano entrambe le reti virtuali di cui si vuole eseguire il peering devono essere associate allo stesso tenant di Azure Active Directory. Se non si ha già un tenant di AD, è possibile [crearne uno](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant) rapidamente. È possibile usare un [Gateway VPN ](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) per connettere due reti virtuali esistenti in diverse sottoscrizioni associate a tenant differenti di Active Directory.
 - È possibile eseguire il peering di una rete virtuale a un'altra rete virtuale e anche connettere una rete virtuale a un'altra con un gateway di rete virtuale di Azure. Quando le reti virtuali vengono connesse sia tramite il peering che tramite un gateway, il traffico tra le reti virtuali segue la configurazione del peering invece che il gateway.
 - È previsto un importo minimo per il traffico in ingresso e in uscita che usa un peering di rete virtuale. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/virtual-network).
-* <a name="cross-region"></a>È possibile eseguire il peering delle reti virtuali nelle stesse aree o in aree differenti. I vincoli seguenti non si applicano quando entrambe le reti virtuali si trovano nella *stessa* area, ma si applicano quando le reti virtuali si trovano in aree *differenti*: 
-    - Le reti virtuali esistono solo nelle aree seguenti: Corea meridionale, Regno Unito meridionale, Regno Unito occidentale, Canada orientale, India meridionale, India centrale, India occidentale, Stati Uniti centro-occidentali, Canada centrale e Stati Uniti occidentali 2.
+* <a name="cross-region"></a>È possibile eseguire il peering di reti virtuali nella stessa area o in aree differenti. I vincoli seguenti non si applicano quando entrambe le reti virtuali si trovano nella *stessa* area, ma si applicano quando il peering viene eseguito globalmente nelle reti virtuali: 
+    - Le reti virtuali possono esistere solo nelle seguenti aree: Stati Uniti occidentali (Wyoming), Stati Uniti occidentali 2 (Washington), Stati Uniti centrali (Iowa), Stati Uniti orientali 2 (Virginia), Canada centrale (Roma), Canada orientale (Città del Quebec), Asia sudorientale (Singapore) Corea meridionale (Buscan), India meridionale (Chennai), India centrale (Pune), India occidentale (Mumbai), Regno Unito meridionale (Londra), Regno Unito occidentale (Cardiff), Europa occidentale (Paesi Bassi).
     - Le risorse in una rete virtuale non possono comunicare con l'indirizzo IP di un servizio di bilanciamento del carico interno di Azure nella rete virtuale con peering. Il servizio di bilanciamento del carico e le risorse che comunicano con quest'ultimo devono essere nella stessa rete virtuale.
     - Non è possibile usare i gateway remoti o consentire il transito del gateway. Per usare i gateway remoti o per consentire il transito del gateway, entrambe le reti virtuali nel peering devono trovarsi nella stessa area. 
 
@@ -140,12 +140,12 @@ Gli account usati per creare un peering di rete virtuale devono disporre del ruo
     
 |Rete virtuale|Modello di distribuzione|Ruolo|Autorizzazioni|
 |---|---|---|---|
-|myVnetA|Gestione risorse|[Collaboratore di rete](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Classico|[Collaboratore reti virtuali classiche](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/D|
-|myVnetB|Gestione risorse|[Collaboratore di rete](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||Classico|[Collaboratore reti virtuali classiche](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
+|myVnetA|Gestione risorse|[Collaboratore di rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+| |Classico|[Collaboratore reti virtuali classiche](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/D|
+|myVnetB|Gestione risorse|[Collaboratore di rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+||Classico|[Collaboratore reti virtuali classiche](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
-Altre informazioni sui [ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) e sull'assegnazione di autorizzazioni specifiche ai [ruoli personalizzati](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (solo Resource Manager).
+Altre informazioni sui [ruoli predefiniti](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) e sull'assegnazione di autorizzazioni specifiche ai [ruoli personalizzati](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (solo Resource Manager).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

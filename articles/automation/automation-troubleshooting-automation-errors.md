@@ -10,18 +10,18 @@ ms.topic: article
 manager: carmonm
 tags: top-support-issue
 keywords: errore di automazione, risoluzione dei problemi, problema
-ms.openlocfilehash: 9764068dd7a1a499c61695f39bff726a8ea3aac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 44200ae9deb1a5c11c81550173b3f6f90b5d62ab
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Risoluzione dei problemi comuni in Automazione di Azure 
 Questo articolo fornisce informazioni utili per la risoluzione degli errori comuni che si possono verificare in Automazione di Azure e suggerisce possibili soluzioni.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Errori di autenticazione durante l'utilizzo di runbook di Automazione di Azure
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>Scenario: Accesso all'account Azure non riuscito
-**Errore:** viene visualizzato l'errore "Unknown_user_type: tipo di utente sconosciuto" quando si usa uno dei due cmdlet seguenti: Add-AzureAccount o Login-AzureRmAccount.
+**Errore:** si riceve l'errore "Unknown_user_type: Unknown User Type" (Unknown_user_type: tipo di utente sconosciuto) quando si usa uno dei due cmdlet seguenti: Add-AzureAccount o Connect-AzureRmAccount.
 
 **Motivo dell'errore:** questo errore si verifica se il nome dell'asset delle credenziali non è valido o se il nome utente e la password usati per impostare l'asset delle credenziali di automazione non sono validi.
 
@@ -34,7 +34,7 @@ Questo articolo fornisce informazioni utili per la risoluzione degli errori comu
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount –Credential $Cred
+        Connect-AzureRmAccount –Credential $Cred
 3. Se l'autenticazione non riesce in locale, significa che le credenziali di Azure Active Directory non sono state configurate correttamente. Per ottenere la configurazione corretta dell'account Azure Active Directory, vedere il post di blog relativo all' [autenticazione in Azure con Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) .  
 
 ### <a name="scenario-unable-to-find-the-azure-subscription"></a>Scenario: Non è possibile trovare la sottoscrizione di Azure

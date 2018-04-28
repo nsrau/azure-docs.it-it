@@ -62,7 +62,7 @@
 ### [Linee guida per la diagnosi](notification-hubs-push-notification-fixer.md)
 
 # Riferimenti
-## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
+## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=notification-hubs)
 ## [Azure PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST](/rest/api/notificationhubs)

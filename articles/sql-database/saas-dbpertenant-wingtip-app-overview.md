@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 224639dcc7da950801c7a5959ec14fc5ac7313e0
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cf54c789d766c4bd3d353028e75e34c961470070
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introduzione a un'app SaaS multi-tenant che usa il modello di database per tenant con il database SQL
 
@@ -24,7 +24,7 @@ Il codice sorgente dell'applicazione e gli script di gestione sono disponibili n
 
 ## <a name="application-architecture"></a>Architettura dell'applicazione
 
-L'app SaaS Wingtip usa il modello di database per tenant. Essa usa pool elastici SQL per massimizzare l'efficienza. Per il provisioning e il mapping dei tenant ai dati, viene usato un database di catalogo. L'applicazione SaaS Wingtip principale usa un pool con tre tenant di esempio, oltre al database del catalogo. Completando la maggior parte delle esercitazioni su Wingtip SaaS si potranno inserire dei componenti aggiuntivi all'implementazione iniziale. Vengono illustrati componenti aggiuntivi come i database analitici e la gestione dello schema del database.
+L'app SaaS Wingtip usa il modello di database per tenant. Essa usa pool elastici SQL per massimizzare l'efficienza. Per il provisioning e il mapping dei tenant ai dati, viene usato un database di catalogo. L'applicazione SaaS Wingtip principale usa un pool con tre tenant di esempio, oltre al database del catalogo. Per i server di catalogo e tenant è stato effettuato il provisioning con alias DNS. Questi alias vengono usati per mantenere un riferimento alle risorse attive usate dall'applicazione Wingtip. Tali alias sono aggiornati per puntare alle risorse di ripristino nelle esercitazioni sul ripristino di emergenza. Completando la maggior parte delle esercitazioni su Wingtip SaaS si potranno inserire dei componenti aggiuntivi all'implementazione iniziale. Vengono illustrati componenti aggiuntivi come i database analitici e la gestione dello schema del database.
 
 
 ![Architettura SaaS Wingtip](media/saas-dbpertenant-wingtip-app-overview/app-architecture.png)

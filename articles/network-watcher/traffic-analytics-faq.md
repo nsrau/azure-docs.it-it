@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 01d5150bff8642a1a3fe9b7ac063923916f191c0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/28/2018
 12.  Vengono visualizzati i messaggi seguenti: "1) È in corso l'analisi dei log del flusso del gruppo di sicurezza di rete per la prima volta. L'operazione potrebbe richiedere circa 20-30 minuti. Verificare più tardi". 2) "Controllare qui l'utilizzo dell'area di lavoro per convalidare la quota in eccedenza (se l'area di lavoro si trova nello SKU gratuito)". Come risolvere il problema?
 
         Questo errore potrebbe verificarsi per i motivi seguenti:
-        - Analisi del traffico potrebbe essere stato abilitato di recente ed è possibile che stia aggregando dati sufficienti per ricavare informazioni dettagliate significative prima di generare un report. In questo caso, riprovare dopo 30 minuti
+        - Analisi del traffico potrebbe essere stato abilitato di recente ed è possibile che non abbia già aggregato dati sufficienti per ricavare informazioni dettagliate significative.
         - L'area di lavoro di OMS è associata allo SKU gratuito e ha violato i limiti di quota. In questo caso, potrebbe essere necessario usare un'area di lavoro in uno SKU con capacità più elevata.
     
         Se i problemi persistono, chiedere assistenza nel [forum di suggerimenti per gli utenti](https://feedback.azure.com/forums/217313-networking?category_id=195844).
@@ -104,11 +104,15 @@ ms.lasthandoff: 03/28/2018
 
         Le informazioni sulle risorse sono visualizzate nel dashboard, tuttavia non sono presenti le statistiche relative ai flussi. I dati potrebbero non essere presenti a causa della mancanza di flussi di comunicazione tra le risorse. Attendere 60 minuti e ricontrollare lo stato. Se si è certi dell'esistenza dei flussi di comunicazione tra le risorse, chiedere assistenza nel [forum di suggerimenti per gli utenti](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14.  Come viene determinato il prezzo di Analisi del traffico?
+14. È possibile configurare la funzionalità Analisi del traffico tramite PowerShell o un modello di Azure Resource Manager?
+
+    No, la funzionalità Analisi del traffico può essere configurata solo tramite il portale di Azure.
+
+15.  Come viene determinato il prezzo di Analisi del traffico?
 
         Analisi del traffico è a consumo per il miglioramento della riduzione log e l'archiviazione dei registri avanzati in un'area di lavoro Log Analytics. Mentre in anteprima, Analisi del traffico non viene fatturato per migliorare i registri ridotti, tuttavia la conservazione dei dati in un'area di lavoro è soggetta a fatturazione in base alle tariffe pubblicate. Questa risposta verrà aggiornata una volta disponibili i prezzi per Analisi del traffico.
 
-15.  Come è possibile spostarsi con la tastiera nella visualizzazione mappa geografica?
+16.  Come è possibile spostarsi con la tastiera nella visualizzazione mappa geografica?
 
         La pagina mappa geografica contiene due sezioni principali:
     

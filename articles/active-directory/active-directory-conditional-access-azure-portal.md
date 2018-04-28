@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 74a87065416b397b4eebbcaa54c769711176708d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 94d34df771334319db36009053a7264f0aeacf46
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accesso condizionale in Azure Active Directory
 
@@ -47,7 +47,7 @@ Di seguito sono indicate alcune problematiche di accesso comuni per cui l'access
 
 - **[Rischio di accesso](active-directory-conditional-access-conditions.md#sign-in-risk)**: Azure AD Identity Protection rileva i rischi di accesso. Come limitare l'accesso se un rischio di accesso rilevato indica un attore malintenzionato? Cosa accade se si intende essere maggiormente certi del fatto che è stato eseguito un accesso dall'utente legittimo o se sussistono dubbi sufficienti a impedire addirittura a utenti specifici di accedere a un'app?
 
-- **[Percorso di rete](active-directory-conditional-access-locations.md)**: Azure AD è accessibile da qualsiasi posizione. Cosa accade se si esegue un tentativo di accesso da un percorso di rete al di fuori del controllo del reparto IT? L'uso di una combinazione di nome utente e password potrebbe essere sufficiente come identificazione per i tentativi di accesso alle risorse dalla rete aziendale. Cosa accade se è necessario un livello superiore di identificazione per i tentativi di accesso avviati da altri paesi o aree geografiche non previsti del mondo? Cosa accade se si intende addirittura bloccare i tentativi di accesso da alcune posizioni?  
+- **[Percorso di rete](active-directory-conditional-access-locations.md)**: Azure AD è accessibile da qualsiasi posizione. Cosa accade se si esegue un tentativo di accesso da un percorso di rete al di fuori del controllo del reparto IT? L'uso di una combinazione di nome utente e password potrebbe essere sufficiente come identificazione per i tentativi di accesso alle risorse dalla rete aziendale. Cosa accade se è necessario un livello superiore di identificazione per i tentativi di accesso avviati da altri paesi o regioni non previsti del mondo? Cosa accade se si intende addirittura bloccare i tentativi di accesso da alcune posizioni?  
 
 - **[Gestione dei dispositivi](active-directory-conditional-access-conditions.md#device-platforms)**: in Azure AD gli utenti possono accedere alle app cloud da una vasta gamma di dispositivi, inclusi i dispositivi mobili e i dispositivi personali. Cosa accade se si richiede che i tentativi di accesso vengano eseguiti solo usando i dispositivi gestiti dal reparto IT? Cosa accade se si intende addirittura impedire a determinati tipi di dispositivi l'accesso alle app cloud nell'ambiente in uso? 
 
@@ -108,7 +108,7 @@ Per altre informazioni, vedere [Configurare SharePoint Online ed Exchange Online
 
 ### <a name="license-requirements-for-using-conditional-access"></a>Requisiti di licenza per l'uso dell'accesso condizionale
 
-L'uso dell'accesso condizionale richiede una licenza Azure AD Premium. Per trovare la licenza corretta per le proprie esigenze, vedere [Caratteristiche e funzionalità di Azure Active Directory](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features).
+L'uso dell'accesso condizionale richiede una licenza Azure AD Premium. Per trovare la licenza corretta per le proprie esigenze, vedere [Caratteristiche e funzionalità di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

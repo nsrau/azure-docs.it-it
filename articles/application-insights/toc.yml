@@ -70,7 +70,7 @@
         - name: JavaScript
           href: app-insights-javascript.md
     - name: Monitorare Funzioni di Azure
-      href: 'https://docs.microsoft.com/azure/azure-functions/functions-monitoring'
+      href: ../azure-functions/functions-monitoring.md?toc=%2fazure%2fapplication-insights%2ftoc.json
     - name: Monitorare le altre piattaforme
       items:
         - name: Siti di SharePoint

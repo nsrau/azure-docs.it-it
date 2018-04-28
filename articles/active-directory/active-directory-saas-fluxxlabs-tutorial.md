@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 5288ae3deaf82e76accb9c9584c250c7dbe2c9ca
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0bba820c14c5eddc6db99923e3fb1de58c110f4c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Esercitazione: Integrazione di Azure Active Directory con Fluxx Labs
 
@@ -32,7 +32,7 @@ L'integrazione di Fluxx Labs con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Fluxx Labs sono necessari gli elementi seguenti:
 
@@ -114,16 +114,14 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     |-------------|------------|
     | Produzione | `https://<subdomain>.fluxx.io` |
     | Preproduzione | `https://<subdomain>.preprod.fluxxlabs.com`|
-    | Staging    | `https://<subdomain>.stage.fluxxlabs.com`|
-    
+        
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente:
 
     | Environment | Modello URL|
     |-------------|------------|
     | Produzione | `https://<subdomain>.fluxx.io/auth/saml/callback` |
     | Preproduzione | `https://<subdomain>.preprod.fluxxlabs.com/auth/saml/callback`|
-    | Staging    | `https://<subdomain>.stage.fluxxlabs.com/auth/saml/callback`|
-    
+        
     > [!NOTE] 
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto di Fluxx Labs](mailto:travis@fluxxlabs.com).
 
@@ -141,11 +139,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 7. In un'altra finestra del Web browser accedere al sito aziendale di Fluxx Labs come amministratore.
 
-8. Nell'angolo superiore destro della pagina fare clic sull'**icona delle impostazioni** e quindi su **Admin** (Amministratore).
+8. Selezionare **Amministrazione** sotto la sezione **Impostazioni**.
 
     ![Configurazione di Fluxx Labs](./media/active-directory-saas-fluxxlabs-tutorial/config1.png)
 
-9. Nel Pannello di amministrazione selezionare **Plug-in** > **Integrazioni** e quindi selezionare **SAML SSO-(Enabled)** [SSO SAML-(Abilitato)].
+9. Nel pannello Amministrazione selezionare **Plug-in** > **Integrazioni** e quindi selezionare **SAML SSO-(Disabilitato)**
 
     ![Configurazione di Fluxx Labs](./media/active-directory-saas-fluxxlabs-tutorial/config2.png)
     
@@ -159,13 +157,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     c. Nella casella di testo **Callback Path** (Percorso callback) digitare **/auth/saml/callback**.
 
-    d. Nella casella di testo **Assertion Consumer Service Url** (URL del servizio consumer di asserzione) incollare il valore di **SAML Single Sign-On Service URL** (URL servizio Single Sign-On SAML) copiato dal portale di Azure.
+    d. Nella casella di testo **URL del servizio consumer di asserzione** incollare il valore di **URL del servizio Single Sign-On SAML** copiato dal portale di Azure.
 
-    e. Nella casella di testo **Autorità di certificazione** incollare il valore dell'**ID di entità SAML** copiato dal portale di Azure.
+    e. Nella casella di testo **Audience (SP Entity ID)** (Destinatari - ID entità provider di servizi) incollare il valore di **SAML Entity ID** (ID entità SAML) copiato dal portale di Azure.
 
-    f. Aprire il certificato con codifica in base 64 nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **IDP Cert** (Certificato IDP).
+    f. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **Certificato provider di identità**.
 
-    g.  Nella casella di testo **Formato identificatore nome** immettere il valore `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+    g. Nella casella di testo **Formato identificatore nome** immettere il valore `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
 
     h. Fare clic su **Save**.
 
@@ -212,23 +210,21 @@ Per consentire agli utenti di Azure AD di accedere a Fluxx Labs, è necessario e
 
 1. Accedere al sito aziendale di Fluxx Labs come amministratore.
 
-2. Nel dashboard fare clic sull'icona visualizzata di seguito per aprire la scheda **New PERSON** (Nuova persona).
+2. Fare clic sull'**icona** visualizzata di seguito.
+
+    ![Configurazione di Fluxx Labs](./media/active-directory-saas-fluxxlabs-tutorial/config6.png)
+
+3. Nel dashboard fare clic sull'icona visualizzata di seguito per aprire la scheda **New PEOPLE** (Nuove PERSONE).
 
     ![Configurazione di Fluxx Labs](./media/active-directory-saas-fluxxlabs-tutorial/config4.png)
 
-3. Nella sezione **NEW PERSON** seguire questa procedura:
+4. Nella sezione **NEW PEOPLE** (Nuove persone) seguire questa procedura:
     
     ![Configurazione di Fluxx Labs](./media/active-directory-saas-fluxxlabs-tutorial/config5.png)
 
-    a. Nella casella di testo **Login** (Accesso) immettere il nome dell'account di posta elettronica dell'utente, ad esempio Azure_Admin.
+    a. Fluxx Labs usa l'account di posta elettronica come identificatore univoco per l'accesso Single Sign-On. Compilare il campo **SSO UID** (UID SSO) con l'indirizzo di posta elettronica dell'utente, corrispondente all'indirizzo di posta elettronica usato come account di accesso con SSO.
 
-    b. Nella casella di testo **Password** digitare la password dell'account di Azure_Admin.
-
-    c. Nella casella di testo **Confirm Password** (Conferma password) digitare di nuovo la password dell'account di Azure_Admin.
-
-    d. Fluxx Labs usa l'account di posta elettronica come identificatore univoco per l'accesso Single Sign-On. Compilare il campo **SSO UID** (UID SSO) con l'indirizzo di posta elettronica dell'utente, corrispondente all'indirizzo di posta elettronica usato come account di accesso con SSO.
-
-    e. Fare clic su **Create Person** (Crea persona).
+    b. Fare clic su **Save**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -285,4 +281,3 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_203.png
-

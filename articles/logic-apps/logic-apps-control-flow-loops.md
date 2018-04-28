@@ -1,12 +1,12 @@
 ---
 title: Cicli - Elaborare le matrici o ripetere le azioni - App per la logica di Azure | Microsoft Docs
-description: "Elaborare le matrici con i cicli \"for each\" o ripetere le azioni finché non vengono soddisfatte condizioni specifiche nelle app per la logica"
+description: Elaborare le matrici con i cicli "for each" o ripetere le azioni finché non vengono soddisfatte condizioni specifiche nelle app per la logica
 services: logic-apps
 keywords: cicli for each
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: logic-apps
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: f634b1004fef2eb65c6b8134088ceead47c91890
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>Cicli: elaborare le matrici o ripetere le azioni finché non viene soddisfatta una condizione
 
@@ -154,9 +154,6 @@ Per ripetere azioni fino a quando non viene soddisfatta una condizione o è stat
 * Chiamare un endpoint finché non si ottiene la risposta desiderata.
 * Creare un record in un database, attendere finché un campo specifico in tale record non viene approvato e continuare l'elaborazione. 
 
-> [!NOTE]
-> I cicli "Until" non possono includere cicli "Foreach" o altri cicli "Until".
-
 Ogni giorno alle 8:00, ad esempio, questa app per la logica incrementa una variabile finché il valore della variabile non è uguale a 10. L'app per la logica invia quindi un messaggio di posta elettronica che conferma il valore corrente. Anche se questo esempio usa Office 365 Outlook, è possibile usare qualsiasi provider di posta elettronica supportato da App per la logica. Vedere l'[elenco di connettori qui](https://docs.microsoft.com/connectors/). Se si usa un altro account di posta elettronica, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa. 
 
 1. Creare un'app per la logica vuota. In Progettazione app per la logica cercare "ricorrenza" e selezionare questo trigger: **Pianificazione - Ricorrenza** 
@@ -174,7 +171,7 @@ Ogni giorno alle 8:00, ad esempio, questa app per la logica incrementa una varia
    | **A queste ore** | 8 |
    ||| 
 
-3. Nel trigger scegliere **Nuovo passaggio** > **Add an action** (Aggiungi un'azione). Cercare "variabili" e quindi selezionare l'azione: **Variabili - Inizializza variabile**
+3. Nel trigger scegliere **Nuovo passaggio** > **Aggiungi un'azione**. Cercare "variabili" e quindi selezionare l'azione: **Variabili - Inizializza variabile**
 
    ![Aggiungere l'azione "Variabili - Inizializza variabile"](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 

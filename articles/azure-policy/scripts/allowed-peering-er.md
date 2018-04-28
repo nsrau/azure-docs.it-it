@@ -1,25 +1,25 @@
 ---
-title: "Esempio JSON di Criteri di Azure: località di peering consentita per Express Route | Microsoft Docs"
-description: "Questo criterio richiede che le istanze di Express Route usino località di peering specificate."
+title: 'Esempio JSON di Criteri di Azure: località di peering consentita per Express Route | Microsoft Docs'
+description: Questo criterio richiede che le istanze di Express Route usino località di peering specificate.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 218d06d7595a8a2d937afa36682f67baf1995bd5
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 634e959396eca37078c7a2eedcb7fafdc7f41fd3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="allowed-peering-location-for-express-route"></a>Località di peering consentita per Express Route
 

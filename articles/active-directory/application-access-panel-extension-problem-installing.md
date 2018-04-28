@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: c49cfad5f362f4402be476066f0e8c0158f20d73
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Installare l'estensione del browser per il pannello di accesso
 
@@ -37,7 +37,6 @@ Per l'accesso SSO basato su password, è possibile usare uno qualsiasi dei brows
 - **Microsoft Edge**: in Windows 10 Anniversary Edition o versioni successive. 
 - **Chrome**: in Windows 7 o versioni successive e in MacOS X o versioni successive.
 - **Firefox 26.0 o versioni successive**: in Windows XP SP2 o versioni successive e in Mac OS X 10.6 o versioni successive.
-- **Internet Explorer 8, 9, 10 e 11**: in Windows 7 o versioni successive (supporto limitato).
 
 ## <a name="install-the-access-panel-browser-extension"></a>Installare l'estensione del browser per il pannello di accesso
 
@@ -65,8 +64,8 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Usare l'estensione per l'accesso sicuro alle app personali
 * Se si usa un URL delle app personali diverso da `https://myapps.microsoft.com`, configurare l'URL predefinito seguendo questa procedura:
-   1. *Senza* aver prima eseguito l'accesso all'estensione, fare clic con il pulsante destro del mouse sull'icona dell'estensione.
-   2. Dal menu scegliere **My Apps URL** (URL app personali).
+   1. *Senza* accedere all'estensione, fare clic con il pulsante destro del mouse sull'icona dell'estensione.
+   2. Nel menu selezionare **My Apps URL** (URL app personali).
    3. Selezionare l'URL predefinito.
    4. Selezionare l'icona dell'estensione.
    5. Per accedere all'estensione, selezionare **Sign in to get started** (Accedi per iniziare).

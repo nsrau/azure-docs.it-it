@@ -2,11 +2,11 @@
 title: 'Servizio app di Azure stack: aggiornamento del dominio di errore | Documenti Microsoft'
 description: Come ridistribuire il servizio App di Azure nello Stack di Azure nei domini di errore
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 851747263879aa89fabe8b168876238a004ea8b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 42adef66fb1b1141ab44aab3a1ccdaae022202b5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Come ridistribuire il servizio App di Azure nello Stack di Azure nei domini di errore
 
@@ -55,7 +55,7 @@ Per ridistribuire i set di scalabilità per il provider di risorse di servizio A
 2. Avanti con scalabilità orizzontale ogni set.  Ad esempio, se si dispongano di tre istanze esistenti nel set di scalabilità prevedono la scalabilità orizzontale a 6 in modo che le tre nuove istanze verranno eseguito il provisioning in domini di errore.
     a. [Configurare l'ambiente Azure Stack Admin in PowerShell](azure-stack-powershell-configure-admin.md) b. Usare questo esempio per scalare orizzontalmente il set di scalabilità:
         ```powershell
-                Login-AzureRMAccount -EnvironmentName AzureStackAdmin 
+                Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
 
                 # Get current scale set
                 $vmss = Get-AzureRmVmss -ResourceGroupName "AppService.local" -VMScaleSetName "SmallWorkerTierScaleSet"

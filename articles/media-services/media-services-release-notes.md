@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20a24aa19989370c6ce82a738193a78f24b0eba9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 Nelle presenti note sulla versione per Servizi multimediali di Azure vengono riepilogate le modifiche rispetto alle versioni precedenti e i problemi noti.
@@ -47,7 +47,7 @@ Per informazioni sulla cronologia delle versioni dell'API REST di Servizi multim
 
 ## <a name="october-2017-release"></a>Versione di ottobre 2017
 > [!IMPORTANT] 
-> Il supporto delle chiavi di autenticazione del Servizio di controllo di accesso di Azure in Servizi multimediali è in fase di deprecazione. A partire dal 1° giugno 2018 non sarà più possibile autenticarsi con il back-end di Servizi multimediali tramite il codice usando le chiavi del Servizio di controllo di accesso. È necessario aggiornare il codice in modo da usare Azure Active Directory (Azure AD) come indicato in [Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). Controllare gli avvisi relativi a questa modifica nel portale di Azure.
+> Il supporto delle chiavi di autenticazione del Servizio di controllo di accesso di Azure in Servizi multimediali è in fase di deprecazione. A partire dal 22 giugno 2018 non sarà più possibile autenticarsi con il back-end di Servizi multimediali tramite il codice usando le chiavi del Servizio di controllo di accesso. È necessario aggiornare il codice in modo da usare Azure Active Directory (Azure AD) come indicato in [Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). Controllare gli avvisi relativi a questa modifica nel portale di Azure.
 
 ### <a name="updates-for-october-2017"></a>Aggiornamenti di ottobre 2017
 #### <a name="sdks"></a>SDK
@@ -111,8 +111,8 @@ Per altre informazioni su queste proprietà, vedere [StreamingEndpoint](https://
  È ora possibile usare Servizi multimediali per accedere ai dati di telemetria e delle metriche relativi ai servizi. È possibile usare la versione corrente di Servizi multimediali per raccogliere i dati di telemetria relativi alle entità canale live, endpoint di streaming e archivio. Per altre informazioni, vedere [Telemetria di Servizi multimediali](media-services-telemetry-overview.md).
 
 ## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>Versione di luglio 2016
-### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>Aggiornamenti del file manifesto (\*.ISM) generato dalle attività di codifica
-Quando viene inviata a Media Encoder Standard o a Media Encoder Premium, l'attività di codifica genera un [file manifesto di streaming](media-services-deliver-content-overview.md) (\*.ism) nell'asset di output. Con la versione più recente del servizio è stata aggiornata la sintassi del file manifesto di streaming.
+### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>Aggiornamenti del file manifesto (con estensione ism) generato dalle attività di codifica
+Quando viene inviata a Media Encoder Standard o a Media Encoder Premium, l'attività di codifica genera un [file manifesto di streaming](media-services-deliver-content-overview.md) (con estensione ism) nell'asset di output. Con la versione più recente del servizio è stata aggiornata la sintassi del file manifesto di streaming.
 
 > [!NOTE]
 > La sintassi del file manifesto di streaming (con estensione .ism) è riservata per l'uso interno. Sono previste modifiche nelle versioni future. Non modificare o manipolare il contenuto di questo file.

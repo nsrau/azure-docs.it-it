@@ -1,25 +1,24 @@
 ---
-title: Come usare il Controllo di accesso (Java) | Documentazione Microsoft
+title: Come usare Controllo di accesso (Java)
 description: Informazioni su come sviluppare e usare Controllo di accesso con Java in Azure.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: mtillman
-editor: ''
+manager: mbaldwin
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: bd65da490bf3d7e17bf6ff36e76e306842d50653
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure usando Eclipse
 In questa guida verrà descritto come usare il Servizio di controllo di accesso di Azure (ACS) nel plug-nel Toolkit di Azure per Eclipse. Per altre informazioni su ACS, vedere la sezione [Passaggi successivi](#next_steps) .
@@ -74,7 +73,7 @@ Nella figura seguente viene illustrato il funzionamento dell'autenticazione ACS 
 6. ACS convalida il token di sicurezza rilasciato dal provider di identità, inserisce le attestazioni di identità contenute nel motore regole ACS, calcola le attestazioni di identità di output e rilascia un nuovo token di sicurezza che contiene tali attestazioni di identità di output.
 7. ACS reindirizza il client all'applicazione RP. Il client invia il nuovo token di sicurezza rilasciato da ACS all'applicazione relying party. L'applicazione relying party convalida la firma nel token di sicurezza rilasciato da ACS, convalida le attestazioni contenute nel token e restituisce la pagina richiesta.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare le attività in questa guida è necessario quanto segue:
 
 * Java Developer Kit (JDK) v 1.6 o versione successiva.
@@ -116,14 +115,14 @@ In questa attività, ACS verrà configurato affinché riconosca l'applicazione W
    
    1. Nel campo **Name**digitare il nome dell'applicazione relying party. Ai fini di questa esercitazione, digitare **Azure Web App**.
    2. In **Mode** (Modalità) selezionare **Enter settings manually** (Immettere le informazioni manualmente).
-   3. In **Realm**digitare l'URI cui si riferisce il token di sicurezza rilasciato da ACS. Per questa attività digitare **http://localhost:8080/**.
+   3. In **Realm**digitare l'URI cui si riferisce il token di sicurezza rilasciato da ACS. Per questa attività, digitare **http://localhost:8080/** .
       ![Area di autenticazione dell'applicazione relying party nell'emulatore di calcolo][relying_party_realm_emulator]
    4. In **Return URL** digitare l'URL a cui ACS restituisce il token di sicurezza. Per questa attività, digitare **http://localhost:8080/MyACSHelloWorld/index.jsp**
-      ![URL restituito dell'applicazione relying party nell'emulatore di calcolo][relying_party_return_url_emulator]
+      ![URL restituito dell'applicazione relying party da usare nell'emulatore di calcolo][relying_party_return_url_emulator]
    5. Accettare i valori predefiniti nei campi rimanenti.
 4. Fare clic su **Save**.
 
-L'applicazione Web Java è configurata correttamente quando viene eseguita nell'emulatore di calcolo di Azure (all'indirizzo http://localhost:8080/) e costituisce un'applicazione relying party nello spazio dei nomi ACS. Il passaggio successivo prevede la creazione di regole usate da ACS per elaborare attestazioni per l'applicazione relying party.
+L'applicazione Web Java è configurata correttamente quando viene eseguita nell'emulatore di calcolo di Azure (all'indirizzo http://localhost:8080/)) e costituisce un'applicazione relying party nello spazio dei nomi ACS. Il passaggio successivo prevede la creazione di regole usate da ACS per elaborare attestazioni per l'applicazione relying party.
 
 ## <a name="create-rules"></a>Creazione di regole
 In questa attività verranno definite le regole in base alle quali le attestazioni vengono passate dai provider di identità all'applicazione relying party. Ai fini di questa guida, ACS verrà semplicemente configurato per copiare i tipi di attestazione e i valori in ingresso direttamente nella categoria token di output senza filtrarli o modificarli.

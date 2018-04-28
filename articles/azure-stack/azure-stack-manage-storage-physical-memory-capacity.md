@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/03/2018
+ms.date: 04/17/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: 34b03cf1fda29706936968ab93cb35a6a2510c65
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: af253525ce5a77ece72e810642abcaf7931e39d8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Gestire la capacità di memoria fisica per lo Stack di Azure
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/05/2018
 Per aumentare la capacità di memoria totale disponibile per lo Stack di Azure, è possibile aggiungere ulteriore memoria. Nello Stack di Azure del server fisico è detta anche un *nodo unità di scala*. Tutti i nodi di unità di scala che sono membri di una singola unità di scala deve essere la stessa quantità di memoria.
 
 > [!note]  
-> Prima di continuare, consultare la documentazione del produttore di hardware per verificare se una memoria Aggiorna che produttore supporta un aggiornamento di memoria fisica. Il contratto di supporto del fornitore di hardware OEM può richiedere che il fornitore esegua il posizionamento di rack server fisici e l'aggiornamento del firmware del dispositivo.
+> Prima di continuare, consultare la documentazione del produttore di hardware per verificare se il fornitore del supporta un aggiornamento di memoria fisica. Il contratto di supporto del fornitore di hardware OEM può richiedere che eseguono il posizionamento del rack server fisici e l'aggiornamento del firmware del dispositivo.
 
 Il diagramma di flusso seguente viene illustrato il processo generale per l'aggiunta di memoria a ogni nodo di unità di scala.
 

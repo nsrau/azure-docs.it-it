@@ -2,11 +2,11 @@
 title: 'Stack di archiviazione Azure: Considerazioni e le differenze'
 description: Comprendere le differenze tra lo Stack di archiviazione di Azure e l'archiviazione di Azure, insieme a considerazioni sulla distribuzione di Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
 ms.reviwer: xiaofmao
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/21/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 7c4f030018f388302c3b60a41086bbd97c86513d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 165a899dbad0893b3a2bddcfc68c9b5d737e9d3d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Stack di archiviazione Azure: Considerazioni e le differenze
 
@@ -47,6 +47,7 @@ Eliminazione temporanea per l'archiviazione blob|Preview|Non è ancora supportat
 |Dimensioni massime blob di pagina|8 TB|1 TB
 |Dimensioni di pagina pagina blob|512 byte|4 KB
 |Dimensione di chiave di riga e chiave di partizione di tabella|1.024 caratteri (2.048 byte)|400 caratteri (800 byte)
+|Snapshot del BLOB|Il numero massimo di snapshot di un blob non è limitato.|Il numero massimo di snapshot di un blob è 1.000.|
 
 ### <a name="metrics"></a>Metriche
 Esistono inoltre alcune differenze con le metriche di archiviazione:
@@ -59,14 +60,14 @@ Con Stack di archiviazione di Azure sono supportate le seguenti versioni:
 API dei servizi di archiviazione Azure:
 
 aggiornare 1802 o versione successiva:
- - [2017-04-17](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08 ](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
+ - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+ - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+ - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+ - [2015-07-08 ](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Versioni precedenti:
- - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 
 Le API di gestione dei servizi di archiviazione Azure:
@@ -87,7 +88,7 @@ Le librerie client seguenti sono supportate con Stack di archiviazione di Azure:
 | C++            | Da 2.4.0 a 3.1.0           | Pacchetto NuGet:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Configurazione della stringa di connessione      |
 | PHP            | Da 0.15.0 a 1.0.0          | Versione di GitHub:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Installazione tramite Composer (vedere i dettagli riportati di seguito)                                                                                                                                                                                                                  | Configurazione della stringa di connessione      |
 | Python         | Da 0.30.0 a 1.0.0          | Versione di GitHub:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Dichiarazione dell'istanza del servizio |
-| Ruby           | Da 0.12.1 a 1.0.1          | Pacchetto RubyGems:<br>Comuni:<br>https://rubygems.org/gems/azure-storage-common/<br>Blob: https://rubygems.org/gems/azure-storage-blob/<br>Coda: https://rubygems.org/gems/azure-storage-queue/<br>Tabella: https://rubygems.org/gems/azure-storage-table/<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-ruby/releases | Configurazione della stringa di connessione      |
+| Ruby           | Da 0.12.1 a 1.0.1          | Pacchetto RubyGems:<br>Comuni:<br>https://rubygems.org/gems/azure-storage-common/<br>BLOB: https://rubygems.org/gems/azure-storage-blob/<br>Coda: https://rubygems.org/gems/azure-storage-queue/<br>tavolo: https://rubygems.org/gems/azure-storage-table/<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-ruby/releases | Configurazione della stringa di connessione      |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

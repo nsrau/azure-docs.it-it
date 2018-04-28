@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 04/10/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b633c3c4a4f476cb8e89afde8adeb94558643d4b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server 
 
@@ -239,7 +239,7 @@ La [ricerca semantica](https://docs.microsoft.com/sql/relational-databases/searc
 ### <a name="linked-servers"></a>Server collegati
  
 I server collegati in Istanza gestita supportano un numero limitato di destinazioni: 
-- Destinazioni supportate: SQL Server, Database SQL, Istanza gestita e SQL Server in una macchina virtuale.
+- Destinazioni supportate: SQL Server e database SQL
 - Destinazioni non supportate: file, Analysis Services e altri sistemi di gestione di database relazionali (RDBMS).
 
 Operazioni
@@ -393,7 +393,7 @@ Le variabili, funzioni e viste seguenti restituiscono risultati diversi:
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Superamento dello spazio di archiviazione con file di database di piccole dimensioni
 
-Ogni istanza gestita dispone di una risorsa di archiviazione da 35 TB riservata allo spazio su disco Premium di Azure e ogni file di database si trova su un disco fisico separato. I dischi possono essere da 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. Lo spazio inutilizzato su disco non viene conteggiato, ma la somma delle dimensioni dei dischi Premium di Azure non può superare 35 TB. In alcuni casi, un'istanza gestita che non necessita di 8 TB in totale può superare il limite di Azure di 35 TB per le dimensioni della risorsa di archiviazione, a causa della frammentazione interna. 
+Ogni istanza gestita dispone di una risorsa di archiviazione da 35 TB riservata allo spazio su disco Premium di Azure e ogni file di database si trova su un disco fisico separato. I dischi possono essere da 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. Lo spazio inutilizzato su disco non viene conteggiato, ma la somma delle dimensioni dei dischi Premium di Azure non può superare 35 TB. In alcuni casi, un'istanza gestita che non necessita di 8 TB in totale può superare il limite di Azure di 35 TB per le dimensioni delle risorse di archiviazione, a causa della frammentazione interna. 
 
 Ad esempio, un'istanza gestita può contenere un solo file di dimensioni 1,2 TB che usa un disco da 4 TB e 248 file da 1 GB ciascuno posizionati su 248 dischi da 128 GB. In questo esempio, le dimensioni di archiviazione su disco totale sono pari a 1 x 4 TB + 248 x 128 GB = 35 TB. Tuttavia, la dimensione totale delle istanze riservate per i database è di 1 x 1,2 TB + 248 x 1 GB = 1,4 TB. Ciò dimostra che, in determinate circostanze, a causa di una distribuzione peculiare dei file, un'istanza gestita può raggiungere il limite di archiviazione sul disco Premium di Azure anche quando non ci si aspetterebbe. 
 
@@ -419,4 +419,4 @@ Può esistere un solo profilo di posta elettronica database, che deve essere den
 
 - Per informazioni dettagliate in proposito, vedere [Informazioni su Istanza gestita](sql-database-managed-instance.md).
 - Per un elenco di confronto delle funzionalità, vedere [Confronto tra le funzionalità: database SQL di Azure e SQL Server](sql-database-features.md).
-- Per un'esercitazione, vedere [Creare un'istanza gestita](sql-database-managed-instance-tutorial-portal.md).
+- Per un'esercitazione che illustra come creare una nuova istanza gestita, vedere [Creare un'istanza gestita](sql-database-managed-instance-create-tutorial-portal.md).

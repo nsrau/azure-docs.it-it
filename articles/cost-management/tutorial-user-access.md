@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/09/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: db5cdecc57cf07876ca8d4e981860615643cfd79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Esercitazione: Assegnare l'accesso ai dati di gestione costi
 
@@ -40,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Anche se si dispone già di un accesso amministrativo, lo stesso potrebbe essere necessario anche per i colleghi all'interno dell'organizzazione. Nel portale di Cloudyn, fare clic sul simbolo a forma di ingranaggio in alto a destra e selezionare **Gestione utenti**. Fare clic su **Aggiunta nuovo utente** per aggiungere un nuovo utente.
 
-Immettere le informazioni necessarie relative all'utente. È possibile lasciare vuoto il campo della password in modo che l'utente possa impostare una nuova password al primo accesso. Selezionando **Notify user by email** (Notifica utente tramite posta elettronica), all'utente verrà inviato tramite posta elettronica da Cloudyn un collegamento con informazioni di accesso. Scegliere le autorizzazioni per consentire la Gestione utenti in modo che l'utente possa creare e modificare altri utenti. La gestione degli elenchi dei destinatari consente all'utente di modificare gli elenchi di destinatari.
+Immettere le informazioni necessarie relative all'utente. L'ID di accesso deve essere un indirizzo di posta elettronica valido. Scegliere le autorizzazioni per consentire la Gestione utenti in modo che l'utente possa creare e modificare altri utenti. La gestione degli elenchi di destinatari consente all'utente di modificare gli elenchi di destinatari. Selezionando **Notify user by email** (Notifica utente tramite posta elettronica), all'utente verrà inviato tramite posta elettronica da Cloudyn un collegamento con informazioni di accesso. L'utente imposta una password al primo accesso.
 
 In **User has admin access** (L'utente dispone di un accesso amministrativo), viene selezionata l'entità radice dell'organizzazione. Lasciare la radice selezionata e salvare le informazioni utente. La selezione dell'entità radice consente all'utente di disporre dell'autorizzazione di amministratore non solo per l'entità radice nell'albero, ma anche per tutte le entità che si trovano sotto di essa.  
   ![aggiungere un nuovo utente con accesso amministrativo](.\media\tutorial-user-access\new-admin-access.png)
@@ -64,7 +64,7 @@ Mentre si compila la struttura ad albero, prendere in considerazione la modalit�
 
 Al momento della registrazione del contratto o dell'account di Azure con Cloudyn, i dati di risorse di Azure, inclusi l'uso, le prestazioni, la fatturazione e i dati di tag delle sottoscrizioni sono stati copiati nel proprio account Cloudyn. Tuttavia, la struttura ad albero delle entità deve essere creata manualmente. Se non si è eseguito la registrazione in Azure Resource Manager, sul portale di Cloudyn saranno disponibili solo i dati di fatturazione e alcuni report di asset.
 
-Nel portale di Cloudyn, fare clic su **Impostazioni** in alto a destra e selezionare **Cloud Accounts** (Account cloud). Si inizierà con una singola entità (radice), per poi compilare la struttura ad albero a partire da essa. Di seguito è riportato un esempio di una gerarchia di entità che potrebbe somigliare a molte organizzazioni IT dopo avere completato la struttura ad albero:
+Nel portale di Cloudyn fare clic sul simbolo a forma di ingranaggio in alto a destra e selezionare **Cloud Accounts** (Account cloud). Si inizierà con una singola entità (radice), per poi compilare la struttura ad albero a partire da essa. Di seguito è riportato un esempio di una gerarchia di entità che potrebbe somigliare a molte organizzazioni IT dopo avere completato la struttura ad albero:
 
 ![struttura ad albero di entità](.\media\tutorial-user-access\entity-tree.png)
 

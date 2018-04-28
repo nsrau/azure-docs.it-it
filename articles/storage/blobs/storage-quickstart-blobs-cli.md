@@ -1,19 +1,19 @@
 ---
-title: "Guida introduttiva di Azure: Caricare, scaricare ed elencare BLOB in Archiviazione di Azure con l'interfaccia della riga di comando di Azure | Microsoft Docs"
-description: In questa guida introduttiva si usa l'interfaccia della riga di comando di Azure per creare un account di archiviazione e un contenitore. Si usa quindi l'interfaccia della riga di comando per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
+title: Guida introduttiva di Azure - Creare un BLOB nell'archivio oggetti con l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: In questa guida introduttiva si usa l'interfaccia della riga di comando di Azure con l'archivio oggetti (BLOB). Si usa quindi l'interfaccia della riga di comando per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 services: storage
 author: roygara
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 673392f393d3fb5d7351c0b4ad4782179a99da2a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b55fe97adc56f4b8f1baeb2d8bb5f905fcd424bd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure
 

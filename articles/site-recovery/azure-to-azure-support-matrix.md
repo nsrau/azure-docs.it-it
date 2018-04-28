@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: sujayt
-ms.openlocfilehash: 4ddad2d8e5c5323b632b65efaf87d3df7ce8d707
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: a20ec14181e49443b5caf6ed0bcfaedcd4601b1c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice di supporto per la replica da un'area di Azure a un'altra
 
@@ -168,6 +168,8 @@ Crittografia per dati inattivi (SSE) | Supportato | Per gli account di archiviaz
 Crittografia dischi di Azure (ADE) | Non supportate |
 Aggiunta/rimozione a caldo disco | Non supportate | Se si aggiungono o rimuovono dischi dati dalla macchina virtuale, è necessario disabilitare la replica e abilitarla nuovamente per la macchina virtuale.
 Esclusione disco | Non supportate|   Il disco temporaneo è escluso per impostazione predefinita.
+Spazi di archiviazione diretta  | Non supportate|
+File server di scalabilità orizzontale  | Non supportate|
 Archiviazione con ridondanza locale | Supportato |
 Archiviazione con ridondanza geografica | Supportato |
 RA-GRS | Supportato |

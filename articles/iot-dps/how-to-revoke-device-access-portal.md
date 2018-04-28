@@ -1,28 +1,28 @@
 ---
-title: Gestire l'accesso dei dispositivi al servizio Device Provisioning in hub IoT di Azure | Microsoft Docs
-description: Come revocare l'accesso dei dispositivi al servizio Device Provisioning nel portale di Azure
+title: Come annullare la registrazione di un dispositivo nel servizio Device Provisioning in hub IoT
+description: Come annullare la registrazione di un dispositivo per impedire il provisioning tramite il servizio Device Provisioning in hub IoT
 services: iot-dps
-keywords: 
-author: JimacoMS
-ms.author: v-jamebr
-ms.date: 12/22/2017
+keywords: ''
+author: bryanla
+ms.author: v-jamebr;bryanla
+ms.date: 04/05/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 12aebf3a56aa7469a765ab6fc67aa65b254db71a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 50074eaecacf603d2bc6170183fd632b4a1ab2d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="revoke-device-access-to-your-provisioning-service-in-the-azure-portal"></a>Revocare l'accesso dei dispositivi al servizio di provisioning nel portale di Azure
+# <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Come annullare la registrazione di un dispositivo nel servizio Device Provisioning in hub IoT
 
-L'adeguata gestione delle credenziali dei dispositivi è un fattore fondamentale per i sistemi di alto profilo quali, ad esempio, le soluzioni IoT. Una procedura consigliata per questi sistemi prevede l'uso di un piano strutturato e definito contenente le procedure di revoca dell'accesso per i dispositivi qualora le relative credenziali, siano esse token di firma di accesso condiviso o certificati X.509, risultino compromesse. In questo articolo viene descritto come revocare l'accesso dei dispositivi durante la fase di provisioning.
+L'adeguata gestione delle credenziali dei dispositivi è un fattore fondamentale per i sistemi di alto profilo quali, ad esempio, le soluzioni IoT. Una procedura consigliata per questi sistemi prevede l'uso di un piano strutturato e definito contenente le procedure di revoca dell'accesso per i dispositivi qualora le relative credenziali, siano esse token di firma di accesso condiviso o certificati X.509, risultino compromesse. 
 
-Per informazioni su come revocare l'accesso dei dispositivi a un hub IoT dopo l'esecuzione del provisioning del dispositivo, vedere [Disabilitare i dispositivi](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
+La registrazione di un dispositivo nel servizio Device Provisioning ne consente il [provisioning automatico](concepts-auto-provisioning.md). Eseguire il provisioning di un dispositivo vuol dire registrarlo nell'hub IoT, in modo che possa ricevere lo stato iniziale [del dispositivo gemello](~/articles/iot-hub/iot-hub-devguide-device-twins.md) e iniziare a segnalare i dati di telemetria. Questo articolo descrive come annullare la registrazione di un dispositivo nell'istanza del servizio di provisioning ed evitare che ne venga eseguito nuovamente il provisioning in futuro.
 
 > [!NOTE] 
 > Tenere presente i criteri di ripetizione dei dispositivi per i quali si sta per revocare l'accesso. Ad esempio, è possibile che un dispositivo con criteri di ripetizione infiniti cerchi di eseguire in modo continuativo la registrazione del servizio di provisioning, con il conseguente esaurimento delle risorse del servizio e con un potenziale impatto negativo sulle prestazioni.
@@ -37,10 +37,10 @@ Per inserire temporaneamente il dispositivo nell'elenco di elementi non consenti
 2. Selezionare nell'elenco di risorse il servizio di provisioning da inserire nell'elenco di elementi non consentiti per il dispositivo in uso.
 3. Nel servizio di provisioning, fare clic su **Gestisci registrazioni** e quindi selezionare la scheda **Registrazioni singole**.
 4. Selezionare la voce di registrazione per il dispositivo che si vuole inserire nell'elenco di elementi non consentiti. 
-5. Selezionare **Disabilita** per l'opzione **Abilita voce** e quindi scegliere **Salva**.  
+5. Scorrere verso il basso e selezionare **Disabilita** per l'opzione **Abilita voce** e quindi scegliere **Salva**.  
 
-   ![Disabilitare la voce di registrazione singola nel portale](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
-    
+   [![Disabilitare la voce di registrazione singola nel portale](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+
 Per inserire in modo permanente il dispositivo nell'elenco di elementi non consentiti eliminando la relativa voce di registrazione:
 
 1. Accedere al portale di Azure e selezionare **Tutte le risorse** nel menu a sinistra.
@@ -64,9 +64,8 @@ Per inserire temporaneamente il certificato nell'elenco di elementi non consenti
 1. Accedere al portale di Azure e selezionare **Tutte le risorse** nel menu a sinistra.
 2. Selezionare nell'elenco di risorse il servizio di provisioning da inserire nell'elenco di elementi non consentiti per il certificato di firma in uso.
 3. Nel servizio di provisioning, fare clic su **Gestisci registrazioni** e quindi selezionare la scheda **Gruppi di registrazioni**.
-4. Selezionare il gruppo di registrazioni per il certificato che si vuole inserire nell'elenco di elementi non consentiti.
-5. Nella voce del gruppo di registrazioni selezionare **Modifica gruppo**.
-6. Selezionare **Disabilita** per l'opzione **Abilita voce** e quindi scegliere **Salva**.  
+4. Selezionare il gruppo di registrazioni che usa il certificato da inserire nell'elenco di elementi non consentiti.
+5. Selezionare **Disabilita** per l'opzione **Abilita voce** e quindi scegliere **Salva**.  
 
    ![Disabilitare la voce del gruppo di registrazioni nel portale](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
@@ -96,12 +95,15 @@ Per inserire un singolo dispositivo in un gruppo di registrazioni nell'elenco di
 2. Nell'elenco delle risorse selezionare il servizio di provisioning che contiene il gruppo di registrazioni per il dispositivo che si vuole inserire nell'elenco di elementi non consentiti.
 3. Nel servizio di provisioning, fare clic su **Gestisci registrazioni** e quindi selezionare la scheda **Registrazioni singole**.
 4. Selezionare il pulsante **Aggiungi** in alto. 
-5. Selezionare **X.509** come meccanismo di sicurezza per il dispositivo e caricare il certificato del dispositivo. Questo sarà il certificato dell'entità finale firmato installato nel dispositivo, che verrà usato per generare i certificati per l'autenticazione.
+5. Selezionare **X.509** come meccanismo di attestazione per il dispositivo e caricare il certificato del dispositivo. Questo sarà il certificato dell'entità finale firmato installato nel dispositivo, che verrà usato per generare i certificati per l'autenticazione.
 6. Nel campo **ID dispositivo hub IoT** immettere un valore valido per il dispositivo. 
 7. Selezionare **Disabilita** per l'opzione **Abilita voce** e quindi scegliere **Salva**. 
 
-   ![Disabilitare la voce di registrazione singola nel portale](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
+    [![Disabilitare la voce di registrazione singola per disabilitare il dispositivo dalla registrazione di gruppo nel portale](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
 Dopo avere creato la registrazione, nella la scheda **Registrazioni singole** verrà visualizzato il dispositivo.
 
+## <a name="next-steps"></a>Passaggi successivi
+
+L'annullamento della registrazione è anche parte del più ampio processo di deprovisioning. Il deprovisioning di un dispositivo include sia l'annullamento della registrazione nel servizio di provisioning, sia l'annullamento della registrazione nell'hub IoT. Per informazioni sul processo completo, vedere [Come eseguire il deprovisioning di dispositivi di cui in precedenza è stato eseguito il provisioning automatico](how-to-unprovision-devices.md) 
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2ab79e3a6308d01d836a82f356f43eccb6af9791
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b91d446f4c43a4ecae40ef49e5e7f930f25e6ad2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Usare Draft con il servizio contenitore di Azure
 
@@ -21,7 +21,7 @@ Draft è uno strumento open source che consente di includere e distribuire quest
 
 Il documento presente illustra l'uso di Draft con un cluster Kubernetes nel servizio contenitore di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 I passaggi dettagliati contenuti in questo documento presuppongono che sia stato creato un cluster del servizio contenitore di Azure e che sia stata stabilita una connessione kubectl al cluster. Se sono necessari questi elementi, vedere la [guida introduttiva al servizio contenitore di Azure][aks-quickstart].
 
@@ -33,10 +33,10 @@ Anche Helm deve essere installato nel cluster AKS. Per altre informazioni sull'i
 
 ## <a name="install-draft"></a>Installare Draft
 
-L'interfaccia della riga di comando di Draft è un client che viene eseguito nel sistema di sviluppo e che consente di distribuire rapidamente codice in un cluster Kubernetes. 
+L'interfaccia della riga di comando di Draft è un client che viene eseguito nel sistema di sviluppo e che consente di distribuire rapidamente codice in un cluster Kubernetes.
 
-> [!NOTE] 
-> Se è stata installata una versione di Draft precedente la 0.12, è necessario prima di tutto eliminare Draft dal cluster usando `helm delete --purge draft` e quindi rimuovere la configurazione locale eseguendo `rm -rf ~/.draft`. Se si usa MacOS, è possibile eseguire `brew upgrade draft`.
+> [!NOTE]
+> Se è stata installata una versione di Draft precedente la 0.12, è necessario prima di tutto eliminare Draft dal cluster usando `helm delete --purge draft` e quindi rimuovere la configurazione locale eseguendo `rm -rf ~/.draft`. Se si usa MacOS, eseguire `brew upgrade draft`.
 
 Per installare l'interfaccia della riga di comando di Draft in un computer Mac, usare `brew`. Per altre opzioni di installazione, vedere la [guida all'installazione di Draft][install-draft].
 
@@ -71,9 +71,9 @@ Questi passaggi e altri meccanismi di autenticazione per accedere a Registro con
 
 Dopo aver stabilito una relazione di trust tra il servizio contenitore di Azure e Registro contenitori di Azure, è possibile eseguire i passaggi seguenti per usare Registro contenitori di Azure dal cluster del servizio contenitore di Azure.
 1. Impostare il valore di configurazione `registry` di Draft eseguendo `draft config set registry <registry name>.azurecr.io`, dove _&lt;registry name&lt;_ corrisponde al nome dell'istanza di Registro contenitori di Azure.
-2. Accedere all'istanza di Registro contenitori di Azure eseguendo `az acr login -n <registry name>`. 
+2. Accedere all'istanza di Registro contenitori di Azure eseguendo `az acr login -n <registry name>`.
 
-Poiché si è stabilita una connessione locale a Registro contenitori di Azure e si è creata una relazione di trust tra il servizio contenitore di Azure e tale registro, non è necessario specificare password o segreti per eseguire il push in Registro contenitori di Azure o il pull da tale registro nel servizio contenitore di Azure. L'autenticazione viene eseguita a livello di Azure Resource Manager, tramite Azure Active Directory. 
+Poiché si è stabilita una connessione locale a Registro contenitori di Azure e si è creata una relazione di trust tra il servizio contenitore di Azure e tale registro, non è necessario specificare password o segreti per eseguire il push in Registro contenitori di Azure o il pull da tale registro nel servizio contenitore di Azure. L'autenticazione viene eseguita a livello di Azure Resource Manager, tramite Azure Active Directory.
 
 ## <a name="run-an-application"></a>Eseguire un'applicazione
 
@@ -143,7 +143,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-È ora possibile testare l'applicazione usando l'indirizzo http://localhost:46143. Per l'esempio precedente è possibile che la porta sia diversa. Al termine del test dell'applicazione, usare `Control+C` per interrompere la connessione proxy.
+Ora testare l'applicazione usando l'indirizzo http://localhost:46143. Per l'esempio precedente è possibile che la porta sia diversa. Al termine del test dell'applicazione, usare `Control+C` per interrompere la connessione proxy.
 
 > [!NOTE]
 > Per rendere ancora più rapido il ciclo di iterazione, è anche possibile usare il comando `draft up --auto-connect` per compilare e distribuire l'applicazione e connettersi immediatamente al primo contenitore in esecuzione.

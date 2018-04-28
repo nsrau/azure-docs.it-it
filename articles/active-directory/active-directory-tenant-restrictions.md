@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2018
 ms.author: kgremban
-ms.openlocfilehash: a6b498b38e76dfa2553bf3a916b723cd774d950d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dae4599db5127ac8fd266d5e0f299e1284fc9b9c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usare Restrizioni dei tenant per gestire l'accesso alle applicazioni cloud SaaS
 
@@ -28,7 +28,7 @@ La soluzione offerta da Azure Active Directory per risolvere questo problema è 
 
 Restrizioni dei tenant dà alle organizzazioni la facoltà di specificare l'elenco di tenant cui gli utenti possono accedere. Azure AD consente quindi l'accesso solo ai tenant autorizzati.
 
-Questo articolo si concentra su Restrizioni dei tenant per Office 365, ma la funzionalità dovrebbe funzionare con qualsiasi app cloud SaaS che utilizza protocolli di autenticazione moderna con Azure AD per il Single Sign-On. Se si usano app SaaS con un tenant Azure AD diverso da quello usato da Office 365, assicurarsi che tutti i tenant richiesti siano autorizzati. Per ulteriori informazioni sulle app cloud SaaS, vedere il [Marketplace di Active Directory](https://azure.microsoft.com/en-us/marketplace/active-directory/).
+Questo articolo si concentra su Restrizioni dei tenant per Office 365, ma la funzionalità dovrebbe funzionare con qualsiasi app cloud SaaS che utilizza protocolli di autenticazione moderna con Azure AD per il Single Sign-On. Se si usano app SaaS con un tenant Azure AD diverso da quello usato da Office 365, assicurarsi che tutti i tenant richiesti siano autorizzati. Per ulteriori informazioni sulle app cloud SaaS, vedere il [Marketplace di Active Directory](https://azure.microsoft.com/marketplace/active-directory/).
 
 ## <a name="how-it-works"></a>Funzionamento
 

@@ -2,10 +2,10 @@
 title: Criteri di limitazione dell'accesso di Gestione API di Azure | Microsoft Docs
 description: Informazioni sui criteri di limitazione dell'accesso disponibili per l'uso in Gestione API di Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 11cc5841d2f804f0d120dddda226bf05a0612607
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5fbb4f8a15ee7ee8b6cecbe76391e2b2a7e4be1b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Criteri di limitazione dell'accesso di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -88,8 +88,8 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ```xml  
 <rate-limit calls="number" renewal-period="seconds">  
-    <api name="name" calls="number" renewal-period="seconds">  
-        <operation name="name" calls="number" renewal-period="seconds" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </rate-limit>  
 ```  
@@ -113,8 +113,8 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |set-limit|Elemento radice.|Sì|  
-|api|Aggiungere almeno uno di questi elementi per imporre un limite di frequenza delle chiamate alle API all'interno del prodotto. I limiti alla frequenza delle chiamate API e al prodotto vengono applicati in modo indipendente.|No |  
-|operation|Aggiungere almeno uno di questi elementi per imporre un limite di frequenza delle chiamate alle operazioni all'interno di un'API. I limiti alla frequenza delle chiamate alle operazioni, all'API e al prodotto vengono applicati in modo indipendente.|No |  
+|api|Aggiungere almeno uno di questi elementi per imporre un limite di frequenza delle chiamate alle API all'interno del prodotto. I limiti alla frequenza delle chiamate API e al prodotto vengono applicati in modo indipendente. È possibile fare riferimento all'API tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato.|No |  
+|operation|Aggiungere almeno uno di questi elementi per imporre un limite di frequenza delle chiamate alle operazioni all'interno di un'API. I limiti alla frequenza delle chiamate alle operazioni, all'API e al prodotto vengono applicati in modo indipendente. È possibile fare riferimento all'operazione tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato.|No |  
   
 ### <a name="attributes"></a>Attributi  
   
@@ -243,8 +243,8 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ```xml  
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">  
-    <api name="name" calls="number" bandwidth="kilobytes">  
-        <operation name="name" calls="number" bandwidth="kilobytes" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </quota>  
 ```  
@@ -268,8 +268,8 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |quota|Elemento radice.|Sì|  
-|api|Aggiungere almeno uno di questi elementi per imporre una quota alle API all'interno del prodotto. Le quote delle API e del prodotto vengono applicate in modo indipendente.|No |  
-|operation|Aggiungere almeno uno di questi elementi per imporre una quota alle operazioni all'interno di un'API. Le quote delle operazioni, delle API e del prodotto vengono applicate in modo indipendente.|No |  
+|api|Aggiungere almeno uno di questi elementi per imporre una quota di chiamate API all'interno del prodotto. Le quote di chiamate API e del prodotto vengono applicate in modo indipendente. È possibile fare riferimento all'API tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato.|No |  
+|operation|Aggiungere almeno uno di questi elementi per imporre una quota di chiamate per le operazioni all'interno di un'API. Le quote di chiamate per le operazioni, l'API e il prodotto vengono applicate in modo indipendente. È possibile fare riferimento all'operazione tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato.|No |  
   
 ### <a name="attributes"></a>Attributi  
   

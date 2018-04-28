@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: c30bcc293cfe57452844dd74378593c234146802
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c796ac54eb21af18d21144a00b633c6b6efc28be
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>Gestione di condivisioni file di Azure con Azure PowerShell 
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate in Windows, Linux e macOS. Questa guida contiene tutte le informazioni essenziali sull'uso delle condivisioni file di Azure con PowerShell. In questo articolo viene spiegato come:
@@ -34,10 +34,10 @@ Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratui
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se si preferisce installare e usare PowerShell in locale, questa guida richiede il modulo Azure PowerShell versione 5.1.1 o successiva. Per determinare la versione del modulo Azure PowerShell in esecuzione, eseguire `Get-Module -ListAvailable AzureRM`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
+Se si preferisce installare e usare PowerShell in locale, questa guida richiede il modulo Azure PowerShell versione 5.1.1 o successiva. Per determinare la versione del modulo Azure PowerShell in esecuzione, eseguire `Get-Module -ListAvailable AzureRM`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
-Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Se non è già disponibile un gruppo di risorse di Azure, è possibile crearne uno nuovo con il cmdlet [`New-AzureRmResourceGroup`](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Se non è già disponibile un gruppo di risorse di Azure, è possibile crearne uno nuovo con il cmdlet [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area Stati Uniti orientali:
 
@@ -70,15 +70,17 @@ New-AzureStorageShare `
 > [!Important]  
 > I nomi condivisione devono essere costituiti da lettere minuscole, numeri e trattini singoli, ma non possono iniziare con un trattino. Per dettagli su come denominare condivisioni e file, vedere [Denominazione e riferimento a condivisioni, directory, file e metadati](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-## <a name="manipulating-the-contents-of-the-azure-file-share"></a>Modifica dei contenuti della condivisione file di Azure
-Dopo avere creato una condivisione file di Azure, è possibile montare la condivisione file con SMB in [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) o [macOS](storage-how-to-use-files-mac.md). In alternativa, è possibile modificare la condivisione file di Azure con il modulo Azure PowerShell. Questo è un vantaggio rispetto al montaggio della condivisione file con SMB, perché tutte le richieste eseguite con PowerShell vengono effettuate con l'API REST di File, che consente di creare, modificare ed eliminare file e directory nella condivisione file da:
+## <a name="work-with-the-contents-of-the-azure-file-share"></a>Usare il contenuto della condivisione file di Azure
+Dopo avere creato una condivisione file di Azure, è possibile montare la condivisione file con SMB in [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) o [macOS](storage-how-to-use-files-mac.md). In alternativa, è possibile usare la condivisione file di Azure con il modulo Azure PowerShell. Questo è un vantaggio rispetto al montaggio della condivisione file con SMB, perché tutte le richieste eseguite con PowerShell vengono effettuate con l'API REST di File, che consente di creare, modificare ed eliminare file e directory nella condivisione file da:
 
 - Cloud Shell di PowerShell (che non può montare le condivisioni file tramite SMB).
 - Client che non possono montare le condivisioni SMB, ad esempio client locali con la porta 445 bloccata.
 - Scenari senza server, ad esempio in [Funzioni di Azure](../../azure-functions/functions-overview.md). 
 
+
 ### <a name="create-directory"></a>Creare la directory
-Per creare una nuova directory denominata *myDirectory* nella radice della condivisione file di Azure, usare il cmdlet [`New-AzureStorageDirectory`](/powershell/module/azurerm.storage/new-azurestoragedirectory).
+Per creare una nuova directory denominata *myDirectory* nella radice della condivisione file di Azure, usare il cmdlet [New-AzureStorageDirectory](/powershell/module/azurerm.storage/new-azurestoragedirectory).
+
 
 ```azurepowershell-interactive
 New-AzureStorageDirectory `
@@ -88,7 +90,7 @@ New-AzureStorageDirectory `
 ```
 
 ### <a name="upload-a-file"></a>Caricare un file
-Per illustrare come caricare un file usando il cmdlet [`Set-AzureStorageFileContent`](/powershell/module/azure.storage/set-azurestoragefilecontent), prima è necessario creare un file nell'unità dei file temporanei di Cloud Shell di PowerShell da caricare. 
+Per una dimostrazione del caricamento di un file con il cmdlet [Set-AzureStorageFileContent](/powershell/module/azure.storage/set-azurestoragefilecontent), è prima di tutto necessario creare un file da caricare nell'unità dei file temporanei di Cloud Shell di PowerShell. 
 
 Questo esempio inserisce la data e l'ora correnti in un nuovo file nell'unità dei file temporanei, quindi carica il file nella condivisione file.
 
@@ -106,14 +108,14 @@ Set-AzureStorageFileContent `
 
 Se si esegue PowerShell in locale, sostituire `C:\Users\ContainerAdministrator\CloudDrive\` con un percorso esistente nel computer in uso.
 
-Dopo il caricamento del file, è possibile usare il cmdlet [`Get-AzureStorageFile`](/powershell/module/Azure.Storage/Get-AzureStorageFile) per verificare che il file sia stato caricato nella condivisione file di Azure. 
+Dopo il caricamento del file, è possibile usare il cmdlet [Get-AzureStorageFile](/powershell/module/Azure.Storage/Get-AzureStorageFile) per verificare che sia stato caricato nella condivisione file di Azure. 
 
 ```azurepowershell-interactive
 Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare" -Path "myDirectory" 
 ```
 
 ### <a name="download-a-file"></a>Scaricare un file
-È possibile usare il cmdlet [`Get-AzureStorageFileContent`](/powershell/module/azure.storage/get-azurestoragefilecontent) per scaricare una copia del file appena caricato nell'unità dei file temporanei di Cloud Shell.
+È possibile usare il cmdlet [Get-AzureStorageFileContent](/powershell/module/azure.storage/get-azurestoragefilecontent) per scaricare una copia del file appena caricato nell'unità dei file temporanei di Cloud Shell.
 
 ```azurepowershell-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists because you've run this example before.
@@ -136,7 +138,7 @@ Get-ChildItem -Path "C:\Users\ContainerAdministrator\CloudDrive"
 ``` 
 
 ### <a name="copy-files"></a>Copiare i file
-Un'attività comune è la copia dei file da una condivisione file a un'altra oppure a/da un contenitore di archiviazione BLOB di Azure. Per illustrare questa funzionalità, è possibile creare una nuova condivisione e copiare il file appena caricato in questa nuova condivisione usando il cmdlet [`Start-AzureStorageFileCopy`](/powershell/module/azure.storage/start-azurestoragefilecopy). 
+Un'attività comune è la copia dei file da una condivisione file a un'altra oppure a/da un contenitore di archiviazione BLOB di Azure. Per una dimostrazione di questa funzionalità, è possibile creare una nuova condivisione e copiare il file appena caricato in questa nuova condivisione con il cmdlet [Start-AzureStorageFileCopy](/powershell/module/azure.storage/start-azurestoragefilecopy). 
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
@@ -148,7 +150,7 @@ New-AzureStorageDirectory `
    -ShareName "myshare2" `
    -Path "myDirectory2"
 
-Start-AzureStorageFileCopy 
+Start-AzureStorageFileCopy `
     -Context $storageAcct.Context `
     -SrcShareName "myshare" `
     -SrcFilePath "myDirectory\SampleUpload.txt" `
@@ -160,7 +162,7 @@ Start-AzureStorageFileCopy
 Se ora si elencano i file nella nuova condivisione, verrà visualizzato il file copiato.
 
 ```azurepowershell-interactive
-Get-AzureStorageFile -Context $storageAcct.Context -Share "myshare2" -Path "myDirectory2" 
+Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myDirectory2" 
 ```
 
 Anche se il cmdlet `Start-AzureStorageFileCopy` è utile per gli spostamenti di file ad hoc tra condivisioni file di Azure e contenitori di archiviazione BLOB di Azure, è consigliabile usare AzCopy per gli spostamenti più grandi (in termini di numero o di dimensioni dei file da spostare). Sono disponibili altre informazioni su [AzCopy per Windows](../common/storage-use-azcopy.md) e [AzCopy per Linux](../common/storage-use-azcopy-linux.md). AzCopy deve essere installato in locale, non è disponibile in Cloud Shell 
@@ -171,7 +173,7 @@ Un'altra utile attività da eseguire con una condivisione file di Azure è la cr
 - Snapshot [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) per i sistemi Linux
 - Snapshot [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) per macOS. 
 
-È possibile creare uno snapshot di una condivisione tramite il metodo `Snapshot` sull'oggetto di PowerShell per una condivisione file, che viene recuperato con il cmdlet [`Get-AzureStorageShare`](/powershell/module/azure.storage/get-azurestorageshare). 
+È possibile creare uno snapshot di condivisione usando il metodo `Snapshot` sull'oggetto di PowerShell per una condivisione file, recuperato con il cmdlet [Get-AzureStorageShare](/powershell/module/azure.storage/get-azurestorageshare). 
 
 ```azurepowershell-interactive
 $share = Get-AzureStorageShare -Context $storageAcct.Context -Name "myshare"
@@ -212,7 +214,7 @@ Start-AzureStorageFileCopy `
 ```
 
 ### <a name="delete-a-share-snapshot"></a>Eliminare uno snapshot di condivisione
-È possibile eliminare uno snapshot di condivisione usando il cmdlet [`Remove-AzureStorageShare`](/powershell/module/azure.storage/remove-azurestorageshare), con la variabile contenente il riferimento `$snapshot` al parametro `-Share`.
+È possibile eliminare uno snapshot di condivisione usando il cmdlet [Remove-AzureStorageShare](/powershell/module/azure.storage/remove-azurestorageshare) con la variabile contenente il riferimento `$snapshot` al parametro `-Share`.
 
 ```azurepowershell-interactive
 Remove-AzureStorageShare -Share $snapshot

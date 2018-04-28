@@ -91,8 +91,8 @@
 #### [Domande frequenti su connettività e rete](cloud-services-connectivity-and-networking-faq.md)
 #### [Domande frequenti sulla distribuzione](cloud-services-deployment-faq.md)
 
-# riferimento
-## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
+# Riferimenti
+## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=cloud-services)
 ## [Schema XML .csdef](schema-csdef-file.md)
 ### [Schema LoadBalancerProbe](schema-csdef-loadbalancerprobe.md)
 ### [Schema WebRole](schema-csdef-webrole.md)

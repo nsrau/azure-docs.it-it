@@ -1,47 +1,46 @@
 ---
-title: Differenze principali tra Azure e Azure Stack quando si utilizzano i servizi e compilare App | Documenti Microsoft
-description: "Cosa è necessario sapere quando si utilizzano i servizi o compilare App per lo Stack di Azure."
+title: Comprendere le differenze principali tra Azure e Azure Stack quando si utilizza compilazione di applicazioni e servizi | Documenti Microsoft
+description: Che cosa è necessario sapere per utilizzare i servizi o compilare App per lo Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: c81f551d-c13e-47d9-a5c2-eb1ea4806228
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/25/2017
+ms.date: 04/16/2018
 ms.author: mabrigg
-ms.openlocfilehash: 695824ef2537a97ea0530f2c33ad24d5cd9e20f8
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eab208175f7eb3b761ec7266483a7cd5268198e8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Considerazioni sulla chiave: utilizzo di servizi o creazione di applicazioni per Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
-
-Quando si utilizzano i servizi o compilare App per lo Stack di Azure, è necessario comprendere che non esistono differenze tra lo Stack di Azure e Azure. In questo articolo viene fornita una panoramica delle considerazioni principali quando la destinazione dello Stack di Azure come ambiente di sviluppo cloud ibrido.
+Prima di utilizzare i servizi o compilare App per lo Stack di Azure, è necessario comprendere le differenze tra lo Stack di Azure e Azure. In questo articolo identifica le principali considerazioni quando si utilizzano lo Stack di Azure come ambiente di sviluppo cloud ibrido.
 
 ## <a name="overview"></a>Panoramica
 
-Azure Stack è una piattaforma cloud ibrida che permette di usare i servizi di Azure dal data center aziendale o del provider di servizi. Gli sviluppatori, è possibile compilare App eseguite sullo Stack di Azure. È quindi possibile distribuire queste App allo Stack di Azure, in Azure, oppure è possibile compilare effettivamente applicazioni ibride che consentono di sfruttare la connettività tra un cloud di Stack di Azure e Azure.
+Azure Stack è una piattaforma cloud ibrida che permette di usare i servizi di Azure dal data center aziendale o del provider di servizi. È possibile compilare un'app nello Stack di Azure e quindi distribuirlo allo Stack di Azure, in Azure o per i cloud ibridi di Azure.
 
 L'operatore di Stack di Azure consente di sapere quali servizi sono disponibili per l'utilizzo e come ottenere supporto. Offrono questi servizi tramite i piani personalizzati e offerte.
 
 I contenuti tecnici di Azure si presuppone che le applicazioni vengano sviluppate per un servizio di Azure anziché Stack di Azure. Quando si compila e distribuisce l'App allo Stack di Azure, è necessario comprendere alcune differenze fondamentali, ad esempio:
 
 * Stack di Azure offre un sottoinsieme di servizi e le funzionalità disponibili in Azure.
-* Il società o provider di servizi è possibile scegliere quali servizi che desiderano offrire. Ciò include applicazioni o servizi personalizzati. Offrono propria documentazione personalizzata.
+* Il società o provider di servizi è possibile scegliere quali servizi che desiderano offrire. Le opzioni disponibili possono includere servizi personalizzati o applicazioni. Offrono propria documentazione personalizzata.
 * È necessario utilizzare il corretto endpoint di Azure Stack specifici (ad esempio, gli URL per l'indirizzo di portale e l'endpoint di Azure Resource Manager).
-* È necessario utilizzare le versioni di PowerShell e API supportate dallo Stack di Azure. Questa operazione assicura che le app funzionerà in entrambi Stack di Azure e Azure.
+* È necessario utilizzare le versioni di PowerShell e API supportate dallo Stack di Azure. Utilizzare le versioni supportate assicura che le app funzionerà in entrambi Stack di Azure e Azure.
 
 ## <a name="cheat-sheet-high-level-differences"></a>Schede di riferimento rapido: differenze generali
 
-Nella tabella seguente descrive le differenze generali tra Stack di Azure e Azure. Tenere presente quanto segue quando si sviluppa per lo Stack di Azure o utilizzare i servizi di Azure Stack.
+Nella tabella seguente descrive le differenze generali tra Stack di Azure e Azure. Quando si sviluppa per lo Stack di Azure o usare i servizi di Azure Stack, tenere presente queste differenze.
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
 | Area | Azure (globale) | Azure Stack |
 | -------- | ------------- | ----------|
@@ -50,7 +49,7 @@ Nella tabella seguente descrive le differenze generali tra Stack di Azure e Azur
 | Servizi disponibili | Visualizzare l'elenco di [prodotti Azure](https://azure.microsoft.com/services/?b=17.04b). Servizi disponibili variano a seconda area di Azure. | Stack di Azure supporta un sottoinsieme di servizi di Azure. Servizi effettivi variano in base a ciò che sceglie il provider di servizio o dell'organizzazione offrire.
 | Azure Resource Manager endpoint * | https://management.azure.com | Per un sistema integrato dello Stack di Azure, utilizzare l'endpoint che l'operatore di Stack di Azure fornito.<br><br>Per il kit di sviluppo, utilizzare: https://management.local.azurestack.external
 | Portale URL * | [https://portal.azure.com](https://portal.azure.com) | Per un sistema integrato dello Stack di Azure, andare all'URL fornito l'operatore di Stack di Azure.<br><br>Per il kit di sviluppo, utilizzare: https://portal.local.azurestack.external
-| Region | È possibile selezionare l'area in cui si desidera distribuire. | Per un sistema integrato dello Stack di Azure, utilizzare l'area che è disponibile nel sistema.<br><br>Per il kit di sviluppo, area sarà sempre **locale**.
+| Region | È possibile selezionare l'area in cui si desidera distribuire. | Per un sistema integrato dello Stack di Azure, utilizzare l'area in cui è disponibile nel sistema.<br><br>Per il kit di sviluppo, area sarà sempre **locale**.
 | Gruppi di risorse | Un gruppo di risorse può estendersi su aree. | Per i sistemi integrati e il kit di sviluppo, è disponibile una sola area.
 |Spazi dei nomi supportati, i tipi di risorse e le versioni dell'API | La versione più recente (o versioni precedenti che non sono ancora deprecate). | Stack di Azure supporta versioni specifiche. Vedere la sezione "Requisiti di versione" di questo articolo.
 | | |
@@ -64,15 +63,15 @@ Nella tabella seguente descrive le differenze generali tra Stack di Azure e Azur
 | Raccomandazione | Riferimenti | 
 | -------- | ------------- | 
 | Installare gli strumenti corretti nella workstation di sviluppo. | - [Installare PowerShell](azure-stack-powershell-install.md)<br>- [Scaricare gli strumenti](azure-stack-powershell-download.md)<br>- [Configurazione di PowerShell](azure-stack-powershell-configure-user.md)<br>- [Installazione di Visual Studio](azure-stack-install-visual-studio.md) 
-| Esaminare le seguenti informazioni:<br>-Considerazioni sui modelli di gestione risorse azure<br>-Per trovare i modelli di avvio rapido procedura<br>-Usa un modulo criteri che consentono di usare Azure per lo sviluppo per lo Stack di Azure | [Sviluppare per Azure Stack](azure-stack-developer.md) | 
+| Esaminare le informazioni sugli elementi seguenti:<br>-Considerazioni sui modelli di gestione risorse azure<br>-Per trovare i modelli di avvio rapido procedura<br>-Usa un modulo criteri che consentono di usare Azure per lo sviluppo per lo Stack di Azure | [Sviluppare per Azure Stack](azure-stack-developer.md) | 
 | Esaminare e seguire le procedure consigliate per i modelli. | [Modelli di avvio rapido di gestione risorse](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
 | | |
 
 ## <a name="version-requirements"></a>Requisiti di versione
 
-Stack di Azure supporta versioni specifiche di Azure PowerShell e API del servizio di Azure. È necessario utilizzare le versioni supportate per garantire che l'app è possibile distribuire per due Stack di Azure e Azure.
+Stack di Azure supporta versioni specifiche di Azure PowerShell e API del servizio di Azure. Utilizzare le versioni supportate per garantire che l'app è possibile distribuire in entrambi Stack di Azure e in Azure.
 
-Per assicurarsi che si utilizza una versione corretta di PowerShell di Azure, utilizzare [profili della versione API](azure-stack-version-profiles.md). Per determinare il profilo di versione API più recente che è possibile utilizzare, è necessario conoscere la generazione dello Stack di Azure in uso. È possibile ottenere queste informazioni all'amministratore di Azure Stack.
+Per assicurarsi che si utilizza una versione corretta di PowerShell di Azure, utilizzare [profili della versione API](azure-stack-version-profiles.md). Per determinare il profilo di versione API più recente che è possibile utilizzare, individuare la compilazione dello Stack di Azure in uso. È possibile ottenere queste informazioni all'amministratore di Azure Stack.
 
 >[!NOTE]
  Se si utilizza il Kit di sviluppo dello Stack di Azure e si dispone dell'accesso amministrativo, vedere la sezione "Per determinare la versione corrente" di [gestire gli aggiornamenti](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#determine-the-current-version) per determinare la generazione dello Stack di Azure.

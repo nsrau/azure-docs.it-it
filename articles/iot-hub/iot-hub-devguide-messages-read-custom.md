@@ -5,19 +5,19 @@ services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: a40fa94260b488e9c01ac09b22da8c0677d73968
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3d54da43141dc2bdf34c9f71adc41dc7cf24ff10
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Usare endpoint personalizzati e il routing dei messaggi per i messaggi da dispositivo a cloud
 
@@ -31,6 +31,8 @@ L'hub IoT consente di eseguire il routing dei [messaggi da dispositivo a cloud][
 | **Endpoint**  | Il nome dell'endpoint dove l'hub IoT invia i messaggi corrispondenti alla condizione. Gli endpoint devono trovarsi nella stessa area dell'hub IoT, in caso contrario potrebbero essere addebitati dei costi per le scritture tra aree. |
 
 Un singolo messaggio può corrispondere alla condizione su più regole di routing. In questo caso, l'hub IoT invia il messaggio all'endpoint associato a ciascuna regola corrispondente. L'hub IoT deduplica automaticamente la consegna dei messaggi, quindi se un messaggio soddisfa più regole con la stessa destinazione, verrà scritto in quella destinazione una sola volta.
+
+## <a name="endpoints-and-routing"></a>Endpoint e routing
 
 Un hub IoT dispone di un [endpoint predefinito][lnk-built-in]. È possibile creare endpoint personalizzati per indirizzare i messaggi collegando all'hub gli altri servizi nella sottoscrizione. L'hub IoT supporta attualmente i contenitori di Archiviazione di Azure, l'Hub eventi, le code e gli argomenti del bus di servizio come endpoint personalizzati.
 
@@ -50,6 +52,12 @@ Per altre informazioni sulla lettura da endpoint personalizzati, vedere:
 * Lettura da [hub eventi][lnk-getstarted-eh].
 * Lettura dalle [code del bus di servizio][lnk-getstarted-queue].
 * Lettura dagli [argomenti del bus di servizio][lnk-getstarted-topic].
+
+## <a name="latency"></a>Latenza
+
+Quando si indirizzano i messaggi di telemetria da dispositivo a cloud tramite endpoint predefiniti, si verifica un lieve aumento della latenza end-to-end dopo la creazione della prima route.
+
+Nella maggior parte dei casi l'aumento medio della latenza è inferiore a un secondo. È possibile monitorare la latenza con la [metrica dell'hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) **d2c.endpoints.latency.builtIn.events**. La creazione o l'eliminazione di una route successiva alla prima non influisce sulla latenza end-to-end.
 
 ### <a name="next-steps"></a>Passaggi successivi
 

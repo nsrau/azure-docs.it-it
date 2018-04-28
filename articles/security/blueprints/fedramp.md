@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 10ed297180f68fcaf006f2778990879be02f994d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP
 
@@ -76,10 +76,9 @@ Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'
 * **Azure Active Directory**
 * **Azure Resource Manager**
 * **Log Analytics di Azure**
+    - (1) Area di lavoro di Log Analytics
 * **Automazione di Azure**
     - (1) Account di automazione
-* **Operations Management Suite**
-    - (1) Area di lavoro OMS
 
 ## <a name="deployment-architecture"></a>Architettura di distribuzione
 
@@ -136,7 +135,7 @@ Crittografia dischi di Azure viene usato per crittografare i dischi delle macchi
 
 ### <a name="logging-and-auditing"></a>Registrazione e controllo
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) fornisce una registrazione completa delle attività di sistema e degli utenti, nonché dell'integrità del sistema. 
+[Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) fornisce una registrazione completa delle attività di sistema e degli utenti, nonché dell'integrità del sistema. 
 
 - **Log attività:** i [log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) offrono informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione.
 - **Log di diagnostica:** i [log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) sono tutti i log generati da ogni risorsa. Questi log includono log eventi del sistema Windows, log di archiviazione di Azure, log di controllo di Azure Key Vault e log degli accessi e del firewall del gateway applicazione.
@@ -154,7 +153,7 @@ La soluzione usa Azure Key Vault per gestire chiavi e segreti.
 Le tecnologie seguenti offrono funzionalità di gestione delle identità nell'ambiente Azure.
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) è il servizio Microsoft di gestione di identità e directory multi-tenant basato sul cloud.
 - L'autenticazione a un'applicazione Web distribuita dal cliente può essere eseguita tramite Azure AD. Per altre informazioni, vedere [Integrazione di applicazioni con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
-- Il [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) consente un'accurata gestione degli accessi per Azure. L'accesso alla sottoscrizione è limitato all'amministratore della sottoscrizione, mentre l'accesso alle risorse può essere limitato in base al ruolo utente.
+- Il [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) consente un'accurata gestione degli accessi per Azure. L'accesso alla sottoscrizione è limitato all'amministratore della sottoscrizione, mentre l'accesso alle risorse può essere limitato in base al ruolo utente.
 - Un'istanza di Active Directory IaaS distribuita fornisce la gestione delle identità a livello di sistema operativo per le macchine virtuali IaaS distribuite.
    
 ### <a name="compute-resources"></a>Risorse di calcolo
@@ -182,17 +181,17 @@ Un jumpbox di gestione (bastion host) fornisce una connessione sicura agli ammin
 
 ### <a name="patch-management"></a>Gestione delle patch
 
-Le macchine virtuali Windows distribuite tramite questo progetto di automazione Azure Security and Compliance Blueprint vengono configurate per impostazione predefinita per ricevere aggiornamenti automatici dal servizio Windows Update. Questa soluzione distribuisce anche la soluzione OMS di automazione di Azure tramite la quale è possibile creare distribuzioni di aggiornamento per distribuire patch nei server Windows in base alle esigenze.
+Le macchine virtuali Windows distribuite tramite questo progetto di automazione Azure Security and Compliance Blueprint vengono configurate per impostazione predefinita per ricevere aggiornamenti automatici dal servizio Windows Update. Questa soluzione distribuisce anche la soluzione di automazione di Azure tramite la quale è possibile creare distribuzioni di aggiornamento per distribuire patch nei server Windows in base alle esigenze.
 
 ### <a name="operations-management"></a>Operations Management
 
 #### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) è un servizio di Operations Management Suite (OMS) che consente la raccolta e l'analisi dei dati generati dalle risorse in Azure e negli ambienti locali.
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) è un servizio che consente la raccolta e l'analisi dei dati generati dalle risorse in Azure e negli ambienti locali.
 
-#### <a name="oms-solutions"></a>Soluzioni OMS
+#### <a name="management-solutions"></a>Soluzioni di gestione
 
-Le soluzioni OSM seguenti sono preinstallate come parte di questa soluzione:
+Le soluzioni di gestione seguenti sono preinstallate come parte di questa soluzione:
 - [Valutazione di AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)
 - [Antimalware Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware)
 - [Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)

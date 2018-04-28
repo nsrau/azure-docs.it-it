@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 616cbfed405454d2abbb6bb526166d2c72e4365d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3cddfb918f98dfd41e84a6cc5473df6e26d1a482
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Introduzione ad Application Insights con Java in Eclipse
 SDK di Application Insights invia dati di telemetria dall'applicazione Web Java in modo da poter analizzare l'uso e le prestazioni. Il plug-in Eclipse per Application Insights installa automaticamente SDK nel progetto in modo da ottenere i dati di telemetria predefiniti, oltre a un'API che è possibile usare per scrivere dati di telemetria personalizzati.   
@@ -28,7 +28,7 @@ Attualmente il plug-in funziona per progetti Mavern e progetti Dynamic Web in Ec
 
 Sono necessari gli elementi seguenti:
 
-* Oracle JRE 1.6 o versione successiva
+* JRE 1.7 o 1.8
 * Una sottoscrizione a [Microsoft Azure](https://azure.microsoft.com/).
 * [Eclipse IDE per sviluppatori Java EE](http://www.eclipse.org/downloads/), Indigo o versioni successive.
 * Windows 7 o versioni successive o Windows Server 2008 o versioni successive
@@ -39,7 +39,7 @@ Sono necessari gli elementi seguenti:
 1. Dal menu Help di Eclipse scegliere Install New Software.
 
     ![Guida in linea, Installa nuovo Software](./media/app-insights-java-eclipse/0-plugin.png)
-2. L'SDK è disponibile alla pagina http://dl.microsoft.com/eclipse in Azure Toolkit.
+2. L'SDK è disponibile in http://dl.microsoft.com/eclipse, in Azure Toolkit.
 3. Deselezionare l'opzione **Contatta tutti i siti di aggiornamento...**
 
     ![Per Application Insights SDK deselezionare tutti i siti di aggiornamento Contatta tutti](./media/app-insights-java-eclipse/1-plugin.png)

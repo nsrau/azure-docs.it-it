@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 9153efb73e84d7b84a732217b92a9c66617e90ae
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 602cd6c3b2be8881bebbcebe30ec2520358b731f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Report di dati di utilizzo dello Stack di Azure in Azure 
 
@@ -27,7 +27,7 @@ Dati di utilizzo, denominati anche i dati relativi al consumo, rappresentano la 
 Sistemi a più nodi di Azure Stack che utilizzano il modello di fatturazione in base al consumo devono segnalare i dati di utilizzo in Azure a scopo di fatturazione.  Gli operatori di Azure Stack devono configurare l'istanza di Azure Stack ai dati di utilizzo di report in Azure.
 
 > [!NOTE]
-> Report di dati di utilizzo è necessario per gli utenti a più nodi di Azure Stack che acquistano una licenza in base al modello di pagamento come-di-uso. È facoltativo per i clienti che acquistano una licenza in base al modello di capacità (vedere la [come acquistare pagina](https://azure.microsoft.com/en-us/overview/azure-stack/how-to-buy/). Per gli utenti di Azure Stack Development Kit, gli operatori di Azure Stack possono segnalare i dati di utilizzo e testare la funzionalità. Tuttavia, gli utenti non verrà addebitati alcun utilizzo che comportano. 
+> Report di dati di utilizzo è necessario per gli utenti a più nodi di Azure Stack che acquistano una licenza in base al modello di pagamento come-di-uso. È facoltativo per i clienti che acquistano una licenza in base al modello di capacità (vedere la [come acquistare pagina](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Per gli utenti di Azure Stack Development Kit, gli operatori di Azure Stack possono segnalare i dati di utilizzo e testare la funzionalità. Tuttavia, gli utenti non verrà addebitati alcun utilizzo che comportano. 
 
 
 ![flusso di fatturazione](media/azure-stack-usage-reporting/billing-flow.png)

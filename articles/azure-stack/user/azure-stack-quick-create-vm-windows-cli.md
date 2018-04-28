@@ -12,28 +12,39 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 04/23/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 2a4eb909c39051ce9fa2efd7e7997644d9b8b1b1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 381c1c37b0675d97adc058979a5d9b5c4fd2cc8b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>Creare una macchina virtuale Windows nello Stack di Azure mediante Azure CLI
+# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Guida introduttiva: creare una macchina virtuale di Windows Server usando l'interfaccia CLI di Azure nello Stack di Azure
 
-CLI di Azure viene utilizzato per creare e gestire le risorse di Azure Stack dalla riga di comando. Questa guida descrive l'utilizzo di CLI di Azure per creare una macchina virtuale di Windows Server 2016 nello Stack di Azure. Una volta creata la macchina virtuale, verrà connettersi con Desktop remoto, installare IIS, quindi visualizzare il sito Web predefinito. 
+‎*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-## <a name="prerequisites"></a>Prerequisiti 
+È possibile creare una macchina virtuale di Windows Server 2016 usando l'interfaccia CLI di Azure. Seguire i passaggi descritti in questo articolo per creare e usare una macchina virtuale. In questo articolo offre inoltre la procedura seguente:
 
-* Verificare che l'operatore di Azure Stack ha aggiunto l'immagine di "Windows Server 2016" nel Marketplace dello Stack di Azure.  
+* Connettersi alla macchina virtuale con un client remoto.
+* Installare il server web IIS e visualizzare la home page predefinita.
+* Pulire le risorse.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* Verificare che l'operatore di Stack di Azure è stato aggiunto il **Windows Server 2016** immagine nel Marketplace dello Stack di Azure.
 
 * Stack di Azure richiede una versione specifica di CLI di Azure per creare e gestire le risorse. Se non è configurato per Azure Stack CLI di Azure, seguire i passaggi per [installare e configurare Azure CLI](azure-stack-version-profiles-azurecli2.md).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Un gruppo di risorse è un contenitore logico in cui Stack di Azure le risorse vengono distribuite e gestite. Il kit di sviluppo o lo Stack di Azure integrato system, eseguire il [gruppo az creare](/cli/azure/group#az_group_create) comando per creare un gruppo di risorse. Sono stati assegnati valori per tutte le variabili in questo documento, è possibile utilizzarli così come sono oppure assegnare un valore diverso. Nell'esempio seguente viene creato un gruppo di risorse denominato myResourceGroup nel percorso locale.
+Un gruppo di risorse è un contenitore logico in cui è possibile distribuire e gestire le risorse di Azure Stack. Dall'ambiente dello Stack di Azure, eseguire la [az gruppo creare](/cli/azure/group#az_group_create) comando per creare un gruppo di risorse.
+
+>[!NOTE]
+ I valori vengono assegnati per tutte le variabili negli esempi di codice. Tuttavia, è possibile assegnare nuovi valori se si desidera.
+
+Nell'esempio seguente viene creato un gruppo di risorse denominato myResourceGroup nel percorso locale.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -41,7 +52,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
-Creare una VM con il comando [az vm create](/cli/azure/vm#az_vm_create). L'esempio seguente crea una macchina virtuale denominata myVM. L'esempio Usa Demouser per un nome utente amministrativo e Demouser@123 come password. Aggiornare i valori in modo che siano appropriati all'ambiente. Questi valori sono necessari quando ci si connette alla macchina virtuale.
+Creare una macchina virtuale (VM) usando il [creare vm az](/cli/azure/vm#az_vm_create) comando. L'esempio seguente crea una macchina virtuale denominata myVM. Questo esempio viene utilizzato Demouser per un nome utente amministrativo e Demouser@123 come password dell'utente. Modificare questi valori in un valore appropriato per l'ambiente.
 
 ```cli
 az vm create \
@@ -54,11 +65,13 @@ az vm create \
   --location local
 ```
 
-Quando viene creata la macchina virtuale, annotare il *PublicIPAddress* parametro che viene restituito, che verrà utilizzato per accedere alla macchina virtuale.
- 
+Quando viene creata la macchina virtuale, il **PublicIPAddress** parametro nell'output contiene l'indirizzo IP pubblico per la macchina virtuale. Annotare questo indirizzo, poiché è necessario per accedere alla macchina virtuale.
+
 ## <a name="open-port-80-for-web-traffic"></a>Aprire la porta 80 per il traffico Web
 
-Per impostazione predefinita, sono consentite solo le connessioni RDP a una macchina virtuale Windows distribuita nello Stack di Azure. Se si intende usare questa macchina virtuale come un server Web, è necessario aprire la porta 80 da Internet. Usare il comando [az vm open-port](/cli/azure/vm#open-port) per aprire la porta.
+Poiché questa macchina virtuale è in esecuzione il server web IIS, è necessario aprire la porta 80 per il traffico Internet.
+
+Usare la [az vm open-port](/cli/azure/vm#open-port) comando per aprire la porta 80.
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -66,7 +79,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="connect-to-the-virtual-machine"></a>Connettersi alla macchina virtuale
 
-Usare il comando seguente per creare una sessione desktop remoto con la macchina virtuale. Sostituire l'indirizzo IP con l'indirizzo IP pubblico della macchina virtuale. Quando richiesto, immettere le credenziali utilizzate durante la creazione della macchina virtuale.
+Utilizzare il comando successivo per creare una connessione Desktop remoto alla macchina virtuale. Sostituire "Indirizzo IP pubblico" con l'indirizzo IP della macchina virtuale. Quando richiesto, immettere il nome utente e la password utilizzata per la macchina virtuale.
 
 ```
 mstsc /v <Public IP Address>
@@ -74,7 +87,7 @@ mstsc /v <Public IP Address>
 
 ## <a name="install-iis-using-powershell"></a>Installare IIS tramite PowerShell
 
-Dopo avere eseguito l'accesso alla macchina virtuale di Azure, è possibile usare una singola riga di codice di PowerShell per installare IIS e abilitare la regola del firewall locale per consentire il traffico Web. Aprire un prompt di PowerShell ed eseguire questo comando:
+Ora che è effettuato l'accesso alla macchina virtuale, è possibile utilizzare PowerShell per installare IIS. Avviare PowerShell nella macchina virtuale ed eseguire il comando seguente:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -82,13 +95,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Visualizzare la pagina iniziale di IIS
 
-Dopo l'installazione di IIS e l'apertura della porta 80 nella macchina virtuale da Internet, è possibile usare il Web browser preferito per visualizzare la pagina iniziale predefinita di IIS. Assicurarsi di usare l'indirizzo IP pubblico descritto in precedenza per passare alla pagina predefinita. 
+Per visualizzare la pagina iniziale predefinita di IIS, è possibile utilizzare un browser web di propria scelta. Usare l'indirizzo IP pubblico documentato nella sezione precedente per visitare la pagina predefinita.
 
-![Sito IIS predefinito](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png) 
+![Sito IIS predefinito](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile usare il comando [az group delete](/cli/azure/group#az_group_delete) per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
+Pulire le risorse che non è necessario più. Usare la [eliminazione di gruppi di az](/cli/azure/group#az_group_delete) comando per rimuovere il gruppo di risorse, la macchina virtuale, e tutte le risorse.
 
 ```cli
 az group delete --name myResourceGroup
@@ -96,4 +109,4 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida rapida, aver distribuito una semplice macchina virtuale di Windows. Per ulteriori informazioni sulle macchine virtuali di Azure Stack, continuare a [considerazioni per le macchine virtuali in Azure Stack](azure-stack-vm-considerations.md).
+In questa Guida rapida, è stato distribuito una macchina virtuale di Windows Server base. Per ulteriori informazioni sulle macchine virtuali di Azure Stack, continuare a [considerazioni per le macchine virtuali in Azure Stack](azure-stack-vm-considerations.md).

@@ -3,7 +3,7 @@ title: Servizi e schemi supportati per i log di Diagnostica di Azure | Microsoft
 description: Informazioni sullo schema di eventi e i servizi per i log di Diagnostica di Azure.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/24/2018
+ms.date: 4/12/2018
 ms.author: johnkem
-ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91c3f1507bb4fb64d5395917e8e431951f77e72b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servizi, schemi e categorie supportati per i log di Diagnostica di Azure
 
@@ -73,6 +73,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 |Microsoft.DataLakeAnalytics/accounts|Requests|Log delle richieste|
 |Microsoft.DataLakeStore/accounts|Audit|Log di controllo|
 |Microsoft.DataLakeStore/accounts|Requests|Log delle richieste|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Log del server PostgreSQL|
 |Microsoft.Devices/IotHubs|connessioni|connessioni|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetria dei dispositivi|
 |Microsoft.Devices/IotHubs|C2DCommands|Comandi da cloud a dispositivo|
@@ -84,6 +85,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 |Microsoft.Devices/IotHubs|TwinQueries|Query dei dispositivi gemelli|
 |Microsoft.Devices/IotHubs|JobsOperations|Operazioni dei processi|
 |Microsoft.Devices/IotHubs|DirectMethods|Metodi diretti|
+|Microsoft.Devices/IotHubs|E2EDiagnostics|E2E Diagnostics (anteprima)|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Operazioni del dispositivo|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Operazioni di servizio|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -96,7 +98,6 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Eventi di rilevamento degli account di integrazione|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Event del gruppo di sicurezza di rete|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contatore di regole del gruppo di sicurezza di rete|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Evento del flusso di regole del gruppo di sicurezza di rete|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventi di avviso del servizio di bilanciamento del carico|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Stato di integrità dei probe del servizio di bilanciamento del carico|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Notifiche di protezione DDoS|
@@ -107,6 +108,8 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Log di diagnostica del gateway|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Log di diagnostica del tunnel|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Log di diagnostica della route|
+|Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|Log di diagnostica IKE|
+|Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|Log di diagnostica P2S|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Evento dei risultati di integrità dei probe di Traffic Manager|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabella di contatori GWM|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Dati dei report di Backup di Azure|
@@ -127,6 +130,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 |Microsoft.Sql/servers/databases|Blocchi|Blocchi|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
 |Microsoft.Sql/servers/databases|Audit|Log di controllo|
+|Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Evento di controllo di sicurezza SQL|
 |Microsoft.StreamAnalytics/streamingjobs|Esecuzione|Esecuzione|
 |Microsoft.StreamAnalytics/streamingjobs|Creazione|Creazione|
 

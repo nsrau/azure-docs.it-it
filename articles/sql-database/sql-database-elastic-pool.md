@@ -7,16 +7,16 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 6c2e4e7f99aeec3028e8df520dc6896234b5c969
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 33f4430baacbe50f3d4c7da857ee4345d4f74928
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Uso dei pool di database elastici per gestire e ridimensionare più database SQL
+# <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>I pool di database elastici consentono di gestire e ridimensionare più database SQL
 
 I pool elastici di database SQL offrono una soluzione semplice e conveniente per la gestione e il ridimensionamento di più database con esigenze di utilizzo variabili e imprevedibili. I database in un pool elastico si trovano in un server di database SQL di Azure singolo e condividono un determinato numero di risorse a un prezzo specifico. I pool elastici nel database SQL di Azure consentono agli sviluppatori di SaaS di ottimizzare i costi per un gruppo di database all'interno di un budget definito, garantendo allo stesso tempo prestazioni elastiche per ogni database.
 
@@ -32,9 +32,9 @@ I pool elastici risolvono il problema assicurando ai database l'ottenimento dell
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-I pool elastici consentono agli sviluppatori di acquistare risorse per un pool condiviso da più database, in modo da supportare periodi di utilizzo imprevisti da parte dei singoli database. È possibile configurare le risorse per il pool in base al [modello di acquisto basato su DTU (anteprima)](sql-database-service-tiers.md#dtu-based-purchasing-model) o al [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). Il requisito di risorse per un pool è determinato dall'utilizzo aggregato dei relativi database. La quantità di risorse disponibili per il pool dipende dal budget dello sviluppatore. Lo sviluppatore aggiunge semplicemente database al pool, imposta la quantità minima e massima di risorse per i database, ovvero il numero minimo e massimo di DTU o vCore a seconda del modello di risorse selezionato, e quindi imposta le risorse del pool in base al proprio budget. Utilizzando i pool, lo sviluppatore può aumentare con facilità i servizi offerti da una piccola nuova impresa fino a un'azienda matura in continua crescita.
+I pool elastici consentono agli sviluppatori di acquistare risorse per un pool condiviso da più database, in modo da supportare periodi di utilizzo imprevisti da parte dei singoli database. È possibile configurare le risorse per il pool in base al [modello di acquisto basato su DTU (anteprima)](sql-database-service-tiers.md#dtu-based-purchasing-model) o al [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). Il requisito di risorse per un pool è determinato dall'utilizzo aggregato dei relativi database. La quantità di risorse disponibili per il pool dipende dal budget dello sviluppatore. Lo sviluppatore aggiunge semplicemente database al pool, imposta la quantità minima e massima di risorse per i database (DTU minimi o massimi oppure vCore minimi o massimi a seconda della scelta del modello di risorse), quindi imposta le risorse del pool in base al proprio budget. Utilizzando i pool, lo sviluppatore può aumentare con facilità i servizi offerti da una piccola nuova impresa fino a un'azienda matura in continua crescita.
 
-All'interno del pool i singoli database sono sufficientemente flessibili da assicurare una scalabilità automatica nell'ambito di parametri prefissati. Se il carico di lavoro è importante, un database può utilizzare più risorse per soddisfare la domanda. Se invece il carico di lavoro è più leggero, i database in assenza di carico non utilizzano risorse. La possibilità di effettuare il provisioning delle risorse per l'intero pool e non per i singoli database semplifica le attività di gestione. Il budget del pool, inoltre, è facilmente prevedibile. È possibile aggiungere altre risorse a un pool esistente senza causare tempi di inattività, ad eccezione del caso in cui sia necessario spostare i database per fornire risorse di calcolo aggiuntive per le nuove eDTU riservate. Analogamente, se le risorse aggiuntive non sono più necessarie, è possibile rimuoverle da un pool esistente in qualsiasi momento. È possibile aggiungere e rimuovere database dal pool. Se si prevede che un database sottoutilizzerà le proprie risorse, è possibile rimuoverlo.
+All'interno del pool i singoli database sono sufficientemente flessibili da assicurare una scalabilità automatica nell'ambito di parametri prefissati. Se il carico di lavoro è importante, un database può utilizzare più risorse per soddisfare la domanda. Se invece il carico di lavoro è più leggero, i database in assenza di carico non utilizzano risorse. La possibilità di effettuare il provisioning delle risorse per l'intero pool e non per i singoli database semplifica le attività di gestione. È inoltre disponibile un budget per il pool prevedibile. È possibile aggiungere altre risorse a un pool esistente senza causare tempi di inattività, ad eccezione del caso in cui sia necessario spostare i database per fornire risorse di calcolo aggiuntive per le nuove eDTU riservate. Analogamente, se le risorse aggiuntive non sono più necessarie, è possibile rimuoverle da un pool esistente in qualsiasi momento. È possibile aggiungere e rimuovere database dal pool. Se si prevede che un database sottoutilizzerà le proprie risorse, è possibile rimuoverlo.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Quando considerare un pool elastico del database SQL
 
@@ -74,7 +74,7 @@ Le seguenti regole relative al numero e all'utilizzo del database consentono di 
 
 ### <a name="minimum-number-of-databases"></a>Numero minimo di database
 
-Se la quantità di risorse per i singoli database è 1,5 volte maggiore rispetto alle risorse necessarie per il pool, un pool elastico è più conveniente.
+Se la quantità aggregata di risorse per i singoli database è maggiore di 1,5 volte rispetto alle risorse necessarie per il pool, un pool elastico è più conveniente.
 
 ***Esempio di modello di acquisto basato su DTU***<br>
 Sono necessari almeno due database S3 o 15 database S0 perché un pool di 100 eDTU risulti più conveniente rispetto all'uso di livelli di prestazioni per database singoli.
@@ -99,7 +99,7 @@ Un database S3 con picchi di 100 DTU e un utilizzo medio di 67 DTU o meno è un 
 La dimensione ottimale per un pool dipende dalle risorse di aggregazione e dalle risorse di archiviazione necessarie per tutti i database nel pool. È quindi necessario stabilire quanto segue:
 
 * Quantità massima di risorse utilizzate da tutti i database nel pool, ovvero numero massimo di DTU o vCore in base al modello di risorse selezionato.
-* Quantità massima di byte di archiviazione utilizzati da tutti i database nel pool.
+* Byte di archiviazione massima utilizzati da tutti i database nel pool.
 
 Per i livelli di servizio disponibili per ogni modello di risorse, vedere il [modello di acquisto basato su DTU](sql-database-service-tiers.md#dtu-based-purchasing-model) o il [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
 
@@ -110,7 +110,7 @@ Nei casi in cui non è possibile utilizzare gli strumenti, le seguenti istruzion
 1. Stimare le eDTU o i vCore necessari per il pool come segue:
 
    Per il modello di acquisto basato su DTU: MAX(<*numero totale di database* X *utilizzo medio di DTU per database*>,<br>
-   <*numero di database in picco contemporaneamente* X *picco di utilizzo di DTU per database*)
+   <*numero di database in picco contemporaneamente* X *picco di utilizzo di DTU per DB*)
 
    Per il modello di acquisto basato su vCore: MAX(<*numero totale di database* X *utilizzo medio di vCore per database*>,<br>
    <*numero di database in picco contemporaneamente* X *picco di utilizzo di vCore per database*)
@@ -271,7 +271,7 @@ Per creare e gestire i pool di database SQL elastici usare queste richieste API 
 |[Pool di database elastici: aggiorna](/rest/api/sql/elasticpools/update)|Consente di aggiornare un pool elastico esistente.|
 |[Pool di database elastici consigliati: ottieni](/rest/api/sql/recommendedelasticpools/get)|Consente di ottenere un pool elastico consigliato.|
 |[Pool di database elastici consigliati: elenca dal server](/rest/api/sql/recommendedelasticpools/listbyserver)|Restituisce i pool di database elastici consigliati.|
-|[Pool di database elastici consigliati: elenca metriche](/rest/api/sql/recommendedelasticpools/listmetrics)|Restituisce le metriche dei pool di database elastici consigliati.|
+|[Pool di database elastici consigliati: elenca metriche](/rest/api/sql/recommendedelasticpools/listmetrics)|Restituisce le metriche del pool elastico consigliato.|
 |[Attività del pool elastico](/rest/api/sql/elasticpoolactivities)|Restituisce le attività del pool elastico.|
 |[Attività del database del pool elastico](/rest/api/sql/elasticpooldatabaseactivities)|Restituisce l'attività sul database all'interno di un pool elastico.|
 |[Database: crea o aggiorna](/rest/api/sql/databases/createorupdate)|Crea un nuovo database o ne aggiorna uno esistente.|

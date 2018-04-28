@@ -2,44 +2,93 @@
 title: Classi di risorse per la gestione del carico di lavoro - Azure SQL Data Warehouse | Microsoft Docs
 description: Materiale sussidiario per l'uso delle classi di risorse per gestire la concorrenza e le risorse di calcolo per le query in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: 
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 10/23/2017
-ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 9f9da67c885974be674f6e88aaacfe66bdc0d58a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="resource-classes-for-workload-management"></a>Classi di risorse per la gestione del carico di lavoro
-Materiale sussidiario per l'uso delle classi di risorse per gestire il numero di query eseguite contemporaneamente e le risorse di calcolo per le query in Azure SQL Data Warehouse.
+# <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestione del carico di lavoro con le classi di risorse in Azure SQL Data Warehouse
+Indicazioni per l'uso delle classi di risorse per gestire la memoria e la concorrenza per le query in Azure SQL Data Warehouse.  
  
 ## <a name="what-is-workload-management"></a>Definizione di gestione del carico di lavoro
-La gestione del carico di lavoro è la possibilità di ottimizzare le prestazioni complessive di tutte le query. Un carico di lavoro ottimizzato consente di eseguire query e operazioni di caricamento in modo efficiente anche in presenza di un elevato utilizzo di calcolo o di I/O. 
+La gestione del carico di lavoro è la possibilità di ottimizzare le prestazioni complessive di tutte le query. Un carico di lavoro ottimizzato consente di eseguire query e operazioni di caricamento in modo efficiente anche in presenza di un elevato utilizzo di calcolo o di I/O.  SQL Data Warehouse offre funzionalità di gestione del carico di lavoro per ambienti con più utenti. Il data warehouse non è concepito per i carichi di lavoro multi-tenant.
 
-SQL Data Warehouse offre funzionalità di gestione del carico di lavoro per ambienti con più utenti. Il data warehouse non è concepito per i carichi di lavoro multi-tenant.
+La capacità di prestazioni di un data warehouse è determinata dal [livello di prestazioni](memory-and-concurrency-limits.md#performance-tiers) e dalle [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). 
+
+- Per visualizzare i limiti di memoria e concorrenza per tutti i profili delle prestazioni, vedere [Memory and concurrency limits](memory-and-concurrency-limits.md) (Limiti di memoria e concorrenza).
+- Per regolare la capacità di prestazioni, è possibile [aumentare o ridurre la quantità di risorse](quickstart-scale-compute-portal.md).
+
+La capacità di prestazioni di una query è determinata dalla classe di risorse della query. Nella parte rimanente di questo articolo vengono illustrate le classi di risorse e viene descritto come modificarle.
+
 
 ## <a name="what-are-resource-classes"></a>Che cosa sono le classi di risorse?
-Le classi di risorse sono limiti predeterminati delle risorse che regolano l'esecuzione delle query. SQL Data Warehouse limita le risorse di calcolo per ogni query in base alla classe di risorse. 
+Le classi di risorse sono limiti delle risorse predeterminati in Azure SQL Data Warehouse che regolano le risorse di calcolo e la concorrenza per l'esecuzione delle query. Le classi di risorse possono agevolare la gestione del carico di lavoro, consentendo di impostare limiti per il numero di query eseguite contemporaneamente e le risorse di calcolo assegnate a ogni query. È necessario trovare il giusto compromesso tra memoria e concorrenza.
 
-Le classi di risorse consentono di gestire le prestazioni complessive del carico di lavoro del data warehouse. L'uso delle classi di risorse semplifica notevolmente la gestione del carico di lavoro poiché vengono impostati limiti per il numero di query eseguite simultaneamente e per le risorse di calcolo assegnate a ogni query. 
+- Le classi di risorse di piccole dimensioni riducono la memoria massima per ogni query, ma aumentano la concorrenza.
+- Le classi di risorse di grandi dimensioni aumentano la memoria massima per ogni query, ma riducono la concorrenza. 
 
-- Le classi di risorse più piccole usano meno risorse di calcolo ma consentono una maggiore concorrenza complessiva delle query
-- Le classi di risorse più grandi offrono più risorse di calcolo ma limitano la concorrenza delle query
+La capacità di prestazioni di una query è determinata dalla classe di risorse dell'utente.
 
-Le classi di risorse sono progettate per le attività di gestione e modifica dei dati. Possono essere utili nell'esecuzione di query molto complesse quando sono presenti join e ordinamenti di grandi dimensioni, poiché il sistema esegue la query nella memoria anziché distribuirla su disco.
+- Per visualizzare l'uso delle risorse per le classi di risorse, vedere [Memory and concurrency limits](memory-and-concurrency-limits.md#concurrency-maximums) (Limiti di memoria e concorrenza).
+- Per modificare la classe di risorse, è possibile usare un altro utente per eseguire la query o [modificare l'appartenenza della classe di risorse dell'utente corrente](#change-a-user-s-resource-class). 
 
-Le operazioni seguenti sono gestite dalle classi di risorse:
+Le classi di risorse usano gli slot di concorrenza per misurare il consumo di risorse.  Gli [slot di concorrenza](#concurrency-slots) verranno illustrati più avanti nell'articolo. 
+
+### <a name="static-resource-classes"></a>Classi di risorse statiche
+Le classi di risorse statiche allocano la stessa quantità di memoria indipendentemente dal livello di prestazioni corrente, misurato in [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). Poiché le query ottengono la stessa allocazione di memoria indipendentemente dal livello di prestazioni, la [scalabilità orizzontale del data warehouse](quickstart-scale-compute-portal.md) consente di eseguire più query in una classe di risorse.
+
+Le classi di risorse statiche vengono implementate con i ruoli predefiniti del database seguenti:
+
+- staticrc10
+- staticrc20
+- staticrc30
+- staticrc40
+- staticrc50
+- staticrc60
+- staticrc70
+- staticrc80
+
+Queste classi di risorse sono particolarmente adatte alle soluzioni che aumentano la classe di risorse per ottenere risorse di calcolo aggiuntive.
+
+### <a name="dynamic-resource-classes"></a>Classi di risorse dinamiche
+Le classi di risorse dinamiche allocano una quantità variabile di memoria in base al livello di servizio corrente. Quando si passa a un livello di servizio superiore, le query ottengono automaticamente più memoria. 
+
+Le classi di risorse dinamiche vengono implementate con i ruoli predefiniti del database seguenti:
+
+- smallrc
+- mediumrc
+- largerc
+- xlargerc. 
+
+Queste classi di risorse sono particolarmente adatte alle soluzioni che aumentano la scala di calcolo per ottenere risorse aggiuntive. 
+
+
+### <a name="default-resource-class"></a>Classe di risorse predefinita
+Per impostazione predefinita, ogni utente è membro della classe di risorse dinamica **smallrc**. 
+
+La classe di risorse dell'amministratore del servizio è fissa e non può essere modificata.  L'amministratore del servizio è l'utente creato durante il processo di provisioning.
+
+> [!NOTE]
+> Gli utenti o gruppi definiti come amministratori di Active Directory sono anche amministratori del servizio.
+>
+>
+
+## <a name="resource-class-operations"></a>Operazioni sulle classi di risorse
+
+Le classi di risorse sono progettate per migliorare le prestazioni per le attività di gestione e modifica dei dati. Anche le query complesse possono trarre vantaggio dall'esecuzione in una classe di risorse di grandi dimensioni. Ad esempio, le prestazioni di query per i join e gli ordinamenti di grandi dimensioni possono migliorare quando la classe di risorse è sufficientemente grande da consentire l'esecuzione della query in memoria.
+
+### <a name="operations-governed-by-resource-classes"></a>Operazioni regolate dalle classi di risorse
+
+Le operazioni seguenti sono regolate dalle classi di risorse:
 
 * INSERT-SELECT, UPDATE, DELETE
 * SELEZIONARE (quando si esegue una query sulle tabelle utente)
@@ -56,50 +105,7 @@ Le operazioni seguenti sono gestite dalle classi di risorse:
 > 
 > 
 
-## <a name="static-and-dynamic-resource-classes"></a>Classi di risorse statiche e dinamiche
-
-Esistono due tipi di classi di risorse: statiche e dinamiche.
-
-- Le **classi di risorse statiche** allocano la stessa quantità di memoria indipendentemente dal livello di servizio corrente, misurato in [unità Data Warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). Questa allocazione statica significa che per i livelli di servizio superiori è possibile eseguire più query in ogni classe di risorse.  Le classi di risorse statiche sono denominate staticrc10, staticrc20, staticrc30, staticrc40, staticrc50, staticrc60, staticrc70 e staticrc80. Queste classi di risorse sono particolarmente adatte alle soluzioni che aumentano la classe di risorse per ottenere risorse di calcolo aggiuntive.
-
-- Le **classi di risorse dinamiche** allocano una quantità variabile di memoria in base al livello di servizio corrente. Quando si passa a un livello di servizio superiore, le query ottengono automaticamente più memoria. Le classi di risorse dinamiche sono denominate smallrc, mediumrc, largerc e xlargerc. Queste classi di risorse sono particolarmente adatte alle soluzioni che aumentano la scala di calcolo per ottenere risorse aggiuntive. 
-
-I [livelli di prestazioni](performance-tiers.md) usano gli stessi nomi di classe di risorse ma con [specifiche diverse per memoria e concorrenza](performance-tiers.md). 
-
-
-## <a name="assigning-resource-classes"></a>Assegnazione di classi di risorse
-
-Le classi di risorse vengono implementate assegnando gli utenti ai ruoli del database. Quando un utente esegue una query, la query viene eseguita con la classe di risorse dell'utente. Ad esempio, se un utente è membro del ruolo del database smallrc o staticrc10, le relative query vengono eseguite con piccole quantità di memoria. Se un utente del database è membro del ruolo xlargerc o staticrc80, le relative query vengono eseguite con grandi quantità di memoria. 
-
-Per aumentare la classe di risorse di un utente, usare la stored procedure [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). 
-
-```sql
-EXEC sp_addrolemember 'largerc', 'loaduser';
-```
-
-Per diminuire la classe di risorse, usare [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  
-
-```sql
-EXEC sp_droprolemember 'largerc', 'loaduser';
-```
-
-La classe di risorse dell'amministratore del servizio è fissa e non può essere modificata.  L'amministratore del servizio è l'utente creato durante il processo di provisioning.
-
-> [!NOTE]
-> Gli utenti o gruppi definiti come amministratori di Active Directory sono anche amministratori del servizio.
->
->
-
-### <a name="default-resource-class"></a>Classe di risorse predefinita
-Per impostazione predefinita, ogni utente è membro della classe di risorse piccola **smallrc**. 
-
-### <a name="resource-class-precedence"></a>Precedenza delle classi di risorse
-Gli utenti possono essere membri di più classi di risorse. Quando un utente appartiene a più di una classe di risorse:
-
-- Le classi di risorse dinamiche hanno la precedenza sulle classi di risorse statiche. Ad esempio, se un utente è membro sia di mediumrc (dinamica) sia di staticrc80 (statica), le query vengono eseguite con mediumrc.
-- Le classi di risorse più grandi hanno la precedenza sulle classi di risorse più piccole. Ad esempio, se un utente è membro di mediumrc e largerc, le query vengono eseguite con largerc. Analogamente, se un utente è membro sia di staticrc20, sia di statirc80, le query vengono eseguite con allocazioni di risorse staticrc80.
-
-### <a name="queries-exempt-from-resource-classes"></a>Query esenti da classi di risorse
+### <a name="operations-not-governed-by-resource-classes"></a>Operazioni non regolate dalle classi di risorse
 Alcune query vengono sempre eseguite nella classe di risorse smallrc anche se l'utente è membro di una classe di risorse più grande. Le query esenti non vengono conteggiate ai fini del limite di concorrenza. Ad esempio, se il limite di concorrenza è 16, molti utenti possono selezionare le viste di sistema senza conseguenze per gli slot di concorrenza disponibili.
 
 Le istruzioni seguenti sono esenti dalle classi di risorse e vengono sempre eseguite in smallrc:
@@ -126,6 +132,45 @@ Removed as these two are not confirmed / supported under SQLDW
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE
 -->
+
+## <a name="concurrency-slots"></a>Slot di concorrenza
+Gli slot di concorrenza sono un modo pratico per verificare le risorse disponibili per l'esecuzione di query. Hanno la stessa utilità dei biglietti per i concerti, che riservano i posti a sedere perché limitati. Il numero totale di slot concorrenza per ogni data warehouse è determinato dal livello di servizio. Per poter procedere con l'avvio dell'esecuzione, una query deve essere in grado di riservare slot di concorrenza sufficienti. Al termine dell'esecuzione, la query, rilascia i relativi slot di concorrenza.  
+
+- Una query in esecuzione con 10 slot di concorrenza può accedere a un numero di risorse di calcolo 5 volte maggiore di una query in esecuzione con 2 slot di concorrenza.
+- Se ogni query richiede 10 slot di concorrenza e sono disponibili 40 slot di concorrenza, solo 4 query possono essere eseguite contemporaneamente.
+ 
+Solo le query che dipendono da una risorsa usano tutti gli slot di concorrenza. Le query di sistema e alcune semplici query non usano alcun slot. Il numero esatto di slot di concorrenza usato è determinato dalla classe di risorse della query.
+
+## <a name="view-the-resource-classes"></a>Visualizzare le classi di risorse
+
+Le classi di risorse vengono implementate come ruoli predefiniti del database. Esistono due tipi di classi di risorse: statiche e dinamiche. Per visualizzare un elenco delle classi di risorse, usare la query seguente:
+
+    ```sql
+    SELECT name FROM sys.database_principals
+    WHERE name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
+    ```
+
+## <a name="change-a-users-resource-class"></a>Modificare la classe di risorse di un utente
+
+Le classi di risorse vengono implementate assegnando gli utenti ai ruoli del database. Quando un utente esegue una query, la query viene eseguita con la classe di risorse dell'utente. Ad esempio, se un utente è membro del ruolo del database smallrc o staticrc10, le relative query vengono eseguite con piccole quantità di memoria. Se un utente del database è membro del ruolo xlargerc o staticrc80, le relative query vengono eseguite con grandi quantità di memoria. 
+
+Per aumentare la classe di risorse di un utente, usare la stored procedure [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). 
+
+```sql
+EXEC sp_addrolemember 'largerc', 'loaduser';
+```
+
+Per diminuire la classe di risorse, usare [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  
+
+```sql
+EXEC sp_droprolemember 'largerc', 'loaduser';
+```
+
+## <a name="resource-class-precedence"></a>Precedenza delle classi di risorse
+Gli utenti possono essere membri di più classi di risorse. Quando un utente appartiene a più di una classe di risorse:
+
+- Le classi di risorse dinamiche hanno la precedenza sulle classi di risorse statiche. Ad esempio, se un utente è membro sia di mediumrc (dinamica) sia di staticrc80 (statica), le query vengono eseguite con mediumrc.
+- Le classi di risorse più grandi hanno la precedenza sulle classi di risorse più piccole. Ad esempio, se un utente è membro di mediumrc e largerc, le query vengono eseguite con largerc. Analogamente, se un utente è membro sia di staticrc20, sia di statirc80, le query vengono eseguite con allocazioni di risorse staticrc80.
 
 ## <a name="recommendations"></a>Raccomandazioni
 Si consiglia di creare un utente dedicato all'esecuzione di un tipo specifico di query o di operazione di caricamento. Assegnare quindi a tale utente una classe di risorse permanente anziché modificare regolarmente la classe di risorse. Dato che le classi di risorse statiche consentono un maggiore controllo generale sul carico di lavoro, è consigliabile usarle per prime e dopo considerare le classi di risorse dinamiche.

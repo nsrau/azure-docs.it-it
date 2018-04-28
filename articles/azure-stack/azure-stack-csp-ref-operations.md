@@ -1,11 +1,11 @@
 ---
 title: Registrare i tenant per l'utilizzo di rilevamento nello Stack di Azure | Documenti Microsoft
-description: "Informazioni dettagliate sulle operazioni che consente di gestire le registrazioni tenant e la modalità di registrazione dell'utilizzo di tenant nello Stack di Azure."
+description: Informazioni dettagliate sulle operazioni che consente di gestire le registrazioni tenant e la modalità di registrazione dell'utilizzo di tenant nello Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: be15fbc5fad79f1079b901b3d6cb4948c45a0ab4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: ef7ca59647a1f8c15d85c809609060a5945bedde
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gestire la registrazione tenant nello Stack di Azure
 
@@ -35,7 +35,7 @@ Utilizzare questa operazione quando si desidera aggiungere un nuovo tenant per l
 Si noti che solo una sottoscrizione di Azure può essere associata a un tenant. Se si tenta di aggiungere una seconda sottoscrizione a un tenant esistente, la prima sottoscrizione verrà sovrascrittura. 
 
 
-| Parametro                  | Descrizione |
+| Parametro                  | DESCRIZIONE |
 |---                         | --- |
 | registrationSubscriptionID | La sottoscrizione di Azure che è stata utilizzata per la registrazione iniziale. |
 | customerSubscriptionID     | La sottoscrizione di Azure (non Azure Stack) che appartengono al cliente da registrare. Deve essere creato nell'offerta di Provider del servizio Cloud (CSP). In pratica, ciò significa tramite Partner Center. Se un cliente dispone di più tenant, è necessario creare la sottoscrizione nel tenant che verrà utilizzato per accedere allo Stack di Azure. |
@@ -47,7 +47,7 @@ Si noti che solo una sottoscrizione di Azure può essere associata a un tenant. 
 
 ### <a name="powershell"></a>PowerShell
 
-Utilizzare il cmdlet New-AzureRmResource per aggiornare la risorsa di registrazione. Accedere a Azure (`Login-AzureRMAccount`) utilizzando l'account utilizzato per la registrazione iniziale. Di seguito è riportato un esempio di come aggiungere un tenant:
+Utilizzare il cmdlet New-AzureRmResource per aggiornare la risorsa di registrazione. Accedere a Azure (`Add-AzureRmAccount`) utilizzando l'account utilizzato per la registrazione iniziale. Di seguito è riportato un esempio di come aggiungere un tenant:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -70,7 +70,7 @@ Ottenere un elenco di tutti i tenant che sono stati aggiunti a una registrazione
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro                  | Descrizione          |
+| Parametro                  | DESCRIZIONE          |
 |---                         | ---                  |
 | registrationSubscriptionId | La sottoscrizione di Azure che è stata utilizzata per la registrazione iniziale.   |
 | resourceGroup              | Il gruppo di risorse in Azure in cui è archiviata la registrazione.    |
@@ -78,7 +78,7 @@ Ottenere un elenco di tutti i tenant che sono stati aggiunti a una registrazione
 
 ### <a name="powershell"></a>PowerShell
 
-Utilizzare il cmdlet Get-AzureRmResovurce per elencare registrati tutti i tenant. Accedere a Azure (`Login-AzureRMAccount`) utilizzando l'account utilizzato per la registrazione iniziale. Di seguito è riportato un esempio di come aggiungere un tenant:
+Utilizzare il cmdlet Get-AzureRmResovurce per elencare registrati tutti i tenant. Accedere a Azure (`Add-AzureRmAccount`) utilizzando l'account utilizzato per la registrazione iniziale. Di seguito è riportato un esempio di come aggiungere un tenant:
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -120,7 +120,7 @@ api-version=2017-06-01 HTTP/1.1`
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro                  | Descrizione          |
+| Parametro                  | DESCRIZIONE          |
 |---                         | ---                  |
 | registrationSubscriptionId | ID di sottoscrizione per la registrazione.   |
 | resourceGroup              | Il gruppo di risorse per la registrazione.   |

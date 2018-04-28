@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/11/2018
 ms.author: douglasl
-ms.openlocfilehash: e021403cd5544f0570e8ea3c73a17a57b241a65f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6ad0f554161937a4fdb10179e2b310facbb91945
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integrazione e distribuzione continue in Azure Data Factory
 
@@ -62,6 +62,8 @@ Ecco l'intero ciclo di vita per l'integrazione e la distribuzione continue che �
 
 Ecco i passaggi necessari per configurare una versione di VSTS per poter automatizzare la distribuzione di una data factory in più ambienti.
 
+![Diagramma dell'integrazione continua con Visual Studio Team Services](media/continuous-integration-deployment/continuous-integration-image12.png)
+
 ### <a name="requirements"></a>Requisiti
 
 -   Una sottoscrizione di Azure collegata a Team Foundation Server o a VSTS con l'[*endpoint servizio di Azure Resource Manager*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
@@ -90,7 +92,7 @@ Ecco i passaggi necessari per configurare una versione di VSTS per poter automat
 
     a.  Aggiungere i segreti al file dei parametri:
 
-        -   Creare una copia del file dei parametri che viene caricato nel ramo di pubblicazione e impostare i valori dei parametri che si vuole ottenere da Key Vault con il formato seguente:
+       -   Creare una copia del file dei parametri che viene caricato nel ramo di pubblicazione e impostare i valori dei parametri che si vuole ottenere da Key Vault con il formato seguente:
 
         ```json
         {
@@ -100,24 +102,24 @@ Ecco i passaggi necessari per configurare una versione di VSTS per poter automat
                         "keyVault": {
                             "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
                         },
-                        "secretName": " &lt secret - name &gt "
+                        "secretName": " < secret - name > "
                     }
-                }        
+                }
             }
         }
         ```
 
-        -   Quando si usa questo metodo, viene eseguito il pull automatico del segreto dall'insieme di credenziali delle chiavi.
+       -   Quando si usa questo metodo, viene eseguito il pull automatico del segreto dall'insieme di credenziali delle chiavi.
 
-        -   Il file dei parametri deve essere anche nel ramo di pubblicazione.
+       -   Il file dei parametri deve essere anche nel ramo di pubblicazione.
 
     b.  Aggiungere un'[attività Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
 
-        -   Selezionare la scheda **Attività**, creare una nuova attività, cercare **Azure Key Vault** e aggiungerla.
+       -   Selezionare la scheda **Attività**, creare una nuova attività, cercare **Azure Key Vault** e aggiungerla.
 
-        -   Nell'attività Key Vault scegliere la sottoscrizione in cui è stato creato l'insieme di credenziali delle chiavi, fornire le credenziali se necessario e quindi scegliere l'insieme di credenziali delle chiavi.
+       -   Nell'attività Key Vault scegliere la sottoscrizione in cui è stato creato l'insieme di credenziali delle chiavi, fornire le credenziali se necessario e quindi scegliere l'insieme di credenziali delle chiavi.
 
-            ![](media/continuous-integration-deployment/continuous-integration-image8.png)
+       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Aggiungere un'attività di distribuzione di Azure Resource Manager:
 

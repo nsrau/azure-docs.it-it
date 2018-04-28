@@ -5,37 +5,57 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/29/2018
+ms.topic: conceptual
+ms.date: 04/08/2018
 ms.author: raynew
-ms.openlocfilehash: 28ddecc45faa213d1fd536b5ad8690e151037505
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b2a6e3052c64ab6a2865a0c24a4876cb2b98d1a8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrice di supporto per la replica di VM VMware e server fisici in Azure
 
 Questo articolo riepiloga i componenti supportati e le impostazioni per il ripristino di emergenza di macchine virtuali VMware in Azure tramite [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="supported-scenarios"></a>Scenari supportati
+## <a name="replication-scenario"></a>Scenario di replica
 
 **Scenario** | **Dettagli**
 --- | ---
-VM VMware | È possibile eseguire il ripristino di emergenza in Azure per le macchine virtuali VMware locali. Si può distribuire questo scenario con il portale di Azure o tramite PowerShell.
-Server fisici | È possibile eseguire il ripristino di emergenza in Azure per server fisici Windows/Linux locali. Si può distribuire questo scenario nel portale di Azure.
+VM VMware | Replica di macchine virtuali VMware locali in Azure. Si può distribuire questo scenario con il portale di Azure o tramite PowerShell.
+Server fisici | Replica di server fisici Windows/Linux locali in Azure. Si può distribuire questo scenario nel portale di Azure.
 
 ## <a name="on-premises-virtualization-servers"></a>Server di virtualizzazione locali
 
 **Server** | **Requisiti** | **Dettagli**
 --- | --- | ---
-VMware | Server vCenter 6.5, 6.0 o 5.5 oppure vSphere 6.5, 6.0 o 5.5 | È consigliabile usare un server vCenter.
+VMware | Server vCenter 6.5, 6.0 o 5.5 oppure vSphere 6.5, 6.0 o 5.5 | È consigliabile usare un server vCenter.<br/><br/> È consigliabile che gli host di vSphere e i server vCenter si trovino nella stessa rete del server di elaborazione. Per impostazione predefinita i componenti del server di elaborazione vengono eseguiti nel server di configurazione, quindi questa sarà la rete in cui configurare il server di configurazione, a meno che non si configuri un server di elaborazione dedicato. 
 Fisico | N/D
 
+## <a name="site-recovery-configuration-server"></a>Server di configurazione di Site Recovery
+
+Il server di configurazione è un computer locale in cui vengono eseguiti tutti i componenti locali di Site Recovery, inclusi il server di configurazione, il server di elaborazione e il server di destinazione master. Per la replica VMware viene configurato il server di configurazione con tutti i requisiti, usando un modello OVF per creare una macchina virtuale VMware. Per la replica del server fisico, è necessario configurare manualmente il server di configurazione.
+
+**Componente** | **Requisiti**
+--- |---
+Core CPU | 8 
+RAM | 12 GB
+Numero di dischi | 3 dischi<br/><br/> I dischi includono il disco del sistema operativo, il disco della cache del server di elaborazione e l'unità di conservazione per il failback.
+Spazio disponibile su disco | 600 GB di spazio necessario per la cache del server di elaborazione.
+Spazio disponibile su disco | 600 GB di spazio necessario per l'unità di conservazione.
+Sistema operativo  | Windows Server 2012 R2 o Windows Server 2016 | 
+Impostazioni locali del sistema operativo | Inglese (en-us) 
+PowerCLI | Deve essere installato [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0").
+Ruoli di Windows Server | Non abilitare: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
+Criteri di gruppo| Non abilitare: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Altre informazioni](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+IIS | Assicurarsi di:<br/><br/> - Non avere un sito Web predefinito preesistente <br> - Abilitare l'[autenticazione anonima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Abilitare l'impostazione di [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - Non avere un sito Web o un'app preesistente in ascolto sulla porta 443<br>
+Tipo di scheda di interfaccia di rete | VMXNET3 (quando distribuito come macchina virtuale VMware) 
+Tipo di indirizzo IP | statico 
+Porte | 443 usata per l'orchestrazione del canale di controllo<br>9443 usata per il trasporto dei dati
 
 ## <a name="replicated-machines"></a>Computer replicati
 
-La tabella seguente riepiloga il supporto della replica per le macchine virtuali VMware e i server fisici. Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in un computer con un sistema operativo supportato.
+Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in un computer supportato.
 
 **Componente** | **Dettagli**
 --- | ---

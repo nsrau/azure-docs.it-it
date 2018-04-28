@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 04/26/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 8fbc489bacb3c8592ee99fc5a4486fd864f498ee
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 49697a57e59b652fed4997d57bc7ae15cc596cf7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Distribuzione di Azure disconnessa pianificazione decisioni per lo Stack di Azure integrato sistemi
 Dopo aver deciso [integrerà come Stack di Azure nell'ambiente cloud ibrido](azure-stack-connection-models.md), quindi è possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.
@@ -47,7 +47,7 @@ Stack di Azure è stato progettato per la scelta ottimale quando è connesso ad 
 |Avviso monitoraggio e aggiornamento/mitigazione che fa riferimento a una Guida di monitoraggio e aggiornamento in linea|Non disponibile: qualsiasi avviso correzione collegamenti che utilizzano che un URL Internet non funzionerà.|
 |Diffusione Marketplace: la possibilità di selezionare e aggiungere i pacchetti di raccolta direttamente da Azure Marketplace|Compromessa: quando si distribuisce Azure Stack in modalità disconnessa (senza qualsiasi connessione a internet), non è possibile scaricare elementi del marketplace tramite il portale di Azure Stack. Tuttavia, è possibile usare il [dello strumento di diffusione marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) per scaricare gli elementi del marketplace in un computer con connettività internet e quindi li trasferiscono al proprio ambiente dello Stack di Azure.|
 |Utilizza gli account di Azure Active Directory federation per gestire una distribuzione di Azure Stack|Non disponibile: questa funzionalità richiede la connettività in Azure. AD FS con un'istanza locale di Active Directory devono essere utilizzate.|
-|Provider di risorse, ad esempio SQL e WebApp|Non disponibile - provider di risorse, ad esempio SQL e WebApp richiedono l'accesso a Internet per il contenuto.|
+|Servizi app|Compromessa - WebApps potrebbero richiedere l'accesso Internet per il contenuto aggiornato.|
 |Interfaccia della riga di comando|Compromessa-CLI con funzionalità ridotte in termini di autenticazione e il provisioning dei principi di servizio.|
 |Visual Studio: Cloud discovery|Cloud Discovery compromessa – rileverà sia cloud diverso o non funzionerà affatto.|
 |Visual Studio: ADFS|Possibile – solo Visual Studio Enterprise supporta AD FS.

@@ -1,12 +1,12 @@
 ---
-title: "Scalabilità a livello di codice di Azure Service Fabric | Documentazione Microsoft"
+title: Scalabilità a livello di codice di Azure Service Fabric | Documentazione Microsoft
 description: Aumentare o ridurre le istanze di un cluster Service Fabric in Azure a livello di codice in base a trigger personalizzati
 services: service-fabric
 documentationcenter: .net
 author: mjrousos
 manager: jonjung
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,38 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: bfa020e29a9bb67f0634d220725bc11279e1565c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b875351ef80050687fcf85e35da132cf37bab83b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Aumentare o ridurre le istanze di un cluster di Service Fabric a livello di codice 
 
-Le nozioni di base sulla scalabilità di un cluster Service Fabric in Azure sono trattate nella documentazione sulla [scalabilità del cluster](./service-fabric-cluster-scale-up-down.md). Questo articolo descrive come i cluster Service Fabric sono costruiti su set di scalabilità di macchine virtuali ed è possibile ottenere la scalabilità manualmente o usando regole di scalabilità automatica. Vengono esaminati i metodi a livello di codice per il coordinamento delle operazioni di scalabilità in Azure per scenari più avanzati. 
+I cluster di Service Fabric in esecuzione in Azure sono basati su set di scalabilità di macchine virtuali.  L'articolo sulla [scalabilità dei cluster](./service-fabric-cluster-scale-up-down.md) descrive come aumentare o ridurre i cluster di Service Fabric manualmente o usando regole di ridimensionamento automatico. Questo articolo descrive come gestire le credenziali e ridimensionare un cluster usando l'SDK di calcolo di Azure Fluent, ovvero in uno scenario più avanzato. Per una panoramica, leggere le informazioni sui [metodi per coordinare a livello di codice le operazioni di ridimensionamento di Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
 
-## <a name="reasons-for-programmatic-scaling"></a>Motivi per eseguire la scalabilità a livello di codice
-In molti scenari, la scalabilità manuale o mediante regole di scalabilità automatica sono soluzioni valide. In altri scenari, tuttavia, potrebbero non essere la scelta adatta. Alcuni potenziali svantaggi di questi approcci sono:
-
-- La scalabilità manuale richiede l'accesso e la richiesta esplicita delle operazioni di scalabilità. Questo approccio potrebbe non essere una soluzione valida se le operazioni di scalabilità vengono richieste di frequente oppure in momenti imprevisti.
-- Quando le regole di scalabilità automatica rimuovono un'istanza da un set di scalabilità di macchine virtuali, non rimuovono automaticamente le informazioni di questo nodo dal cluster Service Fabric associato, a meno che il tipo di nodo non disponga di un livello di durabilità Silver o Gold. Poiché funzionano a livello di set di scalabilità anziché a livello di Service Fabric, le regole di scalabilità automatica possono rimuovere i nodi Service Fabric senza arrestarli in modo normale. Questo tipo di rimozione dei nodi lascerà il nodo Service Fabric nello stato "ghost" dopo le operazioni di riduzione delle istanze. Un utente o un servizio dovrà pulire periodicamente lo stato del nodo rimosso nel cluster Service Fabric.
-  - Un tipo di nodo con un livello di durabilità Gold o Silver esegue automaticamente la pulizia dei nodi rimossi. Non è necessaria una pulizia aggiuntiva.
-- Anche se le regole di scalabilità automatica supportano [molte metriche](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md), si tratta comunque di un set limitato. Se lo scenario richiede la scalabilità basata su alcune metriche non incluse in questo set, le regole di scalabilità automatica potrebbero non essere una soluzione valida.
-
-Considerando queste limitazioni, è consigliabile implementare più modelli di scalabilità automatica personalizzati. 
-
-## <a name="scaling-apis"></a>Scalabilità delle API
-Esistono API Azure che consentono alle applicazioni di usare a livello di codice i set di scalabilità di macchine virtuali e i cluster Service Fabric. Se le opzioni di scalabilità automatica esistenti non funzionano per lo scenario specifico, queste API consentono di implementare una logica di scalabilità personalizzata. 
-
-Un approccio all'implementazione di questa funzionalità di scalabilità automatica "interna" consiste nell'aggiungere un nuovo servizio senza stato all'applicazione Service Fabric per gestire le operazioni di scalabilità. All'interno del metodo `RunAsync` del servizio, un set di trigger può determinare se la scalabilità è necessaria, inclusi i parametri di controllo, come la dimensione massima di un cluster e i tempi di raffreddamento della scalabilità.   
-
-L'API usata per le interazioni dei set di scalabilità di macchine virtuali, sia per verificare il numero corrente di istanze di macchine virtuali che per modificarlo, è la [libreria Azure Management Compute Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/). La libreria Fluent fornisce un'API facile da usare per l'interazione con i set di scalabilità di macchine virtuali.
-
-Per interagire con il cluster Service Fabric, usare [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient).
-
-Naturalmente non è necessario che il codice di scalabilità sia in esecuzione come servizio nel cluster di cui modificare la scalabilità. Sia `IAzure` sia `FabricClient` possono connettersi in remoto alle risorse di Azure associate; il servizio di scalabilità può quindi essere facilmente un'applicazione console o il servizio Windows in esecuzione dall'esterno dell'applicazione Service Fabric. 
-
-## <a name="credential-management"></a>Gestione delle credenziali
+## <a name="manage-credentials"></a>Gestire le credenziali
 Un problema in fase di scrittura di un servizio per gestire la scalabilità è che il servizio deve essere in grado di accedere alle risorse dei set di scalabilità di macchine virtuali senza un accesso interattivo. L'accesso al cluster Service Fabric è semplice se il servizio di scalabilità sta modificando la propria applicazione Service Fabric, ma sono necessarie le credenziali per accedere al set di scalabilità. Per accedere, è possibile usare un'[entità servizio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) creata con l'[interfaccia della riga di comando di Azure 2.0](https://github.com/azure/azure-cli).
 
 È possibile creare un'entità servizio con i passaggi seguenti:
@@ -140,12 +119,6 @@ Anche in questo caso, come per l'aumento del numero di istanze, è possibile usa
 ```csharp
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
-
-## <a name="potential-drawbacks"></a>Potenziali svantaggi
-
-Come illustrato nei frammenti di codice precedenti, la creazione di un servizio di scalabilità proprio offre il massimo livello di controllo e personalizzazione sul comportamento di scalabilità dell'applicazione. Questa condizione può essere utile negli scenari che richiedono un controllo preciso su quando e come aumentare o ridurre il numero di istanze dell'applicazione. Tuttavia, questo controllo implica un compromesso a livello di complessità del codice. Questo approccio richiede un codice di scalabilità proprio, il che non è semplice.
-
-L'approccio da scegliere per la scalabilità di Service Fabric dipende dallo scenario specifico. Se la scalabilità non è comune, la possibilità di aggiungere o rimuovere nodi manualmente è probabilmente sufficiente. Per gli scenari più complessi, gli SDK e le regole di scalabilità automatica che espongono la capacità di eseguire la scalabilità a livello di codice offrono alternative molto efficaci.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

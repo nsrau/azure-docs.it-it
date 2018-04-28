@@ -2,24 +2,24 @@
 title: Tipi di quote nello Stack di Azure | Documenti Microsoft
 description: Esaminare i tipi diversi di quota disponibili per servizi e le risorse nello Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/23/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: da4105fa88848b14e5d5d0289859cfd0f85c8fee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: xiaofmao
+ms.openlocfilehash: b68a963dae4b3621bfd9ecdcbc20146d7b20c457
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipi di quote nello Stack di Azure
 
@@ -35,16 +35,18 @@ ms.lasthandoff: 02/21/2018
 | Imposta il numero massimo di disponibilità | 10 | Il numero massimo di set di disponibilità che possono essere creati in questa posizione. |
 | Imposta il numero massimo di scalabilità della macchina virtuale | 20 | Il numero massimo di set di scalabilità di macchine virtuali che possono essere creati in questa posizione. |
 
-> [!NOTE]
-> Consente di calcolare le quote non vengono applicate in questa versione technical preview.
-> 
-> 
+
 
 ## <a name="storage-quota-types"></a>Tipi di quote di archiviazione
 | **Elemento** | **Valore predefinito** | **Descrizione** |
 | --- | --- | --- |
 | Capacità massima (GB) |500 |Capacità di archiviazione totale possono essere utilizzate da una sottoscrizione in questa posizione. |
 | Numero totale di account di archiviazione |20 |Il numero massimo di account di archiviazione che è possibile creare una sottoscrizione in questa posizione. |
+
+> [!NOTE]  
+> Può richiedere fino a due ore prima che venga applicata una nuova quota di archiviazione. 
+> 
+> 
 
 ## <a name="network-quota-types"></a>Tipi di quote di rete
 | **Elemento** | **Valore predefinito** | **Descrizione** |

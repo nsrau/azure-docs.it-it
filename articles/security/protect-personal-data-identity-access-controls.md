@@ -1,5 +1,5 @@
 ---
-title: Proteggere i dati personali usando i controlli di identità e di accesso di Azure | Microsoft Docs
+title: Proteggere i dati personali usando l'identità e i controlli di accesso di Azure | Microsoft Docs
 description: I controlli di identità e di accesso di Azure consentono di proteggere i dati personali e possono essere utili per assicurare la conformità al Regolamento generale sulla protezione dei dati (RGPD)
 services: security
 documentationcenter: na
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: ''
-ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 08c26942294d7027ffdcd3fcaa0ff0831e95509f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory e Multi-Factor Authentication: proteggere i dati personali usando i controlli di identità e di accesso
+# <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory e Multi-Factor Authentication: proteggere i dati personali usando l'identità e i controlli di accesso
 
 Questo articolo fornisce informazioni e procedure utili per proteggere i dati personali usando i servizi e le funzionalità di sicurezza di Azure Active Directory e Multi-Factor Authentication. Le informazioni contenute in questo articolo possono essere utili per assicurare la conformità al Regolamento generale sulla protezione dei dati (RGPD).
 
@@ -39,7 +39,7 @@ L'azienda deve proteggere la privacy dei dati personali dei clienti e dei dipend
 
 ## <a name="company-goal"></a>Obiettivo dell'azienda
 
-L'obiettivo dell'azienda è garantire che l'accesso ai dati personali sia strettamente controllato. È essenziale che le identità degli utenti con accesso ai dati personali siano protette da autenticazione avanzata. È necessario applicare un criterio di [privilegi minimi] (https://it.wikipedia.org/wiki/Principio_del_privilegio_minimo) in modo che gli utenti legittimi abbiano esclusivamente il livello di accesso di cui necessitano e non oltre.
+L'obiettivo dell'azienda è garantire che l'accesso ai dati personali sia strettamente controllato. È essenziale che le identità degli utenti con accesso ai dati personali siano protette da autenticazione avanzata. È necessario applicare un criterio di [privilegi minimi] (https://en.wikipedia.org/wiki/Principle_of_least_privilege)) in modo che gli utenti legittimi abbiano esclusivamente il livello di accesso di cui necessitano e non oltre.
 
 ## <a name="solutions"></a>Soluzioni
 
@@ -83,11 +83,11 @@ Per altre informazioni e istruzioni su come iniziare a usare Azure Active Direct
 
 ### <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
 
-Il [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) consente agli amministratori di Azure di gestire l'accesso alle risorse di Azure, concedendo l'accesso in base al ruolo assegnato all'utente. È possibile separare i compiti all'interno di un team e concedere a utenti, gruppi e applicazioni solo il livello di accesso necessario per svolgere le proprie attività.
+Il [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) consente agli amministratori di Azure di gestire l'accesso alle risorse di Azure, concedendo l'accesso in base al ruolo assegnato all'utente. È possibile separare i compiti all'interno di un team e concedere a utenti, gruppi e applicazioni solo il livello di accesso necessario per svolgere le proprie attività.
 
 L'accesso in base al ruolo può essere concesso agli utenti tramite il portale di Azure, gli strumenti da riga di comando di Azure o le API di gestione di Azure.
 
-Per altre informazioni sul controllo degli accessi in base al ruolo di Azure, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](https://docs.microsoft.com/active-directory/role-based-access-control-what-is).
+Per altre informazioni sul controllo degli accessi in base al ruolo di Azure, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 #### <a name="how-do-i-manage-azure-rbac-with-powershell"></a>Come gestire il controllo degli accessi in base al ruolo con PowerShell
 
@@ -111,7 +111,7 @@ Per altre informazioni sul controllo degli accessi in base al ruolo di Azure, ve
 
 - Elencare ruoli personalizzati
 
-Per istruzioni su come gestire il controllo degli accessi in base al ruolo di Azure con PowerShell, vedere [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell).
+Per istruzioni su come gestire il controllo degli accessi in base al ruolo di Azure con PowerShell, vedere [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 ### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
@@ -125,7 +125,7 @@ Se gli utenti hanno licenze che includono Azure Multi-Factor Authentication, è 
 
 ![Utenti abilitati per Multi-Factor Authentication](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-Se attualmente non si dispone di licenze è necessario eseguire il processo per determinare il tipo di distribuzione più adatta allo scenario. Iniziare esaminando l'articolo intitolato [Scegliere la soluzione di Azure Multi-Factor Authentication più adatta](../multi-factor-authentication/multi-factor-authentication-get-started.md). Se si decide di creare un server di Multi-Factor Authentication, seguire questa procedura:
+Se attualmente non si dispone di licenze è necessario eseguire il processo per determinare il tipo di distribuzione più adatta allo scenario. Iniziare esaminando l'articolo intitolato [Scegliere la soluzione di Azure Multi-Factor Authentication più adatta](../active-directory/authentication/concept-mfa-whichversion.md). Se si decide di creare un server di Multi-Factor Authentication, seguire questa procedura:
 
 1. Selezionare **Active Directory** nel portale di Azure, accedendo come amministratore.
 
@@ -135,7 +135,7 @@ Se attualmente non si dispone di licenze è necessario eseguire il processo per 
 
     ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**
 
 In questa finestra è anche possibile scaricare il Server MFA. È possibile ottenere altri dettagli su come ridimensionare e pianificare la distribuzione consultando l'articolo [Introduzione al server Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
 
@@ -151,7 +151,7 @@ L'abilitazione di Azure MFA con criteri di accesso condizionale è un approccio 
 
 Per abilitare MFA modificando lo stato utente, seguire questa procedura:
 
-1. Accedere al portale di Azure come amministratore.
+1. Accedre al portale di Azure come amministratore.
 2. Passare ad **Azure Active Directory \> Utenti e gruppi \> Tutti gli utenti**.
 3. Selezionare **Multi-Factor Authentication**.
 4. Trovare l'utente che si vuole abilitare per Azure MFA. Potrebbe essere necessario modificare la visualizzazione nella parte superiore.
@@ -164,7 +164,7 @@ Per abilitare MFA modificando lo stato utente, seguire questa procedura:
 
 Per abilitare Azure MFA con criteri di accesso condizionale, seguire questa procedura:
 
-1. Accedere al portale di Azure come amministratore.
+1. Accedre al portale di Azure come amministratore.
 
 2. Passare ad **Azure Active Directory \> Accesso condizionale**.
 
@@ -184,6 +184,6 @@ Per informazioni su come configurare le impostazioni di Azure MFA per definire g
 
 - [Domande frequenti su Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-faq)
 
-- [Risoluzione dei problemi del controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/active-directory/role-based-access-control-troubleshooting)
+- [Risoluzione dei problemi del controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting)
 
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)

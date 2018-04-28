@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: davidmu
-ms.openlocfilehash: 3f601fbbbb9aab0f942b26da9ad1c8c0a0dc9b16
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 052d81f8170273bb0e40572322349550e7219363
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Creare un'app Web ASP.NET con criteri di iscrizione, accesso, modifica del profilo e reimpostazione della password di Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Questa esercitazione illustra come:
 
 ## <a name="prerequisites"></a>prerequisiti
 
-- È necessario connettere il tenant B2C a un account Azure. È possibile creare un account Azure gratuito [qui](https://azure.microsoft.com/en-us/).
+- È necessario connettere il tenant B2C a un account Azure. È possibile creare un account Azure gratuito [qui](https://azure.microsoft.com/).
 - Per visualizzare e modificare il codice di esempio, è necessario [Microsoft Visual Studio](https://www.visualstudio.com/) o un programma simile.
 
 ## <a name="create-an-azure-ad-b2c-directory"></a>Creare una directory Azure AD B2C

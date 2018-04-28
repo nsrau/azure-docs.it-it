@@ -2,7 +2,7 @@
 title: Distribuire e gestire topologie Apache Storm in HDInsight basato su Linux | Documentazione Microsoft
 description: Informazioni su come distribuire, monitorare e gestire le topologie Apache Storm mediante Storm Dashboard in HDInsight basato su Linux. Utilizzare gli strumenti Hadoop per Visual Studio
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 35086e62-d6d8-4ccf-8cae-00073464a1e1
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9dd63e1f3ec381dd99495ebc6193198611c76c88
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Distribuire e gestire topologie Apache Storm in HDInsight
 
@@ -95,7 +93,7 @@ HDInsight Tools consente di inviare topologie C# o ibride al cluster Storm. Nei 
 
 ## <a name="submit-a-topology-programmatically"></a>Inviare una topologia: a livello di programmazione
 
-È possibile distribuire a livello di codice una topologia usando il servizio Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) è disponibile un'applicazione Java di esempio che illustra come distribuire e avviare una topologia tramite il servizio Nimbus.
+È possibile distribuire a livello di codice una topologia usando il servizio Nimbus. In [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) è disponibile un'applicazione Java di esempio che illustra come distribuire e avviare una topologia tramite il servizio Nimbus.
 
 ## <a name="monitor-and-manage-visual-studio"></a>Monitorare e gestire: Visual Studio
 
@@ -166,7 +164,7 @@ Il ribilanciamento di una topologia consente al sistema di analizzare il paralle
 
 ## <a name="monitor-and-manage-storm-ui"></a>Monitorare e gestire: interfaccia utente di Storm
 
-L'interfaccia utente di Storm è inclusa nel cluster HDInsight e fornisce un'interfaccia Web da usare con le topologie in esecuzione. Per visualizzare l'interfaccia utente di Storm, usare un Web browser per aprire **https://CLUSTERNAME.azurehdinsight.net/stormui**, dove **CLUSTERNAME** corrisponde al nome del cluster.
+L'interfaccia utente di Storm è inclusa nel cluster HDInsight e fornisce un'interfaccia Web da usare con le topologie in esecuzione. Per visualizzare l'interfaccia utente di Storm, usare un Web browser per aprire, **https://CLUSTERNAME.azurehdinsight.net/stormui**, dove **CLUSTERNAME** corrisponde al nome del cluster.
 
 > [!NOTE]
 > Se viene richiesto di fornire un nome utente e una password, immettere l'amministratore del cluster e la password usati durante la creazione del cluster.
@@ -220,7 +218,7 @@ Per altre informazioni, vedere l'articolo relativo all'[API REST dell'interfacci
 
 ### <a name="base-uri"></a>URI di base
 
-L'URI di base per l'API REST nei cluster HDInsight basati su Linux sono disponibili nel nodo head in **https://HEADNODEFQDN:8744/api/v1/**. Il nome di dominio del nodo head viene generato durante la creazione del cluster e non è statico.
+L'URI di base per l'API REST nei cluster HDInsight basati su Linux è disponibile nel nodo head in **https://HEADNODEFQDN:8744/api/v1/**. Il nome di dominio del nodo head viene generato durante la creazione del cluster e non è statico.
 
 È possibile trovare il nome di dominio completo (FQDN) per il nodo head del cluster in diversi modi:
 

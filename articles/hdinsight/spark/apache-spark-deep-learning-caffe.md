@@ -2,7 +2,7 @@
 title: Usare Caffe in Azure HDInsight Spark per l'apprendimento avanzato distribuito | Microsoft Docs
 description: Usare Caffe in Azure HDInsight Spark per l'apprendimento avanzato distribuito
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: xiaoyongzhu
 manager: asadk
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 71dcd1ad-4cad-47ad-8a9d-dcb7fa3c2ff9
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
-ms.openlocfilehash: 7565efd82945f21b83471ee66098cd476b7bb59f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bccd889ba8a063613f1f3f385b39e4bfe8afcc89
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Usare Caffe in Azure HDInsight Spark per l'apprendimento avanzato distribuito
 
@@ -35,23 +33,23 @@ A questo scopo vengono usati [diversi framework molto diffusi](https://en.wikipe
 
 Questo articolo illustra come installare [Caffe on Spark](https://github.com/yahoo/CaffeOnSpark) per un cluster HDInsight. Questo articolo usa anche la demo MNIST incorporata per illustrare come usare l'apprendimento avanzato distribuito tramite HDInsight Spark su CPU.
 
-Per l'uso in HDInsight è necessario eseguire questi quattro passaggi principali:
+Per eseguire l'attività, sono necessari quattro passaggi:
 
 1. Installare le dipendenze necessarie in tutti i nodi.
 2. Compilare Caffe in Spark per HDInsight nel nodo head.
 3. Distribuire le librerie necessarie in tutti i nodi del ruolo di lavoro.
 4. Creare un modello di Caffe ed eseguirlo in modalità distribuita.
 
-HDInsight è una soluzione PaaS che offre ottime funzionalità di piattaforma. Alcune attività risultano quindi semplici da eseguire. Una delle funzionalità più usate in questo articolo è l'[azione script](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), che permette di eseguire i comandi della shell per personalizzare i nodi del cluster, ovvero il nodo head, il nodo del ruolo di lavoro e il nodo perimetrale.
+HDInsight è una soluzione PaaS che offre ottime funzionalità di piattaforma. Alcune attività risultano quindi semplici da eseguire. Una delle funzionalità usate in questo post di blog è l'[azione script](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), che permette di eseguire i comandi della shell per personalizzare i nodi del cluster, ovvero il nodo head, il nodo del ruolo di lavoro e il nodo perimetrale.
 
 ## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>Passaggio 1: Installare le dipendenze necessarie in tutti i nodi
 
-Per iniziare, occorre installare le dipendenze necessarie. Il sito di Caffe e il [sito di CaffeOnSpark](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) offrono alcune wiki utili per l'installazione delle dipendenze per Spark in modalità YARN. HDInsight usa anche Spark in modalità YARN. Tuttavia, è necessario aggiungere altre dipendenze di per la piattaforma di HDInsight. A tale scopo viene usata un'azione script e viene eseguita in tutti i nodi head e i nodi del ruolo di lavoro. L'esecuzione dell'azione script richiede circa 20 minuti, perché le dipendenze dipendono anche da altri pacchetti. Inserirla in un percorso che sia accessibile al cluster HDInsight, ad esempio l'account di archiviazione BLOB predefinito o un percorso GitHub.
+Per iniziare, è necessario installare le dipendenze. Il sito di Caffe e il [sito di CaffeOnSpark](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) offrono alcune wiki utili per l'installazione delle dipendenze per Spark in modalità YARN. HDInsight usa anche Spark in modalità YARN. È tuttavia necessario aggiungere altre dipendenze per la piattaforma HDInsight. A tale scopo viene usata un'azione script che viene eseguita in tutti i nodi head e i nodi del ruolo di lavoro. L'esecuzione dell'azione script richiede circa 20 minuti, perché le dipendenze dipendono anche da altri pacchetti. Inserirla in un percorso che sia accessibile al cluster HDInsight, ad esempio l'account di archiviazione BLOB predefinito o un percorso GitHub.
 
     #!/bin/bash
     #Please be aware that installing the below will add additional 20 mins to cluster creation because of the dependencies
     #installing all dependencies, including the ones mentioned in http://caffe.berkeleyvision.org/install_apt.html, as well a few packages that are not included in HDInsight, such as gflags, glog, lmdb, numpy
-    #It seems numpy will only needed during compilation time, but for safety purpose we install them on all the nodes
+    #It seems numpy will only needed during compilation time, but for safety purpose you install them on all the nodes
 
     sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler maven libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev build-essential  libboost-all-dev python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
 
@@ -164,7 +162,7 @@ A tale scopo, eseguire un'azione script, come illustrato nel frammento di codice
 
 Verificare che punti al percorso corretto specifico per il cluster.
 
-Dato che nel passaggio 2 le librerie sono state inserite nell'archivio BLOB, che è accessibile a tutti i nodi, in questo passaggio è sufficiente copiarle in tutti i nodi.
+Poiché nel passaggio 2 le librerie sono state inserite nell'archivio BLOB, che è accessibile a tutti i nodi, in questo passaggio è sufficiente copiarle in tutti i nodi.
 
 ## <a name="step-4-compose-a-caffe-model-and-run-it-in-a-distributed-manner"></a>Passaggio 4: Creare un modello di Caffe ed eseguirlo in modalità distribuita
 
@@ -178,7 +176,7 @@ CaffeOnSpark include alcuni esempi di topologia di rete per il training di MNIST
 
 Il file "solver" (${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt) viene usato per supervisionare l'ottimizzazione e per generare aggiornamenti dei parametri. Indica ad esempio se usare la CPU o la GPU, il momento, il numero di iterazioni e così via, oltre a definire quale topologia di rete neurale debba essere usata dal programma, ovvero il secondo file necessario. Per altre informazioni su Solver, vedere la [documentazione di Caffe](http://caffe.berkeleyvision.org/tutorial/solver.html).
 
-Dato che in questo esempio si usa la CPU anziché la GPU, occorre modificare l'ultima riga come indicato di seguito:
+Poiché in questo esempio si usa la CPU invece della GPU, è consigliabile modificare l'ultima riga come indicato di seguito:
 
     # solver mode: CPU or GPU
     solver_mode: CPU
@@ -204,7 +202,7 @@ Il comando precedente consente di distribuire i file necessari, ovvero lenet_mem
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitoraggio e risoluzione dei problemi
 
-Nella modalità cluster YARN usata il driver Spark viene pianificato in un contenitore arbitrario e un nodo del ruolo di lavoro arbitrario. L'output visualizzato nella console dovrebbe quindi essere simile al seguente:
+Nella modalità cluster YARN usata il driver Spark viene pianificato in un contenitore arbitrario e in un nodo del ruolo di lavoro arbitrario. L'output visualizzato nella console dovrebbe quindi essere simile al seguente:
 
     17/02/01 23:22:16 INFO Client: Application report for application_1485916338528_0015 (state: RUNNING)
 
@@ -271,7 +269,7 @@ dal nodo head. L'errore del contenitore è dovuto all'uso della modalità GPU in
 
 ## <a name="getting-results"></a>Risultati
 
-Con l'allocazione di otto executor in una topologia di rete così semplice, saranno sufficienti circa 30 minuti per ottenere i risultati. Dalla riga di comando si noterà che il modello è stato inserito in wasb:///mnist.model e i risultati sono stati inseriti in una cartella denominata wasb:///mnist_features_result.
+Con l'allocazione di 8 executor in una topologia di rete così semplice, saranno sufficienti circa 30 minuti per ottenere i risultati. Dalla riga di comando si noterà che il modello è stato inserito in wasb:///mnist.model e i risultati sono stati inseriti in una cartella denominata wasb:///mnist_features_result.
 
 Per ottenere i risultati, eseguire:
 

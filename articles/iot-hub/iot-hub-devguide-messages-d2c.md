@@ -1,11 +1,11 @@
 ---
 title: Informazioni sulla messaggistica da dispositivo a cloud dell'hub IoT di Azure | Microsoft Docs
-description: 'Guida per gli sviluppatori: come usare la messaggistica da dispositivo a cloud con l''hub IoT. Include informazioni sull''invio di dati di telemetria e non e sull''uso del routing per recapitare i messaggi.'
+description: "Guida per gli sviluppatori: come usare la messaggistica da dispositivo a cloud con l'hub IoT. Include informazioni sull'invio di dati di telemetria e non e sull'uso del routing per recapitare i messaggi."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 54b2961713f529438f5508bb0615824ec6bec214
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Inviare messaggi da dispositivo a cloud all'hub IoT
 
@@ -32,7 +32,7 @@ La messaggistica da dispositivo a cloud con hub IoT ha le caratteristiche seguen
 * I messaggi da dispositivo a cloud sono durevoli e vengono mantenuti nell'endpoint **messages/events** predefinito in un hub IoT per un massimo di sette giorni.
 * I messaggi da dispositivo a cloud possono avere dimensioni massime pari a 256 KB e possono essere raggruppati in batch per ottimizzare gli invii. I batch possono avere dimensioni massime pari a 256 KB.
 * Come illustrato nella sezione [Controllare l'accesso all'hub IoT][lnk-devguide-security], l'hub IoT consente il controllo di accesso e l'autenticazione per singoli dispositivi.
-* L'hub IoT consente di creare fino a 10 endpoint personalizzati. I messaggi vengono recapitati agli endpoint in base alle route configurate nell'hub IoT. Per altre informazioni, vedere [Regole di routing](#routing-rules).
+* L'hub IoT consente di creare fino a 10 endpoint personalizzati. I messaggi vengono recapitati agli endpoint in base alle route configurate nell'hub IoT. Per altre informazioni, vedere [Regole di routing](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
 * L'hub IoT abilita milioni di dispositivi connessi contemporaneamente (vedere [Quote e limitazioni][lnk-quotas]).
 * L'hub IoT non consente il partizionamento arbitrario. I messaggi da dispositivo a cloud vengono partizionati in base al valore **deviceId**di origine.
 

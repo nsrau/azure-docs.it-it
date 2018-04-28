@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Azure Cosmos DB: Creare un'app Web con .NET e l'API MongoDB | Microsoft Docs"
 description: Presenta un esempio di codice .NET che permette di connettersi all'API MongoDB di Azure Cosmos DB ed eseguire query su di essa
 services: cosmos-db
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/19/2018
 ms.author: sngun
-ms.openlocfilehash: ab14261e939063c5e50050774d1aae3edf1bef19
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a63a8577bda951613f60102475396f72ea1a4bdf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Creare un'app Web per le API MongoDB con .NET e il portale di Azure
 
@@ -43,8 +43,19 @@ Se non si ha già Visual Studio, scaricare [Visual Studio 2017 Community Edition
 
 Per prima cosa, scaricare l'app per le API MongoDB di esempio da GitHub. L'app implementa un elenco attività con il modello di archiviazione dei documenti di MongoDB.
 
-1. Aprire una finestra del terminale Git, ad esempio Git Bash, ed eseguire il comando `cd` per passare a una directory di lavoro.
-2. Eseguire il comando seguente per clonare l'archivio di esempio. 
+1. Aprire un prompt dei comandi, creare una nuova cartella denominata git-samples e quindi chiudere il prompt dei comandi.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Aprire una finestra del terminale Git, ad esempio Git Bash, ed eseguire il comando `cd` per passare a una nuova cartella in cui installare l'app di esempio.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Eseguire il comando seguente per clonare l'archivio di esempio. Questo comando crea una copia dell'app di esempio nel computer in uso. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.git
@@ -54,7 +65,9 @@ Se non si vuole usare Git, è anche possibile [scaricare il progetto come file Z
 
 ## <a name="review-the-code"></a>Esaminare il codice
 
-Ecco una breve panoramica delle operazioni da eseguire nell'app. Aprire il file **Dal.cs** nella directory **DAL**. Come si noterà, queste righe di codice creano le risorse di Azure Cosmos DB. 
+Questo passaggio è facoltativo. Per scoprire in che modo le risorse del database vengono create nel codice, è possibile esaminare i frammenti di codice seguenti. In alternativa, è possibile passare ad [Aggiornare la stringa di connessione](#update-your-connection-string). 
+
+Tutti i frammenti di codice seguenti sono tratti dal file Dal.cs nella directory DAL.
 
 * Inizializzare il client Mongo.
 
@@ -126,10 +139,7 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se non si intende continuare a usare l'app, eliminare tutte le risorse create tramite questa guida di avvio rapido nel portale di Azure eseguendo questi passaggi:
-
-1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi fare clic sul nome della risorsa creata. 
-2. Nella pagina del gruppo di risorse fare clic su **Elimina**, digitare il nome della risorsa da eliminare nella casella di testo e quindi fare clic su **Elimina**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -137,3 +147,4 @@ In questa guida di avvio rapido si è appreso come creare un account Azure Cosmo
 
 > [!div class="nextstepaction"]
 > [Importare dati in Azure Cosmos DB per l'API MongoDB](mongodb-migrate.md)
+

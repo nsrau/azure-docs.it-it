@@ -10,14 +10,14 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 178eba46e0d128c8d93f2ba664a4a0916889fbbd
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 22337e412661172475a05f6fec31ae03683be988
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Unità di transazione di database (DTU) e unità di transazione di database elastico (eDTU)
-Questo articolo illustra le unità di transazione di database (DTU) e le unità di transazione di database elastico (eDTU) e cosa accade quando si raggiunge il numero massimo di DTU o eDTU.  
+Questo articolo illustra le unità di transazione di database (DTU) e le unità di transazione di database elastico (eDTU) e cosa accade quando si raggiunge il numero massimo di DTU o eDTU. Per informazioni specifiche sui prezzi, vedere [Prezzi di Database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 ## <a name="what-are-database-transaction-units-dtus"></a>Cosa sono le unità di transazione di database (DTU)?
 Per un singolo database SQL di Azure a un livello di prestazioni specifico all'interno di un [livello di servizio](sql-database-single-database-resources.md), Microsoft garantisce un certo livello di risorse per il database (a prescindere da qualsiasi altro database nel cloud di Azure) che fornisce un livello di prestazioni prevedibile. Questa quantità di risorse, calcolata come numero di unità di transazione di database o DTU, è una misura combinata delle risorse di calcolo, archiviazione e I/O. Il rapporto tra queste risorse è stato originariamente stabilito da un [carico di lavoro di benchmark OLTP](sql-database-benchmark-overview.md) progettato per essere rappresentativo dei carichi di lavoro OLTP reali. Quando il carico di lavoro supera la quantità di una di queste risorse, la velocità effettiva viene limitata, generando timeout e prestazioni più lente. Le risorse utilizzate dal carico di lavoro non incidono sulle risorse disponibili per gli altri database SQL nel cloud di Azure e le risorse utilizzate dagli altri carichi di lavoro non incidono sulle risorse disponibili per il database SQL.

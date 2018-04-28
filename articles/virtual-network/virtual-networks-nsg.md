@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 3a581111587d0fe3cba04cd05272b3154374ce52
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 87ca0a1cd9766d3ad76d0fe5dd29a34ec40ea276
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrare il traffico di rete con gruppi di sicurezza di rete
 
@@ -50,8 +50,8 @@ Le regole dei gruppi di sicurezza di rete contengono le proprietà seguenti:
 | **Protocollo** |Protocollo per la regola. |TCP, UDP o * |L'uso di * come protocollo include ICMP (solo traffico orizzontale destra-sinistra), oltre a TCP e UDP, e può ridurre il numero delle regole necessarie.<br/>Al tempo stesso, l'uso di * potrebbe essere un approccio troppo ampio, quindi è consigliabile usare * solo quando necessario. |
 | **Intervallo porte di origine** |Intervallo di porte di origine per la regola. |Singolo numero di porta da 1 a 65535, intervallo di porte (ad esempio, 1-65535) o * (per tutte le porte). |Le porte di origine potrebbero essere temporanee. A meno che il programma client non usi una porta specifica, usare * nella maggior parte dei casi.<br/>Cercare di usare il più possibile intervalli di porte per evitare di dover applicare più regole.<br/>Non è possibile raggruppare più porte o intervalli di porte con una virgola. |
 | **Intervallo di porte di destinazione** |Intervallo di porte di destinazione per la regola. |Singolo numero di porta da 1 a 65535, intervallo di porte (ad esempio, 1-65535) o \* (per tutte le porte). |Cercare di usare il più possibile intervalli di porte per evitare di dover applicare più regole.<br/>Non è possibile raggruppare più porte o intervalli di porte con una virgola. |
-| **Prefisso dell'indirizzo di origine** |Prefisso o tag dell'indirizzo di origine per la regola. |Singolo indirizzo IP (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag predefinito](#default-tags) o * (per tutti gli indirizzi). |È possibile usare intervalli, tag predefiniti e * per ridurre il numero di regole. |
-| **Prefisso dell’indirizzo di destinazione** |Prefisso o tag dell'indirizzo di destinazione per la regola. | Singolo indirizzo IP (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag predefinito](#default-tags) o * (per tutti gli indirizzi). |È possibile usare intervalli, tag predefiniti e * per ridurre il numero di regole. |
+| **Prefisso dell'indirizzo di origine** |Prefisso o tag dell'indirizzo di origine per la regola. |Singolo indirizzo IP (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag del servizio](#service-tags) o * (per tutti gli indirizzi). |È possibile usare intervalli, tag del servizio e * per ridurre il numero di regole. |
+| **Prefisso dell’indirizzo di destinazione** |Prefisso o tag dell'indirizzo di destinazione per la regola. | Singolo indirizzo IP (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag predefinito](#service-tags) o * (per tutti gli indirizzi). |È possibile usare intervalli, tag del servizio e * per ridurre il numero di regole. |
 | **Direzione** |Direzione del traffico per la regola. |In ingresso o in uscita. |Le regole in ingresso e in uscita vengono elaborate separatamente, in base alla direzione. |
 | **Priorità** |Le regole vengono controllate in ordine di priorità. Dopo che è stata applicata una regola, non viene verificata la corrispondenza di altre regole. | Numero compreso tra 100 e 4096. | È possibile creare le regole saltando 100 priorità per volta per ogni regola in modo da lasciare spazio per nuove regole che si potrebbero creare in futuro. |
 | **Accesso** |Tipo di accesso da applicare in caso di corrispondenza della regola. | Consentire o rifiutare. | Tenere presente che, se per un pacchetto non viene trovata una regola di consenso, il pacchetto viene rimosso. |
@@ -62,36 +62,13 @@ I gruppi di sicurezza di rete contengono due set di regole: le regola in ingress
 
 L'immagine precedente illustra come vengono elaborate le regole dei gruppi di sicurezza di rete.
 
-### <a name="default-tags"></a>Tag predefiniti
-I tag predefiniti sono identificatori forniti dal sistema per risolvere una categoria di indirizzi IP. È possibile usare i tag predefiniti nelle proprietà **prefisso dell'indirizzo di origine** e **prefisso dell'indirizzo di destinazione** di qualsiasi regola. Esistono tre tag predefiniti utilizzabili.
+### <a name="default-tags"></a>Tag di sistema
 
-* **VirtualNetwork** (Resource Manager) o **VIRTUAL_NETWORK** (distribuzione classica): questo tag include lo spazio indirizzi della rete virtuale (intervalli CIDR definiti in Azure), tutti gli spazi indirizzi locali connessi e le reti virtuali di Azure connesse (reti locali).
-* **AzureLoadBalancer** (Resource Manager) o **AZURE_LOADBALANCER** (distribuzione classica): questo tag identifica il servizio di bilanciamento del carico dell'infrastruttura di Azure. Viene convertito in un IP del data center di Azure da cui hanno origine i probe di integrità di Azure Load Balancer.
-* **Internet** (Resource Manager) o **INTERNET** (distribuzione classica): questo tag identifica lo spazio indirizzi IP esterno alla rete virtuale e raggiungibile tramite Internet pubblico. L'intervallo include lo [spazio degli IP pubblici appartenenti ad Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+I tag del servizio sono identificatori forniti dal sistema per risolvere una categoria di indirizzi IP. È possibile usare i tag del servizio nelle proprietà **prefisso dell'indirizzo di origine** e **prefisso dell'indirizzo di destinazione** di qualsiasi regola di sicurezza. Altre informazioni sui [tag del servizio](security-overview.md#service-tags).
 
-### <a name="default-rules"></a>Regole predefinite
-Tutti i gruppi di sicurezza di rete contengono un set di regole predefinite. Le regole predefinite non possono essere eliminate, ma poiché hanno la priorità più bassa, è possibile eseguirne l'override con le regole create dall'utente. 
+### <a name="default-rules"></a>Regole di sicurezza predefinite
 
-Le regole predefinite consentono o rifiutano il traffico come illustrato di seguito.
-- **Rete virtuale:** il traffico che ha origine e termina in una rete virtuale è consentito sia in ingresso che in uscita.
-- **Internet:** il traffico in uscita è consentito, mentre il traffico in ingresso viene bloccato.
-- **Load Balancer**: viene consentito ad Azure Load Balancer di verificare tramite probe l'integrità delle VM e delle istanze del ruolo. Se si esegue override di questa regola, i probe di integrità di Azure Load Balancer avranno esito negativo e ciò potrebbe influire sul servizio.
-
-**Regole predefinite In ingresso**
-
-| NOME | Priorità | IP di origine | Porta di origine | IP di destinazione | Porta di destinazione | Protocollo | Accesso |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | CONSENTI |
-| AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | CONSENTI |
-| DenyAllInBound |65500 | * | * | * | * | * | Nega |
-
-**Regole predefinite In uscita**
-
-| NOME | Priorità | IP di origine | Porta di origine | IP di destinazione | Porta di destinazione | Protocollo | Accesso |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | CONSENTI |
-| AllowInternetOutBound | 65001 | * | * | Internet | * | * | CONSENTI |
-| DenyAllOutBound | 65500 | * | * | * | * | * | Nega |
+Tutti i gruppi di sicurezza di rete contengono un set di regole di sicurezza predefinite. Le regole predefinite non possono essere eliminate, ma poiché hanno la priorità più bassa, è possibile eseguirne l'override con le regole create dall'utente. Altre informazioni sulle [regole di sicurezza predefinite](security-overview.md#default-security-rules).
 
 ## <a name="associating-nsgs"></a>Associazione di gruppi di sicurezza di rete
 A seconda del modello di distribuzione usato, è possibile associare un gruppo di sicurezza di rete a VM, interfacce di rete e subnet, come illustrato di seguito.
@@ -127,7 +104,7 @@ A seconda del modello di distribuzione usato, è possibile associare un gruppo d
 | PowerShell     | [Sì](virtual-networks-create-nsg-classic-ps.md) | [Sì](tutorial-filter-network-traffic.md) |
 | Interfaccia della riga di comando di Azure **versione 1**   | [Sì](virtual-networks-create-nsg-classic-cli.md) | [Sì](tutorial-filter-network-traffic-cli.md) |
 | Interfaccia della riga di comando di Azure **versione 2**   | No  | [Sì](tutorial-filter-network-traffic-cli.md) |
-| Modello di Azure Resource Manager   | No   | [Sì](virtual-networks-create-nsg-arm-template.md) |
+| Modello di Azure Resource Manager   | No   | [Sì](template-samples.md) |
 
 ## <a name="planning"></a>Pianificazione
 Prima di implementare i gruppi di sicurezza di rete, è necessario rispondere alle domande seguenti:

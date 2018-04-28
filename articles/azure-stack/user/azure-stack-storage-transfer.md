@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/17/2018
+ms.date: 04/25/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 860a381e5ec2054cd6243901a8e172832e6ada53
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 2876565f3d6a3411eb170d4da640166fa3e607eb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Strumenti per l'archiviazione di Azure Stack
 
@@ -47,41 +47,88 @@ A causa delle differenze servizi di archiviazione tra Azure e Azure Stack, potre
 
 
 ## <a name="azcopy"></a>AzCopy
-AzCopy è un'utilità della riga di comando progettata per copiare dati in e da archiviazione di blob e tabelle di Microsoft Azure tramite i comandi semplici con prestazioni ottimali. È possibile copiare dati da un oggetto a un altro all'interno dell'account di archiviazione o tra account di archiviazione. Sono disponibili due versioni dell'utilità AzCopy: AzCopy in Windows e AzCopy in Linux. Stack di Azure supporta solo la versione di Windows. 
- 
-### <a name="download-and-install-azcopy"></a>Scaricare e installare AzCopy 
 
-[Scaricare](https://aka.ms/azcopyforazurestack) la versione supportata di Windows di AzCopy per lo Stack di Azure. È possibile installare e usare AzCopy nello Stack di Azure nello stesso modo di Azure. Per ulteriori informazioni, vedere [trasferire i dati con l'utilità della riga di comando di AzCopy](../../storage/common/storage-use-azcopy.md). 
+AzCopy è un'utilità della riga di comando progettata per copiare dati in e da archiviazione di blob e tabelle di Microsoft Azure tramite i comandi semplici con prestazioni ottimali. È possibile copiare dati da un oggetto a un altro all'interno dell'account di archiviazione o tra account di archiviazione.
 
- - Per l'aggiornamento o versioni più recenti, 1802 [scaricare AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
- - Per le versioni precedenti, [scaricare AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20150405).
+### <a name="download-and-install-azcopy"></a>Scaricare e installare AzCopy
+
+Sono disponibili due versioni dell'utilità AzCopy: AzCopy in Windows e AzCopy in Linux.
+
+ - **AzCopy in Windows**  
+    - Scaricare la versione supportata di AzCopy per lo Stack di Azure. È possibile installare e usare AzCopy nello Stack di Azure nello stesso modo di Azure. Per altre informazioni, vedere [AzCopy in Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+        - Per 1802 update o versioni più recenti [scaricare AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
+        - Per le versioni precedenti, [scaricare AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20170417).
+
+ - **AzCopy in Linux**  
+
+    - AzCopy in Linux supporta Azure Stack 1802 update o versioni più recenti. È possibile installare e usare AzCopy nello Stack di Azure nello stesso modo di Azure. Per altre informazioni, vedere [AzCopy in Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Esempi di comandi AzCopy per il trasferimento di dati
 
-Gli esempi seguenti illustrano un scenari tipici per la copia dei dati da e verso i BLOB di Azure Stack. Per ulteriori informazioni, vedere [trasferire i dati con l'utilità della riga di comando di AzCopy](../../storage/storage-use-azcopy.md). 
+Negli esempi seguenti seguono gli scenari tipici per copiare dati da e verso i BLOB di Azure Stack. Per altre informazioni, vedere [AzCopy in Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) e [AzCopy in Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
 
-#### <a name="download-all-blobs-to-local-disk"></a>Scaricare tutti i BLOB in un disco locale
+### <a name="download-all-blobs-to-a-local-disk"></a>Scaricare tutti i BLOB in un disco locale
 
-```azcopy  
+**Windows**
+
+````AzCopy  
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
-```
+````
 
-#### <a name="upload-single-file-to-virtual-directory"></a>Caricare un singolo file nella directory virtuale 
-```azcopy  
+**Linux**
+
+````AzCopy  
+azcopy \
+    --source https://myaccount.blob.local.azurestack.external/mycontainer \
+    --destination /mnt/myfiles \
+    --source-key <key> \
+    --recursive
+````
+
+### <a name="upload-single-file-to-virtual-directory"></a>Caricare un singolo file nella directory virtuale
+
+**Windows**
+
+```AzCopy  
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
-#### <a name="move-data-between-azure-and-azure-stack-storage"></a>Spostare dati tra Azure e Stack di archiviazione di Azure 
-Trasferimento asincrono dei dati tra l'archiviazione di Azure e Azure Stack non è supportato. è necessario specificare il trasferimento tramite il **/SyncCopy** opzione. 
+**Linux**
 
-```azcopy  
+````AzCopy  
+azcopy \
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.local.azurestack.external/mycontainer/vd/abc.txt \
+    --dest-key <key>
+````
+
+### <a name="move-data-between-azure-and-azure-stack-storage"></a>Spostare dati tra Azure e Stack di archiviazione di Azure
+
+Trasferimento asincrono dei dati tra l'archiviazione di Azure e Azure Stack non è supportato. È necessario specificare il trasferimento con il **/SyncCopy** oppure **-sync-copia** opzione.
+
+**Windows**
+
+````AzCopy  
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
-```
-### <a name="azcopy-known-issues"></a>Problemi noti di Azcopy
+````
+
+**Linux**
+
+````AzCopy  
+azcopy \
+    --source https://myaccount1.blob.local.azurestack.external/myContainer/ \
+    --destination https://myaccount2.blob.core.windows.net/myContainer/ \
+    --source-key <key1> \
+    --dest-key <key2> \
+    --include "abc.txt" \
+    --sync-copy
+````
+
+### <a name="azcopy-known-issues"></a>Azcopy problemi noti
 
  - Qualsiasi operazione AzCopy su un archivio di file non è disponibile perché l'archiviazione di file non è ancora disponibile nello Stack di Azure.
  - Trasferimento asincrono dei dati tra l'archiviazione di Azure e Azure Stack non è supportato. È possibile specificare il trasferimento tramite il **/SyncCopy** opzione per copiare i dati.
- - Non è la versione Linux di Azcopy dello Stack di archiviazione di Azure. 
+ - La versione Linux di Azcopy supporta solo 1802 update o versioni successive. E non supporta il servizio tabelle.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -132,7 +179,7 @@ Set-AzureRmEnvironment -Name $ARMEvnName -GraphEndpoint $GraphAudience
 
 # Login
 $TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
-Connect-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
+Add-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
 
 # Set a default Azure subscription.
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName

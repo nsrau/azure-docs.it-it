@@ -4,20 +4,20 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 646f3129-aa67-4875-9073-1d0b6a3173d9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 04/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 1eb3f6eda8603174fa5be5c76e16f7c2e3e58b2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f291b69f084913808f4494c7379a0f753254e3f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Esercitazione: Integrazione di Azure Active Directory con DigiCert
 
@@ -106,9 +106,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
     ![Configure Single Sign-On](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_samlbase.png)
 
-3. Nella sezione **URL e dominio DigiCert** l'utente non deve eseguire alcuna operazione perché l'applicazione è già preintegrata in Azure.
+3. Nella sezione **URL e dominio DigiCert** seguire questa procedura:
 
     ![Configure Single Sign-On](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_url.png)
+    
+    Nella casella di testo **Identificatore** digitare l'URL: `https://www.digicert.com/sso`
 
 4. L'applicazione DigiCert prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. Lo screenshot seguente illustra un esempio di questa configurazione. 
 
@@ -145,9 +147,6 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Configure Single Sign-On](./media/active-directory-saas-digicert-tutorial/tutorial_general_400.png)
 
 8. Per configurare l'accesso Single Sign-On sul lato **DigiCert** è necessario inviare il file **XML metadati** scaricato al [team di supporto di DigiCert](mailto:support@digicert.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
-
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.

@@ -1,11 +1,11 @@
 ---
-title: "Come configurare l'Identità del servizio gestito in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure"
-description: "Istruzioni dettagliate per la configurazione dell'Identità del servizio gestito in una macchina virtuale di Azure, tramite l'interfaccia della riga di comando di Azure."
+title: Come configurare l'Identità del servizio gestito in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
+description: Istruzioni dettagliate per la configurazione dell'Identità del servizio gestito in una macchina virtuale di Azure, tramite l'interfaccia della riga di comando di Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 0863d5bec71a79f28017582eaa111f6c4a97c1ec
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c76d53d32b297ff106c05bdd717a80a9f4b98814
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-azure-cli"></a>Configurare un'Identità del servizio gestito della macchina virtuale tramite l'interfaccia della riga di comando di Azure
 
@@ -71,10 +71,10 @@ Se è necessario abilitare l'Identità del servizio gestito su una macchina virt
    az login
    ```
 
-2. Usare [az vm assign-identity](/cli/azure/vm/#az_vm_assign_identity) con il parametro `--assign-identity` per aggiungere un'identità del servizio gestito alla macchina virtuale esistente:
+2. Usare il comando [az vm identity assign](/cli/azure/vm/identity/#az_vm_identity_assign) con `identity assign` per aggiungere un'identità del servizio gestito a una macchina virtuale esistente:
 
    ```azurecli-interactive
-   az vm assign-identity -g myResourceGroup -n myVm
+   az vm identity assign -g myResourceGroup -n myVm
    ```
 
 ## <a name="remove-msi-from-an-azure-vm"></a>Rimuovere l'Identità del servizio gestito da una macchina virtuale di Azure

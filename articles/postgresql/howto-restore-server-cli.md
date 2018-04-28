@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 8ca129640db862f6031325279cc98c1e08dcef59
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5c5cc1fdbe48fb93eea204e4619038052e685f1f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per PostgreSQL usando l'interfaccia della riga di comando di Azure
 
@@ -78,7 +78,7 @@ Per altre informazioni sull'impostazione di questi valori durante la creazione, 
 az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
 ```
 
-L'esempio precedente modifica il periodo di conservazione dei backup di mydemoserver a 10 giorni.
+L'esempio precedente modifica il periodo di conservazione dei backup di mydemoserver impostandolo su 10 giorni.
 
 Il periodo di conservazione dei backup determina quanto è possibile tornare indietro nel tempo con un ripristino temporizzato, essendo il ripristino basato sui backup disponibili. Il ripristino temporizzato è descritto in modo più dettagliato nella sezione seguente.
 
@@ -114,12 +114,16 @@ Se il server è stato configurato per backup con ridondanza geografica, è possi
 
 Per creare un server tramite un backup con ridondanza geografica, usare il comando `az postgres server georestore` dell'interfaccia della riga di comando di Azure.
 
+> [!NOTE]
+> Quando un server viene creato per la prima volta, potrebbe non essere subito disponibile per il ripristino geografico. Potrebbero essere necessarie alcune ore per popolare i metadati necessari.
+>
+
 Per eseguire un ripristino geografico del server, al prompt dei comandi dell'interfaccia della riga di comando di Azure immettere il comando seguente:
 
 ```azurecli-interactive
 az postgres server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen4_8 
 ```
-Questo comando crea un nuovo server denominato *mydemoserver georestored* negli Stati Uniti orientali che apparterrà a *myresourcegroup*. Si tratta di un server per utilizzo generico di quarta generazione con otto vCore. Il server viene creato dal backup con ridondanza geografica di *mydemoserver*, che si trova anch'esso nel gruppo di risorse *myresourcegroup*
+Questo comando crea un nuovo server denominato *mydemoserver-georestored* negli Stati Uniti orientali che apparterrà a *myresourcegroup*. Si tratta di un server per utilizzo generico di quarta generazione con otto vCore. Il server viene creato dal backup con ridondanza geografica di *mydemoserver*, che si trova anch'esso nel gruppo di risorse *myresourcegroup*.
 
 Se si vuole creare il nuovo server in un gruppo di risorse diverso dal server esistente, nel parametro `--source-server` è necessario specificare il nome del server come nell'esempio seguente:
 
@@ -134,7 +138,7 @@ Il comando `az postgres server georestore` richiede i parametri seguenti:
 |resource-group| myresourcegroup | Nome del gruppo di risorse cui apparterrà il nuovo server.|
 |name | mydemoserver-georestored | Nome del nuovo server. |
 |source-server | mydemoserver | Nome del server esistente di cui vengono usati i backup con ridondanza geografica. |
-|location | eastus | Percorso del nuovo server. |
+|location | eastus | Posizione del nuovo server. |
 |sku-name| GP_Gen4_8 | Questo parametro imposta il piano tariffario, la generazione delle risorse di calcolo e il numero di vCore del nuovo server. GP_Gen4_8 indica un server per utilizzo generico di quarta generazione con otto vCore.|
 
 

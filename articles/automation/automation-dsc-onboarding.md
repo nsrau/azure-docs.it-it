@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0da6bd56a684657d8275ca8c781847f31f8e05c5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 10e0e0df4bf71c7a21a3cc06b5b1c16930d54ec6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Caricamento di computer per la gestione con Automation DSC per Azure
 
@@ -53,7 +53,7 @@ Per trovare l'URL e la chiave di registrazione dell'account di automazione in cu
 ```powershell
 # log in to both Azure Service Management and Azure Resource Manager
 Add-AzureAccount
-Add-AzureRmAccount
+Connect-AzureRmAccount
 
 # fill in correct values for your VM/Automation account here
 $VMName = ""
@@ -329,7 +329,7 @@ Per caricare in modo generico qualsiasi computer in Automation DSC per Azure, pu
 Se i valori predefiniti di Gestione configurazione locale per PowerShell DSC corrispondono al caso d'uso corrente e si vuole caricare i computer in modo che entrambi eseguano il pull e inviino informazioni ad Automation DSC per Azure, i cmdlet di Automazione di Azure offrono un metodo semplificato per generare le metaconfigurazioni DSC necessarie:
 
 1. Aprire la console di PowerShell o PowerShell ISE come amministratore in un computer nell'ambiente locale.
-2. Connettersi ad Azure Resource Manager con **Add-AzureRmAccount**
+2. Connettersi ad Azure Resource Manager con **Connect-AzureRmAccount**
 3. Dall'account di automazione in cui si caricheranno i nodi, scaricare le metaconfigurazioni di PowerShell DSC per i computer da caricare:
 
     ```powershell

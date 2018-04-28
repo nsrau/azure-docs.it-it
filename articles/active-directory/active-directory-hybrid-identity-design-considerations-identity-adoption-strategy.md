@@ -1,11 +1,11 @@
 ---
-title: "Progettazione di una soluzione ibrida di gestione delle identità: strategia di adozione in Azure | Microsoft Docs"
+title: 'Progettazione di una soluzione ibrida di gestione delle identità: strategia di adozione in Azure | Microsoft Docs'
 description: Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche definite durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
-documentationcenter: 
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definire una strategia di adozione della soluzione ibrida di gestione delle identità
 In questa attività viene definita la strategia di adozione della soluzione ibrida di gestione delle identità in modo che soddisfi i requisiti aziendali definiti in:
@@ -101,7 +101,7 @@ Questa attività permette di definire gli strumenti che verranno usati per sincr
 Negli anni sono stati creati numerosi strumenti di sincronizzazione per diversi scenari.  Al momento, Azure AD Connect è lo strumento preferito per tutti gli scenari supportati.  Anche AAD Sync e DirSync sono ancora in circolazione e potrebbero ancora essere presenti nell'ambiente in uso. 
 
 > [!NOTE]
-> Per le informazioni più recenti relative alle funzionalità supportate per ogni strumento, vedere l'articolo [Confronto degli strumenti di integrazione directory](active-directory-hybrid-identity-design-considerations-tools-comparison.md).  
+> Per le informazioni più recenti relative alle funzionalità supportate per ogni strumento, vedere l'articolo [Confronto degli strumenti di integrazione directory](active-directory-hybrid-identity-design-considerations-tools-comparison.md) .  
 > 
 > 
 
@@ -131,7 +131,7 @@ In questo caso, se le affermazioni seguenti sono vere, sarà necessario valutare
 * Se è disponibile una cassetta postale collegata, è presente anche un altro account in una foresta diversa usato per l'accesso.
 
 > [!NOTE]
-> Gli oggetti presenti sia in locale sia nel cloud sono "connessi" tramite un identificatore univoco. Nel contesto della sincronizzazione della directory questo identificatore univoco viene indicato come SourceAnchor. Nel contesto del servizio Single Sign-On invece questo identificatore viene indicato come ImmutableId. [Concetti di progettazione per Azure AD Connect](connect/active-directory-aadconnect-design-concepts.md#sourceanchor).
+> Gli oggetti presenti sia in locale sia nel cloud sono "connessi" tramite un identificatore univoco. Nel contesto della sincronizzazione della directory questo identificatore univoco viene indicato come SourceAnchor. Nel contesto del servizio Single Sign-On invece questo identificatore viene indicato come ImmutableId. [Concetti di progettazione per Azure AD Connect](connect/active-directory-aadconnect-design-concepts.md#sourceanchor) .
 > 
 > 
 
@@ -196,7 +196,7 @@ Anche se è già stata scelta una soluzione per la strategia, è comunque necess
 | Active Directory locale |Server Multi-Factor Authentication |
 
 > [!NOTE]
-> È anche necessario assicurarsi che l'opzione di progettazione per l'autenticazione a più fattori selezionata supporti le funzionalità richieste.  Per altre informazioni, leggere [Scegliere la soluzione di sicurezza a più fattori più adatta](../multi-factor-authentication/multi-factor-authentication-get-started.md#what-am-i-trying-to-secure).
+> È anche necessario assicurarsi che l'opzione di progettazione per l'autenticazione a più fattori selezionata supporti le funzionalità richieste.  Per altre informazioni, leggere [Scegliere la soluzione di sicurezza a più fattori più adatta](authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
 > 
 > 
 

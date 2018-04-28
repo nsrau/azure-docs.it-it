@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: c83dc3eeb6ca0d66b0c70236354fd7bab80f355f
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Selezionare, gestire e usare dei cluster di Service Fabric.
@@ -89,7 +89,7 @@ Mostra il manifesto del cluster di Service Fabric. Il manifesto del cluster cont
 | --debug  | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h| Mostra questo messaggio della Guida e l'uscita.|
 | --output -o | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query  | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query  | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose| Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-cluster-provision"></a>sfctl cluster provision
@@ -111,7 +111,7 @@ Esegue la convalida e il provisioning dei pacchetti di codici o configurazioni d
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h  | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o| Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose  | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
@@ -138,7 +138,7 @@ In caso di connessione a un cluster sicuro, specificare un certificato (con este
 | --debug           | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h         | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o       | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query           | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query           | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose         | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-cluster-unprovision"></a>sfctl cluster unprovision
@@ -159,7 +159,7 @@ Annulla il provisioning dei pacchetti di codici o configurazioni di un cluster d
 |--debug         | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
  |   --help -h       | Mostra questo messaggio della Guida e l'uscita.|
  |   --output -o     | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
- |   --query         | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+ |   --query         | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
  |   --verbose       | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 
@@ -197,7 +197,7 @@ Convalida i parametri di aggiornamento forniti e avvia l'aggiornamento della ver
 |--debug                               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 |    --help -h                             | Mostra questo messaggio della Guida e l'uscita.|
 |    --output -o                           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv. Predefinito: json.|
-|    --query                               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+|    --query                               | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 |    --verbose                             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="next-steps"></a>Passaggi successivi

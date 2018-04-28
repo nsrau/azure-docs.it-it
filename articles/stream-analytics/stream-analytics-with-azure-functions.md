@@ -1,19 +1,21 @@
 ---
-title: Eseguire Funzioni di Azure da processi di Analisi di flusso di Azure
-description: Questo articolo descrive come configurare Funzioni di Azure come sink di output nei processi di Analisi di flusso, per guidare i carichi di lavoro tramite eventi.
+title: Esercitazione:Eseguire Funzioni di Azure in processi di Analisi di flusso | Microsoft Docs
+description: Questa esercitazione descrive come configurare Funzioni di Azure come sink di output per i processi di Analisi di flusso.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
-ms.reviewer: jasonh
 manager: kfile
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 12/19/2017
-ms.openlocfilehash: a8eebfa0c40caa455eb20431e5cf4acb8eeb248c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.topic: tutorial
+ms.custom: mvc
+ms.workload: data-services
+ms.date: 04/09/2018
+ms.author: jasonh
+ms.reviewer: jasonh
+ms.openlocfilehash: 1d33c3f0a4c36dc681aaa42bc68ae56eec234401
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Eseguire Funzioni di Azure da processi di Analisi di flusso di Azure 
 
@@ -21,7 +23,14 @@ ms.lasthandoff: 04/06/2018
 
 Analisi di flusso richiama Funzioni tramite trigger HTTP. L'adattatore di output di Funzioni consente agli utenti di connettere Funzioni ad Analisi di flusso, in modo che gli eventi possano essere attivati in base alle query di Analisi di flusso. 
 
-Questa esercitazione illustra come connettere Analisi di flusso a [Cache Redis di Azure](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) tramite [Funzioni di Azure](../azure-functions/functions-overview.md). 
+In questa esercitazione si apprenderà come:
+
+> [!div class="checklist"]
+> * Creare un processo di Analisi di flusso.
+> * Creare una funzione di Azure
+> * Configurare una funzione di Azure come output per il processo
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Configurare un processo di Analisi di flusso per eseguire una funzione 
 
@@ -191,3 +200,16 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
 
 Nel portale di Azure, quando si tenta di reimpostare il valore di Dimensioni massime batch/Numero massimo di batch su un valore vuoto (impostazione predefinita), al momento del salvataggio il valore viene reimpostato sul valore immesso in precedenza. In questo caso, immettere manualmente i valori predefiniti per questi campi.
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non sono più necessari, eliminare il gruppo di risorse, il processo di streaming e tutte le risorse correlate. Eliminando il processo si evita di pagare per le unità di streaming utilizzate dal processo. Se si prevede di usare il processo in futuro, è possibile arrestarlo e riavviarlo in un secondo momento, quando è necessario. Se non si intende continuare a usare il processo, eliminare tutte le risorse create tramite questa guida introduttiva seguendo questa procedura:
+
+1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi fare clic sul nome della risorsa creata.  
+2. Nella pagina del gruppo di risorse fare clic su **Elimina**, digitare il nome della risorsa da eliminare nella casella di testo e quindi fare clic su **Elimina**.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+In questa esercitazione è stato creato un semplice processo di Analisi di flusso che esegue una funzione di Azure. Per altre informazioni sui processi di Analisi di flusso, continuare con l'esercitazione seguente:
+
+> [!div class="nextstepaction"]
+> [Eseguire funzioni JavaScript definite dall'utente in processi di Analisi di flusso](stream-analytics-javascript-user-defined-functions.md)

@@ -1,24 +1,18 @@
 ---
 title: Ridimensionamento orizzontale di Azure Analysis Services | Microsoft Docs
 description: Replicare server di Azure Analysis Services con ridimensionamento orizzontale
-services: analysis-services
-documentationcenter: 
 author: minewiskan
-manager: erikre
-editor: 
-ms.assetid: 
+manager: kfile
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/16/2018
 ms.author: owend
-ms.openlocfilehash: d00f6bbc285cca028f22ced69ad03d8a2814d76a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -28,7 +22,7 @@ Con il ridimensionamento orizzontale le query client possono essere distribuite 
 
 In una distribuzione di server tipica, un server funge sia da server di elaborazione che da server di query. Se il numero di query client verso i modelli presenti nel server supera il numero di unità di elaborazione query (QPU, Query Processing Unit) del piano del server o se l'elaborazione dei modelli avviene contemporaneamente a carichi di lavoro di query elevati, le prestazioni possono peggiorare. 
 
-Con il ridimensionamento orizzontale è possibile creare un pool di query con un massimo di sette repliche di query aggiuntive (otto in totale, incluso il server). È possibile ridimensionare il numero di repliche di query per soddisfare le richieste di QPU nei momenti critici ed è possibile separare un server di elaborazione dal pool di query in qualsiasi momento. 
+Con il ridimensionamento orizzontale è possibile creare un pool di query con un massimo di sette repliche di query aggiuntive (otto in totale, incluso il server). È possibile ridimensionare il numero di repliche di query per soddisfare le richieste di QPU nei momenti critici ed è possibile separare un server di elaborazione dal pool di query in qualsiasi momento. Tutte le repliche di query vengono create nella stessa area del server.
 
 Indipendentemente dal numero di repliche di query presenti in un pool di query, i carichi di lavoro di elaborazione non sono distribuiti tra le repliche di query. Un unico server funge da server di elaborazione. Le repliche di query servono solo le query verso i modelli sincronizzati tra ogni replica nel pool di query. 
 
@@ -79,7 +73,13 @@ Usare l'operazione **sync**.
 `GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
-Per eseguire la sincronizzazione da PowerShell, [eseguire l'aggiornamento alla versione più recente](https://github.com/Azure/azure-powershell/releases) 5.01 o successiva del modulo AzureRM. Usare [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+Prima di usare PowerShell, [installare il modulo AzureRM più recente o effettuare l'aggiornamento a questo](https://github.com/Azure/azure-powershell/releases). 
+
+Per impostare il numero di repliche di query, usare [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Specificare il parametro facoltativo `-ReadonlyReplicaCount`.
+
+Per eseguire la sincronizzazione, usare [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+
+
 
 ## <a name="connections"></a>connessioni
 

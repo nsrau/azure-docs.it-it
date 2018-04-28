@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 04/26/2017
 ms.author: jingwang
-ms.openlocfilehash: c3711e90bbb8622d6e112ee2865073cb50258f23
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e0d801dbb8060cf2fa175086fc5324f444870412
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-beta"></a>Copiare dati da Presto usando Azure Data Factory (beta)
 
@@ -74,7 +74,7 @@ Per il servizio collegato di Presto sono supportate le proprietà seguenti:
             "serverVersion" : "0.148-t",
             "catalog" : "<catalog>",
             "port" : "<port>",
-            "authenticationType" : "Anonymous",
+            "authenticationType" : "LDAP",
             "username" : "<username>",
             "password": {
                  "type": "SecureString",

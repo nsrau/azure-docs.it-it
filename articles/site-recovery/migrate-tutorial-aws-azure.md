@@ -9,17 +9,18 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 59a09b5d67391f2b48d338d721369f14ed6b4ede
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3ad4f46585be9cf61e3ef8343b5cb05308c972d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) ad Azure
 
 Questa esercitazione illustra come eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) a macchine virtuali di Azure usando Site Recovery. Quando viene eseguita la migrazione di istanze EC2 ad Azure, le macchine virtuali vengono trattate come computer fisici locali. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
+> * Verificare i prerequisiti
 > * Preparare le risorse di Azure
 > * Preparare le istanze EC2 di AWS per la migrazione
 > * Distribuire un server di configurazione
@@ -29,6 +30,22 @@ Questa esercitazione illustra come eseguire la migrazione di macchine virtuali A
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare.
 
+## <a name="prerequisites"></a>prerequisiti
+- Assicurarsi che nelle macchine virtuali di cui si vuole eseguire la migrazione sia in esecuzione una versione supportata del sistema operativo che include: 
+    - Versione a 64 bit di Windows Server 2008 R2 SP1 o versione successiva 
+    - Windows Server 2012
+    - Windows Server 2012 R2, 
+    - Windows Server 2016
+    - Red Hat Enterprise Linux 6.7 (solo istanze virtualizzate di HVM) e solo con driver Citrix PV o AWS PV. Le istanze che eseguono driver RedHat PV **non** sono supportate.
+
+- Il servizio Mobility deve essere installato in ogni VM da replicare. 
+
+> [!IMPORTANT]
+> Site Recovery installa il servizio automaticamente quando si abilita la replica per la macchina virtuale. Per l'installazione automatica è necessario preparare un account nelle istanze EC2 che Site Recovery userà per accedere alla macchina virtuale. È possibile usare un account di dominio o locale. 
+> - Per le macchine virtuali Linux l'account deve essere un account radice nel server Linux di origine. 
+> - Per le macchine virtuali Windows, se non si usa un account di dominio, disabilitare il controllo Accesso utente remoto nel computer locale: nel Registro di sistema in **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** aggiungere la voce DWORD **LocalAccountTokenFilterPolicy** e impostare il valore su 1.
+
+- È necessario avere un'istanza EC2 separata da usare come server di configurazione di Site Recovery. L'istanza deve eseguire Windows Server 2012 R2.
 
 ## <a name="prepare-azure-resources"></a>Preparare le risorse di Azure
 
@@ -74,19 +91,6 @@ Le macchine virtuali di Azure create dopo la migrazione (failover) vengono aggiu
 8. Lasciare i valori predefiniti per **Subnet**, sia **Nome** che **Intervallo IP**.
 9. Lasciare **Endpoint di servizio** disabilitata.
 10. Al termine dell'operazione fare clic su **Crea**.
-
-
-## <a name="prepare-the-ec2-instances"></a>Preparare le istanze EC2
-
-È necessario avere una o più macchine virtuali di cui eseguire la migrazione. Le istanze EC2 devono eseguire una versione a 64 bit di Windows Server 2008 R2 SP1 o successiva, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 o Red Hat Enterprise Linux 6.7 (solo istanze virtualizzate HVM). Il server deve avere solo driver Citrix PV o AWS PV. Le istanze che eseguono driver RedHat PV non sono supportate.
-
-Il servizio Mobility deve essere installato in ogni VM da replicare. Site Recovery installa il servizio automaticamente quando si abilita la replica per la macchina virtuale. Per l'installazione automatica è necessario preparare un account nelle istanze EC2 che Site Recovery userà per accedere alla macchina virtuale.
-
-È possibile usare un account di dominio o locale. Per le macchine virtuali Linux l'account deve essere un account radice nel server Linux di origine. Per le macchine virtuali Windows se non si usa un account di dominio, disabilitare il controllo Accesso utente remoto nel computer locale:
-
-  - Nel Registro di sistema in **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** aggiungere la voce DWORD **LocalAccountTokenFilterPolicy** e impostare il valore su 1.
-
-È necessario avere anche un'istanza EC2 separata da usare come server di configurazione di Site Recovery. L'istanza deve eseguire Windows Server 2012 R2.
 
 
 ## <a name="prepare-the-infrastructure"></a>Preparare l'infrastruttura

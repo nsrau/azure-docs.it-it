@@ -6,19 +6,19 @@ documentationcenter: na
 author: TomShinder
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/16/2018
-ms.author: 
-ms.openlocfilehash: dcf1734237677402b14d760f59098b41dc271a05
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: ''
+ms.openlocfilehash: eb311f4443d213325ab153b45f27a49246db1286
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-technical-overviews"></a>Panoramiche tecniche sulla sicurezza di Azure
 
@@ -32,9 +32,9 @@ ms.lasthandoff: 02/22/2018
 * [Panoramica della sicurezza di Azure Service Fabric](azure-service-fabric-security-overview.md)
 * [Panoramica della sicurezza di Archiviazione di Azure](security-storage-overview.md)
 * [Informazioni generali sulla sicurezza di Macchine virtuali di Azure](security-virtual-machines-overview.md)
-* [Architettura di sicurezza di Internet delle cose](https://docs.microsoft.com/en-us/azure/iot-suite/iot-security-architecture#security-in-iot) 
+* [Architettura di sicurezza di Internet delle cose](https://docs.microsoft.com/azure/iot-suite/iot-security-architecture#security-in-iot) 
 * [Introduzione alla sicurezza in Azure](azure-security.md)
 * [Introduzione all'integrazione dei log di Azure](security-azure-log-integration-overview.md)
 * [Proteggere le soluzioni di Internet delle cose in Azure](security-internet-of-things-overview.md)
 * [Protezione delle distribuzioni PaaS](security-paas-deployments.md)
-* [Informazioni sul Centro sicurezza di Azure](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro?toc=%2fazure%2fsecurity%2ftoc.json) 
+* [Informazioni sul Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro?toc=%2fazure%2fsecurity%2ftoc.json) 

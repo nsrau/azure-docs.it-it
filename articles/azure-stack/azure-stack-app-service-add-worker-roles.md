@@ -1,11 +1,11 @@
 ---
-title: "Scalabilità dei ruoli di lavoro in servizi di App - Stack di Azure | Documenti Microsoft"
-description: "Linee guida dettagliate per la scalabilità in servizi di App di Azure Stack"
+title: Scalabilità dei ruoli di lavoro in servizi di App - Stack di Azure | Documenti Microsoft
+description: Linee guida dettagliate per la scalabilità in servizi di App di Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: 3cbe87bd-8ae2-47dc-a367-51e67ed4b3c0
 ms.service: azure-stack
 ms.workload: app-service
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 680cb70777574d0ed88c5f83fb0a6fa20263b951
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 3bbd39f99c72d92bd7969de52d893c892314fc99
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Servizio App nello Stack di Azure: aggiungere più ruoli di infrastruttura o di lavoro
 
@@ -51,7 +51,7 @@ Servizio App di Azure nello Stack di Azure distribuisce tutti i ruoli utilizzand
     ##### Scale out the AppService Role instances ######
    
     # Set context to AzureStack admin.
-    Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+    Add-AzureRmAccount -EnvironmentName AzureStackAdmin
                                                  
     ## Name of the Resource group where AppService is deployed.
     $AppServiceResourceGroupName = "AppService.local"

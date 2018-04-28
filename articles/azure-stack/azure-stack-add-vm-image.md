@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: eb2035f6e667a9b3ab642d42cb9bb5ecf5c86fb1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 88254966c8aa16bf9fa182702c9c742d908851e1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Creare un'immagine di macchina virtuale personalizzata disponibile nello Stack di Azure
 
@@ -81,7 +81,7 @@ Per aggiungere l'immagine a Azure Marketplace dello Stack, completare i passaggi
         -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
         -EnvironmentName AzureStackAdmin
 
-      Login-AzureRmAccount `
+      Add-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID
       ```
@@ -109,7 +109,7 @@ Per aggiungere l'immagine a Azure Marketplace dello Stack, completare i passaggi
           -ADFS `
           -EnvironmentName AzureStackAdmin
 
-        Login-AzureRmAccount `
+        Add-AzureRmAccount `
           -EnvironmentName "AzureStackAdmin" `
           -TenantId $TenantID
         ```
@@ -162,7 +162,7 @@ Remove-AzsVMImage `
 | **osDiskLocalPath** |Il percorso locale per il disco del sistema operativo VHD che si sta caricando come immagine di macchina virtuale allo Stack di Azure. |
 | **dataDiskLocalPaths** |Matrice facoltativa dei percorsi locali per i dischi dati che possono essere caricati come parte dell'immagine di macchina virtuale. |
 | **CreateGalleryItem** |Flag booleano che determina se creare un elemento nel Marketplace. Per impostazione predefinita, viene impostata su **true**. |
-| **title** |Il nome visualizzato dell'elemento del Marketplace. Per impostazione predefinita, viene impostata sul `Publisher-Offer-Sku` valore dell'immagine di macchina virtuale. |
+| **Titolo** |Il nome visualizzato dell'elemento del Marketplace. Per impostazione predefinita, viene impostata sul `Publisher-Offer-Sku` valore dell'immagine di macchina virtuale. |
 | **description** |La descrizione dell'elemento del Marketplace. |
 | **location** |Il percorso in cui pubblicare l'immagine di macchina virtuale. Per impostazione predefinita, questo valore è impostato su **locale**.|
 | **osDiskBlobURI** |(Facoltativo) Questo script accetta anche un URI di archiviazione Blob per `osDisk`. |
@@ -186,7 +186,7 @@ Le immagini devono essere in grado di fare riferimento a un URI di archiviazione
 
    * Quando si carica il [immagine di macchina virtuale Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), assicurarsi di sostituire il **account di accesso da Azure** passaggio con il [configurare l'ambiente di PowerShell dell'operatore Azure Stack](azure-stack-powershell-configure-admin.md) passaggio.  
 
-   * Prendere nota di archiviazione Blob di URI in cui caricare l'immagine. L'URI di archiviazione Blob ha il seguente formato: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*con estensione vhd.
+   * Prendere nota di archiviazione Blob di URI in cui caricare l'immagine. L'URI di archiviazione Blob ha il seguente formato: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* con estensione vhd.
 
    * Per rendere il blob è accessibile in modo anonimo, passare al contenitore di blob account di archiviazione in cui è stato caricato l'immagine di macchina virtuale, disco rigido virtuale. Selezionare **Blob**, quindi selezionare **criteri di accesso**. Facoltativamente, è possibile invece generare una firma di accesso condiviso per il contenitore e includerlo come parte dell'URI del blob.
 

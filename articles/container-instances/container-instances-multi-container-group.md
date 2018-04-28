@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 58fd4c18df5ec0a5d02be0e6e89cb2b4af26b20e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4159aa9d7f19d700ea8dfd9fc15f5f0baa95be62
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="deploy-a-container-group"></a>Distribuire un gruppo di contenitori
 
@@ -108,7 +108,7 @@ In questo esempio viene definito un gruppo di contenitori con due contenitori, u
 }
 ```
 
-Per usare un registro di immagini del contenitore privato, aggiungere un oggetto al documento JSON con il formato seguente.
+Per usare un registro di immagini del contenitore privato, aggiungere un oggetto al documento JSON con il formato seguente. Per un esempio di implementazione di questa configurazione, vedere la documentazione con le [informazioni di riferimento del modello di Resource Manager in Istanze di contenitore di Azure][template-reference].
 
 ```json
 "imageRegistryCredentials": [
@@ -210,3 +210,4 @@ Questo articolo ha illustrato i passaggi necessari per la distribuzione di un'is
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create
+[template-reference]: https://docs.microsoft.com/azure/templates/microsoft.containerinstance/containergroups

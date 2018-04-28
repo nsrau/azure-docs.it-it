@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 2E21C8DE-D540-4C1C-A0EF-1B7125DB7A6E
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/02/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 8cc5ce1ec113df7ce92c54022dbe1b6219c8c235
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: db01df21c95ee41197344cec719f1c2ab2dfc2ed
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versioni di API del provider di risorse supportate dai profili nello Stack di Azure
 
@@ -55,14 +53,14 @@ Utilizzare il controllo di accesso basata su ruoli per gestire le azioni che gli
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-Le API di calcolo di Azure forniscono accesso programmatico alle macchine virtuali e le risorse di supporto. Per altre informazioni, vedere [calcolo di Azure](https://docs.microsoft.com/en-us/rest/api/compute/).
+Le API di calcolo di Azure forniscono accesso programmatico alle macchine virtuali e le risorse di supporto. Per altre informazioni, vedere [calcolo di Azure](https://docs.microsoft.com/rest/api/compute/).
 
 | Tipo di risorsa | Versione dell'API |
 |---------------------------------------------------------------|-------------|
 | SET DI DISPONIBILITÀ | 2016-03-30 |
 | Località | 2016-03-30 |
 | Posizioni/operazioni | 2016-03-30 |
-| Locations/publishers | 2016-03-30 |
+| Posizioni/server di pubblicazione | 2016-03-30 |
 | Utilizzi di percorsi / | 2016-03-30 |
 | Posizioni/vmSizes | 2016-03-30 |
 | Operazioni | 2016-03-30 |
@@ -165,7 +163,7 @@ Azure Resource Manager consente di distribuire e gestire l'infrastruttura per le
 | Risultati di sottoscrizioni/operazione | 2015-012016-09-01 |
 | Le sottoscrizioni/provider | 2015-012017-08-01 |
 | Gruppi di risorse/sottoscrizioni | 2015-012016-09-01 |
-| Subscriptions/resourceGroups/resources | 2015-012016-09-01 |
+| Le sottoscrizioni/resourceGroups/risorse | 2015-012016-09-01 |
 | Le sottoscrizioni/risorse | 2015-012016-09-01 |
 | Le sottoscrizioni/tagNames | 2016-0609-01 |
 | Le sottoscrizioni/tagNames/tagValues | 2016-0609-01 |

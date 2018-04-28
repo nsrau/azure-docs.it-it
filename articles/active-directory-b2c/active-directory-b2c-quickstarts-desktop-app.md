@@ -1,6 +1,6 @@
 ---
-title: Eseguire il test drive di un'app desktop abilitata per Azure AD B2C
-description: Guida introduttiva per la prova di un'app desktop ASP.NET di esempio che usa Azure Active Directory B2C per fornire l'accesso utente.
+title: Guida introduttiva - Configurare l'accesso per un'app desktop tramite Azure Active Directory B2C | Microsoft Docs
+description: Eseguire un'applicazione desktop ASP.NET di esempio che usa Azure Active Directory B2C per fornire l'accesso all'account.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
 ms.author: davidmu
-ms.openlocfilehash: 8726a5816623d42deb495aa062ef82f1f95b76b7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a312169217ac5476a503d5ad5a9126674f999eac
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-desktop-app"></a>Guida introduttiva: Eseguire il test drive di un'app desktop abilitata per Azure AD B2C
+# <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Guida introduttiva: Configurare l'accesso per un'app desktop tramite Azure Active Directory B2C 
 
 Azure Active Directory (Azure AD) B2C consente la gestione delle identità del cloud per garantire la protezione costante dell'applicazione, delle attività aziendali e dei clienti. Azure AD B2C consente alle app di eseguire l'autenticazione ad account di social networking e account aziendali usando protocolli standard aperti.
 

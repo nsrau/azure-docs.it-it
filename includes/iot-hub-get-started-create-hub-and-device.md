@@ -19,8 +19,8 @@ Per questa esercitazione di configurazione non è necessaria la stringa di conne
 
 1. Nel [portale di Azure](https://portal.azure.com/), aprire l'hub IoT.
 
-2. Fare clic su **Esplora dispositivi**.
-3. Nel riquadro Esplora dispositivi fare clic su **Aggiungi** per aggiungere un dispositivo all'hub IoT. Eseguire quindi le operazioni seguenti:
+2. Fare clic su **Dispositivi IoT**.
+3. Nel riquadro Dispositivi IoT fare clic su **Aggiungi** per aggiungere un dispositivo all'hub IoT. Eseguire quindi le operazioni seguenti:
 
    **ID dispositivo**: immettere l'ID del nuovo dispositivo. Gli ID dispositivo fanno distinzione tra maiuscole e minuscole.
 
@@ -30,12 +30,15 @@ Per questa esercitazione di configurazione non è necessaria la stringa di conne
 
    **Connetti dispositivo all'hub IoT**: fare clic su **Abilita**.
 
-   ![Aggiungere un dispositivo a Device Explorer nell'hub IoT](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
+   ![Aggiungere un dispositivo a Dispositivi IoT nell'hub IoT](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-iot-devices-portal.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 4. Fare clic su **Save**.
-5. Dopo la creazione del dispositivo, aprire il dispositivo nel riquadro **Esplora dispositivi**.
+5. Dopo la creazione del dispositivo, aprirlo nel riquadro **Dispositivi IoT**.
+
+   ![Elenco dei dispositivi IoT nell'hub IoT](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_device-list-in-iot-devices-portal.png)
+
 6. Annotare la chiave primaria della stringa di connessione.
 
-   ![Ottenere la stringa di connessione del dispositivo](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_get-device-connection-string-in-device-explorer-portal.png)
+   ![Ottenere la stringa di connessione del dispositivo](../articles/iot-hub/media/iot-hub-create-hub-and-device/8_get-device-connection-string-in-iot-devices-portal.png)

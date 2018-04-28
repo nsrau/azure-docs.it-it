@@ -2,7 +2,7 @@
 title: Connettersi a una VM Windows Server | Microsoft Docs
 description: Informazioni su come connettersi e accedere a una VM Windows mediante il portale di Azure e il modello di distribuzione Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 editor: tysonn
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 04/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 3e7b7c2ffa7471b96ebd23ac430fbd21eb21e9c5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 0c81e70a76983885fdfb6eefe9b6cbe407e117c8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows
 Per avviare una sessione di Desktop remoto (RDP) da un desktop di Windows, sarà necessario usare il pulsante **Connetti** nel portale di Azure. Effettuare la connessione alla macchina virtuale, quindi accedere al sistema.
@@ -30,9 +30,7 @@ Se si sta tentando di effettuare la connessione a una macchina virtuale Windows 
 1. Accedere al [portale di Azure](https://portal.azure.com/), se questa operazione non è già stata eseguita.
 2. Nel menu a sinistra fare clic su **Macchine virtuali**.
 3. Selezionare la macchina virtuale dall'elenco.
-4. Nella pagina della macchina virtuale fare clic su **Connetti**.
-   
-    ![Screenshot del portale di Azure che illustra come connettersi alla VM.](./media/connect-logon/connect.png)
+4. Nella parte superiore della pagina della macchina virtuale fare clic ![sull'immagine del pulsante di connessione.](./media/connect-logon/connect.png) .
    
    > [!TIP]
    > Se il pulsante **Connetti** nel portale è disattivato e non si è connessi ad Azure tramite una connessione [Express Route](../../expressroute/expressroute-introduction.md) o [VPN da sito a sito](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), per poter usare il protocollo RDP è necessario creare un indirizzo IP pubblico e assegnarlo alla VM. Altre informazioni sono disponibili in [Indirizzi IP pubblici in Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).

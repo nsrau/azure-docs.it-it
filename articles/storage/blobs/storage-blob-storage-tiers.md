@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: c62f3a92e6199f6467556054c9f58c20b6ceba2c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 21b09d9c428f9c29e0048faa32ce5349a127be89
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente, ad accesso sporadico e archivio
 
@@ -32,9 +32,9 @@ Tutti questi scenari di accesso ai dati usufruiscono di un livello di archiviazi
 
 ## <a name="storage-accounts-that-support-tiering"></a>Account di archiviazione che supportano la suddivisione in livelli
 
-È possibile suddividere in livelli i dati di archiviazione di oggetti in dati ad accesso frequente, ad accesso sporadico o archivio solo in account di archiviazione BLOB o per utilizzo generico v2. Gli account per utilizzo generico v1 non supportano la suddivisione in livelli. I clienti possono tuttavia convertire facilmente gli account per utilizzo generico v1 o di archiviazione BLOB in account per utilizzo generico v2 tramite un semplice processo con un clic nel portale di Azure. L'utilizzo generico v2 fornisce un nuovo piano tariffario per BLOB, file e code, oltre all'accesso a diverse altre nuove funzionalità di archiviazione. In futuro inoltre alcune nuove funzionalità e tagli sui prezzi saranno offerti solo negli account per utilizzo generico v2. I clienti dovrebbero quindi valutare l'uso degli account v2, ma solo dopo avere verificato i prezzi per tutti i servizi perché alcuni carichi di lavoro nell'utilizzo generico v2 possono essere più costosi che nell'utilizzo generico v1. Per altre informazioni, vedere [Opzioni di account di archiviazione di Azure](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+È possibile suddividere in livelli i dati dell'archivio oggetti, in dati ad accesso frequente, ad accesso sporadico o archivio, solo negli account di archiviazione BLOB o per utilizzo generico v2. Gli account per utilizzo generico v1 non supportano la suddivisione in livelli. I clienti possono tuttavia convertire facilmente gli account per utilizzo generico v1 o di archiviazione BLOB in account per utilizzo generico v2 tramite un semplice processo con un clic nel portale di Azure. L'utilizzo generico v2 fornisce un nuovo piano tariffario per BLOB, file e code, oltre all'accesso a diverse altre nuove funzionalità di archiviazione. In futuro inoltre alcune nuove funzionalità e tagli sui prezzi saranno offerti solo negli account per utilizzo generico v2. I clienti dovrebbero quindi valutare l'uso degli account v2, ma solo dopo avere verificato i prezzi per tutti i servizi perché alcuni carichi di lavoro nell'utilizzo generico v2 possono essere più costosi che nell'utilizzo generico v1. Per altre informazioni, vedere [Opzioni di account di archiviazione di Azure](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Gli account per utilizzo generico v2 espongono l'attributo **Livello di accesso** a livello di account, che consente di specificare il livello di archiviazione predefinito come ad accesso frequente o ad accesso sporadico per tutti i BLOB dell'account di archiviazione il cui livello non è impostato a livello di oggetto. Per gli oggetti con il livello impostato a livello di oggetto, il livello di account non verrà applicato. Il livello archivio è applicabile solo a livello di oggetto. È possibile passare da uno di questi livelli di archiviazione all'altro in qualsiasi momento.
+Gli account di archiviazione BLOB e per utilizzo generico v2 espongono l'attributo **Livello di accesso** a livello di account, consentendo così di specificare il livello di archiviazione predefinito come ad accesso frequente o ad accesso sporadico per tutti i BLOB dell'account di archiviazione il cui livello non è impostato a livello di oggetto. Per gli oggetti con il livello impostato a livello di oggetto, il livello di account non verrà applicato. Il livello archivio è applicabile solo a livello di oggetto. È possibile passare da uno di questi livelli di archiviazione all'altro in qualsiasi momento.
 
 ## <a name="hot-access-tier"></a>Livello di accesso frequente
 
@@ -81,7 +81,7 @@ In tutti e tre i livelli di archiviazione i BLOB possono coesistere nello stesso
 
 Quando un BLOB viene spostato in un livello ad accesso più sporadico (frequente -> sporadico, frequente -> archivio o sporadico -> archivio), l'operazione viene fatturata come operazione di scrittura del livello di destinazione, dove vengono applicati i costi per le operazioni di scrittura (ogni 10.000) e la scrittura dati (per GB). Se un BLOB viene spostato in un livello ad accesso più frequente (archivio -> sporadico, archivio -> frequente o sporadico -> frequente), l'operazione viene fatturata come un'operazione di lettura nel livello di origine, dove vengono applicati i costi per le operazioni di lettura (ogni 10.000) e il recupero dati (per GB).
 
-Se si attiva il livello di account da accesso frequente ad accesso sporadico, verrà addebitato l'importo per le operazioni di scrittura (ogni 10.000) per tutti i BLOB senza un livello impostato solo negli account per utilizzo generico v2. Non è previsto alcun addebito negli account di archiviazione BLOB. Verranno addebitate sia le operazioni di lettura (ogni 10.000) che il recupero dati (per GB) quando si attiva l'account di archiviazione BLOB o per utilizzo generico v2 dal livello accesso sporadico al livello accesso frequente. Possono essere addebitati anche i costi delle eliminazioni anticipate per i BLOB spostati al di fuori del livello di accesso sporadico o archivio.
+Se si attiva il livello di account da accesso frequente ad accesso sporadico, verrà addebitato l'importo per le operazioni di scrittura (ogni 10.000) per tutti i BLOB senza un livello impostato solo negli account per utilizzo generico v2. Non è previsto alcun addebito negli account di archiviazione BLOB. Se un account di archiviazione BLOB o per utilizzo generico v2 passa dal livello ad accesso sporadico al livello ad accesso frequente, verranno addebitati sia le operazioni di lettura (ogni 10.000) che il recupero dati (per GB). Possono essere addebitati anche i costi delle eliminazioni anticipate per i BLOB spostati al di fuori del livello di accesso sporadico o archivio.
 
 ### <a name="cool-and-archive-early-deletion"></a>Eliminazione anticipata per accesso sporadico o archivio
 
@@ -102,14 +102,14 @@ La tabella seguente illustra un confronto tra i livelli di archiviazione ad acce
 | **Obiettivi di scalabilità e prestazioni** | Uguali a quelli degli account di archiviazione di uso generico | Uguali a quelli degli account di archiviazione di uso generico | Uguali a quelli degli account di archiviazione di uso generico |
 
 > [!NOTE]
-> Gli account di archiviazione BLOB supportano gli stessi obiettivi di prestazioni e scalabilità degli account di archiviazione per utilizzo generico. Per ulteriori informazioni, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) .
+> Gli account di archiviazione BLOB supportano gli stessi obiettivi di prestazioni e scalabilità degli account di archiviazione di uso generico. Per ulteriori informazioni, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) .
 
 ## <a name="quickstart-scenarios"></a>Scenari introduttivi
 
 Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
-* Come modificare il livello di accesso all'account predefinito di un account per utilizzo generico v2 o di archiviazione BLOB.
-* Come modificare il livello di un BLOB in un account per utilizzo generico v2 o di archiviazione BLOB.
+* Come modificare il livello di accesso predefinito di un account di archiviazione BLOB o per utilizzo generico v2.
+* Come modificare il livello di un BLOB in un account di archiviazione BLOB o per utilizzo generico v2.
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Modificare il livello di accesso all'account predefinito di un account per utilizzo generico v2 o di archiviazione BLOB
 
@@ -123,7 +123,7 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 5. Fare clic su Salva nella parte superiore del pannello.
 
-### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Modificare il livello di un BLOB in un account per utilizzo generico v2 o di archiviazione BLOB
+### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Modificare il livello di un BLOB in un account di archiviazione BLOB o per utilizzo generico v2
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -135,11 +135,11 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 ## <a name="faq"></a>Domande frequenti
 
-**È consigliabile usare gli account di archiviazione BLOB o per utilizzo generico v2 se si vuole suddividere in livelli i dati?**
+**È consigliabile usare account di archiviazione BLOB o per utilizzo generico v2 se si vogliono suddividere in livelli i dati?**
 
-È consigliabile usare gli account per utilizzo generico v2 invece di quelli di archiviazione BLOB per la suddivisione in livelli. L'utilizzo generico v2 supporta tutte le funzionalità supportate dagli account di archiviazione BLOB oltre a molte altre. I prezzi dell'archivio BLOB e dell'utilizzo generico v2 sono quasi identici, ma alcune nuove funzionalità e tagli sui prezzi saranno disponibili solo negli account per utilizzo generico v2. Gli account per utilizzo generico v1 non supportano la suddivisione in livelli.
+Per la suddivisione in livelli è consigliabile usare account per utilizzo generico v2 anziché di archiviazione BLOB. Gli account per utilizzo generico v2 supportano tutte le funzionalità supportate dagli account di archiviazione BLOB e molte altre. I prezzi di archiviazione BLOB e utilizzo generico v2 sono quasi identici, ma alcune nuove funzionalità e alcuni tagli sui prezzi saranno disponibili solo negli account per utilizzo generico v2. Gli account per utilizzo generico v1 non supportano la suddivisione in livelli.
 
-Il piano tariffario per gli account per utilizzo generico v1 e v2 è diverso e i clienti devono valutarli entrambi con attenzione prima di decidere di usare gli account per utilizzo generico v2. È possibile convertire facilmente un account di archiviazione BLOB o per utilizzo generico v1 esistente in utilizzo generico v2 tramite un semplice processo con un clic. Per altre informazioni, vedere [Opzioni di account di archiviazione di Azure](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Il piano tariffario per gli account per utilizzo generico v1 e v2 è diverso e i clienti devono valutarli entrambi con attenzione prima di decidere di usare gli account per utilizzo generico v2. È possibile convertire facilmente un account di archiviazione BLOB o per utilizzo generico v1 esistente in account per utilizzo generico v2 tramite un semplice processo con un clic. Per altre informazioni, vedere [Opzioni di account di archiviazione di Azure](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 **È possibile archiviare oggetti in tutti e tre i livelli di archiviazione (ad accesso frequente, ad accesso sporadico e archivio) nello stesso account?**
 
@@ -147,7 +147,7 @@ Sì. L'attributo **Livello di accesso** impostato a livello di account rappresen
 
 **È possibile modificare il livello di archiviazione predefinito nell'account di archiviazione BLOB o per utilizzo generico v2?**
 
-Sì, è possibile modificare il livello di archiviazione predefinito impostando l'attributo **Livello di accesso** nell'account di archiviazione. La modifica del livello di archiviazione si applica a tutti gli oggetti archiviati nell'account per i quali non è impostato in modo esplicito un livello. L'attivazione del livello di archiviazione da frequente a sporadico comporta l'addebito dei costi per le operazioni di scrittura (ogni 10.000) per tutti i BLOB senza un livello impostato solo negli account per utilizzo generico v2 e l'attivazione da sporadico a frequente comporta l'addebito dei costi sia per le operazioni di lettura (ogni 10.000) che di quelli per il recupero dati (per GB) per tutti i BLOB negli account di archiviazione BLOB e per utilizzo generico v2.
+Sì, è possibile modificare il livello di archiviazione predefinito impostando l'attributo **Livello di accesso** nell'account di archiviazione. La modifica del livello di archiviazione si applica a tutti gli oggetti archiviati nell'account per i quali non è impostato in modo esplicito un livello. Il passaggio del livello di archiviazione da accesso frequente ad accesso sporadico comporta addebiti per le operazioni di scrittura (ogni 10.000) per tutti i BLOB senza un livello impostato solo negli account per utilizzo generico v2, mentre il passaggio da accesso sporadico ad accesso frequente comporta addebiti sia per le operazioni di lettura (ogni 10.000) che per il recupero dati (per GB) per tutti i BLOB negli account di archiviazione BLOB e per utilizzo generico v2.
 
 **È possibile impostare il livello di accesso all'account predefinito su archivio?**
 
@@ -159,7 +159,7 @@ I livello di archiviazione ad accesso frequente e ad accesso sporadico con l'org
 
 **I BLOB nel livello di archiviazione ad accesso sporadico si comportano in modo diverso rispetto a quelli del livello di archiviazione ad accesso frequente?**
 
-I BLOB nel livello di archiviazione ad accesso frequente hanno la stessa latenza dei BLOB negli account di archiviazione per utilizzo generico v1, v2 e BLOB. I BLOB nel livello di archiviazione ad accesso sporadico hanno una latenza simile, in millisecondi, a quella dei BLOB negli account di archiviazione per utilizzo generico v1, v2 e BLOB. I BLOB nel livello di archiviazione archivio prevedono diverse ore di latenza negli account di archiviazione BLOB, per utilizzo generico v1 e per utilizzo generico v2.
+I BLOB nel livello di archiviazione ad accesso frequente hanno la stessa latenza dei BLOB negli account di archiviazione BLOB, per utilizzo generico v1 e per utilizzo generico v2. I BLOB nel livello di archiviazione ad accesso sporadico hanno una latenza simile, in millisecondi, a quella dei BLOB negli account di archiviazione BLOB, per utilizzo generico v1 e per utilizzo generico v2. I BLOB nel livello di archiviazione archivio hanno una latenza di diverse ore negli account di archiviazione BLOB, per utilizzo generico v1 e per utilizzo generico v2.
 
 I BLOB nel livello di archiviazione ad accesso sporadico hanno un contratto di servizio con disponibilità leggermente inferiore rispetto a quello dei BLOB nel livello di archiviazione ad accesso frequente. Per informazioni dettagliate, vedere [Contratto di Servizio per Archiviazione](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
 
@@ -189,12 +189,12 @@ L'archiviazione dati e gli altri limiti vengono impostati a livello di account e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>Valutare accesso frequente, accesso sporadico e archiviazione negli account di archiviazione BLOB per utilizzo generico v2
+### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>Valutare i livelli ad accesso frequente, ad accesso sporadico e archivio negli account di archiviazione BLOB e per utilizzo generico v2
 
 [Controllare la disponibilità di accesso frequente, accesso sporadico e archivio in base all'area](https://azure.microsoft.com/regions/#services)
 
 [Valutare l'utilizzo degli account di archiviazione attuali abilitando le metriche di Archiviazione di Azure](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-[Controllare i prezzi di accesso frequente, accesso sporadico e archivio negli account per utilizzo generico v2 e di archiviazione BLOB in base all'area](https://azure.microsoft.com/pricing/details/storage/)
+[Controllare i prezzi di accesso frequente, accesso sporadico e archivio negli account di archiviazione BLOB e per utilizzo generico v2 in base all'area](https://azure.microsoft.com/pricing/details/storage/)
 
 [Verificare i prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/)

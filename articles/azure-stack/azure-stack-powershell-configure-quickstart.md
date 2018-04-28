@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 55fd212a895ed861cb5a9be0e4dae283e3cb5cfd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6846791b50140f849217fe7071cfde58159e0bf8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Diventare operativi con PowerShell nello Stack di Azure
 
@@ -92,7 +92,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
     -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
-  Login-AzureRmAccount `
+  Add-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
     -TenantId $TenantID 
 ```
@@ -158,7 +158,7 @@ $TenantID = Get-AzsDirectoryTenantId `
     -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
-Login-AzureRmAccount `
+Add-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
     -TenantId $TenantID
 ```

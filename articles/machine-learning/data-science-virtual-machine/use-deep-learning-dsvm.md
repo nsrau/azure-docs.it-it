@@ -5,20 +5,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: b517e4c8cc57f833037f4c67deb318f2756e7b24
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 66994dfcd84db1de0ba072e9e3a45e7ec11fcec0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Uso della macchina virtuale per l'apprendimento avanzato
 
@@ -35,9 +35,12 @@ Oltre a esempi basati su framework viene fornito anche un set di procedure detta
 
 - [Guida dettagliata alla creazione di una soluzione end-to-end per individuare prodotti all'interno di immagini](https://github.com/Azure/cortana-intelligence-product-detection-from-images): il rilevamento immagine è una tecnica che consente di individuare e classificare gli oggetti all'interno delle immagini. Questa tecnologia può portare enormi vantaggi in molte applicazioni aziendali reali. Ad esempio, i negozianti possono usare questa tecnica per determinare quale prodotto un cliente ha prelevato dallo scaffale. Queste informazioni a loro volta consentono ai negozi di gestire l'inventario dei prodotti. 
 
+- [Estrazione di un'entità denominata dai sunti di PubMed](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) Questa esercitazione illustra come estrarre le entità denominate, ad esempio nomi di farmaci o nomi di malattie, da un testo non strutturato. Esegue il training dell'incorporamento personalizzato di una parola su un corpus di testi di 18 milioni di sunti di PubMed, usa tale modello per compilare un modello di rete neurale ricorrente Long Short-Term Memory, ovvero LSTM, per l'estrazione delle entità e mostra che il modello di incorporamento della parola specifico per il dominio può avere prestazioni migliori di un incorporamento delle parole generico per l'estrazione delle entità.
+
+- [Apprendimento per l'audio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) Questa esercitazione illustra come eseguire il training di un modello di apprendimento avanzato per il rilevamento di eventi audio nel [set di dati dei suoni urbani](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) e offre una panoramica di come usare i dati audio.
+
 - [Classificazione di documenti di testo](https://github.com/anargyri/lstm_han): questa procedura dettagliata illustra come creare e addestrare due architetture di rete neurale diverse, ovvero rete Hierarchical Attention Network e Long Short Term Memory (LSTM). Queste reti neurali usano l'API Keras per l'apprendimento avanzato per classificare i documenti di testo. Keras è un front-end a tre dei più popolari framework di apprendimento avanzato: Microsoft Cognitive Toolkit, TensorFlow e Theano.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 La [pagina degli esempi](dsvm-samples-and-walkthroughs.md) fornisce puntatori agli esempi di codice pre-caricati nella VM per ognuno dei framework, grazie ai quali è possibile iniziare rapidamente. 
-

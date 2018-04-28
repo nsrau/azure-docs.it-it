@@ -1,5 +1,5 @@
 ---
-title: Sviluppo di azioni script con HDInsight - Azure | Microsoft Docs
+title: Sviluppo di azioni script con HDInsight - Azure | Documentazione Microsoft
 description: Informazioni su come personalizzare i cluster Hadoop con Azione script. L'azione script può essere usata per installare software aggiuntivi in esecuzione in un cluster Hadoop o per modificare la configurazione delle applicazioni installate in un cluster.
 services: hdinsight
 documentationcenter: ''
@@ -9,18 +9,16 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 836d68a8-8b21-4d69-8b61-281a7fe67f21
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ac2a087bb0a9d8cac15dfea2448a9c42cee4a1f4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 98040f10eb15245f36eb0b365dcdf0f5ba7f107a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Sviluppare script di Azione script per HDInsight nei cluster basati su Windows
 Informazioni su come scrivere script di Azione script per HDInsight Per informazioni sull'uso di script di Azione script, vedere [Personalizzare cluster HDInsight mediante Azione script](hdinsight-hadoop-customize-cluster.md). Per lo stesso articolo dedicato ai cluster HDInsight basati su Linux, vedere [Sviluppare script di Azione script per HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -138,7 +136,7 @@ I metodi di supporto di Azione script sono utilità che è possibile usare duran
 
 Di seguito sono indicati i metodi di supporto forniti da questo script:
 
-| Metodo helper | Descrizione |
+| Metodo helper | DESCRIZIONE |
 | --- | --- |
 | **Save-HDIFile** |Scaricare un file dall'URI (Uniform Resource Identifier) specificato a un percorso nel disco locale associato al nodo della VM di Azure assegnato al cluster |
 | **Expand-HDIZippedFile** |Decomprimere un file compresso. |
@@ -178,7 +176,7 @@ Quando si sviluppa uno script personalizzato per un cluster HDInsight, è opport
 
     HDInsight ha un'architettura attivo/passivo per la disponibilità elevata, in cui un nodo head è in modalità attiva (dove sono in esecuzione i servizi HDInsight) e l'altro è in modalità standby (dove non sono in esecuzione i servizi HDInsight). I nodi passano dalla modalità attiva a quella passiva e viceversa quando i servizi HDInsight vengono interrotti. Se un'azione script viene usata per installare i servizi in entrambi i nodi head per la disponibilità elevata, tenere presente che il meccanismo di failover di HDInsight non sarà in grado di eseguire automaticamente il failover di questi servizi installati dall'utente. Quindi, se è richiesta la disponibilità elevata per i servizi installati dall'utente nei nodi head di HDInsight, questi servizi devono avere un proprio meccanismo di failover se sono in modalità attivo/passivo oppure essere in modalità attivo/attivo.
 
-    Il comando dell'azione Script di HDInsight viene eseguito su entrambi i nodi head quando il ruolo di questi nodi viene specificato nel parametro *ClusterRoleCollection* descritto in precedenza. Pertanto, quando si progetta uno script personalizzato, assicurarsi che lo script tenga conto di questa impostazione. Per evitare problemi, è preferibile non installare e avviare gli stessi servizi in entrambi i nodi head, dove è possibile che entrino in competizione l'uno con l'altro. Tenere anche presente che, quando viene ricreata l'immagine, sono possibili perdite di dati: è quindi necessario che il software installato mediante l'azione script sia resiliente a eventi di questo tipo. Le applicazioni devono essere progettate per usare dati a disponibilità elevata distribuiti in molti nodi. Si noti che è possibile ricreare allo stesso tempo l'immagine di 1/5 dei nodi di un cluster.
+    Il comando dell'azione Script di HDInsight viene eseguito su entrambi i nodi head quando il ruolo di questi nodi viene specificato nel parametro *ClusterRoleCollection* descritto in precedenza. Pertanto, quando si progetta uno script personalizzato, assicurarsi che lo script tenga conto di questa impostazione. Per evitare problemi, è preferibile non installare e avviare gli stessi servizi in entrambi i nodi head, dove è possibile che entrino in competizione l'uno con l'altro. Tenere anche presente che, quando viene ricreata l'immagine, sono possibili perdite di dati: è quindi necessario che il software installato mediante l'azione script sia resiliente a eventi di questo tipo. Le applicazioni devono essere progettate per usare dati a disponibilità elevata distribuiti in molti nodi. È possibile ricreare allo stesso tempo l'immagine di 1/5 dei nodi di un cluster.
 * Configurare i componenti personalizzati per l'uso dell'archivio BLOB di Azure
 
     I componenti personalizzati installati nei nodi del cluster possono avere una configurazione predefinita per l'uso dell'archiviazione in un file system distribuito Hadoop (HDFS). Modificare la configurazione in modo che venga usato l'archivio BLOB di Azure. Quando si ricrea l'immagine di un cluster, il file system HDFS viene formattato e tutti i dati archiviati vengono eliminati. Se invece si usa l'archivio BLOB di Azure, i dati vengono mantenuti.
@@ -192,14 +190,14 @@ Spesso nello sviluppo delle azioni script risulta necessario impostare alcune va
     Write-HDILog "Starting environment variable setting at: $(Get-Date)";
     [Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-Questa istruzione imposta la variabile di ambiente **MDS_RUNNER_CUSTOM_CLUSTER** sul valore 'true', oltre a impostare l'ambito di questa variabile a livello di computer. In alcuni casi è importante che le variabili di ambiente siano impostate nell'ambito appropriato: computer o utente. Vedere [qui][1] per altre informazioni sull'impostazione delle variabili di ambiente.
+Questa istruzione imposta la variabile di ambiente **MDS_RUNNER_CUSTOM_CLUSTER** sul valore 'true', oltre a impostare l'ambito di questa variabile a livello di computer. È importante che le variabili di ambiente siano impostate nell'ambito appropriato: computer o utente. Vedere [qui][1] per altre informazioni sull'impostazione delle variabili di ambiente.
 
 ### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Accedere alle posizioni in cui sono archiviati gli script personalizzati
-Gli script usati per personalizzare un cluster devono essere nell'account di archiviazione predefinito per il cluster o in un contenitore di sola lettura pubblico in qualsiasi altro account di archiviazione. Se lo script accede a risorse ubicate altrove, queste devono essere in una posizione accessibile pubblicamente (almeno di sola lettura pubblica). Ad esempio, si potrebbe accedere a un file e salvarlo con il comando SaveFile-HDI.
+Gli script usati per personalizzare un cluster devono essere nell'account di archiviazione predefinito per il cluster o in un contenitore di sola lettura pubblico in qualsiasi altro account di archiviazione. Se lo script accede a risorse ubicate altrove, queste devono essere leggibili pubblicamente. Ad esempio, si potrebbe accedere a un file e salvarlo con il comando SaveFile-HDI.
 
     Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
 
-In questo esempio, è necessario assicurarsi che il contenitore 'somecontainer' nell'account di archiviazione 'somestorageaccount' sia accessibile pubblicamente. In caso contrario, lo script genera un'eccezione "Non trovato" ed ha esito negativo.
+In questo esempio, è necessario assicurarsi che il contenitore `somecontainer` nell'account di archiviazione `somestorageaccount` sia accessibile pubblicamente. In caso contrario, lo script genera un'eccezione "Non trovato" ed ha esito negativo.
 
 ### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Passare i parametri al cmdlet Add-AzureRmHDInsightScriptAction
 Per passare più parametri al cmdlet Add-AzureRmHDInsightScriptAction, è necessario formattare il valore di stringa per contenere tutti i parametri per lo script. Ad esempio: 
@@ -238,9 +236,9 @@ Di seguito sono indicati i passaggi effettuati durante la preparazione della dis
 
 1. Inserire i file che contengono gli script personalizzati in un percorso accessibile per i nodi del cluster durante la distribuzione. L'account di archiviazione può essere uno qualsiasi degli account predefiniti o aggiuntivi specificati durante la distribuzione del cluster oppure qualsiasi altro contenitore di archiviazione accessibile pubblicamente.
 2. Aggiungere controlli negli script per garantire che questi vengano eseguiti in modo idempotente, così che sia possibile eseguire più volte lo script nello stesso nodo.
-3. Usare il cmdlet di Azure PowerShell **Write-Output** per stampare in STDOUT e in STDERR. Non usare **Write-Host**.
-4. Usare una cartella di file temporanea, ad esempio $env:TEMP, per conservare il file scaricato usato dagli script e quindi eliminarla dopo aver eseguito gli script stessi.
-5. Installare il software personalizzato solo in D:\ o C:\apps. Non usare altri percorsi dell'unità C: perché sono riservati. Si noti che l'installazione dei file nell'unità C: all'esterno della cartella C:\apps può comportare errori di installazione durante la nuova creazione dell'immagine del nodo.
+3. Usare il cmdlet di Azure PowerShell `Write-Output` per stampare in STDOUT e in STDERR. Non usare `Write-Host`.
+4. Usare una cartella di file temporanea, ad esempio `$env:TEMP`, per conservare il file scaricato usato dagli script e quindi eliminarla dopo aver eseguito gli script stessi.
+5. Installare il software personalizzato solo in D:\ o C:\apps. Non usare altri percorsi dell'unità C: perché sono riservati. L'installazione dei file nell'unità C: all'esterno della cartella C:\apps può comportare errori di installazione durante la nuova creazione dell'immagine del nodo.
 6. In caso di modifica delle impostazioni o dei file di configurazione del servizio Hadoop a livello di sistema operativo, è possibile riavviare i servizi HDInsight in modo che possano rilevare qualsiasi impostazione a livello di sistema operativo, ad esempio le variabili di ambiente impostate negli script.
 
 ## <a name="debug-custom-scripts"></a>Eseguire il debug degli script personalizzati

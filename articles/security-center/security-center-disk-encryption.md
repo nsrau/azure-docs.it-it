@@ -5,7 +5,7 @@ services: security, security-center
 documentationcenter: na
 author: TomShinder
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
 ms.service: security
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: fa55df0c4d5291834035ea5cae58fa3d75de7e02
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9a376eb63e7ba054a125666f95c05d5e7dfb5470
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Crittografare una macchina virtuale di Azure
 Centro sicurezza di Azure invia avvisi in caso di macchine virtuali non crittografate. Gli avvisi vengono visualizzati con un livello di gravità elevato e la raccomandazione di crittografare tali macchine virtuali.
@@ -92,8 +92,8 @@ Per crittografare una macchina virtuale di Azure, seguire questa procedura:
 1. Se PowerShell ISE è stato chiuso, aprire un'istanza di PowerShell ISE con privilegi elevati. Seguire le istruzioni riportate in precedenza in questo articolo se PowerShell ISE non è già aperto. Se lo script è stato chiuso, aprire **ADEPrereqScript.ps1** facendo clic su **File**, **Apri** e quindi selezionare lo script nella cartella **C:\AzureADEScript**. Se le istruzioni contenute in questo articolo sono state seguite dall'inizio, è sufficiente andare al passaggio successivo.
 2. Nella console di PowerShell ISE nel riquadro inferiore della finestra di PowerShell ISE spostare lo stato attivo sulla posizione dello script digitando **cd c:\AzureADEScript** e quindi premere **INVIO**.
 3. Impostare i criteri di esecuzione del computer in modo che sia possibile eseguire lo script. Digitare **Set-ExecutionPolicy Unrestricted** nella console e quindi premere INVIO. Se viene visualizzata una finestra di dialogo che informa sugli effetti della modifica dei criteri di esecuzione, fare clic su **Sì, tutti** oppure su **Sì**. Se l'opzione **Sì, tutti** viene visualizzata, selezionarla. Se l'opzione **Sì, tutti** non viene visualizzata, fare clic su **Sì**.
-4. Accedere all'account Azure. Nella console digitare **Login-AzureRmAccount** e premere **INVIO**. Viene visualizzata una finestra di dialogo in cui inserire le credenziali. Assicurarsi di avere i diritti necessari per modificare le macchine virtuali, in caso contrario non sarà possibile crittografarle. In caso di dubbi, contattare l'amministratore o il proprietario della sottoscrizione). Verranno visualizzate le informazioni su **ambiente**, **account**, **TenantId**, **SubscriptionId** e **CurrentStorageAccount**. Copiare **SubscriptionId** nel Blocco note. Sarà necessario nel passaggio 6.
-5. Trovare la sottoscrizione a cui appartiene la macchina virtuale e il relativo percorso. Passare a [https://portal.azure.com](ttps://portal.azure.com) ed eseguire l'accesso.  Sul lato sinistro della pagina, fare clic su **Macchine virtuali**. Verrà visualizzato un elenco delle macchine virtuali e delle sottoscrizioni a cui appartengono.
+4. Accedere all'account Azure. Nella console digitare **Connect-AzureRmAccount** e premere **INVIO**. Viene visualizzata una finestra di dialogo in cui inserire le credenziali. Assicurarsi di avere i diritti necessari per modificare le macchine virtuali, in caso contrario non sarà possibile crittografarle. In caso di dubbi, contattare l'amministratore o il proprietario della sottoscrizione). Verranno visualizzate le informazioni su **ambiente**, **account**, **TenantId**, **SubscriptionId** e **CurrentStorageAccount**. Copiare **SubscriptionId** nel Blocco note. Sarà necessario nel passaggio 6.
+5. Trovare la sottoscrizione a cui appartiene la macchina virtuale e il relativo percorso. Passare a [https://portal.azure.com](ttps://portal.azure.com) e accedere.  Sul lato sinistro della pagina, fare clic su **Macchine virtuali**. Verrà visualizzato un elenco delle macchine virtuali e delle sottoscrizioni a cui appartengono.
 
    ![Macchine virtuali](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
 6. Tornare alla finestra di PowerShell ISE. Impostare il contesto della sottoscrizione in cui verrà eseguito lo script. Nella console digitare **Select-AzureRmSubscription –SubscriptionId <your_subscription_Id>** (sostituire **< your_subscription_Id >** con l'ID sottoscrizione effettivo) e premere **INVIO**. Verranno visualizzate le informazioni su ambiente, **account**, **TenantId**, **SubscriptionId** e **CurrentStorageAccount**.

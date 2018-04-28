@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 995ecd5ef876695145fc6313aba2a46d2cc085cc
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 4e04d6417f1468c1bafada1a93ab63a73e39653d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="firewall-requirements-for-pci-dss-compliant-environments"></a>Requisiti per i firewall per gli ambienti conformi a PCI DSS 
 ## <a name="pci-dss-requirement-1"></a>Requisito 1 di PCI DSS
@@ -57,7 +57,7 @@ Altri componenti di sistema possono offrire funzionalità di firewall, a condizi
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Un'istanza di Contoso Webstore stabilisce un modello DevOps di integrazione continua/recapito continuo (CI/CD) per garantire che tutte le modifiche vengano gestite correttamente. [Operations Management Suite (OMS)](/azure/operations-management-suite/) fornisce una registrazione completa delle modifiche. Le modifiche possono essere controllate e verificate per stabilirne l'accuratezza. Per istruzioni più dettagliate, vedere [PCI Guidance - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing) (Linee guida per PCI - Operations Management Suite).<br /><br />[Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/) offre una vista centralizzata dello stato di sicurezza di tutte le risorse di Azure. È possibile verificare subito che i controlli di sicurezza appropriati siano implementati e configurati correttamente, così come identificare rapidamente le risorse che richiedono attenzione.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Un'istanza di Contoso Webstore stabilisce un modello DevOps di integrazione continua/recapito continuo (CI/CD) per garantire che tutte le modifiche vengano gestite correttamente. Log Analytics offre registrazione completa delle modifiche. Le modifiche possono essere controllate e verificate per stabilirne l'accuratezza. Per istruzioni più dettagliate, vedere [PCI Guidance - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing) (Linee guida per PCI - Operations Management Suite).<br /><br />[Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/) offre una vista centralizzata dello stato di sicurezza di tutte le risorse di Azure. È possibile verificare subito che i controlli di sicurezza appropriati siano implementati e configurati correttamente, così come identificare rapidamente le risorse che richiedono attenzione.|
 
 
 
@@ -109,7 +109,7 @@ Altri componenti di sistema possono offrire funzionalità di firewall, a condizi
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore usa il [controllo degli accessi in base al ruolo](/azure/active-directory/role-based-access-control-configure) per isolare i ruoli utente. Questo meccanismo consente una gestione degli accessi di precisione per Azure. Esistono configurazioni specifiche per l'accesso con sottoscrizione e l'accesso con Azure Key Vault.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore usa il [controllo degli accessi in base al ruolo](/azure/role-based-access-control/role-assignments-portal) per isolare i ruoli utente. Questo meccanismo consente una gestione degli accessi di precisione per Azure. Esistono configurazioni specifiche per l'accesso con sottoscrizione e l'accesso con Azure Key Vault.|
 
 
 

@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: dcfd37a40ce16a1574c21e3a6e9520cb2e773166
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 03e72c29bedf6a3125a5ae0272e93cdf58632bc6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installare Giraph nei cluster HDInsight Hadoop e usarlo per elaborare grafici su vasta scala
 
@@ -158,7 +158,7 @@ Dopo aver creato il cluster, usare la procedura seguente per eseguire l'esempio 
     hdfs dfs -text /example/output/shortestpaths/*
     ```
 
-    L'output sarà simile al testo seguente:
+    L'output appare simile al seguente testo:
 
         0    1.0
         4    5.0

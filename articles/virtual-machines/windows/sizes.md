@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: ca1c3950c4135f4120c1d361d23746f9bfe95d65
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 91cd1cc746952ef8f442165b167f88f626870c70
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Dimensioni per le macchine virtuali Windows in Azure
 
@@ -57,6 +57,10 @@ https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list
 
 Altre informazioni su come le [unità di calcolo di Azure](acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.
 
+## <a name="benchmark-scores"></a>Punteggi di benchmark
+
+Altre informazioni sulle prestazioni di calcolo per l'uso di macchine virtuali di Windows usando i [punteggi di benchmark CoreMark](compute-benchmark-scores.md).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni sulle diverse dimensioni di macchina virtuale disponibili:
@@ -66,6 +70,7 @@ Altre informazioni sulle diverse dimensioni di macchina virtuale disponibili:
 - [Ottimizzate per l'archiviazione](../virtual-machines-windows-sizes-storage.md)
 - [Ottimizzate per la GPU](sizes-gpu.md)
 - [High Performance Computing (HPC)](sizes-hpc.md)
+
 
 
 

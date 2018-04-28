@@ -1,6 +1,6 @@
 ---
 title: Reazione a eventi di Archiviazione BLOB di Azure | Microsoft Docs
-description: Usare Griglia di eventi di Azure per sottoscrivere eventi di Archiviazione BLOB.
+description: Usare la Griglia di eventi di Azure per sottoscrivere eventi di archiviazione BLOB.
 services: storage,event-grid
 keywords: ''
 author: cbrooksmsft
@@ -8,17 +8,17 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: ea2ec712c8d8b5f85f020535ab0544986f0da53a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2762466c0130ead36372a93f4c3b852cb378a02a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reazione a eventi di Archiviazione BLOB di Azure
 
 Gli eventi di Archiviazione di Azure consentono alle applicazioni di reagire alla creazione e all'eliminazione di oggetti BLOB usando moderne architetture senza server e senza la necessità di usare codice complesso o servizi di polling costosi e inefficienti.  Gli eventi vengono invece inviati attraverso [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/) ai sottoscrittori, ad esempio [Funzioni di Azure](https://azure.microsoft.com/services/functions/), [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps/) o anche al listener http personalizzato in uso, e si paga solo ciò che si usa. 
 
-Tra gli scenari comuni di eventi di archiviazione BLOB sono inclusi l'elaborazione di immagini o video, l'indicizzazione delle ricerche o qualsiasi flusso di lavoro orientato ai file.  I caricamenti asincroni di file sono operazioni perfette per gli eventi.  Quando le modifiche non sono frequenti, ma lo scenario richiede tempi di risposta immediata, un'architettura basata su eventi può essere particolarmente efficiente.
+Tra gli scenari comuni di eventi di Archiviazione BLOB sono inclusi l'elaborazione di immagini o video, l'indicizzazione delle ricerche o qualsiasi flusso di lavoro orientato ai file.  I caricamenti asincroni di file sono operazioni perfette per gli eventi.  Quando le modifiche non sono frequenti, ma lo scenario richiede tempi di risposta immediata, un'architettura basata su eventi può essere particolarmente efficiente.
 
 La disponibilità degli eventi di archiviazione è legata alla [disponibilità](../../event-grid/overview.md) di Griglia di eventi. Gli eventi di archiviazione saranno disponibili nelle aree geografiche in cui si renderà disponibile Griglia di eventi. Per un rapido esempio, vedere [Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato - Interfaccia della riga di comando](storage-blob-event-quickstart.md) o [Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato - PowerShell](storage-blob-event-quickstart-powershell.md). 
 
@@ -92,7 +92,7 @@ Le sottoscrizioni di eventi BLOB possono essere filtrate in base al tipo di even
 
 L'oggetto di eventi di archiviazione BLOB usa il formato:
 
-```json
+```
 /blobServices/default/containers/<containername>/blobs/<blobname>
 ```
 
@@ -100,19 +100,19 @@ Per trovare la corrispondenza di tutti gli eventi per un account di archiviazion
 
 Per trovare la corrispondenza di eventi da BLOB creati in un set di contenitori che condividono un prefisso, usare un filtro `subjectBeginsWith` come:
 
-```json
+```
 /blobServices/default/containers/containerprefix
 ```
 
 Per trovare la corrispondenza di eventi da BLOB creati in un contenitore specifico, usare un filtro `subjectBeginsWith` come:
 
-```json
+```
 /blobServices/default/containers/containername/
 ```
 
 Per trovare la corrispondenza di eventi da BLOB creati in un contenitore specifico che condividono un prefisso di nome di BLOB, usare un filtro `subjectBeginsWith` come:
 
-```json
+```
 /blobServices/default/containers/containername/blobs/blobprefix
 ```
 

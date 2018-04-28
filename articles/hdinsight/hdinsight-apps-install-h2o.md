@@ -12,15 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 8734daa5303aa76e9f8a074b5f709727cabb58b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9a03588b3327c3ab231f5c2cae17488f4d63bde7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Installare un'applicazione pubblicata - H2O Sparkling Water
 
@@ -45,7 +43,7 @@ H2O Sparkling Water offre:
 * [Supporto per H2O.ai](https://support.h2o.ai/)
 * [Base di codici open-source H2O.ai](https://github.com/h2oai/)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per installare questa app in un nuovo cluster HDInsight o in un cluster esistente, è necessario disporre della configurazione seguente:
 
@@ -86,7 +84,7 @@ Per istruzioni dettagliate sull'installazione di questa e delle altre applicazio
 
 7. Trovare il percorso contenente **milsongs-cls-train.csv.gz** e sostituire l'intero percorso con **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**.
 
-8. Trovare il percorso contenente **milsongs-cls-test.csv.gz** e sostituirlo con **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**.
+8. Trovare il percorso contenente **milsongs-cls-train.csv.gz** e sostituirlo con **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**.
 
 9. Per eseguire tutte le istruzioni all'interno delle celle del notebook, selezionare il pulsante **Run all** (Esegui tutto) sulla barra degli strumenti.
 

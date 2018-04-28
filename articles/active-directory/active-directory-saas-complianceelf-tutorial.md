@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/2/2017
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: f05c43e2d8f6e777ae128e90040d8d5c270c212b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 32cb676393558079baad9bb0fc26d2c4daaa3519
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Esercitazione: Integrazione di Azure Active Directory con Compliance ELF
 
@@ -101,7 +101,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Collegamento Configura accesso Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
+
     ![Finestra di dialogo Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_samlbase.png)
 
 3. Nella sezione **URL e dominio Compliance ELF** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
@@ -119,34 +119,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché non è reale, è necessario aggiornarlo con l'URL di accesso effettivo. Per ottenere il valore contattare il [team di supporto clienti di Compliance ELF](mailto:support@complianceelf.com).
 
-5. Fare clic sul pulsante **Salva** .
+5. Nella sezione **Certificato di firma SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_metadataurl.png)
+     
+6. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_general_400.png)
 
-6. Per generare l'URL dei **metadati**, seguire questa procedura:
-
-    a. Fare clic su **Registrazioni per l'app**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appregistrations.png)
-   
-    b. Fare clic su **Endpoint** per aprire la finestra di dialogo **Endpoint**.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpointicon.png)
-
-    c. Fare clic sul pulsante Copia per copiare l'URL del **DOCUMENTO METADATI FEDERAZIONE** e incollarlo nel Blocco note.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpoint.png)
-     
-    d. Passare ora alla pagina delle proprietà di **Compliance ELF**, copiare l'**ID applicazione** usando il pulsante **Copia** e incollarlo nel Blocco note.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appid.png)
-
-    e. Generare l'**URL dei metadati** usando il modello seguente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-7. Per configurare l'accesso Single Sign-On sul lato **Compliance ELF**, è necessario inviare l'**URL dei metadati** al [team di supporto di Compliance ELF](mailto:support@complianceelf.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
-
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+7. Per configurare l'accesso Single Sign-On sul lato **Compliance ELF**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di Compliance ELF](mailto:support@complianceelf.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 

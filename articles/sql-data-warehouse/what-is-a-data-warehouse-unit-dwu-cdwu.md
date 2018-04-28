@@ -1,27 +1,23 @@
 ---
-title: Cosa sono le unità Data Warehouse (DWU, DWU a elevato utilizzo di calcolo) in Azure SQL Data Warehouse? | Microsoft Docs
-description: Funzionalità relative alla scalabilità orizzontale delle prestazioni in Azure SQL Data Warehouse. Aumentare le prestazioni regolando DWU e DWU a elevato utilizzo di calcolo oppure sospendendo e riavviando le risorse di calcolo per ridurre i costi.
+title: Unità Data Warehouse (DWU, DWU a elevato utilizzo di calcolo) in Azure SQL Data Warehouse | Microsoft Docs
+description: Raccomandazioni per la scelta del numero ideale di unità Data Warehouse (DWU, DWU a elevato utilizzo di calcolo) per ottimizzare prezzo e prestazioni e per come modificarne il numero.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 03/15/2018
-ms.author: jrj;barbkess
-ms.openlocfilehash: f634bdde2c71f7563df11f686d7ce217311df81d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: a83a9f9332d81e02a83efc019ad56027316301ab
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unità Data Warehouse (DWU) e DWU a elevato utilizzo di calcolo (cDWU)
-Informazioni sulle unità Data Warehouse (DWU) e le DWU a elevato utilizzo di calcolo (cDWU) per Azure SQL Data Warehouse. Sono incluse raccomandazioni per la scelta del numero ideale di unità Data Warehouse e per come modificarne il numero. 
+Raccomandazioni per la scelta del numero ideale di unità Data Warehouse (DWU, DWU a elevato utilizzo di calcolo) per ottimizzare prezzo e prestazioni e per come modificarne il numero. 
 
 ## <a name="what-are-data-warehouse-units"></a>Cosa sono le unità Data Warehouse?
 In SQL Data Warehouse, le risorse di CPU, memoria e I/O vengono aggregate in unità di calcolo note come unità Data Warehouse (DWU). Un'unità DWU rappresenta una misura astratta e normalizzata delle risorse e delle prestazioni di calcolo. Modificando il livello di servizio si modifica il numero di DWU allocate al sistema, regolando di conseguenza le prestazioni e il costo del sistema. 
@@ -32,12 +28,33 @@ Le prestazioni per le unità Data Warehouse sono basate su queste metriche per i
 
 - A quale velocità una query di data warehousing standard può analizzare un numero elevato di righe e quindi eseguire un'aggregazione complessa? Questa è un'operazione con uso intensivo di I/O e CPU.
 - A quale velocità il data warehouse è in grado di inserire dati dai BLOB del servizio di archiviazione di Azure o da Azure Data Lake? Questa è un'operazione con uso intensivo di rete e CPU. 
-- A quale velocità il comando T-SQL [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) è in grado di copiare una tabella? Questa operazione comporta la lettura dei dati dall'archiviazione, la relativa distribuzione tra tutti i nodi dell'appliance e la riscrittura nella risorsa di archiviazione. È un'operazione con uso intensivo di CPU, I/O e rete.
+- A quale velocità il comando T-SQL [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) è in grado di copiare una tabella? Questa operazione comporta la lettura dei dati dall'archiviazione, la relativa distribuzione tra tutti i nodi dell'appliance e la riscrittura nella risorsa di archiviazione. È un'operazione con uso intensivo di CPU, I/O e rete.
 
 L'aumento delle DWU:
 - Modifica in modo lineare le prestazioni del sistema per le analisi, l'aggregazione e le istruzioni CTAS
 - Aumenta il numero di lettori e writer per operazioni di caricamento di PolyBase
 - Aumenta il numero massimo di query simultanee e slot di concorrenza.
+
+## <a name="service-level-objective"></a>Obiettivo del livello di servizio
+L'obiettivo del livello di servizio (SLO) è l'impostazione di scalabilità che determina il livello di costi e prestazioni del data warehouse. I livelli di servizio per la scalabilità del livello di prestazioni ottimizzato per il calcolo sono misurati in unità di calcolo data warehouse (DWU a elevato utilizzo di calcolo), ad esempio DW2000c. I livelli di servizio ottimizzati per l'elasticità sono misurati in DWU, ad esempio DW2000. 
+
+In T-SQL l'impostazione di SERVICE_OBJECTIVE determina il livello di servizio e il livello di prestazioni per data warehouse.
+
+```sql
+--Optimized for Elasticity
+CREATE DATABASE myElasticSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000'
+)
+;
+
+--Optimized for Compute
+CREATE DATABASE myComputeSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000c'
+)
+;
+```
 
 ## <a name="performance-tiers-and-data-warehouse-units"></a>Livelli di prestazioni e unità Data Warehouse
 
@@ -68,11 +85,11 @@ SQL Data Warehouse è un sistema con scalabilità orizzontale che supporta il pr
 
 > [!NOTE]
 >
-> Le prestazioni delle query aumentano con maggiore parallelizzazione solo se il lavoro può essere suddivise tra i nodi di calcolo. Se si riscontra che gli interventi di scalabilità non hanno effetti sulle prestazioni, potrebbe essere necessario ottimizzare la progettazione delle tabelle e/o le query. Per indicazioni sull'ottimizzazione delle query, fare riferimento agli articoli seguenti sulle [prestazioni](sql-data-warehouse-overview-manage-user-queries.md). 
+> Le prestazioni delle query aumentano con maggiore parallelizzazione solo se il lavoro può essere suddivise tra i nodi di calcolo. Se si riscontra che gli interventi di scalabilità non hanno effetti sulle prestazioni, potrebbe essere necessario ottimizzare la progettazione delle tabelle e/o le query. Per informazioni sull'ottimizzazione delle query, vedere [Gestire le query utente](sql-data-warehouse-overview-manage-user-queries.md). 
 
 ## <a name="permissions"></a>Autorizzazioni
 
-Per modificare le unità Data Warehouse sono necessarie le autorizzazioni descritte in [ALTER DATABASE][ALTER DATABASE]. 
+Per modificare le unità Data Warehouse sono necessarie le autorizzazioni descritte in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). 
 
 ## <a name="view-current-dwu-settings"></a>Visualizzare le impostazioni DWU correnti
 
@@ -103,11 +120,13 @@ Per modificare DWU o DWU a elevato utilizzo di calcolo:
 3. Fare clic su **Save**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
 
 ### <a name="powershell"></a>PowerShell
-Per modificare il numero di DWU o di DWU a elevato utilizzo di calcolo usare il cmdlet di PowerShell [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase]. L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW ospitato nel server MyServer.
+Per modificare il numero di DWU p DWU a elevato utilizzo di calcolo, usare il cmdlet PowerShell [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase). L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW ospitato nel server MyServer.
 
 ```Powershell
 Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
+
+Per altre informazioni, vedere i [cmdlet di PowerShell per SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 ### <a name="t-sql"></a>T-SQL
 Con T-SQL è possibile visualizzare le impostazioni correnti per DWU o DWU a elevato utilizzo di calcolo, modificare le impostazioni e controllare lo stato. 
@@ -115,7 +134,7 @@ Con T-SQL è possibile visualizzare le impostazioni correnti per DWU o DWU a ele
 Per modificare le unità DWU o DWU a elevato utilizzo di calcolo:
 
 1. Connettersi al database master associato al server di database SQL logico.
-2. Usare l'istruzione T-SQL [ALTER DATABASE][ALTER DATABASE]. L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW. 
+2. Usare l'istruzione T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW. 
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -125,7 +144,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 ### <a name="rest-apis"></a>API REST
 
-Per modificare le DWU, usare l'API REST [Create or Update Database][Create or Update Database]. L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW ospitato nel server MyServer. Il server appartiene al gruppo di risorse di Azure ResourceGroup1.
+Per modificare le DWU, usare l'API REST descritta in [Create or Update Database](/rest/api/sql/databases/createorupdate) (Creare o aggiornare il database). L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW ospitato nel server MyServer. Il server appartiene al gruppo di risorse di Azure ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -138,6 +157,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
+Per altri esempi di API REST, vedere [API REST per SQL Data Warehouse](sql-data-warehouse-manage-compute-rest-api.md).
 
 ## <a name="check-status-of-dwu-changes"></a>Controllare lo stato delle modifiche alle DWU
 
@@ -179,40 +199,7 @@ Quando si avvia un'operazione di ridimensionamento, il sistema termina prima di 
 - Per un'operazione di riduzione, i nodi non necessari vengono scollegati dall'archiviazione e vengono ricollegati i nodi rimanenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per comprendere più facilmente altri concetti importanti sulle prestazioni, vedere gli articoli seguenti:
-
-* [Gestione della concorrenza e del carico di lavoro][Workload and concurrency management]
-* [Panoramica delle tabelle][Table design overview]
-* [Distribuzione di tabelle][Table distribution]
-* [Indicizzazione di tabelle][Table indexing]
-* [Partizionamento di tabelle][Table partitioning]
-* [Statistiche delle tabelle][Table statistics]
-* [Procedure consigliate][Best practices]
-
-<!--Image reference-->
-
-<!--Article references-->
-
-[capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
+Per altre informazioni sulla gestione delle prestazioni, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md) e [Limiti di memoria e concorrenza](memory-and-concurrency-limits.md).
 
 
-[Check database state with T-SQL]: ./sql-data-warehouse-manage-compute-tsql.md#check-database-state-and-operation-progress
-[Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
-[Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
 
-[Workload and concurrency management]: ./resource-classes-for-workload-management.md
-[Table design overview]: ./sql-data-warehouse-tables-overview.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Table indexing]: ./sql-data-warehouse-tables-index.md
-[Table partitioning]: ./sql-data-warehouse-tables-partition.md
-[Table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Best practices]: ./sql-data-warehouse-best-practices.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-
-[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
-
-<!--MSDN references-->
-[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
-
-<!--Other Web references-->
-[Azure portal]: http://portal.azure.com/

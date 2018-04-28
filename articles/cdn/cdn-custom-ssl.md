@@ -1,6 +1,6 @@
 ---
-title: Configurare HTTPS in un dominio personalizzato della rete per la distribuzione di contenuti di Azure | Microsoft Docs
-description: Informazioni su come abilitare o disabilitare HTTPS nell'endpoint della rete CDN di Azure con un dominio personalizzato.
+title: Esercitazione - Configurare HTTPS in un dominio personalizzato della rete CDN di Azure | Microsoft Docs
+description: In questa esercitazione viene illustrato come abilitare e disabilitare HTTPS nel dominio personalizzato dell'endpoint della rete CDN di Azure.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -11,22 +11,23 @@ ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/22/2018
-ms.author: rli; v-deasim
-ms.openlocfilehash: 554ae4c19d1a3d35075ad174549a62a20329e5fa
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.topic: tutorial
+ms.date: 04/12/2018
+ms.author: rli
+ms.custom: mvc
+ms.openlocfilehash: a8f2da5a68552c35a55a7bbb764afc7b36af6962
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>Configurare HTTPS in un dominio personalizzato della rete per la distribuzione di contenuti di Azure
+# <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Esercitazione: Configurare HTTPS in un dominio personalizzato della rete CDN di Azure
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Microsoft supporta il protocollo HTTPS per i domini personalizzati nella rete per la distribuzione di contenuti (CDN) di Azure. Il supporto di HTTPS per i domini personalizzati consente di distribuire contenuto protetto tramite SSL usando il nome del proprio dominio per una maggiore sicurezza dei dati in transito. Il flusso di lavoro per abilitare il protocollo HTTPS per il dominio personalizzato è più semplice grazie all'abilitazione con un unico clic e alla gestione completa dei certificati, il tutto senza costi aggiuntivi.
+Questa esercitazione illustra come abilitare il protocollo HTTP per un dominio personalizzato associato a un endpoint della rete CDN (Content Delivery Network) di Azure. Usando il protocollo HTTPS nel dominio personalizzato (ad esempio, https:\//www.contoso.com), si assicura che i dati sensibili vengano recapitati in modo sicuro tramite crittografia SSL in caso di invio su Internet. HTTPS offre attendibilità, autenticazione e protezione delle applicazioni Web da attacchi. Il flusso di lavoro per abilitare il protocollo HTTPS è più semplice grazie all'abilitazione con un unico clic e alla gestione completa dei certificati, il tutto senza costi aggiuntivi.
 
-È fondamentale garantire la riservatezza e l'integrità dei dati sensibili delle applicazioni Web in transito. Il protocollo HTTPS garantisce la crittografia dei dati sensibili inviati su Internet. Offre attendibilità, autenticazione e protezione delle applicazioni Web da attacchi. Per impostazione predefinita, la rete CDN di Azure supporta il protocollo HTTPS per gli endpoint CDN. Se si crea un endpoint CDN dalla rete CDN di Azure, ad esempio https:\///contoso.azureedge.net, il protocollo HTTPS è abilitato per impostazione predefinita. In più, il supporto di HTTPS per i domini personalizzati offre ora la possibilità di abilitare la distribuzione sicura anche per un dominio personalizzato, ad esempio https:\//www.contoso.com. 
+Per impostazione predefinita, la rete CDN di Azure supporta il protocollo HTTPS in un nome host di endpoint della rete CDN. Se si crea un endpoint CDN, ad esempio https:\//contoso.azureedge.net, il protocollo HTTPS è abilitato per impostazione predefinita.  
 
 Alcuni attributi chiave della funzionalità HTTPS sono:
 
@@ -36,48 +37,66 @@ Alcuni attributi chiave della funzionalità HTTPS sono:
 
 - Gestione completa dei certificati: tutta la fase di approvvigionamento e gestione di certificati viene gestita automaticamente. Il provisioning e il rinnovo dei certificati vengono eseguiti automaticamente prima della scadenza. Ciò elimina il rischio di interruzione del servizio a causa della scadenza di un certificato.
 
->[!NOTE] 
->Prima di abilitare il supporto di HTTPS, è necessario avere già definito un [dominio personalizzato della rete CDN di Azure](./cdn-map-content-to-custom-domain.md).
+In questa esercitazione si apprenderà come:
+> [!div class="checklist"]
+> - Abilitare il protocollo HTTPS nel dominio personalizzato
+> - Convalidare il dominio
+> - Disabilitare il protocollo HTTPS nel dominio personalizzato
 
-## <a name="enabling-https"></a>Abilitazione di HTTPS
+## <a name="prerequisites"></a>prerequisiti
+
+Prima di poter completare i passaggi di questa esercitazione, è necessario creare un profilo della rete CDN e almeno un endpoint della rete CDN. Per altre informazioni, vedere [Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).
+
+È inoltre necessario associare un dominio personalizzato della rete CDN di Azure nell'endpoint della rete CDN. Per altre informazioni, vedere [Esercitazione: Aggiungere un dominio personalizzato all'endpoint della rete CDN di Azure](cdn-map-content-to-custom-domain.md)
+
+## <a name="enable-the-https-feature"></a>Abilitare la funzionalità HTTPS
 
 Per abilitare il protocollo HTTPS in un dominio personalizzato, seguire questa procedura:
 
-### <a name="step-1-enable-the-feature"></a>Passaggio 1: Abilitare la funzionalità 
-
 1. Nel [portale di Azure](https://portal.azure.com) passare al profilo della **rete CDN Standard di Azure con tecnologia Verizon** o della **rete CDN Premium di Azure con tecnologia Verizon**.
 
-2. Nell'elenco di endpoint fare clic sull'endpoint contenente il dominio personalizzato.
+2. Nell'elenco di endpoint della rete CDN selezionare l'endpoint contenente il dominio personalizzato.
 
-3. Selezionare il dominio personalizzato per il quale si vuole abilitare la funzionalità HTTPS.
+    ![Elenco di endpoint](./media/cdn-custom-ssl/cdn-select-custom-domain-endpoint.png)
+
+    Viene visualizzata la pagina **Endpoint**.
+
+3. Nell'elenco di domini personalizzati selezionare il dominio personalizzato per cui si vuole abilitare il protocollo HTTPS.
 
     ![Elenco dei domini personalizzati](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
-4. Fare clic su **Sì** per abilitare HTTPS e quindi su **Applica**.
+    Viene visualizzata la pagina **Dominio personalizzato**.
+
+4. Selezionare **Sì** per abilitare il protocollo HTTPS, quindi selezionare **Applica**.
 
     ![Stato HTTPS del dominio personalizzato](./media/cdn-custom-ssl/cdn-enable-custom-ssl.png)
 
 
-### <a name="step-2-validate-domain"></a>Passaggio 2: Convalidare il dominio
+## <a name="validate-the-domain"></a>Convalidare il dominio
+
+Se è già in uso un dominio personalizzato mappato all'endpoint personalizzato con un record CNAME record, passare a  
+[Il dominio personalizzato è mappato all'endpoint della rete CDN](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record). In caso contrario, se la voce del record CNAME per l'endpoint non esiste più o se contiene il sottodominio cdnverify, passare a [Il dominio personalizzato non è mappato all'endpoint della rete CDN](#custom-domain-is-not-mapped-to-your-cdn-endpoint).
+
+### <a name="custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record"></a>Il dominio personalizzato è mappato all'endpoint della rete CDN da un record CNAME
+
+Quando viene aggiunto un dominio personalizzato all'endpoint, nella tabella DNS del registrar viene creato un record CNAME per eseguire il mapping del nome host dell'endpoint della rete CDN. Se il record CNAME esiste già e non contiene il sottodominio cdnverify, l'autorità di certificazione (CA) DigiCert lo usa per convalidare la proprietà del dominio personalizzato. 
+
+Il record CNAME deve avere il formato seguente, dove *Nome* è il nome del dominio personalizzato e *Valore* è il nome host dell'endpoint rete CDN:
+
+| NOME            | type  | Valore                 |
+|-----------------|-------|-----------------------|
+| www.contoso.com | CNAME | contoso.azureedge.net |
+
+Per altre informazioni sui record CNAME, vedere [Create the CNAME DNS record](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records) (Creare un record DNS CNAME).
+
+Se il record CNAME è nel formato corretto, DigiCert verifica automaticamente il nome di dominio personalizzato e lo aggiunge al certificato SAN. DigitCert non invia alcun messaggio di verifica e non sarà necessario approvare la richiesta. Il certificato è valido per un anno e verrà rinnovato automaticamente prima della scadenza. Passare ad [Attendere la propagazione](#wait-for-propagation). 
+
+La convalida automatica richiede in genere qualche minuto. Se il dominio non viene convalidato entro un'ora, aprire un ticket di supporto.
 
 >[!NOTE]
 >Se si ha un record di autorizzazione dell'autorità di certificazione (CAA, Certificate Authority Authorization) con il provider DNS, il record deve includere DigiCert come CA valida. Un record CAA consente ai proprietari di domini di indicare ai propri provider DNS le CA autorizzate a emettere certificati per i loro domini. Se una CA riceve l'ordine di un certificato per un dominio dotato di record CAA ma la CA non è citata come autorità emittente autorizzata in tale record, non deve emettere il certificato per il dominio o il sottodominio. Per informazioni sulla gestione dei record CAA, vedere l'argomento relativo alla [gestione dei record CAA](https://support.dnsimple.com/articles/manage-caa-record/). Per informazioni su uno strumento per i record CAA, vedere [Strumento di supporto per record CAA](https://sslmate.com/caa/).
 
-#### <a name="custom-domain-is-mapped-to-cdn-endpoint"></a>Viene eseguito il mapping del dominio personalizzato all'endpoint della rete CDN
-
-Quando viene aggiunto un dominio personalizzato all'endpoint, nella tabella DNS del registrar è creato un record CNAME per eseguire il mapping del nome host dell'endpoint della rete CDN. Se il record CNAME esiste già e non contiene il sottodominio cdnverify, l'autorità di certificazione (CA) DigiCert lo usa per convalidare la proprietà del dominio personalizzato. 
-
-Il record CNAME deve avere il formato seguente, dove *Nome* è il nome del dominio personalizzato e *Valore* è il nome host dell'endpoint rete CDN:
-
-| Nome            | Tipo  | Valore                 |
-|-----------------|-------|-----------------------|
-| www.contoso.com | CNAME | contoso.azureedge.net |
-
-Per altre informazioni sui record CNAME, vedere [Create the CNAME DNS record](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#step-2-create-the-cname-dns-records) (Creare un record DNS CNAME).
-
-Se il record CNAME è nel formato corretto, DigiCert verifica automaticamente il nome di dominio personalizzato e lo aggiunge al certificato SAN. DigitCert non invia alcun messaggio di verifica e non sarà necessario approvare la richiesta. Il certificato è valido per un anno e verrà rinnovato automaticamente prima della scadenza. Procedere con il [Passaggio 3: Attendere la propagazione](#step-3-wait-for-propagation). 
-
-#### <a name="cname-record-is-not-mapped-to-cdn-endpoint"></a>Il mapping del record CNAME all'endpoint rete CDN non è eseguito
+### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Il dominio personalizzato non è mappato all'endpoint della rete CDN
 
 Se la voce di record CNAME per l'endpoint non esiste più o contiene il sottodominio cdnverify, seguire le istruzioni riportate in questo passaggio.
 
@@ -109,7 +128,7 @@ Seguire le istruzioni nel modulo. Sono disponibili due opzioni di verifica:
 
 Dopo l'approvazione, DigiCert aggiungerà il nome del dominio personalizzato al certificato SAN. Il certificato è valido per un anno e verrà rinnovato automaticamente prima della scadenza.
 
-### <a name="step-3-wait-for-propagation"></a>Passaggio 3: Attendere la propagazione
+## <a name="wait-for-propagation"></a>Attendere la propagazione
 
 Dopo la convalida del nome di dominio, per l'attivazione della funzionalità HTTPS per il dominio personalizzato possono essere necessarie 6-8 ore. Al termine del processo, lo stato HTTPS personalizzato nel portale di Azure viene impostato su **Abilitato** e i quattro passaggi nella finestra di dialogo del dominio personalizzato sono contrassegnati come completati. Il dominio personalizzato è ora pronto per l'uso di HTTPS.
 
@@ -124,7 +143,7 @@ La tabella seguente illustra l'avanzamento dell'operazione per l'abilitazione di
 | 1 Invio della richiesta | Invio della richiesta |
 | | La richiesta HTTPS è in fase di invio. |
 | | La richiesta HTTPS è stata inviata. |
-| 2 Convalida del dominio | È stato inviato un messaggio di posta elettronica per chiedere la convalida della proprietà del dominio. La richiesta di convalida è in attesa di conferma. ** |
+| 2 Convalida del dominio | Il dominio viene convalidato automaticamente se CNAME è mappato all'endpoint della rete CDN. In caso contrario, una richiesta di verifica verrà inviata all'indirizzo di posta elettronica elencato nel record di registrazione del dominio (registrante WHOIS). Verificare il dominio non appena possibile. |
 | | La proprietà del dominio è stata convalidata. |
 | | La richiesta di convalida della proprietà del dominio è scaduta (probabilmente perché il cliente non ha risposto entro 6 giorni). HTTPS non verrà abilitato nel dominio. * |
 | | La richiesta di convalida della proprietà del dominio è stata rifiutata dal cliente. HTTPS non verrà abilitato nel dominio. * |
@@ -135,19 +154,17 @@ La tabella seguente illustra l'avanzamento dell'operazione per l'abilitazione di
 
 \* Questo messaggio viene visualizzato solo se si è verificato un errore. 
 
-\** Questo messaggio non viene visualizzato se si dispone di una voce CNAME per il dominio personalizzato che punta direttamente al nome host dell'endpoint rete CDN.
-
 Se si verifica un errore prima dell'invio della richiesta, viene visualizzato il messaggio di errore seguente:
 
 <code>
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
 </code>
 
-## <a name="disabling-https"></a>Disabilitazione di HTTPS
+## <a name="clean-up-resources---disable-https"></a>Pulire le risorse - Disabilitare il protocollo HTTPS
 
-Dopo aver abilitato HTTPS in un dominio personalizzato, è possibile successivamente disabilitarlo. Per disabilitare HTTPS, seguire questa procedura.
+Nei passaggi precedenti è stato abilitato il protocollo HTTPS nel dominio personalizzato. Se non si vuole più usare il dominio personalizzato con HTTPS, è possibile disabilitare il protocollo HTTPS seguendo questa procedura:
 
-### <a name="step-1-disable-the-feature"></a>Passaggio 1: Disabilitare la funzionalità 
+### <a name="disable-the-https-feature"></a>Disabilitare la funzionalità HTTPS 
 
 1. Nel [portale di Azure](https://portal.azure.com) passare al profilo della **rete CDN Standard di Azure con tecnologia Verizon** o della **rete CDN Premium di Azure con tecnologia Verizon**.
 
@@ -161,13 +178,13 @@ Dopo aver abilitato HTTPS in un dominio personalizzato, è possibile successivam
 
     ![Finestra di dialogo HTTPS personalizzato](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
 
-### <a name="step-2-wait-for-propagation"></a>Passaggio 2: Attendere la propagazione
+### <a name="wait-for-propagation"></a>Attendere la propagazione
 
 Per rendere effettiva la disabilitazione della funzionalità HTTPS per il dominio personalizzato possono essere necessarie 6-8 ore. Al termine del processo, lo stato HTTPS personalizzato nel portale di Azure viene impostato su **Disabilitato** e i tre passaggi nella finestra di dialogo del dominio personalizzato sono contrassegnati come completati. Il dominio personalizzato non può più usare HTTPS.
 
 ![Finestra di dialogo per la disabilitazione di HTTPS](./media/cdn-custom-ssl/cdn-disable-custom-ssl-complete.png)
 
-### <a name="operation-progress"></a>Avanzamento dell'operazione
+#### <a name="operation-progress"></a>Avanzamento dell'operazione
 
 La tabella seguente illustra l'avanzamento dell'operazione per la disabilitazione di HTTPS. Al termine, i tre passaggi dell'operazione vengono visualizzati nella finestra di dialogo del dominio personalizzato. All'attivazione di ogni passaggio, sotto di esso vengono visualizzati dettagli aggiuntivi. Al completamento di un passaggio, accanto viene visualizzato un segno di spunta verde. 
 
@@ -189,7 +206,7 @@ La tabella seguente illustra l'avanzamento dell'operazione per la disabilitazion
 
 3. *Cosa accade se non si riceve il messaggio di verifica del dominio da DigiCert?*
 
-    Se non si riceve un messaggio di posta elettronica entro 24 ore, contattare il supporto tecnico Microsoft. Se si dispone di una voce CNAME per il dominio personalizzato che punta direttamente al nome host dell'endpoint (e non si usa il nome del sottodominio cdnverify), non viene visualizzato alcun messaggio di verifica del dominio. La convalida viene eseguita automaticamente.
+    Se si dispone di una voce CNAME per il dominio personalizzato che punta direttamente al nome host dell'endpoint (e non si usa il nome del sottodominio cdnverify), non viene visualizzato alcun messaggio di verifica del dominio. La convalida viene eseguita automaticamente. In caso contrario, se non è disponibile alcuna voce CNAME e non è stato ricevuto alcun messaggio di posta elettronica entro 24 ore, contattare il supporto tecnico Microsoft.
 
 4. *L'uso di un certificato SAN è meno sicuro rispetto a un certificato dedicato?*
     
@@ -206,6 +223,15 @@ La tabella seguente illustra l'avanzamento dell'operazione per la disabilitazion
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come configurare un [dominio personalizzato nell'endpoint della rete CDN di Azure](./cdn-map-content-to-custom-domain.md)
+Contenuto dell'esercitazione:
 
+> [!div class="checklist"]
+> - Abilitazione del protocollo HTTPS nel dominio personalizzato
+> - Convalida del dominio
+> - Disabilitazione del protocollo HTTPS nel dominio personalizzato
+
+Passare all'esercitazione successiva per informazioni su come configurare la memorizzazione nella cache nell'endpoint della rete CDN.
+
+> [!div class="nextstepaction"]
+> [Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole di memorizzazione nella cache](cdn-caching-rules.md)
 

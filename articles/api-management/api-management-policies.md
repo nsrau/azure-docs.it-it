@@ -2,10 +2,10 @@
 title: Criteri di Gestione API di Azure | Documentazione Microsoft
 description: Informazioni sui criteri disponibili per l'uso in Gestione API di Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: cb0304cae1b92578eb3c9230ae9faeecdf13d750
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 7304ade9c47034b6cb76eb87126f09fb5af65c8b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="api-management-policies"></a>Criteri in Gestione API
 Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
@@ -47,7 +47,7 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
     -   [Imposta variabile](api-management-advanced-policies.md#set-variable): rende persistente un valore in una variabile di contesto denominata e consente di accedervi in un momento successivo.  
     -   [Imposta metodo di richiesta](api-management-advanced-policies.md#SetRequestMethod): consente di modificare il metodo HTTP per una richiesta.  
     -   [Imposta codice di stato](api-management-advanced-policies.md#SetStatus): modifica il codice di stato HTTP per il valore specificato.  
-    -   [Traccia](api-management-advanced-policies.md#Trace): aggiunge una stringa nell'output di [Controllo API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/).  
+    -   [Traccia](api-management-advanced-policies.md#Trace): aggiunge una stringa nell'output di [Controllo API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/).  
     -   [Attendi](api-management-advanced-policies.md#Wait): attende il completamento dei criteri inclusi per l'[invio della richiesta](api-management-advanced-policies.md#SendRequest), il [recupero del valore dalla cache](api-management-caching-policies.md#GetFromCacheByKey) o il [flusso di controllo](api-management-advanced-policies.md#choose) prima di procedere.  
 -   [Criteri di autenticazione](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [authentication-basic](api-management-authentication-policies.md#Basic) : consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.  

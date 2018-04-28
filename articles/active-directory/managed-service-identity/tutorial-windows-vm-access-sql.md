@@ -1,8 +1,8 @@
 ---
-title: "Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere a SQL di Azure"
-description: "Esercitazione che illustra come usare un'identità del servizio gestita per una macchina virtuale Windows per accedere a SQL di Azure."
+title: Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere a SQL di Azure
+description: Esercitazione che illustra come usare un'identità del servizio gestita per una macchina virtuale Windows per accedere a SQL di Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: bryanla
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 863054ea8c69206d4068a35f09ec946aec67ea1f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: aaec2fe989c4b0ae1867e629f6b46ab29297cb41
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere a SQL di Azure
 
@@ -55,17 +55,13 @@ Per questa esercitazione si creerà una nuova macchina virtuale Windows,  ma è 
 
 ## <a name="enable-msi-on-your-vm"></a>Abilitare identità del servizio gestito nella macchina virtuale 
 
-Un'Identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. L'abilitazione dell'Identità del servizio gestito indica ad Azure di creare un'identità gestita per la macchina virtuale. A livello sottostante, quando si abilita Identità del servizio gestito, si eseguono due operazioni, ovvero si installa l'estensione della macchina virtuale per l'Identità del servizio gestito nella macchina virtuale e si abilita l'Identità del servizio gestito in Azure Resource Manager.
+Un'Identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. L'abilitazione dell'Identità del servizio gestito indica ad Azure di creare un'identità gestita per la macchina virtuale. L'abilitazione dell'identità del servizio gestito comporta due operazioni: la registrazione della macchina virtuale con Azure Active Directory per creare la relativa identità gestita e la configurazione dell'identità sulla macchina virtuale.
 
 1.  Selezionare la **macchina virtuale** in cui si vuole abilitare identità del servizio gestito.  
 2.  Nella barra di spostamento a sinistra fare clic su **Configurazione**. 
 3.  Viene visualizzato **Managed Service Identity** (identità del servizio gestito). Per registrare e abilitare identità del servizio gestita, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No. 
 4.  Assicurarsi di fare clic su **Salva** per salvare la configurazione.  
     ![Testo immagine alt](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Per verificare le estensioni installate nella macchina virtuale, fare clic su **Estensioni**. Se identità del servizio gestito è abilitata, nell'elenco sarà inclusa la voce **ManagedIdentityExtensionforWindows**.
-
-    ![Testo immagine alt](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Concedere l'accesso della macchina virtuale a un database in un server SQL di Azure
 
@@ -100,7 +96,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Successivamente, aggiungere l'identità del servizio gestito della macchina virtuale al gruppo.  È necessario l'**ObjectId** dell'identità del servizio gestito, che è possibile recuperare usando Azure PowerShell.  Scaricare innanzitutto [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Accedere quindi usando `Login-AzureRmAccount` ed eseguire i comandi seguenti per:
+Successivamente, aggiungere l'identità del servizio gestito della macchina virtuale al gruppo.  È necessario l'**ObjectId** dell'identità del servizio gestito, che è possibile recuperare usando Azure PowerShell.  Scaricare innanzitutto [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Accedere quindi usando `Connect-AzureRmAccount` ed eseguire i comandi seguenti per:
 - Verificare che il contesto della sessione sia impostato sulla sottoscrizione di Azure desiderata, se si dispone di più sessioni.
 - Elencare le risorse disponibili nella sottoscrizione di Azure, verificare i nomi del gruppo di risorse corretto e della macchina virtuale.
 - Ottenere le proprietà dell'identità del servizio gestito usando i valori appropriati per `<RESOURCE-GROUP>` e `<VM-NAME>`.
@@ -182,7 +178,7 @@ Il codice in esecuzione nella macchina virtuale può ora ottenere un token dall'
 
 SQL Azure supporta in modo nativo l'autenticazione di Azure AD, in modo da poter accettare direttamente i token di accesso ottenuti usando l'identità del servizio gestito.  Usare il metodo di creazione di una connessione a SQL del **token di accesso**.  Questo fa parte dell'integrazione di SQL di Azure con Azure AD e non prevede l'inserimento di credenziali nella stringa di connessione.
 
-Di seguito è riportato un esempio di codice .Net di apertura di una connessione a SQL tramite un token di accesso.  Questo codice deve essere eseguito nella macchina virtuale per poter accedere all'endpoint dell'identità del servizio gestito per la macchina virtuale.  Per usare il metodo del token di accesso è necessario **.Net Framework 4.6** o una versione successiva.  Sostituire i valori di AZURE-SQL-SERVERNAME e DATABASE di conseguenza.  Si noti che l'ID della risorsa per SQL di Azure è "https://database.windows.net/".
+Di seguito è riportato un esempio di codice .Net di apertura di una connessione a SQL tramite un token di accesso.  Questo codice deve essere eseguito nella macchina virtuale per poter accedere all'endpoint dell'identità del servizio gestito per la macchina virtuale.  Per usare il metodo del token di accesso è necessario **.Net Framework 4.6** o una versione successiva.  Sostituire i valori di AZURE-SQL-SERVERNAME e DATABASE di conseguenza.  Si noti che l'ID risorsa per SQL Azure è "https://database.windows.net/".
 
 ```csharp
 using System.Net;
@@ -193,7 +189,7 @@ using System.Web.Script.Serialization;
 //
 // Get an access token for SQL.
 //
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:50342/oauth2/token?resource=https://database.windows.net/");
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://database.windows.net/");
 request.Headers["Metadata"] = "true";
 request.Method = "GET";
 string accessToken = null;
@@ -234,7 +230,7 @@ Un altro modo rapido per verificare le impostazioni end-to-end senza dover scriv
 4.  Con `Invoke-WebRequest` di PowerShell, eseguire una richiesta all'endpoint locale di identità del servizio gestito per ottenere un token di accesso per Azure SQL.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://database.windows.net/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F -Method GET -Headers @{Metadata="true"}
     ```
     
     Convertire la risposta da un oggetto JSON a un oggetto di PowerShell. 

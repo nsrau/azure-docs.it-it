@@ -1,11 +1,11 @@
 ---
-title: Guida introduttiva a Storage Explorer (anteprima) | Microsoft Docs
-description: Gestire le risorsa di archiviazione di Azure con Storage Explorer (anteprima)
+title: Introduzione a Storage Explorer | Microsoft Docs
+description: Gestire le risorse di Archiviazione di Azure con Storage Explorer
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
@@ -14,33 +14,60 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e8ebbd1a0ac2153913a2e5f506505ffb481b3822
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="get-started-with-storage-explorer-preview"></a>Guida introduttiva a Storage Explorer (anteprima)
+# <a name="get-started-with-storage-explorer"></a>Introduzione a Storage Explorer
 ## <a name="overview"></a>Panoramica
-Azure Storage Explorer (anteprima) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux. Questo articolo illustra diversi modi per connettersi agli account di archiviazione di Azure e per gestirli.
+Azure Storage Explorer è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux. Questo articolo illustra diversi modi per connettersi agli account di archiviazione di Azure e per gestirli.
 
-![Microsoft Azure Storage Explorer (anteprima)][0]
+![Microsoft Azure Storage Explorer][0]
 
 ## <a name="prerequisites"></a>prerequisiti
-* [Scaricare e installare Storage Explorer (anteprima)](http://www.storageexplorer.com)
 
-> [!NOTE]
-> Per distribuzioni Linux diverse da Ubuntu 16.04, è necessario installare manualmente alcune dipendenze. In generale sono necessari i pacchetti seguenti:
-> * libgconf-2-4
-> * libsecret
-> * GCC aggiornato
->
-> A seconda del tipo di distribuzione, potrebbe essere necessario installare altri pacchetti. Le [note sulla versione](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) di Storage Explorer contengono passaggi specifici per alcune distribuzioni.
->
->
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+Azure Storage Explorer è supportato nelle versioni seguenti di Windows:
+
+* Windows 10 (scelta consigliata)
+* Windows 8
+* Windows 7
+
+[Scaricare e installare Storage Explorer](http://www.storageexplorer.com)
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+Azure Storage Explorer è supportato nelle versioni seguenti di macOS:
+
+* macOS 10.12 "Sierra" e versioni successive
+
+[Scaricare e installare Storage Explorer](http://www.storageexplorer.com)
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+Azure Storage Explorer è supportato nelle distribuzioni di Linux seguenti:
+
+* Ubuntu 16.04 x64 (scelta consigliata)
+* Ubuntu 17.10 x64
+* Ubuntu 14.04 x64
+
+Azure Storage Explorer potrebbe funzionare in altre distribuzioni, ma solo quelle elencate sopra sono ufficialmente supportate.
+
+È necessario disporre anche delle dipendenze/librerie seguenti installate per eseguire Azure Storage Explorer in Linux:
+
+* [.NET Core 2.x](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* libsecret (Nota: libsecret 1.so.0 deve essere disponibile nel computer. Se è disponibile una diversa versione di libsecret installata, è possibile provare un collegamento flessibile del file con estensione so a libsecret-1.so.0)
+* libgconf-2-4
+* GCC aggiornato
+
+Le [note sulla versione](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) di Azure Storage Explorer contengono passaggi specifici per alcune distribuzioni.
+
+[Scaricare e installare Storage Explorer](http://www.storageexplorer.com)
+
+---
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Connettersi a un account o a un servizio di archiviazione
-Storage Explorer (anteprima) offre numerosi modi per connettersi agli account di archiviazione. Ad esempio, è possibile:
+Storage Explorer offre numerosi modi per connettersi agli account di archiviazione. Ad esempio, è possibile:
 * Connettersi agli account di archiviazione associati alle sottoscrizioni di Azure.
 * Connettersi agli account e ai servizi di archiviazione condivisi da altre sottoscrizioni di Azure.
 * Connettersi alla risorsa di archiviazione locale e gestirla usando l'emulatore di archiviazione di Azure. 
@@ -60,7 +87,7 @@ Inoltre, è possibile usare gli account di archiviazione in Azure globale e nazi
 >
 >
 
-1. In Storage Explorer (anteprima) selezionare **Manage Accounts** (Gestisci account) per andare al **pannello Account Management** (Gestione account).
+1. In Storage Explorer selezionare **Manage Accounts** (Gestisci account) per andare al **pannello Account Management** (Gestione account).
 
     ![Gestire account][1]
 
@@ -79,7 +106,7 @@ Inoltre, è possibile usare gli account di archiviazione in Azure globale e nazi
     ![Sottoscrizioni di Azure selezionate][4]
 
 ## <a name="work-with-local-development-storage"></a>Utilizzare la risorsa di archiviazione locale
-Storage Explorer (anteprima) consente di lavorare con la risorsa di archiviazione locale usando l'emulatore di archiviazione di Azure che consente di simulare l'uso di Archiviazione di Azure senza necessariamente avere un account di archiviazione distribuito in Azure, perché l'account di archiviazione viene emulato dall'emulatore di archiviazione di Azure.
+Storage Explorer consente di lavorare con la risorsa di archiviazione locale usando l'emulatore di archiviazione di Azure che consente di simulare l'uso di Archiviazione di Azure senza necessariamente avere un account di archiviazione distribuito in Azure, perché l'account di archiviazione viene emulato dall'emulatore di archiviazione di Azure.
 
 > [!NOTE]
 > Emulatore di archiviazione di Azure è attualmente supportato solo per Windows.
@@ -91,7 +118,7 @@ Storage Explorer (anteprima) consente di lavorare con la risorsa di archiviazion
 >
 >
 
-1. Nel riquadro di sinistra di Storage Explorer (anteprima) espandere il nodo **(Local and Attached) (Locale e collegato)** > **Storage Accounts (Account di archiviazione)** > **Development (Sviluppo)** > **Blob Containers (Contenitori BLOB)**.
+1. Nel riquadro di sinistra di Storage Explorer espandere il nodo **(Local and Attached) (Locale e collegato)** > **Storage Accounts (Account di archiviazione)** > **Development (Sviluppo)** > **Blob Containers (Contenitori BLOB)**.
 
     ![Nodo di sviluppo locale][5]
 
@@ -102,12 +129,9 @@ Storage Explorer (anteprima) consente di lavorare con la risorsa di archiviazion
 3. Dopo aver installato l'emulatore è possibile creare e usare BLOB, code e tabelle locali. Per informazioni su come usare i vari tipi di account di archiviazione, fare riferimento a una delle guide seguenti:
 
     * [Gestire le risorse dell'archivio BLOB di Azure](vs-azure-tools-storage-explorer-blobs.md)
-    * Manage Azure file share storage resources (Gestire risorse di condivisione file di Azure): *presto disponibile*
-    * Manage Azure queue storage resources (Gestire risorse di archiviazione code di Azure): *presto disponibile*
-    * Manage Azure table storage resources (Gestire risorse di archiviazione tabelle di Azure): *presto disponibile*
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>Collegare o scollegare un account di archiviazione esterno
-Storage Explorer (anteprima) consente di collegarsi agli account di archiviazione esterni per poter condividere facilmente gli account di archiviazione. Questa sezione illustra come collegarsi (e scollegarsi) agli account di archiviazione esterni.
+Storage Explorer consente di collegarsi agli account di archiviazione esterni per poter condividere facilmente gli account di archiviazione. Questa sezione illustra come collegarsi (e scollegarsi) agli account di archiviazione esterni.
 
 ### <a name="get-the-storage-account-credentials"></a>Ottenere le credenziali dell'account di archiviazione
 Per condividere un account di archiviazione esterno, il proprietario di tale account deve prima ottenere le credenziali, ovvero il nome e la chiave dell'account, e quindi condividere tali informazioni con la persona che vuole collegarsi a tale account. Per ottenere le credenziali dell'account di archiviazione nel portale di Azure, è possibile seguire questa procedura:
@@ -129,9 +153,9 @@ Per condividere un account di archiviazione esterno, il proprietario di tale acc
     ![Chiavi di accesso][8]
 
 ### <a name="attach-to-an-external-storage-account"></a>Collegarsi a un account di archiviazione esterno
-Per il collegamento a un account di archiviazione esterno è necessario avere la chiave e il nome dell'account. La sezione "Ottenere le credenziali dell'account di archiviazione" spiega come ottenere questi valori dal portale di Azure. Nel portale, la chiave dell'account è tuttavia denominata **key1**. Quindi, quando Storage Explorer (anteprima) chiede la chiave dell'account, immettere il valore di **key1**.
+Per il collegamento a un account di archiviazione esterno è necessario avere la chiave e il nome dell'account. La sezione "Ottenere le credenziali dell'account di archiviazione" spiega come ottenere questi valori dal portale di Azure. Nel portale, la chiave dell'account è tuttavia denominata **key1**. Quindi, quando Storage Explorer chiede la chiave dell'account, immettere il valore di **key1**.
 
-1. In Storage Explorer (anteprima) aprire la **finestra di dialogo di connessione**.
+1. In Storage Explorer aprire la **finestra di dialogo di connessione**.
 
     ![Opzione Connect to Azure storage (Connetti ad Archiviazione di Azure)][9]
 
@@ -172,10 +196,10 @@ Per illustrare questo scenario, si supponga che l'utente A sia l'amministratore 
 
 2. L'utente A condivide la firma di accesso condiviso con la persona che vuole accedere all'account di archiviazione, ovvero l'utente B.  
 
-3. L'utente B usa Storage Explorer (anteprima) per collegarsi all'account appartenente all'utente A usando la firma di accesso condiviso fornita.
+3. L'utente B usa Storage Explorer per collegarsi all'account appartenente all'utente A usando la firma di accesso condiviso fornita.
 
 ### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>Generare una stringa di connessione della firma di accesso condiviso per l'account da condividere
-1. In Storage Explorer (anteprima) fare clic con il pulsante destro del mouse sull'account di archiviazione che si vuole condividere e quindi scegliere **Get Shared Access Signature...** (Ottieni firma di accesso condiviso).
+1. In Storage Explorer fare clic con il pulsante destro del mouse sull'account di archiviazione che si vuole condividere e quindi scegliere **Get Shared Access Signature** (Ottieni firma di accesso condiviso).
 
     ![Menu di scelta rapida Get SAS (Ottieni firma di accesso condiviso)][14]
 
@@ -186,7 +210,7 @@ Per illustrare questo scenario, si supponga che l'utente A sia l'amministratore 
 3. Accanto alla casella di testo **Connection String** (Stringa di connessione) selezionare **Copy** (Copia) per copiare la stringa negli Appunti e quindi fare clic su **Close** (Chiudi).
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>Collegarsi a un account di archiviazione tramite una stringa di connessione della firma di accesso condiviso
-1. In Storage Explorer (anteprima) aprire la **finestra di dialogo di connessione**.
+1. In Storage Explorer aprire la **finestra di dialogo di connessione**.
 
     ![Opzione Connect to Azure storage (Connetti ad Archiviazione di Azure)][9]
 
@@ -213,12 +237,9 @@ La sezione "Collegare un account di archiviazione tramite una firma di accesso c
 In questo contesto un servizio può essere un contenitore BLOB, una coda, una tabella o una condivisione file. Per generare la firma di accesso condiviso per un servizio elencato, vedere:
 
 * [Ottenere la firma di accesso condiviso per un contenitore BLOB](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
-* Get the SAS for a file share (Ottenere la firma di accesso condiviso per una condivisione file): *presto disponibile*
-* Get the SAS for a queue (Ottenere la firma di accesso condiviso per una coda): *presto disponibile*
-* Get the SAS for a table (Ottenere la firma di accesso condiviso per una tabella): *presto disponibile*
 
 ### <a name="attach-to-the-shared-account-service-by-using-a-sas-uri"></a>Collegarsi al servizio account condiviso tramite l'URI di firma di accesso condiviso
-1. In Storage Explorer (anteprima) aprire la **finestra di dialogo di connessione**.
+1. In Storage Explorer aprire la **finestra di dialogo di connessione**.
 
     ![Opzione Connect to Azure storage (Connetti ad Archiviazione di Azure)][9]
 
@@ -251,7 +272,7 @@ Oltre a gestire gli account Azure Cosmos DB tramite la sottoscrizione di Azure, 
 
  ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Connettersi a Azure Data Lake Store mediante URI
 Se si vuole accedere a risorse che non sono incluse nella propria sottoscrizione ma per le quali altri utenti concedono di ottenere l'URI, è possibile connettersi a Data Lake Store usando l'URI dopo aver effettuato l'accesso. Vedere la procedura seguente.
-1. Aprire Storage Explorer (anteprima).
+1. Aprire Esplora archivi.
 2. Nel riquadro sinistro espandere **Local and Attached** (Locale e collegato).
 3. Fare clic con il pulsante destro del mouse su **Data Lake Store** e scegliere **Connect to Data Lake Store** (Connetti a Data Lake Store) dal menu di scelta rapida.
 
@@ -276,9 +297,9 @@ Mentre si digita nella casella di ricerca, il riquadro di sinistra mostra tutte 
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Gestire le risorse dell'archivio BLOB di Azure con Storage Explorer (anteprima)](vs-azure-tools-storage-explorer-blobs.md)
+* [Gestire le risorse di archiviazione BLOB di Azure con Storage Explorer](vs-azure-tools-storage-explorer-blobs.md)
 * [Gestire Azure Cosmos DB in Azure Storage Explorer (anteprima)](./cosmos-db/storage-explorer.md)
-* [Gestire le risorse di Azure Data Lake Store con Storage Explorer (anteprima)](./data-lake-store/data-lake-store-in-storage-explorer.md)
+* [Gestire le risorse di Azure Data Lake Store con Storage Explorer](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

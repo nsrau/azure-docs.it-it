@@ -1,41 +1,30 @@
 ---
-title: Creare chiavi surrogate con IDENTITY | Microsoft Docs
-description: Informazioni su come usare IDENTITY per creare chiavi surrogate per le tabelle.
+title: Uso di IDENTITY per la creazione di chiavi surrogate - Azure SQL Data Warehouse | Microsoft Docs
+description: Suggerimenti ed esempi per l'uso della proprietà IDENTITY per creare chiavi surrogate nelle tabelle in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.date: 12/06/2017
-ms.author: barbkess
-ms.openlocfilehash: e10b58743fad5f7c2c4f00b51f06d4ec9bcb6768
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: ab028705f5af7c37017d2e697240b7d3436f5f71
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="create-surrogate-keys-by-using-identity"></a>Creare chiavi surrogate con IDENTITY
-> [!div class="op_single_selector"]
-> * [Panoramica][Overview]
-> * [Tipi di dati][Data Types]
-> * [Distribuzione][Distribute]
-> * [Indice][Index]
-> * [Partizione][Partition]
-> * [Statistiche][Statistics]
-> * [Temporanee][Temporary]
-> * [Identità][Identity]
-> 
-> 
+# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Uso di IDENTITY per la creazione di chiavi surrogate in Azure SQL Data Warehouse
+Suggerimenti ed esempi per l'uso della proprietà IDENTITY per creare chiavi surrogate nelle tabelle in Azure SQL Data Warehouse.
 
-Molti progettisti di modelli di dati preferiscono creare chiavi surrogate sulle tabelle durante la progettazione dei modelli per i data warehouse. È possibile usare la proprietà IDENTITY per raggiungere questo obiettivo in modo semplice ed efficace senza effetti sulle prestazioni di caricamento. 
+## <a name="what-is-a-surrogate-key"></a>Che cos'è una chiave surrogata?
+Una chiave surrogata in una tabella è una colonna con un identificatore univoco per ogni riga. La chiave non viene generata dai dati della tabella. I progettisti di modelli di dati preferiscono creare chiavi surrogate nelle tabelle durante la progettazione dei modelli per i data warehouse. È possibile usare la proprietà IDENTITY per raggiungere questo obiettivo in modo semplice ed efficace senza effetti sulle prestazioni di caricamento.  
 
-## <a name="get-started-with-identity"></a>Introduzione a IDENTITY
+## <a name="creating-a-table-with-an-identity-column"></a>Creazione di una tabella con una colonna IDENTITY
+La proprietà IDENTITY è progettata per supportare la scalabilità orizzontale tra tutte le distribuzioni nel data warehouse senza influenzare le prestazioni di caricamento. Pertanto, l'implementazione di IDENTITY è orientata al raggiungimento di questi obiettivi. 
+
 È possibile definire una tabella con la proprietà IDENTITY al momento della creazione, usando una sintassi simile all'istruzione seguente:
 
 ```sql
@@ -52,8 +41,7 @@ WITH
 
 È quindi possibile usare `INSERT..SELECT` per popolare la tabella.
 
-## <a name="behavior"></a>Comportamento
-La proprietà IDENTITY è progettata per supportare la scalabilità orizzontale tra tutte le distribuzioni nel data warehouse senza influenzare le prestazioni di caricamento. Pertanto, l'implementazione di IDENTITY è orientata al raggiungimento di questi obiettivi. Questa sezione illustra le varie sfumature dell'implementazione per comprenderle appieno.  
+La parte rimanente di questa sezione illustra le varie sfumature dell'implementazione per comprenderle appieno.  
 
 ### <a name="allocation-of-values"></a>Allocazione dei valori
 La proprietà IDENTITY non garantisce l'ordine di allocazione dei valori surrogati, in modo conforme al comportamento di SQL Server e del database SQL di Azure. Tuttavia, in Azure SQL Data Warehouse, l'assenza di una garanzia è più evidente. 
@@ -100,7 +88,7 @@ Se una di queste condizioni è vera, la colonna viene creata come NOT NULL invec
 ### <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 CREATE TABLE AS SELECT (CTAS) ha lo stesso comportamento di SQL Server documentato per SELECT... INTO. Tuttavia, non è possibile specificare una proprietà IDENTITY nella definizione di colonna della parte `CREATE TABLE` dell'istruzione. Non è possibile nemmeno usare la funzione IDENTITY nella parte `SELECT` dell'istruzione CTAS. Per popolare una tabella, è necessario usare l'istruzione `CREATE TABLE` per definire la tabella, seguita da `INSERT..SELECT` per popolarla.
 
-## <a name="explicitly-insert-values-into-an-identity-column"></a>Inserire in modo esplicito valori in una colonna IDENTITY 
+## <a name="explicitly-inserting-values-into-an-identity-column"></a>Inserimento in modo esplicito di valori in una colonna IDENTITY 
 SQL Data Warehouse supporta la sintassi `SET IDENTITY_INSERT <your table> ON|OFF`. È possibile usare questa sintassi per inserire in modo esplicito i valori nella colonna IDENTITY.
 
 Molti progettisti di modelli di dati preferiscono usare valori negativi predefiniti per alcune righe nelle dimensioni. Un esempio è la riga -1 o "membro sconosciuto". 
@@ -124,11 +112,10 @@ FROM    dbo.T1
 ;
 ```    
 
-## <a name="load-data-into-a-table-with-identity"></a>Caricare i dati in una tabella con IDENTITY
+## <a name="loading-data"></a>Caricamento dei dati
 
 La presenza della proprietà IDENTITY ha alcune implicazioni per il codice di caricamento dei dati. Questa sezione evidenzia alcuni modelli di base per il caricamento di dati nelle tabelle usando IDENTITY. 
 
-### <a name="load-data-with-polybase"></a>Caricare dati con PolyBase
 Per caricare dati in una tabella e generare una chiave surrogata con IDENTITY, creare la tabella e quindi usare INSERT... SELECT o INSERT... VALUES per eseguire il caricamento.
 
 L'esempio seguente illustra il modello di base:
@@ -160,28 +147,16 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
 > [!NOTE] 
-> Non è attualmente possibile usare `CREATE TABLE AS SELECT` per il caricamento di dati in una tabella con una colonna IDENTITY.
+> Non è attualmente possibile usare CREATE TABLE AS SELECT per il caricamento di dati in una tabella con una colonna IDENTITY.
 > 
 
-Per altre informazioni sul caricamento dei dati tramite lo strumento BCP (Bulk Copy Program), vedere gli articoli seguenti:
+Per altre informazioni sul caricamento dei dati, vedere [Progettazione ELT (Extract, Load, Transform) per Azure SQL Data Warehouse](design-elt-data-loading.md) e [Procedure consigliate per il caricamento](guidance-for-loading-data.md).
 
-- [Caricare dati con PolyBase][]
-- [Procedure consigliate per PolyBase][]
 
-### <a name="load-data-with-bcp"></a>Caricare dati con BCP
-BCP è uno strumento da riga di comando utilizzabile per caricare dati in SQL Data Warehouse. Uno dei parametri di questo strumento (-E) controlla il comportamento di BCP quando si caricano dati in una tabella con una colonna IDENTITY. 
+## <a name="system-views"></a>Viste di sistema
+È possibile usare la vista del catalogo [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql) per identificare una colonna che dispone della proprietà IDENTITY.
 
-Quando viene specificato il parametro -E, vengono mantenuti i valori contenuti nel file di input per la colonna con IDENTITY. Se -E *non* viene specificato, i valori in questa colonna vengono ignorati. Se la colonna IDENTITY non è inclusa, i dati vengono caricati come di consueto. I valori vengono generati in base al criterio di incremento e seeding della proprietà.
-
-Per altre informazioni sul caricamento di dati con BCP, vedere gli articoli seguenti:
-
-- [Caricare dati con BCP][]
-- [BCP in MSDN][]
-
-## <a name="catalog-views"></a>Viste del catalogo
-SQL Data Warehouse supporta la vista del catalogo `sys.identity_columns`. Questa vista è utilizzabile per identificare una colonna con la proprietà IDENTITY.
-
-Per comprendere meglio lo schema del database, questo esempio mostra come integrare `sys.identity_columns` con altre viste del catalogo di sistema:
+Per comprendere meglio lo schema del database, questo esempio mostra come integrare sys.identity_columns con altre viste del catalogo di sistema:
 
 ```sql
 SELECT  sm.name
@@ -202,28 +177,27 @@ AND     tb.name = 'T1'
 ```
 
 ## <a name="limitations"></a>Limitazioni
-La proprietà IDENTITY non può essere usata negli scenari seguenti:
+Non è possibile usare la proprietà IDENTITY:
 - Quando il tipo di dati della colonna non è INT o BIGINT
 - Quando la colonna è anche la chiave di distribuzione
 - Quando la tabella è una tabella esterna 
 
 Le funzioni correlate seguenti non sono supportate in SQL Data Warehouse:
 
-- [IDENTITY()][]
-- [@@IDENTITY][]
-- [SCOPE_IDENTITY][]
-- [IDENT_CURRENT][]
-- [IDENT_INCR][]
-- [IDENT_SEED][]
-- [DBCC CHECK_IDENT()][]
+- [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql)
+- [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql)
+- [SCOPE_IDENTITY](/sql/t-sql/functions/scope-identity-transact-sql)
+- [IDENT_CURRENT](/sql/t-sql/functions/ident-current-transact-sql)
+- [IDENT_INCR](/sql/t-sql/functions/ident-incr-transact-sql)
+- [IDENT_SEED](/sql/t-sql/functions/ident-seed-transact-sql)
+- [DBCC CHECK_IDENT()](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql)
 
-## <a name="tasks"></a>Attività
+## <a name="common-tasks"></a>Attività comuni
 
-Questa sezione include esempi di codice utilizzabili per eseguire attività comuni quando si usano colonne IDENTITY.
+Questa sezione include esempi di codice utilizzabili per eseguire attività comuni quando si usano colonne IDENTITY. 
 
-> [!NOTE] 
-> La colonna C1 è la colonna IDENTITY in tutte le attività seguenti.
-> 
+La colonna C1 è la colonna IDENTITY in tutte le attività seguenti.
+ 
  
 ### <a name="find-the-highest-allocated-value-for-a-table"></a>Individuare il valore massimo allocato per una tabella
 Usare la funzione `MAX()` per determinare il valore massimo allocato per una tabella distribuita:
@@ -254,39 +228,5 @@ AND     tb.name = 'T1'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sullo sviluppo di tabelle, vedere [Panoramica delle tabelle][Overview], [Tipi di dati per le tabelle][Data Types], [Distribuire una tabella][Distribute], [Indicizzare una tabella][Index], [Partizionare una tabella][Partition] e [Tabelle temporanee][Temporary]. 
-* Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse][SQL Data Warehouse Best Practices].  
+* Per altre informazioni sullo sviluppo di tabelle, vedere [Panoramica delle tabelle][Panoramica].  
 
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[Identity]: ./sql-data-warehouse-tables-identity.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-[Caricare dati con BCP]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-with-bcp/
-[Caricare dati con PolyBase]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase/
-[Procedure consigliate per PolyBase]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-polybase-guide/
-
-
-<!--MSDN references-->
-[Identity property]: https://msdn.microsoft.com/library/ms186775.aspx
-[sys.identity_columns]: https://msdn.microsoft.com/library/ms187334.aspx
-[IDENTITY()]: https://msdn.microsoft.com/library/ms189838.aspx
-[@@IDENTITY]: https://msdn.microsoft.com/library/ms187342.aspx
-[SCOPE_IDENTITY]: https://msdn.microsoft.com/library/ms190315.aspx
-[IDENT_CURRENT]: https://msdn.microsoft.com/library/ms175098.aspx
-[IDENT_INCR]: https://msdn.microsoft.com/library/ms189795.aspx
-[IDENT_SEED]: https://msdn.microsoft.com/library/ms189834.aspx
-[DBCC CHECK_IDENT()]: https://msdn.microsoft.com/library/ms176057.aspx
-
-[bcp in MSDN]: https://msdn.microsoft.com/library/ms162802.aspx
-  
-
-<!--Other Web references-->  

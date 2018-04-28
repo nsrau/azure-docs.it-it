@@ -1,29 +1,24 @@
 ---
-title: Esercitazione sulle query elastiche con Azure SQL Data Warehouse | Microsoft Docs
-description: Informazioni su come usare una query elastica con Azure SQL Data Warehouse
+title: 'Esercitazione: query elastiche con Azure SQL Data Warehouse | Microsoft Docs'
+description: Questa esercitazione usa la funzionalità di query elastiche per eseguire query su Azure SQL Data Warehouse dal database SQL di Azure.
 services: sql-data-warehouse
-documentationcenter: NA
 author: hirokib
-manager: johnmac
-editor: 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67g
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 11/03/2017
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/14/2018
 ms.author: elbutter
-ms.openlocfilehash: 20bbdbbde7edc4351563685761785874870a3c82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.reviewer: igorstan
+ms.openlocfilehash: a31f035b5ec086a046028956c4a9c0de0d6a313d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="configure-elastic-query-with-sql-data-warehouse"></a>Configurare una query elastica con SQL Data Warehouse
+# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Esercitazione: usare query elastiche per accedere ai dati in Azure SQL Data Warehouse dal database SQL di Azure
 
-In questa esercitazione si apprenderà a usare query elastiche per inviare una query dal database SQL a SQL Data Warehouse. La query elastica è una funzionalità disponibile tra prodotti Azure SQL. Per altre informazioni sul concetto di query elastica, vedere [**Come usare una query elastica con SQL Data Warehouse**][How to use Elastic Query with SQL Data Warehouse].
+Questa esercitazione usa la funzionalità di query elastiche per eseguire query su Azure SQL Data Warehouse dal database SQL di Azure. 
 
 ## <a name="prerequisites-for-the-tutorial"></a>Prerequisiti per l'esercitazione
 
@@ -128,7 +123,7 @@ Nei prossimi passaggi verrà creata una tabella nell'istanza del data warehouse 
 
 5. Osservare che è ora presente una definizione della tabella esterna nell'**istanza di database SQL**.
 
-   ![Definizione della tabella esterna della query elastica](./media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
+   ![Definizione della tabella esterna della query elastica](media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
 
 
 6. Inviare la query seguente, che viene eseguita sull'istanza del data warehouse. Si dovrebbero ricevere i cinque valori inseriti nel passaggio 2. 
@@ -143,15 +138,5 @@ SELECT * FROM [dbo].[OrderInformation];
 
 Sono stati configurati gli elementi di base delle query elastiche. 
 
-
-
-
-<!--Image references-->
-
-<!--Article references-->
-
-[How to use Elastic Query with SQL Data Warehouse]: ./how-to-use-elastic-query-with-sql-data-warehouse.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
+## <a name="next-steps"></a>Passaggi successivi
+Per altre raccomandazioni, vedere [Procedure consigliate per l'uso delle query elastiche nel database SQL di Azure](how-to-use-elastic-query-with-sql-data-warehouse.md).

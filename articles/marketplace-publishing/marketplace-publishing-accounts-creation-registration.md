@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: mbaldwin
-ms.openlocfilehash: da805bead3f6af4ebd0b4b94b30a51ff2abc62dd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 69da37cbf5691fe94b9550200e259711e9e201d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-microsoft-developer-account"></a>Creare un account di Microsoft Developer
 In questo articolo viene illustrata la creazione e la registrazione dell'account necessario per diventare un Microsoft Developer approvato per Azure Marketplace.
@@ -37,7 +37,7 @@ L'indirizzo che costituisce il nome utente deve trovarsi nel proprio dominio ed 
 Quando si crea un account aziendale, seguire queste linee guida se più di una persona dovrà accedere all'account tramite la registrazione con l'account di Microsoft che ha aperto l'account.
 
 > [!Important]
-> Importante: per consentire a più utenti di accedere all'account Dev Center, è consigliabile utilizzare Azure Active Directory per assegnare i ruoli ai singoli utenti, che possono accedere all'account accedendo con le proprie credenziali di Azure AD. Per maggiori informazioni, vedere [Gestire gli utenti dell'account](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
+> Importante: per consentire a più utenti di accedere all'account Dev Center, è consigliabile utilizzare Azure Active Directory per assegnare i ruoli ai singoli utenti, che possono accedere all'account accedendo con le proprie credenziali di Azure AD. Per maggiori informazioni, vedere [Gestire gli utenti dell'account](https://msdn.microsoft.com/windows/uwp/publish/manage-account-users).
 
 * Creare l'account di Microsoft usando un indirizzo di posta elettronica appartenente al dominio dell'azienda, ma non a un singolo utente, ad esempio, windowsapps@fabrikam.com.
 * Limitare l'accesso a questo account Microsoft al minor numero possibile di sviluppatori.
@@ -49,7 +49,7 @@ Quando si crea un account aziendale, seguire queste linee guida se più di una p
 
 L'accesso all'account sviluppatore deve avvenire principalmente da PC affidabili. Questo è fondamentale poiché è previsto un limite al numero di codici generati per ogni account, ogni settimana. Consente inoltre di eseguire un accesso il più trasparente possibile.
 
-Per maggiori informazioni sulla sicurezza e le linee guida dell'account per sviluppatori, fare clic [qui](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
+Per maggiori informazioni sulla sicurezza e le linee guida dell'account per sviluppatori, fare clic [qui](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### <a name="instructions"></a>Istruzioni
 1. Aprire una nuova sessione in incognito in Chrome o InPrivate Browsing in Internet Explorer per assicurarsi di non essere connessi a un account esistente.

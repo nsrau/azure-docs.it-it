@@ -1,25 +1,18 @@
 ---
 title: Gestire Azure Analysis Services | Documentazione Microsoft
 description: Informazioni su come gestire un server di Analysis Services in Azure.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 79491d0b-b00d-4e02-9ca7-adc99bc02fdb
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 11aa42fbe15dd68dfac128b707fd6bdbfd0b24d1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 0cad50788eeb4a31d1e3f6f7e6c038ba2a8d4d9b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-analysis-services"></a>Gestire Analysis Services
 Dopo aver creato un server Analysis Services in Azure, potrà essere necessario eseguire alcune attività di amministrazione e gestione immediatamente o dopo un intervallo di tempo. Ad esempio, eseguire l'elaborazione per i dati di aggiornamento, controllare quali utenti possono accedere ai modelli nel server o monitorare l'integrità del server. Alcune attività di gestione possono essere eseguite solo nel portale di Azure, altre in SQL Server Management Studio (SSMS) e altre ancora possono essere eseguite in entrambi gli ambienti.
@@ -47,13 +40,18 @@ Per ottenere tutte le funzionalità più recenti e un'esperienza ottimale quando
    
     ![Ottenere il nome del server in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. In SSMS > **Esplora oggetti** fare clic su **Connetti** > **Analysis Services**.
-3. Nella finestra di dialogo **Connetti al server** incollare il nome del server e quindi in **Autenticazione** scegliere uno dei tipi di autenticazione seguenti:
-   
+3. Nella finestra di dialogo **Connetti al server** incollare il nome del server e quindi in **Autenticazione** scegliere uno dei tipi di autenticazione seguenti:   
+    > [!NOTE]
+    > È consigliato il tipo di autenticazione **Active Directory - Universale con supporto MFA**.
+
+    > [!NOTE]
+    > Se si accede con un account Microsoft, con un Live ID o con Yahoo, Gmail e così via, lasciare vuoto il campo della password. Dopo aver fatto clic su Connetti, è necessario specificare la password.
+
     **Autenticazione di Windows** per usare le credenziali di dominio\nome utente e password di Windows.
 
     **Autenticazione della password Active Directory** per usare un account aziendale. Ad esempio, per la connessione da un computer non incluso nel dominio.
 
-    **Autenticazione universale di Active Directory** per usare [l'autenticazione non interattiva o multi-factor](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Active Directory - Universale con supporto MFA** per usare [l'autenticazione non interattiva o multi-factor](../sql-database/sql-database-ssms-mfa-authentication.md). 
    
     ![Connessione in SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 

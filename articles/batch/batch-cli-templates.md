@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: 4b4a5b9199fe648425304eaa8db0130bb1b4264d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0a6e355d8f16fed9022cc2cf55dc09781364f0b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch (anteprima)
 
@@ -253,7 +253,7 @@ az batch file download --file-group ffmpeg-output --local-path
 
 I modelli di processo e di pool consentono di specificare che i file archiviati in gruppi di file vengano copiati nei nodi del pool o dai nodi del pool a un gruppo di file. Nel modello di processo illustrato in precedenza, ad esempio, viene specificato il gruppo di file "ffmpeg-input" per la factory di attività come posizione dei file video di origine copiati nel nodo per la transcodifica. Il gruppo di file "ffmpeg-output" costituisce la posizione in cui vengono copiati i file di output transcodificati dal nodo che esegue ogni attività.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Il supporto per i modelli e il trasferimento di file è stato attualmente aggiunto solo all'interfaccia della riga di comando di Azure. L'obiettivo è quello di allargare il numero di utenti che possono usare Batch, consentendone l'utilizzo anche a ricercatori, utenti IT e così via che non hanno la necessità di sviluppare codice usando le API di Batch. Senza dover scrivere il codice, gli utenti che conoscono Azure Batch e le applicazioni che devono essere eseguite da Batch possono creare modelli per la creazione di pool e processi. Con i parametri dei modelli, gli utenti che non hanno una conoscenza approfondita di Batch e delle applicazioni possono usare i modelli.
 
@@ -261,5 +261,5 @@ Provare l'estensione Batch per l'interfaccia della riga di comando di Azure e fo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere il post del blog sui modelli di Batch: [Processi in esecuzione di Azure Batch che usano l'interfaccia della riga di comando di Azure: non è richiesto alcun codice](https://azure.microsoft.com/en-us/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/).
+- Vedere il post del blog sui modelli di Batch: [Processi in esecuzione di Azure Batch che usano l'interfaccia della riga di comando di Azure: non è richiesto alcun codice](https://azure.microsoft.com/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/).
 - Documentazione dettagliata su installazione e utilizzo, esempi e codice sorgente sono disponibili nel [repository GitHub di Azure](https://github.com/Azure/azure-batch-cli-extensions).

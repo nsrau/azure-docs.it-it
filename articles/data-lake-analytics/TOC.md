@@ -4,7 +4,7 @@
 ## [Che cos'è Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Attività iniziali
-## [portale di Azure](data-lake-analytics-get-started-portal.md)
+## [Portale di Azure](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
@@ -19,7 +19,7 @@
 ### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
 ### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)
 ### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
-### [Node.JS](data-lake-analytics-manage-use-nodejs.md)
+### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [Accedere ai log di diagnostica](data-lake-analytics-diagnostic-logs.md)
 ### [Modificare i limiti di quota](data-lake-analytics-quota-limits.md)
 
@@ -46,10 +46,10 @@
 ### [Guida di programmabilità di U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Riferimenti
-## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-analytics)
+## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
-## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
 ## [REST](/rest/api/datalakeanalytics/)
 ## [Interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/dla)

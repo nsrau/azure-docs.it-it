@@ -2,10 +2,10 @@
 title: Creare un account Batch nel portale di Azure | Microsoft Docs
 description: Informazioni su come creare un account Azure Batch nel portale di Azure per eseguire carichi di lavoro paralleli su larga scala nel cloud
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
 ms.workload: big-compute
@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5efe804806cb9c14a483e7393f0e8202897d53d6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6374e49f3f682d022613e3e5244d273337213311
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creare un account Batch nel portale di Azure
 
 > [!div class="op_single_selector"]
-> * [Azure portal](batch-account-create-portal.md)
+> * [Portale di Azure](batch-account-create-portal.md)
 > * [.NET per la gestione di Batch](batch-management-dotnet.md)
 >
 >
@@ -58,7 +58,7 @@ Per informazioni sugli account e gli scenari Batch, vedere la [panoramica della 
 
     d. **Località**: area di Azure in cui creare l'account Batch. Solo le aree supportate dalla sottoscrizione e dal gruppo di risorse vengono visualizzate come opzioni.
 
-    e. **Account di archiviazione** (facoltativo): account di Archiviazione di Azure per uso generico associato all'account Batch. Tale operazione è consigliata per la maggior parte degli account Batch. Per altri dettagli, vedere [Account di archiviazione di Azure collegato](#linked-azure-storage-account) più avanti in questo articolo.
+    e. **Account di archiviazione** (facoltativo): account di Archiviazione di Azure associato all'account Batch. Tale operazione è consigliata per la maggior parte degli account Batch. Per altri dettagli, vedere [Account di archiviazione di Azure collegato](#linked-azure-storage-account) più avanti in questo articolo.
 
 4. Fare clic su **Crea** per creare l'account.
 
@@ -85,11 +85,11 @@ Dopo avere creato l'account, fare clic sull'account per accedere alle impostazio
 
 ## <a name="linked-azure-storage-account"></a>Account di archiviazione di Azure collegato
 
-È possibile collegare un account di archiviazione di Azure per uso generico all'account Batch e questa operazione può essere utile per molti scenari. La funzionalità [Pacchetti dell'applicazione](batch-application-packages.md) di Batch usa l'archivio BLOB di Azure, proprio come la libreria [Batch File Conventions .NET](batch-task-output.md). Queste funzionalità facoltative facilitano la distribuzione delle applicazioni eseguite dalle attività di Batch e il salvataggio permanente dei dati prodotti.
+È possibile collegare un account di archiviazione di Azure all'account Batch e questa operazione può essere utile per molti scenari. La funzionalità [Pacchetti dell'applicazione](batch-application-packages.md) di Batch usa l'archivio BLOB di Azure, proprio come la libreria [Batch File Conventions .NET](batch-task-output.md). Queste funzionalità facoltative facilitano la distribuzione delle applicazioni eseguite dalle attività di Batch e il salvataggio permanente dei dati prodotti.
 
-È consigliabile creare un nuovo account di archiviazione da usare esclusivamente con l'account Batch. Azure Batch supporta attualmente solo il tipo di account di archiviazione per utilizzo generico. Questo tipo di account è descritto nel passaggio 5 [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md).
+Per le opzioni dell'account di archiviazione in Batch, vedere [Panoramica delle funzionalità di Batch](batch-api-basics.md#azure-storage-account).
 
-![Creazione di un account di archiviazione per utilizzo generico][storage_account]
+![Creazione di un account di archiviazione][storage_account]
 
 > [!NOTE]
 > Prestare attenzione quando si rigenerano le chiavi di accesso di un account di archiviazione collegato. Rigenerare solo una chiave dell'account di archiviazione e fare clic su **Sincronizza chiavi** nella pagina dell'account di archiviazione collegato. Attendere cinque minuti per consentire la propagazione delle chiavi ai nodi di calcolo dei pool, quindi rigenerare e sincronizzare l'altra chiave, se necessario. Se si rigenerano entrambe le chiavi contemporaneamente, i nodi di calcolo non riusciranno a sincronizzare entrambe le chiavi e perderanno l'accesso all'account di archiviazione.

@@ -1,11 +1,11 @@
 ---
 title: Aumentare o ridurre le istanze del cluster di Service Fabric | Documentazione Microsoft
-description: "Aumentare o ridurre le istanze di un cluster di Service Fabric per rispondere alle esigenze impostando le regole di ridimensionamento automatico per ogni tipo di nodo o set di scalabilità di macchine virtuali. Aggiungere o rimuovere nodi in un cluster di Service Fabric"
+description: Aumentare o ridurre le istanze di un cluster di Service Fabric per rispondere alle esigenze impostando le regole di ridimensionamento automatico per ogni tipo di nodo o set di scalabilità di macchine virtuali. Aggiungere o rimuovere nodi in un cluster di Service Fabric
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
-ms.author: chackdan
-ms.openlocfilehash: 4813276ea8180aa8bdd385da289e6073f08d400e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: aljo
+ms.openlocfilehash: 506877e12d12ff3b1372cc0360a8df1a1d52744a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Aumentare o ridurre le istanze del cluster di Service Fabric con le regole di scalabilità automatica
+# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Aumentare o ridurre le istanze del cluster di Service Fabric con le regole di ridimensionamento automatico o manualmente
 I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Service Fabric viene configurato come set di scalabilità di macchine virtuali distinto. Ogni tipo di nodo può quindi essere aumentato o ridotto in modo indipendente, avere diversi set di porte aperte e avere metriche per la capacità diverse. Per altre informazioni, vedere il documento sui [tipi di nodo di Service Fabric](service-fabric-cluster-nodetypes.md) . Poiché i tipi di nodi di Service Fabric nel cluster sono costituiti da set di scalabilità di macchine virtuali nel back-end, è necessario configurare regole di ridimensionamento automatico per ogni tipo di nodo o set di scalabilità di macchine virtuali.
 
 > [!NOTE]
@@ -47,7 +47,7 @@ Se nel cluster sono disponibili più tipi di nodi, è necessario ripetere questa
 > 
 > 
 
-Attualmente la funzionalità di ridimensionamento automatico non è determinata dai carichi che le applicazioni segnalano a Service Fabric. Al momento. il ridimensionamento automatico che si ottiene dipende esclusivamente dai contatori delle prestazioni generati da ognuna delle istanze del set di scalabilità di macchine virtuali.  
+Attualmente la funzionalità di ridimensionamento automatico non è determinata dai carichi che le applicazioni segnalano a Service Fabric. Al momento, il ridimensionamento automatico che si ottiene dipende esclusivamente dai contatori delle prestazioni generati da ognuna delle istanze del set di scalabilità di macchine virtuali.  
 
 Seguire le istruzioni [per configurare il ridimensionamento automatico per ogni set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
@@ -74,7 +74,7 @@ Seguire l'esempio o le istruzioni nella [raccolta modelli di avvio rapido](https
 
 1. Eseguire [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) usando 'RemoveNode' per disabilitare il nodo da rimuovere, ovvero l'istanza superiore di quel tipo di nodo.
 2. Eseguire [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) per verificare che il nodo sia stato effettivamente disabilitato. In caso contrario, attendere la disabilitazione del nodo. Non è possibile accelerare questo passaggio.
-3. Seguire l'esempio o le istruzioni nella [raccolta modelli di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) per modificare di un'unità il numero di VM in tale Nodetype. L'istanza rimossa è l'istanza di macchina virtuale superiore. 
+3. Seguire l'esempio o le istruzioni nella [raccolta di modelli di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) per modificare di un'unità il numero di macchine virtuali in tale oggetto Nodetype. L'istanza rimossa è l'istanza di macchina virtuale superiore. 
 4. Ripetere le fasi da 1 a 3 come necessario, ma non ridurre il numero di istanze nel nodo primario a un valore inferiore a quello garantito dal livello di affidabilità. Fare riferimento ai [dettagli sui livelli di affidabilità](service-fabric-cluster-capacity.md). 
 
 ## <a name="manually-remove-vms-from-the-non-primary-node-typevirtual-machine-scale-set"></a>Rimuovere manualmente le VM dal tipo di nodo non primario o set di scalabilità di macchine virtuali
@@ -87,7 +87,7 @@ Seguire l'esempio o le istruzioni nella [raccolta modelli di avvio rapido](https
 
 1. Eseguire [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) usando 'RemoveNode' per disabilitare il nodo da rimuovere, ovvero l'istanza superiore di quel tipo di nodo.
 2. Eseguire [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) per verificare che il nodo sia stato effettivamente disabilitato. In caso contrario, attendere la disabilitazione del nodo. Non è possibile accelerare questo passaggio.
-3. Seguire l'esempio o le istruzioni nella [raccolta modelli di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) per modificare di un'unità il numero di VM in tale Nodetype. Questa operazione rimuoverà l'istanza superiore di macchina virtuale. 
+3. Seguire l'esempio o le istruzioni nella [raccolta di modelli di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) per modificare di un'unità il numero di macchine virtuali in tale oggetto Nodetype. Questa operazione rimuoverà l'istanza superiore di macchina virtuale. 
 4. Ripetere le fasi da 1 a 3 come necessario, ma non ridurre il numero di istanze nel nodo primario a un valore inferiore a quello garantito dal livello di affidabilità. Fare riferimento ai [dettagli sui livelli di affidabilità](service-fabric-cluster-capacity.md).
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Comportamenti che è possibile osservare in Service Fabric Explorer
@@ -95,7 +95,7 @@ Quando si aumentano le istanze di un cluster, Service Fabric Explorer riflette i
 
 Ecco la spiegazione di questo comportamento.
 
-I nodi elencati in Service Fabric Explorer riflettono le informazioni a disposizione dei servizi di sistema di Service Fabric, in particolare FM, circa il numero di nodi presenti nel cluster attualmente o in precedenza. Quando si riducono le istanze del set di scalabilità di macchine virtuali, la VM viene eliminata, ma il servizio di sistema FM continua a ritenere che il nodo, precedentemente mappato alla VM eliminata, verrà ripristinato. Service Fabric Explorer continua quindi a visualizzare tale nodo, anche se lo stato di integrità è sconosciuto o di errore.
+I nodi elencati in Service Fabric Explorer riflettono le informazioni a disposizione dei servizi di sistema di Service Fabric, in particolare FM, circa il numero di nodi presenti nel cluster attualmente o in precedenza. Quando si riducono le istanze del set di scalabilità di macchine virtuali, la macchina virtuale viene eliminata, ma il servizio di sistema FM continua a ritenere che il nodo, precedentemente mappato alla macchina virtuale eliminata, verrà ripristinato. Service Fabric Explorer continua quindi a visualizzare tale nodo, anche se lo stato di integrità è sconosciuto o di errore.
 
 Per assicurarsi che un nodo venga rimosso quando si rimuove una VM, sono disponibili due opzioni:
 

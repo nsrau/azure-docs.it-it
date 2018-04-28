@@ -3,8 +3,8 @@ title: 'Strumenti Azure Data Lake: Usare Strumenti Azure Data Lake per Visual St
 description: 'Informazioni su come usare gli Strumenti Azure Data Lake per Visual Studio Code per creare, testare ed eseguire gli script U-SQL. '
 Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
 services: data-lake-analytics
-documentationcenter: 
-author: jejiang
+documentationcenter: ''
+author: Jejiang
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: 7e1e2c0a5481a81e9267bcf87076076b377a1496
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: fcd821c91a8c94792eeed83940abe1c72d0b2fb8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Usare gli Strumenti Azure Data Lake per Visual Studio Code
 
@@ -356,13 +356,13 @@ Lo stato viene visualizzato nella parte inferiore della barra di stato al termin
 
 **Integrazione di Azure** 
 
-- Prima di accedere ad Azure, è sempre possibile espandere **DATALAKE EXPLORER**. È quindi possibile fare clic su **Sign in to Azure** (Accesso ad Azure) per accedere ad Azure. Dopo l'accesso, tutte le sottoscrizioni dell'account Azure sono elencate nel riquadro sinistro di **DATALAKE EXPLORER**. 
+- Prima di accedere ad Azure, è sempre possibile espandere **AZURE DATALAKE**, quindi fare clic su **Sign in to Azure** (Accedi ad Azure) per accedere ad Azure. Dopo l'accesso, tutte le sottoscrizioni dell'account Azure sono elencate nel riquadro sinistro di **AZURE DATALAKE**. 
 
    ![Data Lake Explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![Data Lake Explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-**Spostamento nei metadati ADLA** 
+**Spostamento nei metadati ADLA**
 
 - Espandendo la sottoscrizione di Azure, è possibile spostarsi nel database U-SQL e visualizzare **schemi**, **credenziali**, **assembly**, **tabelle**, **indici**e così via all'interno del nodo U-SQL Databases.
 
@@ -382,11 +382,31 @@ Lo stato viene visualizzato nella parte inferiore della barra di stato al termin
 
 **Integrazione di ADLS** 
 
- - Passare a **Storage Account** (Account di archiviazione). Qui è possibile scegliere tra i comandi **Preview** (Anteprima), **Download** (Scarica), **Delete** (Elimina), **Copy Relative Path** (Copia percorso relativo), **Copy Full Path** (Copia percorso completo) dal menu di scelta rapida del nodo file. È possibile usare i comandi **Refresh** (Aggiorna), **Upload** (Carica), **Upload Folder** (Carica cartella), **Delete** (Elimina) facendo clic con il pulsante destro del mouse sul menu di scelta rapida del nodo cartella.
+Passare a **Data Lake Store**
+
+ - Nel nodo cartelle è possibile scegliere **Aggiorna**, **Elimina**, **Carica**, **Carica cartella**, **Copia percorso relativo**, **Copia percorso completo** dal menu di scelta rapida.
 
    ![Data Lake Explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
+ - Nel nodo file è possibile scegliere **Scarica**, **Anteprima**, **Elimina**, **Copia percorso relativo**, **Copia percorso completo** dal menu di scelta rapida. 
+
    ![Data Lake Explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+
+**Integrazione WASB**
+
+Passare ad **Archiviazione BLOB**
+
+- Nel nodo contenitori BLOB è possibile scegliere **Aggiorna**, **Elimina contenitore BLOB**, **Carica BLOB** dal menu di scelta rapida.
+
+    ![Nodo contenitori BLOB di Archiviazione BLOB](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
+
+- Nel nodo cartelle è possibile scegliere **Aggiorna**, **Carica BLOB** dal menu di scelta rapida.
+
+    ![Nodo cartelle di Archiviazione BLOB](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
+
+- Nel nodo file è possibile scegliere **Anteprima/Modifica**, **Scarica**, **Elimina**, **Copia percorso relativo**, **Copia percorso completo** dal menu di scelta rapida.
+
+    ![Nodo file di Archiviazione BLOB](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-file-node.png)
 
 ## <a name="open-adl-storage-explorer-in-portal"></a>Aprire ADL Storage Explorer nel portale
 1. Premere CTRL+MAIUSC+P per aprire il riquadro comandi.

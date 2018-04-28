@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 413485fc764000dadca1a2cccf9ee0de7e9046aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1081fe9f8aceb6b849d595177b7c7cac2a26cbfc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elementi del Marketplace Azure disponibili per lo Stack di Azure
 
@@ -32,10 +32,10 @@ Ogni volta che sono disponibili aggiornamenti per utilizzare le estensioni di ma
 |  | Nome dell'elemento | DESCRIZIONE | Editore | OS Type (Tipo di sistema operativo) |
 | --- | --- | --- | --- | --- |
 |![Estensione SQL IaaS](media/azure-stack-marketplace-azure-items/cse.png) | [ Estensione SQL IaaS ](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Download dell'estensione per distribuire un Server SQL nel elemento del Marketplace di Windows, questa estensione è necessaria.</b> | Microsoft | Windows |
-|![Estensione di script personalizzati](media/azure-stack-marketplace-azure-items/cse.png) | [ Estensione Script personalizzata ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Scaricare l'aggiornamento alla versione nella casella dell'estensione Script personalizzato per Windows.</b> | Microsoft | Windows |
+|![Estensione di script personalizzati](media/azure-stack-marketplace-azure-items/cse.png) | [ Estensione Script personalizzata ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| <b>Scaricare l'aggiornamento alla versione nella casella dell'estensione Script personalizzato per Windows.</b> | Microsoft | Windows |
 |![Estensione DSC PowerShell](media/azure-stack-marketplace-azure-items/dsc.png) | [ Estensione DSC PowerShell ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Scaricare l'aggiornamento alla versione dell'estensione DSC PowerShell in uso. Aggiornato per supportare TLS 1.2.</b> | Microsoft | Windows |
-| ![Estensione Antimalware Microsoft](media/azure-stack-marketplace-azure-items/cse.png) | [ Estensione Antimalware Microsoft ](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Microsoft Antimalware per Azure è una soluzione con un agente singolo per applicazioni e ambienti tenant, progettata per l'esecuzione in background senza intervento da parte dell'utente. | Microsoft | Windows |
-|![Estensione di script personalizzati](media/azure-stack-marketplace-azure-items/cse.png) | [ Estensione Script personalizzata ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Scaricare l'aggiornamento alla versione completa dell'estensione Script personalizzato per Linux. Sono disponibili più versioni di questa estensione ed è necessario scaricare 1.5.2.1 sia 2.0.x. </b> | Microsoft | Linux |
+| ![Estensione Antimalware Microsoft](media/azure-stack-marketplace-azure-items/cse.png) | [ Estensione Antimalware Microsoft ](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Microsoft Antimalware per Azure è una soluzione con un agente singolo per applicazioni e ambienti tenant, progettata per l'esecuzione in background senza intervento da parte dell'utente. | Microsoft | Windows |
+|![Estensione di script personalizzati](media/azure-stack-marketplace-azure-items/cse.png) | [ Estensione Script personalizzata ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| <b>Scaricare l'aggiornamento alla versione completa dell'estensione Script personalizzato per Linux. Sono disponibili più versioni di questa estensione ed è necessario scaricare 1.5.2.1 sia 2.0.x. </b> | Microsoft | Linux |
 | ![Estensione Docker](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Estensione docker per le macchine virtuali Linux. | Microsoft | Linux |
 | ![Accesso alla VM per Linux](media/azure-stack-marketplace-azure-items/cse.png) | [ Accesso alla VM per Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Scaricare l'aggiornamento alla versione nella casella di VMAccess per estensione Linux. Questo aggiornamento è importante se si prevede di usare le macchine virtuali Linux Debian.</b> | Microsoft | Linux |
 | ![Estensione di Backup Acronis per Linux](media/azure-stack-marketplace-azure-items/acronis.png) | [ Estensione di Backup Acronis per Linux ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | L'estensione di Backup Acronis per Microsoft Azure fa parte della famiglia di prodotti di protezione dati Acronis Backup. | GmbH internazionali Acronis. | Linux |

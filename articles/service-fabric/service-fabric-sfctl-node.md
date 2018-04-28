@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 50c7fe38d8bf7b14adf437f85c758e465e7d231d
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-node"></a>sfctl node
 Consente di gestire i nodi che formano un cluster.
@@ -60,7 +60,7 @@ Disattiva un nodo del cluster di Service Fabric con lo scopo di disattivazione s
 | --debug            | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h          | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o        | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query            | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query            | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose          | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-node-enable"></a>sfctl node enable
@@ -82,7 +82,7 @@ Attiva un nodo del cluster di Service Fabric che è attualmente disattivato. Una
 | --debug            | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h          | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o        | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query            | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query            | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose          | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-node-health"></a>sfctl node health
@@ -105,7 +105,7 @@ Mostra l'integrità di un nodo di Service Fabric. Utilizzare EventsHealthStateFi
 | --debug                  | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h                | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o              | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query                  | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query                  | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose                | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-node-info"></a>sfctl node info
@@ -127,7 +127,7 @@ Mostra le informazioni su un nodo specifico del cluster di Service Fabric. La ri
 | --debug            | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h          | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o        | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query            | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query            | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose          | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-node-list"></a>sfctl node list
@@ -150,7 +150,7 @@ Mostra l'elenco dei nodi del cluster di Service Fabric. La risposta include il n
 | --debug          | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h        | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o      | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query          | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query          | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose        | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-node-load"></a>sfctl node load
@@ -172,7 +172,7 @@ Recupera le informazioni sul caricamento di un nodo di Service Fabric per tutte 
 | --debug            | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h          | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o        | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query            | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query            | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose          | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-node-restart"></a>sfctl node restart
@@ -196,7 +196,7 @@ Riavvia un nodo del cluster di Service Fabric che è già stato avviato.
 | --debug            | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h          | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o        | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query            | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query            | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose          | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-node-transition"></a>sfctl node transition
@@ -223,7 +223,7 @@ Per avviare un nodo, passare a "Start" per il parametro NodeTransitionType. Per 
 | --debug                           | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h                         | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o                       | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.                       Predefinito: json.|
-| --query                           | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query                           | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose                         | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="next-steps"></a>Passaggi successivi

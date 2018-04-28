@@ -2,7 +2,7 @@
 title: Acquisire dati da Hub eventi in Azure Data Lake Store | Microsoft Docs
 description: Usare Azure Data Lake Store per acquisire dati da Hub eventi
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: ac8000abc35cba89c4bf655a4806636933ab8d08
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9f91acf8c26fdec0c8d128f598f218cff091c7aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Usare Azure Data Lake Store per acquisire dati da Hub eventi
 
@@ -58,9 +58,12 @@ In questa sezione si crea una cartella nell'account in cui si vuole acquisire i 
 
     c. In **Assegna autorizzazioni** fare clic su **Selezionare le autorizzazioni**. Impostare **Autorizzazioni** su **Esegui**. Impostare **Aggiungi a** su **Questa cartella e tutti gli elementi figlio**. Impostare **Aggiungi come** su **Una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**.
 
-    ![Assegnare le autorizzazioni per la radice di Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assegnare le autorizzazioni per la radice di Data Lake Store")
+> [!IMPORTANT]
+> Questo è un modo semplice per garantire l'accesso alla cartella di destinazione quando si crea una nuova gerarchia di cartelle per l'acquisizione dei dati ricevuti da Hub eventi di Azure.  Tuttavia, l'aggiunta delle autorizzazioni a tutti gli elementi figlio di una cartella di livello principale con molti file e cartelle figlio può richiedere molto tempo.  Se la cartella radice contiene un numero elevato di file e cartelle, potrebbe essere più veloce aggiungere le autorizzazioni di **esecuzione** per `Microsoft.EventHubs` singolarmente a ogni cartella nel percorso della cartella di destinazione finale. 
 
-    Fare clic su **OK**.
+    ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
+
+    Click **OK**.
 
 4. Assegnare le autorizzazioni per la cartella nell'account Data Lake Store in cui si vuole acquisire i dati.
 

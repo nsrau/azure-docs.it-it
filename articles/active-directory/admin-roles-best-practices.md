@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 109a5b50688ca0b2c4edc63b6ba5c89bac74a6d3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9897a3578ad35376bea81b4821dbc2d84526a736
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -240,7 +240,7 @@ Richiedere a dirigenti, manager di alto livello, personale addetto alla sicurezz
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>Usare workstation dedicate per l'amministrazione di Azure AD
 
-Gli utenti malintenzionati possono tentare di prendere di mira account con privilegi per ottenere l'accesso ai dati e ai sistemi di un'organizzazione in modo da compromettere l'integrità e l'autenticità dei dati, tramite codice dannoso che consente di modificare la logica di programma o di osservare un amministratore mentre immette le credenziali. Per le attività sensibili, le workstation dotate di accesso con privilegi (PAW, Privileged Access Workstation) forniscono un sistema operativo dedicato, protetto dagli attacchi provenienti da Internet e dai vettori di minacce. Separare le attività e gli account sensibili da workstation e dispositivi usati quotidianamente assicura una protezione estrema contro gli attacchi di phishing, le vulnerabilità di applicazioni e sistemi operativi, svariati attacchi di rappresentazione e tecniche di furto delle credenziali, come registrazione delle pressioni di tasti, Pass the Hash e Pass The Ticket. La distribuzione di workstation con accesso con privilegi consente di ridurre il rischio che gli amministratori immettano credenziali di amministratore, se non in un ambiente desktop con sicurezza avanzata. Per altre informazioni, vedere [Privileged Access Workstations](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/privileged-access-workstations) (Workstation con accesso con privilegi).
+Gli utenti malintenzionati possono tentare di prendere di mira account con privilegi per ottenere l'accesso ai dati e ai sistemi di un'organizzazione in modo da compromettere l'integrità e l'autenticità dei dati, tramite codice dannoso che consente di modificare la logica di programma o di osservare un amministratore mentre immette le credenziali. Per le attività sensibili, le workstation dotate di accesso con privilegi (PAW, Privileged Access Workstation) forniscono un sistema operativo dedicato, protetto dagli attacchi provenienti da Internet e dai vettori di minacce. Separare le attività e gli account sensibili da workstation e dispositivi usati quotidianamente assicura una protezione estrema contro gli attacchi di phishing, le vulnerabilità di applicazioni e sistemi operativi, svariati attacchi di rappresentazione e tecniche di furto delle credenziali, come registrazione delle pressioni di tasti, Pass the Hash e Pass The Ticket. La distribuzione di workstation con accesso con privilegi consente di ridurre il rischio che gli amministratori immettano credenziali di amministratore, se non in un ambiente desktop con sicurezza avanzata. Per altre informazioni, vedere [Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) (Workstation con accesso con privilegi).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Esaminare le indicazioni del National Institute of Standards and Technology per la gestione degli eventi imprevisti 
 

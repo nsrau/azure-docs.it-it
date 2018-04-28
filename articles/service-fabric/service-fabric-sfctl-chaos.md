@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 34e4d47b1de509c2053996d9d1078733d7055447
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Consente di avviare, arrestare e creare report nel servizio di test chaos.
@@ -53,7 +53,7 @@ Recupera il segmento successivo del report di Chaos in base al token di continua
 | --debug          | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h        | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o      | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query          | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query          | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose        | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-chaos-start"></a>sfctl chaos start
@@ -107,7 +107,7 @@ Arresta la pianificazione di altri errori di Chaos. Tuttavia, gli errori in tran
 | --debug  | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h| Mostra questo messaggio della Guida e l'uscita.|
 | --output -o | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query  | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query  | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose| Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e4de55d99fce1cb1feff18a784eb029d3cb6a404
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0b1d990337c7c5caaee79bc8e3280c2690fc47b0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Esercitazione: Integrazione di Azure Active Directory con Form.com
 
@@ -101,7 +101,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Collegamento Configura accesso Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
+
     ![Finestra di dialogo Single Sign-On](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_samlbase.png)
 
 3. Nella sezione **URL e dominio Form.com** seguire questa procedura:
@@ -118,46 +118,26 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
     | `https://<subdomain>.form.com/Member/UserAccount/SAML2.action` |
     
-    > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di accesso, l'URL di risposta e l'identificatore effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Form.com](https://form.com/about/company/contact-us/). 
- 
-4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+    > [!NOTE]
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di accesso, l'URL di risposta e l'identificatore effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Form.com](https://form.com/about/company/contact-us/).
 
-    ![Collegamento di download del certificato](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_certificate.png) 
-
-5. Per generare l'**URL dei metadati**, seguire questa procedura:
-
-    a. Fare clic su **Registrazioni per l'app**.
+4. Nella sezione **Certificato di firma SAML** eseguire questa procedura:
     
-    ![Configurare appreg](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appregistrations.png)
-   
-    b. Fare clic su **Endpoint** per aprire la finestra di dialogo **Endpoint**.  
-    
-    ![Configurare Endpointcon](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpointicon.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-formcom-tutorial/tutorial_metadataurl.png)
 
-    c. Fare clic sul pulsante Copia per copiare l'URL del **DOCUMENTO METADATI FEDERAZIONE** e incollarlo nel Blocco note.
-    
-    ![Configurare l'endpoint](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpoint.png)
+    a. Fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
+
+    b. Fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
      
-    d. Passare ora alla pagina delle proprietà di **Form.com**, copiare l'**ID applicazione** usando il pulsante **Copia** e incollarlo nel Blocco note.
- 
-    ![Configurare appid](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appid.png)
-
-    e. Generare l'**URL dei metadati** usando il modello seguente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. Fare clic sul pulsante **Salva** .
+5. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-formcom-tutorial/tutorial_general_400.png)
 
-7. Nella sezione **Configurazione Form.com** fare clic su **Configura Form.com** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
+6. Nella sezione **Configurazione Form.com** fare clic su **Configura Form.com** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
 
     ![Configurazione Form.com](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_configure.png) 
 
-8. Per configurare l'accesso Single Sign-On sul lato **Form.com**, è necessario inviare il **Certificato (Base64)** scaricato, l'**URL dei metadati** e l'**URL del servizio Single Sign-On SAML** al [team di supporto di Form.com](https://form.com/about/company/contact-us/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
-
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
-> 
+7. Per configurare l'accesso Single Sign-On sul lato **Form.com**, è necessario inviare il **Certificato (Base64)** scaricato, l'**URL dei metadati di federazione dell'app** e l'**URL del servizio Single Sign-On SAML** al [team di supporto di Form.com](https://form.com/about/company/contact-us/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 

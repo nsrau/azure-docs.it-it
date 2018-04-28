@@ -5,18 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 03/16/2018
+ms.topic: tutorial
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7dd0bfbd96e6ba7b5d2174334419797c4fd60a51
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d1bc6fcb17732da7f6b0985122dd2cff3c2c9cdf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurare il ripristino di emergenza per macchine virtuali di Azure in un'area di Azure secondaria (anteprima)
 
@@ -30,7 +27,7 @@ Questa esercitazione illustra come configurare il ripristino di emergenza in un'
 > * Configurare l'accesso in uscita per le macchine virtuali
 > * Abilitare la replica per una macchina virtuale
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 
@@ -77,7 +74,7 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Connettività in uscita per gli intervalli di indirizzi IP
 
-Se si usa un proxy, un firewall basato su IP o regole NSG per controllare la connettività in uscita, è necessario che i seguenti intervalli IP siano consentiti. Scaricare un elenco di intervalli dai collegamenti seguenti:
+Se si vuole controllare la connettività in uscita usando indirizzi IP invece di URL, inserire nell'elenco elementi consentiti gli intervalli di data center appropriati, gli indirizzi di Office 365 e gli indirizzi degli endpoint di servizio per firewall basati su IP, proxy o regole dei gruppi di sicurezza di rete.
 
   - [Intervalli IP del data center di Microsoft Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
   - [Intervalli IP del data center di Microsoft Azure in Germania](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
@@ -85,7 +82,7 @@ Se si usa un proxy, un firewall basato su IP o regole NSG per controllare la con
   - [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Indirizzi IP dell'endpoint di servizio di Site Recovery](https://aka.ms/site-recovery-public-ips)
 
-Usare questi elenchi per configurare i controlli di accesso alla rete aziendale. È possibile usare questo [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) per creare le regole NSG necessarie.
+È possibile usare questo [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) per creare le regole NSG necessarie.
 
 ## <a name="verify-azure-vm-certificates"></a>Verificare i certificati della macchina virtuale di Azure
 
@@ -105,7 +102,7 @@ Azure Site Recovery offre tre ruoli predefiniti per controllare le operazioni di
 
 - **Lettore di Site Recovery** - Questo ruolo ha le autorizzazioni per visualizzare tutte le operazioni di gestione di Site Recovery. Questo ruolo è ideale per un dirigente del monitoraggio IT che può controllare lo stato corrente di protezione e generare ticket di supporto.
 
-Maggiori informazioni sui [ruoli predefiniti del Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-built-in-roles.md)
+Maggiori informazioni sui [ruoli predefiniti del Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md)
 
 ## <a name="enable-replication"></a>Abilitare la replica
 

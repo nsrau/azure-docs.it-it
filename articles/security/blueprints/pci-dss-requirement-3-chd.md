@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 356599cbe1e4e1948a5ec16d0d504835fa7dcd43
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 3bbed692bfccaa2a3296ba4697c66e9069b6e914
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="chd-requirements-for-pci-dss-compliant-environments"></a>Requisiti per i dati di titolari di carte per ambienti conformi a PCI DSS
 ## <a name="pci-dss-requirement-3"></a>Requisito 3 di PCI DSS
@@ -161,7 +161,7 @@ I dati di autenticazione sensibili includono i dati con le caratteristiche citat
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore crittografa tutti i dati archiviati e isola il traffico per evitare l'elevazione dei privilegi per le funzioni DevOps.<br /><br />Dato che l'ambiente del servizio app è protetto e bloccato, è necessario un meccanismo che consenta il rilascio o la modifica di DevOps in caso di necessità, ad esempio la possibilità di monitorare un app Web tramite Kudu.<br /><br />È stata creata una macchina virtuale come jumpbox (bastion host) con le seguenti configurazioni:<br /><br /><ul><li>[Estensione antimalware](/azure/security/azure-security-antimalware)</li><li>[Estensione di monitoraggio OMS](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[Estensione Diagnostica per le macchine virtuali](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Disco crittografato BitLocker](/azure/security/azure-security-disk-encryption)</li></ul>L'uso di Azure Key Vault è allineato ai requisiti di Azure per enti pubblici, PCI DSS e HIPAA.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore crittografa tutti i dati archiviati e isola il traffico per evitare l'elevazione dei privilegi per le funzioni DevOps.<br /><br />Dato che l'ambiente del servizio app è protetto e bloccato, è necessario un meccanismo che consenta il rilascio o la modifica di DevOps in caso di necessità, ad esempio la possibilità di monitorare un app Web tramite Kudu.<br /><br />È stata creata una macchina virtuale come jumpbox (bastion host) con le seguenti configurazioni:<br /><br /><ul><li>[Estensione antimalware](/azure/security/azure-security-antimalware)</li><li>[Estensione di monitoraggio di Log Analytics](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[Estensione Diagnostica per le macchine virtuali](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Disco crittografato BitLocker](/azure/security/azure-security-disk-encryption)</li></ul>L'uso di Azure Key Vault è allineato ai requisiti di Azure per enti pubblici, PCI DSS e HIPAA.|
 
 
 

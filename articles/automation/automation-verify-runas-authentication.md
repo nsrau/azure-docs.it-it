@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 5359a12d5b241eff80203c9e9bf04107ce4d3159
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6b8e1f2923657965f4bab89e7a0f5f08faa1d27e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Testare l'autenticazione con un account RunAs di Automazione di Azure
 Al termine della creazione di un account di Automazione, è possibile eseguire un semplice test per verificare di poter completare l'autenticazione in Azure Resource Manager o nella distribuzione classica di Azure con l'account RunAs di Automazione appena creato o aggiornato.    
@@ -27,7 +27,7 @@ Usare il codice di esempio seguente per [creare un runbook di PowerShell](automa
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
         "Logging in to Azure..."
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
            -ServicePrincipal `
            -TenantId $servicePrincipalConnection.TenantId `
            -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -58,7 +58,7 @@ Usare il codice di esempio seguente per [creare un runbook di PowerShell](automa
        Write-Output ("")
     } 
 
-Si noti che il cmdlet usato per l'autenticazione nel runbook (**Add-AzureRmAccount**) usa il set di parametri *ServicePrincipalCertificate*  ed esegue l'autenticazione usando il certificato dell'entità servizio, non le credenziali.  
+Si noti che il cmdlet usato per l'autenticazione nel runbook, **Connect-AzureRmAccount**, usa il set di parametri *ServicePrincipalCertificate*.  ed esegue l'autenticazione usando il certificato dell'entità servizio, non le credenziali.  
 
 Quando si [esegue il runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) per convalidare l'account RunAs, viene creato un [processo del runbook](automation-runbook-execution.md), viene visualizzata la pagina del processo e lo stato del processo è riportato nel riquadro **Riepilogo processi**. Lo stato del processo è inizialmente *In coda* per indicare che è in attesa della disponibilità di un ruolo di lavoro per runbook nel cloud. Lo stato passerà quindi ad *Avvio in corso* quando un ruolo di lavoro richiede il processo e quindi a *In esecuzione* quando l'esecuzione del runbook viene effettivamente avviata.  Al termine del processo del runbook, lo stato visualizzato dovrebbe essere **Completato**.
 

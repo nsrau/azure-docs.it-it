@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 759bd1e8be8aaebbf98e1c02d67f3e56609354aa
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 63592a1a1c20dd25e5eea66d501f26efeaf0cf21
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Acquistare e configurare un certificato SSL per il servizio app di Azure
 
@@ -101,7 +101,7 @@ Nel **[portale di Azure](https://portal.azure.com/)** fare clic sull'opzione **S
 
 Fare clic sul nome dell'app a cui si desidera assegnare il certificato.
 
-In **Impostazioni** fare clic su **Certificati SSL**.
+In **Impostazioni** fare clic su **Impostazioni SSL**.
 
 Fare clic su **Importa il certificato di servizio app** e selezionare il certificato appena acquistato.
 
@@ -206,5 +206,7 @@ Se il certificato SSL è configurato per il rinnovo automatico, ma non viene rin
 
 ## <a name="more-resources"></a>Altre risorse
 
+* [Applicare HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
+* [Applicare TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112)
 * [Usare un certificato SSL nel codice dell'applicazione in Servizio app di Azure](app-service-web-ssl-cert-load.md)
 * [Domande frequenti: Certificati del servizio app](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

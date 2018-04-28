@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/18/2017
-ms.openlocfilehash: afaadc12d056f42a75795073d480fe26757649d8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/16/2018
+ms.openlocfilehash: 30fa7e081c24339b7fa9f572d9feb25a0f920a86
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>Output di Analisi di flusso: opzioni per l'archiviazione e l'analisi
 Quando si crea un processo di Analisi di flusso di Azure, una considerazione da fare riguarda l'uso dei dati risultanti. Come è possibile visualizzare i risultati del processo di Analisi di flusso di Azure e dove è possibile archiviarli?
@@ -21,18 +21,19 @@ Quando si crea un processo di Analisi di flusso di Azure, una considerazione da 
 Per poter abilitare un'ampia gamma di modelli dell'applicazione, Analisi di flusso di Azure offre metodi diversi per archiviare l'output e visualizzare i risultati dell'analisi. In questo modo è possibile sia visualizzare facilmente l'output del processo che ottenere flessibilità nell'uso e nell'archiviazione dell'output del processo per il data warehouse e altri scopi. Qualsiasi elemento output configurato nel processo deve esistere prima che il processo venga avviato e gli eventi avviino il flusso. Ad esempio, se si utilizza l'archiviazione BLOB come output, il processo non crea un account di archiviazione automaticamente. Creare un account di archiviazione prima dell'avvio del processo di Analisi di flusso di Azure.
 
 ## <a name="azure-data-lake-store"></a>Archivio Azure Data Lake
-Analisi di flusso supporta [Archivio Data Lake di Azure](https://azure.microsoft.com/services/data-lake-store/). Questa archiviazione consente di archiviare dati di qualsiasi dimensione, tipo e velocità di inserimento per le analisi esplorative e operative. Inoltre, Analisi di flusso deve essere autorizzato ad accedere ad Archivio Data Lake. I dettagli sull'autorizzazione e su come iscriversi per Data Lake Store (se necessario) sono forniti nell'[articolo relativo agli output di Data Lake](stream-analytics-data-lake-output.md).
+Analisi di flusso supporta [Archivio Data Lake di Azure](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store è un repository su vasta scala a livello aziendale per carichi di lavoro di analisi di Big Data. Archivio Data Lake consente di archiviare dati di qualsiasi dimensione, tipo e velocità di inserimento per le analisi esplorative e operative. Inoltre, Analisi di flusso deve essere autorizzato ad accedere ad Archivio Data Lake.
 
-### <a name="authorize-an-azure-data-lake-store"></a>Autorizzare un Archivio Azure Data Lake
-Se nel portale di Azure è selezionato Data Lake Store come output, viene richiesto di autorizzare una connessione a un Data Lake Store esistente.  
+### <a name="authorize-an-azure-data-lake-store-account"></a>Autorizzare un account Azure Data Lake Store
 
-![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+1. Se nel portale di Azure è selezionato Data Lake Store come output, viene richiesto di autorizzare una connessione a un Data Lake Store esistente.  
 
-Compilare quindi le proprietà per l'output di Archivio Data Lake come illustrato di seguito:
+   ![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
-![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+2. Se si ha già accesso a Data Lake Store, fare clic su "Autorizza ora". Verrà visualizzata una pagina con il messaggio "Reindirizzamento all'autorizzazione in corso". Dopo che l'autorizzazione ha esito positivo, viene visualizzata la pagina che consente di configurare l'output di Data Lake Store.  
 
-La tabella seguente elenca i nomi delle proprietà e la relativa descrizione necessari per la creazione di un output di Archivio Data Lake.
+3. Dopo aver autenticato l'account, è possibile configurare le proprietà per l'output di Archivio Data Lake. La tabella seguente elenca i nomi di proprietà e le relative descrizioni per configurare l'output di Archivio Data Lake.
+
+   ![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 <table>
 <tbody>
@@ -46,11 +47,11 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione nec
 </tr>
 <tr>
 <td>Nome account</td>
-<td>Nome dell'account di archiviazione Data Lake a cui si sta inviando l'output. Viene visualizzato un elenco a discesa degli account Data Lake Store ai quali ha accesso l'utente connesso al portale.</td>
+<td>Nome dell'account di archiviazione Data Lake a cui si sta inviando l'output. Viene visualizzato un elenco a discesa degli account di Data Lake Store disponibili nella sottoscrizione.</td>
 </tr>
 <tr>
 <td>Schema prefisso percorso</td>
-<td>La denominazione dei file segue questa convenzione: <BR>{Schema prefisso percorso}/schemaHashcode_Guid_Number.extension <BR> <BR>File di output di esempio:<BR>Myoutput/20170901/00/45434_gguid_1.csv <BR>Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR>Inoltre, in queste situazioni viene creato un nuovo file:<BR>1. Modifica allo schema di output <BR>2. Riavvio interno o esterno di un processo<BR><BR>Inoltre, se il modello di percorso del file non contiene un "/" finale, l'ultimo modello nel percorso del file viene considerato come un prefisso del nome file.<BR><BR>Esempio:<BR>Per il modello di percorso folder1/logs/HH, il file generato sarà simile a questo: folder1/logs/02_134343_gguid_1.csv</td>
+<td>Percorso del file usato per scrivere i file nell'account di Archivio Data Lake specificato. È possibile specificare una o più istanze delle variabili {date} e {time}.<BR> Esempio 1: folder1/logs/{date}/{time}<BR>Esempio 2: folder1/logs/{date}<BR>Inoltre, in queste situazioni viene creato un nuovo file:<BR>1. Modifica allo schema di output <BR>2. Riavvio interno o esterno di un processo<BR><BR>Inoltre, se il modello di percorso del file non contiene un "/" finale, l'ultimo modello nel percorso del file viene considerato come un prefisso del nome file.<BR></td>
 </tr>
 <tr>
 <td>Formato data [<I>facoltativo</I>]</td>
@@ -80,12 +81,14 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione nec
 </table>
 
 ### <a name="renew-data-lake-store-authorization"></a>Rinnovare l'autorizzazione per Archivio Data Lake
-Se la password dell'account Data Lake Store è stata modificata dopo la creazione o l'ultima autenticazione del processo, è necessario autenticare nuovamente l'account.
+Se la password dell'account Data Lake Store è stata modificata dopo la creazione o l'ultima autenticazione del processo, è necessario autenticare nuovamente l'account. Se non si ripete l'autenticazione, il processo non restituirà risultati e nei log delle operazioni verrà registrato un errore che indica che è necessario ripetere l'autorizzazione. Attualmente esiste una limitazione secondo cui il token di autenticazione deve essere aggiornato manualmente ogni 90 giorni per tutti i processi con output di Archivio Data Lake. 
+
+Per rinnovare l'autorizzazione, **arrestare** il processo, passare all'output di Data Lake Store, quindi fare clic sul collegamento **Rinnova autorizzazione**. Per un istante verrà visualizzata una pagina che indica "Reindirizzamento all'autorizzazione...". La pagina verrà chiusa automaticamente e, in caso di esito positivo, verrà indicato "Autorizzazione rinnovata". È quindi necessario fare clic su **Salva** nella parte inferiore della pagina e, per continuare, riavviare il processo dall'**ora dell'ultimo arresto** per evitare la perdita di dati.
 
 ![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>Database SQL
-[database SQL di Azure](https://azure.microsoft.com/services/sql-database/) può essere usato come output per i dati di natura relazionale o per applicazioni che dipendono dal contesto ospitato in un database relazionale. I processi di Analisi di flusso di Azure eseguono la scrittura in una tabella esistente di un database SQL di Azure.  Lo schema della tabella deve corrispondere esattamente ai campi e ai relativi tipi generati dal processo. Un [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) può anche essere specificato come output tramite l'opzione di output del database SQL (si tratta di una funzionalità di anteprima). La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un database SQL di output.
+[database SQL di Azure](https://azure.microsoft.com/services/sql-database/) può essere usato come output per i dati di natura relazionale o per applicazioni che dipendono dal contesto ospitato in un database relazionale. I processi di Analisi di flusso di Azure eseguono la scrittura in una tabella esistente di un database SQL di Azure.  Lo schema della tabella deve corrispondere esattamente ai campi e ai relativi tipi generati dal processo. Un [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) può anche essere specificato come output tramite l'opzione di output del database SQL. La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un database SQL di output.
 
 | Nome proprietà | DESCRIZIONE |
 | --- | --- |
@@ -287,6 +290,8 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 | Delimitatore |Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
 | Format |Applicabile solo per il tipo JSON. Separato da righe specifica che l'output viene formattato separando ciascun oggetto JSON con una nuova riga. Array specifica che l'output viene formattato come matrice di oggetti JSON. |
 
+Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore intero univoco per ogni partizione.
+
 ## <a name="service-bus-topics"></a>Argomenti del bus di servizio
 Le code del bus di servizio forniscono un metodo di comunicazione uno-a-uno dal mittente al destinatario, invece gli [argomenti del bus di servizio](https://msdn.microsoft.com/library/azure/hh367516.aspx) offrono una forma di comunicazione uno-a-molti.
 
@@ -303,22 +308,29 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
  | Codifica |Se il formato è CSV o JSON, è necessario specificare un formato di codifica. Al momento UTF-8 è l'unico formato di codifica supportato |
 | Delimitatore |Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
 
+Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore intero univoco per ogni partizione.
+
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) è un servizio di database multimodello distribuito a livello globale che offre scalabilità elastica illimitata in tutto il mondo, query avanzate e indicizzazione automatica su modelli di dati indipendenti dallo schema, è garantito a bassa latenza ed è leader del settore per i contratti di servizio completi.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) è un servizio di database multimodello distribuito a livello globale che offre scalabilità elastica illimitata in tutto il mondo, query avanzate e indicizzazione automatica su modelli di dati indipendenti dallo schema, è garantito a bassa latenza ed è leader del settore per i contratti di servizio completi. Per informazioni sulle opzioni di raccolta di Cosmos DB per Analisi di flusso, consultare l'articolo [Analisi di flusso con Cosmos DB come output](stream-analytics-documentdb-output.md).
 
-L'elenco seguente illustra i nomi delle proprietà e la relativa descrizione per la creazione di un output Azure Cosmos DB.
+> [!Note]
+> Ad oggi, Analisi di flusso di Azure supporta la connessione a CosmosDB solo tramite l'**API SQL**.
+> Altre API di Azure Cosmos DB non sono ancora supportate. Se Analisi di flusso di Azure punta agli account Azure Cosmos DB creati con altre API, i dati potrebbero non essere archiviati correttamente. 
 
-* **Alias di output**: alias per fare riferimento a questo output nella query di analisi di flusso di Azure  
-* **Nome account**: nome o URI endpoint dell'account Cosmos DB.  
-* **Chiave account** : chiave di accesso condiviso per l'account Cosmos DB.  
-* **Database**: nome del database Cosmos DB.  
-* **Modello del nome di raccolta**: nome della raccolta o modello per le raccolte da usare. Il formato del nome di raccolta può essere costruito utilizzando il token {partizione} facoltativo, dove le partizioni iniziano da 0. Di seguito sono riportati input di esempio validi:  
-  1\) MyCollection: deve essere presente una raccolta denominata "MyCollection".  
-  2\) MyCollection{partizione}: devono essere presenti le raccolte "MyCollection0", "MyCollection1", "MyCollection2" e così via.  
-* **Chiave di partizione**: valore facoltativo. È necessario solo se si usa un token partition nel modello del nome di raccolta. Il nome del campo negli eventi di output utilizzato per specificare la chiave per il partizionamento di output nelle raccolte. Per l'output di una singola raccolta si può usare qualsiasi colonna di output arbitraria, ad esempio PartitionId.  
-* **ID documento** : valore facoltativo. Il nome del campo negli eventi di output usato per specificare la chiave primaria su cui si basano le operazioni di inserimento o aggiornamento.  
+Nella tabella seguente sono descritte le proprietà per la creazione di un output di Azure Cosmos DB.
+| Nome proprietà | DESCRIZIONE |
+| --- | --- |
+| Alias di output | Alias per fare riferimento a questo output nella query di Analisi di flusso di Azure. |
+| Sink | Cosmos DB |
+| Opzione di importazione | Scegliere "Selezionare Cosmos DB dalle sottoscrizioni correnti" o "Specificare le impostazioni di Cosmos DB manualmente".
+| ID account | Nome o URI endpoint dell'account Cosmos DB. |
+| Chiave account | Chiave di accesso condiviso per l'account Cosmos DB. |
+| Database | Nome del database Cosmos DB. |
+| Modello nome raccolta | Nome di raccolta o relativo modello per le raccolte da usare. <br/>Il formato del nome di raccolta può essere costruito utilizzando il token {partizione} facoltativo, dove le partizioni iniziano da 0. Due esempi:  <br/>1. _MyCollection_: deve essere presente una raccolta denominata "MyCollection".  <br/>2. _MyCollection{partition}_: basata sulla colonna di partizionamento. <br/>Devono essere presenti le raccolte della colonna di partizionamento "MyCollection0", "MyCollection1", "MyCollection2" e così via. |
+| Chiave di partizione | facoltativo. È necessario solo se si usa un token {partition} nel modello del nome di raccolta.<br/> La chiave di partizione è il nome del campo negli eventi di output usato per specificare la chiave per il partizionamento dell'output tra le raccolte.<br/> Per l'output di una singola raccolta si può usare qualsiasi colonna di output arbitraria, ad esempio PartitionId. |
+| Document ID |facoltativo. Il nome del campo negli eventi di output usato per specificare la chiave primaria su cui si basano le operazioni di inserimento o aggiornamento.  
 
-## <a name="azure-functions-in-preview"></a>Funzioni di Azure (in anteprima)
+## <a name="azure-functions"></a>Funzioni di Azure
 Funzioni di Azure è un servizio di calcolo senza server che consente di eseguire codice su richiesta senza dover gestire l'infrastruttura o effettuare il provisioning in modo esplicito. Consente di implementare il codice attivato da eventi generati nei servizi di Azure o in servizi di terze parti.  La possibilità offerta da Funzioni di Azure di rispondere ai trigger la rende l'output naturale per Analisi di flusso di Azure. Questo adattatore di output consente agli utenti di collegare Analisi di flusso a Funzioni di Azure ed eseguire uno script o una porzione di codice in risposta a diversi eventi.
 
 Analisi di flusso di Azure richiama Funzioni di Azure tramite trigger HTTP. Il nuovo adattatore di input di Funzioni di Azure è disponibile con le seguenti proprietà configurabili:
@@ -334,6 +346,23 @@ Analisi di flusso di Azure richiama Funzioni di Azure tramite trigger HTTP. Il n
 Si noti che quando Analisi di flusso di Azure riceve l'eccezione 413 (Entità richiesta troppo grande) dalla funzione di Azure, riduce la dimensione dei batch che invia a Funzioni di Azure. Usare questa eccezione nel codice della funzione di Azure per fare in modo che Analisi di flusso di Azure non invii batch troppo grandi. Assicurarsi anche che i valori relativi alle dimensioni massime e al numero massimo di batch usati nella funzione siano conformi ai valori inseriti nel portale di Analisi di flusso di Azure. 
 
 Quando non avviene alcun evento in un intervallo di tempo, non viene generato alcun output. Di conseguenza, non viene chiamata la funzione computeResult. Questo comportamento è coerente con le funzioni di aggregazione finestra predefinite.
+
+## <a name="partitioning"></a>Partizionamento
+
+Nella tabella seguente viene riepilogato il supporto della partizione e il numero di writer di output per ogni tipo di output:
+
+| Tipo di output | Supporto del partizionamento | Chiave di partizione  | Numero di writer di output | 
+| --- | --- | --- | --- |
+| Archivio Azure Data Lake | Sì | Use i token {date} e {time} nello schema prefisso percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. | Uguale all'input. | 
+| database SQL di Azure | No  | Nessuna | Non applicabile | 
+| Archivio BLOB di Azure | Sì | Usare i token {date} e {time} nel modello di percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. | Uguale all'input. | 
+| Hub eventi di Azure | Sì | Sì | Uguale alle partizioni di Hub eventi di output. |
+| Power BI | No  | Nessuna | Non applicabile | 
+| Archiviazione tabelle di Azure | Sì | Qualsiasi colonna di output.  | Uguale all'input o al passaggio precedente. | 
+| Argomento del bus di servizio di Azure | Sì | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore intero univoco per ogni partizione.| Uguale all'output.  |
+| Coda del bus di servizio di Azure | Sì | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore intero univoco per ogni partizione.| Uguale all'output. |
+| Azure Cosmos DB | Sì | Usare il token {partition} nel modello del nome della raccolta. Il valore di {partition} è basato sulla clausola PARTITION BY nella query. | Uguale all'input. |
+| Funzioni di Azure | No  | Nessuna | Non applicabile | 
 
 
 ## <a name="get-help"></a>Ottenere aiuto

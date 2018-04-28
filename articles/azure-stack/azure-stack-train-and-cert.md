@@ -1,6 +1,6 @@
 ---
 title: Certificazione e formazione di azure Stack
-description: "Informazioni sulle opportunità di certificazione di formazione di Azure Stack"
+description: Informazioni sulle opportunità di certificazione di formazione di Azure Stack
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -8,12 +8,12 @@ ms.service: azure-stack
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mabrigg
-keywords: 
-ms.openlocfilehash: 3ac1d83c4f40bd8bbd072486489b72de73084ade
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+keywords: ''
+ms.openlocfilehash: 19dba180d19967dcd6a01a6b2851d746ad1f9831
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-training-and-certification"></a>Certificazione e formazione di azure Stack
 
@@ -25,7 +25,7 @@ Le opportunità di training e certificazione seguenti sono disponibili per conos
 
 - [Corso 20537A: la configurazione e il funzionamento di un Cloud ibrido con Microsoft Azure Stack](https://www.microsoft.com/en-us/learning/course.aspx?cid=20537)
 - [edX: formazione Azure Stack](https://aka.ms/AzureStackMOOC)
-- [Ruoli e i percorsi di formazione](https://azure.microsoft.com/en-us/training/learning-paths/)
+- [Ruoli e i percorsi di formazione](https://azure.microsoft.com/training/learning-paths/)
 
 ## <a name="certification"></a>Certificazione
 Azure certificazioni di Stack sono attualmente in fase di sviluppo. Verificare la disponibilità degli aggiornamenti più recenti.

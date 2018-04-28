@@ -6,16 +6,16 @@ keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.reviewer: nini
-ms.date: 03/29/2018
+ms.date: 04/18/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f9cd00aec025748170a6576fe3ee4dbf794edfdb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9b948721c9190b38d0770fd38739d53d252f513d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -53,13 +53,17 @@ In Criteri di Azure sono disponibili alcuni criteri predefiniti, Ad esempio:
 - **Enforce tag and its value** (Imponi tag e relativo valore): questi criteri impongono l'uso di un tag obbligatorio e del relativo valore in una risorsa.
 - **Not allowed resource types** (Tipi di risorsa non consentiti): questi criteri consentono di specificare i tipi di risorsa che l'organizzazione non può distribuire.
 
-Tutti questi criteri possono essere assegnati tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
+Tutti questi criteri possono essere assegnati tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Al termine delle modifiche alla definizione di un criterio, la rivalutazione del criterio viene eseguita una volta all'ora circa.
 
 Per altre informazioni sulle strutture delle definizioni di criteri, vedere [Struttura delle definizioni di criteri](policy-definition.md).
 
 ## <a name="policy-assignment"></a>Assegnazione di criteri
 
-Un'assegnazione di criteri è una definizione di criteri che è stata assegnata per l'implementazione in un ambito specifico. L'ambito può spaziare da un gruppo di gestione a un gruppo di risorse. Il termine *ambito* fa riferimento a tutti i gruppi di risorse, le sottoscrizioni o i gruppi di gestione a cui è assegnata la definizione di criteri. Le assegnazioni dei criteri vengono ereditate da tutte le risorse figlio. I criteri applicati a un gruppo di risorse vengono pertanto applicati a tutte le risorse presenti nel gruppo. È tuttavia possibile escludere un sottoambito dall'assegnazione dei criteri. Nell'ambito della sottoscrizione è ad esempio possibile assegnare criteri che non permettono la creazione di risorse di rete. È tuttavia possibile escludere un gruppo di risorse nella sottoscrizione che è pensato per l'infrastruttura di rete e consentire l'accesso a questo gruppo specifico a utenti fidati in grado di creare risorse di rete.
+Un'assegnazione di criteri è una definizione di criteri che è stata assegnata per l'implementazione in un ambito specifico. L'ambito può spaziare da un gruppo di gestione a un gruppo di risorse. Il termine *ambito* fa riferimento a tutti i gruppi di risorse, le sottoscrizioni o i gruppi di gestione a cui è assegnata la definizione di criteri. Le assegnazioni dei criteri vengono ereditate da tutte le risorse figlio. I criteri applicati a un gruppo di risorse vengono pertanto applicati a tutte le risorse presenti nel gruppo. È tuttavia possibile escludere un sottoambito dall'assegnazione dei criteri.
+
+Nell'ambito della sottoscrizione è ad esempio possibile assegnare criteri che non permettono la creazione di risorse di rete. È tuttavia possibile escludere un gruppo di risorse nella sottoscrizione che è pensato per l'infrastruttura di rete e consentire l'accesso a questo gruppo specifico a utenti fidati in grado di creare risorse di rete.
+
+In un altro esempio è possibile che si voglia assegnare un criterio dell'elenco elementi consentiti relativo al tipo di risorsa a livello di gruppo di gestione. Assegnare quindi un criterio più permissivo, consentendo più tipi di risorse, in un gruppo di gestione figlio o anche direttamente nelle sottoscrizioni. Questo esempio tuttavia non funzionerebbe perché un criterio è un sistema di rifiuto esplicito. È invece necessario escludere il gruppo di gestione figlio o la sottoscrizione dall'assegnazione del criterio a livello di gruppo di gestione. Assegnare quindi il criterio più permissivo a livello di gruppo di gestione figlio o di sottoscrizione. Per riepilogare, se eventuali criteri provocano il rifiuto di una risorsa, l'unico modo per consentire la risorsa consiste nel modificare il criterio che la rifiuta.
 
 Per altre informazioni sull'impostazione delle definizioni e delle assegnazioni di criteri, vedere [Creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente Azure](assign-policy-definition.md).
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8fd8bd81191d2019d5fa41ce1b6a029f3587adfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Controllo di accesso in Azure Data Lake Store
 
@@ -150,7 +150,7 @@ In Azure un account Data Lake Store include diversi ruoli di Azure, tra cui:
 * Collaboratori
 * Lettori
 
-Tutti i membri del ruolo **Proprietari** per un account Data Lake Store sono automaticamente superuser per tale account. Per altre informazioni, vedere l'articolo relativo al [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md).
+Tutti i membri del ruolo **Proprietari** per un account Data Lake Store sono automaticamente superuser per tale account. Per altre informazioni, vedere l'articolo relativo al [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md).
 Se si vuole creare un ruolo Controllo degli accessi in base al ruolo personalizzato con autorizzazioni di utente avanzato, è necessario avere le autorizzazioni seguenti:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -184,7 +184,7 @@ Il gruppo proprietario può essere modificato da:
 * Utente proprietario, se è anche membro del gruppo di destinazione
 
 > [!NOTE]
-> Il gruppo proprietario *non può* modificare gli ACL di un file o di una cartella.
+> Il gruppo proprietario *non può* modificare gli ACL di un file o di una cartella.  Mentre il gruppo proprietario è impostato sull'utente che ha creato l'account nel caso della cartella radice, **Caso 1** descritto sopra, un singolo account utente non è valido per fornire autorizzazioni tramite il gruppo proprietario.  È possibile assegnare questa autorizzazione a un gruppo utenti valido, se applicabile.
 
 ## <a name="access-check-algorithm"></a>Algoritmo di controllo dell'accesso
 

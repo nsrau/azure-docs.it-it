@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/20/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 1a8cbdef8f3d8a5aa4aeab0e51275933160360c2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3335fdd3a1bb20c378bf36307d742491de0e46ad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Note sulla versione di Azure Stack Development Kit
 Queste note sulla versione offrono informazioni sui miglioramenti e correzioni di problemi noti in Azure Stack Development Kit. Se non si è certi quale versione è in esecuzione, è possibile [utilizzare il portale per controllare](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -239,7 +239,7 @@ Nel portale di amministrazione di Stack di Azure, è possibile notare un avviso 
 
 
 
-## <a name="build-201801032"></a>Build 20180103.2
+## <a name="build-201801032"></a>Compilazione 20180103.2
 
 ### <a name="new-features-and-fixes"></a>Nuove funzionalità e correzioni
 
@@ -291,7 +291,7 @@ Nel portale di amministrazione di Stack di Azure, è possibile notare un avviso 
 - Gli operatori di Azure Stack potrebbero non essere possibile distribuire, eliminare, modificare le reti virtuali o i gruppi di sicurezza di rete. Questo problema si verifica principalmente sui tentativi di aggiornamento successive dello stesso pacchetto. Ciò è causato da un problema di creazione di pacchetti con un aggiornamento che è attualmente in corso il controllo.
 - Bilanciamento di carico interno (ILB) gestisce correttamente gli indirizzi MAC per macchine virtuali di back-end che scartare i pacchetti alla rete back-end quando si usa istanze di Linux.
  
-#### <a name="sqlmysql"></a>SQL/MySQL 
+#### <a name="sqlmysql"></a>SQL o MySQL 
 - È possibile richiedere un'ora prima che i tenant possono creare database in un nuovo SQL o MySQL SKU. 
 - Creazione di elementi direttamente nel server che non vengono eseguite dal provider di risorse di hosting MySQL e SQL Server non è supportata e può comportare uno stato non corrispondente.
 
@@ -308,81 +308,4 @@ Ambienti, distribuiti in Azure Active Directory Federation Services (ADFS) di **
 > [!IMPORTANT]
 > Anche il **azurestack\cloudadmin** account è il proprietario della sottoscrizione del Provider predefinito in ambienti di distribuzione di ADFS, non dispone di autorizzazioni a RDP nell'host. Continuare a utilizzare il **azurestack\azurestackadmin** account o l'account amministratore locale per eseguire l'accesso, accedere e gestire l'host in base alle esigenze.
 
-
-
-
-## <a name="build-201711221"></a>Compilazione 20171122.1
-
-### <a name="new-features-and-fixes"></a>Nuove funzionalità e correzioni
-
-- Vedere il [nuove funzionalità e correzioni](.\.\azure-stack-update-1711.md#new-features-and-fixes) sezione di Azure Stack 1711 aggiornamento le note sulla versione per Azure Stack integrati sistemi.
-
-    > [!IMPORTANT]
-    > Alcuni degli elementi elencati nel **nuove funzionalità e correzioni** sezione sono rilevanti solo per i sistemi Azure Stack integrato.
-
-### <a name="known-issues"></a>Problemi noti
-
- 
-#### <a name="deployment"></a>Distribuzione
-- È necessario specificare un server utilizzando un indirizzo IP durante la distribuzione.
-- Partire dalla versione, 1711 **CloudAdmin** è un nome di account riservato e non deve essere manualmente specificato quando si distribuisce il kit di sviluppo. 
-
-#### <a name="infrastructure-management"></a>Gestione dell'infrastruttura
-- Non abilitare il backup di infrastruttura nel **backup infrastruttura** blade.
-- L'indirizzo IP di baseboard management controller (BMC) e il modello non vengono visualizzati le informazioni essenziali di un nodo di unità di scala. Questo comportamento è previsto nel Kit di sviluppo dello Stack di Azure.
-
-#### <a name="portal"></a>Portale
-- È possibile visualizzare un dashboard vuoto nel portale. Per ripristinare il dashboard, selezionare l'icona dell'ingranaggio in alto a destra del portale e quindi selezionare **ripristinare le impostazioni predefinite**.
-- Quando si visualizzano le proprietà di un gruppo di risorse, il **spostare** pulsante è disabilitato. Questo comportamento è previsto. Spostare i gruppi di risorse tra le sottoscrizioni non è attualmente supportato.
--  Per qualsiasi flusso di lavoro in cui si seleziona una sottoscrizione, gruppo di risorse o alla posizione in un elenco a discesa, si verifichi uno o più dei seguenti problemi:
-
-   - È possibile visualizzare una riga vuota nella parte superiore dell'elenco. È comunque possibile selezionare un elemento come previsto.
-   - Se l'elenco di elementi nell'elenco a discesa è breve, non sarà possibile visualizzare i nomi degli elementi.
-   - Se si dispone di più sottoscrizioni utente, l'elenco di riepilogo a discesa gruppo di risorse può essere vuoto. 
-
-   Per risolvere i problemi ultimi due, è possibile digitare il nome della sottoscrizione o del gruppo di risorse (se si conosce) oppure è possibile usare PowerShell.
-
-- Verrà visualizzato un **attivazione richiesto** messaggio di avviso che consiglia di registrare il Kit di sviluppo dello Stack di Azure. Questo comportamento è previsto.
-- Se il **componente** si fa clic sul collegamento da qualsiasi **ruolo infrastruttura** di avviso, il valore risultante **Panoramica** pannello tenta di caricare e ha esito negativo. Inoltre il **Panoramica** blade non ha timeout.
-- Se si elimina utente sottoscrizioni nelle risorse orfane. In alternativa, eliminare prima le risorse utente o l'intero gruppo di risorse e quindi eliminare le sottoscrizioni dell'utente.
-- Non è in grado di visualizzare le autorizzazioni per la sottoscrizione tramite i portali di Stack di Azure. In alternativa, è possibile verificare le autorizzazioni tramite PowerShell.
-- Il **servizio integrità** blade non riesce a caricare. Quando si apre il pannello di integrità del servizio nel portale di amministrazione o di utente, Azure Stack viene visualizzato un errore e non caricare le informazioni. Si tratta di un comportamento previsto. Sebbene sia possibile selezionare e aprire l'integrità del servizio, questa funzionalità non è ancora disponibile, ma verrà implementata in una versione futura dello Stack di Azure.
-
-#### <a name="marketplace"></a>Marketplace
-- Quando si tenta di aggiungere elementi a marketplace Stack Azure utilizzando il **Aggiungi da Azure** opzione, non tutti gli elementi potrebbero essere visibili per il download.
-- Gli utenti sfogliare il marketplace completo senza una sottoscrizione e di visualizzare gli elementi di amministrazione come piani e alle offerte. Questi elementi sono non funzionale agli utenti.
- 
-#### <a name="compute"></a>Calcolo
-- Gli utenti assegnati l'opzione per creare una macchina virtuale con l'archiviazione con ridondanza geografica. Questa configurazione causa l'errore durante la creazione macchina virtuale. 
-- È possibile configurare una macchina virtuale set di disponibilità solo con un dominio di errore di uno e un dominio di aggiornamento di uno.
-- Non sussiste alcuna esperienza di marketplace per creare il set di scalabilità di macchine virtuali. È possibile creare un set, utilizzando un modello di scalabilità.
-- Impostazioni di scalabilità per il set di scalabilità di macchine virtuali non sono disponibili nel portale. In alternativa, è possibile utilizzare [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). A causa delle differenze di versione di PowerShell, è necessario utilizzare il `-Name` parametro anziché `-VMScaleSetName`.
-
-#### <a name="networking"></a>Rete
-- Tramite il portale, è possibile creare un servizio di bilanciamento del carico con un indirizzo IP pubblico. In alternativa, è possibile utilizzare PowerShell per creare il servizio di bilanciamento del carico.
-- Quando si crea un servizio di bilanciamento del carico di rete, è necessario creare una regola di translation (NAT) indirizzo di rete. In caso contrario, si riceverà un errore quando si tenta di aggiungere una regola NAT, dopo aver creato il bilanciamento del carico.
-- In **rete**, se si fa clic su **connessione** per impostare una connessione VPN, **per rete virtuale a** è elencato come un tipo di connessione. Non selezionare questa opzione. Attualmente, solo il **Site-to-site (IPsec)** opzione è supportata.
-- Dopo aver creata e associata a tale indirizzo IP della macchina virtuale è non è possibile eliminare l'associazione di un indirizzo IP pubblico da una macchina virtuale (VM). Disassociazione verrà visualizzata a funzionare, ma l'indirizzo IP pubblico assegnato in precedenza rimane associato con la macchina virtuale originale. Questo comportamento si verifica anche se si riassegna l'indirizzo IP per una nuova macchina virtuale (conosciuta come un *scambio VIP*). Tutti i successivi tentativi di connessione attraverso il risultato di indirizzi IP in una connessione alla macchina virtuale di origine associati e non a quello nuovo. Attualmente, è necessario utilizzare solo i nuovi indirizzi IP pubblici per la creazione della nuova macchina virtuale.
-- Gli operatori di Azure Stack potrebbero non essere possibile distribuire, eliminare, modificare le reti virtuali o i gruppi di sicurezza di rete. Questo problema si verifica principalmente sui tentativi di aggiornamento successive dello stesso pacchetto. Ciò è causato da un problema di creazione di pacchetti con un aggiornamento che è attualmente in corso il controllo.
-- Bilanciamento di carico interno (ILB) gestisce correttamente gli indirizzi MAC per macchine virtuali di back-end che scartare i pacchetti alla rete back-end quando si usa istanze di Linux.
- 
-#### <a name="sqlmysql"></a>SQL/MySQL 
-- È possibile richiedere un'ora prima che i tenant possono creare database in un nuovo SQL o MySQL SKU. 
-- Creazione di elementi direttamente nel server che non vengono eseguite dal provider di risorse di hosting MySQL e SQL Server non è supportata e può comportare uno stato non corrispondente.
-
-    > [!NOTE]
-    > Vedere le singole [SQL](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy) e [MySQL](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy) articoli per materiale sussidiario per la compatibilità di versione del programma di installazione.
-
-#### <a name="app-service"></a>Servizio app
-- Un utente deve registrare il provider di risorse di archiviazione prima di creare la prima funzione di Azure nella sottoscrizione.
-
-#### <a name="usage"></a>Uso  
-- Dati misuratore sull'utilizzo degli indirizzi IP pubblici dell'utilizzo viene mostrata la stessa *EventDateTime* valore per ogni record anziché il *TimeDate* stamp che indica quando è stato creato il record. Attualmente è possibile utilizzare questi dati per eseguire contabilità precisa l'utilizzo degli indirizzi IP pubblico.
-
-#### <a name="identity"></a>Identità
-
-Ambienti, distribuiti in Azure Active Directory Federation Services (ADFS) di **azurestack\azurestackadmin** account non è più proprietario della sottoscrizione del Provider predefinito. Anziché la registrazione nel **portale di amministrazione / endpoint adminmanagement** con il **azurestack\azurestackadmin**, è possibile utilizzare il **azurestack\cloudadmin** account, questa operazione che è possibile gestire e usare la sottoscrizione di Provider predefinito.
-
-> [!IMPORTANT]
-> Anche il **azurestack\cloudadmin** account è il proprietario della sottoscrizione del Provider predefinito in ambienti di distribuzione di ADFS, non dispone di autorizzazioni a RDP nell'host. Continuare a utilizzare il **azurestack\azurestackadmin** account o l'account amministratore locale per eseguire l'accesso, accedere e gestire l'host in base alle esigenze.
 

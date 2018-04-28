@@ -5,7 +5,7 @@ services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042fdaa037fe1928fdb81727968a532ddfae0a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-access-to-your-logic-apps"></a>Proteggere l'accesso alle app per la logica
 
@@ -77,7 +77,7 @@ Oltre alla firma di accesso condiviso, si potrebbe voler limitare la chiamata a 
 Questa impostazione può essere configurata dalle impostazioni dell'app per la logica:
 
 1. Nel Portale di Azure aprire l'app per la logica per cui si desidera aggiungere limitazioni per l'indirizzo IP.
-1. Fare clic sulla voce di menu **Access control configuration** (Configurazione controllo di accesso) in **Impostazioni**.
+1. Fare clic sulla voce di menu **Impostazioni del flusso di lavoro** in **Impostazioni**
 1. Specificare l'elenco di intervalli di indirizzi IP che devono essere accettati dal trigger.
 
 Un intervallo IP valido assume il formato `192.168.1.1/255`. Se si desidera che l'app per la logica venga attivata solo come app per la logica nidificata, selezionare l'opzione **Only other logic apps** (Solo altre app per la logica). L'opzione scrive una matrice vuota nella risorsa; ciò significa che vengono attivate correttamente solo le chiamate dal servizio stesso (app per la logica padre).
@@ -119,7 +119,7 @@ Per aggiungere altri protocolli di autorizzazione a un'app per la logica, [Gesti
 
 ## <a name="secure-access-to-manage-or-edit-logic-apps"></a>Proteggere l'accesso per gestire o modificare un'app per la logica
 
-È possibile limitare l'accesso alle operazioni di gestione in un'app per la logica in modo che le operazioni sulla risorsa possano essere eseguite solo da utenti o gruppi specifici. Le app per la logica usano la funzionalità di [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) e possono essere personalizzate con gli stessi strumenti.  Esistono anche alcuni ruoli predefiniti a cui è possibile assegnare i membri della sottoscrizione:
+È possibile limitare l'accesso alle operazioni di gestione in un'app per la logica in modo che le operazioni sulla risorsa possano essere eseguite solo da utenti o gruppi specifici. Le app per la logica usano la funzionalità di [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md) e possono essere personalizzate con gli stessi strumenti.  Esistono anche alcuni ruoli predefiniti a cui è possibile assegnare i membri della sottoscrizione:
 
 * **Collaboratore per app per la logica**: offre l'accesso per visualizzare, modificare e aggiornare un'app per la logica.  Non è possibile rimuovere la risorsa o eseguire operazioni di amministrazione.
 * **Operatore per app per la logica**: può visualizzare l'app per la logica e la cronologia delle esecuzioni e abilitare o disabilitare.  Non è possibile modificare o aggiornare la definizione.

@@ -2,7 +2,7 @@
 title: Domande frequenti sulla gestione dei dispositivi di Azure Active Directory | Microsoft Docs
 description: Domande frequenti sulla gestione dei dispositivi di Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0ef5b84820cfcaf86f526ddd0565463e12b96331
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 4358b57284721642957d56ad8cfeea2b0f53fd89
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
@@ -41,47 +41,44 @@ ms.lasthandoff: 01/16/2018
 
 **D: Di recente è stato registrato un dispositivo. Perché non viene visualizzato nelle informazioni dell'utente all'interno del portale di Azure?**
 
-**R:** I dispositivi Windows 10 che appartengono a un dominio con la registrazione automatica dei dispositivi non vengono visualizzati nelle informazioni UTENTE.
+**R:** I dispositivi Windows 10 aggiunti ad Azure AD ibrido non vengono visualizzati tra i dispositivi utente.
 È necessario usare PowerShell per visualizzare tutti i dispositivi. 
 
-Nelle informazioni UTENTE vengono elencati solo i dispositivi seguenti:
+Nei dispositivi utente vengono elencati solo i dispositivi seguenti:
 
-- Tutti i dispositivi personali non aggiunti a un dominio aziendale 
-- Tutti i dispositivi non Windows 10/Windows Server 2016 
+- Tutti i dispositivi personali non aggiunti ad Azure AD ibrido 
+- Tutti i dispositivi non Windows 10/Windows Server 2016
 - Tutti i dispositivi non Windows 
 
 ---
 
 **D: Perché non vengono visualizzati tutti i dispositivi registrati in Azure Active Directory nel portale di Azure?** 
 
-**R:** Attualmente non è possibile visualizzare tutti i dispositivi registrati nel portale di Azure. È possibile usare Azure PowerShell per trovare tutti i dispositivi. Per ulteriori informazioni, vedere il cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
+**R:** Ora è possibile vederli nel menu Azure AD Directory -> Tutti i dispositivi. È possibile usare anche Azure PowerShell per trovare tutti i dispositivi. Per ulteriori informazioni, vedere il cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
 
 --- 
 
 **D: Come è possibile conoscere lo stato di registrazione del dispositivo client?**
 
-**R:** Lo stato di registrazione del dispositivo dipende da:
+**R:** Per i dispositivi Windows 10 e Windows Server 2016 o versioni successive, eseguire dsregcmd.exe /status.
 
-- Tipo di dispositivo
-- Modalità di registrazione 
-- Eventuali altri dettagli associati. 
- 
+Per le versioni di sistemi operativi di livello inferiore, eseguire "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"
 
 ---
 
 **D: Perché un dispositivo eliminato nel portale di Azure o tramite PowerShell viene comunque elencato come registrato?**
 
-**A:** Si tratta di un comportamento previsto da progettazione. Il dispositivo non avrà accesso alle risorse nel cloud. Se si vuole rimuovere e registrare nuovamente il dispositivo, è necessario farlo manualmente da quest'ultimo. 
+**A:** Si tratta di un comportamento previsto da progettazione. Il dispositivo non avrà accesso alle risorse nel cloud. Se si vuole registrare nuovamente il dispositivo, è necessario farlo manualmente da quest'ultimo. 
 
-Per i dispositivi Windows 10 e Windows Server 2016 aggiunti a un dominio AD locale:
+Per cancellare lo stato di join dai dispositivi Windows 10 e Windows Server 2016 aggiunti a un dominio AD locale:
 
 1.  Aprire il prompt dei comandi come amministratore.
 
 2.  Digitare `dsregcmd.exe /debug /leave`.
 
-3.  Disconnettersi e accedere per attivare le attività pianificate che registrano nuovamente il dispositivo. 
+3.  Disconnettersi e accedere per attivare l'attività pianificata che registra nuovamente il dispositivo con Azure AD. 
 
-Per altre piattaforme Windows aggiunte a un dominio AD locale:
+Per le versioni di sistemi operativi Windows di livello inferiore aggiunti a un dominio AD locale:
 
 1.  Aprire il prompt dei comandi come amministratore.
 2.  Digitare `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
@@ -93,13 +90,13 @@ Per altre piattaforme Windows aggiunte a un dominio AD locale:
 
 **R:**
 
--   Per i dispositivi Windows 10 e Windows Server 2016, se vengono effettuati tentativi ripetuti di rimozione o aggiunta del medesimo dispositivo, potrebbero essere visualizzate voci duplicate. 
+-   Per i dispositivi Windows 10 e Windows Server 2016, se vengono effettuati tentativi ripetuti di rimozione o aggiunta dello stesso dispositivo, potrebbero essere visualizzate voci duplicate. 
 
 -   Ciascun utente Windows che usa l'opzione Aggiungi account aziendale o dell'istituto di istruzione creerà un nuovo record di dispositivo con lo stesso nome.
 
--   Per le altre piattaforme Windows aggiunte a domini AD locali che usano la registrazione automatica verrà creato un nuovo record di dispositivo con lo stesso nome per ciascun utente di dominio che accede al dispositivo. 
+-   Per le versioni di sistemi operativi Windows di livello inferiore aggiunte a un dominio AD locale tramite registrazione automatica verrà creato un nuovo record di dispositivo con lo stesso nome per ciascun utente del dominio che accede al dispositivo. 
 
--   Un computer AADJ cancellato, reinstallato e aggiunto nuovamente con lo stesso nome verrà visualizzato con un record diverso ma con lo stesso nome dispositivo.
+-   Un computer aggiunto ad Azure AD cancellato, reinstallato e aggiunto nuovamente con lo stesso nome verrà visualizzato con un record diverso ma con lo stesso nome dispositivo.
 
 ---
 
@@ -108,21 +105,21 @@ Per altre piattaforme Windows aggiunte a un dominio AD locale:
 **R:** Potrebbe volerci fino a un'ora per applicare una revoca.
 
 >[!Note] 
->Se un dispositivo viene perso, è consigliabile cancellarlo per assicurare che gli utenti non possano accedervi. Per altre informazioni, vedere , vedere [Registrare i dispositivi per la gestione in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>Per quanto riguarda i dispositivi registrati, è consigliabile cancellarli per assicurare che gli utenti non possano accedere alle relative risorse. Per altre informazioni, vedere , vedere [Registrare i dispositivi per la gestione in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 
 ---
 
 **D: Perché viene visualizzato un messaggio che avvisa dell'impossibilità di raggiungere un determinato dispositivo?**
 
-**R:** Se sono state configurate determinate regole di accesso condizionale per richiedere uno stato specifico del dispositivo e il dispositivo in questione non soddisfa i criteri, gli utenti vengono bloccati con questo messaggio. Esaminare le regole e assicurarsi che il dispositivo soddisfi i criteri per evitare di incorrere in questo messaggio.
+**R:** Se sono state configurate determinate regole di accesso condizionale per richiedere uno stato specifico del dispositivo e il dispositivo in questione non soddisfa i criteri, gli utenti vengono bloccati con questo messaggio. Esaminare le regole dei criteri di accesso condizionale e assicurarsi che il dispositivo soddisfi i criteri per evitare che venga visualizzato questo messaggio.
 
 ---
 
 
 **D: Il record del dispositivo è presente nelle informazioni UTENTE nel portale di Azure e viene indicato come registrato nel client. La configurazione è corretta per l'uso dell'accesso condizionale?**
 
-**R:** Il record (deviceID) e lo stato del dispositivo nel portale di Azure devono corrispondere al client e soddisfare eventuali criteri di valutazione per l'accesso condizionale. Per altre informazioni, vedere [Introduzione a Registrazione dispositivo Azure Active Directory](active-directory-device-registration.md).
+**R:** Lo stato di join del dispositivo, indicato dall'ID dispositivo, deve corrispondere a quello in Azure AD e soddisfare eventuali criteri di valutazione per l'accesso condizionale. Per altre informazioni, vedere [Introduzione a Registrazione dispositivo Azure Active Directory](active-directory-device-registration.md).
 
 ---
 
@@ -140,9 +137,9 @@ Per altre piattaforme Windows aggiunte a un dominio AD locale:
 
 ---
 
-**D: Perché viene visualizzata la finestra di dialogo "Oops… an error occurred!" (Si è verificato un errore) quando si tenta di aggiungere un PC?**
+**D: Perché viene visualizzata una finestra di dialogo di errore quando si tenta di aggiungere il PC ad Azure AD?**
 
-**R:** La finestra viene visualizzata quando si registra Azure Active Directory con Intune. Per altri dettagli, vedere [Configurare la gestione dei dispositivi Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+**R:** La finestra viene visualizzata quando si registra Azure Active Directory con Intune. Verificare che all'utente che sta cercando di aggiungere il PC ad Azure AD sia assegnata la licenza di Intune corretta. Per altri dettagli, vedere [Configurare la gestione dei dispositivi Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
 
 ---
 
@@ -154,7 +151,7 @@ Per altre piattaforme Windows aggiunte a un dominio AD locale:
 
 **D: Dove reperire le istruzioni per la configurazione della registrazione automatica del dispositivo?**
 
-**R:**Per altre informazioni, vedere [Come configurare la registrazione automatica dei dispositivi Windows con Azure Active Directory aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-setup.md).
+**R:** Per altre informazioni, vedere [Come configurare la registrazione automatica dei dispositivi Windows con Azure Active Directory aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 ---
 

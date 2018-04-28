@@ -17,10 +17,10 @@ ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso di System for Cross-Domain Identity Management per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni
 
@@ -114,7 +114,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
 
 **Per creare un endpoint SCIM di esempio:**
 
-1. Scaricare il pacchetto dell'esempio di codice da [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
+1. Scaricare il pacchetto del codice di esempio dal sito [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 2. Decomprimere il pacchetto e salvarlo nel computer Windows in un percorso analogo a C:\AzureAD-BYOA-Provisioning-Samples\.
 3. In questa cartella avviare la soluzione FileProvisioningAgent in Visual Studio.
 4. Selezionare **Strumenti > Library Package Manager (Gestione pacchetti libreria) > Console di Gestione pacchetti** ed eseguire i comandi seguenti per il progetto FileProvisioningAgent per risolvere i riferimenti alla soluzione:
@@ -144,7 +144,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
   ![][2]
   *Figura 4: Configurazione del provisioning nel portale di Azure*
     
-6. Nel campo **URL tenant** immettere l'URL esposto a Internet e la porta dell'endpoint SCIM. Questi valori saranno simili a http://testmachine.contoso.com:9000 o http://<indirizzo-IP>:9000/, dove <indirizzo-IP> è l'indirizzo IP esposto a Internet.  
+6. Nel campo **URL tenant** immettere l'URL esposto a Internet e la porta dell'endpoint SCIM. Questi valori saranno simili a http://testmachine.contoso.com:9000 o a http://<indirizzo-IP>:9000/, dove <indirizzo-IP> è l'indirizzo IP esposto a Internet.  
 7. Se l'endpoint SCIM richiede un token di connessione OAuth da un'autorità di certificazione diversa da Azure AD, copiare il token di connessione OAuth nel campo **Token segreto** facoltativo. Se questo campo viene lasciato vuoto, AD Azure includerà in ogni richiesta un token di connessione OAuth emesso da Azure AD. Le app che usano Azure AD come provider di identità possono convalidare il token rilasciato da Azure AD.
 8. Fare clic sul pulsante **Test connessione** per fare in modo che Azure Active Directory provi a connettersi all'endpoint SCIM. Se i tentativi hanno esito negativo, verranno visualizzate informazioni sul tipo di errore.  
 9. Se i tentativi di connessione all'applicazione hanno esito positivo, fare clic su **Salva** per salvare le credenziali di amministratore.
@@ -168,7 +168,7 @@ Per sviluppare un servizio Web personalizzato conforme alla specifica SCIM, è n
 2. I [gestori di ExpressRoute](http://expressjs.com/guide/routing.html) sono disponibili per l'analisi di oggetti richiesta node.js che rappresentano chiamate, in base alla definizione della specifica SCIM, effettuate a un servizio Web node.js.   
 
 ### <a name="building-a-custom-scim-endpoint"></a>Creazione di un endpoint SCIM personalizzato
-Usando le librerie CLI, gli sviluppatori possono ospitare i servizi in un assembly Common Language Infrastructure eseguibile o in Internet Information Services. Ecco un codice di esempio per l'hosting di un servizio in un assembly eseguibile all'indirizzo http://localhost:9000: 
+Usando le librerie CLI, gli sviluppatori possono ospitare i servizi in un assembly Common Language Infrastructure eseguibile o in Internet Information Services. Ecco del codice di esempio per l'hosting di un servizio in un assembly eseguibile all'indirizzo http://localhost:9000: 
 
     private static void Main(string[] arguments)
     {
@@ -288,7 +288,7 @@ Per ospitare il servizio in Internet Information Services, uno sviluppatore deve
     }
 
 ### <a name="handling-endpoint-authentication"></a>Gestione dell'autenticazione dell'endpoint
-Le richieste da Azure Active Directory includono un token di connessione OAuth 2.0.   Qualsiasi servizio che riceve la richiesta deve autenticare l'emittente come Azure Active Directory per conto del tenant Azure Active Directory previsto, per l'accesso al servizio Web Graph di Azure Active Directory.  Nel token l'emittente viene identificato da un'attestazione iss, ad esempio, "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  In questo esempio, l'indirizzo di base del valore dell'attestazione, https://sts.windows.net, identifica Azure Active Directory come autorità di certificazione, mentre il segmento dell'indirizzo relativo, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, è un identificatore univoco del tenant di Azure Active Directory per conto del quale è stato emesso il token.  Se il token è stato emesso per l'accesso al servizio Web Graph di Azure Active Directory, l'identificatore di quel servizio, 00000002-0000-0000-c000-000000000000, deve essere incluso nel valore dell'attestazione aud del token.  
+Le richieste da Azure Active Directory includono un token di connessione OAuth 2.0.   Qualsiasi servizio che riceve la richiesta deve autenticare l'emittente come Azure Active Directory per conto del tenant Azure Active Directory previsto, per l'accesso al servizio Web Graph di Azure Active Directory.  Nel token, l'autorità di certificazione è identificata da un'attestazione ISS, ad esempio "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  In questo esempio, l'indirizzo di base del valore dell'attestazione, https://sts.windows.net, identifica Azure Active Directory come autorità di certificazione, mentre il segmento dell'indirizzo relativo, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, è un identificatore univoco del tenant di Azure Active Directory per conto del quale è stato emesso il token.  Se il token è stato emesso per l'accesso al servizio Web Graph di Azure Active Directory, l'identificatore di quel servizio, 00000002-0000-0000-c000-000000000000, deve essere incluso nel valore dell'attestazione aud del token.  
 
 Gli sviluppatori che usano le librerie CLA fornite da Microsoft per la creazione di un servizio SCIM possono autenticare le richieste da Azure Active Directory mediante il pacchetto Microsoft.Owin.Security.ActiveDirectory seguendo questa procedura: 
 
@@ -349,7 +349,7 @@ Azure Active Directory può effettuare il provisioning di due tipi di risorse ne
 
 Le risorse utente sono rilevate dall'identificatore dello schema, urn:ietf:params:scim:schemas:extension:enterprise:2.0:User, incluso in questa specifica del protocollo: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  Il mapping predefinito degli attributi degli utenti in Azure Active Directory agli attributi delle risorse urn:ietf:params:scim:schemas:extension:enterprise:2.0:User è disponibile nella tabella 1 seguente.  
 
-Le risorse gruppo sono identificate dall'identificatore dello schema, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  La tabella 2 seguente illustra il mapping predefinito degli attributi di gruppi di Azure Active Directory agli attributi delle risorse http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+Le risorse gruppo sono identificate dall'identificatore dello schema, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  La tabella 2 riportata di seguito illustra il mapping predefinito degli attributi di gruppi di Azure Active Directory agli attributi delle risorse http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>Tabella 1: mapping predefinito degli attributi utente
 | Utente Azure Active Directory | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |

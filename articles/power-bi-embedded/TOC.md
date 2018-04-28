@@ -25,10 +25,10 @@
 ## [Procedura dettagliata di esempio](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
 ## [Esempio per incorporare JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
-# riferimento
+# Riferimenti
 ## API
 ### [API REST di Gestione delle risorse di Azure](https://docs.microsoft.com/rest/api/power-bi-embedded/)
-### [API REST di Power BI](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
+### [API REST di Power BI](https://msdn.microsoft.com/library/mt147898.aspx)
 
 # Risorse
 ## [Community di Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)

@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 84475302-EFC2-4C35-B4CF-60C857A96345
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/02/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 09a774e5dda71d87c3862a6152ff5d2c9468c40c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5b881c17b6ad1c9a7e46492f8549f563cfd6d796
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Usare i profili di versione API con Vai nello Stack di Azure
 
@@ -82,7 +80,7 @@ Per eseguire un esempio di codice Go nello Stack di Azure:
   ```
 
   3. Se non è disponibile, creare una sottoscrizione e salvare l'ID sottoscrizione da utilizzare in un secondo momento. Per informazioni sulla creazione di una sottoscrizione, vedere [creare le sottoscrizioni di offerte nello Stack di Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
-  4. Creare un'entità servizio con ambito "Subscription" e **proprietario** ruolo. Salvare l'ID e il segreto dell'entità servizio. Per informazioni sulla creazione di un'entità servizio per lo Stack di Azure, vedere [creare l'entità servizio](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). L'ambiente dello Stack di Azure è configurato.
+  4. Creare un'entità servizio con ambito "Subscription" e **proprietario** ruolo. ID e segreto, salvare le entità servizio. Per informazioni sulla creazione di un'entità servizio per lo Stack di Azure, vedere [creare l'entità servizio](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). L'ambiente dello Stack di Azure è configurato.
   5. Importare un modulo del servizio dal profilo SDK andare nel codice. La versione corrente del profilo Azure Stack **2017-03-09**. Ad esempio, per importare il modulo di rete dalla **2017-03-09** tipo di profilo: 
 
   ````go
@@ -129,7 +127,7 @@ Provider di autorizzazioni deve essere impostato come provider di autorizzazioni
 
 In questa sezione viene presentato un modo comune per ottenere i token authorizer nello Stack di Azure utilizzando le credenziali del client:
 
-  1. Se un'entità servizio con il ruolo di proprietario della sottoscrizione è disponibile, ignorare questo passaggio. In caso contrario, creare un'entità servizio [istruzioni]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals) e assegnare un ruolo di "proprietario" con ambito limitato alla sottoscrizione [istruzioni]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Salvare l'ID applicazione dell'entità servizio e il segreto. 
+  1. Se un'entità servizio con il ruolo di proprietario della sottoscrizione è disponibile, ignorare questo passaggio. In caso contrario, creare un'entità servizio [istruzioni]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) e assegnare un ruolo di "proprietario" con ambito limitato alla sottoscrizione [istruzioni]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Salvare l'ID applicazione dell'entità servizio e il segreto. 
 
   2. Importazione **adal** pacchetto da Go AutoRest nel codice. 
   

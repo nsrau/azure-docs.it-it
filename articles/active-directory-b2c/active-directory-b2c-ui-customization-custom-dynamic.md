@@ -11,13 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: davidmu
-ms.openlocfilehash: d8aaf0ef8cefdc0cb1c4ff3dec656d31c32f664f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 77f6ae1df8a364eecc5e7d6d6fe3a07dd215ac16
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 I criteri personalizzati di Azure Active Directory B2C (Azure AD B2C) consentono di inviare un parametro in una stringa di query. Passando il parametro all'endpoint HTML, è possibile modificare dinamicamente il contenuto della pagina. È ad esempio possibile modificare l'immagine di sfondo della pagina di accesso o di iscrizione ad Azure AD B2C in base a un parametro passato dall'applicazione Web o per dispositivi mobili. 
 
 ## <a name="prerequisites"></a>prerequisiti
@@ -193,7 +196,7 @@ Il modello HTML5 è pronto per l'uso. Non è tuttavia disponibile nel codice `Co
     >Per verificare che CORS sia abilitato per il sito in cui si ospita il contenuto e che il sito possa testare le richieste CORS, passare al sito Web [test-cors.org](http://test-cors.org/). 
 
 * Il contenuto gestito sia protetto tramite **HTTPS**.
-* Vengano usati *URL assoluti*, ad esempio *https://dominio/contenuto* per tutti i collegamenti, i contenuti CSS e le immagini.
+* Vengono usati *URL assoluti*, ad esempio *https://yourdomain/content*, per tutti i collegamenti, i contenuti CSS e le immagini.
 
 ## <a name="step-5-configure-your-content-definition"></a>Passaggio 5: Configurare la definizione del contenuto
 Per configurare `ContentDefinition`, eseguire questa procedura:

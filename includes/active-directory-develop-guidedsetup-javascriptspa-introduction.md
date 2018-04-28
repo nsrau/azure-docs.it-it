@@ -1,20 +1,43 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 6871127ac138fb0113af73ca5222e3e2c2f99d7e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/28/2018
+---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Chiamare l'API di Microsoft Graph da un'applicazione a singola pagina (SPA) di JavaScript
 
 Questa guida dimostra come un'applicazione a pagina singola JavaScript possa accedere ad account personali, aziendali e dell'istituto di istruzione, ottenere un token di accesso e chiamare l'API Microsoft Graph o altre API che richiedono token di accesso dall'endpoint di Azure Active Directory v2.
 
-### <a name="how-this-guide-works"></a>Come interpretare questa guida
+## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funzionamento dell'app di esempio generata da questa guida
 
 ![Funzionamento dell'app di esempio generata da questa guida](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.png)
 
 <!--start-collapse-->
-### <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Altre informazioni
 
 L'applicazione di esempio creata in questa guida consente a una SPA di Javascript di eseguire query nell'API di Microsoft Graph o in un'API Web che accetta token dall'endpoint di Azure Active Directory v2. Per questo scenario, dopo l'accesso di un utente, viene richiesto e aggiunto un token di accesso a richieste HTTP tramite l'intestazione dell'autorizzazione. L'acquisizione e il rinnovo del token vengono gestiti da Microsoft Authentication Library (MSAL).
 
 <!--end-collapse-->
 
 <!--start-collapse-->
-### <a name="libraries"></a>Librerie
+## <a name="libraries"></a>Librerie
 
 Questa guida usa la libreria seguente:
 

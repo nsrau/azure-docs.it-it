@@ -1,6 +1,22 @@
-## <a name="os-config"></a>Add IP addresses to a VM operating system (Aggiungere indirizzi IP a un sistema operativo VM)
+---
+title: File di inclusione
+description: File di inclusione
+services: virtual-network
+author: jimdial
+ms.service: virtual-network
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: jdial
+ms.custom: include file
+ms.openlocfilehash: 1febadbbf7821988600d6feddc94fce25d15e989
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/16/2018
+---
+## <a name="os-config"></a>Aggiungere indirizzi IP a un sistema operativo VM
 
-Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessario aggiungere manualmente tutti gli indirizzi IP privati aggiunti alla VM, incluso l'indirizzo primario. Completare i passaggi seguenti per il sistema operativo VM:
+Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessario aggiungere manualmente tutti gli indirizzi IP privati aggiunti alla VM, incluso l'indirizzo primario. Completare i passaggi seguenti per il sistema operativo della macchina virtuale.
 
 ### <a name="windows"></a>Windows
 
@@ -13,17 +29,16 @@ Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessar
     * **Indirizzo IP**: immettere l'indirizzo IP privato *Primary* .
     * **Subnet mask**: configurare questo valore in base alla subnet. Se, ad esempio, la subnet è di tipo /24, la subnet mask è 255.255.255.0.
     * **Gateway predefinito**: primo indirizzo IP nella subnet. Se la subnet è 10.0.0.0/24, l'indirizzo IP del gateway è 10.0.0.1.
-    * Fare clic su **Utilizza i seguenti indirizzi server DNS** e immettere i valori seguenti:
+    * Selezionare **Utilizza i seguenti indirizzi server DNS** e immettere i valori seguenti:
         * **Server DNS preferito**: immettere 168.63.129.16 se non si usa il proprio server DNS.  Se si usa il proprio server DNS, immettere il relativo indirizzo IP.
-    * Fare clic sul pulsante **Avanzate** e aggiungere altri indirizzi IP. Aggiungere ogni indirizzo IP privato secondario elencato nel passaggio 8 all'interfaccia di rete con la stessa subnet specificata per l'indirizzo IP primario.
-        >[!WARNING] 
-        >Se non si segue correttamente la procedura precedente, è possibile che si perda la connettività alla macchina virtuale. Prima di continuare, assicurarsi che le informazioni immesse per il passaggio 5 siano corrette.
+    * Selezionare il pulsante **Avanzate** e aggiungere altri indirizzi IP. Aggiungere tutti gli indirizzi IP secondari, aggiunti all'interfaccia di rete di Azure in un passaggio precedente, all'interfaccia di rete di Windows assegnata all'indirizzo IP primario assegnato all'interfaccia di rete di Azure.
+
+        Non assegnare mai manualmente l'indirizzo IP pubblico assegnato a una macchina virtuale di Azure all'interno del sistema operativo della macchina virtuale. Quando si imposta manualmente l'indirizzo IP privato all'interno del sistema operativo, assicurarsi che sia uguale all'indirizzo IP privato assegnato all'[interfaccia di rete](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings) di Azure. In caso contrario, si può perdere la connettività alla macchina virtuale. Altre informazioni sulle impostazioni dell'[indirizzo IP privato](../articles/virtual-network/virtual-network-network-interface-addresses.md#private). L'assegnazione di un indirizzo IP pubblico di Azure all'interno del sistema operativo è un'operazione sempre sconsigliata.
 
     * Fare clic su **OK** per chiudere le impostazioni TCP/IP e quindi di nuovo su **OK** per chiudere le impostazioni della scheda. Viene ristabilita la connessione RDP.
 
 6. Da un prompt dei comandi digitare *ipconfig /all*. Tutti gli indirizzi IP aggiunti vengono visualizzati e DHCP viene disattivato.
 7. Configurare Windows per usare l'indirizzo IP privato della configurazione IP primaria in Azure come indirizzo IP primario per Windows. Per i dettagli, vedere [Nessun accesso a Internet da una macchina virtuale Windows Azure che dispone di più indirizzi IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse). 
-
 
 ### <a name="validation-windows"></a>Convalida (Windows)
 

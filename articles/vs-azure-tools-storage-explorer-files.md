@@ -1,12 +1,12 @@
 ---
-title: Uso di Storage Explorer (anteprima) con Archiviazione file di Azure | Microsoft Docs
-description: Informazioni su come usare Storage Explorer (anteprima) per l'utilizzo con file e condivisioni file.
+title: Uso di Storage Explorer con Archiviazione file di Azure | Microsoft Docs
+description: Informazioni su come usare Storage Explorer per l'utilizzo con file e condivisioni file.
 services: storage
 documentationcenter: na
 author: cawaMS
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8bcc2bf11ef4adbe9139635d3c24c240a46783c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="using-storage-explorer-preview-with-azure-file-storage"></a>Uso di Storage Explorer (anteprima) con Archiviazione file di Azure
+# <a name="using-storage-explorer-with-azure-file-storage"></a>Uso di Storage Explorer con Archiviazione file di Azure
 
-Archiviazione file di Azure offre condivisioni file nel cloud usando il protocollo Server Message Block (SMB)standard. Sono supportati sia SMB 2.1 che SMB 3.0. Con Archiviazione file di Azure si può eseguire la migrazione ad Azure delle applicazioni legacy basate su condivisioni file velocemente e senza costose riscritture. È possibile usare Archiviazione file per esporre pubblicamente dati a livello mondiale o per archiviare privatamente dati applicazione. Questo articolo illustra come usare Storage Explorer (anteprima) per l'utilizzo con file e condivisioni file.
+Archiviazione file di Azure offre condivisioni file nel cloud usando il protocollo Server Message Block (SMB)standard. Sono supportati sia SMB 2.1 che SMB 3.0. Con Archiviazione file di Azure si può eseguire la migrazione ad Azure delle applicazioni legacy basate su condivisioni file velocemente e senza costose riscritture. È possibile usare Archiviazione file per esporre pubblicamente dati a livello mondiale o per archiviare privatamente dati applicazione. Questo articolo illustra come usare Storage Explorer per l'utilizzo con file e condivisioni file.
 
 ## <a name="prerequisites"></a>prerequisiti
 
 Per seguire la procedura descritta in questo articolo, è necessario eseguire queste operazioni:
 
-- [Scaricare e installare Storage Explorer (anteprima)](http://www.storageexplorer.com/)
+- [Scaricare e installare Storage Explorer](http://www.storageexplorer.com/)
 
 - [Connettersi a un account o a un servizio di archiviazione di Azure](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
@@ -36,9 +36,9 @@ Per seguire la procedura descritta in questo articolo, è necessario eseguire qu
 
 Tutti i file devono risiedere in una condivisione file, ovvero un semplice raggruppamento logico di file. Un account può contenere un numero illimitato di condivisioni file e ogni condivisione può archiviare un numero illimitato di file.
 
-La procedura seguente illustra come creare una condivisione file all'interno di Storage Explorer (anteprima).
+La procedura seguente illustra come creare una condivisione file all'interno di Storage Explorer.
 
-1. Aprire Storage Explorer (anteprima).
+1. Aprire Esplora archivi.
 
 2. Nel riquadro sinistro espandere l'account di archiviazione all'interno del quale si vuole creare la condivisione file.
 
@@ -58,9 +58,9 @@ La procedura seguente illustra come creare una condivisione file all'interno di 
 
 Le condivisioni file contengono file e cartelle, che a loro volta possono contenere file.
 
-La procedura seguente illustra come visualizzare il contenuto di una condivisione file all'interno di Storage Explorer (anteprima).
+La procedura seguente illustra come visualizzare il contenuto di una condivisione file all'interno di Storage Explorer.
 
-1. Aprire Storage Explorer (anteprima).
+1. Aprire Esplora archivi.
 
 2. Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file da visualizzare.
 
@@ -78,9 +78,9 @@ La procedura seguente illustra come visualizzare il contenuto di una condivision
 
 È possibile creare ed eliminare facilmente le condivisioni file in base alle esigenze. Per informazioni su come eliminare singoli file, vedere la sezione relativa alla [gestione dei file in una condivisione file](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).
 
-La procedura seguente illustra come eliminare una condivisione file all'interno di Storage Explorer (anteprima).
+La procedura seguente illustra come eliminare una condivisione file all'interno di Storage Explorer:
 
-1. Aprire Storage Explorer (anteprima).
+1. Aprire Esplora archivi.
 
 2. Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file da visualizzare.
 
@@ -96,11 +96,11 @@ La procedura seguente illustra come eliminare una condivisione file all'interno 
 
 ## <a name="copy-a-file-share"></a>Copiare una condivisione file
 
-Storage Explorer (anteprima) consente di copiare una condivisione file negli Appunti e quindi incollarla in un altro account di archiviazione. Per informazioni su come copiare singoli file, vedere la sezione relativa alla [gestione dei file in una condivisione file](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).
+Storage Explorer consente di copiare una condivisione file negli Appunti e quindi incollarla in un altro account di archiviazione. Per informazioni su come copiare singoli file, vedere la sezione relativa alla [gestione dei file in una condivisione file](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).
 
 La procedura seguenti illustra come copiare una condivisione file da un account di archiviazione a un altro.
 
-1. Aprire Storage Explorer (anteprima).
+1. Aprire Esplora archivi.
 
 2. Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file da copiare.
 
@@ -120,7 +120,7 @@ Una [firma di accesso condiviso (SAS)](https://docs.microsoft.com//azure/storage
 
 La procedura seguente illustra come creare una firma di accesso condiviso per una condivisione file.
 
-1. Aprire Storage Explorer (anteprima).
+1. Aprire Esplora archivi.
 
 2. Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file per cui si vuole ottenere una firma di accesso condiviso.
 
@@ -146,7 +146,7 @@ La procedura seguente illustra come creare una firma di accesso condiviso per un
 
 La procedura seguente illustra come gestire, ovvero aggiungere e rimuovere, criteri di accesso per una condivisione file. I criteri di accesso vengono usati per la creazione di URL di firma di accesso condiviso che permettono di accedere alla risorsa di Archiviazione file in un periodo di tempo specificato.
 
-1. Aprire Storage Explorer (anteprima).
+1. Aprire Esplora archivi.
 
 2. Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file di cui si vogliono gestire i criteri di accesso.
 
@@ -180,7 +180,7 @@ Dopo aver creato una condivisione file, è possibile caricare un file in tale co
 
 La procedura seguente illustra come gestire i file e le cartelle all'interno di una condivisione file.
 
-1.  Aprire Storage Explorer (anteprima).
+1.  Aprire Esplora archivi.
 
 2.  Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file da gestire.
 
@@ -258,6 +258,6 @@ La procedura seguente illustra come gestire i file e le cartelle all'interno di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere le note sulla versione e i video in [Microsoft Azure Storage Explorer](http://www.storageexplorer.com/)(anteprima).
+- [Note sulla versione e video più recenti per Storage Explorer](http://www.storageexplorer.com/).
 
 - Informazioni su come creare applicazioni con BLOB, tabelle, code e file di Azure nella [Documentazione su Archiviazione](https://azure.microsoft.com/documentation/services/storage/).

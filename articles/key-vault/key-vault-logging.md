@@ -2,7 +2,7 @@
 title: Registrazione dell'insieme di credenziali delle chiavi di Azure| Documentazione Microsoft
 description: Usare questa esercitazione per un'introduzione alla registrazione dell'insieme di credenziali delle chiavi di Azure.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: 2faf45c7329f1c98a26bcf7ec5d569dfa16cbbda
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 3406d314fb4dba92830933c4e4d373fc8bebeba3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione dell'insieme di credenziali delle chiavi di Azure
 L'insieme di credenziali delle chiavi di Azure è disponibile nella maggior parte delle aree. Per altre informazioni, vedere la [pagina Insieme di credenziali delle chiavi - Prezzi](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -52,7 +52,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 ## <a id="connect"></a>Connettersi alle sottoscrizioni
 Avviare una sessione di Azure PowerShell e accedere all'account Azure con il comando seguente:  
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Nella finestra del browser a comparsa, immettere il nome utente e la password dell'account Azure. Azure PowerShell recupera tutte le sottoscrizioni associate a questo account e, per impostazione predefinita, usa la prima.
 
@@ -133,7 +133,7 @@ Per elencare tutti i BLOB in questo contenitore, digitare:
     Get-AzureStorageBlob -Container $container -Context $sa.Context
 L'output sarà simile al seguente:
 
-**Uri contenitore: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**URI del contenitore: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 **Nome**
 

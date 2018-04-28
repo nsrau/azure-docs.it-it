@@ -1,31 +1,24 @@
 ---
-title: 'Esercitazione: Caricamento dei dati di Polybase - Dal BLOB del servizio di archiviazione di Azure ad Azure SQL Data Warehouse | Microsoft Docs'
-description: Un'esercitazione che usa il portale di Azure e SQL Server Management Studio per caricare dati relativi ai taxi di New York dall'archivio BLOB di Azure a SQL Data Warehouse.
+title: 'Esercitazione: caricare dati relativi ai taxi di New York in Azure SQL Data Warehouse | Microsoft Docs'
+description: L'esercitazione usa il portale di Azure e SQL Server Management Studio per caricare dati relativi ai taxi di New York da un archivio BLOB di Azure pubblico a SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: ''
 author: ckarst
-manager: jhubbard
-editor: ''
-tags: ''
-ms.assetid: ''
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/16/2018
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: barbkess
-ms.openlocfilehash: 77e1666a5c8cc51495f2058ff76b2b99a3212db0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.reviewer: igorstan
+ms.openlocfilehash: fb918cc70a3a3d21e86c9d530e264199794886f1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Esercitazione: Usare PolyBase per caricare dati dall'archivio BLOB di Azure ad Azure SQL Data Warehouse
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Esercitazione: caricare dati relativi ai taxi di New York ad Azure SQL Data Warehouse
 
-PolyBase è la tecnologia di caricamento standard per inserire dati in SQL Data Warehouse. In questa esercitazione si usa PolyBase per caricare dati dei taxi di New York dall'archivio BLOB di Azure a SQL Data Warehouse. Questa esercitazione usa il [portale di Azure](https://portal.azure.com) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) per: 
+L'esercitazione usa PolyBase per caricare dati relativi ai taxi di New York da un archivio BLOB di Azure pubblico a SQL Data Warehouse. Questa esercitazione usa il [portale di Azure](https://portal.azure.com) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) per: 
 
 > [!div class="checklist"]
 > * Creare data warehouse nel portale di Azure
@@ -50,7 +43,7 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Creare un SQL Data Warehouse vuoto
 
-Un SQL Data Warehouse viene creato con un set definito di [risorse di calcolo](performance-tiers.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di Azure SQL](../sql-database/sql-database-features.md). 
+Un SQL Data Warehouse viene creato con un set definito di [risorse di calcolo](memory-and-concurrency-limits.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di Azure SQL](../sql-database/sql-database-features.md). 
 
 Per creare un SQL Data Warehouse vuoto, eseguire la procedura seguente. 
 
@@ -170,7 +163,7 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
 
 ## <a name="create-a-user-for-loading-data"></a>Creare un utente per il caricamento dei dati
 
-L'account amministratore del server ha la funzione di eseguire operazioni di gestione e non è appropriato per l'esecuzione di query sui dati degli utenti. Il caricamento di dati è un'operazione a elevato utilizzo di memoria. I [valori massimi di memoria](performance-tiers.md#memory-maximums) sono definiti in base al [livello di prestazioni](performance-tiers.md) e alla [classe di risorse](resource-classes-for-workload-management.md). 
+L'account amministratore del server ha la funzione di eseguire operazioni di gestione e non è appropriato per l'esecuzione di query sui dati degli utenti. Il caricamento di dati è un'operazione a elevato utilizzo di memoria. I valori massimi di memoria sono definiti in base al [livello di prestazioni](memory-and-concurrency-limits.md#performance-tiers), alle [unità del data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) e alla [classe di risorse](resource-classes-for-workload-management.md). 
 
 È consigliabile creare un account di accesso e un utente dedicato per il caricamento dei dati. Quindi aggiungere l'utente con il compito di caricare i dati a una [classe di risorse](resource-classes-for-workload-management.md) che consente un'allocazione di memoria massima appropriata.
 
@@ -221,7 +214,7 @@ Il primo passo per caricare dati è eseguire l'accesso come LoaderRC20.
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Creare una tabella esterna per i dati di esempio
 
-Ora è possibile iniziare il processo di caricamento dei dati nel nuovo data warehouse. Questa esercitazione illustra come usare [Polybase](/sql/relational-databases/polybase/polybase-guide) per caricare i dati relativi ai taxi di New York City da un BLOB del servizio di archiviazione di Azure. Per riferimento futuro, per informazioni su come ottenere i dati nell'archivio BLOB di Azure o come caricarli direttamente dall'origine in SQL Data Warehouse, vedere la [panoramica del caricamento](sql-data-warehouse-overview-load.md).
+Ora è possibile iniziare il processo di caricamento dei dati nel nuovo data warehouse. Questa esercitazione illustra come usare tabelle esterne per caricare dati relativi ai taxi di New York da un BLOB del servizio di archiviazione di Azure. Per riferimento futuro, per informazioni su come ottenere i dati nell'archivio BLOB di Azure o come caricarli direttamente dall'origine in SQL Data Warehouse, vedere la [panoramica del caricamento](sql-data-warehouse-overview-load.md).
 
 Eseguire gli script SQL seguenti per specificare le informazioni sui dati che si vuole caricare. Queste informazioni includono la posizione dei dati, il formato del contenuto dei dati e la definizione della tabella per i dati. 
 

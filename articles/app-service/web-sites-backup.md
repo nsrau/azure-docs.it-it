@@ -2,7 +2,7 @@
 title: Eseguire il backup dell'app in Azure
 description: Informazioni sulla creazione dei backup delle app nel Servizio app di Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 435370a8758d439a5fcce2e04efd11b4aaaf0357
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 66423fecce92cd933cc8680810aa2abe5e25a90d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="back-up-your-app-in-azure"></a>Eseguire il backup dell'app in Azure
 La funzionalità di backup e ripristino nel [Servizio app di Azure](app-service-web-overview.md) consente di creare facilmente backup di app in modo manuale o pianificato. È possibile ripristinare l'app a una snapshot di uno stato precedente sovrascrivendo l'applicazione esistente o eseguendo il ripristino in un'altra applicazione. 
@@ -35,9 +35,9 @@ Il servizio app può eseguire il backup delle informazioni seguenti in un accoun
 * Database connesso all'app
 
 Le soluzioni di database seguenti sono supportate con funzionalità di backup: 
-   - [Database SQL](https://azure.microsoft.com/en-us/services/sql-database/)
-   - [Database di Azure per MySQL (anteprima)](https://azure.microsoft.com/en-us/services/mysql)
-   - [Database di Azure per PostgreSQL (anteprima)](https://azure.microsoft.com/en-us/services/postgres)
+   - [Database SQL](https://azure.microsoft.com/services/sql-database/)
+   - [Database di Azure per MySQL (anteprima)](https://azure.microsoft.com/services/mysql)
+   - [Database di Azure per PostgreSQL (anteprima)](https://azure.microsoft.com/services/postgres)
    - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 

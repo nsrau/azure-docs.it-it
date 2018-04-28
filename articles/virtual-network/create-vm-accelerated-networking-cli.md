@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: aa74596906206ba4460e80af9015955c0b848cd4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 718990b69cc75709af819ad7df9a77ad0f8f33ce
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Creare una macchina virtuale Linux con rete accelerata
 
@@ -66,7 +66,7 @@ L'uso della funzionalità Rete accelerata presenta le limitazioni seguenti:
 * **Creazione di una VM**: una scheda di interfaccia di rete con rete accelerata abilitata può essere collegata a una VM solo durante la creazione della VM. Non è possibile collegare la scheda di interfaccia di rete a una VM esistente. Se si aggiunge la VM a un set di disponibilità esistente, anche tutte le VM incluse nel set devono avere la funzionalità Rete accelerata abilitata.
 * **Solo distribuzione tramite Azure Resource Manager**: le macchine virtuali (classiche) non possono essere distribuite con la funzionalità Rete Accelerata.
 
-Questo articolo illustra la procedura per creare una macchina virtuale con rete accelerata tramite l'interfaccia della riga di comando di Azure, ma è anche possibile [creare una macchina virtuale con rete accelerata usando il portale di Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando si crea una macchina virtuale con dimensioni e sistema operativo supportati nel portale, in **Impostazioni** selezionare **Abilitata** in **Rete accelerata**. Dopo aver creato la macchina virtuale, è necessario eseguire le istruzioni riportate nella sezione [Verificare che la rete accelerata sia abilitata](#confirm-that-accelerated-networking-is-enabled).
+Questo articolo illustra la procedura per creare una macchina virtuale con rete accelerata tramite l'interfaccia della riga di comando di Azure, ma è anche possibile [creare una macchina virtuale con rete accelerata usando il portale di Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando si crea una macchina virtuale nel portale, in **Impostazioni** selezionare **Abilitata** in **Rete accelerata**. L'opzione per abilitare la rete accelerata non compare nel portale a meno che non siano stati selezionati un [sistema operativo supportato](#supported-operating-systems) e [le dimensioni delle macchine virtuali](#supported-vm-instances). Dopo aver creato la macchina virtuale, è necessario eseguire le istruzioni riportate nella sezione [Verificare che la rete accelerata sia abilitata](#confirm-that-accelerated-networking-is-enabled).
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 

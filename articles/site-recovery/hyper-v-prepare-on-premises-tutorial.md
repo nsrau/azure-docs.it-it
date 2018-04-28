@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1290a186ca8e83b09f53b286e80c5ce75f08d88c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7e0219a662483ef123bdc2889a43dd3d93d23ac2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Predisporre i server Hyper-V locali per il ripristino di emergenza in Azure
 
@@ -36,7 +36,7 @@ Assicurarsi che gli host Hyper-V e le macchine virtuali siano conformi ai requis
 2. [Controllare i requisiti](hyper-v-azure-support-matrix.md#replicated-vms) per le macchine virtuali Hyper-V da replicare in Azure.
 3. Controllare le funzionalità di [rete](hyper-v-azure-support-matrix.md#hyper-v-network-configuration) dell'host Hyper-V e il supporto dell'[archiviazione](hyper-v-azure-support-matrix.md#hyper-v-host-storage) host e guest per gli host Hyper-V in locale.
 4. Controllare cosa è supportato per le [funzionalità di rete di Azure](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), l'[archiviazione](hyper-v-azure-support-matrix.md#azure-storage) e il [calcolo](hyper-v-azure-support-matrix.md#azure-compute-features), dopo il failover.
-5. Le macchine virtuali in locale replicate in Azure devono essere conformi ai [requisiti delle macchine virtuali di Azure](hyper-v-azure-support-matrix.md#azure-vm-requirements).
+5. Le macchine virtuali locali replicate in Azure devono essere conformi ai [requisiti delle macchine virtuali di Azure](hyper-v-azure-support-matrix.md#azure-vm-requirements).
 
 
 ## <a name="prepare-vmm-optional"></a>Predisporre VMM (facoltativo)
@@ -58,14 +58,13 @@ Preparare VMM per il mapping di rete come segue:
 
 ## <a name="verify-internet-access"></a>Verificare l'accesso a Internet
 
-1. Ai fini dell'esercitazione, la configurazione più semplice per gli host Hyper-V e il server VMM, se disponibile, consiste nell'accedere a Internet direttamente, senza ricorrere a un proxy. 
+1. Ai fini dell'esercitazione, la configurazione più semplice per gli host Hyper-V e il server VMM consiste nell'accedere a Internet direttamente, senza ricorrere a un proxy. 
 2. Assicurarsi che gli host Hyper-V e il server VMM, se presenti, possano accedere a questi URL: 
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-3. Assicurarsi che:
-    - Se sono presenti regole del firewall basate sull'indirizzo IP, verificare che consentano la comunicazione con Azure.
-    - Consentire gli [intervalli IP del data center di Azure ](https://www.microsoft.com/download/confirmation.aspx?id=41653) e la porta HTTPS (443).
+3. Se si esegue il controllo dell'accesso tramite un indirizzo IP, assicurarsi che:
+    - Le regole del firewall basate sull'indirizzo IP consentano la connessione agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e alla porta HTTPS (443).
     - Consentire gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione e per gli Stati Uniti occidentali (usati per il controllo di accesso e la gestione delle identità).
 
 

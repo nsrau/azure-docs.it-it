@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: aeda1184610398c0445238ea2e7ccbea866ed418
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6d8484a4c30fdd17cbb4773e6ff822b73efd5c4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scaling-in-service-fabric"></a>Scalabilità in Service Fabric
 Azure Service Fabric semplifica la creazione di applicazioni scalabili gestendo i servizi, le partizioni e le repliche nei nodi di un cluster. L'esecuzione di molti carichi di lavoro sullo stesso hardware determina il massimo utilizzo delle risorse, ma offre anche la flessibilità in termini di scelta di come scalare i carichi di lavoro. Questo video di Channel 9 descrive come compilare applicazioni di microservizi scalabili:
@@ -117,12 +117,7 @@ Le [metriche](service-fabric-cluster-resource-manager-metrics.md) indicano il mo
 ## <a name="scaling-by-adding-and-removing-nodes-from-the-cluster"></a>Implementazione della scalabilità tramite aggiunta e rimozione di nodi dal cluster 
 Un'altra opzione per la scalabilità con Service Fabric consiste nel modificare le dimensioni del cluster. Modificare le dimensioni del cluster significa aggiungere o rimuovere nodi per uno o più tipi di nodo nel cluster. Si consideri, ad esempio, il caso in cui tutti i nodi del cluster sono attivi. Le risorse del cluster sono quindi quasi tutte usate. In questo caso, aggiungere altri nodi al cluster è il modo migliore per applicare la scalabilità. Dopo che i nuovi nodi sono stati aggiunti al cluster, Gestione risorse cluster di Service Fabric sposta alcuni servizi nei nuovi nodi, riducendo il carico totale sui nodi esistenti. Per i servizi senza stato con numero di istanze = -1, vengono create automaticamente più istanze del servizio. Alcune chiamate possono così spostarsi dai nodi esistenti a quelli nuovi. 
 
-L'aggiunta e la rimozione di nodi nel cluster può essere eseguita tramite il modulo PowerShell di Azure Resource Manager di Service Fabric.
-
-```posh
-Add-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName  -NumberOfNodesToAdd 5 
-Remove-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName -NumberOfNodesToRemove 5
-```
+Per altre informazioni, vedere [Ridimensionamento dei cluster](service-fabric-cluster-scaling.md).
 
 ## <a name="putting-it-all-together"></a>Riassumendo
 Si prendano ora tutti i concetti discussi qui e li si applichi a un esempio. Si consideri l'esempio seguente: si intende creare un servizio di rubrica, contenente nomi e informazioni sui contatti. 

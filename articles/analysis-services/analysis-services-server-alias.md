@@ -1,24 +1,18 @@
 ---
-title: Nomi del server alias di Azure Analysis Services | Documentazione Microsoft
+title: Nomi del server alias di Azure Analysis Services | Microsoft Docs
 description: Descrive come creare e utilizzare gli alias dei nomi del server.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: e0119580c4128ffd237127a62e29dac34297da5d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: e55438c629b861e8dc095892c6c519855cd5e632
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="alias-server-names"></a>Nomi del server alias
 
@@ -31,7 +25,7 @@ I nomi di server alias sono ottimali per:
 - Indirizzare gli utenti a server diversi nei diversi momenti della giornata. 
 - Indirizzare gli utenti in aree diverse a istanze geograficamente più vicine, ad esempio quando si utilizza Gestione traffico di Microsoft Azure. 
 
-Qualsiasi endpoint HTTP che restituisce un nome del server valido di Azure Analysis Services può essere utilizzato come alias.
+Qualsiasi endpoint HTTPS che restituisce un nome del server valido di Azure Analysis Services può essere utilizzato come alias. L'endpoint deve supportare HTTPS sulla porta 443 e la porta non deve essere specificata nell'URI.
 
 ![Alias che utilizza formato link](media/analysis-services-alias/aas-alias-browser.png)
 

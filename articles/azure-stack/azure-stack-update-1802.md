@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 04/19/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 6f654e7897a9a00b0e53849002d5d4b16eab2bd6
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c5237f8e97f76e5dc348322abeb16682aee62f3b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Aggiornamento dello Stack 1802 Azure
 
@@ -56,9 +56,10 @@ In questo articolo vengono descritti i miglioramenti e correzioni nel pacchetto 
 
 
 ### <a name="post-update-steps"></a>Passaggi di post-aggiornamento
-Dopo l'installazione di 1802, installare gli aggiornamenti rapidi applicabili. Per ulteriori informazioni, vedere i seguenti articoli della knowledge base, nonché il nostro [manutenzione criteri](azure-stack-servicing-policy.md).  
-- [KB 4103348 - servizio API di Controller di rete si blocca quando si tenta di installare un aggiornamento dello Stack di Azure](https://support.microsoft.com/help/4103348)
+Dopo l'installazione di 1802, installare gli aggiornamenti rapidi applicabili. Per ulteriori informazioni, vedere i seguenti articoli della knowledge base, nonché il nostro [manutenzione criteri](azure-stack-servicing-policy.md). 
+- Aggiornamento rapido di Azure Stack **1.0.180302.4**. [KB 4131152 - set di scalabilità di macchine virtuali esistenti potrebbe essere inutilizzabile]( https://support.microsoft.com/help/4131152) 
 
+  Questa correzione risolve anche i problemi descritti in dettaglio in [4103348 KB - arresto anomalo del servizio API Controller di rete quando si tenta di installare un aggiornamento di Azure Stack](https://support.microsoft.com/help/4103348).
 
 
 ### <a name="new-features-and-fixes"></a>Nuove funzionalità e correzioni

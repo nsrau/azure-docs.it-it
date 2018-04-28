@@ -12,26 +12,24 @@ ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 8c976e5508c928943e2a5e4820f72520554f9b5d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e8dc802d67b4cd2e38ab195b771ceeaa07876e58
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Usare gli strumenti di Azure HDInsight per Visual Studio Code
 
 Informazioni su come usare gli strumenti di Azure HDInsight per Visual Studio Code (VS Code) per creare e inviare processi batch Hive, query Hive interattive e script pySpark. Gli strumenti di Azure HDInsight possono essere installati sulle piattaforme supportate da VS Code, tra cui Windows, Linux e macOS. Sono previsti prerequisiti specifici per le diverse piattaforme.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare le procedure descritte in questo articolo, sono necessari gli elementi seguenti:
 
-- Un cluster HDInsight.  Per creare un cluster, vedere [Introduzione a HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
+- Un cluster HDInsight. Per creare un cluster, vedere [Introduzione a HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono è necessario solo per Linux e macOS.
 
@@ -102,7 +100,7 @@ Prima di inviare script ai cluster HDInsight da Visual Studio Code, è necessari
     - Inviare script batch PySpark
     - Impostare configurazioni
 
-**Per collegare un cluster**
+<a id="linkcluster"></a>**Per collegare un cluster**
 
 È possibile collegare un cluster normale usando un nome utente Ambari gestito e anche collegare un cluster Hadoop di sicurezza usando un nome utente di dominio (ad esempio: user1@contoso.com).
 1. Aprire il riquadro comandi premendo la combinazione di tasti **CTRL+MAIUSC+P** e quindi immettere **HDInsight: Link a cluster** (HDInsight: Collega un cluster).
@@ -277,8 +275,50 @@ Gli strumenti di HDInsight per VS Code consentono anche di inviare query PySpark
 
 Dopo aver inviato un processo Python, i log di invio vengono visualizzati nella finestra **Output** in VS Code. Vengono visualizzati anche l'**URL dell'interfaccia utente di Spark** e l'**URL dell'interfaccia utente di Yarn**. È possibile aprire l'URL in un Web browser per tenere traccia dello stato del processo.
 
-
+>[!NOTE]
+>PySpark3 non è più supportato in Livy 0.4 (ovvero il cluster spark 2.2 HDI). È supportato solo "PySpark" per python. Il fatto che l'invio a spark 2.2 ha esito negativo con python3 è un problema noto.
    
+## <a name="livy-configuration"></a>Configurazione di Livy
+La configurazione di Livy è supportata ed è possibile impostarlo nelle impostazioni di progetto nella cartella dell'area di lavoro. Per altre informazioni, vedere [Livy LEGGIMI](https://github.com/cloudera/livy/blob/master/README.rst ).
+
++ Impostazioni di progetto:
+
+    ![Configurazione di Livy](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+
++ Configurazioni di Livy supportate:   
+
+    **POST /batches**   
+    Request Body
+
+    | name | description | type | 
+    | :- | :- | :- | 
+    | file | File contenente l'applicazione da eseguire | percorso (obbligatorio) | 
+    | proxyUser | Utente da rappresentare durante l'esecuzione del processo | stringa | 
+    | className | Classe principale Java/Spark dell'applicazione | stringa |
+    | args | Argomenti della riga di comando per l'applicazione | elenco di stringhe | 
+    | file JAR | file JAR da usare in questa sessione | Elenco di stringhe | 
+    | pyFiles | File di Python da usare in questa sessione | Elenco di stringhe |
+    | input | file da usare in questa sessione | Elenco di stringhe |
+    | driverMemory | Quantità di memoria da usare per il processo del driver | stringa |
+    | driverCores | Numero di core da usare per il processo del driver | int |
+    | executorMemory | Quantità di memoria da usare per ogni processo executor | stringa |
+    | executorCores | Numero di core da usare per ogni executor | int |
+    | numExecutors | Numero di executor da avviare per questa sessione | int |
+    | archives | Archivi da usare in questa sessione | Elenco di stringhe |
+    | coda | Nome della coda a cui YARN viene effettuato l'invio | stringa |
+    | name | Nome della sessione | stringa |
+    | conf | Proprietà di configurazione di Spark | Mapping della chiave = val |
+
+    Contenuto risposta   
+    Oggetto batch creato.
+
+    | name | description | type | 
+    | :- | :- | :- | 
+    | id | ID sessione | int | 
+    | appId | ID applicazione della sessione |  string |
+    | appInfo | Informazioni dettagliate sull'applicazione | Mapping della chiave = val |
+    | log | Righe di log | elenco di stringhe |
+    | state |   Stato batch | stringa |
 
 
 ## <a name="additional-features"></a>Funzionalità aggiuntive

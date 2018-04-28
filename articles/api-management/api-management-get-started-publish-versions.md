@@ -1,11 +1,11 @@
 ---
 title: Pubblicare versioni dell'API con Gestione API di Azure | Microsoft Docs
-description: "Eseguire le procedure di questa esercitazione per comprendere come pubblicare più versioni con Gestione API."
+description: Eseguire le procedure di questa esercitazione per comprendere come pubblicare più versioni con Gestione API.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,15 +14,15 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: d63bdd3110f5c5db3e7bfec424644fdbc8d8d90c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 7d61fa25f29f1380fe58069dbc25ed9ce1fff53c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Pubblicare più versioni dell'API 
 
-Può risultare poco pratico che tutti i chiamanti dell'API usino esattamente la stessa versione. Talvolta si desidera pubblicare funzionalità dell'API nuove o diverse destinate ad alcuni utenti, mentre altri preferiscono continuare a usare l'API in uso e funzionante. Quando i chiamanti sono pronti per passare a una versione successiva dell'API, preferiscono farlo adottando un approccio facile da comprendere.  A tal fine, in Gestione API di Azure sono disponibili le **versioni**. Per altre informazioni, vedere [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) (Versioni e revisioni).
+Può risultare poco pratico che tutti i chiamanti dell'API usino esattamente la stessa versione. Quando i chiamanti sono pronti per passare a una versione successiva dell'API, preferiscono farlo adottando un approccio facile da comprendere. A questo scopo, è possibile usare le **versioni** in Gestione API di Azure. Per altre informazioni, vedere [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) (Versioni e revisioni).
 
 In questa esercitazione si apprenderà come:
 
@@ -36,10 +36,8 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>prerequisiti
 
-+ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
-+ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+* Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
+* Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
 
 ## <a name="add-a-new-version"></a>Aggiungere una nuova versione
 
@@ -54,7 +52,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="choose-a-versioning-scheme"></a>Scegliere uno schema di controllo delle versioni
 
-In Gestione API di Azure è possibile scegliere come consentire ai chiamanti di specificare quale versione dell'API usare. A tal fine, scegliere uno **schema di controllo delle versioni**. Può trattarsi di uno schema **stringa di query, percorso o intestazione**. Nell'esempio viene usato il percorso.
+In Gestione API di Azure è possibile scegliere come consentire ai chiamanti di specificare quale versione dell'API usare. Specificare la versione API da usare selezionando uno **schema di controllo delle versioni**. Può trattarsi di uno schema **stringa di query, percorso o intestazione**. Nell'esempio seguente viene usato uno schema percorso come schema di controllo delle versioni.
 
 ![Aggiungere una schermata di versione](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 
@@ -71,20 +69,20 @@ In Gestione API di Azure è possibile scegliere come consentire ai chiamanti di 
     ![Versioni elencate per un'API nel portale di Azure](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
-    > Se si aggiunge una versione a un'API senza versione, si crea sempre una versione **originale**, che risponde dall'URL predefinito. Ciò garantisce che i chiamanti esistenti non subiscano interruzioni a causa della procedura di aggiunta della versione. Se si crea una nuova API con le versioni abilitate sin dall'inizio, non viene creato alcun originale.
+    > Se si aggiunge una versione a un'API senza versione, viene automaticamente creata una versione **originale**, che risponde dall'URL predefinito. Ciò garantisce che i chiamanti esistenti non subiscano interruzioni a causa della procedura di aggiunta della versione. Se si crea una nuova API con le versioni abilitate sin dall'inizio, non viene creato alcun originale.
 
 6. È ora possibile modificare e configurare **v1** come API distinta dall'**originale**. Le modifiche apportate a una versione non influiscono sulle altre.
 
 ## <a name="add-the-version-to-a-product"></a>Aggiungere la versione a un prodotto
 
-Affinché i chiamanti visualizzino la nuova versione, è necessario aggiungerla a un **prodotto** (i prodotti non vengono ereditati dalle versioni padre).
+Perché i chiamanti possano visualizzare la nuova versione, questa deve essere aggiunta a un **prodotto**.
 
-1. Selezionare **Prodotti** nella pagina di gestione del servizio.
+1. Selezionare **Prodotti** nella pagina del modello di distribuzione classica.
 2. Selezionare **Illimitato**.
 3. Selezionare **API**.
 4. Selezionare **Aggiungi**.
 5. Selezionare **Conference API, Version v1** (API Conferenza, Versione v1).
-6. Tornare alla pagina di gestione del servizio e selezionare **API**.
+6. Passare alla pagina di gestione del servizio e selezionare **API**.
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Passare al portale per sviluppatori per visualizzare la versione
 

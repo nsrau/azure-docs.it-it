@@ -1,11 +1,11 @@
 ---
 title: Impostazioni del gateway VPN per lo Stack di Azure | Documenti Microsoft
-description: "Informazioni sulle impostazioni per i gateway VPN che è utilizzare con lo Stack di Azure."
+description: Informazioni sulle impostazioni per i gateway VPN che è utilizzare con lo Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: fa8d3adc-8f5a-4b4f-8227-4381cf952c56
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: 1eba5df93b461eb22ab8341b4498682957c9298a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: d23f5b91e08c169975ac5d0bb8d9f048828c2910
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Impostazioni di configurazione di gateway VPN di Azure Stack
 
@@ -45,16 +45,13 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 ### <a name="gateway-skus"></a>SKU del gateway
 Quando si crea un gateway di rete virtuale è necessario specificare il codice SKU del gateway da usare. Selezionare gli SKU che soddisfano i requisiti inerenti ai tipi di carichi di lavoro, alle velocità effettive, alle funzionalità e ai contratti di servizio.
 
->[!NOTE]
-> Le reti virtuali di tipo classico devono continuare a usare gli SKU precedenti. Per altre informazioni sugli SKU di gateway di versione precedente, vedere [Working with virtual network gateway SKUs (old)](/azure/vpn-gateway/vpn-gateway-about-skus-legacy) (Uso degli SKU di gateway di rete virtuale - Versione precedente).
-
 Stack di Azure offre il gateway VPN seguente SKU:
 
 |   | Velocità effettiva Gateway VPN |Tunnel IPsec max Gateway VPN |
 |-------|-------|-------|
 |**SKU Basic**  | 100 Mbps  | 10    |
 |**SKU standard**           | 100 Mbps  | 10    |
-|**SKU con prestazioni elevate** | 200 Mbps    | 30    |
+|**SKU con prestazioni elevate** | 200 Mbps    | 5 |
 
 ### <a name="resizing-gateway-skus"></a>Ridimensionamento SKU di gateway
 Stack di Azure non supporta un ridimensionamento di SKU tra gli SKU legacy supportati.
@@ -90,11 +87,11 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 Quando si crea il gateway di rete virtuale per una configurazione di gateway VPN, è necessario specificare un tipo di VPN. Il tipo di VPN scelto dipende dalla topologia di connessione che si desidera creare.  Un tipo di VPN può anche dipendere dall'hardware usato. Le configurazioni S2S richiedono un dispositivo VPN. Alcuni dispositivi VPN supportano solo un determinato tipo di VPN.
 
 > [!IMPORTANT]  
-> In questo momento, Stack di Azure supporta solo il tipo VPN basato su Route. Se il dispositivo supporta solo i criteri di reti VPN, le connessioni a tali dispositivi dallo Stack di Azure non sono supportate.
+> In questo momento, Stack di Azure supporta solo il tipo VPN basato su Route. Se il dispositivo supporta solo i criteri di reti VPN, le connessioni a tali dispositivi dallo Stack di Azure non sono supportate.  Inoltre, Stack di Azure non supporta l'utilizzo selettori traffico basato su criteri per i gateway basato su Route in questo momento, come le configurazioni di criteri IPSec/IKE personalizzate non sono ancora supportate.
 
-- **Basato su criteri**: *(supportato da Azure, ma non dallo Stack di Azure)* VPN basate su criteri di crittografare e indirizzare i pacchetti attraverso i tunnel IPsec in base ai criteri IPsec che sono configurati con le combinazioni di prefissi di indirizzo tra la rete locale e la rete virtuale di Azure dello Stack. I criteri o selettori di traffico vengono in genere definiti come un elenco di accesso nella configurazione del dispositivo VPN.
+- **Basato su criteri**: *(supportato da Azure, ma non dallo Stack di Azure)* VPN basate su criteri di crittografare e indirizzare i pacchetti attraverso i tunnel IPsec in base ai criteri IPsec che sono configurati con le combinazioni di prefissi di indirizzo tra la rete locale e la rete virtuale dello Stack di Azure. I criteri o selettori di traffico vengono in genere definiti come un elenco di accesso nella configurazione del dispositivo VPN.
 
-- **Tipo RouteBased**: tipo RouteBased VPN utilizzare "routing" IP di inoltro o tabella di routing per i pacchetti diretti nelle interfacce tunnel corrispondenti. Le interfacce tunnel consentono quindi di crittografare o decrittografare i pacchetti all'interno e all'esterno dei tunnel. I criteri o il selettore di traffico per le VPN RouteBased vengono configurati come any-to-any (o caratteri jolly). Il valore per un tipo RouteBased VPN è di tipo RouteBased.
+- **Tipo RouteBased**: le reti VPN tipo RouteBased utilizzano "routing" IP di inoltro o tabella di routing per i pacchetti diretti nelle interfacce tunnel corrispondenti. Le interfacce tunnel consentono quindi di crittografare o decrittografare i pacchetti all'interno e all'esterno dei tunnel. I criteri (o un selettore di traffico) per le reti VPN tipo RouteBased sono configurati come any per any (o i caratteri jolly) da predefinito e non può essere modificato. Il valore per un tipo RouteBased VPN è di tipo RouteBased.
 
 Nell'esempio di PowerShell seguente specifica VpnType - come tipo RouteBased. Quando si crea un gateway, è necessario assicurarsi che -VpnType sia corretto per la configurazione.
 
@@ -108,9 +105,9 @@ Nella tabella seguente elenca i requisiti per gateway VPN.
 
 | |Gateway VPN Basic basato su criteri | Gateway VPN di tipo RouteBased Basic | Gateway VPN Standard di tipo RouteBased | Gateway VPN con prestazioni elevate di tipo RouteBased|
 |--|--|--|--|--|
-| **Connettività da sito a sito (S2S connettività)** | Non supportato | Configurazione VPN RouteBased | Configurazione VPN RouteBased | Configurazione VPN RouteBased |
+| **Connettività Site-to-Site (connettività S2S)** | Non supportato | Configurazione VPN RouteBased | Configurazione VPN RouteBased | Configurazione VPN RouteBased |
 | **Metodo di autenticazione**  | Non supportato | Chiave precondivisa per la connettività S2S  | Chiave precondivisa per la connettività S2S  | Chiave precondivisa per la connettività S2S  |   
-| **Numero massimo di connessioni Site-to-Site**  | Non supportato | 10 | 10| 30|
+| **Numero massimo di connessioni Site-to-Site**  | Non supportato | 10 | 10| 5|
 |**Supporto routing attivo (BGP)** | Non supportate | Non supportate | Supportato | Supportato |
 
 ### <a name="gateway-subnet"></a>Subnet gateway
@@ -160,7 +157,7 @@ A differenza di Azure, che supporta più offerte come un iniziatore e rispondito
 |Versione IKE |IKEv2 |
 |Crittografia e hash algoritmi (crittografia)     | GCMAES256|
 |Crittografia e hash algoritmi (autenticazione) | GCMAES256|
-|Durata dell'associazione di sicurezza (tempo)  | 14400 secondi |
+|Durata dell'associazione di sicurezza (tempo)  | 27.000 secondi |
 |Durata dell'associazione di sicurezza (byte) | 819,200       |
 |Perfect Forward Secrecy (PFS) |PFS2048 |
 |Rilevamento peer inattivo | Supportato|  

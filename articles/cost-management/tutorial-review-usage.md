@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 558dcd65051c0134a87205dcd8bbf432d7763fd2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 820fea1aa2eb93fb383dca4def9ed607515c29b8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -37,11 +37,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="open-the-cloudyn-portal"></a>Aprire il portale Cloudyn
 
-È possibile esaminare tutte le informazioni sull'utilizzo e sui costi nel portale Cloudyn. Aprire il portale Cloudyn dal portale di Azure o passare a https://azure.cloudyn.com e accedere.
+È possibile esaminare tutte le informazioni sull'utilizzo e sui costi nel portale Cloudyn. Aprire il portale di Cloudyn dal portale di Azure o passare a https://azure.cloudyn.com ed eseguire l'accesso.
 
 ## <a name="track-usage-and-cost-trends"></a>Tenere traccia delle tendenze di utilizzo e dei costi
 
-È possibile tenere traccia del denaro effettivamente speso per l'utilizzo e i costi con i report nel tempo per identificare le tendenze. Per iniziare a osservare le tendenze, usare il report Actual Cost Over Time (Costi effettivi nel tempo). Nel menu dei report nella parte superiore del portale fare clic su **Costo** > **Analisi dei costi** > **Actual Cost Over Time** (Costo effettivo nel tempo). Quando viene aperto per la prima volta, al report non sono applicati gruppi o filtri.
+È possibile tenere traccia del denaro effettivamente speso per l'utilizzo e i costi con i report nel tempo per identificare le tendenze. Per iniziare a osservare le tendenze, usare il report Actual Cost Over Time (Costi effettivi nel tempo). Nel menu nella parte superiore del portale fare clic su **Costo** > **Analisi dei costi** > **Actual Cost Over Time** (Costo effettivo nel tempo). Quando viene aperto per la prima volta, al report non sono applicati gruppi o filtri.
 
 Di seguito è illustrato un report di esempio:
 
@@ -69,7 +69,7 @@ Il problema è che l'infrastruttura esistente è già stata pagata. Gli utenti p
 
 Il report Cost Effective Sizing Recommendations (Consigli di ridimensionamento per la riduzione dei costi) identifica i risparmi annuali potenziali confrontando la capacità dei tipi di istanza delle macchine virtuali con i dati cronologici di utilizzo della CPU e della memoria.  
 
-Nel menu dei report nella parte superiore del portale fare clic su **Optimizer** (Utilità di ottimizzazione)  > **Pricing Optimization** (Ottimizzazione prezzi)  > **Cost Effective Sizing Recommendations** (Consigli di ridimensionamento per la riduzione dei costi). Applicare un filtro del provider impostandolo su Azure per visualizzare solo le macchine virtuali di Azure. Di seguito è riportata una figura di esempio.
+Nel menu nella parte superiore del portale fare clic su **Optimizer** (Utilità di ottimizzazione)  > **Pricing Optimization** (Ottimizzazione dimensioni)  > **Cost Effective Sizing Recommendations** (Consigli di ridimensionamento per la riduzione dei costi). Applicare un filtro del provider impostandolo su Azure per visualizzare solo le macchine virtuali di Azure. Di seguito è riportata una figura di esempio.
 
 ![Macchine virtuali di Azure](./media/tutorial-review-usage/sizing01.png)
 
@@ -87,9 +87,9 @@ Per guardare un video di esercitazione per il rilevamento delle inefficienze di 
 
 È possibile inviare automaticamente avvisi agli stakeholder relativi ad anomalie nelle spese e rischi di spese eccessive. È possibile creare avvisi in modo semplice e rapido usando report che supportano gli avvisi basati su soglie di budget e costo.
 
-È possibile creare un avviso per qualsiasi spesa utilizzando un report Cost (Costo). In questo esempio usare il report Actual Cost Over Time (Costo effettivo nel tempo) per ricevere un avviso quando la spesa della macchina virtuale di Azure si avvicina al budget totale. Nel menu dei report nella parte superiore del portale fare clic su **Costo** > **Analisi dei costi** > **Actual Cost Over Time** (Costo effettivo nel tempo). Impostare **Groups** (Gruppi) su **Service** (Servizio) e impostare **Filter on the service** (Filtro sul servizio) su **Azure/VM** (Azure/macchina virtuale). Nella parte superiore destra del report fare clic su **Actions** (Azioni) e quindi selezionare **Schedule report** (Pianifica report).
+È possibile creare un avviso per qualsiasi spesa utilizzando un report Cost (Costo). In questo esempio usare il report Actual Cost Over Time (Costo effettivo nel tempo) per ricevere un avviso quando la spesa della macchina virtuale di Azure si avvicina al budget totale. Tutti i passaggi seguenti sono necessari per la creazione dell'avviso. Nel menu nella parte superiore del portale fare clic su **Costo** > **Analisi dei costi** > **Actual Cost Over Time** (Costo effettivo nel tempo). Impostare **Groups** (Gruppi) su **Service** (Servizio) e impostare **Filter on the service** (Filtro sul servizio) su **Azure/VM** (Azure/macchina virtuale). Nella parte superiore destra del report fare clic su **Actions** (Azioni) e quindi selezionare **Schedule report** (Pianifica report).
 
-Usare la scheda **Scheduling** (Pianificazione) per inviare a se stessi un messaggio di posta elettronica con il report con la frequenza desiderata. Nel report inviato tramite posta elettronica sono inclusi tutti i tag, i raggruppamenti e i filtri usati. Fare clic sulla scheda **Threshold** (Soglia) e selezionare **Actual Cost vs. Threshold** (Costo effettivo/soglia). Se si ha a disposizione un budget totale di $ 500.000 e si vuole ricevere una notifica quando il costo si avvicina alla metà del budget, creare un **Red alert** (Avviso rosso) a $ 250.000 e un **Yellow alert** (Avviso giallo) a $ 240.000. Scegliere quindi il numero di avvisi consecutivi. Dopo aver ricevuto il numero totale di avvisi specificato, non vengono inviati altri avvisi. Salvare il report pianificato.
+Usare la scheda **Scheduling** (Pianificazione) per inviare a se stessi un messaggio di posta elettronica con il report con la frequenza desiderata. Assicurarsi di selezionare **Send via email** (Invia tramite posta elettronica). Nel report inviato tramite posta elettronica sono inclusi tutti i tag, i raggruppamenti e i filtri usati. Fare clic sulla scheda **Threshold** (Soglia) e selezionare **Actual Cost vs. Threshold** (Costo effettivo/soglia). Se si ha a disposizione un budget totale di $ 500.000 e si vuole ricevere una notifica quando il costo si avvicina alla metà del budget, creare un **Red alert** (Avviso rosso) a $ 250.000 e un **Yellow alert** (Avviso giallo) a $ 240.000. Non includere le virgole nei valori immessi. Scegliere quindi il numero di avvisi consecutivi. Dopo aver ricevuto il numero totale di avvisi specificato, non vengono inviati altri avvisi. Salvare il report pianificato.
 
 ![report di esempio](./media/tutorial-review-usage/schedule-alert01.png)
 

@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c9f7d4841846e41eacb66125bcdeeb29466bb0b8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Come inviare messaggi di posta elettronica usando SendGrid da Java
 Questa guida illustra come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti in Java. Gli scenari presentati includono **creazione di messaggi di posta elettronica**, **invio di messaggi di posta elettronica**, **aggiunta di allegati**, **uso di filtri** e **aggiornamento delle proprietà**. Per altre informazioni su SendGrid e sull'invio di messaggi di posta elettronica, vedere la sezione [Passaggi successivi](#next-steps) .
@@ -81,7 +81,7 @@ Ottenere le librerie javax.mail, ad esempio da <http://www.oracle.com/technetwor
        Authenticator auth = new SMTPAuthenticator();
        Session mailSession = Session.getDefaultInstance(properties, auth);
 3. Creare il messaggio e assegnare i valori relativi ai campi **A**, **Da**, **Oggetto** e contenuto. Questa operazione è illustrata nella sezione [Procedura: Creare un'e-mail](#how-to-create-an-email) .
-4. Inviare il messaggio tramite un oggetto *javax.mail.Transport* . Questa operazione è illustrata nella sezione [Procedura: Inviare un messaggio di posta elettronica][Procedura: Inviare un messaggio di posta elettronica].
+4. Inviare il messaggio tramite un oggetto *javax.mail.Transport* . Questa operazione è illustrata nella sezione [Procedura: Inviare un messaggio di posta elettronica][#how-to-send-an-email].
 
 ## <a name="how-to-create-an-email"></a>Procedura: Creare un messaggio di posta elettronica
 Il codice seguente illustra come specificare i valori per un messaggio di posta elettronica.

@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/21/2017
+ms.date: 4/11/2018
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 39e7c95f236f53d7b7c4de0e5b792debe5c0c6f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9dfd600a0e3271afff0dd7ce634c78bf87ab314f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Domande sul servizio Backup di Azure
 Questo articolo risponde alle domande comuni sui componenti di Backup di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. Per porre domande su Backup di Azure, fare clic su **Commenti** a destra. I commenti vengono visualizzati alla fine di questo articolo. Per inserire commenti, è necessario un account Livefyre. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -30,10 +30,10 @@ Per analizzare rapidamente le sezioni di questo articolo, usare i collegamenti r
 ## <a name="recovery-services-vault"></a>Insieme di credenziali dei servizi di ripristino
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Esistono limiti al numero degli insiemi di credenziali che è possibile creare in ogni sottoscrizione di Azure? <br/>
-Sì. A partire dal gennaio 2018 possono creare fino a 25 insiemi di credenziali dei servizi di ripristino per area di Backup di Azure supportata per ogni sottoscrizione. Se sono necessari più insiemi di credenziali, creare una sottoscrizione aggiuntiva.
+Sì. Si possono creare fino a 500 insiemi di credenziali di Servizi di ripristino per area di Backup di Azure supportata per ogni sottoscrizione. Se sono necessari più insiemi di credenziali, creare una sottoscrizione aggiuntiva.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Esistono limiti al numero di server/computer che possono essere registrati in ogni insieme di credenziali? <br/>
-È possibile registrare fino a 200 macchine virtuali di Azure per insieme di credenziali. Se si usano agenti MAB, è possibile registrare fino a 50 agenti MAB per insieme di credenziali. È possibile registrare 50 server MAB/server DPM in un insieme di credenziali.
+È possibile registrare fino a 1000 macchine virtuali di Azure per insieme di credenziali. Se si usano agenti MAB, è possibile registrare fino a 50 agenti MAB per insieme di credenziali. È possibile registrare 50 server MAB/server DPM in un insieme di credenziali.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Se l'organizzazione ha un insieme di credenziali, come è possibile isolare i dati di un server da un altro server durante il ripristino dei dati?<br/>
 Tutti i server che vengono registrati nello stesso insieme di credenziali possono ripristinare i dati dei quali è stato eseguito il backup da altri server *che usano la stessa passphrase*. Se sono presenti server i cui dati di backup devono essere isolati dagli altri server dell'organizzazione, usare una passphrase designata per tali server. Ad esempio, per i server del reparto risorse umane può essere usata una passphrase, per quelli dell'ufficio contabilità un'altra e per quelli di archiviazione un'altra ancora.
@@ -81,13 +81,13 @@ di serie Tutti i dati trasferiti nell'insieme di credenziali prima dell'annullam
 Se si annulla un processo di backup per una macchina virtuale di Azure, tutti i dati trasferiti vengono ignorati. Il processo di backup successivo trasferisce i dati incrementali dall'ultimo processo di backup riuscito.
 
 ### <a name="are-there-limits-on-when-or-how-many-times-a-backup-job-can-be-scheduledbr"></a>Esistono limiti in relazione a quando o quante volte può essere pianificato un processo di backup?<br/>
-Sì. È possibile eseguire processi di backup in Windows Server o nelle workstation Windows fino a tre volte al giorno. È possibile eseguire processi di backup in System Center DPM fino a due volte al giorno. È possibile eseguire un processo di backup per le VM IaaS una volta al giorno. È possibile usare i criteri di pianificazione per Windows Server o la workstation Windows per specificare pianificazioni giornaliere o settimanali. Con System Center DPM, è possibile specificare pianificazioni giornaliere, settimanali, mensili e annuali.
+Sì. È possibile eseguire processi di backup in Windows Server o nelle workstation Windows fino a tre volte al giorno. È possibile eseguire processi di backup in System Center DPM fino a due volte al giorno. È possibile eseguire un processo di backup per le VM IaaS una volta al giorno. Usare i criteri di pianificazione per Windows Server o la workstation Windows per specificare pianificazioni giornaliere o settimanali. Con System Center DPM, è possibile specificare pianificazioni giornaliere, settimanali, mensili e annuali.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Perché le dimensioni dei dati trasferiti nell'insieme di credenziali dei servizi di ripristino sono inferiori a quelle dei dati sottoposti a backup?<br/>
  Tutti i dati di cui viene eseguito il backup dall'agente di Backup di Azure, da SCDPM o dal server di Backup di Azure vengono compressi e crittografati prima di essere trasferiti. Dopo l'applicazione della compressione e della crittografia, i dati nell'insieme di credenziali di Servizi di ripristino sono ridotti del 30-40%.
 
 ## <a name="what-can-i-back-up"></a>Backup consentiti
-### <a name="which-operating-systems-do-azure-backup-support-br"></a>Quali sistemi operativi sono supportati da Backup di Azure? <br/>
+### <a name="which-operating-systems-does-azure-backup-support-br"></a>Quali sistemi operativi sono supportati da Backup di Azure? <br/>
 Backup di Azure supporta i sistemi operativi elencati di seguito per il backup di file, cartelle e applicazioni del carico di lavoro protetti con il server di Backup di Azure e System Center Data Protection Manager (DPM).
 
 | Sistema operativo | Piattaforma | SKU |
@@ -112,7 +112,7 @@ Backup di Azure supporta i sistemi operativi elencati di seguito per il backup d
 
 
 ### <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>Esiste un limite alle dimensioni di ogni origine dati sottoposta a backup? <br/>
-Non c'è nessun limite alla quantità di dati di cui è possibile eseguire il backup in un insieme di credenziali. Backup di Azure limita le dimensioni massime per l'origine dati, che sono tuttavia grandi. A partire da agosto 2015, le dimensioni massime di un'origine dati per i sistemi operativi supportati sono:
+Backup di Azure prevede una dimensione massima per un'origine dati, ma i limiti per l'origine sono molto ampi. A partire da agosto 2015, le dimensioni massime di un'origine dati per i sistemi operativi supportati sono:
 
 | Numero S. | Sistema operativo | Dimensione massima origine dati |
 |:---:|:--- |:--- |
@@ -132,13 +132,16 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 | Microsoft Exchange |Somma di tutti i database di Exchange in un server di Exchange di cui viene eseguito il backup |
 | Stato del sistema/ripristino bare metal |Ogni copia del ripristino bare metal o dello stato del sistema del computer di cui viene eseguito il backup |
 
-Per il backup di macchine virtuali di Azure, ogni macchina virtuale può avere fino a 16 dischi di dati, ognuno dei quali di dimensioni pari o inferiori a 4095 GB. <br>
+Per il backup di % IaaS di Azure, ogni VM può avere fino a 16 dischi dati e ogni disco dati può avere un massimo di 4095 GB.
+
+### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>È previsto un limite per la quantità di dati contenuti in un insieme di credenziali di Servizi di ripristino?
+Non c'è nessun limite alla quantità di dati di cui è possibile eseguire il backup in un insieme di credenziali di Servizi di ripristino.
 
 ## <a name="retention-policy-and-recovery-points"></a>Criteri di conservazione e punti di ripristino
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>Esistono differenze tra i criteri di conservazione per DPM e Windows Server/client Windows (ossia in Windows Server senza DPM)?<br/>
 No, sia DPM che Windows Server/client prevedono criteri di conservazione giornalieri, settimanali, mensili e annuali.
 
-### <a name="can-i-configure-my-retention-policies-selectively--ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>È possibile configurare i criteri di conservazione in modo selettivo, ad esempio con frequenza settimanale e giornaliera, ma non annuale e mensile?<br/>
+### <a name="can-i-configure-my-retention-policies-selectively--that-is-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>È possibile configurare i criteri di conservazione in modo selettivo, ad esempio con frequenza settimanale e giornaliera, ma non annuale e mensile?<br/>
 Sì, la struttura di memorizzazione del Backup di Azure consente di disporre della massima flessibilità nella definizione dei criteri di conservazione in base alle esigenze.
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>È possibile "pianificare un backup" alle 18.00 e specificare criteri di conservazione con un orario diverso?<br/>

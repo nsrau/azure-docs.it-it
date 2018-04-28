@@ -1,24 +1,26 @@
 ---
 title: Aggiornamento alla generazione più recente di Azure SQL Data Warehouse | Microsoft Docs
-description: Procedura per aggiornare Azure SQL Data Warehouse alla generazione più recente dell'architettura hardware e di archiviazione di Azure.
+description: Aggiornare Azure SQL Data Warehouse alla generazione più recente dell'architettura hardware e di archiviazione di Azure.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
-ms.services: sql-data-warehouse
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/02/2018
+ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6ea45398b0bf7fca43c75797313b7e683972b1ab
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 673386ad236f596aa4c64fe2e8c885fb86afe170
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Ottimizzare le prestazioni aggiornando SQL Data Warehouse
+Aggiornare Azure SQL Data Warehouse alla generazione più recente dell'architettura hardware e di archiviazione di Azure.
 
-È ora possibile eseguire facilmente l'aggiornamento al livello di prestazioni Ottimizzato per il calcolo nel portale di Azure. Se è disponibile un data warehouse Ottimizzato per l'elasticità, è consigliabile eseguire l'aggiornamento per la generazione più recente di hardware di Azure e un'architettura di archiviazione avanzata. Sarà possibile sfruttare i vantaggi di prestazioni più veloci, una maggiore scalabilità e archiviazione a colonne illimitata. 
+## <a name="why-upgrade"></a>Ragioni dell'aggiornamento
+È ora possibile eseguire facilmente l'aggiornamento al livello di prestazioni Ottimizzato per il calcolo nel portale di Azure. Se si ha un data warehouse ottimizzato per l'elasticità, è consigliabile eseguire l'aggiornamento. Con l'aggiornamento, è possibile usare la generazione più recente di hardware di Azure e un'architettura di archiviazione migliorata. È possibile sfruttare i vantaggi di prestazioni più veloci, una maggiore scalabilità e archiviazione a colonne illimitata. 
 
 ## <a name="applies-to"></a>Si applica a
 Questo aggiornamento si applica ai data warehouse nel livello di prestazioni Ottimizzato per l'elasticità.
@@ -28,12 +30,6 @@ Questo aggiornamento si applica ai data warehouse nel livello di prestazioni Ott
 Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-
-> [!NOTE]
-> A partire dal 30/3, è necessario che il [controllo a livello di server](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing#subheading-8) sia disattivato prima di avviare l'aggiornamento.
-> 
->
-
 > [!NOTE]
 > Se il data warehouse Ottimizzato per l'elasticità esistente non si trova in un'area in cui è disponibile il livello Ottimizzato per il calcolo, è possibile eseguire il [ripristino geografico per il livello Ottimizzato per il calcolo](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) tramite PowerShell in un'area supportata.
 > 
@@ -70,9 +66,9 @@ Accedere al [portale di Azure](https://portal.azure.com/).
    
    Il primo passaggio del processo di aggiornamento prevede l'operazione di ridimensionamento ("Aggiornamento - Offline") in cui verranno terminate tutte le sessioni ed interrotte tutte le connessioni. 
    
-   Il secondo passaggio del processo di aggiornamento è la migrazione dei dati ("Aggiornamento - Online"). La migrazione dei dati è un processo in background a cascata online, che sposta lentamente i dati a colonne dall'architettura di archiviazione Gen1 precedente alla nuova architettura di archiviazione Gen2 per sfruttare la cache SSD locale Gen2. Durante questo periodo, il data warehouse sarà online per l'esecuzione di query e caricamenti. Tutti i dati saranno disponibili per le query indipendentemente dal fatto che sia stata o meno completata la migrazione. La migrazione dei dati avviene a una velocità variabile a seconda delle dimensioni dei dati, del livello di prestazioni e del numero di segmenti columnstore. 
+   Il secondo passaggio del processo di aggiornamento è la migrazione dei dati ("Aggiornamento - Online"). La migrazione dei dati è un processo in background a cascata online, che sposta lentamente i dati a colonne dall'architettura di archiviazione precedente alla nuova architettura di archiviazione sfruttando la cache SSD locale. Durante questo periodo, il data warehouse sarà online per l'esecuzione di query e caricamenti. Tutti i dati saranno disponibili per le query indipendentemente dal fatto che sia stata o meno completata la migrazione. La migrazione dei dati avviene a una velocità variabile a seconda delle dimensioni dei dati, del livello di prestazioni e del numero di segmenti columnstore. 
 
-5. **Raccomandazione facoltativa:** per accelerare il processo in background di migrazione dei dati, è consigliabile forzare immediatamente lo spostamento dei dati eseguendo [ALTER INDEX REBUILD](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) su tutte le tabelle columnstore, con SLO e classe di risorse più grande. Questa operazione è offline rispetto al processo in background a cascata, tuttavia la migrazione dei dati sarà molto più veloce quando sarà poi possibile sfruttare appieno l'architettura di archiviazione Gen2 dopo il completamento con gruppi di righe di alta qualità. 
+5. **Raccomandazione facoltativa:** per accelerare il processo in background di migrazione dei dati, è consigliabile forzare immediatamente lo spostamento dei dati eseguendo [ALTER INDEX REBUILD](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) su tutte le tabelle columnstore, con SLO e classe di risorse più grande. Questa operazione è offline rispetto al processo in background a cascata, tuttavia la migrazione dei dati sarà molto più veloce quando sarà poi possibile sfruttare appieno la nuova architettura di archiviazione migliorata dopo il completamento con gruppi di righe di alta qualità. 
 
 La query seguente genera i comandi ALTER INDEX REBUILD necessari per accelerare il processo di migrazione dei dati:
 

@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: f176e0689c630a406ab6e2f82e9320a214ff8a1a
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9fb928b7cb8e1a83734b64a8b9c19bc3cf3203ba
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilizzo di un endpoint con privilegi nello Stack di Azure
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Come operatore di Stack di Azure, utilizzare il portale dell'amministratore, PowerShell o le API di gestione risorse di Azure per le attività di gestione quotidiane di più. Tuttavia, per alcuni meno operazioni comuni, è necessario utilizzare il *endpoint con privilegi* (PEP). Il PEP è una console di PowerShell remota configurata in precedenza che offre di sufficiente capacità che consentono di eseguire un'attività obbligatoria. L'endpoint utilizza [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/en-us/powershell/jea/overview) per esporre solo un set limitato di cmdlet. Per accedere il PEP e richiamare un insieme limitato di cmdlet, viene utilizzato un account con privilegi limitati. Nessun account di amministratore è necessario. Per una maggiore sicurezza, l'esecuzione degli script non è consentita.
+Come operatore di Stack di Azure, utilizzare il portale dell'amministratore, PowerShell o le API di gestione risorse di Azure per le attività di gestione quotidiane di più. Tuttavia, per alcuni meno operazioni comuni, è necessario utilizzare il *endpoint con privilegi* (PEP). Il PEP è una console di PowerShell remota configurata in precedenza che offre di sufficiente capacità che consentono di eseguire un'attività obbligatoria. L'endpoint utilizza [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview) per esporre solo un set limitato di cmdlet. Per accedere il PEP e richiamare un insieme limitato di cmdlet, viene utilizzato un account con privilegi limitati. Nessun account di amministratore è necessario. Per una maggiore sicurezza, l'esecuzione degli script non è consentita.
 
 È possibile utilizzare il PEP per eseguire le attività seguenti:
 
@@ -88,7 +88,7 @@ Prima di iniziare questa procedura per un sistema integrato, verificare che sia 
     Molti di questi cmdlet sono destinati solo per ambienti con sistemi integrata (ad esempio i cmdlet relativi all'integrazione con Data Center). In ASDK, sono stati convalidati i cmdlet seguenti:
 
     - Clear-Host
-    - Close-PrivilegedEndpoint
+    - Chiudi PrivilegedEndpoint
     - Exit-PSSession
     - Get-AzureStackLog
     - Get-AzureStackStampInformation
@@ -108,7 +108,7 @@ Prima di iniziare questa procedura per un sistema integrato, verificare che sia 
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Suggerimenti per l'utilizzo di un endpoint con privilegi 
 
-Come indicato in precedenza, il PEP è un [JEA PowerShell](https://docs.microsoft.com/en-us/powershell/jea/overview) endpoint. Fornendo un livello di protezione avanzata, un endpoint JEA consente di ridurre alcune funzionalità di base PowerShell, ad esempio di script o scheda completamento. Se si tenta di qualsiasi tipo di operazione script, l'operazione non riesce con l'errore **ScriptsNotAllowed**. Si tratta di un comportamento previsto.
+Come indicato in precedenza, il PEP è un [JEA PowerShell](https://docs.microsoft.com/powershell/jea/overview) endpoint. Fornendo un livello di protezione avanzata, un endpoint JEA consente di ridurre alcune funzionalità di base PowerShell, ad esempio di script o scheda completamento. Se si tenta di qualsiasi tipo di operazione script, l'operazione non riesce con l'errore **ScriptsNotAllowed**. Si tratta di un comportamento previsto.
 
 In tal caso, ad esempio, per ottenere l'elenco di parametri per un cmdlet specifico, eseguire il comando seguente:
 
@@ -116,7 +116,7 @@ In tal caso, ad esempio, per ottenere l'elenco di parametri per un cmdlet specif
     Get-Command <cmdlet_name> -Syntax
 ```
 
-In alternativa, è possibile utilizzare il [Import-PSSession](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) per importare tutti i cmdlet PEP nella sessione corrente nel computer locale. In questo modo, tutti i cmdlet e funzioni del PEP sono ora disponibili nel computer locale, con completamento tramite tasto tab e, più in generale, di scripting. 
+In alternativa, è possibile utilizzare il [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) per importare tutti i cmdlet PEP nella sessione corrente nel computer locale. In questo modo, tutti i cmdlet e funzioni del PEP sono ora disponibili nel computer locale, con completamento tramite tasto tab e, più in generale, di scripting. 
 
 Per importare la sessione PEP sul computer locale, effettuare i passaggi seguenti:
 

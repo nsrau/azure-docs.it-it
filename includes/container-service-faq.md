@@ -92,6 +92,16 @@ ssh userName@masterFQDN –A –p 22
 
 Per altre informazioni, vedere [Connettersi a un cluster del servizio contenitore di Azure](../articles/container-service/kubernetes/container-service-connect.md).
 
+### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>La risoluzione dei nomi DNS non funziona in Windows. Cosa devo fare?
+
+In Windows sono presenti problemi noti relativi al DNS, le cui correzioni sono tuttora in corso di implementazione. Assicurarsi di usare la versione più aggiornata di acs-engine e Windows (con [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) e [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) installati) per ottenere i vantaggi degli aggiornamenti più recenti. In alternativa, vedere la tabella seguente per i passaggi di mitigazione da seguire:
+
+| Sintomo DNS | Soluzione alternativa  |
+|-------------|-------------|
+|Quando il contenitore del carico di lavoro è instabile e si arresta in modo anomalo, lo spazio dei nomi di rete viene cancellato | Ridistribuire tutti i servizi interessati |
+| L'accesso al VIP di servizio è interrotto | Configurare un [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) per mantenere sempre un pod normale (senza privilegi) in esecuzione |
+|Quando il nodo sul quale il contenitore è in esecuzione non è più disponibile, le query DNS possono generare errori di tipo "voce di cache negativa" | Eseguire i comandi seguenti nei contenitori interessati: <ul><li> `New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxCacheTtl -Value 0 -Type DWord`</li><li>`New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxNegativeCacheTtl -Value 0 -Type DWord`</li><li>`Restart-Service dnscache` </li></ul><br> Se il problema non è ancora risolto, provare a disabilitare completamente la memorizzazione nella cache DNS: <ul><li>`Set-Service dnscache -StartupType disabled`</li><li>`Stop-Service dnscache`</li></ul> |
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Altre informazioni](../articles/container-service/kubernetes/container-service-intro-kubernetes.md) sul servizio contenitore di Azure.

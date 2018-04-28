@@ -2,10 +2,10 @@
 title: Integrare la soluzione di monitoraggio esterna con lo Stack di Azure | Documenti Microsoft
 description: Informazioni su come integrare Azure Stack con una soluzione di monitoraggio esterna nel Data Center.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
-ms.translationtype: MT
+ms.openlocfilehash: e47141d31d3876264eaf2bcb7dc562a4711048cc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrare la soluzione di monitoraggio esterna con lo Stack di Azure
 
@@ -80,7 +80,7 @@ Configurare il file di plug-in "Azurestack_plugin.py" con i parametri seguenti:
 | *arm_endpoint* | Endpoint di Azure Resource Manager (amministratore) |https://adminmanagement.local.azurestack.external |
 | *api_endpoint* | Endpoint di Azure Resource Manager (amministratore)  | https://adminmanagement.local.azurestack.external |
 | *Tenant_id* | ID sottoscrizione Admin | Recuperare tramite il portale dell'amministratore o PowerShell |
-| *User_name* | Nome utente di sottoscrizione (operatore) | operator@myazuredirectory.onmicrosoft.com |
+| *USER_NAME* | Nome utente di sottoscrizione (operatore) | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Password di sottoscrizione (operatore) | mypassword |
 | *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
 | *region* |  Nome dell'area Azure Stack | local |
@@ -92,14 +92,14 @@ Configurare il file di plug-in "Azurestack_plugin.py" con i parametri seguenti:
 
 Se non si utilizza Operations Manager, Nagios o una soluzione basata su Nagios, è possibile utilizzare PowerShell per abilitare una vasta gamma di soluzioni per l'integrazione con Azure Stack di monitoraggio.
  
-1. Per usare PowerShell, assicurarsi di aver [PowerShell installato e configurato](azure-stack-powershell-configure-quickstart.md) per un ambiente di operatore dello Stack di Azure. Installare PowerShell in un computer locale che può raggiungere l'endpoint di gestione risorse (amministratore) (https://adminmanagement. [ area]. [FQDN_esterno]).
+1. Per usare PowerShell, assicurarsi di aver [PowerShell installato e configurato](azure-stack-powershell-configure-quickstart.md) per un ambiente di operatore dello Stack di Azure. Installare PowerShell in un computer locale che può raggiungere l'endpoint di gestione risorse (amministratore) (https://adminmanagement. [ Region]. [FQDN_esterno]).
 
 2. Eseguire i comandi seguenti per connettersi all'ambiente dello Stack di Azure come un operatore di Stack di Azure:
 
    ```PowerShell
    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
-   Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+   Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 3. Passare alla directory in cui è installato il [strumenti di Azure Stack](https://github.com/Azure/AzureStack-Tools) come parte dell'installazione di PowerShell, ad esempio, c:\azurestack-tools-master. Quindi, passare alla directory infrastruttura ed eseguire il comando seguente per importare il modulo di infrastruttura:
 
@@ -138,14 +138,14 @@ La richiesta ottiene tutti gli avvisi attivi e chiusi per la sottoscrizione del 
 
 |Metodo  |URI della richiesta  |
 |---------|---------|
-|GET     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
+|GET     |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01 "      |
 |     |         |
 
 **Argomenti**
 
 |Argomento  |DESCRIZIONE  |
 |---------|---------|
-|armendpoint     |  L'endpoint di gestione risorse di Azure dell'ambiente dello Stack di Azure, il formato di https://adminmanagement. {RegionName}. {FQDN esterno}. Ad esempio, se è il nome FQDN esterno *azurestack.external* e nome dell'area *locale*, quindi l'endpoint di gestione risorse è https://adminmanagement.local.azurestack.external.       |
+|armendpoint     |  L'endpoint di gestione risorse di Azure dell'ambiente dello Stack di Azure, nel formato https://adminmanagement.{RegionName}.{External FQDN}. Ad esempio, se è il nome FQDN esterno *azurestack.external* e nome dell'area *locale*, quindi l'endpoint di gestione risorse è https://adminmanagement.local.azurestack.external.       |
 |subid     |   ID sottoscrizione dell'utente che effettua la chiamata. È possibile utilizzare questa API per eseguire query solo con un utente che dispone dell'autorizzazione per la sottoscrizione del provider predefinito.      |
 |RegionName     |    Il nome dell'area della distribuzione di Azure Stack.     |
 |api-version     |  Versione del protocollo utilizzato per effettuare questa richiesta. È necessario utilizzare 2016-05-01.      |
@@ -228,7 +228,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*serviceregistrationid*     |    ID del servizio registrato.   |
 |*severity*     |     Gravità dell'avviso.  |
 |*state*     |    Stato dell'avviso.   |
-|*title*     |    Titolo dell'avviso.   |
+|*Titolo*     |    Titolo dell'avviso.   |
 |*impactedresourceid*     |     ID della risorsa interessata.    |
 |*ImpactedresourceDisplayName*     |     Nome della risorsa interessata.  |
 |*closedByUserAlias*     |   Utente che ha chiuso l'avviso.      |
@@ -241,14 +241,14 @@ La richiesta chiude un avviso dall'ID univoco.
 
 |Metodo    |URI della richiesta  |
 |---------|---------|
-|PUT     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
+|PUT     |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01 "    |
 
 **Argomenti**
 
 
 |Argomento  |DESCRIZIONE  |
 |---------|---------|
-|*armendpoint*     |   Endpoint di gestione delle risorse dell'ambiente dello Stack di Azure, il formato di https://adminmanagement. {RegionName}. {FQDN esterno}. Ad esempio, se è il nome FQDN esterno *azurestack.external* e nome dell'area *locale*, quindi l'endpoint di gestione risorse è https://adminmanagement.local.azurestack.external.      |
+|*armendpoint*     |   Endpoint di gestione risorse dell'ambiente dello Stack di Azure, nel formato https://adminmanagement.{RegionName}.{External FQDN}. Ad esempio, se è il nome FQDN esterno *azurestack.external* e nome dell'area *locale*, quindi l'endpoint di gestione risorse è https://adminmanagement.local.azurestack.external.      |
 |*subid*     |    ID sottoscrizione dell'utente che effettua la chiamata. È possibile utilizzare questa API per eseguire query solo con un utente che dispone dell'autorizzazione per la sottoscrizione del provider predefinito.     |
 |*RegionName*     |   Il nome dell'area della distribuzione di Azure Stack.      |
 |*api-version*     |    Versione del protocollo utilizzato per effettuare questa richiesta. È necessario utilizzare 2016-05-01.     |
@@ -371,7 +371,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |*serviceregistrationid*     |    ID del servizio registrato.   |
 |*severity*     |     Gravità dell'avviso.  |
 |*state*     |    Stato dell'avviso.   |
-|*title*     |    Titolo dell'avviso.   |
+|*Titolo*     |    Titolo dell'avviso.   |
 |*impactedresourceid*     |     ID della risorsa interessata.    |
 |*ImpactedresourceDisplayName*     |     Nome della risorsa interessata.  |
 |*closedByUserAlias*     |   Utente che ha chiuso l'avviso.      |
@@ -393,7 +393,7 @@ La richiesta ottiene lo stato di integrità per tutti i provider di risorse regi
 
 |Argomenti  |DESCRIZIONE  |
 |---------|---------|
-|*armendpoint*     |    L'endpoint di gestione delle risorse dell'ambiente dello Stack di Azure, il formato di https://adminmanagement. {RegionName}. {FQDN esterno}. Ad esempio, se il nome FQDN esterno è azurestack.external e nome dell'area è locale, quindi l'endpoint di gestione risorse è https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    L'endpoint di gestione risorse dell'ambiente dello Stack di Azure, nel formato https://adminmanagement.{RegionName}.{External FQDN}. Ad esempio, se il nome FQDN esterno è azurestack.external e nome dell'area è locale, quindi l'endpoint di gestione risorse è https://adminmanagement.local.azurestack.external.     |
 |*subid*     |     ID sottoscrizione dell'utente che effettua la chiamata. È possibile utilizzare questa API per eseguire query solo con un utente che dispone dell'autorizzazione per la sottoscrizione del provider predefinito.    |
 |*RegionName*     |     Il nome dell'area della distribuzione di Azure Stack.    |
 |*api-version*     |   Versione del protocollo utilizzato per effettuare questa richiesta. È necessario utilizzare 2016-05-01.      |
@@ -440,7 +440,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*tag*     |     Tag delle risorse.    |
 |*registrationId*     |   Registrazione univoco per il provider di risorse.      |
 |*displayName*     |Nome visualizzato del provider di risorse.        |
-|*namespace*     |   Implementa l'API dello spazio dei nomi del provider di risorse.       |
+|*spazio dei nomi*     |   Implementa l'API dello spazio dei nomi del provider di risorse.       |
 |*routePrefix*     |    URI per interagire con il provider di risorse.     |
 |*serviceLocation*     |   Area con cui è registrato questo provider di risorse.      |
 |*infraURI*     |   URI del provider di risorse elencato come un ruolo di infrastruttura.      |
@@ -462,7 +462,7 @@ La richiesta ottiene lo stato di integrità per un provider di risorse registrat
 
 |Argomenti  |DESCRIZIONE  |
 |---------|---------|
-|*armendpoint*     |    L'endpoint di gestione delle risorse dell'ambiente dello Stack di Azure, il formato di https://adminmanagement. {RegionName}. {FQDN esterno}. Ad esempio, se il nome FQDN esterno è azurestack.external e nome dell'area è locale, quindi l'endpoint di gestione risorse è https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    L'endpoint di gestione risorse dell'ambiente dello Stack di Azure, nel formato https://adminmanagement.{RegionName}.{External FQDN}. Ad esempio, se il nome FQDN esterno è azurestack.external e nome dell'area è locale, quindi l'endpoint di gestione risorse è https://adminmanagement.local.azurestack.external.     |
 |*subid*     |ID sottoscrizione dell'utente che effettua la chiamata. È possibile utilizzare questa API per eseguire query solo con un utente che dispone dell'autorizzazione per la sottoscrizione del provider predefinito.         |
 |*RegionName*     |  Il nome dell'area della distribuzione di Azure Stack.       |
 |*api-version*     |  Versione del protocollo utilizzato per effettuare questa richiesta. È necessario utilizzare 2016-05-01.       |

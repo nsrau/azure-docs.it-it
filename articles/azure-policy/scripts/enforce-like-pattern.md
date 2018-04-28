@@ -2,24 +2,24 @@
 title: 'Esempio JSON di Criteri di Azure: applicare il modello like | Microsoft Docs'
 description: Questo criterio di esempio JSON richiede che tutte le risorse soddisfino il modello like per le convenzioni di denominazione.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 11/13/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 447cbdc762afac84746c4663931496eb3cdfb75e
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: d161e262826150085a75052ad6e268dbc636d97a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enforce-like-pattern-for-naming-conventions"></a>Applicare il modello like per le convenzioni di denominazione
 

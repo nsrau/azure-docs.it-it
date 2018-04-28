@@ -1,8 +1,8 @@
 ---
 title: Introduzione all'insieme di credenziali delle chiavi di Azure | Documentazione Microsoft
-description: "Usare questa esercitazione per imparare a eseguire facilmente le attività iniziali dell'insieme di credenziali delle chiavi di Azure per creare un contenitore finalizzato in Azure, in cui archiviare e gestire chiavi e segreti di crittografia in Azure."
+description: Usare questa esercitazione per imparare a eseguire facilmente le attività iniziali dell'insieme di credenziali delle chiavi di Azure per creare un contenitore finalizzato in Azure, in cui archiviare e gestire chiavi e segreti di crittografia in Azure.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/20/2017
 ms.author: barclayn
-ms.openlocfilehash: 1b70802945b710059e93b54607996ccf74510d1f
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: d082241ee5151b199376a0c2c9baccc242ece12e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introduzione all'insieme di credenziali delle chiavi di Azure
 Questo articolo consente di iniziare a usare Azure Key Vault con PowerShell e illustra in dettaglio le attività seguenti:
@@ -49,10 +49,10 @@ Per informazioni dettagliate sui cmdlet usati in questa esercitazione, eseguire 
 Get-Help <cmdlet-name> -Detailed
 ```
     
-Ad esempio, per informazioni della Guida per il cmdlet **Login-AzureRmAccount** , digitare:
+Ad esempio, per ottenere informazioni per il cmdlet **Connect-AzureRmAccount**, digitare:
 
 ```PowerShell
-Get-Help Login-AzureRmAccount -Detailed
+Get-Help Connect-AzureRmAccount -Detailed
 ```
 
 Per acquisire familiarità con il modello di distribuzione Azure Resource Manager in Azure PowerShell, vedere anche gli articoli seguenti:
@@ -64,13 +64,13 @@ Per acquisire familiarità con il modello di distribuzione Azure Resource Manage
 Avviare una sessione di Azure PowerShell e accedere all'account Azure con il comando seguente:  
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 >[!NOTE]
  Se si usa un'istanza specifica di Azure, usare il parametro -Environment, Ad esempio:  
  ```powershell
- Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
+ Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
  ```
 
 Nella finestra del browser a comparsa, immettere il nome utente e la password dell'account Azure. Azure PowerShell recupera tutte le sottoscrizioni associate a questo account e, per impostazione predefinita, usa la prima.
@@ -114,7 +114,7 @@ New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoReso
 L'output di questo cmdlet mostra le proprietà dell'insieme di credenziali delle chiavi creato. Le due proprietà più importanti sono:
 
 * **Nome dell'insieme di credenziali**: nell'esempio corrisponde a **ContosoKeyVault**. Questo nome verrà usato per altri cmdlet di insieme di credenziali delle chiavi.
-* **Vault URI** (URI dell'insieme di credenziali): nell'esempio corrisponde a https://contosokeyvault.vault.azure.net/. Le applicazioni che usano l'insieme di credenziali tramite l'API REST devono usare questo URI.
+* **Vault URI** (URI dell'insieme di credenziali): in questo esempio corrisponde a https://contosokeyvault.vault.azure.net/. Le applicazioni che usano l'insieme di credenziali tramite l'API REST devono usare questo URI.
 
 L'account Azure ora è autorizzato a eseguire qualsiasi operazione su questo insieme di credenziali delle chiavi. Nessun altro lo è ancora.
 
@@ -138,7 +138,7 @@ Per visualizzare l'URI per questa chiave, digitare:
 $key.id
 ```
 
-Si può fare riferimento a una chiave creata o caricata in Azure Key Vault usando il relativo URI. È possibile usare **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** per ottenere la versione corrente e **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** per ottenere questa versione specifica.  
+Si può fare riferimento a una chiave creata o caricata in Azure Key Vault usando il relativo URI. Per ottenere la versione corrente, è possibile usare **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** e quindi usare **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** per ottenere questa versione specifica.  
 
 ### <a name="importing-an-existing-pfx-file-into-azure-key-vault"></a>Importazione di un file PFX esistente in Azure Key Vault
 
@@ -241,7 +241,10 @@ Per registrare l'applicazione in Azure Active Directory:
 10. Le informazioni di **ID applicazione** e **Chiave** verranno usate nel passaggio successivo per impostare le autorizzazioni per l'insieme di credenziali.
 
 ## <a id="authorize"></a>Autorizzare l'applicazione a usare la chiave o il segreto
-Per autorizzare l'applicazione ad accedere alla chiave o al segreto nell'insieme di credenziali, usare il cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
+È possibile autorizzare l'accesso da parte dell'applicazione alla chiave o al segreto nell'insieme di credenziali in due modi.
+
+### <a name="using-powershell"></a>Tramite PowerShell
+Per usare PowerShell, usare il cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
 
 Ad esempio, se il nome dell'insieme di credenziali è **ContosoKeyVault** e l'applicazione da autorizzare ha un ID client 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed e si vuole autorizzare l'applicazione a decrittografare e firmare con le chiavi dell'insieme di credenziali, digitare il comando seguente:
 
@@ -254,6 +257,13 @@ Se si desidera autorizzare la stessa applicazione per la lettura di tutti i segr
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 ```
+### <a name="using-the-azure-portal"></a>Uso del portale di Azure
+Per modificare l'autorizzazione di un'applicazione in modo che usi chiavi o segreti:
+1. Selezionare **Criteri di accesso** dal pannello delle risorse di Key Vault
+2. Fare clic sul pulsante [+ Aggiungi nuovo] nella parte superiore del pannello
+3. Fare clic su **Selezionare un'entità** per selezionare l'applicazione creata in precedenza
+4. Dall'elenco a discesa **Autorizzazioni chiave** selezionare "Decrittografa" e "Firma" per autorizzare l'applicazione per la decrittografia e la firma con le chiavi disponibili nell'insieme di credenziali
+5. Dall'elenco a discesa **Autorizzazioni segrete** selezionare "Ottieni" per consentire all'applicazione di leggere i segreti nell'insieme di credenziali
 
 ## <a id="HSM"></a>Uso di un modulo di protezione hardware
 Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware (HSM) che rimangono sempre entro il limite HSM. I moduli di protezione hardware sono certificati per FIPS 140-2 livello 2. Se questo requisito non è applicabile, saltare questa sezione e andare a [Eliminare l'insieme di credenziali chiave e le chiavi e i segreti associati](#delete).

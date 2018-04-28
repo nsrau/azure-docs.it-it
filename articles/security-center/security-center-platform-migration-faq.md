@@ -5,20 +5,20 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 04/13/2018
 ms.author: terrylan
-ms.openlocfilehash: 6ccf104ea09dc1fbce1dd34a06168205d6f5fac8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 6a88fbadd8fbf05a4942e42b535770f6f068af28
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-center-platform-migration-faq"></a>Domande frequenti sulla migrazione della piattaforma del Centro sicurezza
 All'inizio di giugno 2017 il Centro sicurezza di Azure ha iniziato a usare Microsoft Monitoring Agent per la raccolta e l'archiviazione dei dati. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md). Questa pagina fornisce risposte alle domande relative alla migrazione della piattaforma.
@@ -34,7 +34,7 @@ Il Centro sicurezza usa Microsoft Monitoring Agent per raccogliere dati di sicur
 I dati raccolti dall'agente vengono archiviati in un'area di lavoro esistente di Log Analytics connessa alla VM o in una nuova area di lavoro creata dal Centro sicurezza. Quando il Centro sicurezza crea una nuova area di lavoro, viene presa in considerazione l'area geografica della VM.
 
 > [!NOTE]
-> Microsoft Monitoring Agent è lo stesso agente usato da Operations Management Suite (OMS), dal servizio Log Analytics e da System Center Operations Manager (SCOM).
+> Microsoft Monitoring Agent è lo stesso agente usato dal servizio Log Analytics e da System Center Operations Manager (SCOM).
 >
 >
 
@@ -64,8 +64,8 @@ La posizione dell'area di lavoro dipende dalla posizione della VM. Per altre inf
 >
 >
 
-### <a name="am-i-billed-for-log-analytics-or-oms-on-the-workspaces-created-by-security-center"></a>Vengono addebitati costi per Log Analytics oppure OMS nelle aree di lavoro create dal Centro sicurezza?
-di serie Le aree di lavoro create dal Centro sicurezza non comportano addebiti di OMS, benché siano configurate per OMS per la fatturazione per nodo. La fatturazione del Centro sicurezza è sempre basata sui criteri di sicurezza del Centro sicurezza e sulle soluzioni installate in un'area di lavoro:
+### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Vengono addebitati costi per Log Analytics nelle aree di lavoro create dal Centro sicurezza?
+No. Le aree di lavoro create dal Centro sicurezza non comportano addebiti di Log Analytics, benché siano configurate per la fatturazione di Log Analytics per nodo. La fatturazione del Centro sicurezza è sempre basata sui criteri di sicurezza del Centro sicurezza e sulle soluzioni installate in un'area di lavoro:
 
 - **Livello Gratuito**: il Centro sicurezza abilita la soluzione 'SecurityCenterFree' nell'area di lavoro predefinita. Non viene applicato alcun addebito per il livello Gratuito.
 - **Livello Standard**: il Centro sicurezza abilita la soluzione 'Security' nell'area di lavoro predefinita.
@@ -73,7 +73,7 @@ di serie Le aree di lavoro create dal Centro sicurezza non comportano addebiti d
 Per altre informazioni sui prezzi, vedere [Prezzi di Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/). La pagina relativa ai prezzi illustra le modifiche apportate alla fatturazione per l'archiviazione dei dati di sicurezza e alla fatturazione ripartita a partire da giugno 2017.
 
 > [!NOTE]
-> Il piano tariffario di OMS per le aree di lavoro create dal Centro sicurezza non influisce sulla fatturazione del Centro sicurezza.
+> Il piano tariffario di Log Analytics per le aree di lavoro create dal Centro sicurezza non influisce sulla fatturazione del Centro sicurezza.
 >
 >
 
@@ -122,8 +122,6 @@ Per selezionare l'area di lavoro di Log Analytics esistente:
    >
 
    - Selezionare **Annulla** per annullare l'operazione.
-
-      ![Riconfigurare le macchine virtuali monitorate][6]
 
 ### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>Cosa accade se Microsoft Monitoring Agent è già stato installato come estensione nella VM?
 Il Centro sicurezza non esegue l'override delle connessioni esistenti alle aree di lavoro degli utenti. Il Centro sicurezza archivia i dati di sicurezza dalla VM nell'area di lavoro già connessa. Il Centro sicurezza aggiorna la versione dell'estensione in modo da includere l'ID risorsa di Azure della macchina virtuale per supportare l'uso del Centro sicurezza.
@@ -204,12 +202,12 @@ Per rimuovere manualmente l'agente:
 >
 >
 
-## <a name="existing-oms-customers"></a>Clienti di OMS esistenti
+## <a name="existing-log-analytics-customers"></a>Clienti di Log Analytics esistenti
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Il Centro sicurezza esegue l'override di eventuali connessioni esistenti tra le macchine virtuali e le aree di lavoro?
 Se in una VM è già installato Microsoft Monitoring Agent come estensione di Azure, il Centro sicurezza non esegue l'override della connessione all'area di lavoro esistente. Il Centro sicurezza usa l'area di lavoro esistente.
 
-Una soluzione del Centro sicurezza viene installata nell'area di lavoro, se non è già presente, e la soluzione viene applicata solo alle VM rilevanti. Quando viene aggiunta, la soluzione viene automaticamente distribuita per impostazione predefinita a tutti gli agenti di Windows e Linux connessi all'area di lavoro di Log Analytics. Il [targeting della soluzione](../operations-management-suite/operations-management-suite-solution-targeting.md), una funzionalità di OMS, consente di applicare un ambito alle soluzioni.
+Una soluzione del Centro sicurezza viene installata nell'area di lavoro, se non è già presente, e la soluzione viene applicata solo alle VM rilevanti. Quando viene aggiunta, la soluzione viene automaticamente distribuita per impostazione predefinita a tutti gli agenti di Windows e Linux connessi all'area di lavoro di Log Analytics. Il [targeting della soluzione](../operations-management-suite/operations-management-suite-solution-targeting.md) consente di applicare un ambito alle soluzioni.
 
 Se Microsoft Monitoring Agent è installato direttamente sulla macchina virtuale, non come estensione di Azure, il Centro sicurezza non lo installerà e il monitoraggio della sicurezza sarà limitato.
 
@@ -220,18 +218,13 @@ Questo problema non si dovrebbe verificare. Nel caso in cui si verifichi, [crear
 - ID della risorsa di Azure dell'area di lavoro configurata nell'estensione prima dell'interruzione della connessione
 - Agente e versione installata in precedenza
 
-### <a name="does-security-center-install-solutions-on-my-existing-oms-workspaces-what-are-the-billing-implications"></a>Il Centro sicurezza installa soluzioni nelle aree di lavoro di OMS esistenti? Quali solo le implicazioni relative alla fatturazione?
+### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Il Centro sicurezza installa soluzioni nelle aree di lavoro di Log Analytics esistenti? Quali solo le implicazioni relative alla fatturazione?
 Quando il Centro sicurezza rileva che una VM è già connessa a un'area di lavoro creata, il Centro sicurezza abilita soluzioni in questa area di lavoro in base al piano tariffario specifico. Le soluzioni vengono applicate solo alle macchine virtuali rilevanti di Azure tramite il [targeting della soluzione](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), quindi la fatturazione rimane invariata.
 
 - **Livello Gratuito**: il Centro sicurezza installa la soluzione 'SecurityCenterFree' nell'area di lavoro. Non viene applicato alcun addebito per il livello Gratuito.
 - **Livello Standard**: il Centro sicurezza installa la soluzione 'Security' nell'area di lavoro.
 
    ![Soluzioni nell'area di lavoro predefinita][4]
-
-> [!NOTE]
-> La soluzione 'Security' in Log Analytics è la soluzione Sicurezza e controllo in OMS.
->
->
 
 ### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Nell'ambiente sono già presenti aree di lavoro. È possibile usarle per raccogliere i dati di sicurezza?
 Se in una VM è già installato Microsoft Monitoring Agent come estensione di Azure, il Centro sicurezza usa l'area di lavoro connessa esistente. Una soluzione del Centro sicurezza viene installata nell'area di lavoro, se non è già presente, e la soluzione viene applicata solo alle VM rilevanti tramite il [targeting della soluzione](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting).
@@ -253,4 +246,3 @@ Per altre informazioni sulla migrazione della piattaforma del Centro sicurezza, 
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/solutions.png
 [5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
-[6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png

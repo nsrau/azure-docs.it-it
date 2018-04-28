@@ -10,13 +10,13 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.author: jroth
-ms.openlocfilehash: e752ad844a6efe572564e7081ebac87193e9c2a7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9c24536d8d5647e4a2c19afa17c35050e1f11c20
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Panoramica di SQL Server in macchine virtuali di Azure (Linux)
 
@@ -24,27 +24,16 @@ ms.lasthandoff: 03/23/2018
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 > * [Linux](sql-server-linux-virtual-machines-overview.md)
 
-Questo argomento descrive le opzioni disponibili per eseguire SQL Server in macchine virtuali (VM) Linux di Azure, con collegamenti alle [immagini del portale](#create).
+SQL Server su macchine virtuali di Azure consente di usare versioni complete di SQL Server sul cloud senza dovere gestire eventuale hardware locale. Le VM di SQL Server semplificano anche i costi di licenza quando si sceglie il modello con pagamento in base al consumo.
 
-> [!NOTE]
-> Se si ha già familiarità con SQL Server e si vuole solo sapere come distribuire una VM Linux di SQL Server, vedere [Effettuare il provisioning di una macchina virtuale Linux di SQL Server nel portale di Azure](provision-sql-server-linux-virtual-machine.md). Se invece si vuole creare una VM Windows con SQL Server, vedere [Effettuare il provisioning di una macchina virtuale Windows di SQL Server nel portale di Azure](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md).
+Le macchine virtuali di Azure vengono eseguite in diverse [aree geografiche](https://azure.microsoft.com/regions/) in tutto il mondo. Offrono anche un'ampia gamma di [dimensioni](../sizes.md). La raccolta di immagini di macchine virtuali consente di creare una VM di SQL Server con la versione, l'edizione e il sistema operativo appropriati. Le macchine virtuali possono così rappresentare una valida opzione per numerosi carichi di lavoro di SQL Server diversi.
 
-Le VM di Azure consentono agli amministratori di database e agli sviluppatori di spostare le applicazioni e i carichi di lavoro di SQL Server locali nel cloud.
+## <a id="create"></a> Introduzione alle macchine virtuali di SQL
 
-## <a name="scenarios"></a>Scenari
-
-È possibile scegliere l'hosting dei dati in Azure per numerosi motivi. In caso di distribuzione o migrazione di un'applicazione in Azure, inserire in Azure anche i dati back-end migliora le prestazioni. Si ha automaticamente accesso a più data center per una presenza globale e il ripristino di emergenza e i dati sono altamente protetti e durevoli.
-
-L'esecuzione di SQL Server in una VM di Azure costituisce un'opzione per archiviare i dati relazionali in Azure. È anche possibile usare il servizio database SQL di Azure. Per altre informazioni sulla scelta tra SQL Server in macchine virtuali e il database SQL di Azure, vedere [Scegliere un'opzione di SQL Server cloud: database SQL di Azure (PaaS) o SQL Server in VM di Azure (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
-
-## <a id="create"></a> Creare una nuova VM di SQL
-
-Per indicazioni dettagliate per la creazione di una nuova VM di SQL, vedere l'esercitazione [Effettuare il provisioning di una macchina virtuale Linux di SQL Server nel portale di Azure](provision-sql-server-linux-virtual-machine.md).
-
-La tabella seguente descrive una matrice di immagini di SQL Server più recenti nella raccolta di macchine virtuali. Fare clic su un collegamento per iniziare a creare una nuova VM di SQL con la versione, l'edizione e il sistema operativo specificati.
+Per iniziare, scegliere un'immagine di macchina virtuale di SQL Server con la versione, l'edizione e il sistema operativo appropriati. Le sezioni seguenti forniscono collegamenti diretti al portale di Azure per le immagini della raccolta di macchine virtuali di SQL Server.
 
 > [!TIP]
-> Per informazioni sui prezzi delle VM e di SQL per queste immagini, vedere la [pagina dei prezzi per le VM Linux di SQL Server](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+> Per altre informazioni sui prezzi per le immagini di SQL, vedere la [pagina dei prezzi per macchine virtuali SQL Server Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 | Version | Sistema operativo | Edizione |
 | --- | --- | --- |
@@ -65,6 +54,33 @@ Quando si configura SQL Server in Linux, si installano il pacchetto del motore d
 | SLES | ![Sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) |
 | Ubuntu | ![Sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sì](./media/sql-server-linux-virtual-machines-overview/yes.png) |
 
+## <a name="related-products-and-services"></a>Prodotti e servizi correlati
+
+### <a name="linux-virtual-machines"></a>Macchine virtuali Linux
+
+* [Panoramica di Macchine virtuali](../overview.md)
+
+### <a name="storage"></a>Archiviazione
+
+* [Introduzione ad Archiviazione di Microsoft Azure](../../../storage/common/storage-introduction.md)
+
+### <a name="networking"></a>Rete
+
+* [Panoramica della rete virtuale](../../../virtual-network/virtual-networks-overview.md)
+* [Indirizzi IP in Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* [Creare un nome di dominio completo nel portale di Azure](../portal-create-fqdn.md)
+
+### <a name="sql"></a>SQL
+
+* [Documentazione di SQL Server in Linux](https://docs.microsoft.com/sql/linux)
+* [Confronto con il database SQL di Azure](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla configurazione e l'uso di SQL Server in Linux, vedere la [panoramica di SQL Server in Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview).
+Introduzione a SQL Server nelle macchine virtuali Linux di Azure:
+
+* [Creare una VM di SQL Server nel portale di Azure](provision-sql-server-linux-virtual-machine.md)
+
+Ottenere risposte alle domande frequenti sulle macchine virtuali di SQL su Linux:
+
+* [Domande frequenti su SQL Server nelle macchine virtuali Linux di Azure](sql-server-linux-faq.md)

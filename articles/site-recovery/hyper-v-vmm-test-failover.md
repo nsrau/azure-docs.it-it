@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: ponatara
-ms.openlocfilehash: a586eac3be39a4d3fb35dff7a4b1cc40f32f2720
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c389776f62db5fd04f67ef22822e21fd4aee368f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V in un sito secondario
 
@@ -52,10 +52,17 @@ Quando si esegue un failover di test, viene chiesto di selezionare le impostazio
 ### <a name="best-practices"></a>Procedure consigliate
 
 - Testare una rete di produzione comporta tempi di inattività per i carichi di lavoro della produzione. Chiedere agli utenti di non usare le app correlate quando l'analisi di ripristino di emergenza è in corso.
-- La rete di test non deve necessariamente corrispondere al tipo di rete logica VMM usato per il failover di test. Se la replica usa l'isolamento basato su VLAN e DHCP, non è necessario un pool di indirizzi IP statici per la rete VM per la replica. Di conseguenza l’uso della virtualizzazione rete Windows per il failover di test non funziona perché non è disponibile alcun pool di indirizzi. 
-        Il failover di test non funziona se la rete di replica è senza isolamento e la rete di test è basata sulla virtualizzazione rete Windows. Questo accade perché la rete senza isolamento non dispone delle subnet necessarie per creare una rete di virtualizzazione rete Windows.
+
+- La rete di test non deve necessariamente corrispondere al tipo di rete logica VMM usato per il failover di test. Tuttavia, alcune combinazioni non funzionano:
+
+     - Se la replica utilizza DHCP e isolamento basato su VLAN, non è necessario un pool di indirizzi IP statici per la rete VM per la replica. Di conseguenza l’uso della virtualizzazione rete Windows per il failover di test non funziona perché non è disponibile alcun pool di indirizzi. 
+        
+     - Il failover di test non funziona se la rete di replica è senza isolamento e la rete di test è basata sulla virtualizzazione rete Windows. Questo accade perché la rete senza isolamento non dispone delle subnet necessarie per creare una rete di virtualizzazione rete Windows.
+        
 - È consigliabile non usare la rete che è stata selezionata per il mapping di rete per il failover di test.
+
 - Il modo in cui le macchine virtuali di replica sono connesse alle reti VM mappate dopo il failover dipende dalla configurazione della rete VM nella console VMM.
+
 
 ### <a name="vm-network-configured-with-no-isolation-or-vlan-isolation"></a>Rete VM configurata senza isolamento o isolamento VLAN
 

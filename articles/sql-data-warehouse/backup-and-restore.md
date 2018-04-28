@@ -1,23 +1,23 @@
 ---
 title: Backup e ripristino di Azure SQL Data Warehouse - Snapshot e ridondanza geografica | Microsoft Docs
-description: Informazioni su come eseguire il backup e il ripristino in Azure SQL Data Warehouse. È possibile i backup del dati warehouse per ripristinare il data warehouse a un punto di ripristino nell'area primaria o usare i backup con ridondanza geografica per ripristinarlo a un'area geografica diversa.
+description: Informazioni su come eseguire il backup e il ripristino in Azure SQL Data Warehouse. Usare i backup del data warehouse per ripristinare il data warehouse a un punto di ripristino nell'area primaria. Usare i backup con ridondanza geografica per ripristinare in un'area geografica diversa.
 services: sql-data-warehouse
-author: ronortloff
-manager: jhubbard
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
-ms.date: 03/28/2018
-ms.author: rortloff
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f540bca0d2eb2c9009a386bd14a5beda2912014
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 535c16da137b114704aa9a2e97576ced5e9eba44
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Backup e ripristino in Azure SQL Data Warehouse
-Informazioni su come eseguire il backup e il ripristino in Azure SQL Data Warehouse. È possibile i backup del dati warehouse per ripristinare il data warehouse a un punto di ripristino nell'area primaria o usare i backup con ridondanza geografica per ripristinarlo a un'area geografica diversa. 
+Informazioni su come eseguire il backup e il ripristino in Azure SQL Data Warehouse. Usare i backup del data warehouse per ripristinare il data warehouse a un punto di ripristino nell'area primaria. Usare i backup con ridondanza geografica per ripristinare in un'area geografica diversa. 
 
 ## <a name="what-is-backup-and-restore"></a>Definizione di backup e ripristino
 Un *backup del data warehouse* è la copia del database che è possibile usare per ripristinare un data warehouse.  Poiché SQL Data Warehouse è un sistema distribuito, un backup di data warehouse è costituito da molti file che si trovano in Archiviazione di Azure. Un backup di data warehouse include sia snapshot del database locale sia backup geografici di tutti i database e i file associati a un data warehouse. 

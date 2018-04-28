@@ -2,7 +2,7 @@
 title: Operazioni di Azure Active Directory Connect Health
 description: Questo articolo descrive le operazioni aggiuntive che possono essere eseguite dopo avere distribuito Azure AD Connect Health.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: c9920857f7d1910921b4bb3771e770fb4c3a42c3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operazioni di Azure Active Directory Connect Health
 Questo argomento descrive le varie operazioni che è possibile eseguire tramite Azure Active Directory (Azure AD) Connect Health.
@@ -91,9 +91,9 @@ Quando si elimina un'istanza del servizio, tenere presente quanto segue:
 4. Fare clic su **Elimina**.
    <br><br>
 
-[//]: # (Start of RBAC section)
+[//]: # (Inizio della sezione Controllo degli accessi in base al ruolo)
 ## <a name="manage-access-with-role-based-access-control"></a>Gestire l'accesso con il controllo degli accessi in base al ruolo
-Il [controllo degli accessi in base al ruolo](../role-based-access-control-configure.md) per Azure AD Connect Health consente l'accesso a utenti e gruppi che non sono amministratori globali. Questa funzionalità assegna ruoli agli utenti e ai gruppi previsti e fornisce un meccanismo per limitare gli amministratori globali all'interno di una directory.
+Il [controllo degli accessi in base al ruolo](../../role-based-access-control/role-assignments-portal.md) per Azure AD Connect Health consente l'accesso a utenti e gruppi che non sono amministratori globali. Questa funzionalità assegna ruoli agli utenti e ai gruppi previsti e fornisce un meccanismo per limitare gli amministratori globali all'interno di una directory.
 
 ### <a name="roles"></a>Ruoli
 Azure AD Connect Health supporta i ruoli predefiniti seguenti:
@@ -153,7 +153,7 @@ Ora gli utenti e i gruppi elencati hanno accesso, in base ai relativi ruoli asse
 È possibile rimuovere un utente o un gruppo aggiunto al Controllo degli accessi in base al ruolo di Azure AD Connect Health. Fare semplicemente clic con il pulsante destro del mouse sull'utente o sul gruppo e selezionare **Rimuovi**.<br>
 ![Schermata della finestra Utenti del Controllo degli accessi in base al ruolo di Azure AD Connect Health con Rimuovi evidenziato](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
-[//]: # (End of RBAC section)
+[//]: # (Fine della sezione Controllo degli accessi in base al ruolo)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

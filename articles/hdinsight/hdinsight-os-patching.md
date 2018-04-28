@@ -2,24 +2,22 @@
 title: Configurare una pianificazione dell'applicazione di patch al sistema operativo per i cluster di HDInsight basati su Linux - Azure | Microsoft Docs
 description: Informazioni su come configurare una pianificazione dell'applicazione di patch al sistema operativo per i cluster di HDInsight basati su Linux.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: asadk
 editor: bprakash
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: bhanupr
-ms.openlocfilehash: af3c5a19ae8e2e606e4b0506f9f6dddb41192e40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42771b9ff0f177b6b31f626d1dd2d07046a53965
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="os-patching-for-hdinsight"></a>Applicazione di patch del sistema operativo per HDInsight 
 Come servizio gestito di Hadoop, HDInsight si occupa dell'applicazione di patch al sistema operativo delle macchine virtuali sottostanti usate dal cluster HDInsight. A partire dal 1° agosto 2016, sono stati modificati i criteri di applicazione delle patch del sistema operativo guest per i cluster HDInsight basati su Linux (versione 3.4 o successiva). L'obiettivo del nuovo criterio è di ridurre in modo consistente il numero di riavvii causati dall'applicazione delle patch. Il nuovo criterio continuerà ad applicare le patch alle macchine virtuali sui cluster Linux ogni lunedì o giovedì a partire dalle ore 00:00 UTC con un flusso di intervalli sui nodi in ogni cluster. Tuttavia, le macchine virtuali verranno riavviate solo una volta ogni 30 giorni a causa dell'applicazione delle patch al sistema operativo guest. In aggiunta, il primo riavvio di un cluster appena creato non verrà eseguito prima di 30 giorni dalla data di creazione del cluster. I patch verranno applicati al riavvio delle macchine virtuali.

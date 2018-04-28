@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/22/2017
 ms.author: ryanwi
 ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Consente di gestire le repliche che appartengono alle partizioni del servizio.
@@ -58,7 +58,7 @@ Recupera i dettagli della replica distribuita in un nodo di Service Fabric. Le i
 | --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query               | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-replica-health"></a>sfctl replica health
@@ -82,7 +82,7 @@ Recupera l'integrità di una replica di Service Fabric. Usare EventsHealthStateF
 | --debug                  | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h                | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o              | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query                  | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
+| --query                  | Stringa di query JMESPath. Per altre informazioni, vedere http://jmespath.org/.|
 | --verbose                | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
@@ -106,7 +106,7 @@ La risposta include l'ID, il ruolo, lo stato, l'integrità, il nome del nodo, il
 | --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query               | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
+| --query               | Stringa di query JMESPath. Per altre informazioni, vedere http://jmespath.org/.|
 | --verbose             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-replica-list"></a>sfctl replica list
@@ -130,7 +130,7 @@ La risposta include l'ID, il ruolo, lo stato, l'integrità, il nome del nodo, il
 | --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query               | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-replica-remove"></a>sfctl replica remove
@@ -155,7 +155,7 @@ Questa API consente di simulare un errore di replica di Service Fabric rimuovend
 | --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query               | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-replica-restart"></a>sfctl replica restart
@@ -179,7 +179,7 @@ Riavvia una replica del servizio di un servizio persistente in esecuzione in un 
 | --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query               | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="next-steps"></a>Passaggi successivi

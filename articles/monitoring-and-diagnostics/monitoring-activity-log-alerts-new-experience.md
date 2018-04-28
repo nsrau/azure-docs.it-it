@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: ''
-ms.openlocfilehash: a7553e4155df0d4ee49b798f44ca636dc7ecdcd2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 740edfd158d56fcb224cf93d1720a2330779bfd6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Creare gli avvisi del log attività con la nuova esperienza Avvisi (anteprima)
 
@@ -103,13 +103,13 @@ Utilizzare la procedura seguente:
 
     **Logica avvisi**:
 
-        - **Event Level**- The severity level of the event.**Verbose,Informational, Warning, Error**, or **Critical**.
-        - **Status**: The status of the event.**Started, Failed**, or **Succeeded**.
-        - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
+     - **Livello dell'evento**: il livello di gravità dell'evento.**Dettagliato, informativo, avvertenza, errore**  o **critico**.
+     - **Stato**: lo stato dell'evento.**Avviato, non riuscito** o **riuscito**.
+     - **Evento avviato da**: noto anche come il chiamante. L'indirizzo di posta elettronica o un identificatore di Azure Active Directory dell'utente che ha eseguito l'operazione.
 
-        **Sample signal graph with alert logic applied** :
+        **Grafico del segnale di esempio con logica avvisi applicata**:
 
-        ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+        ![ criteri selezionati](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
 4. In **Definire i dettagli dell'avviso** fornire i dettagli seguenti:
 

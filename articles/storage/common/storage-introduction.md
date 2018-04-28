@@ -1,53 +1,55 @@
 ---
-title: Introduzione ad Archiviazione di Azure | Documentazione Microsoft
-description: Introduzione ad Archiviazione di Azure, la risorsa di archiviazione dei dati Microsoft sul cloud.
+title: 'Introduzione ad Archiviazione di Azure: archiviazione cloud in Azure | Microsoft Docs'
+description: Archiviazione di Azure è la soluzione di archiviazione cloud Microsoft. Archiviazione di Azure offre uno spazio di archiviazione per oggetti dati sicuro, durevole e ridondante, a disponibilità e scalabilità elevate.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 03/06/2018
+ms.date: 04/05/2018
 ms.author: tamram
-ms.openlocfilehash: 18a8065bba8a4a0ec2025d6b9134fe9fab21eb5f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 071b209ffa8ffeb8ef6d998f08bcd68868e29911
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="introduction-to-microsoft-azure-storage"></a>Introduzione ad Archiviazione di Microsoft Azure
+# <a name="introduction-to-azure-storage"></a>Introduzione ad Archiviazione di Azure
 
-Archiviazione di Microsoft Azure è un servizio cloud gestito da Microsoft che offre risorse di archiviazione a disponibilità, sicurezza, durabilità, scalabilità e ridondanza elevate. Microsoft si occupa della manutenzione e gestisce i problemi critici per conto dell'utente.
+Archiviazione di Azure è la soluzione di archiviazione cloud Microsoft per i moderni scenari di archiviazione dati. Archiviazione di Azure offre un archivio a scalabilità elevata per oggetti dati, un servizio di file system per il cloud, un archivio di messaggistica per messaggistica affidabile e un archivio NoSQL. Archiviazione di Azure presenta le caratteristiche seguenti:
 
-Archiviazione di Azure è costituito da tre servizi dati: archiviazione BLOB, archiviazione file e archiviazione code. L'archiviazione BLOB supporta le risorse di archiviazione Standard e Premium e l'archiviazione Premium usa solo unità SSD per offrire le prestazioni più veloci possibili. È disponibile anche la funzionalità delle risorse di archiviazione ad accesso sporadico, che consente di archiviare quantità elevate di dati a cui si accede raramente a un costo inferiore.
+- **Durabilità e disponibilità elevata.** La ridondanza garantisce che i dati siano al sicuro in caso di errori hardware temporanei. Si può anche scegliere di replicare i dati tra data center o aree geografiche per una protezione aggiuntiva da catastrofi locali o calamità naturali. Con questo tipo di replica, i dati mantengono disponibilità elevata in caso di interruzioni impreviste. 
+- **Sicurezza.** Tutti i dati scritti in Archiviazione di Azure vengono crittografati dal servizio. Archiviazione di Azure offre un controllo dettagliato su chi potrà accedere ai dati.
+- **Scalabilità.** La soluzione Archiviazione di Azure è progettata per offrire scalabilità elevata in modo da soddisfare le esigenze di archiviazione dati e di prestazioni delle attuali applicazioni. 
+- **Soluzione gestita.** Microsoft Azure gestisce la manutenzione e i problemi critici per conto dell'utente.
+- **Accessibilità.** I dati in Archiviazione di Azure sono accessibili da ogni parte del mondo tramite HTTP o HTTPS. Microsoft offre SDK per Archiviazione di Azure in diversi linguaggi, come .NET, Java, Node.js, Python, PHP, Ruby, Go e altri, nonché un'avanzata API REST. Archiviazione di Azure supporta l'esecuzione di script in Azure PowerShell o nell'interfaccia della riga di comando di Azure. Il portale di Azure e Azure Storage Explorer, inoltre, offrono semplici soluzioni visive per l'uso dei dati.  
 
-In questo articolo sono disponibili informazioni sugli argomenti seguenti:
-* Servizi di Archiviazione di Azure
-* Tipi di account di archiviazione
-* Accesso a BLOB, code e file
-* Crittografia
-* Replica
-* Trasferimento di dati verso e dalle risorse di archiviazione
-* Numerose librerie client di archiviazione disponibili
+## <a name="azure-storage-services"></a>Servizi di Archiviazione di Azure
 
-Per iniziare a usare Archiviazione di Azure, vedere [Create a storage account](storage-quickstart-create-account.md) (Creare un account di archiviazione).
+Archiviazione di Azure include i servizi dati seguenti. 
 
-## <a name="introducing-the-azure-storage-services"></a>Introduzione ai servizi di archiviazione di Azure
+- [BLOB di Azure](../blobs/storage-blobs-introduction.md): archivio oggetti a scalabilità elevata per dati di testo e binari.
+- [File di Azure](../files/storage-files-introduction.md): condivisioni file gestite per distribuzioni cloud o locali.
+- [Code di Azure](../queues/storage-queues-introduction.md): archivio di messaggistica per una messaggistica affidabile tra i componenti delle applicazioni. 
+- [Tabelle di Azure](../../cosmos-db/table-storage-overview.md): archivio NoSQL per l'archiviazione senza schema di dati strutturati.
 
-Per usare i servizi forniti da Archiviazione di Azure, ovvero archiviazione BLOB, archiviazione file e archiviazione code, è prima di tutto necessario creare un account di archiviazione e quindi è possibile trasferire i dati verso/da un servizio specifico in tale account di archiviazione.
+Ogni servizio è accessibile tramite un account di archiviazione. Per iniziare, vedere [Creare un account di archiviazione](storage-quickstart-create-account.md).
 
 ## <a name="blob-storage"></a>Archiviazione BLOB
 
-I BLOB sono essenzialmente file simili a quelli archiviati nel computer o nel tablet, nel dispositivo mobile e così via. Possono essere file di qualsiasi tipo, ad esempio immagini, file di Microsoft Excel, file HTML, dischi rigidi virtuali, Big Data come log, backup dei database. I BLOB vengono archiviati nei contenitori, che sono simili alle cartelle.
+L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. L'archivio BLOB è ottimizzato per l'archiviazione di enormi quantità di dati non strutturati, come dati di testo o binari. 
 
-Dopo l'archiviazione dei file nell'archivio BLOB, è possibile accedere a tali file ovunque ci si trovi, tramite URL, interfaccia REST o una delle librerie client di archiviazione di Azure SDK. Le librerie client di archiviazione sono disponibili per molti linguaggi, tra cui Node.js, Java, PHP, Ruby, Python e .NET.
+L'archivio BLOB è ideale per le operazioni seguenti:
 
-Esistono tre tipi di BLOB, ovvero BLOB in blocchi, BLOB di accodamento e BLOB di pagine, usati per i file VHD.
+* Invio di immagini o documenti direttamente in un browser.
+* Archiviazione di file per l'accesso distribuito.
+* Flussi audio e video.
+* Archiviazione di dati per backup e ripristino, ripristino di emergenza e archiviazione.
+* Archiviazione di dati a scopo di analisi da parte di un servizio locale o ospitato in Azure.
 
-* I BLOB in blocchi vengono usati per contenere file normali con dimensioni fino a 4,7 TB.
-* I BLOB di pagine vengono usati per contenere file ad accesso casuale con dimensioni fino a 8 TB. Vengono usati per i file VHD su cui si basano le VM.
-* I BLOB di aggiunta sono costituiti da blocchi, analogamente ai BLOB in blocchi, ma sono ottimizzati per le operazioni di aggiunta. Vengono usati per la registrazione di informazioni nello stesso BLOB da più VM.
+È possibile accedere agli oggetti nell'archivio BLOB da ogni parte del mondo tramite HTTP o HTTPS. Gli utenti o le applicazioni client possono accedere ai BLOB tramite URL, l'[API REST di Archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/storage) oppure una libreria client di Archiviazione di Azure. Le librerie client di archiviazione sono disponibili per molti linguaggi, tra cui [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/en/latest/index.html), [PHP](http://azure.github.io/azure-storage-php/) e [Ruby](http://azure.github.io/azure-storage-ruby).
 
-Se sono presenti set di dati molto grandi e i vincoli della rete ne impediscono il caricamento o il download in archivi BLOB tramite una connessione, è possibile spedire un set di unità disco rigido a Microsoft per importare o esportare i dati direttamente dal data center. Vedere [Usare il servizio di importazione/esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB](../storage-import-export-service.md).
+Per altre informazioni sull'archivio BLOB, vedere [Introduzione all'archiviazione di oggetti in Azure](../blobs/storage-blobs-introduction.md).
 
 ## <a name="azure-files"></a>File di Azure
 [File di Azure](../files/storage-files-introduction.md) consente di configurare condivisioni file di rete a disponibilità elevata a cui è possibile accedere usando il protocollo Server Message Block (SMB) standard. Più VM possono quindi condividere gli stessi file con accesso sia in lettura che in scrittura. È possibile leggere i file usando l'interfaccia REST o le librerie dei client di archiviazione.
@@ -64,15 +66,21 @@ Le condivisioni file possono essere usate per molti scenari comuni:
 
 L'autenticazione basata su Active Directory e gli elenchi di controllo di accesso attualmente non sono supportati, ma lo saranno in futuro. Le credenziali dell'account di archiviazione vengono usate per fornire l'autenticazione per l'accesso alla condivisione file. Chiunque abbia la condivisione montata avrà quindi accesso completo in lettura/scrittura alla condivisione.
 
+Per altre informazioni su File di Azure, vedere [Introduzione a File di Azure](../files/storage-files-introduction.md).
+
 ## <a name="queue-storage"></a>Archiviazione code
 
 Il servizio di accodamento di Azure viene usato per archiviare e recuperare i messaggi. La dimensione massima dei messaggi nella coda può essere di 64 KB e una coda può contenere milioni di messaggi. Le code vengono in genere usate per archiviare elenchi di messaggi da elaborare in modo asincrono.
 
 Si supponga ad esempio che si voglia consentire ai clienti di caricare immagini e che si voglia creare un'anteprima per ogni immagine. È possibile creare le anteprime lasciando in attesa il cliente durante il caricamento delle immagini oppure usare una coda. Quando il cliente completa il caricamento, viene scritto un messaggio alla coda. Funzioni di Azure recupera quindi il messaggio dalla coda e crea le anteprime. Ogni parte di questa elaborazione può essere ridimensionata separatamente, offrendo un maggiore controllo per l'ottimizzazione ai fini dell'utilizzo.
 
+Per altre informazioni sulle code di Azure, vedere [Introduzione alle code](../queues/storage-queues-introduction.md).
+
 ## <a name="table-storage"></a>Archiviazione tabelle
 
 L'archiviazione tabelle di Azure è ora inclusa in Azure Cosmos DB. Per la documentazione sull'archiviazione tabelle di Azure, vedere [Panoramica di Archiviazione tabelle di Azure](../../cosmos-db/table-storage-overview.md). Oltre al servizio di archiviazione tabelle di Azure esistente, è disponibile una nuova API Tabelle di Azure Cosmos DB che offre tabelle con ottimizzazione per la velocità effettiva, distribuzione globale e indici secondari automatici. Per altre informazioni e per provare la nuova esperienza Premium, vedere l'articolo relativo all'[API Tabelle di Azure Cosmos DB](https://aka.ms/premiumtables).
+
+Per altre informazioni sull'archivio tabelle, vedere [Panoramica di Archiviazione tabelle di Azure](../../cosmos-db/table-storage-overview.md).
 
 ## <a name="disk-storage"></a>Archiviazione su disco
 
@@ -167,101 +175,33 @@ Per informazioni dettagliate sui prezzi per Archiviazione di Azure, vedere la [p
 ## <a name="storage-apis-libraries-and-tools"></a>API di archiviazione, librerie e strumenti
 Le risorse di archiviazione di Azure sono accessibile da qualsiasi linguaggio in grado di eseguire richieste HTTP/HTTPS. In Archiviazione di Azure sono inoltre disponibili librerie di programmazione per diversi linguaggi comuni. Tali librerie semplificano molti aspetti dell'utilizzo di Archiviazione di Azure gestendo dettagli come la chiamata sincrona e asincrona, l'esecuzione delle operazioni in batch, la gestione delle eccezioni, la ripetizione automatica dei tentativi, il comportamento operativo e così via. Le librerie attualmente disponibili riguardano i linguaggi e le piattaforme seguenti, ma presto ne saranno disponibili altre:
 
-### <a name="azure-storage-data-services"></a>Servizi dati di Archiviazione di Azure
-* [API REST dei servizi di archiviazione](/rest/api/storageservices/)
-* [Libreria client di archiviazione per .NET](https://docs.microsoft.com/dotnet/api/?view=azurestorage-8.1.1)
+### <a name="azure-storage-data-api-and-library-references"></a>Informazioni di riferimento su librerie e API di dati di Archiviazione di Azure
+* [API REST dei servizi di archiviazione](https://docs.microsoft.com/rest/api/storageservices/)
+* [Libreria client di archiviazione per .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
+* [Libreria client di archiviazione per Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
+* [Libreria client di archiviazione per Node.js](https://docs.microsoft.com/en-us/javascript/api/azure-storage)
+* [Libreria client di archiviazione per Python](https://github.com/Azure/azure-storage-python)
+* [Libreria client di archiviazione per PHP](https://github.com/Azure/azure-storage-php)
+* [Libreria client di archiviazione per Ruby](https://github.com/Azure/azure-storage-ruby)
 * [Libreria client di archiviazione per C++](https://github.com/Azure/azure-storage-cpp)
-* [Libreria client di archiviazione per Java/Android](https://azure.microsoft.com/develop/java/)
-* [Libreria client di archiviazione per Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
-* [Libreria client di archiviazione per PHP](https://azure.microsoft.com/develop/php/)
-* [Libreria client di archiviazione per Python](https://azure.microsoft.com/develop/python/)
-* [Libreria client di archiviazione per Ruby](https://azure.microsoft.com/develop/ruby/)
-* [Cmdlet di archiviazione per PowerShell](/powershell/module/azure.storage/?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)
-* [Storage Commands for CLI 2.0](/cli/azure/storage) (Comandi di archiviazione per l'interfaccia della riga di comando 2.0)
+
+### <a name="azure-storage-management-api-and-library-references"></a>Informazioni di riferimento su librerie e API di gestione di Archiviazione di Azure
+* [API REST del provider di risorse di archiviazione](https://docs.microsoft.com/rest/api/storagerp/)
+* [Libreria client del provider di risorse di archiviazione per .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/management)
+* [API REST di gestione del servizio di archiviazione (classico)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
+
+### <a name="azure-storage-data-movement-api-and-library-references"></a>Informazioni di riferimento su librerie e API di spostamento dati di Archiviazione di Azure
+* [API REST del servizio di importazione/esportazione dell'archiviazione](https://docs.microsoft.com/rest/api/storageimportexport/)
+* [Libreria client di spostamento dei dati di archiviazione per .NET](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement)
+
+### <a name="tools-and-utilities"></a>Strumenti e utilità
+* [Cmdlet di Azure PowerShell per Archiviazione](https://docs.microsoft.com/powershell/module/azure.storage)
+* [Cmdlet dell'interfaccia della riga di comando di Azure per Archiviazione](https://docs.microsoft.com/cli/azure/storage)
+* [Utilità da riga di comando di AzCopy](http://aka.ms/downloadazcopy)
+* [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) è un'app autonoma gratuita di Microsoft che consente di interagire visivamente con i dati di Archiviazione di Azure in Windows, macOS e Linux.
+* [Strumento client di Archiviazione di Azure](../storage-explorers.md)
+* [Strumenti di sviluppo di Azure](https://azure.microsoft.com/tools/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Learn more about Blob storage (Altre informazioni sull'archiviazione BLOB)](../blobs/storage-blobs-introduction.md)
-* [Learn more about Blob storage (Altre informazioni sull'archiviazione file)](../storage-files-introduction.md)
-* [Learn more about Blob storage (Altre informazioni sull'archiviazione code)](../queues/storage-queues-introduction.md)
-
 Per iniziare a usare Archiviazione di Azure, vedere [Create a storage account](storage-quickstart-create-account.md) (Creare un account di archiviazione).
-
-<!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
-
-Azure Storage resources can be accessed by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior and so forth. Libraries are currently available for the following languages and platforms, with others in the pipeline:
-
-### Azure Storage data services
-* [Storage Services REST API](https://docs.microsoft.com/rest/api/storageservices/)
-* [Storage Client Library for .NET](https://docs.microsoft.com/dotnet/api/?view=azurestorage-8.1.1)
-* [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
-* [Storage Client Library for Java/Android](https://azure.microsoft.com/develop/java/)
-* [Storage Client Library for Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
-* [Storage Client Library for PHP](https://azure.microsoft.com/develop/php/)
-* [Storage Client Library for Python](https://azure.microsoft.com/develop/python/)
-* [Storage Client Library for Ruby](https://azure.microsoft.com/develop/ruby/)
-* [Storage Cmdlets for PowerShell](/powershell/module/azure.storage/?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)
-
-### Azure Storage management services
-* [Storage Resource Provider REST API Reference](/rest/api/storagerp/)
-* [Storage Resource Provider Client Library for .NET](/dotnet/api/microsoft.azure.management.storage)
-* [Storage Resource Provider Cmdlets for PowerShell 1.0](/powershell/module/azure.storage)
-* [Storage Service Management REST API (Classic)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
-
-### Azure Storage data movement services
-* [Storage Import/Export Service REST API](../storage-import-export-service.md)
-* [Storage Data Movement Client Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
-
-### Tools and utilities
-* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
-* [Azure Storage Client Tools](../storage-explorers.md)
-* [Azure SDKs and Tools](https://azure.microsoft.com/tools/)
-* [Azure Storage Emulator](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](/powershell/azure/overview)
-* [AzCopy Command-Line Utility](http://aka.ms/downloadazcopy)
-
-## Next steps
-To learn more about Azure Storage, explore these resources:
-
-### Documentation
-* [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
-* [Create a storage account](../storage-create-storage-account.md)
-
--->
-
-### <a name="for-administrators"></a>Per amministratori
-* [Uso di Azure PowerShell con Archiviazione di Azure](storage-powershell-guide-full.md)
-* [Uso dell'interfaccia della riga di comando di Azure con Archiviazione di Azure](../storage-azure-cli.md)
-
-### <a name="for-net-developers"></a>Per sviluppatori .NET
-* [Introduzione all'archiviazione BLOB di Azure con .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
-* [Sviluppare per File di Azure con .NET](../files/storage-dotnet-how-to-use-files.md)
-* [Introduzione all'archiviazione tabelle di Azure con .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
-* [Introduzione all'archiviazione code di Azure con .NET](../storage-dotnet-how-to-use-queues.md)
-
-### <a name="for-javaandroid-developers"></a>Per sviluppatori Java/Android
-* [Come usare l'archiviazione BLOB da Java](../blobs/storage-java-how-to-use-blob-storage.md)
-* [Eseguire lo sviluppo per File di Azure con Java](../files/storage-java-how-to-use-file-storage.md)
-* [Come usare l'archiviazione tabelle da Java](../../cosmos-db/table-storage-how-to-use-java.md)
-* [Come usare l'archiviazione di accodamento da Java](../storage-java-how-to-use-queue-storage.md)
-
-### <a name="for-nodejs-developers"></a>Per sviluppatori Node.js
-* [Come usare l'archiviazione BLOB da Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)
-* [Come usare l'archiviazione tabelle da Node.js](../../cosmos-db/table-storage-how-to-use-nodejs.md)
-* [Come usare l'archiviazione di accodamento da Node.js](../storage-nodejs-how-to-use-queues.md)
-
-### <a name="for-php-developers"></a>Per sviluppatori PHP
-* [Come usare l'archiviazione BLOB da PHP](../blobs/storage-php-how-to-use-blobs.md)
-* [Come usare l'archiviazione tabelle da PHP](../../cosmos-db/table-storage-how-to-use-php.md)
-* [Come usare l'archiviazione di accodamento da PHP](../storage-php-how-to-use-queues.md)
-
-### <a name="for-ruby-developers"></a>Per sviluppatori Ruby
-* [Come usare l'archiviazione BLOB da Ruby](../blobs/storage-ruby-how-to-use-blob-storage.md)
-* [Come usare l'archiviazione tabelle da Ruby](../../cosmos-db/table-storage-how-to-use-ruby.md)
-* [Come usare l'archiviazione di accodamento da Ruby](../storage-ruby-how-to-use-queue-storage.md)
-
-### <a name="for-python-developers"></a>Per sviluppatori Python
-* [Come usare l'archiviazione BLOB da Python](../blobs/storage-python-how-to-use-blob-storage.md)
-* [Eseguire lo sviluppo per File di Azure con Python](../files/storage-python-how-to-use-file-storage.md)
-* [Come usare l'archiviazione tabelle da Python](../../cosmos-db/table-storage-how-to-use-python.md)
-* [Come usare l'archiviazione di accodamento da Python](../storage-python-how-to-use-queue-storage.md)

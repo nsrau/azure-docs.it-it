@@ -2,10 +2,10 @@
 title: Aggiungere i tenant per l'utilizzo e fatturazione allo Stack di Azure | Documenti Microsoft
 description: I passaggi necessari consente di aggiungere un utente finale dello Stack di Azure gestiti da un Provider di servizi Cloud.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 67e5a67d7cd5caf6bd4d2625969b139411d62696
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e982fa2bec3cbc4845ecebb45db76f019e2178ff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Aggiunta di un tenant per l'utilizzo e fatturazione allo Stack di Azure
 
@@ -58,7 +58,7 @@ Aggiornare la registrazione con la nuova sottoscrizione del cliente. Azure segna
 > Per eseguire questo passaggio, è necessario disporre [registrato Azure Stack](azure-stack-register.md).
 
 1. Aprire Windows PowerShell con un prompt dei comandi con privilegi elevati ed eseguire:  
-    `Login-AzureRmAccount`
+    `Add-AzureRmAccount`
 2. Digitare le credenziali di Azure.
 3. Nella sessione di PowerShell, eseguire:
 
@@ -66,7 +66,7 @@ Aggiornare la registrazione con la nuova sottoscrizione del cliente. Azure segna
     New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
 ```
 ### <a name="new-azurermresource-powershell-parameters"></a>Parametri-AzureRmResource nuovo PowerShell
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- | 
 |registrationSubscriptionID | La sottoscrizione di Azure che è stata utilizzata per la registrazione iniziale dello Stack di Azure. |
 | customerSubscriptionID | La sottoscrizione di Azure (non Azure Stack) che appartengono al cliente da registrare. Deve essere creato nell'offerta di provider CSP; in pratica, ciò significa tramite Partner Center. Se un cliente ha più di un tenant di Azure Active Directory, è necessario creare la sottoscrizione nel tenant che verrà utilizzato per accedere allo Stack di Azure.

@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 4eeff0d89fa8a73b8f7f4b73fb5bfb85cda26184
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5cb8dae7612ce188079b3a872fe2313ca8b7f623
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 Le dimensioni delle macchine virtuali di utilizzo generico offrono un rapporto CPU-memoria equilibrato. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, oltre che sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per ogni dimensione di questo raggruppamento. 
 
@@ -77,6 +77,7 @@ L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtu
 
 <sup>1</sup> Le macchine virtuali serie Dv3 integrano la tecnologia Intel® Hyper-Threading
 
+
 ## <a name="dsv2-series"></a>Serie DSv2
 
 ACU: 210-250
@@ -95,15 +96,15 @@ ACU: 210-250
 
 ACU: 210-250
 
-| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1_v2 |1 |3,5 |4 |50 |3000 / 46 / 23 |4/4 x 500 |2 / 750 |
-| Standard_D2_v2 |2 |7 |8 |100 |6000 / 93 / 46 |8/8 x 500 |2 / 1500 |
-| Standard_D3_v2 |4 |14 |16 |200 |12000 / 187 / 93 |16/16 x 500 |4 / 3000 |
-| Standard_D4_v2 |8 |28 |32 |400 |24000 / 375 / 187  |32/32 x 500 |8 / 6000 |
-| Standard_D5_v2 |16 |56 |64 |800 |48000 / 750 / 375 |64/64x500 |8 / 12000 |
+| Dimensione           | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Valore massimo per dischi di dati | Velocità effettiva: operazioni di I/O al secondo | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+|----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
+| Standard_D1_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 4              | 4x500            | 2 / 750                                      |
+| Standard_D2_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 8              | 8x500            | 2 / 1500                                     |
+| Standard_D3_v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 16             | 16x500           | 4 / 3000                                       |
+| Standard_D4_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 32             | 32x500           | 8 / 6000                                       |
+| Standard_D5_v2 | 16   | 56          | 800                    | 48000 / 750 / 375                                          | 64             | 64x500           | 8 / 12000                                    |
 
-<br>
+
 
 ## <a name="ds-series"></a>Serie DS
 
@@ -179,7 +180,7 @@ Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggerm
 
 ## <a name="basic-a"></a>Basic A
 
-|Dimensioni – Dimensioni\Nome | vCPU |Memoria|NIC (Max)|Dimensioni massime per il disco temporaneo |Max. dischi dati da 1023 GB ciascuno|Max. IOPS (300 per disco)|
+|Dimensioni – Dimensioni\Nome | vCPU |Memoria|NIC (Max)|Dimensioni massime per il disco temporaneo |Max. (1023 GB ciascuno)|Max. IOPS (300 per disco)|
 |---|---|---|---|---|---|---|
 |A0\Basic_A0|1|768 MB|2| 20 GB|1|1x300|
 |A1\Basic_A1|1|1,75 GB|2| 40 GB |2|2x300|

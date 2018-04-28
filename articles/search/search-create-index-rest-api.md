@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 12/08/2016
-ms.openlocfilehash: e871fa8cd2228067b3a1511b74ff7a425d1dc9fe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/20/2018
+ms.openlocfilehash: 86260e1929e8bd5c31682ef7f59cacae19a66020
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Creare un indice di Ricerca di Azure con l'API REST
 > [!div class="op_single_selector"]
@@ -83,12 +83,12 @@ Si noti che esattamente un campo di tipo `Edm.String` nell'indice deve essere il
 La definizione di indice precedente usa un analizzatore della lingua per il campo `description_fr` perché quest'ultimo viene usato per archiviare testo in francese. Per altre informazioni sugli analizzatori di lingue, vedere l'[articolo sul supporto per le lingue](https://docs.microsoft.com/rest/api/searchservice/Language-support) e il [post di blog](https://azure.microsoft.com/blog/language-support-in-azure-search/) corrispondente.
 
 ## <a name="issue-the-http-request"></a>Inviare la richiesta HTTP
-1. Usando la definizione di indice come corpo della richiesta, inviare una richiesta HTTP POST all'URL dell'endpoint di servizio Ricerca di Azure. Assicurarsi di usare nell'URL il nome del servizio come nome host e specificare il valore `api-version` appropriato come parametro della stringa di query. La versione API corrente è `2016-09-01` al momento della pubblicazione di questo documento.
+1. Usando la definizione di indice come corpo della richiesta, inviare una richiesta HTTP POST all'URL dell'endpoint di servizio Ricerca di Azure. Assicurarsi di usare nell'URL il nome del servizio come nome host e specificare il valore `api-version` appropriato come parametro della stringa di query. La versione API corrente è `2017-11-11` al momento della pubblicazione di questo documento.
 2. Nelle intestazioni della richiesta specificare `Content-Type` come `application/json`. Sarà anche necessario specificare la chiave amministratore del servizio identificata nel Passaggio I nell'intestazione `api-key` .
 
 È necessario fornire il nome servizio e la chiave API per inviare la richiesta seguente:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [api-key]
 
@@ -97,7 +97,7 @@ Per una richiesta riuscita, verrà visualizzato il codice di stato 201 (Creato).
 
 Dopo avere usato un indice, se si vuole eliminarlo è sufficiente inviare una richiesta HTTP DELETE. Ad esempio, per eliminare l'indice "hotels":
 
-    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2016-09-01
+    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11
     api-key: [api-key]
 
 

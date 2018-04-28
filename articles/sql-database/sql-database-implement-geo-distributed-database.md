@@ -9,11 +9,11 @@ ms.custom: mvc,business continuity
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 569eef6e1d930e505bc6dff9b692814438e5bd4d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="implement-a-geo-distributed-database"></a>Implementare un database con distribuzione geografica
 
@@ -380,4 +380,17 @@ Installare [Maven](https://maven.apache.org/download.cgi) tramite il programma d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere l'articolo relativo a [gruppi di failover e replica geografica attiva](sql-database-geo-replication-overview.md).
+In questa esercitazione è stato illustrato come configurare un database SQL di Azure e un'applicazione per il failover in un'area remota e quindi testare il piano di failover.  Si è appreso come: 
+
+> [!div class="checklist"]
+> * Creare utenti del database e concedere loro le autorizzazioni
+> * Configurare una regola del firewall a livello di database
+> * Creare un gruppo di failover con replica geografica
+> * Creare e compilare un'applicazione Java per eseguire query su un database SQL di Azure
+> * Eseguire un'esercitazione sul ripristino di emergenza
+
+Passare all'esercitazione successiva per apprendere come creare un'istanza gestita.
+
+> [!div class="nextstepaction"]
+>[Creare un'istanza gestita](sql-database-managed-instance-create-tutorial-portal.md)
+

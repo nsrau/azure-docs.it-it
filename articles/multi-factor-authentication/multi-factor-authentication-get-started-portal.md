@@ -1,8 +1,8 @@
 ---
 title: Portale utenti per il server Azure MFA | Documentazione Microsoft
-description: "Questa è la pagina di Azure Multi-Factor Authentication che descrive come iniziare a utilizzare Azure MFA e ADFS."
+description: Questa è la pagina di Azure Multi-Factor Authentication che descrive come iniziare a utilizzare Azure MFA e ADFS.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 06b419fa-3507-4980-96a4-d2e3960e1772
@@ -16,10 +16,10 @@ ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 15f4ef7b70027a820dc50a9399891bbab77d7e12
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portale utenti per il server Azure Multi-Factor Authentication
 
@@ -69,7 +69,7 @@ Per distribuire il portale utenti, seguire questa procedura:
    > [!NOTE]
    > Il certificato SSL è in genere un certificato SSL firmato pubblicamente.
 
-4. Aprire un Web browser da qualsiasi computer e passare all'URL in cui è stato installato il portale utenti, ad esempio https://mfa.contoso.com/MultiFactorAuth. Assicurarsi che non vengano visualizzati errori o avvisi relativi al certificato.
+4. Aprire un Web browser da qualsiasi computer e passare all'URL in cui è stato installato il portale utente (ad esempio, https://mfa.contoso.com/MultiFactorAuth). Assicurarsi che non vengano visualizzati errori o avvisi relativi al certificato.
 
 ![Installazione del portale utenti del server MFA](./media/multi-factor-authentication-get-started-portal/install.png)
 
@@ -105,10 +105,10 @@ Per installare il portale utenti su un server diverso dal server Azure Multi-Fac
     * Trovare la chiave **"USE_WEB_SERVICE_SDK"** e sostituire **value="false"** con **value="true"**.
     * Trovare la chiave **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** e sostituire **value=""** con **value="DOMAIN\User"**, dove DOMAIN\User è un account del servizio che fa parte del gruppo "PhoneFactor Admins".
     * Trovare la chiave **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** e sostituire **value=""** con **value="Password"**, dove Password è la password dell'account del servizio specificato alla riga precedente.
-    * Trovare il valore **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** e sostituire questo URL segnaposto con l'URL dell'SDK servizio Web installato nel passaggio 2.
+    * Trovare il valore **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** e sostituire l'URL segnaposto con l'URL di Web Service SDK installato al passaggio 2.
     * Salvare il file Web.Config e chiudere il Blocco note.
 
-6. Aprire un Web browser da qualsiasi computer e passare all'URL in cui è stato installato il portale utenti, ad esempio https://mfa.contoso.com/MultiFactorAuth. Assicurarsi che non vengano visualizzati errori o avvisi relativi al certificato.
+6. Aprire un Web browser da qualsiasi computer e passare all'URL in cui è stato installato il portale utente (ad esempio, https://mfa.contoso.com/MultiFactorAuth). Assicurarsi che non vengano visualizzati errori o avvisi relativi al certificato.
 
 Per eventuali dubbi sulla configurazione di un certificato SSL in un server IIS, vedere l'articolo [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (Come configurare SSL in IIS).
 

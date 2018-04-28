@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: e421797d85dd031b77788958db6b1df62a292a8a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: db910096f776f2f8710c0ac03f0378491018fc09
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Guida alla risoluzione dei problemi e problemi noti 
 Questo articolo consente di trovare e correggere errori o guasti riscontrati durante l'uso dell'applicazione Azure Machine Learning Workbench. 
@@ -137,7 +137,7 @@ $ az ml account experimentation delete -g <resource group name> -n <experimentat
 Se si dispone di Windows 10 Fall Creators Update e il progetto viene creato in una cartella locale associata a OneDrive, si potrebbe non riuscire ad aprire alcun file in Workbench. Ciò è dovuto a un bug introdotto con Fall Creators Update che causa un errore del codice di node.js in una cartella di OneDrive. Il bug verrà presto corretto con un aggiornamento di Windows, ma fino ad allora, non creare progetti in una cartella di OneDrive.
 
 ## <a name="file-name-too-long-on-windows"></a>Nome file troppo a lungo in Windows
-Se si usa Workbench in Windows, si può incorrere nel limite predefinito di 260 caratteri per la lunghezza dei nomi di file, che potrebbe essere segnalato con un errore di tipo "Impossibile trovare il percorso specificato". È possibile modificare l'impostazione di una chiave del Registro di sistema per consentire nomi di percorso per i file molto più lunghi. Per altre informazioni su come configurare la chiave del Registro di sistema _MAX_PATH_, vedere [questo articolo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath).
+Se si usa Workbench in Windows, si può incorrere nel limite predefinito di 260 caratteri per la lunghezza dei nomi di file, che potrebbe essere segnalato con un errore di tipo "Impossibile trovare il percorso specificato". È possibile modificare l'impostazione di una chiave del Registro di sistema per consentire nomi di percorso per i file molto più lunghi. Per altre informazioni su come configurare la chiave del Registro di sistema _MAX_PATH_, vedere [questo articolo](https://msdn.microsoft.com/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath).
 
 ## <a name="interrupt-cli-execution-output"></a>Interrompere l'output dell'esecuzione dell'interfaccia della riga di comando
 Se viene avviata un'esecuzione di un esperimento tramite `az ml experiment submit` o `az ml notebook start` e si desidera interrompere l'output: 

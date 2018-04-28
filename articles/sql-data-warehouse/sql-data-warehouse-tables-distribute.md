@@ -2,41 +2,37 @@
 title: Linee guida di progettazione per tabelle distribuite - Azure SQL Data Warehouse | Microsoft Docs
 description: Suggerimenti per la progettazione di tabelle con distribuzione hash e round robin in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 01/18/2018
-ms.author: barbkess
-ms.openlocfilehash: 3c86b89da796223336e3a0d9dd809ae140d6911e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: d65ca91fc4cffa53adf3a7c56c7919e46c5037d9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Linee guida per la progettazione di tabelle distribuite in Azure SQL Data Warehouse
+Suggerimenti per la progettazione di tabelle con distribuzione hash e round robin in Azure SQL Data Warehouse.
 
-Questo articolo offre alcuni suggerimenti per la progettazione di tabelle distribuite in Azure SQL Data Warehouse. Le tabelle con distribuzione hash migliorano le prestazioni delle query nelle tabelle dei fatti di grandi dimensioni e rappresentano l'argomento principale di questo articolo. Le tabelle round robin consentono invece di aumentare la velocità di caricamento. Queste scelte di progettazione, quindi, possono contribuire in maniera significativa al miglioramento delle prestazioni delle query e di caricamento.
+Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati in SQL Data Warehouse.  Per altre informazioni, vedere [Azure SQL Data Warehouse - Architettura MPP (Massively Parallel Processing)](massively-parallel-processing-mpp-architecture.md). 
 
-## <a name="prerequisites"></a>prerequisiti
-Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati in SQL Data Warehouse.  Per altre informazioni, vedere l'articolo relativo all'[architettura](massively-parallel-processing-mpp-architecture.md). 
+## <a name="what-is-a-distributed-table"></a>Che cos'è una tabella distribuita?
+Una tabella distribuita viene visualizzata come una singola tabella, ma le righe al suo interno, in realtà, sono archiviate in 60 distribuzioni. Le righe, inoltre, vengono distribuite con un algoritmo hash o round robin.  
+
+Le **tabella con distribuzione hash** migliorano le prestazioni delle query nelle tabelle dei fatti di grandi dimensioni e rappresentano l'argomento principale di questo articolo. Le **tabelle round robin** consentono invece di aumentare la velocità di caricamento. Queste scelte di progettazione, quindi, possono contribuire in maniera significativa al miglioramento delle prestazioni delle query e di caricamento.
+
+Un'altra opzione di archiviazione delle tabelle prevede la replica di una tabella di piccole dimensioni in tutti i nodi di calcolo. Per altre informazioni, vedere [Linee guida di progettazione per l'uso di tabelle replicate in Azure SQL Data Warehouse](design-guidance-for-replicated-tables.md). Per scegliere rapidamente tra queste tre opzioni, vedere Tabelle distribuite nell'articolo di [panoramica sulle tabelle](sql-data-warehouse-tables-overview.md). 
 
 Come parte della progettazione di tabelle, è necessario comprendere quanto più possibile i propri dati e il modo in cui vengono eseguite query sui dati.  Ad esempio, considerare queste domande:
 
 - Quali sono le dimensioni della tabella?   
 - Quanto spesso viene aggiornata la tabella?   
 - Sono presenti tabelle dei fatti e delle dimensioni in un data warehouse?   
-
-## <a name="what-is-a-distributed-table"></a>Che cos'è una tabella distribuita?
-Una tabella distribuita viene visualizzata come una singola tabella, ma le righe al suo interno, in realtà, sono archiviate in 60 distribuzioni. Le righe, inoltre, vengono distribuite con un algoritmo hash o round robin. 
-
-Un'altra opzione di archiviazione delle tabelle prevede la replica di una tabella di piccole dimensioni in tutti i nodi di calcolo. Per altre informazioni, vedere [Linee guida di progettazione per l'uso di tabelle replicate in Azure SQL Data Warehouse](design-guidance-for-replicated-tables.md). Per scegliere rapidamente tra queste tre opzioni, vedere Tabelle distribuite nell'articolo di [panoramica sulle tabelle](sql-data-warehouse-tables-overview.md). 
 
 
 ### <a name="hash-distributed"></a>Tabelle con distribuzione hash
@@ -67,7 +63,7 @@ Valutare l'opportunità di usare la distribuzione round robin per una tabella ne
 - Se il join è meno significativo di altri join nella query.
 - Quando si tratta di una tabella di staging temporaneo.
 
-L'esercitazione [Caricamento di dati dal BLOB di archiviazione di Azure](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) illustra un esempio di caricamento dei dati in una tabella di staging con distribuzione round robin.
+L'esercitazione relativa al [caricamento dei dati relativi ai taxi di New York in Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) illustra un esempio di caricamento dei dati in una tabella di staging con distribuzione round robin.
 
 
 ## <a name="choosing-a-distribution-column"></a>Scelta di una colonna di distribuzione
@@ -91,7 +87,7 @@ WITH
 ;
 ``` 
 
-La scelta della colonna di distribuzione è una decisione di progettazione importante, poiché i valori presenti in questa colonna determinano il modo in cui vengono distribuite le righe. La scelta ottimale dipende da vari fattori e, in genere, comporta alcuni compromessi. Se, tuttavia, non si riesce a scegliere subito la tabella ottimale, è possibile usare [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) per ricreare la tabella con una colonna di distribuzione diversa. 
+La scelta della colonna di distribuzione è una decisione di progettazione importante, poiché i valori presenti in questa colonna determinano il modo in cui vengono distribuite le righe. La scelta ottimale dipende da vari fattori e, in genere, comporta alcuni compromessi. Se, tuttavia, non si riesce a scegliere subito la tabella ottimale, è possibile usare [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) per ricreare la tabella con una colonna di distribuzione diversa. 
 
 ### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Scegliere una colonna di distribuzione che non richiede aggiornamenti
 Non è possibile aggiornare una colonna di distribuzione a meno che non si elimini la riga e si inserisca una nuova riga con i valori aggiornati. È consigliabile quindi selezionare una colonna con valori statici. 
@@ -129,7 +125,7 @@ Dopo aver progettato una tabella con distribuzione round robin, è necessario ca
 Dopo aver caricato i dati in una tabella con distribuzione hash, verificare che le righe siano state distribuite in modo uniforme tra le 60 distribuzioni. Una variazione fino al 10% del numero di righe assegnate a ogni distribuzione non influisce in modo significativo sulle prestazioni. 
 
 ### <a name="determine-if-the-table-has-data-skew"></a>Determinare se la tabella presenta un'asimmetria dei dati
-Per controllare se è presente un'asimmetria dei dati, è possibile usare [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). Il codice SQL seguente restituisce il numero di righe di tabella archiviate in ognuna delle 60 distribuzioni. Per ottenere prestazioni bilanciate, le righe nella tabella distribuita devono essere suddivise in modo uniforme tra tutte le distribuzioni.
+Per controllare se è presente un'asimmetria dei dati, è possibile usare [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). Il codice SQL seguente restituisce il numero di righe di tabella archiviate in ognuna delle 60 distribuzioni. Per ottenere prestazioni bilanciate, le righe nella tabella distribuita devono essere suddivise in modo uniforme tra tutte le distribuzioni.
 
 ```sql
 -- Find data skew for a distributed table

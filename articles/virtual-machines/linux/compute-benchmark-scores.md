@@ -1,6 +1,6 @@
 ---
-title: Calcolare i punteggi di benchmark per le VM Linux | Microsoft Docs
-description: Confrontare i punteggi di benchmark di CoreMark calcolo per le VM di Azure che eseguono Linux
+title: Calcolare i punteggi di benchmark per le macchine virtuali Linux di Azure | Microsoft Docs
+description: Confrontare i punteggi di benchmark di CoreMark calcolo per le macchine virtuali di Azure che eseguono Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 04/09/2018
 ms.author: cynthn;davberg
-ms.openlocfilehash: 25e471b826a1df0bd71f141286a59159b674f365
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 07e313404b1d57fe4c851ab182823bcea454cbec
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Calcolare i punteggi di benchmark per le VM Linux
 I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni di calcolo per la linea di VM ad alte prestazioni di Azure con Ubuntu. I punteggi di benchmark sul calcolo sono disponibili anche per le [VM Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -28,7 +28,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 19.32.49 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 1 | 1 | 1.9 | 6.514 | 56 | 0,86% | 119 |
 | Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 1 | 1 | 1.9 | 6.162 | 195 | 3,17% | 70 |
 | Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 1 | 1 | 1.9 | 6.505 | 425 | 6,53% | 63 |
@@ -55,7 +55,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 21.06.07 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0 | Processore AMD Opteron(tm) 4171 HE | 1 | 1 | 0,6 | 3.556 | 14 | 0,39% | 21 |
 | Standard_A0 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 1 | 1 | 0,6 | 3.137 | 16 | 0,51% | 70 |
 | Standard_A0 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 1 | 1 | 0,6 | 3.146 | 134 | 4,27% | 63 |
@@ -84,7 +84,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 19.28.44 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 2 | 1 | 8.0 | 20.259 | 729 | 3,60% | 140 |
 | Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 2 | 1 | 8.0 | 20.364 | 1.007 | 4,94% | 70 |
 | Standard_D4s_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 4 | 1 | 16,0 | 39.662 | 1.757 | 4,43% | 182 |
@@ -107,7 +107,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 19.32.37 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D2_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 2 | 1 | 8.0 | 20.791 | 1.531 | 7,36% | 175 |
 | Standard_D2_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 2 | 1 | 8.0 | 21.326 | 1.622 | 7,61% | 84 |
 | Standard_D4_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 4 | 1 | 16,0 | 39.978 | 1.853 | 4,63% | 98 |
@@ -124,7 +124,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 19.31.01 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_E2s_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 2 | 1 | 16,0 | 21.015 | 1.112 | 5,29% | 210 |
 | Standard_E4s_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 4 | 1 | 32,1 | 40.691 | 1.928 | 4,74% | 287 |
 | Standard_E8s_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 8 | 1 | 64,4 | 79.841 | 2.856 | 3,58% | 161 |
@@ -141,7 +141,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 19.29.35 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_E2_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 2 | 1 | 16,0 | 23.318 | 2.734 | 11,72% | 245 |
 | Standard_E4_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 4 | 1 | 32,1 | 42.612 | 3.834 | 9,00% | 154 |
 | Standard_E8_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 8 | 1 | 64,4 | 83.488 | 4.888 | 5,85% | 189 |
@@ -154,7 +154,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 19.30.03 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 1 | 1 | 3.4 | 14.691 | 626 | 4,26% | 182 |
 | Standard_DS1_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 1 | 1 | 3.4 | 14.577 | 1.120 | 7,68% | 63 |
 | Standard_DS2_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 2 | 1 | 6.9 | 29.156 | 1.095 | 3,76% | 91 |
@@ -188,7 +188,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 19.27.28 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D1_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 1 | 1 | 3.4 | 15.027 | 963 | 6,41% | 105 |
 | Standard_D1_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 1 | 1 | 3.4 | 15.296 | 1.696 | 11,09% | 77 |
 | Standard_D2_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 2 | 1 | 6.9 | 29.060 | 1.405 | 4,83% | 133 |
@@ -214,7 +214,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 19.28.16 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D1 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 1 | 1 | 3.4 | 10.331 | 303 | 2,93% | 112 |
 | Standard_D1 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 1 | 1 | 3.4 | 14.547 | 916 | 6,30% | 14 |
 | Standard_D2 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 2 | 1 | 6.9 | 21.112 | 383 | 1,81% | 119 |
@@ -236,7 +236,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 19.34.52 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 1 | 1 | 3.4 | 10.666 | 134 | 1,25% | 126 |
 | Standard_DS11 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 2 | 1 | 14,0 | 21.330 | 268 | 1,26% | 49 |
 | Standard_DS12 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 4 | 1 | 28,1 | 42.225 | 555 | 1,31% | 126 |
@@ -253,7 +253,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 19.33.11 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F2s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU a 2,70 GHz | 2 | 1 | 3.9 | 25.392 | 157 | 0,62% | 49 |
 | Standard_F4s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU a 2,70 GHz | 4 | 1 | 8.0 | 48.065 | 656 | 1,36% | 42 |
 | Standard_F8s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU a 2,70 GHz | 8 | 1 | 16,0 | 95.026 | 1.205 | 1,27% | 49 |
@@ -266,7 +266,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 19.28.54 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 1 | 1 | 1.9 | 14.762 | 815 | 5,52% | 175 |
 | Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 1 | 1 | 1.9 | 15.756 | 1.653 | 10,49% | 91 |
 | Standard_F2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 2 | 1 | 3.9 | 29.265 | 1.593 | 5,44% | 182 |
@@ -283,7 +283,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 19.30.14 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 1 | 1 | 1.9 | 14.630 | 678 | 4,64% | 203 |
 | Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 1 | 1 | 1.9 | 15.247 | 801 | 5,25% | 91 |
 | Standard_F2s | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 2 | 1 | 3.9 | 28.931 | 1.105 | 3,82% | 133 |
@@ -300,7 +300,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 19.27.25 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_G1 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 2 | 1 | 28,1 | 32.071 | 4.239 | 13,22% | 182 |
 | Standard_G2 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 4 | 1 | 56,3 | 60.598 | 6.048 | 9,98% | 175 |
 | Standard_G3 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 8 | 1 | 112,8 | 111.058 | 6.536 | 5,89% | 161 |
@@ -311,7 +311,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 19.25.12 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_GS1 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 2 | 1 | 28,1 | 28.771 | 2.006 | 6,97% | 231 |
 | Standard_GS2 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 4 | 1 | 56,3 | 54.947 | 3.699 | 6,73% | 203 |
 | Standard_GS3 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 8 | 1 | 112,8 | 105.054 | 4.441 | 4,23% | 182 |
@@ -326,7 +326,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 19.27.16 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8 | Intel(R) Xeon(R) CPU E5-2667 vers. 3 a 3,20 GHz | 8 | 1 | 56,3 | 140.445 | 2.840 | 2,02% | 147 |
 | Standard_H8m | Intel(R) Xeon(R) CPU E5-2667 vers. 3 a 3,20 GHz | 8 | 1 | 112,8 | 141.086 | 2.209 | 1,57% | 147 |
 | Standard_H16 | Intel(R) Xeon(R) CPU E5-2667 vers. 3 a 3,20 GHz | 16 | 2 | 112,8 | 270.129 | 6.502 | 2,41% | 56 |
@@ -338,7 +338,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 19.35.10 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A8 | Intel(R) Xeon(R) CPU E5-2670 0 a 2,60 GHz | 8 | 1 | 56,3 | 117.148 | 1.877 | 1,60% | 189 |
 | Standard_A9 | Intel(R) Xeon(R) CPU E5-2670 0 a 2,60 GHz | 16 | 2 | 112,8 | 225.608 | 7.532 | 3,34% | 147 |
 | Standard_A10 | Intel(R) Xeon(R) CPU E5-2670 0 a 2,60 GHz | 8 | 1 | 56,3 | 117.638 | 1.988 | 1,69% | 168 |
@@ -348,7 +348,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 19.58.51 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_L4s | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 4 | 1 | 32,1 | 55.962 | 3.567 | 6,37% | 154 |
 | Standard_L8s | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 8 | 1 | 64,4 | 106.482 | 3.178 | 2,98% | 168 |
 | Standard_L16s | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 16 | 1 | 128,9 | 197.906 | 12.605 | 6,37% | 168 |
@@ -358,7 +358,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 (23/3/2018 20.57.07 pbi 2050259)
 
 | Dimensioni macchina virtuale | CPU | vCPU | Nodi NUMA | Memoria (GiB) | Punteggio AVG | Deviazione standard | Deviazione standard % | N. esecuzioni |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_M64-32ms | Intel(R) Xeon(R) CPU E7-8890 vers. 3 da 2,50 GHz | 64 | 2 | 1.806,2 | 339.412 | 4.655 | 1,37% | 21 |
 | Standard_M64ms | Intel(R) Xeon(R) CPU E7-8890 vers. 3 da 2,50 GHz | 64 | 2 | 1.806,2 | 662.070 | 16.539 | 2,50% | 70 |
 | Standard_M64s | Intel(R) Xeon(R) CPU E7-8890 vers. 3 da 2,50 GHz | 64 | 2 | 1.032,1 | 659.757 | 22.439 | 3,40% | 21 |

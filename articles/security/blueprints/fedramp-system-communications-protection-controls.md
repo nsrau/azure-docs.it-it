@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ce0917cec67612736103932903eab18d7f0f21bb
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 6749ad50cd1ea1cd4ec6ca2f86fef43a9f1515d9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>Protezione dei sistemi e delle comunicazioni (SC)
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Le macchine virtuali distribuite da questo progetto eseguono sistemi operativi Windows. Windows gestisce domini di esecuzione separati per ogni processo in esecuzione tramite l'assegnazione di uno spazio indirizzi virtuali privato a ogni processo. La soluzione implementa anche un'architettura e controlli di accesso progettati per isolare le funzionalità di sicurezza dove necessario. |
+| **Cliente** | Le macchine virtuali distribuite da questo progetto eseguono sistemi operativi Windows. Windows gestisce domini di esecuzione separati per ogni processo in esecuzione tramite l'assegnazione di uno spazio di indirizzi virtuali privato a ogni processo. La soluzione implementa anche un'architettura e controlli di accesso progettati per isolare le funzionalità di sicurezza dove necessario. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto distribuisce un gateway applicazione e funzioni di bilanciamento del carico e configura regole di gruppo di sicurezza di rete per controllare le comunicazioni in corrispondenza dei limiti esterni e tra subnet interne. I log di diagnostica e degli eventi del gateway applicazione, del servizio di bilanciamento del carico e del gruppo di sicurezza di rete vengono raccolti da Log Analytics di OMS per consentire il monitoraggio dei clienti. |
+| **Cliente** | Questo progetto distribuisce un gateway applicazione e funzioni di bilanciamento del carico e configura regole di gruppo di sicurezza di rete per controllare le comunicazioni in corrispondenza dei limiti esterni e tra subnet interne. I log di diagnostica e degli eventi del gateway applicazione, del servizio di bilanciamento del carico e del gruppo di sicurezza di rete vengono raccolti da Log Analytics per consentire il monitoraggio dei clienti. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -721,5 +721,5 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Le macchine virtuali distribuite da questo progetto eseguono sistemi operativi Windows. Windows gestisce domini di esecuzione separati per ogni processo in esecuzione tramite l'assegnazione di uno spazio indirizzi virtuali privato a ogni processo. |
+| **Cliente** | Le macchine virtuali distribuite da questo progetto eseguono sistemi operativi Windows. Windows gestisce domini di esecuzione separati per ogni processo in esecuzione tramite l'assegnazione di uno spazio di indirizzi virtuali privato a ogni processo. |
 | **Provider (Microsoft Azure)** | Non applicabile |

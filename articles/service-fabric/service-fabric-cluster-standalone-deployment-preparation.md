@@ -5,19 +5,19 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/12/2017
-ms.author: dekapur;maburlik;chackdan
-ms.openlocfilehash: b1190ec5a3ff70a368b29465699f9082d2b989bf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: dekapur;maburlik;aljo
+ms.openlocfilehash: 62673025f5c597f6ed958ad523190d937a52c912
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 <a id="preparemachines"></a>
 
@@ -49,11 +49,11 @@ Quando si specificano domini di aggiornamento nel file ClusterConfig.json è pos
 
 Per informazioni più dettagliate sui domini di aggiornamento e di errore, vedere [Descrizione di un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
-Affinché sia supportato in un ambiente di produzione, in un cluster di produzione devono essere configurati almeno tre domini di errore, se si ha il controllo completo sui nodi di manutenzione e gestione, ad esempio si è responsabili dell'aggiornamento e della sostituzione dei computer. Per i cluster in esecuzione in ambienti come le istanze di macchine virtuali di Amazon Web Services, in cui non si ha il controllo completo sui computer, il cluster deve prevedere un minimo di cinque domini di errore. Ogni dominio di errore può presentare uno o più nodi. Ciò evita i problemi causati dall'aggiornamento dei computer che, a seconda della durata, può interferire con l'esecuzione di applicazioni e servizi nel cluster.
+Affinché sia supportato in un ambiente di produzione, un cluster di produzione deve includere almeno tre domini di errore, se si ha il controllo completo sulla manutenzione e sulla gestione dei nodi, ovvero si è responsabili dell'aggiornamento e della sostituzione dei computer. Per i cluster in esecuzione in ambienti come le istanze di macchine virtuali di Amazon Web Services, in cui non si ha il controllo completo sui computer, il cluster deve prevedere un minimo di cinque domini di errore. Ogni dominio di errore può presentare uno o più nodi. Ciò evita i problemi causati dagli aggiornamenti dei computer che, a seconda della durata, possono interferire con l'esecuzione di applicazioni e servizi nel cluster.
 
 ## <a name="determine-the-initial-cluster-size"></a>Determinare le dimensioni iniziali del cluster
 
-In genere, il numero di nodi nel cluster è determinato in base alle esigenze aziendali, ad esempio il numero di servizi e i contenitori che vengono eseguiti nel cluster e il volume di risorse necessarie a sostenere i carichi di lavoro. Nei cluster di produzione è consigliabile configurare almeno cinque nodi nel cluster, estesi su cinque domini di errore. Tuttavia, come descritto prima, se si ha il controllo completo sui nodi e un'estensione su almeno tre domini di errore, tre nodi possono essere sufficienti.
+In genere, il numero di nodi nel cluster è determinato in base alle esigenze aziendali, ad esempio il numero di servizi e contenitori che verranno eseguiti nel cluster e la quantità di risorse necessarie per sostenere i carichi di lavoro. Nei cluster di produzione è consigliabile configurare almeno cinque nodi, estesi su cinque domini di errore. Tuttavia, come descritto prima, se si ha il controllo completo sui nodi e un'estensione su almeno tre domini di errore, tre nodi possono essere sufficienti.
 
 Nei cluster di test che eseguono carichi di lavoro con stato è consigliabile configurare almeno tre nodi, mentre i cluster di test che eseguono solo carichi di lavoro senza stato richiedono un solo nodo. Va inoltre sottolineato che, a scopo di sviluppo, è possibile configurare più di un nodo in un computer specifico. In un ambiente di produzione Service Fabric supporta solo un nodo per ogni macchina virtuale o fisica.
 

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: 1963d011462255d45de327ec17b7fad564d87654
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5e4df176104111f44ca95df2b2d5d1c81ed3a4e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
 
@@ -72,7 +72,7 @@ R: Sì, se si [usano le proprie chiavi di crittografia](storage-service-encrypti
 
 **D: Crittografia del servizio di archiviazione è abilitata per impostazione predefinita quando si crea un account di archiviazione?**
 
-R: Sì, la funzionalità Crittografia del servizio di archiviazione, che usa chiavi gestite da Microsoft, è abilitata per impostazione predefinita per tutti gli account di archiviazione, sia quelli classici sia quelli di Azure Resource Manager. È abilitata anche per tutti i servizi (Archiviazione BLOB, archiviazione tabelle, archiviazione code e File di Azure).
+R: Sì, la crittografia del servizio di archiviazione è abilitata per impostazione predefinita per tutti gli account di archiviazione e per tutti i servizi di archiviazione di Azure.
 
 **D: Quali sono le differenze rispetto alla Crittografia dischi di Azure?**
 

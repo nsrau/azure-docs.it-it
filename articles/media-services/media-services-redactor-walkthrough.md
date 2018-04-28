@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: 6b33da21a32373196d86ec8c93f180b3d40b1c6e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d287206d30c05289679c83636ba5f968a5fcbcbe
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Procedura dettagliata: offuscare i volti con Analisi Servizi multimediali di Azure
 
@@ -30,7 +30,7 @@ Per informazioni dettagliate su **Azure Media Redactor**, vedere la [panoramica 
 
 Questo argomento fornisce istruzioni dettagliate su come eseguire un flusso di lavoro di offuscamento completo usando Azure Media Services Explorer (AMSE) e Azure Media Redactor Visualizer (strumento open source).
 
-Per altre informazioni, vedere [questo](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) blog.
+Per altre informazioni, vedere [questo](https://azure.microsoft.com/blog/redaction-preview-available-globally) blog.
 
 ## <a name="azure-media-services-explorer-workflow"></a>Flusso di lavoro di Azure Media Services Explorer
 

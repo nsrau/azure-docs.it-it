@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 04/06/2018
 ms.author: genli
-ms.openlocfilehash: 2743a00404a2ee990147dfb6e73e9c2369eb4753
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9026b702e6e0d27817955c70c733bf372005dd4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Risolvere i problemi relativi a una macchina virtuale di Azure usando la virtualizzazione annidata in Azure
 
 Questo articolo illustra come creare un ambiente di virtualizzazione annidata in Microsoft Azure in modo da poter montare il disco di una macchina virtuale con problemi nell'host Hyper-V (macchina virtuale di ripristino) per procedere alla risoluzione dei problemi.
 
-## <a name="prerequisite"></a>Prerequisito
+## <a name="prerequisites"></a>prerequisiti
 
 Per montare la macchina virtuale con problemi, la macchina virtuale di ripristino deve soddisfare i prerequisiti seguenti:
 
@@ -34,9 +34,9 @@ Per montare la macchina virtuale con problemi, la macchina virtuale di ripristin
 
 -   Deve usare lo stesso tipo di account di archiviazione (Standard o Premium) della macchina virtuale con problemi.
 
-## <a name="step-1-create-a-recovery-vm-and-install-hyper-v-role"></a>Passaggio 1: Creare una macchina virtuale di ripristino e installare il ruolo Hyper-V
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Passaggio 1: Creare una macchina virtuale di ripristino e installare il ruolo Hyper-V
 
-1.  Creare una nuova macchina virtuale di ripristino:
+1.  Crea una nuova macchina virtuale di ripristino:
 
     -  Sistema operativo: Windows Server 2016 Datacenter
 
@@ -70,7 +70,7 @@ Per montare la macchina virtuale con problemi, la macchina virtuale di ripristin
 
 13. Consentire al server di installare il ruolo Hyper-V. Questa operazione richiede alcuni minuti e il server verrà riavviato automaticamente.
 
-## <a name="step-2-create-the-problem-vm-on-the-recovery-vms-hyper-v-server"></a>Passaggio 2: Creare la macchina virtuale con problemi sul server Hyper-V della macchina virtuale di ripristino
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Passaggio 2: Creare la macchina virtuale con problemi sul server Hyper-V della macchina virtuale di ripristino
 
 1.  Prendere nota del nome del disco nella macchina virtuale con problemi e quindi eliminare quest'ultima. Assicurarsi di mantenere collegati tutti i dischi. 
 

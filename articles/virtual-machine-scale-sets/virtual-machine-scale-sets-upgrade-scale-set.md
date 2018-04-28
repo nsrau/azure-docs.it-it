@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: b1fdc364b903ed552f657fcabdadcf209d7c969e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 662cea7ac47e411b127540faf5cab8b3c4d8964a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificare un set di scalabilità di macchine virtuali
 Per tutto il ciclo di vita delle applicazioni, potrebbe essere necessario modificare o aggiornare il set di scalabilità di macchine virtuali. Questi aggiornamenti possono includere come aggiornare la configurazione del set di scalabilità o modificare la configurazione dell'applicazione. Questo articolo descrive come modificare un set di scalabilità esistente con le API REST, Azure PowerShell o l'interfaccia della riga di comando di Azure 2.0.
@@ -347,6 +347,7 @@ Alcune proprietà possono essere impostate solo quando si crea il set di scalabi
 - Zone di disponibilità
 - Editore del riferimento all'immagine
 - Offerta di riferimento all'immagine
+- Tipo di account di archiviazione su disco del sistema operativo gestito
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Proprietà che possono essere modificate solo in base al valore corrente
 Alcune proprietà possono essere modificate, con eccezioni che dipendono dal valore corrente. Queste proprietà includono:
@@ -372,12 +373,12 @@ Se un'applicazione viene distribuita a un set di scalabilità tramite estensioni
 Uno scenario frequente è la distribuzione delle applicazioni tramite un'immagine personalizzata. Questo scenario è illustrato nella sezione seguente.
 
 ### <a name="os-updates"></a>Aggiornamenti del sistema operativo
-Se si usano immagini della piattaforma di Azure, è possibile aggiornare l'immagine modificando la proprietà *imageReference*. Per altre informazioni, vedere la [documentazione relativa all'API REST](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate).
+Se si usano immagini della piattaforma di Azure, è possibile aggiornare l'immagine modificando la proprietà *imageReference*. Per altre informazioni, vedere la [documentazione relativa all'API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 >[!NOTE]
 > Con le immagini della piattaforma si specifica solitamente "latest" come versione del riferimento all'immagine. Quando si crea, si aumenta il numero di istanze e si ricrea l'immagine, le macchine virtuali vengono create con l'ultima versione disponibile. **Non** significa però che l'immagine del sistema operativo viene aggiornata automaticamente nel tempo man mano che vengono rilasciate nuove versioni dell'immagine. È attualmente in anteprima una funzionalità separata che fornisce aggiornamenti automatici del sistema operativo. Per altre informazioni, consultare la [documentazione relativa agli aggiornamenti automatici del sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md).
 
-Se si usano immagini personalizzate, è possibile aggiornare l'immagine aggiornando l'ID della proprietà *imageReference*. Per altre informazioni, vedere la [documentazione relativa all'API REST](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate).
+Se si usano immagini personalizzate, è possibile aggiornare l'immagine aggiornando l'ID della proprietà *imageReference*. Per altre informazioni, vedere la [documentazione relativa all'API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 ## <a name="examples"></a>Esempi
 
@@ -400,7 +401,7 @@ Si può avere un set di scalabilità che esegue una versione precedente di Ubunt
 ### <a name="update-the-load-balancer-for-your-scale-set"></a>Aggiornare il bilanciamento del carico del set di scalabilità
 Supponiamo di avere un set di scalabilità con un servizio Azure Load Balancer e di voler sostituire tale servizio con un gateway applicazione di Azure. Le proprietà del servizio di bilanciamento del carico e del gateway applicazione di un set di scalabilità fanno parte di un elenco, quindi è possibile usare i comandi per rimuovere o aggiungere elementi di elenco invece di modificare le proprietà direttamente:
 
-- Azure PowerShell:
+- Azure Powershell:
 
     ```powershell
     # Get the current model of the scale set and store it in a local PowerShell object named $vmss

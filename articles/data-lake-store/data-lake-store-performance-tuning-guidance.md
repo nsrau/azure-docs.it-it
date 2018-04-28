@@ -2,7 +2,7 @@
 title: Linee guida per l'ottimizzazione delle prestazioni di Azure Data Lake Store | Microsoft Docs
 description: Linee guida per l'ottimizzazione delle prestazioni di Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 15832f94b73057a8bfce7be27e3fd57c7771940d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Ottimizzazione delle prestazioni di Azure Data Lake Store
 
@@ -42,7 +42,7 @@ Indipendentemente dall'uso di computer locali o macchine virtuali in Azure, è n
 
 ### <a name="network-connectivity-to-azure-data-lake-store"></a>Connettività di rete ad Azure Data Lake Store
 
-La connettività di rete tra i dati di origine e Azure Data Lake Store può talvolta costituire il collo di bottiglia. Quando i dati di origine sono in locale, valutare l'opportunità di usare un collegamento dedicato con [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/) . Se i dati di origine sono in Azure, si ottengono prestazioni ottimali quando i dati si trovano nella stessa area di Azure usata da Data Lake Store.
+La connettività di rete tra i dati di origine e Azure Data Lake Store può talvolta costituire il collo di bottiglia. Quando i dati di origine sono in locale, valutare l'opportunità di usare un collegamento dedicato con [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . Se i dati di origine sono in Azure, si ottengono prestazioni ottimali quando i dati si trovano nella stessa area di Azure usata da Data Lake Store.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configurare gli strumenti di inserimento di dati per la massima parallelizzazione
 

@@ -1,11 +1,11 @@
 ---
 title: Diagnostica per i servizi Reliable con stato in Azure Service Fabric | Microsoft Docs
-description: "Funzionalità di diagnostica per i servizi Reliable Services con stato in Azure Service Fabric"
+description: Funzionalità di diagnostica per i servizi Reliable Services con stato in Azure Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
 ms.service: Service-Fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: edcaaaf8f1619082b33195aedf1fb1abf32e85b1
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 3ed03194ca095d539d10081578fa71c748ba1d23
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funzionalità di diagnostica per i servizi Reliable con stato
 La classe StatefulServiceBase dei servizi Reliable con stato in Azure Service Fabric genera eventi [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) che possono essere usati per eseguire il debug del servizio, ottenere informazioni dettagliate sul funzionamento del runtime e ottenere assistenza per la risoluzione dei problemi.
@@ -45,6 +45,48 @@ Gli sviluppatori devono prestare particolare attenzione agli eventi StatefulRunA
 L'evento StatefulRunAsyncFailure viene emesso ogni volta che l'attività RunAsync() del servizio genera un'eccezione. Normalmente, la generazione di un'eccezione indica la presenza di un errore o di un bug nel servizio. Inoltre, l'eccezione causa un esito negativo del servizio, con conseguente spostamento a un altro nodo. L'operazione di spostamento del servizio può risultare costosa e causare un ritardo per le richieste in ingresso. Gli sviluppatori dovrebbero determinare la causa dell'eccezione e, se possibile, limitare il problema.
 
 L'evento StatefulRunAsyncSlowCancellation viene emesso ogni volta che una richiesta di annullamento dell'attività RunAsync richiede più di quattro secondi. L'eccessiva durata di un'operazione di annullamento influisce sulla possibilità di riavviare rapidamente il servizio su un altro nodo. Questo scenario può avere un impatto negativo sulla disponibilità complessiva del servizio.
+
+## <a name="performance-counters"></a>Contatori delle prestazioni
+Il runtime di Reliable Services definisce le categorie di contatori delle prestazioni seguenti:
+
+| Categoria | DESCRIZIONE |
+| --- | --- |
+| Replicatore transazionale di Service Fabric |Contatori specifici di Replicatore transazionale di Service Fabric di Azure |
+
+Replicatore transazionale di Service Fabric viene usato da [Reliable State Manager](service-fabric-reliable-services-reliable-collections-internals.md) per replicare le transazioni all'interno di un determinato set di [repliche](service-fabric-concepts-replica-lifecycle.md). 
+
+L'applicazione [Performance Monitor di Windows](https://technet.microsoft.com/library/cc749249.aspx) , disponibile per impostazione predefinita nel sistema operativo Windows, può essere usata per raccogliere e visualizzare i dati dei contatori delle prestazioni. [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) rappresenta una valida alternativa per la raccolta di tali dati e il relativo caricamento nelle tabelle di Azure.
+
+### <a name="performance-counter-instance-names"></a>Nomi delle istanze dei contatori delle prestazioni
+Un cluster con un numero elevato di servizi Reliable Services o di partizioni di servizi Reliable Services disporrà di un numero considerevole di istanze di contatori delle prestazioni di Replicatore transazionale. I nomi delle istanze possono facilitare l'identificazione della specifica [partizione](service-fabric-concepts-partitioning.md) e replica del servizio a cui l'istanza è associata.
+
+#### <a name="service-fabric-transactional-replicator-category"></a>Categoria Replicatore transazionale di Service Fabric
+Per la categoria `Service Fabric Transactional Replicator`, i nomi delle istanze dei contatori sono nel formato seguente:
+
+`ServiceFabricPartitionId:ServiceFabricReplicaId`
+
+*ServiceFabricPartitionId* è la rappresentazione sotto forma di stringa dell'ID partizione di Service Fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) con l'identificatore di formato "D".
+
+*ServiceFabricReplicaId* è l'ID associato a una determinata replica di un servizio Reliable Services. L'ID replica viene incluso nel nome dell'istanza del contatore delle prestazioni per assicurarne l'univocità ed evitare conflitti con altre istanze di contatori delle prestazioni generate dalla stessa partizione. Informazioni dettagliate sulle repliche e il relativo ruolo nei servizi Reliable Services sono disponibili [qui](service-fabric-concepts-replica-lifecycle.md).
+
+Di seguito è riportato un esempio di un nome di istanza per un contatore appartenente alla categoria `Service Fabric Transactional Replicator`:
+
+`00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571`
+
+Nell'esempio precedente, `00d0126d-3e36-4d68-98da-cc4f7195d85e` è la rappresentazione sotto forma di stringa dell'ID partizione di Service Fabric e `131652217797162571` è l'ID replica.
+
+### <a name="transactional-replicator-performance-counters"></a>Contatori delle prestazioni di Replicatore transazionale
+
+Il runtime di Reliable Services genera gli eventi seguenti nella categoria `Service Fabric Transactional Replicator`
+
+ Nome contatore | DESCRIZIONE |
+| --- | --- |
+| Operazioni di inizio transazione/sec | Numero di nuove transazioni di scrittura create al secondo.|
+| Operazioni di transazione/sec | Numero di operazioni di aggiunta/aggiornamento/eliminazione eseguite su raccolte Reliable Collections al secondo.|
+| Latenza media flush (ms) | Numero di byte scaricati sul disco da Replicatore transazionale al secondo. |
+| Operazioni limitate/sec | Numero di operazioni rifiutate al secondo da Replicatore transazionale a causa della limitazione. |
+| Media transazione/commit (ms) | Latenza media commit per transazione in millisecondi |
+| Latenza media flush (ms) | Durata media delle operazioni di flush su disco avviate da Replicatore transazionale in millisecondi |
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Provider di EventSource in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

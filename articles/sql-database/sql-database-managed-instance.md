@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: eeb6b74fb7dfbf25e27963dd7a2f7f431feebcc8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Informazioni su Istanza gestita (anteprima)
 
@@ -42,8 +42,6 @@ La tabella seguente riassume le differenze principali e gli scenari di utilizzo 
 |Database SQL di Azure (singolo o pool) |**Pool elastici**: per i clienti che sviluppano nuove applicazioni SaaS multi-tenant o che intendono trasformare le proprie app locali esistenti in app SaaS multi-tenant, è possibile proporre i pool elastici. I vantaggi di questo modello sono i seguenti: <br><ul><li>Conversione del modello aziendale dalla vendita di licenze alla vendita di abbonamenti a un servizio (per gli ISV)</li></ul><ul><li>Isolamento dei tenant semplice e valido</li></ul><ul><li>Modello di programmazione incentrato sul database semplificato</li></ul><ul><li>Possibilità di scalare orizzontalmente senza raggiungere un limite rigido</li></ul>**Database singoli**: per i clienti che sviluppano nuove app diverse da servizi SaaS multi-tenant, il cui carico di lavoro è stabile e prevedibile, è possibile proporre i database singoli. I vantaggi di questo modello sono i seguenti:<ul><li>Modello di programmazione incentrato sul database semplificato</li></ul>  <ul><li>Prestazioni prevedibili per ogni database</li></ul>|
 |Macchina virtuale IaaS SQL|Per i clienti che necessitano di personalizzare il sistema operativo o il server di database, nonché per i clienti con requisiti specifici in termini di esecuzione di app di terze parti insieme a SQL Server (nella stessa macchina virtuale), è possibile proporre macchine virtuali SQL/IaaS come soluzione ottimale|
 |||
-
-<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>Come identificare un'istanza gestita a livello di codice
 
@@ -104,7 +102,7 @@ Il diagramma seguente illustra i nodi di calcolo attivo e ridondanti in questo l
 
 Di seguito sono indicate le funzionalità principali del livello di servizio Utilizzo generico:
 
-|Funzionalità | DESCRIZIONE|
+|Funzionalità | Descrizione|
 |---|---|
 | Numero di vCore* | 8, 16, 24 (Generazione 4)<br>8, 16, 24, 32, 40 (Generazione 5)|
 | Versione/build di SQL Server | SQL Server (versione più recente disponibile) |
@@ -131,7 +129,7 @@ Di seguito sono indicate le funzionalità principali del livello di servizio Uti
 
 Istanza gestita offre isolamento di sicurezza aggiuntivo dagli altri tenant nel cloud di Azure. L'isolamento di sicurezza include: 
 
-- Implementazione della rete virtuale nativa e la connettività all'ambiente locale mediante Express Route di Azure o Gateway VPN 
+- L'[implementazione della rete virtuale nativa](sql-database-managed-instance-vnet-configuration.md) e la connettività all'ambiente locale mediante Express Route di Azure o Gateway VPN 
 - L'endpoint SQL viene esposto solo tramite un indirizzo IP privato, che consente la connettività sicura da reti private di Azure o ibride
 - Tenant singolo con infrastruttura sottostante dedicata (calcolo, archiviazione)
 
@@ -185,7 +183,13 @@ Il Servizio Migrazione del database di Azure è un servizio completamente gestit
 
 ### <a name="backup-and-restore"></a>Backup e ripristino  
 
-L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione di BLOB di Azure. I backup archiviati in BLOB di archiviazione di Azure possono essere ripristinati direttamente in Istanza gestita. 
+L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione di BLOB di Azure. I backup archiviati in BLOB di archiviazione di Azure possono essere ripristinati direttamente in Istanza gestita. Per ripristinare un database SQL esistente in un'istanza gestita, è possibile:
+
+- Usare [Servizio Migrazione del database](/sql/dma/dma-overview). Per un'esercitazione, vedere [Eseguire la migrazione di SQL Server all'istanza gestita di database SQL di Azure](../dms/tutorial-sql-server-to-managed-instance.md) per ripristinare il database da un file di backup.
+- Usare il [comando T-SQL RESTORE](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql). 
+  - Per un'esercitazione su come ripristinare il file di backup di database Wide World Importers - Standard, vedere [Restore a backup file to a Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md) (Ripristinare un file di backup in un'istanza gestita). Questa esercitazione illustra come caricare un file di backup in una risorsa di archiviazione BLOB di Azure e proteggerlo usando una chiave di firma di accesso condiviso.
+  - Per informazioni sul ripristino dall'URL, vedere [Ripristino nativo da URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
+- [Importare da un file BACPAC](sql-database-import.md).
 
 ## <a name="sql-features-supported"></a>Funzionalità di SQL supportate 
 
@@ -217,5 +221,6 @@ Istanza gestita consente all'amministratore di sistema di concentrarsi sugli asp
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per un elenco di confronto delle funzionalità, vedere [Confronto tra le funzionalità: database SQL di Azure e SQL Server](sql-database-features.md).
-- Per un'esercitazione sulla creazione di un'istanza gestita e il ripristino di un database da un file di backup, vedere [Creare un'istanza gestita](sql-database-managed-instance-tutorial-portal.md).
+- Per altre informazioni sulla configurazione della rete virtuale, vedere l'articolo relativo alla [configurazione di una rete virtuale per Istanza gestita](sql-database-managed-instance-vnet-configuration.md).
+- Per un'esercitazione sulla creazione di un'istanza gestita e il ripristino di un database da un file di backup, vedere [Creare un'istanza gestita](sql-database-managed-instance-create-tutorial-portal.md).
 - Per un'esercitazione sull'uso di Servizio Migrazione del database di Azure per la migrazione, vedere l'articolo relativo alla [migrazione a Istanza gestita con Servizio Migrazione del database](../dms/tutorial-sql-server-to-managed-instance.md).

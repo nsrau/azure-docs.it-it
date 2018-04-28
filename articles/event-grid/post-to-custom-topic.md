@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f4323c4e68c639af9a5959af512c1cdd07cdf0c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Pubblicare in un argomento personalizzato per la Griglia di eventi di Azure
 
@@ -73,7 +73,7 @@ Per gli argomenti personalizzati, i dati di livello principale contengono gli st
 ]
 ```
 
-Per una descrizione di ogni proprietà, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
+Per una descrizione di ogni proprietà, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). Durante la pubblicazione degli eventi in un argomento della griglia di eventi, le dimensioni totali della matrice possono raggiungere 1 MB. Per ogni evento nella matrice il limite è 64 KB.
 
 Ad esempio, uno schema di dati evento valido è:
 
@@ -98,9 +98,10 @@ Dopo la pubblicazione nell'endpoint dell'argomento, si riceve una risposta. La r
 |Risultato  |Risposta  |
 |---------|---------|
 |Success  | 200 - OK  |
-|Endpoint non corretto | 404 - Non trovato |
-|Chiave di accesso non valida | 401 - Non autorizzato |
 |I dati di evento hanno un formato non corretto | 400 - Richiesta non valida |
+|Chiave di accesso non valida | 401 - Non autorizzato |
+|Endpoint non corretto | 404 - Non trovato |
+|Una matrice o un evento supera i limiti delle dimensioni | 413 Payload Too Large (413 Payload troppo grande) |
 
 Per gli errori, il corpo del messaggio ha il formato seguente:
 

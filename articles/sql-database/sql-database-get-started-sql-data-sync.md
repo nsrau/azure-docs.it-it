@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 72e0ed535139c088c4235b43a12ea96da080dc8a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 86b0e78f362d1cf3c2480aad97ef5281c5f3bc95
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Impostare l'anteprima di sincronizzazione dati SQL
 In questa esercitazione si imparerà a configurare sincronizzazione dati SQL di Azure creando un gruppo di sincronizzazione ibrido che contiene sia istanze del database SQL di Azure che istanze di SQL Server. Il nuovo gruppo di sincronizzazione ha una configurazione completa ed esegue la sincronizzazione in base alla pianificazione impostata.
@@ -151,7 +151,7 @@ Nella pagina **Configura database locale** eseguire le operazioni seguenti:
         ![Immettere la chiave dell'agente e le credenziali del server](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
         >   [!NOTE] 
-        >   Se viene visualizzato un errore del firewall a questo punto, è necessario creare una regola del firewall in Azure per consentire il traffico in ingresso dal computer SQL Server. È possibile creare manualmente la regola nel portale, ma può risultare più semplice crearla in SQL Server Management Studio (SSMS). In SSMS provare a connettersi al database hub in Azure. Immettere il nome nel formato \<nome_database_hub\>.database.windows.net. Per configurare la regola del firewall di Azure, seguire i passaggi nella finestra di dialogo. Tornare quindi all'app dell'agente di sincronizzazione client.
+        >   Se viene visualizzato un errore del firewall a questo punto, è necessario creare una regola del firewall in Azure per consentire il traffico in ingresso dal computer SQL Server. È possibile creare manualmente la regola nel portale, ma può risultare più semplice crearla in SQL Server Management Studio (SSMS). In SSMS provare a connettersi al database hub in Azure. Immettere il nome nel formato <nome_database_hub>.database.windows.net. Per configurare la regola del firewall di Azure, seguire i passaggi nella finestra di dialogo. Tornare quindi all'app dell'agente di sincronizzazione client.
 
     9.  Nell'app dell'agente di sincronizzazione client fare clic su **Registra** per registrare un database di SQL Server con l'agente. Verrà aperta la finestra di dialogo **Configurazione di SQL Server**.
 
@@ -225,7 +225,16 @@ Non necessariamente. In un gruppo di sincronizzazione con un hub e tre spoke (A,
 
 ### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>Come si ottengono le modifiche dello schema in un gruppo di sincronizzazione?
 
-È necessario eseguire le modifiche dello schema manualmente.
+È necessario apportare e propagare manualmente tutte le modifiche dello schema.
+1. Replicare manualmente le modifiche dello schema nell'hub e in tutti i membri di sincronizzazione.
+2. Aggiornare lo schema di sincronizzazione.
+
+**Aggiunta di nuove tabelle e colonne**. Le nuove tabelle e colonne non influiscono sulla sincronizzazione corrente. La sincronizzazione dei dati ignora le nuove tabelle e colonne fino a quando non vengono aggiunte allo schema di sincronizzazione. Quando si aggiungono nuovi oggetti di database, questa è la migliore sequenza da seguire:
+1. Aggiungere le nuove tabelle o colonne all'hub e a tutti i membri di sincronizzazione.
+2. Aggiungere le nuove tabelle o colonne allo schema di sincronizzazione.
+3. Iniziare a inserire valori nelle nuove tabelle e colonne.
+
+**Modifica del tipo di dati di una colonna**. Quando si modifica il tipo di dati di una colonna esistente, la sincronizzazione dei dati continua a funzionare, fino a quando i nuovi valori sono conformi al tipo di dati originale definito nello schema di sincronizzazione. Ad esempio, se si modifica il tipo nel database di origine da **int** a **bigint**, la sincronizzazione dei dati continua a funzionare fino a quando non si inserisce un valore che è troppo grande per il tipo di dati **int**. Per completare la modifica, replicare la modifica dello schema manualmente nell'hub e in tutti i membri di sincronizzazione, quindi aggiornare lo schema di sincronizzazione.
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Come si esporta e importa un database con la sincronizzazione dei dati?
 Dopo aver esportato un database come file con estensione `.bacpac` e averlo importato per creare un nuovo database, è necessario eseguire le due operazioni seguenti per usare la sincronizzazione dei dati nel nuovo database:

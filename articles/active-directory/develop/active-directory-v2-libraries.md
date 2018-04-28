@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 60abada0a6683ee5cc8118c37336fe67cd51b2f0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0d9e2831f9d8676eb3e7fac91c58f3977f2e0f32
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Librerie di autenticazione di Azure Active Directory 2.0
 L'[endpoint di Azure Active Directory (Azure AD) 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) supporta i protocolli standard del settore OAuth 2.0 e OpenID Connect 1.0. Con l'endpoint 2.0 è possibile usare varie librerie di Microsoft e altre organizzazioni.
@@ -53,7 +53,7 @@ Per un elenco delle librerie che funzionano con l'endpoint 2.0, vedere le sezion
 > [!IMPORTANT]
 > Le librerie di anteprima MSAL sono adatte per essere usate in ambienti di produzione. Per queste librerie viene fornito lo stesso supporto di livello produzione offerto per le librerie di produzione correnti (ADAL). In fase di anteprima è possibile apportare modifiche all'API MSAL, al formato della cache interna e ad altri meccanismi delle librerie senza preavviso, ma queste modifiche dovranno essere replicate durante le correzioni di bug o i miglioramenti delle funzionalità. Possono infatti incidere sull'applicazione. Una modifica al formato della cache, ad esempio, può incidere sugli utenti chiedendo loro di accedere di nuovo. Per aggiornare il codice è possibile che sia necessario modificare l'API. Quando si fornisce la release di disponibilità generale, agli utenti viene chiesto di eseguire l'aggiornamento alla versione di disponibilità generale entro sei mesi, poiché le applicazioni scritte usando una versione di anteprima possono non funzionare più.
 
-| Piattaforma | Libreria | Download | Codice sorgente | Esempio | riferimento
+| Piattaforma | Libreria | Download | Codice sorgente | Esempio | Riferimenti
 | --- | --- | --- | --- | --- | --- |
 | .NET Client, Windows Store, UWP, Xamarin iOS e Android | MSAL .NET (anteprima) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [App desktop](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  |
 | JavaScript | MSAL.js (anteprima) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [App a pagina singola](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  |
@@ -62,7 +62,7 @@ Per un elenco delle librerie che funzionano con l'endpoint 2.0, vedere le sezion
 
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Librerie middleware server supportate da Microsoft
 
-| Piattaforma | Libreria | Download | Codice sorgente | Esempio | riferimento
+| Piattaforma | Libreria | Download | Codice sorgente | Esempio | Riferimenti
 | --- | --- | --- | --- | --- | --- |
 | .NET 4.x | Middleware OWIN OpenID Connect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) |[Applicazione MVC](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md) | |
 | .NET 4.x | Middleware OWIN OAuth Bearer per Azure AD |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |  | |
@@ -111,7 +111,7 @@ Per altre informazioni sull'endpoint di Azure AD 2.0, vedere la [panoramica del 
 [ServerLib-Net4-Owin-Oidc-Sample]: active-directory-v2-devquickstarts-dotnet-web.md
 [ServerLib-Net4-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OAuth/
 [ServerLib-Net4-Owin-Oauth-Repo]: http://katanaproject.codeplex.com/
-[ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
+[ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
 [ServerLib-Net-Jwt-Lib]: https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt
 [ServerLib-Net-Jwt-Repo]: https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet
 [ServerLib-Net-Jwt-Sample]:/
@@ -123,4 +123,4 @@ Per altre informazioni sull'endpoint di Azure AD 2.0, vedere la [panoramica del 
 [ServerLib-NetCore-Owin-Oauth-Sample]:/
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
-[ServerLib-Node-Sample]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-node-web/
+[ServerLib-Node-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-node-web/

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7580db2a2fd41c124443b26257f1b946adcc068c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6c86a98dd819b91608be04f1466dc1e6764ee4b9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali
 
@@ -27,8 +27,8 @@ Questa esercitazione illustra come configurare il ripristino di emergenza in Azu
 
 Questa è la terza di una serie di esercitazioni. In questa esercitazione si presuppone che siano già state completate le attività delle esercitazioni precedenti:
 
-* [Preparare Azure](tutorial-prepare-azure.md)
-* [Preparare istanze di VMware locali](vmware-azure-tutorial-prepare-on-premises.md)
+* [Preparare Azure](tutorial-prepare-azure.md). Questa esercitazione illustra come configurare un account di archiviazione e una rete di Azure, assicurarsi che l'account Azure abbia le autorizzazioni correte e creare un insieme di credenziali di Servizi di ripristino.
+* [Preparare istanze di VMware locali](vmware-azure-tutorial-prepare-on-premises.md). In questa esercitazione è possibile preparare gli account in modo che Site Recovery possa accedere ai server VMware per individuare le macchine virtuali e per eseguire facoltativamente un'installazione push del componente servizio di mobilità di Site Recovery quando si abilita la replica per una macchina virtuale. È anche possibile assicurarsi che i server e le macchine virtuali VMware siano conformi ai requisiti di Site Recovery.
 
 Prima di iniziare, è utile [esaminare l'architettura](vmware-azure-architecture.md) per gli scenari di ripristino di emergenza.
 
@@ -43,8 +43,6 @@ Prima di iniziare, è utile [esaminare l'architettura](vmware-azure-architecture
 
 ## <a name="set-up-the-source-environment"></a>Configurare l'ambiente di origine
 
-> [!TIP]
-> Il metodo consigliato per distribuire un server di configurazione per la protezione di macchine virtuali VMware consiste nell'usare il modello di distribuzione basato su OVF (Open Virtualization Format), come consigliato in questo articolo. Nel caso in cui all'interno dell'organizzazione siano previste restrizioni che impediscono la distribuzione di un modello OVF, è possibile usare [UnifiedSetup.exe per installare un server di configurazione](physical-manage-configuration-server.md).
 
 Per configurare l'ambiente di origine, è necessario un singolo computer locale a disponibilità elevata per l'hosting dei componenti locali di Site Recovery. I componenti includono il server di configurazione, il server di elaborazione e il server di destinazione master:
 
@@ -53,6 +51,10 @@ Per configurare l'ambiente di origine, è necessario un singolo computer locale 
 - Il server di destinazione master gestisce i dati di replica durante il failback da Azure.
 
 Per configurare il server di configurazione come una macchina virtuale VMware a disponibilità elevata, scaricare un modello OVF (Open Virtualization Format) preparato e importare il modello in VMware per creare la macchina virtuale. Dopo aver configurato il server di configurazione, registrarlo nell'insieme di credenziali. Dopo la registrazione, Site Recovery individua le VM VMware locali.
+
+> [!TIP]
+> Questa esercitazione usa un modello OVF per creare la macchina virtuale VMware del server di configurazione. Se non è possibile eseguire questa procedura, è possibile eseguire la [configurazione manuale](physical-manage-configuration-server.md) a questo scopo. 
+
 
 ### <a name="download-the-vm-template"></a>Scaricare il modello di VM
 
@@ -103,7 +105,7 @@ Per aggiungere un'altra scheda di interfaccia di rete al server di configurazion
 7. Lo strumento esegue alcune attività di configurazione e quindi il riavvio.
 8. Accedere di nuovo al computer. La procedura guidata per la gestione del server di configurazione viene avviata automaticamente.
 
-### <a name="configure-settings-and-connect-to-vmware"></a>Configurare le impostazioni e connettersi a VMware
+### <a name="configure-settings-and-add-the-vmware-server"></a>Configurare le impostazioni e aggiungere il server VMware
 
 1. Nella procedura guidata per la gestione del server di configurazione selezionare **Configura la connettività** e quindi la scheda di interfaccia di rete che riceverà il traffico di replica. Selezionare quindi **Salva**. Questa impostazione non può essere modificata dopo che è stata configurata.
 2. In **Seleziona l'insieme di credenziali di Servizi di ripristino** selezionare la sottoscrizione di Azure e quindi il gruppo di risorse e l'insieme di credenziali pertinenti.

@@ -1,12 +1,12 @@
 ---
 title: Panoramica delle soluzioni preconfigurate di Azure IoT Suite | Microsoft Docs
 description: Descrizione delle soluzioni preconfigurate di Azure IoT Suite e della relativa architettura, con collegamenti a risorse aggiuntive.
-services: 
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: b29c5fe9543c5fe6da9ff52da6549fdcacff868f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b7b9f61a8fb46d5d591b317049cfd60b723a7e77
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Che cos'è Azure IoT Suite?
 
@@ -97,7 +97,7 @@ Quando si distribuisce una soluzione preconfigurata, il processo di provisioning
 * [Azure Time Series Insights](../time-series-insights/index.yml). Le soluzioni preconfigurate usano questo servizio per analizzare e visualizzare i dati di telemetria provenienti dai dispositivi.
 * [Servizio contenitore di Azure](../container-service/index.yml). Questo servizio ospita e gestisce i microservizi nelle soluzioni preconfigurate.
 * [Azure Cosmos DB](../cosmos-db/index.yml) e [Archiviazione di Azure](../storage/index.yml), per l'archiviazione dei dati.
-* [Analisi di flusso di Azure](../stream-analytics/index.md). La soluzione preconfigurata di manutenzione predittiva usa questo servizio per elaborare i dati di telemetria in ingresso, eseguire operazioni di aggregazione e rilevare gli eventi. Questa soluzione preconfigurata usa l'analisi di flusso anche per elaborare i messaggi informativi contenenti dati come i metadati o le risposte ai comandi dai dispositivi.
+* [Analisi di flusso di Azure](../stream-analytics/index.yml). La soluzione preconfigurata di manutenzione predittiva usa questo servizio per elaborare i dati di telemetria in ingresso, eseguire operazioni di aggregazione e rilevare gli eventi. Questa soluzione preconfigurata usa l'analisi di flusso anche per elaborare i messaggi informativi contenenti dati come i metadati o le risposte ai comandi dai dispositivi.
 * [App Web di Azure](../app-service/index.yml), per ospitare il codice di applicazioni personalizzate nelle soluzioni preconfigurate.
 
 Per una panoramica dell'architettura di una tipica soluzione IoT, vedere [Microsoft Azure e Internet delle cose (IoT)](iot-suite-what-is-azure-iot.md).

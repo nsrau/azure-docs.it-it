@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: davidmu
-ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: de3d430ad984c9b173f77138417532badc3a7497
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: strumento di supporto per la dimostrazione della funzionalità di personalizzazione dell'interfaccia utente della pagina
 Questo articolo è complementare all' [articolo principale sulla personalizzazione dell'interfaccia utente](active-directory-b2c-reference-ui-customization.md) in Azure Active Directory (Azure AD) B2C. I passaggi seguenti descrivono come verificare la funzionalità di personalizzazione dell'interfaccia utente delle pagine usando il contenuto HTML e CSS di esempio fornito.
@@ -29,7 +29,7 @@ Il contenuto di esempio reso disponibile può essere usato per personalizzare du
 ## <a name="register-an-application"></a>Registrare un'applicazione
 Sarà necessario [registrare un'applicazione](active-directory-b2c-app-registration.md) nel tenant B2C da usare per l'esecuzione del criterio. Dopo la registrazione dell'applicazione, sono disponibili alcune opzioni da usare per l'effettiva esecuzione dei criteri di iscrizione:
 
-* Creare una delle applicazioni di avvio rapido di Azure AD B2C elencate nella sezione "Introduzione" dell'articolo [Iscrizione e accesso degli utenti alle applicazioni](active-directory-b2c-overview.md#get-started).
+* Creare una delle applicazioni di avvio rapido di Azure AD B2C elencate nella sezione "Introduzione" dell'articolo [Iscrizione e accesso degli utenti alle applicazioni](active-directory-b2c-overview.md).
 * Usare l'applicazione esistente [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) . In questo caso è necessario registrare un'applicazione nel tenant B2C usando l'**URI di reindirizzamento** `https://aadb2cplayground.azurewebsites.net/`.
 * Usare il pulsante **Esegui adesso** nel criterio nel [portale di Azure](https://portal.azure.com/).
 
@@ -39,7 +39,7 @@ Per personalizzare l'aspetto dei criteri, è necessario prima creare file HTML e
 A fini di questa esercitazione, il contenuto di esempio è stato già creato ed è ospitato in Archiviazione BLOB di Azure. Si tratta di una personalizzazione di base del tema della società fittizia "Wingtip Toys". Per provarlo nel proprio criterio, seguire questa procedura:
 
 1. Accedere al proprio tenant nel [portale di Azure](https://portal.azure.com/) e passare al pannello delle funzionalità B2C.
-2. Fare clic su **Sign-up or sign-in policies** (Criteri di iscrizione o di accesso) e quindi sul criterio, ad esempio "b2c\_1\_sign\_up\_sign\_in").
+2. Fare clic su **Criteri di iscrizione o di accesso**, sul proprio criterio e su Modifica (ad esempio "b2c\_1\_sign\_up\_sign\_in").
 3. Fare clic su **Page UI customization** (Personalizzazione dell'interfaccia utente della pagina) e quindi **Pagina unificata per l'iscrizione o l'accesso**.
 4. Impostare l'opzione **Usa pagina personalizzata** su **Sì**. Nel campo **Custom page URI** (URI pagina personalizzata) immettere `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`. Fare clic su **OK**.
 5. Fare clic su **Pagina di iscrizione dell'account locale**. Impostare l'interruttore **Use custom template** (Usa modello personalizzato) su **Sì**. Nel campo **Custom page URI** (URI pagina personalizzata) immettere `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`.

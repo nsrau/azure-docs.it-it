@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: bsiva
-ms.openlocfilehash: 4304cad9dc6aab7eb95885815a3ceb636ca6ff52
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 18ed9566cd265ef851f914a59e10f6973bdc0d86
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali Hyper-V tramite PowerShell e Azure Resource Manager
 
@@ -45,9 +45,9 @@ Inoltre, l'esempio specifico descritto in questo articolo presenta i seguenti pr
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Passaggio 1: Accedere al proprio account Azure
 
-1. Aprire una console di PowerShell ed eseguire questo comando per accedere all'account di Azure. Il cmdlet visualizza una pagina Web che richiede le credenziali dell'account: **Login-AzureRmAccount**.
-    - In alternativa, è possibile includere le credenziali dell'account come parametro nel cmdlet **Login-AzureRmAccount**, usando il parametro **-Credential**.
-    - Se si è un partner CSP che opera per conto di un tenant, è necessario specificare il cliente come tenant usando l'ID tenant o il nome di dominio primario del tenant. Ad esempio: **Login-AzureRmAccount -Tenant "fabrikam.com"**
+1. Aprire una console di PowerShell ed eseguire questo comando per accedere all'account di Azure. Il cmdlet visualizza una pagina Web che richiede le credenziali dell'account: **Connect-AzureRmAccount**.
+    - In alternativa, è possibile includere le credenziali dell'account come parametro nel cmdlet **Connect-AzureRmAccount**, usando il parametro **-Credential**.
+    - Se si è un partner CSP che opera per conto di un tenant, è necessario specificare il cliente come tenant usando l'ID tenant o il nome di dominio primario del tenant. Ad esempio: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
 2. Associare la sottoscrizione che si vuole usare all'account perché un account può avere molte sottoscrizioni:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`

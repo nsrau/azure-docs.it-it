@@ -1,11 +1,11 @@
 ---
 title: Descrizione del cluster di Cluster Resource Manager | Microsoft Docs
-description: "Descrizione di un cluster di Service Fabric specificando i domini di errore, i domini di aggiornamento, le proprietà del nodo e le capacità del nodo per Cluster Resource Manager."
+description: Descrizione di un cluster di Service Fabric specificando i domini di errore, i domini di aggiornamento, le proprietà del nodo e le capacità del nodo per Cluster Resource Manager.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
 ms.service: Service-Fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 26ce9e96dd4df170e80c2c61dcc08c70357eec22
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 396f1d3d8c69ba3204d16f06d49656fd138a1126
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descrizione di un cluster di Service Fabric
 Cluster Resource Manager di Service Fabric fornisce alcuni meccanismi per descrivere un cluster. Durante la fase di esecuzione, Cluster Resource Manager usa queste informazioni per assicurare la disponibilità elevata dei servizi in esecuzione sul cluster. Applicando queste regole importanti, tenta anche di ottimizzare il consumo di risorse all'interno del cluster.
@@ -95,7 +95,8 @@ Non esiste un layout ottimale, ogni layout presenta vantaggi e svantaggi. Ad ese
 Il modello più comune è basato sulla matrice FD/UD, in cui i domini di errore e i domini di aggiornamento formano una tabella e i nodi vengono posizionati a partire dalla diagonale. È il modello usato per impostazione predefinita nei cluster di Service Fabric in Azure. Per i cluster con molti nodi, il risultato è simile al complesso modello di matrice precedente.
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Vincoli del dominio di errore e di aggiornamento e comportamento risultante
-Cluster Resource Manager considera come un vincolo il desiderio di mantenere un servizio bilanciato tra domini di errore e di aggiornamento. È possibile trovare altre informazioni sui vincoli [in questo articolo](service-fabric-cluster-resource-manager-management-integration.md). I vincoli di dominio di errore e di aggiornamento stabiliscono: "Per una data partizione di servizio non deve esistere una differenza *maggiore di uno* nel numero di oggetti servizio (istanze di servizio senza stato o repliche con stato) tra due domini". Ciò impedisce determinati spostamenti o disposizioni che violano il vincolo.
+### <a name="default-approach"></a>*Approccio predefinito*
+Per impostazione predefinita, il servizio Gestione risorse cluster mantiene bilanciati i servizi tra i domini di errore e di aggiornamento. Tale equilibrio è modellato come un [vincolo](service-fabric-cluster-resource-manager-management-integration.md). Il vincolo dei domini di errore e di aggiornamento stabilisce che: "Per una data partizione di servizio non deve mai esistere una differenza maggiore di uno nel numero di oggetti servizio (istanze di servizio senza stato o repliche con stato) tra due domini dello stesso livello gerarchico". Si supponga che questo vincolo fornisca una garanzia di "differenza massima". Il vincolo dei domini di errore e di aggiornamento impedisce determinati spostamenti o disposizioni che violano la regola indicata in precedenza. 
 
 Esaminiamo un esempio. Si supponga di avere un cluster con sei nodi, configurato con cinque domini di errore e cinque domini di aggiornamento.
 
@@ -106,6 +107,8 @@ Esaminiamo un esempio. Si supponga di avere un cluster con sei nodi, configurato
 | **UD2** | | |N3 | | |
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
+
+*Configurazione 1*
 
 Si supponga ora di creare un servizio con TargetReplicaSetSize (oppure, per un servizio senza stato InstanceCount) pari a cinque. Le repliche avvengono in N1 N5. N6 non verrà mai usato indipendentemente dal numero di servizi simili creati. Ma perché? Esaminiamo la differenza tra il layout corrente e ciò che accadrebbe se si scegliesse N6.
 
@@ -120,6 +123,9 @@ Ecco il layout ottenuto e il numero totale di repliche per ogni dominio di error
 | **UD4** | | | | |R5 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
+*Layout 1*
+
+
 Questo layout è equilibrato in termini di nodi per dominio di errore e dominio di aggiornamento. È anche bilanciato in termini di numero di repliche per dominio di errore e dominio di aggiornamento. Ogni dominio ha lo stesso numero di nodi e lo stesso numero di repliche.
 
 A questo punto vediamo cosa accadrebbe se usassimo N6 invece di N2. Come sarebbero state distribuite le repliche?
@@ -133,7 +139,10 @@ A questo punto vediamo cosa accadrebbe se usassimo N6 invece di N2. Come sarebbe
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |2 |0 |1 |1 |1 |- |
 
-Questo layout viola la definizione del vincolo di dominio di errore. FD0 ha due repliche, mentre FD1 ne ha zero, perciò la differenza tra FD0 e FD1 è due. Cluster Resource Manager non consente questa disposizione. Allo stesso modo, se si scegliesse N2 e N6 (anziché N1 e N2) si otterrebbe:
+*Layout 2*
+
+
+Questo layout viola la definizione di garanzia di "differenza massima" per il vincolo dei domini di errore. FD0 ha due repliche mentre FD1 ne ha zero, perciò la differenza tra FD0 e FD1 è due, ossia un numero maggiore della differenza massima, che è pari a uno. Poiché il vincolo è violato, il servizio Gestione risorse cluster non consente questa disposizione. Allo stesso modo, se si scegliesse N2 e N6 (anziché N1 e N2) si otterrebbe:
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -144,7 +153,85 @@ Questo layout viola la definizione del vincolo di dominio di errore. FD0 ha due 
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
-Questo layout è bilanciato in termini di domini di errore. Viola tuttavia il vincolo del dominio di aggiornamento. Ciò avviene perché UD0 ha zero repliche mentre UD1 ne ha due. Questo layout inoltre non è valido e non verrà scelto da Cluster Resource Manager. 
+*Layout 3*
+
+
+Questo layout è bilanciato in termini di domini di errore. Tuttavia, ora viene violato il vincolo dei domini di aggiornamento, in quanto UD0 ha zero repliche mentre UD1 ne ha due. Questo layout inoltre non è valido e non verrà scelto da Cluster Resource Manager.
+
+Questo approccio alla distribuzione delle repliche con stato o delle istanze senza stato offre la migliore tolleranza di errore possibile. In una situazione in cui un dominio diventa inattivo, il numero minimo di repliche/istanze viene perso. 
+
+D'altro canto, questo approccio può essere troppo limitato e non consentire al cluster di usare tutte le risorse. Per determinate configurazioni del cluster non è possibile usare alcuni nodi. Questo può portare la Risorsa Service Fabric a non posizionare i servizi, visualizzando quindi dei messaggi di avviso. Nell'esempio precedente, alcuni dei nodi del cluster non possono essere usati (N6 nell'esempio specificato). Anche aggiungendo nodi al cluster (N7 – N10), le repliche o le istanze potrebbero essere collocate soltanto in N1-N5 a causa dei vincoli tra domini di errore e di aggiornamento. 
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N1 | | | |N10 |
+| **UD1** |N6 |N2 | | | |
+| **UD2** | |N7 |N3 | | |
+| **UD3** | | |N8 |N4 | |
+| **UD4** | | | |N9 |N5 |
+
+*Configurazione 2*
+
+
+### <a name="alternative-approach"></a>*Approccio alternativo*
+
+Il servizio Gestione risorse cluster supporta un'altra versione del vincolo dei domini di errore e di aggiornamento che consente il posizionamento garantendo comunque un livello minimo di sicurezza. Il vincolo alternativo dei domini di errore e di aggiornamento può essere dichiarato come segue: "Per una data partizione del servizio, la distribuzione delle repliche tra i domini deve garantire che la partizione non subisca una perdita di quorum". Si supponga che questo vincolo fornisca una garanzia di "sicurezza del quorum". 
+
+> [!NOTE]
+>In un servizio con stato si parla di *perdita del quorum* in una situazione in cui la maggioranza delle repliche di partizione è contemporaneamente inattiva. Se, ad esempio, TargetReplicaSetSize è pari a cinque, un set di tre repliche rappresenta il quorum. Analogamente, se TargetReplicaSetSize è 6, per il quorum saranno necessarie quattro repliche. In entrambi i casi, perché la partizione possa continuare a funzionare normalmente non possono essere contemporaneamente inattive più di due repliche. Nei servizi senza stato non si presenta alcuna *perdita del quorum*; i servizi senza stato continuano infatti a funzionare normalmente anche se la maggior parte delle istanze è contemporaneamente inattiva. Di conseguenza, nella parte restante del testo verranno presi in considerazione soltanto i servizi con stato.
+>
+
+Tornare all'esempio precedente. Con la versione "sicurezza del quorum" del vincolo, tutti e tre i layout specificati sono validi. Infatti, anche qualora vi fosse un errore di FD0 nel secondo layout o di UD1 nel terzo layout, la partizione disporrebbe comunque di un quorum (la maggior parte delle relative repliche sarebbe sempre attiva). Con questa versione del vincolo N6 sarà quasi sempre utilizzabile.
+
+L'approccio di "sicurezza del quorum" offre una maggiore flessibilità rispetto a quello di "differenza massima" poiché rende più facile trovare distribuzioni delle repliche valide praticamente in qualsiasi topologia del cluster. Tuttavia, questo approccio non garantisce le caratteristiche di tolleranza di errore migliori perché alcuni errori sono più gravi di altri. Nello scenario peggiore, la maggior parte delle repliche potrebbe andare persa con l'errore di un solo dominio e una sola replica aggiuntiva. Ad esempio, invece di arrivare a 3 errori per la perdita del quorum con 5 repliche o istanze, si potrebbe perdere una parte ingente con appena due errori. 
+
+### <a name="adaptive-approach"></a>*Approccio adattivo*
+Poiché entrambi gli approcci presentano vantaggi e svantaggi, è stato introdotto un approccio adattivo che combina queste due strategie.
+
+> [!NOTE]
+>Questo sarà il comportamento predefinito a partire dalla versione di Service Fabric 6.2. 
+>
+L'approccio adattivo usa la logica della "differenza massima" per impostazione predefinita, per passare alla logica di "sicurezza del quorum" solo quando necessario. Il servizio Gestione risorse cluster rileva automaticamente la strategia necessaria esaminando la configurazione di cluster e servizi. Per un servizio specifico: *se TargetReplicaSetSize è divisibile per il numero di domini di errore e il numero di domini di aggiornamento **e** il numero di nodi è minore o uguale a (numero di domini di errore) * (numero di domini di aggiornamento), il servizio Gestione risorse cluster userà la logica "basata sul quorum" per tale servizio.* Tenere presente che il servizio Gestione risorse cluster usa questo approccio sia per i servizi senza stato che per i servizi con stato, benché la perdita di quorum non sia rilevante per i servizi senza stato.
+
+Tornare all'esempio precedente, supponendo che un cluster disponga ora di 8 nodi. Il cluster è ancora configurato con cinque domini di errore e cinque domini di aggiornamento, mentre il valore TargetReplicaSetSize di un servizio ospitato su tale cluster rimane cinque. 
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N1 | | | | |
+| **UD1** |N6 |N2 | | | |
+| **UD2** | |N7 |N3 | | |
+| **UD3** | | |N8 |N4 | |
+| **UD4** | | | | |N5 |
+
+*Configurazione 3*
+
+Perché siano soddisfatte tutte le condizioni necessarie, il servizio Gestione risorse cluster usa la logica "basata sul quorum" per la distribuzione del servizio. Ciò consente l'uso di N6 – N8. Una distribuzione del servizio possibile in questo caso potrebbe apparire come segue:
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
+| **UD0** |R1 | | | | |1 |
+| **UD1** |R2 | | | | |1 |
+| **UD2** | |R3 |R4 | | |2 |
+| **UD3** | | | | | |0 |
+| **UD4** | | | | |R5 |1 |
+| **FDTotal** |2 |1 |1 |0 |1 |- |
+
+*Layout 4*
+
+Se TargetReplicaSetSize del servizio viene ridotto, ad esempio, a quattro, il servizio Gestione risorse cluster rileva la modifica e riprende a usare la logica della "differenza massima" perché TargetReplicaSetSize non è più divisibile per il numero di domini di errore e di aggiornamento. Di conseguenza, si verificano alcuni movimenti di replica per distribuire le quattro repliche rimanenti tra i nodi N1-N5, in modo che la versione "differenza massima" della logica di dominio di aggiornamento e di errore non venga violata. 
+
+Osservare nuovamente il quarto layout con TargetReplicaSetSize pari a cinque. Se N1 viene rimosso dal cluster, il numero di domini di aggiornamento scende a quattro. Nuovamente, il servizio Gestione risorse cluster inizia a usare la logica della "differenza massima", perché il valore TargetReplicaSetSize del servizio non è più divisibile equamente per il numero di domini di aggiornamento. Di conseguenza, la replica R1, quando compilata di nuovo, deve cadere su N4 in modo che il vincolo dei domini di errore e di aggiornamento non sia violato.
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N/D |N/D |N/D |N/D |N/D |N/D |
+| **UD1** |R2 | | | | |1 |
+| **UD2** | |R3 |R4 | | |2 |
+| **UD3** | | | |R1 | |1 |
+| **UD4** | | | | |R5 |1 |
+| **FDTotal** |1 |1 |1 |1 |1 |- |
+
+*Layout 5*
 
 ## <a name="configuring-fault-and-upgrade-domains"></a>Configurazione dei domini di errore e di aggiornamento
 La definizione dei domini di errore e dei domini di aggiornamento viene eseguita automaticamente nelle distribuzioni di Service Fabric ospitate in Azure. Service Fabric recupera semplicemente le informazioni sull'ambiente da Azure e le usa.

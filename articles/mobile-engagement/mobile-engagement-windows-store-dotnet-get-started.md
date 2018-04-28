@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 4f1de1092458bfc12236802d829a2043dcc74540
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ed6f3e0a369157bbf4c89982f8e1acbc1ed51340
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-universal-apps"></a>Introduzione a Azure Mobile Engagement per app di Windows universali
 > [!IMPORTANT]
@@ -31,7 +31,7 @@ Questo argomento descrive come usare Azure Mobile Engagement per ottenere inform
 Questa esercitazione illustra uno scenario di trasmissione semplice tramite Mobile Engagement. Si crea un'app universale di Windows vuota che raccoglie dati di base relativi all'utilizzo dell'app e riceve notifiche push tramite Servizi notifica Push Windows (WNS).
 
 > [!NOTE]
-> Il servizio Azure Mobile Engagement verrà ritirato a marzo 2018 ed è attualmente disponibile solo per i clienti esistenti. Per altre informazioni, vedere [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+> Il servizio Azure Mobile Engagement verrà ritirato a marzo 2018 ed è attualmente disponibile solo per i clienti esistenti. Per altre informazioni, vedere [Mobile Engagement](https://azure.microsoft.com/services/mobile-engagement/).
 
 ## <a name="prerequisites"></a>prerequisiti
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]

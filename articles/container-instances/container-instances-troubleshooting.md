@@ -3,17 +3,17 @@ title: Risoluzione dei problemi relativi a Istanze di contenitore di Azure
 description: Informazioni su come risolvere i problemi relativi a Istanze di contenitore di Azure
 services: container-instances
 author: seanmck
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: ac7ddbccdef736bce941716883cf821a0f5c1f34
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a4067db9955b804f126e889fa73641f69fef56ab
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-container-and-deployment-issues-in-azure-container-instances"></a>Risolvere i problemi dei contenitori e delle distribuzioni nelle istanze di contenitori di Azure
 

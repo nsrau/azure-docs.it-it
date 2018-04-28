@@ -16,12 +16,12 @@ Durante la migrazione sono supportate queste risorse IaaS classiche
 * Reti virtuali
 * Gateway VPN
 * Gateway ExpressRoute _(solo nella stessa sottoscrizione della rete virtuale)_
-* Gruppi di sicurezza di rete 
-* Tabelle di route 
-* IP riservati 
+* Gruppi di sicurezza di rete
+* Tabelle di route
+* IP riservati
 
 ## <a name="supported-scopes-of-migration"></a>Ambiti di migrazione supportati
-Sono disponibili 4 modi diversi per completare la migrazione delle risorse di calcolo, rete e archiviazione. Si tratta di 
+Sono disponibili 4 modi diversi per completare la migrazione delle risorse di calcolo, rete e archiviazione. Si tratta di
 
 * Migrazione di macchine virtuali (NON in una rete virtuale)
 * Migrazione di macchine virtuali (in una rete virtuale)
@@ -77,7 +77,7 @@ Le seguenti funzionalità non sono attualmente supportate. È possibile rimuover
 | Calcolo | Immagini di macchine virtuali. | La migrazione dei BLOB VHD dietro questi dischi verrà eseguita al momento della migrazione dell'account di archiviazione |
 | Rete | ACL endpoint. | Rimuovere gli ACL endpoint e ripetere la migrazione. |
 | Rete | gateway applicazione | Rimuovere il gateway applicazione prima di iniziare la migrazione e quindi ricrearlo al termine. |
-| Rete | Reti virtuali usando il peering delle reti virtuali. | Eseguire la migrazione della rete virtuale in Resource Manager, quindi eseguire il peering. Altre informazioni sul [peering reti virtuali](../articles/virtual-network/virtual-network-peering-overview.md). | 
+| Rete | Reti virtuali usando il peering delle reti virtuali. | Eseguire la migrazione della rete virtuale in Resource Manager, quindi eseguire il peering. Altre informazioni sul [peering reti virtuali](../articles/virtual-network/virtual-network-peering-overview.md). |
 
 ### <a name="unsupported-configurations"></a>Configurazioni non supportate
 Le seguenti configurazioni non sono attualmente supportate.
@@ -85,7 +85,7 @@ Le seguenti configurazioni non sono attualmente supportate.
 | Service | Configurazione | Raccomandazione |
 | --- | --- | --- |
 | Gestione risorse |Controllo degli accessi in base al ruolo (RBAC) per le risorse classiche |Poiché l'URI delle risorse viene modificato dopo la migrazione, è consigliabile pianificare gli aggiornamenti dei criteri RBAC che devono essere eseguiti dopo la migrazione. |
-| Calcolo |Più subnet associate a una macchina virtuale |Aggiornare la configurazione delle subnet in modo che faccia riferimento solo alle subnet. |
+| Calcolo |Più subnet associate a una macchina virtuale |Aggiornare la configurazione delle subnet in modo che faccia riferimento solo a una subnet. Ciò potrebbe richiedere la rimozione di una scheda di interfaccia di rete secondaria (che fa riferimento a un'altra subnet) dalla macchina virtuale e quindi il suo ricollegamento al termine della migrazione. |
 | Calcolo |Macchine virtuali appartenenti a una rete virtuale, ma senza assegnazione esplicita di una subnet |È facoltativamente possibile eliminare la VM. |
 | Calcolo |Macchine virtuali con avvisi e criteri di ridimensionamento automatico |La migrazione viene eseguita e queste impostazioni vengono eliminate. È quindi consigliabile valutare l'ambiente prima di eseguire la migrazione. In alternativa, è possibile riconfigurare le impostazioni relative agli avvisi al termine della migrazione. |
 | Calcolo |Estensioni XML della VM (BGInfo 1.*, Visual Studio Debugger, Web Deploy e Remote Debugging) |Questa operazione non è supportata. È consigliabile rimuovere queste estensioni dalla macchina virtuale per continuare la migrazione oppure verranno rimosse automaticamente durante il processo di migrazione. |

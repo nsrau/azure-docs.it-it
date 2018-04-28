@@ -1,6 +1,6 @@
 ---
-title: Chiamare un pacchetto SSIS usando Azure Data Factory - Attività stored procedure | Microsoft Docs
-description: Questo articolo descrive come chiamare un pacchetto di SQL Server Integration Services (SSIS) da una pipeline di Azure Data Factory usando l'attività stored procedure.
+title: Eseguire un pacchetto SSIS usando l'attività stored procedure in Azure Data Factory | Microsoft Docs
+description: Questo articolo descrive come eseguire un pacchetto di SQL Server Integration Services (SSIS) da una pipeline di Azure Data Factory usando l'attività stored procedure.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 00a4401a9116d8ebbfefa56194fe45802bcf198e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 283e1022abda083d73e8e4e5bca7872791cb4861
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Chiamare un pacchetto SSIS usando l'attività stored procedure in Azure Data Factory
-Questo articolo descrive come chiamare un pacchetto SSIS da una pipeline di Azure Data Factory usando un'attività stored procedure. 
+# <a name="run-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Eseguire un pacchetto SSIS usando l'attività stored procedure in Azure Data Factory
+Questo articolo descrive come eseguire un pacchetto SSIS da una pipeline di Azure Data Factory usando un'attività stored procedure. 
 
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Chiamare pacchetti SSIS usando l'attività stored procedure nella versione 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
@@ -85,12 +85,13 @@ In questo passaggio viene usata l'interfaccia utente di Data Factory per creare 
 4. Nella finestra **New Linked Service** (Nuovo servizio collegato) seguire questa procedura: 
 
     1. Selezionare **Database SQL di Azure** per **Tipo**.
-    2. Selezionare il server SQL di Azure che ospita il database SSISDB per il campo **Nome server**.
-    3. Selezionare **SSISDB** per **Nome database**.
-    4. Per **Nome utente** immettere il nome dell'utente che ha accesso al database.
-    5. Per **Password** immettere la password dell'utente. 
-    6. Testare la connessione al database facendo clic sul pulsante **Test connessione**.
-    7. Salvare il servizio collegato facendo clic sul pulsante **Salva**. 
+    2. Selezionare il runtime di integrazione di Azure **predefinito** per connettersi al database SQL di Azure che ospita il database `SSISDB`.
+    3. Selezionare il server SQL di Azure che ospita il database SSISDB per il campo**Nome server**.
+    4. Selezionare **SSISDB** per **Nome database**.
+    5. Per **Nome utente** immettere il nome dell'utente che ha accesso al database.
+    6. Per **Password** immettere la password dell'utente. 
+    7. Testare la connessione al database facendo clic sul pulsante **Test connessione**.
+    8. Salvare il servizio collegato facendo clic sul pulsante **Salva**. 
 
         ![Servizio collegato per il database SQL Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. Nella finestra delle proprietà passare alla scheda **Stored procedure** dalla scheda **Account SQL** e seguire questa procedura: 
@@ -121,14 +122,18 @@ In questa sezione si attiva un'esecuzione della pipeline e quindi la si monitora
 
 1. Per attivare un'esecuzione della pipeline, fare clic su **Trigger** sulla barra degli strumenti e quindi su **Trigger Now** (Attiva adesso). 
 
-    ![Trigger now (Attiva adesso)](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+    ![Trigger now (Attiva adesso)](media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+
 2. Nella finestra **Pipeline Run** (Esecuzione di pipeline) selezionare **Fine**. 
 3. Passare alla scheda **Monitoraggio** a sinistra. Verrà visualizzata l'esecuzione della pipeline e il relativo stato insieme ad altre informazioni (ad esempio l'Ora di inizio dell'esecuzione). Per aggiornare la visualizzazione, fare clic su **Aggiorna**.
 
     ![Esecuzioni di pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
+
 3. Fare clic sul collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. Verrà visualizzata una sola esecuzione attività dal momento che la pipeline ha una sola attività (attività stored procedure).
 
-    ![Esecuzioni attività](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png) 4. È possibile eseguire la **query** seguente rispetto al database SSISDB nel server SQL di Azure per verificare che il pacchetto sia stato eseguito. 
+    ![Esecuzioni attività](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
+
+4. È possibile eseguire la **query** seguente sul database SSISDB nel server SQL Azure per verificare che il pacchetto sia stato eseguito. 
 
     ```sql
     select * from catalog.executions

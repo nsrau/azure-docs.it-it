@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/16/2018
-ms.author: bwren
+ms.date: 04/16/2018
+ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb787de23022cd7a48ec476968e05dec6560b419
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c43e262725bd7b4c4fe5680f514d80112766f991
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Aggiunta di avvisi e di ricerche salvate di Log Analytics alla soluzione di gestione (anteprima)
 
 > [!NOTE]
-> Questa è una documentazione preliminare per la creazione di soluzioni di gestione attualmente disponibili in versione di anteprima. Qualsiasi schema descritto di seguito è soggetto a modifiche.   
+> Questo è un documento preliminare che illustra come creare soluzioni di gestione attualmente disponibili in versione di anteprima. Qualsiasi schema descritto di seguito è soggetto a modifiche.   
 
 
 Le [soluzioni di gestione](operations-management-suite-solutions.md) includeranno in genere [ricerche salvate](../log-analytics/log-analytics-log-searches.md) di Log Analytics per l'analisi dei dati raccolti dalla soluzione.  Potranno anche definire [avvisi](../log-analytics/log-analytics-alerts.md) per la notifica all'utente o per eseguire automaticamente un'azione in risposta a un problema critico.  Questo articolo descrive come definire le ricerche salvate e gli avvisi di Log Analytics in un [modello di Resource Manager](../resource-manager-template-walkthrough.md) in modo da consentirne l'inclusione nelle [soluzioni di gestione](operations-management-suite-solutions-creating.md).
@@ -38,7 +38,7 @@ Questo articolo presuppone che si abbia già familiarità con la [creazione di u
 ## <a name="log-analytics-workspace"></a>Area di lavoro di Log Analytics
 Tutte le risorse in Log Analytics sono contenute in un'[area di lavoro](../log-analytics/log-analytics-manage-access.md).  Come descritto in [Area di lavoro di Log Analytics e account di Automazione](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), l'area di lavoro non è inclusa nella soluzione di gestione, ma deve essere presente prima che la soluzione venga installata.  Se non è disponibile, l'installazione della soluzione non riesce.
 
-Il nome dell'area di lavoro è il nome di ogni risorsa di Log Analytics.  A questo scopo, nella soluzione viene usato il parametro **workspace** come nell'esempio seguente di una risorsa savedsearch.
+Il nome dell'area di lavoro è il nome di ogni risorsa di Log Analytics.  A questo scopo, nella soluzione viene usato il parametro **workspace** come nell'esempio seguente di una risorsa SavedSearch.
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
@@ -86,17 +86,22 @@ Le singole proprietà di una ricerca salvata sono descritte nella tabella seguen
 | query | Query da eseguire. |
 
 > [!NOTE]
-> Potrebbe essere necessario usare caratteri di escape, se la query include caratteri che potrebbero essere interpretati come JSON.  La query **Type:AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**, ad esempio, dovrà essere scritta nel file di soluzione nel modo seguente: **Type:AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"**.
+> Potrebbe essere necessario usare caratteri di escape, se la query include caratteri che potrebbero essere interpretati come JSON.  La query **Type: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**, ad esempio, dovrà essere scritta nel file di soluzione nel modo seguente: **Type: AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"**.
 
 ## <a name="alerts"></a>Avvisi
 Gli [avvisi di Log Analytics](../log-analytics/log-analytics-alerts.md) vengono creati da regole di avviso che eseguono una ricerca salvata a intervalli regolari.  Se i risultati della query corrispondono ai criteri specificati, viene creato un record di avviso e vengono eseguite una o più azioni.  
+
+> [!NOTE]
+> A partire dal 14 maggio 2018, tutti gli avvisi in un'area di lavoro verranno automaticamente estesi ad Azure. L'utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 14 maggio 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 Le regole di avviso in una soluzione di gestione sono costituite dalle tre diverse risorse riportate di seguito.
 
 - **Ricerca salvata.**  Definisce la ricerca log che viene eseguita.  Una singola ricerca salvata può essere condivisa da più regole di avviso.
 - **Pianificazione.**  Definisce la frequenza di esecuzione della ricerca log.  Ogni regola di avviso ha una sola pianificazione.
-- **Azione di avviso.**  Ogni regola di avviso ha una risorsa azione di tipo **Alert** che definisce i dettagli dell'avviso, come i criteri per la creazione di un record di avviso e la gravità dell'avviso.  La risorsa azione definirà facoltativamente una risposta tramite posta elettronica e runbook.
-- **Azione webhook (facoltativa).**  Se la regola di avviso chiama un webhook, è necessaria una risorsa azione aggiuntiva di tipo **Webhook**.    
+- **Azione di avviso.**  Ogni regola di avviso dispone di una risorsa gruppo di azioni o risorsa azione (legacy) di tipo **Alert** che definisce i dettagli dell'avviso, come i criteri per la creazione di un record di avviso e la gravità dell'avviso. La risorsa [Gruppo di azioni](../monitoring-and-diagnostics/monitoring-action-groups.md) può disporre di un elenco di azioni configurate da intraprendere quando viene generato l'avviso, come ad esempio chiamata vocale, SMS, messaggio di posta elettronica, webhook, strumento ITSM, runbook di automazione, app per la logica e così via.
+ 
+La risorsa azione (legacy) definirà facoltativamente una risposta tramite posta elettronica e runbook.
+- **Azione webhook (legacy)**  Se la regola di avviso chiama un webhook, è necessaria una risorsa azione aggiuntiva di tipo **Webhook**.    
 
 Le risorse ricerca salvata sono illustrate sopra.  Di seguito sono descritte le altre risorse.
 
@@ -133,20 +138,25 @@ Le proprietà delle risorse pianificazione sono descritte nella tabella seguente
 
 La risorsa pianificazione dipenderà dalla ricerca salvata, che verrà quindi creata prima della pianificazione.
 
+> [!NOTE]
+> Il nome della pianificazione deve essere univoco per ogni area di lavoro specifica; due pianificazioni non possono avere lo stesso ID anche se sono associate a ricerche diverse. Il nome per tutte le ricerche salvate, per le pianificazioni e per le azioni create con l'API Log Analytics deve essere in minuscolo.
+
 
 ### <a name="actions"></a>Azioni
-La proprietà **Type** specifica due tipi di risorsa azione.  Una pianificazione richiede un'azione **Alert** che definisce i dettagli della regola di avviso e le azioni da eseguire quando viene creato un avviso.  Può includere anche un'azione **Webhook**, se dall'avviso verrà chiamato un webhook.  
+Una pianificazione può avere più azioni. Un'azione può definire uno o più processi da eseguire, ad esempio l'invio di un messaggio di posta o l'avvio di un runbook o ancora può definire una soglia che determina quando i risultati di una ricerca corrispondono a certi criteri.  Alcune azioni definiranno entrambi, in modo che i processi vengano eseguiti quando viene raggiunta la soglia.
 
-Le risorse azione sono di tipo `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
+Le azioni possono essere definite usando la risorsa [gruppo di azioni] o la risorsa azione.
 
-#### <a name="alert-actions"></a>Azioni di avviso
+> [!NOTE]
+> A partire dal 14 maggio 2018, tutti gli avvisi in un'area di lavoro verranno automaticamente estesi ad Azure. L'utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 14 maggio 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
-Ogni pianificazione ha un'azione **Alert**.  che definisce i dettagli dell'avviso e, facoltativamente, le azioni di notifica e correzione.  Una notifica invia un messaggio di posta elettronica a uno o più indirizzi.  Una correzione avvia un runbook in Automazione di Azure per provare a risolvere il problema rilevato.
+
+La proprietà **Type** specifica due tipi di risorsa azione.  Una pianificazione richiede un'azione **Alert** che definisce i dettagli della regola di avviso e le azioni da eseguire quando viene creato un avviso. Le risorse azione sono di tipo `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
 
 Le azioni di avviso hanno la struttura seguente.  Nella struttura sono inclusi parametri e variabili comuni ed è quindi possibile copiare e incollare questo frammento di codice nel file della soluzione e, se necessario, modificare i nomi dei parametri. 
 
 
-
+```
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Alert').Name)]",
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
@@ -167,20 +177,16 @@ Le azioni di avviso hanno la struttura seguente.  Nella struttura sono inclusi p
                     "triggerCondition": "[variables('Alert').Threshold.Trigger.Condition]",
                     "operator": "[variables('Alert').Trigger.Operator]",
                     "value": "[variables('Alert').Trigger.Value]"
-                },
-            },
-            "emailNotification": {
-                "recipients": [
-                    "[variables('Alert').Recipients]"
-                ],
-                "subject": "[variables('Alert').Subject]"
-            },
-            "remediation": {
-                "runbookName": "[variables('Alert').Remedition.RunbookName]",
-                "webhookUri": "[variables('Alert').Remedition.WebhookUri]"
-            }
+                  },
+              },
+      "AzNsNotification": {
+        "GroupIds": "[variables('MyAlert').AzNsNotification.GroupIds]",
+        "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]",
+        "CustomWebhookPayload": "[variables('MyAlert').AzNsNotification.CustomWebhookPayload]"
+        }
         }
     }
+```
 
 Le proprietà delle risorse azione di avviso sono descritte nella tabella seguente.
 
@@ -189,17 +195,16 @@ Le proprietà delle risorse azione di avviso sono descritte nella tabella seguen
 | type | Sì | Tipo di azione.  Per le azioni di avviso, il tipo è **Alert**. |
 | NOME | Sì | Nome visualizzato per l'avviso.  È il nome visualizzato nella console per la regola di avviso. |
 | DESCRIZIONE | No  | Descrizione facoltativa dell'avviso. |
-| Severity | Sì | Gravità del record di avviso tra i valori seguenti:<br><br> **Critical**<br>**Warning**<br>**Informational** |
+| Severity | Sì | Gravità del record di avviso tra i valori seguenti:<br><br> **Critical**<br>**Warning**<br>**Informational**
 
 
-##### <a name="threshold"></a>Soglia
+#### <a name="threshold"></a>Soglia
 Questa sezione è obbligatoria  e definisce le proprietà della soglia dell'avviso.
 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
 | Operatore | Sì | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
 | Valore | Sì | Valore per il confronto dei risultati. |
-
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Questa sezione è facoltativa.  Includere la sezione per un avviso di misurazione delle metriche.
@@ -213,12 +218,33 @@ Questa sezione è facoltativa.  Includere la sezione per un avviso di misurazion
 | Operatore | Sì | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
 | Valore | Sì | Numero di volte in cui i criteri devono essere soddisfatti per attivare l'avviso. |
 
-##### <a name="throttling"></a>Limitazione
+
+#### <a name="throttling"></a>Limitazione
 Questa sezione è facoltativa.  Includere la sezione se si vogliono eliminare gli avvisi generati dalla stessa regola per un determinato intervallo di tempo dopo la creazione di un avviso.
 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
 | DurationInMinutes | Sì, se è incluso l'elemento Throttling | Numero di minuti in cui verranno eliminati gli avvisi dopo che ne è stato creato uno dalla stessa regola di avviso. |
+
+
+#### <a name="azure-action-group"></a>Gruppo di azioni di Azure
+Tutti gli avvisi in Azure usano un gruppo di azioni come meccanismo predefinito per la gestione delle azioni. Con un gruppo di azioni, è possibile specificare le azioni una volta e quindi associare il gruppo di azioni a più avvisi in Azure. Tutto questo senza la necessità di dichiarare ripetutamente le stesse azioni più volte. I gruppi di azioni supportano più azioni, tra cui posta elettronica, SMS, chiamate vocali, connessioni di Gestione dei servizi IT, runbook di Automazione, URI di webhook e altro ancora. 
+
+Per gli utenti che hanno esteso gli avvisi in Azure, per una pianificazione devono ora essere passati i dettagli del gruppo di azioni insieme alla soglia per poter creare un avviso. I dettagli di posta elettronica, gli URL di webhook, i dettagli relativi all'automazione runbook e altre azioni devono essere definiti all'interno di un gruppo di azioni prima di creare un avviso. È possibile creare un [gruppo di azioni da Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-action-groups.md) nel portale o usare il [modello Gruppo di azioni - Risorsa](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+
+| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+|:--|:--|:--|
+| AzNsNotification | Sì | ID risorsa del gruppo di azioni di Azure da associare a un avviso per l'esecuzione di azioni necessarie quando viene soddisfatto il criterio di avviso. |
+| CustomEmailSubject | No  | Riga dell'oggetto personalizzata del messaggio inviato a tutti gli indirizzi specificati nel gruppo di azioni associato. |
+| CustomWebhookPayload | No  | Payload personalizzato da inviare a tutti gli endpoint webhook definiti nel gruppo di azioni associato. Il formato dipende da ciò che è previsto dal webhook e deve essere un oggetto JSON serializzato valido. |
+
+
+#### <a name="actions-for-oms-legacy"></a>Azioni per OMS (legacy)
+
+Ogni pianificazione ha un'azione **Alert**.  che definisce i dettagli dell'avviso e, facoltativamente, le azioni di notifica e correzione.  Una notifica invia un messaggio di posta elettronica a uno o più indirizzi.  Una correzione avvia un runbook in Automazione di Azure per provare a risolvere il problema rilevato.
+
+> [!NOTE]
+> A partire dal 14 maggio 2018, tutti gli avvisi in un'area di lavoro verranno automaticamente estesi ad Azure. L'utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 14 maggio 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Questa sezione è facoltativa. Includere la sezione se si vuole inviare un messaggio di posta elettronica a uno o più destinatari.
@@ -239,7 +265,7 @@ Questa sezione è facoltativa. Includere la sezione se si vuole avviare un runbo
 | WebhookUri | Sì | URI del webhook per il runbook. |
 | Expiry | No  | Data e ora di scadenza della correzione. |
 
-#### <a name="webhook-actions"></a>Azioni webhook
+##### <a name="webhook-actions"></a>Azioni webhook
 
 Le azioni webhook avviano un processo chiamando un URL e, facoltativamente, fornendo un payload da inviare. Simili alle azioni correttive, sono destinate a webhook che possono richiamare processi diversi dai runbook di Automazione di Azure. Hanno inoltre l'opzione aggiuntiva di fornire un payload da recapitare al processo remoto.
 
@@ -271,19 +297,17 @@ Le proprietà delle risorse azione webhook sono descritte nella tabella seguente
 | customPayload | No  | Payload personalizzato da inviare al webhook. Il formato dipende da ciò che il webhook si aspetta. |
 
 
-
-
 ## <a name="sample"></a>Esempio
 
 Di seguito è riportato un esempio di soluzione che include le risorse seguenti:
 
 - Ricerca salvata
 - Pianificazione
-- Azione di avviso
-- Azione webhook
+- Gruppo di azioni
 
 L'esempio usa variabili dei [parametri di soluzione standard](operations-management-suite-solutions-solution-file.md#parameters) comunemente usate in una soluzione, anziché impostare i valori come hardcoded nelle definizioni delle risorse.
 
+```
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0",
@@ -294,34 +318,16 @@ L'esempio usa variabili dei [parametri di soluzione standard](operations-managem
               "Description": "Name of Log Analytics workspace"
             }
           },
-          "accountName": {
-            "type": "string",
-            "metadata": {
-              "Description": "Name of Automation account"
-            }
-          },
           "workspaceregionId": {
             "type": "string",
             "metadata": {
               "Description": "Region of Log Analytics workspace"
             }
           },
-          "regionId": {
+          "actiongroup": {
             "type": "string",
             "metadata": {
-              "Description": "Region of Automation account"
-            }
-          },
-          "pricingTier": {
-            "type": "string",
-            "metadata": {
-              "Description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
-            }
-          },
-          "recipients": {
-            "type": "string",
-            "metadata": {
-              "Description": "List of recipients for the email alert separated by semicolon"
+              "Description": "List of action groups for alert actions separated by semicolon"
             }
           }
         },
@@ -331,7 +337,7 @@ L'esempio usa variabili dei [parametri di soluzione standard](operations-managem
           "SolutionPublisher": "Contoso",
           "ProductName": "SampleSolution",
     
-          "LogAnalyticsApiVersion": "2015-11-01-preview",
+          "LogAnalyticsApiVersion": "2015-03-20",
     
           "MySearch": {
             "displayName": "Error records by hour",
@@ -357,20 +363,11 @@ L'esempio usa variabili dei [parametri di soluzione standard](operations-managem
               "Value": 3
             },
             "ThrottleMinutes": 60,
-            "Notification": {
-              "Recipients": [
-                "[parameters('recipients')]"
+            "AzNsNotification": {
+              "GroupIds": [
+                "[parameters('actiongroup')]"
               ],
-              "Subject": "Sample alert"
-            },
-            "Remediation": {
-              "RunbookName": "MyRemediationRunbook",
-              "WebhookUri": "https://s1events.azure-automation.net/webhooks?token=TluBFH3GpX4IEAnFoImoAWLTULkjD%2bTS0yscyrr7ogw%3d"
-            },
-            "Webhook": {
-              "Name": "MyWebhook",
-              "Uri": "https://MyService.com/webhook",
-              "Payload": "{\"field1\":\"value1\",\"field2\":\"value2\"}"
+              "CustomEmailSubject": "Sample alert"
             }
           }
         },
@@ -394,8 +391,7 @@ L'esempio usa variabili dei [parametri di soluzione standard](operations-managem
               "containedResources": [
                 "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
                 "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
-                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]",
-                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Webhook.Name)]"
+                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]"
               ]
             },
             "plan": {
@@ -458,39 +454,18 @@ L'esempio usa variabili dei [parametri di soluzione standard](operations-managem
               "Throttling": {
                 "DurationInMinutes": "[variables('MyAlert').ThrottleMinutes]"
               },
-              "EmailNotification": {
-                "Recipients": "[variables('MyAlert').Notification.Recipients]",
-                "Subject": "[variables('MyAlert').Notification.Subject]",
-                "Attachment": "None"
-              },
-              "Remediation": {
-                "RunbookName": "[variables('MyAlert').Remediation.RunbookName]",
-                "WebhookUri": "[variables('MyAlert').Remediation.WebhookUri]"
-              }
-            }
-          },
-          {
-            "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/', variables('MyAlert').Schedule.Name, '/', variables('MyAlert').Webhook.Name)]",
-            "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
-            "dependsOn": [
-              "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name)]",
-              "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name, '/actions/',variables('MyAlert').Name)]"
-            ],
-            "properties": {
-              "etag": "*",
-              "Type": "Webhook",
-              "Name": "[variables('MyAlert').Webhook.Name]",
-              "WebhookUri": "[variables('MyAlert').Webhook.Uri]",
-              "CustomPayload": "[variables('MyAlert').Webhook.Payload]"
+            "AzNsNotification": {
+              "GroupIds": "[variables('MyAlert').AzNsNotification.GroupIds]",
+              "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]"
+            }             
             }
           }
         ]
     }
-
+```
 
 Il file di parametri seguente offre valori di esempio per la soluzione.
-
+```
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
@@ -510,12 +485,12 @@ Il file di parametri seguente offre valori di esempio per la soluzione.
             "pricingTier": {
                 "value": "Free"
             },
-            "recipients": {
-                "value": "recipient1@contoso.com;recipient2@contoso.com"
+            "actiongroup": {
+                "value": "/subscriptions/3b540246-808d-4331-99aa-917b808a9166/resourcegroups/myTestGroup/providers/microsoft.insights/actiongroups/sample"
             }
         }
     }
-
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Aggiungere viste](operations-management-suite-solutions-resources-views.md) alla soluzione di gestione.

@@ -4,7 +4,7 @@ description: Tutte le informazioni sull'SDK e sull'API .NET per SQL, incluse le 
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 662a1d1d0f13b64cc87ab6eb0eee6af94cd97c54
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e4d33fc513b3a2aaa70a3402a42b31efe63c62dd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK per API SQL: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.lasthandoff: 03/30/2018
 ### <a name="a-name12111211"></a><a name="1.21.1"/>1.21.1
 
 * È stato risolto il problema della visualizzazione di un'eccezione KeyNotFoundException per le query ORDER BY su più partizioni in casi limite.
-* Correzione del bug per cui l'attributo JsonPropery nella clausola SELECT per le query LINQ non viene rispettato.
+* Correzione del bug per cui l'attributo JsonProperty nella clausola SELECT per le query LINQ non viene rispettato.
 
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 

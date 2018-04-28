@@ -1,11 +1,11 @@
 ---
-title: Come configurare l'accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta | Microsoft Docs
-description: "Come configurare un'applicazione personalizzata per un accesso Single Sign-On sicuro basato su password quando non è elencata nella raccolta delle applicazioni di Azure AD"
+title: Come configurare un accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta | Microsoft Docs
+description: Come configurare un'applicazione personalizzata per un accesso Single Sign-On sicuro basato su password quando non è elencata nella raccolta delle applicazioni di Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: fd93b3fa5b601a276047feab67758fe1a29d4e27
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b928d71fbff232ae93dbf3d24517e7efc4cf8bfd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Come configurare l'accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta
+# <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Come configurare un accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta
 
 Oltre alle applicazioni della raccolta di Azure AD, è anche possibile aggiungere un'**applicazione non inclusa nella raccolta**. Tramite questa funzionalità, è possibile aggiungere qualsiasi applicazione che esiste già nell'organizzazione o qualsiasi applicazione di terze parti che potrebbe essere usata da un fornitore che non fa parte della [raccolta di applicazioni di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
 
@@ -112,6 +112,8 @@ Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa pro
 10. Assegnare gli utenti all'applicazione.
 
 11. È anche possibile specificare le credenziali per conto dell'utente selezionando le righe degli utenti e facendo clic su **Aggiorna credenziali**, quindi immettendo il nome utente e la password per conto degli utenti. In caso contrario, verrà richiesto agli utenti di immettere le credenziali all'avvio.
+
+12. **Facoltativo:** per alcune applicazioni di social media come Facebook e Twitter, è anche disponibile l'opzione per l'abilitazione automatica dell'effetto di attivazione della password per l'applicazione in base alla frequenza selezionata. Per abilitare questa funzionalità, selezionare **Desidero che Azure AD gestisca automaticamente la password di questo utente o gruppo** durante l'immissione delle credenziali per conto di un utente o di un gruppo. Selezionare quindi la **Frequenza rollover (in settimane)**.
 
 ## <a name="assign-a-user-to-an-application-directly"></a>Assegnare un utente direttamente a un'applicazione
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.openlocfilehash: a00b908f9811822f262d2c6113e3ff5fc364b1b4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Creare route definite dall'utente (UDR) mediante un modello
 
@@ -112,7 +112,7 @@ Si noti che va effettuata la stessa operazione per l'NSG back-end della subnet b
     }
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>Distribuire il modello tramite clic per la distribuzione
-Il modello di esempio disponibile nel repository pubblico usa un file di parametri che contiene i valori predefiniti usati per generare lo scenario descritto in precedenza. Per distribuire [questo modello](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR) tramite clic per la distribuzione, fare clic su **Distribuisci in Azure**, sostituire i valori dei parametri predefiniti, se necessario, e seguire le istruzioni nel portale.
+Il modello di esempio disponibile nel repository pubblico usa un file di parametri che contiene i valori predefiniti usati per generare lo scenario descritto in precedenza. Distribuire [questo modello](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR)tramite clic per la distribuzione, fare clic su **Distribuisci in Azure**, sostituire i valori del parametro predefinito se necessario e seguire le istruzioni nel portale.
 
 1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 2. Usare il comando seguente per creare un gruppo di risorse:
@@ -186,7 +186,7 @@ Per distribuire il modello Azure Resource Manager tramite l'interfaccia della ri
 
         info:    New mode is arm
 
-3. Nel browser passare a **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copiare il contenuto del file json e incollare in un nuovo file nel computer. Per questo scenario copiare i valori seguenti in un file denominato **c:\udr\azuredeploy.parameters.json**.
+3. Dal browser passare a **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copiare il contenuto del file JSON e incollarlo in un nuovo file nel computer. Per questo scenario copiare i valori seguenti in un file denominato **c:\udr\azuredeploy.parameters.json**.
 
     ```json
         {

@@ -26,12 +26,12 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Subnet per rete virtuale |1000 |10000 |
 | Peering reti virtuali per rete virtuale |10 |50 |
 | Server DNS per rete virtuale |9 |25 |
-| Indirizzi IP privati per rete virtuale |4096 |8192 |
+| Indirizzi IP privati per rete virtuale |16384** |16384 |
 | Indirizzi IP privati per interfaccia di rete |256 |1024 |
 | Flussi TCP o UDP simultanei per ogni scheda di interfaccia di rete di un'istanza del ruolo o di una macchina virtuale |500K |500K |
-| Interfacce di rete (NIC) |350 |20000 |
+| Interfacce di rete (NIC) |24000** |24000 |
 | Gruppi di sicurezza di rete (NGS) |100 |5000 |
-| Regole NSG per NSG |200 |1000 |
+| Regole NSG per NSG |1000** |1000 |
 | Indirizzi IP e intervalli specificati per l'origine o la destinazione in un gruppo di sicurezza |2000 |4000 |
 | Gruppi di sicurezza delle applicazioni |200 |500 |
 | Gruppi di sicurezza delle applicazioni per ogni configurazione IP, per ogni scheda di interfaccia di rete |10 |20 |
@@ -43,6 +43,8 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Indirizzi IP pubblici: statici |(Basic) 20 |contattare il supporto tecnico |
 | Indirizzi IP pubblici: statici |(Standard) 20 |contattare il supporto tecnico |
 | Certificati radice Point-to-Site per ogni gateway VPN |20 |20 |
+
+**Questi limiti predefiniti si applicano alle sottoscrizioni per le quali i limiti non sono stati precedentemente aumentati tramite il supporto
 
 #### <a name="load-balancer"></a>Limiti del bilanciamento del carico
 

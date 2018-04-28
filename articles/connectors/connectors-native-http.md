@@ -4,8 +4,8 @@ description: Creare app per la logica in grado di comunicare con qualsiasi endpo
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
 ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 355d1e02ef8195bcee469b77976f1a5834f192d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-the-http-action"></a>Introduzione all'azione HTTP
 
@@ -150,7 +150,7 @@ Un asterisco (*) indica che è un campo obbligatorio.
 
 > [!TIP]
 > Se si desidera usare una password che non può essere recuperata dalla definizione, usare un parametro `securestring` e la `@parameters()` 
-> [funzione di definizione del flusso di lavoro](http://aka.ms/logicappdocs).
+> [funzione di definizione del flusso di lavoro](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
 
 Ad esempio: 
 
@@ -174,7 +174,7 @@ Per l'autenticazione con certificato client è necessario l'oggetto di autentica
 
 > [!TIP]
 > Per usare un parametro che non sarà leggibile nella definizione dopo il salvataggio dell'app per la logica, è possibile usare un parametro `securestring` e la `@parameters()` 
-> [funzione di definizione del flusso di lavoro](http://aka.ms/logicappdocs).
+> [funzione di definizione del flusso di lavoro](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
 
 Ad esempio: 
 
@@ -198,7 +198,7 @@ Per l'autenticazione OAuth di Azure Ad è necessario l'oggetto di autenticazione
 | Segreto* |secret |Segreto del client che richiede il token |
 
 > [!TIP]
-> È possibile usare un parametro `securestring` e la [funzione di definizione del flusso di lavoro](http://aka.ms/logicappdocs) `@parameters()` per usare un parametro che non sarà leggibile nella definizione dopo il salvataggio.
+> È possibile usare un parametro `securestring` e la [funzione di definizione del flusso di lavoro](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow) `@parameters()` per usare un parametro che non sarà leggibile nella definizione dopo il salvataggio.
 > 
 > 
 

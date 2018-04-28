@@ -2,11 +2,11 @@
 title: Eseguire la distribuzione nel Servizio app di Azure con il plug-in Jenkins| Microsoft Docs
 description: Informazioni su come usare il Servizio app di Azure per distribuire un'app Web Java in Azure con Jenkins
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 0e5916b2f8f901ff549ef74fca57cf09dc9fec21
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0128ad37e3ba66710279de42cf4eae0ce5431b5b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Eseguire la distribuzione nel Servizio app di Azure con il plug-in Jenkins 
 
@@ -39,7 +39,7 @@ Se non è già disponibile un master Jenkins, iniziare con il [modello di soluzi
 * [Plug-in Git client Jenkins](https://plugins.jenkins.io/git-client) versione 2.4.6 
 * [Plug-in Docker Commons](https://plugins.jenkins.io/docker-commons) versione 1.4.0
 * [Credenziali di Azure](https://plugins.jenkins.io/azure-credentials) versione 1.2
-* [Servizio app di Azure](https://plugins.jenkins.io/azure-app-server) versione 0.1
+* [Servizio app di Azure](https://plugins.jenkins.io/azure-app-service) versione 0.1
 
 Si può usare il plug-in Jenkins per distribuire un'app Web in qualsiasi linguaggio supportato da App Web, ad esempio C#, PHP, Java e Node.js. In questa esercitazione viene usata l'app di esempio [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample). Per creare il fork del repository nel proprio account GitHub, selezionare il pulsante **Fork** nell'angolo superiore destro dell'interfaccia GitHub.  
 > [!NOTE]
@@ -90,7 +90,7 @@ Prima di configurare il processo in Jenkins sono necessari un piano di servizio 
 ### <a name="set-up-the-jenkins-job"></a>Impostare il processo Jenkins
 
 1. Creare un nuovo progetto **freestyle** nel dashboard di Jenkins.
-2. Configurare il campo **Source Code Management** (Gestione del codice sorgente) in modo da usare il fork locale di [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample). Fornire l'**URL del repository**. Ad esempio: http://github.com/&lt;ID >/esempioappwebjava.
+2. Configurare il campo **Source Code Management** (Gestione del codice sorgente) in modo da usare il fork locale di [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample). Fornire l'**URL del repository**. Ad esempio: http://github.com/&lt;your_ID>/javawebappsample.
 3. Aggiungere un passaggio per compilare il progetto con Maven aggiungendo il comando **Execute shell** (Esegui shell). Per questo esempio, è necessario un passaggio aggiuntivo per rinominare il file \*.war nella cartella di destinazione in **ROOT.war**:   
     ```bash
     mvn clean package
@@ -143,7 +143,7 @@ Prima di configurare il processo in Jenkins, è necessaria un'app Web in Linux. 
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Impostare il processo Jenkins per Docker
 
 1. Creare un nuovo progetto **freestyle** nel dashboard di Jenkins.
-2. Configurare il campo **Source Code Management** (Gestione del codice sorgente) in modo da usare il fork locale di [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample). Fornire l'**URL del repository**. Ad esempio: http://github.com/&lt;ID >/esempioappwebjava.
+2. Configurare il campo **Source Code Management** (Gestione del codice sorgente) in modo da usare il fork locale di [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample). Fornire l'**URL del repository**. Ad esempio: http://github.com/&lt;your_ID>/javawebappsample.
 3. Aggiungere un passaggio per compilare il progetto con Maven aggiungendo un comando **Execute shell** (Esegui shell). Includere la riga seguente nel comando:
     ```bash
     mvn clean package

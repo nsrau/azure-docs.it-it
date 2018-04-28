@@ -14,11 +14,11 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 84390f73fdac6554699dd43a0a36d16eace9a2bb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a50854b2e12db9a202d769f9e5feebee8e5f9395
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Domande frequenti e problemi noti di Identità del servizio gestito (MSI) per Azure Active Directory
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="frequently-asked-questions-faqs"></a>Domande frequenti (FAQ)
 
-### <a name="is-there-a-private-preview-available-for-additional-features"></a>È disponibile un'anteprima privata per funzionalità aggiuntive?
+### <a name="is-there-a-private-preview-program-available-for-upcoming-msi-features-and-integrations"></a>È disponibile un programma di anteprima privata per le integrazioni e le funzionalità future di Identità del servizio gestito (MSI)?
 
-Sì. Se si vuole sottoporre la propria candidatura per la registrazione all'anteprima privata, [vedere la pagina di iscrizione](https://aka.ms/azuremsiprivatepreview).
+Sì. Se si vuole sottoporre la propria candidatura per la registrazione al programma di anteprima privata, [vedere la pagina di iscrizione](https://aka.ms/azuremsiprivatepreview).
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>Identità del servizio gestito funziona con Servizi cloud di Azure?
 
@@ -42,10 +42,24 @@ No, l'Identità del servizio gestito non è ancora integrata con ADAL o MSAL. Pe
 
 Il limite di sicurezza dell'identità è la risorsa a cui è collegata. Il limite di sicurezza per un file MSI di macchina virtuale, ad esempio, è la macchina virtuale. Qualsiasi codice in esecuzione su tale macchina virtuale è in grado di chiamare l'endpoint MSI e richiedere i token. L'esperienza è simile a quella con altre risorse che supportano MSI.
 
+### <a name="should-i-use-the-msi-vm-imds-endpoint-or-the-msi-vm-extension-endpoint"></a>È necessario usare l'endpoint del Servizio metadati dell'istanza (IMDS) della macchina virtuale dell'identità del servizio gestito (MSI) o l'endpoint dell'estensione della macchina virtuale MSI?
+
+Quando si usa MSI con le macchine virtuali, è consigliabile usare l'endpoint IMDS MSI. Il Servizio metadati dell'istanza di Azure è un endpoint REST accessibile a tutte le macchine virtuali IaaS create tramite Azure Resource Manager. Alcuni dei vantaggi dell'uso di MSI rispetto a IMDS sono i seguenti:
+
+1. Tutti i sistemi operativi supportati IaaS di Azure possono usare MSI su IMDS. 
+2. Non è più necessario installare un'estensione nella macchina virtuale per abilitare MSI. 
+3. I certificati usati da MSI non sono più presenti nella macchina virtuale. 
+4. L'endpoint IMDS è un indirizzo IP non instradabile noto disponibile solo dalla macchina virtuale. 
+
+L'estensione della macchina virtuale MSI è ancora disponibile per l'uso, ma per il futuro verrà usato per impostazione predefinita l'endpoint IMDS. Il piano di deprecazione per l'estensione della macchina virtuale MSI avrà presto inizio. 
+
+Per altre informazioni sul Servizio metadati dell'istanza di Azure, vedere la [documentazione di IMDS](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+
 ### <a name="what-are-the-supported-linux-distributions"></a>Quali sono le distribuzioni di Linux supportate?
 
-Le distribuzioni di Linux seguenti supportano MSI: 
+Tutte le distribuzioni Linux supportate da IaaS di Azure possono essere usate con MSI tramite l'endpoint IMDS. 
 
+Nota: l'estensione della macchina virtuale MSI supporta solo le distribuzioni Linux seguenti:
 - CoreOS Stable
 - CentOS 7.1
 - RedHat 7.2

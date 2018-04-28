@@ -16,23 +16,23 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: a02844c678c08d8aefbceb16d3908faeffd755fb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 396452faf36bc43a185fd6492f952b7bfd9511cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-data-lake-store-resources-by-using-storage-explorer"></a>Gestire le risorse di Azure Data Lake Store con Storage Explorer
 
-[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) è un servizio per l'archiviazione di grandi quantità di dati non strutturati, come dati binari o di testo. È possibile accedere ai dati da qualsiasi posizione, tramite HTTP o HTTPS. Data Lake Store in Azure Storage Explorer consente di accedere a dati e risorse di Data Lake Store e gestirli insieme ad altre entità di Azure come BLOB e code. È ora possibile usare lo stesso strumento per gestire le diverse entità di Azure in un'unica posizione.
+[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) è un servizio per l'archiviazione di grandi quantità di dati non strutturati, come dati binari o di testo. È possibile accedere ai dati da qualsiasi posizione, tramite HTTP o HTTPS. Data Lake Store in Azure Storage Explorer consente di accedere a dati e risorse di Data Lake Store e gestirli insieme ad altre entità di Azure come BLOB e code. È ora possibile usare lo stesso strumento per gestire le diverse entità di Azure in un'unica posizione.
 
 Un altro vantaggio è rappresentato dal fatto che non è necessario avere un'autorizzazione a livello di sottoscrizione per gestire i dati di Data Lake Store. In Storage Explorer, per collegare il percorso di Data Lake Store al nodo **Local and Attached** (Locale e collegato) è sufficiente che un altro utente abbia concesso l'autorizzazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare le procedure in questo articolo, sono necessari i prerequisiti seguenti:
 
 *   Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial).
-*   Un account Azure Data Lake Store. Per istruzioni su come crearne uno, vedere [Introduzione ad Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal).
+*   Un account Azure Data Lake Store. Per istruzioni su come crearne uno, vedere [Introduzione ad Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ## <a name="install-storage-explorer"></a>Installare Storage Explorer
 
@@ -197,7 +197,7 @@ Se si ha un URL, è possibile immettere l'URL come percorso in forma di indirizz
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Note sulla versione e video più recenti per Storage Explorer](http://www.storageexplorer.com).
-* Informazioni su come [gestire Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer).
-* [Guida introduttiva a Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-* [Introduzione ad Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview).
+* Informazioni su come [gestire Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
+* [Guida introduttiva a Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* [Introduzione ad Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 * [Video di YouTube su come usare Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/26/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: fbf3c66979730a9162c56e8583f0a32977a0310d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cbc1efaee7404c3ffc82acea0846136c43eba2a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Certificati di Stack Azure generazione di una richiesta di firma
 
@@ -82,13 +82,13 @@ Utilizzare questi passaggi per preparare e convalidare i certificati di infrastr
 5. Per generare una richiesta di certificato singolo con più Subject Alternative Names, incluse quelle necessarie per servizi PaaS:
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleSAN -OutputRequestPath $OutputDirectory -IncludePaaS
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IncludePaaS
     ````
 
 6. Per generare singole richieste per ogni nome DNS senza servizi PaaS di firma del certificato:
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleSAN -OutputRequestPath $OutputDirectory
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory
     ````
 
 7. Esaminare l'output:
@@ -112,4 +112,6 @@ Utilizzare questi passaggi per preparare e convalidare i certificati di infrastr
 8.  Inviare il **. REQ** file generato per l'autorità di certificazione (interno o pubblico).  La directory di output **inizio AzsReadinessChecker** contiene CSR(s) necessarie per inviare a un'autorità di certificazione.  Include inoltre una directory figlio che contiene i file INF utilizzati durante la generazione di richiesta di certificato, come riferimento. Assicurarsi che la CA genera certificati utilizzando la richiesta generata che soddisfano il [requisiti di infrastruttura a chiave pubblica di Azure Stack](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 [Preparare i certificati di infrastruttura a chiave pubblica di Azure Stack](azure-stack-prepare-pki-certs.md)
+

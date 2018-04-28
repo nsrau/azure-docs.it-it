@@ -4,7 +4,7 @@ description: Informazioni su come sviluppare ed eseguire in modo iterativo il de
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 04/04/2018
+ms.date: 04/16/2018
 ms.topic: article
 ms.service: data-factory
 services: data-factory
@@ -12,11 +12,11 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: adb5ffd65d4b2b591abba5d4b3481b7ca08de579
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b6a6fbd721e4f0af977fe7fa03adc4459de7611f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Sviluppo e debug iterativi con Azure Data Factory
 
@@ -48,6 +48,14 @@ Durante un'esecuzione dei test, non è necessario pubblicare le modifiche in Dat
 Data Factory consente anche di eseguire il debug finché non si raggiunge una specifica attività nel canvas della pipeline. È sufficiente inserire un punto di interruzione sull'attività fino alla quale si vuole testare e selezionare **Debug**. Data Factory esegue i test solo fino all'attività con il punto di interruzione nel canvas della pipeline. Questa funzionalità *Debug Until* (Debug fino a) è utile quando non si vuole testare l'intera pipeline, ma solo un subset delle attività all'interno della pipeline.
 
 ![Punti di interruzione nel canvas della pipeline](media/iterative-development-debugging/iterative-development-image4.png)
+
+Per impostare un punto di interruzione, selezionare un elemento nel canvas della pipeline. L'opzione *Debug Until* (Debug fino a) viene visualizzata sotto forma di cerchio rosso vuoto nell'angolo in alto a destra dell'elemento.
+
+![Prima dell'impostazione di un punto di interruzione sull'elemento selezionato](media/iterative-development-debugging/iterative-development-image5.png)
+
+Dopo avere selezionato l'opzione *Debug Until* (Debug fino a), diventa un cerchio rosso pieno per indicare che il punto di interruzione è abilitato.
+
+![Dopo l'impostazione di un punto di interruzione sull'elemento selezionato](media/iterative-development-debugging/iterative-development-image6.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Integrazione e distribuzione continue in Azure Data Factory](continuous-integration-deployment.md)

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 04/05/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c9a546f82d3300b37f861fff53421ebbf9fe3804
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2c54435d893753306e903c0851e319fc3d1621b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -51,7 +51,7 @@ La tabella seguente elenca i sistemi operativi supportati:
 |Sistema operativo  |Note  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Supporta solo le valutazioni degli aggiornamenti         |
-|Windows Server 2008 R2 SP1 e versioni successive     |Sono richiesti .NET Framework 4.5 e WMF 5.0 o versioni successive per Windows Server 2008 R2 SP1        |
+|Windows Server 2008 R2 SP1 e versioni successive     |Windows PowerShell 4.0 o versione successiva è obbligatorio ([scaricare WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).<br> Windows PowerShell 5.1 ([scaricare WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) è consigliato per la sua maggiore affidabilità.         |
 |CentOS 6 (x86/x64) e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
@@ -252,7 +252,7 @@ Se si riscontrano problemi durante il tentativo di caricare la soluzione o un ma
 | Unable to  Register Machine for Patch Management,<br>Registration Failed with Exception<br>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---><br>System.Net.WebException: The underlying connection<br>was closed: An unexpected error<br>occurred on a receive. ---> System.ComponentModel.Win32Exception:<br>The client and server cannot communicate,<br>because they do not possess a common algorithm | Proxy/Gateway/Firewall che blocca la comunicazione | [Esaminare i requisiti di rete](automation-offering-get-started.md#network-planning)|
 | Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/Gateway/Firewall che blocca la comunicazione | [Esaminare i requisiti di rete](automation-offering-get-started.md#network-planning)|
 | The certificate presented by the service <wsid>.oms.opinsights.azure.com<br>was not issued by a certificate authority<br>used for Microsoft services. Contatto<br>your network administrator to see if they are running a proxy that intercepts<br>TLS/SSL communication. |Proxy/Gateway/Firewall che blocca la comunicazione | [Esaminare i requisiti di rete](automation-offering-get-started.md#network-planning)|
-| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Failed to create a self-signed certificate. ---><br>System.UnauthorizedAccessException: Access is denied. | Errore di generazione del certificato autofirmato | Verificare che l'account di sistema abbia<br>l'accesso in lettura alla cartella:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|
+| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Failed to create a self-signed certificate. ---><br>System.UnauthorizedAccessException: Access is denied. | Errore di generazione del certificato autofirmato | Verificare che l'account di sistema abbia<br>l'accesso in lettura alla cartella:<br>**C:\ProgramData\Microsoft\**<br>** Crypto\RSA**|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

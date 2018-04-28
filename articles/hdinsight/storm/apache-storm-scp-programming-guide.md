@@ -1,8 +1,8 @@
 ---
 title: Guida alla programmazione SCP.NET | Documentazione Microsoft
-description: "Informazioni su come utilizzare SCP.NET per creare topologie Storm basate su .NET per l’utilizzo con Storm in HDInsight."
+description: Informazioni su come utilizzare SCP.NET per creare topologie Storm basate su .NET per l’utilizzo con Storm in HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: raviperi
 manager: jhubbard
 editor: cgronlun
@@ -11,15 +11,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: raviperi
-ms.openlocfilehash: a0ce92ba58fbcda812a3d4e5e275178b73400d6c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0f4c021bc209c99e1b3f34b34bf5ba0549eb48f9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scp-programming-guide"></a>Guida alla programmazione SCP
 SCP è una piattaforma per la compilazione di applicazioni di elaborazione dati dalle prestazioni elevate, affidabili, coerenti e in tempo reale. È basata su [Apache Storm](http://storm.incubator.apache.org/) , un sistema di elaborazione dei flussi progettato dalle community di sviluppo di software open source (OSS). Storm è stato progettato da Nathan Marz ed è stato reso open source da Twitter. Il sistema si avvale di [Apache Zookeeper](http://zookeeper.apache.org/), un altro progetto Apache per il coordinamento e la gestione dello stato altamente affidabili delle applicazioni distribuite. 
@@ -351,7 +349,7 @@ In generale, i plug-in SCP possono essere eseguiti in due modalità:
         }
 
 ## <a name="topology-specification-language"></a>Linguaggio di specifica della topologia
-SCP Topology Specification è un linguaggio specifico di dominio per la descrizione e la configurazione di topologie SCP. È basato sul DSL di Storm in linguaggio Clojure (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) ed esteso da SCP.
+SCP Topology Specification è un linguaggio specifico di dominio per la descrizione e la configurazione di topologie SCP. Si basa su Clojure DSL di Storm (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) e viene estesa da SCP.
 
 Le specifiche della topologia possono essere inviate direttamente al cluster Storm per l'esecuzione mediante il comando ***runspec***.
 

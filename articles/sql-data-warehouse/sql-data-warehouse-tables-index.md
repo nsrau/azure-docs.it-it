@@ -1,38 +1,29 @@
 ---
-title: Indicizzazione di tabelle in SQL Data Warehouse | Microsoft Azure
-description: Introduzione all'indicizzazione delle tabelle in Azure SQL Data Warehouse.
+title: Indicizzazione di tabelle in Azure SQL Data Warehouse | Microsoft Azure
+description: Raccomandazioni ed esempi per l'indicizzazione di tabelle in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 03/15/2018
-ms.author: barbkess
-ms.openlocfilehash: 96d4bb91fabe6b962d1fe4d5b2dc26f6342012b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 75d3638326bc1bf2f72997fa9d5d5feabc837a62
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indicizzazione di tabelle in SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Panoramica][Overview]
-> * [Tipi di dati][Data Types]
-> * [Distribuzione][Distribute]
-> * [Indice][Index]
-> * [Partizione][Partition]
-> * [Statistiche][Statistics]
-> * [Temporanee][Temporary]
-> 
-> 
+Raccomandazioni ed esempi per l'indicizzazione di tabelle in Azure SQL Data Warehouse.
 
-SQL Data Warehouse offre diverse opzioni di indicizzazione, inclusi [indici columnstore cluster][clustered columnstore indexes], [indici cluster e indici non cluster][clustered indexes and nonclustered indexes].  Offre anche un'opzione senza indice nota come [heap][heap].  Questo articolo illustra i vantaggi dei singoli tipi di indice e fornisce suggerimenti su come ottimizzare le prestazioni degli indici. Per altre informazioni su come creare una tabella in SQL Data Warehouse, vedere la [sintassi CREATE TABLE][create table syntax].
+## <a name="what-are-index-choices"></a>Quali sono le opzioni di indicizzazione?
+
+SQL Data Warehouse offre diverse opzioni di indicizzazione, inclusi [indici columnstore cluster](/sql/relational-databases/indexes/columnstore-indexes-overview), [indici cluster e indici non cluster](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described) e un'opzione non di indice nota anche come [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
+
+Per creare una tabella con un indice, vedere la documentazione su [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse).
 
 ## <a name="clustered-columnstore-indexes"></a>Indici columnstore cluster
 Per impostazione predefinita, SQL Data Warehouse crea un indice columnstore cluster quando non vengono specificate opzioni di indice in una tabella. Le tabelle columnstore cluster offrono sia il livello massimo di compressione dei dati che le migliori prestazioni query generali.  Le tabelle columnstore cluster garantiscono in genere prestazioni migliori rispetto alle tabelle heap o con indice cluster e rappresentano la scelta migliore in caso di tabelle di grandi dimensioni.  Per questi motivi, l'indice columnstore cluster è il modo migliore per iniziare quando non si è certi di come indicizzare una tabella.  
@@ -51,12 +42,12 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 In alcuni scenari l'indice columnstore cluster potrebbe non essere la scelta ideale:
 
-* Le tabelle columnstore non supportano varchar(max), nvarchar(max) e varbinary(max).  È consigliabile usare tabelle heap o di indici cluster.
-* Le tabelle columnstore potrebbero risultare meno efficiente per i dati temporanei.  È consigliabile usare tabelle heap oppure tabelle temporanee.
-* Tabelle di piccole dimensioni con meno di 100 milioni di righe.  È consigliabile usare tabelle heap.
+- Le tabelle columnstore non supportano varchar(max), nvarchar(max) e varbinary(max). È consigliabile usare tabelle heap o di indici cluster.
+- Le tabelle columnstore potrebbero risultare meno efficiente per i dati temporanei. È consigliabile usare tabelle heap oppure tabelle temporanee.
+- Tabelle di piccole dimensioni con meno di 100 milioni di righe. È consigliabile usare tabelle heap.
 
 ## <a name="heap-tables"></a>Tabelle heap
-Quando si inseriscono temporaneamente i dati in SQL Data Warehouse, una tabella heap potrebbe rendere più veloce il processo complessivo.  Questo perché il caricamento negli heap è più veloce rispetto alle tabelle degli indici e in alcuni casi è possibile eseguire la lettura successiva dalla cache.  Se si caricano i dati solo per inserirli temporaneamente prima di eseguire altre trasformazioni, il caricamento della tabella in una tabella heap sarà molto più rapido del caricamento dei dati in una tabella columnstore cluster. Anche il caricamento dei dati in una [tabella temporanea][Temporary] risulta molto più veloce del caricamento di una tabella in un archivio permanente.  
+Quando si inseriscono temporaneamente i dati in SQL Data Warehouse, una tabella heap rende più veloce il processo complessivo. Questo perché il caricamento negli heap è più veloce rispetto alle tabelle degli indici e in alcuni casi è possibile eseguire la lettura successiva dalla cache.  Se si caricano i dati solo per inserirli temporaneamente prima di eseguire altre trasformazioni, il caricamento della tabella in una tabella heap è molto più rapido del caricamento dei dati in una tabella columnstore cluster. Anche il caricamento dei dati in una [tabella temporanea](sql-data-warehouse-tables-temporary.md) risulta più veloce del caricamento di una tabella in un archivio permanente.  
 
 Per le tabelle di ricerca di piccole dimensioni, inferiori a 100 milioni di righe, è spesso consigliabile scegliere le tabelle heap.  Le tabelle columnstore cluster iniziano a raggiungere la compressione ottimale oltre i 100 milioni di righe.
 
@@ -73,7 +64,7 @@ WITH ( HEAP );
 ```
 
 ## <a name="clustered-and-nonclustered-indexes"></a>Indici cluster e non cluster
-Gli indici cluster possono offrire prestazioni migliori rispetto alle tabelle columnstore cluster quando è necessario recuperare rapidamente una singola riga.  Per le query in cui è necessario eseguire la ricerca in una sola riga o comunque in un numero di righe molto ridotto a velocità elevata, è consigliabile usare indici cluster o indici non cluster secondari.  Gli indici cluster hanno lo svantaggio di risultare utili solo per le query con un filtro molto selettivo nella colonna dell'indice cluster.  Per migliorare i filtri nelle altre colonne è possibile aggiungere un indice non cluster a tali colonne.  Tuttavia, ogni indice che viene aggiunto a una tabella richiederà spazio e tempo di elaborazione aggiuntivi.
+Gli indici cluster possono offrire prestazioni migliori rispetto alle tabelle columnstore cluster quando è necessario recuperare rapidamente una singola riga. Per le query in cui è necessario eseguire la ricerca in una sola riga o comunque in un numero di righe molto ridotto a velocità elevata, è consigliabile usare indici cluster o indici non cluster secondari. Gli indici cluster hanno lo svantaggio di risultare utili solo per le query con un filtro molto selettivo nella colonna dell'indice cluster. Per migliorare i filtri nelle altre colonne è possibile aggiungere un indice non cluster a tali colonne. Tuttavia, ogni indice che viene aggiunto a una tabella richiede spazio e tempo di elaborazione aggiuntivi.
 
 Per creare una tabella di indici cluster è sufficiente specificare CLUSTERED INDEX nella clausola WITH:
 
@@ -145,7 +136,7 @@ GROUP BY
 ;
 ```
 
-Dopo aver creato la vista, eseguire la query per identificare le tabelle con gruppi di righe con meno di 100.000 righe.  Per una qualità ancora superiore dei segmenti, è consigliabile aumentare la soglia oltre le 100.000 righe. 
+Dopo aver creato la vista, eseguire la query per identificare le tabelle con gruppi di righe con meno di 100.000 righe. Per una qualità ancora superiore dei segmenti, è consigliabile aumentare la soglia oltre le 100.000 righe. 
 
 ```sql
 SELECT    *
@@ -173,21 +164,21 @@ Dopo avere eseguito la query, è possibile iniziare a esaminare i dati e analizz
 | [OPEN_rowgroup_rows_MAX] |Come sopra. |
 | [OPEN_rowgroup_rows_AVG] |Come sopra. |
 | [CLOSED_rowgroup_rows] |Esaminare le righe dei gruppi di righe chiusi come controllo di integrità. |
-| [CLOSED_rowgroup_count] |Il numero di gruppi di righe chiusi deve essere basso o pari a zero. I gruppi di righe chiusi possono essere convertiti in gruppi di righe compressi usando l'istruzione ALTER INDEX... REORGANISE. In genere questa operazione non è tuttavia richiesta. I gruppi chiusi vengono convertiti automaticamente in gruppi di righe columnstore dal processo in background del motore di tuple. |
+| [CLOSED_rowgroup_count] |Il numero di gruppi di righe chiusi deve essere basso o pari a zero. I gruppi di righe chiusi possono essere convertiti in gruppi di righe compressi usando l'istruzione ALTER INDEX... Comando REORGANIZE. In genere questa operazione non è tuttavia richiesta. I gruppi chiusi vengono convertiti automaticamente in gruppi di righe columnstore dal processo in background del motore di tuple. |
 | [CLOSED_rowgroup_rows_MIN] |I gruppi di righe chiusi devono avere una velocità di riempimento molto elevata. Se la velocità di riempimento per un gruppo di righe chiuso è bassa, è necessario analizzare ulteriormente il columnstore. |
 | [CLOSED_rowgroup_rows_MAX] |Come sopra. |
 | [CLOSED_rowgroup_rows_AVG] |Come sopra. |
 | [Rebuild_Index_SQL] |Codice SQL per la ricompilazione dell'indice columnstore per una tabella |
 
 ## <a name="causes-of-poor-columnstore-index-quality"></a>Possibili cause di una qualità scadente dell'indice columnstore
-Se sono state identificate tabelle di qualità scadente è consigliabile identificarne anche la causa radice.  Di seguito sono riportate altre cause comuni della qualità scadente dei segmenti:
+Se sono state identificate tabelle di qualità scadente, è consigliabile identificarne la causa radice.  Di seguito sono riportate altre cause comuni della qualità scadente dei segmenti:
 
 1. Utilizzo elevato di memoria durante la compilazione dell'indice
 2. Volume elevato di operazioni DML
 3. Operazioni di caricamento di piccole dimensioni o con un flusso irregolare 
 4. Troppe partizioni
 
-I fattori seguenti possono far sì che un indice columnstore abbia un numero di righe notevolmente inferiore alla cifra ottimale di 1 milione per ogni gruppo di righe.  E possono anche far sì che le righe vengano inserite nel gruppo di righe differenziale anziché nel gruppo di righe compresso. 
+I fattori seguenti possono far sì che un indice columnstore abbia un numero di righe notevolmente inferiore alla cifra ottimale di 1 milione per ogni gruppo di righe. E possono anche far sì che le righe vengano inserite nel gruppo di righe differenziale anziché nel gruppo di righe compresso. 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Utilizzo elevato di memoria durante la compilazione dell'indice
 Il numero di righe per ogni gruppo di righe compresso è direttamente correlato alla larghezza della riga e alla quantità di memoria disponibile per l'elaborazione del gruppo di righe.  Quando le righe vengono scritte nelle tabelle columnstore in condizioni di utilizzo elevato di memoria, la qualità dei segmenti columnstore potrebbe risentirne.  La procedura consigliata consiste quindi nel fare in modo che la sessione che sta scrivendo nelle tabelle di indice columnstore abbia accesso alla maggiore quantità di memoria possibile.  Visto il compromesso necessario tra memoria e concorrenza, la giusta quantità di memoria da allocare dipende dalla quantità di dati in ogni riga della tabella, dalle unità di data warehouse assegnate al sistema e dal numero di slot di concorrenza che è possibile assegnare alla sessione che sta scrivendo i dati nella tabella.  È consigliabile iniziare con xlargerc se si usa un valore DW300 o inferiore, largerc se si usa un valore DW400 o DW600 o mediumrc se si usa un valore DW1000 o superiore.
@@ -195,11 +186,11 @@ Il numero di righe per ogni gruppo di righe compresso è direttamente correlato 
 ### <a name="high-volume-of-dml-operations"></a>Volume elevato di operazioni DML
 Un volume elevato di operazioni DML pesanti per l'aggiornamento e l'eliminazione di righe può causare l'inefficienza del columnstore. Ciò vale soprattutto quando viene modificata la maggior parte delle righe di un gruppo di righe.
 
-* L'eliminazione di una riga da un gruppo di righe compresso si limita a contrassegnare in modo logico la riga come eliminata. La riga rimane nel gruppo di righe compresso finché la partizione o la tabella non viene ricompilata.
-* Quando si inserisce una riga, questa viene aggiunta a una tabella rowstore interna detta gruppo di righe differenziale. La riga inserita non viene convertita in columnstore fino a quando il gruppo di righe differenziale non viene riempito e contrassegnato come chiuso. I gruppi di righe vengono chiusi quando raggiungono la capacità massima di 1.048.576 righe. 
-* L'aggiornamento di una riga nel formato columnstore viene elaborato come un'eliminazione logica e poi come operazione di inserimento. La riga inserita può essere archiviata nell'archivio differenziale.
+- L'eliminazione di una riga da un gruppo di righe compresso si limita a contrassegnare in modo logico la riga come eliminata. La riga rimane nel gruppo di righe compresso finché la partizione o la tabella non viene ricompilata.
+- Quando si inserisce una riga, questa viene aggiunta a una tabella rowstore interna detta gruppo di righe differenziale. La riga inserita non viene convertita in columnstore fino a quando il gruppo di righe differenziale non viene riempito e contrassegnato come chiuso. I gruppi di righe vengono chiusi quando raggiungono la capacità massima di 1.048.576 righe. 
+- L'aggiornamento di una riga nel formato columnstore viene elaborato come un'eliminazione logica e poi come operazione di inserimento. La riga inserita può essere archiviata nell'archivio differenziale.
 
-Le operazioni di aggiornamento e inserimento in batch che superano la soglia in blocco di 102.400 righe per distribuzione allineata a partizione, vengono scritte direttamente nel formato columnstore. Tuttavia, presupponendo una distribuzione uniforme, perché ciò si verifichi si dovranno modificare più di 6.144.000 righe in una singola operazione. Se il numero di righe per una determinata distribuzione allineata alle partizioni è inferiore a 102.400, le righe vengono inviate all'archivio differenziale e lì rimangono fino a quando non viene inserito o modificato un numero di righe sufficiente per chiudere il gruppo di righe o fino a quando l'indice non viene ricompilato.
+Le operazioni di aggiornamento e inserimento in batch che superano la soglia in blocco di 102.400 righe per distribuzione allineata a partizione passano direttamente al formato columnstore. Tuttavia, presupponendo una distribuzione uniforme, perché ciò si verifichi si dovranno modificare più di 6.144.000 righe in una singola operazione. Se il numero di righe per una determinata distribuzione allineata alle partizioni è inferiore a 102.400, le righe vengono inviate all'archivio differenziale e lì rimangono fino a quando non viene inserito o modificato un numero di righe sufficiente per chiudere il gruppo di righe o fino a quando l'indice non viene ricompilato.
 
 ### <a name="small-or-trickle-load-operations"></a>Operazioni di caricamento di piccole dimensioni o con un flusso irregolare 
 I caricamenti di piccole dimensioni in SQL Data Warehouse sono anche definiti flussi irregolari. In genere rappresentano un flusso quasi costante di dati inseriti nel sistema. Quando questo flusso è quasi continuo, tuttavia, il volume di righe non è particolarmente elevato. Molto spesso i dati sono notevolmente inferiori alla soglia necessaria per un caricamento diretto nel formato columnstore.
@@ -213,18 +204,18 @@ Dopo aver caricato alcuni dati nelle tabelle, seguire questa procedura per ident
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Ricompilazione degli indici per migliorare la qualità dei segmenti
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Passaggio 1: Identificare o creare l'utente per la classe di risorse appropriata
-Un metodo rapido per migliorare immediatamente la qualità dei segmenti consiste nella ricompilazione dell'indice.  Il codice SQL restituito dalla vista precedente restituisce un'istruzione ALTER INDEX REBUILD che può essere usata per ricompilare gli indici.  Durante la ricompilazione degli indici, assicurarsi di allocare memoria sufficiente per la sessione di ricompilazione dell'indice.  A tale scopo, incrementare la classe di risorse di un utente con autorizzazioni per la ricompilazione dell'indice in questa tabella al livello minimo consigliato.  Non è possibile modificare la classe di risorse dell'utente proprietario del database. Se non è ancora stato creato un utente nel sistema, quindi, sarà necessario eseguire prima di tutto questa operazione.  È consigliabile usare almeno xlargerc con un valore DW300 o inferiore, largerc con un valore DW400 o DW600 o mediumrc con un valore DW1000 o superiore.
+Un metodo rapido per migliorare immediatamente la qualità dei segmenti consiste nella ricompilazione dell'indice.  Il codice SQL restituito dalla vista precedente restituisce un'istruzione ALTER INDEX REBUILD che può essere usata per ricompilare gli indici. Durante la ricompilazione degli indici, assicurarsi di allocare memoria sufficiente per la sessione di ricompilazione dell'indice.  A tale scopo, incrementare la classe di risorse di un utente con autorizzazioni per la ricompilazione dell'indice in questa tabella al livello minimo consigliato. Non è possibile modificare la classe di risorse dell'utente proprietario del database. Se non è ancora stato creato un utente nel sistema, è quindi necessario eseguire prima di tutto questa operazione. È consigliabile usare almeno la classe di risorse xlargerc con un valore di DW300 o inferiore, largerc con un valore da DW400 a DW600 o mediumrc con un valore di DW1000 o superiore.
 
-Di seguito è riportato un esempio di come allocare altra memoria per un utente, aumentando la relativa classe di risorse.  Per altre informazioni sulle classi di risorse e su come creare un nuovo utente, vedere [Gestione della concorrenza e del carico di lavoro][Concurrency].
+Di seguito è riportato un esempio di come allocare altra memoria per un utente, aumentando la relativa classe di risorse. Per informazioni sull'uso delle classi di risorse, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md).
 
 ```sql
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Passaggio 2: Ricompilare gli indici columnstore cluster con un utente che usa una classe di risorse superiore
-Accedere con le credenziali dell'utente indicato nel passaggio 1, ad esempio LoadUser, che ora usa una classe di risorse superiore e quindi eseguire le istruzioni ALTER INDEX.  Assicurarsi che l'utente abbia l'autorizzazione ALTER per le tabelle in cui viene ricompilato l'indice.  Questi esempi illustrano come ricompilare l'intero indice columnstore o una singola partizione. Nelle tabelle di grandi dimensioni, è consigliabile ricompilare gli indici procedendo una partizione alla volta.
+Accedere con le credenziali dell'utente indicato nel passaggio 1, ad esempio LoadUser, che ora usa una classe di risorse superiore, e quindi eseguire le istruzioni ALTER INDEX. Assicurarsi che l'utente abbia l'autorizzazione ALTER per le tabelle in cui viene ricompilato l'indice. Questi esempi illustrano come ricompilare l'intero indice columnstore o una singola partizione. Nelle tabelle di grandi dimensioni, è consigliabile ricompilare gli indici procedendo una partizione alla volta.
 
-In alternativa, invece di ricompilare l'indice è possibile copiare la tabella in una nuova tabella con [CTAS][CTAS].  Qual è il modo migliore? Per grandi volumi di dati [CTAS][CTAS] è in genere più veloce di [ALTER INDEX][ALTER INDEX]. Per volumi di dati più piccoli, [ALTER INDEX][ALTER INDEX] è più facile da usare e non richiede la sostituzione della tabella.  Per altre informazioni su come ricompilare gli indici con CTAS, vedere **Ricompilazione degli indici con CTAS e cambio della partizione** più avanti.
+In alternativa, invece di ricompilare l'indice è possibile copiare la tabella in una nuova tabella con [CTAS](sql-data-warehouse-develop-ctas.md). Qual è il modo migliore? Per grandi volumi di dati CTAS è in genere più veloce di [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Per volumi di dati più piccoli, ALTER INDEX è più facile da usare e non richiede la sostituzione della tabella. Per altre informazioni su come ricompilare gli indici con CTAS, vedere **Ricompilazione degli indici con CTAS e cambio della partizione** più avanti.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -246,13 +237,13 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-La ricompilazione di un indice in SQL Data Warehouse è un'operazione offline.  Per altre informazioni sulla ricompilazione di indici, vedere la sezione ALTER INDEX REBUILD in [Deframmentazione degli indici columnstore][Columnstore Indexes Defragmentation] e [ALTER INDEX][ALTER INDEX].
+La ricompilazione di un indice in SQL Data Warehouse è un'operazione offline.  Per altre informazioni sulla ricompilazione di indici, vedere la sezione ALTER INDEX REBUILD in [Deframmentazione degli indici columnstore](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Passaggio 3: Verificare che la qualità dei segmenti columnstore cluster sia migliorata
 Eseguire nuovamente la query che ha identificato la tabella con una qualità scadente dei segmenti e verificare che la qualità sia migliorata.  Se la qualità dei segmenti non è migliorata, le righe della tabella potrebbero essere troppo larghe.  È consigliabile usare una classe di risorse superiore o una DWU durante la ricompilazione degli indici.
 
 ## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>Ricompilazione degli indici con CTAS e cambio della partizione
-Questo esempio fa uso di [CTAS][CTAS] e del cambio della partizione per ricompilare una partizione di tabella. 
+In questo esempio viene usata l'istruzione [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) e il cambio di partizione per ricompilare una partizione di tabella. 
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS
@@ -292,31 +283,8 @@ ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternet
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
 ```
 
-Per altre informazioni sulla ricompilazione di partizioni con `CTAS`, vedere l'articolo relativo alle [Partizione][Partition].
+Per informazioni dettagliate sulla ricreazione di partizioni tramite CTAS, vedere [Using partitions in SQL Data Warehouse](sql-data-warehouse-tables-partition.md) (Uso di partizioni in SQL Data Warehouse).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni, vedere gli articoli [Panoramica delle tabelle][Overview], [Tipi di dati per le tabelle][Data Types], [Distribuzione di una tabella][Distribute], [Partizionamento di una tabella][Partition], [Maintaining Table Statistics][Statistics] (Gestione delle statistiche nelle tabelle) e [Tabelle temporanee][Temporary].  Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][SQL Data Warehouse Best Practices].
+Per altre informazioni sullo sviluppo di tabelle, vedere [Developing tables](sql-data-warehouse-tables-overview.md) (Sviluppo di tabelle).
 
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[Concurrency]: ./resource-classes-for-workload-management.md
-[CTAS]: ./sql-data-warehouse-develop-ctas.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->
-[ALTER INDEX]: https://msdn.microsoft.com/library/ms188388.aspx
-[heap]: https://msdn.microsoft.com/library/hh213609.aspx
-[clustered indexes and nonclustered indexes]: https://msdn.microsoft.com/library/ms190457.aspx
-[create table syntax]: https://msdn.microsoft.com/library/mt203953.aspx
-[Columnstore Indexes Defragmentation]: https://msdn.microsoft.com/library/dn935013.aspx#Anchor_1
-[clustered columnstore indexes]: https://msdn.microsoft.com/library/gg492088.aspx
-
-<!--Other Web references-->

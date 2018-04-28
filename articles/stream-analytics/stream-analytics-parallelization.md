@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/22/2017
-ms.openlocfilehash: 949806379891dbf5a7c145a14cae532104f51497
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.date: 04/27/2018
+ms.openlocfilehash: fd373093264122fda45697acc81929d3c723c957
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure
 Questo articolo illustra come sfruttare i vantaggi della parallelizzazione in Analisi di flusso di Azure. Si apprenderà come ridimensionare i processi di Analisi di flusso configurando partizioni di input e ottimizzando la definizione di query.
@@ -29,21 +29,13 @@ Il ridimensionamento di un processo di Analisi di flusso sfrutta i vantaggi offe
 
 ### <a name="inputs"></a>Input
 Tutti gli input di Analisi di flusso di Azure possono sfruttare i vantaggi del partizionamento:
--   Hub eventi (è necessario impostare la chiave di partizione in modo esplicito)
--   Hub IoT (è necessario impostare la chiave di partizione in modo esplicito)
+-   Hub eventi (è necessario impostare la chiave di partizione in modo esplicito con PARTITION BY)
+-   Hub IoT (è necessario impostare la chiave di partizione in modo esplicito con PARTITION BY)
 -   Archiviazione BLOB
 
 ### <a name="outputs"></a>Output
 
-Quando si usa Analisi di flusso di Azure, è possibile sfruttare il partizionamento negli output:
--   Archiviazione di Azure Data Lake
--   Funzioni di Azure
--   tabella di Azure
--   Archiviazione BLOB
--   Cosmos DB (è necessario impostare la chiave di partizione in modo esplicito)
--   Hub eventi (è necessario impostare la chiave di partizione in modo esplicito)
--   Hub IoT (è necessario impostare la chiave di partizione in modo esplicito)
--   Bus di servizio
+Quando si usa Analisi di flusso, è possibile sfruttare il partizionamento per la maggior parte dei sink di output. Altre informazioni sul partizionamento dell'output sono disponibili nella [sezione relativa al partizionamento nella pagina dell'output](stream-analytics-define-outputs.md#partitioning).
 
 Gli output di PowerBI, SQL e SQL Data Warehouse non supportano il partizionamento. È tuttavia possibile suddividere gli input in partizioni come descritto in [questa sezione](#multi-step-query-with-different-partition-by-values) 
 
@@ -56,7 +48,7 @@ Per altre informazioni sulle partizioni, vedere gli articoli seguenti:
 ## <a name="embarrassingly-parallel-jobs"></a>Processi perfettamente paralleli
 Un processo *perfettamente parallelo* è lo scenario più scalabile che può presentarsi in Analisi di flusso di Azure. Connette una partizione dell'input inviato a un'istanza della query a una partizione dell'output. Questo parallelismo presenta i requisiti seguenti:
 
-1. Se la logica di query richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è necessario verificare che gli eventi siano diretti alla stessa partizione dell'input. Per gli hub eventi, questo significa che per i dati di evento deve essere impostata la proprietà **PartitionKey**. In alternativa, è possibile usare mittenti partizionati. Per l'archiviazione BLOB, questo significa che gli eventi vengono inviati alla stessa cartella di partizione. Se la logica di query non richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è possibile ignorare questo requisito. Un esempio di questa logica è offerto da una query semplice select-project-filter.  
+1. Se la logica di query richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è necessario verificare che gli eventi siano diretti alla stessa partizione dell'input. Per gli hub eventi e l'hub IoT, questo significa che per i dati degli eventi deve essere impostata la proprietà **PartitionKey**. In alternativa, è possibile usare mittenti partizionati. Per l'archiviazione BLOB, questo significa che gli eventi vengono inviati alla stessa cartella di partizione. Se la logica di query non richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è possibile ignorare questo requisito. Un esempio di questa logica è offerto da una query semplice select-project-filter.  
 
 2. Quando i dati sono disposti a livello di input, si deve verificare che la query sia partizionata. A questo scopo, è necessario usare la clausola **PARTITION BY** in tutti i passaggi. È possibile eseguire più passaggi, ma tutti devono essere partizionati con la stessa chiave. Per ottenere un processo completamente parallelo, è attualmente necessario impostare la chiave di partizionamento su **PartitionId**.  
 
@@ -66,6 +58,7 @@ Un processo *perfettamente parallelo* è lo scenario più scalabile che può pre
 
    * 8 partizioni di input di hub eventi e 8 partizioni di output di hub eventi
    * 8 partizioni di input di hub eventi e output di archiviazione BLOB  
+   * 8 partizioni di input dell'hub IoT e 8 partizioni di output di hub eventi
    * 8 partizioni di input di archiviazione BLOB e output di archiviazione BLOB  
    * 8 partizioni di input di archiviazione BLOB e 8 partizioni di output di hub eventi  
 

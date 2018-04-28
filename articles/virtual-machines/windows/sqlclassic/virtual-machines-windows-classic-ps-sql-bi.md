@@ -1,9 +1,9 @@
 ---
 title: SQL Server Business Intelligence | Microsoft Docs
-description: "Questo argomento tratta le risorse create con il modello di distribuzione classica e descrive le funzionalità di Business Intelligence (BI) disponibili per SQL Server in esecuzione in macchine virtuali (VM) di Azure."
+description: Questo argomento tratta le risorse create con il modello di distribuzione classica e descrive le funzionalità di Business Intelligence (BI) disponibili per SQL Server in esecuzione in macchine virtuali (VM) di Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: monicar
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
-ms.author: asaxton
-ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: maghan
+ms.openlocfilehash: 6f1a95e52def9154253192ab9d43d1e7d621cee7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence in Macchine virtuali di Azure
 > [!IMPORTANT] 
@@ -216,7 +216,7 @@ Per informazioni sulle autorizzazioni del server di report, vedere [Concessione 
 Per verificare la configurazione, passare a Gestione report sulla macchina virtuale.
 
 1. Nella macchina virtuale, avviare Internet Explorer con privilegi di amministratore.
-2. Passare a http://localhost/reports nella macchina virtuale.
+2. Passare a http://localhost/reports sulla macchina virtuale.
 
 ### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>Per connettersi a un portale Web remoto o a Gestione report per le versioni 2014 e 2012
 Se si desidera connettersi al portale Web o a Gestione report per le versioni 2014 e 2012 sulla macchina virtuale da un computer remoto, creare un nuovo endpoint TCP della macchina virtuale. Per impostazione predefinita, il server di report è in ascolto delle richieste HTTP sulla **porta 80**. Se si configurano gli URL del server di report per l'utilizzo di una porta diversa, è necessario specificare il numero della porta nelle istruzioni seguenti.
@@ -225,7 +225,7 @@ Se si desidera connettersi al portale Web o a Gestione report per le versioni 20
 2. Aprire la porta 80 nel firewall della macchina virtuale.
 3. Passare al portale Web o a Gestione report usando il **nome DNS** della macchina virtuale di Azure come nome del server nell'URL. Ad esempio: 
    
-    **Server di report**: http://uebi.cloudapp.net/reportserver **Portale Web**: http://uebi.cloudapp.net/reports
+    **Server di report**: http://uebi.cloudapp.net/reportserver **portale Web**: http://uebi.cloudapp.net/reports
    
     [Configurare un firewall per l'accesso al server di report](https://msdn.microsoft.com/library/bb934283.aspx)
 

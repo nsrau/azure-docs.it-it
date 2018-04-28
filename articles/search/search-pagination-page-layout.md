@@ -9,19 +9,19 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 3ef946c6c0ab9c111932b3145fd46ae6ef2684cd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 516760031918c667b39cc8b3dd94d91c42623efc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Come impaginare i risultati della ricerca in Ricerca di Azure
 In questo articolo vengono fornite indicazioni su come utilizzare l'API REST del servizio Ricerca di Azure per implementare elementi standard di una pagina di risultati di ricerca, ad esempio i conteggi totali, il recupero di documenti, i criteri di ordinamento e la navigazione.
 
-In ogni caso citato di seguito, le opzioni relative alla pagina che forniscono dati o informazioni per la pagina dei risultati della ricerca vengono specificati tramite richieste [Cerca nel documento](http://msdn.microsoft.com/library/azure/dn798927.aspx) inviate al servizio Ricerca di Azure. Le richieste includono comando GET, percorso e parametri di query che indicano al servizio quali elementi sono richiesti e come formulare la risposta.
+In ogni caso citato di seguito, le opzioni relative alla pagina che forniscono dati o informazioni per la pagina dei risultati della ricerca vengono specificati tramite richieste [Cerca nel documento](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) inviate al servizio Ricerca di Azure. Le richieste includono comando GET, percorso e parametri di query che indicano al servizio quali elementi sono richiesti e come formulare la risposta.
 
 > [!NOTE]
-> Una richiesta valida include diversi elementi, ad esempio URL e percorso del servizio, verbo HTTP, `api-version`, e così via. Per brevità, gli esempi sono stati tagliati in modo da evidenziare solo la sintassi rilevante per l'impaginazione. Vedere la documentazione dell' [API REST del servizio Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) per informazioni dettagliate sulla sintassi della richiesta.
+> Una richiesta valida include diversi elementi, ad esempio URL e percorso del servizio, verbo HTTP, `api-version`, e così via. Per brevità, gli esempi sono stati tagliati in modo da evidenziare solo la sintassi rilevante per l'impaginazione. Vedere la documentazione dell' [API REST del servizio Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice) per informazioni dettagliate sulla sintassi della richiesta.
 > 
 > 
 
@@ -59,7 +59,7 @@ Per restituire un sottoinsieme di campi per un layout affiancato:
 
 Non è possibile eseguire ricerche direttamente in immagini e file multimediali, che devono essere archiviati in un'altra piattaforma di archiviazione, ad esempio la risorsa di archiviazione Blob di Azure, per ridurre i costi. Nell'indice e nei documenti, definire un campo che contiene l'indirizzo URL del contenuto esterno. È quindi possibile utilizzare il campo come riferimento a un'immagine. L'URL dell'immagine deve essere nel documento.
 
-Per recuperare una pagina di descrizione del prodotto per un evento **onClick** , utilizzare [Documento ricerca](http://msdn.microsoft.com/library/azure/dn798929.aspx) per passare la chiave del documento da recuperare. Il tipo di dati della chiave è `Edm.String`. In questo esempio è *246810*. 
+Per recuperare una pagina di descrizione del prodotto per un evento **onClick** , utilizzare [Documento ricerca](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) per passare la chiave del documento da recuperare. Il tipo di dati della chiave è `Edm.String`. In questo esempio è *246810*. 
 
         GET /indexes/onlineCatalog/docs/246810
 
@@ -81,7 +81,7 @@ Creare un metodo che accetta l'opzione di ordinamento selezionata come input e r
  ![][5]
 
 > [!NOTE]
-> Mentre l'assegnazione del punteggio predefinita è sufficiente per molti scenari, è consigliabile invece basare la pertinenza su un profilo di punteggio personalizzato. Un profilo di punteggio personalizzato offre un modo per favorire gli elementi più vantaggiosi per l'azienda. Vedere [Aggiungere un profilo di punteggio](http://msdn.microsoft.com/library/azure/dn798928.aspx) per ulteriori informazioni. 
+> Mentre l'assegnazione del punteggio predefinita è sufficiente per molti scenari, è consigliabile invece basare la pertinenza su un profilo di punteggio personalizzato. Un profilo di punteggio personalizzato offre un modo per favorire gli elementi più vantaggiosi per l'azienda. Vedere [Aggiungere un profilo di punteggio](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) per ulteriori informazioni. 
 > 
 > 
 
@@ -95,12 +95,12 @@ Se la progettazione della soluzione include pagine di ricerca dedicate per speci
 
         GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-Vedere [Ricerca nei documenti (API di Ricerca di Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx) per altre informazioni sulle espressioni `$filter`.
+Vedere [Ricerca nei documenti (API di Ricerca di Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) per altre informazioni sulle espressioni `$filter`.
 
 ## <a name="see-also"></a>Vedere anche
-* [API REST per il servizio Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx)
-* [Operazioni sugli indici](http://msdn.microsoft.com/library/azure/dn798918.aspx)
-* [Operazioni sui documenti](http://msdn.microsoft.com/library/azure/dn800962.aspx)
+* [API REST per il servizio Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice)
+* [Operazioni sugli indici](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
+* [Operazioni sui documenti](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
 * [Video ed esercitazioni su Ricerca di Azure](search-video-demo-tutorial-list.md)
 * [Esplorazione in base a facet in Ricerca di Azure](search-faceted-navigation.md)
 

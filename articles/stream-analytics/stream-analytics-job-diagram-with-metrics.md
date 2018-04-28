@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: e6b2b7f4c01a5280c2fb3a5c17158b8dcc2797d4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3d50f96f3dea3646bb32a3a42d0248957dabf9f0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Debug guidato dai dati mediante il diagramma di processo
 
@@ -76,11 +76,11 @@ Se il passaggio di query precedente è un processore di input, usare le metriche
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>Si sta verificando un ritardo nella lettura dei dati?
 
-*   **InputEventsSourcesBackloggedTotal** indica quanti altri messaggi devono essere letti per gli input di Hub eventi e dell'hub IoT di Azure.
+*   **Input Events Backlogged (Total)** (Totale eventi con backlog di input) indica quanti altri messaggi devono essere letti per gli input di Hub eventi e dell'hub IoT di Azure. Quando questo numero è maggiore di 0, significa che il processo non è in grado di elaborare i dati alla stessa velocità di ingresso. In questo caso potrebbe essere necessario aumentare il numero di unità di streaming e/o verificare se il processo può essere eseguito in parallelo. È possibile visualizzare altre informazioni su questo argomento nella [pagina relativa alla parallelizzazione delle query](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
 
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per ottenere assistenza aggiuntiva, provare ad accedere al [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Per ottenere assistenza aggiuntiva, provare ad accedere al [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Presentazione di Analisi di flusso](stream-analytics-introduction.md)

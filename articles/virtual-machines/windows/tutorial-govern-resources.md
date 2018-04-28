@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 30f5fe83c46f2dbe1933e8347242be7fbb30a3e3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d4e09eb11ea04c31b7e302b7f66f8e67c13e8252
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="virtual-machine-governance-with-azure-powershell"></a>Governance delle macchine virtuali con Azure PowerShell
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/06/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure. Per le installazioni locali, occorre anche [scaricare il modulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/) per creare un nuovo gruppo di Azure Active Directory.
+Se si sceglie di installare e usare PowerShell in locale, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure. Per le installazioni locali, occorre anche [scaricare il modulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/) per creare un nuovo gruppo di Azure Active Directory.
 
 ## <a name="understand-scope"></a>Informazioni sull'ambito
 
@@ -43,15 +43,15 @@ Il gruppo di risorse è attualmente vuoto.
 
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
-Si vuole che gli utenti dell'organizzazione dispongano del giusto livello di accesso a queste risorse. Non si vuole concedere un accesso illimitato agli utenti, ma si vuole comunque avere la certezza che tutti possano svolgere il proprio lavoro. Il [controllo degli accessi in base al ruolo](../../active-directory/role-based-access-control-what-is.md) consente di stabilire quali utenti sono autorizzati a completare specifiche azioni in un determinato ambito.
+Si vuole che gli utenti dell'organizzazione dispongano del giusto livello di accesso a queste risorse. Non si vuole concedere un accesso illimitato agli utenti, ma si vuole comunque avere la certezza che tutti possano svolgere il proprio lavoro. Il [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) consente di stabilire quali utenti sono autorizzati a completare specifiche azioni in un determinato ambito.
 
 Per creare e rimuovere assegnazioni di ruoli, gli utenti devono disporre di accesso `Microsoft.Authorization/roleAssignments/*`. Questo accesso viene concesso tramite il ruolo Proprietario o Amministratore accessi utente.
 
 Per la gestione di soluzioni di macchine virtuali, sono disponibili tre ruoli specifici delle risorse che forniscono l'accesso in genere necessario:
 
-* [Collaboratore macchine virtuali](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Collaboratore di rete](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Collaboratore account di archiviazione](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Collaboratore macchine virtuali](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Collaboratore di rete](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Collaboratore account di archiviazione](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Invece di assegnare ruoli ai singoli utenti, è spesso più facile [creare un gruppo di Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) per gli utenti che devono eseguire azioni simili. Assegnare quindi tale gruppo al ruolo appropriato. Per semplificare questo articolo, creare un gruppo di Azure Active Directory senza membri. È comunque possibile assegnare questo gruppo a un ruolo per un ambito. 
 

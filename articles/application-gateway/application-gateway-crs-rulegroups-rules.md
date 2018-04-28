@@ -1,25 +1,22 @@
 ---
-title: Regole e gruppi di regole CRS del Web application firewall di Gateway applicazione di Azure | Microsoft Docs
+title: Regole e gruppi di regole CRS del Web application firewall del gateway applicazione di Azure
 description: Questa pagina offre informazioni sulle regole e i gruppi di regole CRS del Web application firewall.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
+author: vhorne
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.custom: 
+ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
-ms.author: davidmu
-ms.openlocfilehash: 9265be4ac4258115c9302189d84b20e4894d42bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/16/2018
+ms.author: victorh
+ms.openlocfilehash: 5ba291eaa93a48e3aadc11b1f0f7b48b01683b07
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Elenco delle regole e dei gruppi di regole CRS del Web application firewall disponibili
 
@@ -27,28 +24,8 @@ Il Web application firewall (WAF) di Gateway applicazione protegge le applicazio
 
 Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili quando si usa Gateway applicazione con il Web application firewall.  Ogni tabella rappresenta le regole incluse in un gruppo di regole per una specifica versione di CRS.
 
-##<a name="owasp30"></a> OWASP_3.0
+## <a name="owasp30"></a> OWASP_3.0
 
-### <a name="crs910"></a>  <p x-ms-format-detection="none">REQUEST-910-IP-REPUTATION</p>
-
-|ID regola|DESCRIZIONE|
-|---|---|
-|910011|Regola 910011|
-|910012|Regola 910012|
-|910000|Richiesta da client non autorizzato noto (in base a precedenti violazioni del traffico)|
-|910100|IP client da paese ad ALTO rischio|
-|910120|Regola 910120|
-|910130|Regola 910130|
-|910150|Corrispondenza in blacklist HTTP per IP motore di ricerca|
-|910160|Corrispondenza in blacklist HTTP per IP spammer|
-|910170|Corrispondenza in blacklist HTTP per IP sospetto|
-|910180|Corrispondenza in blacklist HTTP per IP responsabile di harvesting|
-|910013|Regola 910013|
-|910014|Regola 910014|
-|910015|Regola 910015|
-|910016|Regola 910016|
-|910017|Regola 910017|
-|910018|Regola 910018|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
@@ -64,26 +41,6 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 |911017|Regola 911017|
 |911018|Regola 911018|
 
-### <a name="crs912"></a> <p x-ms-format-detection="none">REQUEST-912-DOS-PROTECTION</p>
-
-|ID regola|DESCRIZIONE|
-|---|---|
-|912100|Regola 912100|
-|912012|Regola 912012|
-|912120|Attacco Denial of Service (DoS) identificato da %@{tx.real_ip} (%@{tx.dos_block_counter} riscontri dall'ultimo avviso)|
-|912130|Regola 912130|
-|912140|Regola 912140|
-|912150|Regola 912150|
-|912160|Regola 912160|
-|912170|Potenziale attacco Denial of Service (DoS) da %@{tx.real_ip} - n. di burst richieste: %@{ip.dos_burst_counter}|
-|912013|Regola 912013|
-|912014|Regola 912014|
-|912019|Regola 912019|
-|912171|Potenziale attacco Denial of Service (DoS) da %@{tx.real_ip} - n. di burst richieste: %@{ip.dos_burst_counter}|
-|912015|Regola 912015|
-|912016|Regola 912016|
-|912017|Regola 912017|
-|912018|Regola 912018|
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 

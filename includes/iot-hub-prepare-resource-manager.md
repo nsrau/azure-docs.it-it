@@ -8,7 +8,7 @@ La procedura seguente illustra come configurare l'autenticazione della password 
 1. Accedere alla sottoscrizione di Azure usando il comando seguente:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Se si usano più sottoscrizioni Azure e si esegue l'accesso ad Azure, è possibile accedere a tutte le sottoscrizioni di Azure associate alle credenziali. Usare il comando seguente per elencare gli account Azure che è possibile usare:

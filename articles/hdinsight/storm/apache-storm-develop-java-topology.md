@@ -2,7 +2,7 @@
 title: Esempio Java di topologia Apache Storm - Azure HDInsight | Microsoft Docs
 description: Informazioni su come creare topologie apache Storm in Java mediante la creazione di una topologia di conteggio parole di esempio.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,17 +11,15 @@ keywords: apache storm, esempio di apache storm, storm java, esempio di topologi
 ms.assetid: a8838f29-9c08-4fd9-99ef-26655d1bf6d7
 ms.service: hdinsight
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 2403261f05d9e5aab2e50939720b3eb007aecd6e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5f2a6de9737569c75e0350e2aceec19b149d9549
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Creare una topologia Apache Storm in Java
 
@@ -30,13 +28,13 @@ Informazioni su come creare una topologia basata su Java per Apache Storm. Crear
 Dopo aver completato i passaggi descritti in questo documento, è possibile distribuire la topologia ad Apache Storm in HDInsight.
 
 > [!NOTE]
-> Una versione completa degli esempi di topologia Storm creati in questo documento è disponibile all'indirizzo [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
+> La versione completa degli esempi di topologia Storm creati in questo documento è disponibile presso il sito [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
 ## <a name="prerequisites"></a>prerequisiti
 
 * [Java Developer Kit (JDK) versione 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-* [Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven è un sistema per la compilazione di progetti per Java.
+* [Mavenhttps://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven è un sistema di compilazione per progetti Java.
 
 * Un editor di testo o ambiente IDE.
 
@@ -169,7 +167,7 @@ I plug-in di Maven consentono di personalizzare le fasi di compilazione del prog
 </build>
 ```
 
-Questa sezione viene usata per aggiungere plug-in, risorse e altre opzioni di configurazione della compilazione. Per un riferimento completo del file **pom.xml**, vedere [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html).
+Questa sezione viene usata per aggiungere plug-in, risorse e altre opzioni di configurazione della compilazione. Per informazioni di riferimento complete sul file **pom.xml**, vedere [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html).
 
 ### <a name="add-plug-ins"></a>Aggiungere plug-in
 
@@ -598,10 +596,10 @@ Flux è un nuovo framework disponibile con Storm 0.10.0 e versioni successive, c
 
 Il file YAML definisce i componenti da usare per la topologia e i dati di flusso tra essi. È possibile includere un file YAML come parte del file con estensione JAR oppure usare un file esterno YAML.
 
-Per altre informazioni su Flux, vedere [Flux framework (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
+Per altre informazioni su Flux, vedere il [framework Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
 
 > [!WARNING]
-> A causa di un [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) per Storm 1.0.1, può essere necessario installare un [ambiente di sviluppo Storm](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) eseguire localmente le topologie Flux.
+> A causa di un [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) in Storm 1.0.1, per eseguire localmente le topologie Flux può essere necessario installare un [ambiente di sviluppo Storm](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html).
 
 1. Spostare il file `WordCountTopology.java` fuori dal progetto. In precedenza questo file ha definito la topologia, ma non è necessario con Flux.
 
@@ -720,7 +718,7 @@ Per altre informazioni su Flux, vedere [Flux framework (https://storm.apache.org
     ```
 
     > [!WARNING]
-    > Questo comando non va a buon fine se la topologia usa bit di Storm 1.0.1. I motivi della mancata riuscita sono indicati in [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). [Installare Storm nell'ambiente di sviluppo](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) e usare la procedura seguente:
+    > Questo comando non va a buon fine se la topologia usa bit di Storm 1.0.1. L'errore è causato da [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). [Installare Storm nell'ambiente di sviluppo](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) e usare la procedura seguente:
     >
     > Se [Storm è installato nell'ambiente di sviluppo](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), è possibile usare i comandi seguenti:
     >
@@ -768,7 +766,7 @@ Per altre informazioni su Flux, vedere [Flux framework (https://storm.apache.org
 
     Una volta avviata la topologia, si dovrebbe notare che il tempo tra i batch emessi è cambiato per riflettere il valore in newtopology.yaml. Pertanto, è possibile modificare la configurazione tramite un file YAML senza dover ricompilare la topologia.
 
-Per ulteriori informazioni su queste e altre funzionalità del framework Flux, vedere [Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
+Per altre informazioni su queste e altre funzionalità del framework Flux, vedere [Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
 
 ## <a name="trident"></a>Trident
 

@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: df97d2020309fa9af7f67170729ce9c2d723572d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c9c4cb42e6bf9f60c883242fad6963f72b772063
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introduzione al Servizio app di Azure in Linux
 
@@ -32,24 +32,15 @@ Il Servizio app in Linux supporta diverse immagini incorporate per aumentare la 
 
 | Linguaggio | Versioni supportate |
 |---|---|
-| Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 9.4 |
 | Java * | 8.0 |
-| PHP | 5.6, 7.0 |
+| PHP | 5.6, 7.0, 7.2 |
 | .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
+| Go | 1.0 |
+| Apache Tomcat | 8.5, 9.0 |
 
-* Supporto per le funzionalità in anteprima
-
-### <a name="preview-supported-java-runtimes"></a>Anteprima: runtime Java supportati
-
-I runtime Java disponibili nel servizio app su Linux sono i seguenti:
-
-| Runtime | Version |
-|---|---|
-| Apache Tomcat | 8.5 |
-| Apache Tomcat | 9.0 |
-
-Per altri dettagli, vedere [Creare un'app Web Java nel servizio app in Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-java).
+Per altri dettagli, vedere [Creare un'app Web Java nel servizio app in Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-java).
 
 ## <a name="deployments"></a>Deployments
 
@@ -84,10 +75,7 @@ Il portale di Azure mostra solo le funzionalità che possono essere usate attual
 
 Alcune funzionalità, quali l'integrazione delle reti virtuali, l'autenticazione di Azure Active Directory o di terze parti o le estensioni del sito Kudu, non sono ancora disponibili. Man mano che queste funzionalità dinvetano disponibili, la documentazione verrà aggiornata e le modifiche pubblicate nei blog.
 
-Il Servizio app in Linux è supportato solo nei piani di servizio app [Basic e Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) e non ha un livello [Gratuito o Condiviso](https://azure.microsoft.com/pricing/details/app-service/plans/). Di seguito sono riportate altre importanti limitazioni per il Servizio app in Linux:
-
-* In Linux, non è possibile creare l'app Web per i contenitori in un piano di servizio app che ospita già App Web non Linux.
-* Durante la creazione dell'app Web per contenitori in un gruppo di risorse contenente app Web non Linux, è necessario creare un piano di servizio app in un gruppo di risorse diverso rispetto al piano di servizio app esistente.
+Il Servizio app in Linux è supportato solo nei piani di servizio app [Basic e Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) e non ha un livello [Gratuito o Condiviso](https://azure.microsoft.com/pricing/details/app-service/plans/). In Linux, non è possibile creare l'app Web per i contenitori in un piano di servizio app che ospita già App Web non Linux.
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
