@@ -2,7 +2,7 @@
 title: Sottoscrizione di Azure Active Directory Privileged Identity Management | Documentazione Microsoft
 description: Illustra la sottoscrizione e i requisiti per le licenze per la gestione e l'utilizzo di Azure AD Privileged Identity Management nel tenant
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
 editor: mwahl
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: b04544c6a1d288524783ed6d323146c0ef7bfe95
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e49ddb8fca9ce193c92f27c307942d5f3d3d2fd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Requisiti di sottoscrizione di Azure Active Directory Privileged Identity Management
 
@@ -40,7 +40,7 @@ Questo comando Recupera un elenco delle sottoscrizioni nel tenant. Se non vengon
 
 Se questo comando restituisce una riga in cui SkuPartNumber è "AAD_PREMIUM_P2" o "EMSPREMIUM" e IsTrial è "True", nel tenant è presente una versione di valutazione di Azure AD Premium P2.  Se lo stato della sottoscrizione non è abilitato e non si dispone di una sottoscrizione a pagamento ad Azure AD Premium P2 o EMS E5, è necessario acquistare una sottoscrizione di Azure AD Premium P2 o EMS E5 per continuare a usare Azure AD Privileged Identity Management.
 
-Azure AD Premium P2 è disponibile tramite un [contratto Enterprise Microsoft](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), il [programma di licenza Open Volume](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) e il programma [Cloud Solution Provider](https://partner.microsoft.com/en-US/cloud-solution-provider). I sottoscrittori di Azure e Office 365 possono acquistare Azure AD Premium P2 anche online.  Altre informazioni sui prezzi di Azure AD Premium e su come ordinarlo online sono disponibili sulla pagina [Prezzi di Azure Active Directory](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+Azure AD Premium P2 è disponibile tramite un [contratto Enterprise Microsoft](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), il [programma di licenza Open Volume](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) e il programma [Cloud Solution Provider](https://partner.microsoft.com/en-US/cloud-solution-provider). I sottoscrittori di Azure e Office 365 possono acquistare Azure AD Premium P2 anche online.  Altre informazioni sui prezzi di Azure AD Premium e su come ordinarlo online sono disponibili sulla pagina [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="azure-ad-privileged-identity-management-is-not-available-in-tenant"></a>Azure AD Privileged Identity Management non è disponibile nel tenant
 

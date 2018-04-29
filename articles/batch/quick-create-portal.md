@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a00c8ea07c31d2ab4ba2638f2a7e4adcf5ca4a10
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Guida introduttiva: Eseguire il primo processo Batch nel portale di Azure
 
@@ -37,7 +37,7 @@ Seguire questa procedura per creare un account Batch di esempio a scopo di test.
 
 2. Immettere i valori nei campi **Nome account** e **Gruppo di risorse**. Il nome dell'account deve essere univoco nella **località** di Azure selezionata, usare solo lettere minuscole o numeri e avere una lunghezza di 3-24 caratteri. 
 
-3. In **Account di archiviazione** selezionare un account di archiviazione per utilizzo generico esistente o crearne uno nuovo.
+3. In **Account di archiviazione** selezionare un account di archiviazione esistente o crearne uno nuovo.
 
 4. Mantenere le impostazioni predefinite per le altre opzioni e fare clic su **Crea** per creare l'account.
 

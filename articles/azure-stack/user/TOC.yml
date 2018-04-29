@@ -110,6 +110,8 @@
                   href: azure-stack-version-profiles-azurecli2.md
                 - name: GO
                   href: azure-stack-version-profiles-go.md
+                - name: Ruby
+                  href: azure-stack-version-profiles-ruby.md
                 - name: Provider di risorse API supportate dai profili
                   href: azure-stack-profiles-azure-resource-manager-versions.md
         - name: Usare il modulo criteri

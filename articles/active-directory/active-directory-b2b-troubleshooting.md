@@ -2,12 +2,12 @@
 title: Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory | Microsoft Docs
 description: Informazioni su come risolvere i problemi comuni di Collaborazione B2B di Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 05/25/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 588e154d35fda539ac6ee8803ed96e6cd9a3d1df
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 82c171c59b7f465afd760d50b36d17912ee7c8e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory
 
@@ -63,7 +63,7 @@ Per risolvere questo problema, l'amministratore dell'utente esterno deve sincron
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>In che modo "\#", che in genere è un carattere non valido, viene sincronizzato con Azure AD?
 
-Negli UPN, "\#" è un carattere riservato per Collaborazione B2B di Azure AD o per gli utenti esterni, perché l'account invitato user@contoso.com diventa user_contoso.com#EXT@fabrikam.onmicrosoft.com. Non è quindi consentito l'accesso al portale di Azure a \# negli UPN locali. 
+Negli UPN, "\#" è un carattere riservato per Collaborazione B2B di Azure AD o per gli utenti esterni, perché l'account invitato user@contoso.com diventa user_contoso.com#EXT#@fabrikam.onmicrosoft.com. Non è quindi consentito l'accesso al portale di Azure a \# negli UPN locali. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Viene visualizzato un errore durante l'aggiunta di utenti esterni a un gruppo sincronizzato
 

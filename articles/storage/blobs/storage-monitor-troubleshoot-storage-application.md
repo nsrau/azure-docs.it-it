@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: a1b3a1d4bb397e19f033b8f3bfe68ca6a63725c4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: eb58104309802125a8424cbbf8a1bef3d1c5e79c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorare e risolvere i problemi relativi a un'applicazione di archiviazione cloud
 
@@ -41,11 +41,11 @@ Accedere al [portale di Azure](https://portal.azure.com)
 
 Nel menu a sinistra selezionare **Gruppi di risorse**, scegliere **myResourceGroup**, quindi selezionare l'account di archiviazione nell'elenco di risorse.
 
-In **Diagnostica** impostare **Stato** su **On** (Attivo). Verificare che **Metriche aggregate dei BLOB**, **Metriche dei BLOB per API** e **Log dei BLOB** siano abilitati.
+In **Diagnostica** impostare **Stato** su **On** (Attivo). Assicurarsi che tutte le opzioni in **Proprietà BLOB** siano abilitate.
 
 Al termine, fare clic su **Salva**
 
-![Riquadro Diagnostica](media/storage-monitor-troubleshoot-storage-application/figure1.png)
+![Riquadro Diagnostica](media/storage-monitor-troubleshoot-storage-application/contoso.png)
 
 ## <a name="enable-alerts"></a>Attivare gli avvisi
 

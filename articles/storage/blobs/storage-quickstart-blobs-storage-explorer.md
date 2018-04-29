@@ -1,19 +1,19 @@
 ---
-title: 'Guida introduttiva di Azure: Caricare, scaricare ed elencare BLOB in Archiviazione di Azure con Azure Storage Explorer | Microsoft Docs'
-description: In questa guida introduttiva si usa Azure Storage Explorer per creare un account di archiviazione e un contenitore. Si usa quindi Storage Explorer per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
+title: Guida introduttiva di Azure - Creare un BLOB nell'archivio oggetti con Azure Storage Explorer | Microsoft Docs
+description: In questa guida introduttiva si usa Azure Storage Explorer con l'archivio oggetti (BLOB). Si usa quindi Storage Explorer per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 04/09/2018
 ms.author: tamram
-ms.openlocfilehash: f44d42b949eae0d017e3bba218234fd1e2ead78e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 176d2fffa9f9e3c43a4e5c922aed58cebdbe2b1d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Azure Storage Explorer
 
@@ -59,7 +59,7 @@ Scegliere i file o le cartelle da caricare. Selezionare il **Tipo BLOB**. Le opz
 
 Se si carica un file con estensione vhd o vhdx, scegliere **Carica i file vhd/vhdx come BLOB di pagine (scelta consigliata)**.
 
-Nel campo **Carica nella cartella (facoltativo)**specificare un nome di cartella per l'archiviazione di file o cartelle in una cartella nel contenitore. Se non viene selezionata alcuna cartella, i file vengono caricati direttamente nel contenitore.
+Nel campo **Carica nella cartella (facoltativo)** specificare un nome di cartella per l'archiviazione di file o cartelle in una cartella nel contenitore. Se non viene selezionata alcuna cartella, i file vengono caricati direttamente nel contenitore.
 
 ![Microsoft Azure Storage Explorer - Caricare un BLOB](media/storage-quickstart-blobs-storage-explorer/uploadblob.png)
 

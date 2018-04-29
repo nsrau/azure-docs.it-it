@@ -1,3 +1,20 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: cost-management
+author: bandersmsft
+ms.service: cost-management
+ms.topic: include
+ms.date: 04/26/2018
+ms.author: banders
+manager: dougeby
+ms.custom: include file
+ms.openlocfilehash: 1b65775ef5ad40ca9e9c1e2c96fe1c2b8d92afdc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="view-cost-data"></a>Visualizzare i dati di costo
 
 Azure Cost Management di Cloudyn consente di accedere a tutti i dati della risorsa cloud. Tra i report del dashboard è possibile trovare report sia standard che personalizzati in una visualizzazione a schede. I seguenti sono esempi di un popolare dashboard e di un report che mostrano immediatamente i dati relativi ai costi.

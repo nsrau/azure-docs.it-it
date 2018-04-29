@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: de7716a540737d4f2cc6f0f495180533ef6aa90a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f0d9739dda608b7c49ff9a8fbd93d08b301c0b9c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="grow-your-business-with-appsource"></a>Favorire lo sviluppo della propria azienda con AppSource
 Azure Marketplace e AppSource sono entrambi un punto di partenza fondamentale per avviare attività di commercializzazione in collaborazione con Microsoft e rafforzare la crescita della propria azienda. Grazie a soluzioni per offerte promozionali di lancio, generazione della domanda e attività di vendita e marketing in collaborazione, un'offerta sul marketplace può costituire il nucleo centrale del proprio motore di espansione aziendale nel cloud. Non sono previste tariffe per la partecipazione. I clienti Microsoft visitano i marketplace Microsoft nel cloud ogni giorno per trovare le app e i servizi più adatti a favorire lo sviluppo della propria azienda. L'obiettivo è quello di consentire alle organizzazioni di conoscere i servizi e le soluzioni offerti da Microsoft e dal suo ecosistema di partner. 
@@ -115,14 +115,14 @@ https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-87
 
 L'aggiunta di questi parametri all'URL di AppSource consente di controllare l'efficacia della campagna nel dashboard di analisi nel portale Cloud Partner. 
 
-#### <a name="marketplace-gtm-benefits"></a>Vantaggi dei servizi GTM del marketplace 
+#### <a name="marketplace-gtm-benefits"></a>Vantaggi dei servizi GTM del Marketplace 
 
-Pubblicando nuove inserzioni in AppSource è possibile usufruire gratuitamente dei vantaggi offerti dai servizi GTM del marketplace. Dopo la pubblicazione di un'inserzione, il team di specialisti di marketing Microsoft contatterà l'azienda e collaborerà con il consulente di marketing per avviare queste attività. Le attività offerte variano a seconda dello stato della soluzione nel marketplace. Sono disponibili vantaggi ancora maggiori per le offerte che includono un'esperienza di valutazione. I Microsoft Gold Certified Partner possono accedere a vantaggi aggiuntivi. Per trarre il massimo vantaggio da queste attività, è consigliabile avere già pronto un piano di lancio dell'offerta. Per molte di queste strategie può essere utile sfruttare la pagina di destinazione. Si noti che per i membri di Microsoft Partner Network è disponibile il catalogo One Commercial Partner Catalog (OCP). Per istruzioni su come creare una pagina di destinazione convincente e accattivante, vedere [Creare una pagina di destinazione efficace](https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-azure-marketplace#build-a-great-landing-page). Per ottenere altro supporto per la commercializzazione, inclusi modelli, contenuto Web, risorse di formazione e strumenti per promuovere lo sviluppo della propria azienda, visitare [https://www.MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com). 
+Pubblicando nuove inserzioni in AppSource è possibile usufruire gratuitamente dei vantaggi offerti dai servizi GTM del marketplace. Dopo la pubblicazione di un'inserzione, il team di specialisti di marketing Microsoft contatterà l'azienda e collaborerà con il consulente di marketing per avviare queste attività. Le attività offerte variano a seconda dello stato della soluzione in Marketplace. Sono disponibili vantaggi ancora maggiori per le offerte che includono un'esperienza di valutazione. I Microsoft Gold Certified Partner possono accedere a vantaggi aggiuntivi. Per trarre il massimo vantaggio da queste attività, è consigliabile avere già pronto un piano di lancio dell'offerta. Per molte di queste strategie può essere utile sfruttare la pagina di destinazione. Si noti che per i membri di Microsoft Partner Network è disponibile il catalogo One Commercial Partner Catalog (OCP). Per istruzioni su come creare una pagina di destinazione convincente e accattivante, vedere [Creare una pagina di destinazione efficace](https://docs.microsoft.com/azure/marketplace/grow-your-business-azure-marketplace#build-a-great-landing-page). Per ottenere altro supporto per la commercializzazione, inclusi modelli, contenuto Web, risorse di formazione e strumenti per promuovere lo sviluppo della propria azienda, visitare [https://www.MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com). 
 
 #### <a name="enable-lead-sharing"></a>Abilitare la condivisione di clienti potenziali 
 Accertarsi che per la propria offerta nel marketplace sia abilitata la condivisione di clienti potenziali in modo da ricevere le informazioni di contatto degli utenti aziendali che provano le app o sono interessati ai servizi offerti. I clienti potenziali sono fondamentali per estendere il raggio d'azione delle campagne di coinvolgimento degli utenti, favorire le iniziative di vendita del personale addetto alle vendite sul campo e ottenere maggiori informazioni sui risultati ottenuti dall'offerta. Le procedure consigliate per sfruttare i dati sui clienti potenziali includono:
 * Identificare i clienti potenziali e assegnare loro un punteggio come opportunità di vendita
-* Coinvolgere i clienti potenziali per riuscire a inserirli in una pipeline di vendita
+* Seguire i clienti potenziali per riuscire a inserirli in una pipeline di vendita
 * Allineare queste attività alla strategia generale adottata nella campagna di marketing 
 
 I clienti potenziali mostrano interesse nell'offerta dell'app o dei servizi consulenza. È importante assicurarsi di predisporre un processo di follow up di tali clienti. Oltre a essere incluso nel sistema CRM dell'azienda, il cliente potenziale può essere creato anche nel sistema CRM del venditore Microsoft sul campo. 

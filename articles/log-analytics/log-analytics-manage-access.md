@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 6caa0c8769ea6e62a22659089f37f74f6962e1c7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: af648e97f5913ef7413f72db8e19aa5ea69d6d09
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-workspaces"></a>Gestire le aree di lavoro
 
@@ -77,7 +77,7 @@ Per impostazione predefinita, l'account Microsoft o l'account aziendale che crea
 Esistono due modelli di autorizzazione che controllano l'accesso a un'area di lavoro di Log Analytics:
 
 1. Ruoli utente di Log Analytics legacy
-2. [Accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md)
+2. [Accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md)
 
 La tabella seguente riepiloga l'accesso che si può impostare con ogni modello di autorizzazione:
 
@@ -104,7 +104,7 @@ Le attività seguenti richiedono anche le autorizzazioni di Azure:
 
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Gestione dell'accesso a Log Analytics con le autorizzazioni di Azure
-Per concedere l'accesso all'area di lavoro di Log Analytics usando le autorizzazioni di Azure, seguire i passaggi indicati in [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../active-directory/role-based-access-control-configure.md).
+Per concedere l'accesso all'area di lavoro di Log Analytics usando le autorizzazioni di Azure, seguire i passaggi indicati in [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../role-based-access-control/role-assignments-portal.md).
 
 Azure offre due ruoli utente predefiniti per Log Analytics:
 - Lettore di Log Analytics
@@ -156,7 +156,7 @@ Usare questi ruoli per concedere agli utenti l'accesso ad ambiti diversi:
 - Gruppo di risorse: accesso a tutte le aree di lavoro nel gruppo di risorse
 - Risorsa: accesso alla sola area di lavoro specificata
 
-Usare i [ruoli personalizzati](../active-directory/role-based-access-control-custom-roles.md) per creare ruoli con le autorizzazioni specifiche necessarie.
+Usare i [ruoli personalizzati](../role-based-access-control/custom-roles.md) per creare ruoli con le autorizzazioni specifiche necessarie.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Ruoli utente di Azure e ruoli utente del portale di Log Analytics
 Avendo almeno l'autorizzazione di lettura di Azure per l'area di lavoro di Log Analytics, è possibile aprire il portale di OMS facendo clic sull'attività **Portale di OMS** quando si visualizza l'area di lavoro di Log Analytics.
@@ -174,7 +174,7 @@ L'assegnazione di ruolo nel portale di OMS viene determinata come segue:
 | Per le sottoscrizioni gestite da un Cloud Solution Provider (CSP) <br> L'account con cui è stato eseguito l'accesso si trova nell'istanza di Azure Active Directory collegata all'area di lavoro | Amministratore | In genere il cliente di un CSP |
 | Per le sottoscrizioni gestite da un Cloud Solution Provider (CSP) <br> L'account con cui è stato eseguito l'accesso non si trova nell'istanza di Azure Active Directory collegata all'area di lavoro | Collaboratore | In genere il CSP |
 
-<sup>1</sup> Per altre informazioni sulle definizioni del ruolo, vedere [Autorizzazioni di Azure](../active-directory/role-based-access-control-custom-roles.md). Quando si valutano i ruoli, un'azione `*` non equivale a `Microsoft.OperationalInsights/workspaces/*`.
+<sup>1</sup> Per altre informazioni sulle definizioni del ruolo, vedere [Autorizzazioni di Azure](../role-based-access-control/custom-roles.md). Quando si valutano i ruoli, un'azione `*` non equivale a `Microsoft.OperationalInsights/workspaces/*`.
 
 Ecco alcuni elementi relativi al portale di Azure da tenere presenti:
 

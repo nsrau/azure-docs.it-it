@@ -6,20 +6,20 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/17/2018
 ms.author: sujayt
-ms.openlocfilehash: 48be55632d9c1bece3f1a6e4f9ac12a68f9cb7ab
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f318f98479caed8efb4a3705939cb9ac0dd5b237
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informazioni sulle reti per la replica da Azure ad Azure
 
 >[!NOTE]
 > La replica di Site Recovery per le macchine virtuali di Azure è attualmente in anteprima.
 
-In questo articolo viene illustrato in dettaglio il materiale sussidiario del servizio di rete quando si esegue la replica e il ripristino di macchine virtuali di Azure da un'area ad un'altra tramite [Azure Site Recovery](site-recovery-overview.md). 
+In questo articolo viene illustrato in dettaglio il materiale sussidiario del servizio di rete quando si esegue la replica e il ripristino di macchine virtuali di Azure da un'area ad un'altra tramite [Azure Site Recovery](site-recovery-overview.md).
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -57,19 +57,18 @@ login.microsoftonline.com | Richiesto per l'autorizzazione e l'autenticazione ne
 
 Se si usa un proxy firewall basato su IP o regole NSG per controllare la connettività in uscita, è necessario consentire i seguenti intervalli IP.
 
-- Tutti gli intervalli di indirizzi IP che corrispondono alla località di origine.
-    - È possibile scaricare gli [intervalli di indirizzi IP](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+- Tutti gli intervalli di indirizzi IP che corrispondono agli account di archiviazione nell'area di origine
+    - È necessario creare un [tag di servizio per Archiviazione](../virtual-network/security-overview.md#service-tags) basato sulla regola del gruppo di sicurezza di rete per l'area di origine.
     - Questi indirizzi devono essere consentiti in modo che i dati possano essere scritti nell'account di archiviazione della cache dalla macchina virtuale.
 - Tutti gli intervalli di indirizzi IP che corrispondono agli [endpoint di autenticazione e identità IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) di Office 365.
     - Se in futuro vengono aggiunti nuovi indirizzi agli intervalli di Office 365, è necessario creare nuove regole NSG.
-- Indirizzi IP dell'endpoint di servizio di Site Recovery. Questi sono disponibili in un [file XML](https://aka.ms/site-recovery-public-ips)e variano a seconda del percorso di destinazione.
--  Per creare automaticamente le regole richieste nel gruppo di sicurezza di rete, è possibile [scaricare e usare questo script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702). 
+- Indirizzi IP dell'endpoint di servizio di Site Recovery. Questi sono disponibili in un [file XML](https://aka.ms/site-recovery-public-ips) e variano a seconda del percorso di destinazione.
+-  Per creare automaticamente le regole richieste nel gruppo di sicurezza di rete, è possibile [scaricare e usare questo script](https://aka.ms/nsg-rule-script).
 - Prima di creare le regole in un gruppo di sicurezza di rete di produzione, è consigliabile creare le regole del gruppo di sicurezza di rete necessarie in un NSG di test e verificare che non siano presenti problemi.
-- Per creare il numero di regole NSG richiesto, verificare che la sottoscrizione sia consentita. Contattare il supporto tecnico di Azure per aumentare il limite delle regole NSG nella sottoscrizione.
 
-Gli intervalli di indirizzi IP sono i seguenti:
 
->
+Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
+
    **Destinazione** | **IP di Site Recovery** |  **IP di monitoraggio di Site Recovery**
    --- | --- | ---
    Asia orientale | 52.175.17.132 | 13.94.47.61
@@ -99,50 +98,73 @@ Gli intervalli di indirizzi IP sono i seguenti:
    Regno Unito settentrionale | 51.142.209.167 | 13.87.102.68
    Corea centrale | 52.231.28.253 | 52.231.32.85
    Corea meridionale | 52.231.298.185 | 52.231.200.144
-   
-   
-  
+
+
+
 
 ## <a name="example-nsg-configuration"></a>Esempio di configurazione del gruppo di sicurezza di rete
 
-In questo esempio viene illustrato come configurare le regole NSG per una macchina virtuale da replicare. 
+In questo esempio viene illustrato come configurare le regole NSG per una macchina virtuale da replicare.
 
-- Se si usano regole NSG per controllare la connettività in uscita, usare regole che consentano HTTPS in uscita per tutti gli intervalli di indirizzi IP necessari.
+- Se si usano regole NSG per controllare la connettività in uscita, usare regole che consentano HTTPS in uscita per la porta 443 per tutti gli intervalli di indirizzi IP necessari.
 - Nell'esempio si presuppone che il percorso di origine della macchina virtuale sia "Stati Uniti orientali" e che il percorso di destinazione sia "Stati Uniti centrali".
 
 ### <a name="nsg-rules---east-us"></a>Regole NSG - Stati Uniti orientali
 
-1. Creare regole che corrispondano agli [intervalli di indirizzi IP degli Stati Uniti orientali](https://www.microsoft.com/download/confirmation.aspx?id=41653). Queste regole sono richieste in modo che i dati possano essere scritti nell'account di archiviazione della cache dalla macchina virtuale.
-2. Creare regole per tutti gli intervalli di indirizzi IP che corrispondano agli [endpoint di autenticazione e identità IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) di Office 365.
-3. Creare regole che corrispondano alla posizione di destinazione:
+1. Creare una regola di sicurezza HTTPS in uscita (443) per "Storage.EastUS" nel gruppo di sicurezza di rete, come illustrato nello screenshot seguente.
+
+      ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
+
+2. Creare regole HTTPS in uscita (443) per tutti gli intervalli di indirizzi IP che corrispondono agli [endpoint di autenticazione e identità IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) di Office 365.
+3. Creare regole HTTPS in uscita (443) per gli IP di Site Recovery che corrispondono alla località di destinazione:
 
    **Posizione** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
     --- | --- | ---
    Stati Uniti centrali | 40.69.144.231 | 52.165.34.144
 
-### <a name="nsg-rules---central-us"></a>Regole NSG - Stati Uniti centrali 
+### <a name="nsg-rules---central-us"></a>Regole NSG - Stati Uniti centrali
 
 Queste regole sono necessarie in modo che la replica possa essere abilitata dall'area di destinazione all'area di origine dopo il failover:
 
-* Regole che corrispondono agli [intervalli IP degli Stati Uniti centrali](https://www.microsoft.com/download/confirmation.aspx?id=41653). Queste regole sono richieste in modo che i dati possano essere scritti nell'account di archiviazione della cache dalla macchina virtuale.
+1. Creare una regola di sicurezza HTTPS in uscita (443) per "Storage.CentralUS" nel gruppo di sicurezza di rete.
 
-* Regole per tutti gli intervalli IP che corrispondono agli [endpoint di autenticazione e identità IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) di Office 365.
+2. Creare regole HTTPS in uscita (443) per tutti gli intervalli di indirizzi IP che corrispondono agli [endpoint di autenticazione e identità IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) di Office 365.
 
-* Regole che corrispondono alla posizione di origine:
-    - Stati Uniti orientali
-    - Indirizzo IP di Site Recovery: 13.82.88.226
-    - Indirizzo IP di monitoraggio di Site Recovery: 104.45.147.24
+3. Creare regole HTTPS in uscita (443) per gli IP di Site Recovery che corrispondono alla località di origine:
 
+   **Posizione** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
+    --- | --- | ---
+   Stati Uniti centrali | 13.82.88.226 | 104.45.147.24
 
-## <a name="expressroutevpn"></a>ExpressRoute/VPN 
+## <a name="network-virtual-appliance-configuration"></a>Configurazione di appliance virtuali di rete
+
+Se si usano appliance virtuali di rete per controllare il traffico di rete in uscita dalle VM, l'appliance potrebbe essere soggetta a limitazioni se tutto il traffico di replica passa attraverso l'appliance virtuale di rete. È consigliabile creare un endpoint servizio di rete nella rete virtuale per "Storage" in modo che il traffico di replica non venga indirizzato all'appliance virtuale di rete.
+
+### <a name="create-network-service-endpoint-for-storage"></a>Creare un endpoint servizio di rete per Storage
+È possibile creare un endpoint servizio di rete nella rete virtuale per "Storage" in modo che il traffico di replica non lasci il limite di Azure.
+
+- Selezionare la rete virtuale di Azure e fare clic su "Endpoint servizio"
+
+    ![storage-endpoint](./media/azure-to-azure-about-networking/storage-service-endpoint.png)
+
+- Fare clic su "Aggiungi" per aprire la scheda "Aggiungi endpoint del servizio"
+- Selezionare "Microsoft.Storage" in "Servizio" e le subnet obbligatorie nel campo "Subnet" e fare clic su "Aggiungi"
+
+>[!NOTE]
+>Non limitare agli account di archiviazione usati per ASR l'accesso alla rete virtuale. È consigliabile consentire l'accesso da "Tutte le reti"
+
+## <a name="expressroutevpn"></a>ExpressRoute/VPN
 
 Se si dispone di una connessione VPN o ExpressRoute tra la posizione locale e quella di Azure, seguire le linee guida in questa sezione.
 
 ### <a name="forced-tunneling"></a>Tunneling forzato
 
-In genere si stabilisce una route predefinita (0.0.0.0/0) che forza il flusso del traffico Internet in uscita attraverso il percorso locale. Ciò non è consigliabile. Il traffico della replica e la comunicazione del servizio Site Recovery non devono allontanarsi dal limite di Azure. La soluzione consiste nell'aggiungere route definite dall'utente (UDR) per [questi intervalli IP](#outbound-connectivity-for-azure-site-recovery-ip-ranges) in modo che il traffico della replica non finisca locale.
+In genere si stabilisce una route predefinita (0.0.0.0/0) che forza il flusso del traffico Internet in uscita attraverso il percorso locale. Ciò non è consigliabile. Il traffico di replica non deve lasciare il limite di Azure.
 
-### <a name="connectivity"></a>Connettività 
+È possibile [creare un endpoint servizio di rete](#create-network-service-endpoint-for-storage) nella rete virtuale per "Storage" in modo che il traffico di replica non lasci il limite di Azure.
+
+
+### <a name="connectivity"></a>Connettività
 
 Seguire queste linee guida per le connessioni tra la posizione di destinazione e la posizione locale:
 - Se l'applicazione deve connettersi alle macchine locali o se sono presenti client che si connettono all'applicazione dal locale tramite VPN/ExpressRoute, verificare di disporre di almeno una [connessione da sito a sito](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) tra l'area di Azure di destinazione e il data center locale.

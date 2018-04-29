@@ -5,10 +5,10 @@ services: logic-apps
 keywords: flusso di dati, monitoraggio eventi, hub eventi
 author: ecfan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
-ms.assetid: 
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 076f7dd11ca8c153046727861ecb755e88f32b01
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8de56cd64f38791fb27d9bcce1e16641fb162c2f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Monitorare, ricevere e inviare eventi con il connettore di Hub eventi
 
@@ -76,11 +76,28 @@ Un [*trigger*](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un ev
 3. Selezionare l'hub eventi da monitorare e configurare l'intervallo e la frequenza con cui si vuole controllare Hub eventi.
 
     ![Specificare l'hub eventi o il gruppo di consumer](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
+    
+    > [!NOTE]
+    > Tutti i trigger dell'hub eventi sono trigger con *polling prolungato*. Questo significa che, quando un trigger viene attivato, elabora tutti gli eventi e attende 30 secondi che vengano visualizzati altri eventi nell'hub eventi.
+    > Se non si ricevono eventi per 30 secondi, l'esecuzione del trigger viene ignorata. In caso contrario, il trigger continua a leggere gli eventi finché l'hub eventi non è vuoto.
+    > Il polling successivo si baserà sull'intervallo di ricorrenza specificato nelle proprietà del trigger.
 
-    > [!TIP]
-    > Per selezionare facoltativamente un gruppo di consumer per la lettura degli eventi, scegliere **Mostra opzioni avanzate**.
 
-4. Salvare l'app per la logica. Nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
+4. Se si vogliono selezionare alcune delle opzioni di trigger avanzate, scegliere **Mostra opzioni avanzate**.
+
+    ![Opzioni avanzate dei trigger](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-advanced.png)
+
+    | Proprietà | Dettagli |
+    | --- | --- |
+    | Tipo di contenuto  |Selezionare il tipo di contenuto degli eventi nell'elenco a discesa. Per impostazione predefinita, è selezionato application/octet-stream. |
+    | Content schema (Schema contenuto) |Immettere lo schema contenuto in formato JSON per gli eventi che vengono letti dall'hub eventi. |
+    | Consumer group name (Nome gruppo di consumer) |Immettere il [nome del gruppo di consumer](../event-hubs/event-hubs-features.md#consumer-groups) dell'hub eventi per leggere gli eventi. Se il nome del gruppo di consumer non viene specificato, viene usato il gruppo di consumer predefinito. |
+    | Minimum partition key (Chiave di partizione minima) |Immettere l'ID di [partizione](../event-hubs/event-hubs-features.md#partitions) minima da leggere. Per impostazione predefinita, vengono lette tutte le partizioni. |
+    | Maximum partition key (Chiave di partizione massima) |Immettere l'ID di [partizione](../event-hubs/event-hubs-features.md#partitions) massima da leggere. Per impostazione predefinita, vengono lette tutte le partizioni. |
+    | Maximum events count (Numero massimo di eventi) |Immettere un valore per il numero massimo di eventi. Il trigger restituisce un valore compreso tra uno e il numero di eventi specificato da questa proprietà. |
+    |||
+
+5. Salvare l'app per la logica. Nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
 
 A questo punto, quando l'app per la logica controlla l'hub eventi selezionato e trova un nuovo evento, il trigger esegue le azioni nell'app per la logica per l'evento rilevato.
 

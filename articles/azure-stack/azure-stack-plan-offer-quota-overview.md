@@ -2,24 +2,24 @@
 title: Panoramica del piano, l'offerta, quote e sottoscrizione Stack Azure | Documenti Microsoft
 description: Come operatore di cloud, si desidera conoscere i piani, offerte, le quote e le sottoscrizioni Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/22/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 7c395dfcdfcd509d8b32028badd1c1310ea67657
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: ''
+ms.openlocfilehash: fcf19f486ebdc739f3d5c7b25215ba8726462a56
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Panoramica di piano, offerta, quote e sottoscrizione
 
@@ -32,10 +32,10 @@ Le offerte contengono uno o più piani e ogni piano include uno o più servizi. 
 - la quantità di tali risorse che gli utenti potranno utilizzare
 - le aree di accedano accesso alle risorse
 
-Quando si esegue un servizio, viene usata la seguente procedura seguente:
+Quando si esegue un servizio, attenersi alla procedura seguente:
 
 1. Aggiungere un servizio che si desidera distribuire agli utenti.
-2. Creare un piano che contiene uno o più servizi. Quando si crea un piano, verrà selezionata o creata quote che definiscono i limiti delle risorse di ogni servizio nel piano.
+2. Creare un piano che contiene uno o più servizi. Quando si crea un piano, selezionare o creare le quote che definiscono i limiti delle risorse di ogni servizio nel piano.
 3. Creare un'offerta che contiene uno o più piani (compresi i piani di base e i piani di componente aggiuntivo opzionale).
 
 Dopo aver creato l'offerta, gli utenti possono sottoscrivere per l'accesso alle risorse che fornisce e i servizi. Gli utenti possano sottoscrivere tante offerte che desiderano. Nel diagramma seguente illustra un semplice esempio di un utente che ha sottoscritto due offerte. Ogni offerta è un piano o due e ogni piano concede l'accesso ai servizi.
@@ -52,13 +52,15 @@ Per gestire la capacità del cloud, si selezionare o creare una quota per ogni s
 
 Quote possono essere configurate per area. Ad esempio, un piano che contiene i servizi di calcolo da un'area potrebbe avere una quota di due macchine virtuali, 4 GB di RAM e 10 core di CPU. In Azure Stack Development Kit, una sola area (denominato *locale*) è disponibile.
 
+Altre informazioni, vedere [tipi di quote nello Stack di Azure](azure-stack-quota-types.md). 
+
 ### <a name="base-plan"></a>Piano base
 
 Quando si crea un'offerta, l'amministratore del servizio può includere un piano di base. Questi piani di base sono inclusi per impostazione predefinita, quando un utente sottoscrive l'offerta. Quando un utente esegue la sottoscrizione, hanno accesso a tutti i provider di risorse specificato in questi piani di base (con le quote corrispondenti).
 
 ### <a name="add-on-plans"></a>Piani aggiuntivi
 
-È inoltre possibile includere i piani di componente aggiuntivo opzionale in un'offerta. I piani aggiuntivi non sono inclusi per impostazione predefinita nella sottoscrizione. Piani di componente aggiuntivo sono piani aggiuntivi (con quote) disponibili in un'offerta che è possibile aggiungere un sottoscrittore per le sottoscrizioni. Ad esempio, è possibile offrire ai clienti che decide di adottare il servizio di un piano di base con risorse limitate per una versione di valutazione e un piano del componente aggiuntivo con un numero più significativo di risorse.
+I piani di componente aggiuntivo sono piani facoltativi che si aggiunge a un'offerta. I piani aggiuntivi non sono inclusi per impostazione predefinita nella sottoscrizione. Piani di componente aggiuntivo sono piani aggiuntivi (con quote) disponibili in un'offerta che è possibile aggiungere un sottoscrittore per le sottoscrizioni. Ad esempio, è possibile offrire ai clienti che decide di adottare il servizio di un piano di base con risorse limitate per una versione di valutazione e un piano del componente aggiuntivo con un numero più significativo di risorse.
 
 ## <a name="offers"></a>Offerte
 

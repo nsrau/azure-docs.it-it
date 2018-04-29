@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: 9c821f20ce5826666a05121e1a39882fae0930d3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 10b2bf863540330a57b5aecac438f2b9e4bc8a74
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Sul gateway VPN per lo Stack di Azure
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
@@ -26,11 +26,11 @@ ms.lasthandoff: 04/23/2018
 
 Prima di poter inviare il traffico di rete tra la rete virtuale di Azure e il sito locale, è necessario creare un gateway di rete virtuale per la rete virtuale.
 
-Un gateway VPN è un tipo di gateway di rete virtuale che invia traffico crittografato tramite una connessione pubblica. È possibile utilizzare i gateway VPN di inviare il traffico in modo sicuro tra una rete virtuale nello Stack di Azure e una rete virtuale in Azure o tra una rete virtuale e un'altra rete connessa a un dispositivo VPN.
+Un gateway VPN è un tipo di gateway di rete virtuale che invia traffico crittografato tramite una connessione pubblica. È possibile usare i gateway VPN per inviare il traffico in modo sicuro tra una rete virtuale nello Stack di Azure e una rete virtuale in Azure. È anche possibile inviare il traffico in modo sicuro tra una rete virtuale e un'altra rete connessa a un dispositivo VPN.
 
 Quando si crea un gateway di rete virtuale, si specifica il tipo di gateway che si vuole creare. Stack di Azure supporta un tipo di gateway di rete virtuale: il tipo 'Vpn'.
 
-Ogni rete virtuale può avere due gateway di rete virtuale, ma solo uno per ogni tipo. A seconda delle impostazioni scelte, è possibile creare più connessioni a un singolo gateway VPN. Una configurazione di connessione multisito ne è un esempio.
+Ogni rete virtuale può avere due gateway di rete virtuale, ma solo uno per ogni tipo. A seconda delle impostazioni scelte, è possibile creare più connessioni a un singolo gateway VPN. Un esempio è una configurazione della connessione a più siti.
 
 > [!NOTE]
 > In Azure, è necessario dividere la velocità effettiva della larghezza di banda per SKU di Gateway VPN si sceglie tra tutte le connessioni che sono connessi a esso.  Nello Stack di Azure, il valore della larghezza di banda per lo SKU di Gateway VPN viene applicato a ogni risorsa di connessione che è connesso.     
@@ -46,10 +46,10 @@ Una connessione gateway VPN si basa su più risorse configurate con impostazioni
 Le impostazioni scelte per ogni risorsa sono fondamentali per creare una connessione corretta. Per informazioni sulle singole risorse e le impostazioni per il Gateway VPN, vedere [impostazioni del gateway VPN per Azure Stack](azure-stack-vpn-gateway-settings.md). È possibile trovare informazioni utili per capire i tipi di gateway, tipi di VPN, i tipi di connessione, subnet gateway, gateway di rete locale e varie altre impostazioni di risorsa che è possibile prendere in considerazione.
 
 ### <a name="deployment-tools"></a>Strumenti di distribuzione
-È possibile iniziare a creare e configurare le risorse usando uno strumento di configurazione, ad esempio il portale di Azure, e successivamente decidere di passare a un altro strumento, ad esempio PowerShell, per configurare risorse aggiuntive o eventualmente modificare quelle esistenti. Attualmente, non è possibile configurare tutte le risorse e le relative impostazioni nel portale di Azure. Le istruzioni riportate negli articoli per ogni topologia di connessione indicano se è necessario usare uno strumento di configurazione specifico.
+È possibile creare e configurare le risorse utilizzando uno strumento di configurazione, ad esempio il portale di Azure. In un secondo momento è possibile passare a un altro strumento, ad esempio PowerShell per configurare le risorse aggiuntive o modificare le risorse esistenti quando applicabile. Attualmente, non è possibile configurare tutte le risorse e le relative impostazioni nel portale di Azure. Le istruzioni riportate negli articoli per ogni topologia di connessione indicano se è necessario usare uno strumento di configurazione specifico.
 
 ## <a name="connection-topology-diagrams"></a>Diagrammi di topologia di connessione
-È importante tenere presente che sono disponibili configurazioni diverse per le connessioni del gateway VPN. È necessario determinare la configurazione più adatta alle proprie esigenze. Nelle sezioni seguenti è possibile trovare informazioni e diagrammi delle topologie sulle connessioni gateway VPN seguenti. Le sezioni seguenti contengono tabelle che elencano:
+È importante tenere presente che sono disponibili configurazioni diverse per le connessioni del gateway VPN. Determinare la migliore configurazione adatta alle proprie esigenze. Nelle sezioni seguenti è possibile trovare informazioni e diagrammi delle topologie sulle connessioni gateway VPN seguenti. Le sezioni seguenti contengono tabelle che elencano:
 
 - Modello di distribuzione disponibile
 - Strumenti di configurazione disponibili
@@ -78,7 +78,7 @@ Quando si seleziona un gateway superiore SKU, ad esempio Standard su Basic o ad 
 
 Stack di Azure non supporta il gateway UltraPerformance SKU, che viene utilizzato esclusivamente con Express Route.
 
-Nella scelta di uno SKU, considerare quanto segue:
+Quando si seleziona SKU, considerare quanto segue:
 - Stack di Azure non supporta i gateway basata su criteri.
 - Protocollo BGP (Border Gateway) non è supportato nella SKU Basic.
 - Coesistenza Gateway VPN di ExpressRoute configurazioni non sono supportate nello Stack di Azure
@@ -93,8 +93,8 @@ La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregat
 |**SKU standard**       | 100 Mbps  | 10    |
 |**SKU con prestazioni elevate** | 200 Mbps    | 5 |
 ***(1)***  Velocità effettiva di VPN non è una velocità effettiva garantita per le connessioni cross-premise via Internet. È la misura massima possibile per la velocità effettiva.  
-***(2)***  Tunnel n. max corrisponde al totale per ogni distribuzione di Azure Stack per tutte le sottoscrizioni.
-***(3)***  BGP non è supportato per lo SKU Basic.
+***(2)***  Tunnel n. max corrisponde al totale per ogni distribuzione di Azure Stack per tutte le sottoscrizioni.  
+***(3)***  BGP non è supportato per lo SKU Basic.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su [delle impostazioni per il gateway VPN](azure-stack-vpn-gateway-settings.md) per lo Stack di Azure.

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: c7d28831edf028657b7dd2a6a404a692a4a3bcb0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: cdadf48aa23e3dd76d8a511794f00725f073611d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Scaricare gli elementi di marketplace da Azure allo Stack di Azure
 
@@ -62,7 +62,7 @@ Dal computer con connettività internet, utilizzare la procedura seguente per sc
 
 1. Aprire la console PowerShell come amministratore e [installare i moduli di PowerShell specifici di Azure Stack](azure-stack-powershell-install.md). Assicurarsi di installare **PowerShell versione 1.2.11 o versione successiva**.  
 
-2. Aggiungere l'account di Azure che è stato utilizzato per registrare dello Stack di Azure. Per aggiungere l'account, eseguire la **Connect-AzureRmAccount** cmdlet senza parametri. Viene richiesto di immettere le credenziali dell'account Azure e potrebbe essere necessario utilizzare 2-factor authentication in base alla configurazione dell'account.  
+2. Aggiungere l'account di Azure che è stato utilizzato per registrare dello Stack di Azure. Per aggiungere l'account, eseguire il **Aggiungi AzureRmAccount** cmdlet senza parametri. Viene richiesto di immettere le credenziali dell'account Azure e potrebbe essere necessario utilizzare 2-factor authentication in base alla configurazione dell'account.  
 
 3. Se si dispone di più sottoscrizioni, eseguire il comando seguente per selezionare il certificato utilizzato per la registrazione:  
 

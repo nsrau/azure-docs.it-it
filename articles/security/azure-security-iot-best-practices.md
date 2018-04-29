@@ -3,8 +3,8 @@ title: Procedure consigliate per la sicurezza di Internet delle cose | Documenta
 description: L'articolo fornisce un elenco completo di procedure consigliate per la sicurezza di Internet of Things e indicazioni generali.
 services: security
 documentationcenter: na
-author: TomShinder
-manager: StevenPo
+author: barclayn
+manager: mbaldwin
 editor: TomSh
 ms.assetid: 2d5598c5-4c30-481d-b8f4-51ee024ea9a7
 ms.service: security
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 8937437652a78e05b94574cb9fe5df7962edb1ad
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 804dd6828931ca2801360ab18be938c8bacf2bfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="internet-of-things-security-best-practices"></a>Procedure consigliate per la sicurezza di Internet delle cose
+
 La protezione dell'infrastruttura di Internet delle cose (IoT) è un'impresa considerevole per tutte le persone coinvolte nelle soluzioni IoT. Dato il numero di dispositivi coinvolti e la natura distribuita di questi dispositivi, l'impatto di un evento di sicurezza che può compromettere milioni di dispositivi IoT non è da sottovalutare perché le conseguenze possono essere enormi.
 
 Per questo motivo, la sicurezza IoT richiede un approccio approfondito. I dati devono essere sicuri nel cloud e quando vengono spostati su reti private e pubbliche. Devono essere in uso metodi per effettuare il provisioning sicuro dei dispositivi IoT stessi. Ogni livello, dal dispositivo, alla rete e al back-end cloud, richiede garanzie di sicurezza affidabili.
@@ -35,6 +36,7 @@ Le procedure consigliate IoT possono essere classificate nel modo seguente:
 Questo articolo riepiloga le [procedure consigliate per la sicurezza di Internet delle cose](../iot-suite/iot-security-best-practices.md). Per informazioni più dettagliate, vedere tale articolo.
 
 ## <a name="iot-hardware-manufacturer-or-integrator"></a>Produttore o integratore di hardware IoT
+
 Si invitano i produttori e gli integratori di hardware IoT a seguire le procedure consigliate riportate più avanti:
 
 * **Impostare l'hardware sui requisiti minimi**: la progettazione dell'hardware deve includere esclusivamente le funzionalità minime necessarie per il funzionamento. 
@@ -43,6 +45,7 @@ Si invitano i produttori e gli integratori di hardware IoT a seguire le procedur
 * **Implementare aggiornamenti sicuri**: l'aggiornamento del firmware durante il ciclo di vita del dispositivo è inevitabile.
 
 ## <a name="iot-solution-developer"></a>Sviluppatore di soluzioni IoT
+
 Si invitano gli sviluppatori di soluzioni IoT a seguire le procedure consigliate riportate più avanti:
 
 * **Applicare una metodologia di sviluppo software protetta**: lo sviluppo di software protetti richiede una riflessione totale riguardo alla sicurezza dall'inizio del progetto fino all'implementazione, al test e alla distribuzione.
@@ -50,12 +53,14 @@ Si invitano gli sviluppatori di soluzioni IoT a seguire le procedure consigliate
 * **Eseguire l'integrazione con attenzione**: molti dei problemi di sicurezza del software intervengono al confine tra librerie e API. 
 
 ## <a name="iot-solution-deployer"></a>Distributore di soluzioni IoT
+
 Si invitano i distributori di soluzioni IoT a seguire le procedure consigliate riportate più avanti:
 
 * **Distribuire l'hardware in modo sicuro**: le distribuzioni IoT potrebbero richiedere che l'hardware da distribuire si trovi in posizioni non protette, ad esempio spazi pubblici o posizioni non controllate.
 * **Proteggere le chiavi di autenticazione**: durante la distribuzione, ogni dispositivo richiede gli ID dei dispositivi e le chiavi di autenticazione associate generate dal servizio cloud. Conservare fisicamente queste chiavi al sicuro anche dopo la distribuzione. Qualsiasi chiave compromessa può essere usata da un dispositivo non autorizzato per passare come dispositivo esistente.
 
 ## <a name="iot-solution-operator"></a>Operatore di soluzioni IoT
+
 Si invitano gli operatori di soluzioni IoT a seguire le procedure consigliate riportate più avanti:
 
 * **Aggiornare i sistemi regolarmente**: assicurarsi che tutti i sistemi operativi e i driver dei dispositivi vengano aggiornati alle versioni più recenti. 

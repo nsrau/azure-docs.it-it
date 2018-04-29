@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: davidmu
-ms.openlocfilehash: 3d378d188d9acec06f37ca91e3c67e82fb31fc08
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ca7160d39d5d26ca69345ce636f22afbe44b25db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Azure AD B2C: gestione della sessione Single Sign-On (SSO)
 
@@ -47,6 +47,9 @@ Come indica il nome, questo provider non esegue alcuna operazione. Può essere u
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
 È possibile usare questo provider per archiviare le attestazioni in una sessione. Un riferimento a questo provider è in genere incluso in un profilo tecnico usato per gestire account locali. 
+
+> [!NOTE]
+> Quando si usa DefaultSSOSessionProvider per archiviare attestazioni in una sessione, è necessario assicurarsi che qualsiasi attestazione che deve essere restituita all'applicazione o usata da pre-condizioni in passaggi successivi sia archiviata nella sessione o aumentata da una lettura dal profilo utente nella directory. Ciò garantisce che l'autenticazione non abbia esito negativo per mancanza di attestazioni.
 
 ```XML
 <TechnicalProfile Id="SM-AAD">

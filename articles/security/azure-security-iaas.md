@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 501364f24e61c29ac0d5909a7dff1df9e93fe6a5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a6d6e0b7ea844f0a4d60ae7a157ac76dc8bdb8f8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
 
@@ -166,7 +166,7 @@ La protezione avanzata deve essere implementata in tutte le macchine virtuali ne
 
 Security Compliance Manager è uno strumento gratuito che consente di configurare e gestire rapidamente desktop, data center tradizionali e cloud pubblici e privati tramite criteri di gruppo e System Center Configuration Manager.
 
-Security Compliance Manager offre criteri pronti per la distribuzione e pacchetti di configurazione di Gestione configurazione desiderata già testati. Queste baseline si basano sulle [linee guida Microsoft sulla sicurezza](https://technet.microsoft.com/en-us/library/cc184906.aspx) e le procedure consigliate del settore e permettono di gestire eventuali deviazioni della configurazione, rispondere ai requisiti di conformità e ridurre le minacce per la sicurezza.
+Security Compliance Manager offre criteri pronti per la distribuzione e pacchetti di configurazione di Gestione configurazione desiderata già testati. Queste baseline si basano sulle [linee guida Microsoft sulla sicurezza](https://technet.microsoft.com/library/cc184906.aspx) e le procedure consigliate del settore e permettono di gestire eventuali deviazioni della configurazione, rispondere ai requisiti di conformità e ridurre le minacce per la sicurezza.
 
 È possibile usare Security Compliance Manager per importare la configurazione corrente dei computer con due metodi diversi. Il primo consiste nell'importare criteri di gruppo basati su Active Directory. Il secondo consiste nell'importare la configurazione di un computer di riferimento "golden master" usando lo [strumento LocalGPO](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/) per eseguire il backup dei criteri di gruppo locali. È quindi possibile importare i criteri di gruppo locali in Security Compliance Manager.
 

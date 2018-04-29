@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: e66adb8b0485e30fded487e18af6b2030f9c7f5b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 365a612b20ed91a6acde566dff12b07ff3b8b676
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Sincronizzare i dati tra più database cloud e locali con l'anteprima di sincronizzazione dati SQL
 
@@ -44,7 +44,7 @@ La sincronizzazione dati usa una topologia hub-spoke per sincronizzare i dati. U
 
 ## <a name="when-to-use-data-sync"></a>Quando usare la sincronizzazione dati
 
-La sincronizzazione dati è utile nei casi in cui i dati devono essere mantenuti aggiornati in diversi database SQL di Azure o database di SQL Server. Questi sono i principali casi d'uso per la sincronizzazione dati:
+La sincronizzazione dei dati è utile nei casi in cui i dati devono essere mantenuti aggiornati in diversi database SQL di Azure o database di SQL Server. Questi sono i principali casi d'uso per la sincronizzazione dati:
 
 -   **Sincronizzazione dei dati ibrida:** con la sincronizzazione dei dati è possibile mantenere i dati sincronizzati tra database locali e database SQL di Azure per rendere possibili applicazioni ibride. Questa funzionalità può essere interessante per i clienti che stanno valutando il passaggio al cloud e vorrebbero trasferire alcune applicazioni in Azure.
 
@@ -138,6 +138,11 @@ Sì. È necessario disporre di un account di database SQL per ospitare il databa
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>È possibile usare la sincronizzazione dati solo tra database SQL Server locali? 
 Non direttamente. Tuttavia, è possibile sincronizzare in maniera indiretta tra i database SQL Server locali creando un database hub in Azure e aggiungendo i database locali al gruppo di sincronizzazione.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>È possibile usare la sincronizzazione dei dati tra database SQL che appartengono a sottoscrizioni diverse?
+Sì. È possibile eseguire la sincronizzazione tra database SQL che appartengono a gruppi di risorse di proprietà di sottoscrizioni diverse.
+-   Se le sottoscrizioni appartengono allo stesso tenant e sono disponibili le autorizzazioni per tutte le sottoscrizioni, è possibile configurare il gruppo di sincronizzazione nel portale di Azure.
+-   In caso contrario, è necessario usare PowerShell per aggiungere i membri di sincronizzazione che appartengono a sottoscrizioni diverse.
    
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>È possibile usare la sincronizzazione dati per effettuare il seeding dei dati da un database di produzione a un database vuoto, mantenendoli poi sincronizzati? 
 Sì. Creare manualmente lo schema nel nuovo database effettuando lo scripting dall'originale. Dopo aver creato lo schema, aggiungere le tabelle a un gruppo di sincronizzazione per copiare i dati e mantenerli sincronizzati.
@@ -147,6 +152,12 @@ Sì. Creare manualmente lo schema nel nuovo database effettuando lo scripting da
 Non è consigliabile usare l'anteprima di sincronizzazione dati SQL per creare un backup dei dati. Non è possibile eseguire il backup e il ripristino a una temporizzazione specificata, perché le sincronizzazioni dell'anteprima di sincronizzazione dati SQL sono senza versione. Inoltre, l'anteprima di sincronizzazione dati SQL non esegue il backup di altri oggetti SQL, come ad esempio stored procedure, e non esegue rapidamente l'equivalente di un'operazione di ripristino.
 
 Per una tecnica di backup consigliata, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
+
+### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Con la sincronizzazione dei dati si possono sincronizzare tabelle e colonne crittografate?
+
+-   Se un database usa Always Encrypted, è possibile sincronizzare solo le tabelle e colonne *non* crittografate. Non è possibile sincronizzare le colonne crittografate, perché la sincronizzazione dei dati non può decrittografare i dati.
+
+-   Se una colonna usa la crittografia a livello di colonna (CLE), è possibile sincronizzare la colonna, purché le dimensioni delle righe siano minori rispetto alle dimensioni massime di 24 MB. La sincronizzazione dei dati considera la colonna crittografata in base alla chiave (CLE) come normali dati binari. Per decrittografare i dati in altri membri di sincronizzazione, è necessario avere lo stesso certificato.
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>Le regole di confronto sono supportate nella sincronizzazione dati SQL?
 

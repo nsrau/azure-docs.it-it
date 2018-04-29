@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 4ddb870d0513d6834aacf0964c240260f18df0fd
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3a4026b56522da6c6efede4b8b7a542efc8a776d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Effettuare il provisioning di nuovi tenant e registrarli nel catalogo
 
@@ -63,7 +63,7 @@ Il provisioning del database deve essere compreso nella strategia di gestione de
 
 L'app di database per tenant Wingtip Tickets effettua il provisioning di nuovi tenant copiando un database modello denominato _basetenantdb_, distribuito nel server di catalogo. Il provisioning può essere integrato nell'applicazione nell'ambito dell'esperienza di iscrizione. Può inoltre essere supportato offline tramite script. Questa esercitazione illustra il provisioning tramite PowerShell. 
 
-Gli script di provisioning copiano il database _basetenantdb_ per creare un nuovo database tenant in un pool elastico e quindi inizializzano il database con informazioni specifiche del tenant e lo registrano nella mappa partizioni del catalogo. I nomi dei database tenant vengono assegnati in base al nome del tenant. Questo schema di denominazione non è una parte essenziale del modello. Poiché il catalogo associa la chiave del tenant al nome del database, è possibile usare qualsiasi convenzione di denominazione. 
+Gli script di provisioning copiano il database _basetenantdb_ per creare un nuovo database tenant in un pool elastico Il database tenant viene creato nel server tenant mappato all'alias DNS _newtenant_. Questo alias mantiene un riferimento al server usato per il provisioning di nuovi tenant e viene aggiornato per puntare a un server tenant di ripristino nelle esercitazioni sul ripristino di emergenza ([ripristino di emergenza tramite ripristino geografico](saas-dbpertenant-dr-geo-restore.md), [ripristino di emergenza tramite replica geografica](saas-dbpertenant-dr-geo-replication.md)). e quindi inizializzano il database con informazioni specifiche del tenant e lo registrano nella mappa partizioni del catalogo. I nomi dei database tenant vengono assegnati in base al nome del tenant. Questo schema di denominazione non è una parte essenziale del modello. Poiché il catalogo associa la chiave del tenant al nome del database, è possibile usare qualsiasi convenzione di denominazione. 
 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione SaaS di database per tenant Wingtip Tickets

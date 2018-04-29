@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 4ae9fc7d5b53d33f9feb98c450970e0560afa2af
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 8fafc277d7410ab3f8f54b0defee127fd6ec2f4d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="password-requirements-for-pci-dss-compliant-environments"></a>Requisiti per le password per gli ambienti conformi a PCI DSS 
 ## <a name="pci-dss-requirement-2"></a>Requisito 2 di PCI DSS
@@ -71,7 +71,7 @@ Alcuni esempi di fonti degli standard di protezione avanzata dei sistemi accetta
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Per Microsoft Azure, il team dei servizi di sicurezza tecnici OSSC sviluppa standard di configurazione della sicurezza per i sistemi nell'ambiente di Microsoft Azure, coerenti con gli standard di protezione avanzata accettati dal settore. Queste configurazioni sono documentante nelle linee di base di sistema e le modifiche di configurazione rilevanti vengono comunicate ai gruppi interessati (ad esempio, il team IPAK). Le procedure vengono implementate per monitorare la conformità con gli standard di configurazione della sicurezza. Gli standard di configurazione della sicurezza per i sistemi nell'ambiente Microsoft Azure sono coerenti con agli standard di protezione avanzata accettati dal settore e vengono verificati almeno ogni anno. |
-| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore fornisce protezione avanzata per tutti i servizi nell'ambito per l'ambiente dei dati di titolari di carte. <br /><br />Contoso Webstore implementa anche il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), che offre una vista centralizzata dello stato di sicurezza di tutte le risorse di Azure. È possibile verificare subito che i controlli di sicurezza appropriati siano implementati e configurati correttamente, così come identificare rapidamente le risorse che richiedono attenzione.<br /><br />Contoso Webstore usa Operations Management Suite per registrare tutte le modifiche di sistema. [Operations Management Suite (OMS)](/azure/operations-management-suite/) fornisce una registrazione completa delle modifiche. Le modifiche possono essere controllate e verificate per stabilirne l'accuratezza. Per istruzioni più dettagliate, vedere [PCI Guidance - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing) (Linee guida per PCI - Operations Management Suite).|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore fornisce protezione avanzata per tutti i servizi nell'ambito per l'ambiente dei dati di titolari di carte. <br /><br />Contoso Webstore implementa anche il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), che offre una vista centralizzata dello stato di sicurezza di tutte le risorse di Azure. È possibile verificare subito che i controlli di sicurezza appropriati siano implementati e configurati correttamente, così come identificare rapidamente le risorse che richiedono attenzione.<br /><br />Contoso Webstore usa Operations Management Suite per registrare tutte le modifiche di sistema. Log Analytics offre registrazione completa delle modifiche. Le modifiche possono essere controllate e verificate per stabilirne l'accuratezza. Per istruzioni più dettagliate, vedere [PCI Guidance - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing) (Linee guida per PCI - Operations Management Suite).|
 
 
 
@@ -172,7 +172,7 @@ Alcuni esempi di fonti degli standard di protezione avanzata dei sistemi accetta
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | L'inventario di soluzioni PaaS demo di Contoso Webstore può essere esaminato nella documentazione fornita. Per altre informazioni, vedere [PCI Guidance - Pre-Installed OMS Solutions](payment-processing-blueprint.md#oms-solutions) (Linee guida per PCI - Soluzioni OMS preinstallate).|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | L'inventario di soluzioni PaaS demo di Contoso Webstore può essere esaminato nella documentazione fornita. Per altre informazioni, vedere [Linee guida per PCI: Soluzioni di gestione preinstallate](payment-processing-blueprint.md#management-solutions).|
 
 
 

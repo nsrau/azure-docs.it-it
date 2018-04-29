@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: bsiva
-ms.openlocfilehash: cbb76aafe97e9e9b45c48a2b13bd1a6566b51fa5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ac2b1d1eec8ea623128e4f1413c45f2bfa37a13d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Eseguire la replica e il failover di macchine virtuali VMware in Azure con PowerShell
 
@@ -42,12 +42,12 @@ Prima di iniziare:
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Accedere alla sottoscrizione di Microsoft Azure
 
-Accedere alla sottoscrizione di Azure usando il cmdlet Login-AzureRmAccount
+Accedere alla sottoscrizione di Azure usando il cmdlet Connect-AzureRmAccount
 
 ```azurepowershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
-Selezionare la sottoscrizione di Azure in cui si vuole replicare le macchine virtuali VMware. Usare il cmdlet Get-AzureRmSubscription per ottenere l'elenco delle sottoscrizioni di Azure a cui si ha accesso. Selezionare la sottoscrizione di Azure che si intende usare tramite il cmdlet Select-AzureRmSubscription.
+Selezionare la sottoscrizione di Azure in cui si vogliono replicare le macchine virtuali VMware. Usare il cmdlet Get-AzureRmSubscription per ottenere l'elenco delle sottoscrizioni di Azure a cui si ha accesso. Selezionare la sottoscrizione di Azure che si intende usare tramite il cmdlet Select-AzureRmSubscription.
 
 ```azurepowershell
 Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
@@ -255,7 +255,7 @@ $FailbackReplicationPolicy = Get-ASRPolicy -Name "ReplicationPolicy-Failback"
 
 # Associate the replication policies to the protection container corresponding to the Configuration Server. 
 
-$Job_AssociatePolicy = New-ASRProtectionContainerMapping -Name "PolicyAssociation1" -PrimaryProtectionContainer $ProtectionContainer -Policy $Policy[0]
+$Job_AssociatePolicy = New-ASRProtectionContainerMapping -Name "PolicyAssociation1" -PrimaryProtectionContainer $ProtectionContainer -Policy $ReplicationPolicy
 
 # Check the job status
 while (($Job_AssociatePolicy.State -eq "InProgress") -or ($Job_AssociatePolicy.State -eq "NotStarted")){ 
@@ -264,7 +264,12 @@ while (($Job_AssociatePolicy.State -eq "InProgress") -or ($Job_AssociatePolicy.S
 }
 $Job_AssociatePolicy.State
 
-$Job_AssociateFailbackPolicy = New-ASRProtectionContainerMapping -Name "FailbackPolicyAssociation" -PrimaryProtectionContainer $ProtectionContainer -Policy $Policy[0]
+<# In the protection container mapping used for failback (replicating failed over virtual machines 
+   running in Azure, to the primary VMware site.) the protection container corresponding to the 
+   Configuration server acts as both the Primary protection container and the recovery protection
+   container
+#>
+ $Job_AssociateFailbackPolicy = New-ASRProtectionContainerMapping -Name "FailbackPolicyAssociation" -PrimaryProtectionContainer $ProtectionContainer -RecoveryProtectionContainer $ProtectionContainer -Policy $FailbackReplicationPolicy
 
 # Check the job status
 while (($Job_AssociateFailbackPolicy.State -eq "InProgress") -or ($Job_AssociateFailbackPolicy.State -eq "NotStarted")){ 
@@ -317,7 +322,7 @@ Errors           : {}
 In questo passaggio vengono creati gli account di archiviazione da usare per la replica. Questi account di archiviazione verranno usati in un secondo momento per replicare le macchine virtuali. Verificare che gli account di archiviazione vengano creati nella stessa area di Azure in cui è stato creato l'insieme di credenziali. È possibile ignorare questo passaggio se si prevede di usare un account di archiviazione esistente per la replica.
 
 > [!NOTE]
-> Durante la replica di macchine virtuali locali in un account di archiviazione Premium, è necessario specificare un account di archiviazione standard aggiuntivo (account di archiviazione log). L'account di archiviazione log svolge la funzione di archivio intermedio in cui vengono conservati i log di replica fino a quando non possono essere applicati nella destinazione di archiviazione Premium.
+> Durante la replica di macchine virtuali locali in un account di archiviazione Premium, è necessario specificare un account di archiviazione Standard aggiuntivo (account di archiviazione log). L'account di archiviazione log svolge la funzione di archivio intermedio in cui vengono conservati i log di replica fino a quando non possono essere applicati nella destinazione di archiviazione Premium.
 >
 
 ```azurepowershell

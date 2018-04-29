@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 10/26/2017
 ms.author: juliako
-ms.openlocfilehash: cba1e58478f4bbdffb61566e53aa0b86138b7fc6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7b8dea132fc1af546b64f51e5ab395ad8bc3fe37
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introduzione a Java Client SDK per Servizi multimediali di Azure
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -42,7 +42,7 @@ Ad esempio, se lo strumento di compilazione è `gradle`, aggiungere la dipendenz
     compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
 
 >[!IMPORTANT]
->A partire dal pacchetto `azure-media` con versione `0.9.8`, l'SDK include il supporto per l'autenticazione tramite Azure Active Directory (AAD) ed è stato rimosso il supporto per l'autenticazione tramite il Servizio di controllo di accesso di Azure. Il Servizio di controllo di accesso di Azure sarà deprecato a partire dall'1 giugno 2018. È consigliabile eseguire al più presto la migrazione al modello di autenticazione di Azure AD. Per informazioni dettagliate sulla migrazione, leggere l'articolo [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
+>A partire dal pacchetto `azure-media` con versione `0.9.8`, l'SDK include il supporto per l'autenticazione tramite Azure Active Directory (AAD) ed è stato rimosso il supporto per l'autenticazione tramite il Servizio di controllo di accesso di Azure. Il Servizio di controllo di accesso di Azure sarà deprecato a partire dal 22 giugno 2018. È consigliabile eseguire al più presto la migrazione al modello di autenticazione di Azure AD. Per informazioni dettagliate sulla migrazione, leggere l'articolo [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
 >[!NOTE]
 >È possibile trovare il codice sorgente di Azure Media Services Java SDK nel [repository di GitHub](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Assicurarsi di passare al ramo 0.9, non al ramo principale. 

@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 04/11/2018
 ms.author: renash
-ms.openlocfilehash: 8905b708101e78691c14168edf7afd659afa92a4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e283619c7e634a1fbba5940e5c8545b0ee4de3d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montare una condivisione file di Azure e accedere alla condivisione in Windows
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate in Windows e Windows Server. Questo articolo illustra tre diversi modi per montare una condivisione file di Azure in Windows: con l'interfaccia utente di Esplora file, tramite PowerShell e tramite il prompt dei comandi. 
 
 Per montare una condivisione file di Azure al di fuori dell'area di Azure in cui è ospitata, ad esempio in locale o in un'area di Azure diversa, il sistema operativo deve supportare SMB 3.0. 
 
-È possibile montare le condivisioni file di Azure in un'installazione Windows in esecuzione in una VM di Azure o in locale. La tabella seguente elenca le versioni del sistema operativo che supportano il montaggio delle condivisioni in un determinato ambiente:
+È possibile montare le condivisioni file di Azure in un'installazione Windows in esecuzione in una VM di Azure o in locale. La tabella seguente illustra le versioni del sistema operativo che supportano il montaggio di condivisioni file in un determinato ambiente:
 
 | Versione di Windows        | Versione SMB | Montabile in una VM di Azure | Montabile in locale |
 |------------------------|-------------|-----------------------|----------------------|
@@ -49,11 +49,20 @@ Per montare una condivisione file di Azure al di fuori dell'area di Azure in cui
 
 * **Chiave dell'account di archiviazione**: per montare una condivisione file di Azure, sarà necessaria la chiave dell'account primaria (o secondaria). Le chiavi di firma di accesso condiviso non sono attualmente supportate per il montaggio.
 
-* **Assicurarsi che la porta 445 sia aperta**: File di Azure usa il protocollo SMB. SMB comunica tramite la porta TCP 445: verificare che il firewall non blocchi le porte TCP 445 dal computer client.
+* **Assicurarsi che la porta 445 sia aperta**: File di Azure usa il protocollo SMB. SMB comunica tramite la porta TCP 445: verificare che il firewall non blocchi le porte TCP 445 dal computer client. È possibile usare Portqry per controllare se la porta TCP 445 è aperta. Se la porta TCP 445 risulta filtrata, la porta TCP è bloccata. Di seguito è fornito un esempio di query:
+
+    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+
+    Se la porta TCP 445 è bloccata da una regola del percorso di rete, verrà visualizzato l'output seguente:
+
+    `TCP port 445 (Microsoft-ds service): FILTERED`
+
+    Per altre informazioni sull'uso di Portqry, vedere [Descrizione dell'utilità della riga di comando Portqry.exe](https://support.microsoft.com/help/310099).
+
 
 ## <a name="persisting-connections-across-reboots"></a>Rendere le connessioni persistenti tra un riavvio e l'altro
 ### <a name="cmdkey"></a>CmdKey
-Il modo più semplice per stabilire connessioni persistenti consiste nel salvare le credenziali dell'account di archiviazione in Windows con l'utilità della riga di comando "CmdKey". Di seguito è riportata una riga di comando di esempio per rendere persistenti le credenziali dell'account di archiviazione nella VM:
+Il modo più semplice per stabilire una connessione persistente consiste nel salvare le credenziali dell'account di archiviazione in Windows con l'utilità della riga di comando "CmdKey". Di seguito è riportata una riga di comando di esempio per rendere persistenti le credenziali dell'account di archiviazione nella VM:
 ```
 C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
 ```
@@ -102,7 +111,7 @@ Dopo che le credenziali sono state rese persistenti, non è più necessario forn
     
     ![La condivisione file di Azure viene ora montata](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-7. **Per smontare (o disconnettere) la condivisione file di Azure, fare clic con il pulsante destro del mouse sulla voce relativa alla condivisione in "Percorsi di rete" in Esplora file e scegliere "Disconnetti"**.
+7. **Quando si è pronti per smontare (o disconnettere) la condivisione file di Azure, fare clic con il pulsante destro del mouse sulla voce relativa alla condivisione in "Percorsi di rete" in Esplora file e scegliere "Disconnetti"**.
 
 ## <a name="mount-the-azure-file-share-with-powershell"></a>Montare la condivisione file di Azure con PowerShell
 1. **Usare il comando seguente per montare la condivisione file di Azure**: ricordare di sostituire `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` con le informazioni appropriate.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: d276ce9233da9137c49faf8c4d975bd1dcf2ff81
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: dd8042620b6b9829e49f3124ecdee1c038f8c12f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Eseguire il backup e il ripristino di Reliable Services e Reliable Actors
 Azure Service Fabric è una piattaforma a disponibilità elevata che replica lo stato in più nodi per mantenere questa disponibilità elevata.  Anche in caso di errore di un nodo nel cluster, il servizio rimarrà quindi comunque disponibile. Anche se questa ridondanza predefinita fornita dalla piattaforma può essere sufficiente per alcune situazioni, in determinati casi è preferibile che il servizio esegua il backup dei dati in un archivio esterno.
@@ -255,12 +255,7 @@ Per i responsabili dell'implementazione di StatefulService significa che `RunAsy
 `OnDataLossAsync` viene quindi chiamato nella nuova replica primaria.
 Fino a quando un servizio non completa correttamente l'API, restituendo true o false, e non viene completata la relativa riconfigurazione, l'API continuerà a essere chiamata singolarmente.
 
-`RestoreAsync` rilascia prima di tutto ogni stato esistente nella replica primaria in cui è stato chiamato.  
-Reliable State Manager crea quindi tutti gli oggetti Reliable esistenti nella cartella di backup.  
-Viene quindi indicato agli oggetti Reliable di eseguire il ripristino dai rispettivi checkpoint nella cartella di backup.  
-Reliable State Manager ripristina infine il proprio stato dai record dei log nella cartella di backup ed esegue il ripristino.  
-Come parte del processo di ripristino, le operazioni a partire dal "punto iniziale" con record di log di commit nella cartella di backup vengono riprodotte negli oggetti Reliable.  
-Questo passaggio assicura che lo stato ripristinato sia coerente.
+`RestoreAsync` rilascia prima di tutto ogni stato esistente nella replica primaria in cui è stato chiamato. Reliable State Manager crea quindi tutti gli oggetti Reliable esistenti nella cartella di backup. Viene quindi indicato agli oggetti Reliable di eseguire il ripristino dai rispettivi checkpoint nella cartella di backup. Reliable State Manager ripristina infine il proprio stato dai record dei log nella cartella di backup ed esegue il ripristino. Come parte del processo di ripristino, le operazioni a partire dal "punto iniziale" con record di log di commit nella cartella di backup vengono riprodotte negli oggetti Reliable. Questo passaggio assicura che lo stato ripristinato sia coerente.
 
 ## <a name="next-steps"></a>Passaggi successivi
   - [Reliable Collections](service-fabric-work-with-reliable-collections.md)
@@ -268,4 +263,5 @@ Questo passaggio assicura che lo stato ripristinato sia coerente.
   - [Notifiche di Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Configurazione di Reliable Services](service-fabric-reliable-services-configuration.md)
   - [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  - [Backup e ripristino periodici in Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 

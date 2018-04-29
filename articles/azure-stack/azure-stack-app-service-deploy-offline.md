@@ -2,11 +2,11 @@
 title: Distribuire il servizio App in un ambiente non in linea nello Stack di Azure | Documenti Microsoft
 description: Istruzioni dettagliate sulla distribuzione di servizio App in un ambiente Azure Stack disconnesso protetto da AD FS.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 7a44c5d182aa3c66c07c3dad8c82e171429f2ee4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7907056635049ce90a2653b0d58ef6299b77c71e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Aggiungere un provider di risorse del servizio App a un ambiente Azure Stack disconnesso protetto da AD FS
 
@@ -144,11 +144,11 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
 
     | Ruolo | Istanze minima | SKU minimo | Note |
     | --- | --- | --- | --- |
-    | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Gestisce e mantiene l'integrità del cloud di servizio App. |
-    | Gestione | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Gestisce gli endpoint di gestione risorse di Azure App Service e API, estensioni portale (amministrazione, tenant, il portale di funzioni) e il servizio dati. Per supportare il failover, aumentare le istanze consigliate a 2. |
-    | Autore | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Pubblica il contenuto tramite distribuzione web e FTP. |
-    | Front-end | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Le richieste vengono indirizzate alle applicazioni di servizio App. |
-    | Lavoro condiviso | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Gli host o applicazioni API App web e le funzioni di Azure. Si potrebbe voler aggiungere più istanze. Un operatore, è possibile definire l'offerta e scegliere il livello di qualsiasi SKU. I livelli è necessario disporre almeno di una CPU virtuali. |
+    | Controller | 1 | Standard_A1 - (1 CPU virtuale, 1792 MB) | Gestisce e mantiene l'integrità del cloud di servizio App. |
+    | Gestione | 1 | Standard_A2 - (Vcpu 2, 3584 MB) | Gestisce gli endpoint di gestione risorse di Azure App Service e API, estensioni portale (amministrazione, tenant, il portale di funzioni) e il servizio dati. Per supportare il failover, aumentare le istanze consigliate a 2. |
+    | Editore | 1 | Standard_A1 - (1 CPU virtuale, 1792 MB) | Pubblica il contenuto tramite distribuzione web e FTP. |
+    | FrontEnd | 1 | Standard_A1 - (1 CPU virtuale, 1792 MB) | Le richieste vengono indirizzate alle applicazioni di servizio App. |
+    | Lavoro condiviso | 1 | Standard_A1 - (1 CPU virtuale, 1792 MB) | Gli host o applicazioni API App web e le funzioni di Azure. Si potrebbe voler aggiungere più istanze. Un operatore, è possibile definire l'offerta e scegliere il livello di qualsiasi SKU. I livelli è necessario disporre almeno di una CPU virtuali. |
 
     ![Programma di installazione del servizio App][14]
 
@@ -184,6 +184,19 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
 2. In panoramica in stato, verificare che il **stato** Mostra **tutti i ruoli sono pronti**.
 
     ![Gestione del servizio App](media/azure-stack-app-service-deploy/image12.png)
+    
+> [!NOTE]
+> Se si sceglie di distribuire in una rete virtuale esistente e un indirizzo IP interno a conenct per il file server, è necessario aggiungere una regola di sicurezza in uscita, abilitare il traffico SMB tra la subnet di lavoro e file server.  A tale scopo, passare al WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
+> * Origine: qualsiasi
+> * Intervallo di porte di origine: *
+> * Destinazione: Indirizzi IP
+> * Intervallo di indirizzi IP di destinazione: intervallo di indirizzi IP per il file server
+> * Intervallo di porte di destinazione: 445
+> * Protocollo: TCP
+> * Azione: Consenti
+> * Priorità: 700
+> * Nome: Outbound_Allow_SMB445
+>
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Test di servizio App di Azure stack
 
@@ -214,9 +227,9 @@ A partire dalla technical preview terzo, per creare web API e Azure funzioni App
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Distribuire un sito Web WordPress, DNN o Django (facoltativo)
 
-1. Nel portale tenant di Azure Stack, fare clic su  **+** , passare a Azure Marketplace, distribuire un sito Web Django e attendere il completamento. La piattaforma web Django utilizza un database di sistema basato su file. Non richiede alcun provider di risorse aggiuntive, ad esempio SQL o MySQL.
+1. Nel portale tenant di Azure Stack, fare clic su **+**, passare a Azure Marketplace, distribuire un sito Web Django e attendere il completamento. La piattaforma web Django utilizza un database di sistema basato su file. Non richiede alcun provider di risorse aggiuntive, ad esempio SQL o MySQL.
 
-2. Se è stato distribuito un provider di risorse MySQL, è possibile distribuire un sito Web WordPress dal Marketplace. Quando viene richiesto per i parametri del database, immettere il nome utente come  *User1@Server1* , con il nome utente e il nome del server di propria scelta.
+2. Se è stato distribuito un provider di risorse MySQL, è possibile distribuire un sito Web WordPress dal Marketplace. Quando viene richiesto per i parametri del database, immettere il nome utente come *User1@Server1*, con il nome utente e il nome del server di propria scelta.
 
 3. Se è stato distribuito un provider di risorse di SQL Server, è possibile distribuire un sito Web Learning Marketplace. Quando viene richiesto per i parametri del database, scegliere un database nel computer che esegue SQL Server è connesso al provider di risorse.
 

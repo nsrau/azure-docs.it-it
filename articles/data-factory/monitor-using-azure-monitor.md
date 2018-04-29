@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 1399455fb727c27e22da8c5525eec87e343d46cc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 798af75625e0d2fed1220932c172683fe71f9aad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Monitorare le data factory con Monitoraggio di Azure  
 Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio offre la possibilità di garantire il funzionamento e l'integrità dell'applicazione. Consente anche di prevenire i problemi potenziali o di risolvere quelli precedenti. Inoltre, è possibile usare i dati di monitoraggio per ottenere informazioni approfondite sull'applicazione, utili per migliorarne le prestazioni o la manutenibilità oppure per automatizzare azioni che altrimenti richiederebbero un intervento manuale.
@@ -31,7 +31,7 @@ Attualmente Monitoraggio di Azure offre metriche e log dell'infrastruttura di li
 
 * Salvarli in un **account di archiviazione** per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione in giorni usando le impostazioni di diagnostica.
 * Trasmettere i log a **Hub eventi** per l'inserimento tramite un servizio di terze parti o una soluzione di analisi personalizzata come Power BI.
-* Analizzarli con **Log Analytics**.
+* Analizzarli con **Log Analytics**
 
 È possibile usare un account di archiviazione o un hub eventi dello spazio dei nomi che non si trovi nella stessa sottoscrizione della risorsa che crea i log. L'utente che configura l'impostazione deve disporre avere il controllo degli accessi in base al ruolo appropriato a entrambe le sottoscrizioni.
 
@@ -103,7 +103,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 } 
 ```
 
-| Proprietà | type | Descrizione |
+| Proprietà | type | DESCRIZIONE |
 | --- | --- | --- |
 | storageAccountId |string | ID risorsa dell'account di archiviazione a cui si vogliono inviare i log di diagnostica |
 | serviceBusRuleId |string | ID regola del bus di servizio dello spazio dei nomi del bus di servizio in cui creare gli hub eventi per il flusso dei log di diagnostica. Il formato dell'ID della regola è: "{ID risorsa bus di servizio}/authorizationrules/{nome chiave}".|
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[Altre informazioni sono disponibili qui](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+[Altre informazioni sono disponibili qui](https://msdn.microsoft.com/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>Schema di log ed eventi
 
@@ -273,7 +273,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Proprietà | type | Descrizione | Esempio |
+| Proprietà | type | DESCRIZIONE | Esempio |
 | --- | --- | --- | --- |
 | Level |string | Livello dei log di diagnostica. Il livello 4 è sempre valido per i log di esecuzione attività. | `4`  |
 | correlationId |string | ID univoco per tenere traccia di una particolare richiesta end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -320,7 +320,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Proprietà | type | Descrizione | Esempio |
+| Proprietà | type | DESCRIZIONE | Esempio |
 | --- | --- | --- | --- |
 | Level |string | Livello dei log di diagnostica. Il livello 4 è valido per i log di esecuzione attività. | `4`  |
 | correlationId |string | ID univoco per tenere traccia di una particolare richiesta end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -365,7 +365,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```
 
-| Proprietà | type | Descrizione | Esempio |
+| Proprietà | type | DESCRIZIONE | Esempio |
 | --- | --- | --- | --- |
 | Level |string | Livello dei log di diagnostica. Impostare sul livello 4 per i log di esecuzione attività. | `4`  |
 | correlationId |string | ID univoco per tenere traccia di una particolare richiesta end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |

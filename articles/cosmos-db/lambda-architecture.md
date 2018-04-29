@@ -3,21 +3,21 @@ title: Architettura lambda con Azure Cosmos DB e HDInsight (Apache Spark) | Micr
 description: Questo articolo descrive come implementare un'architettura lambda usando Azure Cosmos DB, HDInsight e Spark
 keywords: architettura-lambda
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: dennyglee
-manager: jhubbard
-editor: 
+manager: kfile
+editor: ''
 ms.assetid: 273aeae9-e31c-4a43-b216-5751c46f212e
 ms.service: cosmos-db
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: denlee
-ms.openlocfilehash: f88f3fb05495b0f3330d5a4cde7718fe89b2f694
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 9c1a8c212fbacde9fbf69fdf9bf72ed2393786db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Implementare un'architettura lambda nella piattaforma Azure 
 
@@ -41,7 +41,7 @@ Un'architettura lambda è un'architettura di elaborazione dei dati generica, sca
 
 ![Diagramma che mostra un'architettura lambda](./media/lambda-architecture/lambda-architecture-intro.png)
 
-Fonte: http://lambda-architecture.net/
+Origine: http://lambda-architecture.net/
 
 I principi di base di un'architettura lambda sono descritti nel diagramma precedente, in base a quanto illustrato in [https://lambda-architecture.net](http://lambda-architecture.net/).
 

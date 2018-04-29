@@ -3,29 +3,29 @@ documentType: LandingData
 title: Documentazione dell'operatore di Azure Stack
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
-  title: 'Documentazione dell''operatore di Azure Stack: esercitazioni e informazioni di riferimento sulle API'
-  description: "Imparare a usare Azure Stack per fornire servizi di Azure dal Data Center. Informazioni e illustrano le funzionalità da un Kit di sviluppo o in un ambiente di sistemi integrati."
+  title: "Documentazione dell'operatore di Azure Stack: esercitazioni e informazioni di riferimento sulle API"
+  description: Imparare a usare Azure Stack per fornire servizi di Azure dal Data Center. Informazioni e illustrano le funzionalità da un Kit di sviluppo o in un ambiente di sistemi integrati.
   services: azure-stack
-  author: czeumault
-  manager: carolz
+  author: jeffgilb
+  manager: femila
   ms.service: azure-stack
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/02/2017
-  ms.author: carolz
-  ms.openlocfilehash: 59dea633182c774bab3408f8503a6bd6f5f5d783
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.date: 04/13/2018
+  ms.author: jeffgilb
+  ms.openlocfilehash: 9da39d733c51c637fdf13d1fb9c5649276ea8a23
+  ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/11/2017
+  ms.lasthandoff: 04/23/2018
 abstract:
-  description: "Microsoft Azure Stack è una piattaforma ibrida su cloud che consente di fornire i servizi di Azure dal data center. Informazioni su come distribuire Azure Stack Development Kit e come gestire l'infrastruttura per sistemi integrati e il kit di sviluppo come offerta di servizi con le esercitazioni e Guide rapide.<br/><br/>Se si è un utente di Azure Stack che utilizza i servizi o Compila le App per lo Stack di Azure, vedere il nostro <a href=\"/azure/azure-stack/user\">documentazione utente</a>."
+  description: Microsoft Azure Stack è una piattaforma ibrida su cloud che consente di fornire i servizi di Azure dal data center. Informazioni su come gestire l'infrastruttura di sistemi integrati dello Stack di Azure e su come offrire servizi con le esercitazioni e Guide rapide.<br/><br/>Se si è un utente di Azure Stack che utilizza i servizi o Compila le App per lo Stack di Azure, vedere il nostro <a href="/azure/azure-stack/user">documentazione utente</a>.<br/><br/>Se non ha un operatore di Azure Stack interessato in di Azure Stack Development Kit (ASDK), una distribuzione a nodo singolo dello Stack di Azure che è possibile scaricare e usare gratuitamente, vedere il nostro <a href="/azure/azure-stack/asdk">documentazione ASDK</a>.
 sections:
 - title: Guida introduttiva
   items:
   - type: paragraph
-    text: La configurazione dell'hardware e distribuire il Kit di sviluppo dello Stack di Azure.
+    text: Configurare l'hardware e distribuire il Kit di sviluppo dello Stack di Azure.
   - type: list
     style: icon48
     items:

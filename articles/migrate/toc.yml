@@ -18,6 +18,12 @@
       href: concepts-dependency-visualization.md
 - name: Guide alle procedure
   items:
+    - name: Eseguire la migrazione delle risorse locali in Azure
+      items:
+        - name: Panoramica dello scenario - Eseguire la migrazione delle risorse locali in Azure
+          href: migrate-scenarios-overview.md
+        - name: Scenario 1 - Valutare le risorse locali per la migrazione in Azure
+          href: migrate-scenarios-assessment.md
     - name: Individuare e valutare un ambiente di grandi dimensioni
       href: how-to-scale-assessment.md
     - name: Raggruppare i computer

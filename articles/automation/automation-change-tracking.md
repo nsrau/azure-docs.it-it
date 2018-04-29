@@ -9,11 +9,11 @@ ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a093a44106ad861449b6defb140532698fa668
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e4abf8ae491c9992dd3d21a0d657ba9cd214b740
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche
 
@@ -23,18 +23,19 @@ Le modifiche al software installato, ai servizi di Windows, ai file e al Registr
 
 ## <a name="enable-change-tracking-and-inventory"></a>Abilitare il rilevamento delle modifiche e l'inventario
 
-
 Per iniziare a tenere traccia delle modifiche, è necessario abilitare la soluzione Rilevamento modifiche e Inventario per l'account di Automazione.
 
 1. Nel portale di Azure passare all'account di Automazione.
 1. Selezionare **Rilevamento modifiche** in **CONFIGURAZIONE**.
-2. Selezionare un'area di lavoro di Log Analytics esistente oppure **Crea una nuova area di lavoro** e fare clic su **Abilita**.
+1. Selezionare un'area di lavoro di Log Analytics esistente oppure **Crea una nuova area di lavoro** e fare clic su **Abilita**.
 
 Verrà abilitata la soluzione per l'account di automazione. L'abilitazione della soluzione può richiedere fino a 15 minuti. Il banner blu notifica quando la soluzione è abilitata. Tornare alla pagina **Rilevamento modifiche** per gestire la soluzione.
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Configurazione di Rilevamento modifiche e Inventario
 
-Per informazioni sulla modalità di esecuzione dell'onboarding nella soluzione, vedere [Onboarding Automation solutions](automation-onboard-solutions-from-automation-account.md) (Soluzioni per l'onboarding dall'account di Automazione). Quando si abilita un nuovo file o una chiave del Registro di sistema da rilevare, vengono abilitati sia per Rilevamento modifiche che per Inventario.
+Per informazioni sulla modalità di esecuzione dell'onboarding nella soluzione, vedere [Onboarding Automation solutions](automation-onboard-solutions-from-automation-account.md) (Soluzioni per l'onboarding dall'account di Automazione). Dopo aver ottenuto un processo di onboarding del computer con la soluzione Rilevamento modifiche e Inventario, è possibile configurare gli elementi di cui tenere traccia. Quando si abilita un nuovo file o una chiave del Registro di sistema da rilevare, vengono abilitati sia per Rilevamento modifiche che per Inventario.
+
+Per tenere traccia delle modifiche nei file sia di Windows che di Linux, vengono usati hash MD5 dei file. Questi hash vengono quindi usati per rilevare se dopo l'ultimo inventario sono state apportate modifiche.
 
 ### <a name="configure-linux-files-to-track"></a>Configurare i file di Linux da rilevare
 
@@ -109,6 +110,7 @@ Altre limitazioni:
 ## <a name="known-issues"></a>Problemi noti
 
 La soluzione Rilevamento modifiche sta riscontrando attualmente i problemi seguenti:
+
 * Gli aggiornamenti rapidi non vengono raccolti per le macchine Windows 10 Creators Update e Windows Server 2016 Core RS3.
 
 ## <a name="change-tracking-data-collection-details"></a>Informazioni dettagliate sulla raccolta dei dati di Change Tracking
@@ -117,13 +119,13 @@ La tabella seguente mostra la frequenza di raccolta dati per i tipi di modifiche
 
 | **Tipo di modifica** | **Frequenza** |
 | --- | --- |
-| Registro di sistema di Windows | 50 minuti | 
-| File Windows | 30 minuti | 
-| File Linux | 15 minuti | 
-| Servizi Windows | 30 minuti | 
+| Registro di sistema di Windows | 50 minuti |
+| File Windows | 30 minuti |
+| File Linux | 15 minuti |
+| Servizi Windows | 30 minuti |
 | Daemon Linux | 5 minuti |
-| Software Windows | 30 minuti | 
-| Software Linux | 5 minuti | 
+| Software Windows | 30 minuti |
+| Software Linux | 5 minuti |
 
 ### <a name="registry-key-change-tracking"></a>Rilevamento delle modifiche della chiave del Registro di Sistema
 

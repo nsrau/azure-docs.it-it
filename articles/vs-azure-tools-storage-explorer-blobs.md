@@ -1,6 +1,6 @@
 ---
-title: Gestire le risorse di archiviazione BLOB di Azure con Esplora archivi (anteprima) | Microsoft Docs
-description: Gestire contenitori BLOB e BLOB di Azure con Storage Explorer (anteprima)
+title: Gestire le risorse di archiviazione BLOB di Azure con Storage Explorer | Microsoft Docs
+description: Gestire contenitori BLOB e BLOB di Azure con Storage Explorer
 services: storage
 documentationcenter: na
 author: cawa
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 98a1016f78587b4139041f140634b98fa47edfd1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2207bac1ef7cb6393d7dc173f96ddda719bcdfdf
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>Gestire le risorse dell'archivio BLOB di Azure con Storage Explorer (anteprima)
+# <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gestire le risorse di archiviazione BLOB di Azure con Storage Explorer
 ## <a name="overview"></a>Panoramica
 [Archiviazione BLOB di Azure](storage/blobs/storage-dotnet-how-to-use-blobs.md) è un servizio per l'archiviazione di grandi quantità di dati non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS.
-L'archiviazione BLOB può essere usata per esporre dati pubblicamente a livello mondiale o archiviare privatamente i dati delle applicazioni. In questo articolo si apprenderà come usare Storage Explorer (anteprima) per l'utilizzo di contenitori BLOB e BLOB.
+L'archiviazione BLOB può essere usata per esporre dati pubblicamente a livello mondiale o archiviare privatamente i dati delle applicazioni. In questo articolo si apprenderà come usare Storage Explorer per l'uso di contenitori BLOB e BLOB.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario eseguire queste operazioni:
 
-* [Scaricare e installare Storage Explorer (anteprima)](http://www.storageexplorer.com)
+* [Scaricare e installare Storage Explorer](http://www.storageexplorer.com)
 * [Connettersi a un account o a un servizio di archiviazione di Azure](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Creare un contenitore BLOB
 Tutti i BLOB devono risiedere in un contenitore BLOB, che è semplicemente un raggruppamento logico di BLOB. Un account può contenere un numero illimitato di contenitori e ogni contenitore può archiviare un numero illimitato di BLOB.
 
-I passaggi seguenti illustrano come creare un contenitore BLOB all'interno di Storage Explorer (anteprima).
+I passaggi seguenti illustrano come creare un contenitore BLOB all'interno di Storage Explorer.
 
-1. Aprire Storage Explorer (anteprima).
+1. Aprire Esplora archivi.
 2. Nel riquadro sinistro espandere l'account di archiviazione all'interno del quale si vuole creare il contenitore BLOB.
 3. Fare clic con il pulsante destro del mouse su **Contenitori BLOB** e scegliere **Crea contenitore BLOB** dal menu di scelta rapida.
 
@@ -51,9 +51,9 @@ I passaggi seguenti illustrano come creare un contenitore BLOB all'interno di St
 ## <a name="view-a-blob-containers-contents"></a>Visualizzare il contenuto di un contenitore BLOB
 I contenitori BLOB includono BLOB e cartelle, che possono anche contenere BLOB.
 
-I passaggi seguenti illustrano come visualizzare il contenuto di un contenitore BLOB all'interno di Storage Explorer (anteprima):
+I passaggi seguenti illustrano come visualizzare il contenuto di un contenitore BLOB all'interno di Storage Explorer:
 
-1. Aprire Storage Explorer (anteprima).
+1. Aprire Esplora archivi.
 2. Nel riquadro sinistro espandere l'account di archiviazione che include il contenitore BLOB da visualizzare.
 3. Espandere **contenitori BLOB**dell'account di archiviazione.
 4. Fare clic con il pulsante destro del mouse sul contenitore BLOB che si vuole visualizzare e scegliere **Open Blob Container Editor**(Apri editor contenitori BLOB) dal menu di scelta rapida.
@@ -67,9 +67,9 @@ I passaggi seguenti illustrano come visualizzare il contenuto di un contenitore 
 ## <a name="delete-a-blob-container"></a>Eliminare un contenitore BLOB
 I contenitori di BLOB possono essere creati facilmente ed eliminati in base alle esigenze. Per informazioni su come eliminare singoli BLOB, vedere la sezione [Gestione dei BLOB in un contenitore BLOB](#managing-blobs-in-a-blob-container).
 
-I passaggi seguenti illustrano come eliminare un contenitore BLOB all'interno di Storage Explorer (anteprima):
+I passaggi seguenti illustrano come eliminare un contenitore BLOB all'interno di Storage Explorer.
 
-1. Aprire Storage Explorer (anteprima).
+1. Aprire Esplora archivi.
 2. Nel riquadro sinistro espandere l'account di archiviazione che include il contenitore BLOB da visualizzare.
 3. Espandere **contenitori BLOB**dell'account di archiviazione.
 4. Fare clic con il pulsante destro del mouse sul contenitore BLOB che si vuole eliminare e scegliere **Elimina**dal menu di scelta rapida.
@@ -81,11 +81,11 @@ I passaggi seguenti illustrano come eliminare un contenitore BLOB all'interno di
    ![Menu di scelta rapida dell'eliminazione per il contenitore BLOB][5]
 
 ## <a name="copy-a-blob-container"></a>Copiare un contenitore BLOB
-Storage Explorer (anteprima) consente di copiare un contenitore BLOB negli Appunti e quindi incollarlo in un altro account di archiviazione. Per informazioni su come copiare singoli BLOB, vedere la sezione [Gestione dei BLOB in un contenitore BLOB](#managing-blobs-in-a-blob-container).
+Storage Explorer consente di copiare un contenitore BLOB negli Appunti e quindi incollarlo in un altro account di archiviazione. Per informazioni su come copiare singoli BLOB, vedere la sezione [Gestione dei BLOB in un contenitore BLOB](#managing-blobs-in-a-blob-container).
 
 I passaggi seguenti illustrano come copiare un contenitore BLOB da un account di archiviazione a un altro.
 
-1. Aprire Storage Explorer (anteprima).
+1. Aprire Esplora archivi.
 2. Nel riquadro sinistro espandere l'account di archiviazione che include il contenitore BLOB da copiare.
 3. Espandere **contenitori BLOB**dell'account di archiviazione.
 4. Fare clic con il pulsante destro del mouse sul contenitore BLOB che si vuole copiare e scegliere **Copy Blob Container**(Copia contenitore BLOB) dal menu di scelta rapida.
@@ -101,7 +101,7 @@ Questo significa che è possibile concedere a un client autorizzazioni limitate 
 
 I passaggi seguenti illustrano come creare una firma di accesso condiviso per un contenitore BLOB:
 
-1. Aprire Storage Explorer (anteprima).
+1. Aprire Esplora archivi.
 2. Nel riquadro sinistro espandere l'account di archiviazione che include il contenitore BLOB per cui si vuole ottenere una firma di accesso condiviso.
 3. Espandere **contenitori BLOB**dell'account di archiviazione.
 4. Fare clic con il pulsante destro del mouse sul contenitore BLOB desiderato e scegliere **Get Shared Access Signature**(Ottieni firma di accesso condiviso) dal menu di scelta rapida.
@@ -120,7 +120,7 @@ I passaggi seguenti illustrano come creare una firma di accesso condiviso per un
 ## <a name="manage-access-policies-for-a-blob-container"></a>Gestire i criteri di accesso per un contenitore BLOB
 I passaggi seguenti illustrano come gestire, ovvero aggiungere e rimuovere, criteri di accesso per un contenitore BLOB:
 
-1. Aprire Storage Explorer (anteprima).
+1. Aprire Esplora archivi.
 2. Nel riquadro sinistro espandere l'account di archiviazione che include il contenitore BLOB di cui si vogliono gestire i criteri di accesso.
 3. Espandere **contenitori BLOB**dell'account di archiviazione.
 4. Selezionare il contenitore BLOB desiderato e scegliere **Manage Access Policies**(Gestisci criteri di accesso) dal menu di scelta rapida.
@@ -140,7 +140,7 @@ Per impostazione predefinita, ogni contenitore BLOB è impostato su "No public a
 
 La procedura seguente illustra come specificare un livello di accesso pubblico per un contenitore BLOB.
 
-1. Aprire Storage Explorer (anteprima).
+1. Aprire Esplora archivi.
 2. Nel riquadro sinistro espandere l'account di archiviazione che include il contenitore BLOB di cui si vogliono gestire i criteri di accesso.
 3. Espandere **contenitori BLOB**dell'account di archiviazione.
 4. Selezionare il contenitore BLOB desiderato e scegliere **Set Public Access Level**(Imposta livello di accesso pubblico) dal menu di scelta rapida.
@@ -156,7 +156,7 @@ Dopo aver creato un contenitore BLOB, è possibile caricare un BLOB in tale cont
 
 I passaggi seguenti illustrano come gestire i BLOB e le cartelle all'interno di un contenitore BLOB.
 
-1. Aprire Storage Explorer (anteprima).
+1. Aprire Esplora archivi.
 2. Nel riquadro sinistro espandere l'account di archiviazione che include il contenitore BLOB da gestire.
 3. Espandere **contenitori BLOB**dell'account di archiviazione.
 4. Fare doppio clic sul contenitore BLOB che si vuole visualizzare.
@@ -212,7 +212,7 @@ I passaggi seguenti illustrano come gestire i BLOB e le cartelle all'interno di 
      3. Fare clic su **Sì** nella finestra di dialogo di conferma.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Vedere le note sulla versione e i video in [Microsoft Azure Storage Explorer](http://www.storageexplorer.com)(anteprima).
+* [Note sulla versione e video più recenti per Storage Explorer](http://www.storageexplorer.com).
 * Informazioni su come creare applicazioni con BLOB, tabelle, code e file di Azure nella [Documentazione su Archiviazione](https://azure.microsoft.com/documentation/services/storage/).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png

@@ -5,7 +5,7 @@ services: visual-studio-online
 documentationcenter: na
 author: mlearned
 manager: erickson-doug
-editor: 
+editor: ''
 ms.assetid: b81c172a-be87-4adc-861e-d20b94be9e38
 ms.service: azure-resource-manager
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: e7d98ca3fa281a136595c37ed9b7e71de0cf7bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc5a45c899cd72c051dd08f7db039565a57381a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Integrazione continua in Visual Studio Team Services con i progetti di distribuzione Gruppo di risorse di Azure
 Per distribuire un modello di Azure, eseguire attività in varie fasi, ovvero compilazione, test, copia in Azure (detta anche "staging") e distribuzione del modello. Esistono due modi diversi per distribuire i modelli in Visual Studio Team Services (VS Team Services). Entrambi i metodi forniscono gli stessi risultati, quindi è opportuno scegliere quello che meglio si adatta al proprio flusso di lavoro.
@@ -106,7 +106,7 @@ Le procedure seguenti illustrano i passaggi necessari per configurare la distrib
    
    | Parametro | DESCRIZIONE |
    | --- | --- |
-   | -ResourceGroupLocation |Valore dell'area geografica in cui si trova il gruppo di risorse, ad esempio **eastus** o **'East US'**. Aggiungere virgolette singole se nel nome è presente uno spazio. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/en-us/regions/). |
+   | -ResourceGroupLocation |Valore dell'area geografica in cui si trova il gruppo di risorse, ad esempio **eastus** o **'East US'**. Aggiungere virgolette singole se nel nome è presente uno spazio. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |
    | -ResourceGroupName |Nome del gruppo di risorse usato per la distribuzione. |
    | -UploadArtifacts |Questo parametro, se presente, specifica che gli elementi devono essere caricati in Azure dal sistema locale. È sufficiente impostare questa opzione se la distribuzione del modello richiede elementi aggiuntivi che si prevede di preparare usando lo script di PowerShell, ad esempio gli script di configurazione o i modelli annidati. |
    | -StorageAccountName |Nome dell'account di archiviazione usato per la preparazione degli elementi per questa distribuzione. Questo parametro viene usato solo se si sta eseguendo la gestione temporanea di elementi per la distribuzione. Se questo parametro viene specificato, viene creato un nuovo account di archiviazione, se lo script non ne ha creato uno durante una distribuzione precedente. Se il parametro viene specificato, l'account di archiviazione deve esistere già. |

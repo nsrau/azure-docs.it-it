@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: v-craic
-ms.openlocfilehash: 2c542f9d47eb8011a13bf7156430324c53d238ce
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6bfb34c05a03ed02694210a5901f4f367e8a2fd3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Creare un'immagine personalizzata da un file VHD usando PowerShell
 
@@ -32,10 +32,10 @@ ms.lasthandoff: 03/23/2018
 
 La procedura seguente illustra come creare un'immagine personalizzata da un file VHD usando PowerShell:
 
-1. Al prompt di PowerShell accedere al proprio account Azure con la chiamata seguente al cmdlet **Login-AzureRmAccount**.  
+1. Al prompt di PowerShell accedere al proprio account di Azure con la chiamata seguente al cmdlet **Connect-AzureRmAccount**.  
     
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1.  Selezionare la sottoscrizione di Azure desiderata mediante una chiamata al cmdlet **Select-AzureRmSubscription**. Sostituire il segnaposto riportato di seguito per la variabile **$subscriptionId** con un ID sottoscrizione di Azure valido. 
@@ -83,7 +83,7 @@ La procedura seguente illustra come creare un'immagine personalizzata da un file
 
 ```PowerShell
 # Log in to your Azure account.  
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # Select the desired Azure subscription. 
 $subscriptionId = '<Specify your subscription ID here>'

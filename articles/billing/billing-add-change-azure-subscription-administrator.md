@@ -1,11 +1,11 @@
 ---
 title: Aggiungere o modificare i ruoli di amministratore della sottoscrizione di Azure | Documentazione Microsoft
-description: "Descrive come aggiungere o modificare il co-amministratore di Azure, l’amministratore del servizio e l’amministratore dell’account"
-services: 
-documentationcenter: 
+description: Descrive come aggiungere o modificare il co-amministratore di Azure, l’amministratore del servizio e l’amministratore dell’account
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 13a72d76-e043-4212-bcac-a35f4a27ee26
 ms.service: billing
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/04/2018
 ms.author: genli
-ms.openlocfilehash: dc09f29fec78d408e1560bfa0a943f16ab50c760
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: ecee98e9b74613a4176d20d231b32e4cb99a721e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure
 
-Gli amministratori delle sottoscrizioni classiche di Azure e [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) di Azure sono due sistemi per gestire l'accesso alle risorse di Azure:
+Gli amministratori delle sottoscrizioni classiche di Azure e [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) di Azure sono due sistemi per gestire l'accesso alle risorse di Azure:
 
 * I ruoli di amministratori delle sottoscrizioni classiche offrono la gestione dell'accesso di base e includono Amministratore account, Amministratore del servizio e Coamministratore.
     * Quando ci si iscrive per una nuova sottoscrizione di Azure, per impostazione predefinita l'account viene impostato sia come amministratore account che come amministratore del servizio.
@@ -41,10 +41,12 @@ Per aggiungere un utente come amministratore per l'amministrazione del servizio 
 
 1. Aprire [**Sottoscrizioni** nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Selezionare la sottoscrizione a cui concedere l'accesso.
-3. Selezionare **Controllo di accesso (IAM)** nel menu.
-4. Nella casella **Ruolo** selezionare **Proprietario**. 
-5. Nella casella **Assegna accesso a** selezionare **Applicazione, gruppo o utente di Azure AD**. 
-6. Nella casella **Seleziona** digitare l'indirizzo di posta elettronica dell'utente che si vuole aggiungere come proprietario. Selezionare l'utente e quindi selezionare **Salva**.
+3. Selezionare **Aggiungi**  
+   (Se manca il pulsante Aggiungi, non si è autorizzati ad aggiungere autorizzazioni.)
+4. Selezionare **Controllo di accesso (IAM)** nel menu.
+5. Nella casella **Ruolo** selezionare **Proprietario**. 
+6. Nella casella **Assegna accesso a** selezionare **Applicazione, gruppo o utente di Azure AD**. 
+7. Nella casella **Seleziona** digitare l'indirizzo di posta elettronica dell'utente che si vuole aggiungere come proprietario. Selezionare l'utente e quindi selezionare **Salva**.
 
     ![Schermata che mostra il pulsante Proprietario selezionato](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
@@ -111,7 +113,7 @@ L'amministratore account è l'utente che inizialmente ha effettuato la sottoscri
  Amministratore account, Amministratore del servizio e Coamministratore sono i tre tipi di ruoli di amministratore per una sottoscrizione classica in Azure. L'account usato per iscriversi a Azure viene impostato automaticamente come amministratore account e amministratore del servizio. I coamministratori possono essere aggiunti in seguito. La tabella seguente descrive la differenza esatta tra questi tre ruoli amministrativi. 
 
 > [!TIP]
-> Per un migliore controllo e una gestione degli accessi granulare, è consigliabile usare Controllo degli accessi in base al ruolo di Azure, che consente di aggiungere gli utenti a più ruoli. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo di Azure Active Directory](../active-directory/role-based-access-control-what-is.md).
+> Per un migliore controllo e una gestione degli accessi granulare, è consigliabile usare Controllo degli accessi in base al ruolo di Azure, che consente di aggiungere gli utenti a più ruoli. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo di Azure Active Directory](../role-based-access-control/overview.md).
 
 | Amministratore sottoscrizione classico | Limite | DESCRIZIONE |
 | --- | --- | --- |
@@ -121,7 +123,7 @@ L'amministratore account è l'utente che inizialmente ha effettuato la sottoscri
 
 ## <a name="learn-more-about-resource-access-control-and-active-directory"></a>Altre informazioni sul controllo dell'accesso alle risorse e Active Directory
 
-* Per altre informazioni sul controllo dell'accesso alle risorse in Microsoft Azure, vedere [Informazioni sull'accesso alle risorse in Azure](../active-directory/active-directory-understanding-resource-access.md).
+* Per altre informazioni sul controllo dell'accesso alle risorse in Microsoft Azure, vedere [Informazioni sull'accesso alle risorse in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 * Per altre informazioni sul modo in cui Azure Active Directory, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) e [Assegnazione dei ruoli di amministratore in Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.

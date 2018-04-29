@@ -1,25 +1,25 @@
 ---
-title: 'Esempio JSON di Criteri di Azure: controllare l''impostazione del controllo a livello del database SQL | Microsoft Docs'
+title: "Esempio JSON di Criteri di Azure: controllare l'impostazione del controllo a livello del database SQL | Microsoft Docs"
 description: Questo criterio di esempio JSON controlla le impostazioni di controllo del database SQL se tali impostazioni non corrispondono a un'impostazione specificata.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: a2aeaae3aeabe0c7c3fcbc975919d4436ae5eadc
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 02114ea454c50313a184e605594afb1c56bc3469
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="audit-sql-db-level-audit-setting"></a>Controllare l'impostazione di controllo a livello di database SQL
 

@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: e7a46f73cc076ff9efb91da8041c4a785b1d1975
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: a884ec7e1d1366528e1d7d73db997f1bc85cb9a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="security-architecture-overview"></a>Panoramica dell'architettura della sicurezza
+
 Una solida architettura è uno degli elementi fondamentali per poter distribuire soluzioni sicure in Azure. Con questo obiettivo in mente, sarà possibile determinare più facilmente i requisiti necessari rispondendo in modo appropriato a domande mirate. Rispondere correttamente alle domande appropriate consente di ottimizzare la sicurezza delle distribuzioni.
 
 In questa sezione sono disponibili articoli sull'architettura della sicurezza di Azure che consentono di creare soluzioni sicure. È anche inclusa una raccolta di ampia diffusione delle procedure consigliate e dei modelli per la sicurezza di Azure. Attualmente sono disponibili gli articoli seguenti. Per gli aggiornamenti, visitare periodicamente il sito e il blog del team di sicurezza di Azure:

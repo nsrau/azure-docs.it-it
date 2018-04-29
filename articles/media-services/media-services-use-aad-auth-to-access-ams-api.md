@@ -2,10 +2,10 @@
 title: Accesso all'interfaccia API di Servizi multimediali di Azure con l'autenticazione di Azure Active Directory | Microsoft Docs
 description: Informazioni sui concetti e i passaggi da eseguire per usare Azure Active Directory (Azure AD) per autenticare l'accesso all'API di Servizi multimediali di Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 0e1217afb0a37353793c64ae927b741d9fee4954
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57f2680d6b3f06a88a13a09018e7d72afcb710a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD
  
 L'API di Servizi multimediali di Azure è di tipo RESTful. È possibile usarla per eseguire operazioni sulle risorse multimediali tramite un'API REST o tramite gli SDK client disponibili. Servizi multimediali di Azure offre un SDK client di Servizi multimediali per Microsoft .NET. Per essere autorizzati ad accedere alle risorse e all'API di Servizi multimediali, è innanzitutto necessario essere autenticati. 
 
-Servizi multimediali supporta l'[autenticazione basata su Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md). Il servizio REST di Servizi multimediali di Azure richiede che l'utente o l'applicazione che invia le richieste all'API REST abbia almeno il ruolo di **Collaboratore** o **Proprietario** per poter accedere alle risorse. Per altre informazioni, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../active-directory/role-based-access-control-what-is.md).  
+Servizi multimediali supporta l'[autenticazione basata su Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md). Il servizio REST di Servizi multimediali di Azure richiede che l'utente o l'applicazione che invia le richieste all'API REST abbia almeno il ruolo di **Collaboratore** o **Proprietario** per poter accedere alle risorse. Per altre informazioni, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).  
 
 > [!IMPORTANT]
 > Attualmente, Servizi multimediali supporta il modello di autenticazione del Servizio di controllo di accesso Azure. L'autorizzazione di Controllo di accesso, tuttavia, verrà dichiarata deprecata il 1° giugno 2018. È consigliabile eseguire la migrazione all'autenticazione di Azure AD il più presto possibile.
@@ -75,13 +75,13 @@ Nel diagramma precedente i numeri rappresentano il flusso delle richieste in ord
         Le informazioni sul tenant possono essere recuperate dal portale di Azure. Posizionare il cursore sul nome dell'utente connesso nell'angolo in alto a destra.
     * URI di risorsa per Servizi multimediali. 
 
-        Questo URI è identico a quello degli account di Servizi multimediali inclusi nello stesso ambiente Azure, ad esempio https://rest.media.azure.net.
+        Questo URI è identico a quello degli account di Servizi multimediali inclusi nello stesso ambiente Azure (ad esempio, https://rest.media.azure.net).
 
     * ID client dell'applicazione Servizi multimediali (nativa).
     * URI di reindirizzamento dell'applicazione Servizi multimediali (nativa).
     * URI di risorsa per Servizi multimediali REST.
         
-        L'URI rappresenta l'endpoint API REST, ad esempio https://test03.restv2.westus.media.azure.net/api/.
+        L'URI rappresenta l'endpoint dell'API REST (ad esempio, https://test03.restv2.westus.media.azure.net/api/).
 
     Per ottenere i valori di questi parametri, vedere [Uso del portale di Azure per accedere alle impostazioni di autenticazione di Azure AD](media-services-portal-get-started-with-aad.md) usando l'opzione di autenticazione utente.
 
@@ -117,11 +117,11 @@ Nel diagramma precedente i numeri rappresentano il flusso delle richieste in ord
         Le informazioni sul tenant possono essere recuperate dal portale di Azure. Posizionare il cursore sul nome dell'utente connesso nell'angolo in alto a destra.
     * URI di risorsa per Servizi multimediali. 
 
-        Questo URI è identico a quello degli account di Servizi multimediali inclusi nello stesso ambiente Azure, ad esempio https://rest.media.azure.net.
+        Questo URI è identico a quello degli account di Servizi multimediali che si trovano nello stesso ambiente Azure (ad esempio, https://rest.media.azure.net).
 
     * URI di risorsa per Servizi multimediali REST.
 
-        L'URI rappresenta l'endpoint API REST, ad esempio https://test03.restv2.westus.media.azure.net/api/.
+        L'URI rappresenta l'endpoint dell'API REST (ad esempio, https://test03.restv2.westus.media.azure.net/api/).
 
     * Valori dell'applicazione Azure AD: l'ID client e il segreto client.
     
@@ -147,7 +147,7 @@ Gli articoli seguenti contengono alcune panoramiche dei concetti di autenticazio
 
 - [Scenari di autenticazione per Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 - [Aggiungere, aggiornare o rimuovere un'applicazione in Azure AD](../active-directory/develop/active-directory-integrating-applications.md)
-- [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+- [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,4 +1,19 @@
-
+---
+title: File di inclusione
+description: File di inclusione
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: b4d208ca28f6287489f104ba4e2ea9696e7a1f58
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/24/2018
+---
 ## <a name="about-vhds"></a>Informazioni sui dischi rigidi virtuali
 
 I dischi rigidi virtuali utilizzati in Azure sono file con estensione .vhd archiviati come BLOB di pagine in un account di archiviazione Standard o Premium in Azure. Per ulteriori dettagli sui BLOB di pagine, vedere [Informazioni sui BLOB in blocchi e sui BLOB di pagine](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Per informazioni su Archiviazione Premium, vedere l'articolo relativo alle [prestazioni elevate di Archiviazione Premium e macchine virtuali di Azure](../articles/virtual-machines/windows/premium-storage.md).
@@ -10,10 +25,10 @@ Tutti i file con estensione .vhd in Azure che si intende usare come origine per 
 Quando viene creata una macchina virtuale da un'immagine, Azure crea un disco per la macchina virtuale che è una copia del file con estensione .vhd di origine. Per impedire eliminazioni accidentali, Azure inserisce un lease su qualsiasi file con estensione .vhd di origine utilizzato per creare un'immagine, un disco del sistema operativo o un disco dati.
 
 Prima di poter eliminare un file con estensione .vhd di origine, sarà necessario rimuovere il lease eliminando il disco o l'immagine. Per eliminare un file con estensione .vhd utilizzato da una macchina virtuale come disco del sistema operativo, è possibile eliminare la macchina virtuale, il disco del sistema operativo e il file con estensione .vhd di origine in una sola volta eliminando la macchina virtuale e tutti i dischi associati. Tuttavia, l'eliminazione di un file con estensione vhd che rappresenta l'origine di un disco dati richiede l'esecuzione di diversi passaggi in un determinato ordine: scollegare innanzitutto il disco dalla macchina virtuale, quindi eliminare il disco e infine eliminare il file con estensione vhd.
-
 > [!WARNING]
 > Se si elimina un file con estensione .vdh di origine dalla memoria o l'account di archiviazione, Microsoft non può recuperare tali dati.
 > 
+> I BLOB di pagine in Archiviazione Premium sono progettati per l'uso solo come dischi rigidi virtuali. Microsoft non consiglia di archiviare altri tipi di dati nei BLOB di pagine in Archiviazione Premium, perché il costo può essere notevolmente superiore. Usare i BLOB in blocchi per l'archiviazione dei dati che non sono in un disco rigido virtuale.
 
 ## <a name="types-of-disks"></a>Tipi di dischi 
 
@@ -30,7 +45,7 @@ Per altre informazioni sull'uso di Archiviazione Standard con dischi di macchina
 
 ### <a name="premium-storage"></a>Archiviazione Premium 
 
-Archiviazione Premium è supportata da unità SSD e offre prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali che eseguono carichi di lavoro con elevato numero di operazioni di I/O. È possibile usare Archiviazione Premium con macchine virtuali di Azure serie DS, DSv2, GS, Ls o FS. Per altre informazioni, vedere [Archiviazione Premium](../articles/virtual-machines/windows/premium-storage.md).
+Archiviazione Premium è supportata da unità SSD e offre prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali che eseguono carichi di lavoro con elevato numero di operazioni di I/O. In genere è possibile usare Archiviazione Premium con dimensioni che includono una "s" nel nome della serie. Ad esempio, sono disponibili la serie Dv3 e la serie Dsv3. La serie Dsv3 può essere usata con Archiviazione Premium.  Per altre informazioni, vedere [Archiviazione Premium](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Dischi non gestiti
 

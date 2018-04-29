@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 8ea69fbc95b9d9b2452f041e99c46d223581bdac
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 25a908c542bf8fdd8008841a1865cdfb40d847fc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-android-getting-started"></a>Introduzione ad Android per Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -28,7 +28,7 @@ Se si sta sviluppando un'applicazione desktop, Azure Active Directory (Azure AD)
 
 Per i client Android che devono accedere a risorse protette, Azure AD fornisce Active Directory Authentication Library (ADAL). La funzione di ADAL è di permettere all'app di ottenere facilmente i token di accesso. Per illustrare la semplicità del processo, verrà compilata un'applicazione Android To-Do List che esegue le operazioni seguenti:
 
-* Ottiene i token di accesso per la chiamata all'API To-Do List con il [protocollo di autenticazione OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
+* Ottiene i token di accesso per la chiamata all'API To-Do List con il [protocollo di autenticazione OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
 * Ottiene l'elenco attività (To-Do List) dell'utente.
 * Disconnette gli utenti.
 
@@ -274,7 +274,7 @@ Si noti che gli ID di correlazione sono fondamentali per la diagnostica della li
 #### <a name="errors--exceptions"></a>Errori ed eccezioni
 Le eccezioni costituiscono il primo elemento di diagnostica. Vengono forniti messaggi di errore che dovrebbero risultare utili, ma se qualcuno non dovesse esserlo, registrare il problema e segnalarlo. Includere le informazioni relative al dispositivo, ad esempio modello e numero di SDK.
 
-Per altre informazioni sugli errori che l'app deve gestire, vedere [Procedure consigliate di gestione degli errori](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling). 
+Per altre informazioni sugli errori che l'app deve gestire, vedere [Procedure consigliate di gestione degli errori](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-adal-error-handling). 
 
 #### <a name="logs"></a>Log
 È possibile configurare la libreria in modo che vengano generati messaggi di log che possono risultare utili per diagnosticare i problemi. Per configurare la registrazione, eseguire la chiamata seguente per configurare un callback che ADAL userà per presentare ogni messaggio di log generato.

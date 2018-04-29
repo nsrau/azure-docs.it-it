@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: daa6a0fd6927a166ee4809dc1dc5df612765403a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7493c10407bfe83bdc7277c49dae1a7e9d7c39f2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Procedure consigliate per l'uso di Azure Data Lake Store
 Questo articolo illustra le procedure consigliate e alcune considerazioni per l'uso di Azure Data Lake Store. L'articolo fornisce informazioni su sicurezza, prestazioni, resilienza e monitoraggio per Data Lake Store. Prima di Data Lake Store, l'uso di Big Data in servizi come Azure HDInsight era un'operazione complessa. Era necessario partizionare i dati tra più account di archiviazione BLOB, per ottenere spazio di archiviazione di petabyte e prestazioni ottimali su tale scala. Data Lake Store rimuove la maggior parte dei limiti assoluti relativi a dimensioni e prestazioni. Ci sono tuttavia alcune considerazioni illustrate in questo articolo che aiutano a ottenere prestazioni ottimali con Data Lake Store. 
@@ -26,11 +26,13 @@ Questo articolo illustra le procedure consigliate e alcune considerazioni per l'
 
 Azure Data Lake Store offre controlli di accesso POSIX e controlli dettagliati per utenti, gruppi ed entità servizio di Azure Active Directory (Azure AD). Questi controlli di accesso possono essere impostati su file e cartelle esistenti. I controlli di accesso possono essere usati anche per creare valori predefiniti che possono essere applicati a nuovi file o cartelle. Quando vengono impostate le autorizzazioni sulle cartelle esistenti e sugli oggetti figlio, è necessario propagarle in modo ricorsivo a ogni oggetto. Se il numero di file è elevato, la propagazione delle autorizzazioni può richiedere molto tempo. Il tempo necessario può variare tra i 30 e i 50 oggetti elaborati al secondo. Pianificare quindi in modo appropriato la struttura di cartelle e i gruppi di utenti. In caso contrario, possono verificarsi problemi e ritardi imprevisti quando si lavora con i dati. 
 
-Si supponga di avere una cartella con 100.000 oggetti figlio. Presupponendo il limite inferiore di 30 oggetti elaborati al secondo, per aggiornare l'autorizzazione per l'intera cartella può essere necessaria un'ora. Altre informazioni sugli elenchi di controllo di accesso di Data Lake Store sono disponibili in [Controllo di accesso in Azure Data Lake Store](data-lake-store-access-control.md). Per migliorare le prestazioni per l'assegnazione ricorsiva di elenchi di controllo di accesso, è possibile usare lo strumento da riga di comando di Azure Data Lake. Lo strumento crea più thread e logica di navigazione ricorsiva per applicare rapidamente gli elenchi di controllo di accesso a milioni di file. Lo strumento è disponibile per Linux e Windows e la [documentazione](https://github.com/Azure/data-lake-adlstool) e i [download](http://aka.ms/adlstool-download) per questo strumento sono disponibili in GitHub.
+Si supponga di avere una cartella con 100.000 oggetti figlio. Presupponendo il limite inferiore di 30 oggetti elaborati al secondo, per aggiornare l'autorizzazione per l'intera cartella può essere necessaria un'ora. Altre informazioni sugli elenchi di controllo di accesso di Data Lake Store sono disponibili in [Controllo di accesso in Azure Data Lake Store](data-lake-store-access-control.md). Per migliorare le prestazioni per l'assegnazione ricorsiva di elenchi di controllo di accesso, è possibile usare lo strumento da riga di comando di Azure Data Lake. Lo strumento crea più thread e logica di navigazione ricorsiva per applicare rapidamente gli elenchi di controllo di accesso a milioni di file. Lo strumento è disponibile per Linux e Windows e la [documentazione](https://github.com/Azure/data-lake-adlstool) e i [download](http://aka.ms/adlstool-download) per questo strumento sono disponibili in GitHub. È possibile abilitare gli stessi miglioramenti delle prestazioni con gli strumenti scritti con gli SDK [.NET](data-lake-store-data-operations-net-sdk.md) e [Java](data-lake-store-get-started-java-sdk.md) per Data Lake Store.
 
 ### <a name="use-security-groups-versus-individual-users"></a>Confronto tra l'uso di gruppi di sicurezza e di singoli utenti 
 
-Quando si usano Big Data in Data Lake Store, si usa probabilmente un'entità servizio per consentire ai servizi, ad esempio Azure HDInsight, di usare i dati. In alcuni casi, tuttavia, singoli utenti potrebbero dover accedere ai dati. In questi casi, è necessario usare i gruppi di sicurezza di Azure Active Directory invece di assegnare singoli utenti a file e cartelle. Una volta assegnate le autorizzazioni a un gruppo di sicurezza, per l'aggiunta o la rimozione di utenti dal gruppo non sono necessari aggiornamenti a Data Lake Store. 
+Quando si usano Big Data in Data Lake Store, si usa probabilmente un'entità servizio per consentire ai servizi, ad esempio Azure HDInsight, di usare i dati. In alcuni casi, tuttavia, singoli utenti potrebbero dover accedere ai dati. In questi casi è necessario usare i [gruppi di sicurezza](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) di Azure Active Directory invece di assegnare singoli utenti a file e cartelle. 
+
+Una volta assegnate le autorizzazioni a un gruppo di sicurezza, per l'aggiunta o la rimozione di utenti dal gruppo non sono necessari aggiornamenti a Data Lake Store. Questo garantisce inoltre di non superare il limite di [32 ACL di accesso e predefiniti](../azure-subscription-service-limits.md#data-lake-store-limits) (sono inclusi i 4 ACL di tipo POSIX che sono sempre associati con tutti i file e le cartelle: [utente proprietario](data-lake-store-access-control.md#the-owning-user), [gruppo proprietario](data-lake-store-access-control.md#the-owning-group), [maschera](data-lake-store-access-control.md#the-mask-and-effective-permissions) e altro).
 
 ### <a name="security-for-groups"></a>Sicurezza per i gruppi 
 

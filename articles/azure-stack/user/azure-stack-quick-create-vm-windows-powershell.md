@@ -12,20 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/19/2018
+ms.date: 04/20/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 4f0d07d2c64650091b5fc654a645785a12c3c3de
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 9f5752a969ff6a191ec60e175494316aea4abcaf
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>Guida introduttiva: creare una macchina virtuale Windows usando PowerShell nello Stack di Azure
+# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Guida introduttiva: creare una macchina virtuale di Windows Server utilizzando PowerShell nello Stack di Azure
 
-*Si applica a: Azure Stack integrate di sistemi*
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Questa guida descrive l'utilizzo di PowerShell per creare una macchina virtuale di Windows Server 2016 nello Stack di Azure. È possibile eseguire i passaggi descritti in questo articolo del Kit di sviluppo dello Stack di Azure o da un client esterno basato su Windows, se si è connessi tramite VPN.
+È possibile creare una macchina virtuale di Windows Server 2016 mediante Azure PowerShell dello Stack. Seguire i passaggi descritti in questo articolo per creare e usare una macchina virtuale. In questo articolo offre inoltre la procedura per:
+
+* Connettersi alla macchina virtuale con un client remoto.
+* Installare il server web IIS e visualizzare la home page predefinita.
+* Pulire le risorse.
+
+>[!NOTE]
+ È possibile eseguire i passaggi descritti in questo articolo dal Kit di sviluppo dello Stack di Azure o da un client esterno basato su Windows se si è connessi tramite una VPN.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

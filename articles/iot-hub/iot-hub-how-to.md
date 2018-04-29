@@ -1,11 +1,11 @@
 ---
 title: Utilizzo dell'hub IoT di Azure | Documentazione Microsoft
-description: "In che modo gli sviluppatori usano le varie funzionalità di hub IoT?"
+description: In che modo gli sviluppatori usano le varie funzionalità di hub IoT?
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: b451ea2d42f0ff2f64746bcb296fb9128472fea8
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9b112d2d7fc1756b74e98335831175f5d4c13320
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-use-azure-iot-hub"></a>Procedure: Usare l'hub IoT di Azure
 
@@ -52,7 +52,7 @@ Se si preferisce apprendere le specifiche funzionalità di hub IoT tramite eserc
 
 - [Usare le proprietà desiderate per configurare i dispositivi][lnk-properties-tutorial]. Questa esercitazione illustra come usare le proprietà desiderate e segnalate del dispositivo gemello per configurare in remoto il dispositivo.
 
-- [Usare i processi del dispositivo per avviare un aggiornamento del firmware del dispositivo][lnk-jobs-tutorial]. Questa esercitazione illustra come usare le principali funzionalità di gestione dei dispositivi, ad esempio i dispositivi gemelli e i metodi diretti. Si impareranno a usare queste funzionalità per aggiornare in remoto il firmware del dispositivo.
+- [Usare la gestione dei dispositivi per aggiornarne il firmware del dispositivo][lnk-jobs-tutorial]. Questa esercitazione illustra come usare le principali funzionalità di gestione dei dispositivi, ad esempio i dispositivi gemelli e i metodi diretti. Si impareranno a usare queste funzionalità per aggiornare in remoto il firmware del dispositivo.
 
 - [Pianificare e trasmettere processi][lnk-schedule-tutorial]. Questa esercitazione illustra come usare le proprietà desiderate e i metodi diretti per interagire con più dispositivi a un orario pianificato.
 

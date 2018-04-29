@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: ab4bc4024248675c6325159b5507add1274addc9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b33c95af94c436b1069658963692242d0f905554
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Problemi noti e limitazioni dell'importazione dell'API
 ## <a name="about-this-list"></a>Informazioni sull'elenco
@@ -38,12 +38,12 @@ Se si ricevono errori durante l'importazione del documento Open API, assicurarsi
 
 ## <a name="wsdl"></a>WSDL
 I file WSDL vengono usati per generare le API SOAP pass-through o come back-end dell'API SOAP-REST.
-
-* **WSDL:Import**: le API che usano questo attributo non sono attualmente supportate da Gestione API. I clienti devono unire gli elementi importati in un solo documento.
-* **Messaggi con più parti**: questo tipo di messaggi non è attualmente supportato da Gestione API.
-* I servizi SOAP **wsHttpBinding di WCF** creati con Windows Communication Foundation devono usare basicHttpBinding in quanto wsHttpBinding non è supportato.
+* **Associazioni SOAP**: solo le associazioni SOAP con stile di codifica "document" e "literal" sono supportate. Non è disponibile il supporto per lo stile di codifica SOAP "rpc".
+* **WSDL:Import**: questo attributo non è supportato. I clienti devono unire le importazioni in un solo documento.
+* **Messaggi con più parti**: questo tipo di messaggi non è supportato.
+* **wsHttpBinding di WCF**: i servizi SOAP creati con Windows Communication Foundation devono usare basicHttpBinding in quanto wsHttpBinding non è supportato.
 * **MTOM**: i servizi che usano MTOM <em>potrebbero</em> funzionare. Al momento il supporto ufficiale non è previsto.
-* Gestione API non supporta i tipi **ricorsivi** che sono definiti in modo ricorsivo, ad esempio che fanno riferimento a una matrice di se stessi.
+* **Ricorsione**: i tipi definiti in modo ricorsivo, che, ad esempio, fanno riferimento a una matrice di se stessi, non sono supportati da APIM.
 
 ## <a name="wadl"> </a>WADL
 Attualmente non sono noti problemi di importazione del formato WADL.
