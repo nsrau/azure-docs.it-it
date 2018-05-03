@@ -1,0 +1,2 @@
+
+Per fare in modo che l'app per le funzioni usi la versione di anteprima 2.0 del runtime di Funzioni, impostare l'impostazione dell'app `FUNCTIONS_EXTENSION_VERSION` nell'app per le funzioni sul valore `beta`.
