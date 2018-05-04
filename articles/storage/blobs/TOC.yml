@@ -108,34 +108,51 @@
           href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Funzionalità dei BLOB di pagine
           href: storage-blob-pageblob-overview.md
-        - name: Archiviazione Premium
+        - name: Dischi di Azure
           items:
-            - name: Linux
+            - name: Archiviazione Premium
               items:
-                - name: Archiviazione Premium con prestazioni elevate per dischi di macchine virtuali
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage'
-                - name: Migrazione ad Archiviazione Premium con Azure Site Recovery
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery'
-                - name: Progettare per prestazioni elevate
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage-performance'
-            - name: Windows
+                - name: Linux
+                  items:
+                    - name: Archiviazione Premium con prestazioni elevate per dischi di macchine virtuali
+                      href: ../../virtual-machines/linux/premium-storage.md
+                    - name: Migrazione ad Archiviazione Premium con Azure Site Recovery
+                      href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery.md
+                    - name: Progettare per prestazioni elevate
+                      href: ../../virtual-machines/linux/premium-storage-performance.md
+                - name: Windows
+                  items:
+                    - name: Archiviazione Premium con prestazioni elevate per dischi di macchine virtuali
+                      href: ../../virtual-machines/windows/premium-storage.md
+                    - name: Migrazione ad Archiviazione Premium con Azure Site Recovery
+                      href: ../../virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery.md
+                    - name: Progettare per prestazioni elevate
+                      href: ../../virtual-machines/windows/premium-storage-performance.md
+            - name: Archiviazione standard
               items:
-                - name: Archiviazione Premium con prestazioni elevate per dischi di macchine virtuali
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage'
-                - name: Migrazione ad Archiviazione Premium con Azure Site Recovery
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery'
-                - name: Progettare per prestazioni elevate
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance'
-        - name: Archiviazione standard
-          items:
-            - name: Linux
+                - name: Linux
+                  items:
+                    - name: Archiviazione Standard per i dischi delle macchine virtuali
+                      href: ../../virtual-machines/linux/standard-storage.md
+                - name: Windows
+                  items:
+                    - name: Archiviazione Standard per i dischi delle macchine virtuali
+                      href: ../../virtual-machines/windows/standard-storage.md
+            - name: Risolvere i problemi dei dischi rigidi virtuali collegati
+              href: storage-troubleshoot-vhds.md
               items:
-                - name: Archiviazione Standard per i dischi delle macchine virtuali
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/standard-storage'
-            - name: Windows
-              items:
-                - name: Archiviazione Standard per i dischi delle macchine virtuali
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage'
+                - name: Linux
+                  items:
+                    - name: Errori nell'eliminazione di risorse di archiviazione
+                      href: ../../virtual-machines/linux/storage-resource-deletion-errors.md
+                    - name: Riavvii imprevisti di VM con dischi rigidi virtuali collegati
+                      href: ../../virtual-machines/linux/unexpected-reboots-attached-vhds.md
+                - name: Windows
+                  items:
+                    - name: Errori nell'eliminazione di risorse di archiviazione
+                      href: ../../virtual-machines/windows/storage-resource-deletion-errors.md
+                    - name: Riavvii imprevisti di VM con dischi rigidi virtuali collegati
+                      href: ../../virtual-machines/windows/unexpected-reboots-attached-vhds.md
     - name: Proteggere
       items:
         - name: Guida alla sicurezza

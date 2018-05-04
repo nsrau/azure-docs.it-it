@@ -94,8 +94,6 @@
       items:
         - name: Configurare i provider di identità
           items:
-            - name: OpenID Connect personalizzato
-              href: active-directory-b2c-setup-oidc-idp.md
             - name: Account Microsoft
               href: active-directory-b2c-setup-msa-app.md
             - name: Facebook
@@ -114,6 +112,10 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: WeChat
               href: active-directory-b2c-setup-wechat-app.md
+            - name: Azure AD (tenant singolo)
+              href: active-directory-b2c-setup-oidc-azure-active-directory.md
+            - name: OpenID Connect personalizzato
+              href: active-directory-b2c-setup-oidc-idp.md
         - name: Configurare la reimpostazione self-service delle password
           href: active-directory-b2c-reference-sspr.md
         - name: Personalizzazione dell'interfaccia utente

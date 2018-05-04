@@ -76,6 +76,8 @@
           href: stream-analytics-high-frequency-trading.md
         - name: Elaborare dati di streaming IoT
           href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
+        - name: Regole basate su soglie
+          href: stream-analytics-threshold-based-rules.md
     - name: Monitorare
       items:
         - name: Monitorare i processi - Portale di Azure

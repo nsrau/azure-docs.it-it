@@ -14,13 +14,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
-  ms.openlocfilehash: 41531cf8ea7d4f94caafac0fd2ecaa1902eb8988
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.openlocfilehash: 374e6a75d9ddfb5765418b1044dc525f14f86f67
+  ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 05/03/2018
 abstract:
-  description: "Le macchine virtuali Linux di Azure offrono un'infrastruttura virtualizzata, sicura, a scalabilità elevata e su richiesta con Red Hat, Ubuntu o la distribuzione Linux preferita. Informazioni su come creare, configurare, gestire, aggiornare e ridimensionare le macchine virtuali Linux con guide rapide, le esercitazioni ed esempi."
+  description: Le macchine virtuali Linux di Azure offrono un'infrastruttura virtualizzata, sicura, a scalabilità elevata e su richiesta con Red Hat, Ubuntu o la distribuzione Linux preferita. Informazioni su come creare, configurare, gestire, aggiornare e ridimensionare le macchine virtuali Linux con guide rapide, le esercitazioni ed esempi.
   aside:
     image:
       alt: 
@@ -53,7 +53,7 @@ sections:
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: Informazioni su come distribuire, gestire e ridimensionare le macchine virtuali Linux in Azure
+    text: Informazioni su come distribuire, gestire e ridimensionare le macchine virtuali Linux in Azure.
   - type: list
     style: ordered
     items:
@@ -61,11 +61,12 @@ sections:
     - html: <a href="/azure/virtual-machines/linux/tutorial-manage-disks">Creare e gestire dischi di macchine virtuali</a></li>
     - html: <a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">Automatizzare la configurazione delle macchine virtuali</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-custom-images">Creare un'immagine di VM personalizzata</a>
-    - html: "<a href=\"/azure/virtual-machines/linux/tutorial-availability-sets\">Creare VM a disponibilità elevata</a>"
-    - html: "<a href=\"/azure/virtual-machines/linux/tutorial-create-vmss\">Creare un set di scalabilità di macchine virtuali</a>"
+    - html: <a href="/azure/virtual-machines/linux/tutorial-availability-sets">Creare VM a disponibilità elevata</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-create-vmss">Creare un set di scalabilità di macchine virtuali</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">Bilanciare il carico delle VM</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Gestire le VM e le reti virtuali</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Eseguire il backup delle VM</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-govern-resources">Configurare la governance delle VM</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Monitorare e aggiornare le macchine virtuali</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Gestire la sicurezza nelle VM</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Creare un'infrastruttura di integrazione continua e di distribuzione continua con Jenkins, Docker e GitHub</a>
@@ -103,7 +104,7 @@ sections:
     items:
     - html: <a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">Interfaccia della riga di comando di Azure</a>
     - html: <a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a>
-- title: Riferimento
+- title: Riferimenti
   items:
   - type: list
     style: cards

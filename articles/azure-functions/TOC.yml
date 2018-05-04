@@ -123,6 +123,8 @@
           href: durable-functions-versioning.md
         - name: Prestazioni e scalabilità
           href: durable-functions-perf-and-scale.md
+        - name: Ripristino di emergenza e distribuzione geografica
+          href: durable-functions-disaster-recovery-geo-distribution.md
 - name: Guide alle procedure
   items:
     - name: Sviluppo

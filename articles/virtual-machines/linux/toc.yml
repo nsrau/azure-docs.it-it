@@ -113,7 +113,11 @@
         - name: Come abilitare l'acceleratore di scrittura
           href: how-to-enable-write-accelerator.md
         - name: Risolvere i problemi dei dischi rigidi virtuali collegati
-          href: troubleshoot-vhds.md
+          items:
+            - name: Errori nell'eliminazione di risorse di archiviazione
+              href: storage-resource-deletion-errors.md
+            - name: Riavvii imprevisti di VM con dischi rigidi virtuali collegati
+              href: unexpected-reboots-attached-vhds.md
     - name: Rete
       href: network-overview.md
     - name: Ridimensionare automaticamente le applicazioni

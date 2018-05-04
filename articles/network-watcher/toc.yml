@@ -17,8 +17,12 @@
   items:
     - name: Diagnosticare un problema di routing di una VM
       href: diagnose-vm-network-routing-problem.md
-    - name: Monitorare le connessioni di rete
+    - name: Monitorare la comunicazione tra le VM
       href: connection-monitor.md
+    - name: Diagnosticare un problema di comunicazione tra le reti
+      href: diagnose-communication-problem-between-networks.md
+    - name: Registrare il traffico di rete delle VM
+      href: network-watcher-nsg-flow-logging-portal.md
 - name: Concetti
   items:
     - name: Diagnosticare i problemi di filtro del traffico di rete delle VM
@@ -93,8 +97,6 @@
       items:
         - name: Configurare i log dei flussi dei gruppi di sicurezza di rete
           items:
-            - name: Portale di Azure
-              href: network-watcher-nsg-flow-logging-portal.md
             - name: Azure PowerShell
               href: network-watcher-nsg-flow-logging-powershell.md
             - name: Interfaccia della riga di comando di Azure
@@ -136,8 +138,6 @@
       items:
         - name: Risolvere problemi
           items:
-            - name: Portale di Azure
-              href: network-watcher-troubleshoot-manage-portal.md
             - name: Azure PowerShell
               href: network-watcher-troubleshoot-manage-powershell.md
             - name: Interfaccia della riga di comando di Azure

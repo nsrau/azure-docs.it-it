@@ -22,6 +22,8 @@
       href: powershell-samples.md
 - name: Esercitazioni
   items:
+    - name: Bilanciare il carico del traffico interno verso le VM
+      href: tutorial-load-balancer-basic-internal-portal.md
     - name: Bilanciare il carico delle VM tra zone di disponibilità
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Bilanciare il carico delle VM in una zona di disponibilità specifica

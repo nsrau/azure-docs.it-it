@@ -73,6 +73,8 @@
           href: monitoring-enable-alerts-using-template.md
         - name: Copiare avvisi dal portale OMS al portale di Azure
           href: monitoring-alerts-extend-tool.md
+        - name: Avvisi con soglie dinamiche
+          href: monitoring-alerts-dynamic-thresholds.md
     - name: Usare i gruppi di azioni con gli avvisi
       items:
         - name: Informazioni sullo schema del webhook

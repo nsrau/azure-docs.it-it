@@ -1,0 +1,70 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione sul gateway VPN di Azure
+metadata:
+  document_id: 
+  title: 'Documentazione sul gateway VPN: esercitazioni e informazioni di riferimento sulle API | Microsoft Docs'
+  meta.description: Learn how to configure, create, and manage an Azure VPN gateway. Create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets.
+  services: vpn-gateway
+  author: cherylmc
+  manager: jeconnoc
+  ms.service: vpn-gateway
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/26/2018
+  ms.author: cherylmc
+  ms.openlocfilehash: c5bfd0789a2fdc2effe3e750404c3fa1c3f1b045
+  ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 05/03/2018
+abstract:
+  description: Informazioni su come configurare, creare e gestire un gateway VPN di Azure. È possibile creare connessioni locali crittografate alla rete virtuale da posizioni locali oppure creare connessioni crittografate tra reti virtuali.
+sections:
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni su come creare, configurare e gestire gateway VPN di Azure.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell">Creare e gestire un gateway VPN</a>
+- title: Video di formazione gratuiti su PluralSight
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Implementazione dei servizi di rete di Microsoft Azure
+      href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
+    - title: Pianificazione e progettazione delle soluzioni di rete di Microsoft Azure
+      href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
+- title: Esempi
+  items:
+  - type: paragraph
+    text: Esempi di script per attività comuni.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/vpn-gateway/powershell-samples">PowerShell</a>
+- title: Riferimenti
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Riga di comando
+      html: <p><a href="/powershell/module/azurerm.network#vpn">PowerShell</a></p><p><a href="/cli/azure/network/vnet-gateway">Interfaccia della riga di comando di Azure</a></p>
+    - title: Lingue
+      html: <p><a href="/dotnet/api/overview/azure/virtual-network">.NET</a></p><p><a href="/java/api/overview/azure/network">Java</a></p><p><a href="/javascript/api/overview/azure/virtual-network">Node.JS</a></p><p><a href="/python/api/overview/azure/network">Python</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/network-gateway/">Informazioni di riferimento sulle API REST</a></p>

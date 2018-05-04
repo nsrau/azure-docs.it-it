@@ -187,6 +187,10 @@
           href: web-sites-create-web-jobs.md
         - name: Sviluppare processi Web con Visual Studio
           href: websites-dotnet-deploy-webjobs.md
+        - name: Introduzione a WebJobs SDK
+          href: webjobs-sdk-get-started.md
+        - name: Usare WebJobs SDK
+          href: webjobs-sdk-how-to.md
 - name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure

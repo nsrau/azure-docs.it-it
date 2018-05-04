@@ -59,6 +59,8 @@
       href: monitor-event-delivery.md
     - name: Eseguire query su sottoscrizioni di eventi
       href: query-event-subscriptions.md
+    - name: Usare lo schema CloudEvents
+      href: cloudevents-schema.md
 - name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure

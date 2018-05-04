@@ -43,6 +43,8 @@
       href: container-registry-skus.md
     - name: Archiviazione immagini
       href: container-registry-storage.md
+    - name: Creare e applicare patch con ACR Build
+      href: container-registry-build-overview.md
     - name: Replica geografica (anteprima)
       href: container-registry-geo-replication.md
     - name: Procedure consigliate per il registro contenitori

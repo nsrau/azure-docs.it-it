@@ -30,6 +30,8 @@
           href: sql-database-connect-query-dotnet-visual-studio.md
         - name: .NET Core
           href: sql-database-connect-query-dotnet-core.md
+        - name: .NET con l'autenticazione a più fattori di Active Directory
+          href: active-directory-interactive-connect-azure-sql-db.md
         - name: Go
           href: sql-database-connect-query-go.md
         - name: Java
