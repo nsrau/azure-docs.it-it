@@ -1,29 +1,29 @@
 ---
 title: Usare i modelli di Azure Resource Manager per creare e configurare un'area di lavoro di Log Analytics | Microsoft Docs
-description: "È possibile usare i modelli di Azure Resource Manager per creare e configurare aree di lavoro di Log Analytics."
+description: È possibile usare i modelli di Azure Resource Manager per creare e configurare aree di lavoro di Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/16/2018
 ms.author: richrund
-ms.openlocfilehash: db9b941e84c018a3a56dd683c118e47ee808259d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0d9848a6477dbf1b93a7f640bc44adf627b40a45
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gestire Log Analytics usando i modelli di Azure Resource Manager
 È possibile usare i [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) per creare e configurare aree di lavoro di Log Analytics. Ecco alcuni esempi di attività eseguibili con i modelli:
 
-* Creare un'area di lavoro
+* Creare un'area di lavoro inclusa l'impostazione del piano tariffario 
 * Aggiungere una soluzione
 * Creare le ricerche salvate
 * Creare un gruppo di computer
@@ -34,32 +34,108 @@ ms.lasthandoff: 03/08/2018
 * Aggiungere l'agente Log Analytics a una macchina virtuale di Azure
 * Configurare Log Analytics per indicizzare i dati raccolti tramite Diagnostica di Azure
 
-Questo articolo presenta esempi di modelli che illustrano alcune configurazioni effettuabili partendo proprio da tali modelli.
+Questo articolo presenta esempi di modelli che illustrano alcune configurazioni effettuabili con tali modelli.
 
-## <a name="api-versions"></a>Versioni dell'API
-L'esempio riportato in questo articolo descrive un'[area di lavoro di Log Analytics aggiornata](log-analytics-log-search-upgrade.md).  Per usare un'area di lavoro legacy, è necessario modificare la sintassi delle query nel linguaggio legacy e modificare la versione API di ogni risorsa.  La tabella seguente elenca la versione dell'API per le risorse usate in questo esempio.
+## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro di Log Analytics
+L'esempio seguente crea un'area di lavoro usando un modello dal computer locale. Il modello JSON è configurato in modo da richiedere solo il nome dell'area di lavoro e specifica un valore predefinito per gli altri parametri che potrebbero essere usati come configurazione standard nell'ambiente in uso.  
 
-| Risorsa | Tipo di risorsa | Versione API legacy | Versione API aggiornata |
-|:---|:---|:---|:---|
-| Area di lavoro   | aree di lavoro    | 2015-11-01-preview | 2017-03-15-preview |
-| Ricerca      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
-| Origine dati | datasources   | 2015-11-01-preview | 2015-11-01-preview |
-| Soluzione    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
+I parametri seguenti impostano un valore predefinito:
 
+* Location: il valore predefinito è Stati Uniti orientali.
+* SKU: il valore predefinito è il nuovo piano tariffario per GB rilasciato nel modello di prezzi di aprile 2018.
 
-## <a name="create-and-configure-a-log-analytics-workspace"></a>Creare e configurare un'area di lavoro di Log Analytics
+>[!WARNING]
+>Se si crea o si configura un'area di lavoro di Log Analytics in una sottoscrizione basata sul nuovo modello di prezzi di aprile 2018, l'unico piano tariffario di Log Analytics valido è **PerGB2018**. 
+>
+
+### <a name="create-and-deploy-template"></a>Creare e distribuire il modello
+
+1. Copiare e incollare nel file la sintassi JSON seguente:
+
+    ```json
+    {
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "String",
+            "metadata": {
+              "description": "Specifies the name of the workspace."
+            }
+        },
+        "location": {
+            "type": "String",
+            "allowedValues": [
+              "eastus",
+              "westus"
+            ],
+            "defaultValue": "eastus",
+            "metadata": {
+              "description": "Specifies the location in which to create the workspace."
+            }
+        },
+        "sku": {
+            "type": "String",
+            "allowedValues": [
+              "Standalone",
+              "PerNode",
+              "PerGB2018"
+            ],
+            "defaultValue": "PerGB2018",
+            "metadata": {
+            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
+        }
+          },
+    },
+    "resources": [
+        {
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "name": "[parameters('workspaceName')]",
+            "apiVersion": "2017-03-15-preview",
+            "location": "[parameters('location')]",
+            "properties": {
+                "sku": {
+                    "Name": "[parameters('sku')]"
+                },
+                "features": {
+                    "searchVersion": 1
+                }
+            }
+          }
+       ]
+    }
+    ```
+2. Modificare il modello in base alle esigenze.  Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) per informazioni sulle proprietà e sui valori supportati. 
+3. Salvare questo file come **deploylaworkspacetemplate.json** in una cartella locale.
+4. A questo punto è possibile distribuire il modello. Usare PowerShell o la riga di comando per creare l'area di lavoro.
+
+   * Per PowerShell usare i comandi seguenti dalla cartella che contiene il modello:
+   
+        ```powershell
+        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        ```
+
+   * Per la riga di comando usare i comandi seguenti dalla cartella che contiene il modello:
+
+        ```cmd
+        azure config mode arm
+        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+        ```
+
+Per il completamento della distribuzione sarà necessario attendere alcuni minuti. Al termine, viene visualizzato un messaggio simile al seguente che include il risultato:<br><br> ![Esempio di risultato al termine della distribuzione](./media/log-analytics-template-workspace-configuration/template-output-01.png)
+
+## <a name="configure-a-log-analytics-workspace"></a>Configurare un'area di lavoro di Log Analytics
 Il modello di esempio seguente illustra come:
 
-1. Creare un'area di lavoro che includa la conservazione dei dati delle impostazioni
-2. Aggiungere soluzioni all'area di lavoro
-3. Creare le ricerche salvate
-4. Creare un gruppo di computer
-5. Abilitare la raccolta dei log IIS dai computer su cui è stato installato l'agente di Windows
-6. Raccogliere i dati dei contatori delle prestazioni del disco logico dai computer Linux (% inodi usati; megabyte liberi; % di spazio usato; trasferimenti/sec del disco; letture/sec del disco; scritture/sec del disco)
-7. Raccogliere gli eventi syslog dai computer Linux
-8. Raccogliere gli eventi di errore e di avviso dal log eventi dell'applicazione dai computer Windows
-9. Raccogliere i dati del contatore delle prestazioni dei Mbyte di memoria disponibili dai computer Windows
-11. Raccogliere i log IIS e i log eventi di Windows scritti dalla diagnostica Azure in un account di archiviazione
+1. Aggiungere soluzioni all'area di lavoro
+2. Creare le ricerche salvate
+3. Creare un gruppo di computer
+4. Abilitare la raccolta dei log IIS dai computer su cui è stato installato l'agente di Windows
+5. Raccogliere i dati dei contatori delle prestazioni del disco logico dai computer Linux (% inodi usati; megabyte liberi; % di spazio usato; trasferimenti/sec del disco; letture/sec del disco; scritture/sec del disco)
+6. Raccogliere gli eventi syslog dai computer Linux
+7. Raccogliere gli eventi di errore e di avviso dal log eventi dell'applicazione dai computer Windows
+8. Raccogliere i dati del contatore delle prestazioni dei Mbyte di memoria disponibili dai computer Windows
+9. Raccogliere i log IIS e i log eventi di Windows scritti dalla diagnostica Azure in un account di archiviazione
 
 ```json
 {
@@ -77,10 +153,11 @@ Il modello di esempio seguente illustra come:
       "allowedValues": [
         "Free",
         "Standalone",
-        "PerNode"
+        "PerNode",
+        "PerGB2018"
       ],
       "metadata": {
-        "description": "Service Tier: Free, Standalone, or PerNode"
+        "description": "Service Tier: Free, Standalone, PerNode, or PerGB2018"
     }
       },
     "dataRetention": {
@@ -421,7 +498,6 @@ New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <r
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
-
 
 ## <a name="example-resource-manager-templates"></a>Modelli Azure Resource Manager di esempio
 La raccolta dei modelli di avvio rapido di Azure include alcuni modelli di Log Analytics, tra cui:

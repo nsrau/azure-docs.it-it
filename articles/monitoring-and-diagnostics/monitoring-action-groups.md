@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/20/2018
 ms.author: dukek
-ms.openlocfilehash: a7f8697b7a92de1c19ceb65fadbcd7e4186e83f7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a1f163acea4e1965ab90b32e23e502b13f8908be
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 ## <a name="overview"></a>Panoramica ##
@@ -26,10 +26,10 @@ Questo articolo illustra come creare e gestire gruppi di azione nel portale di A
 
 I gruppi di azione consentono di configurare un elenco di azioni. Questi gruppi possono quindi essere usati da ogni avviso che viene definito, assicurandosi che vengono eseguite le stesse azioni ogni volta che viene generato un avviso.
 
-Un gruppo di azione può avere fino a 10 tipi di azioni. Ogni azione è composta dalle seguenti proprietà:
+Ogni azione è composta dalle seguenti proprietà:
 
 * **Nome:** un identificatore univoco all'interno del gruppo di azione.  
-* **Tipo di azione**: inviare una chiamata vocale o un SMS, inviare un messaggio di posta elettronica, chiamare un webhook, inviare dati a uno strumento ITSM, chiamare un'app Azure o eseguire un runbook di Automazione.
+* **Tipo di azione**: inviare una chiamata vocale o un SMS, inviare un messaggio di posta elettronica, chiamare un webhook, inviare dati a uno strumento ITSM, chiamare un'app per la logica, inviare una notifica push all'app Azure o eseguire un runbook di Automazione.
 * **Dettagli**: l'URI del webhook, il numero di telefono o l'indirizzo di posta elettronica oppure le informazioni di connessione ITSM corrispondenti.
 
 Per informazioni sull'uso dei modelli di Azure Resource Manager per configurare i gruppi di azione: [Modelli di Resource Manager per il gruppo di azione](monitoring-create-action-group-with-resource-manager-template.md).
@@ -56,14 +56,48 @@ Per informazioni sull'uso dei modelli di Azure Resource Manager per configurare 
 
     a. **Nome**: immettere un identificatore univoco per questa azione.
 
-    b. **Tipo di azione**: selezionare Massaggio di posta elettronica/SMS/Push/Voce, Webhook, ITSM o Runbook di Automazione.
+    b. **Tipo di azione**: selezionare Massaggio di posta elettronica/SMS/Push/Voce, App per la logica, Webhook, ITSM o Runbook di Automazione.
 
     c. **Dettagli**: in base al tipo di azione, immettere un numero di telefono, un indirizzo di posta elettronica, l'URI del webhook, l'app Azure, la connessione ITSM o il runbook di Automazione. Per l'azione ITSM, specificare anche **Elemento di lavoro** e altri campi richiesti dallo strumento ITSM.
 
-   > [!NOTE]
-   > L'azione ITSM richiede una connessione ITSM. Informazioni su come creare una [connessione ITSM](../log-analytics/log-analytics-itsmc-overview.md). 
-
 8. Fare clic su **OK** per creare il gruppo di azione.
+
+## <a name="action-specific-information"></a>Informazioni specifiche delle azioni
+<dl>
+<dt>Push dell'app Azure</dt>
+<dd>Un gruppo di azioni può contenere un massimo di 10 azioni dell'app Azure.</dd>
+<dd>In questo momento l'azione dell'app Azure supporta solo gli avvisi ServiceHealth. Qualsiasi altro tipo di avviso verrà ignorato. Fare riferimento alle informazioni su come [configurare gli avvisi ogni volta che viene inviata una notifica di integrità del servizio](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
+
+<dt>
+Messaggio di posta elettronica</dt>
+<dd>Un gruppo di azioni può contenere un massimo di 50 azioni di tipo Massaggio di posta elettronica.</dd>
+<dd>Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./monitoring-alerts-rate-limiting.md).</dd>
+
+<dt>ITSM</dt>
+<dd>Un gruppo di azioni può contenere un massimo di 10 azioni di tipo ITSM.</dd>
+<dd>L'azione ITSM richiede una connessione ITSM. Informazioni su come creare una [connessione ITSM](../log-analytics/log-analytics-itsmc-overview.md).</dd>
+
+<dt>
+App per la logica</dt>
+<dd>Un gruppo di azioni può contenere un massimo di 10 azioni di tipo App per la logica.</dd>
+
+<dt>Runbook</dt>
+<dd>Un gruppo di azioni può contenere un massimo di 10 azioni di tipo Runbook.</dd>
+
+<dt>SMS</dt>
+<dd>Un gruppo di azioni può contenere un massimo di 10 azioni di tipo SMS.</dd>
+<dd>Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./monitoring-alerts-rate-limiting.md).</dd>
+<dd>Vedere l'articolo relativo al [comportamento degli avvisi SMS](monitoring-sms-alert-behavior.md).</dd>
+
+<dt>
+Voce</dt>
+<dd>Un gruppo di azioni può contenere un massimo di 10 azioni di tipo Voce.</dd>
+<dd>Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./monitoring-alerts-rate-limiting.md).</dd>
+
+<dt>Webhook</dt>
+<dd>Un gruppo di azioni può contenere un massimo di 10 azioni di tipo Webhook.
+<dd>Logica di ripetizione dei tentativi: verrà eseguito un massimo di due nuovi tentativi di chiamata webhook quando vengono restituiti i codici di stato HTTP 408, 429, 503, 504 o l'endpoint HTTP non risponde. La prima ripetizione del tentativo avviene dopo 10 secondi. La seconda e ultima ripetizione avviene dopo 100 secondi.</dd>
+</dl>
 
 ## <a name="manage-your-action-groups"></a>Gestire i gruppi di azione ##
 Dopo la creazione, il gruppo di azione sarà visibile nella sezione **Gruppi di azione** del pannello **Monitoraggio**. Selezionare il gruppo di azione da gestire per:

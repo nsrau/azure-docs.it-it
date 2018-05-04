@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c1d5bc55b132b449ebc2964ef95016a6a4780c19
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorare lo stato, configurare la registrazione diagnostica e attivare gli avvisi per App per la logica di Azure
 
@@ -66,7 +66,7 @@ Per ottenere notifiche sugli errori o su altri possibili problemi, configurare g
    ![Dettagli del passaggio](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
    > [!NOTE]
-   > Tutti i dettagli ed eventi di runtime vengono crittografati nel servizio App per la logica. Vengono decrittografati solo quando un utente richiede di visualizzare i dati. È anche possibile controllare l'accesso a questi eventi con il [controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-what-is.md).
+   > Tutti i dettagli ed eventi di runtime vengono crittografati nel servizio App per la logica. Vengono decrittografati solo quando un utente richiede di visualizzare i dati. È anche possibile controllare l'accesso a questi eventi con il [controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md).
 
 6. Per ottenere informazioni dettagliate su un evento di attivazione specifico, tornare al riquadro **Panoramica**. In **Cronologia trigger** selezionare l'evento di attivazione. È ora possibile esaminare dettagli come input e output, ad esempio:
 

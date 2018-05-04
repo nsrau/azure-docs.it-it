@@ -3,7 +3,7 @@ title: Azure Stack di manutenzione dei criteri | Documenti Microsoft
 description: Informazioni sullo Stack di Azure per la manutenzione dei criteri e come mantenere un sistema integrato in uno stato supportato.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.assetid: caac3d2f-11cc-4ff2-82d6-52b58fee4c39
@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 04/18/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: 160ba42c5cbdd3e8b999040cba8254d4c87f7c63
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 77cc2f80588a104880e8149daccc6debd1ec43bc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack di manutenzione dei criteri
 Questo articolo descrive i criteri di manutenzione per i sistemi Azure Stack integrato e le operazioni da eseguire per mantenere il sistema in uno stato supportato. 
@@ -55,6 +55,9 @@ Per continuare a ricevere supporto, è necessario mantenere la distribuzione di 
 Ad esempio, se la versione dell'aggiornamento più recente disponibile è 1805 e due pacchetti di aggiornamento precedente sono stati versioni 1804 e 1803, 1803 sia 1804 rimangono in modalità di supporto. Tuttavia, 1802 è più supportata. I criteri vale quando non si verifica alcuna versione per un mese o due. Ad esempio, se la versione corrente è 1805 e si è verificato alcun versione 1804, precedente due pacchetti di aggiornamento di 1803 e 1802 rimangono in modalità di supporto.
 
 I pacchetti di aggiornamento software Microsoft sono non cumulativi e richiedono che il pacchetto di aggiornamento precedente come prerequisito. Se si decide di rinviare gli aggiornamenti di uno o più, prendere in considerazione la fase di esecuzione complessivo se si vuole ottenere la versione più recente. 
+
+## <a name="get-support"></a>Supporto
+Stack di Azure segue lo stesso processo di supporto come Azure. I clienti aziendali possono seguire il processo descritto in [come creare una richiesta di supporto tecnico di Azure](/azure/azure-supportability/how-to-create-azure-support-request). Se si è un cliente di un Provider del servizio Cloud (CSP), contattare il CSP per il supporto.  Per altre informazioni, vedere le [domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/). 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

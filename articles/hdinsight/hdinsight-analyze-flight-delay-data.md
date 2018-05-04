@@ -2,24 +2,22 @@
 title: 'Analizzare i dati sui ritardi dei voli con Hadoop in HDInsight: Azure | Microsoft Docs'
 description: Informazioni su come usare uno script di Windows PowerShell per creare di un cluster HDInsight, eseguire un processo Hive, eseguire un processo Sqoop ed eliminare il cluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 00e26aa9-82fb-4dbe-b87d-ffe8e39a5412
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5da745901ec2fe57530e4d7fe38a055e0b8691ac
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0e91cf994306c115911d9dd9cf0018f7947502d8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analizzare i dati sui ritardi dei voli con Hive in HDInsight
 Hive fornisce un metodo per l'esecuzione di processi MapReduce mediante un linguaggio di scripting simile a SQL, denominato *[HiveQL][hadoop-hiveql]*, che può essere applicato per attività di riepilogo, query e analisi di volumi di dati molto elevati.
@@ -134,7 +132,7 @@ Per altre informazioni sulla creazione di un cluster HDInsight e sull'esecuzione
         $acct = Get-AzureRmSubscription
     }
     catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
     Select-AzureRmSubscription -SubscriptionID $subscriptionID
 
@@ -299,7 +297,7 @@ Prima di caricare il file di dati e i file script HiveQL, vedere l' [Appendice B
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #Region - Validate user input
@@ -383,8 +381,10 @@ Per un elenco completo di comandi di HiveQL, vedere [Hive Data Definition Langua
     <tr><td>$storageAccountName</td><td>Account di archiviazione di Azure nel quale si desidera caricare lo script HiveQL.</td></tr>
     <tr><td>$blobContainerName</td><td>Contenitore BLOB nel quale si desidera caricare lo script HiveQL.</td></tr>
     </table>
-2. Aprire Azure PowerShell ISE.
-3. Copiare e incollare lo script seguente nel riquadro dello script:
+    
+2. Aprire Azure PowerShell ISE.  
+
+3. Copiare e incollare lo script seguente nel riquadro dello script:  
 
     ```powershell
     [CmdletBinding()]
@@ -418,7 +418,7 @@ Per un elenco completo di comandi di HiveQL, vedere [Hive Data Definition Langua
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #Region - Validate user input
@@ -573,8 +573,10 @@ Per un elenco completo di comandi di HiveQL, vedere [Hive Data Definition Langua
     <tr><td>$sqlDatabaseLocation</td><td>Questo valore viene usato solo durante la creazione di un nuovo server di database di Azure.</td></tr>
     <tr><td>$sqlDatabaseName</td><td>Database SQL usato per creare la tabella AvgDelays per il processo Sqoop. Lasciando il valore vuoto, verrà creato un database denominato "HDISqoop". Il nome della tabella per l'output del processo Sqoop è "AvgDelays". </td></tr>
     </table>
+    
 2. Aprire Azure PowerShell ISE.
-3. Copiare e incollare lo script seguente nel riquadro dello script:
+
+3. Copiare e incollare lo script seguente nel riquadro dello script:  
 
     ```powershell
     [CmdletBinding()]
@@ -635,7 +637,7 @@ Per un elenco completo di comandi di HiveQL, vedere [Hive Data Definition Langua
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #region - Create and validate Azure resouce group

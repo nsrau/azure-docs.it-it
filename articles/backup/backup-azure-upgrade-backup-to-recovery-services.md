@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 25ad2f6309531678ec98012f540556af581649b2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino
 
@@ -84,7 +84,7 @@ Lo script di PowerShell richiede di immettere le credenziali. Immettere le crede
 ### <a name="pre-requisites-checking"></a>Verifica dei prerequisiti
 Dopo averne immesso le credenziali, Azure verifica che l'ambiente soddisfi i prerequisiti seguenti:
 
-- **Versione minima dell'agente**: l'aggiornamento degli insiemi di credenziali di Backup agli insiemi di credenziali di Servizi di ripristino richiede almeno la versione 2.0.9083.0 per l'agente MARS. Se si dispone di elementi registrati in un insieme di credenziali di Backup con un agente precedente alla versione 2.0.9083.0, il controllo dei prerequisiti ha esito negativo. Se il controllo dei prerequisiti non riesce, aggiornare l'agente e provare ad aggiornare nuovamente l'insieme di credenziali. È possibile scaricare la versione più recente dell'agente da [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Versione minima dell'agente**: l'aggiornamento degli insiemi di credenziali di Backup agli insiemi di credenziali di Servizi di ripristino richiede almeno la versione 2.0.9083.0 per l'agente MARS. Se si dispone di elementi registrati in un insieme di credenziali di Backup con un agente precedente alla versione 2.0.9083.0, il controllo dei prerequisiti ha esito negativo. Se il controllo dei prerequisiti non riesce, aggiornare l'agente e provare ad aggiornare nuovamente l'insieme di credenziali. È possibile scaricare la versione più recente dell'agente all'indirizzo [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Processi di configurazione in corso**: se durante la verifica un utente esegue la configurazione di un processo per un insieme di credenziali di Backup impostato per l'aggiornamento o registra un elemento, il controllo dei prerequisiti ha esito negativo. Completare la configurazione o terminare la registrazione dell'elemento e quindi avviare il processo di aggiornamento dell'insieme di credenziali.
 - **Modello di fatturazione basato sull'archiviazione**: gli insiemi di credenziali del servizio di ripristino supportano il modello di fatturazione basato su istanza. Se si esegue l'aggiornamento dell'insieme di credenziali in un insieme di credenziali di Backup che usa il modello di fatturazione basato sull'archiviazione, viene chiesto di aggiornare il modello di fatturazione con l'insieme di credenziali. Altrimenti, è possibile aggiornare prima il modello di fatturazione e quindi eseguire l'aggiornamento dell'insieme di credenziali.
 - Identificare un gruppo di risorse per l'insieme di credenziali di Servizi di ripristino. Per poter sfruttare le funzionalità di distribuzione di Resource Manager, è necessario inserire un insieme di credenziali di Servizi di ripristino in un gruppo di risorse. Se non si sa quale gruppo di risorse usare, specificare un nome in modo che il processo di aggiornamento crei il gruppo di risorse per l'utente. Il processo di aggiornamento associa anche l'insieme di credenziali con il nuovo gruppo di risorse.
@@ -106,7 +106,7 @@ L'insieme di credenziali di Servizi di ripristino supporta l'indicazione delle i
 
 ## <a name="enhanced-security"></a>Sicurezza avanzata
 
-Quando un insieme di credenziali di Backup viene aggiornato a un insieme di credenziali di Servizi di ripristino, le impostazioni di sicurezza per tale insieme di credenziali vengono attivate automaticamente. Quando le impostazioni di sicurezza sono attivate, determinate operazioni, ad esempio l'eliminazione di backup o la modifica di una passphrase, richiedono un PIN di [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Per altre informazioni sulla sicurezza avanzata, vedere l'articolo [Funzionalità di sicurezza per la protezione dei backup ibridi](backup-azure-security-feature.md). 
+Quando un insieme di credenziali di Backup viene aggiornato a un insieme di credenziali di Servizi di ripristino, le impostazioni di sicurezza per tale insieme di credenziali vengono attivate automaticamente. Quando le impostazioni di sicurezza sono attivate, determinate operazioni, ad esempio l'eliminazione di backup o la modifica di una passphrase, richiedono un PIN di [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Per altre informazioni sulla sicurezza avanzata, vedere l'articolo [Funzionalità di sicurezza per la protezione dei backup ibridi](backup-azure-security-feature.md). 
 
 Quando la sicurezza avanzata è attivata, i dati vengono conservati fino a 14 giorni dopo l'eliminazione delle informazioni sul punto di recupero dall'insieme di credenziali. Ai clienti viene fatturato lo spazio di archiviazione usato per questi dati sulla sicurezza. La conservazione dei dati sulla sicurezza è applicabile ai punti di recupero acquisiti dall'agente di Backup di Azure, dal server di Backup di Azure e da System Center Data Protection Manager. 
 

@@ -10,20 +10,74 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/26/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: db01df21c95ee41197344cec719f1c2ab2dfc2ed
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 54de948597a5eddfcc808371c61e36d45089abc4
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versioni di API del provider di risorse supportate dai profili nello Stack di Azure
 
-Un provider di risorse di Azure fornisce risorse è possibile distribuire e gestire tramite Gestione risorse di Azure. Ogni provider offre operazioni per l'utilizzo di risorse. Alcuni provider di risorse comuni includono Microsoft. COMPUTE, che fornisce le macchine virtuali, appartenga, che fornisce risorse dell'account di archiviazione, e Microsoft, che fornisce risorse correlate nelle App web. Per altre informazioni, vedere [Provider e tipi di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
+È possibile trovare il provider di risorse e i numeri di versione per ogni profilo di API usata dallo Stack di Azure in questo articolo. Le tabelle in questo articolo elencano le versioni supportate per ogni provider di risorse e le versioni API dei profili. Ogni provider di risorse contiene un set di tipi di risorse e i numeri di versione specifico.
 
-Nella tabella seguente per ogni provider di risorse indica la versione supportata della versione dell'API per lo Stack di Azure quando si usano i profili.
+Il profilo di API utilizza tre convenzioni di denominazione:
+ - più recenti
+ - Aaaa-mm-gg-ibrida
+ - aaaa-mm-gg-profilo
+
+Per una spiegazione dei profili di API e rilasci di versione per lo Stack di Azure, vedere [profili versione API di gestione in Azure Stack](azure-stack-version-profiles.md).
+
+> [!note]  
+> Il **più recente** API profilo contiene la versione più recente della versione API del provider di risorse e non è elencato in questo articolo.
+
+## <a name="overview-of-2018--03-01-hybrid"></a>Panoramica di 2018-03-01-ibrida
+
+| Provider di risorse | versione dell'API |
+|-----------------------------------------------|-----------------------------------------------------|
+| Microsoft.Compute | 2017-03-30 |
+| Microsoft.Network | 2017-10-01<br>Gateway VPN sarà 2017-03-01 |
+| Appartenga (piano di dati) | 2017-04-17 |
+| Appartenga (piano di controllo) | 2016-01-01 |
+| Microsoft. Web | 2016-08-01<br>Qual è la versione più recente (a partire da ora) in Azure |
+| Microsoft.KeyVault | 2016-10-01 (non modificare) |
+| Microsoft.Resources (Gestione risorse di Azure stesso) | 2016-02-01 |
+| Microsoft (operazioni di criteri) | 2015-11-01 |
+| Microsoft.Insights | 2015-11-01 |
+| Microsoft.Keyvault | 2016-10-01 |
+| Criterio | 2016-10-01 |
+| Risorse | 2016-10-01 |
+| Resources_Links | 2016-10-01 |
+| Resources_Locks | 2016-10-01 |
+| Sottoscrizioni | 2016-10-01 |
+
+Per più un elenco delle versioni per ogni tipo di risorsa per i provider nel profilo di api, vedere [i dettagli per 2018-03-01-ibrida](#details-for-the-2018-03-01-hybrid) profilo.
+
+## <a name="overview-of-2017-03-09-profile"></a>Panoramica del 2017-03-09-profilo
+
+| Provider di risorse | versione dell'API |
+|------------------------------------------------|------------------------------|
+| Microsoft.Compute | 2016-03-30 |
+| Microsoft.Network | 2015-06-15 |
+| Appartenga (piano di dati) | 2015-04-05  |
+| Appartenga (piano di controllo) | 2016-01-01   |
+| Microsoft.Websites | 2016-01-01 |
+| Microsoft.KeyVault | 2016-10-01<br>(Non modificare) |
+| Microsoft.Resources<br>(Gestione risorse di azure stesso) | 2016-02-01 |
+| Microsoft.Authorization<Br>(operazioni di criteri) | 2015-11-01 |
+| Microsoft.Insights | 2015-11-01 |
+| Microsoft.Keyvault | 2016-10-01 |
+| Criterio | 2015-10-01-anteprima |
+| Risorse | 2016-02-01 |
+| Resources_Links | 2016-09-01 |
+| Resources_Locks | 2016-09-01 |
+| Sottoscrizioni | 2016-06-1 |
+
+Per più un elenco delle versioni per ogni tipo di risorsa per i provider nel profilo di api, vedere [dettagli per il 2017-03-09-profilo](#details-for-the-2017-03-09-profile)
+
+## <a name="details-for-the-2018-03-01-hybrid"></a>Dettagli per 2018-03-01-ibrida
 
 ### <a name="microsoftauthorization"></a>Microsoft.Authorization
 
@@ -106,15 +160,6 @@ Gestione della chiave insiemi di credenziali, nonché le chiavi, i segreti e cer
 | Insiemi di credenziali / criteri di accesso | 2016-10-01 |
 | Gli insiemi di credenziali/segreti | 2016-10-01 |
 
-### <a name="microsoftkeyvaultadmin"></a>Microsoft.Keyvault.Admin
-
-Gestione della chiave insiemi di credenziali, nonché le chiavi, i segreti e certificati nell'insieme di credenziali chiave. Per altre informazioni, vedere [riferimento all'API REST dell'insieme di credenziali chiave di Azure](https://docs.microsoft.com/rest/api/keyvault/).
-
-| Tipi di risorsa | Versioni dell'API |
-|------------------|--------------------|
-| Località | 2017-02-01-anteprima |
-| Quote di percorsi / | 2017-02-01-anteprima |
-
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
 Risultato della chiamata di operazioni è una rappresentazione dell'elenco di operazioni cloud rete disponibile. Per altre informazioni, vedere [operazione REST API](https://docs.microsoft.com/rest/api/operation/).
@@ -172,6 +217,101 @@ Azure Resource Manager consente di distribuire e gestire l'infrastruttura per le
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
 
 Il Provider di risorse di archiviazione (SRP) consente di gestire gli account di archiviazione e le chiavi a livello di codice. Per altre informazioni, vedere [riferimento all'API REST del Provider di Azure Storage risorsa](https://docs.microsoft.com/rest/api/storagerp/).
+
+| Tipi di risorsa | Versioni dell'API |
+|-------------------------|--------------|
+| Controlla la disponibilità del nome | 2016-01-01 |
+| Località | 2016-01-01 |
+| Quote di percorsi / | 2016-01-01 |
+| Operazioni | 2016-01-01 |
+| storageAccounts | 2016-01-01 |
+| Usi | 2016-01-01 |
+
+## <a name="details-for-the-2017-03-09-profile"></a>Dettagli per 2017-03-09-profilo
+
+### <a name="microsoft-authorization"></a>Autorizzazione Microsoft
+
+| Tipi di risorsa | Versioni dell'API |
+|---------------------|---------------------------------|
+| Blocchi | 2017-04-01 |
+| Operazioni | 2015-07-01 |
+| Autorizzazioni | 2015-07-01 |
+| Assegnazioni dei criteri | 2016-12-01 (2017-06-01-anteprima) |
+| Definizioni dei criteri | 2016-12-01 |
+| Operazioni dei provider | 2015-07-01-anteprima |
+| Assegnazioni di ruolo | 2015-07-01 |
+| Definizioni di ruolo | 2015-07-01 |
+
+### <a name="microsoftcompute"></a>Microsoft.Compute
+
+| Tipo di risorsa | Versione dell'API |
+|---------------------------------------------------------------|-------------|
+| SET DI DISPONIBILITÀ | 2016-03-30 |
+| Località | 2016-03-30 |
+| Posizioni/operazioni | 2016-03-30 |
+| Posizioni/server di pubblicazione | 2016-03-30 |
+| Utilizzi di percorsi / | 2016-03-30 |
+| Posizioni/vmSizes | 2016-03-30 |
+| Operazioni | 2016-03-30 |
+| Macchine virtuali | 2016-03-30 |
+| / Estensioni delle macchine virtuali | 2016-03-30 |
+| Set di scalabilità di macchine virtuali | 2016-03-30 |
+| Set di scalabilità della macchina virtuale/estensioni | 2016-03-30 |
+| Interfacce di rete nel set scalabilità di macchine virtuali | 2016-03-30 |
+| Macchine virtuali o set scalabilità macchina virtuale | 2016-03-30 |
+| Scalabilità di macchine virtuali set/virtualMachines/interfacce di rete | 2016-03-30 |
+
+### <a name="microsoftnetwork"></a>Microsoft.Network
+
+| Tipi di risorsa | Versioni dell'API |
+|---------------------------|--------------|
+| connessioni | 2015-06-15 |
+| Le zone DNS | 2016-04-01 |
+| Servizi di bilanciamento del carico | 2015-06-15 |
+| Gateway di rete locale | 2015-06-15 |
+| Località | 2016-04-01 |
+| Percorso/operationResults | 2016-04-01 |
+| Posizioni/operazioni | 2016-04-01 |
+| Utilizzi di percorsi / | 2016-04-01 |
+| Interfacce di rete | 2015-06-15 |
+| Gruppi di sicurezza di rete | 2015-06-15 |
+| Operazioni | 2015-06-15 |
+| Indirizzo IP pubblico | 2015-06-15 |
+| Tabelle di route | 2015-06-15 |
+| Gateway di rete virtuale | 2015-06-15 |
+| Reti virtuali | 2015-06-15 |
+
+### <a name="microsoftresources"></a>Microsoft.Resources
+
+| Tipi di risorsa | Versioni dell'API |
+|-----------------------------------------|--------------|
+| Registrazioni dell'applicazione | 2015-01-01 |
+| Verificare il nome della risorsa | 2016-09-01 |
+| Provider di delegati | 2015-01-01 |
+| Provider/offerte Delegate | 2015-01-01 |
+| DelegatedProviders/offers/estimatePrice | 2015-01-01 |
+| Deployments | 2016-09-01 |
+| Le distribuzioni/operazioni | 2016-09-01 |
+| Le estensioni metadati | 2015-01-01 |
+| Collegamenti | 2016-09-01 |
+| Località | 2015-01-01 |
+| Offerte | 2015-01-01 |
+| Operazioni | 2015-01-01 |
+| Providers | 2017-08-01 |
+| Gruppi di risorse | 2016-09-01 |
+| Risorse | 2016-09-01 |
+| Sottoscrizioni | 2016-09-01 |
+| Le sottoscrizioni/posizione | 2016-09-01 |
+| Risultati di sottoscrizioni/operazione | 2016-09-01 |
+| Le sottoscrizioni/provider | 2017-08-01 |
+| Gruppi di risorse/sottoscrizioni | 2016-09-01 |
+| Le sottoscrizioni/resourceGroups/risorse | 2016-09-01 |
+| Le sottoscrizioni/risorse | 2016-09-01 |
+| Subscriptiosn/tagNames | 2016-09-01 |
+| Le sottoscrizioni/tagNames/tagValues | 2016-09-01 |
+| Tenant | 2017-08-01 |
+
+### <a name="microsoftstorage"></a>Microsoft.Storage
 
 | Tipi di risorsa | Versioni dell'API |
 |-------------------------|--------------|

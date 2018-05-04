@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 03/08/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: ccad1f12e4f99074763f116596b4467e822d9f35
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: fe5d344eaaecc40f6d1937943603eda0404a1ca9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Articoli nella Guida per gli sviluppatori di Azure AD
 Di seguito viene indicato un elenco di tutti gli argomenti trattati nella Guida per gli sviluppatori di Azure Active Directory.
@@ -43,7 +43,7 @@ Questi articoli descrivono i concetti e le funzionalità specifici di Azure Acti
 | [Dashboard venditori di Office 365](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | Come pubblicare un'applicazione nel dashboard venditori di Office 365 |
 | [Servizi connessi di Visual Studio](vs-active-directory-dotnet-getting-started.md)                                               | Come usare l'integrazione di Azure AD con progetti MVC in Visual Studio |
 | [AD FS in Windows Server](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | Come eseguire l'integrazione con Active Directory in locale con AD FS |
-| [Procedure consigliate per la gestione degli errori di ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Come creare una gestione degli errori resiliente e abilitare la registrazione |
+| [Procedure consigliate per la gestione degli errori di ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Come creare una gestione degli errori resiliente e abilitare la registrazione |
 
 ## <a name="reference"></a>Riferimenti
 Questi articoli contengono riferimenti di base per API REST e di librerie di autenticazione, protocolli, errori, esempi di codice ed endpoint.

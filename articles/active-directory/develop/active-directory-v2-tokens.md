@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 071e0c2b802b1bb6ef68092362c61bf3960fd45a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Informazioni di riferimento sui token di Azure Active Directory 2.0
 L'endpoint di Azure Active Directory (Azure AD) 2.0 genera tipi diversi di token di sicurezza in ogni [flusso di autenticazione](active-directory-v2-flows.md). Questo articolo di riferimento descrive il formato, le caratteristiche di sicurezza e i contenuti di ogni tipo di token.
@@ -56,7 +56,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 #### <a name="claims-in-id-tokens"></a>Attestazioni nei token ID
 | NOME | Attestazione | Valore di esempio | DESCRIZIONE |
 | --- | --- | --- | --- |
-| audience |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Identifica il destinatario del token. Nei token ID il destinatario è l'ID applicazione dell'app, assegnato a quest'ultima nel portale di registrazione delle applicazioni di Microsoft. L'app deve convalidare questo valore e rifiutare il token, se il valore non corrisponde. |
+| destinatari |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Identifica il destinatario del token. Nei token ID il destinatario è l'ID applicazione dell'app, assegnato a quest'ultima nel portale di registrazione delle applicazioni di Microsoft. L'app deve convalidare questo valore e rifiutare il token, se il valore non corrisponde. |
 | autorità di certificazione |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token e il tenant di Azure AD in cui l'utente è stato autenticato. L'app deve convalidare l'attestazione Autorità di certificazione per assicurarsi che il token sia stato fornito dall'endpoint 2.0. Deve usare la parte GUID dell'attestazione per limitare il set di tenant che può accedere all'app. Il GUID che indica che l'utente è un utente consumer di un account Microsoft è `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | ora di emissione |`iat` |`1452285331` |Ora in cui il token è stato generato, rappresentata dal valore epoch time. |
 | scadenza |`exp` |`1452289231` |Ora in cui il token non è più valido, rappresentata dal valore epoch time. L'app deve usare questa attestazione per verificare la validità della durata del token. |
@@ -73,9 +73,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | ID oggetto |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Identificatore non modificabile per un oggetto nel sistema di identità Microsoft, in questo caso, un account utente.  Può essere usato anche per eseguire i controlli di autorizzazioni in modo sicuro e come chiave nelle tabelle di database. Questo ID identifica in modo univoco l'utente nelle applicazioni; due applicazioni differenti che consentono l'accesso dello stesso utente riceveranno lo stesso valore nell'attestazione `oid`.  Ciò significa che può essere usato quando si eseguono query in Microsoft Online Services, ad esempio Microsoft Graph.  Microsoft Graph restituirà l'ID come proprietà `id` per un determinato account utente.  Poiché `oid` consente a più app di correlare utenti, per ricevere questa attestazione è necessario l'ambito `profile`. Si noti che se un singolo utente è presente in più tenant, l'utente conterrà un ID oggetto diverso in ogni tenant; vengono considerati account diversi, anche se l'utente accede a ogni account con le stesse credenziali. |
 
 ### <a name="access-tokens"></a>Token di accesso
-Attualmente, i token di accesso generati dall'endpoint 2.0 possono essere utilizzati solo dai servizi Microsoft. Le app non devono eseguire la convalida o l'ispezione dei token di accesso per gli scenari attualmente supportati. I token di accesso possono essere considerati completamente opachi. Si tratta semplicemente di stringhe che l'app può passare a Microsoft nelle richieste HTTP.
 
-In una fase successiva, l'endpoint 2.0 introdurrà la possibilità per l'app di ricevere i token di accesso da altri client. A quel punto, il contenuto di questo articolo di riferimento verrà aggiornato con le informazioni necessarie perché l'app possa eseguire la convalida del token di accesso e altre operazioni simili.
+L'endpoint v2.0 consente alle app di terze parti registrate con Azure AD di rilasciare token di accesso per le risorse protette, ad esempio le API Web. Per altre informazioni sulla configurazione di un'applicazione per rilasciare token di accesso, vedere [Come registrare un'app con l'endpoint v2.0](active-directory-v2-app-registration.md). Dopo la registrazione dell'applicazione con l'endpoint v2.0, lo sviluppatore può specificare i livelli di accesso, detti **ambiti**, per cui è possibile rilasciare i token di accesso. L'ambito **calendars.read** definito nell'API Microsoft Graph concede ad esempio l'autorizzazione di lettura del calendario dell'utente. Quando l'applicazione riceve un token di accesso dall'endpoint v2.0, è necessario convalidare la firma del token, l'emittente, i destinatari, la scadenza e altre attestazioni, a seconda dello scenario. 
 
 Quando si richiede un token di accesso dall'endpoint 2.0, quest'ultimo restituisce anche alcuni metadati relativi al token di accesso che l'app deve usare. Queste informazioni includono l'ora di scadenza del token di accesso e gli ambiti per i quali è valido. L'app usa i metadati per eseguire operazioni di memorizzazione intelligente dei token di accesso nella cache senza la necessità di analizzare il token di accesso stesso.
 

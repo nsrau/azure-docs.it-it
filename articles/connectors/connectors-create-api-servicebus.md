@@ -2,10 +2,10 @@
 title: Configurare la messaggistica con il bus di servizio di Azure per App per la logica di Azure | Microsoft Docs
 description: Inviare e ricevere messaggi con le app per la logica usando il bus di servizio di Azure
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 02/06/2018
 ms.author: ladocs
-ms.openlocfilehash: e81580db17610adc6be534c9801881f9b68b14fd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d5a4760e1e0f38fd81fd779786985f5753d77eab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="send-and-receive-messages-with-the-azure-service-bus-connector"></a>Inviare e ricevere messaggi con il connettore del bus di servizio di Azure
 
@@ -65,12 +65,17 @@ Un [*trigger*](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un ev
 
    ![Selezionare un trigger del bus di servizio](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
+   > [!NOTE]
+   > Alcuni trigger restituiscono uno o più messaggi, come ad esempio il trigger *Service Bus - When one or more messages arrive in a queue (auto-complete)* (Bus di servizio: all'arrivo di uno o più messaggi in coda, completamento automatico).
+   > Quando questi trigger vengono attivati, restituiscono tra uno e il numero di messaggi specificati dalla proprietà **Numero massimo di messaggi** del trigger.
+
    1. Se non è ancora stata stabilita una connessione allo spazio dei nomi del bus di servizio, a questo punto viene chiesto di creare la connessione. Assegnare un nome alla connessione e selezionare lo spazio dei nomi del bus di servizio che si vuole usare.
 
       ![Creare una connessione al bus di servizio](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
 
       In alternativa, per immettere manualmente la stringa di connessione, scegliere **Immettere manualmente le informazioni sulla connessione**. 
       Leggere [come trovare la stringa di connessione](#permissions-connection-string).
+      
 
    2. A questo punto selezionare i criteri del bus di servizio da usare e scegliere **Crea**.
 
@@ -79,6 +84,11 @@ Un [*trigger*](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un ev
 4. Selezionare la coda del bus di servizio da usare e configurare l'intervallo e la frequenza con cui si vuole controllare la coda.
 
    ![Selezionare una coda del bus di servizio e configurare l'intervallo di polling](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
+
+   > [!NOTE]
+   > Tutti i trigger del bus di servizio sono trigger con **polling prolungato**. Questo significa che, quando un trigger viene attivato, elabora tutti i messaggi e attende 30 secondi che vengano visualizzati altri messaggi nella coda o nella sottoscrizione dell'argomento.
+   > Se non si ricevono messaggi per 30 secondi, l'esecuzione del trigger viene ignorata. In caso contrario, il trigger continua a leggere i messaggi finché la coda o la sottoscrizione dell'argomento non sono vuote.
+   > Il polling successivo si baserà sull'intervallo di ricorrenza specificato nelle proprietà del trigger.
 
 5. Salvare l'app per la logica. Nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
 

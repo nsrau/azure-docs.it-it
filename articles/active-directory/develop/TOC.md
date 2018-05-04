@@ -68,10 +68,10 @@
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 ## [Migrazione del servizio di controllo di accesso](active-directory-acs-migration.md)
 ## [Procedure consigliate per la gestione degli errori di ADAL](active-directory-devhowto-adal-error-handling.md)
-# riferimento
-## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+# Riferimenti
+## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Librerie di autenticazione (ADAL)](active-directory-authentication-libraries.md)
-## [Articolo sugli esempi di codice](active-directory-code-samples.md)
+## [Esempi di codice per scenario](active-directory-code-samples.md)
 ## [Glossario](active-directory-dev-glossary.md)
 ## [Protocolli di autenticazione](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -97,7 +97,8 @@
 ### App per dispositivi mobili e desktop
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
-#### [.NET (Windows Desktop)](guidedsetups/active-directory-windesktop.md)
+#### [.NET per Windows Desktop](guidedsetups/active-directory-windesktop.md)
+#### [Piattaforma UWP (Universal Windows Platform)](guidedsetups/active-directory-uwp-v2.md)
 ### App Web
 #### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
@@ -109,8 +110,10 @@
 #### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Guide
 ### [Registrare un'app](active-directory-v2-app-registration.md)
+### [Informazioni di riferimento sulla registrazione delle app](active-directory-v2-registration-portal.md)
 ## Riferimenti
 ### [Librerie di autenticazione](active-directory-v2-libraries.md)
+### [Esempi di codice per scenario per la versione 2.0](active-directory-v2-code-samples.md)
 ### [Protocolli di autenticazione v2.0](active-directory-v2-protocols.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
 #### [Concessione del codice di autorizzazione OAuth 2.0](active-directory-v2-protocols-oauth-code.md)

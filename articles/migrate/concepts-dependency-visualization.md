@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d075ce9ee124d373a1284577324a50338245a03f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="dependency-visualization"></a>Visualizzazione delle dipendenze
 
@@ -24,7 +24,7 @@ La visualizzazione delle dipendenze in Azure Migrate consente di creare gruppi p
 ## <a name="how-does-it-work"></a>Come funziona?
 
 Per visualizzare le dipendenze, Azure Migrate usa la soluzione [Elenco dei servizi](../operations-management-suite/operations-management-suite-service-map.md) in [Log Analytics](../log-analytics/log-analytics-overview.md).
-- Quando si crea un progetto di migrazione di Azure, nella sottoscrizione viene creata un'area di lavoro di OMS Log Analytics.
+- Quando si crea un progetto di migrazione di Azure, nella sottoscrizione viene creata un'area di lavoro di Log Analytics.
 - Il nome dell'area di lavoro è quello specificato per il progetto di migrazione, preceduto dal prefisso **migrate-** e, facoltativamente, seguito da un suffisso numerico. 
 - Passare all'area di lavoro di Log Analytics dalla sezione **Informazioni di base** della pagina **Panoramica**.
 - L'area di lavoro creata è contrassegnata con la chiave **MigrateProject** e il valore del **nome del progetto**. È possibile usare questi valori per eseguire ricerche nel portale di Azure.  

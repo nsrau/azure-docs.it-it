@@ -10,13 +10,13 @@ ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9adecca35524962402d46169c531d135d0772bbd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -103,6 +103,31 @@ ASP.NET Core 2.0 supporta l'estrazione di intestazioni HTTP e l'avvio della nuov
 È disponibile un nuovo modulo HTTP [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) per la versione classica di ASP.NET. Questo modulo implementa correlazione di dati di telemetria usando DiagnosticsSource. Avvia l'attività in base alle intestazioni di richiesta in ingresso. Correla inoltre i dati di telemetria delle diverse fasi di elaborazione della richiesta, anche per i casi in cui ogni fase dell'elaborazione di IIS viene eseguita in un thread di gestione diverso.
 
 La versione iniziale di Application Insights SDK `2.4.0-beta1` usa DiagnosticsSource e la classe Activity per raccogliere i dati di telemetria e associarli all'attività corrente. 
+
+<a name="java-correlation"></a>
+## <a name="telemetry-correlation-in-the-java-sdk"></a>Correlazione di dati di telemetria in Java SDK
+[Application Insights Java SDK](app-insights-java-get-started.md) supporta la correlazione automatica dei dati di telemetria a partire dalla versione `2.0.0`. Popola automaticamente `operation_id` per tutti i dati di telemetria (tracce, eccezioni, eventi personalizzati e così via) rilasciati nell'ambito di una richiesta. Gestisce anche la propagazione delle intestazioni di correlazione (descritte sopra) per le chiamate da servizio a servizio tramite HTTP se l'[agente Java SDK](app-insights-java-agent.md) è configurato. Nota: per la funzionalità di correlazione sono supportate solo le chiamate effettuate tramite il client HTTP Apache. Se si usa Spring Rest Template o Feign, entrambi possono essere usati con il client HTTP Apache in background.
+
+La propagazione automatica del contesto attraverso tecnologie di messaggistica (ad esempio, Kafka, RabbitMQ, bus di servizio di Azure) non è attualmente supportata. È tuttavia possibile scrivere manualmente il codice per tali scenari usando le API `trackDependency` e `trackRequest`, dove i dati di telemetria di una dipendenza rappresentano un messaggio che viene accodato da un producer e la richiesta rappresenta un messaggio che viene elaborato da un consumer. In questo caso sia `operation_id` che `operation_parentId` devono essere propagati nelle proprietà del messaggio.
+
+<a name="java-role-name"></a>
+### <a name="role-name"></a>Nome ruolo
+Potrebbe a volte essere necessario personalizzare il modo in cui i nomi dei componenti vengono visualizzati nella [mappa delle applicazioni](app-insights-app-map.md). A questo scopo, è possibile impostare manualmente `cloud_roleName` in uno dei modi seguenti:
+
+Tramite un inizializzatore di telemetria. Vengono contrassegnati tutti gli elementi di telemetria.
+```Java
+public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
+
+    @Override
+    protected void onInitializeTelemetry(Telemetry telemetry) {
+        telemetry.getContext().getTags().put(ContextTagKeys.getKeys().getDeviceRoleName(), "My Component Name");
+    }
+  }
+```
+Tramite la [classe del contesto di dispositivo](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context). Viene contrassegnato solo questo elemento di telemetria.
+```Java
+telemetry.getContext().getDevice().setRoleName("My Component Name");
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
-title: "Linee guida per la sicurezza e la conformità di Azure - Carichi di lavoro regolamentati per il settore dei servizi finanziari FFIEC"
-description: "Linee guida per la sicurezza e la conformità di Azure - Carichi di lavoro regolamentati per il settore dei servizi finanziari FFIEC"
+title: Azure Security and Compliance Blueprint - Carichi di lavoro regolamentati per il settore dei servizi finanziari FFIEC
+description: Azure Security and Compliance Blueprint - Carichi di lavoro regolamentati per il settore dei servizi finanziari FFIEC
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: a1167f56f595f905c6338868806351345c06b91a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 497c5a987753cbbe577c1d042d6bf61be9d905ab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Linee guida per la sicurezza e la conformità di Azure - Carichi di lavoro regolamentati per il settore dei servizi finanziari FFIEC
+# <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Azure Security and Compliance Blueprint - Carichi di lavoro regolamentati per il settore dei servizi finanziari FFIEC
 
 ## <a name="overview"></a>Panoramica
 
-Il progetto Linee guida per la sicurezza e la conformità di Azure - Carichi di lavoro regolamentati per il settore dei servizi finanziari FFIEC consente di implementare una piattaforma sicura e conforme come applicazione web as-a-service (PaaS) progettata per la gestione di dati sensibili nel cloud. Il progetto è costituito da script automatizzati e linee guida che presentano un'architettura di riferimento semplice e un design in grado di semplificare l'adozione di soluzioni Microsoft Azure. Questo progetto illustra una soluzione end-to-end in grado di soddisfare le esigenze delle organizzazioni alla ricerca di un modo per ridurre il carico di lavoro e i costi di implementazione nel cloud.
+Il progetto Azure Security and Compliance Blueprint - Carichi di lavoro regolamentati per il settore dei servizi finanziari FFIEC consente di distribuire un'applicazione Web PaaS (platform as a service, applicazione come servizio) sicura e conforme per la gestione di dati sensibili nel cloud. Il progetto è costituito da script automatizzati e linee guida che presentano un'architettura di riferimento semplice e un design in grado di semplificare l'adozione di soluzioni Microsoft Azure. Questo progetto illustra una soluzione end-to-end in grado di soddisfare le esigenze delle organizzazioni alla ricerca di un modo per ridurre il carico di lavoro e i costi di distribuzione nel cloud.
 
-Il progetto è pensato per soddisfare i requisiti di conformità ai rigorosi standard imposti dall'American Institute of Certified Public Accountants, come ad esempio SOC 1, SOC 2, Payment Card Industry Data Security Standards, DSS 3.2 del consiglio e FFIEC in materia di raccolta, archiviazione e recupero di dati finanziari sensibili. Esso illustra la gestione corretta di tali dati tramite l'implementazione di una soluzione in grado di gestire i dati finanziari in un ambiente sicuro, conforme e su più livelli. La soluzione viene implementata come soluzione PaaS end-to-end basata su Azure. 
+Il progetto è pensato per soddisfare i requisiti di conformità ai rigorosi standard imposti dall'American Institute of Certified Public Accountants, come ad esempio SOC 1, SOC 2, da Payment Card Industry Data Security Standards DSS 3.2 e da FFIEC in materia di raccolta, archiviazione e recupero di dati finanziari sensibili. Esso illustra la gestione corretta di tali dati tramite la distribuzione di una soluzione in grado di gestire i dati finanziari in un ambiente sicuro, conforme e su più livelli. La soluzione viene distribuita come soluzione PaaS end-to-end basata su Azure. 
 
-Il progetto deve essere usato dai clienti come base per la comprensione e l'applicazione dei requisiti di gestione dei dati protetti nel cloud. La soluzione non deve essere usata in un'implementazione di produzione as-is, ma per comprendere, progettare e implementare servizi di Azure; essa è progettata come una baseline per un uso sicuro e conforme di Microsoft Azure da parte dei clienti.
+Il progetto deve essere usato dai clienti come base per la comprensione e l'applicazione dei requisiti di gestione dei dati protetti nel cloud. La soluzione non deve essere usata così com'è in una distribuzione di produzione, ma deve essere usata per comprendere, progettare e distribuire servizi di Azure; essa è progettata come una baseline per un uso sicuro e conforme di Microsoft Azure da parte dei clienti.
 
 Eventuali soluzioni di produzione personalizzate dovranno essere certificate da un revisore accreditato sulla base di questo progetto. Le soluzioni possono variare in base alle specifiche di implementazione e alla geografia di ogni cliente.
 
-Per una panoramica rapida del funzionamento di questa soluzione, guardare questo [video](https://aka.ms/fsiblueprintvideo), che ne spiega e descrive l'implementazione.
+Per una panoramica rapida del funzionamento di questa soluzione, guardare questo [video](https://aka.ms/fsiblueprintvideo), che ne spiega e descrive la distribuzione.
 
 ## <a name="solution-components"></a>Componenti della soluzione
 
-L'architettura include i seguenti componenti e usa le funzionalità di implementazione della soluzione di conformità PCI DSS di Azure.
+L'architettura include i seguenti componenti e usa le funzionalità di implementazione della soluzione di conformità Azure PCI DSS.
 
 - **Diagramma dell'architettura**. Il diagramma illustra l'architettura di riferimento usata per la soluzione Contoso Webstore.
 - **Modelli di distribuzione**. In questa distribuzione vengono usati [modelli di Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) per distribuire automaticamente i componenti dell'architettura in Microsoft Azure specificando i parametri di configurazione durante l'installazione.
@@ -52,12 +52,12 @@ L'architettura include i seguenti componenti e usa le funzionalità di implement
 
 Il progetto è riferito al caso d'uso seguente.
 
-> Questo scenario illustra in che modo un negozio Web fittizio ha trasferito dati sensibili in una soluzione PaaS cloud basata su Azure. La soluzione di esempio illustra la gestione e la raccolta di informazioni di base e dati sensibili selezionati sugli utenti. Questa operazione prende spunto da ambienti di elaborazione pagamenti conformi PCI DSS descritti nelle Linee guida per la sicurezza e la conformità di Azure. Per altre informazioni sull'ampliamento di questo lavoro, il documento ["Review and Guidance for Implementation"](https://aka.ms/pciblueprintprocessingoverview) (Panoramica e linee guida per l'implementazione) offre una revisione degli ambienti conformi PCI DSS.
+> Questo scenario illustra in che modo un negozio Web fittizio ha trasferito dati sensibili in una soluzione cloud PaaS basata su Azure. La soluzione di esempio illustra la gestione e la raccolta di informazioni di base degli utenti e dati sensibili selezionati. Questa operazione prende spunto da Azure Security and Compliance Blueprint - Ambienti di elaborazione pagamenti conformi a PCI DSS. Per altre informazioni e approfondimenti su questo lavoro, il documento ["Review and Guidance for Implementation"](https://aka.ms/pciblueprintprocessingoverview) (Panoramica e linee guida per l'implementazione) offre una revisione degli ambienti conformi PCI DSS.
 
 ### <a name="use-case"></a>Caso d'uso
 Il piccolo negozio Web chiamato *Contoso Webstore* è pronto per spostare dati finanziari, incluse informazioni di pagamento dei clienti, sul cloud. 
 
-Per realizzare questi obiettivi, l'amministratore di Contoso Webstore sta cercando una soluzione di rapida implementazione e decide di usare il modello di verifica (PoC, Proof of Concept) per parlare con gli stakeholder di come sia possibile usare Azure per raccogliere, archiviare e recuperare dati finanziari in conformità con rigorosi requisiti di compliance.
+Per realizzare questi obiettivi, l'amministratore di Contoso Webstore sta cercando una soluzione di rapida distribuzione e decide di usare il modello di verifica (PoC, Proof of Concept) per parlare con gli stakeholder di come sia possibile usare Azure per raccogliere, archiviare e recuperare dati finanziari rispettando i rigorosi requisiti di conformità.
 
 > L'utente ha la responsabilità di svolgere revisioni appropriate della sicurezza e della conformità di qualsiasi soluzione creata con l'architettura usata dal modello di verifica, in quanto i requisiti possono variare a seconda delle specifiche e della geografia dell'implementazione. 
 
@@ -67,7 +67,7 @@ L'architettura di base è progettata con gli elementi fittizi seguenti:
 
 Sito di dominio `contosowebstore.com`
 
-I ruoli utente sono usati per illustrare il caso d'uso e consentire la comprensione dell'interfaccia utente.
+I ruoli utente sono usati per illustrare il caso d'uso e fornire informazioni dettagliate sull'interfaccia utente.
 
 #### <a name="role-site-and-subscription-admin"></a>Ruolo: amministrazione del sito e della sottoscrizione
 
@@ -122,7 +122,7 @@ Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'
 >- gateway applicazione
 >- Azure Active Directory
 >- Ambiente del servizio app versione 2
->- Log Analytics OMS
+>- Log Analytics
 >- Azure Key Vault
 >- Gruppi di sicurezza di rete
 >- Database SQL di Azure
@@ -177,7 +177,7 @@ Per ognuno dei gruppi di sicurezza di rete sono aperti porte e protocolli specif
 Per ogni gruppo di sicurezza di rete sono abilitate anche le configurazioni seguenti:
 
 - I [log e gli eventi di diagnostica](/azure/virtual-network/virtual-network-nsg-manage-log) abilitati vengono archiviati nell'account di archiviazione 
-- Connessione di Log Analytics di OMS alla [diagnostica dei gruppi di sicurezza di rete](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- Connessione di Log Analytics alla [diagnostica dei gruppi di sicurezza di rete](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
  
 #### <a name="subnets"></a>Subnet
@@ -208,12 +208,12 @@ L'istanza di database SQL di Azure usa le misure di sicurezza del database segue
 
 ### <a name="logging-and-auditing"></a>Registrazione e controllo
 
-[Operations Management Suite (OMS)](/azure/operations-management-suite/) può offrire a Contoso Webstore funzionalità di registrazione estese per tutte le attività del sistema e degli utenti, inclusa la registrazione di dati finanziari. Le modifiche possono essere controllate e verificate per stabilirne l'accuratezza. 
+[Log Analytics](https://azure.microsoft.com/services/log-analytics) può offrire a Contoso Webstore funzionalità di registrazione estesa di tutte le attività del sistema e degli utenti, inclusa la registrazione dei dati finanziari. Le modifiche possono essere controllate e verificate per stabilirne l'accuratezza. 
 
 - **Log attività.**  I [log attività](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) offrono informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione.
 - **Log di diagnostica.**  I [log di diagnostica](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) sono tutti i log generati da ogni risorsa. Questi log includono i log eventi di sistema di Windows e i log di archiviazione BLOB di Azure, delle tabelle e delle code.
 - **Log del firewall.**  Il gateway applicazione fornisce log completi relativi a diagnostica e accesso. I log del firewall sono disponibili per le risorse del gateway applicazione con WAF abilitato.
-- **Archiviazione di log.**  Tutti i log di diagnostica sono configurati per la scrittura in un account di archiviazione di Azure centralizzato e crittografato per l'archiviazione con un periodo di conservazione definito (2 giorni). I log vengono quindi connessi a Log Analytics di Azure per l'elaborazione, l'archiviazione e la visualizzazione nel dashboard. [Log Analytics](https://azure.microsoft.com/services/log-analytics) è un servizio di OMS che semplifica la raccolta e l'analisi dei dati generati dalle risorse nel cloud e negli ambienti locali.
+- **Archiviazione di log.**  Tutti i log di diagnostica sono configurati per la scrittura in un account di archiviazione di Azure centralizzato e crittografato per l'archiviazione con un periodo di conservazione definito (2 giorni). I log vengono quindi connessi a Log Analytics di Azure per l'elaborazione, l'archiviazione e la visualizzazione nel dashboard. [Log Analytics](https://azure.microsoft.com/services/log-analytics) è un servizio che semplifica la raccolta e l'analisi dei dati generati dalle risorse nel cloud e negli ambienti locali.
 
 ### <a name="encryption-and-secrets-management"></a>Gestione della crittografia e dei segreti
 
@@ -230,7 +230,7 @@ Le tecnologie seguenti offrono funzionalità di gestione delle identità nell'am
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) è il servizio Microsoft multi-tenant di gestione di identità e directory basato sul cloud. Tutti gli utenti della soluzione sono stati creati in Azure Active Directory, inclusi gli utenti che accedono al database SQL.
 - L'autenticazione per l'applicazione viene eseguita tramite Azure AD. Per altre informazioni, vedere [Integrazione di applicazioni con Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications). Anche la crittografia delle colonne del database usa Azure AD per l'autenticazione dell'applicazione al database SQL di Azure. Per altre informazioni, vedere [Always Encrypted: Proteggere i dati sensibili nel database SQL](/azure/sql-database/sql-database-always-encrypted-azure-key-vault). 
 - [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) rileva le potenziali vulnerabilità che potrebbero interessare le identità dell'organizzazione, consente di configurare le risposte automatiche nei confronti delle azioni sospette rilevate in relazione alle identità dell'organizzazione, ricerca la causa degli eventi sospetti e intraprende le azioni appropriate per risolverli.
-- Il [controllo degli accessi in base al ruolo di Azure](/azure/active-directory/role-based-access-control-configure) consente un'accurata gestione degli accessi per Azure. L'accesso a una sottoscrizione è limitato all'amministratore della sottoscrizione stessa e l'accesso ad Azure Key Vault è limitato per tutti gli utenti.
+- Il [controllo degli accessi in base al ruolo di Azure](/azure/role-based-access-control/role-assignments-portal) consente un'accurata gestione degli accessi per Azure. L'accesso a una sottoscrizione è limitato all'amministratore della sottoscrizione stessa e l'accesso ad Azure Key Vault è limitato per tutti gli utenti.
 
 Per altre informazioni sull'uso delle funzionalità di sicurezza del database SQL di Azure, vedere l'[applicazione demo di esempio Contoso Clinic](https://github.com/Microsoft/azure-sql-security-sample).
    
@@ -263,7 +263,7 @@ Dato che l'ambiente del servizio app è protetto e bloccato, è necessario un me
 È stata creata una macchina virtuale come jumpbox (bastion host) con le seguenti configurazioni:
 
 -   [Estensione antimalware](/azure/security/azure-security-antimalware)
--   [Estensione di OMS](/azure/virtual-machines/virtual-machines-windows-extensions-oms)
+-   [Estensione di Log Analytics](/azure/virtual-machines/virtual-machines-windows-extensions-oms)
 -   [Estensione di Diagnostica di Azure](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [Crittografia dischi di Azure](/azure/security/azure-security-disk-encryption) tramite Azure Key Vault 
 -   [Criteri di arresto automatico](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) per ridurre il consumo di risorse della macchina virtuale quando non è in uso
@@ -284,11 +284,11 @@ Dato che l'ambiente del servizio app è protetto e bloccato, è necessario un me
 
 #### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) è un servizio di Operations Management Suite (OMS) che consente di raccogliere e analizzare i dati generati dalle risorse nel cloud e negli ambienti locali.
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) è un servizio che semplifica la raccolta e l'analisi dei dati generati dalle risorse nel cloud e negli ambienti locali.
 
-#### <a name="oms-solutions"></a>Soluzioni OMS
+#### <a name="managment-solutions"></a>Soluzioni di gestione
 
-Occorre prendere in considerazione e configurare queste soluzioni OMS aggiuntive: 
+È consigliabile prendere in considerazione e configurare queste soluzioni di gestione aggiuntive: 
 - [Activity Log Analytics](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Azure Networking Analytics](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analytics](/azure/log-analytics/log-analytics-azure-sql)
@@ -344,9 +344,9 @@ Per distribuire la soluzione, Microsoft consiglia di usare un'installazione di P
     
     Per istruzioni dettagliate sull'utilizzo, vedere [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md) (Istruzioni dello script: distribuire e configurare risorse di Azure).
     
-3. Registrazione e monitoraggio di OMS. Dopo la distribuzione della soluzione, è possibile aprire un'area di lavoro di [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) ed è possibile usare i modelli di esempio presenti nel repository della soluzione per illustrare come configurare un dashboard di monitoraggio. Per i modelli di OMS di esempio, fare riferimento alla [cartella omsDashboards](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Si noti che i dati devono essere raccolti in OMS per la corretta distribuzione dei modelli. Ciò può richiedere fino a un'ora o più a seconda dell'attività del sito.
+3. Registrazione e monitoraggio di Log Analytics. Al termine della distribuzione della soluzione, è possibile aprire un'area di lavoro di Log Analytics e usare i modelli di esempio forniti nel repository della soluzione, che mostrano come configurare un dashboard di monitoraggio. Per i modelli di esempio, fare riferimento alla [cartella omsDashboards](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Per la corretta distribuzione dei modelli, i dati devono essere raccolti in Log Analytics. Ciò può richiedere fino a un'ora o più a seconda dell'attività del sito.
  
-    Quando si configura la registrazione per OMS, si prenda in considerazione di includere queste risorse:
+    Quando si configura la registrazione di Log Analytics, valutare se includere queste risorse:
  
     - Microsoft.Network/applicationGateways
     - Microsoft.Network/NetworkSecurityGroups

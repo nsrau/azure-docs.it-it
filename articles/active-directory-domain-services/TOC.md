@@ -16,7 +16,7 @@
 ## [Attività 2: Configurare le impostazioni di rete](active-directory-ds-getting-started-network.md)
 ## [Attività 3: Configurare un gruppo di amministratori e abilitare Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
 ## [Attività 4: Aggiornare le impostazioni DNS per la rete virtuale](active-directory-ds-getting-started-dns.md)
-## [Attività 5: Abilitare la sincronizzazione password](active-directory-ds-getting-started-password-sync.md)
+## [Attività 5: Abilitare la sincronizzazione dell'hash delle password](active-directory-ds-getting-started-password-sync.md)
 
 # Procedure
 ## [Verificare l'integrità di un dominio gestito](active-directory-ds-check-health.md)
@@ -55,8 +55,8 @@
 ### [Risolvere gli errori relativi ai tenant non corrispondenti](active-directory-ds-mismatched-tenant-error.md)
 
 
-# riferimento
-## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+# Riferimenti
+## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # Risorse correlate
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

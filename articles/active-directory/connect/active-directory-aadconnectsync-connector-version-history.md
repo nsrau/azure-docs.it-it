@@ -1,5 +1,5 @@
 ---
-title: Cronologia del rilascio delle versioni dei connettori | Microsoft Docs
+title: Cronologia del rilascio delle versioni dei connettori | Documentazione Microsoft
 description: Questo argomento include l'elenco di tutte le versioni dei connettori per Forefront Identity Manager (FIM) e Microsoft Identity Manager (MIM)
 services: active-directory
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
 ms.author: davidste
-ms.openlocfilehash: 5b13338646abda7eefec44c42dc0159e9338adfa
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e46a816b9a0d66991b8f619135b657a0d51ba395
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connector-version-release-history"></a>Cronologia di rilascio delle versioni dei connettori
 I connettori per Forefront Identity Manager (FIM) e Microsoft Identity Manager (MIM) vengono aggiornati frequentemente.
@@ -34,7 +34,7 @@ Collegamenti correlati:
 * [Scaricare i connettori più recenti](http://go.microsoft.com/fwlink/?LinkId=717495)
 * [connettore LDAP generico](active-directory-aadconnectsync-connector-genericldap.md)
 * [connettore SQL generico](active-directory-aadconnectsync-connector-genericsql.md)
-* [connettore per Servizi Web](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws)
+* [connettore per Servizi Web](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws)
 * [connettore PowerShell](active-directory-aadconnectsync-connector-powershell.md)
 * [connettore Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
 

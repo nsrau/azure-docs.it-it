@@ -25,6 +25,8 @@
               href: tutorial-windows-vm-access-nonaad.md
             - name: Accedere ad Azure Cosmos DB
               href: tutorial-windows-vm-access-cosmos-db.md
+            - name: Accedere ad Azure Resource Manager con un'identità assegnata dall'utente
+              href: tutorial-windows-vm-ua-arm.md
         - name: Macchina virtuale/set di scalabilità di macchine virtuali Linux
           items:
             - name: Accedere ad Azure Data Lake Store
@@ -37,44 +39,56 @@
               href: tutorial-linux-vm-access-nonaad.md
             - name: Accedere ad Azure Cosmos DB
               href: tutorial-linux-vm-access-cosmos-db.md
-    - name: Configurare MSI per macchine virtuali di Azure
+            - name: Accedere ad Azure Resource Manager con un'identità assegnata dall'utente
+              href: msi-tutorial-linux-vm-access-arm.md
+        - name: Bus di servizio di Azure
+          href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/context/msi-context
+        - name: Servizio app e Funzioni di Azure
+          href: /azure/app-service/app-service-managed-service-identity?context=azure/active-directory/context/msi-context
+        - name: Hub eventi di Azure
+          href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/context/msi-context
+    - name: Guide alle procedure
       items:
-        - name: Uso del portale di Azure
-          href: qs-configure-portal-windows-vm.md
-        - name: Tramite PowerShell
-          href: qs-configure-powershell-windows-vm.md
-        - name: Utilizzare l'interfaccia della riga di comando di Azure
-          href: qs-configure-cli-windows-vm.md
-        - name: Uso del modello di Azure Resource Manager
-          href: qs-configure-template-windows-vm.md
-        - name: Uso di Azure SDK
-          href: qs-configure-sdk-windows-vm.md
-    - name: Configurare un'identità del servizio gestito per set di scalabilità di macchine virtuali di Azure
-      items:
-        - name: Uso del portale di Azure
-          href: qs-configure-portal-windows-vmss.md
-        - name: Utilizzare l'interfaccia della riga di comando di Azure
-          href: qs-configure-cli-windows-vmss.md
-        - name: Uso del modello di Azure Resource Manager
-          href: qs-configure-template-windows-vmss.md
-    - name: Concedere un accesso a Resource Manager con l'identità del servizio gestito della VM o del set di scalabilità di macchine virtuali
-      items:
-        - name: Uso del portale di Azure
-          href: howto-assign-access-portal.md
-        - name: Tramite PowerShell
-          href: howto-assign-access-powershell.md
-        - name: Utilizzare l'interfaccia della riga di comando di Azure
-          href: howto-assign-access-cli.md
-    - name: Come usare un'identità del servizio gestito della VM
-      items:
-        - name: Acquisire un token di accesso
-          href: how-to-use-vm-token.md
-        - name: Accesso con PowerShell e interfaccia della riga di comando di Azure
-          href: how-to-use-vm-sign-in.md
-        - name: Uso con Azure SDK
-          href: how-to-use-vm-sdk.md
-    - name: Domande frequenti e problemi noti
-      href: known-issues.md
+        - name: Configurare l'identità per una VM di Azure
+          items:
+            - name: Portale
+              href: qs-configure-portal-windows-vm.md
+            - name: CLI
+              href: qs-configure-cli-windows-vm.md
+            - name: PowerShell
+              href: qs-configure-powershell-windows-vm.md
+            - name: Modello di Azure Resource Manager
+              href: qs-configure-template-windows-vm.md
+            - name: Azure SDK
+              href: qs-configure-sdk-windows-vm.md
+        - name: Configurare l'identità per un set di scalabilità di macchine virtuali di Azure
+          items:
+            - name: Portale
+              href: qs-configure-portal-windows-vmss.md
+            - name: CLI
+              href: qs-configure-cli-windows-vmss.md
+            - name: PowerShell
+              href: qs-configure-powershell-windows-vmss.md
+            - name: Modello di Azure Resource Manager
+              href: qs-configure-template-windows-vmss.md
+        - name: Usare l'identità del servizio gestito di una VM
+          items:
+            - name: Acquisire un token di accesso
+              href: how-to-use-vm-token.md
+            - name: Accedere a Powershell e all'interfaccia della riga di comando con un'identità gestita
+              href: how-to-use-vm-sign-in.md
+            - name: Uso con Azure SDK
+              href: how-to-use-vm-sdk.md
+        - name: Gestire le identità assegnate dall'utente
+          items:
+            - name: Portale
+              href: how-to-manage-ua-identity-portal.md
+            - name: CLI
+              href: how-to-manage-ua-identity-cli.md
+            - name: PowerShell
+              href: how-to-manage-ua-identity-powershell.md
+            - name: Modello di Azure Resource Manager
+              href: how-to-manage-ua-identity-arm.md
     - name: Riferimenti
       items:
         - name: CLI
@@ -93,3 +107,9 @@
           href: /javascript/api/ms-rest-azure
         - name: Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi'
+    - name: Risorse
+      items:
+        - name: Domande frequenti e problemi noti
+          href: known-issues.md
+        - name: Servizi di Azure che supportano l'identità gestita
+          href: services-support-msi.md

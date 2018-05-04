@@ -9,11 +9,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: billmath
-ms.openlocfilehash: f450747cac06a416950efc6c37c1058c1cb40775
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d21f124858a7f98227eb301a97b9837e3adbba68
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="synchronizing-guest-user-accounts-that-use-email-for-sign-in-preview"></a>Sincronizzare gli account utente guest che usano la posta elettronica per l'accesso (anteprima)
 
@@ -37,7 +37,7 @@ Questa sezione contiene un elenco di prerequisiti e presupposti da conoscere pri
 - Azure AD Connect versione 1.1.524.0 o successiva
 - Dominio verificato per impostare l'UPN cloud degli utenti esterni (esempio: bmcontoso.com).
 - Servizio federativo per autenticare gli utenti esterni. Se si usa AD FS, usare la versione 2012 R2 o successiva
-- MSOL PowerShell v1.1 installato in un computer per verificare le impostazioni di federazione. Per altre informazioni, vedere [Azure ActiveDirectory (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/overview?view=azureadps-1.0).
+- MSOL PowerShell v1.1 installato in un computer per verificare le impostazioni di federazione. Per altre informazioni, vedere [Azure ActiveDirectory (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0).
 
 
 ### <a name="assumptions"></a>Presupposti 
@@ -45,7 +45,7 @@ Questa sezione contiene un elenco di prerequisiti e presupposti da conoscere pri
 Questo documento presuppone quanto segue:
 - Che sia stato configurato un servizio federativo che convalida correttamente gli utenti.
 - Che gli utenti esterni possano eseguire l'autenticazione usando il proprio indirizzo di posta elettronica esterno.
-- - È stato impostato e configurato l'uso di un ID alternativo per l'accesso. Gli utenti possono eseguire l'autenticazione usando il proprio ID alternativo. Per altre informazioni sull'impostazione di un ID alternativo con AD FS, vedere [Configurazione di un ID di accesso alternativo](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
+- - È stato impostato e configurato l'uso di un ID alternativo per l'accesso. Gli utenti possono eseguire l'autenticazione usando il proprio ID alternativo. Per altre informazioni sull'impostazione di un ID alternativo con AD FS, vedere [Configurazione di un ID di accesso alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 
 ## <a name="task-1--prepare-the-environment"></a>Attività 1: Preparare l'ambiente
 L'attività seguente ha principalmente scopo informativo, in modo da essere pronti a iniziare la sincronizzazione degli account esterni affinché possano accedere usando un ID alternativo, come l'attributo mail.
@@ -139,7 +139,7 @@ Usare la procedura seguente per configurare Azure AD Connect.
 ## <a name="task-3--federation"></a>Attività 3: Federazione
 L'attività seguente è un'attività informativa relativa ad alcuni aspetti necessari per il funzionamento dello scenario.
 
-È possibile verificare le impostazioni di federazione con Azure usando Azure AD PowerShell. Questo documento usa MSOL PowerShell v1.1. È possibile installare questa versione [qui](https://docs.microsoft.com/en-us/powershell/azure/active-directory/overview?view=azureadps-1.0).
+È possibile verificare le impostazioni di federazione con Azure usando Azure AD PowerShell. Questo documento usa MSOL PowerShell v1.1. È possibile installare questa versione [qui](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0).
 
 ### <a name="verify-the-federation-settings"></a>Verificare le impostazioni di federazione
 Usare la procedura seguente per verificare le impostazioni di federazione.
@@ -181,5 +181,5 @@ Per verificare il corretto funzionamento, è necessario effettuare l'accesso a u
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Proprietà di un utente di Collaborazione B2B di Azure Active Directory](../../active-directory/active-directory-b2b-user-properties.md#key-properties-of-the-azure-ad-b2b-collaboration-user)
-- [Configurazione di un ID di accesso alternativo](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
+- [Configurazione di un ID di accesso alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
 - [Azure AD Connect: Cronologia delle versioni](active-directory-aadconnect-version-history.md)

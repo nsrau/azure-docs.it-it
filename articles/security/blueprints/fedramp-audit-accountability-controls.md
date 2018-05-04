@@ -1,6 +1,6 @@
 ---
-title: "Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP - Controllo e responsabilità"
-description: "Automazione di applicazioni Web per FedRAMP - Controllo e responsabilità"
+title: Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP - Controllo e responsabilità
+description: Automazione di applicazioni Web per FedRAMP - Controllo e responsabilità
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: c37d027882882c637585d745ce81111ba30f6257
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: acb0677d48084108a9a5219f92dead10948228c8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="audit-and-accountability-au"></a>Controllo e responsabilità
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Le funzionalità di controllo per questo progetto sono fornite da Monitoraggio di Azure e dal servizio Log Analytics in OMS. Monitoraggio di Azure fornisce log di controllo dettagliati sull'attività associata alle risorse distribuite. Questi log e quelli a livello del sistema operativo vengono raccolti da Log Analytics e archiviati nel repository di OMS. Log Analytics mette in correlazione i dati di controllo tra le risorse distribuite da questa soluzione e può essere esteso all'applicazione Web distribuita dal cliente. |
+| **Cliente** | Le funzionalità di controllo per questo progetto sono fornite da Monitoraggio di Azure e dal servizio Log Analytics. Monitoraggio di Azure fornisce log di controllo dettagliati sull'attività associata alle risorse distribuite. Questi log e quelli a livello del sistema operativo vengono raccolti da Log Analytics e archiviati nell'area di lavoro di Log Analytics. Log Analytics mette in correlazione i dati di controllo tra le risorse distribuite da questa soluzione e può essere esteso all'applicazione Web distribuita dal cliente. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Gli eventi del log attività di Azure usano uno schema dettagliato contenente campi per più di 20 tipi di informazioni di controllo. Oltre al log attività, questo progetto distribuisce la soluzione Log Analytics in OMS, che supporta un'ampia gamma di origini dati, inclusi log di Windows, log di Linux, log di Diagnostica di Azure e log del cliente.  |
+| **Cliente** | Gli eventi del log attività di Azure usano uno schema dettagliato contenente campi per più di 20 tipi di informazioni di controllo. Oltre al log attività, questo progetto distribuisce la soluzione Log Analytics, che supporta un'ampia gamma di origini dati, inclusi log di Windows, log di Linux, log di Diagnostica di Azure e log del cliente.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto implementa la soluzione Log Analytics in OMS per centralizzare i dati di controllo tra le risorse distribuite, a supporto della consapevolezza della situazione a livello dell'organizzazione. I clienti possono scegliere di integrare ulteriormente Log Analytics con altri sistemi. |
+| **Cliente** | Questo progetto implementa la soluzione Log Analytics per centralizzare i dati di controllo tra le risorse distribuite, a supporto della consapevolezza della situazione a livello dell'organizzazione. I clienti possono scegliere di integrare ulteriormente Log Analytics con altri sistemi. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto implementa la soluzione Log Analytics in OMS per centralizzare i dati di controllo tra le risorse distribuite, a supporto delle funzionalità di verifica, analisi e report centralizzate. |
+| **Cliente** | Questo progetto implementa la soluzione Log Analytics per centralizzare i dati di controllo tra le risorse distribuite, a supporto delle funzionalità di verifica, analisi e report centralizzate. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto distribuisce la soluzione OMS Sicurezza e controllo. Questa soluzione offre una panoramica completa delle condizioni di sicurezza. Il dashboard Sicurezza e controllo fornisce una visione generale dello stato di sicurezza delle risorse distribuite usando i dati disponibili nelle soluzioni OMS distribuite, integrando dati di log e dati di vulnerabilità dalla valutazione della baseline e delle patch. |
+| **Cliente** | Questo progetto distribuisce la soluzione Sicurezza e controllo. Questa soluzione offre una panoramica completa delle condizioni di sicurezza. Il dashboard Sicurezza e controllo fornisce una visione generale dello stato di sicurezza delle risorse distribuite usando i dati disponibili nelle soluzioni Log Analytics distribuite, integrando dati di log e dati di vulnerabilità dalla valutazione della baseline e delle patch. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto implementa la soluzione Log Analytics in OMS. Log Analytics fornisce servizi di monitoraggio per OMS raccogliendo i dati delle risorse gestite in un repository centrale. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione. |
+| **Cliente** | Questo progetto implementa la soluzione Log Analytics. Log Analytics fornisce servizi di monitoraggio per Azure raccogliendo i dati delle risorse gestite in un repository centrale. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto implementa la soluzione Log Analytics in OMS. Log Analytics fornisce servizi di monitoraggio per OMS raccogliendo i dati delle risorse gestite in un repository centrale. Il contenuto e l'ordine cronologico dei record di controllo non sono alterati quando vengono raccolti da Log Analytics. |
+| **Cliente** | Questo progetto implementa la soluzione Log Analytics. Log Analytics fornisce servizi di monitoraggio per Azure raccogliendo i dati delle risorse gestite in un repository centrale. Il contenuto e l'ordine cronologico dei record di controllo non sono alterati quando vengono raccolti da Log Analytics. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto implementa la soluzione Log Analytics in OMS. Log Analytics fornisce servizi di monitoraggio per OMS raccogliendo i dati delle risorse gestite in un repository centrale. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione. Log Analytics include un linguaggio di query avanzato per estrarre i dati archiviati nel repository. |
+| **Cliente** | Questo progetto implementa la soluzione Log Analytics. Log Analytics fornisce servizi di monitoraggio per Azure raccogliendo i dati delle risorse gestite in un repository centrale. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione. Log Analytics include un linguaggio di query avanzato per estrarre i dati archiviati nel repository. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto implementa il servizio Log Analytics in OMS. Le macchine virtuali distribuite e gli account di archiviazione diagnostica di Azure sono origini connesse a Log Analytics e vengono conservati separatamente dall'origine. I dati vengono raccolti da OMS quasi in tempo reale. |
+| **Cliente** | Questo progetto implementa il servizio Log Analytics. Le macchine virtuali distribuite e gli account di archiviazione diagnostica di Azure sono origini connesse a Log Analytics e vengono conservati separatamente dall'origine. I dati vengono raccolti da Log Analytics quasi in tempo reale. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto implementa il servizio Log Analytics in OMS. Per garantire che i dati in arrivo provengano da un'origine attendibile, Log Analytics convalida i certificati e l'integrità dei dati con l'autenticazione di Azure. |
+| **Cliente** | Questo progetto implementa il servizio Log Analytics. Per garantire che i dati in arrivo provengano da un'origine attendibile, Log Analytics convalida i certificati e l'integrità dei dati con l'autenticazione di Azure. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -512,7 +512,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Le funzionalità di controllo per questo progetto sono fornite da Monitoraggio di Azure e dal servizio Log Analytics in OMS. Monitoraggio di Azure fornisce log di controllo dettagliati sull'attività associata alle risorse distribuite. Questi log e quelli a livello del sistema operativo vengono raccolti da Log Analytics e archiviati nel repository di OMS. Questi log contengono record dettagliati di eventi del sistema informativo e assicurano protezione dal non ripudio. Inoltre, l'accesso ai dati di log è limitato tramite il controllo degli accessi in base al ruolo per impedire la modifica o l'eliminazione non autorizzate dei dati di log. |
+| **Cliente** | Le funzionalità di controllo per questo progetto sono fornite da Monitoraggio di Azure e dal servizio Log Analytics. Monitoraggio di Azure fornisce log di controllo dettagliati sull'attività associata alle risorse distribuite. Questi log e quelli a livello del sistema operativo vengono raccolti da Log Analytics e archiviati nell'area di lavoro di Log Analytics. Questi log contengono record dettagliati di eventi del sistema informativo e assicurano protezione dal non ripudio. Inoltre, l'accesso ai dati di log è limitato tramite il controllo degli accessi in base al ruolo per impedire la modifica o l'eliminazione non autorizzate dei dati di log. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -526,7 +526,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto implementa il servizio Log Analytics in OMS. Log Analytics fornisce servizi di monitoraggio per OMS raccogliendo i dati delle risorse gestite in un repository centrale. Dopo essere stati raccolti, i dati vengono conservati per un anno in base alla configurazione di Log Analytics. |
+| **Cliente** | Questo progetto implementa il servizio Log Analytics. Log Analytics fornisce servizi di monitoraggio per Azure raccogliendo i dati delle risorse gestite in un repository centrale. Dopo essere stati raccolti, i dati vengono conservati per un anno in base alla configurazione di Log Analytics. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -582,7 +582,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Questo progetto implementa il servizio Log Analytics in OMS. Log Analytics fornisce servizi di monitoraggio per OMS raccogliendo i dati delle risorse gestite in un repository centrale. I timestamp dei record di controllo non vengono modificati, pertanto l'audit trail è correlato al tempo. |
+| **Cliente** | Questo progetto implementa il servizio Log Analytics. Log Analytics fornisce servizi di monitoraggio per Azure raccogliendo i dati delle risorse gestite in un repository centrale. I timestamp dei record di controllo non vengono modificati, pertanto l'audit trail è correlato al tempo. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 

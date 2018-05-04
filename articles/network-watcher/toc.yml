@@ -17,6 +17,8 @@
   items:
     - name: Diagnosticare un problema di routing di una VM
       href: diagnose-vm-network-routing-problem.md
+    - name: Monitorare le connessioni di rete
+      href: connection-monitor.md
 - name: Concetti
   items:
     - name: Diagnosticare i problemi di filtro del traffico di rete delle VM
@@ -87,8 +89,6 @@
                   href: network-watcher-intrusion-detection-open-source-tools.md
                 - name: Visualizzare i modelli di traffico di rete con strumenti open source
                   href: network-watcher-using-open-source-tools.md
-    - name: Monitorare le connessioni di rete
-      href: connection-monitor.md
     - name: Usare i gruppi di sicurezza di rete
       items:
         - name: Configurare i log dei flussi dei gruppi di sicurezza di rete

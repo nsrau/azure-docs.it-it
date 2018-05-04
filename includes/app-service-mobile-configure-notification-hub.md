@@ -8,4 +8,4 @@ Poiché le funzioni delle app per dispositivi mobili del Servizio app di Azure u
 A questo punto un hub di notifica è stato connesso al progetto di back-end dell'app per dispositivi mobili. In seguito si configurerà questo hub di notifica per la connessione a un sistema PNS (Platform Notification System) per eseguire il push ai dispositivi.
 
 [portale di Azure]: https://portal.azure.com/
-[Hub di notifica di Azure]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/
+[Hub di notifica di Azure]: https://azure.microsoft.com/documentation/articles/notification-hubs-push-notification-overview/
