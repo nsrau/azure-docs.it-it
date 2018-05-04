@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 014c9ea34f35e915c6c4eac5a96c55201549e18a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: eb00bd3a9680091827a6e1d768a9b828a15d1b97
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -122,7 +122,9 @@ Un gateway di rete locale può scambiare le route con un gateway di rete virtual
 - **VPN**: è possibile usare BGP. Per informazioni dettagliate, vedere [BGP con connessioni VPN da sito a sito](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Quando si scambiano le route con Azure tramite BGP, viene aggiunta una route separata alla tabella di route di tutte le subnet di una rete virtuale per ogni prefisso annunciato. La route viene aggiunta con *Gateway di rete virtuale* come origine e tipo di hop successivo. 
- 
+
+È possibile disabilitare la propagazione delle route BGP su una subnet mediante una proprietà in una tabella di route. Quando si scambiano le route con Azure tramite BGP, le route non vengono aggiunte alla tabella di route di tutte le subnet con propagazione BGP disabilitata. La connettività con connessioni VPN è ottenuta usando route personalizzate (#custom-routes) con un tipo di hop successivo VPN. Per informazioni dettagliate, vedere [come disabilitare la propagazione delle route BGP](/manage-route-table#create-a-route-table.md).
+
 ## <a name="how-azure-selects-a-route"></a>Modalità di selezione di una route da parte di Azure
 
 Quando il traffico in uscita viene inviato da una subnet, Azure seleziona una route in base all'indirizzo IP di destinazione, usando l'algoritmo di corrispondenza del prefisso più lungo. Ad esempio, una tabella di route ha due route: una specifica il prefisso degli indirizzi 10.0.0.0/24, l'altra specifica il prefisso degli indirizzi 10.0.0.0/16. Azure instrada il traffico destinato a 10.0.0.5 al tipo di hop successivo specificato nella route con il prefisso degli indirizzi 10.0.0.0/24, perché 10.0.0.0/24 è un prefisso più lungo di 10.0.0.0/16, anche se 10.0.0.5 è compreso in entrambi i prefissi degli indirizzi. Azure instrada il traffico destinato a 10.0.1.5 al tipo di hop successivo specificato nella route con il prefisso degli indirizzi 10.0.0.0/16, perché 10.0.1.5 non è incluso nel prefisso degli indirizzi 10.0.0.0/24 e quindi la route con il prefisso degli indirizzi 10.0.0.0/16 è il prefisso di corrispondenza più lungo.

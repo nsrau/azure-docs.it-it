@@ -1,5 +1,5 @@
 ---
-title: 'Informazioni di riferimento su ApplicationInsights.config: Azure | Microsoft Docs'
+title: 'Informazioni di riferimento su ApplicationInsights.config: Azure | Documentazione Microsoft'
 description: Abilitare o disabilitare i moduli di raccolta dati e aggiungere i contatori delle prestazioni e altri parametri.
 services: application-insights
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: a35da5c84e4e79d7bc6f2167ec7e172970992612
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 94b6864bec157694e0192597c0fecfa0d3e407ec
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurazione di Application Insights SDK con ApplicationInsights.config o .xml
 Application Insights .NET SDK è costituito da alcuni pacchetti NuGet. Il [pacchetto di base](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fornisce l'API per l'invio di dati di telemetria ad Application Insights. [Altri pacchetti](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) forniscono *moduli* e *inizializzatori* di telemetria per il rilevamento automatico dei dati di telemetria dall'applicazione e dal rispettivo contesto. Modificando il file di configurazione, è possibile abilitare o disabilitare i moduli e gli inizializzatori di telemetria e impostare parametri per alcuni di essi.
@@ -263,6 +263,91 @@ Se si vuole inviare un set specifico di eventi a una risorsa diversa, è possibi
 ```
 
 Per ottenere una nuova chiave, [creare una nuova risorsa nel portale di Application Insights][new].
+
+
+
+## <a name="applicationid-provider"></a>Provider ApplicationId
+
+_Disponibile a partire dalla versione v2.6.0_
+
+Lo scopo di questo provider è quello di cercare un ID applicazione in base a una chiave di strumentazione. L'ID applicazione è incluso in RequestTelemetry e DependencyTelemetry e usato per determinare la correlazione nel portale.
+
+È disponibile impostando `TelemetryConfiguration.ApplicationIdProvider` nel codice o nella configurazione.
+
+### <a name="interface-iapplicationidprovider"></a>Interfaccia: IApplicationIdProvider
+
+```csharp
+public interface IApplicationIdProvider
+{
+    bool TryGetApplicationId(string instrumentationKey, out string applicationId);
+}
+```
+
+
+Vengono fornite due implementazioni nell'SDK [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights): `ApplicationInsightsApplicationIdProvider` e `DictionaryApplicationIdProvider`.
+
+### <a name="applicationinsightsapplicationidprovider"></a>ApplicationInsightsApplicationIdProvider
+
+Wrapper dell'API di profilatura. Limita le richieste e i risultati nella cache.
+
+Questo provider viene aggiunto al file config quando si installa [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) o [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)
+
+Questa classe ha una proprietà `ProfileQueryEndpoint` facoltativa.
+L'impostazione predefinita è `https://dc.services.visualstudio.com/api/profiles/{0}/appId`.
+Se è necessario configurare un proxy per questa configurazione, è consigliabile inoltrare i dati all'indirizzo di base e includere "/api/profiles/{0}/appId". Si noti che "{0}" viene sostituito in fase di esecuzione per ogni richiesta con la chiave di strumentazione.
+
+#### <a name="example-configuration-via-applicationinsightsconfig"></a>Configurazione di esempio tramite ApplicationInsights.config:
+```xml
+<ApplicationInsights>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
+```
+
+#### <a name="example-configuration-via-code"></a>Configurazione di esempio tramite codice:
+```csharp
+TelemetryConfiguration.Active.ApplicationIdProvider = new ApplicationInsightsApplicationIdProvider();
+```
+
+### <a name="dictionaryapplicationidprovider"></a>DictionaryApplicationIdProvider
+
+Si tratta di un provider statico che si basa sulle coppie di chiave di strumentazione/ID applicazione configurate.
+
+Questa classe ha una proprietà `Defined` che corrisponde a un oggetto Dictionary<stringa,stringa> di coppie di chiave di strumentazione/ID applicazione configurate.
+
+Questa classe ha una proprietà `Next` facoltativa che può essere usata per configurare un altro provider da usare quando viene richiesta una chiave di strumentazione che non esiste nella configurazione.
+
+#### <a name="example-configuration-via-applicationinsightsconfig"></a>Configurazione di esempio tramite ApplicationInsights.config:
+```xml
+<ApplicationInsights>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.DictionaryApplicationIdProvider, Microsoft.ApplicationInsights">
+        <Defined>
+            <Type key="InstrumentationKey_1" value="ApplicationId_1"/>
+            <Type key="InstrumentationKey_2" value="ApplicationId_2"/>
+        </Defined>
+        <Next Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights" />
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
+```
+
+#### <a name="example-configuration-via-code"></a>Configurazione di esempio tramite codice:
+```csharp
+TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationIdProvider{
+ Defined = new Dictionary<string, string>
+    {
+        {"InstrumentationKey_1", "ApplicationId_1"},
+        {"InstrumentationKey_2", "ApplicationId_2"}
+    }
+};
+```
+
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Altre informazioni sull'API][api].

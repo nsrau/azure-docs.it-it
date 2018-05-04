@@ -13,13 +13,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/20/2018
 ms.author: larryfr
-ms.openlocfilehash: b96f457bc13ae3e412580096a1f9be865e64cb74
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 970ccf19b5668bd57118fcabc5018c60352ebde7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Usare il client Beeline con Apache Hive
 
@@ -252,10 +252,17 @@ Per trovare il nome di dominio completo di un nodo head, usare le informazioni c
 
 Spark fornisce la propria implementazione di HiveServer2, spesso definita come server Spark Thrift. Questo servizio usa Spark SQL invece di Hive per risolvere le query e può offrire prestazioni migliori a seconda della query.
 
-Per connettersi al server Spark Thrift di un cluster Spark in HDInsight, usare la porta `10002` invece della `10001`. Ad esempio, `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
+La __stringa di connessione__ usata per la connessione tramite Internet è leggermente diversa. Invece di contenere `httpPath=/hive2` è `httpPath/sparkhive2`. Di seguito è riportato un esempio per la connessione tramite Internet:
 
-> [!IMPORTANT]
-> Il server Spark Thrift non è direttamente accessibile tramite Internet. È possibile connettersi solo da una sessione SSH o nella stessa rete virtuale di Azure del cluster HDInsight.
+```bash 
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+Quando ci si connette direttamente dal nodo head del cluster o da una risorsa all'interno della stessa istanza di Rete virtuale di Azure del cluster HDInsight, è necessario usare la porta `10002` per il server Spark Thrift invece di `10001`. Di seguito è riportato un esempio per la connessione direttamente al nodo head:
+
+```bash
+beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
+```
 
 ## <a id="summary"></a><a id="nextsteps"></a>Passaggi successivi
 

@@ -5,22 +5,22 @@ services: iot-dps
 keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 03/27/2018
+ms.date: 03/30/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5e35a802349bd85b50a13a3d9a7e0c78945937bd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f6410aa3ab21e7c50ec6918930f31b9e1455c464
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Concetti relativi alla sicurezza del servizio Device Provisioning in hub IoT 
 
-Il servizio Device Provisioning in hub IoT è un servizio helper per l'hub IoT che consente di configurare il provisioning completamente automatico dei dispositivi in un hub IoT specifico. Con il servizio Device Provisioning è possibile effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile. Questo articolo fornisce una panoramica dei concetti relativi alla *sicurezza* in relazione al servizio Device Provisioning. L'articolo è di particolare interesse per tutte le persone coinvolte nella preparazione di un dispositivo per la distribuzione.
+Il servizio Device Provisioning in hub IoT è un servizio helper per l'hub IoT che consente di configurare il provisioning completamente automatico dei dispositivi in un hub IoT specifico. Con il servizio Device Provisioning è possibile effettuare il [provisioning automatico](concepts-auto-provisioning.md) di milioni di dispositivi in modo sicuro e scalabile. Questo articolo fornisce una panoramica dei concetti relativi alla *sicurezza* in relazione al servizio Device Provisioning. L'articolo è di particolare interesse per tutte le persone coinvolte nella preparazione di un dispositivo per la distribuzione.
 
 ## <a name="attestation-mechanism"></a>Meccanismo di attestazione
 
@@ -46,6 +46,8 @@ I segreti dei dispositivi possono essere archiviati anche nel software (memoria)
 
 Il concetto di TPM può fare riferimento a uno standard per archiviare in modo sicuro le chiavi usate per autenticare la piattaforma oppure all'interfaccia di I/O usata per interagire con i moduli che implementano lo standard. Il TPM può essere un componente hardware distinto o integrato e può essere basato su firmware o su software. Vedere altre informazioni su [TPM e attestazione TPM](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Il servizio Device Provisioning supporta solo il TPM 2.0.
 
+L'attestazione TPM è basata su una richiesta di verifica nonce, che usa le chiavi di verifica autenticità e radice archiviazione per presentare un token di firma di accesso condiviso.
+
 ### <a name="endorsement-key"></a>Chiave di verifica dell'autenticità
 
 La chiave di verifica dell'autenticità è una chiave asimmetrica contenuta all'interno del TPM che è stata generata o inserita internamente in fase di produzione ed è univoca per ogni TPM. La chiave di verifica dell'autenticità non può essere modificata o rimossa. La parte privata della chiave di verifica dell'autenticità non viene mai rilasciata al di fuori del TPM, mentre la parte pubblica viene usata per riconoscere un TPM originale. Vedere altre informazioni sulla [chiave di verifica dell'autenticità](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
@@ -56,21 +58,27 @@ La chiave radice di archiviazione viene archiviata nel TPM e usata per protegger
 
 ## <a name="x509-certificates"></a>Certificati X.509
 
-L'uso di certificati X.509 come meccanismo di attestazione è un ottimo approccio per ridimensionare la produzione e semplificare il provisioning di dispositivi. I certificati X.509 sono in genere disposti in una catena di certificati in cui ogni certificato è firmato tramite la chiave privata del successivo certificato superiore e così via, terminando in un certificato radice autofirmato. Questo comportamento stabilisce una catena delegata di certificati dal certificato radice generato da un'autorità di certificazione radice attendibile via via attraverso ogni autorità di certificazione intermedia e fino al certificato dell'entità finale installato in un dispositivo. Per altre informazioni, vedere [Autenticazione dei dispositivi con i certificati della CA X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
+L'uso di certificati X.509 come meccanismo di attestazione è un ottimo approccio per ridimensionare la produzione e semplificare il provisioning di dispositivi. I certificati X.509 sono in genere disposti in una catena di certificati in cui ogni certificato è firmato tramite la chiave privata del successivo certificato superiore e così via, terminando in un certificato radice autofirmato. Questo comportamento stabilisce una catena delegata di certificati dal certificato radice generato da un'autorità di certificazione radice attendibile via via attraverso ogni autorità di certificazione intermedia e fino al certificato "foglia" dell'entità finale installato in un dispositivo. Per altre informazioni, vedere [Autenticazione dei dispositivi con i certificati della CA X.509](/azure/iot-hub/iot-hub-x509ca-overview). 
 
-Spesso la catena di certificati rappresenta una gerarchia logica o fisica associata ai dispositivi. Ad esempio, un produttore può rilasciare un certificato della CA radice autofirmato, usare il certificato per generare un certificato della CA intermedia univoco per ogni fabbrica, usare il certificato di ogni fabbrica per generare un certificato della CA intermedia univoco per ogni linea di produzione nello stabilimento e infine usare il certificato della linea di produzione per generare un certificato univoco del dispositivo (entità finale) per ogni dispositivo prodotto nella linea di produzione. Per altre informazioni, vedere [Comprensione concettuale dei certificati x.509 nel settore IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-concept). 
+Spesso la catena di certificati rappresenta una gerarchia logica o fisica associata ai dispositivi. Ad esempio, un produttore può:
+- rilasciare un certificato della CA radice autofirmato
+- usare il certificato radice per generare un certificato della CA intermedia univoco per ogni fabbrica
+- usare il certificato di ogni fabbrica per generare un certificato della CA intermedia univoco per ogni linea di produzione nello stabilimento
+- e infine usare il certificato della linea di produzione per generare un certificato univoco del dispositivo (entità finale) per ogni dispositivo prodotto nella linea di produzione. 
+
+Per altre informazioni, vedere [Comprensione concettuale dei certificati x.509 nel settore IoT](/azure/iot-hub/iot-hub-x509ca-concept). 
 
 ### <a name="root-certificate"></a>Certificato radice
 
-Un certificato radice è un certificato X.509 autofirmato che rappresenta un'autorità di certificazione (CA). Si tratta della parte finale, o trust anchor, della catena di certificati. I certificati radice possono essere rilasciati automaticamente da un'organizzazione o acquistati da un'autorità di certificazione radice. Per altre informazioni, vedere [Ottenere certificati della CA X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Il certificato radice viene anche chiamato certificato della CA radice.
+Un certificato radice è un certificato X.509 autofirmato che rappresenta un'autorità di certificazione (CA). Si tratta della parte finale, o trust anchor, della catena di certificati. I certificati radice possono essere rilasciati automaticamente da un'organizzazione o acquistati da un'autorità di certificazione radice. Per altre informazioni, vedere [Ottenere certificati della CA X.509](/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Il certificato radice viene anche chiamato certificato della CA radice.
 
 ### <a name="intermediate-certificate"></a>Certificato intermedio
 
 Un certificato intermedio è un certificato X.509 che è stato firmato dal certificato radice o da un altro certificato intermedio con il certificato radice nella catena. L'ultimo certificato intermedio in una catena viene usato per firmare il certificato foglia. Un certificato intermedio viene anche chiamato certificato della CA intermedia.
 
-### <a name="leaf-certificate"></a>Certificato foglia
+### <a name="end-entity-leaf-certificate"></a>Certificato "foglia" dell'entità finale
 
-Il certificato foglia, o certificato dell'entità finale, identifica il titolare del certificato. Include il certificato radice nella relativa catena di certificati, nonché zero o più certificati intermedi. Il certificato foglia non viene usato per firmare altri certificati. Identifica in modo univoco il dispositivo per il servizio di provisioning e a volte viene chiamato anche certificato del dispositivo. Durante l'autenticazione, il dispositivo usa la chiave privata associata a questo certificato per rispondere a una richiesta di prova di possesso dal servizio. Per altre informazioni, vedere [Autenticazione dei dispositivi firmati con i certificati della CA X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+Il certificato foglia, o certificato dell'entità finale, identifica il titolare del certificato. Include il certificato radice nella relativa catena di certificati, nonché zero o più certificati intermedi. Il certificato foglia non viene usato per firmare altri certificati. Identifica in modo univoco il dispositivo per il servizio di provisioning e a volte viene chiamato anche certificato del dispositivo. Durante l'autenticazione, il dispositivo usa la chiave privata associata a questo certificato per rispondere a una richiesta di prova di possesso dal servizio. Per altre informazioni, vedere [Autenticazione dei dispositivi firmati con i certificati della CA X.509](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Controllo dell'accesso dei dispositivi al servizio di provisioning con certificati X.509
 

@@ -1,11 +1,11 @@
 ---
 title: Introduzione all'autenticazione per app per dispositivi mobili in Xamarin iOS
-description: "Informazioni su come usare le app per dispositivi mobili per autenticare gli utenti dell'app Xamarin iOS tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft."
+description: Informazioni su come usare le app per dispositivi mobili per autenticare gli utenti dell'app Xamarin iOS tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
 ms.service: app-service-mobile
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: 1649d2bf4f3429f2f5f56bdabdfe9a015a115893
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: c2b77d7c9caab1c7ac13af5ccd50e992bcce1caf
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Aggiungere l'autenticazione all'app per Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -116,7 +116,7 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
             return ResumeWithURL != null && ResumeWithURL(url);
         }
 6. Aprire il file **Info.plist** e passare a **Tipi di URL** nella sezione **Avanzate**. Configurare ora l'**identificatore** e gli **schemi URL** del tipo di URL e fare clic su **Aggiungi tipo di URL**. Gli **schemi URL** devono essere gli stessi del valore {url_scheme_of_your_app}.
-7. In Visual Studio o Xamarin Studio connesso all'host di compilazione Xamarin sul Mac eseguire il progetto client destinato a un dispositivo o un emulatore. Verificare che nell'app non siano visualizzati dati.
+7. In Visual Studio, connettersi all'host Mac o a Visual Studio per Mac e quindi eseguire il progetto client scegliendo come destinazione un dispositivo o un emulatore. Verificare che nell'app non siano visualizzati dati.
    
     Eseguire il movimento di aggiornamento spostando verso il basso l'elenco di elementi, in modo da visualizzare la schermata di accesso. Dopo aver correttamente immesso le credenziali valide, verrà visualizzato l'elenco di elementi ToDo e sarà possibile aggiornare i dati nell'app.
 

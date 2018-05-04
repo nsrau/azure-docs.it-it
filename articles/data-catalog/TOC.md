@@ -25,8 +25,8 @@
 ## [Proteggere l'accesso al catalogo dati](data-catalog-how-to-secure-catalog.md)
 ## [Visualizzare gli asset di dati correlati](data-catalog-how-to-view-related-data-assets.md) 
 
-# riferimento
-## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=data-catalog)
+# Riferimenti
+## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
 ## [Informazioni di riferimento sulla sintassi di ricerca](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Concetti per gli sviluppatori](data-catalog-developer-concepts.md)

@@ -2,7 +2,7 @@
 title: Creazione di avvisi in Log Analytics di OMS | Documentazione Microsoft
 description: Gli avvisi in Log Analytics identificano le informazioni importanti nel repository OMS e possono notificare i problemi all'utente in modo proattivo o richiamare le azioni per tentare di correggerle.  Questo articolo descrive come creare una regola di avviso e include i dettagli relativi alle diverse azioni che possono attivare.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -12,28 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 04/13/2018
 ms.author: bwren
-ms.openlocfilehash: c34fb7295e8f386f0e7cf2c1db6b26a3e49eae98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b692822660ab12f89b274cea75727fb808d673f8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="working-with-alert-rules-in-log-analytics"></a>Utilizzo delle regole di avviso in Log Analytics
+
+> [!NOTE]
+> Questo articolo descrive gli avvisi classici di Log Analytics che vengono gestiti nel portale di OMS.  Gli avvisi in Log Analytics sono stati [estesi in Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).  Al termine, sarà possibile creare e modificare le regole di avviso nel portale di Azure e si useranno le procedure illustrate in questo articolo.
+
+
 Gli avvisi vengono creati da regole di avviso che eseguono automaticamente ricerche log a intervalli regolari.  Viene quindi creato un record di avviso se i risultati corrispondono a particolari criteri.  La regola può quindi eseguire automaticamente una o più azioni per notificare l'avviso all'utente in modo proattivo o richiamare un altro processo.   
 
 Questo articolo descrive come creare e modificare le regole di avviso tramite il portale di OMS.  Per informazioni dettagliate sulle diverse impostazioni e su come implementare la logica necessaria, vedere [Informazioni sugli avvisi in Log Analytics](log-analytics-alerts.md).
 
->[!NOTE]
-> Al momento non è possibile creare o modificare una regola di avviso tramite il portale di Azure. 
 
 ## <a name="create-an-alert-rule"></a>Creare una regola di avviso
 
 Per creare una regola di avviso usando il portale di OMS, è necessario creare prima di tutto una ricerca log per i record che dovranno richiamare l'avviso.  Il pulsante **Avviso** diventerà disponibile per poter creare e configurare la regola di avviso.
 
 >[!NOTE]
-> Attualmente, è possibile creare un massimo di 250 regole di avviso in un'area di lavoro OMS. 
+> Attualmente, è possibile creare un massimo di 250 regole di avviso in un'area di lavoro di Log Analytics. 
 
 1. Dalla pagina di panoramica di OMS fare clic su **Ricerca log**.
 2. Creare una nuova query di ricerca nei log o selezionarne una salvata. 

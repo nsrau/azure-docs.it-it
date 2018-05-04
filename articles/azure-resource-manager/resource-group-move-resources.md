@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 40e79ba584843787ad7744f91e14907deb99ccaa
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -121,7 +121,6 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Servizi cognitivi
 * Content Moderator
 * Data Catalog
-* Data factory
 * Data Lake Analytics
 * Archivio Data Lake
 * DNS
@@ -163,11 +162,14 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 * AD Domain Services
 * Servizio ibrido per l'integrità di AD
 * gateway applicazione
+* Database di Azure per MySQL
 * Servizi BizTalk
+* Certificati: i certificati del servizio app possono essere spostati, ma i certificati caricati presentano alcune [limitazioni](#app-service-limitations).
 * Servizio contenitore
-* Express Route
+* Data factory
 * DevTest Labs: lo spostamento in un nuovo gruppo di risorse nella stessa sottoscrizione è abilitato, ma lo spostamento tra sottoscrizioni diverse non lo è.
 * Dynamics LCS
+* Express Route
 * Bilanciamenti del carico: vedere [Limitazioni del servizio di bilanciamento del carico](#lb-limitations)
 * Applicazioni gestite
 * Dischi gestiti: vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
@@ -192,6 +194,8 @@ Non è possibile spostare da un gruppo di risorse o una sottoscrizione a un'altr
 Le macchine virtuali con certificato archiviato in Key Vault possono essere spostate in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non da una sottoscrizione a un'altra.
 
 ## <a name="virtual-networks-limitations"></a>Limitazioni delle reti virtuali
+
+Quando si esegue lo spostamento di una rete virtuale, è necessario spostare anche le relative risorse dipendenti. Ad esempio, è necessario spostare i gateway con la rete virtuale.
 
 Per spostare una rete virtuale con peering, è prima necessario disabilitare il peering. Dopo la disabilitazione del peering è possibile spostare la rete virtuale. Riabilitare il peering della rete virtuale dopo lo spostamento.
 

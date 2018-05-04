@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 538d31f5b50ee22c06ba22c78e1aa92281a3b212
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fedf511e06243d5c0652e422b397bb00da3b42c6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Servizio app di note sulla versione 1 di aggiornamento dello Stack di Azure
 
@@ -39,7 +39,7 @@ Il servizio App sul numero di build Azure Stack Update 1 è **69.0.13698.9**
 ### <a name="prerequisites"></a>Prerequisiti
 
 > [!IMPORTANT]
-> Nuove distribuzioni di Azure App Service nello Stack di Azure è ora necessario un [certificato con caratteri jolly tre soggetto](azure-stack-app-service-before-you-get-started.md#get-certificates) in seguito ai miglioramenti nel modo in cui SSO per Kudu viene gestito nel servizio App di Azure.  È il nuovo argomento * * *. sso.appservice.<region>. <domainname>.<extension>**
+> Nuove distribuzioni di Azure App Service nello Stack di Azure è ora necessario un [certificato con caratteri jolly tre soggetto](azure-stack-app-service-before-you-get-started.md#get-certificates) in seguito ai miglioramenti nel modo in cui SSO per Kudu viene gestito nel servizio App di Azure. È il nuovo argomento * * *. sso.appservice.<region>. <domainname>.<extension>**
 >
 >
 
@@ -49,11 +49,11 @@ Consultare il [documentazione prima di iniziare a](azure-stack-app-service-befor
 
 Servizio App di Azure in Azure Stack Update 1 include gli aggiornamenti e i miglioramenti seguenti:
 
-- **Elevata disponibilità del servizio App di Azure** -i carichi di lavoro di The Azure Stack 1802 update è attivato per essere distribuite tra più domini di errore.  Pertanto infrastruttura del servizio App è in grado di essere a tolleranza di errore in quanto verrà distribuito nei domini di errore.  Per impostazione predefinita tutte le nuove distribuzioni di servizio App di Azure avrà questa funzionalità tuttavia per le distribuzioni completate, prima di Azure Stack 1802 aggiornamento viene applicato consultare il [documentazione di dominio di errore di servizio App](azure-stack-app-service-fault-domain-update.md)
+- **Elevata disponibilità del servizio App di Azure** -i carichi di lavoro di The Azure Stack 1802 update è attivato per essere distribuite tra più domini di errore. Pertanto infrastruttura del servizio App è in grado di essere a tolleranza di errore in quanto verrà distribuito nei domini di errore. Per impostazione predefinita tutte le nuove distribuzioni di servizio App di Azure dispone di questa funzionalità tuttavia per le distribuzioni completate, prima di Azure Stack 1802 aggiornamento viene applicato consultare il [documentazione di dominio di errore di servizio App](azure-stack-app-service-fault-domain-update.md)
 
-- **Distribuire nella rete virtuale esistente** -i clienti possono ora distribuire App servizio nello Stack di Azure all'interno di una rete virtuale esistente.  Distribuzione in una rete virtuale esistente consente ai clienti per la connessione al Server SQL e File Server, necessari per il servizio App di Azure, tramite le porte private.  Durante la distribuzione, i clienti possono scegliere di distribuire in una rete virtuale esistente, tuttavia [necessario creare subnet per l'utilizzo dal servizio App](azure-stack-app-service-before-you-get-started.md#virtual-network) prima della distribuzione.
+- **Distribuire nella rete virtuale esistente** -i clienti possono ora distribuire App servizio nello Stack di Azure all'interno di una rete virtuale esistente. Distribuzione in una rete virtuale esistente consente ai clienti per la connessione al Server SQL e File Server, necessari per il servizio App di Azure, tramite le porte private. Durante la distribuzione, i clienti possono scegliere di distribuire in una rete virtuale esistente, tuttavia [necessario creare subnet per l'utilizzo dal servizio App](azure-stack-app-service-before-you-get-started.md#virtual-network) prima della distribuzione.
 
-- Gli aggiornamenti a **Tenant di servizio App, amministratore, i portali di funzioni e gli strumenti Kudu**.  Coerentemente con versione del SDK portale di Azure dello Stack.
+- Gli aggiornamenti a **Tenant di servizio App, amministratore, i portali di funzioni e gli strumenti Kudu**. Coerentemente con versione del SDK portale di Azure dello Stack.
 
 - **Gli aggiornamenti per gli strumenti e Framework di applicazioni seguenti**:
     - Aggiunto **.Net Core 2.0** supportano
@@ -105,11 +105,11 @@ Servizio App di Azure in Azure Stack Update 1 include gli aggiornamenti e i migl
 
 - Errori di convalida del certificato
 
-Alcuni clienti hanno riscontrato problemi quando si forniscono i certificati per il programma di installazione di servizio App, quando si distribuisce in un sistema integrato, a causa di convalida eccessivamente restrittivo nel programma di installazione.  Il programma di installazione di servizio App è stata rilasciata, i clienti devono [scaricare il programma di installazione aggiornato](https://aka.ms/appsvconmasinstaller).  Se si continua a verificarsi problemi di convalida dei certificati con il programma di installazione aggiornato, contattare il supporto tecnico.
+Alcuni clienti hanno riscontrato problemi quando si forniscono i certificati per il programma di installazione di servizio App, quando si distribuisce in un sistema integrato, a causa di convalida eccessivamente restrittivo nel programma di installazione. Il programma di installazione di servizio App è stata rilasciata, i clienti devono [scaricare il programma di installazione aggiornato](https://aka.ms/appsvconmasinstaller). Se si continua a verificarsi problemi di convalida dei certificati con il programma di installazione aggiornato, contattare il supporto tecnico.
 
 - Errore durante il recupero di certificati radice dello Stack di Azure dal sistema integrato.
 
-A causa di un errore in Get-AzureStackRootCert.ps1 ai clienti di esito negativo recuperare il certificato radice dello Stack di Azure quando si esegue lo script in un computer che non dispone di installare il certificato radice.  Lo script è inoltre stato nuovamente rilasciato, risolvere il problema e i clienti di richiesta [scaricare gli script di supporto aggiornato](https://aka.ms/appsvconmashelpers).  Se si continua a verificarsi problemi recuperando il certificato radice con lo script aggiornato, contattare il supporto tecnico.
+A causa di un errore in Get-AzureStackRootCert.ps1 ai clienti di esito negativo recuperare il certificato radice dello Stack di Azure quando si esegue lo script in un computer che non dispone di installare il certificato radice. Lo script è inoltre stato nuovamente rilasciato, risolvere il problema e i clienti di richiesta [scaricare gli script di supporto aggiornato](https://aka.ms/appsvconmashelpers). Se si continua a verificarsi problemi recuperando il certificato radice con lo script aggiornato, contattare il supporto tecnico.
 
 ### <a name="known-issues-with-the-update-process"></a>Problemi noti con il processo di aggiornamento
 
@@ -119,12 +119,12 @@ A causa di un errore in Get-AzureStackRootCert.ps1 ai clienti di esito negativo 
 
 - Scambio di slot non funziona
 
-Scambio di slot del sito viene suddiviso in questa versione.  Per ripristinare la funzionalità, completare questi passaggi:
+Scambio di slot del sito viene suddiviso in questa versione. Per ripristinare la funzionalità, completare questi passaggi:
 
-1. Modificare ControllersNSG Network Security Group to **Consenti** le connessioni desktop remoto alle istanze del servizio App controller.  Sostituire con il nome del gruppo di risorse in che è stato distribuito il servizio App AppService.local.
+1. Modificare ControllersNSG Network Security Group to **Consenti** le connessioni desktop remoto alle istanze del servizio App controller. Sostituire con il nome del gruppo di risorse in che è stato distribuito il servizio App AppService.local.
 
     ```powershell
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Add-AzureRmAccount -EnvironmentName AzureStackAdmin
 
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
@@ -146,7 +146,7 @@ Scambio di slot del sito viene suddiviso in questa versione.  Per ripristinare l
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
       ```
 
-2. Individuare il **CN0-VM** in macchine virtuali nel portale di Azure Stack amministratore e **fare clic su Connetti** per aprire una sessione desktop remoto con l'istanza del controller.  Utilizzare le credenziali specificate durante la distribuzione del servizio App.
+2. Individuare il **CN0-VM** in macchine virtuali nel portale di Azure Stack amministratore e **fare clic su Connetti** per aprire una sessione desktop remoto con l'istanza del controller. Utilizzare le credenziali specificate durante la distribuzione del servizio App.
 3. Avviare **PowerShell come amministratore** ed eseguire lo script seguente
 
     ```powershell
@@ -171,11 +171,11 @@ Scambio di slot del sito viene suddiviso in questa versione.  Per ripristinare l
     ```
 
 4. Chiudere la sessione desktop remoto.
-5. Ripristinare ControllersNSG Network Security Group to **Deny** le connessioni desktop remoto alle istanze del servizio App controller.  Sostituire con il nome del gruppo di risorse in che è stato distribuito il servizio App AppService.local.
+5. Ripristinare ControllersNSG Network Security Group to **Deny** le connessioni desktop remoto alle istanze del servizio App controller. Sostituire con il nome del gruppo di risorse in che è stato distribuito il servizio App AppService.local.
 
     ```powershell
 
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Add-AzureRmAccount -EnvironmentName AzureStackAdmin
 
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
@@ -196,6 +196,18 @@ Scambio di slot del sito viene suddiviso in questa versione.  Per ripristinare l
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
+- Thread di lavoro sono in grado di raggiungere il server di file in caso di servizio App viene distribuito in una rete virtuale esistente e il file server è disponibile nella rete privata solo.
+ 
+Se si sceglie di distribuire in una rete virtuale esistente e un indirizzo IP interno per la connessione per il file server, è necessario aggiungere una regola di sicurezza in uscita, abilitare il traffico SMB tra la subnet di lavoro e il file server. A tale scopo, passare al WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
+ * Origine: qualsiasi
+ * Intervallo di porte di origine: *
+ * Destinazione: Indirizzi IP
+ * Intervallo di indirizzi IP di destinazione: intervallo di indirizzi IP per il file server
+ * Intervallo di porte di destinazione: 445
+ * Protocollo: TCP
+ * Azione: Consenti
+ * Priorità: 700
+ * Nome: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problemi noti per gli amministratori Cloud operativo Azure App Service nello Stack di Azure
 

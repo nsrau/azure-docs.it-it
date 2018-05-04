@@ -69,16 +69,18 @@
               href: backup-mabs-unattended-install.md
         - name: Proteggere i carichi di lavoro
           items:
-            - name: Usare il server di Backup di Azure per eseguire il backup di un server VMware
+            - name: Server VMware
               href: backup-azure-backup-server-vmware.md
-            - name: Usare il server di Backup di Azure per eseguire il backup di Exchange
+            - name: Exchange
               href: backup-azure-exchange-mabs.md
-            - name: Usare il server di Backup di Azure per eseguire il backup di una farm di SharePoint
+            - name: Una farm di SharePoint
               href: backup-azure-backup-sharepoint-mabs.md
-            - name: Usare il server di Backup di Azure per eseguire il backup di SQL
+            - name: SQL Server
               href: backup-azure-sql-mabs.md
             - name: Proteggere lo stato del sistema e il ripristino bare metal
               href: backup-mabs-system-state-and-bmr.md
+            - name: File e applicazioni in Azure Stack
+              href: backup-mabs-files-applications-azure-stack.md
         - name: Ripristinare i dati da un server di Backup di Azure
           href: backup-azure-alternate-dpm-server.md
     - name: Condivisioni di File di Azure

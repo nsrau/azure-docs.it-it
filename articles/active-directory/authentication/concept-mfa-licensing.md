@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: 5fbc42d11ccb9a36ce146deca173526536c9fc9e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c5ed3674c724b30962fbd52b9955ec89c35745d1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Come ottenere Azure Multi-Factor Authentication
 
@@ -69,7 +69,7 @@ La tabella seguente indica un elenco delle funzionalità disponibili nelle varie
 | MFA per applicazioni locali | | |● |
 
 ## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Come attivare Azure Multi-Factor Authentication per amministratori di Azure AD
-Gli utenti a cui è assegnato il ruolo di amministratori globali di tenant di Azure AD possono abilitare la verifica in due passaggi per i loro account di amministratore globale di Azure AD senza costi aggiuntivi. Se si usa un account Microsoft, è possibile registrarsi per l'autenticazione a più fattori [qui](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Se non si usa un account Microsoft, attivare l'autenticazione a più fattori per gli amministratori globali [qui](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
+Gli utenti a cui è assegnato il ruolo di amministratori globali di tenant di Azure AD possono abilitare la verifica in due passaggi per i loro account di amministratore globale di Azure AD senza costi aggiuntivi. Se si usa un account Microsoft, è possibile registrarsi per l'autenticazione a più fattori [qui](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Se non si usa un account Microsoft, attivare l'autenticazione a più fattori per gli amministratori globali [qui](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Come ottenere Azure Multi-Factor Authentication
 Se si desidera avere a disposizione tutte le funzionalità di Azure Multi-Factor Authentication, ci sono varie opzioni:

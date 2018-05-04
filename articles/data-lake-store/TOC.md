@@ -82,8 +82,8 @@
 ### [Accedere ai log di diagnostica](data-lake-store-diagnostic-logs.md)
 ### [Pianificare la disponibilità elevata](data-lake-store-disaster-recovery-guidance.md)
 
-# riferimento
-## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
+# Riferimenti
+## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=data-lake-store)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)

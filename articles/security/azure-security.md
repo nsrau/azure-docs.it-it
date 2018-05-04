@@ -6,7 +6,7 @@ documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 68bba95e177fa8d0261b84f51b0f5285c7fb7417
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 51d0f1f6d2689e37c1c39bf4a5e8078a2482c76d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza in Azure
 ## <a name="overview"></a>Panoramica
@@ -58,8 +58,8 @@ Di seguito sono elencate le funzionalità che è possibile esaminare per assicur
 | [Sicurezza della piattaforma](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [Privacy e controlli](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[Conformità](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [Trasparenza](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
 | [Ciclo di sviluppo per la sicurezza](https://www.microsoft.com/en-us/sdl/), controlli interni | [Gestione costante dei propri dati](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data) | [Centro protezione](https://www.microsoft.com/en-us/trustcenter/default.aspx) |[Come vengono protetti da Microsoft i dati dei clienti nei servizi di Azure](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
-| [Formazione sulla sicurezza obbligatoria, controlli del background](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiwsOCpganRAhWqxVQKHUdiDsMQFghAMAE&url=https%3A%2F%2Fdownloads.cloudsecurityalliance.org%2Fstar%2Fself-assessment%2FStandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx&usg=AFQjCNEYvBky4zNeDQPN6YJGPFRZA7eeZg&sig2=2kkw1lOCP_kzLzgE9RS2Tg&bvm=bv.142059868,d.amc) |  [Controllo sulla posizione dei dati](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Common Controls Hub](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Come viene gestita da Microsoft la posizione dei dati nei servizi di Azure](http://azuredatacentermap.azurewebsites.net/)|
-| [Test di penetrazione](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiwsOCpganRAhWqxVQKHUdiDsMQFghAMAE&url=https%3A%2F%2Fdownloads.cloudsecurityalliance.org%2Fstar%2Fself-assessment%2FStandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx&usg=AFQjCNEYvBky4zNeDQPN6YJGPFRZA7eeZg&sig2=2kkw1lOCP_kzLzgE9RS2Tg&bvm=bv.142059868,d.amc), [rilevamento delle intrusioni, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [controlli e registrazione](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Accesso ai dati in base ai propri termini](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Elenco di controllo della due diligence per i servizi cloud](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Personale Microsoft che ha accesso ai dati e in quali termini](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
+| [Formazione sulla sicurezza obbligatoria, controlli del background](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Controllo sulla posizione dei dati](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Common Controls Hub](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Come viene gestita da Microsoft la posizione dei dati nei servizi di Azure](http://azuredatacentermap.azurewebsites.net/)|
+| [Test di penetrazione](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [rilevamento delle intrusioni, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [controlli e registrazione](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Accesso ai dati in base ai propri termini](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Elenco di controllo della due diligence per i servizi cloud](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Personale Microsoft che ha accesso ai dati e in quali termini](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [Data center all'avanguardia](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), sicurezza fisica, [rete protetta](https://docs.microsoft.com/azure/security/security-network-overview) | [Risposta alle richieste delle forze dell'ordine](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Conformità in base al servizio, alla località e al settore](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Come vengono protetti da Microsoft i dati dei clienti nei servizi di Azure](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
 |  [Risposta a eventi imprevisti di sicurezza](http://aka.ms/SecurityResponsepaper), [responsabilità condivisa](http://aka.ms/sharedresponsibility) |[Standard di privacy rigorosi](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Certificazione di verifica per i servizi di Azure, hub per la trasparenza](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
 
@@ -152,7 +152,7 @@ In Diagnostica applicazioni è possibile visualizzare gli eventi raggruppandoli 
 Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali per la sicurezza delle risorse di archiviazione di Azure e informazioni di riepilogo su tali funzionalità.
 
 ### <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
-È possibile proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo. Per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati è fondamentale limitare l'accesso in base a principi di [necessità](https://en.wikipedia.org/wiki/Need_to_know) e [privilegi minimi](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Questi diritti di accesso vengono concessi assegnando il ruolo di controllo degli accessi appropriato a gruppi e applicazioni in un ambito specifico. È possibile usare i [ruoli predefiniti del controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles), ad esempio Collaboratore Account di archiviazione, per assegnare privilegi agli utenti. L'accesso alle chiavi di archiviazione per un account di archiviazione con il modello [Azure Resource Manager](https://docs.microsoft.com/azure/storage/storage-security-guide) può essere controllato tramite il controllo degli accessi in base al ruolo.
+È possibile proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo. Per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati è fondamentale limitare l'accesso in base a principi di [necessità](https://en.wikipedia.org/wiki/Need_to_know) e [privilegi minimi](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Questi diritti di accesso vengono concessi assegnando il ruolo di controllo degli accessi appropriato a gruppi e applicazioni in un ambito specifico. È possibile usare i [ruoli predefiniti del controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles), ad esempio Collaboratore Account di archiviazione, per assegnare privilegi agli utenti. L'accesso alle chiavi di archiviazione per un account di archiviazione con il modello [Azure Resource Manager](https://docs.microsoft.com/azure/storage/storage-security-guide) può essere controllato tramite il controllo degli accessi in base al ruolo.
 
 ### <a name="shared-access-signature"></a>Firma di accesso condiviso
 Una [firma di accesso condiviso (SAS)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) fornisce accesso delegato alle risorse nell'account di archiviazione. La firma di accesso condiviso consente di concedere a un client autorizzazioni limitate per gli oggetti nell'account di archiviazione per un periodo di tempo e con un set di autorizzazioni specificati. È possibile concedere queste autorizzazioni limitate senza la necessità di condividere le chiavi di accesso all'account.
@@ -356,7 +356,7 @@ Per gestire le identità e l'accesso, Microsoft usa più procedure e tecnologie 
 
 -   L'[applicazione di criteri password](https://azure.microsoft.com/documentation/articles/active-directory-passwords-policy/) aumenta la sicurezza delle password tradizionali imponendo requisiti di lunghezza e complessità, la rotazione periodica forzata e il blocco account dopo tentativi di autenticazione non riusciti.
 
--   L'[autenticazione basata su token](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) consente l'autenticazione tramite Active Directory Federation Services (AD FS) o sistemi di token di sicurezza di terze parti.
+-   L'[autenticazione basata su token](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) consente l'autenticazione tramite Azure Active Directory.
 
 -   Il [controllo degli accessi in base al ruolo](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) consente di concedere l'accesso in base al ruolo assegnato all'utente, garantendo facilmente agli utenti solo il livello di accesso necessario per svolgere le proprie mansioni. È possibile personalizzare il controllo degli accessi in base al ruolo per il modello aziendale e la tolleranza al rischio dell'organizzazione.
 

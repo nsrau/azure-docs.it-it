@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 3ea7d09338d4d89030138b8c4dc4085a6cd8ccc5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2a16e346e508b96338bb1c216ad6a64c013895f2
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Piani tariffari di Database di Azure per PostgreSQL
 
@@ -36,7 +36,8 @@ Per scegliere un piano tariffario, usare la tabella seguente come punto di parte
 | Utilizzo generico | La maggior parte dei carichi di lavoro aziendali che richiedono risorse di calcolo e di memoria bilanciate con velocità effettiva di I/O scalabile. Ad esempio, server per l'hosting di app Web e di app per dispositivi mobili e altre applicazioni aziendali.|
 | Con ottimizzazione per la memoria | Carichi di lavoro di database ad alte prestazioni che richiedono prestazioni in memoria per l'elaborazione più rapida delle transazioni e una concorrenza maggiore. Ad esempio, server per l'elaborazione di dati in tempo reale e app transazionali o analitiche a prestazioni elevate.|
 
-Dopo aver creato un server, il numero di vCore può essere aumentato o ridotto in pochi secondi. È anche possibile aumentare autonomamente lo spazio di archiviazione e aumentare o ridurre il periodo di conservazione dei backup senza tempi di inattività per le applicazioni. Per altre informazioni, vedere la sezione "Ridimensionare le risorse".
+Dopo aver creato un server, il numero di vCore può essere aumentato o ridotto (all'interno dello stesso piano tariffario) in pochi secondi. È anche possibile aumentare autonomamente lo spazio di archiviazione e aumentare o ridurre il periodo di conservazione dei backup senza tempi di inattività per le applicazioni. Non è possibile modificare il piano tariffario o il tipo di archiviazione dei backup dopo aver creato il server. Per altre informazioni, vedere la sezione [Ridimensionare le risorse](#scale-resources).
+
 
 ## <a name="compute-generations-vcores-and-memory"></a>Generazioni di calcolo, vCore e memoria
 
@@ -44,7 +45,7 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 
 | **Area di Azure** | **Generazione 4** | **Generazione 5** |
 |:---|:----------:|:--------------------:|
-| Stati Uniti centrali |  | X |
+| Stati Uniti centrali | X |  |
 | Stati Uniti orientali | X | X |
 | Stati Uniti orientali 2 | X | X |
 | Stati Uniti centro-settentrionali | X |  |
@@ -53,16 +54,18 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 | Stati Uniti occidentali 2 |  | X |
 | Canada centrale | X | X |
 | Canada orientale | X | X |
-| Brasile meridionale | X |  |
+| Brasile meridionale | X | X |
 | Europa settentrionale | X | X |
-| Europa occidentale | X | X |
+| Europa occidentale |  | X |
 | Regno Unito occidentale |  | X |
 | Regno Unito meridionale |  | X |
 | Asia orientale | X |  |
-| Asia sudorientale | X |  |
+| Asia sudorientale | X | X |
 | Australia orientale |  | X |
+| Australia sudorientale |  | X |
 | India centrale | X |  |
 | India occidentale | X |  |
+| India meridionale |  | X |
 | Giappone orientale | X | X |
 | Giappone occidentale | X | X |
 | Corea meridionale |  | X |
@@ -90,7 +93,7 @@ Il servizio esegue automaticamente il backup del server. Il periodo di conservaz
 
 ## <a name="scale-resources"></a>Ridimensionare le risorse
 
-Dopo aver creato il server, è possibile modificare in modo indipendente il numero di vCore, lo spazio di archiviazione e il periodo di conservazione dei backup. Non è possibile modificare il piano tariffario o il tipo di archiviazione dei backup dopo aver creato il server. Il numero di vCore e il periodo di conservazione dei backup possono essere aumentati o ridotti. Le dimensioni dello spazio di archiviazione possono essere solo aumentate. Il ridimensionamento delle risorse può essere eseguito tramite il portale o l'interfaccia della riga di comando di Azure. Per un esempio di ridimensionamento tramite l'interfaccia della riga di comando di Azure, vedere [Monitorare e scalare un server di Database di Azure per PostgreSQL usando l'interfaccia della riga di comando di Azure](scripts/sample-scale-server-up-or-down.md).
+Dopo aver creato il server, è possibile modificare in modo indipendente il numero di vCore, lo spazio di archiviazione e il periodo di conservazione dei backup. Non è possibile modificare il piano tariffario o il tipo di archiviazione dei backup dopo aver creato il server. Il numero di vCore può essere aumentato o ridotto all'interno dello stesso piano tariffario. Il periodo di conservazione dei backup può essere aumentato o ridotto da 7 a 35 giorni. Le dimensioni dello spazio di archiviazione possono essere solo aumentate.  Il ridimensionamento delle risorse può essere eseguito tramite il portale o l'interfaccia della riga di comando di Azure. Per un esempio di ridimensionamento tramite l'interfaccia della riga di comando di Azure, vedere [Monitorare e scalare un server di Database di Azure per PostgreSQL usando l'interfaccia della riga di comando di Azure](scripts/sample-scale-server-up-or-down.md).
 
 Quando si modifica il numero di vCore, viene creata una copia del server di origine con la nuova allocazione del calcolo. Quando il nuovo server è in esecuzione, le connessioni vengono trasferite al nuovo server. Durante l'intervallo nel quale il sistema passa al nuovo server, non è possibile stabilire nuove connessioni e viene effettuato il rollback di tutte le transazioni di cui non è stato eseguito il commit. Questo intervallo è variabile, ma nella maggior parte dei casi è inferiore al minuto.
 

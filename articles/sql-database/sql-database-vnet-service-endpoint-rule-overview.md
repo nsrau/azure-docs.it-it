@@ -7,14 +7,14 @@ author: MightyPen
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/19/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d6b8ddaa0eaf560352bc0aa0127b33f32ee4574a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Usare gli endpoint del servizio Rete virtuale e le regole per il database SQL di Azure
 
@@ -140,7 +140,7 @@ Per il database SQL di Azure, la funzionalità delle regole della rete virtuale 
 Quando si usano gli endpoint del servizio per il Database SQL di Azure, rivedere le considerazioni seguenti:
 
 - **In uscita verso gli indirizzi IP pubblici del Database SQL di Azure è necessario che** i gruppi di sicurezza di rete devono essere aperti gli indirizzi IP del Database SQL di Azure per consentire la connettività. È possibile farlo tramite i [Tag dei servizi](../virtual-network/security-overview.md#service-tags) del Gruppo di sicurezza di rete per il Database SQL di Azure.
-- **Non sono supportati i Database di Azure per PostgreSQL e MySQL**: gli endpoint del servizio non sono supportati per il Database di Azure per PostgreSQL o MySQL. Abilitando gli endpoint del servizio al Database SQL si interromperà la connettività a questi servizi. È disponibile una mitigazione per questo, contattare *dmalik@microsoft.com*.
+- **Non sono supportati i Database di Azure per PostgreSQL e MySQL**: gli endpoint del servizio non sono supportati per il Database di Azure per PostgreSQL o MySQL. Abilitando gli endpoint del servizio al Database SQL si interromperà la connettività a questi servizi. È disponibile una mitigazione per questo ed è possibile contattare *dmalik@microsoft.com* per altre informazioni.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -178,7 +178,7 @@ Archiviazione di Azure ha implementato la stessa funzionalità che consente di l
 Se si sceglie di usare questa funzionalità con un account di archiviazione usato da un server di Azure SQL, è possibile che si verifichino problemi. Di seguito sono riportati un elenco e una spiegazione delle funzionalità del database SQL di interessate.
 
 #### <a name="azure-sqldw-polybase"></a>PolyBase per Azure SQLDW
-PolyBase viene in genere usato per caricare i dati in Azure SQLDW dagli account di archiviazione. Se l'account di archiviazione da cui si caricano i dati limita l'accesso solo a un set di subnet della rete virtuale, la connettività da PolyBase all'account verrà interrotta. È disponibile una mitigazione per questo oggetto; contattare *dmalik@microsoft.com* per altre informazioni.
+PolyBase viene in genere usato per caricare i dati in Azure SQLDW dagli account di archiviazione. Se l'account di archiviazione da cui si caricano i dati limita l'accesso solo a un set di subnet della rete virtuale, la connettività da PolyBase all'account verrà interrotta. È disponibile una mitigazione per questo ed è possibile contattare *dmalik@microsoft.com* per altre informazioni.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Controllo BLOB del database SQL di Azure
 Il controllo BLOB esegue il push dei log di controllo nell'account di archiviazione. Se questo account di archiviazione usa la funzionalità degli endpoint di servizio di rete virtuale, la connettività dal database SQL di Azure all'account di archiviazione verrà interrotta.
@@ -227,8 +227,9 @@ Un elenco di diversi messaggi di errore del database SQL è disponibile [qui][sq
 Questa sezione illustra come usare il [portale di Azure] [http-azure-portal-link-ref-477t] per creare una *regola della rete virtuale* nel database di SQL Azure. La regola indica al database SQL di accettare le comunicazioni da una subnet specifica contrassegnata come *endpoint del servizio Rete virtuale*.
 
 > [!NOTE]
-> Verificare che gli endpoint di servizio siano attivati per la rete virtuale/subnet che si desidera aggiungere alle regole del firewall della rete virtuale del server.
-> Se gli endpoint del servizio sono disattivati per la rete virtuale/subnet, verrà richiesto di attivarli nel portale; a tal fine, fare clic su Abilita nel pannello in cui si aggiunge la regola.
+> Se si intende aggiungere un endpoint di servizio alle regole del firewall della rete virtuale del server del database SQL di Azure, verificare per prima cosa che gli endpoint di servizio siano attivati per la subnet.
+>
+> Se gli endpoint di servizio non sono attivati per la subnet, nel portale verrà richiesto di abilitarli. Fare clic sul pulsante **Abilita** nello stesso pannello in cui si aggiunge la regola.
 
 #### <a name="powershell-alternative"></a>Alternativa PowerShell
 

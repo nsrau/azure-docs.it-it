@@ -1,26 +1,24 @@
 ---
-title: "Creare processi di Spark Streaming a disponibilità elevata in YARN - Azure HDInsight | Microsoft Docs"
-description: "Come configurare Spark Streaming per uno scenario a disponibilità elevata."
+title: Creare processi di Spark Streaming a disponibilità elevata in YARN - Azure HDInsight | Microsoft Docs
+description: Come configurare Spark Streaming per uno scenario a disponibilità elevata.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ramoha
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: ramoha
-ms.openlocfilehash: f916f9939ac9683a2ee162ba4d2105f66187b111
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0a738d7e26384523e9da9c8c79e12729330fe6f7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>Creare processi di Spark Streaming a disponibilità elevata con YARN
 
@@ -117,7 +115,7 @@ Per riepilogare, l'uso di checkpoint, log write-ahead e ricevitori affidabili co
 
 * È consigliabile segmentare i processi con esecuzione prolungata.  Quando un'applicazione Spark Streaming viene inviata al cluster, è necessario definire la coda YARN in cui viene eseguito il processo. È possibile usare un'[utilità di pianificazione della capacità YARN](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html) per inviare i processi con esecuzione prolungata a code separate.
 
-* Arrestare l'applicazione per l'uso dei flussi normalmente. Se gli offset sono noti e tutto lo stato dell'applicazione è archiviato esternamente, è possibile arrestare l'applicazione per l'uso dei flussi a livello di programmazione nella posizione appropriata. Una tecnica consiste nell'usare "thread di hook" in Spark, controllando la presenza di un flag esterno ogni *n* secondi. È anche possibile usare un *file marcatore* che viene creato in HDFS all'avvio dell'applicazione e poi rimosso quando si vuole arrestarla. Per l'approccio con file marcatore, usare un thread separato nell'applicazione Spark che chiama codice simile al seguente:
+* Arrestare l'applicazione per l'uso dei flussi normalmente. Se gli offset sono noti e tutto lo stato dell'applicazione è archiviato esternamente, è possibile arrestare l'applicazione per l'uso dei flussi a livello di programmazione nella posizione appropriata. Una tecnica consiste nell'usare "hook di thread" in Spark, controllando la presenza di un flag esterno ogni *n* secondi. È anche possibile usare un *file marcatore* che viene creato in HDFS all'avvio dell'applicazione e poi rimosso quando si vuole arrestarla. Per l'approccio con file marcatore, usare un thread separato nell'applicazione Spark che chiama codice simile al seguente:
 
     ```scala
     streamingContext.stop(stopSparkContext = true, stopGracefully = true)

@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/16/2018
 ms.author: babanisa
-ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e5499fca98118de6ef8e08c8ce278b90520425e6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concetti di Griglia di eventi di Azure
 
@@ -20,7 +20,7 @@ I concetti principali di Griglia di eventi di Azure sono i seguenti:
 
 ## <a name="events"></a>Eventi
 
-Un evento è la quantità minima di informazioni che descrive in modo completo qualcosa che si è verificato nel sistema.  Ogni evento ha informazioni comuni, come: l'origine dell'evento, l'ora in cui l'evento si è verificato e un identificatore univoco.  Ogni evento ha anche informazioni specifiche rilevanti solo per il tipo di evento specifico. Un evento di creazione di un nuovo file in Archiviazione di Azure contiene i dettagli sul file, ad esempio il valore `lastTimeModified`. Un evento di riavvio di una macchina virtuale contiene invece il nome della macchina virtuale e il motivo del riavvio. Ogni evento è limitato a 64 KB di dati.
+Un evento è la quantità minima di informazioni che descrive in modo completo qualcosa che si è verificato nel sistema. Ogni evento ha informazioni comuni, come: l'origine dell'evento, l'ora in cui l'evento si è verificato e un identificatore univoco. Ogni evento ha anche informazioni specifiche rilevanti solo per il tipo di evento specifico. Un evento di creazione di un nuovo file in Archiviazione di Azure contiene i dettagli sul file, ad esempio il valore `lastTimeModified`. Un evento di riavvio di una macchina virtuale contiene invece il nome della macchina virtuale e il motivo del riavvio. Ogni evento è limitato a 64 KB di dati.
 
 ## <a name="event-sourcespublishers"></a>Origini/autori di eventi
 
@@ -32,7 +32,7 @@ Gli autori classificano gli eventi in argomenti. L'argomento include un endpoint
 
 Gli argomenti di sistema sono argomenti predefiniti forniti dai servizi di Azure. Gli argomenti personalizzati sono argomenti di applicazioni e di terze parti.
 
-Quando si progetta l'applicazione, creare un argomento personalizzato per ogni categoria di eventi correlati. Ad esempio, si consideri un'applicazione che invia gli eventi correlati alla modifica di account utente e all'elaborazione degli ordini. È improbabile che un gestore eventi richieda entrambe le categorie di eventi. Creare due argomenti personalizzati e consentire ai gestori di eventi di sottoscrivere all'argomento di interesse. Quando si esegue la sottoscrizione all'argomento personalizzato, il gestore eventi può filtrare in base al tipo di evento.
+Quando si progetta l'applicazione, è possibile decidere il numero di argomenti da creare. Per soluzioni di grandi dimensioni, creare un argomento personalizzato per ogni categoria di eventi correlati. Ad esempio, si consideri un'applicazione che invia gli eventi correlati alla modifica di account utente e all'elaborazione degli ordini. È improbabile che un gestore eventi richieda entrambe le categorie di eventi. Creare due argomenti personalizzati e consentire ai gestori di eventi di sottoscrivere all'argomento di interesse. Per le soluzioni di dimensioni ridotte, è preferibile inviare tutti gli eventi a un singolo argomento. I sottoscrittori di eventi possono filtrare in base ai tipi di eventi desiderati.
 
 ## <a name="event-subscriptions"></a>Sottoscrizioni di eventi
 
@@ -40,7 +40,7 @@ Una sottoscrizione indica a Griglia di eventi gli eventi relativi a un argomento
 
 ## <a name="event-handlers"></a>Gestori eventi
 
-Dal punto di vista di Griglia di eventi, un gestore eventi è la posizione in cui l'evento viene inviato. Il gestore esegue altre azioni per elaborare l'evento.  Griglia di eventi supporta diversi tipi di sottoscrittori. A seconda del tipo di sottoscrittore, Griglia di eventi segue meccanismi diversi per garantire il recapito dell'evento.  Per i gestori eventi webhook HTTP, l'evento viene ripetuto fino a quando il gestore non restituisce un codice di stato `200 – OK`. Per la coda di Archiviazione di Azure, gli eventi vengono ripetuti fino a quando il servizio di accodamento non riesce a elaborare correttamente il push del messaggio nella coda.
+Dal punto di vista di Griglia di eventi, un gestore eventi è la posizione in cui l'evento viene inviato. Il gestore esegue altre azioni per elaborare l'evento. Griglia di eventi supporta diversi tipi di sottoscrittori. A seconda del tipo di sottoscrittore, Griglia di eventi segue meccanismi diversi per garantire il recapito dell'evento. Per i gestori eventi webhook HTTP, l'evento viene ripetuto fino a quando il gestore non restituisce un codice di stato `200 – OK`. Per la coda di Archiviazione di Azure, gli eventi vengono ripetuti fino a quando il servizio di accodamento non riesce a elaborare correttamente il push del messaggio nella coda.
 
 ## <a name="filters"></a>Filtri
 

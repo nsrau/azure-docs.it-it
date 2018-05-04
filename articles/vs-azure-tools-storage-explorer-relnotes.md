@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 8ec74f69d2de7b167fcc66d0e2499d052f0bf18e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6274e4ebbc9f3c5b21c479b10e112459000fd28b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer
 
@@ -227,7 +227,7 @@ Questo articolo contiene le note sulla versione di anteprima di Azure Storage Ex
 * Se si tenta di aprire o scaricare un BLOB con un nome di file non valido per Windows, l'operazione non riesce. Azure Storage Explorer ora rileva se un nome di BLOB non è valido e chiede se si desidera codificarlo o ignorare il BLOB. Azure Storage Explorer rileva anche se un nome di file sembra essere codificato e chiede se si vuole decodificarlo prima del caricamento.
 * Durante il caricamento di BLOB, l'editor per il contenitore di BLOB di destinazione potrebbe talvolta non aggiornarsi correttamente. Questo problema è stato risolto.
 * Il supporto per varie forme di stringhe di connessione e URI SAS è regredito. Sono stati risolti tutti i problemi noti, ma si prega di inviare commenti se si riscontrano ulteriori problemi.
-* Le notifiche degli aggiornamenti non venivano mostrate ad alcuni utenti della versione 0.9.0. Questo problema è stato risolto e gli utenti interessati dal bug possono scaricare manualmente la versione più recente di Azure Storage Explorer [qui](https://azure.microsoft.com/en-us/features/storage-explorer/).
+* Le notifiche degli aggiornamenti non venivano mostrate ad alcuni utenti della versione 0.9.0. Questo problema è stato risolto e gli utenti interessati dal bug possono scaricare manualmente la versione più recente di Azure Storage Explorer [qui](https://azure.microsoft.com/features/storage-explorer/).
 
 ### <a name="known-issues"></a>Problemi noti
 * Azure Storage Explorer non supporta gli account ADFS.
@@ -281,7 +281,7 @@ Questo articolo contiene le note sulla versione di anteprima di Azure Storage Ex
 * Se si tenta di aprire o scaricare un BLOB con un nome di file non valido per Windows, l'operazione non riesce. Azure Storage Explorer ora rileva se un nome di BLOB non è valido e chiede se si desidera codificarlo o ignorare il BLOB. Azure Storage Explorer rileva anche se un nome di file sembra essere codificato e chiede se si vuole decodificarlo prima del caricamento.
 * Durante il caricamento di BLOB, l'editor per il contenitore di BLOB di destinazione potrebbe talvolta non aggiornarsi correttamente. Questo problema è stato risolto.
 * Il supporto per varie forme di stringhe di connessione e URI SAS è regredito. Sono stati risolti tutti i problemi noti, ma si prega di inviare commenti se si riscontrano ulteriori problemi.
-* Le notifiche degli aggiornamenti non venivano mostrate ad alcuni utenti della versione 0.9.0. Questo problema è stato risolto e gli utenti interessati dal bug possono scaricare manualmente la versione più recente di Azure Storage Explorer [qui](https://azure.microsoft.com/en-us/features/storage-explorer/)
+* Le notifiche degli aggiornamenti non venivano mostrate ad alcuni utenti della versione 0.9.0. Questo problema è stato risolto e gli utenti interessati dal bug possono scaricare manualmente la versione più recente di Azure Storage Explorer [qui](https://azure.microsoft.com/features/storage-explorer/)
 
 ### <a name="known-issues"></a>Problemi noti
 * Azure Storage Explorer non supporta gli account ADFS.

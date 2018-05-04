@@ -1,6 +1,6 @@
 ---
 title: Diagnosticare e risolvere i problemi nell'ambiente Time Series Insights | Microsoft Docs
-description: "In questo articolo viene descritto come diagnosticare e risolvere i problemi più comuni riscontrati nell'ambiente Azure Time Series Insights."
+description: In questo articolo viene descritto come diagnosticare e risolvere i problemi più comuni riscontrati nell'ambiente Azure Time Series Insights.
 services: time-series-insights
 ms.service: time-series-insights
 author: venkatgct
@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 11/15/2017
-ms.openlocfilehash: 757d37183ad334aca462af59bad261cfa686299e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 04/09/2018
+ms.openlocfilehash: f0c1b8aa99e9ac9c73f57af17490dd3a465a9cac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnosticare e risolvere i problemi nell'ambiente Time Series Insights
 
@@ -45,6 +45,11 @@ Durante la registrazione di un hub IoT o un hub eventi viene specificato il grup
 Se i dati risultano parzialmente visibili, mentre altri sembrano in ritardo, è necessario considerare le possibili cause seguenti:
 
 ### <a name="possible-cause-a-your-environment-is-getting-throttled"></a>Causa possibile A: l'ambiente è in fase di limitazione
+Si tratta di un problema comune quando viene effettuato il provisioning di ambienti dopo la creazione di un'origine eventi con dati.  Gli hub IoT di Azure e Hub eventi archiviano i dati per un massimo di sette giorni.  Time Series Insights partirà sempre dall'evento meno recente (FIFO), all'interno dell'origine eventi.  Pertanto, se sono presenti cinque milioni di eventi in un'origine eventi quando ci si connette a un ambiente di Time Series Insights a singola unità S1, Time Series Insights leggerà circa un milione di eventi al giorno.  Apparentemente, ciò potrebbe essere interpretato come un periodo di latenza di cinque giorni per Time Series Insights.  Quello che accade in effetti, è che l'ambiente viene limitato.  In presenza di vecchi eventi nell'origine eventi, è possibile scegliere tra due approcci:
+
+- Modificare i limiti di conservazione dell'origine eventi per eliminare vecchi eventi che non si vuole visualizzare in Time Series Insights
+- Eseguire il provisioning di un ambiente di dimensioni maggiori, in termini di numero di unità, per aumentare la velocità effettiva per i vecchi eventi.  Ritornando all'esempio precedente, se lo stesso ambiente S1 venisse esteso a cinque unità per un giorno, sarebbe possibile recuperare entro tale giorno.  Se la produzione di eventi di stato costante è di circa 1 milione o meno al giorno, è possibile ridurre la capacità per gli eventi tornando a una unità dopo essersi messi in pari.  
+
 La limitazione viene applicata in base alla capacità e al tipo di SKU dell'ambiente. Tutte le origini evento all'interno dell'ambiente condividono questa capacità. Se l'origine evento dell'hub IoT e dell'hub eventi esegue il push dei dati oltre il limite imposto, si verificheranno una limitazione e un ritardo.
 
 Il diagramma seguente mostra un ambiente Time Series Insights con uno SKU S1 e una capacità pari a 3. È consentito l'ingresso di 3 milioni di eventi al giorno.
@@ -76,6 +81,12 @@ Per correggere il ritardo, procedere come segue:
 Verificare che il nome e il valore siano conformi alle regole seguenti:
 * Il nome della proprietà Timestamp _fa distinzione fra maiuscole e minuscole_.
 * Il valore della proprietà Timestamp proveniente dall'origine evento, come stringa JSON, deve avere il formato _aaaa-MM-ggTHH:mm:ss.FFFFFFFK_. Un esempio di tale stringa è "2008-04-12T12:53Z".
+
+Il modo più semplice per garantire l'acquisizione e il corretto funzionamento del *nome della proprietà Timestamp* consiste nell'usare TSI Explorer.  All'interno di TSI Explorer, usando il grafico, selezionare un periodo di tempo dopo aver specificato il *nome della proprietà Timestamp*.  Fare clic con il pulsante destro del mouse sulla selezione e scegliere *Esplora eventi*.  La prima intestazione di colonna deve essere il *nome della proprietà Timestamp* e deve avere *($ts)* accanto alla parola *Timestamp*, invece di:
+- *(abc)* , che indicherebbe che Time Series Insights sta leggendo i valori dei dati come stringhe
+- *Icona del calendario*, che indicherebbe che Time Series Insights sta leggendo i valori dei dati come *datetime*
+- *#*, che indicherebbe che Time Series Insights sta leggendo i valori dei dati come Integer
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per ulteriore assistenza, avviare una conversazione nel [forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) o in [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). 

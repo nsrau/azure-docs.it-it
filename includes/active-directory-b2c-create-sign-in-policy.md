@@ -1,6 +1,7 @@
-Per abilitare l'accesso nell'applicazione, è necessario creare i criteri di accesso. I criteri descrivono l'esperienza utente durante la procedura di accesso e il contenuto dei token che l'applicazione riceverà al completamento dell'accesso.
+Se si vuole abilitare solo l'accesso nell'applicazione, si usano i criteri di **accesso**. Questi criteri descrivono l'esperienza utente durante la procedura di accesso e il contenuto dei token che l'applicazione riceverà al completamento dell'accesso.
 
-[!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)] Fare clic su **Criteri di accesso**.
+[!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
+Fare clic su **Criteri di accesso**.
 
 Fare clic su **+Aggiungi** nella parte superiore del pannello.
 

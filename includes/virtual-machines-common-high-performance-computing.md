@@ -181,7 +181,7 @@ Di seguito sono riportati esempi di clienti che hanno risolto i problemi azienda
 * Altre informazioni sulle soluzioni Big Compute per [simulazione di progettazione](https://simulation.azure.com/), [rendering](https://simulation.azure.com/), [servizi bancari e mercati finanziari](https://finance.azure.com/) e [genomica](https://enterprise.microsoft.com/en-us/industries/health/genomics/).
 * Per gli annunci più recenti, vedere il [blog del team di Microsoft HPC e Batch](http://blogs.technet.com/b/windowshpc/) e il [blog di Azure](https://azure.microsoft.com/blog/tag/hpc/).
 
-* Usare il servizio Azure [Batch](https://azure.microsoft.com/services/batch/) gestito e scalabile per eseguire carichi di lavoro a elevato utilizzo di calcolo, senza gestire l'infrastruttura sottostante [Altre informazioni](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
+* Usare il servizio Azure [Batch](https://azure.microsoft.com/services/batch/) gestito e scalabile per eseguire carichi di lavoro a elevato utilizzo di calcolo, senza gestire l'infrastruttura sottostante [Altre informazioni](https://azure.microsoft.com/solutions/architecture/hpc-big-compute-saas/)
 
 
 

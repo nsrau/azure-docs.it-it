@@ -10,18 +10,18 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 322de1fb19461455a063d939ace3d5553ed1fc79
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bd4ebbec4506824f00d09a09369ebbeaf9458c19
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure
 
 ## <a name="backup-happens-automatically"></a>Il backup viene eseguito automaticamente
 Il backup dei server Database di Azure per MySQL viene eseguito periodicamente per abilitare le funzionalità di ripristino. L'uso di questa funzionalità consente di ripristinare il server e tutti i suoi database a un momento precedente nel nuovo server.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare questa guida, è necessario:
 - Un [database di Azure per il database e il server MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 
@@ -68,14 +68,14 @@ La decisione riguardo alla configurazione del server per il backup con ridondanz
 
 Durante la creazione di un server tramite il comando `az mysql server create`, il parametro `--geo-redundant-backup` definisce l'opzione di ridondanza del backup. Se il valore è `Enabled`, vengono eseguiti backup con ridondanza geografica. Se invece il valore è `Disabled`, vengono eseguiti backup con ridondanza locale. 
 
-Il periodo di conservazione dei backup è specificato dal parametro `--backup-retention-days`. 
+Il periodo di conservazione dei backup è specificato dal parametro `--backup-retention`. 
 
 Per altre informazioni sull'impostazione di questi valori durante la creazione, vedere la [guida introduttiva alla creazione di un server di Database di Azure per MySQL tramite l'interfaccia della riga di comando](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 È possibile modificare il periodo di conservazione dei backup di un server nel modo seguente:
 
 ```azurecli-interactive
-az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 L'esempio precedente modifica il periodo di conservazione dei backup di mydemoserver impostandolo su 10 giorni.
@@ -96,7 +96,7 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 Il comando `az mysql server restore` richiede i parametri seguenti:
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | DESCRIZIONE  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | name | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
@@ -114,6 +114,10 @@ Se il server è stato configurato per backup con ridondanza geografica, è possi
 
 Per creare un server tramite un backup con ridondanza geografica, usare il comando `az mysql server georestore` dell'interfaccia della riga di comando di Azure.
 
+> [!NOTE]
+> Quando un server viene creato per la prima volta, potrebbe non essere subito disponibile per il ripristino geografico. Potrebbero essere necessarie alcune ore per popolare i metadati necessari.
+>
+
 Per eseguire un ripristino geografico del server, al prompt dei comandi dell'interfaccia della riga di comando di Azure immettere il comando seguente:
 
 ```azurecli-interactive
@@ -129,7 +133,7 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 ```
 
 Il comando `az mysql server georestore` richiede i parametri seguenti:
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | DESCRIZIONE  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Nome del gruppo di risorse cui apparterrà il nuovo server.|
 |name | mydemoserver-georestored | Nome del nuovo server. |

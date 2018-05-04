@@ -12,24 +12,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/30/2018
+ms.date: 4/03/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: af09df52fe733b69cfe4470de2fd6e978f126ca0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3d6a47ba184b4bbbd290a61c581ae8b83b9361af
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Configurare Log Analytics per un cluster
 
-È possibile configurare un'area di lavoro di Log Analytics tramite Azure Resource Manager, PowerShell o Azure Marketplace. Quando si gestisce un modello di Resource Manager aggiornato della distribuzione, per un utilizzo futuro, usare lo stesso modello per configurare l'ambiente di OMS. La distribuzione tramite Marketplace è più semplice se è già disponibile un cluster distribuito, con il servizio di diagnostica abilitato. Se non si ha accesso a livello di sottoscrizione nell'account in cui si sta distribuendo OMS, eseguire la distribuzione usando PowerShell o il modello di Resource Manager.
+Log Analytics è la soluzione consigliata per monitorare gli eventi a livello di cluster. È possibile configurare l'area di lavoro di Log Analytics tramite Azure Resource Manager, PowerShell o Azure Marketplace. Quando si gestisce un modello aggiornato di Resource Manager della distribuzione per un uso futuro, usare lo stesso modello per configurare l'ambiente di Log Analytics. La distribuzione tramite Marketplace è più semplice se è già disponibile un cluster distribuito, con il servizio di diagnostica abilitato. Se non si ha accesso a livello di sottoscrizione nell'account in cui si sta eseguendo la distribuzione, eseguire la distribuzione usando PowerShell o il modello di Resource Manager.
 
 > [!NOTE]
-> Per configurare Log Analytics per il monitoraggio del cluster è necessario che il servizio di diagnostica sia abilitato affinché sia possibile visualizzare gli eventi a livello di cluster o di piattaforma.
+> Per configurare Log Analytics per il monitoraggio del cluster è necessario che il servizio di diagnostica sia abilitato affinché sia possibile visualizzare gli eventi a livello di cluster o di piattaforma. Fare riferimento alle procedure per la [configurazione della diagnostica nei cluster Windows](service-fabric-diagnostics-event-aggregation-wad.md) e la [configurazione della diagnostica nei cluster Linux](service-fabric-diagnostics-event-aggregation-lad.md) per altre informazioni.
 
-## <a name="deploy-oms-by-using-azure-marketplace"></a>Distribuire OMS tramite Azure Marketplace
+## <a name="deploy-a-log-analytics-workspace-by-using-azure-marketplace"></a>Distribuire un'area di lavoro di Log Analytics tramite Azure Marketplace
 
-Se si intende aggiungere un'area di lavoro di OMS dopo aver distribuito un cluster, andare al portale di Azure Marketplace e cercare **Analisi Service Fabric**:
+Se si intende aggiungere un'area di lavoro di Log Analytics dopo aver distribuito un cluster, andare al portale di Azure Marketplace e cercare **Analisi Service Fabric**. Si tratta di una soluzione personalizzata per le distribuzioni di Service Fabric con dati specifici di Service Fabric. In questo processo verranno create la soluzione (dashboard per la visualizzazione di informazioni dettagliate) e l'area di lavoro (aggregazione dei dati del cluster sottostanti).
 
 1. Selezionare **Nuovo** nel menu di spostamento a sinistra. 
 
@@ -39,7 +39,7 @@ Se si intende aggiungere un'area di lavoro di OMS dopo aver distribuito un clust
 
     ![Analisi SF OMS in Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. Nella finestra di creazione di Analisi Service Fabric scegliere **Selezionare un'area di lavoro** per il campo **Area di lavoro di OMS** e quindi su **Crea una nuova area di lavoro**. Compilare le voci necessarie. L'unico requisito è che la sottoscrizione per il cluster di Service Fabric e l'area di lavoro di OMS sia la stessa. Dopo aver convalidato le voci, verrà avviata la distribuzione dell'area di lavoro di OMS. La distribuzione richiede solo alcuni minuti.
+4. Nella finestra di creazione di Analisi Service Fabric scegliere **Selezionare un'area di lavoro** per il campo **Area di lavoro di OMS** e quindi su **Crea una nuova area di lavoro**. Compilare le voci necessarie. L'unico requisito è che la sottoscrizione per il cluster di Service Fabric e l'area di lavoro sia la stessa. Dopo aver convalidato le voci, verrà avviata la distribuzione dell'area di lavoro. La distribuzione richiede solo alcuni minuti.
 
 5. Al termine, selezionare di nuovo **Crea** nella parte inferiore della finestra di creazione di Analisi Service Fabric. Assicurarsi che la nuova area di lavoro sia visualizzata in **Area di lavoro OMS**. Questa azione aggiunge la soluzione all'area di lavoro creata.
 
@@ -48,9 +48,9 @@ Se si usa Windows, continuare con i passaggi seguenti per connettere OMS all'acc
 >[!NOTE]
 >L'abilitazione di questa esperienza per i cluster Linux non è ancora disponibile. 
 
-### <a name="connect-the-oms-workspace-to-your-cluster"></a>Connettere l'area di lavoro di OMS al cluster 
+### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Connettere l'area di lavoro di Log Analytics al cluster 
 
-1. L'area di lavoro deve essere connessa ai dati di diagnostica provenienti dal cluster. Andare al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. Selezionare **ServiceFabric\<nameOfOMSWorkspace\>** e andare alla relativa pagina di panoramica. Da qui, è possibile modificare le impostazioni della soluzione, le impostazioni dell'area di lavoro e accedere al portale OMS.
+1. L'area di lavoro deve essere connessa ai dati di diagnostica provenienti dal cluster. Andare al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. Selezionare **ServiceFabric\<NomeAreaDiLavoro\>** e andare alla relativa pagina di panoramica. Da qui, è possibile modificare le impostazioni della soluzione, le impostazioni dell'area di lavoro e accedere al portale OMS.
 
 2. Nel menu di spostamento a sinistra in **Origini dati dell'area di lavoro** selezionare **Log account di archiviazione**.
 

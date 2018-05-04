@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: a7a71eb4de1723be1fd32a35bee848885738b029
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 027b7ae5b87cc8349670b2270124c18d68242a9f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Esercitazione: Integrazione di Azure Active Directory con Nexonia
 
@@ -95,7 +95,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Nexonia, è n
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Nexonia.
 
   > [!Note]
-   > In caso di problemi di integrazione, fare riferimento a questo [collegamento](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery) per una guida alla risoluzione dei problemi. Se non è stata trovata una soluzione, creare una richiesta di supporto dal portale di Azure.
+   > In caso di problemi di integrazione, fare riferimento a questo [collegamento](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery) per una guida alla risoluzione dei problemi. Se non è stata trovata una soluzione, creare una richiesta di supporto dal portale di Azure.
 
 **Per configurare l'accesso Single Sign-On di Azure AD con Nexonia, seguire questa procedura:**
 

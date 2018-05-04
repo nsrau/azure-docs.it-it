@@ -67,7 +67,7 @@
 ## Integrazione con integrazione continua/distribuzione continua
 ### [Integrare i lab nella pipeline di integrazione continua/distribuzione continua di Visual Studio Team Services](devtest-lab-integrate-ci-cd-vsts.md)
 
-# riferimento
+# Riferimenti
 ## [Interfaccia della riga di comando 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Creare o modificare automaticamente i lab](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
@@ -86,5 +86,5 @@
 
 
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/en-us/roadmap/?category=developer-tools)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=developer-tools)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)

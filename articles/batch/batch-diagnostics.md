@@ -1,55 +1,135 @@
 ---
-title: Abilitare la registrazione diagnostica per eventi di Batch - Azure | Microsoft Docs
+title: Metriche, avvisi e log di diagnostica per Azure Batch | Microsoft Docs
 description: Registrare e analizzare gli eventi di registrazione diagnostica per le risorse dell'account Azure Batch, come pool e attività.
 services: batch
 documentationcenter: ''
 author: dlepow
 manager: jeconnoc
 editor: ''
-ms.assetid: e14e611d-12cd-4671-91dc-bc506dc853e5
+ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/22/2017
+ms.date: 04/05/2018
 ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4c68df9650fa300ea20ea0621c732cb96d167ef
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.custom: ''
+ms.openlocfilehash: e64d272695c4e47c972df040d1c1c2a63bf3dddd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Registrare gli eventi per la diagnostica e il monitoraggio delle soluzioni Batch
+# <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio
 
-Come per molti servizi di Azure, il servizio Batch genera eventi di log per determinate risorse durante il ciclo di vita della risorsa. È possibile abilitare i log di diagnostica di Azure Batch per registrare gli eventi per le risorse, come attività e pool, e quindi usare i log per l'analisi e il monitoraggio diagnostici. Eventi come la creazione e l'eliminazione di pool, l'avvio e il completamento di attività e di altro tipo sono inclusi nei log di diagnostica di Batch.
+Questo articolo descrive come monitorare un account Batch tramite le funzionalità di [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Monitoraggio di Azure raccoglie [metriche](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e [log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per le risorse nell'account Batch. È possibile raccogliere e utilizzare i dati in svariati modi per monitorare l'account Batch e diagnosticare i problemi. È anche possibile configurare [avvisi sulle metriche](../monitoring-and-diagnostics/monitoring-overview-alerts.md#alerts-on-azure-monitor-data) per ricevere notifiche quando una metrica raggiunge un valore specificato. 
+
+## <a name="batch-metrics"></a>Metriche di Batch
+
+Le metriche sono dati di telemetria di Azure (chiamati anche contatori delle prestazioni) generati dalle risorse di Azure che vengono usate dal servizio Monitoraggio di Azure. Tra le metriche di esempio in un account Batch sono incluse quelle relative a eventi di creazione di pool, conteggio di nodi per priorità bassa ed eventi di completamento di attività. 
+
+Vedere l'[elenco delle metriche di Batch supportate](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
+
+Le metriche:
+
+* Vengono abilitate per impostazione predefinita in ogni account Batch senza alcuna configurazione aggiuntiva
+* Vengono generate ogni minuto
+* Non sono automaticamente persistenti, ma hanno una cronologia in sequenza di 30 giorni. È possibile mantenere persistenti le metriche di attività come parte della [registrazione diagnostica](#work-with-diagnostic-logs).
+
+### <a name="view-metrics"></a>Visualizzare le metriche
+
+È possibile visualizzare le metriche per l'account Batch nel portale di Azure. La pagina **Panoramica** per l'account mostra per impostazione predefinita le metriche relative a nodi, core e attività principali. 
+
+Per visualizzare tutte le metriche dell'account Batch: 
+
+1. Nel portale fare clic su **Tutti i servizi** > **Account Batch** e quindi fare clic sul nome dell'account Batch.
+2. In **Monitoraggio** selezionare **Metrica**.
+3. Selezionare una o più metriche. Se lo si desidera, è possibile selezionare metriche di risorse aggiuntive tramite gli elenchi a discesa **Sottoscrizioni**, **Gruppo di risorse**, **Tipo di risorsa** e **Risorsa**.
+
+    ![Metriche di Batch](media/batch-diagnostics/metrics-portal.png)
+
+Per recuperare le metriche a livello di codice, usare le API di Monitoraggio di Azure. Ad esempio, vedere [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) (Recuperare metriche di Monitoraggio di Azure con .NET).
+
+## <a name="batch-metric-alerts"></a>Avvisi sulle metriche di Batch
+
+Facoltativamente, è possibile configurare *avvisi sulle metriche* praticamente in tempo reale, che vengono attivati quando il valore di una metrica specificata supera la soglia assegnata. L'avviso genera una [notifica](../monitoring-and-diagnostics/insights-alerts-portal.md) personalizzata quando viene "attivato" (quando la soglia viene superata e viene soddisfatta la condizione di avviso) e anche quando viene "risolto" (quando il valore rientra nella soglia e la condizione non viene più soddisfatta). 
+
+Ad esempio, è possibile configurare un avviso sulle metriche quando il numero di core per priorità bassa diminuisce a un determinato livello, per consentire la regolazione della composizione dei pool.
+
+Per configurare un avviso sulle metriche nel portale:
+
+1. Fare clic su **Tutti i servizi** > **Account Batch** e quindi fare clic sul nome dell'account Batch.
+2. In **Monitoraggio** fare clic su **Regole di avviso** > **Aggiungi avviso per la metrica**.
+3. Selezionare una metrica, una condizione di avviso, ad esempio quando una metrica supera un valore specifico durante un periodo, e una o più notifiche.
+
+È anche possibile configurare un avviso praticamente in tempo reale usando l'[API REST](). Per altre informazioni, vedere [Usare gli avvisi sulle metriche più recenti per i servizi di Azure nel portale di Azure](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
+## <a name="batch-diagnostics"></a>Diagnostica di Batch
+
+I log di diagnostica contengono informazioni generate dalle risorse di Azure che descrivono il funzionamento di ogni risorsa. Per Batch, è possibile raccogliere i log seguenti:
+
+* Eventi **Log del servizio** generati dal servizio Batch di Azure durante il ciclo di vita di una singola risorsa di Batch, come un pool o un'attività. 
+
+* Log **Metrica** a livello di account. 
+
+Le impostazioni per abilitare la raccolta di log di diagnostica non sono attive per impostazione predefinita. È necessario abilitare in modo esplicito le impostazioni di diagnostica per ogni account Batch che si vuole monitorare.
+
+### <a name="log-destinations"></a>Destinazioni dei log
+
+Uno scenario comune consiste nel selezionare un account di archiviazione di Azure come destinazione dei log. Per archiviare i log in Archiviazione di Azure, creare l'account prima di abilitare la raccolta dei log. Se all'account Batch è stato associato un account di archiviazione, è possibile scegliere l'account come destinazione dei log. 
+
+Altre destinazioni facoltative per i log di diagnostica:
+
+* Trasmettere gli eventi dei log di diagnostica di Batch a un [hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Hub eventi è in grado di inserire milioni di eventi al secondo, che è quindi possibile trasformare e archiviare tramite un qualsiasi provider di analisi in tempo reale. 
+
+* Inviare i log di diagnostica ad [Azure Log Analytics](../log-analytics/log-analytics-overview.md), in cui è possibile analizzarli nel portale di Operations Management Suite (OMS) o esportarli per l'analisi in Power BI o Excel.
 
 > [!NOTE]
-> L'articolo illustra gli eventi di registrazione per le risorse degli account Batch, non i dati di output di attività e processi. Per i dettagli sull'archiviazione dei dati di output di processi e attività, vedere [Salvare in modo permanente l'output dei processi e delle attività di Azure Batch](batch-task-output.md).
-> 
-> 
+> Potrebbero essere previsti costi aggiuntivi per archiviare o elaborare dati dei log di diagnostica con servizi di Azure. 
+>
 
-## <a name="prerequisites"></a>Prerequisiti
-* [Account Azure Batch](batch-account-create-portal.md)
-* [Account di archiviazione di Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
-  
-  Per salvare in modo permanente i log di diagnostica di Batch, è necessario creare un account di archiviazione di Azure in cui verranno archiviati i log. È possibile specificare questo account di archiviazione quando si [abilita la registrazione diagnostica](#enable-diagnostic-logging) per l'account Batch. L'account di archiviazione specificato quando si abilita la raccolta di log non è lo stesso account di archiviazione collegato a cui si fa riferimento negli articoli relativi ai [pacchetti dell'applicazione](batch-application-packages.md) e alla [persistenza dell'output delle attività](batch-task-output.md).
-  
-  > [!WARNING]
-  > Si riceverà un **addebito** per i dati archiviati nell'account di archiviazione di Azure. Sono inclusi i log di diagnostica descritti in questo articolo. Tenere presente questo aspetto quando si progetta il [criterio di conservazione dei log](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md).
-  > 
-  > 
+### <a name="enable-collection-of-batch-diagnostic-logs"></a>Abilitare la raccolta dei log di diagnostica di Batch
 
-## <a name="enable-diagnostic-logging"></a>Abilitare la registrazione diagnostica
-Per impostazione predefinita, la registrazione diagnostica non è abilitata per l'account Batch. È necessario abilitare esplicitamente la registrazione diagnostica per ogni account Batch da monitorare:
+1. Nel portale fare clic su **Tutti i servizi** > **Account Batch** e quindi fare clic sul nome dell'account Batch.
+2. In **Monitoraggio** fare clic su **Log di diagnostica** > **Abilita diagnostica**.
+3. In **Impostazioni di diagnostica** immettere un nome per l'impostazione e scegliere una destinazione dei log (account di archiviazione esistente, hub eventi o Log Analytics). Selezionare **ServiceLog**, **AllMetrics** o entrambi.
 
-[Come abilitare la raccolta dei log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)
+    Quando si seleziona un account di archiviazione, è facoltativamente possibile impostare criteri di conservazione. Se non si specifica un numero di giorni per la conservazione, i dati vengono mantenuti per tutto il ciclo di vita dell'account di archiviazione.
 
-È consigliabile leggere fino in fondo l'articolo [Panoramica dei log di diagnostica di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per comprendere non solo come abilitare la registrazione, ma anche le categorie di log supportate dai vari servizi di Azure. Ad esempio, Batch di Azure supporta attualmente una categoria di log: i **log del servizio**.
+4. Fare clic su **Save**.
 
-## <a name="service-logs"></a>Log del servizio
-I log del servizio di Azure Batch contengono gli eventi generati dal servizio Azure Batch durante il ciclo di vita di una risorsa di Batch, come un'attività o un pool. Ogni evento generato da Batch viene archiviato nell'account di archiviazione specificato nel formato JSON. Ad esempio, questo è il corpo di un **evento di creazione pool** di esempio:
+    ![Diagnostica di Batch](media/batch-diagnostics/diagnostics-portal.png)
+
+Altre opzioni per abilitare la raccolta di log includono l'uso di Monitoraggio di Azure nel portale per configurare le impostazioni di diagnostica, di un [modello di Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md) oppure di Azure PowerShell o dell'interfaccia della riga di comando di Azure. Vedere [Raccogliere e utilizzare dati dei log dalle risorse di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)
+
+
+### <a name="access-diagnostics-logs-in-storage"></a>Accedere ai log di diagnostica nell'archiviazione
+
+Se si archiviano i log di diagnostica di Batch in un account di archiviazione, viene creato un contenitore di archiviazione nell'account di archiviazione non appena si verifica un evento correlato. I BLOB vengono creati in base al modello di denominazione seguente:
+
+```
+insights-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/
+RESOURCEGROUPS/{resource group name}/PROVIDERS/MICROSOFT.BATCH/
+BATCHACCOUNTS/{batch account name}/y={four-digit numeric year}/
+m={two-digit numeric month}/d={two-digit numeric day}/
+h={two-digit 24-hour clock hour}/m=00/PT1H.json
+```
+Esempio:
+
+```
+insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/
+RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
+BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
+```
+Ogni file di BLOB PT1H.json contiene eventi in formato JSON che si sono verificati nell'ora specificata nell'URL del BLOB, ad esempio, h=12. Durante l'ora attuale, gli eventi vengono aggiunti al file PT1H.json man mano che si verificano. Il valore dei minuti (m=00) è sempre 00, perché gli eventi del log di diagnostica vengono sempre suddivisi in singoli BLOB per ogni ora. Tutte le ore sono in formato UTC.
+
+
+Per altre informazioni sullo schema dei log di diagnostica nell'account di archiviazione, vedere [Archiviare log di diagnostica di Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+
+Per accedere ai log nell'account di archiviazione a livello di codice, usare le API di Archiviazione. 
+
+### <a name="service-log-events"></a>Eventi del log del servizio
+I log del servizio Azure Batch, se raccolti, contengono gli eventi generati dal servizio Azure Batch durante il ciclo di vita di una singola risorsa di Batch, come un pool o un'attività. Ogni evento generato da Batch viene registrato in formato JSON. Ad esempio, questo è il corpo di un **evento di creazione pool** di esempio:
 
 ```json
 {
@@ -57,7 +137,7 @@ I log del servizio di Azure Batch contengono gli eventi generati dal servizio Az
     "displayName": "Production Pool",
     "vmSize": "Small",
     "cloudServiceConfiguration": {
-        "osFamily": "4",
+        "osFamily": "5",
         "targetOsVersion": "*"
     },
     "networkConfiguration": {
@@ -73,37 +153,22 @@ I log del servizio di Azure Batch contengono gli eventi generati dal servizio Az
 }
 ```
 
-Ogni corpo dell'evento risiede in un file con estensione json nell'account di archiviazione di Azure specificato. Per accedere direttamente ai log, si consiglia di esaminare lo [schema dei log di diagnostica nell'account di archiviazione](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
-
-## <a name="service-log-events"></a>Eventi del log del servizio
 Il servizio Batch attualmente emette gli eventi di log del servizio seguenti. Questo elenco potrebbe non essere completo, poiché è possibile che eventi aggiuntivi siano stati aggiunti dopo l'ultimo aggiornamento di questo articolo.
 
 | **Eventi del log del servizio** |
 | --- |
-| [Pool create][pool_create] (Creazione del pool) |
-| [Pool delete start][pool_delete_start] (Avvio dell'eliminazione del pool) |
-| [Pool delete complete][pool_delete_complete] (Completamento dell'eliminazione del pool) |
-| [Pool resize start][pool_resize_start] (Avvio del ridimensionamento del pool) |
-| [Pool resize complete][pool_resize_complete] (Completamento del ridimensionamento del pool) |
-| [Task start][task_start] (Avvio dell'attività) |
-| [Task complete][task_complete] (Completamento dell'attività) |
-| [Task fail][task_fail] (Errore dell'attività) |
+| [Creazione di pool](batch-pool-create-event.md) |
+| [Avvio dell'eliminazione di pool](batch-pool-delete-start-event.md) |
+| [Completamento dell'eliminazione di pool](batch-pool-delete-complete-event.md) |
+| [Avvio del ridimensionamento di pool](batch-pool-resize-start-event.md) |
+| [Completamento del ridimensionamento di pool](batch-pool-resize-complete-event.md) |
+| [Avvio dell'attività](batch-task-start-event.md) |
+| [Attività completata](batch-task-complete-event.md) |
+| [Errore dell'attività](batch-task-fail-event.md) |
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
-Oltre ad archiviare gli eventi dei log di diagnostica in un account di archiviazione di Azure, è possibile anche trasmettere gli eventi del log del servizio Batch a un [Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md) e inviarli ad [Azure Log Analytics](../log-analytics/log-analytics-overview.md).
 
-* [Trasmettere log di diagnostica di Azure a Hub eventi](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
-  
-  Trasmettere in streaming il flusso di eventi diagnostici di Batch al servizio dati in ingresso a scalabilità elevata, Hub eventi. Hub eventi è in grado di inserire milioni di eventi al secondo, che è quindi possibile trasformare e archiviare tramite un qualsiasi provider di analisi in tempo reale.
-* [Analizzare i log di diagnostica di Azure con Log Analytics](../log-analytics/log-analytics-azure-storage.md)
-  
-  Inviare i log di diagnostica a Log Analytics, in cui è possibile analizzarli nel portale di Azure o esportarli per l'analisi in Power BI o Excel.
-
-[pool_create]: https://msdn.microsoft.com/library/azure/mt743615.aspx
-[pool_delete_start]: https://msdn.microsoft.com/library/azure/mt743610.aspx
-[pool_delete_complete]: https://msdn.microsoft.com/library/azure/mt743618.aspx
-[pool_resize_start]: https://msdn.microsoft.com/library/azure/mt743609.aspx
-[pool_resize_complete]: https://msdn.microsoft.com/library/azure/mt743608.aspx
-[task_start]: https://msdn.microsoft.com/library/azure/mt743616.aspx
-[task_complete]: https://msdn.microsoft.com/library/azure/mt743612.aspx
-[task_fail]: https://msdn.microsoft.com/library/azure/mt743607.aspx
+* Informazioni sulle [API e gli strumenti di Batch](batch-apis-tools.md) disponibili per la compilazione di soluzioni Batch.
+* Leggere altre informazioni sul [monitoraggio di soluzioni Batch](monitoring-overview.md).

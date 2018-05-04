@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 50a86a01c22450ae2d92e6743fb6de7e652d4017
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9db01b4ea9a4f0d307db8bb9f8b6d6437a06815d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Esercitazione: Integrazione di Azure Active Directory con SignalFx
 
@@ -140,49 +140,33 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     e. Fare clic su **OK**.
  
-6. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+6. Nella sezione **Certificato di firma SAML** seguire questa procedura: 
 
-    ![Collegamento di download del certificato](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png) 
+    ![Collegamento di download del certificato](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png)
+
+    a. Fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
+
+    b. Fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
 7. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-signalfx-tutorial/tutorial_general_400.png)
 
-8. Per generare l'**URL dei metadati**, eseguire queste operazioni:
-
-    a. Fare clic su **Registrazioni per l'app**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appregistrations.png)
-   
-    b. Fare clic su **Endpoint** per aprire la finestra di dialogo **Endpoint**.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpointicon.png)
-
-    c. Fare clic sul pulsante Copia per copiare l'URL del **DOCUMENTO METADATI FEDERAZIONE** e incollarlo nel Blocco note.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpoint.png)
-     
-    d. Passare ora alla pagina delle proprietà di **SignalFx**, copiare il valore di **ID applicazione** usando il pulsante **Copia** e incollarlo nel Blocco note.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appid.png)
-
-    e. Generare l'**URL dei metadati** usando il modello seguente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-9. Nella sezione **Configurazione di SignalFx** fare clic su **Configura SignalFx** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML** dalla **sezione di riferimento rapido.**
+8. Nella sezione **Configurazione di SignalFx** fare clic su **Configura SignalFx** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML** dalla **sezione di riferimento rapido.**
 
     ![Configurazione di SignalFx](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_configure.png) 
 
-10. Accedere al sito aziendale di SignalFx come amministratore.
+9. Accedere al sito aziendale di SignalFx come amministratore.
 
-11. In SignalFx fare clic su **Integrations** (Integrazioni) nella parte superiore per aprire la pagina Integrations (Integrazioni).
+10. In SignalFx fare clic su **Integrations** (Integrazioni) nella parte superiore per aprire la pagina Integrations (Integrazioni).
 
     ![Integrazione di SignalFx](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_intg.png)
 
-12. Fare clic sul riquadro **Azure Active Directory** nella sezione **Login Services** (Servizi di accesso).
+11. Fare clic sul riquadro **Azure Active Directory** nella sezione **Login Services** (Servizi di accesso).
  
     ![SAML per SignalFx](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_saml.png)
 
-13. Fare clic su **NUOVA INTEGRAZIONE** e nella scheda **INSTALL** (INSTALLA) eseguire queste operazioni:
+12. Fare clic su **NUOVA INTEGRAZIONE** e nella scheda **INSTALL** (INSTALLA) eseguire queste operazioni:
  
     ![Pagina di integrazione SAML di SignalFx](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_azure.png)
 
@@ -194,12 +178,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     d. Nella casella di testo **Issuer URL** (URL autorità di certificazione) incollare il valore di **SAML Entity ID** (ID entità SAML) copiato dal portale di Azure.
 
-    e. Nella casella di testo **Metadata URL** (URL metadati) incollare il valore di **SAML Entity ID** (ID entità SAML) generato dal portale di Azure.
+    e. Nella casella di testo **Metadata URL** (URL dei metadati) incollare l'**URL dei metadati di federazione dell'app** copiato dal portale di Azure.
 
     f. Fare clic su **Save**.
-
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 

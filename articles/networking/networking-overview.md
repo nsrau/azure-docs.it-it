@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: a4f1c7c3342a2a78a2a5b765bd688bed4c85392f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 47ee22df081b71e7bafa40210a9c4cac0a844825
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-networking"></a>Rete di Azure
 
@@ -155,7 +155,7 @@ Azure offre gli strumenti seguenti per il monitoraggio e la gestione di rete:
 
 ## <a name="pricing"></a>Prezzi
 
-Alcuni dei servizi di rete di Azure comportano un addebito, mentre altri sono gratuiti. Per altre informazioni, vedere le pagine relative ai prezzi di [rete virtuale](https://azure.microsoft.com/pricing/details/virtual-network), [gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway), [gateway applicazione](https://azure.microsoft.com/en-us/pricing/details/application-gateway/), [bilanciamento del carico](https://azure.microsoft.com/pricing/details/load-balancer), [Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher), [DNS](https://azure.microsoft.com/pricing/details/dns), [Gestione traffico](https://azure.microsoft.com/pricing/details/traffic-manager) ed [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
+Alcuni dei servizi di rete di Azure comportano un addebito, mentre altri sono gratuiti. Per altre informazioni, vedere le pagine relative ai prezzi di [rete virtuale](https://azure.microsoft.com/pricing/details/virtual-network), [gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway), [gateway applicazione](https://azure.microsoft.com/pricing/details/application-gateway/), [bilanciamento del carico](https://azure.microsoft.com/pricing/details/load-balancer), [Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher), [DNS](https://azure.microsoft.com/pricing/details/dns), [Gestione traffico](https://azure.microsoft.com/pricing/details/traffic-manager) ed [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

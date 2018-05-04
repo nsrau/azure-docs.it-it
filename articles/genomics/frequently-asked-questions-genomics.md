@@ -11,15 +11,15 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 2077eeb5177b07c458476ae900f81b72e35f0dc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b3f30dc5d185615370a8273f71554f784d286cd9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="microsoft-genomics-common-questions"></a>Genomica di Microsoft: Domande comuni
 
-Questo articolo elenca le domande più importanti degli utenti su Genomica di Microsoft. Per altre informazioni sul servizio Genomica di Microsoft, vedere [Informazioni su Genomica di Microsoft](overview-what-is-genomics.md) 
+Questo articolo elenca le domande più importanti degli utenti su Genomica di Microsoft. Per altre informazioni sul servizio Genomica di Microsoft, vedere [Informazioni su Genomica di Microsoft](overview-what-is-genomics.md). Per altre informazioni sulla risoluzione dei problemi, vedere [Guida per la risoluzione dei problemi](troubleshooting-guide-genomics.md). 
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Qual è il contratto di servizio per Genomica di Microsoft?
@@ -82,5 +82,5 @@ Lo spazio vuoto viene ignorato.
 
 Usare le risorse seguenti per iniziare a usare Genomica di Microsoft:
 - Iniziare eseguendo il primo flusso di lavoro tramite il servizio Genomica di Microsoft. [Eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft ](quickstart-run-genomics-workflow-portal.md)
-- Inviare i dati per l'elaborazione tramite il servizio Genomica di Microsoft: [FASTQ abbinati](quickstart-input-pair-FASTQ.md) | [Monitoraggio attività di business](quickstart-input-BAM.md) | [più FASTQ o Monitoraggio attività di business](quickstart-input-multiple.md) 
+- Inviare i dati per l'elaborazione tramite il servizio Genomica di Microsoft: [File di FASTQ abbinati](quickstart-input-pair-FASTQ.md) | [File di Monitoraggio attività di business](quickstart-input-BAM.md) | [Più file di FASTQ o Monitoraggio attività di business](quickstart-input-multiple.md) 
 

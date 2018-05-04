@@ -9,15 +9,22 @@ ms.custom: mvc,security
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: daredis
-ms.openlocfilehash: 4d2f5ce387a1e9b36fd1625210f42525a272c270
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 68a2a61dd5821470d30e3735ea6a2df89360cbb2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteggere il database SQL di Azure
 
-Il database SQL protegge i dati limitando l'accesso al database usando regole del firewall, i meccanismi di autenticazione che richiedono agli utenti di dimostrare la propria identità e l'autorizzazione per i dati tramite le appartenenze basate sui ruoli e le autorizzazioni, oltre che tramite la sicurezza a livello di riga e la maschera dati dinamica.
+I dati del database SQL sono protetti mediante: 
+- Limitazione dell'accesso al database con le regole del firewall 
+- Uso di meccanismi di autenticazione che verificano l'identità
+- Autorizzazione ai dati tramite appartenenze e autorizzazioni basate su ruoli 
+- Sicurezza a livello di riga
+- Maschera dati dinamica
+
+Il database SQL offre anche funzioni sofisticate di monitoraggio, controllo e rilevamento delle minacce. 
 
 È possibile migliorare la protezione del database contro utenti malintenzionati o accessi non autorizzati con pochi semplici passaggi. In questa esercitazione si apprenderà come: 
 
@@ -155,7 +162,7 @@ Transparent Data Encryption, ovvero TDE, di database SQL di Azure consente di cr
 
 3. Se necessario, impostare **Crittografia dati** su Sì e fare clic su **Salva**.
 
-Il processo di crittografia viene avviato in background. Per monitorare lo stato, connettersi al database SQL con [SQL Server Management Studio](./sql-database-connect-query-ssms.md) effettuando una query della colonna encryption_state nella visualizzazione `sys.dm_database_encryption_keys`.
+Il processo di crittografia viene avviato in background. È possibile monitorare lo stato di avanzamento connettendosi al database SQL con [SQL Server Management Studio](./sql-database-connect-query-ssms.md) ed eseguendo una query sulla colonna encryption_state della visualizzazione [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017). Lo stato 3 indica che il database è crittografato. 
 
 ## <a name="enable-sql-database-auditing-if-necessary"></a>Abilitare il controllo del database SQL, se necessario
 

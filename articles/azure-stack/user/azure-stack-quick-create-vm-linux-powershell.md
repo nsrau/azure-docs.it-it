@@ -17,7 +17,7 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.openlocfilehash: 86597defad7c76d41065270030a4c77ee901b014
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
 ---

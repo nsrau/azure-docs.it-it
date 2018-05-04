@@ -74,8 +74,10 @@
       href: sql-database-servers-databases.md
     - name: Istanza gestita
       href: sql-database-managed-instance.md
-    - name: Livelli di servizio
-      href: sql-database-service-tiers.md
+    - name: Livelli di servizio basati su DTU
+      href: sql-database-service-tiers-dtu.md
+    - name: Livelli di servizio basati su vCore
+      href: sql-database-service-tiers-vcore.md
     - name: Scalabilità in lettura
       href: sql-database-read-scale-out.md
     - name: Limiti delle risorse basati su DTU
@@ -412,8 +414,12 @@
               href: saas-tenancy-schema-management.md
             - name: Creazione di report tra tenant
               href: saas-tenancy-cross-tenant-reporting.md
-            - name: ETL per l'analisi
-              href: saas-tenancy-tenant-analytics.md
+            - name: Analisi su tenant
+              items:
+                - name: Con database SQL
+                  href: saas-tenancy-tenant-analytics.md
+                - name: Con SQL Data Warehouse
+                  href: saas-tenancy-tenant-analytics-adf.md
             - name: Ripristino di emergenza con il ripristino geografico
               href: saas-dbpertenant-dr-geo-restore.md
             - name: Ripristino di emergenza con la replica geografica del database

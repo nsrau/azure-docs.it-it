@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 687f3c4a5f70154b6335563d65443c12463b0b74
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 842fe8c194f1c88c7dabb073e0fa7b7806d92d44
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Condizioni della posizione nell'accesso condizionale di Azure Active Directory 
 
@@ -45,14 +45,14 @@ Con le posizioni specifiche è possibile creare raggruppamenti logici di interva
 
 È possibile accedere a specifiche posizioni dalla sezione **Gestisci** della pagina Accesso condizionale.
 
-![Posizioni](./media/active-directory-conditional-access-locations/02.png)
+![Località](./media/active-directory-conditional-access-locations/02.png)
 
  
 
 
 Una posizione specifica ha le caratteristiche seguenti:
 
-![Posizioni](./media/active-directory-conditional-access-locations/42.png)
+![Località](./media/active-directory-conditional-access-locations/42.png)
 
 - **Nome**: nome visualizzato di una posizione specifica.
 
@@ -119,7 +119,7 @@ Questa opzione si applica a:
 
 ### <a name="selected-locations"></a>Le località selezionate
 
-Con questa opzione è possibile selezionare una o più posizioni specifiche. Per applicare criteri con questa impostazione, un utente deve connettersi da una delle posizioni selezionate. Quando si fa clic su **Seleziona** si apre il controllo di selezione delle reti denominate che mostra l'elenco delle reti denominate. L'elenco indica anche se il percorso di rete è stato contrassegnato come attendibile. La posizione specifica denominata **Indirizzi IP attendibili MFA** viene usata per includere le impostazioni IP che possono essere configurate nella pagina di impostazione del servizio di autenticazione a più fattori.
+Con questa opzione è possibile selezionare una o più posizioni specifiche. Per applicare criteri con questa impostazione, un utente deve connettersi da una delle posizioni selezionate. Quando si fa clic su **Seleziona**, si apre il controllo di selezione delle reti denominate che mostra l'elenco delle reti denominate. L'elenco indica anche se il percorso di rete è stato contrassegnato come attendibile. La posizione specifica denominata **Indirizzi IP attendibili MFA** viene usata per includere le impostazioni IP che possono essere configurate nella pagina di impostazione del servizio di autenticazione a più fattori.
 
 ## <a name="what-you-should-know"></a>Informazioni utili
 

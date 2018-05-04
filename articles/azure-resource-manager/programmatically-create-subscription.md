@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/18/2018
 ms.author: jlian
-ms.openlocfilehash: 5ec67c0d51d24a7bb93a3f11bf3b73a223e8b583
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8d495bf89697a5e14ff79953ab98f241ef8972e8
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Creare sottoscrizioni di Azure Enterprise a livello di programmazione (anteprima)
 
@@ -88,10 +88,10 @@ Azure risponde con un elenco di tutti gli account di registrazione a cui si ha a
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Usare il [comando Get-EnrollmentAccount](/powershell/module/azurerm.billing/get-azurermenrollmentaccount) per elencare tutti gli account di registrazione a cui si ha accesso.
+Usare il [comando Get-AzureRmEnrollmentAccount](/powershell/module/azurerm.billing/get-azurermenrollmentaccount) per elencare tutti gli account di registrazione a cui si ha accesso.
 
 ```azurepowershell-interactive
-Get-EnrollmentAccount
+Get-AzureRmEnrollmentAccount
 ```
 
 Azure risponde con un elenco degli ID oggetto e degli indirizzi di posta elettronica dell'account.

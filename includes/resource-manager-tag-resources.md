@@ -22,3 +22,10 @@
 7. È possibile selezionare i tag aggiunti dal dashboard per visualizzare le risorse con tale tag.
 
      ![Aggiungere i tag al dashboard](./media/resource-manager-tag-resources/show-pinned-tag.png)
+
+
+Per eseguire l'assegnazione in blocco dei tag a più risorse:
+1. Da qualsiasi elenco di risorse (ad esempio, Tutte le risorse - panoramica del gruppo di risorse):
+2. Selezionare la casella di controllo per le risorse a cui si vuole assegnare il tag.
+3. Selezionare l'opzione Assegna tag.
+4. Aggiungere il nome o i nomi e il valore o i valori e quindi selezionare Assegna.

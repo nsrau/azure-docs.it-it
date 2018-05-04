@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 24c8d90d3fec27258165472e99ba3d36ffcba733
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: cd9054afc359d7568fcd08f983f374e0b2bc3792
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-system-requirements-for-pci-dss-compliant-environments"></a>Requisiti per sistemi sicuri per gli ambienti conformi a PCI DSS 
 ## <a name="pci-dss-requirement-6"></a>Requisito 6 di PCI DSS
@@ -130,7 +130,7 @@ Gli utenti malintenzionati sfruttano le vulnerabilità della sicurezza per otten
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft segue le linee guida NIST in merito alle considerazioni sulla sicurezza per lo sviluppo di software, e nello specifico si attiene al requisito di integrazione della sicurezza delle informazioni nel ciclo di vita dello sviluppo (SDL, Security Development Lifecycle) sin dalle fasi iniziali dello sviluppo del sistema. L'integrazione continua delle procedure di sicurezza in Microsoft SDL consente:<ul><li>Identificazione tempestiva e mitigazione delle vulnerabilità di sicurezza e delle configurazioni errate</li><li>Conoscenza delle potenziali problematiche per la scrittura del codice del software causate dai controlli di sicurezza richiesti</li><li>Identificazione dei servizi di sicurezza condivisi e riutilizzo degli strumenti ottimali per la sicurezza, che consente di migliorare il comportamento di sicurezza tramite metodi e tecniche collaudati</li><li>Applicazione del programma di gestione dei rischi già completo di Microsoft</li></ul>Microsoft Azure ha definito processi consolidati per la gestione di modifiche e rilasci per controllare l'implementazione delle modifiche principali, tra cui:<ul><li>Identificazione e documentazione della modifica pianificata</li><li>Identificazione di obiettivi aziendali, priorità e scenari durante la pianificazione del prodotto</li><li>Specifica del progetto di funzionalità/componente</li><li>Verifica dell'idoneità operativa in base a criteri/elenchi di controllo predefiniti per valutare i rischi e/o l'impatto complessivi</li><li>Test, autorizzazione e gestione delle modifiche in base ai criteri di ingresso/uscita per gli ambienti DEV (sviluppo), INT (test di integrazione), STAGE (pre-produzione) e PROD (produzione), come appropriato. I clienti sono responsabili delle loro applicazioni ospitate in Microsoft Azure.</li></ul> |
-| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | La demo Contoso Webstore offre un servizio di staging registrato e isolato. <br /><br />Ogni livello di rete ha un gruppo di sicurezza di rete (NSG) dedicato. Per altre informazioni, vedere [PCI Guidance - Network Security Groups](payment-processing-blueprint.md#network-security-groups) (Linee guida per PCI - Gruppi di sicurezza di rete).<br /><br />Le modifiche vengono registrate con Operations Management Suite e vengono usati runbook per raccogliere i log. [Operations Management Suite (OMS)](/azure/operations-management-suite/) fornisce una registrazione completa delle modifiche. Le modifiche possono essere controllate e verificate per stabilirne l'accuratezza. Per istruzioni più dettagliate, vedere [PCI Guidance - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing) (Linee guida per PCI - Operations Management Suite).|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | La demo Contoso Webstore offre un servizio di staging registrato e isolato. <br /><br />Ogni livello di rete ha un gruppo di sicurezza di rete (NSG) dedicato. Per altre informazioni, vedere [PCI Guidance - Network Security Groups](payment-processing-blueprint.md#network-security-groups) (Linee guida per PCI - Gruppi di sicurezza di rete).<br /><br />Le modifiche vengono registrate con Operations Management Suite e vengono usati runbook per raccogliere i log. Log Analytics offre registrazione completa delle modifiche. Le modifiche possono essere controllate e verificate per stabilirne l'accuratezza. Per istruzioni più dettagliate, vedere [PCI Guidance - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing) (Linee guida per PCI - Operations Management Suite).|
 
 
 

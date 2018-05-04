@@ -2,29 +2,27 @@
 title: Configurare le impostazioni di Spark - Azure HDInsight | Microsoft Docs
 description: Come configurare Spark per un cluster HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: maxluk
-ms.openlocfilehash: 1dd0ff26cdb39feacec697d7900ad7abaa5f1996
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2ee496eae0767de22d070a0c5689692f0200515b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-spark-settings"></a>Configurare le impostazioni di Spark
 
-Un cluster HDInsight Spark include un'installazione della libreria Apache Spark.  Ogni cluster HDInsight include parametri di configurazione predefiniti per tutti i servizi installati, incluso Spark.  Un aspetto fondamentale della gestione di un cluster HDInsight Hadoop è il monitoraggio del carico di lavoro, inclusi i processi Spark, per assicurarsi che siano in esecuzione in modo prevedibile. Per eseguire al meglio i processi Spark, prendere in considerazione la configurazione fisica del cluster quando si determina come ottimizzare la configurazione logica del cluster.
+Un cluster HDInsight Spark include un'installazione della libreria Apache Spark.  Ogni cluster HDInsight include parametri di configurazione predefiniti per tutti i servizi installati, incluso Spark.  Un aspetto fondamentale della gestione di un cluster HDInsight Hadoop è il monitoraggio del carico di lavoro, inclusi i processi Spark, per assicurarsi che tali processi siano in esecuzione in modo prevedibile. Per eseguire al meglio i processi Spark, prendere in considerazione la configurazione fisica del cluster quando si determina come ottimizzare la configurazione logica del cluster.
 
 Il cluster HDInsight Apache Spark predefinito include i nodi seguenti: tre nodi ZooKeeper, due nodi head e uno o più nodi del ruolo di lavoro:
 
@@ -34,9 +32,13 @@ Anche il numero di macchine virtuali e le dimensioni delle macchine virtuali per
 
 ## <a name="spark-versions"></a>Versioni di Spark
 
-Prendere inoltre in considerazione la versione migliore di Spark per il cluster.  Spark 2.x offre caratteristiche di esecuzione migliori rispetto a Spark 1.x. Spark 2.x include numerose ottimizzazioni delle prestazioni, ad esempio Tungsten, Catalyst Query Optimization e molte altre.  Il servizio HDInsight include più versioni di Spark e di HDInsight.  Ogni versione di Spark include un set di impostazioni del cluster predefinite.  Quando si crea un nuovo cluster, è possibile scegliere tra le seguenti versioni correnti di Spark:
+Usare la versione di Spark più appropriata per il cluster.  Il servizio HDInsight include diverse versioni di Spark e di HDInsight.  Ogni versione di Spark include un set di impostazioni del cluster predefinite.  
+
+Quando si crea un nuovo cluster, è possibile scegliere tra le seguenti versioni correnti di Spark:
 
 ![Versioni di Spark](./media/apache-spark-settings/spark-version.png)
+
+Spark 2.x offre caratteristiche di esecuzione migliori rispetto a Spark 1.x. Spark 2.x include numerose ottimizzazioni delle prestazioni, ad esempio Tungsten, Catalyst Query Optimization e molte altre.  
 
 > [!NOTE]
 > La versione predefinita di Apache Spark nel servizio HDInsight può cambiare senza preavviso. In caso di dipendenza dalla versione, è consigliabile indicare la versione specifica quando si creano i cluster tramite .NET SDK, Azure PowerShell e l'interfaccia della riga di comando di Azure.
@@ -47,7 +49,7 @@ Apache Spark ha tre posizioni per le configurazioni di sistema:
 * Le variabili di ambiente possono essere usate per definire le impostazioni per computer, ad esempio l'indirizzo IP, tramite lo script `conf/spark-env.sh` in ogni nodo.
 * La registrazione può essere configurata tramite `log4j.properties`.
 
-Quando si seleziona una particolare versione di Spark, il cluster include le impostazioni di configurazione predefinite.  È possibile modificare i valori di configurazione predefiniti di Spark fornendo un file di configurazione di Spark personalizzato.  Di seguito è illustrato un esempio.
+Quando si seleziona una particolare versione di Spark, il cluster include le impostazioni di configurazione predefinite.  È possibile modificare i valori di configurazione predefiniti di Spark usando un file di configurazione di Spark personalizzato.  Di seguito è illustrato un esempio.
 
 ```
     spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
@@ -57,7 +59,7 @@ Quando si seleziona una particolare versione di Spark, il cluster include le imp
     spark.sql.files.openCostInBytes 1099511627776
 ```
 
-L'esempio precedente esegue l'override di alcuni valori predefiniti per cinque parametri di configurazione di Spark.  Si tratta dei valori predefiniti relativi a codec di compressione, dimensioni minime di divisione MapReduce Hadoop, dimensioni del blocco Parquet, partizione Spark SQL e dimensioni dei file aperti.  Queste modifiche alla configurazione vengono scelte in quanto i dati e i processi associati (in questo esempio, i dati di genomica) hanno caratteristiche particolari che offrono prestazioni migliori se si usano queste impostazioni di configurazione personalizzate.
+L'esempio precedente esegue l'override di alcuni valori predefiniti per cinque parametri di configurazione di Spark.  Si tratta dei valori predefiniti relativi a codec di compressione, dimensioni minime di divisione MapReduce Hadoop, dimensioni del blocco Parquet, partizione Spark SQL e dimensioni dei file aperti.  Queste modifiche alla configurazione vengono scelte in quanto i dati e i processi associati (in questo esempio, i dati di genomica) hanno caratteristiche particolari, che offrono prestazioni migliori se si usano queste impostazioni di configurazione personalizzate.
 
 ---
 
@@ -126,7 +128,7 @@ YARN controlla la quantità complessiva massima di memoria usata dai contenitori
 
 ## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Modificare i parametri per un'applicazione in esecuzione in un notebook Jupyter
 
-I cluster Spark in HDInsight includono per impostazione predefinita diversi componenti. Ognuno di questi componenti include valori di configurazione predefiniti di cui è possibile eseguire l'override, se necessario.
+I cluster Spark in HDInsight includono per impostazione predefinita diversi componenti. Ognuno di questi componenti include valori di configurazione predefiniti, di cui è possibile eseguire l'override se necessario.
 
 * Spark Core: Spark Core, Spark SQL, API di streaming Spark, GraphX e MLlib
 * Anaconda: strumento di gestione pacchetti Python

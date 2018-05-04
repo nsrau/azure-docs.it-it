@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 04/19/2018
 ms.author: jgao
-ms.openlocfilehash: 0e5e05a1a5c084854cd911188777dedf40817227
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6cb7bb982da36256707d080a7f5118127deb3a9c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Usare i nodi perimetrali vuoti sui cluster Hadoop in HDInsight
 
@@ -69,6 +69,9 @@ Dopo aver creato un nodo perimetrale, è possibile connettersi al nodo stesso tr
 >
 > Se si usa una tecnologia Apache, è possibile ottenere assistenza tramite i siti di progetto Apache su [http://apache.org](http://apache.org), ad esempio il sito [Hadoop](http://hadoop.apache.org/).
 
+> [!NOTE]
+> In modo analogo ai cluster, anche i nodi perimetrali sono gestiti tramite patch.  Per altre informazioni, vedere [Applicazione di patch del sistema operativo per HDInsight](./hdinsight-os-patching.md).
+
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Aggiungere un nodo perimetrale a un cluster esistente
 In questa sezione si userà un modello di Resource Manager per aggiungere un nodo perimetrale a un cluster HDInsight esistente.  Il modello di Resource Manager è disponibile in [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). Il modello di Resource Manager chiama un'azione script disponibile in https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Lo script non esegue alcuna azione.  Per illustrare la chiamata all'azione script da un modello di Resource Manager.
 
@@ -115,6 +118,10 @@ In questa sezione si userà un modello di Resource Manager per creare un cluster
      
      Alcune proprietà sono state impostate come hardcoded nel modello: il tipo di cluster, il numero di nodi del ruolo di lavoro del cluster e le dimensioni e il nome del nodo perimetrale.
 4. Selezionare **Accetto le condizioni riportate sopra** e quindi fare clic su **Acquista** per creare il cluster con il nodo perimetrale.
+
+## <a name="add-multiple-edge-nodes"></a>Aggiungere più nodi perimetrali
+
+È possibile aggiungere più nodi perimetrali a un cluster HDInsight.  La configurazione basata su più nodi perimetrali può essere eseguita solo usando i modelli di Azure Resource Manager.  Vedere l'esempio di modello all'inizio di questo articolo.  È necessario aggiornare il valore di **targetInstanceCount** in base al numero di nodi perimetrali da creare.
 
 ## <a name="access-an-edge-node"></a>Accedere a un nodo perimetrale
 L'endpoint SSH del nodo perimetrale è &lt;NomeNodoPerimetrale>.&lt;NomeCluster>-ssh.azurehdinsight.net:22.  Ad esempio, new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.

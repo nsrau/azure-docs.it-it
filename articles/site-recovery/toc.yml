@@ -129,6 +129,8 @@
           items:
             - name: Ripristino di emergenza delle macchine virtuali di Azure dopo la migrazione in Azure
               href: azure-to-azure-replicate-after-migration.md
+            - name: Ripristino di emergenza di VM di Azure con PowerShell
+              href: azure-to-azure-powershell.md
         - name: 'Replica, failover e failback'
           items:
             - name: Abilitare la replica da Azure ad Azure

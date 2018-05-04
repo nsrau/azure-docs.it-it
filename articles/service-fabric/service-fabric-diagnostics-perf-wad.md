@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: b2b740c2ececba2c3f95f8fbfbfb55e7f4811112
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a9e8ef7243fcef990dae6ddc6509cd31b3f36e3d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitoraggio delle prestazioni con l'estensione Diagnostica di Microsoft Azure
 
@@ -44,7 +44,9 @@ Per raccogliere i contatori delle prestazioni tramite Diagnostica di Microsoft A
 
     `scheduledTransferPeriod` definisce la frequenza con cui i valori dei contatori raccolti vengono trasferiti alla tabella di archiviazione di Azure e ai sink configurati. 
 
-3. Aggiungere i contatori delle prestazioni che si vuole raccogliere all'elemento `PerformanceCounterConfiguration` dichiarato nel passaggio precedente. Ogni contatore che si vuole raccogliere viene definito con `counterSpecifier`, `sampleRate`, `unit`, `annotation` ed eventuali `sinks` pertinenti. Di seguito è riportato un esempio di configurazione con il contatore *Tempo totale processore* (tempo in cui la CPU ha eseguito le operazioni di elaborazione) e le *chiamate al metodo di Service Fabric Actor al secondo*, uno dei contatori delle prestazioni personalizzati di Service Fabric. Vedere [Contatori delle prestazioni di Actor affidabili](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) e [Contatori delle prestazioni del Servizio affidabili](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) per un elenco completo dei contatori delle prestazioni affidabili di Service Fabric.
+3. Aggiungere i contatori delle prestazioni che si vuole raccogliere all'elemento `PerformanceCounterConfiguration` dichiarato nel passaggio precedente. Ogni contatore che si vuole raccogliere viene definito con `counterSpecifier`, `sampleRate`, `unit`, `annotation` ed eventuali `sinks` pertinenti.
+
+Di seguito è riportato un esempio di configurazione con il contatore *Tempo totale processore* (tempo in cui la CPU ha eseguito le operazioni di elaborazione) e le *chiamate al metodo di Service Fabric Actor al secondo*, uno dei contatori delle prestazioni personalizzati di Service Fabric. Vedere [Contatori delle prestazioni di Actor affidabili](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) e [Contatori delle prestazioni del Servizio affidabili](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) per un elenco completo dei contatori delle prestazioni affidabili di Service Fabric.
 
  ```json
  "WadCfg": {
@@ -112,9 +114,8 @@ Per raccogliere i contatori delle prestazioni tramite Diagnostica di Microsoft A
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Al termine della distribuzione dell'aggiornamento (da 15 a 45 minuti), Diagnostica di Microsoft Azure raccoglierà i contatori delle prestazioni e li invierà a una tabella denominata WADPerformanceCountersTable nell'account di archiviazione associato al cluster.
+5. Al termine della distribuzione dell'aggiornamento (da 15 a 45 minuti), Diagnostica di Microsoft Azure raccoglierà i contatori delle prestazioni e li invierà a una tabella denominata WADPerformanceCountersTable nell'account di archiviazione associato al cluster. Vedere i contatori delle prestazioni in Application Insights [aggiungendo il sink di Application Insights al modello di Resource Manager](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Vedere i contatori delle prestazioni in Application Insights [aggiungendo il sink AI al modello di Resource Manager](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template)
 * Raccogliere altri contatori delle prestazioni per il cluster. Vedere [Metriche delle prestazioni](service-fabric-diagnostics-event-generation-perf.md) per un elenco di contatori da raccogliere.
 * [Usare monitoraggio e diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) per apportare altre modifiche a `WadCfg`, inclusa la configurazione di account di archiviazione aggiuntivi a cui inviare i dati di diagnostica.

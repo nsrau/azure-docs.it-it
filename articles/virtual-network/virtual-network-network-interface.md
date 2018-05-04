@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: c39f11eae08e74e1bb29a5587fa4a8f0ba7c6a5b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 72c3968b59fda10d81af553cbf2324a2683c596b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creare, modificare o eliminare un'interfaccia di rete
 
@@ -216,7 +216,7 @@ Le regole di sicurezza valide per ciascuna interfaccia di rete collegata a una m
 4. Selezionare **Regole di sicurezza valide** in **SUPPORTO + RISOLUZIONE DEI PROBLEMI**.
 5. Rivedere l'elenco delle regole di sicurezza valide per determinare se esistono regole corrette per le comunicazioni richieste in entrata e in uscita. Ulteriori informazioni su quanto visualizzato nell'elenco sono disponibili in [Panoramica del gruppo di sicurezza di rete](security-overview.md).
 
-La funzione di verifica del flusso IP di Azure Network Watcher consente inoltre di determinare se le regole di sicurezza impediscono la comunicazione tra una macchina virtuale e un endpoint. Per altre informazioni, vedere [Verifica flusso IP](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+La funzione di verifica del flusso IP di Azure Network Watcher consente inoltre di determinare se le regole di sicurezza impediscono la comunicazione tra una macchina virtuale e un endpoint. Per altre informazioni, vedere [Verifica flusso IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Comandi**
 
@@ -233,7 +233,7 @@ Le route valide per ogni interfaccia di rete associata a una macchina virtuale s
 4. Selezionare **Route valide** in **SUPPORTO + RISOLUZIONE DEI PROBLEMI**.
 5. Rivedere l'elenco delle route valide per determinare se esistono route corrette per le comunicazioni richieste in entrata e in uscita. Per altre informazioni sugli elementi visualizzati nell'elenco, vedere [Panoramica del routing](virtual-networks-udr-overview.md).
 
-La funzione hop successiva di Azure Network Watcher consente inoltre di determinare se le route impediscono la comunicazione tra una macchina virtuale e un endpoint. Per ulteriori informazioni, vedere [Hop successivo](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+La funzione hop successiva di Azure Network Watcher consente inoltre di determinare se le route impediscono la comunicazione tra una macchina virtuale e un endpoint. Per ulteriori informazioni, vedere [Hop successivo](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Comandi**
 

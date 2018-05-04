@@ -6,13 +6,13 @@ author: anasouma
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/30/2018
 ms.author: wielriac
-ms.openlocfilehash: 5d1ad1555cb1e01e363456af5c50ecd090ce7147
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 79590e1987ee29ca06f9fb103f548518b2c1c57e
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Funzionalità univoche dei BLOB di pagine di Azure
 
@@ -21,9 +21,6 @@ Archiviazione di Azure offre tre tipi di archivio BLOB: BLOB in blocchi, BLOB di
 I BLOB di pagine sono una raccolta di pagine da 512 byte, che offrono la possibilità di leggere/scrivere intervalli arbitrari di byte. I BLOB di pagine sono quindi ideali per l'archiviazione di strutture di dati di tipo sparse e basati sull'indice, ad esempio i dischi del sistema operativo e di dati per le macchine virtuali e i database. Il database SQL di Azure, ad esempio, usa i BLOB di pagine come risorsa di archiviazione permanente sottostante per i database. I BLOB di pagine vengono spesso usati anche per i file con aggiornamenti basati su intervalli.  
 
 Le funzionalità principali dei BLOB di pagine di Azure sono l'interfaccia REST, la durabilità della risorsa di archiviazione sottostante e le funzionalità di migrazione senza problemi in Azure. Queste funzionalità sono illustrate in modo più dettagliato nella sezione successiva. I BLOB di pagine di Azure sono inoltre attualmente supportati in due tipi di risorsa di archiviazione: Archiviazione Premium e Archiviazione Standard. Archiviazione Premium è progettato specificamente per i carichi di lavoro che richiedono prestazioni elevate coerenti e bassa latenza e rende i BLOB di pagine Premium ideali per i database di archiviazione dati ad alte prestazioni.  Archiviazione Standard è economicamente più conveniente per l'esecuzione di carichi di lavoro non sensibili alla latenza.
-
-> [!WARNING]
-> I BLOB di pagine in Archiviazione Premium sono progettati per l'uso solo come dischi rigidi virtuali. Microsoft non consiglia di archiviare altri tipi di dati nei BLOB di pagine in Archiviazione Premium, perché il costo può essere notevolmente superiore. Usare i BLOB in blocchi per l'archiviazione dei dati che non sono in un disco rigido virtuale.
 
 ## <a name="sample-use-cases"></a>Caso d'uso di esempio
 

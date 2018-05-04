@@ -1,5 +1,5 @@
 ---
-title: Panoramica di Microsoft Azure Data Lake Analytics | Documentazione Microsoft
+title: Panoramica di Microsoft Azure Data Lake Analytics | Microsoft Docs
 description: Data Lake Analytics consente di gestire le attività aziendali usando le informazioni dettagliate ricavate dai dati archiviati nel cloud a qualsiasi livello.
 services: data-lake-analytics
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: 4ee0bdf486fa59c2d32b0d28ee25618996a57c6e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a378c2185d94864435188b84155d2b300a23b657
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="overview-of-azure-data-lake-analytics"></a>Panoramica di Azure Data Lake Analytics
 
-Azure Data Lake Analytics è un servizio per processi di analisi su richiesta che semplifica l'uso dei Big Data. Anziché distribuire, configurare e ottimizzare l'hardware, è possibile scrivere query per trasformare i dati ed estrarre informazioni di interesse. Con il servizio di analisi è possibile gestire processi di qualsiasi dimensione immediatamente definendo il livello e l'ambito necessari. Verrà addebitato un costo per il processo solo durante la sua esecuzione, per la massima convenienza. Il servizio di analisi include U-SQL, un linguaggio che unisce i vantaggi di SQL alla potenza del codice imperativo. U-SQL consente di analizzare i dati tra Data Lake Store, SQL Server in Azure, il database SQL di Azure e Azure SQL Data Warehouse.
+Azure Data Lake Analytics è un servizio per processi di analisi su richiesta che semplifica l'uso dei Big Data. Anziché distribuire, configurare e ottimizzare l'hardware, è possibile scrivere query per trasformare i dati ed estrarre informazioni di interesse. Con il servizio di analisi è possibile gestire processi di qualsiasi dimensione immediatamente definendo il livello e l'ambito necessari. Verrà addebitato un costo per il processo solo durante la sua esecuzione, per la massima convenienza. 
 
 ### <a name="dynamic-scaling"></a>Scalabilità dinamica
   

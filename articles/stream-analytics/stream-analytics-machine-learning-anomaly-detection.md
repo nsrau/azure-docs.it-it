@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/12/2018
-ms.openlocfilehash: cda5c26d4256720a8cf9af0e9abd604c979422a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/09/2018
+ms.openlocfilehash: e7274e4507d901a209ed5832e98ca630feefda4f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Rilevamento delle anomalie in Analisi di flusso di Azure
 
@@ -65,6 +65,8 @@ Per estrarre i singoli valori dal record, usare la funzione **GetRecordPropertyV
 `SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
 Un'anomalia di un determinato tipo viene rilevata quando uno dei punteggi di anomalia supera una soglia. La soglia può essere qualsiasi numero a virgola mobile >= 0. La soglia è un compromesso tra sensibilità e attendibilità. Ad esempio, una soglia più bassa renderebbe il rilevamento più sensibile alle modifiche, generando più avvisi, mentre una soglia più alta potrebbe rendere il rilevamento meno sensibile e più attendibile, nascondendo tuttavia alcune anomalie. L'esatto valore di soglia da usare dipende dallo scenario. Non esiste un limite superiore, ma l'intervallo consigliato è compreso tra 3,25 e 5. 
+
+Il valore 3.25 illustrato nell'esempio è solo un punto di partenza suggerito. Ottimizzare il valore eseguendo le operazioni sul set di dati e osservare il valore di output finché non raggiunge una soglia tollerabile.
 
 ## <a name="anomaly-detection-algorithm"></a>Algoritmo di rilevamento delle anomalie
 
@@ -123,7 +125,7 @@ Esaminiamo il calcolo della stranezza in dettaglio, presupponendo l'esistenza di
    - Coefficiente angolare, se la pendenza è positiva  
    - 0 in caso contrario 
 
-1. **Tendenza negativa lenta:** viene calcolata una linea di tendenza dei valori di evento nella finestra della cronologia e viene cercata una tendenza negativa all'interno di tale linea. Il valore di stranezza viene calcolato come: 
+3. **Tendenza negativa lenta:** viene calcolata una linea di tendenza dei valori di evento nella finestra della cronologia e viene cercata una tendenza negativa all'interno di tale linea. Il valore di stranezza viene calcolato come: 
 
    - Coefficiente angolare, se la pendenza è negativa  
    - 0 in caso contrario  

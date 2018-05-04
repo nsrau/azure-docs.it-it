@@ -1,11 +1,11 @@
+# [Nozioni fondamentali su Azure IoT](../iot-fundamentals/index.yml)
 # [Documentazione sull'hub IoT](index.md)
 
 # Panoramica
-## [Azure e IoT](iot-hub-what-is-azure-iot.md)
 ## [Che cos'è l'hub IoT di Azure?](iot-hub-what-is-iot-hub.md)
 ## [Panoramica della gestione dei dispositivi](iot-hub-device-management-overview.md)
 
-# [Get started](iot-hub-get-started.md)
+# [Introduzione](iot-hub-get-started.md)
 
 ## Configurare il dispositivo
 ### [Simulare un dispositivo sul PC](iot-hub-get-started-simulated.md)
@@ -97,7 +97,7 @@
 ### Caricare file da dispositivi
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
-#### [Node.js](iot-hub-node-node-file-upload.md)
+#### [Node.JS](iot-hub-node-node-file-upload.md)
 #### [Python](iot-hub-python-python-file-upload.md)
 ### Introduzione ai dispositivi gemelli
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-twin-getstarted.md)
@@ -169,7 +169,7 @@
 ##### [Creare certificati - PowerShell](iot-hub-security-x509-create-certificates.md)
 
 # Riferimenti
-## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
+## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=iot-hub)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/iot)
 ## [.NET (servizio)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (dispositivi)](/dotnet/api/microsoft.azure.devices.client)
@@ -186,11 +186,18 @@
 ## [REST (processi)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # Risorse correlate
-## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
-## [Servizio Device Provisioning in hub IoT di Azure](https://azure.microsoft.com/documentation/services/iot-dps/)
-## [Hub eventi di Azure](https://azure.microsoft.com/documentation/services/event-hubs/)
-## [Analisi di flusso](https://azure.microsoft.com/documentation/services/stream-analytics/)
-## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
+## Soluzioni 
+### [Soluzioni preconfigurate IoT Suite](/azure/iot-suite) 
+### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
+## Servizi della piattaforma 
+### [Hub IoT](/azure/iot-hub) 
+### [Servizio Device Provisioning in hub IoT](/azure/iot-dps)
+### [IoT SDK per servizi](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
+### [Servizi Location Based](/azure/location-based-services) 
+### [Time Series Insights](/azure/time-series-insights) 
+## Microsoft Edge 
+### [IoT Edge](/azure/iot-edge) 
+### [IoT SDK per dispositivi](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 
 # Risorse
 ## [Catalogo dei dispositivi Azure Certified per IoT](https://catalog.azureiotsuite.com/)

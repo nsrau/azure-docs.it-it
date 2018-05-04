@@ -1,18 +1,22 @@
 # [Documentazione su Analysis Services](index.md)
 
 # Panoramica
-## [Informazioni su Analysis Services](analysis-services-overview.md)
-## [Origini dati supportate](analysis-services-datasource.md)
-## [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md)
-## [Connessione a origini dati locali](analysis-services-gateway.md)
-## [Livello di compatibilità](analysis-services-compat-level.md)
-## [Disponibilità elevata](analysis-services-bcdr.md)
+## [Che cos'è Azure Analysis Services?](analysis-services-overview.md)
+
 
 # Attività iniziali
 ## [Creare un server nel portale di Azure](analysis-services-create-server.md)
 ## [Creare un server con Azure PowerShell](analysis-services-create-powershell.md)
 ## [Distribuire un modello da Visual Studio](analysis-services-deploy.md)
 ## [Creare un modello nel portale di Azure (anteprima)](analysis-services-create-model-portal.md)
+
+# Concetti
+## [Origini dati supportate](analysis-services-datasource.md)
+## [Connessione a origini dati locali](analysis-services-gateway.md)
+## [Connessione ai server](analysis-services-connect.md)
+## [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md)
+## [Livello di compatibilità](analysis-services-compat-level.md)
+## [Disponibilità elevata](analysis-services-bcdr.md)
 
 # Procedura 
 ## [Installare e configurare un gateway dati locale](analysis-services-gateway-install.md)
@@ -23,7 +27,7 @@
 ## Automatizzare le attività amministrative
 ### [Creare un'entità servizio - Portale di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ### [Creare un'entità servizio - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-### [Aggiungere un'entità di servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md)
+### [Aggiungere un'entità servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md)
 ## Gestione server
 ### [Configurare un alias del nome server](analysis-services-server-alias.md)
 ### [Gestire un server](analysis-services-manage.md)
@@ -31,7 +35,7 @@
 ### [Gestire gli amministratori di server](analysis-services-server-admins.md)
 ### [Monitorare le metriche del server](analysis-services-monitor.md)
 ### [Configurare la registrazione diagnostica](analysis-services-logging.md)
-### [Usare il gateway per le origini dati su VNET](analysis-services-vnet-gateway.md)
+### [Usare il gateway per le origini dati in una rete virtuale](analysis-services-vnet-gateway.md)
 ## Connettere
 ### [Ottenere le librerie client](analysis-services-data-providers.md)
 ### [Stabilire la connessione con Excel](analysis-services-connect-excel.md)

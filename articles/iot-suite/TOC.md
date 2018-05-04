@@ -1,3 +1,4 @@
+# [Nozioni fondamentali su Azure IoT](../iot-fundamentals/index.yml)
 # [Documentazione di IoT Suite](index.md)
 
 # Panoramica
@@ -85,7 +86,7 @@
 ### [Configurare la soluzione di connected factory](iot-suite-connected-factory-configure.md)
 ## [Autorizzazioni in azureiotsuite.com](iot-suite-permissions.md)
 
-# riferimento
+# Riferimenti
 ## [Guida di riferimento per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [Guida per la risoluzione dei problemi per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 ## [Architettura di sicurezza](iot-security-architecture.md)
@@ -94,10 +95,20 @@
 ## [Sicurezza sin dall'inizio](securing-iot-ground-up.md)
 
 # Risorse correlate
+## Soluzioni 
+### [Soluzioni preconfigurate IoT Suite](/azure/iot-suite) 
+### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
+## Servizi della piattaforma 
+### [Hub IoT](/azure/iot-hub) 
+### [Servizio Device Provisioning in hub IoT](/azure/iot-dps)
+### [IoT SDK per servizi](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
+### [Servizi Location Based](/azure/location-based-services) 
+### [Time Series Insights](/azure/time-series-insights) 
+## Microsoft Edge 
+### [IoT Edge](/azure/iot-edge) 
+### [IoT SDK per dispositivi](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 ## [Analisi dei flussi](/azure/stream-analytics/)
 ## [Hub eventi](/azure/event-hubs/)
-## [Hub IoT](/azure/iot-hub/)
-## [Microsoft IoT Central](/azure/index#pivot=services&panel=iot)
 ## [Machine Learning](/azure/machine-learning/)
 
 # Risorse

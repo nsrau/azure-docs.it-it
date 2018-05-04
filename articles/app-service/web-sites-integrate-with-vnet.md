@@ -2,7 +2,7 @@
 title: Integrazione di un'app in una rete virtuale di Azure
 description: Illustra come connettere un'app del servizio app di Azure a una rete virtuale di Azure nuova o esistente
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: erikre
 editor: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83f5c64926eb9b718463c415a5478af374245f31
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
 Questo documento descrive la funzionalità di integrazione del servizio app di Azure in una rete virtuale, specificando come configurarla con le app del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Se non si ha familiarità con le reti virtuali di Azure, si tratta di una funzionalità che consente di posizionare molte delle risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure][VNETOverview]. 
@@ -57,7 +57,8 @@ Prima di procedere con la connessione della propria app Web a una rete virtuale,
 
 * Integrazione rete virtuale funziona solo con le app dei piani tariffari **Standard**, **Premium** o **Isolated**. Se si abilita la funzionalità e successivamente il piano di servizio app viene ridimensionato a un piano tariffario non supportato, le app perdono la connessione alle relative reti virtuali. 
 * Se la rete virtuale di destinazione esiste già, deve trattarsi di una VPN da punto a sito con un gateway di routing dinamico per poter eseguire la connessione a un'app. Non è possibile attivare la VPN da punto a sito se il gateway è configurato con il routing statico.
-* La rete virtuale deve essere inclusa nella stessa sottoscrizione del piano di servizio app (ASP). 
+* La rete virtuale deve essere inclusa nella stessa sottoscrizione del piano di servizio app (ASP).
+* Se il gateway esiste già con la configurazione da punto a sito abilitata e non è incluso nello SKU di base, IKEV2 deve essere disabilitato nella configurazione da punto a sito.
 * Le app che si integrano con una rete virtuale usano il DNS specificato per quella rete virtuale.
 * Per impostazione predefinita, le app di integrazione instradano il traffico nella rete virtuale esclusivamente in base alle route definite nella rete virtuale. 
 

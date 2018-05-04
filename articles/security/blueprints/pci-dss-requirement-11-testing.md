@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 57429741afd2ffd16c09a0f1485cb1cfbdda5571
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: db9f1022ecb3b727f08bb6f232a8df55476e0755
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="testing-requirements-for-pci-dss-compliant-environments"></a>Requisiti di test per ambienti conformi a PCI DSS 
 ## <a name="pci-dss-requirement-11"></a>Requisito 11 di PCI DSS
@@ -252,7 +252,7 @@ Mantenere aggiornati tutti i motori, le baseline e le firme di rilevamento e pre
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure gestisce e notifica ai clienti i potenziali eventi e modifiche che potrebbero influire sulla sicurezza o la disponibilità dei servizi tramite un dashboard del servizio online. Le modifiche agli impegni e agli obblighi per la sicurezza dei clienti di Microsoft Azure vengono aggiornate nel sito Web Microsoft Azure in modo tempestivo.<br /><br />L'installazione o le modifiche di software nell'ambiente di produzione di Microsoft Azure sono limitate al personale amministrativo autorizzato e seguono specifiche procedure di gestione del cambiamento. |
-| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | La demo Contoso Webstore è un servizio PaaS e il rilevamento delle modifiche è stato implementato con OMS. Per altre informazioni, vedere la sezione relativa alle [soluzioni OMS preinstallate nelle linee guida per PCI](payment-processing-blueprint.md#oms-solutions).<br /><br />|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | La demo Contoso Webstore è un servizio PaaS e il rilevamento delle modifiche è stato implementato con Log Analytics. Per altre informazioni, vedere [Linee guida per PCI: Soluzioni di gestione preinstallate](payment-processing-blueprint.md#management-solutions).<br /><br />|
 
 
 
@@ -265,7 +265,7 @@ Mantenere aggiornati tutti i motori, le baseline e le firme di rilevamento e pre
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Le regole per gli eventi di monitoraggio di Azure offrono un livello superiore di monitoraggio per operazioni e asset ad alto rischio. I dispositivi di rete gestiti da Azure vengono monitorati in relazione alla conformità agli standard di sicurezza stabiliti. |
-| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Gli avvisi di Contoso Webstore per le modifiche vengono forniti dall'implementazione di OMS. Per altre informazioni, vedere la sezione relativa alle [soluzioni OMS preinstallate nelle linee guida per PCI](payment-processing-blueprint.md#oms-solutions).<br /><br /><br /><br />|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Gli avvisi di Contoso Webstore per le modifiche vengono forniti tramite l'implementazione di Log Analytics. Per altre informazioni, vedere [Linee guida per PCI: Soluzioni di gestione preinstallate](payment-processing-blueprint.md#management-solutions).<br /><br /><br /><br />|
 
 
 
@@ -278,7 +278,7 @@ Mantenere aggiornati tutti i motori, le baseline e le firme di rilevamento e pre
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Gli avvisi di Contoso Webstore per le modifiche vengono forniti dall'implementazione di OMS. Per altre informazioni, vedere la sezione relativa alle [soluzioni OMS preinstallate nelle linee guida per PCI](payment-processing-blueprint.md#oms-solutions).<br /><br /><br /><br />|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Gli avvisi di Contoso Webstore per le modifiche vengono forniti tramite l'implementazione di Log Analytics. Per altre informazioni, vedere [Linee guida per PCI: Soluzioni di gestione preinstallate](payment-processing-blueprint.md#management-solutions).<br /><br /><br /><br />|
 
 
 

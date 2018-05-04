@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 2cb881e50b9a08c99b59796a23107bfafb847b75
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4f665985cbb1bb02d5f2378d1953de76303de04d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: Inviare richieste di supporto
 È possibile inviare richieste di supporto per Azure Active Directory (AD) B2C nel portale di Azure seguendo questa procedura:
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/23/2018
    * Il **Tipo di problema** è **Tecnico**.
    * Scegliere la **Sottoscrizione**appropriata.
    * Il **Servizio** è **Active Directory**.
-   * Scegliere il **Piano di supporto**appropriato. Se non si ha un piano di supporto, è possibile iscriversi per ottenerne uno [qui](https://azure.microsoft.com/en-us/support/plans/).
+   * Scegliere il **Piano di supporto**appropriato. Se non si ha un piano di supporto, è possibile iscriversi per ottenerne uno [qui](https://azure.microsoft.com/support/plans/).
      
      ![Supporto - Informazioni di base](./media/active-directory-b2c-support/support-basics.png)
 6. Nel pannello **Problema** usare questi dettagli e fare clic su **Avanti**.

@@ -1,0 +1,32 @@
+- name: Nozioni fondamentali su Azure IoT
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Introduzione
+      href: iot-introduction.md
+    - name: Servizi e tecnologie di Azure IoT
+      href: iot-services-and-technologies.md
+- name: Soluzioni
+  items:
+    - name: Soluzioni preconfigurate IoT Suite
+      href: /azure/iot-suite
+    - name: IoT Central
+      href: 'https://docs.microsoft.com/microsoft-iot-central/'
+- name: Servizi della piattaforma
+  items:
+    - name: Hub IoT
+      href: /azure/iot-hub
+    - name: Servizio Device Provisioning in hub IoT
+      href: /azure/iot-dps
+    - name: Servizi Location Based
+      href: /azure/location-based-services
+    - name: SDK per servizi
+      href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+- name: Microsoft Edge
+  items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: IoT SDK per dispositivi
+      href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

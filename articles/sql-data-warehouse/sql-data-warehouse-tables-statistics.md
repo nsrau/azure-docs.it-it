@@ -1,58 +1,45 @@
 ---
-title: Gestione delle statistiche nelle tabelle in SQL Data Warehouse | Microsoft Docs
-description: Introduzione alle statistiche nelle tabelle di SQL Data Warehouse di Azure.
+title: Creazione e aggiornamento delle statistiche in Azure SQL Data Warehouse | Documentazione Microsoft
+description: Suggerimenti ed esempi per la creazione e l'aggiornamento delle statistiche di ottimizzazione delle query su tabelle in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
-ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 11/06/2017
-ms.author: barbkess
-ms.openlocfilehash: 5e7fd3c8790bb9a1a7ae8662f9a7047ae54892d2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: a8d91714e6864ff0a9816f5ec518878334f6ba84
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Gestione delle statistiche nelle tabelle in SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Panoramica][Overview]
-> * [Tipi di dati][Data Types]
-> * [Distribuzione][Distribute]
-> * [Indice][Index]
-> * [Partizione][Partition]
-> * [Statistiche][Statistics]
-> * [Temporanee][Temporary]
-> 
-> 
+# <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Creazione e aggiornamento delle statistiche nelle tabelle di Azure SQL Data Warehouse.
+Suggerimenti ed esempi per la creazione e l'aggiornamento delle statistiche di ottimizzazione delle query nelle tabelle in Azure SQL Data Warehouse.
 
-Più informazioni sui dati sono a disposizione di Azure SQL Data Warehouse, più rapidamente può eseguire query. La raccolta le statistiche sui dati e il relativo caricamento in SQL Data Warehouse sono fra le operazioni più importanti per ottimizzare le query. Questo è dovuto al fatto che Query Optimizer di SQL Data Warehouse si basa sul costo. Esegue un confronto fra i costi dei vari piani di query e poi sceglie quello che costa meno, che in molti casi è anche il piano eseguito più velocemente. Ad esempio, se Query Optimizer stima che il filtro per una particolare data nella query restituirà una riga, può scegliere un piano diverso rispetto a quando stima che la data selezionata restituirà 1 milione di righe.
+## <a name="why-use-statistics"></a>Perché usare le statistiche?
+Più informazioni sui dati sono a disposizione di Azure SQL Data Warehouse, più rapidamente può eseguire query. La raccolta di statistiche sui dati e il relativo caricamento in SQL Data Warehouse sono fra le operazioni piu importanti per ottimizzare le query. Questo è dovuto al fatto che Query Optimizer di SQL Data Warehouse si basa sul costo. Esegue un confronto fra i costi dei vari piani di query e poi sceglie quello che costa meno, che in molti casi è il piano eseguito più velocemente. Ad esempio, se Query Optimizer stima che il filtro per una particolare data nella query restituirà una riga, può scegliere un piano diverso rispetto a quando stima che la data selezionata restituirà 1 milione di righe.
 
 Il processo di creazione e aggiornamento delle statistiche è attualmente manuale, ma si tratta di un processo semplice.  A breve l'utente sarà in grado di creare e aggiornare automaticamente le statistiche per i singoli indici e le singole colonne.  Sfruttando le informazioni seguenti, è possibile automatizzare notevolmente la gestione delle statistiche sui dati. 
 
-## <a name="getting-started-with-statistics"></a>Introduzione alle statistiche
+## <a name="scenarios"></a>Scenari
 La creazione di statistiche campionate per ogni colonna è un modo semplice per iniziare. La presenza di statistiche non aggiornate comporta prestazioni di query non ottimali. Tuttavia l'aggiornamento delle statistiche per tutte le colonne può occupare molta memoria man mano che i dati aumentano. 
 
 Di seguito sono riportati i consigli per i diversi scenari:
 | **Scenario** | Raccomandazione |
 |:--- |:--- |
-| **Introduzione** | Aggiorna tutte le colonne dopo aver eseguito la migrazione a SQL Data Warehouse |
+| **Attività iniziali** | Aggiornare tutte le colonne dopo aver eseguito la migrazione a SQL Data Warehouse |
 | **Colonna più importante per le statistiche** | Chiave di distribuzione hash |
 | **Seconda colonna più importante per le statistiche** | Chiave di partizione |
-| **Altre colonne importanti per le statistiche** | Data, JOIN, GROUP BY, HAVING e WHERE frequenti |
+| **Altre colonne importanti per le statistiche** | Data, clausole JOIN, GROUP BY, HAVING e WHERE frequenti |
 | **Frequenza degli aggiornamenti delle statistiche**  | Conservativa: giornaliera <br></br> Dopo il caricamento o la trasformazione dei dati |
 | **Campionamento** |  Inferiore a 1 miliardo di righe, usare il campionamento predefinito (20%) <br></br> Con più di 1 miliardo di righe, sono considerate ottimali le statistiche in un intervallo del 2% |
 
 ## <a name="updating-statistics"></a>Aggiornamento delle statistiche
 
-Una procedura consigliata consiste nell'aggiornare le statistiche sulle colonne data ogni giorno quando vengono aggiunte nuove date. Ogni volta che vengono caricate nuove righe nel data warehouse, vengono aggiunte nuove date di caricamento o date di transazione. In questo modo si modifica la distribuzione dei dati e le statistiche non si aggiornano. Al contrario le statistiche sulla colonna del paese nella tabella di un cliente potrebbero non richiedere mai un aggiornamento, poiché la distribuzione dei valori in genere non cambia. Supponendo che la distribuzione sia costante tra i clienti, l'aggiunta di nuove righe alla variazione di tabella non modificherà la distribuzione dei dati. Tuttavia se il data warehouse contiene solo un determinato paese e si importano dati da un paese diverso, archiviando in questo modo dati da più paesi, sarà sicuramente necessario aggiornare le statistiche sulla colonna del paese.
+Una procedura consigliata consiste nell'aggiornare le statistiche sulle colonne data ogni giorno quando vengono aggiunte nuove date. Ogni volta che vengono caricate nuove righe nel data warehouse, vengono aggiunte nuove date di caricamento o date di transazione. Queste righe modificano la distribuzione dei dati e rendono le statistiche obsolete. Al contrario le statistiche sulla colonna del paese nella tabella di un cliente potrebbero non richiedere mai un aggiornamento, poiché la distribuzione dei valori in genere non cambia. Supponendo che la distribuzione sia costante tra i clienti, l'aggiunta di nuove righe alla variazione di tabella non modificherà la distribuzione dei dati. Tuttavia se il data warehouse contiene solo un paese e si importano dati da un nuovo paese, archiviando in questo modo dati da più paesi, sarà necessario aggiornare le statistiche sulla colonna del paese.
 
 Quando si risolvono i problemi di una query è essenziale verificare prima di tutto che **le statistiche siano aggiornate**.
 
@@ -92,9 +79,9 @@ WHERE
     st.[user_created] = 1;
 ```
 
-Le **colonne data** in un data warehouse, ad esempio, richiedono solitamente aggiornamenti frequenti delle statistiche. Ogni volta che vengono caricate nuove righe nel data warehouse, vengono aggiunte nuove date di caricamento o date di transazione. In questo modo si modifica la distribuzione dei dati e le statistiche non si aggiornano.  Al contrario, è possibile che non sia mai necessario aggiornare le statistiche relative alla colonna del sesso in una tabella clienti. Supponendo che la distribuzione sia costante tra i clienti, l'aggiunta di nuove righe alla variazione di tabella non modificherà la distribuzione dei dati. Se tuttavia il data warehouse contiene solo un sesso e un nuovo requisito ha come risultato più sessi, allora sarà necessario aggiornare le statistiche relative alla colonna del sesso.
+Le **colonne data** in un data warehouse, ad esempio, richiedono solitamente aggiornamenti frequenti delle statistiche. Ogni volta che vengono caricate nuove righe nel data warehouse, vengono aggiunte nuove date di caricamento o date di transazione. Queste righe modificano la distribuzione dei dati e rendono le statistiche obsolete.  Al contrario, è possibile che non sia mai necessario aggiornare le statistiche relative alla colonna del sesso in una tabella clienti. Supponendo che la distribuzione sia costante tra i clienti, l'aggiunta di nuove righe alla variazione di tabella non modificherà la distribuzione dei dati. Se tuttavia il data warehouse contiene solo un sesso e un nuovo requisito ha come risultato più sessi, allora sarà necessario aggiornare le statistiche relative alla colonna del sesso.
 
-Per altre informazioni, vedere [Statistiche][Statistics] in MSDN.
+Per ulteriori informazioni, vedere indicazioni su [Statistiche](/sql/relational-databases/statistics/statistics).
 
 ## <a name="implementing-statistics-management"></a>Implementazione della gestione delle statistiche
 È spesso consigliabile estendere il processo di caricamento dei dati per assicurare che le statistiche vengano aggiornate al termine del caricamento. Il caricamento dei dati è la fase in cui si verifica con maggiore frequenza una modifica delle dimensioni e/o della distribuzione dei valori delle tabelle. Questa è quindi una posizione logica per implementare alcuni processi di gestione.
@@ -107,7 +94,7 @@ Di seguito sono disponibili i principi guida per l'aggiornamento delle statistic
 * Prendere in considerazione una minore frequenza per l'aggiornamento delle colonne relative alla distribuzione statica.
 * Occorre ricordare che ogni oggetto statistiche viene aggiornato in sequenza. La semplice implementazione di `UPDATE STATISTICS <TABLE_NAME>` non è sempre ottimale, in particolare per tabelle di grandi dimensioni con molti oggetti statistiche.
 
-Per altre informazioni, vedere [Stima della cardinalità][Cardinality Estimation] in MSDN.
+Per ulteriori informazioni, vedere [Stima della cardinalità](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
 ## <a name="examples-create-statistics"></a>Esempi: Creare le statistiche
 Questi esempi illustrano come usare diverse opzioni per la creazione delle statistiche. Le opzioni usate per ogni colonna dipendono dalle caratteristiche dei dati e dal modo in cui la colonna verrà usata nelle query.
@@ -172,23 +159,23 @@ CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Per i riferimenti completi, vedere [CREATE STATISTICS][CREATE STATISTICS] in MSDN.
+Per i riferimenti completi, vedere [CREAZIONE DELLE  STATISTICHE](/sql/t-sql/statements/create-statistics-transact-sql).
 
 ### <a name="create-multi-column-statistics"></a>Creare statistiche a più colonne
 Per creare un oggetto statistiche a più colonne, è sufficiente usare gli esempi precedenti, specificando però più colonne.
 
 > [!NOTE]
-> L'istogramma, che viene usato per stimare il numero di righe nei risultati della query, è disponibile solo per la prima colonna elencata nella definizione dell'oggetto statistiche.
+> L'istogramma, che viene usato per stimare il numero di righe nei risultato della query, è disponibile solo per la prima colonna elencata nella definizione dell'oggetto statistiche.
 > 
 > 
 
-In questo esempio l'istogramma è disponibile su *product\_category*. Le statistiche tra le colonne vengono calcolate su *product\_category* e *product\_sub_category*:
+In questo esempio l'istogramma è disponibile su *product\_category*. Le statistiche sulle colonne vengono calcolate su *product\_category* e *product\_sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Poiché esiste una correlazione tra *product\_category* e *product\_sub\_category*, un oggetto statistica a più colonne può essere utile se si accede contemporaneamente a queste colonne.
+Poiché esiste una correlazione tra *product\_category* e *product\_sub\_category*, un oggetto statistiche a più colonne può essere utile se si accede contemporaneamente a queste colonne.
 
 ### <a name="create-statistics-on-all-columns-in-a-table"></a>Creare statistiche su tutte le colonne in una tabella
 Un modo per creare le statistiche consiste nell'emettere comandi CREATE STATISTICS dopo la creazione della tabella:
@@ -358,13 +345,13 @@ UPDATE STATISTICS dbo.table1;
 Questa istruzione è facile da usare. Occorre ricordare che aggiorna *tutte* le statistiche nella tabella e che quindi potrebbe eseguire più lavoro del necessario. Se le prestazioni non sono un problema, questo è il modo più semplice e più completo per garantire l'aggiornamento delle statistiche.
 
 > [!NOTE]
-> Quando si aggiornano tutte le statistiche in una tabella, SQL Data Warehouse esegue un'analisi per campionare la tabella per ogni oggetto statistica. Se si tratta di una tabella di grandi dimensioni, che include molte colonne e molte statistiche, potrebbe risultare più efficiente aggiornare le singole statistiche in base alle necessità.
+> Quando si aggiornano tutte le statistiche in una tabella, SQL Data Warehouse esegue un'analisi per campionare la tabella per ogni oggetto statistiche. Se si tratta di una tabella di grandi dimensioni, che include molte colonne e molte statistiche, potrebbe risultare più efficiente aggiornare le singole statistiche in base alle necessità.
 > 
 > 
 
-Per l'implementazione della procedura `UPDATE STATISTICS`, vedere [Tabelle temporanee][Temporary]. Il metodo di implementazione è leggermente diverso rispetto alla procedura `CREATE STATISTICS` precedente, ma il risultato finale è lo stesso.
+Per l'implementazione della procedura `UPDATE STATISTICS`, vedere [Tabelle temporanee](sql-data-warehouse-tables-temporary.md). Il metodo di implementazione è leggermente diverso rispetto alla procedura `CREATE STATISTICS` precedente, ma il risultato è lo stesso.
 
-Per la sintassi completa, vedere [UPDATE STATISTICS][Update Statistics] in MSDN.
+Per la sintassi completa, vedere [Aggiornamento delle statistiche](/sql/t-sql/statements/update-statistics-transact-sql).
 
 ## <a name="statistics-metadata"></a>Metadati delle statistiche
 Esistono diverse visualizzazioni e funzioni di sistema che consentono di trovare informazioni sulle statistiche. Ad esempio, è possibile verificare se un oggetto statistiche non è aggiornato usando la funzione stats-date per vedere la data di creazione o dell'ultimo aggiornamento delle statistiche.
@@ -372,23 +359,23 @@ Esistono diverse visualizzazioni e funzioni di sistema che consentono di trovare
 ### <a name="catalog-views-for-statistics"></a>Viste del catalogo per le statistiche
 Queste visualizzazioni di sistema forniscono informazioni sulle statistiche:
 
-| Vista del catalogo | Descrizione |
+| Vista del catalogo | DESCRIZIONE |
 |:--- |:--- |
-| [sys.columns][sys.columns] |Una riga per ogni colonna. |
-| [sys.objects][sys.objects] |Una riga per ogni oggetto del database. |
-| [sys.schemas][sys.schemas] |Una riga per ogni schema del database. |
-| [sys.stats][sys.stats] |Una riga per ogni oggetto statistiche. |
-| [sys.stats_columns][sys.stats_columns] |Una riga per ogni colonna nell'oggetto statistiche. Si collega a sys.columns. |
-| [sys.tables][sys.tables] |Una riga per ogni tabella (include le tabelle esterne). |
-| [sys.table_types][sys.table_types] |Una riga per ogni tipo di dati. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Una riga per ogni colonna. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Una riga per ogni oggetto del database. |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Una riga per ogni schema del database. |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |Una riga per ogni oggetto statistiche. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |Una riga per ogni colonna nell'oggetto statistiche. Si collega a sys.columns. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |Una riga per ogni tabella (include le tabelle esterne). |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |Una riga per ogni tipo di dati. |
 
 ### <a name="system-functions-for-statistics"></a>Funzioni di sistema per le statistiche
 Queste funzioni di sistema sono utili per usare le statistiche:
 
-| Funzioni di sistema | Descrizione |
+| Funzioni di sistema | DESCRIZIONE |
 |:--- |:--- |
-| [STATS_DATE][STATS_DATE] |Data dell'ultimo aggiornamento dell'oggetto statistiche. |
-| [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] |Riepilogo e informazioni dettagliate sulla distribuzione di valori riconosciuti dall'oggetto statistiche. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |Data dell'ultimo aggiornamento dell'oggetto statistiche. |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Riepilogo e informazioni dettagliate sulla distribuzione di valori riconosciuti dall'oggetto statistiche. |
 
 ### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Combinare le colonne delle statistiche e le funzioni in un'unica visualizzazione
 Questa visualizzazione riunisce le colonne relative alle statistiche e ai risultati della funzione STATS_DATE().
@@ -476,37 +463,5 @@ DBCC SHOW_STATISTICS() viene implementato in modo più rigoroso in SQL Data Ware
 - L'errore personalizzato 2767 non è supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altri dettagli, vedere [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] in MSDN.
+Per ottimizzare ulteriormente le prestazioni delle query, vedere [Monitorare il carico di lavoro](sql-data-warehouse-manage-monitor.md)
 
-  Per altre informazioni, vedere gli articoli sulla [panoramica delle tabelle][Overview], i [tipi di dati delle tabelle][Data Types], la [distribuzione di una tabella][Distribute], l'[indicizzazione di una tabella][Index], il [partizionamento di una tabella][Partition] e le [tabelle temporanee][Temporary].
-  
-   Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse][SQL Data Warehouse Best Practices].  
-
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->  
-[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
-[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
-[sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
-[sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
-[sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
-
-<!--Other Web references-->  

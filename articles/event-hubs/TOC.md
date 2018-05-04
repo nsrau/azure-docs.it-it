@@ -46,8 +46,8 @@
 ### [Trasmettere dati di Diagnostica di Azure usando Hub eventi](event-hubs-streaming-azure-diags-data.md)
 ### [Creare e distribuire un hub eventi con un modello di Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
 
-# riferimento
-## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
+# Riferimenti
+## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=event-hubs)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)

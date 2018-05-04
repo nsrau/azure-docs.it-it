@@ -9,11 +9,11 @@ ms.custom: mvc,develop databases
 ms.topic: tutorial
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: b09807e1fa7624ed134a24c7df4a61abf2a1d723
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 1415edf8ea70b3835e99daa1691d278fe833b950
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="design-your-first-azure-sql-database-using-ssms"></a>Progettare il primo database SQL di Azure con SSMS
 
@@ -108,7 +108,7 @@ Il servizio di database SQL crea un firewall a livello di server che impedisce a
 
 1. Al termine della distribuzione, scegliere **Database SQL** dal menu a sinistra e fare clic su **mySampleDatabase** nella pagina **Database SQL**. Si apre la pagina di panoramica per il database che visualizza il nome completo del server, ad esempio **mynewserver-20170824.database.windows.net**, e offre altre opzioni di configurazione. 
 
-2. Copiare il nome completo del server per connettersi al server e ai relativi database nelle esercitazioni introduttive successive. 
+2. Copiare il nome completo del server per connettersi al server e ai relativi database nelle guide introduttive successive. 
 
    ![Nome del server](./media/sql-database-get-started-portal/server-name.png) 
 
@@ -147,7 +147,7 @@ Usare [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-ser
 
    | Impostazione       | Valore consigliato | DESCRIZIONE | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Tipo di server | Motore di database | Questo valore è obbligatorio |
+   | Tipo di server | Motore di database | Questo valore è obbligatorio. |
    | Nome server | Nome completo del server | Il nome sarà simile a: **mynewserver20170824.database.windows.net**. |
    | Authentication | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
    | Login | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |

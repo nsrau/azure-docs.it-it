@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: a3d0770d3b9c8702dbe4dac86f86030bea4090c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3035d0e8642310698274e4351a95013e204e2f14
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gestire le applicazioni per più ambienti
 
@@ -48,8 +48,8 @@ Si prendano in considerazione due semplici esempi:
 
 Quando si creano istanze di un'applicazione denominata in Service Fabric, si ha la possibilità di passare parametri. La modalità di esecuzione di questa operazione dipende da come si crea l'istanza dell'applicazione.
 
-  - In PowerShell il cmdlet [`New-ServiceFabricApplication`](https://docs.microsoft.com/en-us/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) accetta i parametri delle applicazioni come tabella hash.
-  - Se si usa sfctl, il comando [`sfctl application create`](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) accetta i parametri come stringa JSON. Lo script install.sh usa sfctl.
+  - In PowerShell il cmdlet [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) accetta i parametri delle applicazioni come tabella hash.
+  - Se si usa sfctl, il comando [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) accetta i parametri come stringa JSON. Lo script install.sh usa sfctl.
   - In Visual Studio, nella cartella Parametri del progetto dell'applicazione, è disponibile un set di file di parametri che vengono usati per la pubblicazione da Visual Studio, tramite Visual Studio Team Services o Team Foundation Server. In Visual Studio i file di parametri vengono passati allo script Deploy-FabricApplication.ps1.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 396f1d3d8c69ba3204d16f06d49656fd138a1126
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 07ddf1c2b76230c8d753426d70098603ff14ec4d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descrizione di un cluster di Service Fabric
 Cluster Resource Manager di Service Fabric fornisce alcuni meccanismi per descrivere un cluster. Durante la fase di esecuzione, Cluster Resource Manager usa queste informazioni per assicurare la disponibilità elevata dei servizi in esecuzione sul cluster. Applicando queste regole importanti, tenta anche di ottimizzare il consumo di risorse all'interno del cluster.
@@ -39,7 +39,7 @@ Un dominio di errore è un'area di errore coordinato. Un singolo computer è un 
 > [!WARNING]
 > È importante che le informazioni sul dominio di errore fornite a Service Fabric siano accurate. Si supponga, ad esempio, che i nodi del cluster di Service Fabric siano in esecuzione all'interno di dieci macchine virtuali, a loro volta in esecuzione su cinque host fisici. In questo caso, anche se sono presenti 10 macchine virtuali, sono presenti solo 5 domini di errore diversi (livello superiore). La condivisione dello stesso host fisico comporta per le macchine virtuali anche la condivisione dello stesso dominio di errore radice, poiché sulle macchine virtuali si verifica un errore coordinato se sul relativo host fisico si verifica un errore,  
 >
-> Service Fabric non prevede il cambiamento del dominio di errore di un nodo. Altri meccanismi per garantire una disponibilità elevata delle macchine virtuali, ad esempio le [macchine virtuali a disponibilità elevata](https://technet.microsoft.com/en-us/library/cc967323.aspx), possono causare conflitti con Service Fabric, perché adottano la migrazione trasparente delle macchine virtuali da un host a un altro. Questi meccanismi non riconfigurano né notificano il codice in esecuzione all'interno della macchina virtuale. Di conseguenza, **non sono supportati** come ambienti per l'esecuzione dei cluster di Service Fabric. Service Fabric deve essere l'unica tecnologia di disponibilità elevata in uso. Non sono necessari meccanismi quali la migrazione in tempo reale della macchina virtuale, SAN, o altri. Se usati insieme a Service Fabric, questi meccanismi _riducono_ la disponibilità e l'affidabilità dell'applicazione, poiché introducono complessità aggiuntive, aggiungono origini centralizzate di errore e usano strategie di disponibilità e affidabilità che possono entrare in conflitto con quelle presenti in Service Fabric. 
+> Service Fabric non prevede il cambiamento del dominio di errore di un nodo. Altri meccanismi per garantire una disponibilità elevata delle macchine virtuali, ad esempio le [macchine virtuali a disponibilità elevata](https://technet.microsoft.com/library/cc967323.aspx), possono causare conflitti con Service Fabric, perché adottano la migrazione trasparente delle macchine virtuali da un host a un altro. Questi meccanismi non riconfigurano né notificano il codice in esecuzione all'interno della macchina virtuale. Di conseguenza, **non sono supportati** come ambienti per l'esecuzione dei cluster di Service Fabric. Service Fabric deve essere l'unica tecnologia di disponibilità elevata in uso. Non sono necessari meccanismi quali la migrazione in tempo reale della macchina virtuale, SAN, o altri. Se usati insieme a Service Fabric, questi meccanismi _riducono_ la disponibilità e l'affidabilità dell'applicazione, poiché introducono complessità aggiuntive, aggiungono origini centralizzate di errore e usano strategie di disponibilità e affidabilità che possono entrare in conflitto con quelle presenti in Service Fabric. 
 >
 >
 

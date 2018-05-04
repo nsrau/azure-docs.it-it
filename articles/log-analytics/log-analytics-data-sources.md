@@ -2,7 +2,7 @@
 title: Configurare le origini dati in Azure Log Analytics | Microsoft Docs
 description: Le origini dati definiscono i dati raccolti in Log Analytics da agenti e altre origini connesse.  Questo articolo descrive come Log Analytics usa le origini dati, illustra i dettagli su come configurarle e fornisce un riepilogo delle diverse origini dati disponibili.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 04/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4237df0934d6191b77ff82c86a66585e72191ac9
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 5201d02b4f70f964f39b4fe135e4715732b9741a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="data-sources-in-log-analytics"></a>Origini dati in Log Analytics
 Log Analytics raccoglie i dati dalle origini connesse e li archivia nell'area di lavoro di Log Analytics.  I dati raccolti da ogni origine sono definiti dalle origini dati configurate.  In Log Analytics i dati vengono archiviati come un set di record.  Ogni origine dati crea record di un tipo specifico in cui ogni tipo ha un proprio set di proprietà.
@@ -29,16 +29,19 @@ Le origini dati sono diverse rispetto alle [soluzioni di gestione](log-analytics
 
 
 ## <a name="summary-of-data-sources"></a>Riepilogo delle origini dati
-Nella tabella seguente sono elencate le origini dati attualmente disponibili in Log Analytics.  Ogni origine dati ha un collegamento a un articolo distinto che fornisce informazioni dettagliate.
+Nella tabella seguente sono elencate le origini dati attualmente disponibili in Log Analytics.  Ogni origine dati ha un collegamento a un articolo distinto che fornisce informazioni dettagliate.   Sono inoltre disponibili informazioni sul metodo e la frequenza della raccolta dati in Log Analytics.  È possibile usare le informazioni in questo articolo per identificare le diverse soluzioni disponibili e per comprendere i requisiti di flusso di dati e connessione per le diverse soluzioni di gestione. Per una spiegazione delle colonne, vedere [Informazioni dettagliate sulla raccolta dati per le soluzioni di gestione in Azure](../monitoring/monitoring-solutions-inventory.md).
 
-| origine dati | Tipo evento | DESCRIZIONE |
-|:--- |:--- |:--- |
-| [Log personalizzati](log-analytics-data-sources-custom-logs.md) |\<LogName\>_CL |File di testo negli agenti Windows o Linux contenenti le informazioni di log. |
-| [Log eventi di Windows](log-analytics-data-sources-windows-events.md) |Event |Eventi raccolti dai computer Windows di accesso agli eventi. |
-| [Contatori delle prestazioni di Windows](log-analytics-data-sources-performance-counters.md) |Perf |Contatori delle prestazioni raccolti dai computer Windows. |
-| [Contatori delle prestazioni di Linux](log-analytics-data-sources-performance-counters.md) |Perf |Contatori delle prestazioni raccolti dai computer Linux. |
-| [Log IIS](log-analytics-data-sources-iis-logs.md) |W3CIISLog |Log di Internet Information Services in formato W3C. |
-| [Syslog](log-analytics-data-sources-syslog.md) |syslog |Eventi syslog nei computer Windows o Linux. |
+
+| Origine dati | Piattaforma | Microsoft Monitoring Agent | Agente di Operations Manager | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza della raccolta |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [Log personalizzati](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | all'arrivo |
+| [Log personalizzati](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | all'arrivo |
+| [Log IIS](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5 minuti |
+| [Contatori delle prestazioni](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |come pianificato, almeno 10 secondi |
+| [Contatori delle prestazioni](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |come pianificato, almeno 10 secondi |
+| [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |dall'Archiviazione di Azure: 10 minuti; dall'agente: all'arrivo |
+| [Log eventi di Windows](log-analytics-data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | all'arrivo |
+
 
 ## <a name="configuring-data-sources"></a>Configurazione delle origini dati
 Configurare le origini dati nel menu **Dati** in **Impostazioni avanzate** di Log Analytics.  Qualsiasi configurazione viene recapitata a tutte le origini connesse nell'area di lavoro.  Attualmente non è possibile escludere gli agenti da questa configurazione.

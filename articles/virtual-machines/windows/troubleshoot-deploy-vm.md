@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 84363a92445991d08a2593bb3ade863db06b8670
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 622d9f1f498435ae36d1b35b938b513849efc3c5
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Risolvere i problemi di distribuzione della macchina virtuale Windows in Azure
 
@@ -96,11 +96,7 @@ I driver per le macchine virtuali basate su Windows si trovano [qui](n-series-dr
 
 Per usufruire delle funzionalità GPU delle VM serie N di Azure che eseguono Windows Server 2016 o Windows Server 2012 R2, è necessario installare i driver della scheda grafica NVIDIA in ciascuna VM dopo la distribuzione. Le informazioni di configurazione dei driver sono disponibili anche per le [VM Windows](n-series-driver-setup.md) e le [VM Linux](../linux/n-series-driver-setup.md).
 
-## <a name="are-client-images-supported-for-n-series"></a>Le immagini client sono supportate per la Serie N?
-
-Attualmente Azure supporta la Serie N solo sulle VM che eseguono i sistemi operativi Windows Server e Linux.
-
-## <a name="is-n-series-vms-available-in-my-region"></a>Le VM Serie N sono disponibili nella mia area?
+## <a name="is-n-series-vms-available-in-my-region"></a>Le VM serie N sono disponibili nell'area di appartenenza?
 
 È possibile controllare la disponibilità nella tabella [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services) e verificare i prezzi [qui](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series).
 

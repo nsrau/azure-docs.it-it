@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 04/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1ac6c3e428148a6609b264b0b8f8cff416b0fa4d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 33e31c47a6125ac363410a9a78e9c9310c74d51e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>Scenario 1: Valutare i carichi di lavoro locali per la migrazione ad Azure
 
@@ -20,7 +20,7 @@ Prendendo in considerazione la migrazione ad Azure, Contoso vuole eseguire una v
 
 Per acquisire familiarità e conoscere meglio le tecnologie coinvolte, l'azienda esegue la valutazione e la migrazione di una piccola app di viaggio locale. È un'app a due livelli, con un'app Web in esecuzione in una VM e un database di SQL Server in una seconda VM. L'applicazione viene distribuita in VMware e l'ambiente è gestito da un server vCenter. La valutazione verrà eseguita usando Data Migration Assistant (DMA) e il servizio Azure Migrate.
 
-**Tecnologia** | **Descrizione** | **Costi**
+**Technology** | **Descrizione** | **Costii**
 --- | --- | ---
 [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | DMA valuta e rileva i problemi di compatibilità che possono influire sulle funzionalità del database in Azure. Valuta anche la parità delle funzionalità tra l'origine e la destinazione SQL Server e consiglia miglioramenti a livello di prestazioni e affidabilità per l'ambiente di destinazione. | Questo strumento è scaricabile gratuitamente. 
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Il servizio consente di valutare i computer locali per la migrazione ad Azure. Valuta l'idoneità dei computer per la migrazione e offre stime relative al dimensionamento e ai costi per l'esecuzione in Azure. Il servizio Azure Migrate può attualmente valutare VM VMware locali per la migrazione ad Azure. | Attualmente (aprile 2018) non è previsto alcun addebito per l'uso del servizio.
@@ -31,7 +31,7 @@ In questo scenario, verrà scaricato ed eseguito DMA per valutare il database di
 > [!NOTE]
 > Per questo scenario, la destinazione del database per la valutazione sarà SQL Server in una VM di Azure. Nell'articolo sullo scenario successivo, invece, verrà eseguita la migrazione a un'istanza gestita di SQL di Azure. Viene usato questo approccio perché DMA attualmente non supporta la valutazione per una destinazione costituita da un'istanza gestita di SQL di Azure.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 Elementi configurati in questo scenario 
 
@@ -45,7 +45,7 @@ In questo scenario:
 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per distribuire questo scenario è necessario quanto segue:
 
@@ -285,7 +285,7 @@ Prima di iniziare, si noti che l'agente di raccolta attualmente supporta solo l'
 5. In **Specify vCenter Server details** (Specificare i dettagli del Server vCenter) eseguire queste operazioni:
     - Specificare il nome completo o l'indirizzo IP del server vCenter.
     - In **Nome utente** e **Password** specificare le credenziali dell'account di sola lettura che verranno usate dall'agente di raccolta per individuare le VM nel server vCenter.
-    - In **Ambito raccolta** selezionare un ambito per l'individuazione delle macchine virtuali. L'agente di raccolta può individuare solo le macchine virtuali all'interno dell'ambito specificato. L'ambito può essere impostato su una cartella, un data center o un cluster, ma non deve contenere più di 1000 macchine virtuali. 
+    - In **Ambito raccolta** selezionare un ambito per l'individuazione delle macchine virtuali. L'agente di raccolta può individuare solo le macchine virtuali all'interno dell'ambito specificato. L'ambito può essere impostato su una cartella, un data center o un cluster, ma non deve contenere più di 1500 macchine virtuali. 
 
     ![Connettersi a vCenter](./media/migrate-scenarios-assessment/collector-connect-vcenter.png)
 

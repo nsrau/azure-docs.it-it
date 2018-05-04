@@ -10,23 +10,23 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: carlrab
-ms.openlocfilehash: f22a6d38648cf60bac09a751697e1c1d63d1db4f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e8928a69436cfa0fc601c4a0c544433f3b87a90f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Usare Python per eseguire query su un database SQL di Azure
 
- Questa esercitazione introduttiva illustra come usare [Python](https://python.org) per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati. Per altri dettagli sull'SDK, vedere la documentazione di [riferimento](https://docs.microsoft.com/python/api/overview/azure/sql), un [esempio](https://github.com/mkleehammer/pyodbc/wiki/Getting-started) pyodbc e il repository GitHub [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/).
+ Questa guida introduttiva illustra come usare [Python](https://python.org) per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati. Per altri dettagli sull'SDK, vedere la documentazione di [riferimento](https://docs.microsoft.com/python/api/overview/azure/sql), un [esempio](https://github.com/mkleehammer/pyodbc/wiki/Getting-started) pyodbc e il repository GitHub [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/).
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Per completare questa esercitazione introduttiva, accertarsi di soddisfare i requisiti seguenti:
+Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti seguenti:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Avere una [regola del firewall a livello di server](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) per l'indirizzo IP pubblico del computer usato per questa esercitazione introduttiva.
+- Avere una [regola del firewall a livello di server](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) per l'indirizzo IP pubblico del computer usato per questa guida introduttiva.
 
 - Avere installato Python e il software correlato adatti per il sistema operativo in uso:
 

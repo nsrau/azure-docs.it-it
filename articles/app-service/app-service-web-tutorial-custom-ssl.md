@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5a6fd54e4d20e55116bc0fa771e039e5ea2bb30b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fd68658d2549e47f69005af4012c2c328e192631
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Esercitazione: Associare un certificato SSL personalizzato esistente ad app Web di Azure
 
@@ -232,9 +232,17 @@ L'app consente [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 pe
 
 Nel riquadro di spostamento a sinistra della pagina dell'app Web selezionare **Impostazioni SSL**. In **TLS version** (Versione TLS) selezionare la versione minima di TLS da usare.
 
-![Applicare HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
+![Applicare TLS 1.1 o 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 Al termine dell'operazione, l'app rifiuta tutte le connessioni con versioni di TLS meno recenti.
+
+## <a name="renew-certificates"></a>Rinnovare i certificati
+
+L'indirizzo IP in ingresso può essere modificato quando si elimina un'associazione, anche se tale associazione è basata su IP. Questo aspetto è particolarmente importante quando si rinnova un certificato che si trova già in un'associazione basata su IP. Per evitare una modifica dell'indirizzo IP dell'app, seguire questi passaggi nell'ordine indicato:
+
+1. Caricare il nuovo certificato.
+2. Associare il nuovo certificato al dominio personalizzato desiderato senza eliminare quello precedente. Questa operazione sostituisce l'associazione anziché rimuovere quella precedente.
+3. Eliminare il certificato precedente. 
 
 ## <a name="automate-with-scripts"></a>Automatizzazione con gli script
 
@@ -278,7 +286,7 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>Certificati pubblici (facoltativo)
-È possibile caricare i [certificati pubblici](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) nell'app Web. È possibile usare i certificati pubblici per le app anche nell'Ambiente del servizio app. Se si intende archiviare il certificato nell'archivio certificati LocalMachine, è necessario usare un'app Web nell'Ambiente del servizio app. Per altre informazioni, vedere [Come configurare i certificati pubblici nell'App Web](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+È possibile caricare [certificati pubblici](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) nell'app Web, in modo che l'app sia in grado di accedere a un servizio esterno che richiede l'autenticazione del certificato.  Per maggiori dettagli sul caricamento e sull'uso di un certificato pubblico nell'app, vedere [Usare un certificato SSL nel codice dell'applicazione in Servizio app di Azure](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load).  È possibile usare i certificati pubblici con le app anche in Ambienti del servizio app. Se si intende archiviare il certificato nell'archivio certificati LocalMachine, è necessario usare un'app Web nell'Ambiente del servizio app. Per altre informazioni, vedere [Come configurare i certificati pubblici nell'App Web](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
 ![Caricare un certificato pubblico](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

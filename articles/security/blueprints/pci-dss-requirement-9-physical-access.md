@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 89f7b20a130e988bfe4964d50ae97de788ca4623
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 2dbf4d9e2f4ff7b6cdf8e48c24eeee4d036fe195
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="physical-access-requirements-for-pci-dss-compliant-environments"></a>Requisiti per l'accesso fisico per ambienti conformi a PCI DSS 
 ## <a name="pci-dss-requirement-9"></a>Requisito 9 di PCI DSS
@@ -342,7 +342,7 @@ Conservare questo registro per un minimo di tre mesi, in assenza di restrizioni 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore usa Operations Management Suite per registrare tutte le modifiche di sistema.<br /><br />[Operations Management Suite (OMS)](/azure/operations-management-suite/) fornisce una registrazione completa delle modifiche. Le modifiche possono essere controllate e verificate per stabilirne l'accuratezza. Per istruzioni più dettagliate, vedere [PCI Guidance - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing) (Linee guida per PCI - Operations Management Suite).|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore utilizza Azure per registrare tutte le modifiche di sistema.<br /><br />Log Analytics offre registrazione completa delle modifiche. Le modifiche possono essere controllate e verificate per stabilirne l'accuratezza. Per istruzioni più dettagliate, vedere [Linee guida per PCI: Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 

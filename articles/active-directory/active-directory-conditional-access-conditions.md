@@ -3,28 +3,28 @@ title: Condizioni nell'accesso condizionale di Azure Active Directory | Microsof
 description: Informazioni su come vengono usate le assegnazioni nell'accesso condizionale di Azure Active Directory per attivare un criterio.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2415a2c2c0143b4abeb8ec1ecab379a204456874
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 168301bbd0e7a59330ee6c87d1821db3fca39f67
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Condizioni nell'accesso condizionale di Azure Active Directory 
 
-Con l'[accesso condizionale di Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) è possibile controllare il modo in cui gli utenti autorizzati accedono alle app cloud. In un criterio di accesso condizionale si definisce la risposta ("fare questo") al motivo che ha attivato il criterio ("quando accade questo"). 
+Con l'[accesso condizionale di Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) è possibile controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Nei criteri di accesso condizionale si definisce la risposta ("fare questo") al motivo che ha attivato i criteri ("quando accade questo"). 
 
 ![Controllo](./media/active-directory-conditional-access-conditions/10.png)
 
@@ -71,7 +71,7 @@ La condizione delle app cloud è obbligatoria in un criterio di accesso condizio
 
 È possibile selezionare:
 
-- **Tutte le app cloud** per applicare i criteri di base all'intera organizzazione. Un caso d'uso comune per questa selezione è un criterio che richiede l'autenticazione a più fattori quando viene rilevato il rischio di accesso per qualsiasi app cloud.
+- **Tutte le app cloud** per applicare i criteri di base all'intera organizzazione. Un caso d'uso comune per questa selezione è un criterio che richiede l'autenticazione a più fattori quando viene rilevato il rischio di accesso per qualsiasi app cloud. I criteri applicati a **Tutte le app cloud** riguardano l'accesso a tutti i servizi e il sito Web. Questa impostazione non è limitata alle app cloud presenti nell'elenco **Seleziona app cloud**.
 
 - App cloud singole per definire come destinazione servizi specifici in base al criterio. Ad esempio, è possibile richiedere agli utenti di avere un [dispositivo conforme](active-directory-conditional-access-policy-connected-applications.md) per accedere a SharePoint Online. Questo criterio viene applicato anche ad altri servizi quando accedono a contenuto di SharePoint, ad esempio, Microsoft Teams. 
 

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2018
+ms.date: 04/20/2018
 ms.author: barclayn
-ms.openlocfilehash: fea235ed057517840515f1ad0543dba1b1c46dd0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4b2d785f5b9095a2decfc65ec46808ff6f65c38e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architecture"></a>Procedure consigliate per la Protezione DDoS di Azure e architettura di riferimento
 
@@ -161,9 +161,9 @@ Abbiamo collaborato con [BreakingPoint Cloud](https://www.ixiacom.com/products/b
 
 - Convalidare come la Protezione DDoS di Microsoft Azure consente di proteggere le risorse di Azure da attacchi DDoS
 
-- Ottimizzare il processo di risposta agli eventi imprevisti sotto attacco DDoS
+- Ottimizzare il processo di risposta agli eventi imprevisti durante un attacco DDoS
 
-- Conformità del documento DDoS
+- Documentare la conformità DDoS
 
 - Eseguire il training di team di sicurezza di rete
 

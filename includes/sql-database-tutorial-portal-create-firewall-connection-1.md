@@ -4,7 +4,7 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Creare un database SQL vuoto
 
-Un database SQL di Azure viene creato con un set definito di [risorse di calcolo e di archiviazione](../articles/sql-database/sql-database-service-tiers.md). Il database viene creato in un [gruppo di risorse di Azure](../articles/azure-resource-manager/resource-group-overview.md) e in un [server logico di database SQL di Azure](../articles/sql-database/sql-database-features.md). 
+Un database SQL di Azure viene creato con un set definito di [risorse di calcolo e di archiviazione](../articles/sql-database/sql-database-service-tiers-dtu.md). Il database viene creato in un [gruppo di risorse di Azure](../articles/azure-resource-manager/resource-group-overview.md) e in un [server logico di database SQL di Azure](../articles/sql-database/sql-database-features.md). 
 
 Per creare un database SQL vuoto, attenersi alla procedura seguente. 
 

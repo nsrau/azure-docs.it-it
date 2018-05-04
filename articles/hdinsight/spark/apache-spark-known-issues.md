@@ -2,7 +2,7 @@
 title: Risolvere i problemi del cluster Apache Spark in Azure HDInsight | Microsoft Docs
 description: Informazioni sui problemi relativi ai cluster Apache Spark in HDInsight di Azure e come risolverli.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,24 +10,22 @@ tags: azure-portal
 ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: de7847055c00fe9d0d1cc08cf5ba5d2ab54a9fc0
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 664c97117de793209007843fa23c98f52c2b079d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemi noti del cluster Apache Spark in HDInsight
 
 Questo documento elenca tutti i problemi noti relativi all'anteprima pubblica di HDInsight Spark.  
 
 ## <a name="livy-leaks-interactive-session"></a>Livy perde la sessione interattiva
-Quando Livy viene riavviato (da Ambari oppure a causa del riavvio della macchina virtuale con nodo head 0) con una sessione interattiva ancora attiva, una sessione di processo interattiva va persa. Per questo motivo, i nuovi processi possono rimanere bloccati in stato Accettato e non possono essere avviati.
+Quando Livy viene riavviato (da Ambari oppure a causa del riavvio della macchina virtuale con nodo head 0) con una sessione interattiva ancora attiva, una sessione di processo interattiva va persa. Di conseguenza, i nuovi processi possono rimanere bloccati in stato Accettato.
 
 **Soluzione:**
 
@@ -54,7 +52,12 @@ Il server cronologia Spark non viene avviato automaticamente dopo la creazione d
 Avviare manualmente il server cronologia da Ambari.
 
 ## <a name="permission-issue-in-spark-log-directory"></a>Problema di autorizzazioni nella directory log Spark
-Quando hdiuser invia un processo con spark-submit, si verifica un errore java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (autorizzazione negata) e il log del driver non viene scritto. 
+hdiuser ottiene l'errore seguente durante l'invio di un processo con spark-submit:
+
+```
+java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied)
+```
+Inoltre, non viene scritto alcun log del driver. 
 
 **Soluzione:**
 
@@ -65,7 +68,7 @@ Quando hdiuser invia un processo con spark-submit, si verifica un errore java.io
 
 ## <a name="spark-phoenix-connector-is-not-supported"></a>Il connettore Spark-Phoenix non è supportato
 
-Attualmente, il connettore Spark-Phoenix non è supportato in un cluster HDInsight Spark.
+I cluster HDInsight Spark non supportano il connettore Spark-Phoenix.
 
 **Soluzione:**
 
@@ -75,7 +78,7 @@ Usare il connettore Spark-HBase. Per istruzioni, vedere [How to use Spark-HBase 
 Seguito alcuni problemi noti relativi ai notebook Jupyter.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Notebook con nomi di file contenenti caratteri non ASCII
-I notebook Jupyter utilizzabili nei cluster HDInsight Spark non devono contenere nei nomi di file caratteri non ASCII. Se tramite l'interfaccia utente di Jupyter si prova a caricare un file con un nome non ASCII, l'operazione si interrompe senza avvisi. In altre parole, Jupyter non consente di caricare il file, ma non genera nemmeno un errore visibile. 
+Non usare caratteri non ASCII nei nomi di file dei notebook Jupyter. Se tramite l'interfaccia utente di Jupyter si prova a caricare un file con un nome non ASCII, l'operazione si interrompe senza alcun messaggio di errore. Jupyter non consente di caricare il file, ma non genera nemmeno un errore visibile.
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Errore durante il caricamento di notebook di maggiori dimensioni
 Quando si caricano notebook di maggiori dimensioni, potrebbe comparire l'errore **`Error loading notebook`** .  
@@ -99,7 +102,7 @@ La prima istruzione del codice nel notebook di Jupyter tramite il magic Spark po
 Ciò accade quando viene eseguita la prima cella di codice. In background viene avviata la configurazione della sessione e vengono impostati i contesti Spark, SQL e Hive. La prima istruzione viene eseguita dopo l'impostazione di questi contesti, dando l'impressione che l'esecuzione dell'istruzione impieghi molto tempo.
 
 ### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Timeout del notebook di Jupyter durante la creazione della sessione
-Quando il cluster Spark esaurisce le risorse, si verifica il timeout dei kernel Spark e PySpark nel notebook di Jupyter durante il tentativo di creare la sessione. 
+Quando il cluster Spark esaurisce le risorse, si verifica il timeout dei kernel Spark e PySpark nel notebook Jupyter durante il tentativo di creare la sessione. 
 
 **Soluzioni:** 
 

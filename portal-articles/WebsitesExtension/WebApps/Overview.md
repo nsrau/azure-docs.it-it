@@ -1,6 +1,6 @@
 ---
-title: Panoramica di App Web | Documentazione Microsoft
-description: Contenuto della Guida per la panoramica di app Web nel portale di Azure
+title: Panoramica del servizio app | Microsoft Docs
+description: Contenuto della Guida per la panoramica del servizio app nel portale di Azure
 services: app-service
 author: sewatson
 manager: lwelicki
@@ -8,19 +8,21 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 13709876752dd5df356765ed636c5a7e4a665d4c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e795a6c5f76fb8d40c7e6778555de619d00b3a41
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="web-apps-documentation"></a>Documentazione di App Web
+# <a name="app-service-documentation"></a>Documentazione del servizio app
+Servizio app di Azure consente di creare e ospitare applicazioni Web nel linguaggio di programmazione preferito, senza dover gestire l'infrastruttura né il linguaggio o il runtime del framework Web. Offre la scalabilità automatica e la disponibilità elevata, supporta sia Windows che Linux e consente le distribuzioni automatizzate da GitHub, Visual Studio Team Services o qualsiasi repository Git. Informazioni su come usare Servizio app di Azure con le guide introduttive, le esercitazioni e gli esempi.
 
-App Web di Azure consente di creare e ospitare applicazioni Web nel linguaggio di programmazione preferito, senza dovere gestire l'infrastruttura. Offre la scalabilità automatica e la disponibilità elevata, supporta sia Windows che Linux e consente le distribuzioni automatizzate da GitHub, Visual Studio Team Services o qualsiasi repository Git. Informazioni su come usare App Web di Azure con le guide rapide, le esercitazioni e gli esempi.
+## <a name="windows-linux-and-docker"></a>Windows, Linux e Docker
+Le [app Web](/app-service/app-service-web-overview) sono l'offerta principale del servizio app per la compilazione e l'hosting di applicazioni Web in ambienti Windows. Gli sviluppatori che preferiscono un ambiente Linux possono scegliere [Servizio app per Linux](/app-service/containers/app-service-linux-intro). Gli sviluppatori possono inoltre distribuire immagini Docker direttamente nel servizio app per Linux per la distribuzione di runtime/framework personalizzati.
 
 ## <a name="5-minute-quickstarts"></a>Guide introduttive di 5 minuti
 
-Informazioni su come distribuire la prima applicazione nel cloud tramite App Web:
+Informazioni su come distribuire la prima applicazione nel cloud tramite il servizio app per app Web:
 
 - [.NET](/azure/app-service/app-service-web-get-started-dotnet)
 - [Node.JS](/azure/app-service/app-service-web-get-started-nodejs)
@@ -33,7 +35,11 @@ Informazioni su come distribuire la prima applicazione nel cloud tramite App Web
 
 Informazioni su come distribuire, gestire e monitorare applicazioni Web sicure in Azure.
 
-- Creare un'applicazione usando [.NET con il database SQL di Azure](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase) o [Node.js con MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+- Creare un'applicazione usando:
+  - [.NET con database SQL di Azure](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+  - [Node.js con MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+  - [Java con MySQL](/app-service/app-service-web-tutorial-java-mysql)
+  - [Python con PostgreSQL](/app-service/app-service-web-tutorial-python-postgresql)
 - [Eseguire il mapping di un dominio personalizzato esistente all'applicazione](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Associare un certificato SSL esistente all'applicazione](/azure/app-service/app-service-web-tutorial-custom-SSL)
 
@@ -51,5 +57,4 @@ Trovare script per gestire le attività comuni.
 
 ## <a name="more"></a>Altro
 
-- [Vedere la documentazione per altre informazioni](/azure/app-service-web/index)
 - [Informazioni su tutti i servizi Azure](https://aka.ms/j3wr7y)

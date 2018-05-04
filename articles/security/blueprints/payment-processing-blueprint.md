@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5851d5499c61cf99d7f85d07642a292f3b8c19d2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure Security and Compliance Blueprint - Ambienti di elaborazione pagamenti conformi a PCI DSS
 
@@ -120,7 +120,7 @@ Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'
 >- gateway applicazione
 >- Azure Active Directory
 >- Ambiente del servizio app versione 2
->- Log Analytics OMS
+>- Log Analytics
 >- Azure Key Vault
 >- Gruppi di sicurezza di rete
 >- Database SQL di Azure
@@ -173,7 +173,7 @@ Per ognuno dei gruppi di sicurezza di rete sono aperti porte e protocolli specif
 
 Per ognuno dei gruppi di sicurezza di rete sono aperti porte e protocolli specifici per garantire il funzionamento protetto e corretto della soluzione. Per ogni gruppo di sicurezza di rete sono abilitate anche le configurazioni seguenti:
 - I [log e gli eventi di diagnostica](/azure/virtual-network/virtual-network-nsg-manage-log) abilitati vengono archiviati nell'account di archiviazione 
-- Connessione di Log Analytics di OMS alla [diagnostica dei gruppi di sicurezza di rete](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- Connessione di Log Analytics alla [diagnostica dei gruppi di sicurezza di rete](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 #### <a name="subnets"></a>Subnet
  Assicurarsi che ogni subnet sia associata al rispettivo gruppo di sicurezza di rete.
@@ -203,12 +203,12 @@ L'istanza di database SQL di Azure usa le misure di sicurezza del database segue
 
 ### <a name="logging-and-auditing"></a>Registrazione e controllo
 
-[Operations Management Suite (OMS)](/azure/operations-management-suite/) può offrire a Contoso Webstore funzionalità di registrazione estesa di tutte le attività del sistema e degli utenti, inclusa la registrazione dei dati di titolari di carte. Le modifiche possono essere controllate e verificate per stabilirne l'accuratezza. 
+[Log Analytics](https://azure.microsoft.com/services/log-analytics) può offrire a Contoso Webstore funzionalità di registrazione estesa di tutte le attività del sistema e degli utenti, inclusa la registrazione dei dati di titolari di carte. Le modifiche possono essere controllate e verificate per stabilirne l'accuratezza. 
 
 - **Log attività:** i [log attività](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) offrono informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione.
 - **Log di diagnostica:** i [log di diagnostica](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) sono tutti i log generati da ogni risorsa. Questi log includono i log eventi di sistema di Windows e i log di archiviazione BLOB di Azure, delle tabelle e delle code.
 - **Log del firewall**: il gateway applicazione fornisce log completi relativi a diagnostica e accesso. I log del firewall sono disponibili per le risorse del gateway applicazione con WAF abilitato.
-- **Archiviazione di log:** tutti i log di diagnostica sono configurati per la scrittura in un account di archiviazione di Azure centralizzato e crittografato per l'archiviazione con un periodo di conservazione definito (2 giorni). I log vengono quindi connessi a Log Analytics di Azure per l'elaborazione, l'archiviazione e la visualizzazione nel dashboard. [Log Analytics](https://azure.microsoft.com/services/log-analytics) è un servizio di OMS che semplifica la raccolta e l'analisi dei dati generati dalle risorse nel cloud e negli ambienti locali.
+- **Archiviazione di log:** tutti i log di diagnostica sono configurati per la scrittura in un account di archiviazione di Azure centralizzato e crittografato per l'archiviazione con un periodo di conservazione definito (2 giorni). I log vengono quindi connessi a Log Analytics di Azure per l'elaborazione, l'archiviazione e la visualizzazione nel dashboard. [Log Analytics](https://azure.microsoft.com/services/log-analytics) è un servizio che semplifica la raccolta e l'analisi dei dati generati dalle risorse nel cloud e negli ambienti locali.
 
 ### <a name="encryption-and-secrets-management"></a>Gestione della crittografia e dei segreti
 
@@ -224,7 +224,7 @@ Le tecnologie seguenti offrono funzionalità di gestione delle identità nell'am
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) è il servizio Microsoft multi-tenant di gestione di identità e directory basato sul cloud. Tutti gli utenti della soluzione sono stati creati in Azure Active Directory, inclusi gli utenti che accedono al database SQL.
 - L'autenticazione per l'applicazione viene eseguita tramite Azure AD. Per altre informazioni, vedere [Integrazione di applicazioni con Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications). Anche la crittografia delle colonne del database usa Azure AD per l'autenticazione dell'applicazione al database SQL di Azure. Per altre informazioni, vedere [Always Encrypted: Proteggere i dati sensibili nel database SQL](/azure/sql-database/sql-database-always-encrypted-azure-key-vault). 
 - [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) rileva le potenziali vulnerabilità che interessano le identità dell'organizzazione, consente di configurare le risposte automatiche nei confronti delle azioni sospette rilevate in relazione alle identità dell'organizzazione, ricerca la causa degli eventi sospetti e intraprende le azioni appropriate per risolverli.
-- Il [controllo degli accessi in base al ruolo di Azure](/azure/active-directory/role-based-access-control-configure) consente un'accurata gestione degli accessi per Azure. L'accesso a una sottoscrizione è limitato all'amministratore della sottoscrizione stessa e l'accesso ad Azure Key Vault è limitato per tutti gli utenti.
+- Il [controllo degli accessi in base al ruolo di Azure](/azure/role-based-access-control/role-assignments-portal) consente un'accurata gestione degli accessi per Azure. L'accesso a una sottoscrizione è limitato all'amministratore della sottoscrizione stessa e l'accesso ad Azure Key Vault è limitato per tutti gli utenti.
 
 Per altre informazioni sull'uso delle funzionalità di sicurezza del database SQL di Azure, vedere l'[applicazione demo di esempio Contoso Clinic](https://github.com/Microsoft/azure-sql-security-sample).
    
@@ -278,11 +278,11 @@ Dato che l'ambiente del servizio app è protetto e bloccato, è necessario un me
 
 #### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) è un servizio di Operations Management Suite (OMS) che consente di raccogliere e analizzare i dati generati dalle risorse nel cloud e negli ambienti locali.
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) è un servizio di Azure che permette di raccogliere e analizzare i dati generati dalle risorse nel cloud e negli ambienti locali.
 
-#### <a name="oms-solutions"></a>Soluzioni OMS
+#### <a name="management-solutions"></a>Soluzioni di gestione
 
-Occorre prendere in considerazione e configurare queste soluzioni OMS aggiuntive:
+È consigliabile prendere in considerazione e configurare queste soluzioni di gestione aggiuntive:
 - [Activity Log Analytics](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Azure Networking Analytics](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analytics](/azure/log-analytics/log-analytics-azure-sql)
@@ -338,9 +338,9 @@ Per distribuire la soluzione, è consigliabile usare un'installazione di PowerSh
     
     Per istruzioni dettagliate sull'utilizzo, vedere [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md) (Istruzioni dello script: distribuire e configurare risorse di Azure).
     
-3. Registrazione e monitoraggio di OMS. Dopo la distribuzione della soluzione, è possibile aprire un'area di lavoro di [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) ed è possibile usare i modelli di esempio presenti nel repository della soluzione per illustrare come configurare un dashboard di monitoraggio. Per i modelli di OMS di esempio, fare riferimento alla [cartella omsDashboards](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Si noti che i dati devono essere raccolti in OMS per la corretta distribuzione dei modelli. Ciò può richiedere fino a un'ora o più a seconda dell'attività del sito.
+3. Registrazione e monitoraggio. Al termine della distribuzione della soluzione, è possibile aprire un'area di lavoro di Log Analytics e usare i modelli di esempio forniti nel repository della soluzione, che mostrano come configurare un dashboard di monitoraggio. Per i modelli di esempio, fare riferimento alla [cartella omsDashboards](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Per la corretta distribuzione dei modelli, i dati devono essere raccolti in Log Analytics. Ciò può richiedere fino a un'ora o più a seconda dell'attività del sito.
  
-    Quando si configura la registrazione per OMS, si prenda in considerazione di includere queste risorse:
+    Quando si configura la registrazione di Log Analytics, valutare se includere queste risorse:
  
     - Microsoft.Network/applicationGateways
     - Microsoft.Network/NetworkSecurityGroups

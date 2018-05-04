@@ -1,5 +1,5 @@
 ---
-title: Configurare indirizzi IP privati per le VM - Azure PowerShell | Microsoft Docs
+title: Configurare indirizzi IP privati per le VM - Azure PowerShell | Documentazione Microsoft
 description: Informazioni su come configurare indirizzi IP privati per le macchine virtuali mediante PowerShell.
 services: virtual-network
 documentationcenter: na
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8727318c9dff79b795b473caf7b778272134726c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b0e8153f1d0cecd4efe66dc7cce64addd6ed62aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>Configurare indirizzi IP privati per una macchina virtuale mediante PowerShell
 
@@ -68,7 +68,7 @@ Per creare una VM denominata *DNS01* nella subnet *FrontEnd* di una rete virtual
     -PrivateIpAddress 192.168.1.101
     ```
 
-5. Creare la macchina virtuale utilizzando la scheda di rete creata in precedenza.
+5. Creare la macchina virtuale con la scheda di interfaccia di rete:
 
     ```powershell
     $vm = New-AzureRmVMConfig -VMName DNS01 -VMSize "Standard_A1"
@@ -83,16 +83,7 @@ Per creare una VM denominata *DNS01* nella subnet *FrontEnd* di una rete virtual
     New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm 
     ```
 
-    Output previsto:
-    
-        EndTime             : [Date and time]
-        Error               : 
-        Output              : 
-        StartTime           : [Date and time]
-        Status              : Succeeded
-        TrackingOperationId : [Id]
-        RequestId           : [Id]
-        StatusCode          : OK 
+È consigliabile non assegnare staticamente l'indirizzo IP privato assegnato alla macchina virtuale di Azure all'interno del sistema operativo di una macchina virtuale, se non necessario, ad esempio durante l'[assegnazione di più indirizzi IP a una macchina virtuale Windows](virtual-network-multiple-ip-addresses-powershell.md). Se si imposta manualmente l'indirizzo IP privato all'interno del sistema operativo, assicurarsi che sia uguale all'indirizzo IP privato assegnato all'[interfaccia di rete](virtual-network-network-interface-addresses.md#change-ip-address-settings) di Azure. In caso contrario, si può perdere la connettività alla macchina virtuale. Altre informazioni sulle impostazioni dell'[indirizzo IP privato](virtual-network-network-interface-addresses.md#private). Non assegnare mai manualmente l'indirizzo IP pubblico assegnato a una macchina virtuale di Azure all'interno del sistema operativo della macchina virtuale.
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-network-interface"></a>Recuperare le informazioni relative all'indirizzo IP privato statico per un'interfaccia di rete
 Per visualizzare le informazioni relative all'indirizzo IP privato statico per la macchina virtuale creata con lo script precedente, eseguire il comando PowerShell seguente e osservare i valori per *PrivateIpAddress* e *PrivateIpAllocationMethod*:
@@ -199,6 +190,9 @@ $nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
 $nic.IpConfigurations[0].PrivateIpAddress = "192.168.1.101"
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
+
+È consigliabile non assegnare staticamente l'indirizzo IP privato assegnato alla macchina virtuale di Azure all'interno del sistema operativo di una macchina virtuale, se non necessario, ad esempio durante l'[assegnazione di più indirizzi IP a una macchina virtuale Windows](virtual-network-multiple-ip-addresses-powershell.md). Se si imposta manualmente l'indirizzo IP privato all'interno del sistema operativo, assicurarsi che sia uguale all'indirizzo IP privato assegnato all'[interfaccia di rete](virtual-network-network-interface-addresses.md#change-ip-address-settings) di Azure. In caso contrario, si può perdere la connettività alla macchina virtuale. Altre informazioni sulle impostazioni dell'[indirizzo IP privato](virtual-network-network-interface-addresses.md#private). Non assegnare mai manualmente l'indirizzo IP pubblico assegnato a una macchina virtuale di Azure all'interno del sistema operativo della macchina virtuale.
+
 ## <a name="change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>Modificare il metodo di allocazione per un indirizzo IP privato assegnato a un'interfaccia di rete
 
 Un indirizzo IP privato viene assegnato a una scheda di interfaccia di rete con il metodo di allocazione statico o dinamico. Gli indirizzi IP dinamici possono cambiare dopo l'avvio di una VM che in precedenza era in stato di arresto (deallocazione). Questo può causare problemi se la VM ospita un servizio che richiede lo stesso indirizzo IP, anche dopo il riavvio da uno stato di arresto (deallocazione). Gli indirizzi IP statici vengono mantenuti fino a quando non viene eliminata la VM. Per cambiare il metodo di allocazione di un indirizzo IP, eseguire lo script seguente, che cambia il metodo di allocazione da dinamico in statico. Se il metodo di allocazione per l'indirizzo IP privato corrente è statico, cambiare *Static* in *Dynamic* prima di eseguire lo script.
@@ -222,7 +216,5 @@ Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.Provisioni
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni su [indirizzi IP pubblici riservati](virtual-networks-reserved-public-ip.md) .
-* Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md) .
-* Consultare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
+Informazioni su come gestire le [impostazioni dell'indirizzo IP](virtual-network-network-interface-addresses.md).

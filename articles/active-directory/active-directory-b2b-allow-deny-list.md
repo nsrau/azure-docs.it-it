@@ -13,22 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2018
+ms.date: 04/19/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 21862bb110801a43f13e3e65811e10726c188614
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 9a18193ee0d216416cda3145c85c8357813f794d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche
 
 È possibile usare un elenco di accesso consentito o un elenco di accesso negato per bloccare gli inviti agli utenti B2B da organizzazioni specifiche. Ad esempio, se si desidera bloccare i domini di indirizzi di posta elettronica personale, è possibile configurare un elenco di accesso negato che contenga domini come Gmail.com e Outlook.com. Oppure, se l'azienda collabora con altre, ad esempio Contoso.com e Fabrikam.com e Litware.com e si vuole limitare gli inviti solo a queste organizzazioni, è possibile aggiungere Contoso.com, Fabrikam.com e Litware.com all'elenco di accesso consentito.
   
-> [!NOTE]
-> Attualmente è possibile usare solo elenchi di accesso negato. La possibilità di usare elenchi di accesso consentito sarà disponibile molto presto.
-
 ## <a name="important-considerations"></a>Considerazioni importanti
 
 - È possibile creare un elenco di accesso consentito o un elenco di accesso negato. Non è consentita la configurazione di entrambi i tipi di elenchi. Per impostazione predefinita, i domini non inclusi nell'elenco di accesso consentito vengono inclusi nell'elenco di accesso negato e viceversa. 
@@ -50,22 +47,34 @@ Per aggiungere un elenco di accesso negato:
 2. Selezionare **Azure Active Directory** > **Utenti** > **Impostazioni utente**.
 3. In **Utenti esterni** selezionare **Manage external collaboration settings** (Gestisci impostazioni di collaborazione esterna).
 4. In **Collaboration restrictions** (Restrizioni per la collaborazione) selezionare **Deny invitations to the specified domains** (Nega inviti ai domini specificati).
-5. In **Domini di destinazione** immettere il nome di uno dei domini che si vuole bloccare. Per specificare più domini, immettere ognuno in una nuova riga.
+5. In **Domini di destinazione** immettere il nome di uno dei domini che si vuole bloccare. Per specificare più domini, immettere ognuno in una nuova riga. Ad esempio: 
 
    ![Mostra l'opzione di negazione con i domini aggiunti](./media/active-directory-b2b-allow-deny-list/DenyListSettings.png)
  
 6. Al termine, fare clic su **Salva**.
 
-Dopo aver impostato il criterio, se si prova a invitare un utente da un dominio bloccato, viene visualizzato un messaggio che informa che l'utente è attualmente bloccato dai criteri relativi agli inviti.
+Dopo aver impostato il criterio, se si prova a invitare un utente da un dominio bloccato, viene visualizzato un messaggio che informa che il dominio dell'utente è attualmente bloccato dai criteri relativi agli inviti.
  
 ### <a name="add-an-allow-list"></a>Aggiungere un elenco di accesso consentito
-
-> [!NOTE]
-> Attualmente, l'impostazione **Allow invitations only to the specified domains (most restrictive)** (Consenti inviti solo ai domini specificati - più restrittiva) non è disponibile. La possibilità di usare elenchi di accesso consentito sarà disponibile molto presto.
 
 Si tratta di una configurazione più restrittiva, in cui è possibile impostare domini specifici nell'elenco di accesso consentito e limitare gli inviti a qualsiasi altro dominio o organizzazione non menzionati. 
 
 Se si vuole usare un elenco di accesso consentito, assicurarsi di dedicare tempo a una valutazione accurata delle esigenze aziendali. Se si creano criteri troppo restrittivi, gli utenti possono scegliere di inviare documenti tramite posta elettronica o trovare altri modi per collaborare non approvati dal reparto IT.
+
+
+Per aggiungere un elenco di accesso consentito:
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Selezionare **Azure Active Directory** > **Utenti** > **Impostazioni utente**.
+3. In **Utenti esterni** selezionare **Manage external collaboration settings** (Gestisci impostazioni di collaborazione esterna).
+4. In **Restrizioni di collaborazione** selezionare **Consenti l'invio di inviti solo ai domini specificati (più restrittivo)**.
+5. In **DOMINI DI DESTINAZIONE** immettere il nome di uno dei domini che si vuole consentire. Per specificare più domini, immettere ognuno in una nuova riga. Ad esempio: 
+
+   ![Mostra l'opzione Consenti con i domini aggiunti](./media/active-directory-b2b-allow-deny-list/AllowListSettings.png)
+ 
+6. Al termine, fare clic su **Salva**.
+
+Dopo aver impostato il criterio, se si prova a invitare un utente da un dominio che non si trova nell'elenco di accesso consentito, viene visualizzato un messaggio che informa che il dominio dell'utente è attualmente bloccato dai criteri relativi agli inviti.
 
 ### <a name="switch-from-allow-to-deny-list-and-vice-versa"></a>Passare dall'elenco di accesso consentito a quello di accesso negato e viceversa 
 
@@ -116,9 +125,6 @@ Se il modulo non è installato o non è disponibile una versione richiesta, eseg
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>Usare i cmdlet AzureADPolicy per configurare i criteri
 
-> [!NOTE]
-> Attualmente è possibile configurare solo elenchi di accesso negato. La possibilità di usare elenchi di accesso consentito sarà disponibile molto presto.
-
 Per creare un elenco di accesso consentito o negato, usare il cmdlet [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview). L'esempio seguente illustra come impostare un elenco di accesso negato che blocca il dominio "live.com".
 
 ````powershell 
@@ -139,7 +145,7 @@ Per impostare il criterio per l'elenco di accesso consentito o negato, usare il 
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ````
 
-Per ottenere il criterio, usare il cmdlet [Get-AzureADPolicy](https://docs.microsoft.com/en-us/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview). Ad esempio: 
+Per ottenere il criterio, usare il cmdlet [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview). Ad esempio: 
 
 ````powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 

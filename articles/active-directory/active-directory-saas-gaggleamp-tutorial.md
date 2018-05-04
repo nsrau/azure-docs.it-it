@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 04/06/2018
 ms.author: jeedes
-ms.openlocfilehash: ffa6a3d6cc1377277591de63c7224b23796b53d8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f68fdd84acd95ccd2a400e02303247f246d876b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Esercitazione: Integrazione di Azure Active Directory con GaggleAMP
 
@@ -44,7 +44,7 @@ Per configurare l'integrazione di Azure AD con GaggleAMP, sono necessari gli ele
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+- Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
@@ -106,44 +106,48 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
     ![Configure Single Sign-On](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_samlbase.png)
 
-3. Nella sezione **URL e dominio GaggleAMP** seguire questa procedura:
+3. Nella sezione **URL e dominio GaggleAMP** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     ![Configure Single Sign-On](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_url.png)
 
-     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.gaggleamp.com`
+     Nella casella di testo **Identificatore** digitare l'URL: `https://accounts.gaggleamp.com/auth/saml/callback`
 
-    > [!NOTE] 
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore contattare il [team di supporto clienti di GaggleAMP](mailto:sales@gaggleamp.com). 
+4. Selezionare **Mostra impostazioni URL avanzate** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+
+    ![Configure Single Sign-On](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_url1.png)
+
+     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://gaggleamp.com/i/<customerid>`
+
+    > [!NOTE]
+    > Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto di GaggleAMP](mailto:sales@gaggleamp.com).
  
-4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+5. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_certificate.png) 
 
-5. Fare clic sul pulsante **Salva** .
+6. Fare clic sul pulsante **Salva** .
 
     ![Configure Single Sign-On](./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione di GaggleAMP** fare clic su **Configura GaggleAMP** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+7. Nella sezione **Configurazione di GaggleAMP** fare clic su **Configura GaggleAMP** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
 
     ![Configure Single Sign-On](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_configure.png) 
 
-7. In un'altra istanza del browser passare alla pagina dell'accesso Single Sign-On SAML creata dal team di supporto di Gaggle, ad esempio *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*.
+8. In un'altra istanza del browser, passare alla pagina di Single Sign-On SAML creata dal team di supporto Gaggle (ad esempio, *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
 
-8. Nella pagina **SAML SSO** seguire questa procedura:  
+9. Nella pagina **SAML SSO** seguire questa procedura:  
    
-    ![Accesso Single Sign-On di GaggleAMP](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png) 
- 
-    a. Nella casella di testo **Autorità di certificazione del provider di identità** incollare il valore di **URL autorità di certificazione** copiato dal portale di Azure. 
- 
-    b. Nella casella di testo **URL di accesso Single Sign-On del provider di identità** incollare il valore di **URL servizio Single Sign-On** copiato dal portale di Azure. 
+    ![Accesso Single Sign-On di GaggleAMP](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png)
 
-    c. Fare clic su **Save**      
-
-    d. Inviare il **Certificato (Base64)** al [team di supporto di GaggleAMP](mailto:sales@gaggleamp.com).
-
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
-> 
+    a. Selezionare **Altro** nel menu a discesa **Provider di identità**.
+    
+    b. Nella casella di testo **Autorità di certificazione del provider di identità** incollare il valore di **URL autorità di certificazione** copiato dal portale di Azure.
+    
+    c. Nella casella di testo **URL di accesso Single Sign-On del provider di identità** incollare il valore di **URL servizio Single Sign-On** copiato dal portale di Azure.
+    
+    d. Aprire il file **Certificate (Base64)** scaricato nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato X.509**.
+    
+    e. Fare clic su **Save**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
@@ -223,8 +227,6 @@ Quando si fa clic sul riquadro GaggleAMP nel pannello di accesso, si dovrebbe ac
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_01.png
@@ -238,4 +240,3 @@ Quando si fa clic sul riquadro GaggleAMP nel pannello di accesso, si dovrebbe ac
 [201]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_203.png
-

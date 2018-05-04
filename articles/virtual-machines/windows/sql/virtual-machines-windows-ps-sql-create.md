@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 2f94cf2ab84179161c8d0a4f2ae6f73ded1d65c3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7dff9fd736b1b0c616ee2d4f2591d632345156b9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Come eseguire il provisioning di macchine virtuali di SQL Server con Azure PowerShell
 
@@ -31,10 +31,10 @@ Questo articolo richiede il modulo Azure PowerShell 3.6 o versioni successive. E
 
 ## <a name="configure-your-subscription"></a>Configurare la sottoscrizione
 
-1. Aprire PowerShell e accedere all'account Azure eseguendo il comando **Add-AzureRmAccount**.
+1. Aprire PowerShell e accedere all'account Azure eseguendo il comando **Connect-AzureRmAccount**.
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. Viene visualizzata una schermata di accesso per l'immissione delle credenziali. Utilizzare lo stesso indirizzo email e password utilizzati per accedere al portale di Azure.
@@ -327,7 +327,7 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 È anche possibile eliminare definitivamente tutte le risorse associate alla macchina virtuale con il comando **Remove-AzureRmResourceGroup**. In questo modo viene eliminata definitivamente anche la macchina virtuale, quindi usare questo comando con cautela.
 
 ## <a name="example-script"></a>Script di esempio
-Lo script seguente contiene lo script PowerShell completo per l'esercitazione. Si presuppone che sia stata già impostata la sottoscrizione di Azure da usare con i comandi **Add-AzureRmAccount** e **Select-AzureRmSubscription**.
+Lo script seguente contiene lo script PowerShell completo per l'esercitazione. Si presuppone che sia già stata impostata la sottoscrizione di Azure da usare con i comandi **Connect-AzureRmAccount** e **Select-AzureRmSubscription**.
 
 ```PowerShell
 # Variables

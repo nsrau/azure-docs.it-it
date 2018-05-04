@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: c733f919189dadcf1181ddbe2a1057b2bcf66fc4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ce65b9b532ca6f594334f3eb0194d700aca1c735
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: criteri predefiniti
 
@@ -62,7 +62,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>Creare un criterio di iscrizione o accesso
 
-Questo criterio consente di gestire le esperienze di iscrizione e accesso dei consumatori tramite una singola configurazione. I consumatori vengono indirizzati sul percorso corretto (iscrizione o accesso) a seconda del contesto. Vengono inoltre descritti i contenuti dei token che l'applicazione riceverà al completamento dell'iscrizione o dell'accesso.  Un esempio di codice per i criteri di iscrizione o di accesso è [disponibile qui](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  È consigliabile usare questo criterio invece dei criteri di iscrizione e di accesso.  
+Questo criterio consente di gestire le esperienze di iscrizione e accesso dei consumatori tramite una singola configurazione. I consumatori vengono indirizzati sul percorso corretto (iscrizione o accesso) a seconda del contesto. Vengono inoltre descritti i contenuti dei token che l'applicazione riceverà al completamento dell'iscrizione o dell'accesso.  Il codice di esempio per i criteri di **iscrizione o accesso** è [disponibile qui](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  È consigliabile usare questi criteri invece dei criteri di **iscrizione** o di **accesso**.  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
@@ -85,16 +85,16 @@ Questo criterio consente di gestire le esperienze di iscrizione e accesso dei co
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 ### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Come si collegano i criteri di iscrizione o accesso ai criteri di reimpostazione delle password?
-Quando si creano i criteri di iscrizione o accesso (con gli account locali), l'utente visualizza un collegamento **Password dimenticata?** nella prima pagina. Se si fa clic su questo collegamento non si attivano automaticamente i criteri di reimpostazione delle password. 
+Quando si creano i criteri di **iscrizione o accesso** (con gli account locali), l'utente visualizza un collegamento **Password dimenticata?** nella prima pagina. Se si fa clic su questo collegamento non si attivano automaticamente i criteri di reimpostazione delle password. 
 
 Viene invece restituito il codice di errore **`AADB2C90118`** all'app. L'applicazione deve gestire questo codice di errore e richiamare criteri di reimpostazione delle password specifici. Per altre informazioni, vedere un [esempio che illustra come collegare i criteri](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
 ### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>È consigliabile usare criteri di iscrizione o accesso o criteri di iscrizione e criteri di accesso?
-È consigliabile usare criteri di iscrizione o accesso al posto di criteri di iscrizione e criteri di accesso.  
+È consigliabile usare i criteri di **iscrizione o accesso** invece dei criteri di **iscrizione** e dei criteri di **accesso**.  
 
-I criteri di iscrizione o accesso dispongono di più funzionalità rispetto ai criteri di accesso. Consentono anche di usare la personalizzazione dell'interfaccia utente di pagina e sono meglio supportati nella localizzazione. 
+I criteri di **iscrizione o accesso** offrono più funzionalità rispetto ai criteri di **accesso**. Consentono anche di usare la personalizzazione dell'interfaccia utente di pagina e sono meglio supportati nella localizzazione. 
 
-I criteri di accesso sono consigliati se non si desidera localizzare i criteri, servono solo funzionalità di personalizzazione secondarie per la personalizzazione e si desidera disporre della funzionalità di reimpostazione delle password integrata.
+I criteri di **accesso** sono consigliati se non è necessario localizzare i criteri, servono solo funzionalità di personalizzazione secondarie per il marchio e si vuole che la funzionalità di reimpostazione della password sia integrata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Configurazione di token, sessione e accesso Single Sign-On](active-directory-b2c-token-session-sso.md)

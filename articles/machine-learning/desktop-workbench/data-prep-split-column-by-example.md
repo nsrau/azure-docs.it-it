@@ -12,10 +12,10 @@ ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
 ms.openlocfilehash: 497c1725fc4554792add11c0ec069d1628a89fbd
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="split-column-by-example-transformation"></a>Trasformazione Split Column by Example (Dividi colonna in base all'esempio)
 Questa trasformazione divide in modo predittivo il contenuto di una colonna in base a limiti significativi senza richiedere l'input dell'utente. L'algoritmo di divisione seleziona i limiti dopo avere analizzato il contenuto della colonna. Questi limiti possono essere definiti da:

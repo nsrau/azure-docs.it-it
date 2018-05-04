@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e891e9c9fd87f370f0c98639ff0c6fc5b8cc81af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console seriale per macchine virtuali (anteprima) 
 
@@ -109,7 +109,7 @@ Se è necessario abilitare i prompt del caricatore di avvio di Windows da visual
 
 Questa sezione include i comandi di esempio per l'esecuzione di attività comuni negli scenari in cui potrebbe essere necessario usare SAC per accedere alla macchina virtuale, ad esempio quando è necessario risolvere gli errori di connessione RDP.
 
-SAC è stata inclusa in tutte le versioni di Windows, a partire da Windows Server 2003, ma è disabilitata per impostazione predefinita. SAC si basa sul driver del kernel `sacdrv.sys`, sul servizio `Special Administration Console Helper`(`sacsvr`) e sul processo `sacsess.exe`. Per altre informazioni, vedere [Emergency Management Services Tools and Settings](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)) (Strumenti e impostazioni di Servizi di gestione emergenze).
+SAC è stata inclusa in tutte le versioni di Windows, a partire da Windows Server 2003, ma è disabilitata per impostazione predefinita. SAC si basa sul driver del kernel `sacdrv.sys`, sul servizio `Special Administration Console Helper`(`sacsvr`) e sul processo `sacsess.exe`. Per altre informazioni, vedere [Emergency Management Services Tools and Settings](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)) (Strumenti e impostazioni di Servizi di gestione emergenze).
 
 SAC consente di connettersi al sistema operativo in esecuzione tramite la porta seriale. Quando si avvia CMD da SAC, `sacsess.exe` avvia `cmd.exe` nel sistema operativo in esecuzione. Si noterà che in Gestione attività, se si effettua una connessione RDP alla macchina virtuale, nello stesso momento si viene connessi a SAC tramite la funzionalità della console seriale. L'istanza di CMD a cui si accede tramite SAC è la stessa `cmd.exe` usata per la connessione tramite RDP. Gli stessi strumenti e comandi sono tutti disponibili, inclusa la possibilità di avviare PowerShell da tale istanza di CMD. Una delle principali differenze tra SAC e Ambiente ripristino Windows è che SAC consente di gestire il sistema operativo in esecuzione, mentre Ambiente ripristino Windows viene avviato in un altro sistema operativo minimo. Anche se le macchine virtuali di Azure non supportano la possibilità di accedere ad Ambiente ripristino Windows, con la funzionalità della console seriale, le macchine virtuali di Azure possono essere gestite tramite SAC.
 
@@ -266,11 +266,11 @@ Questo esempio restituisce la versione file del driver della scheda di interfacc
 #### <a name="scan-for-system-file-corruption"></a>Cercare il danneggiamento del file system
 `sfc /scannow`
 
-Vedere anche [Repair a Windows Image](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image) (Riparare un'immagine Windows).
+Vedere anche [Repair a Windows Image](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image) (Riparare un'immagine Windows).
 #### <a name="scan-for-system-file-corruption"></a>Cercare il danneggiamento del file system
 `dism /online /cleanup-image /scanhealth`
 
-Vedere anche [Repair a Windows Image](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image) (Riparare un'immagine Windows).
+Vedere anche [Repair a Windows Image](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image) (Riparare un'immagine Windows).
 #### <a name="export-file-permissions-to-text-file"></a>Esportare le autorizzazioni del file in un file di testo
 `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 #### <a name="save-file-permissions-to-acl-file"></a>Salvare le autorizzazioni del file in un file ACL
@@ -516,7 +516,7 @@ Aggiungendo `-force`, verrà forzata la chiusura delle applicazioni in esecuzion
 
 Per eseguire query sui metadati dell'istanza, è necessario che la connettività di rete guest sia integra, perché effettua una chiamata REST tramite l'host di Azure al servizio metadati dell'istanza. Se quindi è possibile eseguire query sui metadati dell'istanza, significa che il guest riesce a comunicare tramite la rete con un servizio ospitato da Azure.
 
-Per altre informazioni, vedere [Servizio metadati dell'istanza di Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service).
+Per altre informazioni, vedere [Servizio metadati dell'istanza di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
 
 #### <a name="instance-metadata"></a>Metadati dell'istanza
 `$im = invoke-restmethod -headers @{"metadata"="true"} -uri http://169.254.169.254/metadata/instance?api-version=2017-08-01 -method get`

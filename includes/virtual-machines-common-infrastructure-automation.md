@@ -62,7 +62,7 @@ Altre informazioni dettagliate su cloud-init in Azure:
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC
-[PowerShell DSC (Desired State Configuration)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) è una piattaforma di gestione che permette di definire la configurazione dei computer di destinazione. È possibile usare DSC anche in Linux tramite il [server Open Management Infrastructure (OMI)](https://collaboration.opengroup.org/omi/).
+[PowerShell DSC (Desired State Configuration)](https://msdn.microsoft.com/powershell/dsc/overview) è una piattaforma di gestione che permette di definire la configurazione dei computer di destinazione. È possibile usare DSC anche in Linux tramite il [server Open Management Infrastructure (OMI)](https://collaboration.opengroup.org/omi/).
 
 Le configurazioni DSC definiscono che cosa installare nel computer e come configurare l'host. Un motore di Gestione configurazione locale viene eseguito in ogni nodo di destinazione che elabora le azioni necessarie in base alle configurazioni di cui è stato eseguito il push. Un server di pull è un servizio Web che viene eseguito in un host centrale per archiviare le configurazioni DSC e le risorse associate. Il server di pull comunica con il motore di Gestione configurazione locale in ogni host di destinazione per fornire le configurazioni necessarie e i report sulla conformità.
 

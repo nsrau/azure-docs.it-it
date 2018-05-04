@@ -1,0 +1,127 @@
+- name: Documentazione sul gateway applicazione
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni sui gateway applicazione
+      href: overview.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: Indirizzare il traffico Web - Portale
+      href: quick-create-portal.md
+    - name: Indirizzare il traffico Web - PowerShell
+      href: quick-create-powershell.md
+    - name: Indirizzare il traffico Web - Interfaccia della riga di comando di Azure
+      href: quick-create-cli.md
+- name: Esercitazioni
+  items:
+    - name: Gestire il traffico Web
+      href: tutorial-manage-web-traffic-cli.md
+    - name: Limitare il traffico Web
+      href: tutorial-restrict-web-traffic-cli.md
+    - name: Proteggere con SSL
+      href: tutorial-ssl-cli.md
+    - name: Ospitare più siti
+      href: tutorial-multiple-sites-cli.md
+    - name: Indirizzare in base all'URL
+      href: tutorial-url-route-cli.md
+    - name: Reindirizzare il traffico Web
+      href: tutorial-url-redirect-cli.md
+- name: Esempi
+  items:
+    - name: Azure PowerShell
+      href: powershell-samples.md
+    - name: Interfaccia della riga di comando di Azure
+      href: cli-samples.md
+- name: Concetti
+  items:
+    - name: Web application firewall
+      href: waf-overview.md
+    - name: Routing basato su URL
+      href: url-route-overview.md
+    - name: Hosting di più siti
+      href: multiple-site-overview.md
+    - name: Terminazione SSL
+      href: ssl-overview.md
+    - name: Reindirizzamento URL
+      href: redirect-overview.md
+- name: Guide alle procedure
+  items:
+    - name: Creare il gateway applicazione
+      items:
+        - name: Modello
+          href: create-vmss-template.md
+        - name: App Web - PowerShell
+          href: create-web-app.md
+    - name: Abilitare la terminazione SSL - Portale
+      href: create-ssl-portal.md
+    - name: Ospitare più siti - Portale
+      href: create-multiple-sites-portal.md
+    - name: Reindirizzare il traffico esterno
+      items:
+        - name: Azure PowerShell
+          href: redirect-external-site-powershell.md
+        - name: Interfaccia della riga di comando di Azure
+          href: redirect-external-site-cli.md
+    - name: Reindirizzare il traffico HTTP a HTTPS
+      items:
+        - name: Azure PowerShell
+          href: redirect-http-to-https-powershell.md
+        - name: Interfaccia della riga di comando di Azure
+          href: redirect-http-to-https-cli.md
+    - name: Reindirizzare il traffico interno
+      items:
+        - name: Azure PowerShell
+          href: redirect-internal-site-powershell.md
+        - name: Interfaccia della riga di comando di Azure
+          href: redirect-internal-site-cli.md
+    - name: Limitare il traffico Web - Portale
+      href: create-waf-portal.md
+    - name: Indirizzare in base all'URL - Portale
+      href: create-url-route-portal.md
+    - name: Gestire il traffico Web con Azure PowerShell
+      href: tutorial-manage-web-traffic-powershell.md
+    - name: Limitare il traffico Web con Azure PowerShell
+      href: tutorial-restrict-web-traffic-powershell.md
+    - name: Terminazione SSL con Azure PowerShell
+      href: tutorial-ssl-powershell.md
+    - name: Ospitare più siti con Azure PowerShell
+      href: tutorial-multiple-sites-powershell.md
+    - name: Indirizzare il traffico Web con Azure PowerShell
+      href: tutorial-url-route-powershell.md
+    - name: Reindirizzare il traffico Web con Azure PowerShell
+      href: tutorial-url-redirect-powershell.md
+- name: Riferimenti
+  items:
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/network/application-gateway
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: .NET
+      href: /dotnet/api
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/applicationgateway
+    - name: Gestione risorse di Azure
+      href: ../azure-resource-manager/resource-group-overview.md
+- name: Risorse
+  items:
+    - name: Creare modelli
+      href: ../azure-resource-manager/resource-group-authoring-templates.md
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Modelli della community
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/#Linux'
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-application-gateway'
+    - name: Domande frequenti
+      href: application-gateway-faq.md

@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: sujayt
-ms.openlocfilehash: 7292948c40b184a58eb3e27aecac28e2227a29f8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ad0281df19ac1696ebb7cc913045d49c652be84a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Risolvere i problemi di replica delle VM da Azure ad Azure
 
@@ -199,6 +199,17 @@ Per abilitare la replica sulla VM, lo stato di provisioning deve essere **Riusci
 
 - Se **provisioningState** è **Non riuscito**, contattare il supporto tecnico specificando i dettagli necessari per risolvere il problema.
 - Se **provisioningState** è **Aggiornamento**, potrebbe essere in corso la distribuzione di un'altra estensione. Controllare se sono in corso operazioni nella VM, attenderne il completamento e provare a eseguire di nuovo il processo **Abilita replica** di Site Recovery non riuscito.
+
+
+## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>Errore del servizio Copia Shadow del volume/COM+ (codice di errore 151025)
+**Codice errore** | **Possibili cause** | **Raccomandazioni**
+--- | --- | ---
+151025<br></br>**Messaggio**: Site recovery extension failed to install (Impossibile installare l'estensione di Site Recovery) | - Il servizio "Applicazione di sistema COM+" è disabilitato.</br></br>- Il servizio "Copia Shadow del volume" è disabilitato.| Impostare i servizi "Applicazione di sistema COM+" e "Copia Shadow del volume" sulla modalità di avvio automatica o manuale.
+
+### <a name="fix-the-problem"></a>Risolvere il problema
+
+È possibile aprire la console "Servizi" e verificare che i servizi "Applicazione di sistema COM+" e "Copia Shadow del volume" non siano impostati su "Disabilitato" per "Tipo di avvio".
+  ![Errore COM](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Replicare le macchine virtuali di Azure](site-recovery-replicate-azure-to-azure.md)

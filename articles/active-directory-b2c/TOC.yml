@@ -94,6 +94,8 @@
       items:
         - name: Configurare i provider di identità
           items:
+            - name: OpenID Connect personalizzato
+              href: active-directory-b2c-setup-oidc-idp.md
             - name: Account Microsoft
               href: active-directory-b2c-setup-msa-app.md
             - name: Facebook
@@ -159,6 +161,8 @@
                   href: active-directory-b2c-custom-setup-li-idp.md
                 - name: Twitter
                   href: active-directory-b2c-custom-setup-twitter-idp.md
+                - name: Multi-tenant
+                  href: active-directory-b2c-setup-commonaad-custom.md
             - name: Configurare i provider SAML
               items:
                 - name: AD FS
@@ -195,13 +199,13 @@
                   href: active-directory-b2c-reference-password-change-custom.md
                 - name: Abilitare Mantieni l'accesso
                   href: active-directory-b2c-reference-kmsi-custom.md
-            - name: Verifica del comportamento utente
-              href: active-directory-b2c-custom-guide-eventlogger-appins.md
             - name: risoluzione dei problemi
               items:
                 - name: Raccogliere i log tramite Application Insights
                   href: active-directory-b2c-troubleshoot-custom.md
-        - name: riferimento
+                - name: Tenere traccia del comportamento degli utenti
+                  href: active-directory-b2c-custom-guide-eventlogger-appins.md
+        - name: Riferimenti
           items:
             - name: Note sulla versione
               href: active-directory-b2c-developer-notes-custom.md

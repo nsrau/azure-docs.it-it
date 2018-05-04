@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b4e123475679cf1afce09630c157377ee67b5202
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7d7d3f6a773fad0b0d4ba0593230af5ff5a1e443
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Guida introduttiva: ridimensionare le risorse di calcolo in Azure SQL Data Warehouse tramite T-SQL
 
@@ -25,8 +25,6 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Scaricare e installare la versione più recente di [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
-
-Si presuppone che sia stata completata la [Guida introduttiva: Creare e connettere - portale](create-data-warehouse-portal.md). Dopo avere completato la guida introduttiva Creare e connettere si sarà appreso come creare un data warehouse denominato **mySampleDataWarehouse**, creare una regola del firewall che consenta al client di accedere al server e installarlo.
  
 ## <a name="create-a-data-warehouse"></a>Creare un data warehouse
 
@@ -45,7 +43,7 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
    | Tipo di server | Motore di database | Questo valore è obbligatorio |
    | Nome server | Nome completo del server | Ecco un esempio: **mynewserver-20171113.database.windows.net**. |
    | Authentication | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
-   | Login | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
+   | Login | Account amministratore del server | Account specificato quando è stato creato il server. |
    | Password | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |
 
     ![connetti al server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
@@ -91,11 +89,42 @@ Per modificare le unità Data Warehouse:
 1. Fare clic con il pulsante destro del mouse su **Master** e selezionare **Nuova query**.
 2. Usare l'istruzione T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) per modificare l'obiettivo di servizio. Eseguire la query seguente per modificare l'obiettivo di servizio impostandolo su DW300. 
 
-```Sql
-ALTER DATABASE mySampleDataWarehouse
-MODIFY (SERVICE_OBJECTIVE = 'DW300')
-;
-```
+    ```Sql
+    ALTER DATABASE mySampleDataWarehouse
+    MODIFY (SERVICE_OBJECTIVE = 'DW300')
+    ;
+    ```
+
+## <a name="monitor-scale-change-request"></a>Monitorare la richiesta di ridimensionamento
+Per visualizzare lo stato di avanzamento della richiesta di modifica precedente, è possibile usare la sintassi T-SQL `WAITFORDELAY` per eseguire il poll della DMV sys.dm_operation_status.
+
+Per eseguire il poll dello stato di modifica dell'oggetto servizio:
+
+1. Fare clic con il pulsante destro del mouse su **Master** e selezionare **Nuova query**.
+2. Eseguire la query seguente per eseguire il poll del DMV sys.dm_operation_status.
+
+    ```sql
+    WHILE 
+    (
+        SELECT TOP 1 state_desc
+        FROM sys.dm_operation_status
+        WHERE 
+            1=1
+            AND resource_type_desc = 'Database'
+            AND major_resource_id = 'MySampleDataWarehouse'
+            AND operation = 'ALTER DATABASE'
+        ORDER BY
+            start_time DESC
+    ) = 'IN_PROGRESS'
+    BEGIN
+        RAISERROR('Scale operation in progress',0,0) WITH NOWAIT;
+        WAITFOR DELAY '00:00:05';
+    END
+    PRINT 'Complete';
+    ```
+3. L'output risultante mostra il log del polling dello stato.
+
+    ![Stato dell'operazione](media/quickstart-scale-compute-tsql/polling-output.png)
 
 ## <a name="check-data-warehouse-state"></a>Controllare lo stato del data warehouse
 
@@ -103,7 +132,7 @@ Se un data warehouse è sospeso, non è possibile eseguire la connessione con T-
 
 ## <a name="check-operation-status"></a>Controllare lo stato dell'operazione
 
-Per restituire informazioni sulle varie operazioni di gestione in SQL Data Warehouse, eseguire la query seguente nella DMV [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). Ad esempio, restituisce l'operazione e lo stato dell'operazione, che sarà IN_PROGRESS o COMPLETED.
+Per restituire informazioni sulle varie operazioni di gestione in SQL Data Warehouse, eseguire la query seguente nella DMV [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). La query restituirà, ad esempio, l'operazione e lo stato dell'operazione, che sarà IN_PROGRESS o COMPLETED.
 
 ```sql
 SELECT *
@@ -112,7 +141,7 @@ FROM
 WHERE
     resource_type_desc = 'Database'
 AND 
-    major_resource_id = 'MySQLDW'
+    major_resource_id = 'MySampleDataWarehouse'
 ```
 
 

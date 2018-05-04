@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/23/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7df566ced755e1e817b3107dac8f17e9f6e9b8e4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 58b4c6769f6eb441e9ccaf041f3d56f4af9a0831
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Informazioni su come usare, configurare e riusare i moduli IoT Edge - Anteprima
 
@@ -122,7 +122,7 @@ Per ogni route è necessaria un'origine e un sink, mentre la condizione è un el
 ### <a name="source"></a>Sorgente
 L'origine specifica da dove provengono i messaggi. Può essere uno dei valori seguenti:
 
-| Sorgente | Descrizione |
+| Sorgente | DESCRIZIONE |
 | ------ | ----------- |
 | `/*` | Tutti i messaggi da dispositivo a cloud da qualsiasi dispositivo o modulo |
 | `/messages/*` | Qualsiasi messaggio da dispositivo a cloud inviato da un dispositivo o un modulo con o senza output |
@@ -153,7 +153,7 @@ FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ### <a name="sink"></a>Sink
 Il sink definisce dove vengono inviati i messaggi. Può essere uno dei valori seguenti:
 
-| Sink | Descrizione |
+| Sink | DESCRIZIONE |
 | ---- | ----------- |
 | `$upstream` | Inviare il messaggio all'hub IoT |
 | `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Inviare il messaggio all'input `{input}` del modulo`{moduleId}` |
@@ -168,7 +168,7 @@ Il manifesto di distribuzione può specificare le proprietà desiderate per il m
 
 Se nel manifesto della distribuzione non si specificano le proprietà desiderate del dispositivo gemello di un modulo, l'hub IoT non modifica il dispositivo in alcun modo e sarà possibile impostare le proprietà desiderate a livello di codice.
 
-Gli stessi meccanismi che consentono di modificare i dispositivi gemelli vengono usati per modificare i moduli gemelli. Per altre informazioni, vedere la [guida per sviluppatori sui dispositivi gemelli](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins).   
+Gli stessi meccanismi che consentono di modificare i dispositivi gemelli vengono usati per modificare i moduli gemelli. Per altre informazioni, vedere la [guida per sviluppatori sui dispositivi gemelli](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins).   
 
 ## <a name="deployment-manifest-example"></a>Esempio di manifesto della distribuzione
 

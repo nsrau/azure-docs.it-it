@@ -9,11 +9,11 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: e7f894733546fa8949902a82f4ae3a9c62b749c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 102fa06be3734fa6993616f752922433ee0dee7f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="choosing-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Scelta del metodo di autenticazione appropriato per la soluzione di identità ibrida di Azure AD 
 
@@ -87,7 +87,7 @@ Per la procedura di implementazione, fare riferimento all'[implementazione della
 
 * **Esperienza utente:** si consiglia alle organizzazioni di implementare un accesso Single Sign-On trasparente con sincronizzazione pass-through per migliorare l'esperienza di accesso dell'utente, evitando richieste inutili una volta effettuata la connessione.
 
-* **Scenari avanzati:** l'autenticazione pass-through garantisce che le richieste di autenticazione vengano negate immediatamente quando lo stato dell'account di un utente locale è disabilitato o bloccato o la password è scaduta. Le organizzazioni che richiedono l'autenticazione a più fattori con sincronizzazione pass-through devono usare l'autenticazione a più fattori di Azure Active Directory e non possono usare metodi di autenticazione a più fattori locali di terze parti. Funzionalità avanzate, come ad esempio i report sulle credenziali perse di Identity Protection, richiedono l'implementazione della sincronizzazione dell'hash delle password indipendentemente dalla scelta o meno dell'autenticazione pass-through.
+* **Scenari avanzati:** l'autenticazione pass-through garantisce che le richieste di autenticazione vengano negate immediatamente quando lo stato dell'account di un utente locale è disabilitato o bloccato, la password è scaduta o non rientra nell'orario di accesso consentito dell'utente. Le organizzazioni che richiedono l'autenticazione a più fattori con sincronizzazione pass-through devono usare l'autenticazione a più fattori di Azure Active Directory e non possono usare metodi di autenticazione a più fattori locali di terze parti. Funzionalità avanzate, come ad esempio i report sulle credenziali perse di Identity Protection, richiedono l'implementazione della sincronizzazione dell'hash delle password indipendentemente dalla scelta o meno dell'autenticazione pass-through.
 
 * **Continuità aziendale:** è consigliabile implementare due agenti pass-through extra oltre al primo agente nel server di Azure AD Connect per assicurare una disponibilità elevata delle richieste di autenticazione. Quando si dispone di tre agenti di distribuzione, un agente può avere comunque esito negativo quando un altro agente è inattivo per manutenzione. Un altro vantaggio dell'implementazione della sincronizzazione dell'hash delle password, oltre all'autenticazione pass-through, è che può essere usata come metodo di autenticazione di backup quando il metodo di autenticazione principale non è più disponibile, ad esempio quando i server locali non sono disponibili.
 

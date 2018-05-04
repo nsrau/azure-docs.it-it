@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: davidmu
-ms.openlocfilehash: 4f2c47f3e2debe0dc2b919858af9c347da00be5b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ca9e45a214639da86cf8e0c4a39b3e3d6b6d6491
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Informazioni su Azure Active Directory B2C
 
@@ -72,7 +72,7 @@ Ogni richiesta inviata ad Azure AD B2C specifica un criterio. Un criterio contro
 
 #### <a name="custom-policies"></a>Criteri personalizzati 
 
-I criteri personalizzati sono file di configurazione che definiscono il comportamento del Framework di esperienza di identità nel tenant di Azure AD B2C. I criteri personalizzati possono essere completamente modificati per completare numerose attività. Un criterio personalizzato è rappresentato come uno o più file in formato XML che fanno riferimento l'uno all'altro in una catena gerarchica. 
+I [criteri personalizzati](active-directory-b2c-overview-custom.md) sono file di configurazione che definiscono il comportamento del Framework dell'esperienza di gestione delle identità nel tenant di Azure AD B2C. I criteri personalizzati possono essere completamente modificati per completare numerose attività. Un criterio personalizzato è rappresentato come uno o più file in formato XML che fanno riferimento l'uno all'altro in una catena gerarchica. 
 
 È possibile usare più criteri personalizzati di diversi tipi nel tenant di Azure AD B2C in base alle esigenze e riutilizzarli per più applicazioni. In questo modo è possibile definire e modificare le esperienze delle identità dei clienti con modifiche minime al codice o anche senza alcuna modifica al codice. I criteri possono essere usati aggiungendo uno speciale parametro di query alle richieste di autenticazione HTTP.
 

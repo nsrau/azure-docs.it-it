@@ -1,8 +1,8 @@
 ---
 title: Raccogliere avvisi Nagios e Zabbix in Log Analytics di OMS | Microsoft Docs
-description: "Nagios e Zabbix sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad avvisi provenienti da altre origini.  Questo articolo descrive come configurare l'agente OMS per Linux per raccogliere avvisi da questi sistemi."
+description: Nagios e Zabbix sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad avvisi provenienti da altre origini.  Questo articolo descrive come configurare l'agente OMS per Linux per raccogliere avvisi da questi sistemi.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -12,27 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 0b64c32e1031e704d50aab0b38eaea41e27d134b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04c56b7b7726d9ca603f2ff38acfabc887ecaf34
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Raccogliere avvisi da Nagios e Zabbix in Log Analytics tramite l'agente OMS per Linux 
-[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) sono strumenti di monitoraggio open source.  È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad [avvisi provenienti da altre origini](log-analytics-alerts.md).  Questo articolo descrive come configurare l'agente OMS per Linux per raccogliere avvisi da questi sistemi.
+[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad [avvisi provenienti da altre origini](log-analytics-alerts.md).  Questo articolo descrive come configurare l'agente OMS per Linux per raccogliere avvisi da questi sistemi.
  
+## <a name="prerequisites"></a>prerequisiti
+L'agente OMS per Linux supporta la raccolta degli avvisi di Nagios fino alla versione 4.2.x e di Zabbix fino alla versione 2.x.
+
 ## <a name="configure-alert-collection"></a>Configurare la raccolta di avvisi
 
 ### <a name="configuring-nagios-alert-collection"></a>Configurazione della raccolta di avvisi Nagios
 Per raccogliere avvisi, seguire questa procedura nel server Nagios.
 
-1. Concedere all'utente **omsagent** l'accesso in lettura al file di log Nagios, ad esempio `/var/log/nagios/nagios.log`. Supponendo che il file nagios.log sia di proprietà del gruppo `nagios`, è possibile aggiungere l'utente **omsagent** al gruppo **nagios**. 
+1. Concedere all'utente **omsagent** l'accesso in lettura al file di log Nagios `/var/log/nagios/nagios.log`. Supponendo che il file nagios.log sia di proprietà del gruppo `nagios`, è possibile aggiungere l'utente **omsagent** al gruppo **nagios**. 
 
     sudo usermod -a -G nagios omsagent
 
-2.  Modificare il file di configurazione (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Assicurarsi che le voci seguenti siano presenti e non impostate come commento:  
+2.  Modificare il file di configurazione in `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Assicurarsi che le voci seguenti siano presenti e non impostate come commento:  
 
         <source>  
           type tail  
@@ -53,11 +56,11 @@ Per raccogliere avvisi, seguire questa procedura nel server Nagios.
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>Configurazione della raccolta di avvisi Zabbix
-Per raccogliere avvisi da un server Zabbix, è necessario specificare un utente e una password come *testo non crittografato*. Sebbene non sia la condizione ideale, è consigliabile creare l'utente e assegnargli solo le autorizzazioni per il monitoraggio.
+Per raccogliere avvisi da un server Zabbix, è necessario specificare un utente e una password come *testo non crittografato*.  Sebbene non sia la condizione ideale, è consigliabile creare l'utente e assegnargli solo le autorizzazioni per il monitoraggio.
 
-Per raccogliere avvisi, seguire questa procedura nel server Nagios.
+Per raccogliere avvisi nel server Nagios, seguire questa procedura.
 
-1. Modificare il file di configurazione (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Assicurarsi che le voci seguenti siano presenti e non impostate come commento.  Modificare il nome utente e la password con valori appropriati per l'ambiente Zabbix.
+1. Modificare il file di configurazione in `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Assicurarsi che le voci seguenti siano presenti e non impostate come commento.  Modificare il nome utente e la password con valori appropriati per l'ambiente Zabbix.
 
         <source>
          type zabbix_alerts

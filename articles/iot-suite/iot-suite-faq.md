@@ -3,10 +3,10 @@ title: Domande frequenti su Azure IoT Suite | Microsoft Docs
 description: Domande frequenti su IoT Suite
 services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: c79c90c4f6c28153d4d299015a06a6bc37145081
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 49e94e771deb4582b922400d81e8388faf164f40
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Domande frequenti su IoT Suite
 
@@ -33,6 +33,12 @@ Il codice sorgente è memorizzato nei repository di GitHub seguenti:
 * [Remote monitoring preconfigured solution (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) (Soluzione preconfigurata di monitoraggio remoto - (Java))
 * [Predictive maintenance preconfigured solution](https://github.com/Azure/azure-iot-predictive-maintenance) (Soluzione preconfigurata di manutenzione predittiva)
 * [Connected factory preconfigured solution](https://github.com/Azure/azure-iot-connected-factory) (Soluzione preconfigurata di connected factory)
+
+### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-preconfigured-solutions"></a>Quali SDK è possibile usare per sviluppare i client di dispositivi per le soluzioni preconfigurate?
+
+È possibile trovare collegamenti agli SDK dei dispositivi IoT per i vari linguaggi (C, .NET, Java, Node.js, Python) nel repository GitHub [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks).
+
+Se si usa il dispositivo DevKit, è possibile trovare risorse ed esempi nel repository GitHub [IoT DevKit SDK](https://github.com/Microsoft/devkit-sdk).
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-preconfigured-solutions"></a>La nuova architettura dei microservizi è disponibile per tutte e tre le soluzioni preconfigurate?
 

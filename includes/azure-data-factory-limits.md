@@ -5,14 +5,14 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 03/27/2018
+ms.date: 04/27/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: e68e87bb19b8c64cf06c03831b22cf43d773efde
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 03b7ce49f935c36b0e0652925c41deea987a2a26
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 Data Factory è un servizio multi-tenant che presenta i seguenti limiti predefiniti in modo che le sottoscrizioni dei clienti siano protette da ogni altro carico di lavoro. Molti dei limiti possono essere facilmente aumentati per la sottoscrizione fino al limite massimo contattando il supporto tecnico.
 
@@ -26,12 +26,13 @@ Data Factory è un servizio multi-tenant che presenta i seguenti limiti predefin
 | Trigger in una data factory | 2500 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Servizi collegati in una data factory | 2500 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Runtime di integrazione in una data factory <sup>4</sup> | 2500 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Totale di core CPU per i runtime di integrazione Azure-SSIS in una sottoscrizione | 100 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Esecuzioni di pipeline simultanee per pipeline | 20 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Numero massimo di attività per pipeline | 20 | 30 |
 | Numero massimo di parametri per pipeline | 20 | 30 |
 | Byte per oggetto per gli oggetti pipeline <sup>1</sup> | 200 KB | 200 KB |
 | Byte per oggetto per oggetti set di dati e servizio collegato <sup>1</sup> | 100 KB | 2000 KB |
-| Unità di spostamento dati cloud <sup>3</sup> | 256 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Unità di spostamento dati cloud per esecuzione attività<sup>3</sup> | 256 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Numero di tentativi delle esecuzioni di attività pipeline | 1 giorno (timeout) | 1 giorno (timeout) |
 | Chiamate API in scrittura | 2500/ora<br/><br/> Questo limite è imposto da Azure Resource Manager, non da Azure Data Factory. | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Chiamate API in lettura | 12.500/ora<br/><br/> Questo limite è imposto da Azure Resource Manager, non da Azure Data Factory. | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
@@ -48,7 +49,7 @@ Data Factory è un servizio multi-tenant che presenta i seguenti limiti predefin
 | Byte per oggetto per gli oggetti pipeline <sup>1</sup> |200 KB |200 KB |
 | Byte per oggetto per oggetti set di dati e servizio collegato <sup>1</sup> |100 KB |2000 KB |
 | Memorie centrali del cluster HDInsight su richiesta con una sottoscrizione<sup>2</sup> |60 |[Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Unità di spostamento dati cloud <sup>3</sup> |32 |[Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Unità di spostamento dati cloud per esecuzione attività<sup>3</sup> |32 |[Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Numero di tentativi delle esecuzioni di attività pipeline |1000 |MaxInt (32 bit) |
 
 <sup>1</sup>pipeline, set di dati e oggetti servizio collegato rappresentano un raggruppamento logico del carico di lavoro. I limiti per questi oggetti non riguardano le quantità di dati che è possibile spostare ed elaborare con il servizio di Azure Data Factory. Data Factory è progettato per la scalabilità e la gestione di petabyte di dati.

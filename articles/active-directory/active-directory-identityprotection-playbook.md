@@ -1,9 +1,9 @@
 ---
-title: Studio su Azure Active Directory Identity Protection | Microsoft Docs
-description: "Informazioni su come Azure AD Identity Protection consente di limitare la possibilità di un utente malintenzionato di sfruttare un'identità o un dispositivo compromesso e di proteggere un'identità o un dispositivo che in precedenza è stato sospettato o ritenuto essere compromesso."
+title: Studio su Azure Active Directory Identity Protection | Documentazione Microsoft
+description: Informazioni su come Azure AD Identity Protection consente di limitare la possibilità di un utente malintenzionato di sfruttare un'identità o un dispositivo compromesso e di proteggere un'identità o un dispositivo che in precedenza è stato sospettato o ritenuto essere compromesso.
 services: active-directory
-keywords: "azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
-documentationcenter: 
+keywords: azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f4240c9196796c2e83c408271fe81b20842ab722
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 210d097f0719725a0ecf145ce536875a383b04e6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Studio sulla protezione delle identità di Azure Active Directory
 
@@ -51,7 +51,7 @@ Per completare la procedura seguente, sono necessari:
 **Per simulare un accesso da un IP anonimo, seguire questa procedura**:
 
 1. Usando [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en), passare a [https://myapps.microsoft.com](https://myapps.microsoft.com).   
-2. Immettere le credenziali dell'account da visualizzare nel report **Accessi da indirizzi IP anonimi**.
+2. Immettere le credenziali dell'account da visualizzare nel report **Accessi da indirizzi IP anonimi** .
 
 L'accesso viene visualizzato nel dashboard Identity Protection entro 10-15 minuti. 
 
@@ -76,7 +76,7 @@ Per completare la procedura seguente, è necessario usare un account utente con:
 **Per simulare un accesso da una posizione non nota, seguire questa procedura**:
 
 1. Quando si accede con l'account di test, fare in modo che la richiesta di verifica dell'autenticazione a più fattori non riesca.
-2. Usando la nuova VPN, passare a [https://myapps.microsoft.com](https://myapps.microsoft.com) e immettere le credenziali dell'account di test.
+2. Usando la nuova rete VPN, passare a [https://myapps.microsoft.com](https://myapps.microsoft.com) e immettere le credenziali dell'account di test.
    
 
 L'accesso viene visualizzato nel dashboard Identity Protection entro 10-15 minuti.
@@ -90,18 +90,18 @@ La condizione di trasferimento impossibile è difficile da simulare perché l'al
 
 **Per simulare un trasferimento impossibile a posizioni atipiche, seguire questa procedura**:
 
-1. Usando il browser standard, passare ad [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+1. Usando il browser standard, passare a [https://myapps.microsoft.com](https://myapps.microsoft.com).  
 2. Immettere le credenziali dell'account per cui si vuole generare un evento di rischio trasferimento impossibile.
 3. Modificare l'agente utente. Per modificare l'agente utente in Internet Explorer, usare Strumenti di sviluppo. Per modificare l'agente utente in Firefox o Chrome, usare un componente aggiuntivo di selezione dell'agente utente.
 4. Modificare l'indirizzo IP. È possibile modificare l'indirizzo IP usando una VPN, un componente aggiuntivo Tor o avviare un nuovo computer in Azure in un altro data center.
-5. Accedere ad [https://myapps.microsoft.com](https://myapps.microsoft.com) con le stesse credenziali usate in precedenza ed entro pochi minuti dall'accesso precedente.
+5. Accedere a [https://myapps.microsoft.com](https://myapps.microsoft.com) con le stesse credenziali usate in precedenza ed entro pochi minuti dall'accesso precedente.
 
 L'accesso viene visualizzato nel dashboard Identity Protection entro 2-4 ore.
 
 ## <a name="simulating-vulnerabilities"></a>Simulazione di vulnerabilità
 Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere sfruttati da un utente malintenzionato. In Azure AD Identity Protection sono attualmente visibili 3 tipi di vulnerabilità che consentono di sfruttare altre funzionalità di Azure AD. Tali vulnerabilità verranno visualizzate automaticamente nel dashboard Identity Protection dopo aver impostato le funzionalità seguenti.
 
-* Azure AD [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+* Azure AD [Multi-Factor Authentication](authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
@@ -120,7 +120,7 @@ Per altre informazioni, vedere [Criteri di sicurezza per il rischio utente](acti
 
 **Per testare i criteri di sicurezza per il rischio utente, seguire questa procedura**:
 
-1. Accedere ad [https://portal.azure.com](https://portal.azure.com) con le credenziali di amministratore globale del tenant.
+1. Accedere a [https://portal.azure.com](https://portal.azure.com) con credenziali di amministratore globale per il tenant.
 2. Passare a **Identity Protection**. 
 3. Nella pagina **Azure AD Identity Protection** fare clic su **Criteri di rischio utente**.
 4. Nella sezione **Assegnazioni** selezionare gli utenti (e i gruppi) desiderati e il livello di rischio utente.
@@ -145,7 +145,7 @@ Per altre informazioni, vedere [Criteri di sicurezza per il rischio utente](acti
 
 **Per testare i criteri di rischio di accesso, seguire questa procedura:**
 
-1. Accedere ad [https://portal.azure.com ](https://portal.azure.com) con le credenziali di amministratore globale del tenant.
+1. Accedere a [https://portal.azure.com ](https://portal.azure.com) con credenziali di amministratore globale per il tenant.
 
 2. Passare ad **Azure AD Identity Protection**.
 
@@ -160,7 +160,7 @@ Per altre informazioni, vedere [Criteri di sicurezza per il rischio utente](acti
 
 6. Come valore di **Imponi criteri**, selezionare **Attivato**.
 
-7. Fare clic su **Salva**.
+7. Fare clic su **Save**.
 
 8. A questo punto è possibile testare l'accesso condizionale basato sul rischio di accesso eseguendo l'accesso con una sessione a rischio, ad esempio Tor Browser. 
 

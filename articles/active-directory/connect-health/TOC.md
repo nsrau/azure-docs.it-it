@@ -15,11 +15,11 @@
 ## [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 ## [I dati del Servizio integrità non sono aggiornati](active-directory-aadconnect-health-data-freshness.md)
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 ## [Catalogo degli avvisi di Azure AD Connect Health](active-directory-aadconnect-health-alert-catalog.md)
-## [Conformità con GDPR e Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
+## [Privacy dell'utente e Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
 
 # Risorse correlate
 ## [Integrazione delle identità locali con Azure Active Directory](../active-directory-aadconnect.md)

@@ -27,7 +27,7 @@
 
 Per attivare le impostazioni di diagnostica con PowerShell, usare il codice seguente:
 
-```
+```azurepowershell
 Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <subscription that includes your IoT Hub>
 Set-AzureRmDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true

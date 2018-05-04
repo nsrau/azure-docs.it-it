@@ -1,19 +1,19 @@
 ---
-title: "Usare Criteri di Azure per creare e gestire i criteri per applicare la conformità aziendale | Microsoft Docs"
-description: "Usare Criteri di Azure per applicare gli standard, soddisfare i requisiti di conformità e controllo normativi, controllare i costi, mantenere la coerenza di sicurezza e prestazioni e imporre principi di progettazione all'azienda nel suo complesso."
+title: Usare Criteri di Azure per creare e gestire i criteri per applicare la conformità aziendale | Microsoft Docs
+description: Usare Criteri di Azure per applicare gli standard, soddisfare i requisiti di conformità e controllo normativi, controllare i costi, mantenere la coerenza di sicurezza e prestazioni e imporre principi di progettazione all'azienda nel suo complesso.
 services: azure-policy
-keywords: 
-author: bandersmsft
-ms.author: banders
-ms.date: 01/18/2018
+keywords: ''
+author: DCtheGeek
+ms.author: dacoulte
+ms.date: 04/19/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: a3d47abcbf41133b9bc7194fd97f9b66a70003ff
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0b6e77d080ce4e4483709b9a5e47dca21c22e1d9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creare e gestire i criteri per applicare la conformità
 
@@ -372,7 +372,7 @@ Una definizione di iniziativa consente di raggruppare più definizioni di criter
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Esentare una risorsa non conforme o non consentita tramite l'esclusione
 
-Facendo riferimento all'esempio precedente, dopo aver assegnato la definizione dei criteri per richiedere un'istanza di SQL Server versione 12.0, non viene consentita la creazione di un server SQL con una versione diversa. In questa sezione viene risolto un tentativo negato di creare un server SQL di una versione diversa richiedendo un'esclusione. L'esclusione impedisce essenzialmente l'applicazione dei criteri. Un'esclusione può essere applicata a un gruppo di risorse oppure è possibile limitare l'esclusione a singole risorse.
+Seguendo l'esempio precedente, dopo l'assegnazione della definizione dei criteri per richiedere SQL Server versione 12.0, la creazione di un'istanza di SQL Server con una versione diversa da 12.0 verrà rifiutata. In questa sezione viene illustrato come risolvere il rifiuto di un tentativo di creare un'istanza di SQL Server richiedendo un'esclusione per specifiche risorse. L'esclusione impedisce essenzialmente l'applicazione dei criteri. Nell'esempio seguente viene consentita qualsiasi versione di SQL Server. Un'esclusione può essere applicata a un gruppo di risorse oppure è possibile limitare l'esclusione a singole risorse.
 
 1. Selezionare **Assegnazioni** nel riquadro a sinistra.
 2. Esplorare tutte le assegnazioni dei criteri e aprire l'assegnazione *Richiedere SQL Server versione 12.0*.
@@ -384,7 +384,7 @@ Facendo riferimento all'esempio precedente, dopo aver assegnato la definizione d
 
 4. Fare clic su **Assegna**.
 
-In questa sezione è stato risolto il rifiuto al tentativo di creare un server SQL con la versione 12.0, richiedendo un'esclusione per le risorse.
+In questa sezione è stato risolto il rifiuto del tentativo di creare un'istanza di SQL Server richiedendo un'esclusione per le risorse.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/14/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0f4825d7393b4507b1cd512f3e33c5637fea8ba2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 35636543ac4cbd260e9db2f6ca5d1548a7329858
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partizionamento e ridimensionamento in Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Per il partizionamento, ogni elemento deve avere una *chiave di partizione* e un
 In sintesi, il partizionamento in Azure Cosmos DB funziona nel modo seguente:
 
 * Il provisioning di un contenitore Azure Cosmos DB viene effettuato con velocità effettiva di **T** UR/s (richieste al secondo).
-* In background Azure Cosmos DB effettua il provisioning delle partizioni necessarie per gestire **T** richieste al secondo. Se **T** è maggiore della velocità effettiva massima per partizione **t**, Azure Cosmos DB effettua il provisioning di **N = T/t** partizioni.
+* In background Azure Cosmos DB effettua il provisioning delle partizioni necessarie per gestire **T** richieste al secondo. Se **T** è maggiore della velocità effettiva massima per partizione **t**, Azure Cosmos DB effettua il provisioning di **N = T/t** partizioni. Il valore della velocità effettiva massima per partizione è configurato da Azure Cosmos DB; questo valore viene assegnato in base alla velocità effettiva totale sottoposta a provisioning e alla configurazione hardware usata. 
 * Azure Cosmos DB alloca lo spazio degli hash delle chiavi di partizione in modo uniforme tra le **N** partizioni. Ogni partizione fisica ospita quindi **1/N** valori di chiave di partizione (partizioni logiche).
 * Quando una partizione fisica **p** raggiunge il limite di archiviazione, Azure Cosmos DB suddivide **p** in due nuove partizioni, **p1** e **p2**. Distribuisce i valori corrispondenti a circa la metà delle chiavi a ognuna delle nuove partizioni. Questa operazione di suddivisione è invisibile all'applicazione. Se una partizione fisica raggiunge il limite di archiviazione e tutti i dati della partizione fisica appartengono alla stessa chiave di partizione logica, l'operazione di suddivisione non viene eseguita. Il motivo è che tutti i dati di una singola chiave di partizione logica devono trovarsi nella stessa partizione fisica. In questo caso dovrebbe essere adottata una strategia diversa per la chiave di partizione.
 * Quando si esegue il provisioning di una velocità effettiva superiore a **t*N**, Azure Cosmos DB suddivide una o più partizioni per supportare la velocità effettiva maggiore.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -29,7 +29,8 @@ Questo articolo illustra le procedure di risoluzione dei problemi che possono es
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>L'agente di macchine virtuali non riesce a comunicare con Backup di Azure
 
-Messaggio di errore: "L'agente di macchine virtuali non riesce a comunicare con il servizio Backup di Azure"
+Messaggio di errore: "L'agente di macchine virtuali non riesce a comunicare con il servizio Backup di Azure"<br>
+Codice errore: "UserErrorGuestAgentStatusUnavailable"
 
 Dopo la registrazione e la pianificazione di una macchina per il servizio Backup, tale servizio avvia il processo comunicando con l'agente di macchine virtuali per creare uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Quando uno snapshot non viene attivato, il backup potrebbe non riuscire. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:
 
@@ -41,7 +42,8 @@ Dopo la registrazione e la pianificazione di una macchina per il servizio Backup
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Errore dell'operazione di creazione snapshot a causa dell'assenza di connettività di rete nella macchina virtuale
 
-Messaggio di errore: "L'operazione di creazione snapshot non è riuscita perché la connettività di rete è assente nella macchina virtuale"
+Messaggio di errore: "L'operazione di creazione snapshot non è riuscita perché la connettività di rete è assente nella macchina virtuale"<br>
+Codice errore: "ExtensionSnapshotFailedNoNetwork"
 
 Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Se lo snapshot non viene attivato, può verificarsi un errore di backup. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:    
 **Causa 1: [La macchina virtuale non ha accesso a Internet](#the-vm-has-no-internet-access)**  
@@ -50,7 +52,8 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 
 ## <a name="vmsnapshot-extension-operation-failed"></a>Errore dell'operazione di estensione VMSnapshot
 
-Messaggio di errore: "L'operazione di estensione VMSnapshot non è riuscita"
+Messaggio di errore: "L'operazione di estensione VMSnapshot non è riuscita"<br>
+Codice errore: "ExtentionOperationFailed"
 
 Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Se lo snapshot non viene attivato, può verificarsi un errore di backup. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:  
 **Causa 1: [Non è possibile recuperare lo stato dello snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -60,7 +63,8 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Errore di backup a causa della mancata risposta da parte dell'agente di macchine virtuali
 
-Messaggio di errore: "Non è possibile eseguire l'operazione perché l'agente di macchine virtuali non risponde"
+Messaggio di errore: "Non è possibile eseguire l'operazione perché l'agente di macchine virtuali non risponde" <br>
+Codice errore: "GuestAgentSnapshotTaskStatusError"
 
 Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Se lo snapshot non viene attivato, può verificarsi un errore di backup. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:  
 **Causa 1: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -69,7 +73,8 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 
 ## <a name="backup-fails-with-an-internal-error"></a>Errore interno di backup
 
-Messaggio di errore: "Il backup non è riuscito e si è verificato un errore interno. Ripetere l'operazione tra qualche minuto"
+Messaggio di errore: "Il backup non è riuscito e si è verificato un errore interno. Ripetere l'operazione tra qualche minuto" <br>
+Codice errore: "BackUpOperationFailed"/ "BackUpOperationFailedV2"
 
 Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Se lo snapshot non viene attivato, può verificarsi un errore di backup. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:  
 **Causa 1: [La macchina virtuale non ha accesso a Internet](#the-vm-has-no-internet-access)**  
@@ -94,6 +99,8 @@ Per risolvere il problema, utilizzare uno dei seguenti metodi alternativi:
 È possibile usare i [tag di servizio](../virtual-network/security-overview.md#service-tags) per consentire le connessioni alle risorse di archiviazione dell'area specifica. Verificare che la regola che consente l'accesso all'account di archiviazione abbia priorità più alta rispetto alla regola che blocca l'accesso a Internet. 
 
 ![Gruppo di sicurezza di rete con tag di archiviazione per un'area](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+Per comprendere la procedura dettagliata per configurare i tag di servizio, guardare [questo video](https://youtu.be/1EjLQtbKm1M).
 
 > [!WARNING]
 > I tag del servizio di archiviazione sono in versione di anteprima. Sono disponibili solo in aree specifiche. Per un elenco delle aree, vedere [Tag di servizio per l'archiviazione](../virtual-network/security-overview.md#service-tags).
@@ -177,6 +184,8 @@ Per disinstallare l'estensione:
 3. Selezionare **Estensioni**.
 4. Selezionare **Vmsnapshot Extension** (Estensione Vmsnapshot).
 5. Selezionare **Disinstalla**.
+
+Per le macchine virtuali Linux, se l'estensione VMSnapshot non è visualizzata nel portale di Azure [aggiornare l'agente Linux di Azure](../virtual-machines/linux/update-agent.md) e quindi eseguire il backup. 
 
 Questa procedura fa in modo che l'estensione venga reinstallata durante il backup successivo.
 

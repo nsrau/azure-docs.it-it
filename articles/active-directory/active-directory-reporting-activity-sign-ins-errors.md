@@ -1,25 +1,25 @@
 ---
-title: "Codici di errore del report delle attività di accesso nel portale di Azure Active Directory | Microsoft Docs"
-description: "Informazioni di riferimento sui codici di errore del report delle attività di accesso."
+title: Codici di errore del report delle attività di accesso nel portale di Azure Active Directory | Microsoft Docs
+description: Informazioni di riferimento sui codici di errore del report delle attività di accesso.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1e5d477aa74d3d0588e33363888d84e860d4b2f8
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 47894f0a3d7b74c8d0e271afb7d2657ce7d3be0c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Codici di errore del report delle attività di accesso nel portale di Azure Active Directory
 
@@ -65,6 +65,7 @@ La sezione seguente offre una panoramica completa di tutti gli errori possibili 
 |50055|È stata immessa una password non valida o scaduta.|
 |50057|L'account utente è disabilitato.|
 |50058|Non sono state trovate informazioni sull'identità dell'utente tra le credenziali specificate. Oppure, l'utente non è stato trovato nel tenant. Oppure, è stata inviata una richiesta di accesso automatica ma nessun utente ha eseguito l'accesso. Oppure, il servizio non è riuscito ad autenticare l'utente.|
+|50072|L'utente deve registrarsi per il secondo fattore di autenticazione (interattivo).|
 |50074|L'utente non ha superato la richiesta di verifica MFA.|
 |50079|L'utente deve registrarsi per l'autenticazione del secondo fattore.|
 |50089|La convalida del token di flusso non è riuscita perché il token di flusso è scaduto.|
@@ -97,7 +98,6 @@ La sezione seguente offre una panoramica completa di tutti gli errori possibili 
 |81013|Impossibile trovare l'oggetto utente in base alle informazioni nel ticket Kerberos dell'utente.|
 |90014|Usato in diversi casi quando un campo previsto non è presente nelle credenziali.|
 |90093|Graph ha restituito un codice di errore non consentito per la richiesta.|
-
 
 
 ## <a name="next-steps"></a>Passaggi successivi

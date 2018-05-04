@@ -1,4 +1,4 @@
-Per abilitare una reimpostazione dettagliata delle password nell'applicazione, è necessario creare criteri di reimpostazione delle password. Annotare l'opzione di reimpostazione delle password a livello di tenant specificata [qui](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Questi criteri descrivono l'esperienza utente durante la procedura di reimpostazione delle password e il contenuto dei token che l'applicazione riceverà al completamento della procedura.
+Per abilitare la reimpostazione della password nell'applicazione con granularità fine, si usano i criteri di **reimpostazione della password**. Annotare l'opzione di reimpostazione delle password a livello di tenant specificata [qui](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Questi criteri descrivono l'esperienza utente durante la procedura di reimpostazione della password e il contenuto dei token che l'applicazione riceverà al completamento della procedura.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

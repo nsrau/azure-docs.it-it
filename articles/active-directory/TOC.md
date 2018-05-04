@@ -1,5 +1,3 @@
-# [Documentazione di Azure Active Directory](index.md)
-
 # Panoramica
 ## [Informazioni su Azure Active Directory](active-directory-whatis.md)
 ## [Informazioni sulla Gestione delle identità di Azure](identity-fundamentals.md)
@@ -46,7 +44,6 @@
 ### [Gestire i profili utente](active-directory-users-profile-azure-portal.md)
 ### [Condividere gli account](active-directory-sharing-accounts.md)
 ### [Assegnare utenti a ruoli amministrativi](active-directory-users-assign-role-azure-portal.md)
-### [Ripristinare un utente eliminato](active-directory-users-restore.md)
 ### [Aggiungere utenti guest da un'altra directory (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Aggiunta di utenti B2B da parte di amministratori](active-directory-b2b-admin-add-users.md)
 #### [Aggiunta di utenti B2B da parte di information worker](active-directory-b2b-iw-add-users.md)
@@ -56,7 +53,6 @@
 #### [Invito tramite posta elettronica](active-directory-b2b-invitation-email.md)
 #### [Riscatto di invito](active-directory-b2b-redemption-experience.md)
 #### [Aggiungere utenti B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
-#### [Consentire o bloccare gli inviti](active-directory-b2b-allow-deny-list.md)
 #### [Accesso condizionale per B2B](active-directory-b2b-mfa-instructions.md)
 #### [Criteri di condivisione per B2B](active-directory-b2b-delegate-invitations.md)
 #### [Aggiungere un utente B2B a un ruolo](active-directory-b2b-add-guest-to-role.md)
@@ -80,8 +76,7 @@
 ## [Gestire i gruppi e i membri](active-directory-manage-groups.md)
 ### Gestire i gruppi
 #### [Portale di Azure](active-directory-groups-create-azure-portal.md)
-#### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Azure AD PowerShell MSOnline (v1)](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Gestire i membri dei gruppi](active-directory-groups-members-azure-portal.md)
 ### [Gestire i proprietari dei gruppi](active-directory-accessmanagement-managing-group-owners.md)
 ### [Gestire l'appartenenza ai gruppi](active-directory-groups-membership-azure-portal.md)
@@ -89,17 +84,16 @@
 #### [Assegnare licenze a un gruppo](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identificare e risolvere i problemi relativi alle licenze in un gruppo](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Eseguire la migrazione di singoli utenti con licenza alle licenze basate sui gruppi](active-directory-licensing-group-migration-azure-portal.md)
-#### [Eseguire la migrazione degli utenti tra le licenze dei prodotti](active-directory-licensing-group-product-migration.md)
 #### [Scenari aggiuntivi per le licenze basate sui gruppi](active-directory-licensing-group-advanced.md)
 #### [Esempi di Azure PowerShell per le licenze basate sui gruppi](active-directory-licensing-ps-examples.md)
 #### [Informazioni di riferimento per i prodotti e i piani di servizio in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Configurare la scadenza dei gruppi di Office 365](active-directory-groups-lifecycle-azure-portal.md)
-### [Applicare un criterio di denominazione per i gruppi](groups-naming-policy.md)
 ### [View all groups](active-directory-groups-view-azure-portal.md) (Visualizzare tutti i gruppi)
 ### [Aggiungere l'accesso dei gruppi alle app SaaS](active-directory-accessmanagement-group-saasapps.md)
 ### [Ripristinare un gruppo eliminato di Office 365](active-directory-groups-restore-azure-portal.md)
-### [Gestire le impostazioni dei gruppi](active-directory-groups-settings-azure-portal.md)
-
+### Gestire le impostazioni dei gruppi
+#### [Portale di Azure](active-directory-groups-settings-azure-portal.md)
+#### [Cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Creare regole avanzate
 #### [Portale di Azure](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Configurare i gruppi self-service](active-directory-accessmanagement-self-service-group-management.md)
@@ -116,8 +110,7 @@
 #### [Configurare località denominate](active-directory-named-locations.md)
 #### [Trovare report sull'attività](active-directory-reporting-migration.md)
 #### [Usare il pacchetto di contenuto Power BI di Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
-#### [Correggere gli utenti contrassegnati per il rischio](active-directory-report-security-user-at-risk-remediation.md)
-### riferimento
+### Riferimenti
 #### [Conservazione](active-directory-reporting-retention.md)
 #### [Latenze](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
@@ -185,20 +178,11 @@
 ##### [Aggiornare le impostazioni del Registro di sistema](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 ##### [Informazioni sulla sicurezza e sulla privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
-### [Provisioning e deprovisioning di utenti nelle app SaaS](active-directory-saas-app-provisioning.md)
-#### [Esercitazioni sull'integrazione di app](active-directory-saas-tutorial-list.md)
-#### [Automatizzare il provisioning nelle app abilitate per SCIM](active-directory-scim-provisioning.md)
-#### [Personalizzare i mapping degli attributi](active-directory-saas-customizing-attribute-mappings.md)
-#### [Scrivere espressioni per i mapping degli attributi](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-#### [Usare i filtri per la definizione dell'ambito](active-directory-saas-scoping-filters.md)
-#### [Creare report sul provisioning utenti automatico](active-directory-saas-provisioning-reporting.md)
-#### [Risolvere i problemi del provisioning utenti](active-directory-application-provisioning-content-map.md)
 
 ### [Accedere alle app in remoto con il proxy delle app](active-directory-application-proxy-get-started.md)
 #### Attività iniziali
 ##### [Abilitare il proxy delle app](active-directory-application-proxy-enable.md)
-##### [Supporto per RGPD](active-directory-application-proxy-gdpr.md)
-##### [Publish apps](application-proxy-publish-azure-portal.md) (Pubblicare le app)
+##### [Pubblicare le app](application-proxy-publish-azure-portal.md)
 ##### [Domini personalizzati](active-directory-application-proxy-custom-domains.md)
 #### [Single Sign-On](application-proxy-sso-overview.md)
 ##### [SSO con la delega vincolata Kerberos](active-directory-application-proxy-sso-using-kcd.md)
@@ -208,6 +192,8 @@
 ##### [Connettori](application-proxy-understand-connectors.md)
 ##### [Sicurezza](application-proxy-security-considerations.md)
 ##### [Reti](application-proxy-network-topology-considerations.md)
+
+
 ##### [Aggiornamento da TMG o UAG](application-proxy-transition-from-uag-tmg.md)
 
 #### Configurazioni avanzate
@@ -218,16 +204,13 @@
 ##### [Installazione invisibile all'utente](active-directory-application-proxy-silent-installation.md)
 ##### [Home page personalizzata](application-proxy-office365-app-launcher.md)
 ##### [Tradurre i collegamenti inline](application-proxy-link-translation.md)
-##### [Applicazioni con caratteri jolly](active-directory-application-proxy-wildcard.md)
-
 #### Procedure dettagliate di pubblicazione
 ##### [Desktop remoto](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
-##### [Qlik Sense](active-directory-application-proxy-qlik.md) 
-#### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
-#### [Risolvere i problemi](active-directory-application-proxy-troubleshoot.md)
+##### [Tableau](active-directory-application-proxy-tableau.md)
 
+#### [Risolvere i problemi](active-directory-application-proxy-troubleshoot.md)
 
 ### Gestire le app aziendali
 #### [Assegnare utenti](active-directory-coreapps-assign-user-azure-portal.md)
@@ -238,9 +221,9 @@
 #### [Gestire il provisioning degli account utente](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Gestire l'accesso Single Sign-On per le app aziendali](active-directory-enterprise-apps-manage-sso.md)
 #### [Firma di certificati avanzata per app SAML](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [Nascondere un'applicazione dall'esperienza di un utente](active-directory-coreapps-hide-third-party-app.md)
+#### [Nascondere un'app di terze parti da un'esperienza utente](active-directory-coreapps-hide-third-party-app.md)
 ### [Configurare l'accelerazione automatica dell'accesso tramite i criteri HRD](active-directory-auto-acceleration-using-hrd.md)
-### [Eseguire la migrazione di app di AD FS in Azure AD](migrate-adfs-apps-to-azure.md)
+
 ### [Manage access to apps](active-directory-managing-access-to-apps.md) (Gestire l'accesso alle app)
 #### [Accesso SSO](active-directory-appssoaccess-whatis.md)
 #### [Certificati per SSO](active-directory-sso-certs.md)
@@ -255,13 +238,6 @@
 ##### [Configurazione](active-directory-application-config-content-map.md)
 ##### [Accesso](active-directory-application-sign-in-content-map.md)
 ##### [Provisioning](active-directory-application-provisioning-content-map.md)
-###### [Verifica del provisioning di un utente](application-provisioning-when-will-provisioning-finish-specific-user.md)
-###### [Tempi di provisioning eccessivi](application-provisioning-when-will-provisioning-finish.md)
-###### [Come configurare il provisioning utenti](application-provisioning-config-how-to.md)
-###### [Problema con la configurazione del provisioning](application-provisioning-config-problem.md)
-###### [Problema con il salvataggio delle credenziali di amministratore](application-provisioning-config-problem-storage-limit.md)
-###### [Nessun utente è sottoposto a provisioning](application-provisioning-config-problem-no-users-provisioned.md)
-###### [Provisioning di utenti non corretti](application-provisioning-config-problem-wrong-users-provisioned.md)
 ##### [Gestione dell'accesso](active-directory-application-access-content-map.md)
 ##### [Pannello di accesso](active-directory-application-access-panel-content-map.md)
 ##### [Proxy dell'applicazione](active-directory-application-proxy-content-map.md)
@@ -288,16 +264,15 @@
 
 ### [Integrare le identità locali usando Azure AD Connect](./connect/active-directory-aadconnect.md)
 
-## [Gestire l'accesso ad Azure](toc.yml)
+## [Gestire l'accesso ad Azure](../role-based-access-control/toc.yml)
 
 ## Delegare l'accesso alle risorse
 ### [Ruoli dell'amministratore](active-directory-assign-admin-roles-azure-portal.md)
-#### [Assegnare un ruolo di amministratore a un utente](active-directory-users-assign-role-azure-portal.md)
-#### [Confrontare le autorizzazioni dei membri e degli utenti guest](users-default-permissions.md)
-### [Protezione dell'accesso con privilegi](admin-roles-best-practices.md) 
-### [Creare account amministrativi di accesso di emergenza](active-directory-admin-manage-emergency-access-accounts.md)
+#### [Assign admin roles](active-directory-users-assign-role-azure-portal.md) (Assegnare ruoli amministrativi)
+#### [Autorizzazioni utente predefinite](users-default-permissions.md)
 ### [Unità amministrative](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md) (Configurare la durata dei token)
+### [Gestire gli account amministrativi di accesso di emergenza](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Verifiche di accesso
 ### [Panoramica delle verifiche di accesso](active-directory-azure-ad-controls-access-reviews-overview.md)
@@ -309,17 +284,17 @@
 ### [Gestione dell'accesso utente con verifiche](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Gestione di programmi e controlli](active-directory-azure-ad-controls-manage-programs-controls.md)
 
-
 ## Proteggere le identità
 ### [Accesso condizionale](active-directory-conditional-access-azure-portal.md)
 #### [Condizioni](active-directory-conditional-access-conditions.md)
-#### [Condizione relativa alla posizione](active-directory-conditional-access-locations.md)
 #### [Controlli](active-directory-conditional-access-controls.md)
 #### [Introduzione](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Procedure consigliate](active-directory-conditional-access-best-practices.md)
 #### [Informazioni sui criteri relativi ai dispositivi per i servizi di Office 365](active-directory-conditional-access-device-policies.md)
 #### [Eseguire la migrazione di criteri classici](active-directory-conditional-access-migration.md)
 #### [Strumento What if](active-directory-conditional-access-whatif.md)
+#### Guida introduttiva
+##### [Configurare l'autenticazione a più fattori per singole app cloud](active-directory-conditional-access-app-based-mfa.md)
 #### Attività
 ##### [Eseguire la migrazione di criteri di MFA classici](active-directory-conditional-access-migration-mfa.md)
 ##### [Configurare l'accesso condizionale basato su dispositivo](active-directory-conditional-access-policy-connected-applications.md)
@@ -331,6 +306,9 @@
 #### [Riferimento tecnico](active-directory-conditional-access-technical-reference.md)
 #### [Domande frequenti](active-directory-conditional-faqs.md)
 
+### Windows Hello
+#### [Autenticazione senza password](active-directory-azureadjoin-passport.md)
+#### [Abilitare Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
 ### Autenticazione basata su certificati
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
@@ -349,15 +327,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## Integrare altri servizi con Azure AD
-### [Integrare LinkedIn con Azure AD](linkedin-integration.md)
-
-## [Distribuire Active Directory Domain Services in macchine virtuali di Azure](virtual-networks-windows-server-active-directory-virtual-machines.md)
-### [Windows Server Active Directory nelle VM di Azure](active-directory-deploying-ws-ad-guidelines.md)
-### [Controller di dominio di replica in una rete virtuale di Azure](active-directory-install-replica-active-directory-domain-controller.md)
-### [Nuova foresta in una rete virtuale Azure](active-directory-new-forest-virtual-machine.md)
-
-
+## [Integrare altri servizi con Azure AD]()
+### [Abilitare l'integrazione di LinkedIn](linkedin-integration.md)
 
 ## [Distribuire AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Disponibilità elevata](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
@@ -374,7 +345,7 @@
 
 
 # Riferimenti
-## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Cmdlet di Azure PowerShell](/powershell/azure/overview)
 ## [Informazioni di riferimento sulle API Java](/java/api)
 ## [API .NET](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)

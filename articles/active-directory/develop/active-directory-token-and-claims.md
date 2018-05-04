@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a28811437668488c2207535cef3aa4640f17aa54
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3d8a4ddd98086252f36eeb7034248e909fec1ac0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-ad-token-reference"></a>Riferimento al token di Azure AD
 Azure Active Directory (Azure AD) rilascia tipi diversi di token di sicurezza durante l'elaborazione di ogni flusso di autenticazione. Questo documento descrive il formato, le caratteristiche di sicurezza e i contenuti di ogni tipo di token.
@@ -147,7 +147,7 @@ Quando l'applicazione riceve un token (id_token all'accesso dell'utente o un tok
 * Attestazione **Nonce**:per mitigare attacchi di riproduzione del token.
 * E altro ancora...
 
-Per un elenco completo delle convalide di attestazione che l'app deve eseguire per i token ID, vedere le [specifiche di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). Per informazioni dettagliate sui valori previsti per tali attestazioni, vedere la [sezione Token ID](#id-tokens) precedente.
+Per un elenco completo delle convalide di attestazione che l'app deve eseguire per i token ID, vedere le [specifiche di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). Per informazioni dettagliate sui valori previsti per tali attestazioni, vedere la sezione [id_token](#id-tokens) precedente.
 
 ## <a name="token-revocation"></a>Revoca dei token
 
