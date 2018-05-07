@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/22/2017
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0e1eed2601946ddff6fa15f1a1f82398706c920d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Rendere disponibili agli utenti dello Stack di Azure SQL database
 Un amministratore di cloud di Azure Stack, è possibile creare offerte che consentono agli utenti di database SQL che possono essere utilizzati con le app cloud nativo, siti Web e i carichi di lavoro di creare (tenant). Grazie agli utenti i database personalizzati, su richiesta, basato su cloud, è possibile salvarli tempo e risorse. A tale scopo, è possibile:
@@ -34,8 +34,8 @@ Un amministratore di cloud di Azure Stack, è possibile creare offerte che conse
 
 Viene descritto il processo di distribuzione in modo dettagliato nel [i database SQL di utilizzo per l'articolo Azure Stack](azure-stack-sql-resource-provider-deploy.md)e include i passaggi principali seguenti:
 
-1. [Distribuire il provider di risorse SQL]( azure-stack-sql-resource-provider-deploy.md#deploy-the-resource-provider).
-2. [Verificare la distribuzione]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
+1. [Distribuire il provider di risorse SQL](azure-stack-sql-resource-provider-deploy.md).
+2. [Verificare la distribuzione](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
 3. Connessione a un host di SQL server per fornire capacità.
 
 ## <a name="create-an-offer"></a>Creare un'offerta
