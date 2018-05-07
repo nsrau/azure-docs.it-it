@@ -190,18 +190,25 @@
               href: azure-stack-delegated-provider.md
             - name: Tipi di quote
               href: azure-stack-quota-types.md
-        - name: Offrire SQL o MySQL come PaaS
+        - name: Panoramica dei servizi PaaS
+          href: azure-stack-tools-paas-services.md
+        - name: Offrire SQL come PaaS
+          href: azure-stack-sql-resource-provider.md
           items:
-            - name: Panoramica dei servizi PaaS
-              href: azure-stack-tools-paas-services.md
-            - name: Distribuire un provider di risorse MySQL
-              href: azure-stack-mysql-resource-provider-deploy.md
-            - name: Distribuire un provider di risorse SQL
+            - name: Distribuire il provider di risorse di SQL Server
               href: azure-stack-sql-resource-provider-deploy.md
             - name: Aggiungere i server di hosting
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: Creare il database SQL
               href: azure-stack-sql-resource-provider-databases.md
+            - name: Aggiornare il provider di risorse di SQL Server
+              href: azure-stack-sql-resource-provider-update.md
+            - name: Gestire il provider di risorse di SQL Server
+              href: azure-stack-sql-resource-provider-maintain.md
+            - name: Rimuovere il provider di risorse di SQL Server
+              href: azure-stack-sql-resource-provider-remove.md
+        - name: Offrire MySQL come PaaS
+          href: azure-stack-mysql-resource-provider-deploy.md
         - name: Offrire il servizio app come PaaS
           items:
             - name: Panoramica del servizio app in Azure Stack

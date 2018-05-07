@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dc6c8ef2953b7495c734ec8b16530cdd812ac792
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Azure Data Center di Stack - identità
 È possibile distribuire dello Stack di Azure mediante Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. Prima di distribuire Azure Stack, è necessario effettuare la scelta. Distribuzione tramite ADFS viene detta anche la distribuzione di Azure Stack in modalità disconnessa.
@@ -60,6 +60,8 @@ Requirements:
 
 ## <a name="setting-up-graph-integration"></a>Impostazione dell'integrazione di Graph
 
+Graph supporta solo l'integrazione con una singola foresta di Active Directory. In presenza di più foreste, solo la foresta specificata nella configurazione verrà utilizzata per recuperare gli utenti e gruppi.
+
 Le informazioni seguenti sono necessari come input per i parametri di automazione:
 
 
@@ -95,12 +97,14 @@ Per questa procedura, utilizzare un computer della rete di Data Center in grado 
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
-   Quando richiesto, specificare le credenziali per l'account utente che si desidera utilizzare per il servizio di grafico (ad esempio graphservice).
+   Quando richiesto, specificare le credenziali per l'account utente che si desidera utilizzare per il servizio di grafico (ad esempio graphservice). L'input per il cmdlet Register-DirectoryService deve essere il nome della foresta / root dominio nella foresta anziché qualsiasi altro dominio nella foresta.
 
    > [!IMPORTANT]
    > Attendere che le credenziali popup (Get-Credential non è supportato nell'endpoint con privilegi) e immettere le credenziali dell'Account di servizio di grafico.
 
 #### <a name="graph-protocols-and-ports"></a>Grafico protocolli e porte
+
+Servizio Graph nello Stack di Azure Usa le seguenti porte e protocolli per comunicare con un scrivibile Server (catalogo globale) e il centro distribuzione chiavi (KDC) in grado di elaborare le richieste di accesso nella foresta Active Directory di destinazione.
 
 Servizio Graph nello Stack di Azure Usa le seguenti porte e protocolli per comunicare con Active Directory di destinazione:
 

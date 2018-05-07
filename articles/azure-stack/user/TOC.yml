@@ -21,8 +21,12 @@
       href: azure-stack-quick-create-vm-linux-cli.md
 - name: Esercitazioni
   items:
-    - name: Distribuire app in Azure e Azure Stack
+    - name: Distribuire le App in Azure e Azure Stack
       href: azure-stack-solution-pipeline.md
+    - name: Configurare l'identità cloud ibrida
+      href: azure-stack-solution-hybrid-identity.md
+    - name: Configurare la connettività di cloud ibrido
+      href: azure-stack-solution-hybrid-connectivity.md
 - name: Guide alle procedure
   items:
     - name: Usare il portale di Azure Stack
@@ -73,7 +77,7 @@
               href: azure-stack-understanding-dns.md
             - name: DNS in Azure Stack
               href: azure-stack-dns.md
-        - name: Insieme di credenziali di chiave
+        - name: Key Vault
           items:
             - name: Panoramica
               href: azure-stack-kv-intro.md

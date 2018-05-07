@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 86597defad7c76d41065270030a4c77ee901b014
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 1e2dbc6020dd317e96c4116811f8e3bf87680bfb
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Guida introduttiva: creare una macchina virtuale di Linux server utilizzando PowerShell nello Stack di Azure
 
@@ -28,6 +28,7 @@ ms.lasthandoff: 04/28/2018
 È possibile creare una macchina virtuale Ubuntu Server 16.04 LTS tramite Azure PowerShell dello Stack. Seguire i passaggi descritti in questo articolo per creare e usare una macchina virtuale.  In questo articolo offre inoltre la procedura per:
 
 * Connettersi alla macchina virtuale con un client remoto.
+* Installare il server web NGINX e visualizzare la home page predefinita.
 * Pulire le risorse inutilizzate.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -218,6 +219,26 @@ ssh <Public IP Address>
 ```
 
 Quando richiesto, immettere azureuser come l'utente di accesso. Se è stata utilizzata una passphrase durante la creazione di chiavi SSH, sarà necessario fornire la passphrase.
+
+## <a name="install-the-nginx-web-server"></a>Installare il server web NGINX
+
+Per aggiornare le risorse del pacchetto e installare il pacchetto NGINX più recente, eseguire lo script seguente:
+
+```bash
+#!/bin/bash
+
+# update package source
+apt-get -y update
+
+# install NGINX
+apt-get -y install nginx
+```
+
+## <a name="view-the-nginx-welcome-page"></a>Visualizzare la pagina iniziale di NGINX
+
+Con NGINX installato e la porta 80 aperta nella macchina virtuale, è possibile accedere al server web utilizzando l'indirizzo IP pubblico della macchina virtuale. Aprire un web browser e passare a ```http://<public IP address>```.
+
+![Pagina Completamento dell'installazione di server web NGINX](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

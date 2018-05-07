@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: 10b2bf863540330a57b5aecac438f2b9e4bc8a74
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 7e489db0d9a65b850df41360ce11616d518c5265
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Sul gateway VPN per lo Stack di Azure
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
@@ -94,7 +94,7 @@ La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregat
 |**SKU con prestazioni elevate** | 200 Mbps    | 5 |
 ***(1)***  Velocità effettiva di VPN non è una velocità effettiva garantita per le connessioni cross-premise via Internet. È la misura massima possibile per la velocità effettiva.  
 ***(2)***  Tunnel n. max corrisponde al totale per ogni distribuzione di Azure Stack per tutte le sottoscrizioni.  
-***(3)***  BGP non è supportato per lo SKU Basic.  
+***(3)***  BGP non è supportato per lo SKU Basic.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su [delle impostazioni per il gateway VPN](azure-stack-vpn-gateway-settings.md) per lo Stack di Azure.

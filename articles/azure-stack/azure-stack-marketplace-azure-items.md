@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 1081fe9f8aceb6b849d595177b7c7cac2a26cbfc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 79161d0be407a5b5692e1ad0ee25c609aefb2fb5
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elementi del Marketplace Azure disponibili per lo Stack di Azure
 
@@ -82,6 +82,7 @@ Stack di Microsoft Azure supporta le seguenti macchine virtuali di Azure Marketp
 ## <a name="linux-distributions"></a>Distribuzioni di Linux
 |  | Nome dell'elemento | DESCRIZIONE | Editore |
 | --- | --- | --- | --- |
+| ![Cancellare Linux del sistema operativo](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Cancellare Linux del sistema operativo](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Un riferimento di Linux ottimizzato per l'architettura Intel. | Progetto chiari Linux |
 | ![Contenitore Linux da CoreOS](media/azure-stack-marketplace-azure-items/coreos.png) | [Contenitore Linux da CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Contenitore Linux è una distribuzione Linux minima e moderna, che fornisce un modo semplice per eseguire contenitori, gestire i cluster e aggiornare i server: tutti i componenti che consentono di warehouse scala di calcolo. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server è il prodotto Linux più diffuso al mondo per ambienti cloud. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux è una delle distribuzioni Linux più popolari. | credativ |

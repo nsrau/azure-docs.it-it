@@ -2,38 +2,34 @@
 title: SQL Server nello Stack di Azure di Hosting | Documenti Microsoft
 description: Come aggiungere istanze SQL per il provisioning tramite il Provider di risorse di Adapter SQL
 services: azure-stack
-documentationCenter: 
-author: mattbriggs
+documentationCenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: mabrigg
-ms.openlocfilehash: 0a29ef133a045b2828777050f2d7a204c0add4a8
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 05/01/2018
+ms.author: jeffgilb
+ms.openlocfilehash: a89e5bf48c24abf72f18ee98f2dcb0eda6db35cd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>Aggiungere i server di hosting per l'utilizzo dall'adapter SQL
-
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
-
+# <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Aggiungere server di hosting per il provider di risorse SQL
 È possibile utilizzare le istanze di SQL in macchine virtuali all'interno del [Azure Stack](azure-stack-poc.md), o un'istanza all'esterno dell'ambiente dello Stack di Azure, fornito al provider di risorse può connettersi ad essa. I requisiti generali sono:
 
 * L'istanza SQL deve essere dedicata per l'utilizzo dei carichi di lavoro RP e utente. È possibile utilizzare un'istanza di SQL utilizzato da qualsiasi altro consumer, inclusi i servizi di App.
-* L'adapter di relying Party non è aggiunto a un dominio e può connettersi solo utilizzando l'autenticazione SQL.
-* È necessario configurare un account con privilegi appropriati per l'utilizzo dal componente.
-* Gli utenti, ad esempio le app Web RP utilizzano la rete dell'utente, pertanto è necessaria una connessione all'istanza di SQL su questa rete. Questo requisito significa in genere che l'indirizzo IP per le istanze SQL deve essere in una rete pubblica.
-* Gestione di istanze di SQL e dei relativi host è responsabilità dell'utente; il componente non eseguire l'applicazione di patch, backup, credenziali rotazione e così via.
+* Il provider di risorse SQL VM non è aggiunto a un dominio e può connettersi solo utilizzando l'autenticazione SQL.
+* È necessario configurare un account con privilegi appropriati per l'utilizzo dal provider di risorse.
+* Il provider di risorse e gli utenti, ad esempio le app Web, utilizzano la rete dell'utente, pertanto è necessaria una connessione all'istanza di SQL su questa rete. Questo requisito significa in genere che l'indirizzo IP per le istanze SQL deve essere in una rete pubblica.
+* Gestione di istanze di SQL e dei relativi host è responsabilità dell'utente; il provider di risorse non eseguire l'applicazione di patch, backup, le credenziali di rotazione e così via.
 * SKU consente di creare classi diverse funzionalità di SQL, ad esempio le prestazioni, sempre in, e così via.
 
-
-Un numero di immagini di macchina virtuale SQL IaaS è disponibile tramite la funzionalità di gestione di Marketplace. Assicurarsi sempre di scaricare la versione più recente dell'estensione SQL IaaS prima di distribuire una macchina virtuale usando un elemento del Marketplace. Le immagini SQL sono gli stessi come macchine virtuali di SQL disponibili in Azure. Per le macchine virtuali SQL creata da queste immagini, l'estensione di IaaS e corrispondente miglioramenti del portale di fornire funzionalità quali l'applicazione automatica di patch e funzionalità di backup.
+Un numero di immagini di macchina virtuale SQL IaaS è disponibile tramite la funzionalità di gestione di Marketplace. Assicurarsi sempre di scaricare la versione più recente del **estensione SQL IaaS** prima di distribuire una macchina virtuale usando un elemento del Marketplace. Le immagini SQL sono gli stessi come macchine virtuali di SQL disponibili in Azure. Per le macchine virtuali SQL creata da queste immagini, l'estensione di IaaS e corrispondente miglioramenti del portale di fornire funzionalità quali l'applicazione automatica di patch e funzionalità di backup.
 
 Sono disponibili altre opzioni per la distribuzione di macchine virtuali di SQL, inclusi i modelli nel [raccolta Guida introduttiva di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -84,7 +80,10 @@ Per aggiungere un computer autonomo che contiene il server che è già stato eff
 
   Il nome SKU deve riflettere le proprietà in modo che gli utenti possono effettuare i database in modo appropriato. Tutti i server di hosting in un'unità SKU devono avere le stesse funzionalità.
 
-    Esempio:
+> [!IMPORTANT]
+> Caratteri speciali, inclusi gli spazi e i periodi di, non sono supportati nel **famiglia** oppure **livello** nomi quando si crea un'unità SKU per i provider di risorse MySQL e SQL Server.
+
+Esempio:
 
 ![SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
@@ -140,27 +139,6 @@ Per aggiungere i server di hosting SQL Always On, seguire questi passaggi:
 Creare i piani e le offerte per rendere disponibili i database SQL per gli utenti. Aggiungere il servizio Microsoft.SqlAdapter al piano e aggiungere una Quota di un esistente o crearne uno nuovo. Se si crea una quota, specificare la capacità per consentire all'utente.
 
 ![Creare i piani e le offerte per includere i database](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
-
-## <a name="maintenance-of-the-sql-adapter-rp"></a>Manutenzione dell'Adapter SQL RP
-
-Manutenzione delle istanze di SQL non è trattata in questo caso, ad eccezione delle informazioni relative alle password rotazione. È responsabile per l'applicazione di patch e backup/ripristino dei server di database utilizzata con l'Adapter SQL.
-
-### <a name="patching-and-updating"></a>L'applicazione di patch e aggiornamento
- L'Adapter SQL non viene gestita come parte dello Stack di Azure perché è un componente aggiuntivo. Microsoft fornirà gli aggiornamenti all'adapter SQL in base alle esigenze. L'Adapter SQL viene creata un'istanza in un _utente_ macchina virtuale con la sottoscrizione del Provider predefinito. Pertanto, è necessario fornire le patch di Windows, le firme antivirus, e così via. Aggiornamenti di Windows di pacchetti forniti come parte del ciclo di patch e aggiornamento può essere utilizzati per applicare gli aggiornamenti per la macchina virtuale Windows. Quando viene rilasciato un adapter aggiornato, viene fornito uno script per applicare l'aggiornamento. Questo script crea una nuova VM RP e qualsiasi stato che si dispone già di eseguire la migrazione.
-
- ### <a name="backuprestoredisaster-recovery"></a>Backup/Restore/ripristino di emergenza
- L'Adapter SQL non è backup come parte del processo di Azure Stack BC ripristino di emergenza, perché è un componente aggiuntivo. Verranno forniti per semplificare gli script:
-- Backup delle informazioni necessarie per lo stato (archiviate in un account di archiviazione di Azure Stack)
-- Ripristino al relying Party non è più necessario un ripristino completo dello stack.
-Server di database devono essere recuperati prima (se necessario), prima che venga ripristinato al relying Party.
-
-### <a name="updating-sql-credentials"></a>Aggiornamento delle credenziali SQL
-
-È responsabile per la creazione e gestione di account di amministratore di sistema nel computer SQL Server. Il componente necessita di un account con i privilegi per gestire i database per conto degli utenti: non è necessario accedere ai dati in tali database. Se è necessario aggiornare le password sa di SQL Server, è possibile utilizzare la funzionalità di aggiornamento dell'interfaccia di amministrazione della relying Party per modificare la password archiviata utilizzata dal componente. Queste password sono archiviate in un insieme di credenziali chiave sull'istanza dello Stack di Azure.
-
-Per modificare le impostazioni, fare clic su **Sfoglia** &gt; **risorse amministrative** &gt; **server di Hosting SQL** &gt; **Account di accesso SQL** e selezionare un nome di account di accesso. La modifica deve essere apportata nell'istanza di SQL prima (e tutte le repliche, se necessario). Nel **impostazioni** pannello, fare clic su **Password**.
-
-![Aggiornare la password dell'amministratore](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

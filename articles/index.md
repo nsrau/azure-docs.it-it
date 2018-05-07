@@ -6,11 +6,11 @@ description: Informazioni su come compilare e gestire applicazioni avanzate usan
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: ea272619638c8794a17bcd62f818cc9f230167ef
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8ce6872615c25da7c479d1ad9d1cdb0c48b53112
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -109,7 +109,7 @@ ms.lasthandoff: 04/23/2018
                                                     <li><a class="barLink" href="/azure/security-center/">Centro sicurezza di Azure</a></li>
                                                     <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Monitoraggio di Azure</a></li>
                                                     <li><a class="barLink" href="/azure/application-insights/">Azure Application Insights</a></li>
-                                                    <li><a class="barLink" href="/azure/cost-management/">Gestione dei costi di Azure</a></li>
+                                                    <li><a class="barLink" href="/azure/cost-management/">Gestione costi di Azure</a></li>
                                                     <li><a class="barLink" href="/azure/backup/">Backup di Azure</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                     <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
@@ -204,7 +204,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/storage/">Archiviazione BLOB</a></li>
                                                 </ul>
-                                                <h4>AI e servizi cognitivi</h4>
+                                                <h4>AI e Servizi cognitivi</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/machine-learning/">Machine Learning</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/">Servizi cognitivi</a></li>
@@ -422,7 +422,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/container-registry/">
                                                 <img src="media/index/container-registry.svg" alt="" />
-                                                <p>Registro di sistema del contenitore di Azure</p>
+                                                <p>Registro contenitori di Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -485,7 +485,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
-                                                <p>Data factory</p>
+                                                <p>Data Factory</p>
                                             </a>
                                         </li>
                                         <li>
@@ -556,13 +556,13 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/load-balancer/">
                                                 <img src="media/index/LoadBalancer.svg" alt="" />
-                                                <p>Bilanciamento del carico</p>
+                                                <p>Load Balancer</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/application-gateway/">
                                                 <img src="media/index/ApplicationGateway.svg" alt="" />
-                                                <p>gateway applicazione</p>
+                                                <p>Gateway applicazione</p>
                                             </a>
                                         </li>
                                         <li>
@@ -586,7 +586,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
-                                                <p>servizio Gestione traffico</p>
+                                                <p>Gestione traffico</p>
                                             </a>
                                         </li>
                                         <li>
@@ -619,25 +619,25 @@ Terraform </a>
                                         <li>
                                             <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
                                                 <img src="media/index/bot-service.svg" alt="" />
-                                                <p>Servizio bot di Azure</p>
+                                                <p>Servizio Azure Bot</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/batch-ai/">
                                                 <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                <p>Intelligenza artificiale per Azure Batch</p>
+                                                <p>Azure Batch per intelligenza artificiale</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview">
                                                 <img src="media/index/API_Custom_Decision_Service.svg" alt="" />
-                                                <p>Servizio di decisione personalizzato</p>
+                                                <p>Servizio decisionale personalizzato</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/entitylinking/home">
                                                 <img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" />
-                                                <p>Collegamento di entità</p>
+                                                <p>Collegamento delle entità</p>
                                             </a>
                                         </li>
                                         <li>
@@ -667,7 +667,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/luis/">
                                                 <img src="media/index/API_Luis.svg" alt="" />
-                                                <p>Comprensione del linguaggio (LUIS)</p>
+                                                <p>Language Understanding (LUIS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -757,7 +757,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/speaker-recognition/home">
                                                 <img src="media/index/API_Speaker_Recognition.svg" alt="" />
-                                                <p>Riconoscimento voce</p>
+                                                <p>Riconoscimento del parlante</p>
                                             </a>
                                         </li>
                                         <li>
@@ -775,7 +775,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/Custom-Vision-Service/home">
                                                 <img src="media/index/API_Custom_Vision.svg" alt="" />
-                                                <p>Servizio visione personalizzata</p>
+                                                <p>Servizio visione artificiale personalizzato</p>
                                             </a>
                                         </li>
                                         <li>
@@ -793,7 +793,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
                                                 <img src="media/index/API_VideoIndexer.svg" alt="" />
-                                                <p>Indicizzatore video</p>
+                                                <p>Video Indexer</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -824,7 +824,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/storage/queues/storage-queues-introduction">
                                                 <img src="media/index/logo_azure-storage-q.svg" alt="" />
-                                                <p>Archiviazione di accodamento</p>
+                                                <p>Archiviazione code</p>
                                             </a>
                                         </li>
                                         <li>
@@ -836,7 +836,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Archivio Data Lake</p>
+                                                <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
@@ -875,7 +875,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Analisi dei flussi</p>
+                                                <p>Analisi di flusso</p>
                                             </a>
                                         </li>
                                         <li>
@@ -899,7 +899,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
-                                                <p>Data factory</p>
+                                                <p>Data Factory</p>
                                             </a>
                                         </li>
                                         <li>
@@ -923,7 +923,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Archivio Data Lake</p>
+                                                <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
@@ -966,7 +966,7 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://azure.microsoft.com/en-us/features/xamarin">
+                                            <a href="https://azure.microsoft.com/features/xamarin">
                                                 <img src="media/index/logo_xamarin.svg" alt="" />
                                                 <p>Xamarin</p>
                                             </a>
@@ -1019,7 +1019,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Analisi dei flussi</p>
+                                                <p>Analisi di flusso</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1135,7 +1135,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>Insieme di credenziali di chiave</p>
+                                                <p>Key Vault</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1180,7 +1180,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cost-management/">
                                                 <img src="media/index/billing.svg" alt="" />
-                                                <p>Gestione dei costi di Azure</p>
+                                                <p>Gestione costi di Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1240,13 +1240,13 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/service-health">
                                                 <img src="media/index/resource-health.svg" alt="" />
-                                                <p>Integrità del servizio di Azure</p>
+                                                <p>Integrità dei servizi di Azure</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/azuredefaultblack.svg" alt="" />
-                                                <p>Gestione risorse di Azure</p>
+                                                <p>Azure Resource Manager</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1526,7 +1526,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Bilanciamento del carico</h3>
+                                                    <h3>Load Balancer</h3>
                                                     <p>Garantire livelli elevati di disponibilità e prestazioni di rete per le applicazioni</p>
                                                 </div>
                                             </div>
@@ -1545,7 +1545,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>gateway applicazione</h3>
+                                                    <h3>Gateway applicazione</h3>
                                                     <p>Creare front-end Web sicuri, scalabili e a disponibilità elevata in Azure</p>
                                                 </div>
                                             </div>
@@ -1621,7 +1621,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>servizio Gestione traffico</h3>
+                                                    <h3>Gestione traffico</h3>
                                                     <p>Instradare il traffico in ingresso per livelli elevati di prestazioni e disponibilità</p>
                                                 </div>
                                             </div>
@@ -1759,7 +1759,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Archiviazione di accodamento</h3>
+                                                    <h3>Archiviazione code</h3>
                                                     <p>Scalabilità efficace delle app in base al traffico</p>
                                                 </div>
                                             </div>
@@ -1797,7 +1797,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Archivio Data Lake</h3>
+                                                    <h3>Data Lake Store</h3>
                                                     <p>Repository con iperscalabilità per i carichi di lavoro di analisi dei Big Data</p>
                                                 </div>
                                             </div>
@@ -2092,7 +2092,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Registro di sistema del contenitore di Azure</h3>
+                                                    <h3>Registro contenitori di Azure</h3>
                                                     <p>Archiviare e gestire le immagini dei contenitori in tutti i tipi di distribuzione di Azure</p>
                                                 </div>
                                             </div>
@@ -2368,7 +2368,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Analisi dei flussi</h3>
+                                                    <h3>Analisi di flusso</h3>
                                                     <p>Elaborazione dei flussi di dati in tempo reale da milioni di dispositivi IoT</p>
                                                 </div>
                                             </div>
@@ -2444,7 +2444,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data factory</h3>
+                                                    <h3>Data Factory</h3>
                                                     <p>Orchestrazione e gestione della trasformazione e dello spostamento dei dati</p>
                                                 </div>
                                             </div>
@@ -2520,7 +2520,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Archivio Data Lake</h3>
+                                                    <h3>Data Lake Store</h3>
                                                     <p>Repository con iperscalabilità per i carichi di lavoro di analisi dei Big Data</p>
                                                 </div>
                                             </div>
@@ -2585,7 +2585,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Servizio bot di Azure</h3>
+                                                    <h3>Servizio Azure Bot</h3>
                                                     <p>Servizio bot intelligente, senza server, con scalabilità su richiesta</p>
                                                 </div>
                                             </div>
@@ -2604,7 +2604,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Intelligenza artificiale per Azure Batch</h3>
+                                                    <h3>Azure Batch per intelligenza artificiale</h3>
                                                     <p>Sperimentare ed eseguire il training con facilità dei modelli per Deep Learning e intelligenza artificiale in parallelo e su larga scala</p>
                                                 </div>
                                             </div>
@@ -2799,7 +2799,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Analisi dei flussi</h3>
+                                                    <h3>Analisi di flusso</h3>
                                                     <p>Elaborazione dei flussi di dati in tempo reale da milioni di dispositivi IoT</p>
                                                 </div>
                                             </div>
@@ -3051,7 +3051,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data factory</h3>
+                                                    <h3>Data Factory</h3>
                                                     <p>Orchestrazione e gestione della trasformazione e dello spostamento dei dati</p>
                                                 </div>
                                             </div>
@@ -3151,7 +3151,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Insieme di credenziali di chiave</h3>
+                                                    <h3>Key Vault</h3>
                                                     <p>Controllare e proteggere chiavi e altri dati segreti</p>
                                                 </div>
                                             </div>
@@ -3355,7 +3355,7 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://azure.microsoft.com/en-us/features/xamarin">
+                                <a href="https://azure.microsoft.com/features/xamarin">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3408,7 +3408,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Gestione dei costi di Azure</h3>
+                                                    <h3>Gestione costi di Azure</h3>
                                                     <p>Ottimizzare la spesa per il cloud, sfruttando al massimo le potenzialità del cloud</p>
                                                 </div>
                                             </div>
@@ -3598,7 +3598,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Integrità del servizio di Azure</h3>
+                                                    <h3>Integrità dei servizi di Azure</h3>
                                                     <p>Ottenere indicazioni personalizzate e supporto tecnico in caso di impatto dei problemi dei servizi di Azure sulle attività dell'utente</p>
                                                 </div>
                                             </div>
@@ -3732,7 +3732,7 @@ Terraform </a>
                     </li>
                 </ul>
             </li>
-            <li>
+             <li>
                 <a href="#sdkstools">SDK/Strumenti</a>
                 <ul id="sdkstools">
                     <li>
@@ -3754,8 +3754,7 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/dotnet/azure/dotnet-sdk-azure-install">Ottenere le librerie di Azure per .NET</a>
-                                                </h3>
+Azure per sviluppatori .NET </h3>
                                                 <p>
                                                     <a href="/dotnet/azure">Introduzione</a>
                                                 </p>
@@ -3778,8 +3777,7 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/python/azure">Ottenere le librerie di Azure per Python</a>
-                                                </h3>
+Azure per sviluppatori Python </h3>
                                                 <p>
                                                     <a href="/python/azure">Introduzione</a>
                                                 </p>
@@ -3802,8 +3800,7 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/nodejs/azure/">Ottenere le librerie di Azure per Node.js</a>
-                                                </h3>
+Azure per sviluppatori Node.js </h3>
                                                 <p>
                                                     <a href="/javascript/azure/">Introduzione</a>
                                                 </p>
@@ -3826,8 +3823,7 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/java/azure/java-sdk-azure-install">Ottenere le librerie di Azure per Java</a>
-                                                </h3>
+Azure per sviluppatori Java </h3>
                                                 <p>
                                                     <a href="/java/azure">Introduzione</a>
                                                 </p>
@@ -3845,47 +3841,17 @@ Terraform </a>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/azure_dev-5.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_gopher.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://rubygems.org/gems/azure">Ottenere Ruby SDK</a>
-                                                </h3>
+Azure per sviluppatori Go </h3>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">Introduzione</a>
+                                                    <a href="/go/azure/">Introduzione</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">Informazioni di riferimento sulle API</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">Ottenere gli esempi</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/ruby/">Altre informazioni</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a href="/go/azure/">Ottenere Go SDK</a>
-                                                </h3>
-                                                <p>
-                                                    <a href="/go/azure/azure-sdk-go-qs-vm">Introduzione</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Informazioni di riferimento</a>
+                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Informazioni di riferimento sulle API</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3903,13 +3869,9 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/rest/api/">Introduzione a REST</a>
-                                                </h3>
+API REST di Azure </h3>
                                                 <p>
-                                                    <a href="/rest/api">Informazioni di riferimento</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=rest">Ottenere gli esempi</a>
+                                                    <a href="/rest/api">Informazioni di riferimento sulle API</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3932,15 +3894,12 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-Interfaccia della riga di comando di Azure 2.0 </h3>
+Interfaccia della riga di comando di Azure </h3>
                                                 <p>
                                                     <a href="/cli/azure">Introduzione</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azure/install-azure-cli">Scaricare Azure CLI 2.0</a>
-                                                </p>
-                                                <p>
-                                                    <a href="/cli/azure">Informazioni di riferimento</a>
+                                                    <a href="/cli/azurereference-index">Informazioni di riferimento</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3957,47 +3916,12 @@ Interfaccia della riga di comando di Azure 2.0 </h3>
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>PowerShell</h3>
+                                                <h3>Azure PowerShell</h3>
                                                 <p>
                                                     <a href="/powershell/azure/get-started-azureps">Introduzione</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/powershell/azure/install-azurerm-ps">Scaricare PowerShell</a>
-                                                </p>
-                                                <p>
                                                     <a href="/powershell/azure/overview">Informazioni di riferimento</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-7.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-Interfaccia della riga di comando di Azure </h3>
-                                                <p>
-                                                    <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Introduzione</a>
-                                                </p>
-                                                <p>
-                                                    <a href="http://aka.ms/linux-azure-cli">Scaricare l'interfaccia della riga di comando di Azure per Linux</a>
-                                                </p>
-                                                <p>
-                                                    <a href="http://aka.ms/mac-azure-cli">Scaricare l'interfaccia della riga di comando di Azure per Mac</a>
-                                                </p>
-                                                <p>
-                                                    <a href="http://aka.ms/webpi-azure-cli">Scaricare l'interfaccia della riga di comando di Azure per Windows</a>
-                                                </p>
-                                                <p>
-                                                    <a href="/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Informazioni di riferimento</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4015,15 +3939,24 @@ Interfaccia della riga di comando di Azure </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/azure_dev-9.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_vs-code.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Strumenti di Visual Studio per Azure</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack">Visual Studio Code</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Download</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">Servizio app</a>
+                                                </p>
+                                                 <p>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions">Funzioni di Azure</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Archiviazione</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb">Cosmos DB</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4041,10 +3974,9 @@ Interfaccia della riga di comando di Azure </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://github.com/Microsoft/DockerToolsDocs">Strumenti di Docker</a>
-                                                </h3>
+Docker </h3>
                                                 <p>
-                                                    <a href="/dotnet/articles/core/docker/visual-studio-tools-for-docker">Introduzione</a>
+                                                    <a href="/dotnet/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Visual Studio Tools per Docker</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Download per Visual Studio</a>
@@ -4066,15 +3998,44 @@ Interfaccia della riga di comando di Azure </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/azure_dev-8.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_java.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Strumenti di PowerShell per Visual Studio</a>
+Strumenti Java </h3>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/java/api/overview/azure/maven/readme">Plug-in Maven</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/java/azure/java-azure-tools">IntelliJ ed Eclipse</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://code.visualstudio.com/docs/languages/java">Visual Studio Code</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/azure_dev-2.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="https://www.visualstudio.com/vs/python">Python Tools</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Download</a>
+                                                    <a href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">Visual Studio</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://code.visualstudio.com/docs/languages/python">Visual Studio Code</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4145,30 +4106,6 @@ Strumenti SQL </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/azure_dev-2.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python">Python Tools</a>
-                                                </h3>
-                                                <p>
-                                                    <a href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">Introduzione a Visual Studio</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://code.visualstudio.com/docs/languages/python">Introduzione a Visual Studio Code</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
                                                     <img src="media/index/Fabric.svg" alt="" />
                                                 </div>
                                             </div>
@@ -4205,7 +4142,7 @@ SDK e strumenti di Service Fabric </h3>
                             <li>
                                 <div class="container intro">
                                     <p>
-Il Centro architettura di Azure contiene materiale sussidiario per la creazione di soluzioni end-to-end in Microsoft Azure. Qui sono disponibili le architetture di riferimento, le procedure consigliate, gli schemi progettuali, le guide per gli scenari e le implementazioni di riferimento.
+Il Centro architetture di Azure contiene materiale sussidiario per la creazione di soluzioni end-to-end in Microsoft Azure. Qui sono disponibili le architetture di riferimento, le procedure consigliate, gli schemi progettuali, le guide per gli scenari e le implementazioni di riferimento.
                                     </p>
                                 </div>
                             </li>

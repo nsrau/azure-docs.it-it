@@ -8,7 +8,6 @@
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
 ### [.NET (Windows Desktop)](active-directory-devquickstarts-dotnet.md)
-### [.NET (Windows Universal)](active-directory-devquickstarts-windowsstore.md)
 ### [.NET (Xamarin)](active-directory-devquickstarts-xamarin.md)
 ### [Cordova](active-directory-devquickstarts-cordova.md)
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
@@ -16,7 +15,7 @@
 ### [Overview](active-directory-authentication-scenarios.md#web-browser-to-web-application)
 ### [ASP.NET](GuidedSetups/active-directory-aspnetwebapp-v1.md)
 ### [ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore)
-### [Java](active-directory-devquickstarts-webapp-java.md)
+### [Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect)
 ### [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)
 ### [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -36,6 +35,7 @@
 ## [Registrazione dell'applicazione](active-directory-integrating-applications.md)
 ## [App multi-tenant](active-directory-devhowto-multi-tenant-overview.md)
 ## [Accesso condizionale](active-directory-conditional-access-developer.md)
+## [Autorizzazioni](active-directory-permissions.md)
 ## OAuth e OpenID Connect
 ### [Protocollo OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Concessione del codice di autenticazione OAuth 2.0](active-directory-protocols-oauth-code.md)
@@ -101,7 +101,11 @@
 #### [Piattaforma UWP (Universal Windows Platform)](guidedsetups/active-directory-uwp-v2.md)
 ### App Web
 #### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
+#### [ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-aspnetcore-webapp-openidconnect-v2)
 #### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
+### API Web
+#### [ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
+#### [ASP.NET Core](https://azure.microsoft.com/en-us/resources/samples/active-directory-dotnet-native-aspnetcore-v2)
 ### App a singola pagina
 #### [JavaScript](guidedsetups/active-directory-javascriptspa.md)
 ### API Web

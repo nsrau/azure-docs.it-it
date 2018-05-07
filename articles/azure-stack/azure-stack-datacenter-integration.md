@@ -1,25 +1,25 @@
 ---
 title: Considerazioni relative all'integrazione di Data Center generali per lo Stack di Azure integrati sistemi | Documenti Microsoft
-description: "Informazioni sulle operazioni per pianificare l'ora e preparare l'integrazione di Data Center con lo Stack di Azure a più nodi."
+description: Informazioni sulle operazioni per pianificare l'ora e preparare l'integrazione di Data Center con lo Stack di Azure a più nodi.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 25ef6ba9ff105486f39cee8b6181a8c63e64ec13
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 55243ead4f088f7a2b3d54c0581c604f0dc63d07
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerazioni relative all'integrazione di Data Center per i sistemi Azure Stack integrato
 Se si è interessati in un sistema integrato dello Stack di Azure, è necessario comprendere alcune delle principali considerazioni sulla pianificazione per la distribuzione e sulle modalità di integrazione di sistema nel Data Center. In questo articolo fornisce una panoramica generale di queste considerazioni consentono di prendere decisioni importanti infrastruttura per il sistema a più nodi di Azure Stack. La comprensione di queste considerazioni è utile quando si distribuiscono dello Stack di Azure al Data Center funziona con il fornitore dell'hardware OEM.  
@@ -50,7 +50,9 @@ Quando un livello di accesso è necessaria per la risoluzione dei problemi non v
 ## <a name="identity-considerations"></a>Considerazioni sull'identità
 
 ### <a name="choose-identity-provider"></a>Scegliere il provider di identità
-È necessario considerare quale provider di identità che si desidera utilizzare per la distribuzione dello Stack di Azure, Azure Active Directory o AD FS. Dopo la distribuzione senza ridistribuzione completa del sistema non è possibile passare i provider di identità.
+È necessario considerare quale provider di identità che si desidera utilizzare per la distribuzione dello Stack di Azure, Azure Active Directory o AD FS. Dopo la distribuzione senza ridistribuzione completa del sistema non è possibile passare i provider di identità. Se non si dispone di account Azure AD e si utilizza un account fornito dal Provider di servizi Cloud e se si decide di passare provider e utilizzare una directory di Azure AD account, a questo punto sarà necessario contattare il provider di soluzioni per ridistribuire la soluzione f oppure i costi.
+
+
 
 La scelta di provider di identità non incide su macchine virtuali tenant, il sistema di identità e account che usano, se è possibile aggiungere un dominio di Active Directory e così via. È un aspetto separato.
 
