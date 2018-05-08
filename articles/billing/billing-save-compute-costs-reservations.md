@@ -2,22 +2,22 @@
 title: Risparmiare sui costi grazie al pagamento anticipato delle macchine virtuali di Azure - Azure | Microsoft Docs
 description: Informazioni sulle istanze di macchina virtuale riservate di Azure per ridurre i costi delle macchine virtuali.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: vikramdesai01
 manager: vikramdesai01
-editor: 
+editor: ''
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7d85d3500014962a90ae596598332a95f4aa557e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Risparmiare sui costi delle macchine virtuali tramite le istanze di macchina virtuale riservate di Azure 
 Le istanze di macchina virtuale riservate consentono il pagamento anticipato della capacità di calcolo per un intervallo di tempo di uno o tre anni e pertanto di ottenere uno sconto sulle macchine virtuali in uso. Ciò consente di ridurre in modo significativo i costi, ovvero fino al 72% rispetto ai prezzi con pagamento in base al consumo, con un impegno anticipato di uno o tre anni. Le istanze di macchina virtuale riservate rappresentano uno sconto a livello di fatturazione e non hanno alcuna ripercussione sullo stato di runtime delle macchine virtuali.

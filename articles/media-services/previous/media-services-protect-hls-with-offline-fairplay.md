@@ -1,12 +1,12 @@
 ---
 title: Proteggere il contenuto HLS con Apple FairPlay offline | Microsoft Docs
-description: "Questo argomento offre una panoramica su come usare Servizi multimediali di Azure per crittografare dinamicamente il contenuto HTTP Live Streaming (HLS) con Apple FairPlay in modalità offline."
+description: Questo argomento offre una panoramica su come usare Servizi multimediali di Azure per crittografare dinamicamente il contenuto HTTP Live Streaming (HLS) con Apple FairPlay in modalità offline.
 services: media-services
 keywords: HLS, DRM, FairPlay Streaming (FPS), offline, iOS 10
-documentationcenter: 
+documentationcenter: ''
 author: willzhan
 manager: steveng
-editor: 
+editor: ''
 ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
 ms.service: media-services
 ms.workload: media
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
 ms.openlocfilehash: dc38772097dddb7c7135d55598373d7ab544f9ea
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Modalità offline di FairPlay Streaming per iOS 
  Servizi multimediali di Azure include un set di [servizi di protezione del contenuto](https://azure.microsoft.com/services/media-services/content-protection/) ben progettati che riguardano le tecnologie seguenti:
@@ -197,7 +197,7 @@ Questa sezione include le risposte ad alcune domande frequenti utili per la riso
 
 - **Perché in modalità offline viene riprodotto solo l'audio senza video?** Questo comportamento sembra essere predefinito nell'app di esempio. Se in modalità offline è presente una traccia audio alternativa (come nel caso di HLS), per impostazione predefinita in iOS 10 e iOS 11 viene riprodotta tale traccia. Per ovviare a questo comportamento per la modalità offline di FPS, rimuovere la traccia audio alternativa dal flusso. Per eseguire questa operazione in Servizi multimediali, aggiungere il filtro di manifesto dinamico "audio-only=false". In altre parole, un URL HLS termina con .ism/manifest(format=m3u8-aapl,audio-only=false). 
 - **Perché, anche dopo aver aggiunto audio-only=false, in modalità offline continua a essere riprodotto solo l'audio senza il video?** A seconda del modo in cui è progettata la chiave di cache della rete CDN, è possibile che il contenuto sia memorizzato nella cache. Ripulire la cache.
-- **La modalità offline di FPS è supportata in iOS 11 oltre che in iOS 10?** Sì. La modalità offline di FPS è supportata per iOS 10 e iOS 11.
+- **La modalità offline di FPS è anche supportata in iOS 11 oltre che in iOS 10?** Sì. La modalità offline di FPS è supportata per iOS 10 e iOS 11.
 - **Il documento "Offline Playback with FairPlay Streaming and HTTP Live Streaming" non è incluso in FPS Server SDK. Perché?** A partire dalla versione 4 di FPS Server SDK, questo documento è stato incluso in "FairPlay Streaming Programming Guide" (Guida alla programmazione di FairPlay Streaming).
 - **Che cosa rappresenta l'ultimo parametro nell'API seguente per la modalità offline di FPS?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
@@ -236,7 +236,7 @@ Un file boot.xml di esempio:
 </HLSMoviePackage>
 ```
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Questo documento include le procedure e le informazioni seguenti che è possibile usare per implementare la modalità offline di FPS:
 
 * La procedura di configurazione della protezione del contenuto in Servizi multimediali tramite l'API .NET di Servizi multimediali consente di configurare la crittografia dinamica FairPlay e la distribuzione delle licenze FairPlay in Servizi multimediali.

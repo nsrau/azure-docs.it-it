@@ -2,7 +2,7 @@
 title: Attività del responsabile del team nel processo di data science per i team - Azure | Microsoft Docs
 description: Descrizione delle attività di un responsabile del team in un progetto team di data science.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: 85589dfd60a32a28cecf427a7f5668dc36f8f5f2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: d17c6c7543416d3f279b7e25152a421dd233a806
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="team-lead-tasks"></a>Attività del responsabile del team
 
@@ -64,7 +64,7 @@ I nomi specificati per i repository e le directory in questa esercitazione sono 
 I responsabili dei team devono, in ogni caso, indicare ai membri dei rispettivi team quali repository di modelli e di utilità adottare quando configurano e clonano i repository del progetto e delle utilità. I responsabili di progetto devono eseguire le [attività di responsabile di progetto per un team di data science](project-lead-tasks.md) per creare i repository del progetto, indipendentemente che si sia scelto di usare progetti team separati o un progetto team singolo. 
 
 
-## <a name="0-prerequisites"></a>0. Prerequisiti
+## <a name="0-prerequisites"></a>0. prerequisiti
 
 I prerequisiti vengono soddisfatti completando le attività assegnate al responsabile del gruppo delineate in [Attività del responsabile del gruppo per un team di data science](group-manager-tasks.md). Di seguito vengono riepilogati i prerequisiti che è necessario soddisfare prima di iniziare le attività di responsabile del team: 
 

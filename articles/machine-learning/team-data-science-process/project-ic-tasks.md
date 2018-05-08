@@ -2,7 +2,7 @@
 title: Attività del processo di data science per i team di un singolo collaboratore - Azure | Microsoft Docs
 description: Descrizione delle attività di un singolo collaboratore in un progetto di data science in team.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: af60b188fe8db278297e1ece400bf4398e36094a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 4951d596f64a17f0bd47100c1fc81397dc5febbd
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="individual-contributor-tasks"></a>Attività del singolo collaboratore
 

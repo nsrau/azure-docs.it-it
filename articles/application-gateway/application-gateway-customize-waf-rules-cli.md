@@ -3,27 +3,27 @@ title: Personalizzare le regole del web application firewall nel gateway applica
 description: Questo articolo descrive come personalizzare le regole del web application firewall nel gateway applicazione con l'interfaccia della riga di comando di Azure 2.0.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.custom: 
+ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: davidmu
-ms.openlocfilehash: 3051f71f269e409b76e6a19fdcd2feae2a04b8fa
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: b0bd79bb7ce584a9abaffbb6c30d6fbfe64f87c2
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli-20"></a>Personalizzare le regole del web application firewall con l'interfaccia della riga di comando di Azure 2.0
 
 > [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-customize-waf-rules-portal.md)
+> * [Portale di Azure](application-gateway-customize-waf-rules-portal.md)
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
 > * [Interfaccia della riga di comando di Azure 2.0](application-gateway-customize-waf-rules-cli.md)
 

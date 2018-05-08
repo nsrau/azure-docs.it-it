@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0ce4497a8bebf9078363509c1f962728ab4189f8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory
 Quando si chiede agli utenti di aggiungere i dispositivi personali all'area di lavoro con il servizio Registrazione dispositivo di Azure Active Directory (Azure AD), i dispositivi possono essere contrassegnati come noti all'organizzazione. Di seguito è riportata una guida dettagliata all'abilitazione dell'accesso condizionale alle applicazioni locali con Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
@@ -86,7 +86,7 @@ Seguire i passaggi dell'elenco di controllo per abilitare e configurare il servi
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Parte 3: Abilitare il writeback dei dispositivi in Azure AD
 | Attività | Riferimenti |
 | --- | --- |
-| Completare la parte due di "Abilitazione del writeback dei dispositivi in Azure AD Connect". Al termine, tornare a questa guida. |[Abilitazione del writeback dei dispositivi in Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
+| Completare la parte due di "Abilitazione del writeback dei dispositivi in Azure AD Connect". Al termine, tornare a questa guida. |[Abilitazione del writeback dei dispositivi in Azure AD Connect](./connect/active-directory-aadconnect-feature-device-writeback.md) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Facoltativo] Parte 4: Abilitazione di Multi-Factor Authentication
 È consigliabile configurare una delle diverse opzioni per Multi-Factor Authentication. Se si vuole rendere obbligatoria l'autenticazione a più fattori, vedere [Scegliere la soluzione Azure Multi-Factor Authentication più adatta alle proprie esigenze](authentication/concept-mfa-whichversion.md). È inclusa una descrizione di ogni soluzione con collegamenti che consentono di configurare la soluzione selezionata.
@@ -94,7 +94,7 @@ Seguire i passaggi dell'elenco di controllo per abilitare e configurare il servi
 ## <a name="part-5-verification"></a>Parte 5: Verifica
 La distribuzione è stata completata e ora è possibile provare alcuni scenari. Usare i collegamenti riportati di seguito per provare il servizio e acquisire familiarità con le relative funzionalità.
 
-| Attività | riferimento |
+| Attività | Riferimenti |
 | --- | --- |
 | Aggiungere alcuni dispositivi all'area di lavoro usando il servizio Registrazione dispositivo di Azure Active Directory. È possibile aggiungere dispositivi iOS, Windows e Android. |[Aggiungere dispositivi all'area di lavoro con il servizio Registrazione dispositivo di Azure Active Directory](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
 | È possibile visualizzare e abilitare o disabilitare i dispositivi registrati usando il portale dell'amministratore. In questa attività si visualizzano alcuni dispositivi registrati usando il portale dell'amministratore. |[Panoramica del servizio Registrazione dispositivo di Azure Active Directory](active-directory-device-registration-get-started.md) |

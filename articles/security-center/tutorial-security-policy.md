@@ -3,9 +3,9 @@ title: Esercitazione per il Centro sicurezza di Azure - Definire e valutare i cr
 description: Esercitazione per il Centro sicurezza di Azure - Definire e valutare i criteri di sicurezza
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: yurid
-ms.openlocfilehash: a740cec8a3177e0de5f33b362d5c4956671cd427
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 16dc8553fdc1209d1973934a87660ff61df8e68a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Esercitazione: Definire e valutare i criteri di sicurezza
 Il Centro sicurezza consente di assicurare la conformità ai requisiti di sicurezza aziendali o normativi, usando criteri di sicurezza per definire la configurazione desiderata per i carichi di lavoro. Dopo aver definito i criteri per le sottoscrizioni di Azure e averli adattati al tipo di carico di lavoro o di sensibilità dei dati, il Centro sicurezza può fornire raccomandazioni sulla sicurezza per le risorse di calcolo, rete, SQL e archiviazione e delle applicazioni. In questa esercitazione si apprenderà come:

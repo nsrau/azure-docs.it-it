@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 019785ae0bde58b33cc4b09e2e2746f3fd474b70
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 48beb0d1c70b0f9c524ba91934a1a0a7b5e8505d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Playbook dei modelli di verifica di Azure Active Directory: blocchi predefiniti
 
@@ -275,7 +275,7 @@ Tempo previsto per il completamento: 60 minuti
 | Prerequisito. | Risorse |
 | --- | --- |
 | Azure AD Connect installato e configurato | Blocco predefinito: [Sincronizzazione directory: Sincronizzazione dell'hash delle password](#directory-synchronization--password-hash-sync-phs--new-installation) |
-| Istanza ADLDS conforme ai requisiti | [Documentazione tecnica sul connettore Generic LDAP: Panoramica del connettore Generic LDAP](./connect/active-directory-aadconnectsync-connector-genericldap.md#overview-of-the-generic-ldap-connector) |
+| Istanza ADLDS conforme ai requisiti | [Documentazione tecnica sul connettore Generic LDAP: Panoramica del connettore Generic LDAP](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#overview-of-the-generic-ldap-connector) |
 | Elenco dei carichi di lavoro usati dagli utenti e attributi associati a questi carichi di lavoro | [Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory](./connect/active-directory-aadconnectsync-attributes-synchronized.md) |
 
 
@@ -283,7 +283,7 @@ Tempo previsto per il completamento: 60 minuti
 
 | Passaggio | Risorse |
 | --- | --- |
-| Aggiungere un connettore Generic LDAP | [Documentazione tecnica sul connettore Generic LDAP: Creare un nuovo connettore](./connect/active-directory-aadconnectsync-connector-genericldap.md#create-a-new-connector) |
+| Aggiungere un connettore Generic LDAP | [Documentazione tecnica sul connettore Generic LDAP: Creare un nuovo connettore](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#create-a-new-connector) |
 | Creare profili di esecuzione per il connettore creato (importazione completa, importazione delta, sincronizzazione completa, sincronizzazione delta, esportazione) | [Create a Management Agent Run Profile](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx) (Creare un profilo di esecuzione dell'agente di gestione)<br/> [Uso dei connettori con Sync Service Manager di Azure AD Connect](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | Eseguire il profilo di importazione completa e verificare se sono presenti oggetti nello spazio connettore | [Search for a Connector Space Object](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx) (Ricerca di un oggetto nello spazio connettore)<br/>[Sezione sulla ricerca nello spazio connettore in Uso dei connettori con Sync Service Manager di Azure AD Connect](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
 | Creare regole di sincronizzazione in modo che gli oggetti nel metaverse abbiano gli attributi necessari per i carichi di lavoro | [Servizio di sincronizzazione Azure AD Connect: Procedure consigliate per modificare la configurazione predefinita: Modifiche apportate alle regole di sincronizzazione](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |

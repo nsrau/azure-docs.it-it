@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2868ebd459f937f8621086b16c63f89842f376be
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Ridimensionare un processo di Analisi di flusso di Azure per aumentare la velocità effettiva
 Questo articolo illustra come ottimizzare una query per aumentare la velocità effettiva per i processi di Analisi di flusso. È possibile usare la seguente guida per ridimensionare il processo per gestire carichi più elevati e sfruttare i vantaggi di più risorse di sistema (ad esempio maggiore larghezza di banda, più risorse della CPU, una maggiore memoria).
@@ -31,7 +31,8 @@ Se la query è intrinsecamente completamente eseguibile in parallelo tra le part
         - Se il problema è dovuto alla limitazione del sink, potrebbe essere necessario aumentare il numero di partizioni di output (e anche le partizioni di input per mantenere il processo completamente eseguibili in parallelo) o aumentare la quantità di risorse del sink (ad esempio il numero di unità di richiesta per CosmosDB).
     - Nel diagramma del processo è presente una metrica dell'evento per backlog di partizione per ogni input. Se la metrica dell'evento di backlog continua ad aumentare, è anche un indicatore del fatto che la risorsa del sistema è vincolata (o a causa della limitazione del sink di output o a causa del CPU elevato).
 4.  Dopo aver determinato i limiti di ciò che può essere raggiunto da un processo di 6 unità di ricerca, è possibile estrapolare in modo lineare la capacità di elaborazione del processo quando si aggiungono altre unità di ricerca, presupponendo che non siano presenti asimmetrie di dati che rendono una determinata partizione "critica".
->[!Note]
+
+> [!NOTE]
 > Scegliere il numero giusto di Unità di Streaming: poiché l'Analisi di flusso di Azure crea un nodo di elaborazione per ogni 6 unità di ricerca aggiunta, è consigliabile rendere il numero di nodi un divisore del numero di partizioni di input, in modo che le partizioni possano essere distribuite uniformemente tra i nodi.
 > Ad esempio, si è misurato che il processo delle 6 unità di ricerca può raggiungere i 4 MB/s di velocità di elaborazione e il conteggio delle partizioni di input è pari a 4. È possibile scegliere di eseguire il processo con 12 unità di ricerca per ottenere una velocità di elaborazione di circa 8 MB/s, o 24 unità di ricerca per raggiungere i 16 MB/s. È possibile decidere quando aumentare il numero di unità di ricerca per il processo a qualsiasi valore, come una funzione del tasso di input.
 

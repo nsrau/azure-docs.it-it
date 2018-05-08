@@ -1,24 +1,24 @@
 ---
 title: Evitare gli addebiti per l'account gratuito di Azure - Azure | Microsoft Docs
 description: Comprendere i motivi per cui vengono visualizzati gli addebiti per l'account gratuito di Azure. Informazioni su come evitare questi addebiti.
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 527e77d7ab8c67ea538d2452357f31a698b2b6ea
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d7a6b60abe3319c787d1fa2b5ff7bf3985bd7cd2
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Evitare gli addebiti per l'account gratuito di Azure
 

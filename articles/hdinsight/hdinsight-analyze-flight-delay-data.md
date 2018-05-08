@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0e91cf994306c115911d9dd9cf0018f7947502d8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: eec5d0eb3c9cb0ae6e3e7f4eadfc58c4ab039cfd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analizzare i dati sui ritardi dei voli con Hive in HDInsight
 Hive fornisce un metodo per l'esecuzione di processi MapReduce mediante un linguaggio di scripting simile a SQL, denominato *[HiveQL][hadoop-hiveql]*, che può essere applicato per attività di riepilogo, query e analisi di volumi di dati molto elevati.
@@ -259,6 +259,7 @@ Prima di caricare il file di dati e i file script HiveQL, vedere l' [Appendice B
     <tr><td>Filter Period</td><td>January</td></tr>
     <tr><td>Fields</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (deselezionare tutti gli altri campi)</td></tr>
     </table>
+
 3. Fare clic su **Download**.
 4. Decomprimere il file nella cartella **C:\Tutorials\FlightDelay\2013Data**. Ogni file è in formato CSV e ha dimensioni pari a circa 60 GB.
 5. Rinominare il file, specificando il nome del mese a cui fanno riferimento i dati. Ad esempio, al file contenente i dati relativi a gennaio verrà assegnato il nome *January.csv*.
@@ -273,6 +274,7 @@ Prima di caricare il file di dati e i file script HiveQL, vedere l' [Appendice B
     <tr><td>$storageAccountName</td><td>Account di archiviazione di Azure nel quale si desidera caricare i dati.</td></tr>
     <tr><td>$blobContainerName</td><td>Contenitore BLOB nel quale si desidera caricare i dati.</td></tr>
     </table>
+    
 2. Aprire Azure PowerShell ISE.
 3. Incollare lo script seguente nel riquadro di script:
 

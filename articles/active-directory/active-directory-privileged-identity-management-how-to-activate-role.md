@@ -1,25 +1,23 @@
 ---
 title: Come attivare o disattivare un ruolo | Microsoft Docs
-description: "Informazioni su come attivare i ruoli per le identità con privilegi con l'applicazione Azure Privileged Identity Management."
+description: Informazioni su come attivare i ruoli per le identità con privilegi con l'applicazione Azure Privileged Identity Management.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 1ce9e2e7-452b-4f66-9588-0d9cd2539e45
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 02/14/2017
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: a524e1f9d739b42cd63de82291d98ff8c59f2f5f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c12ba7ed076d531c75b5f9a473d124b94a6f0362
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Come attivare o disattivare i ruoli in Azure AD Privileged Identity Management
 Azure Active Directory (AD) Privileged Identity Management semplifica la gestione aziendale dell'accesso con privilegi alle risorse in Azure AD e in altri Microsoft Online Services, ad esempio Office 365 o Microsoft Intune.  
@@ -37,12 +35,12 @@ Usare l'applicazione Azure AD Privileged Identity Management nel [portale di Azu
 4. Selezionare **Aggiungi al dashboard** e quindi fare clic su **Crea**. Verrà aperta l'applicazione Privileged Identity Management.
 
 ## <a name="activate-a-role"></a>Attivare un ruolo
-Quando è necessario usare un ruolo, è possibile richiedere l'attivazione selezionando l'opzione di spostamento **Ruoli personali** nella colonna di spostamento di sinistra dell'applicazione Azure AD Privileged Identity Management.
+Quando è necessario usare un ruolo, è possibile richiedere l'attivazione selezionando l'opzione di navigazione **Ruoli personali** nella colonna di navigazione a sinistra dell'applicazione Azure AD Privileged Identity Management.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e selezionare il riquadro Azure AD Privileged Identity Management.
 2. Selezionare **Ruoli personali**. Nel raggruppamento nella parte superiore della pagina è visualizzato un elenco dei ruoli idonei assegnati.
 3. Selezionare un ruolo da attivare.
-4. Selezionare **Attiva**. Verrà visualizzato il pannello **Richiedi l'attivazione del ruolo**.
+4. Selezionare **Attiva**. Verrà visualizzato il pannello **Richiedi l'attivazione del ruolo** .
 5. Alcuni ruoli richiedono l'autenticazione Multi-Factor Authentication (MFA) prima di poter attivare il ruolo. È sufficiente eseguire l'autenticazione una volta per sessione.
    
     ![Schermata Verifica con MFA prima dell'attivazione del ruolo][2]
@@ -57,7 +55,7 @@ Un ruolo attivato si disattiva automaticamente quando viene raggiunto il limite 
 Se si completano le attività dell'amministratore prima del raggiungimento del limite di tempo, è possibile disattivare un ruolo manualmente nell'applicazione Azure AD Privileged Identity Management.  Selezionare **Ruoli personali**, scegliere il ruolo da usare dal raggruppamento **Assegnazioni di ruolo attive** e selezionare **Disattiva**.  
 
 ## <a name="cancel-a-pending-request"></a>Annullare una richiesta in sospeso
-Nel caso in cui non si richieda l'attivazione di un ruolo che necessita dell'approvazione, è possibile annullare una richiesta in sospeso in qualsiasi momento. Selezionare semplicemente l'opzione di spostamento **Ruoli personali** nella colonna di spostamento di sinistra dell'applicazione Azure AD Privileged Identity Management.
+Nel caso in cui non si richieda l'attivazione di un ruolo che necessita dell'approvazione, è possibile annullare una richiesta in sospeso in qualsiasi momento. Selezionare semplicemente l'opzione di navigazione **Ruoli personali** nella colonna di navigazione a sinistra dell'applicazione Azure AD Privileged Identity Management.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e selezionare il riquadro Azure AD Privileged Identity Management.
 2. Selezionare **Ruoli personali**. Nel raggruppamento nella parte superiore della pagina è visualizzato un elenco dei ruoli idonei assegnati.

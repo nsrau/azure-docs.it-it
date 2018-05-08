@@ -1,25 +1,23 @@
 ---
 title: Introduzione ad Azure AD Privileged Identity Management | Microsoft Azure
-description: "Informazioni su come gestire le identità con privilegi con l'applicazione Azure Active Directory Privileged Identity Management nel portale di Azure."
+description: Informazioni su come gestire le identità con privilegi con l'applicazione Azure Active Directory Privileged Identity Management nel portale di Azure.
 services: active-directory
-documentationcenter: 
-author: barclayn
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 2299db7d-bee7-40d0-b3c6-8d628ac61071
+editor: ''
 ms.service: active-directory
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/17/2017
-ms.author: barclayn
+ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: 9f51daabef7d1e02917869e4e6943b8ea28b56f5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7137d7ba53c055c869bd967a04085d0c65aec683
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="start-using-azure-ad-privileged-identity-management"></a>Iniziare ad usare Azure AD Privileged Identity Management
 
@@ -33,7 +31,7 @@ Prima di usare Azure AD Privileged Identity Management è necessario aggiungere 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale della directory.
 2. Se l'organizzazione ha più directory, selezionare il proprio nome utente nell'angolo superiore destro del portale di Azure. Selezionare la directory in cui si vuole usare PIM.
-3. Selezionare **Altri servizi** e usare la casella di testo Filtro per cercare **Azure AD Privileged Identity Management**.
+3. Selezionare **Tutti i servizi** e usare la casella di testo Filtro per cercare **Azure AD Privileged Identity Management**.
 4. Selezionare **Aggiungi al dashboard** e quindi fare clic su **Crea**. Verrà aperta l'applicazione Privileged Identity Management.
 
 I ruoli **Amministratore della sicurezza** e **Amministratore del ruolo con privilegi** della directory vengono assegnati automaticamente alla prima persona che usa Azure AD Privileged Identity Management nella directory. Solo gli amministratori del ruolo con privilegi possono gestire le assegnazioni di ruoli della directory Azure AD degli utenti. È anche possibile scegliere di eseguire la [procedura guidata per la sicurezza](active-directory-privileged-identity-management-security-wizard.md), che illustra in modo dettagliato l'esperienza di individuazione e assegnazione iniziale.

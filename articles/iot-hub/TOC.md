@@ -71,6 +71,7 @@
 #### [Gestire le identità dei dispositivi](iot-hub-devguide-identity-registry.md)
 #### [Controllare l'accesso all'hub IoT](iot-hub-devguide-security.md)
 #### [Informazioni sui dispositivi gemelli](iot-hub-devguide-device-twins.md)
+#### [Informazioni sui moduli gemelli](iot-hub-devguide-module-twins.md)
 #### [Richiamare metodi diretti in un dispositivo](iot-hub-devguide-direct-methods.md)
 #### [Pianificare processi in più dispositivi](iot-hub-devguide-jobs.md)
 #### [Endpoint hub IoT](iot-hub-devguide-endpoints.md)
@@ -106,6 +107,9 @@
 #### [Back-end .NET/Dispositivo .NET](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Back-end Java/Dispositivo Java](iot-hub-java-java-twin-getstarted.md)
 #### [Back-end Python/Dispositivo Python](iot-hub-python-twin-getstarted.md)
+### Introduzione ai moduli gemelli
+#### [Back-end portale/Dispositivo .NET](iot-hub-portal-csharp-module-twin-getstarted.md)
+#### [Back-end .NET/Dispositivo .NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
 ### Usare metodi diretti
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-direct-methods.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-direct-methods.md)

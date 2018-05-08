@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
 ms.author: davidste
-ms.openlocfilehash: e46a816b9a0d66991b8f619135b657a0d51ba395
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 039e21cb3c35f8eb024ad2fca56e8a59e3182d3a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="connector-version-release-history"></a>Cronologia di rilascio delle versioni dei connettori
 I connettori per Forefront Identity Manager (FIM) e Microsoft Identity Manager (MIM) vengono aggiornati frequentemente.
@@ -32,11 +32,11 @@ L'argomento include l'elenco di tutte le versioni dei connettori rilasciate.
 Collegamenti correlati:
 
 * [Scaricare i connettori più recenti](http://go.microsoft.com/fwlink/?LinkId=717495)
-* [connettore LDAP generico](active-directory-aadconnectsync-connector-genericldap.md)
-* [connettore SQL generico](active-directory-aadconnectsync-connector-genericsql.md)
+* [connettore LDAP generico](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap)
+* [connettore SQL generico](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)
 * [connettore per Servizi Web](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws)
-* [connettore PowerShell](active-directory-aadconnectsync-connector-powershell.md)
-* [connettore Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
+* [connettore PowerShell](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-powershell) 
+* [connettore Lotus Domino](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-domino)
 
 
 ## <a name="118300"></a>1.1.830.0
@@ -117,7 +117,7 @@ Collegamenti correlati:
 
 * Generic SQL:
   * **Scenario: riprogettato. Implementata la funzionalità:** "*"
-  * **Descrizione della soluzione:** modificato l'approccio per la [gestione degli attributi di riferimento multivalore](active-directory-aadconnectsync-connector-genericsql.md).
+  * **Descrizione della soluzione:** modificato l'approccio per la [gestione degli attributi di riferimento multivalore](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
 
 
 ### <a name="fixed-issues"></a>Problemi risolti:
@@ -194,7 +194,7 @@ LDAP. Essi mostravano solo gli oggetti della partizione di RootDSE.
 Data di rilascio: marzo 2016
 
 **Nuovo connettore**  
-Versione iniziale del [connettore SQL generico](active-directory-aadconnectsync-connector-genericsql.md).
+Versione iniziale del [connettore SQL generico](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
 
 **Nuove funzionalità:**
 

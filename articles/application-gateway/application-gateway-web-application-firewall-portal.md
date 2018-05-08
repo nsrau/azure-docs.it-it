@@ -2,20 +2,20 @@
 title: Creare un gateway applicazione con un web application firewall - Portale di Azure | Microsoft Docs
 description: Informazioni su come creare un gateway applicazione con un web application firewall tramite il portale di Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: d2b8fc65e6cd03f61151dbae66bb89821cdab13b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 9967813b193159b68aa0f008dae4440aa6e533dc
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Creare un gateway applicazione con un web application firewall tramite il portale di Azure
 
@@ -74,7 +74,7 @@ Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In q
 
 ## <a name="create-backend-servers"></a>Creare i server back-end
 
-In questo esempio vengono create due macchine virtuali da usare come server back-end per il gateway applicazione. È anche possibile installare IIS nelle macchine virtuali per verificare l'avvenuta creazione del gateway applicazione.
+In questo esempio, vengono create due macchine virtuali da usare come server back-end per il gateway applicazione. È anche possibile installare IIS nelle macchine virtuali per verificare l'avvenuta creazione del gateway applicazione.
 
 ### <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 

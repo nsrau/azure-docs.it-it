@@ -8,18 +8,16 @@ ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
 ms.topic: article
-ms.prod: ''
 ms.service: active-directory
 ms.workload: identity
-ms.technology: ''
-ms.assetid: ''
+ms.component: users-groups-roles
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: eedcb80038179cf74666880816cb0b5416ac63fd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fc6cc88cabab1bc56b0a04ce8778823647c5b2bf
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Introduzione ad Azure AD
 La gestione delle identità moderna richiede un'affidabilità scalabile e coerente per garantire la disponibilità di applicazioni e servizi solo agli utenti autenticati. Per supportare adeguatamete le esigenze di gestione delle identità degli utenti, il reparto IT ha bisogno di un modo per fornire l'accesso alle app pubbliche software as a service (SaaS), un modo per ospitare una linea interna di app aziendali e anche modi per migliorare lo sviluppo e l'utilizzo delle app localmente. Tutti questi requisiti evidenziano la necessità di una soluzione di gestione delle identità basata su cloud.      

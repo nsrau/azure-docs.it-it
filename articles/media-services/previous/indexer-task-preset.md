@@ -1,11 +1,11 @@
 ---
-title: "Set di impostazioni delle attività per Azure Media Indexer"
-description: "Questo argomento offre una panoramica del set di impostazioni delle attività per Azure Media Indexer."
+title: Set di impostazioni delle attività per Azure Media Indexer
+description: Questo argomento offre una panoramica del set di impostazioni delle attività per Azure Media Indexer.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Asolanki
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: adsolank;juliako;
 ms.openlocfilehash: ae6c4da189cd6637b4e1fa9274473b62f6664e51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Set di impostazioni delle attività per Azure Media Indexer
 

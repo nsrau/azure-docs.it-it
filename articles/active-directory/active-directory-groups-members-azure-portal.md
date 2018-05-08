@@ -2,32 +2,30 @@
 title: Gestire i membri per un gruppo in Azure Active Directory | Microsoft Docs
 description: 'Procedura: Aggiungere o rimuovere gli utenti e i dispositivi da un gruppo in Azure Active Directory'
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: d399a97d-fd2a-4b2d-b73d-0975db83f41b
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 31ab2ae51174061fc4b4a232ebbc7acab86e1ab8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a35e85feb10997f458c7f3764920891e7932de59
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Gestire l'appartenenza al gruppo per gli utenti nel tenant di Azure Active Directory
 Questo articolo descrive come gestire i membri di un gruppo in Azure Active Directory (Azure AD).
 
 ## <a name="how-do-i-find-the-members-and-manage-them"></a>Come è possibile trovare i membri e gestirli?
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
-2. Selezionare **Tutti i servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi premere **INVIO**.
+2. Selezionare **Tutti i servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
 
    ![Apertura di Gestione utenti](./media/active-directory-groups-members-azure-portal/search-user-management.png)
 3. Nel pannello **Utenti e gruppi** selezionare **Tutti i gruppi**.

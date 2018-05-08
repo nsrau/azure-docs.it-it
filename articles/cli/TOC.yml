@@ -1,0 +1,9 @@
+- name: Interfaccia della riga di comando
+  href: index.yml
+  items:
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: interfaccia della riga di comando di Azure
+      href: /cli/azure
+    - name: PowerShell Tools for Visual Studio 2015
+      href: 'https://adamdriscoll.gitbooks.io/powershell-tools-documentation/content/'

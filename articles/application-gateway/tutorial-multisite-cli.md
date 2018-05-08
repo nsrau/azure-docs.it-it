@@ -1,9 +1,9 @@
 ---
-title: "Creare un gateway applicazione con l'hosting di più siti - Interfaccia della riga di comando di Azure | Microsoft Docs"
-description: "Informazioni su come creare un gateway applicazione che ospita più siti usando l'interfaccia della riga di comando di Azure."
+title: Creare un gateway applicazione con l'hosting di più siti - Interfaccia della riga di comando di Azure | Microsoft Docs
+description: Informazioni su come creare un gateway applicazione che ospita più siti usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: df475cb6eed2b75275e573721f754e7de87698f5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: 2e1367db9c2c1d47f34cc35fc088a9eecf00247b
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Creare un gateway applicazione con l'hosting di più siti usando l'interfaccia della riga di comando di Azure
 
@@ -116,7 +116,7 @@ az network application-gateway address-pool create \
 
 ### <a name="add-listeners"></a>Aggiungere i listener
 
-È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato al pool back-end. In questa esercitazione si creano due listener per i due domini. In questo esempio vengono creati i listener per i domini *www.contoso.com* e *www.fabrikam.com*. 
+È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato al pool back-end. In questa esercitazione vengono creati due listener per i due domini. In questo esempio vengono creati i listener per i domini *www.contoso.com* e *www.fabrikam.com*. 
 
 Aggiungere i listener *contosoListener* e *fabrikamListener* necessari per instradare il traffico usando [az network application-gateway http-listener create](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
 
@@ -205,7 +205,7 @@ for i in `seq 1 2`; do
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
     --settings '{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 done
 ```
@@ -226,7 +226,7 @@ Non è consigliabile usare record A perché l'indirizzo VIP può cambiare quando
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Immettere il nome del dominio nella barra degli indirizzi del browser, ad esempio: http://www.contoso.com.
+Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http://www.contoso.com.
 
 ![Testare il sito contoso nel gateway applicazione](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 

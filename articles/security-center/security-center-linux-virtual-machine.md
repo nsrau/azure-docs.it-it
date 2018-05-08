@@ -1,11 +1,11 @@
 ---
 title: Centro sicurezza di Azure e macchine virtuali di Azure con Linux | Documentazione Microsoft
-description: "Questo documento illustra in che modo il Centro sicurezza di Azure può proteggere le macchine virtuali di Azure."
+description: Questo documento illustra in che modo il Centro sicurezza di Azure può proteggere le macchine virtuali di Azure.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: 0df4fca59575bd8e18e91fea2066a9e694ed320d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e08444cbfdb095c79d164de06dda078c6a242b3f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Centro sicurezza di Azure e macchine virtuali di Azure con Linux
 Il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/) consente di impedire, rilevare e gestire le minacce. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
@@ -32,7 +32,7 @@ Il Centro sicurezza consente di proteggere i dati delle macchine virtuali di Azu
 * Aggiornamenti della sicurezza del sistema e altri aggiornamenti di importanza critica eventualmente mancanti
 * Consigli per la protezione degli endpoint
 * Convalida della crittografia del disco
-* Attacchi basati sulla rete (questa funzionalità è disponibile solo nella [versione Standard](https://azure.microsoft.com/en-us/pricing/details/security-center/))
+* Attacchi basati sulla rete (questa funzionalità è disponibile solo nella [versione Standard](https://azure.microsoft.com/pricing/details/security-center/))
 
 Oltre a proteggere le macchine virtuali di Azure, il Centro sicurezza offre funzionalità per il monitoraggio e la gestione dei servizi cloud, dei servizi app, delle reti virtuali e molto altro. 
 

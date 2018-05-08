@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: a6d6e0b7ea844f0a4d60ae7a157ac76dc8bdb8f8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2498c8b1acff79d50f34c703af77c555a00fd1a2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
 
@@ -85,7 +85,7 @@ L'uso di Azure negli ambienti lab e di sviluppo offre alle organizzazioni una ma
 
 Il servizio [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) fa uso del [controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md), che permette di organizzare i compiti all'interno del team in ruoli, che concedono solo il livello di accesso necessario agli utenti per svolgere il proprio lavoro. Il controllo degli accessi in base al ruolo prevede i ruoli predefiniti di proprietario, utente lab e collaboratore, che possono anche essere usati per assegnare diritti a partner esterni e semplificare notevolmente la collaborazione.
 
-L'uso del controllo degli accessi in base al ruolo in DevTest Labs permette di creare [ruoli personalizzati](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md) aggiuntivi. DevTest Labs non si limita a semplificare la gestione delle autorizzazioni, ma semplifica anche il processo di provisioning degli ambienti e permette di gestire altre problematiche tipiche dei team che operano in ambienti di sviluppo e test. Richiede un po' di preparazione, ma con il tempo permette di semplificare il lavoro del team.
+L'uso del controllo degli accessi in base al ruolo in DevTest Labs permette di creare [ruoli personalizzati](../lab-services/devtest-lab-grant-user-permissions-to-specific-lab-policies.md) aggiuntivi. DevTest Labs non si limita a semplificare la gestione delle autorizzazioni, ma semplifica anche il processo di provisioning degli ambienti e permette di gestire altre problematiche tipiche dei team che operano in ambienti di sviluppo e test. Richiede un po' di preparazione, ma con il tempo permette di semplificare il lavoro del team.
 
 Le funzionalità di Azure DevTest Labs includono:
 

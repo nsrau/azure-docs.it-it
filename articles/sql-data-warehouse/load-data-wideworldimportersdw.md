@@ -1,31 +1,24 @@
 ---
 title: 'Esercitazione: Caricare dati in Azure SQL Data Warehouse | Microsoft Docs'
-description: Questa esercitazione usa il portale di Azure e SQL Server Management Studio per caricare il data warehouse WideWorldImportersDW dall'archivio BLOB di Azure ad Azure SQL Data Warehouse.
+description: L'esercitazione usa il portale di Azure e SQL Server Management Studio per caricare il data warehouse WideWorldImportersDW da un archivio BLOB di Azure pubblico ad Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: ''
 author: ckarst
-manager: jhubbard
-editor: ''
-tags: ''
-ms.assetid: ''
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/06/2018
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: barbkess
-ms.openlocfilehash: 7e7d9a299e141ef8fd564e7f97077471264420ea
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: igorstan
+ms.openlocfilehash: 0b28bb07006ed58a82af80afe42fe472d4878971
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Esercitazione: Caricare dati in Azure SQL Data Warehouse
 
-Questa esercitazione carica il data warehouse WideWorldImportersDW dall’archivio BLOB di Azure ad Azure SQL Data Warehouse. Questa esercitazione usa il [portale di Azure](https://portal.azure.com) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) per: 
+Questa esercitazione usa PolyBase per caricare il data warehouse WideWorldImportersDW dall'archivio BLOB di Azure ad Azure SQL Data Warehouse. Questa esercitazione usa il [portale di Azure](https://portal.azure.com) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) per: 
 
 > [!div class="checklist"]
 > * Creare data warehouse nel portale di Azure
@@ -42,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Prima di iniziare questa esercitazione, scaricare e installare la versione più recente di [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Prima di iniziare questa esercitazione, scaricare e installare la versione più recente di [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
@@ -51,7 +44,7 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Creare un SQL Data Warehouse vuoto
 
-Un SQL Data Warehouse viene creato con un set definito di [risorse di calcolo](performance-tiers.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di Azure SQL](../sql-database/sql-database-features.md). 
+Un SQL Data Warehouse viene creato con un set definito di [risorse di calcolo](memory-and-concurrency-limits.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di Azure SQL](../sql-database/sql-database-features.md). 
 
 Per creare un SQL Data Warehouse vuoto, eseguire la procedura seguente. 
 
@@ -92,7 +85,7 @@ Per creare un SQL Data Warehouse vuoto, eseguire la procedura seguente.
     ![configurare le prestazioni](media/load-data-wideworldimportersdw/configure-performance.png)
 
 8. Fare clic su **Apply**.
-9. Nella pagina SQL Data Warehouse selezionare le **regole di confronto** per il database vuoto. Per questa esercitazione usare il valore predefinito. Per altre informazioni sulle regole di confronto, vedere [Collations](/sql/t-sql/statements/collations.md) (Regole di confronto)
+9. Nella pagina SQL Data Warehouse selezionare le **regole di confronto** per il database vuoto. Per questa esercitazione usare il valore predefinito. Per altre informazioni sulle regole di confronto, vedere [Collations](/sql/t-sql/statements/collations) (Regole di confronto)
 
 11. Dopo aver completato il modulo del database SQL, fare clic su **Crea** per effettuare il provisioning del database. Il provisioning richiede alcuni minuti. 
 
@@ -147,7 +140,7 @@ Ottenere il nome completo del server SQL nel portale di Azure. In seguitò si us
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Connettersi al server come amministratore del server
 
-In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) per stabilire una connessione al server SQL di Azure.
+In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) per stabilire una connessione al server SQL di Azure.
 
 1. Aprire SQL Server Management Studio.
 
@@ -171,7 +164,7 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
 
 ## <a name="create-a-user-for-loading-data"></a>Creare un utente per il caricamento dei dati
 
-L'account amministratore del server ha la funzione di eseguire operazioni di gestione e non è appropriato per l'esecuzione di query sui dati degli utenti. Il caricamento di dati è un'operazione a elevato utilizzo di memoria. I [valori massimi di memoria](performance-tiers.md#memory-maximums) sono definiti in base al [livello di prestazioni](performance-tiers.md) e alla [classe di risorse](resource-classes-for-workload-management.md). 
+L'account amministratore del server ha la funzione di eseguire operazioni di gestione e non è appropriato per l'esecuzione di query sui dati degli utenti. Il caricamento di dati è un'operazione a elevato utilizzo di memoria. I valori massimi di memoria sono definiti in base alla generazione di SQL Data Warehouse usata, alle [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) e alla [classe di risorse](resource-classes-for-workload-management.md). 
 
 È consigliabile creare un account di accesso e un utente dedicato per il caricamento dei dati. Quindi aggiungere l'utente con il compito di caricare i dati a una [classe di risorse](resource-classes-for-workload-management.md) che consente un'allocazione di memoria massima appropriata.
 
@@ -238,7 +231,7 @@ Eseguire gli script SQL seguenti per specificare le informazioni sui dati che si
     CREATE MASTER KEY;
     ```
 
-4. Eseguire la seguente istruzione [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) per definire la posizione del BLOB di Azure. Questo è il percorso dei dati esterni relativi ai taxi.  Per eseguire un comando che è stato accodato nella finestra della query, evidenziare i comandi che si vuole eseguire e fare clic su **Esegui**.
+4. Eseguire la seguente istruzione [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) per definire la posizione del BLOB di Azure. Questo è il percorso dei dati esterni relativi ai taxi.  Per eseguire un comando che è stato accodato nella finestra della query, evidenziare i comandi che si vuole eseguire e fare clic su **Esegui**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -249,7 +242,7 @@ Eseguire gli script SQL seguenti per specificare le informazioni sui dati che si
     );
     ```
 
-5. Eseguire l'istruzione T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) riportata di seguito per specificare le caratteristiche di formattazione e le opzioni per il file di dati esterno. Questa istruzione specifica che i dati esterni sono memorizzati come testo e i valori sono separati dal carattere barra verticale ("|").  
+5. Eseguire l'istruzione T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) riportata di seguito per specificare le caratteristiche di formattazione e le opzioni per il file di dati esterno. Questa istruzione specifica che i dati esterni sono memorizzati come testo e i valori sono separati dal carattere barra verticale ("|").  
 
     ```sql
     CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -264,7 +257,7 @@ Eseguire gli script SQL seguenti per specificare le informazioni sui dati che si
     );
     ```
 
-6.  Eseguire l'istruzione [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) riportata di seguito per creare uno schema per il formato del file esterno. Lo schema ext fornisce un modo per organizzare le tabelle esterne da creare. Lo schema wwi organizza le tabelle standard che conterranno i dati. 
+6.  Eseguire l'istruzione [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql) riportata di seguito per creare uno schema per il formato del file esterno. Lo schema ext fornisce un modo per organizzare le tabelle esterne da creare. Lo schema wwi organizza le tabelle standard che conterranno i dati. 
 
     ```sql
     CREATE SCHEMA ext;
@@ -559,7 +552,7 @@ Questa sezione usa le tabelle esterne appena definite per caricare i dati di ese
 > Questa esercitazione carica i dati direttamente nella tabella finale. In un ambiente di produzione si userà in genere CREATE TABLE AS SELECT per eseguire il caricamento in una tabella di staging. Mentre i dati si trovano nella tabella di staging è possibile eseguire le trasformazioni eventualmente necessarie. Per accodare i dati della tabella di staging a una tabella di produzione, è possibile usare l'istruzione INSERT...SELECT. Per altre informazioni, vedere [Inserimento di dati in una tabella di produzione](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 > 
 
-Lo script usa l'istruzione T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) per caricare i dati dal BLOB del servizio di archiviazione di Azure nelle nuove tabelle del data warehouse. CTAS crea una nuova tabella in base ai risultati di un'istruzione SELECT. La nuova tabella ha le stesse colonne e gli stessi tipi di dati dei risultati dell'istruzione SELECT. Quando l'istruzione SELECT seleziona da una tabella esterna, SQL Data Warehouse importa i dati in una tabella relazionale del data warehouse. 
+Lo script usa l'istruzione T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) per caricare i dati dal BLOB del servizio di archiviazione di Azure nelle nuove tabelle del data warehouse. CTAS crea una nuova tabella in base ai risultati di un'istruzione SELECT. La nuova tabella ha le stesse colonne e gli stessi tipi di dati dei risultati dell'istruzione SELECT. Quando l'istruzione SELECT seleziona da una tabella esterna, SQL Data Warehouse importa i dati in una tabella relazionale del data warehouse. 
 
 Questo script non carica i dati nelle tabelle wwi.dimension_Date e wwi.fact_Sales. Queste tabelle sono generate in un passaggio successivo, in modo che possano avere un numero consistente di righe.
 
@@ -953,12 +946,13 @@ In questa sezione vengono create le tabelle wwi.dimension_Date e wwi.fact_Sales.
         END;
 
     END;
+    ```
 
-## Generate millions of rows
-Use the stored procedures you created to generate millions of rows in the wwi.fact_Sales table, and corresponding data in the wwi.dimension_Date table. 
+## <a name="generate-millions-of-rows"></a>Generare milioni di righe
+Usare le stored procedure create per generare milioni di righe nella tabella wwi.fact_Sales e i dati corrispondenti nella tabella wwi.dimension_Date. 
 
 
-1. Run this procedure to seed the [wwi].[seed_Sale] with more rows.
+1. Eseguire questa procedura per inizializzare [wwi].[seed_Sale] con più righe.
 
     ```sql    
     EXEC [wwi].[InitialSalesDataPopulation]

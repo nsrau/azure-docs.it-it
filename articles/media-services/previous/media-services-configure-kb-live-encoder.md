@@ -1,11 +1,11 @@
 ---
-title: "Configurare il codificatore Haivision KB per l'invio di un flusso live a velocità in bit singola in Azure | Microsoft Docs"
-description: "Questo argomento illustra come configurare il codificatore live Haivision KB per l'invio di un flusso a velocità in bit singola ai canali AMS abilitati per la codifica live."
+title: Configurare il codificatore Haivision KB per l'invio di un flusso live a velocità in bit singola in Azure | Microsoft Docs
+description: Questo argomento illustra come configurare il codificatore live Haivision KB per l'invio di un flusso a velocità in bit singola ai canali AMS abilitati per la codifica live.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: dbgeorge
 manager: vsood
-editor: 
+editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: juliako;dbgeorge
 ms.openlocfilehash: 25077cd9338a2764c6dff9e755812033685f6641
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Usare il codificatore live Haivision KB per inviare un flusso live a velocità in bit singola
 > [!div class="op_single_selector"]
@@ -32,11 +32,11 @@ Questo argomento illustra come configurare il [codificatore live Haivision KB](h
 
 In questa esercitazione viene illustrato come gestire Servizi multimediali di Azure (AMS) con lo strumento Azure Media Services Explorer (AMSE). Questo strumento può essere eseguito solo in PC Windows. Gli utenti di sistemi Mac o Linux possono usare il Portale di Azure per creare [canali](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programmi](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 *   Accesso a un codificatore Haivision KB che esegue SW v5.01 o versione successiva.
 * [Creare un account Servizi multimediali di Azure](media-services-portal-create-account.md)
 * Verificare che sia presente un endpoint di streaming in esecuzione. Per altre informazioni, vedere [Gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-portal-manage-streaming-endpoints.md)
-* Installare la versione più recente dello strumento [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer).
+* Installare la versione più recente dello strumento [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
 * Avviare lo strumento e connettersi al proprio account AMS.
 
 ## <a name="tips"></a>Suggerimenti
@@ -94,7 +94,7 @@ Se il flusso viene visualizzato nel lettore, ciò indica che il codificatore è 
 
 In caso di errore sarà necessario reimpostare il canale e regolare le impostazioni del codificatore. Come materiale sussidiario, vedere l'articolo sulla risoluzione dei problemi.
 
-## <a name="create-a-program"></a>Creare un programma
+## <a name="create-a-program"></a>Creare un programma.
 1.  Una volta che viene confermata la riproduzione del canale, creare un programma. Nella scheda Live dello strumento AMSE fare clic con il pulsante destro del mouse all'interno dell'area del programma e selezionare Create New Program (Crea programma).
 [Haivision](./media/media-services-configure-kb-live-encoder/program.png)
 1.  Assegnare un nome al programma e, se necessario, modificare la durata dell'intervallo di archiviazione, la cui impostazione predefinita è di quattro ore. È inoltre possibile specificare un percorso di archiviazione o confermare l'impostazione predefinita.

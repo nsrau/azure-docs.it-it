@@ -1,27 +1,27 @@
 ---
 title: Impostare avvisi di fatturazione o di credito per le sottoscrizioni di Azure | Microsoft Docs
-description: "Viene descritto come è possibile impostare gli avvisi di fatturazione di Azure per evitare sorprese fatturazione."
+description: Viene descritto come è possibile impostare gli avvisi di fatturazione di Azure per evitare sorprese fatturazione.
 keywords: avviso di credito, avviso di fatturazione
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: vikdesai
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 9b7b3eeb-cd9d-4690-86a3-51b1e2a8974f
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/9/2017
 ms.author: vikdesai
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1fc0cb2b036e835450ee0fc404cce12439fabc77
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8606efc4e0d3050ddd72b6bf8ec87f6ddd84fa2e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Impostare avvisi di fatturazione o di credito per le sottoscrizioni di Microsoft Azure
 Se si amministrano gli account per una sottoscrizione di Azure, è possibile usare Azure Billing Alert Service per creare avvisi di fatturazione personalizzati che consentono di monitorare e gestire l'attività di fatturazione per gli account Azure.

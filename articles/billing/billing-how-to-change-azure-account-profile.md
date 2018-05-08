@@ -1,26 +1,26 @@
 ---
 title: Modificare le informazioni sul profilo dell'account Azure| Microsoft Docs
-description: "L'articolo descrive come modificare il profilo dell'account di Azure e fornisce le risposte alle domande comuni, ad esempio perché non è possibile modificare il paese nel Centro account di Azure"
-services: 
-documentationcenter: 
+description: L'articolo descrive come modificare il profilo dell'account di Azure e fornisce le risposte alle domande comuni, ad esempio perché non è possibile modificare il paese nel Centro account di Azure
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 9d4ef5d9-11fc-4684-ace6-467f4ce26ba8
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22d64ba9c9bdceda108b1160aef32ff3d38e4b03
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ec0caccafd7ed6eaf91be153014d2e3aaf5a30b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Modificare le informazioni sul profilo dell'account di Azure, ad esempio indirizzo di posta elettronica, indirizzo e numero di telefono di contatto
 

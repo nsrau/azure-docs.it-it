@@ -1,8 +1,8 @@
 ---
 title: Introduzione ad Azure Data Lake Analytics con l'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
-description: 'Informazioni su come usare l''interfaccia della riga di comando di Azure 2.0 per creare un account Data Lake Analytics, definire un processo di Data Lake Analytics con U-SQL e inviare il processo. '
+description: "Informazioni su come usare l'interfaccia della riga di comando di Azure 2.0 per creare un account Data Lake Analytics, definire un processo di Data Lake Analytics con U-SQL e inviare il processo. "
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: jgao
-ms.openlocfilehash: fbd4f1ae5eeec971a378c41761508629e530887c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e7ce65446a6af49f15b3ce1881757b16f8fcaa35
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Introduzione ad Azure Data Lake Analytics con l'interfaccia della riga di comando di Azure 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -193,26 +193,6 @@ Ad esempio:
 
 ```
 az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"
-```
-
-## <a name="pipelines-and-recurrences"></a>Pipeline e ricorrenze
-
-**Ottenere informazioni su pipeline e ricorrenze**
-
-Usare i comandi `az dla job pipeline` per visualizzare le informazioni relative alle pipeline per i processi inviati in precedenza.
-
-```
-az dla job pipeline list --account "<Data Lake Analytics Account Name>"
-
-az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
-```
-
-Usare i comandi `az dla job recurrence` per visualizzare le informazioni relative alle ricorrenze per i processi inviati in precedenza.
-
-```
-az dla job recurrence list --account "<Data Lake Analytics Account Name>"
-
-az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
