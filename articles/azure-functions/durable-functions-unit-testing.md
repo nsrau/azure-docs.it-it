@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: kadimitr
-ms.openlocfilehash: a8d2a2281dcaf6e5e308ad4a2aafb167f9ba9121
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7de9a6f0d4dfcb45932b89504c0d38c3c70283e9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="durable-functions-unit-testing"></a>Testing unità di Funzioni durevoli
 
@@ -128,7 +128,7 @@ Dopo avere combinato tutti i passaggi, lo unit test avrà il codice seguente:
 
 ## <a name="unit-testing-orchestrator-functions"></a>Testing unità delle funzioni dell'agente di orchestrazione
 
-Le funzioni dell'agente di orchestrazione sono ancora più interessanti per il testing unità perché in genere contengono molta più logica di business. Le funzioni dell'agente di orchestrazione attualmente possono essere implementate solo in C#.
+Le funzioni dell'agente di orchestrazione sono ancora più interessanti per il testing unità perché in genere contengono molta più logica di business.
 
 In questa sezione gli unit test convalideranno l'output della funzione dell'agente di orchestrazione `E1_HelloSequence`:
 

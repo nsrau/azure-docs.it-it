@@ -1,7 +1,7 @@
 ---
 title: Schema dei dispositivi nella soluzione di monitoraggio remoto - Azure | Microsoft Docs
 description: Questo articolo descrive lo schema JSON che definisce un dispositivo simulato nella soluzione di monitoraggio remota.
-services: 
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 364698a529623958695f93a245bab28a89f6bd4c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 24aeb9c3f73d04a3d05f09ebd2ba0859a38e7ad8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="understand-the-device-model-schema"></a>Informazioni sullo schema del modello dei dispositivi
 
@@ -79,7 +79,7 @@ La tabella seguente descrive le voci dello schema di primo livello:
 
 Le sezioni seguenti descrivono le altre sezioni nello schema JSON:
 
-## <a name="simulation"></a>Simulation
+## <a name="simulation"></a>Simulazione
 
 Nella sezione `Simulation` viene definito lo stato interno del dispositivo simulato. Gli eventuali valori di telemetria inviati dal dispositivo devono far parte di questo stato del dispositivo.
 
@@ -104,10 +104,10 @@ L'esempio seguente mostra la definizione dell'oggetto di stato del dispositivo p
     "pressure_unit": "psig",
     "simulation_state": "normal_pressure"
   },
-  "Script": {
+  "Interval": "00:00:10",
+  "Scripts": {
     "Type": "javascript",
-    "Path": "chiller-01-state.js",
-    "Interval": "00:00:05"
+    "Path": "chiller-01-state.js"
   }
 }
 ```
@@ -129,7 +129,7 @@ La sezione `Properties` dello schema definisce i valori di proprietà segnalati 
 
 All'avvio, la soluzione richiede a tutti i dispositivi simulati di compilare un elenco di valori `Type` da usare nell'interfaccia utente. La soluzione usa le proprietà `Latitiude` e `Longitude` per aggiungere la posizione del dispositivo alla mappa nel dashboard.
 
-## <a name="telemetry"></a>Telemetry
+## <a name="telemetry"></a>Telemetria
 
 La matrice `Telemetry` elenca tutti i tipi di dati di telemetria inviati alla soluzione dal dispositivo simulato.
 
