@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ec08d617b461240062190ec7fdb919f051675798
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c02835e8712c79ea540d7560da111f54abbeed23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Registrare il dispositivo in un hub IoT usando il client del servizio Device Provisioning in hub IoT di Azure (.NET)
 
@@ -49,7 +49,7 @@ Questo passaggio prevede l'aggiunta di elementi di sicurezza esclusivi del dispo
 
 - Per i dispositivi basati su X.509:
     - [Certificato X.509 rilasciato al dispositivo](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), sotto forma di file con estensione *pem* o *cer*. Per la registrazione individuale è necessario usare il *certificato foglia* per il sistema X.509, mentre per i gruppi di registrazione è necessario usare il *certificato radice* o un *certificato del firmatario* equivalente.
-    - *ID di registrazione*, usato per identificare in modo univoco un dispositivo nell'ambito o nello spazio dei nomi. Può coincidere o meno con l'ID dispositivo. L'ID è obbligatorio per ogni dispositivo. Per i dispositivi basati su X.509, l'ID di registrazione viene derivato dal nome comune del certificato. Per altre informazioni su questi requisiti, vedere [Concetti relativi ai dispositivi](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device).
+    - *ID di registrazione*, usato per identificare in modo univoco un dispositivo nell'ambito o nello spazio dei nomi. Può coincidere o meno con l'ID dispositivo. L'ID è obbligatorio per ogni dispositivo. Per i dispositivi basati su X.509, l'ID di registrazione viene derivato dal nome comune del certificato. Per altre informazioni su questi requisiti, vedere [Concetti relativi ai dispositivi](https://docs.microsoft.com/azure/iot-dps/concepts-device).
 
 È possibile registrare il dispositivo nel servizio Device Provisioning in due modi:
 

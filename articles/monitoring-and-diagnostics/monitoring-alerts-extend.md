@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: 445adb7f57332a285494c744763f633806d2675e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 54ec12f24ddbad6227a306aeae86658807f85b4e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Estendere (copiare) avvisi dal portale di OMS ad Azure
 Nel portale di Operations Management Suite (OMS) vengono visualizzati solo gli avvisi di Log Analytics.  La nuova esperienza Avvisi è ora integrata nei diversi servizi e componenti di Microsoft Azure. La nuova esperienza disponibile come **Avvisi** in Monitoraggio di Azure all'interno del portale di Azure contiene avvisi del log attività, avvisi delle metriche e avvisi relativi ai log per Log Analytics e Application Insights. 
@@ -43,7 +43,7 @@ Quando vengono pianificati per l'estensione ad Azure, gli avvisi presenti in un'
  ![Durante il periodo pianificato, le azioni dell'utente sugli avvisi vengono reindirizzate ad Azure](./media/monitor-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
-> Per l'estensione degli avvisi dal portale di OMS ad Azure non è previsto alcun addebito e per l'uso di Avvisi di Azure per la generazione di avvisi di Log Analytics basati su query non verranno addebitati costi, purché siano rispettati i limiti e le condizioni indicati in [Prezzi di Monitoraggio di Azure ](https://azure.microsoft.com/en-us/pricing/details/monitor/)  
+> Per l'estensione degli avvisi dal portale di OMS ad Azure non è previsto alcun addebito e per l'uso di Avvisi di Azure per la generazione di avvisi di Log Analytics basati su query non verranno addebitati costi, purché siano rispettati i limiti e le condizioni indicati in [Prezzi di Monitoraggio di Azure ](https://azure.microsoft.com/pricing/details/monitor/)  
 
 Gli utenti possono usufruire dei vantaggi offerti dall'estensione degli avvisi prima di questa data scegliendo volontariamente di rendere gli avvisi gestibili in Azure.
 

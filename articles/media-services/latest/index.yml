@@ -1,0 +1,54 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione di Servizi multimediali di Azure v3 (anteprima)
+metadata:
+  document_id: 
+  title: Documentazione di Servizi multimediali di Azure v3 - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
+  meta.description: Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services. Tutorials, API references, and more.
+  services: media-services
+  author: Juliako
+  manager: cfowler
+  ms.service: media-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03-20-2018
+  ms.author: juliako
+  ms.openlocfilehash: 1ac829c8d9643401cada1f7cd558a39b63da87c2
+  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 05/07/2018
+abstract:
+  description: Informazioni su come eseguire lo streaming di video on demand, la trasmissione in tempo reale e l'analisi dei video con Servizi multimediali. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come fornire in modo sicuro flussi su audio o video live e on demand a milioni di utenti.
+sections:
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: 'Informazioni su come creare un account di Servizi multimediali, avviare la codifica dei video e usare Azure Media Player per riprodurli:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/media-services.svg
+      text: Eseguire lo streaming di file video
+      href: /azure/media-services/latest/stream-files-dotnet-quickstart
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni su come eseguire lo streaming di file e analizzare i video con Servizi multimediali.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/media-services/latest/stream-files-tutorial-with-api">Caricare, codificare ed eseguire lo streaming dei video</a>
+    - html: <a href="/azure/media-services/latest/analyze-videos-tutorial-with-api">Analizzare i video</a>
+- title: Riferimenti
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Riga di comando
+      html: <p><a href="https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest">Interfaccia della riga di comando di Azure</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/media/">API REST</a></p>

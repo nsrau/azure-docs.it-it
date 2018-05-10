@@ -1,0 +1,73 @@
+- name: Documentazione su Servizi multimediali
+  href: ./index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni su Servizi multimediali
+      href: media-services-overview.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: Eseguire lo streaming di file video con .NET
+      href: stream-files-dotnet-quickstart.md
+- name: Esercitazioni
+  items:
+    - name: 'Caricare, codificare ed eseguire lo streaming'
+      href: stream-files-tutorial-with-api.md
+    - name: Analizzare i video
+      href: analyze-videos-tutorial-with-api.md
+- name: Esempi
+  items:
+    - name: Esempi di codice per Azure
+      href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
+    - name: Interfaccia della riga di comando di Azure
+      href: cli-samples.md
+- name: Concetti
+  items:
+    - name: Asset
+      href: assets-concept.md
+    - name: Generare automaticamente una tabella adattiva di coppie bitrate-risoluzione
+      href: autogen-bitrate-ladder.md
+    - name: Intelligenza multimediale
+      href: intelligence-concept.md
+    - name: Account di archiviazione
+      href: storage-account-concept.md
+    - name: Trasformazioni e processi
+      href: transform-concept.md
+    - name: Reazione agli eventi
+      href: reacting-to-media-services-events.md
+- name: Guide alle procedure
+  items:
+    - name: Creare un account - Interfaccia della riga di comando
+      href: create-account-cli-how-to.md
+    - name: Accedere alle API - Interfaccia della riga di comando
+      href: access-api-cli-how-to.md
+    - name: Eventi di stato dei processi - Interfaccia della riga di comando
+      href: job-state-events-cli-how-to.md
+    - name: Caricare contenuti - .NET
+      items:
+        - name: Da HTTP(s)
+          href: job-input-from-http-how-to.md
+        - name: Da un file locale
+          href: job-input-from-local-file-how-to.md
+- name: Riferimenti
+  items:
+    - name: Interfaccia della riga di comando di Azure 2.0
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest'
+    - name: REST
+      href: 'https://go.microsoft.com/fwlink/p/?linkid=873030'
+    - name: Schemi degli eventi
+      href: media-services-event-schemas.md
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Video
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'
+    - name: Note sulla versione
+      href: release-notes.md
+    - name: Quote e limitazioni
+      href: limits-quotas-constraints.md

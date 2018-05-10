@@ -8,8 +8,10 @@
 ## [Creare uno spazio dei nomi](relay-create-namespace-portal.md)
 ## [Creare un'applicazione ibrida cloud/locale](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## connessioni ibride
-### [.NET](relay-hybrid-connections-dotnet-get-started.md)
-### [Node](relay-hybrid-connections-node-get-started.md)
+### [.NET WebSocket](relay-hybrid-connections-dotnet-get-started.md)
+### [.NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
+### [Node WebSocket](relay-hybrid-connections-node-get-started.md)
+### [Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
 ## [Inoltro WCF](relay-wcf-dotnet-get-started.md)
 ## [Esercitazione sull'inoltro WCF](service-bus-relay-tutorial.md)
 ## [Esercitazione su REST per l'inoltro WCF](service-bus-relay-rest-tutorial.md)
@@ -26,7 +28,7 @@
 ## Gestisci
 ### [Monitorare il servizio di inoltro di Azure con Monitoraggio di Azure](relay-metrics-azure-monitor.md)
 
-# riferimento
+# Riferimenti
 ## .NET
 ### [Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
 ### [Microsoft.ServiceBus](/dotnet/api/Microsoft.ServiceBus)

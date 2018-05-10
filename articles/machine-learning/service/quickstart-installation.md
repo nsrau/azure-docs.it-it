@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/7/2018
-ms.openlocfilehash: 0a24adb94930024f6eaaa5ac270ae7fc35520132
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 61f51063ea7542e11ec8488c1f526c0fff1e5e38
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Guida introduttiva: Installare e iniziare a usare i servizi di Azure Machine Learning
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end. Consentono a data scientist professionisti di preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -64,7 +64,7 @@ Usare il portale di Azure per effettuare il provisioning degli account di Azure 
    Gruppo di risorse | _Il gruppo di risorse_ | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse per questo account di Sperimentazione. 
    Località | _Area più vicina ai propri utenti_ | Scegliere la località più vicina agli utenti e alle risorse di dati.
    Number of seats (Numero di postazioni) | 2 | Immettere il numero di postazioni. Informazioni sull'[impatto delle postazioni sui prezzi](https://azure.microsoft.com/pricing/details/machine-learning/).<br/><br/>Per questa guida introduttiva sono necessarie due sole postazioni. È possibile aggiungere o rimuovere le postazioni secondo necessità nel portale di Azure.
-   Account di archiviazione | _Nome univoco_ | Selezionare **Crea nuovo** e specificare un nome per creare un [account di archiviazione di Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal). Il nome deve contenere da 3 a 24 caratteri esclusivamente alfanumerici. In alternativa, selezionare **Usa esistente** e selezionare un account di archiviazione esistente nell'elenco a discesa. L'account di archiviazione è obbligatorio e viene usato per contenere gli elementi del progetto e i dati della cronologia di esecuzione. 
+   Account di archiviazione | _Nome univoco_ | Selezionare **Crea nuovo** e specificare un nome per creare un [account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal). Il nome deve contenere da 3 a 24 caratteri esclusivamente alfanumerici. In alternativa, selezionare **Usa esistente** e selezionare un account di archiviazione esistente nell'elenco a discesa. L'account di archiviazione è obbligatorio e viene usato per contenere gli elementi del progetto e i dati della cronologia di esecuzione. 
    Workspace for Experimentation account (Area di lavoro per account di Sperimentazione) | IrisGarden<br/>(nome usato nelle esercitazioni) | Specificare un nome per un'area di lavoro per questo account. Il nome deve avere una lunghezza compresa tra 2 e 32 caratteri. Può contenere solo caratteri alfanumerici e il trattino (-). Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
    Assign owner for the workspace (Proprietario area di lavoro) | _L'account_ | Selezionare il proprio account come proprietario dell'area di lavoro.
    Creare un account di Gestione modelli | **check** |Creare ora un account di Gestione modelli in modo che questa risorsa sia disponibile quando si vogliono distribuire e gestire i modelli come servizi Web in tempo reale. <br/><br/>Anche se facoltativo, è consigliabile creare l'account di Gestione modelli al momento della creazione dell'account di Sperimentazione.

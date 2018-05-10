@@ -1,25 +1,25 @@
 ---
 title: 'Esempio JSON di Criteri di Azure: applicare un tag e il relativo valore predefinito | Microsoft Docs'
-description: "Questo criterio di esempio JSON aggiunge un nome e un valore di tag specificati, se non è stato presentato il tag."
+description: Questo criterio di esempio JSON aggiunge un nome e un valore di tag specificati, se non è stato presentato il tag.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 63243c4c0874aac66166202168cd376151300ca7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 66219a12b3ee9bf03de047785e14796bbca13d84
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="apply-tag-and-its-default-value"></a>Applicare il tag e il relativo valore predefinito
 

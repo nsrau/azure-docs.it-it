@@ -2,23 +2,23 @@
 title: Le differenze e le considerazioni per le macchine virtuali nello Stack di Azure | Documenti Microsoft
 description: Informazioni sulle considerazioni e le differenze quando si lavora con le macchine virtuali nello Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 05/04/2018
 ms.author: brenduns
-ms.openlocfilehash: 50c0f293ac669ade4e45a5f45b0adf9a7c4b6c36
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 8c9fd7d5824e5d315a7dd30e5052fe10802d197e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considerazioni per le macchine virtuali in Azure Stack
 
@@ -61,7 +61,7 @@ Nella tabella seguente sono elencate le macchine virtuali che sono supportate ne
 |Ottimizzate per la memoria|Serie Dv2     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
 |Ottimizzate per la memoria|DSv2-series-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
-Dimensioni delle macchine virtuali e le relative quantità di risorse associati sono coerenti tra Stack di Azure e Azure. Ad esempio, questa coerenza include la quantità di memoria, numero di core e la dimensione o numero di dischi dati che possono essere creati. Prestazioni delle stesse dimensioni di macchina virtuale nello Stack di Azure dipendono tuttavia le caratteristiche di un particolare ambiente dello Stack di Azure sottostante.
+Dimensioni delle macchine virtuali e le relative quantità di risorse associati sono coerenti tra Stack di Azure e Azure. Questa verifica di coerenza include la quantità di memoria, numero di core e la dimensione o numero di dischi dati che possono essere creati. Prestazioni delle stesse dimensioni di macchina virtuale nello Stack di Azure dipendono tuttavia le caratteristiche di un particolare ambiente dello Stack di Azure sottostante.
 
 ## <a name="virtual-machine-extensions"></a>Estensioni macchina virtuale
 
@@ -93,6 +93,17 @@ Get-AzureRmResourceProvider | `
   where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
 L'elenco dei tipi di risorse supportati e le versioni dell'API può variare se l'operatore cloud Aggiorna ambiente dello Stack di Azure a una versione più recente.
+
+## <a name="windows-activation"></a>Attivazione di Windows
+
+In base ai diritti di utilizzo del prodotto e condizioni di licenza Microsoft, è necessario utilizzare prodotti Windows. Usa Azure Stack [attivazione automatica della macchina virtuale](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (l'attivazione automatica della) per attivare le macchine virtuali di Windows Server (VM). 
+ - Poiché l'host di Azure Stack viene attivato con chiavi di attivazione automatica per Windows Server 2016, tutte le macchine virtuali che eseguono Windows Server 2012 o versioni successive vengono attivati automaticamente.
+ - Le macchine virtuali che esecuzione Windows Server 2008 R2 non vengono attivati automaticamente e deve essere attivato utilizzando [attivazione MAK](https://technet.microsoft.com/library/ff793438.aspx). 
+
+Microsoft Azure utilizza l'attivazione di gestione delle CHIAVI per attivare le macchine virtuali di Windows. Se si sposta una macchina virtuale dallo Stack di Azure in Azure e di reclami attivare problemi, vedere [problemi di attivazione di macchina virtuale Windows Azure di risolvere i problemi](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Informazioni aggiuntive sono reperibile nel [gli errori di attivazione di risoluzione dei problemi di Windows nelle macchine virtuali di Azure](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) post di blog del Team di supporto di Azure.
+
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,0 +1,47 @@
+- name: Documentazione del progetto DevOps di Azure
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni sul progetto DevOps di Azure
+      href: overview.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: .NET
+      href: /vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore
+      maintainContext: true
+    - name: Node.js
+      href: /vsts/build-release/apps/cd/azure/azure-devops-project-nodejs
+      maintainContext: true
+    - name: Java
+      href: /vsts/build-release/apps/cd/azure/azure-devops-project-java
+      maintainContext: true
+    - name: Python
+      href: /vsts/build-release/apps/cd/azure/azure-devops-project-python
+      maintainContext: true
+    - name: PHP
+      href: /vsts/build-release/apps/cd/azure/azure-devops-project-php
+      maintainContext: true
+    - name: Ruby
+      href: /vsts/build-release/apps/cd/azure/azure-devops-project-ruby
+      maintainContext: true
+    - name: Go
+      href: /vsts/build-release/apps/cd/azure/azure-devops-project-go
+      maintainContext: true
+- name: Esercitazioni
+  items:
+    - name: 1 - GitHub e progetto DevOps
+      href: /vsts/build-release/actions/azure-devops-project-github
+      maintainContext: true
+    - name: 2 - Distribuire nelle macchine virtuali
+      href: /vsts/build-release/actions/azure-devops-project-vms
+      maintainContext: true
+    - name: 3 - Distribuire in un database SQL di Azure
+      href: /vsts/build-release/actions/azure-devops-project-sqldb
+      maintainContext: true
+    - name: 4 - Distribuire nel servizio contenitore di Azure
+      href: /vsts/build-release/actions/azure-devops-project-aks
+      maintainContext: true
+    - name: 5 - Distribuire in Azure Service Fabric
+      href: /vsts/build-release/actions/azure-devops-project-servicefabric
+      maintainContext: true

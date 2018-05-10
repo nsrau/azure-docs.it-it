@@ -12,10 +12,6 @@
       href: dns-getstarted-powershell.md
     - name: Creare una zona e un record DNS - Interfaccia della riga di comando
       href: dns-getstarted-cli.md
-- name: Esempi
-  items:
-    - name: Interfaccia della riga di comando di Azure
-      href: cli-samples.md
 - name: Esercitazioni
   items:
     - name: Creare una zona privata e un record DNS
@@ -24,6 +20,10 @@
       href: dns-delegate-domain-azure-dns.md
     - name: Creare record DNS personalizzati per un'app Web
       href: dns-web-sites-custom-domain.md
+- name: Esempi
+  items:
+    - name: Interfaccia della riga di comando di Azure
+      href: cli-samples.md
 - name: Concetti
   items:
     - name: Zone e record DNS
@@ -102,7 +102,7 @@
       href: /rest/api/dns/
 - name: Risorse correlate
   items:
-    - name: gateway applicazione
+    - name: Gateway applicazione
       href: /azure/application-gateway/
     - name: Rete virtuale
       href: /azure/virtual-network/

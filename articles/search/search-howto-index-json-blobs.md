@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 09/07/2017
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: aa0c26a722ecddabee70127bf4b4fd67855a1523
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 64d16182ce1992ec312ad1620d9d5cf11e0ddea8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure
 Questo articolo illustra come configurare un indicizzatore di BLOB di Ricerca di Azure per estrarre contenuto strutturato dai BLOB JSON in Archiviazione BLOB di Azure.
@@ -36,7 +36,7 @@ L'indicizzazione dei BLOB JSON è simile all'estrazione normale dei documenti in
 
 Il primo passaggio consiste nel fornire le informazioni sulla connessione all'origine dati che vengono usate dall'indicizzatore. Il tipo di origine dati, qui specificato come `azureblob`, determina i comportamenti di estrazione dei dati che vengono richiamati dall'indicizzatore. Per l'indicizzazione di BLOB JSON, la definizione dell'origine dati è identica sia per le matrici che per i documenti JSON. 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -88,7 +88,7 @@ La configurazione viene specificata nel corpo di un'operazione dell'indicizzator
 
 Una richiesta completamente specificata può avere l'aspetto seguente:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -190,7 +190,7 @@ I nomi dei campi di origine nei mapping vengono specificati mediante la notazion
 
 L'esempio seguente mostra un payload di indicizzatore completo con mapping dei campi:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

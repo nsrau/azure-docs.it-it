@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/01/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: quickstart
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: dbbbc7ee87d53f65d51b20fd5b8ffcb6c4930f15
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6a42f4b5b54056424bc3e2d865408ad6711403e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Attivare sottoscrizioni e account di Azure con Gestione costi di Azure
 
@@ -93,7 +93,7 @@ I messaggi precedenti indicano che è stato acquistato un contratto Enterprise d
 Ecco come risolvere i problemi:
 
 1. Il rivenditore deve abilitare il _markup_ per l'account. Per le istruzioni, vedere la [guida introduttiva per i clienti indiretti](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
-2. Generare la chiave del contratto Enterprise di Azure da usare con Gestione costi di Azure. Per istruzioni, vedere [Registrare un Azure Enterprise Agreement e visualizzare i dati sui costi](https://docs.microsoft.com/en-us/azure/cost-management/quick-register-ea).
+2. Generare la chiave del contratto Enterprise di Azure da usare con Gestione costi di Azure. Per istruzioni, vedere [Registrare un Azure Enterprise Agreement e visualizzare i dati sui costi](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
 
 Gestione costi può essere abilitato solo da un amministratore del servizio Azure. Le autorizzazioni di coamministratore non sono sufficienti.
 

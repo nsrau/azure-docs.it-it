@@ -1,8 +1,8 @@
-﻿---
+---
 title: Introduzione al linguaggio U-SQL | Microsoft Docs
 description: Informazioni sulle basi del linguaggio U-SQL.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: 38c4e1b9bd24ef0b8a81f6154620f3f98d3b5ac1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e7efdac8b032055b5344f34f5f9ad2679bddb107
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-u-sql"></a>Introduzione a U-SQL
 U-SQL è un linguaggio che combina SQL dichiarativo con C# imperativo per consentire di elaborare dati su qualsiasi scala. Le funzionalità di query scalabili e distribuite offerte da U-SQL consentono di analizzare con efficienza i dati presenti in archivi relazionali, ad esempio il database SQL di Azure. Con U-SQL è possibile elaborare i dati non strutturati applicando schemi in lettura e inserendo logiche personalizzate e funzioni definite dall'utente. Inoltre, U-SQL include estendibilità che consente un controllo specifico delle modalità di esecuzione su vasta scala. 
@@ -226,7 +226,7 @@ La clausola U-SQL ORDER BY richiede l'uso della clausola FETCH in un'espressione
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-Per gli scenari avanzati di aggregazione, vedere la documentazione di riferimento U-SQL per le [funzioni di aggregazione, analisi e riferimento](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx)
+Per gli scenari avanzati di aggregazione, vedere la documentazione di riferimento U-SQL per le [funzioni di aggregazione, analisi e riferimento](https://msdn.microsoft.com/library/azure/mt621335.aspx)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)

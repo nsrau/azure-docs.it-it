@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: omidm
-ms.openlocfilehash: e366a9b73ee678c78063240838b399c88ae633cc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 20d6dbad6fa1914c8b12f47bb48f6efba3895887
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Pianificare cluster Hadoop aggiunti a un dominio di Azure in HDInsight
 
@@ -49,8 +49,6 @@ Lo screenshot seguente mostra un'unità organizzativa creata in contoso.com. Nel
 
 - **Azure Active Directory Domain Services**: questo servizio fornisce un dominio di Active Directory gestito che è completamente compatibile con Windows Server Active Directory. Microsoft si occupa della gestione, dell'applicazione di patch e del monitoraggio del dominio AD. È possibile distribuire il cluster senza doversi preoccupare di gestire i controller di dominio. Utenti, gruppi e password vengono sincronizzati da Azure Active Directory, per consentire agli utenti di accedere al cluster usando le credenziali aziendali. Per altre informazioni, vedere [Configurare cluster HDInsight aggiunti al dominio usando Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
-> [!NOTE]
-> Active Directory in macchine virtuali IaaS di Azure non è più supportata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per gestire i cluster HDInsight aggiunti a un dominio, vedere [Gestire i cluster HDInsight aggiunti al dominio](apache-domain-joined-manage.md).

@@ -1,24 +1,24 @@
 ---
 title: 'Esercitazione: Gestire le risorse di calcolo con Funzioni di Azure in Azure SQL Data Warehouse | Microsoft Docs'
-description: Come usare Funzioni di Azure per gestire le risorse di calcolo di un data warehouse.
+description: Come usare Funzioni di Azure per gestire il calcolo di un data warehouse.
 services: sql-data-warehouse
 author: kavithaj
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
-ms.date: 04/17/2018
+ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c5b47a2d30f4533455b4e0eaacb777299aff4d43
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 48428ef329de4719a25afd20c21ac102bba540a8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Usare Funzioni di Azure per gestire le risorse di calcolo in Azure SQL Data Warehouse
 
-In questa esercitazione si usa Funzioni di Azure per gestire le risorse di calcolo per un data warehouse in Azure SQL Data Warehouse. È consigliabile usare queste architetture con SQL Data Warehouse con il livello di prestazioni [Ottimizzato per l'elasticità][Performance Tiers].
+In questa esercitazione si usa Funzioni di Azure per gestire le risorse di calcolo per un data warehouse in Azure SQL Data Warehouse.
 
 Per usare app per le funzioni di Azure con SQL Data Warehouse, è necessario creare un [account dell'entità servizio](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) con accesso come collaboratore nella stessa sottoscrizione dell'istanza di Data Warehouse. 
 
@@ -183,5 +183,3 @@ Vedere il [repository degli esempi](https://github.com/Microsoft/sql-data-wareho
 
 [Application Settings]: ../azure-functions/functions-how-to-use-azure-function-app-settings.md
 [Add a new trigger function]: manage-compute-with-azure-functions.md#add-a-new-trigger-function
-
-[Performance Tiers]: memory-and-concurrency-limits.md#performance-tiers

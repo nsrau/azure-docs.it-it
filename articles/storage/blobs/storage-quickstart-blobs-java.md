@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: cbf9014f9a2776cb6dcffabacc5a8a270419a534
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 197777971b92ad9cd53e91602b88858a371ce1d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Java
 
@@ -214,7 +214,7 @@ Per lo sviluppo Java con Archiviazione BLOB, vedere le risorse aggiuntive seguen
 
 ### <a name="client-library-reference-and-samples"></a>Informazioni di riferimento ed esempi relativi alla libreria client
 
-- Per altre informazioni sulla libreria client Java, vedere le [informazioni di riferimento sulle API Java](https://docs.microsoft.com/en-us/java/api/overview/azure/storage).
+- Per altre informazioni sulla libreria client Java, vedere le [informazioni di riferimento sulle API Java](https://docs.microsoft.com/java/api/overview/azure/storage).
 - Esplorare gli [esempi per Archiviazione BLOB](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob) scritti con la libreria client Java.
 
 ## <a name="next-steps"></a>Passaggi successivi

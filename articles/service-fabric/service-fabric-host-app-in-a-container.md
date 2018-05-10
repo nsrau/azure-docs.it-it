@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 11bb34939e5fa3699973051664e85f9ef2147ff7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 04a6fbc56d3c65cfb53339c4178dfa36e2aeb4ea
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Distribuire un'applicazione .NET in un contenitore Windows in Azure Service Fabric
 
@@ -109,7 +109,7 @@ Tornare al progetto **FabrikamFiber.Web** e aggiornare la stringa di connessione
 
 Premere **F5** per eseguire l'applicazione ed eseguirne il debug nel contenitore.
 
-Microsoft Edge apre la pagina di avvio definita dell'applicazione usando l'indirizzo IP del contenitore nella rete NAT interna (in genere 172.x.x.x). Per altre informazioni sul debug delle applicazioni nei contenitori mediante Visual Studio 2017, vedere [questo articolo][link-debug-container].
+Edge apre la pagina di avvio definita dell'applicazione usando l'indirizzo IP del contenitore nella rete NAT interna (in genere 172.x.x.x). Per altre informazioni sul debug delle applicazioni nei contenitori mediante Visual Studio 2017, vedere [questo articolo][link-debug-container].
 
 ![esempio di fabrikam in un contenitore][image-web-preview]
 
@@ -238,8 +238,8 @@ Advance to the next tutorial to learn how to bind a custom SSL certificate to it
 [link-servicefabric-createapp]: service-fabric-create-your-first-application-in-visual-studio.md
 [link-azure-portal]: https://portal.azure.com
 [link-sf-clustertemplate]: https://aka.ms/securepreviewonelineclustertemplate
-[link-azure-pricing-calculator]: https://azure.microsoft.com/en-us/pricing/calculator/
-[link-azure-subscription]: https://azure.microsoft.com/en-us/free/
+[link-azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
+[link-azure-subscription]: https://azure.microsoft.com/free/
 [link-vsts-account]: https://www.visualstudio.com/team-services/pricing/
 [link-azure-sql]: /azure/sql-database/
 

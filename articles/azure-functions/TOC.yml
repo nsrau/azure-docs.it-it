@@ -49,6 +49,8 @@
       href: functions-openapi-definition.md
     - name: Ridimensionamento di immagini con Griglia di eventi
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Creare un'applicazione Web senza server con Funzioni come API
+      href: 'https://docs.microsoft.com/learn/build-serverless-app/index'
     - name: Funzioni in Linux
       items:
         - name: Immagine personalizzata
@@ -83,6 +85,8 @@
           href: functions-reference-node.md
         - name: Java
           href: functions-reference-java.md
+    - name: Diagnostica
+      href: ../app-service/app-service-diagnostics.md
     - name: Considerazioni sulle prestazioni
       href: functions-best-practices.md
     - name: Proxy di Funzioni
@@ -187,6 +191,8 @@
           href: durable-functions-unit-testing.md
         - name: Pubblicazione di eventi
           href: durable-functions-event-publishing.md
+        - name: Usare WebJobs SDK
+          href: durable-functions-webjobs-sdk.md
 - name: Riferimenti
   items:
     - name: Associazioni

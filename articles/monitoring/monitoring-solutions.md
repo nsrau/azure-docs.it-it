@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: bwren
-ms.openlocfilehash: 1e22aab85976fcab8ec270bdea1b8988b4d3bfe7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="management-solutions-in-azure"></a>Soluzioni di gestione in Azure
 Le soluzioni di gestione sfruttano i servizi in Azure per offrire informazioni dettagliate aggiuntive sul funzionamento di un determinato servizio o applicazione. Questo articolo offre una breve panoramica delle soluzioni di gestione in Azure e informazioni dettagliate sull'uso e l'installazione.
 
 Le soluzioni di gestione raccolgono in genere informazioni in Log Analytics e offrono ricerche nei log e visualizzazioni per l'analisi dei dati raccolti. Possono anche sfruttare altri servizi, come Automazione di Azure, per eseguire azioni relative all'applicazione o al servizio.
 
-È possibile aggiungere soluzioni di gestione alla sottoscrizione di Azure per qualsiasi applicazione e servizio usato. Sono in genere disponibili gratuitamente, ma la raccolta dati potrebbe implicare addebiti per l'utilizzo. Oltre alle soluzioni fornite da Microsoft, i partner e i clienti possono [creare soluzioni di gestione](../operations-management-suite/operations-management-suite-solutions-creating.md) da usare nel proprio ambiente o da rendere disponibili per i propri clienti attraverso la community.
+È possibile aggiungere soluzioni di gestione alla sottoscrizione di Azure per qualsiasi applicazione e servizio usato. Sono in genere disponibili gratuitamente, ma la raccolta dati potrebbe implicare addebiti per l'utilizzo. Oltre alle soluzioni fornite da Microsoft, i partner e i clienti possono [creare soluzioni di gestione](../monitoring/monitoring-solutions-creating.md) da usare nel proprio ambiente o da rendere disponibili per i propri clienti attraverso la community.
 
 ## <a name="using-management-solutions"></a>Uso delle soluzioni di gestione
 Nella pagina **Panoramica** per ogni area di lavoro di Log Analytics viene visualizzato un riquadro per ogni soluzione installata nell'area di lavoro. Fare clic sul riquadro della soluzione per aprire la visualizzazione corrispondente che include un'analisi più dettagliata dei dati raccolti.

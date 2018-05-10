@@ -10,11 +10,11 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 475dd2de05c2691d4698ae1112118ecea9bc2d2f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7a570dfa6e0a2812a8dd3a25b8903c70fe07befc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>Domande frequenti su SQL Data Warehouse di Azure
 
@@ -114,5 +114,5 @@ Per altre informazioni su SQL Data Warehouse nel complesso, vedere la pagina [Pa
 [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [BLOB del servizio di archiviazione di Azure]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [richiesta di funzionalità per progetti di Database]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
-[MSDN]: https://msdn.microsoft.com/en-us/library/azure/mt163685.aspx
+[MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 [Panoramica]: ./sql-data-warehouse-overview-faq.md

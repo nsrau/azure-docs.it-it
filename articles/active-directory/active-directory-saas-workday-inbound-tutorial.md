@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b632622868480638174b616780441e13c16a52c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -468,7 +468,7 @@ Se il tenant di Azure Active Directory si trova in uno dei data center in Europa
 
 **Risoluzione dei problemi dell'agente**
 
-Il [registro eventi di Windows](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) nel computer Windows Server che ospita l'agente contiene gli eventi per tutte le operazioni eseguite dall'agente. Per visualizzare questi eventi:
+Il [registro eventi di Windows](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) nel computer Windows Server che ospita l'agente contiene gli eventi per tutte le operazioni eseguite dall'agente. Per visualizzare questi eventi:
     
 1. Aprire **Eventvwr.msc**.
 2. Selezionare **Registri di Windows > Applicazione**.
@@ -491,7 +491,7 @@ Dopo aver completato le parti 1-3, è possibile avviare il servizio di provision
 
 4. In qualsiasi momento è possibile controllare la scheda **Log di controllo** nel portale di Azure per vedere le azioni che sono state eseguite dal servizio di provisioning. I log di controllo elencano tutti i singoli eventi di sincronizzazione eseguiti dal servizio di provisioning, ad esempio quali utenti vengono letti da Workday e successivamente aggiunti o aggiornati in Active Directory. **[Vedere la guida alla creazione di report per il provisioning per istruzioni dettagliate su come leggere i log di controllo](active-directory-saas-provisioning-reporting.md)**
 
-5.  Controllare il [registro eventi di Windows](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) nel computer Windows Server che ospita l'agente per eventuali nuovi errori o avvisi. Questi eventi possono essere visualizzati avviando **Eventvwr.msc** sul server e selezionando **Registri di Windows > Applicazione**. Tutti i messaggi correlati al provisioning vengono registrati sotto **AADSyncAgent**. 
+5.  Controllare il [registro eventi di Windows](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) nel computer Windows Server che ospita l'agente per eventuali nuovi errori o avvisi. Questi eventi possono essere visualizzati avviando **Eventvwr.msc** sul server e selezionando **Registri di Windows > Applicazione**. Tutti i messaggi correlati al provisioning vengono registrati sotto **AADSyncAgent**. 
     
 
 6. Al termine verrà scritto un report di riepilogo di controllo nella scheda **Provisioning**, come illustrato di seguito.
@@ -819,7 +819,7 @@ Esistono due modi per essere conformi all'RGPD:
 1. Qualora richiesto, estrarre i dati per un utente e rimuovere i dati di tale utente dal registro eventi di Windows. 
 2. Conservare i registri eventi di Windows originati dal processo AADSyncAgent da meno di 48 ore
 
-Per informazioni su come configurare la conservazione dei dati per i registri eventi di Windows, vedere [Settings for event logs](https://technet.microsoft.com/en-us/library/cc952132.aspx) (Impostazioni dei log eventi). Per informazioni generali sul registro eventi di Windows, vedere [questo articolo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+Per informazioni su come configurare la conservazione dei dati per i registri eventi di Windows, vedere [Settings for event logs](https://technet.microsoft.com/library/cc952132.aspx) (Impostazioni dei log eventi). Per informazioni generali sul registro eventi di Windows, vedere [questo articolo](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

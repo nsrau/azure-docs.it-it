@@ -10,11 +10,11 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 03aaa6b3440c1e20028078ee3d45c13cdd16cfea
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 463b6051009ab79013f9bef958fcadec2ef3cd16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Trasferire oggetti da e verso un archivio BLOB di Azure con PHP
 Questa guida introduttiva illustra come usare PHP per caricare, scaricare ed elencare BLOB in blocchi in un contenitore in un archivio BLOB di Azure. 
@@ -211,7 +211,7 @@ Per lo sviluppo PHP con Archiviazione BLOB, vedere le risorse aggiuntive seguent
 In questa guida introduttiva si è appreso come trasferire file tra un disco locale e un archivio BLOB di Azure con PHP. Per altre informazioni sull'uso di PHP, passare al centro per sviluppatori PHP.
 
 > [!div class="nextstepaction"]
-> [Centro per sviluppatori PHP](https://azure.microsoft.com/en-us/develop/php/)
+> [Centro per sviluppatori PHP](https://azure.microsoft.com/develop/php/)
 
 
 Per altre informazioni su Azure Storage Explorer e i BLOB, vedere [Gestire le risorse dell'archivio BLOB di Azure con Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

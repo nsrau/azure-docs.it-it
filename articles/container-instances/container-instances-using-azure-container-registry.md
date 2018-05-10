@@ -3,23 +3,23 @@ title: Eseguire la distribuzione in Istanze di contenitore di Azure da Registro 
 description: Informazioni su come distribuire i contenitori nelle istanze di contenitore di Azure usando le immagini contenitore in un registro contenitori di Azure.
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 4978ba43462045716c14bbf7c0c22f6b5188a273
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7a7d2aa61f25bc4782c6a1a6744e329935477f8c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Eseguire la distribuzione in Istanze di contenitore di Azure da Registro contenitori di Azure
 
 Registro contenitori di Azure è un registro privato basato su Azure per le immagini del contenitore Docker. Questo articolo illustra come distribuire in Istanze di contenitore di Azure immagini del contenitore archiviate in un registro contenitori di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 **Registro contenitori di Azure**: per completare i passaggi descritti in questo articolo sono necessari un registro contenitori di Azure e almeno un'immagine del contenitore nel registro. Se occorre un registro, vedere [Creare un registro di contenitori usando l'interfaccia della riga di comando di Azure](../container-registry/container-registry-get-started-azure-cli.md).
 

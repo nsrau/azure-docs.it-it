@@ -2,10 +2,10 @@
 title: Caricare file in un account Servizi multimediali di Azure usando Aspera | Documentazione Microsoft
 description: Questa esercitazione illustra la procedura per caricare file in un account di archiviazione associato a un account Servizi multimediali usando il servizio **Aspera Server On Demand** in Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: johndeu
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 58fec9746828863c4d0bff223fb6e9fb122256c3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Caricare file in un account Servizi multimediali usando il servizio Aspera Server On Demand in Azure
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/08/2018
 
 **Aspera** è un software di trasferimento di file ad alta velocità. **Aspera Server On Demand** per Azure consente il caricamento ad alta velocità e il download di file di grandi dimensioni direttamente nell'archivio di oggetti BLOB di Azure. Per informazioni su **Aspera On Demand**, vedere il sito [Aspera Cloud](http://cloud.asperasoft.com/). 
   
-**Aspera Server On Demand** per Azure è acquistabile in [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/). Per completare un acquisto di **Aspera Server On Demand** per Azure, accedere ad Azure Marketplace con il Windows Live ID.
+**Aspera Server On Demand** per Azure è acquistabile in [Azure Marketplace](https://azure.microsoft.com/marketplace/). Per completare un acquisto di **Aspera Server On Demand** per Azure, accedere ad Azure Marketplace con il Windows Live ID.
 
 Questa esercitazione illustra la procedura per caricare file in un account di archiviazione associato a un account Servizi multimediali usando il servizio **Aspera Server On Demand** in Azure. 
 

@@ -177,8 +177,6 @@
               href: vmware-azure-set-up-process-server-scale.md
         - name: Ripristino di emergenza
           items:
-            - name: Ripristino di emergenza di macchine virtuali VMware con supporto multi-tenant e CSP
-              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
             - name: Replicare le macchine virtuali VMware locali in Azure con PowerShell
               href: vmware-azure-disaster-recovery-powershell.md
             - name: Ripristino di emergenza dei server fisici in Azure
@@ -199,12 +197,14 @@
               href: vmware-azure-exclude-disk.md
             - name: Abilitare la replica di macchine virtuali VMware
               href: vmware-azure-enable-replication.md
+            - name: Multi-tenancy con CSP per VM VMWare
+              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
         - name: Distribuire il servizio Mobility
           items:
+            - name: Panoramica del servizio Mobility
+              href: vmware-azure-install-mobility-service.md
             - name: Distribuire il servizio Mobility con System Center Configuration Manager
               href: vmware-azure-mobility-install-configuration-mgr.md
-            - name: Distribuire il servizio Mobility con Automation DSC per Azure
-              href: vmware-azure-mobility-deploy-automation-dsc.md
         - name: Failover e failback
           items:
             - name: Eseguire un'esercitazione sul ripristino di emergenza in Azure

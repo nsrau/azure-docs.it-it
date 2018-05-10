@@ -3,17 +3,17 @@ title: Esercitazione di Istanze di contenitore di Azure - Preparare Registro con
 description: Esercitazione di Istanze di contenitore di Azure - Parte 2 di 3 - Preparare Registro contenitori di Azure
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 6e5a6a64e6d7c53bb4ea84de646812c962469d4f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a23e6af506b503a666837f01665e2cad9d1ec5b6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Esercitazione: Distribuire e usare Registro contenitori di Azure
 

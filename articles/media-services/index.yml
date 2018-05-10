@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione su Servizi multimediali di Azure
+metadata:
+  document_id: 
+  title: Documentazione su Servizi multimediali di Azure | Microsoft Docs
+  meta.description: Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more.
+  services: media-services
+  author: juliako
+  manager: cfowler
+  ms.service: media-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04-21-2018
+  ms.author: juliako
+  ms.openlocfilehash: 6bee2f17db6d1f79dd2ba84a278ff6a82b871a9e
+  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 05/07/2018
+abstract:
+  description: Servizi multimediali di Azure è una piattaforma basata su cloud che consente di compilare soluzioni che offrono uno streaming video di alta qualità, migliorano accessibilità e distribuzione, analizzano il contenuto e molto altro ancora.
+sections:
+- title: 
+  items:
+  - type: list
+    style: cards
+    className: cardsA
+    items:
+    - html: <a href="/azure/media-services/latest/"> <br><strong>Servizi multimediali di Azure v3 (anteprima)</strong></a> <p>Informazioni su come eseguire lo streaming on demand, la trasmissione in tempo reale e l'analisi dei video con Servizi multimediali v3.</p>
+    - html: <a href="/azure/media-services/previous/"> <br><strong>Servizi multimediali di Azure v2 (disponibilità generale)</strong></a> <p>Informazioni su come eseguire lo streaming on demand, la trasmissione in tempo reale e l'analisi dei video con Servizi multimediali v2.</p>
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: 'Informazioni su come creare un account di Servizi multimediali, avviare la codifica dei video e usare Azure Media Player per riprodurli:'
+  - type: list
+    style: ordered
+    items:
+    - html: Eseguire lo streaming di file&#58; <a href="/azure/media-services/latest/stream-files-dotnet-quickstart">v3</a> | <a href="/azure/media-services/previous/media-services-portal-vod-get-started">v2</a>
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: 'Informazioni su come eseguire lo streaming di file e analizzare i video con Servizi multimediali:'
+  - type: list
+    style: ordered
+    items:
+    - html: Caricare, codificare ed eseguire lo streaming dei video&#58; <a href="/azure/media-services/latest/stream-files-tutorial-with-api">v3</a> | <a href="/azure/media-services/previous/media-services-dotnet-get-started">v2</a>
+    - html: Analizzare i video&#58; <a href="/azure/media-services/latest/analyze-videos-tutorial-with-api">v3</a> | <a href="/azure/media-services/previous/media-services-analytics-overview">v2</a>

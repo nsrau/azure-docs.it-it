@@ -1,8 +1,8 @@
 ---
-title: "Confronto degli strumenti di integrazione directory per la soluzione ibrida di gestione delle identità | Microsoft Docs"
+title: Confronto degli strumenti di integrazione directory per la soluzione ibrida di gestione delle identità | Microsoft Docs
 description: Questa pagina contiene tabelle complete che confrontano i vari strumenti che possono essere usati per l'integrazione directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 ms.assetid: 1e62a4bd-4d55-4609-895e-70131dedbf52
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/09/2018
+ms.date: 04/27/2018
 ms.author: billmath
-ms.openlocfilehash: 78ca910b4dfd5a706d2f1df7f70291fb48f096f5
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 5d189af9b08f2b6e9ea194c15bfba683afc75a54
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Confronto degli strumenti di integrazione directory per la soluzione ibrida di gestione delle identità
 Nel corso degli anni gli strumenti di integrazione di directory sono aumentati e si sono evoluti.  Questo documento offre una panoramica consolidata di questi strumenti e un confronto delle funzionalità disponibili in ognuno.
@@ -43,16 +43,14 @@ AP = Anteprima pubblica
 | Connessione a singola foresta AD locale |● |● |● |● |● |
 | Connessione a più foreste AD locali |● |● | |● |● |
 | Connessione a più organizzazioni di Exchange |● | | | | |
-| Connessione a singola directory LDAP locale |●* | | |● |● |
-| Connessione a più directory LDAP locali |●*  | | |● |● |
-| Connessione a più directory AD locali e LDAP locali |●* | | |● |● |
+| Connessione a singola directory LDAP locale | | | |● |● |
+| Connessione a più directory LDAP locali |  | | |● |● |
+| Connessione a più directory AD locali e LDAP locali | | | |● |● |
 | Connessione a sistemi personalizzati (ad esempio, SQL, Oracle, MySQL e così via) |VF | | |● |● |
 | Sincronizzazione di attributi definiti dall'utente (estensioni della directory) |● | | | | |
 | Connessione alle risorse umane locali (ad esempio, SAP, Oracle eBusiness, PeopleSoft) |VF | | |● |● |
 | Supporto delle regole di sincronizzazione FIM e dei connettori per il provisioning ai sistemi locali. | | | |● |● |
-&#42; Attualmente, sono supportate due opzioni.  Sono:
-   1. È possibile usare il connettore LDAP generico e abilitarlo all'esterno di Azure AD Connect.  Questa opzione è complessa e richiede un partner per l'onboarding e un contratto di supporto tecnico Premier per la gestione.  Questa opzione consente di gestire directory LDAP singole o multiple.
-   2. È possibile sviluppare soluzioni personalizzate per lo spostamento di oggetti da LDAP ad Active Directory.  Sincronizzare quindi gli oggetti con Azure AD Connect.  È possibile usare MIM o FIM come soluzioni per lo spostamento di oggetti.
+
 
 ## <a name="cloud-to-on-premises-synchronization"></a>Sincronizzazione da cloud a locale
 | Funzionalità | Azure Active Directory Connect | Servizi di sincronizzazione di Azure Active Directory | Strumento di sincronizzazione di Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |

@@ -2,7 +2,7 @@
 title: Migrazione tra aree di Azure Data Lake Store | Microsoft Docs
 description: Informazioni sulla migrazione tra aree per Azure Data Lake Store.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: swums
 manager: amitkul
 editor: swums
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/27/2017
 ms.author: stewu
-ms.openlocfilehash: b04cca6e551a15a31bbebc4932ea05dd39e8e916
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 488a9954cef210b727518375e218fe084129a6f7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrate-data-lake-store-across-regions"></a>Eseguire la migrazione di Data Lake Store tra aree
 
@@ -45,7 +45,7 @@ Ecco altri dettagli importanti da considerare durante la pianificazione della mi
 
 * **Strumenti**. Per copiare i file di Data Lake Store è consigliabile usare l'[attività di copia di Azure Data Factory](../data-factory/connector-azure-data-lake-store.md). Data Factory supporta lo spostamento dei dati con prestazioni e affidabilità elevate. Tenere presente che Data Factory copia solo la gerarchia di cartelle e il contenuto dei file. Eventuali elenchi di controllo di accesso usati nell'account precedente devono essere applicati manualmente al nuovo account. Per altre informazioni, inclusi gli obiettivi di prestazioni per gli scenari ottimali, vedere la [Guida alle prestazioni dell'attività di copia e all'ottimizzazione](../data-factory/copy-activity-performance.md). Se si vuole che i dati vengano copiati più rapidamente, potrebbe essere necessario usare altre unità di spostamento dei dati nel cloud. Altri strumenti, come AdlCopy, non supportano la copia di dati tra aree.  
 
-* **Costi per la larghezza di banda**. Vengono applicati [costi per la larghezza di banda](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) perché i dati vengono trasferiti all'esterno di un'area di Azure.
+* **Costi per la larghezza di banda**. Vengono applicati [costi per la larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/) perché i dati vengono trasferiti all'esterno di un'area di Azure.
 
 * **Elenchi di controllo di accesso applicati ai dati**. Proteggere i dati nella nuova area applicando elenchi di controllo di accesso ai file e alle cartelle. Per altre informazioni, vedere [Protezione dei dati archiviati in Azure Data Lake Store](data-lake-store-secure-data.md). È consigliabile approfittare della migrazione per aggiornare e modificare gli elenchi di controllo di accesso. Se si vogliono usare impostazioni simili a quelle correnti, è possibile vedere gli elenchi di controllo di accesso applicati a qualsiasi file usando il portale di Azure, i [cmdlet di PowerShell](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission) o gli SDK.  
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: ceace7331c7548c5b4e27f8529152fd69d5469cd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1bf2c10c5267157f6d74962c00d587a6956fc574
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Usare l'estensione IoT per l'interfaccia della riga di comando di Azure 2.0 per la gestione dei dispositivi dell'hub IoT di Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/03/2018
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[L'estensione IoT dell'interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) è una nuova estensione IoT open source che amplia le funzionalità dell'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest). Questa interfaccia include comandi per l'interazione con Azure Resource Manager e gli endpoint di gestione. Ad esempio, è possibile usarla per creare una macchina virtuale o un hub IoT di Azure. Un'estensione dell'interfaccia della riga di comando di Azure consente a un servizio di Azure di aumentare le potenzialità dell'interfaccia e all'utente di accedere a funzionalità aggiuntive specifiche del servizio. L'estensione IoT offre agli sviluppatori IoT la possibilità di accedere dalla riga di comando a tutte le funzionalità dell'hub IoT, di IoT Edge e del servizio Device Provisioning in hub IoT.
+[L'estensione IoT dell'interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) è una nuova estensione IoT open source che amplia le funzionalità dell'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Questa interfaccia include comandi per l'interazione con Azure Resource Manager e gli endpoint di gestione. Ad esempio, è possibile usarla per creare una macchina virtuale o un hub IoT di Azure. Un'estensione dell'interfaccia della riga di comando di Azure consente a un servizio di Azure di aumentare le potenzialità dell'interfaccia e all'utente di accedere a funzionalità aggiuntive specifiche del servizio. L'estensione IoT offre agli sviluppatori IoT la possibilità di accedere dalla riga di comando a tutte le funzionalità dell'hub IoT, di IoT Edge e del servizio Device Provisioning in hub IoT.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -62,7 +62,7 @@ Eseguire l'interfaccia della riga di comando di Azure 2.0 e la relativa estensio
 
 - [Python 2.7x o Python 3.x](https://www.python.org/downloads/)
 
-- Installare l'interfaccia della riga di comando di Azure 2.0. Un modo semplice per eseguire l'installazione in Windows è quello di scaricare e installare il file [MSI](https://aka.ms/InstallAzureCliWindows). Per installare l'interfaccia della riga di comando di Azure 2.0 nell'ambiente in uso, è possibile anche seguire le istruzioni di installazione disponibili in [Microsoft Docs](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). La versione dell'interfaccia della riga di comando di Azure 2.0 deve essere 2.0.24 o successiva. Usare il comando `az –version` per verificare. 
+- Installare l'interfaccia della riga di comando di Azure 2.0. Un modo semplice per eseguire l'installazione in Windows è quello di scaricare e installare il file [MSI](https://aka.ms/InstallAzureCliWindows). Per installare l'interfaccia della riga di comando di Azure 2.0 nell'ambiente in uso, è possibile anche seguire le istruzioni di installazione disponibili in [Microsoft Docs](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). La versione dell'interfaccia della riga di comando di Azure 2.0 deve essere 2.0.24 o successiva. Usare il comando `az –version` per verificare. 
 
 - Installare l'estensione IoT. Il modo più semplice è quello di eseguire `az extension add --name azure-cli-iot-ext`. Il [file Leggimi dell'estensione IoT](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) illustra diverse modalità per installare l'estensione.
 

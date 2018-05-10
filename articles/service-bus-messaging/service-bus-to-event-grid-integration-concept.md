@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 1da2b6568125c61db2c4dda3bd81abb8f1a59ec7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fbea3d4b6bb82ac002550434d737f27c441d439e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Panoramica dell'integrazione del bus di servizio di Azure in Griglia di eventi
 
@@ -47,9 +47,9 @@ Il bus di servizio attualmente invia eventi per due scenari:
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
 
-Il bus di servizio usa inoltre i [meccanismi di autenticazione](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication) e la sicurezza standard di Griglia di eventi.
+Il bus di servizio usa inoltre i [meccanismi di autenticazione](https://docs.microsoft.com/azure/event-grid/security-authentication) e la sicurezza standard di Griglia di eventi.
 
-Per altre informazioni, vedere [Schemi di eventi di Griglia di eventi di Azure](https://docs.microsoft.com/en-us/azure/event-grid/event-schema).
+Per altre informazioni, vedere [Schemi di eventi di Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/event-schema).
 
 #### <a name="active-messages-available-event"></a>Evento per disponibilità di messaggi attivi
 
@@ -138,7 +138,7 @@ Per creare una nuova sottoscrizione di Griglia di eventi, seguire questa procedu
 
 ## <a name="azure-cli-instructions"></a>Istruzioni per l'interfaccia della riga di comando di Azure
 
-Verificare prima di tutto che sia installata l'interfaccia della riga di comando di Azure versione 2.0 o successiva. [Scaricare il programma di installazione](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). Premere **Windows + X** e quindi aprire una nuova console di PowerShell con autorizzazioni di amministratore. In alternativa è possibile usare una shell dei comandi nel portale di Azure.
+Verificare prima di tutto che sia installata l'interfaccia della riga di comando di Azure versione 2.0 o successiva. [Scaricare il programma di installazione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Premere **Windows + X** e quindi aprire una nuova console di PowerShell con autorizzazioni di amministratore. In alternativa è possibile usare una shell dei comandi nel portale di Azure.
 
 Eseguire questo codice:
 
@@ -154,7 +154,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>Istruzioni per PowerShell
 
-Verificare che sia installato Azure PowerShell, [Scaricare il programma di installazione](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Premere **Windows + X** e quindi aprire una nuova console di PowerShell con autorizzazioni di amministratore. In alternativa è possibile usare una shell dei comandi nel portale di Azure.
+Verificare che sia installato Azure PowerShell, [Scaricare il programma di installazione](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Premere **Windows + X** e quindi aprire una nuova console di PowerShell con autorizzazioni di amministratore. In alternativa è possibile usare una shell dei comandi nel portale di Azure.
 
 ```PowerShell-interactive
 Connect-AzureRmAccount
@@ -175,10 +175,10 @@ A questo punto è possibile esplorare le altre opzioni di configurazione oppure 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Ottenere [esempi](service-bus-to-event-grid-integration-example.md) relativi al bus di servizio e Griglia di eventi.
-* Altre informazioni su [Griglia di eventi](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Altre informazioni su [Funzioni di Azure](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Altre informazioni su [App per la logica](https://docs.microsoft.com/en-us/azure/logic-apps/).
-* Altre informazioni sul [bus di servizio](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Altre informazioni su [Griglia di eventi](https://docs.microsoft.com/azure/azure-functions/).
+* Altre informazioni su [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/).
+* Altre informazioni su [App per la logica](https://docs.microsoft.com/azure/logic-apps/).
+* Altre informazioni sul [bus di servizio](https://docs.microsoft.com/azure/azure-functions/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

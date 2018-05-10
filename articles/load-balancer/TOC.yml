@@ -14,12 +14,6 @@
       href: quickstart-load-balancer-standard-public-portal.md
     - name: Creare un'istanza di Load Balancer Standard - Interfaccia della riga di comando di Azure
       href: quickstart-load-balancer-standard-public-cli.md
-- name: Esempi
-  items:
-    - name: Interfaccia della riga di comando di Azure
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
 - name: Esercitazioni
   items:
     - name: Bilanciare il carico del traffico interno verso le VM
@@ -28,6 +22,12 @@
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Bilanciare il carico delle VM in una zona di disponibilità specifica
       href: tutorial-load-balancer-standard-public-zonal-portal.md
+- name: Esempi
+  items:
+    - name: Interfaccia della riga di comando di Azure
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: Concetti
   items:
     - name: Informazioni su Load Balancer Standard
@@ -148,7 +148,7 @@
       href: 'https://msdn.microsoft.com/library/azure/mt163651.aspx'
 - name: Risorse correlate
   items:
-    - name: gateway applicazione
+    - name: Gateway applicazione
       href: /azure/application-gateway/
     - name: Express Route
       href: /azure/expressroute/
@@ -158,7 +158,7 @@
       href: /azure/vpn-gateway/
     - name: Macchina virtuale
       href: /azure/virtual-machines/
-    - name: servizio Gestione traffico
+    - name: Gestione traffico
       href: /azure/traffic-manager/
     - name: DNS
       href: /azure/dns/
