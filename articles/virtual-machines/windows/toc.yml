@@ -53,7 +53,7 @@
       href: cli-samples.md
 - name: Concetti
   items:
-    - name: Gestione risorse di Azure
+    - name: Azure Resource Manager
       href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Aree e disponibilità
       href: regions-and-availability.md
@@ -206,7 +206,7 @@
         - name: Scaricare il modello
           href: download-template.md
         - name: Agente VM di Azure
-          href: agent-user-guide.md
+          href: ../extensions/agent-windows.md
         - name: Manutenzione pianificata
           href: maintenance-notifications.md
         - name: Attenuazione dell'esecuzione speculativa
@@ -369,7 +369,7 @@
         - name: Agente Network Watcher
           href: extensions-nwa.md
         - name: Limitare l'installazione dell'estensione
-          href: extensions-rmpolicy-howto-ps.md
+          href: ../extensions/extensions-rmpolicy-howto-ps.md
     - name: Eseguire la migrazione di VM
       items:
         - name: Eseguire la migrazione di AWS e macchine virtuali locali
