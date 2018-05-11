@@ -91,6 +91,8 @@
       href: tutorial-url-route-powershell.md
     - name: Reindirizzare il traffico Web con Azure PowerShell
       href: tutorial-url-redirect-powershell.md
+    - name: Creare un gateway applicazione con ridondanza della zona
+      href: create-zone-redundant.md
 - name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -107,7 +109,7 @@
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST
       href: /rest/api/applicationgateway
-    - name: Gestione risorse di Azure
+    - name: Azure Resource Manager
       href: ../azure-resource-manager/resource-group-overview.md
 - name: Risorse
   items:

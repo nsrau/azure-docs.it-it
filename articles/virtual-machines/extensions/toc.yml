@@ -1,0 +1,95 @@
+- name: Documentazione delle estensioni di VM
+  href: ../index.md
+- name: Panoramica
+  items:
+    - name: Informazioni sulle estensioni di Azure
+      href: overview.md
+    - name: Agente di macchine virtuali Linux
+      href: agent-linux.md
+    - name: Agente di macchine virtuali Windows
+      href: agent-windows.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: Usare l'estensione di script personalizzati
+      href: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
+      maintainContext: true
+- name: Concetti
+  items:
+    - name: Linux
+      href: features-linux.md
+    - name: Windows
+      href: features-windows.md
+- name: Guide alle procedure
+  items:
+    - name: Estensione di script personalizzati
+      items:
+        - name: Linux - versione 2
+          href: custom-script-linux.md
+        - name: Linux - versione 1 (OSTC)
+          href: custom-script-linuxOstc.md
+        - name: Windows
+          href: custom-script-windows.md
+    - name: Estensione di OMS
+      items:
+        - name: Linux
+          href: oms-linux.md
+        - name: Windows
+          href: oms-windows.md
+    - name: Estensione di Diagnostica
+      items:
+        - name: Linux
+          href: diagnostics-linux.md
+        - name: Windows
+          href: diagnostics-windows.md
+        - name: Usare modelli
+          href: diagnostics-template.md
+    - name: Agente Network Watcher
+      items:
+        - name: Linux
+          href: network-watcher-linux.md
+        - name: Windows
+          href: network-watcher-windows.md
+    - name: Estensione DSC di PowerShell
+      href: dsc-overview.md
+      items:
+        - name: DSC e Windows
+          href: dsc-windows.md
+        - name: Gestire le credenziali
+          href: dsc-credentials.md
+        - name: Usare modelli
+          href: dsc-template.md
+    - name: Antimalware IaaS per Windows
+      href: iaas-antimalware-windows.md
+    - name: Estensione Key Vault
+      href: key-vault-windows.md
+    - name: Estensione VM Snapshot
+      items:
+        - name: Linux
+          href: vmsnapshot-linux.md
+        - name: Windows
+          href: vmsnapshot-windows.md
+    - name: Estensioni di terze parti
+      items:
+        - name: Stackify Retrace
+          href: stackify-retrace-linux.md
+        - name: Symantec
+          href: symantec.md
+    - name: Estensioni deprecate
+      items:
+        - name: Estensione Agente di raccolta log
+          href: log-collector.md
+        - name: Trend Micro Deep Security
+          href: trend.md
+    - name: Limitare l'installazione dell'estensione
+      items:
+        - name: Linux
+          href: extensions-rmpolicy-howto-cli.md
+        - name: Windows
+          href: extensions-rmpolicy-howto-ps.md
+    - name: Aggiornare l'agente Linux
+      href: update-linux-agent.md
+    - name: Estensioni di esportazione
+      href: export-templates.md
+    - name: Risolvere problemi
+      href: troubleshoot.md

@@ -30,6 +30,8 @@
       href: render-coverage.md
     - name: Copertura per il routing
       href: routing-coverage.md
+    - name: Categorie di ricerca
+      href: search-categories.md
     - name: Lingue supportate
       href: supported-languages.md
 - name: Guide alle procedure

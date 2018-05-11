@@ -29,6 +29,8 @@
 ### [Interfaccia della riga di comando di Azure 2.0](tutorial-autoscale-cli.md)
 ### [Azure PowerShell](tutorial-autoscale-powershell.md)
 ### [Modello](tutorial-autoscale-template.md)
+## Distribuire le app in un set di scalabilità di macchine virtuali di Azure con un'immagine Packer personalizzata
+### [Interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/learn/deploy-custom-vmss-app/index)
 
 # Esempi
 ## [Interfaccia della riga di comando di Azure 2.0](cli-samples.md)

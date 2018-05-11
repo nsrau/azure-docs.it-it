@@ -51,6 +51,8 @@
       href: tutorial-mean-stack.md
     - name: 16 - Proteggere il server Web con SSL
       href: tutorial-secure-web-server.md
+    - name: Distribuire un'immagine Packer e app in un set di scalabilità
+      href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: Esempi
   items:
     - name: Interfaccia della riga di comando di Azure

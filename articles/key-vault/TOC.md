@@ -63,7 +63,13 @@
 
 # Risorse
 ## [Panoramica del servizio](https://azure.microsoft.com/services/key-vault/)
-## [Informazioni su chiavi, segreti e certificati](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
+## [Informazioni su chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)
+### [Introduzione ai certificati](certificate-scenarios.md)
+#### [Metodi di creazione dei certificati](create-certificate.md)
+#### [Monitorare e gestire la creazione dei certificati](create-certificate-scenarios.md)
+## [Autenticazione, richieste e risposte](authentication-requests-and-responses.md)
+## [Parametri e intestazioni comuni](common-parameters-and-headers.md)
+## [Versioni di Key Vault](key-vault-versions.md)
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Esempi di codice](https://www.microsoft.com/download/details.aspx?id=45343)

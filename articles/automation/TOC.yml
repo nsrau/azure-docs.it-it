@@ -115,16 +115,14 @@
           href: automation-pass-json-string.md
     - name: ruolo di lavoro ibrido per runbook
       items:
-        - name: Distribuire il ruolo di lavoro ibrido per runbook
+        - name: Panoramica del ruolo di lavoro ibrido per runbook
           href: automation-hybrid-runbook-worker.md
-        - name: Ruolo di lavoro ibrido per runbook Windows di Automazione di Azure
+        - name: Distribuire un ruolo di lavoro ibrido per runbook in Windows
           href: automation-windows-hrw-install.md
-        - name: Ruolo di lavoro ibrido per runbook Linux di Automazione di Azure
+        - name: Distribuire un ruolo di lavoro ibrido per runbook in Linux
           href: automation-linux-hrw-install.md
-        - name: Eseguire runbook nel ruolo di lavoro
+        - name: Eseguire runbook in un ruolo di lavoro ibrido per runbook
           href: automation-hrw-run-runbooks.md
-        - name: Rimuovere ruoli di lavoro ibridi di Automazione di Azure
-          href: automation-remove-hrw.md
     - name: Distribuire la gestione della configurazione (DSC)
       items:
         - name: Panoramica di DSC (Desired State Configuration)

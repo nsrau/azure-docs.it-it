@@ -32,7 +32,17 @@
       href: use-deep-learning-dsvm.md
     - name: Usare una macchina virtuale data science con intelligenza artificiale geografica
       href: use-geo-ai-dsvm.md
-- name: riferimento
+- name: Materiale sussidiario Enterprise
+  items:
+    - name: Panoramica
+      href: dsvm-enterprise-overview.md
+    - name: Ridimensionamento
+      href: dsvm-pools.md
+    - name: Integrazione di Active Directory
+      href: dsvm-common-identity.md
+    - name: Credenziali di accesso alle risorse protette
+      href: dsvm-secure-access-keys.md
+- name: Riferimenti
   expanded: true
   items:
     - name: Informazioni sulle macchine virtuali di data science

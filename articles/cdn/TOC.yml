@@ -142,6 +142,8 @@
       items:
         - name: Intestazioni di X-EC-Debug
           href: cdn-http-debug-headers.md
+    - name: Variabili HTTP
+      href: cdn-http-variables.md
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cdn
     - name: .NET
