@@ -76,7 +76,6 @@
         - name: Creare un servizio di bilanciamento del carico pubblico con IPv6 (modello)
           href: load-balancer-ipv6-internet-template.md
     - name: Configurare un servizio di bilanciamento del carico interno
-      href: load-balancer-get-started-ilb-arm-portal.md
       items:
         - name: Configurare un servizio di bilanciamento del carico interno (PowerShell)
           href: load-balancer-get-started-ilb-arm-ps.md

@@ -62,7 +62,7 @@
 ### [Mappa di apprendimento per StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Considerazioni relative alla sicurezza](storsimple-8000-security.md)
 ### [Disponibilità in base all'area geografica](storsimple-regions.md)
-### [Domande frequenti: spostamento nel portale di Azure](storsimple-8000-move-azure-portal-faq.md)
+
 
 ## Attività iniziali
 
@@ -189,10 +189,11 @@
 ## Note sulla versione
 ### [Aggiornamento 5: versione corrente](storsimple-update5-release-notes.md)
 ### [Aggiornamento 4](storsimple-update4-release-notes.md)
-### [Aggiornamento 3](storsimple-update3-release-notes.md)
-### [Aggiornamento 2.2](storsimple-update21-release-notes.md)
+
 
 ### Archiviazione
+#### [Aggiornamento 3](storsimple-update3-release-notes.md)
+#### [Aggiornamento 2.2](storsimple-update21-release-notes.md)
 #### [Aggiornamento 2](storsimple-update2-release-notes.md)
 #### [Aggiornamento 1](storsimple-update1-release-notes.md)
 #### [Aggiornamento 0.3](storsimple-february-2015-release-notes.md)
@@ -200,7 +201,7 @@
 #### [Aggiornamento 0.1](storsimple-october-2014-release-notes.md)
 #### [Versione - Disponibilità generale](storsimple-july-2014-release-notes.md)
 
-## riferimento
+## Riferimenti
 ### [API REST](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell per i cmdlet StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 

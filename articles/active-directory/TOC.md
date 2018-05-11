@@ -167,16 +167,16 @@
 #### [Dispositivi Windows legacy aggiunti ad Azure AD ibridi](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Gestire le app
-### [Panoramica](active-directory-enable-sso-scenario.md)
-### [Introduzione](active-directory-integrating-applications-getting-started.md)
+### [Overview](manage-apps/what-is-application-management.md)
+### [Introduzione](manage-apps/plan-an-application-integration.md)
 ### [Esercitazioni sull'integrazione di app SaaS](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](cloudappdiscovery-get-started.md)
-#### [Creare report di snapshot](cloudappdiscovery-set-up-snapshots.md)
+### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
+#### [Creare report di snapshot](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Configurare la creazione di report continua](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Usare un parser di log personalizzato](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 
-### [Accedere alle app in remoto con il proxy delle app](active-directory-application-proxy-get-started.md)
+### [Accedere alle app in remoto con il proxy delle app](manage-apps/application-proxy.md)
 #### Attività iniziali
 ##### [Abilitare il proxy delle app](active-directory-application-proxy-enable.md)
 ##### [Pubblicare le app](application-proxy-publish-azure-portal.md)
