@@ -461,7 +461,7 @@
           items:
             - name: Distribuire applicazioni in un cluster locale
               href: service-fabric-get-started-with-a-local-cluster.md
-            - name: Gestione risorse di Azure
+            - name: Azure Resource Manager
               href: service-fabric-application-arm-resource.md
             - name: Azure PowerShell
               href: service-fabric-deploy-remove-applications.md
@@ -507,7 +507,7 @@
               items:
                 - name: Portale di Azure
                   href: service-fabric-cluster-creation-via-portal.md
-                - name: Gestione risorse di Azure
+                - name: Azure Resource Manager
                   href: service-fabric-cluster-creation-via-arm.md
                 - name: Cluster che usa il nome comune del certificato
                   href: service-fabric-create-cluster-using-cert-cn.md

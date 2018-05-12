@@ -96,8 +96,6 @@
       items:
         - name: Configurare i provider di identità
           items:
-            - name: OpenID Connect personalizzato
-              href: active-directory-b2c-setup-oidc-idp.md
             - name: Account Microsoft
               href: active-directory-b2c-setup-msa-app.md
             - name: Facebook
@@ -116,6 +114,8 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: WeChat
               href: active-directory-b2c-setup-wechat-app.md
+            - name: OpenID Connect personalizzato
+              href: active-directory-b2c-setup-oidc-idp.md
         - name: Configurare la reimpostazione self-service delle password
           href: active-directory-b2c-reference-sspr.md
         - name: Personalizzazione dell'interfaccia utente
@@ -141,6 +141,8 @@
           href: active-directory-b2c-reference-language-customization.md
         - name: Usare l'API di creazione report
           href: active-directory-b2c-reference-usage-reporting-api.md
+        - name: Accedere ai log di controllo
+          href: active-directory-b2c-reference-audit-logs.md
         - name: Gestire i dati utente
           href: manage-user-data.md
         - name: Eseguire la migrazione di utenti
@@ -161,8 +163,10 @@
               href: active-directory-b2c-get-started-custom.md
             - name: Configurare i provider OIDC/OAUTH
               items:
-                - name: Azure AD
+                - name: Azure AD (tenant singolo)
                   href: active-directory-b2c-setup-aad-custom.md
+                - name: Azure AD (multi-tenant)
+                  href: active-directory-b2c-setup-commonaad-custom.md
                 - name: Account Microsoft
                   href: active-directory-b2c-custom-setup-msa-idp.md
                 - name: Google+
@@ -171,8 +175,6 @@
                   href: active-directory-b2c-custom-setup-li-idp.md
                 - name: Twitter
                   href: active-directory-b2c-custom-setup-twitter-idp.md
-                - name: Multi-tenant
-                  href: active-directory-b2c-setup-commonaad-custom.md
             - name: Configurare i provider SAML
               items:
                 - name: AD FS
