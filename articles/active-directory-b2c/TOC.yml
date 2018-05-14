@@ -114,6 +114,8 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: WeChat
               href: active-directory-b2c-setup-wechat-app.md
+            - name: Azure AD (tenant singolo)
+              href: active-directory-b2c-setup-oidc-azure-active-directory.md
             - name: OpenID Connect personalizzato
               href: active-directory-b2c-setup-oidc-idp.md
         - name: Configurare la reimpostazione self-service delle password
