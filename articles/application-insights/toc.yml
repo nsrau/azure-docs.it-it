@@ -53,6 +53,8 @@
           href: app-insights-asp-net-core.md
         - name: Console
           href: application-insights-console.md
+        - name: Dashboard dell'applicazione
+          href: app-insights-overview-dashboard.md
     - name: Monitorare le app Java
       items:
         - name: App Web
@@ -228,6 +230,8 @@
           href: app-insights-automate-with-flow.md
         - name: Automatizzare con un'app per la logica di Azure
           href: automate-with-logic-apps.md
+        - name: Report di posta elettronica personalizzati
+          href: automate-custom-reports.md
     - name: Sviluppo
       items:
         - name: API per eventi e metriche personalizzati

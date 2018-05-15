@@ -16,6 +16,7 @@
 ## [Aggiungere utenti ad Azure AD](add-users-azure-active-directory.md)
 ## [Assegna licenze agli utenti](license-users-groups.md)
 ## [Configurare la reimpostazione self-service delle password](authentication/quickstart-sspr.md)
+## [Aggiungere le informazioni sulla privacy dell'organizzazione in Azure AD](active-directory-properties-area.md)
 
 
 # Procedure
@@ -58,6 +59,7 @@
 #### [Criteri di condivisione per B2B](active-directory-b2b-delegate-invitations.md)
 #### [Aggiungere un utente B2B a un ruolo](active-directory-b2b-add-guest-to-role.md)
 #### [Gruppi dinamici e utenti B2B](active-directory-b2b-dynamic-groups.md)
+#### [Uscire da un'organizzazione](active-directory-b2b-leave-the-organization.md)
 #### [Controllo e report](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B per organizzazioni ibride](active-directory-b2b-hybrid-organizations.md)
 ##### [Concedere l'accesso alle app locali agli utenti di B2B](active-directory-b2b-hybrid-cloud-to-on-premises.md)
@@ -178,11 +180,11 @@
 
 ### [Accedere alle app in remoto con il proxy delle app](manage-apps/application-proxy.md)
 #### Attività iniziali
-##### [Abilitare il proxy delle app](active-directory-application-proxy-enable.md)
-##### [Pubblicare le app](application-proxy-publish-azure-portal.md)
-##### [Domini personalizzati](active-directory-application-proxy-custom-domains.md)
-#### [Single Sign-On](application-proxy-sso-overview.md)
-##### [SSO con la delega vincolata Kerberos](active-directory-application-proxy-sso-using-kcd.md)
+##### [Abilitare il proxy delle app](manage-apps/application-proxy-enable.md)
+##### [Pubblicare le app](manage-apps/application-proxy-publish-azure-portal.md)
+##### [Domini personalizzati](manage-apps/application-proxy-configure-custom-domain.md)
+#### [Single Sign-On](manage-apps/application-proxy-single-sign-on.md)
+##### [SSO con la delega vincolata Kerberos](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 ##### [SSO con le intestazioni](application-proxy-ping-access.md)
 ##### [SSO con l'insieme di credenziali delle password](application-proxy-sso-azure-portal.md)
 #### Concetti

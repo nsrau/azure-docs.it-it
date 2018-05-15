@@ -19,6 +19,10 @@
   items:
     - name: Eseguire query in un cluster Spark
       href: apache-spark-load-data-run-query.md
+    - name: Usare VSCode per eseguire query Spark
+      href: ../hdinsight-for-vscode.md
+    - name: Usare IntelliJ per eseguire query Spark
+      href: apache-spark-intellij-tool-plugin.md
     - name: Analizzare i dati usando gli strumenti di business intelligence
       href: apache-spark-use-bi-tools.md
     - name: Eseguire un processo di streaming
@@ -47,10 +51,10 @@
           href: apache-spark-eclipse-tool-plugin.md
         - name: Creare app usando IntelliJ
           href: apache-spark-intellij-tool-plugin.md
-        - name: Eseguire il debug remoto dei processi Spark con IntelliJ tramite VPN
-          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Eseguire il debug remoto dei processi Spark con IntelliJ tramite SSH
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+        - name: Eseguire il debug remoto dei processi Spark con IntelliJ tramite VPN
+          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Creare applicazioni .NET HDInsight di autenticazione non interattive
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
@@ -316,6 +320,8 @@
       items:
         - name: Eseguire il debug di processi Spark
           href: apache-spark-job-debugging.md
+        - name: Usare IntelliJ per il debug di un processo Spark
+          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: Risolvere i problemi di un cluster HDInsight lento o in errore
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true

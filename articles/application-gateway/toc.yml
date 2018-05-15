@@ -45,6 +45,8 @@
       href: ssl-overview.md
     - name: Reindirizzamento URL
       href: redirect-overview.md
+    - name: Monitoraggio dell’integrità
+      href: application-gateway-probe-overview.md
 - name: Guide alle procedure
   items:
     - name: Creare il gateway applicazione
@@ -93,6 +95,20 @@
       href: tutorial-url-redirect-powershell.md
     - name: Creare un gateway applicazione con ridondanza della zona
       href: create-zone-redundant.md
+    - name: Probe personalizzati
+      items:
+        - name: Portale
+          href: application-gateway-create-probe-portal.md
+        - name: PowerShell classico
+          href: application-gateway-create-probe-classic-ps.md
+        - name: Resource Manager - PowerShell
+          href: application-gateway-create-probe-ps.md
+    - name: Risolvere problemi
+      items:
+        - name: Risolvere gli errori di tipo Gateway non valido (502)
+          href: application-gateway-troubleshooting-502.md
+        - name: Diagnostica
+          href: application-gateway-diagnostics.md
 - name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure

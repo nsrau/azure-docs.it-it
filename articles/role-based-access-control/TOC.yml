@@ -25,7 +25,7 @@
       href: role-assignments-external-users.md
     - name: Log attività
       href: change-history-report.md
-    - name: Elevare l'accesso al tenant con privilegi di amministratore
+    - name: Eseguire con privilegi elevati l'accesso per l'amministratore globale
       href: elevate-access-global-admin.md
     - name: Risolvere problemi
       href: troubleshooting.md
