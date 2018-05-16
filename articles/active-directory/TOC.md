@@ -185,27 +185,27 @@
 ##### [Domini personalizzati](manage-apps/application-proxy-configure-custom-domain.md)
 #### [Single Sign-On](manage-apps/application-proxy-single-sign-on.md)
 ##### [SSO con la delega vincolata Kerberos](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-##### [SSO con le intestazioni](application-proxy-ping-access.md)
-##### [SSO con l'insieme di credenziali delle password](application-proxy-sso-azure-portal.md)
+##### [SSO con le intestazioni](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md)
+##### [SSO con l'insieme di credenziali delle password](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 #### Concetti
-##### [Connettori](application-proxy-understand-connectors.md)
-##### [Sicurezza](application-proxy-security-considerations.md)
-##### [Reti](application-proxy-network-topology-considerations.md)
+##### [Connettori](manage-apps/application-proxy-connectors.md)
+##### [Sicurezza](manage-apps/application-proxy-security.md)
+##### [Reti](manage-apps/application-proxy-network-topology.md)
 
 
-##### [Aggiornamento da TMG o UAG](application-proxy-transition-from-uag-tmg.md)
+##### [Aggiornamento da TMG o UAG](manage-apps/application-proxy-migration.md)
 
 #### Configurazioni avanzate
-##### [Pubblicare su reti distinte](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Server proxy](application-proxy-working-with-proxy-servers.md)
-##### [App in grado di riconoscere attestazioni](active-directory-application-proxy-claims-aware-apps.md)
-##### [App client native](active-directory-application-proxy-native-client.md)
-##### [Installazione invisibile all'utente](active-directory-application-proxy-silent-installation.md)
-##### [Home page personalizzata](application-proxy-office365-app-launcher.md)
-##### [Tradurre i collegamenti inline](application-proxy-link-translation.md)
+##### [Pubblicare su reti distinte](manage-apps/application-proxy-connector-groups.md)
+##### [Server proxy](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
+##### [App in grado di riconoscere attestazioni](manage-apps/application-proxy-configure-for-claims-aware-applications.md)
+##### [App client native](manage-apps/application-proxy-configure-native-client-application.md)
+##### [Installazione invisibile all'utente](manage-apps/application-proxy-register-connector-powershell.md)
+##### [Home page personalizzata](manage-apps/application-proxy-configure-custom-home-page.md)
+##### [Tradurre i collegamenti inline](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
 #### Procedure dettagliate di pubblicazione
-##### [Desktop remoto](application-proxy-publish-remote-desktop.md)
-##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Desktop remoto](manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
+##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
 

@@ -2,18 +2,18 @@
 title: Gestione traffico di Azure con Azure Site Recovery | Microsoft Docs
 description: Descrive come usare Gestione traffico di Azure con Azure Site Recovery per il ripristino di emergenza e la migrazione
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: 8305a354588875926cab52a55d99d3a29bcfb509
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d5b8887d4013f688cd20a0b2e4f6c0dbd5bdc9b6
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Gestione traffico di Azure con Azure Site Recovery
 

@@ -2,24 +2,24 @@
 title: Accedere alle app del proxy app di Azure AD in Teams | Microsoft Docs
 description: Usare il proxy applicazione di Azure AD per accedere all'applicazione locale tramite Microsoft Teams.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a8dca307bb97898f229b39710a3b566ee913fcca
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 974c364588d34631c8214352be7821c69e5f7aa7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Accedere alle applicazioni locali tramite Microsoft Teams
 
@@ -30,7 +30,7 @@ Gli utenti possono aggiungere app cloud ai propri canali di Teams [usando le sch
 
 ## <a name="install-the-application-proxy-connector-and-publish-your-app"></a>Installare il connettore proxy applicazione e pubblicare l'app
 
-Se necessario, [configurare il proxy di applicazione per il tenant e installare il connettore](active-directory-application-proxy-enable.md), quindi [pubblicare l'applicazione locale](application-proxy-publish-azure-portal.md) per l'accesso remoto. Quando si pubblica l'app, prendere nota dell'URL esterno, in quanto servirà per aggiungere l'app a Teams.
+Se necessario, [configurare il proxy di applicazione per il tenant e installare il connettore](manage-apps/application-proxy-enable.md), quindi [pubblicare l'applicazione locale](manage-apps/application-proxy-publish-azure-portal.md) per l'accesso remoto. Quando si pubblica l'app, prendere nota dell'URL esterno, in quanto servirà per aggiungere l'app a Teams.
 
 Se le app sono già state pubblicate, ma non si ricordano gli URL esterni, cercarli nel [portale di Azure](https://portal.azure.com). Eseguire l'accesso, quindi passare ad **Azure Active Directory** > **Applicazioni aziendali** > **Tutte le applicazioni** > selezionare l'app > **Proxy dell'applicazione**.
 
@@ -54,5 +54,5 @@ La scheda, dopo che è stata aggiunta da un membro di un team, viene visualizzat
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [pubblicare siti di SharePoint locali](application-proxy-enable-remote-access-sharepoint.md) con il proxy di applicazione.
-- Configurare le app per usare i [domini personalizzati](active-directory-application-proxy-custom-domains.md) per l'URL esterno. 
+- Informazioni su come [pubblicare siti di SharePoint locali](manage-apps/application-proxy-integrate-with-sharepoint-server.md) con il proxy di applicazione.
+- Configurare le app per usare i [domini personalizzati](manage-apps/application-proxy-configure-custom-domain.md) per l'URL esterno. 

@@ -1,33 +1,33 @@
 ---
 title: Distribuire la soluzione di monitoraggio remoto - Azure | Microsoft Docs
-description: Questa esercitazione mostra come effettuare il provisioning della soluzione preconfigurata di monitoraggio remoto da azureiotsuite.com.
-services: 
+description: Questa esercitazione mostra come effettuare il provisioning dell'acceleratore di soluzioni di monitoraggio remoto da azureiotsuite.com.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fa08817c870372488b1e03a2c282add2eaa85478
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: eb78ce91755c43f1c6fedf62a70238df911b940f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Distribuire la soluzione preconfigurata di monitoraggio remoto
+# <a name="deploy-the-remote-monitoring-solution-accelerator"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto
 
-Questa esercitazione illustra come effettuare il provisioning della soluzione preconfigurata per il monitoraggio remoto. È necessario distribuire la soluzione dall'indirizzo azureiotsuite.com. È anche possibile distribuire la soluzione usando l'interfaccia della riga di comando. Per informazioni su questa opzione, vedere [Deploy a preconfigured solution from the command line](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#deploy-a-pcs-from-the-command-line) (Distribuire una soluzione preconfigurata dalla riga di comando).
+Questa esercitazione illustra come effettuare il provisioning dell'acceleratore di soluzioni di monitoraggio remoto. È necessario distribuire la soluzione dall'indirizzo azureiotsuite.com. È anche possibile distribuire la soluzione usando l'interfaccia della riga di comando. Per informazioni su questa opzione, vedere [Deploy a solution accelerator from the command line](iot-suite-remote-monitoring-deploy-cli.md) (Distribuire un acceleratore di soluzioni dalla riga di comando).
 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Configurare la soluzione preconfigurata
-> * Distribuire la soluzione preconfigurata
-> * Accedere alla soluzione preconfigurata
+> * Configurare l'acceleratore di soluzioni
+> * Distribuire l'acceleratore di soluzioni
+> * Accedere all'acceleratore di soluzioni
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -35,19 +35,17 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva
 
 Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="deploy-the-preconfigured-solution"></a>Distribuire la soluzione preconfigurata
+## <a name="deploy-the-solution-accelerator"></a>Distribuire l'acceleratore di soluzioni
 
-Prima di poter distribuire la soluzione preconfigurata nella sottoscrizione di Azure, è necessario scegliere alcune opzioni di configurazione:
+Prima di distribuire l'acceleratore di soluzioni nella sottoscrizione di Azure, è necessario scegliere alcune opzioni di configurazione:
 
-1. Accedere ad [azureiotsuite.com](https://www.azureiotsuite.com) usando le credenziali dell'account Azure e quindi fare clic su **+** per creare una nuova soluzione:
+1. Accedere a [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) usando le credenziali dell'account Azure.
 
-    ![Creare una nuova soluzione](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
-
-1. Fare clic su **Seleziona** nel riquadro **Remote monitoring preview** (Monitoraggio remoto in anteprima).
+1. Fare clic su **Try Now** (Prova) nel riquadro **Monitoraggio remoto**.
 
     ![Scegliere il monitoraggio remoto](media/iot-suite-remote-monitoring-deploy/remotemonitoring.png)
 
-1. Nella pagina **Create Remote Monitoring solution** (Crea soluzione di monitoraggio remoto) immettere il nome desiderato in **Nome soluzione** per la soluzione preconfigurata di monitoraggio remoto.
+1. Nella pagina **Create Remote Monitoring solution** (Crea soluzione di monitoraggio remoto) immettere il nome desiderato in **Nome soluzione** per l'acceleratore di soluzioni di monitoraggio remoto.
 
 1. Selezionare una distribuzione **Basic** o **Standard**. Se la soluzione viene distribuita per esplorarne il funzionamento o eseguire una dimostrazione, scegliere l'opzione **Basic** per ridurre al minimo i costi.
 
@@ -63,9 +61,9 @@ Prima di poter distribuire la soluzione preconfigurata nella sottoscrizione di A
 
 Per informazioni sulla risoluzione dei problemi, vedere [What to do when a deployment fails](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails) (Che cosa fare quando una distribuzione non riesce) nel repository GitHub.
 
-## <a name="sign-in-to-the-preconfigured-solution"></a>Accedere alla soluzione preconfigurata
+## <a name="sign-in-to-the-solution-accelerator"></a>Accedere all'acceleratore di soluzioni
 
-Al termine del processo di provisioning, è possibile accedere alla soluzione preconfigurata di monitoraggio remoto.
+Al termine del processo di provisioning, è possibile accedere all'acceleratore di soluzioni di monitoraggio remoto.
 
 1. Nella pagina **Soluzioni di cui è stato effettuato il provisioning** scegliere la soluzione di monitoraggio remoto:
 
@@ -85,9 +83,9 @@ Al termine del processo di provisioning, è possibile accedere alla soluzione pr
 Questa esercitazione illustra come:
 
 > [!div class="checklist"]
-> * Configurare la soluzione preconfigurata
-> * Distribuire la soluzione preconfigurata
-> * Accedere alla soluzione preconfigurata
+> * Configurare l'acceleratore di soluzioni
+> * Distribuire l'acceleratore di soluzioni
+> * Accedere all'acceleratore di soluzioni
 
 Ora che è stata distribuita la soluzione di monitoraggio remoto, il passaggio successivo consiste nell'[esplorare le funzionalità del dashboard della soluzione](./iot-suite-remote-monitoring-explore.md).
 

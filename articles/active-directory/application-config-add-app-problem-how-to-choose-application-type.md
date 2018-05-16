@@ -1,11 +1,11 @@
 ---
 title: Come scegliere il tipo di applicazione da usare durante l'aggiunta di un'applicazione | Microsoft Docs
-description: "Informazioni sui tipi di applicazioni supportate che è possibile integrare in Azure AD e sulle opzioni di configurazione correlate"
+description: Informazioni sui tipi di applicazioni supportate che è possibile integrare in Azure AD e sulle opzioni di configurazione correlate
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e4a5ee41349a97493636327e3bda25cbd507867c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a34c3343b669cb80ad88c1b09fe95b1b1d9b5275
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Come scegliere il tipo di applicazione da usare durante l'aggiunta di un'applicazione
 
@@ -57,7 +57,7 @@ Le funzionalità seguenti sono supportate dai quattro tipi di applicazione indic
 
 -   **Accesso condizionale e basato sui rischi**: consente di impostare potenti [regole di accesso basate sulle condizioni](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) che vengono applicate quando gli utenti tentano di accedere a un'applicazione specifica
 
--   **Visualizzazione autorizzazioni**: consente di visualizzare le [autorizzazioni OAuth2](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent) a cui ha accesso un'applicazione nella directory da un unico punto
+-   **Visualizzazione autorizzazioni** : consente di visualizzare le [autorizzazioni OAuth2](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent) a cui ha accesso un'applicazione nella directory da un unico punto
 
 ## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>Modalità Single Sign-On e di provisioning supportate da tipi di applicazione specifici
 
@@ -171,4 +171,4 @@ Per impostare la modalità **Single Sign-On** di un'applicazione, seguire queste
 7.  Dopo il caricamento dell'applicazione, fare clic su **Provisioning** nel menu di spostamento di sinistra dell'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Gestione di applicazioni con Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Gestione di applicazioni con Azure Active Directory](manage-apps/what-is-application-management.md)

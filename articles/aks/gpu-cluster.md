@@ -1,6 +1,6 @@
 ---
-title: GPU nel servizio contenitore di Azure
-description: Usare GPU nel servizio contenitore di Azure
+title: GPU in Azure Kubernetes Service (AKS)
+description: Usare GPU in Azure Kubernetes Service (AKS)
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 6c30c966ad88f904ee652d88abd1717819077d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1e07845591583c7159958d4e2eb7eeb2f126b75f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-gpus-on-aks"></a>Uso di GPU nel servizio contenitore di Azure
 
@@ -22,7 +22,7 @@ Il servizio contenitore di Azure supporta la creazione di pool di nodi abilitati
 ## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio contenitore di Azure
 
 Le GPU sono generalmente necessarie per carichi di lavoro a elevato utilizzo di calcolo, come i carichi di lavoro di visualizzazione oppure a elevato utilizzo di grafica. Fare riferimento al [documento](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) seguente per determinare le dimensioni della macchina virtuale appropriate il carico di lavoro.
-Per i nodi del servizio contenitore di Azure (AKS) si consigliano dimensione di `Standard_NC6`.
+Per i nodi di Azure Kubernetes Service (AKS) si consigliano le dimensioni minime `Standard_NC6`.
 
 > [!NOTE]
 > Le macchine virtuali abilitate per la GPU contengono hardware specializzato soggetto a prezzi maggiori e alla disponibilità a livello di area. Per altre informazioni, vedere lo strumento per i [prezzi](https://azure.microsoft.com/pricing/) e il sito della [disponibilità a livello di area](https://azure.microsoft.com/global-infrastructure/services/).
@@ -50,7 +50,7 @@ az aks get-credentials --resource-group myGPUCluster --name myGPUCluster
 
 ## <a name="confirm-gpus-are-schedulable"></a>Verificare che le GPU siano pianificabili
 
-Eseguire i comandi seguenti per verificare che le GPU siano pianificabili tramite Kubernetes. 
+Eseguire i comandi seguenti per verificare che le GPU siano pianificabili tramite Kubernetes.
 
 Ottenere l'elenco corrente di nodi.
 
@@ -165,7 +165,7 @@ spec:
       volumes:
         - name: nvidia
           hostPath:
-            path: /usr/local/nvidia         
+            path: /usr/local/nvidia
 ```
 
 Usare il comando [kubectl create][kubectl-create] per eseguire il processo. Questo comando analizza il file manifesto e crea gli oggetti Kubernetes definiti.

@@ -2,7 +2,7 @@
 title: Usare il tunneling SSH per accedere ad Azure HDInsight | Microsoft Docs
 description: Informazioni su come utilizzare un tunnel SSH per esplorare in modo sicuro le risorse web ospitate sui nodi HDInsight basati su Linux.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,24 +10,22 @@ ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 04/30/2018
 ms.author: larryfr
-ms.openlocfilehash: a6604cca4056acf3ce759eaf56bb9130ef672bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 797538a6d023e1a4b95680057eb0f72489290f40
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Usare il tunneling SSH per accedere all'interfaccia utente Web di Ambari, JobHistory, NameNode, Oozie e altre interfacce utente Web
 
-I cluster HDInsight basati su Linux forniscono l’accesso all’interfaccia web di Ambari su internet, ma alcune funzionalità dell’interfaccia utente non ci sono. Ad esempio, l'interfaccia utente web per altri servizi che vengono rilevati tramite Ambari. Per la funzionalità completa dell'interfaccia utente web di Ambari, è necessario utilizzare un tunnel SSH all’head del cluster.
+I cluster HDInsight offrono accesso all'interfaccia utente Web di Ambari in Internet, ma alcune funzionalità richiedono un tunnel SSH. Ad esempio, l'interfaccia utente Web per il servizio Oozie non è accessibile in Internet senza un tunnel SSH.
 
 ## <a name="why-use-an-ssh-tunnel"></a>Perché usare un tunnel SSH
 
-Diversi menu di Ambari funzionano solo con un tunnel SSH. Questi menu si basano su servizi e siti Web in esecuzione in altri tipi di nodi, ad esempio i nodi di lavoro. Spesso questi siti web non sono protetti, pertanto non è opportuno esporli direttamente su internet.
+Diversi menu di Ambari funzionano solo con un tunnel SSH. Questi menu si basano su servizi e siti Web in esecuzione in altri tipi di nodi, ad esempio i nodi di lavoro.
 
 Le interfacce utente Web seguenti richiedono un tunnel SSH:
 
@@ -37,14 +35,14 @@ Le interfacce utente Web seguenti richiedono un tunnel SSH:
 * Interfaccia utente Web di Oozie
 * HBase Master e l'interfaccia utente di Log
 
-Se si usano azioni script per personalizzare il cluster, tutti i servizi o le utilità installate che espongono un'interfaccia utente Web richiedono un tunnel SSH. Ad esempio, se si installa Hue utilizzando un'azione di Script, è necessario utilizzare un tunnel SSH per accedere all'interfaccia utente web di Hue.
+Se si usano azioni script per personalizzare il cluster, tutti i servizi o le utilità installate che espongono un servizio Web richiedono un tunnel SSH. Ad esempio, se si installa Hue utilizzando un'azione di Script, è necessario utilizzare un tunnel SSH per accedere all'interfaccia utente web di Hue.
 
 > [!IMPORTANT]
 > Se si ha accesso diretto a HDInsight tramite una rete virtuale, non è necessario usare tunnel SSH. Per un esempio di accesso diretto a HDInsight tramite una rete virtuale, vedere il documento [Connettere HDInsight alla rete locale](connect-on-premises-network.md).
 
 ## <a name="what-is-an-ssh-tunnel"></a>Che cos'è un tunnel SSH
 
-Il [tunneling Secure Shell (SSH)](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) instrada il traffico inviato a una porta nella workstation locale. Il traffico viene instradato tramite una connessione SSH al nodo head del cluster HDInsight. La richiesta viene risolta come se fosse stata originata nel nodo head. La risposta viene instradata attraverso il tunnel alla workstation in uso.
+Il [tunneling di Secure Shell, ovvero SSH,](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) connette una porta del computer locale a un nodo head in HDInsight. Il traffico inviato alla porta locale viene instradato attraverso una connessione SSH al nodo head. La richiesta viene risolta come se fosse stata originata nel nodo head. La risposta viene instradata attraverso il tunnel alla workstation in uso.
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -53,7 +51,7 @@ Il [tunneling Secure Shell (SSH)](https://en.wikipedia.org/wiki/Tunneling_protoc
 * Un Web browser che può essere configurato per l'uso di un proxy SOCKS5.
 
     > [!WARNING]
-    > Il supporto per il proxy SOCKS integrato in Windows non include il supporto per SOCKS5 e non può quindi essere usato per la procedura descritta in questo documento. I browser seguenti si basano sulle impostazioni proxy di Windows e non possono essere usati per la procedura illustrata in questo documento:
+    > Il supporto per il proxy SOCKS integrato nelle impostazioni Internet di Windows non supporta SOCKS5 e non può essere usato per la procedura descritta in questo documento. I browser seguenti si basano sulle impostazioni proxy di Windows e non possono essere usati per la procedura illustrata in questo documento:
     >
     > * Microsoft Edge
     > * Microsoft Internet Explorer
@@ -62,10 +60,10 @@ Il [tunneling Secure Shell (SSH)](https://en.wikipedia.org/wiki/Tunneling_protoc
 
 ## <a name="usessh"></a>Creare un tunnel con il comando SSH
 
-Utilizzare il comando seguente per creare un SSH tunnel utilizzando il comando `ssh` . Sostituire **USERNAME** con un utente SSH per il cluster HDInsight e **CLUSTERNAME** con il nome del cluster HDInsight:
+Utilizzare il comando seguente per creare un SSH tunnel utilizzando il comando `ssh` . Sostituire **sshuser** con un utente SSH per il cluster HDInsight e **clustername** con il nome del cluster HDInsight usato:
 
 ```bash
-ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 ```
 
 Questo comando crea una connessione che instrada il traffico alla porta locale 9876 al cluster su SSH. Le opzioni sono:
@@ -121,10 +119,10 @@ Al termine del comando, il traffico inviato alla porta 9876 nel computer locale 
 
 Una volta stabilito il cluster, utilizzare la procedura seguente per verificare che sia possibile accedere all’interfaccia utente del servizio dal web Ambari:
 
-1. Nel browser passare a http://headnodehost:8080. L'indirizzo `headnodehost` viene inviato al cluster tramite il tunnel e quindi risolto nel nodo head in cui è in esecuzione Ambari. Quando richiesto, immettere il nome dell'account amministratore (admin) e la password per il cluster. Può essere richiesto una seconda volta dall'interfaccia utente web di Ambari. In tal caso, è necessario immettere nuovamente le informazioni.
+1. Nel browser passare a http://headnodehost:8080. L'indirizzo `headnodehost` viene inviato al cluster tramite il tunnel e risolto nel nodo head in cui è in esecuzione Ambari. Quando richiesto, immettere il nome dell'account amministratore (admin) e la password per il cluster. Può essere richiesto una seconda volta dall'interfaccia utente web di Ambari. In tal caso, è necessario immettere nuovamente le informazioni.
 
    > [!NOTE]
-   > Quando si usa l'indirizzo http://headnodehost:8080 per connettersi al cluster, la connessione viene stabilita tramite il tunnel. La comunicazione viene protetta usando il tunnel SSH invece di HTTPS. Per connettersi a Internet tramite HTTPS, usare https://CLUSTERNAME.azurehdinsight.net, in cui **CLUSTERNAME** è il nome del cluster.
+   > Quando si usa l'indirizzo http://headnodehost:8080 per connettersi al cluster, la connessione viene stabilita tramite il tunnel. La comunicazione viene protetta usando il tunnel SSH invece di HTTPS. Per connettersi a Internet tramite HTTPS, usare https://clustername.azurehdinsight.net, in cui **clustername** è il nome del cluster.
 
 2. Dall'interfaccia utente Web di Ambari, selezionare HDFS dall'elenco a sinistra della pagina.
 

@@ -2,24 +2,19 @@
 title: Codici ed esempi di PowerShell per Collaborazione B2B in Azure Active Directory | Microsoft Docs
 description: Codici ed esempi di PowerShell per Collaborazione B2B in Azure Active Directory
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 04/11/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 6006dde5ea34db9881a02550e7aff33e48c6498e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 53fba48725e0f4f496beee6eee96ff45847b633e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Codici ed esempi di PowerShell per Collaborazione B2B in Azure Active Directory
 
@@ -233,15 +228,5 @@ namespace SampleInviteApp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere gli altri articoli su Azure AD B2B Collaboration.
+- [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 
-* [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Proprietà dell'utente di Collaborazione B2B](active-directory-b2b-user-properties.md)
-* [Aggiunta di un utente di Collaborazione B2B a un ruolo](active-directory-b2b-add-guest-to-role.md)
-* [Delegare gli inviti a Collaborazione B2B](active-directory-b2b-delegate-invitations.md)
-* [Gruppi dinamici e Collaborazione B2B](active-directory-b2b-dynamic-groups.md)
-* [Configurare app SaaS per Collaborazione B2B](active-directory-b2b-configure-saas-apps.md)
-* [Token utente in Collaborazione B2B](active-directory-b2b-user-token.md)
-* [Mapping delle attestazioni utente per Collaborazione B2B](active-directory-b2b-claims-mapping.md)
-* [Condivisione esterna di Office 365](active-directory-b2b-o365-external-user.md)
-* [Limitazioni correnti di Collaborazione B2B](active-directory-b2b-current-limitations.md)

@@ -3,10 +3,10 @@ title: Supporto SSH per il Servizio app di Azure in Linux | Microsoft Docs
 description: Informazioni sull'uso di SSH con il Servizio app di Azure in Linux.
 keywords: Servizio app di Azure, app Web, Linux, OSS
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 905c257ab40057f05081e54e8680bd818023d886
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: cf27e852f5ec9b7e12b0c678e9940596bc57b385
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Supporto SSH per il Servizio app di Azure in Linux
 
@@ -30,6 +30,10 @@ Il Servizio app in Linux offre il supporto SSH nel contenitore di app con ognuna
 ![Stack di runtime](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
 È anche possibile usare SSH con le immagini Docker personalizzate includendo il server SSH come parte dell'immagine e configurandolo come descritto in questo articolo.
+
+> [!NOTE] 
+> È anche possibile connettersi al contenitore di app direttamente dal computer di sviluppo locale tramite SSH, SFTP o Visual Studio Code (per eseguire il debug attivo di app Node.js). Per altre informazioni, vedere [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug) (Debug remoto e SHH nel servizio app in Linux).
+>
 
 ## <a name="making-a-client-connection"></a>Creare una connessione client
 

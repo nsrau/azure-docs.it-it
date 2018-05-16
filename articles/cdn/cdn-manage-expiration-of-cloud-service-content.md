@@ -1,5 +1,5 @@
 ---
-title: Gestire la scadenza del contenuto Web nella rete per la distribuzione di contenuti di Azure | Microsoft Docs
+title: Gestire la scadenza di contenuti Web nella rete CDN di Azure | Microsoft Docs
 description: Informazioni su come gestire la scadenza del contenuto di app Web o servizi cloud di Azure, ASP.NET o IIS nella rete CDN di Azure.
 services: cdn
 documentationcenter: .NET
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: mazha
-ms.openlocfilehash: d1a12e0d5bd5852cf8de3d5fec93f2bfdd3ab257
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ec5470587454a35bc7606a3518d61bd3491d653b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Gestire la scadenza del contenuto Web nella rete per la distribuzione di contenuti di Azure
+# <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gestire la scadenza del contenuto Web nella rete CDN di Azure
 > [!div class="op_single_selector"]
 > * [Contenuto Web di Azure](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Archivio BLOB di Azure](cdn-manage-expiration-of-blob-content.md)
@@ -40,7 +40,7 @@ I file provenienti da server Web di origine accessibili pubblicamente possono es
 Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di un server Web consiste nell'usare le regole di memorizzazione nella cache nel portale di Azure. Per altre informazioni sulle regole di memorizzazione nella cache della rete CDN, vedere [Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Le regole di memorizzazione nella cache sono disponibili solo per profili di **rete CDN Standard di Azure con tecnologia Verizon** e di **rete CDN Standard di Azure con tecnologia Akamai**. Per i profili di **rete CDN Premium di Azure con tecnologia Verizon** è necessario usare il [motore regole della rete CDN di Azure](cdn-rules-engine.md) accessibile dal portale tramite il pulsante **Gestisci** per funzionalità analoghe.
+> Le regole di memorizzazione nella cache sono disponibili solo per i profili di **rete CDN Standard di Azure con tecnologia Verizon** e di **rete CDN Standard di Azure con tecnologia Akamai**. Per i profili di **rete CDN Premium di Azure con tecnologia Verizon** è necessario usare il [motore regole della rete CDN di Azure](cdn-rules-engine.md) accessibile dal portale tramite il pulsante **Gestisci** per funzionalità analoghe.
 
 **Per passare alla pagina delle regole di memorizzazione nella cache della rete CDN**:
 

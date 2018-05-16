@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 1c02f8f7b086d0441c2def0e92c54cce72fad85e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9a9608825cf041007c000729becb34e9a3063f92
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Analisi di flusso di Azure in IoT Edge (anteprima)
 
@@ -60,11 +60,10 @@ Le procedure generali sono descritte nella tabella seguente. Altri dettagli sono
 
 
 #### <a name="create-an-asa-edge-job"></a>Creare un processo Edge di Analisi di flusso di Azure
-1. Dal portale di Azure creare un nuovo "processo di Analisi di flusso". [Collegamento diretto per la creazione di un nuovo processo di Analisi di flusso di Azure](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
-
 > [!Note]
-> È possibile creare dei processi Edge in tutte le regioni supportate da Analisi di flusso di Azure, **ad eccezione dell'area "Stati Uniti occidentali 2"**.
-> Questa limitazione verrà rimossa a breve.
+> Questa esercitazione è incentrata sulla creazione di processi ASA tramite il portale di Azure. È anche possibile [usare il plug-in Visual Studio per creare un processo Edge ASA](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+
+1. Dal portale di Azure creare un nuovo "processo di Analisi di flusso". [Collegamento diretto per la creazione di un nuovo processo di Analisi di flusso di Azure](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
 2. Nella schermata di creazione selezionare **Edge** come **Ambiente host** (vedere la figura seguente). ![Creazione del processo](media/stream-analytics-edge/ASAEdge_create.png)
 3. Definizione del processo
@@ -147,7 +146,6 @@ Tuttavia, le funzionalità seguenti non sono ancora supportate per i processi Ed
 * Funzioni di Azure Machine Learning.
 * Uso di più di 14 aggregati in un unico passaggio.
 * Formato AVRO per l'input/output. In questo momento sono supportati solo CSV e JSON.
-* Compressione dell'input JSON.
 * Operatori SQL seguenti:
     * AnomalyDetection
     * Operatori geospaziali:
@@ -210,6 +208,7 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 * [Altre informazioni su Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [Esercitazione su Analisi di flusso di Azure in IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Invio di commenti e suggerimenti al team tramite questo sondaggio](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [Sviluppare processi Edge di Analisi di flusso usando gli strumenti di Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

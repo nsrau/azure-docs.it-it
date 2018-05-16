@@ -3,22 +3,22 @@ title: Configurare l'autenticazione di Azure Active Directory per un'applicazion
 description: Informazioni su come configurare l'autenticazione di Azure Active Directory per un'applicazione dei servizi app.
 author: mattchenderson
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 990fab9aeea71b8cf344b9a49a5ed438db6663c0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2530cb55cb054c02df5d55ccb86e959a061e2499
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-login"></a>Configurare un'applicazione dei servizi app per usare l'account di accesso di Azure Active Directory
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -54,7 +54,7 @@ Questo articolo descrive come configurare i servizi app di Azure per usare Azure
 
 ### <a name="secrets"> </a>Aggiungere informazioni di Azure Active Directory all'applicazione dei servizi app
 1. Nel [portale di Azure] passare all'applicazione dei servizi app. Fare clic su **Autenticazione/autorizzazione**. Se la funzionalità di autenticazione/autorizzazione non è abilitata, impostare l'opzione in modo da **abilitarla**. Fare clic su **Azure Active Directory** in Provider di autenticazione per configurare l'app. Facoltativo: per impostazione predefinita, il servizio app fornisce l'autenticazione ma non limita l'accesso alle API e al contenuto del sito solo agli utenti autorizzati. È necessario autorizzare gli utenti nel codice dell'app. Impostare **Azione da eseguire quando la richiesta non è autenticata** selezionare **Accedi con Azure Active Directory**. Per poter usare questa opzione, è necessario che tutte le richieste vengano autenticate e che le richieste non autenticate vengano reindirizzate ad Azure Active Directory per l'autenticazione.
-Nella configurazione dell'autenticazione di Active Directory fare clic su **Avanzata** in **Modalità di gestione**. Incollare l'ID applicazione copiato nel passaggio 8 nella casella ID client e incollare il valore entityId copiato nel passaggio 10 in URL autorità di certificazione. Fare quindi clic su **OK**.
+2. Nella configurazione dell'autenticazione di Active Directory fare clic su **Avanzate** in **Modalità di gestione**. Incollare l'ID applicazione copiato nel passaggio 8 nella casella ID client e incollare il valore entityId copiato nel passaggio 10 in URL autorità di certificazione. Fare quindi clic su **OK**.
 3. Nella pagina di configurazione dell'autenticazione di Active Directory fare clic su **Salva**.
 
 È ora possibile usare Azure Active Directory per l'autenticazione nell'applicazione dei servizi app.

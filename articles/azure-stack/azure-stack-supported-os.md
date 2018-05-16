@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/11/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
-ms.openlocfilehash: 819d8a9580de435536bf184b10ffbc23c32b247b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d90ac726ae689cf299ee41d4e7ff4c17769e7455
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemi operativi guest supportata nello Stack di Azure
 
@@ -70,3 +70,5 @@ Distribuzioni di Linux indicate come disponibile nel Marketplace includono l'age
 | 18.04-LTS Ubuntu | 64 bit | Canonical | Sì |
 
 Altre distribuzioni Linux potrebbero essere supportati in futuro.
+
+Per informazioni sul supporto di Red Hat Enterprise Linux, consultare [Red Hat e Stack di Azure: domande frequenti su](https://access.redhat.com/articles/3413531).

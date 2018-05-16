@@ -1,24 +1,26 @@
 ---
-title: Eseguire la migrazione dal Servizio di controllo di accesso di Azure | Microsoft Docs
+title: Eseguire la migrazione dal Servizio di controllo di accesso di Azure | Documentazione Microsoft
 description: Opzioni per lo spostamento di app e servizi dal Servizio di controllo di accesso di Azure
 services: active-directory
 documentationcenter: dev-center-name
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
-ms.author: dastrock
-ms.openlocfilehash: 6c22f85d3e76a005c45a4679ddfd8948a46acffc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: celested
+ms.reviewer: dastrock
+ms.openlocfilehash: c1c86f21d5a99cf251b0b83f41576c2cdaf96dfb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Eseguire la migrazione dal Servizio di controllo di accesso di Azure
 
@@ -79,7 +81,7 @@ Le sezioni seguenti illustrano i consigli generali per la migrazione da Controll
 
 Ogni servizio cloud Microsoft che accetta token rilasciati da Controllo di accesso supporta ora almeno una forma alternativa di autenticazione. Il meccanismo di autenticazione corretto varia per ogni servizio. È consigliabile consultare la documentazione specifica per ogni servizio per linee guida ufficiali. Per comodità, ogni set di documentazione viene indicato di seguito:
 
-| Servizio | Indicazioni |
+| Service | Indicazioni |
 | ------- | -------- |
 | Bus di servizio di Azure | [Eseguire la migrazione alle firme di accesso condiviso](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Inoltro del bus di servizio di Azure | [Eseguire la migrazione alle firme di accesso condiviso](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
@@ -152,12 +154,12 @@ A livello generale, *Azure Active Directory è probabilmente la scelta migliore 
 | WIF | Supportato | Supportato ma sono disponibili istruzioni limitate |
 | WS-Federation | Supportato | Supportato |
 | OAuth 2.0 | Supporto per la bozza 13 | Supporto per RFC 6749, la specifica più moderna |
-| WS-Trust | Supportato | Non supportato |
+| WS-Trust | Supportato | Non supportate |
 | **Formati del token** | | |
 | Token JSON Web | Supportato nella versione Beta | Supportato |
 | SAML 1.1 | Supportato | Preview |
 | SAML 2.0 | Supportato | Supportato |
-| Token Web semplice | Supportato | Non supportato |
+| Token Web semplice | Supportato | Non supportate |
 | **Personalizzazioni** | | |
 | Individuazione dell'area di autenticazione principale/interfaccia utente per la scelta dell'account personalizzabili | Codice scaricabile che può essere incorporato nelle app | Non supportate |
 | Caricare certificati per la firma di token personalizzati | Supportato | Supportato |
@@ -212,15 +214,15 @@ La tabella seguente confronta le funzionalità di Controllo di accesso rilevanti
 | Account Microsoft per uso personale | Supportato | Supportato | 
 | Account Facebook, Google, Yahoo | Supportato | Facebook e Google supportati in modalità nativa, Yahoo supportato tramite la federazione di OpenID Connect con criteri personalizzati |
 | **Compatibilità con protocolli e SDK** | | |
-| Windows Identity Foundation (WIF) | Supportato | Non supportato |
-| WS-Federation | Supportato | Non supportato |
+| Windows Identity Foundation (WIF) | Supportato | Non supportate |
+| WS-Federation | Supportato | Non supportate |
 | OAuth 2.0 | Supporto per la bozza 13 | Supporto per RFC 6749, la specifica più moderna |
-| WS-Trust | Supportato | Non supportato |
+| WS-Trust | Supportato | Non supportate |
 | **Formati del token** | | |
 | Token JSON Web | Supportato nella versione Beta | Supportato |
-| SAML 1.1 | Supportato | Non supportato |
-| SAML 2.0 | Supportato | Non supportato |
-| Token Web semplice | Supportato | Non supportato |
+| SAML 1.1 | Supportato | Non supportate |
+| SAML 2.0 | Supportato | Non supportate |
+| Token Web semplice | Supportato | Non supportate |
 | **Personalizzazioni** | | |
 | Individuazione dell'area di autenticazione principale/interfaccia utente per la scelta dell'account personalizzabili | Codice scaricabile che può essere incorporato nelle app | Interfaccia utente completamente personalizzabile tramite CSS personalizzati |
 | Caricare certificati per la firma di token personalizzati | Supportato | Chiavi di accesso personalizzate, non certificati, supportati tramite criteri personalizzati |
@@ -252,7 +254,7 @@ In questi casi, è necessario considerare la migrazione dell'applicazione web a 
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) è un servizio di identità cloud flessibile che ha creato [linee guida alla migrazione di alto livello per clienti di Controllo di accesso](https://auth0.com/acs) e supporta quasi tutte le funzionalità di ACS. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) offre due soluzioni simili ad ACS. PingOne è un servizio di identità cloud che supporta molte funzionalità di ACS e PingFederate è un prodotto di identità locale analogo che assicura maggiore flessibilità. Fare riferimento alle [linee guida di Ping sul ritiro di ACS](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) per ulteriori informazioni sull'utilizzo di questi prodotti.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) offre due soluzioni simili ad ACS. PingOne è un servizio di identità cloud che supporta molte funzionalità di ACS e PingFederate è un prodotto di identità locale analogo che assicura maggiore flessibilità. Fare riferimento alle [linee guida di Ping sul ritiro di ACS](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) per ulteriori informazioni sull'utilizzo di questi prodotti. |
 
 L'obiettivo della collaborazione con Ping Identity e Auth0 è quello di assicurare a tutti i clienti di Controllo di accesso un percorso di migrazione per le loro app e i loro servizi in grado di ridurre al minimo il lavoro necessario per il passaggio da Controllo di accesso.
 
@@ -277,7 +279,7 @@ Per i servizi Web protetti con token rilasciati da Controllo di accesso, Control
 - Supporto per i formati di token seguenti: JWT, SAML 1.1, SAML 2.0 e SWT.
 - Semplici regole di trasformazione dei token.
 
-Le identità del servizio di Controllo di accesso sono in genere usate per l'implementazione dell'autenticazione di tipo S2S (server-to-server).  
+Le identità del servizio di Controllo di accesso sono in genere usate per l'implementazione dell'autenticazione di tipo S2S (server-to-server). 
 
 #### <a name="migrate-to-azure-active-directory"></a>Migrazione ad Azure Active Directory
 
@@ -314,7 +316,7 @@ In questi casi, è possibile valutare la migrazione dell'applicazione Web a un a
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) è un servizio di identità cloud flessibile che ha creato [linee guida alla migrazione di alto livello per clienti di Controllo di accesso](https://auth0.com/acs) e supporta quasi tutte le funzionalità di ACS. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) offre due soluzioni simili ad ACS. PingOne è un servizio di identità cloud che supporta molte funzionalità di ACS e PingFederate è un prodotto di identità locale analogo che assicura maggiore flessibilità. Fare riferimento alle [linee guida di Ping sul ritiro di ACS](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) per ulteriori informazioni sull'utilizzo di questi prodotti.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) offre due soluzioni simili ad ACS. PingOne è un servizio di identità cloud che supporta molte funzionalità di ACS e PingFederate è un prodotto di identità locale analogo che assicura maggiore flessibilità. Fare riferimento alle [linee guida di Ping sul ritiro di ACS](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) per ulteriori informazioni sull'utilizzo di questi prodotti. |
 
 L'obiettivo della collaborazione con Ping Identity e Auth0 è quello di assicurare a tutti i clienti di Controllo di accesso un percorso di migrazione per le loro app e i loro servizi in grado di ridurre al minimo il lavoro necessario per il passaggio da Controllo di accesso.
 

@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: b1b51b6c36143747a81d1c1fc035ee6d54d34076
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: bdc97e9e28dd2af090c82378457b3c93b276cc58
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrazione con i servizi gestiti di Azure usando Open Service Broker for Azure (OSBA)
 
@@ -21,13 +21,13 @@ Insieme al [catalogo di servizi di Kubernetes][kubernetes-service-catalog], Open
 ## <a name="prerequisites"></a>prerequisiti
 * Una sottoscrizione di Azure.
 
-* Interfaccia della riga di comando di Azure versione 2.0: è possibile [installarla localmente][azure-cli-install] o usarla in [Azure Cloud Shell][azure-cloud-shell].
+* Interfaccia della riga di comando di Azure versione 2.0: [installarla localmente][azure-cli-install] o usarla in [Azure Cloud Shell][azure-cloud-shell].
 
-* Interfaccia della riga di comando di Helm versione 2.7 e successive: è possibile [installarla localmente][helm-cli-install] o usarla in [Azure Cloud Shell][azure-cloud-shell].
+* Interfaccia della riga di comando di Helm 2.7+: [installarla localmente][helm-cli-install] o usarla in [Azure Cloud Shell][azure-cloud-shell].
 
 * Autorizzazioni per creare un'entità servizio con il ruolo Collaboratore nella sottoscrizione di Azure
 
-* Un cluster esistente del servizio contenitore di Azure (AKS). Se è necessario un cluster del servizio contenitore di Azure consultare la guida introduttiva [Creare un cluster del servizio contenitore di Azure][create-aks-cluster].
+* Cluster di Azure Kubernetes Service (AKS) esistente. Se è necessario un cluster del servizio contenitore di Azure consultare la guida introduttiva [Creare un cluster del servizio contenitore di Azure][create-aks-cluster].
 
 ## <a name="install-service-catalog"></a>Installare il catalogo di servizi
 
@@ -182,7 +182,7 @@ kubectl get secrets -n wordpress -o yaml
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha descritto come distribuire il catalogo di servizi in un cluster del servizio contenitore di Azure (AKS). Con Open Service Broker for Azure è stato possibile distribuire un'installazione di WordPress che usa i servizi gestiti di Azure, in questo caso il Database di Azure per MySQL.
+L'articolo ha descritto la distribuzione di un catalogo di servizi in un cluster di Azure Kubernetes Service (AKS). Con Open Service Broker for Azure è stato possibile distribuire un'installazione di WordPress che usa i servizi gestiti di Azure, in questo caso il Database di Azure per MySQL.
 
 Consultare il repository [Azure/helm-charts][helm-charts] per accedere ad altri grafici Helm basati su OSBA aggiornati. Per creare grafici che funzionino con OSBA, consultare [Creating a New Chart][helm-create-new-chart] (Creazione di un nuovo grafico).
 

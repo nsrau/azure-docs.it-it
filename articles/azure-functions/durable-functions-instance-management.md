@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 01a6fefc10dfd83997acc290dbd1c85ba86a4799
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e573b4973ea30b990043b54c5cdcf0805135a40
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Gestire le istanze in Funzioni permanenti (Funzioni di Azure)
 
@@ -50,7 +50,7 @@ public static async Task Run(
 }
 ```
 
-Per i linguaggi non .NET, l'associazione dell'output della funzione può essere utilizzata anche per avviare nuove istanze. In questo caso può essere usato qualsiasi oggetto serializzabile in JSON che presenta i tre parametri indicati sopra come campi. Ad esempio, si consideri la seguente funzione Node.js:
+Per i linguaggi non .NET, l'associazione dell'output della funzione può essere utilizzata anche per avviare nuove istanze. In questo caso può essere usato qualsiasi oggetto serializzabile in JSON che presenta i tre parametri indicati sopra come campi. Si consideri ad esempio la seguente funzione JavaScript:
 
 ```js
 module.exports = function (context, input) {
@@ -77,6 +77,7 @@ Il metodo [GetStatusAsync](https://azure.github.io/azure-functions-durable-exten
 * **CreatedTime**: l'ora in cui la funzione dell'agente di orchestrazione ha iniziato l'esecuzione.
 * **LastUpdatedTime**: l'ora in cui l'orchestrazione ha eseguito l'ultimo checkpoint.
 * **Input**: l'input della funzione come valore JSON.
+* **CustomStatus**: stato personalizzato dell'orchestrazione in formato JSON. 
 * **Output**: l'output della funzione come valore JSON (se la funzione è stata completata). Se l'esecuzione della funzione dell'agente di orchestrazione non è riuscita, questa proprietà include i dettagli dell'errore. Se la funzione dell'agente di orchestrazione è stata terminata, questa proprietà include il motivo dell'interruzione (se presente).
 * **RuntimeStatus**: uno dei valori seguenti:
     * **Running**: l'istanza ha iniziato l'esecuzione.
@@ -99,9 +100,6 @@ public static async Task Run(
 }
 ```
 
-> [!NOTE]
-> Le query di istanza sono supportate attualmente solo per le funzioni dell'agente di orchestrazione di C#.
-
 ## <a name="terminating-instances"></a>Terminazione delle istanze
 
 Un'istanza di orchestrazione in esecuzione può essere terminata usando il metodo [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) della classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html). I due parametri sono un `instanceId` e una stringa `reason` che saranno scritte nei log e nello stato dell'istanza. Un'istanza terminata termina la sua esecuzione non appena raggiunge il successivo punto `await` oppure termina immediatamente se è già in un `await`. 
@@ -116,9 +114,6 @@ public static Task Run(
     return client.TerminateAsync(instanceId, reason);
 }
 ```
-
-> [!NOTE]
-> La terminazione delle istanze è supportata attualmente solo per le funzioni dell'agente di orchestrazione di C#.
 
 > [!NOTE]
 > Al momento, la terminazione delle istanze non viene propagata. Le funzioni di attività e le orchestrazioni secondarie verranno eseguite fino al completamento anche se l'istanza di orchestrazione che le ha chiamate è stata terminata.
@@ -145,9 +140,6 @@ public static Task Run(
     return client.RaiseEventAsync(instanceId, "MyEvent", eventData);
 }
 ```
-
-> [!NOTE]
-> La generazione di eventi è supportata attualmente solo per le funzioni dell'agente di orchestrazione di C#.
 
 > [!WARNING]
 > Se non è presente un'istanza di orchestrazione con l'*ID istanza* specificato o se l'istanza non è in attesa del *nome evento* specificato, il messaggio dell'evento viene eliminato. Per altre informazioni su questo comportamento, vedere il [problema GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).

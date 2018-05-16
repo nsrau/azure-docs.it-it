@@ -3,7 +3,7 @@ title: Creare un'istanza di Gestione API di Azure tramite PowerShell | Microsoft
 description: Seguire i passaggi di questa esercitazione per creare una nuova istanza di Gestione API di Azure.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cflower
 editor: ''
 ms.service: api-management
@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: 4037666081395abc18543fc4dc8d26d40024e1ec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8ed6df3a0aee500192e401f1089925bf6e2d84d8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Creare una nuova istanza del servizio Gestione API di Azure
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mazha
-ms.openlocfilehash: ed6f0b2c021fc4b31b85986c07df0502dba826f2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: fcb4676325066dd6960070d996b1779fb3471dd9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Controllare il comportamento di memorizzazione nella cache con stringhe di query della rete CDN di Azure: livello Standard
 > [!div class="op_single_selector"]
@@ -27,11 +27,10 @@ ms.lasthandoff: 04/05/2018
 > 
 
 ## <a name="overview"></a>Panoramica
-Con la funzionalità di memorizzazione nella cache con stringhe di query, la rete per la distribuzione di contenuti (CDN) di Azure controlla il modo in cui i file vengono memorizzati nella cache per una richiesta Web contenente una stringa di query. In una richiesta Web con una stringa di query, la stringa di query è la parte della richiesta che si verifica dopo un punto di domanda (?). Una stringa di query può contenere una o più coppie chiave-valore, in cui il nome del campo e il relativo valore sono separati da un segno di uguale (=). Ogni coppia chiave-valore è separata da una e commerciale (&). Ad esempio, http:\//www.contoso.com/content.mov?field1=value1&field2=value2. Se è presente più di una coppia chiave-valore in una stringa di query di una richiesta, l'ordine non ha importanza. 
+La rete per la distribuzione di contenuti (CDN) di Azure consente di controllare la modalità di memorizzazione nella cache dei file per una richiesta Web contenente una stringa di query. In una richiesta Web con una stringa di query, la stringa di query è la parte della richiesta che si verifica dopo un punto di domanda (?). Una stringa di query può contenere una o più coppie chiave-valore, in cui il nome del campo e il relativo valore sono separati da un segno di uguale (=). Ogni coppia chiave-valore è separata da una e commerciale (&). Esempio: http:\//www.contoso.com/content.mov?field1=value1&field2=value2. Se è presente più di una coppia chiave-valore in una stringa di query di una richiesta, l'ordine non ha importanza. 
 
-> [!NOTE]
-> I prodotti di rete CDN Standard e Premium di Azure forniscono la stessa funzionalità di memorizzazione nella cache con stringhe di query, ma l'interfaccia utente è diversa.  Questo articolo descrive l'interfaccia per la **rete CDN Standard di Azure fornita da Akamai** e della **rete CDN Standard di Azure fornita da Verizon**. Per informazioni sulla memorizzazione nella cache con stringhe di query per la **rete CDN Premium di Azure con tecnologia Verizon**, vedere l'articolo [Controllare il comportamento di memorizzazione nella cache con stringhe di query della rete CDN di Azure: livello Premium](cdn-query-string-premium.md).
->
+> [!IMPORTANT]
+> I prodotti di rete CDN Standard e Premium di Azure forniscono la stessa funzionalità di memorizzazione nella cache con stringhe di query, ma l'interfaccia utente è diversa. Questo articolo descrive l'interfaccia per la **rete CDN Standard di Azure con tecnologia Microsoft**, la **rete CDN Standard di Azure con tecnologia Akamai** e la **rete CDN Standard di Azure con tecnologia Verizon**. Per informazioni sulla memorizzazione nella cache con stringhe di query per la **rete CDN Premium di Azure con tecnologia Verizon**, vedere l'articolo [Controllare il comportamento di memorizzazione nella cache con stringhe di query della rete CDN di Azure: livello Premium](cdn-query-string-premium.md).
 
 Sono disponibili tre modalità di stringa di query:
 
@@ -58,9 +57,10 @@ Sono disponibili tre modalità di stringa di query:
    ![Opzioni della memorizzazione nella cache della stringa di query della rete CDN](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
-> Le modifiche alle impostazioni di memorizzazione nella cache delle stringhe possono non essere immediatamente visibili perché la propagazione della registrazione nella rete CDN richiede tempo: 
+> Le modifiche alle impostazioni di memorizzazione nella cache delle stringhe possono non essere immediatamente visibili perché la propagazione della registrazione nella rete CDN richiede tempo:
+> - La propagazione dei profili della **rete CDN Standard di Azure con tecnologia Microsoft** viene in genere completata in dieci minuti. 
 > - La propagazione dei profili di **rete CDN Standard di Azure con tecnologia Akamai** viene in genere completata entro un minuto. 
-> - La propagazione dei profili di **rete CDN Standard di Azure con tecnologia Verizon** viene in genere completata entro 90 minuti.
->
+> - La propagazione dei profili della **rete CDN Standard di Azure con tecnologia Verizon** e della **rete CDN Premium di Azure con tecnologia Verizon** viene in genere completata entro 90 minuti. 
+
 
 

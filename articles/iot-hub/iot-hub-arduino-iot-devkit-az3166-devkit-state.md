@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 33d8a36cc88bd1c263f2c4a38a59e04e1253357c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ac013cf234fdc7249d4d71992435adcc27fcc64e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -90,10 +90,10 @@ Con il dispositivo MXChip IoT DevKit connesso al computer:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Si è appreso come:
-- Connettere un dispositivo MXChip IoT DevKit ad Azure IoT Suite.
+- Connettere un dispositivo MXChip IoT DevKit all'acceleratore di soluzioni di monitoraggio remoto di Azure IoT.
 - Usare la funzione dei dispositivi gemelli di Azure IoT per rilevare e controllare il colore del LED RGB del DevKit.
 
 Ecco i passaggi successivi suggeriti:
 
-* [Panoramica di Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Panoramica dell'acceleratore di soluzioni di monitoraggio remoto di Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
 * [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit) (Connettere un dispositivo MXChip IoT DevKit all'applicazione Microsoft IoT Central)

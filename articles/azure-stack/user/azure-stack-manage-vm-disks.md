@@ -1,52 +1,69 @@
 ---
 title: Gestire i dischi di macchina virtuale nello Stack di Azure | Documenti Microsoft
-description: Il provisioning di dischi per le macchine virtuali per lo Stack di Azure.
+description: Il provisioning di dischi per le macchine virtuali nello Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 0c36e2eaaf2d266842b2b7de0b0c8dc0ed1e0145
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 314c5b51608192719c77ce143b3530f0bb310bc2
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="virtual-machine-disk-storage-for-azure-stack"></a>Archiviazione su disco di macchina virtuale per lo Stack di Azure
+# <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Eseguire il provisioning di archiviazione su disco di macchina virtuale in Azure Stack
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Stack di Azure supporta l'utilizzo di [non gestita dischi](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) in una macchina virtuale come disco del sistema operativo (sistema operativo) e un disco dati. Per utilizzare i dischi non gestiti, creare un [account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) e quindi archiviare i dischi come BLOB di pagine in contenitori nell'account di archiviazione. Questi dischi sono definiti come dischi di macchina virtuale.
+Questo articolo descrive come eseguire il provisioning di archiviazione su disco di macchina virtuale tramite il portale di Azure Stack oppure tramite PowerShell.
 
-Per migliorare le prestazioni e ridurre i costi di gestione del sistema Azure Stack, si consiglia di che posizionare ogni disco della macchina virtuale in un contenitore separato. Un contenitore può contenere un disco del sistema operativo o un disco dati, ma non entrambi contemporaneamente. Tuttavia, non vi è alcuna restrizione che impedisce l'inserimento nello stesso contenitore.
+## <a name="overview"></a>Panoramica
 
-Se si aggiungono uno o più dischi dati a una macchina virtuale, prevede di utilizzare altri contenitori come un percorso per contenere questi dischi. Come i dischi dati, il disco del sistema operativo per le macchine virtuali aggiuntive deve essere anche i propri contenitori separati.
+Stack di Azure supporta l'utilizzo di [unmanaged dischi](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) nelle macchine virtuali, come un sistema operativo (sistema operativo) e un disco dati.
 
-Quando si creano più macchine virtuali, è possibile riutilizzare lo stesso account di archiviazione per ogni nuova macchina virtuale. Solo i contenitori creati devono essere univoci.  
+Per utilizzare i dischi non gestiti, creare una [account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) per archiviare i dischi. I dischi creati vengono definiti dischi di macchina virtuale e vengono archiviati nei contenitori nell'account di archiviazione.
 
-Per aggiungere i dischi a una macchina virtuale, utilizzare il portale per gli utenti o PowerShell.
+### <a name="best-practice-guidelines"></a>Procedure ottimali
+
+Per migliorare le prestazioni e ridurre i costi complessivi, si consiglia di che posizionare ogni disco della macchina virtuale in un contenitore separato. Un contenitore può contenere un disco del sistema operativo o un disco dati, ma non entrambi contemporaneamente. (Tuttavia, non esegue alcuna operazione per impedire l'inserimento di entrambi i tipi di disco nello stesso contenitore.)
+
+Se si aggiungono uno o più dischi dati a una macchina virtuale, usare altri contenitori come un percorso per archiviare questi dischi. Disco del sistema operativo per le macchine virtuali aggiuntive deve inoltre essere nei propri contenitori.
+
+Quando si creano più macchine virtuali, è possibile riutilizzare lo stesso account di archiviazione per ogni nuova macchina virtuale. Solo i contenitori creati devono essere univoci.
+
+### <a name="adding-new-disks"></a>Aggiunta di nuovi dischi
+
+Nella tabella seguente viene riepilogato come aggiunta di dischi tramite il portale e tramite PowerShell.
 
 | Metodo | Opzioni
 |-|-|
-|[Portale per gli utenti](#use-the-portal-to-add-additional-disks-to-a-vm)|-Aggiungere nuovi dischi dati a una macchina virtuale che è stato eseguito il provisioning in precedenza. Nuovi dischi vengono creati dallo Stack di Azure. </br> </br>-Aggiungere un file VHD esistente come un disco a una macchina virtuale che è stato eseguito il provisioning in precedenza. A tale scopo è innanzitutto necessario preparare e caricare il file con estensione vhd in Azure Stack. |
+|[Portale per gli utenti](#use-the-portal-to-add-additional-disks-to-a-vm)|-Aggiungere nuovi dischi dati a una macchina virtuale esistente. Nuovi dischi vengono creati dallo Stack di Azure. </br> </br>-Aggiungere un file del disco (con estensione vhd) a una macchina virtuale definita in precedenza. A tale scopo, è necessario preparare il file VHD e quindi caricare il file allo Stack di Azure. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | -Creare una nuova macchina virtuale con un disco del sistema operativo e allo stesso tempo, aggiungere uno o più dischi dati a tale macchina virtuale. |
 
+## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Usare il portale per aggiungere dischi a una macchina virtuale
 
-## <a name="use-the-portal-to-add-additional-disks-to-a-vm"></a>Utilizzare il portale per aggiungere ulteriori dischi a una macchina virtuale
-Per impostazione predefinita, quando si usa il portale per creare una macchina virtuale per la maggior parte degli elementi del marketplace, viene creato solo un disco del sistema operativo. I dischi creati da Azure sono denominati dischi gestiti.
+Per impostazione predefinita, quando si usa il portale per creare una macchina virtuale per la maggior parte degli elementi del marketplace, viene creato solo il disco del sistema operativo.
 
-Dopo avere stabilito una macchina virtuale, è possibile utilizzare il portale per aggiungere un nuovo disco dati o un disco dati esistente a tale macchina virtuale. Ogni disco aggiuntivo debba essere inserito in un contenitore separato. I dischi che si aggiunge a una macchina virtuale vengono chiamati i dischi non gestiti.
+Dopo aver creato una macchina virtuale, è possibile usare il portale per:
+* Creare un nuovo disco dati e collegare alla macchina virtuale.
+* Caricare un disco dati esistente e collegarlo alla macchina virtuale.
 
-### <a name="use-the-portal-to-attach-a-new-data-disk-to-a-vm"></a>Utilizzare il portale per collegare un nuovo disco dati a una macchina virtuale
+Ogni disco non gestito che si aggiungono deve essere inserita in un contenitore separato.
+
+>[!NOTE]
+>I dischi creati e gestiti da Azure sono denominati [dischi gestiti](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview).
+
+### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Usare il portale per creare e collegare un nuovo disco dati
 
 1.  Nel portale, fare clic su **macchine virtuali**.    
     ![Esempio: Dashboard macchina virtuale](media/azure-stack-manage-vm-disks/vm-dashboard.png)
@@ -71,6 +88,7 @@ Dopo avere stabilito una macchina virtuale, è possibile utilizzare il portale p
 
 
 ### <a name="attach-an-existing-data-disk-to-a-vm"></a>Collegare un disco dati esistente a una macchina virtuale
+
 1.  [Preparare un file con estensione vhd](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd) da usare come disco dati per una macchina virtuale. Caricare il file con estensione vhd in un account di archiviazione utilizzati con la macchina virtuale che si desidera collegare il file con estensione vhd.
 
   Prevede di utilizzare un diverso contenitore deve per contenere il file con estensione vhd di contenitore che contiene il disco del sistema operativo.   

@@ -350,16 +350,18 @@
           href: data-factory-service-identity.md
     - name: Monitorare e gestire
       items:
-        - name: Usare SDK
-          href: monitor-programmatically.md
-        - name: Usare Monitoraggio di Azure
-          href: monitor-using-azure-monitor.md
         - name: Monitorare visivamente
           href: monitor-visually.md
-        - name: Gestire il runtime di integrazione SSIS di Azure
-          href: manage-azure-ssis-integration-runtime.md
+        - name: Monitorare con Monitoraggio di Azure
+          href: monitor-using-azure-monitor.md
+        - name: Monitorare con SDK
+          href: monitor-programmatically.md
         - name: Monitorare il runtime di integrazione
           href: monitor-integration-runtime.md
+        - name: Monitorare il runtime di integrazione SSIS di Azure
+          href: 'monitor-integration-runtime.md#azure-ssis-integration-runtime'
+        - name: Gestire il runtime di integrazione SSIS di Azure
+          href: manage-azure-ssis-integration-runtime.md
     - name: Creare il runtime di integrazione
       items:
         - name: Runtime di integrazione di Azure
@@ -370,24 +372,22 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Eseguire pacchetti SSIS in Azure
       items:
-        - name: Configurazione personalizzata del runtime di integrazione SSIS di Azure
-          href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Eseguire il provisioning della Enterprise Edition per il runtime di integrazione SSIS di Azure
-          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale
           href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Gestire il runtime di integrazione SSIS di Azure
-          href: manage-azure-ssis-integration-runtime.md
-        - name: Configurare le prestazioni relative alle prestazioni del runtime di integrazione SSIS di Azure
+        - name: Configurare le prestazioni elevate per il runtime di integrazione SSIS di Azure
           href: configure-azure-ssis-integration-runtime-performance.md
+        - name: Eseguire il provisioning della Enterprise Edition per il runtime di integrazione SSIS di Azure
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Personalizzare la configurazione del runtime di integrazione SSIS di Azure
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Distribuire componenti concessi in licenza per il runtime di integrazione SSIS di Azure
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: Eseguire pacchetti SSIS tramite l'attività SSIS
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: Eseguire pacchetti SSIS tramite attività stored procedure
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Pianificare il runtime di integrazione Azure-SSIS
           href: how-to-schedule-azure-ssis-integration-runtime.md
-        - name: Sviluppare componenti concessi in licenza per il runtime di integrazione SSIS di Azure
-          href: how-to-develop-azure-ssis-ir-licensed-components.md
     - name: Creare trigger
       items:
         - name: Creare un trigger di pianificazione

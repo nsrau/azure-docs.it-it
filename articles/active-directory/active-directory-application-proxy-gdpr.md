@@ -1,6 +1,6 @@
 ---
-title: RGPD in Azure Active Directory Application Proxy | Microsoft Docs
-description: Altre informazioni sul regolamento RGPD in Azure Active Directory Application Proxy.
+title: GDPR in Azure Active Directory Application Proxy | Microsoft Docs
+description: Altre informazioni sul regolamento GDPR in Azure Active Directory Application Proxy.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,22 +15,22 @@ ms.date: 02/16/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5e99fba2f226e1e9b401bd8ef5b3b85a5e8c6a7c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: a3df15743b4918d72fac5f8769a2d3ee721a452f
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="gdpr-in-the-azure-active-directory-application-proxy"></a>RGDP in Azure Active Directory Application Proxy  
+# <a name="gdpr-in-the-azure-active-directory-application-proxy"></a>GDPR in Azure Active Directory Application Proxy  
 
-Azure Active Directory (Azure AD) Application Proxy è conforme al regolamento RGPD, come tutti gli altri servizi e funzionalità Microsoft. Per altre informazioni sul supporto del regolamento RGPD di Microsoft, vedere [Licensing Terms and Documentation](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (Condizioni di licenza e documentazione).
+Azure Active Directory (Azure AD) Application Proxy è conforme al regolamento GDPR, come tutti gli altri servizi e funzionalità Microsoft. Per altre informazioni sul supporto del regolamento GDPR di Microsoft, vedere [Licensing Terms and Documentation](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (Condizioni di licenza e documentazione).
 
-Dato che questa funzionalità include connettori nei computer, esistono alcuni eventi che è necessario monitorare per mantenere la conformità al regolamento RGPD. Application Proxy crea i tipi di log seguenti, che possono contenere informazioni personali degli utenti finali:
+Dato che questa funzionalità include connettori nei computer, esistono alcuni eventi che è necessario monitorare per mantenere la conformità al regolamento GDPR. Application Proxy crea i tipi di log seguenti, che possono contenere informazioni personali degli utenti finali:
 
 - Registri eventi del connettore
 - Registri eventi di Windows
 
-Esistono due modi per essere conformi all'RGPD:
+Esistono due modi per essere conformi al GDPR:
 
 - Eliminare ed esportare le richieste quando si presentano
 
@@ -80,5 +80,5 @@ Per disattivare i log del connettore, è necessario modificare `C:\Program Files
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per una panoramica di Azure Active Directory Application Proxy, vedere [Come fornire l'accesso remoto sicuro alle applicazioni locali](active-directory-application-proxy-get-started.md).
+Per una panoramica di Azure Active Directory Application Proxy, vedere [Come fornire l'accesso remoto sicuro alle applicazioni locali](manage-apps/application-proxy.md).
 

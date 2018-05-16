@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 76149ce3864811cf2b5648f8dc0aa214e5820d9f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2172acfd61188c09693b9c7dacf37ff7a638d7f4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Effettuare il provisioning di una macchina virtuale per l'apprendimento avanzato in Azure 
 
@@ -44,9 +44,9 @@ Ecco i passaggi necessari per creare un'istanza della macchina virtuale per l'ap
       6. **Location**: selezionare la posizione del data center più appropriata. In genere è il data center contenente la maggior parte dei dati o più vicino alla posizione fisica per garantire la massima velocità di accesso alla rete. 
       
 > [!NOTE]
-> Poiché il provisioning della DLVM viene effettuato all'interno di istanze di macchine virtuali GPU Azure serie NC, è necessario scegliere una posizione in Azure che contenga GPU. Attualmente le posizioni che contengono macchine virtuali GPU sono: **Stati Uniti orientali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti occidentali 2, Europa settentrionale, Europa occidentale**. Per l'elenco più recente, vedere la pagina [Prodotti Azure per area](https://azure.microsoft.com/en-us/regions/services/) e cercare **serie NC** in **Calcolo**. 
+> Il DLVM supporta tutte le istanze delle macchine virtuali GPU serie NC e ND. Durante il provisioning del DLVM, è necessario scegliere una delle posizioni in Azure che dispongono di GPU. Controllare la [pagina dei Prodotti Azure per area](https://azure.microsoft.com/regions/services/) per le posizioni disponibili e cercare **Serie NC**, **Serie NCv2**, **Serie NCv3** o **Serie ND** sotto **Calcolo**. 
 
-   2. **Impostazioni**: selezionare una macchina virtuale GPU serie NC che soddisfi i requisiti funzionali e i vincoli di costo. Creare un account di archiviazione per la macchina virtuale.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   2. **Impostazioni**: selezionare una macchina virtuale GPU serie NC (NC, NCv2, NCv3) o ND che soddisfi i requisiti funzionali e i vincoli di costo. Creare un account di archiviazione per la macchina virtuale.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
    3. **Riepilogo**: verificare che tutte le informazioni immesse siano corrette.
    5. **Acquista**: fare clic su **Acquista** per avviare il provisioning. Viene fornito un collegamento alle condizioni della transazione. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Size** . 

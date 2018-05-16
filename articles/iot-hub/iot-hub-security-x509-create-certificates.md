@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2017
 ms.author: dkshir
-ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e58096d4bde9c947f199b4696c0b5c28291956d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>Script PowerShell per la gestione di certificati X.509 firmati da CA
 
 La sicurezza basata su certificati X.509 nell'hub IoT richiede prima di tutto una [catena di certificati X.509](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification), che include il certificato radice e i certificati intermedi fino al certificato foglia. La presente guida fornisce *procedure* e istruzioni dettagliate che usano script PowerShell di esempio basati su [OpenSSL](https://www.openssl.org/) per creare e firmare certificati X.509. È consigliabile usare questa guida solo come riferimento, dal momento che molte delle procedure descritte vengono in realtà eseguite durante il processo di produzione. È possibile usare questi certificati per simulare la sicurezza nell'hub IoT di Azure mediante l'*autenticazione dei certificati X.509*. I passaggi descritti in questa guida consentono di creare certificati in locale nel computer Windows in uso. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 In questa esercitazione si presuppone l'acquisto di file binari OpenSSL. È possibile
     - scaricare il codice sorgente OpenSSL e generare i file binari nel computer in uso oppure 
     - scaricare e installare qualsiasi [file binario OpenSSL di terze parti](https://wiki.openssl.org/index.php/Binaries), ad esempio da [questo progetto in SourceForge](https://sourceforge.net/projects/openssl/).
@@ -33,7 +33,9 @@ In questa esercitazione si presuppone l'acquisto di file binari OpenSSL. È poss
 ## <a name="create-x509-certificates"></a>Creare certificati X.509
 Nella procedura seguente viene illustrato un esempio di come creare i certificati radice X.509 in locale. 
 
-1. Aprire una finestra di PowerShell come *amministratore*. 
+1. Aprire una finestra di PowerShell come *amministratore*.  
+   **NOTA:** è necessario aprirla in PowerShell e non in PowerShell ISE, Visual Studio Code o in altri strumenti che eseguono il wrapping della console di PowerShell sottostante.  L'uso di una versione PowerShell non basata su console comporta la sospensione dei comandi `openssl`.
+
 2. Passare alla directory di lavoro. Eseguire lo script seguente per impostare le variabili globali. 
     ```PowerShell
     $openSSLBinSource = "<full_path_to_the_binaries>\OpenSSL\bin"

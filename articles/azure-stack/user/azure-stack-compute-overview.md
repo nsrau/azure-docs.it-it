@@ -1,5 +1,5 @@
 ---
-title: Introduzione alle macchine virtuali di Azure Stack
+title: Introduzione alle macchine virtuali in Azure Stack
 description: Informazioni sulle macchine virtuali di Azure Stack
 services: azure-stack
 author: mattbriggs
@@ -8,41 +8,41 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2453f2449124cb4956797e0d9748f1ee3bf0d9ad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 41e75a6806cc5ff13fad64fd415344376e0d6e88
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="introduction-to-azure-stack-virtual-machines"></a>Introduzione alle macchine virtuali di Azure Stack
+# <a name="introduction-to-azure-stack-virtual-machines"></a>Introduzione alle macchine virtuali in Azure Stack
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
 ## <a name="overview"></a>Panoramica
-Una macchina virtuale di Stack di Azure (VM) è un tipo di risorsa di calcolo su richiesta, scalabile che offre Azure Stack. In genere, la scelta ricade su una VM se è necessario maggiore controllo dell'ambiente di calcolo rispetto a quanto offerto dalle altre soluzioni. Questo articolo fornisce informazioni sugli aspetti da tenere in considerazione prima di creare una VM e sulla relativa modalità di creazione e gestione.
+Una macchina virtuale di Stack di Azure (VM) è un tipo di una risorsa di calcolo su richiesta e scalabile che offre Azure Stack. In genere, la scelta ricade su una VM se è necessario maggiore controllo dell'ambiente di calcolo rispetto a quanto offerto dalle altre soluzioni. Questo articolo fornisce informazioni sugli aspetti da tenere in considerazione prima di creare una VM e sulla relativa modalità di creazione e gestione.
 
-Una macchina virtuale di Azure Stack offre la flessibilità della virtualizzazione senza dover gestire singoli cluster o macchine. È comunque necessario gestire la VM eseguendo determinate attività, ovvero configurazione, applicazione di patch e installazione del software in esecuzione sulla macchina virtuale.
+Una macchina virtuale dello Stack di Azure offre la flessibilità della virtualizzazione senza la necessità di gestire i cluster o singoli computer. Tuttavia, è ancora necessario mantenere la macchina virtuale eseguendo attività quali la configurazione, l'applicazione di patch e installare il software che viene eseguita su di esso.
 
-Macchine virtuali di Azure Stack può essere utilizzate in vari modi. Ad esempio: 
+È possibile utilizzare le macchine virtuali di Azure Stack in vari modi. Ad esempio: 
 
 * **Sviluppo e test** : le macchine virtuali di Azure Stack offrono una rapida e necessarie per creare un computer con una configurazione specifica di codice e testare un'applicazione.
 
 * **Le applicazioni nel cloud** : perché è richiesta per l'applicazione può variare, potrebbe essere utile economico per l'esecuzione in una macchina virtuale nello Stack di Azure. È possibile pagare per VM aggiuntive quando sono necessarie e arrestarle quando non sono richieste.
 
-* **Estesi datacenter** – macchine virtuali in una rete virtuale di Azure Stack può facilmente essere connesso alla rete dell'organizzazione o Azure.
+* **Estesi datacenter** – macchine virtuali in una rete virtuale di Azure Stack può facilmente essere connesso alla rete dell'organizzazione o in Azure.
 
-È possibile aumentare o ridurre il numero di VM usate dall'applicazione in base alle proprie esigenze.
+Le macchine virtuali usate dall'applicazione possono applicare la scalabilità verticale e scalabilità orizzontale al percorso in cui è richiesto in base alle esigenze.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Aspetti da tenere in considerazione prima della creazione di una VM
 
-Sono sempre presenti numerose considerazioni di progettazione quando si compila un'infrastruttura dell'applicazione nello Stack di Azure. Prima di iniziare, è quindi importante analizzare gli aspetti seguenti di una VM:
+Sono sempre presenti diverse considerazioni di progettazione quando si compila un'infrastruttura dell'applicazione nello Stack di Azure. Questi aspetti di una macchina virtuale sono importanti da considerare prima di iniziare la creazione dell'infrastruttura:
 
-- Nomi delle risorse dell'applicazione
-- Dimensioni della VM
-- Numero massimo di VM che è possibile creare
-- Sistema operativo in esecuzione sulla VM
-- Configurazione della VM dopo l'avvio 
-- Risorse correlate richieste dalla VM
+* I nomi delle risorse dell'applicazione.
+* Le dimensioni della macchina virtuale.
+* Il numero massimo di macchine virtuali che possono essere creati.
+* Il sistema operativo che esegue la macchina virtuale.
+* La configurazione della macchina virtuale dopo l'avvio.
+* Risorse correlate, che la macchina virtuale.
 
 ### <a name="naming"></a>Denominazione
 
@@ -61,10 +61,9 @@ La sottoscrizione dispone di limiti di quota predefiniti che possono influire su
 ### <a name="operating-system-disks-and-images"></a>Immagini e dischi del sistema operativo
 
 Le macchine virtuali usano dischi rigidi virtuali (VHD) per archiviare il sistema operativo e i dati. Tali dischi vengono usati anche per le immagini che è possibile scegliere per installare un sistema operativo.
-Stack di Azure fornisce un marketplace per l'utilizzo con varie versioni e i tipi di sistemi operativi. Le immagini Marketplace sono identificate dall'editore di immagini, dall'offerta, dalla SKU e dalla versione (in genere la versione viene specificata alla fine).
+Stack di Azure fornisce un marketplace per l'utilizzo con varie versioni e i tipi di sistemi operativi. Le immagini di Marketplace sono identificate dal server di pubblicazione di immagine, offerta, sku e versione (in genere versione viene specificata come versione più recente).
 
 Nella tabella seguente vengono illustrati alcuni metodi che è possibile trovare le informazioni per un'immagine:
-
 
 |Metodo|DESCRIZIONE|
 |---------|---------|
@@ -112,7 +111,12 @@ Nella tabella seguente fornisce informazioni per iniziare a creare la macchina v
 
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>Modalità di gestione della VM creata
 
-Le VM possono essere gestite mediante un portale basato su browser, gli strumenti da riga di comando con il supporto per gli script o direttamente tramite l'API. Alcune attività di gestione tipiche consentono di visualizzare informazioni su una VM, accedere a una VM, gestire la disponibilità ed eseguire backup.
+È possibile gestire le macchine virtuali tramite un portale basato sul browser, gli strumenti da riga di comando con supporto per lo script o direttamente tramite le API. Alcune attività di gestione comuni che è possibile eseguire sono:
+
+* Recupero di informazioni su una macchina virtuale
+* La connessione a una macchina virtuale
+* La gestione della disponibilità
+* La creazione di backup
 
 ### <a name="get-information-about-a-vm"></a>Visualizzare informazioni su una macchina virtuale
 
@@ -130,5 +134,5 @@ La tabella seguente illustra alcuni modi per ottenere informazioni su una macchi
 È possibile utilizzare il **Connetti** pulsante nel portale di Azure Stack per connettersi alla macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Considerazioni per le macchine virtuali in Azure Stack](azure-stack-vm-considerations.md)
 
+* [Considerazioni per le macchine virtuali in Azure Stack](azure-stack-vm-considerations.md)

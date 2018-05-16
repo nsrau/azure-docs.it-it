@@ -12,13 +12,13 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2018
+ms.date: 05/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 6c462f9fe5e152c82be1a2b8643ee35d260a90f6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c657cda7dce0611cb357a0a2063a154f2f6f25f2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-kafka-on-hdinsight-from-an-azure-function-app"></a>Usare Kafka in HDInsight da un'app per le funzioni di Azure
 
@@ -70,7 +70,7 @@ Le informazioni di questa sezione preparano il cluster Kafka ad accettare i dati
 
 Per impostazione predefinita, Zookeeper restituisce il nome di dominio dei broker di Kafka ai client. Questa configurazione non funziona senza un server DNS, perché il client (Funzioni di Azure) non riesce a risolvere i nomi per la rete virtuale. Per questa configurazione usare la procedura seguente per configurare Kafka in HDInsight affinché possa creare pubblicità per gli indirizzi IP anziché per i nomi di dominio:
 
-1. Usando un web browser, passare a https://CLUSTERNAME.azurehdinsight.net. Sostituire __CLUSTERNAME__ con il nome di Kafka nel cluster HDInsight.
+1. Usando un Web browser, passare a https://CLUSTERNAME.azurehdinsight.net. Sostituire __CLUSTERNAME__ con il nome di Kafka nel cluster HDInsight.
 
     Quando richiesto, usare il nome utente HTTPS e la password per il cluster. Viene visualizzata l'interfaccia utente di Ambari Web per il cluster.
 

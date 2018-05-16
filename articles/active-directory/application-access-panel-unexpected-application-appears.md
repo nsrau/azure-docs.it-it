@@ -2,10 +2,10 @@
 title: Come vengono visualizzate le applicazioni nel pannello di accesso | Microsoft Docs
 description: Risolvere i problemi relativi alla visualizzazione di un'applicazione nel panello di accesso
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewr: japere
-ms.openlocfilehash: 25e8bd404bc5b622568b8885f241c743f82f59cc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0d4203ea39adf027d783a482198f523e18cbc246
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Come vengono visualizzate le applicazioni nel pannello di accesso
 
@@ -103,7 +103,7 @@ Per controllare l'appartenenza a un gruppo, seguire questa procedura:
 
 5.  Fare clic su **Tutti gli utenti**.
 
-6.  **Cercare** l'utente desiderato e **fare clic sulla riga corrispondente** per selezionarlo.
+6.  **Ricercare** l'utente per cui si vuole verificare la licenza e **fare clic sulla relativa riga** per selezionarlo.
 
 7.  Fare clic su **gruppi.**
 
@@ -123,7 +123,7 @@ Per controllare l'appartenenza a un gruppo, seguire questa procedura:
 
 5.  Fare clic su **Tutti gli utenti**.
 
-6.  **Cercare** l'utente desiderato e **fare clic sulla riga corrispondente** per selezionarlo.
+6.  **Ricercare** l'utente per cui si vuole verificare la licenza e **fare clic sulla relativa riga** per selezionarlo.
 
 7.  Fare clic su **gruppi.**
 
@@ -151,4 +151,4 @@ aprire un ticket di supporto con le informazioni seguenti, se disponibili:
 -   Tracce Fiddler
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Gestione di applicazioni con Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Gestione di applicazioni con Azure Active Directory](manage-apps/what-is-application-management.md)

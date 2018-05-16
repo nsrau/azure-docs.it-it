@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: c66b0d7ea5ade90c6bb8f88006f2a09bd407deaa
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f74d378359ec66b76fd53b95ab898f1cec9b07f7
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/10/2018
@@ -77,6 +77,9 @@ Aggiungere l'immagine Ubuntu Server seguente Marketplace:
     - **SKU**: 16.04 LTS
     - **Versione**: 16.04.201802220
 
+    > [!Note]  
+    > Potrebbe essere elencata più di una versione di Ubuntu Server 16.04 LTS. È necessario aggiungere la versione corrispondente. Il Kubernetes Cluster richiede la versione esatta dell'elemento.
+
 6. Selezionare **scaricare.**
 
 ## <a name="add-a-custom-script-for-linux"></a>Aggiungere uno script personalizzato per Linux
@@ -95,6 +98,9 @@ Aggiungere il Cluster Kubernetes del Marketplace:
     - **Offrono**: Script personalizzato per Linux 2.0
     - **Versione**: 2.0.3
     - **Server di pubblicazione**: Microsoft Corp
+
+    > [!Note]  
+    > Potrebbe essere elencata più di una versione dello Script personalizzato per Linux. È necessario aggiungere la versione corrispondente. Il Kubernetes Cluster richiede la versione esatta dell'elemento.
 
 6. Selezionare **scaricare.**
 
@@ -138,6 +144,8 @@ Per rimuovere l'elemento Kubernetes Cluster:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Distribuire un Cluster Kubernetes allo Stack di Azure](/user/azure-stack-solution-template-kubernetes-deploy.md)
+[Distribuire un Cluster Kubernetes allo Stack di Azure](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
+
+
 
 [Panoramica dell'offerta di servizi di Azure Stack](azure-stack-offer-services-overview.md)

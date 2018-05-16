@@ -9,13 +9,13 @@ ms.topic: get-started-article
 ms.date: 04/19/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 81f455668e81c2a6c21b66d85199da3f475e7265
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ffcc3a1a40973a4cf3b096ed82d35e21c9b20a44
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="service-principals-with-azure-container-service-aks"></a>Entità servizio con il servizio contenitore di Azure
+# <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entità servizio con Azure Kubernetes Service (AKS)
 
 Un cluster del servizio contenitore di Azure richiede un'[entità servizio di Azure Active Directory][aad-service-principal] per l'interazione con le API di Azure. L'entità servizio è necessaria per la creazione e gestione dinamiche di risorse quali [Azure Load Balancer][azure-load-balancer-overview].
 

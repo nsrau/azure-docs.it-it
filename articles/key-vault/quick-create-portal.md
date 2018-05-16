@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 04/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 391985f3ad0e07c4559545e9d0c5fffc45fe27d2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 942c2bce3a5907917b8d1cc9e8c251b5779542b5
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Guida introduttiva: Creare un'istanza di Key Vault usando il portale di Azure
 
@@ -87,4 +87,4 @@ Quando non è più necessario, eliminare il gruppo di risorse per eliminare l'is
 In questa guida introduttiva è stata creata un'istanza di Key Vault ed è stato archiviato un segreto. Per altre informazioni su Key Vault e su come usarlo con le applicazioni, passare all'esercitazione per le applicazioni Web che usano Key Vault.
 
 > [!div class="nextstepaction"]
-> [Usare Azure Key Vault da un'applicazione Web](key-vault-use-from-web-application.md) Per informazioni su come leggere un segreto da Key Vault usando un'applicazione Web con l'[identità del servizio gestito](/active-directory/managed-service-identity/overview.md), proseguire con l'esercitazione [Configurare un'applicazione Web di Azure per la lettura di un segreto da Key Vault](tutorial-web-application-keyvault.md)
+> Per informazioni su come leggere un segreto da Key Vault in un'applicazione Web usando le identità del servizio gestito, proseguire con l'esercitazione seguente [Configurare un'applicazione Web di Azure per leggere un segreto da Key Vault](tutorial-web-application-keyvault.md).

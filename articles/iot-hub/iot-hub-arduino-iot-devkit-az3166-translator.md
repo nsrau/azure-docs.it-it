@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: d17f117d71eb0616201df18aea6dc48749ae24a8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 20e5a5f4fb381dedc42d698464819a6098c3579b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>Usare IoT DevKit AZ3166 con Funzioni di Azure e Servizi cognitivi per creare un traduttore di lingue
 
@@ -35,7 +35,7 @@ Completare la [Guida introduttiva](https://docs.microsoft.com/azure/iot-hub/iot-
 
 Una sottoscrizione di Azure attiva. Se non è disponibile, è possibile registrarsi tramite uno di questi metodi:
 
-* Attivare una [versione di prova gratuita di 30 giorni dell'account di Microsoft Azure](https://azure.microsoft.com/en-us/free/)
+* Attivare una [versione di prova gratuita di 30 giorni dell'account di Microsoft Azure](https://azure.microsoft.com/free/)
 * Richiedere il [credito Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se si ha un abbonamento a MSDN o una sottoscrizione di Visual Studio
 
 ## <a name="step-1-open-the-project-folder"></a>Passaggio 1. Aprire la cartella del progetto
@@ -46,17 +46,14 @@ Una sottoscrizione di Azure attiva. Se non è disponibile, è possibile registra
 - Avviare Visual Studio Code
 - Connettere il dispositivo DevKit al computer.
 
-Visual Studio Code individua DevKit automaticamente e visualizza una pagina di introduzione:
-
-![Pagina Introduzione](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_start.png)
-
 ### <a name="b-open-the-arduino-examples-folder"></a>B. Aprire la cartella degli esempi di Arduino
 
 Espandere la sezione **ARDUINO EXAMPLES > Examples for MXCHIP AZ3166 > AzureIoT** (ESEMPI ARDUINO > Esempi per MXCHIP AZ3166 e selezionare **DevKitTranslator**. Verrà visualizzata una nuova finestra di Visual Studio Code con la cartella di progetto DEVKITTRANSLATOR all'interno.
 
 ![Esempi per IoT DevKit](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 
-Se si chiude il riquadro involontariamente, è possibile riaprirlo. Premere `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) per aprire il riquadro comandi, digitare **Arduino** e quindi cercare e selezionare **Arduino: Examples**.
+> [!NOTE]
+> È anche possibile aprire l'esempio dal riquadro comandi. Premere `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) per aprire il riquadro comandi, digitare **Arduino** e quindi cercare e selezionare **Arduino: Examples**.
 
 ## <a name="step-2-provision-azure-services"></a>Passaggio 2. Eseguire il provisioning dei servizi di Azure
 
@@ -143,4 +140,4 @@ Ora è possibile usare IoT DevKit come traduttore usando Funzioni di Azure e Ser
 Procedere alle esercitazioni successive per apprendere come:
 
 > [!div class="nextstepaction"]
-> [Connettere il dispositivo IoT DevKit AZ3166 ad Azure IoT Suite per il monitoraggio remoto](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)
+> [Connettere IoT DevKit AZ3166 all'acceleratore di soluzioni di monitoraggio remoto di Azure IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)

@@ -83,7 +83,8 @@
 
 
 ## Risolvere problemi
-### [Connettività](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [Connettività di Azure AD con Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [Connettività SQL](active-directory-aadconnect-tshoot-sql-connectivity.md)
 ### [Errori durante la sincronizzazione](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Oggetto non sincronizzato](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Sincronizzazione di oggetti tramite le attività di risoluzione dei problemi](active-directory-aadconnect-troubleshoot-objectsync.md)

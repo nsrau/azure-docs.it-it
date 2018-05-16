@@ -1,23 +1,24 @@
 ---
-title: "Come usare un'identità del servizio gestito di una macchina virtuale di Azure con Azure SDK"
-description: "Esempi di codice per l'uso di Azure SDK con un'identità del servizio gestito di una macchina virtuale di Azure."
+title: Come usare un'identità del servizio gestito di una macchina virtuale di Azure con Azure SDK
+description: Esempi di codice per l'uso di Azure SDK con un'identità del servizio gestito di una macchina virtuale di Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 6b3f5ab86b06675c4b50ee6bab1f81a538ee7185
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 389b9967003c681b974f4580264701d22c103b7e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-with-azure-sdks"></a>Come usare un'identità del servizio gestito di una macchina virtuale di Azure con Azure SDK 
 

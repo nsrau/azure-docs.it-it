@@ -1,22 +1,23 @@
 ---
 title: Risolvere i problemi di sviluppo delle applicazioni in Azure Active Directory | Microsoft Docs
-description: "Risolvere i problemi più comuni relativi allo sviluppo delle applicazioni in Azure Active Directory"
+description: Risolvere i problemi più comuni relativi allo sviluppo delle applicazioni in Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 98510670063fbd856cbc438b59613adce84742bd
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 9d23b05f78744f8d5d213d2dabd83ad179c56229
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-azure-active-directory-application-development"></a>Risolvere i problemi di sviluppo delle applicazioni in Azure Active Directory
 Tramite i collegamenti seguenti si accede a una mappa del contenuto utile per risolvere alcuni dei problemi più comuni relativi allo sviluppo delle applicazioni con il **Registro applicazioni** in Azure Active Directory.

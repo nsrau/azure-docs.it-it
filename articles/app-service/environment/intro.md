@@ -11,26 +11,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/20/2018
+ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 0b113a594ebf1180346eccc295251f522dcc29c5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6be6bb3b6b75b278a7c28307d93d6273c5bb18d6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introduzione agli ambienti del servizio app #
  
 ## <a name="overview"></a>Panoramica ##
 
-L'ambiente del servizio app di Azure è una funzionalità del servizio app di Azure che fornisce un ambiente completamente isolato e dedicato per l'esecuzione sicura di app del servizio app di Azure su vasta scala. Questa funzionalità può ospitare [app Web][mobileapps], app per le API e [funzioni][Functions].
+L'ambiente del servizio app di Azure è una funzionalità del servizio app di Azure che fornisce un ambiente completamente isolato e dedicato per l'esecuzione sicura di app del servizio app di Azure su vasta scala. Questa funzionalità può ospitare gli elementi seguenti:
+
+* App Web di Windows
+* App Web di Linux (in anteprima)
+* Contenitori Docker (in anteprima)
+* App per dispositivi mobili
+* Funzioni
 
 Gli ambienti del servizio app sono adatti ai carichi di lavoro dell'applicazione che richiedono:
 
-- Scalabilità molto elevata.
-- Isolamento e accesso alla rete protetto.
-- Uso intensivo della memoria.
+* Scalabilità molto elevata.
+* Isolamento e accesso alla rete protetto.
+* Uso intensivo della memoria.
 
 I clienti possono creare più ambienti del servizio app in una singola area di Azure o in più aree di Azure. Questa flessibilità rende gli ambienti del servizio app ideali per i livelli applicazione con scalabilità orizzontale senza stato, nel supportare i carichi di lavoro RPS elevati.
 
@@ -39,7 +45,7 @@ Gli ambienti del servizio app sono isolati per eseguire solo le applicazioni di 
 * Gli ambienti del servizio app consentono l'hosting di app su vasta scala con accesso di rete protetto. Per altre informazioni, vedere gli [approfondimenti di AzureCon ](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) sugli ambienti del servizio app.
 * Per ottenere la scalabilità orizzontale è possibile usare più ambienti del servizio app. Per altre informazioni, vedere [come configurare un footprint dell'app con distribuzione geografica](app-service-app-service-environment-geo-distributed-scale.md).
 * Gli ambienti del servizio app consentono di configurare l'architettura di sicurezza, come illustrato negli approfondimenti di AzureCon. Per vedere come è stata configurata l'architettura di sicurezza illustrata negli approfondimenti di AzureCon, vedere l'articolo relativo all'[implementazione di un'architettura di sicurezza a più livelli](app-service-app-service-environment-layered-security.md) con gli ambienti del servizio app.
-* Le app in esecuzione in ambienti del servizio app possono avere l'accesso controllato da dispositivi upstream, quali Web application firewall. Per altre informazioni, vedere [Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app](app-service-app-service-environment-web-application-firewall.md).
+* Le app in esecuzione in ambienti del servizio app possono avere l'accesso controllato da dispositivi upstream, quali Web application firewall. Per altre informazioni, vedere [Integrating your ILB App Service Environment with the Azure Application Gateway][AppGW] (Integrazione dell'ambiente del servizio app ILB con il gateway applicazione di Azure).
 
 ## <a name="dedicated-environment"></a>Ambiente dedicato ##
 
@@ -59,7 +65,7 @@ Per gli ambienti del servizio app è prevista una tariffa fissa mensile che copr
 
 ## <a name="virtual-network-support"></a>Supporto della rete virtuale ##
 
-È possibile creare un ambiente del servizio app solo in una rete virtuale di Azure Resource Manager. Per altre informazioni sulle reti virtuali di Azure, vedere le [domande frequenti sulle reti virtuali di Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Un ambiente del servizio app esiste sempre in una rete virtuale e, più precisamente, all'interno di una subnet di una rete virtuale. È possibile usare le funzionalità di sicurezza delle reti virtuali per controllare le comunicazioni di rete in ingresso e in uscita per le app.
+L'ambiente del servizio app è una distribuzione del sevizio app di Azure direttamente in una rete virtuale di Azure Resource Manager del cliente. Per altre informazioni sulle reti virtuali di Azure, vedere le [domande frequenti sulle reti virtuali di Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Un ambiente del servizio app esiste sempre in una rete virtuale e, più precisamente, all'interno di una subnet di una rete virtuale. È possibile usare le funzionalità di sicurezza delle reti virtuali per controllare le comunicazioni di rete in ingresso e in uscita per le app.
 
 Un ambiente del servizio app può avere una connessione a Internet con un indirizzo IP pubblico o una connessione interna con il solo indirizzo del servizio di bilanciamento del carico interno di Azure.
 

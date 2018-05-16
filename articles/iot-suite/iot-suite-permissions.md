@@ -1,12 +1,12 @@
 ---
-title: Azure IoT Suite e Azure Active Directory | Documentazione Microsoft
-description: Descrive in che modo Azure IoT Suite usa Azure Active Directory per gestire le autorizzazioni.
-services: 
+title: Acceleratori di soluzioni di Azure IoT e Azure Active Directory | Microsoft Docs
+description: Descrive in che modo gli acceleratori di soluzioni di Azure IoT Suite usano Azure Active Directory per gestire le autorizzazioni.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 246228ba-954a-4d96-b6d6-e53e4590cb4f
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: e5804cda921e9d598d0ed02c4fafccdb40fbe7a5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b7360ca4df63cac114b0eb1f93375367da6735cc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Autorizzazioni per il sito azureiotsuite.com
 
@@ -29,35 +29,35 @@ Quando si accede per la prima volta ad [azureiotsuite.com][lnk-azureiotsuite], i
 
 1. Per prima cosa, il sito cerca prima in Azure a quale tenant di AAD appartiene l'utente per popolare l'elenco di tenant visualizzato accanto al nome utente connesso. In questo momento, il sito può ricevere solo i token utente per un tenant alla volta. Di conseguenza, quando si passa a un tenant diverso usando l'elenco a discesa nell'angolo superiore destro, il sito registra di nuovo l'utente nel tenant per ottenere il token di tale tenant.
 
-2. Successivamente, il sito cerca in Azure quali sottoscrizioni sono state associate dall'utente al tenant selezionato. Le sottoscrizioni disponibili vengono visualizzate quando si crea una nuova soluzione preconfigurata.
+2. Successivamente, il sito cerca in Azure quali sottoscrizioni sono state associate dall'utente al tenant selezionato. Le sottoscrizioni disponibili vengono visualizzate quando si crea un nuovo acceleratore di soluzioni.
 
-3. Infine, il sito recupera tutte le risorse nelle sottoscrizioni e nei gruppi di risorse contrassegnati come soluzioni preconfigurate e popola i riquadri nella home page.
+3. Infine, il sito recupera tutte le risorse nelle sottoscrizioni e nei gruppi di risorse contrassegnati come acceleratori di soluzioni e popola i riquadri nella home page.
 
-Le sezioni seguenti descrivono i ruoli che controllano l'accesso alle soluzioni preconfigurate.
+Le sezioni seguenti descrivono i ruoli che controllano l'accesso agli acceleratori di soluzioni.
 
 ## <a name="aad-roles"></a>Ruoli AAD
 
-I ruoli AAD controllano la capacità di provisioning delle soluzioni preconfigurate e gestiscono gli utenti in una soluzione preconfigurata.
+I ruoli AAD controllano la capacità di provisioning degli acceleratori di soluzioni e gestiscono gli utenti in un acceleratore di soluzioni.
 
-Per altre informazioni sui ruoli di amministratore in AAD, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory][lnk-aad-admin]. L'articolo corrente è incentrato sui ruoli della directory di **Amministratore globale** e **Utente** usati dalle soluzioni preconfigurate.
+Per altre informazioni sui ruoli di amministratore in AAD, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory][lnk-aad-admin]. L'articolo corrente è incentrato sui ruoli della directory di **Amministratore globale** e **Utente** usati dagli acceleratori di soluzioni.
 
 ### <a name="global-administrator"></a>Amministratore globale
 
 Per ogni tenant di AAD possono essere presenti più amministratori globali:
 
 * Quando si crea un tenant di AAD, si è per impostazione predefinita l'amministratore globale del tenant.
-* L'amministratore globale può effettuare il provisioning di soluzioni preconfigurate di base e standard.
+* L'amministratore globale può effettuare il provisioning di acceleratori di soluzioni di base e standard.
 
 ### <a name="domain-user"></a>Utente di dominio
 
 Per ogni tenant di AAD possono essere presenti molti utenti del dominio:
 
-* Un utente di dominio può effettuare il provisioning di una soluzione preconfigurata di base tramite il sito [azureiotsuite.com][lnk-azureiotsuite].
-* Un utente di dominio può creare una soluzione preconfigurata di base tramite l'interfaccia della riga di comando.
+* Un utente di dominio può effettuare il provisioning di un acceleratore di soluzioni di base tramite il sito [azureiotsuite.com][lnk-azureiotsuite].
+* Un utente di dominio può creare un acceleratore di soluzioni di base tramite l'interfaccia della riga di comando.
 
 ### <a name="guest-user"></a>Utente guest
 
-Per ogni tenant AAD possono essere presenti molti utenti guest. Gli utenti guest hanno un set di diritti limitato nel tenant di AAD. Di conseguenza, gli utenti guest non possono effettuare il provisioning di una soluzione preconfigurata nel tenant di AAD.
+Per ogni tenant AAD possono essere presenti molti utenti guest. Gli utenti guest hanno un set di diritti limitato nel tenant di AAD. Di conseguenza, gli utenti guest non possono effettuare il provisioning di un acceleratore di soluzioni nel tenant di AAD.
 
 Per altre informazioni sugli utenti e i ruoli in AAD, vedere le risorse seguenti:
 
@@ -94,7 +94,7 @@ Per indicazioni vedere il diagramma seguente:
 Se si è certi di avere una sottoscrizione di Azure, convalidare il mapping del tenant per la sottoscrizione e verificare che sia selezionato il tenant corretto nell'elenco a discesa. Se si è verificato che il tenant desiderato è corretto, seguire il diagramma precedente e verificare il mapping della sottoscrizione e il tenant di AAD.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni su IoT Suite, vedere come [personalizzare una soluzione preconfigurata][lnk-customize].
+Per approfondire gli acceleratori di soluzioni, vedere come è possibile [personalizzare un acceleratore di soluzioni][lnk-customize].
 
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 

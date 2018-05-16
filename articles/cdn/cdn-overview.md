@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/06/2018
-ms.author: rli
+ms.date: 04/20/2018
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 2da919a880332be928c211a2493f2c0b09a0fcbb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 36de1011e48f274759c0aeebde74bd26c6604e19
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Definizione di rete per la distribuzione di contenuti
 Una rete per la distribuzione di contenuti (CDN) è una rete di server distribuita in grado di fornire contenuti Web agli utenti in modo efficiente. Per ridurre al minimo la latenza, le reti CDN archiviano il contenuto memorizzato nella cache in server perimetrali presenti in località POP (Point of Presence) prossime agli utenti finali. 
@@ -50,7 +50,7 @@ Per un elenco aggiornato delle posizioni dei nodi della rete CDN, vedere [Locali
 6. Se il valore TTL per il file non è ancora scaduto, il server perimetrale restituisce il file direttamente dalla cache. Questo processo offre un'esperienza utente più veloce ed efficiente.
 
 ## <a name="requirements"></a>Requisiti
-Per usare la rete CDN di Azure è necessario avere almeno una sottoscrizione di Azure. È anche necessario creare almeno un profilo di rete CDN, che è una raccolta di endpoint di rete CDN. Ogni endpoint di rete CDN rappresenta una configurazione specifica del comportamento di distribuzione dei contenuti e dell'accesso. Per organizzare gli endpoint di rete CDN per dominio Internet, applicazione Web o altri criteri, è possibile usare più profili. A livello di profilo di rete CDN vengono applicati i [prezzi della rete CDN di Azure](https://azure.microsoft.com/pricing/details/cdn/), quindi è necessario creare più profili di rete CDN se si vuole usare una combinazione di piani tariffari.
+Per usare la rete CDN di Azure è necessario avere almeno una sottoscrizione di Azure. È anche necessario creare almeno un profilo di rete CDN, che è una raccolta di endpoint di rete CDN. Ogni endpoint di rete CDN rappresenta una configurazione specifica del comportamento di distribuzione dei contenuti e dell'accesso. Per organizzare gli endpoint di rete CDN per dominio Internet, applicazione Web o altri criteri, è possibile usare più profili. A livello di profilo di rete CDN vengono applicati i [prezzi della rete CDN di Azure](https://azure.microsoft.com/pricing/details/cdn/), quindi è necessario creare più profili di rete CDN se si vuole usare una combinazione di piani tariffari. Per informazioni sulla struttura di fatturazione della rete CDN di Azure, vedere [Informazioni sulla fatturazione per la rete CDN di Azure](cdn-billing.md).
 
 ### <a name="limitations"></a>Limitazioni
 Ogni sottoscrizione di Azure ha limiti predefiniti per le risorse seguenti:
@@ -77,4 +77,5 @@ Per un elenco completo delle funzionalità supportate da ogni prodotto della ret
 - Gestire gli endpoint della rete CDN con il [portale di Microsoft Azure](https://portal.azure.com) o [PowerShell](cdn-manage-powershell.md).
 - Informazioni su come automatizzare la rete CDN di Azure con [.NET](cdn-app-dev-net.md) o [Node.js](cdn-app-dev-node.md).
 - Per vedere la rete CDN di Azure in azione, guardare i [video della rete CDN di Azure](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest).
+- Per informazioni sulle funzionalità più recenti della rete CDN di Azure, vedere il [blog della rete CDN Azure](https://azure.microsoft.com/blog/tag/azure-cdn/).
 

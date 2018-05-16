@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 79161d0be407a5b5692e1ad0ee25c609aefb2fb5
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: be8c997df5893782c469eefe4e3c79ab698f4c78
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elementi del Marketplace Azure disponibili per lo Stack di Azure
 
@@ -40,8 +40,8 @@ Ogni volta che sono disponibili aggiornamenti per utilizzare le estensioni di ma
 | ![Accesso alla VM per Linux](media/azure-stack-marketplace-azure-items/cse.png) | [ Accesso alla VM per Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Scaricare l'aggiornamento alla versione nella casella di VMAccess per estensione Linux. Questo aggiornamento è importante se si prevede di usare le macchine virtuali Linux Debian.</b> | Microsoft | Linux |
 | ![Estensione di Backup Acronis per Linux](media/azure-stack-marketplace-azure-items/acronis.png) | [ Estensione di Backup Acronis per Linux ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | L'estensione di Backup Acronis per Microsoft Azure fa parte della famiglia di prodotti di protezione dati Acronis Backup. | GmbH internazionali Acronis. | Linux |
 | ![Estensione Acronis Backup per Windows](media/azure-stack-marketplace-azure-items/acronis.png) | [ Estensione Acronis Backup per Windows ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | L'estensione di Backup Acronis per Microsoft Azure fa parte della famiglia di prodotti di protezione dati Acronis Backup. | GmbH internazionali Acronis. | Windows |
-| ![Estensione SecureVM CloudLink per Linux](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ Estensione SecureVM CloudLink per Linux ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | Controllare, il monitoraggio e crittografare le macchine virtuali con maggiore facilità e affidabilità. | Dell EMC | Linux |
-| ![Estensione SecureVM CloudLink per Windows](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ Estensione SecureVM CloudLink per Windows ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | Controllare, il monitoraggio e crittografare le macchine virtuali con maggiore facilità e affidabilità. | Dell EMC | Windows |
+| ![Estensione SecureVM CloudLink per Linux](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ Estensione SecureVM CloudLink per Linux ](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Controllare, il monitoraggio e crittografare le macchine virtuali con maggiore facilità e affidabilità. | Dell EMC | Linux |
+| ![Estensione SecureVM CloudLink per Windows](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ Estensione SecureVM CloudLink per Windows ](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Controllare, il monitoraggio e crittografare le macchine virtuali con maggiore facilità e affidabilità. | Dell EMC | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Immagini di macchine virtuali di Microsoft e i modelli di soluzioni
 
@@ -214,11 +214,13 @@ Stack di Microsoft Azure supporta le seguenti macchine virtuali di Azure Marketp
 | ![Barracuda Web Application Firewall (WAF)](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Web Application Firewall (WAF)](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | Sicurezza e protezione DDoS attacchi automatizzati e di destinazione. | Barracuda Networks, Inc. |
 | ![Punto di controllo vSEC gestione della sicurezza](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Punto di controllo vSEC gestione della sicurezza](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Punto di controllo vSEC offre prevenzione di minacce avanzata, a più livelli per proteggere gli asset di cliente in Azure da malware e minacce sofisticate. <b>Scaricare entrambi gli elementi marketplace vSEC punto di controllo.</b> | Punto di controllo |
 | ![Automatizzare Chef](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Automatizzare Chef](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Compilare, distribuire e gestire con Chef automatizza, la piattaforma di automazione continua. <b>Scaricare entrambi gli elementi marketplace Chef</b> | Software di Chef, Inc |
-| ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | Controllare, il monitoraggio e crittografare le macchine virtuali con maggiore facilità e affidabilità. <b>Scaricare tutti gli elementi CloudLink SecureVM.<b> | Dell EMC |
+| ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM ](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Controllare, il monitoraggio e crittografare le macchine virtuali con maggiore facilità e affidabilità. <b>Scaricare tutti gli elementi CloudLink SecureVM.<b> | Dell EMC |
+| ![F5](media/azure-stack-marketplace-azure-items/f5.png) | [ F5 Big-IP virtuale Edition ](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Il bilanciamento del carico avanzata, soluzione GSLB, Firewall di rete, DNS, WAF e l'accesso all'App. | F5 Networks |
 | ![Hortonworks Data Platform (HDP) Sandbox](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Con tecnologia HDP 2,5 piattaforma open source di 100% per Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![KEMP LoadMaster carico del servizio di bilanciamento ADC contenuto commutatore](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster carico del servizio di bilanciamento ADC contenuto commutatore](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Bilanciamento del carico di livello 4-7 applicazione recapito Controller (ADC), opzione di contenuto e gestione traffico. | KEMP Technologies Inc. |
 | ![NooBaa ibrido AWS S3 compatibile - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [Compatibe NooBaa ibrida AWS S3 - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Servizio di archiviazione compatibili S3 che si estende su pubblico e capacità risorse locali. | NooBaa |
 | ![Firewall applicazione PT](media/azure-stack-marketplace-azure-items/pt.png) | [Firewall applicazione PT](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | Firewall applicazione PT rileva vulnerabilità note & sconosciuta e impedisce gli attacchi sulle App web. <b>Scaricare entrambi gli elementi Marketplace PT.</b> | Tecnologie positivo |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise consente di automatizzare l'intero ciclo di vita dell'infrastruttura di Azure Stack. <b>Scaricare entrambi gli elementi Puppet Marketplace.</b> | Puppet |
+| ![Ripristino rapido hiesta](media/azure-stack-marketplace-azure-items/quest.png) | [Ricerca un rapido ripristino Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Un ripristino rapido avanzate protezione dei dati unifica backup, replica e il ripristino in un'unica soluzione di semplice utilizzo software. | Quest Software |
 | ![Proxy gestione 3.0 SUSE (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [Proxy gestione 3.0 SUSE (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Gestione dell'infrastruttura di open source Best-in-class. | SUSE |
 | ![Strumento Software ZeroDown](media/azure-stack-marketplace-azure-items/zerodown.png) | [Strumento Software ZeroDown ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | V 7.1 strumento Software ZeroDown - eseguire la migrazione + a disponibilità elevata. | Software ZeroDown |

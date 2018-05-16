@@ -1,13 +1,13 @@
 ---
-title: 'Panoramica della soluzione di connected factory: Azure | Microsoft Docs'
-description: Descrizione della soluzione preconfigurata di connected factory di Azure IoT Suite.
-services: 
+title: 'Panoramica della soluzione di Connected Factory: Azure | Microsoft Docs'
+description: Descrizione dell'acceleratore di soluzioni di connected factory di Azure IoT.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: bd68859e3837f7e5adbe911518631cb7abc2c2ce
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: c5fe6cf6dff6fd8951a949761739cb12f98834bf
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Introduzione alla soluzione preconfigurata di connected factory
+# <a name="get-started-with-the-connected-factory-solution-accelerator"></a>Introduzione all'acceleratore di soluzioni di connected factory
 
-Le [soluzioni preconfigurate][lnk-preconfigured-solutions] di Azure IoT Suite combinano più servizi IoT di Azure per fornire soluzioni end-to-end che implementano scenari aziendali IoT comuni. La soluzione preconfigurata di *connected factory* si connette ai dispositivi industriali e li monitora. È possibile usare la soluzione per analizzare il flusso di dati dei dispositivi e ottimizzare la produttività e la redditività operativa.
+Gli [acceleratori di soluzioni][lnk-preconfigured-solutions] di Azure IoT combinano più servizi Azure IoT per fornire soluzioni end-to-end che implementano scenari aziendali IoT comuni. L'acceleratore di soluzioni di *connected factory* si connette ai dispositivi industriali e li monitora. È possibile usare la soluzione per analizzare il flusso di dati dei dispositivi e ottimizzare la produttività e la redditività operativa.
 
-Questa esercitazione illustra come effettuare il provisioning della soluzione preconfigurata di connected factory. Ne descrive anche le funzionalità di base. È possibile accedere a molte di queste funzionalità dal *dashboard* distribuito come parte della soluzione preconfigurata:
+Questa esercitazione illustra come effettuare il provisioning dell'acceleratore di soluzioni di connected factory. Ne descrive anche le funzionalità di base. È possibile accedere a molte di queste funzionalità dal *dashboard* distribuito come parte dell'acceleratore di soluzioni:
 
-![Dashboard della soluzione preconfigurata di connected factory][img-cf-home]
+![Dashboard dell'acceleratore di soluzioni di connected factory][img-cf-home]
 
 Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva.
 
@@ -37,8 +37,8 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva
 ## <a name="provision-the-solution"></a>Effettuare il provisioning della soluzione
 
 1. Accedere ad azureiotsuite.com con le credenziali dell'account Azure e fare clic su "**+**" per creare una soluzione.
-2. Fare clic su **Seleziona** e sul riquadro **Connected factory**.
-3. Immettere un valore in **Nome soluzione** per la soluzione preconfigurata di connected factory.
+2. Fare clic su **Seleziona** nel riquadro **Connected Factory**.
+3. Immettere un **Nome soluzione** per l'acceleratore di soluzioni di connected factory.
 4. Selezionare la **sottoscrizione** e l'**area** da usare per il provisioning della soluzione.
 5. Fare clic su **Crea soluzione** per iniziare il processo di provisioning. In genere il processo richiede alcuni minuti.
 
@@ -50,13 +50,13 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva
 4. Fare clic sul riquadro per visualizzare i dettagli della soluzione nel riquadro di destra.
 
 > [!NOTE]
-> In caso di problemi nella distribuzione della soluzione preconfigurata, vedere [Autorizzazioni per il sito azureiotsuite.com][lnk-permissions] e le [domande frequenti sulla soluzione di connected factory](iot-suite-faq-cf.md). Se i problemi persistono, creare un ticket di servizio nel [portale][lnk-portal].
+> In caso di problemi nella distribuzione dell'acceleratore di soluzioni, vedere [Autorizzazioni per il sito azureiotsuite.com][lnk-permissions] e le [domande frequenti su connected factory](iot-suite-faq-cf.md). Se i problemi persistono, creare un ticket di servizio nel [portale][lnk-portal].
 
 Se ci sono dettagli importanti non elencati per la soluzione, è possibile inviare suggerimenti sulle funzionalità usando i [suggerimenti degli utenti](https://feedback.azure.com/forums/321918-azure-iot).
 
 ## <a name="scenario-overview"></a>Panoramica dello scenario
 
-Nel momento in cui viene distribuita, la soluzione preconfigurata di connected factory viene prepopolata con risorse che consentono di eseguire uno scenario industriale comune. In questo scenario, diversi stabilimenti connessi alla soluzione generano report con i valori dei dati necessari per calcolare l'OEE (Overall Equipment Efficiency) e gli indicatori di prestazioni chiave (KPI). Le sezioni seguenti mostrano come:
+Nel momento in cui viene distribuito, l'acceleratore di soluzioni di connected factory viene prepopolato con risorse che consentono di eseguire uno scenario industriale comune. In questo scenario, diversi stabilimenti connessi alla soluzione generano report con i valori dei dati necessari per calcolare l'OEE (Overall Equipment Efficiency) e gli indicatori di prestazioni chiave (KPI). Le sezioni seguenti mostrano come:
 
 * Monitorare stabilimenti, linee di produzione, OEE delle postazioni e valori KPI
 * Analizzare i dati di telemetria generati da questi dispositivi usando Azure Time Series Insights
@@ -68,17 +68,17 @@ Una particolarità di questo scenario consiste nella possibilità di eseguire tu
 
 Il dashboard della soluzione consente di gestire la soluzione distribuita. Si tratta di una rappresentazione gerarchica della configurazione globale degli stabilimenti. È ad esempio possibile visualizzare OEE e KPI, pubblicare nuovi nodi per la telemetria e attivare avvisi.
 
-1. Al termine del provisioning, quando il riquadro della soluzione preconfigurata indica **Pronto**, scegliere **Avvia** per aprire il portale della soluzione di connected factory in una nuova scheda.
+1. Al termine del provisioning, quando il riquadro l'acceleratore di soluzioni indica **Pronto**, scegliere **Avvia** per aprire il portale della soluzione di connected factory in una nuova scheda.
 
-    ![Avviare la soluzione preconfigurata][img-launch-solution]
+    ![Lanciare l'acceleratore di soluzioni][img-launch-solution]
 
 1. Per impostazione predefinita, il portale della soluzione visualizza il *dashboard*. Per passare ad altre aree del portale, usare il menu a sinistra della pagina.
 
-    ![Dashboard della soluzione preconfigurata di connected factory][cf-img-menu]
+    ![Dashboard dell'acceleratore di soluzioni di connected factory][cf-img-menu]
 
 Il dashboard visualizza le informazioni seguenti:
 
-* Un pannello **Factory locations** (Posizioni factory) che visualizza stato, località e configurazione di produzione corrente nella soluzione. Quando si esegue la soluzione per la prima volta, sono disponibili alcuni dispositivi simulati. La simulazione delle linee di produzione è costituita da tre server OPC UA reali per ogni linea di produzione che eseguono attività simulate e condividono i dati. Per altre informazioni su OPC UA, vedere le [domande frequenti sulla soluzione di connected factory](iot-suite-faq-cf.md).
+* Un pannello **Factory locations** (Posizioni factory) che visualizza stato, località e configurazione di produzione corrente nella soluzione. Quando si esegue la soluzione per la prima volta, sono disponibili alcuni dispositivi simulati. La simulazione delle linee di produzione è costituita da tre server OPC UA reali per ogni linea di produzione che eseguono attività simulate e condividono i dati. Per altre informazioni su OPC UA, vedere le [domande frequenti su Connected Factory](iot-suite-faq-cf.md).
 * Una **mappa** che visualizza la posizione di ogni dispositivo connesso alla soluzione. La soluzione può usare l'API di Bing Mappe per tracciare le informazioni sulla mappa. Se la sottoscrizione è abilitata per l'API di Bing Mappe per le aziende, questa funzionalità viene usata automaticamente. In caso contrario, vedere le [domande frequenti][lnk-faq] per informazioni su come rendere dinamica la mappa.
 * Un pannello **Alarms** (Avvisi) che visualizza gli avvisi generati quando un valore OEE/KPI o di telemetria supera una soglia specifica.
 * Un pannello **Overall Equipment Efficiency** che visualizza i valori OEE per l'intera azienda o per lo stabilimento, la linea di produzione o la postazione in esame. Questo valore viene aggregato dalla vista della postazione fino al livello aziendale. Il valore OEE e i relativi elementi costitutivi possono essere analizzati nei dettagli.
@@ -88,7 +88,7 @@ Il dashboard visualizza le informazioni seguenti:
 
 Il pannello *Factory locations* (Posizioni factory) visualizza la posizione geografica di tutti gli stabilimenti presenti nella soluzione, con lo stato e la configurazione di produzione corrente. Dall'elenco delle località è possibile passare agli altri livelli della gerarchia della soluzione. Le righe nell'elenco sono collegamenti ipertestuali che consentono di visualizzare i dettagli delle linee di produzione di tale località. È quindi possibile esaminare i dettagli delle linee di produzione fino al livello della postazione. È anche possibile applicare un filtro all'elenco.
 
-![Stabilimenti della soluzione preconfigurata di connected factory][cf-img-factories]
+![Factory dell'acceleratore di soluzioni di connected factory][cf-img-factories]
 
 1. Il **pannello degli stabilimenti** visualizza l'elenco di stabilimenti presenti in questa soluzione.
 
@@ -106,7 +106,7 @@ Il pannello *Factory locations* (Posizioni factory) visualizza la posizione geog
 
 Se la sottoscrizione ha accesso all'API di Bing Mappe, la mappa degli *stabilimenti* visualizza la posizione geografica e lo stato di tutti gli stabilimenti presenti nella soluzione. Per esaminare i dettagli, fare clic sulle località visualizzate sulla mappa.
 
-![Mappa della soluzione preconfigurata di connected factory][cf-img-map]
+![Mappa dell'acceleratore di soluzioni di connected factory][cf-img-map]
 
 ## <a name="view-alarms"></a>Visualizzare gli avvisi
 
@@ -121,10 +121,10 @@ Il pannello **Alarms** (Avvisi) indica gli avvisi generati a causa di un valore 
 * Attenuare la causa dell'avviso chiamando un metodo OPC UA sul dispositivo.
 * Rendere indisponibili le azioni predefinite.
 
-    ![Avvisi della soluzione preconfigurata di connected factory][cf-img-alerts]
+    ![Avvisi dell'acceleratore di soluzioni di connected factory][cf-img-alerts]
 
 > [!NOTE]
-> Questi avvisi vengono generati da regole specificate in un file di configurazione della soluzione preconfigurata. Queste regole possono generare avvisi quando i valori di OEE o KPI o del nodo OPC UA superano la soglia configurata.
+> Questi avvisi vengono generati da regole specificate in un file di configurazione nell'acceleratore di soluzioni. Queste regole possono generare avvisi quando i valori di OEE o KPI o del nodo OPC UA superano la soglia configurata.
 
 1. Il **pannello Alarms** (Avvisi) indica gli avvisi generati in questa soluzione.
 
@@ -138,23 +138,23 @@ Il pannello **Alarms** (Avvisi) indica gli avvisi generati a causa di un valore 
 
 Il valore di OEE valuta l'efficienza del processo di produzione usando parametri operativi chiave correlati alla produzione. Il valore di OEE è una misura standard di settore calcolata moltiplicando la disponibilità, le prestazioni e la qualità: OEE = disponibilità x prestazioni x qualità.
 
-![OEE della soluzione preconfigurata di connected factory][cf-img-oee]
+![OEE dell'acceleratore di soluzioni di connected factory][cf-img-oee]
 
 1. Per visualizzare il valore di OEE per qualsiasi livello della gerarchia, passare alla vista specifica. Il valore di OEE per la vista verrà visualizzato nel pannello insieme a tutti gli elementi che costituiscono la percentuale OEE.
 
 2. Per eseguire altre analisi sul valore di OEE per qualsiasi livello della gerarchia di dati, fare clic sulla percentuale OEE, della disponibilità, delle prestazioni o della qualità. Si aprirà un pannello contestuale con visualizzazioni di Time Series Insights che indicano i dati dell'ultima ora, delle ultime 24 ore e degli ultimi 7 giorni.
 
-    ![Visualizzazione TSI della soluzione preconfigurata di connected factory][cf-img-tsi-visualization]
+    ![Visualizzazione TSI dell'acceleratore di soluzioni di connected factory][cf-img-tsi-visualization]
 
 3. Per eseguire altre analisi sui dati dell'avviso, fare clic sul grafico nel pannello degli avvisi. Si aprirà così l'ambiente di esplorazione di Time Series Insights.
 
-    ![Ambiente di esplorazione TSI della soluzione preconfigurata di connected factory][cf-img-tsi-explorer]
+    ![TSI Explorer dell'acceleratore di soluzioni di connected factory][cf-img-tsi-explorer]
 
 ## <a name="view-key-performance-indicators"></a>Visualizzare gli indicatori di prestazioni chiave
 
 La soluzione offre due indicatori di prestazioni chiave, *unità per ogni ora* ed *energia usata in kWh*.
 
-![KPI della soluzione preconfigurata di connected factory][cf-img-kpi]
+![Indicatore KPI dell'acceleratore di soluzioni di connected factory][cf-img-kpi]
 
 1. Per visualizzare le unità per ogni ora o l'energia usata per qualsiasi livello della gerarchia, passare alla vista specifica. Le unità per ogni ora e l'energia usata verranno visualizzate nel pannello.
 
@@ -166,7 +166,7 @@ In questo scenario sono stati monitorati i valori di OEE e KPI nel dashboard. È
 
 ## <a name="other-features"></a>Altre funzionalità
 
-Le sezioni seguenti descrivono alcune funzionalità aggiuntive della soluzione di connected factory non descritte nello scenario precedente.
+Le sezioni seguenti descrivono alcune funzionalità aggiuntive della soluzione Connected Factory non descritte nello scenario precedente.
 
 ## <a name="apply-filters"></a>Applicare filtri
 
@@ -174,13 +174,13 @@ Le sezioni seguenti descrivono alcune funzionalità aggiuntive della soluzione d
 
 2. Verrà visualizzato il pannello dei filtri.
 
-    ![Filtri della soluzione preconfigurata di connected factory][cf-img-alert-filter]
+    ![Filtri dell'acceleratore di soluzioni di connected factory][cf-img-alert-filter]
 
 3. Scegliere il filtro necessario. È anche possibile digitare testo libero nei campi di filtro.
 
 4. Il filtro verrà quindi applicato. Lo stato del filtro viene visualizzato nel dashboard anche tramite un imbuto visibile nelle tabelle degli stabilimenti e degli avvisi.
 
-    ![Filtri della soluzione preconfigurata di connected factory][cf-img-alert-filter-funnel]
+    ![Filtri dell'acceleratore di soluzioni di connected factory][cf-img-alert-filter-funnel]
 
     > [!NOTE]
     > Un filtro attivo non ha effetto sui valori di OEE e KPI visualizzati, filtra solo il contenuto dell'elenco.
@@ -189,27 +189,27 @@ Le sezioni seguenti descrivono alcune funzionalità aggiuntive della soluzione d
 
 ## <a name="browse-an-opc-ua-server"></a>Esplorare un server OPC UA
 
-Quando si distribuisce la soluzione preconfigurata, viene effettuato automaticamente il provisioning dei server OPC UA simulati che è possibile esplorare tramite il browser della soluzione. Questi server sono *server OPC UA simulati* . I server simulati consentono di provare facilmente la soluzione preconfigurata senza la necessità di distribuire server fisici reali. Per connettere un server OPC UA reale alla soluzione, vedere l'esercitazione [Connettere il dispositivo OPC UA alla soluzione preconfigurata di connected factory][lnk-connect-cf].
+Quando si distribuisce l'acceleratore di soluzioni, viene effettuato automaticamente il provisioning dei server OPC UA simulati che è possibile esplorare tramite il browser della soluzione. Questi server sono *server OPC UA simulati* . I server simulati consentono di provare facilmente l'acceleratore di soluzioni senza la necessità di distribuire server fisici reali. Per connettere un server OPC UA reale alla soluzione, vedere l'esercitazione [Connettere il dispositivo OPC UA all'acceleratore di soluzioni di connected factory][lnk-connect-cf].
 
 1. Fare clic sull'**icona del browser** nella barra di spostamento del dashboard.
 
-    ![Browser dei server della soluzione preconfigurata di connected factory][cf-img-server-browser]
+    ![Browser del server dell'acceleratore di soluzioni di connected factory][cf-img-server-browser]
 
-2. Scegliere uno dei server dall'elenco preconfigurato. Questo elenco visualizza i server distribuiti nella soluzione preconfigurata.
+2. Scegliere uno dei server dall'elenco preconfigurato. Questo elenco visualizza i server distribuiti nell'acceleratore di soluzioni.
 
-    ![Selezione del server della soluzione preconfigurata di connected factory][cf-img-server-choice]
+    ![Selezione del server dell'acceleratore di soluzioni di connected factory][cf-img-server-choice]
 
 3. Fare clic su **Connect** (Connetti). Verrà visualizzata una finestra di dialogo di sicurezza. Per la simulazione è possibile fare clic su **Proceed** (Continua)
 
 4. Per espandere uno dei nodi dell'albero dei server, fare clic su di esso. I nodi che pubblicano i dati di telemetria hanno un segno di spunta accanto.
 
-    ![Albero dei server della soluzione preconfigurata di connected factory][cf-img-server-tree]
+    ![Albero dei server dell'acceleratore di soluzioni di connected factory][cf-img-server-tree]
 
 5. Fare clic con il pulsante destro del mouse su un elemento per leggere, scrivere, pubblicare o chiamare il nodo. Le azioni disponibili variano a seconda delle autorizzazioni e degli attributi del nodo. L'opzione di lettura visualizza un pannello contestuale con il valore del nodo specifico. L'opzione di scrittura visualizza un pannello contestuale in cui è possibile immettere un nuovo valore. L'opzione di chiamata visualizza un nodo in cui è possibile immettere i parametri per la chiamata.
 
 ## <a name="publish-a-node"></a>Pubblicare un nodo
 
-Quando si esplora un *server OPC UA simulato* è anche possibile scegliere di pubblicare nuovi nodi. È possibile analizzare i dati di telemetria da questi nodi nella soluzione. Questi *server OPC UA simulati* consentono di provare facilmente la soluzione preconfigurata senza distribuire dispositivi fisici reali.
+Quando si esplora un *server OPC UA simulato* è anche possibile scegliere di pubblicare nuovi nodi. È possibile analizzare i dati di telemetria da questi nodi nella soluzione. Questi *server OPC UA simulati* consentono di provare facilmente l'acceleratore di soluzioni senza distribuire dispositivi fisici reali.
 
 1. Passare a un nodo da pubblicare nell'albero del browser dei server OPC UA.
 
@@ -217,15 +217,15 @@ Quando si esplora un *server OPC UA simulato* è anche possibile scegliere di pu
 
 3. Scegliere **Publish** (Pubblica).
 
-    ![Pubblicare un nodo nella soluzione di connected factory][cf-img-publish-node]
+    ![Pubblicare un nodo nella soluzione Connected Factory][cf-img-publish-node]
 
 4. Verrà visualizzato un pannello contestuale che indica che la pubblicazione ha avuto esito positivo. Il nodo viene visualizzato al livello delle postazioni con un segno di spunta accanto.
 
-    ![Pubblicazione eseguita nella connected factory preconfigurata][cf-img-publish-success]
+    ![Pubblicazione eseguita nella Connected Factory preconfigurata][cf-img-publish-success]
 
 ## <a name="command-and-control"></a>Comando e controllo
 
-La soluzione di connected factory consente di comandare e controllare i dispositivi industriali direttamente dal cloud. È possibile usare questa funzionalità per rispondere agli avvisi generati dal dispositivo. È ad esempio possibile inviare un comando al dispositivo dal cloud. È possibile trovare i comandi disponibili nel nodo **StationCommands** dell'albero del browser dei server OPC UA. In questo scenario si apre una valvola di sfiato nella postazione di un gruppo di componenti di una linea di produzione situata a Monaco di Baviera. Per usare la funzionalità di comando e controllo è necessario il ruolo **Amministratore** per la distribuzione della soluzione preconfigurata.
+La soluzione Connected Factory consente di comandare e controllare i dispositivi industriali direttamente dal cloud. È possibile usare questa funzionalità per rispondere agli avvisi generati dal dispositivo. È ad esempio possibile inviare un comando al dispositivo dal cloud. È possibile trovare i comandi disponibili nel nodo **StationCommands** dell'albero del browser dei server OPC UA. In questo scenario si apre una valvola di sfiato nella postazione di un gruppo di componenti di una linea di produzione situata a Monaco di Baviera. Per usare la funzionalità di comando e controllo è necessario il ruolo di **Amministratore** per la distribuzione dell'acceleratore di soluzioni.
 
 1. Passare al nodo **StationCommands** nell'albero del browser dei server OPC UA.
 
@@ -235,39 +235,39 @@ La soluzione di connected factory consente di comandare e controllare i disposit
 
 4. Scegliere **Call** (Chiama).
 
-    ![Comando di chiamata della soluzione preconfigurata di connected factory][cf-img-call-command]
+    ![Comando di chiamata dell'acceleratore di soluzioni di connected factory][cf-img-call-command]
 
 5. Viene visualizzato un pannello contestuale che indica il metodo che si sta per chiamare e i dettagli dei parametri applicabili.
 
 6. Scegliere **Call** (Chiama).
 
-    ![Contesto di chiamata della soluzione preconfigurata di connected factory][cf-img-call-context]
+    ![Contesto di chiamata dell'acceleratore di soluzioni di connected factory][cf-img-call-context]
 
 7. Il pannello contestuale viene aggiornato per indicare che la chiamata al metodo ha avuto esito positivo. È possibile verificare che la chiamata abbia avuto esito positivo leggendo il valore del nodo della pressione aggiornato in seguito alla chiamata.
 
-    ![Chiamata eseguita nella soluzione preconfigurata di connected factory][cf-img-call-success]
+    ![Chiamata riuscita dell'acceleratore di soluzioni di connected factory][cf-img-call-success]
 
 ## <a name="behind-the-scenes"></a>Dietro le quinte
 
-Quando si distribuisce una soluzione preconfigurata, il processo di distribuzione crea più risorse nella sottoscrizione di Azure selezionata. È possibile visualizzare queste risorse nel [portale][lnk-portal] di Azure. Il processo di distribuzione crea un **gruppo di risorse** con un nome basato sul nome scelto per la soluzione preconfigurata:
+Quando si distribuisce un acceleratore di soluzioni, il processo di distribuzione crea più risorse nella sottoscrizione di Azure selezionata. È possibile visualizzare queste risorse nel [portale][lnk-portal] di Azure. Il processo di distribuzione crea un **gruppo di risorse** con un nome basato sul nome scelto per l'acceleratore di soluzioni:
 
-![Soluzione preconfigurata nel portale di Azure][img-cf-portal]
+![Acceleratore di soluzioni nel portale di Azure][img-cf-portal]
 
 È possibile visualizzare le impostazioni di ogni risorsa selezionandola nell'elenco di risorse nel gruppo di risorse.
 
-È anche possibile visualizzare il codice sorgente per la soluzione preconfigurata. Il codice sorgente della soluzione preconfigurata di connected factory si trova nel repository GitHub [azure-iot-connected-factory][lnk-cfgithub]:
+È anche possibile visualizzare il codice sorgente per l'acceleratore di soluzioni. Il codice sorgente dell'acceleratore di soluzioni di connected factory si trova nel repository GitHub [azure-iot-connected-factory][lnk-cfgithub]:
 
-Al termine, è possibile eliminare la soluzione preconfigurata dalla sottoscrizione di Azure nel sito [azureiotsuite.com][lnk-azureiotsuite]. Questo sito consente di eliminare facilmente tutte le risorse di cui è stato effettuato il provisioning quando si è creata la soluzione preconfigurata.
+Al termine, è possibile eliminare l'acceleratore di soluzioni dalla sottoscrizione di Azure nel sito [azureiotsuite.com][lnk-azureiotsuite]. Questo sito consente di eliminare facilmente tutte le risorse di cui è stato effettuato il provisioning quando si è creato l'acceleratore di soluzioni.
 
 > [!NOTE]
-> Per assicurarsi di eliminare tutti gli elementi correlati alla soluzione preconfigurata, eseguire l'eliminazione dal sito [azureiotsuite.com][lnk-azureiotsuite]. Non eliminare il gruppo di risorse nel portale.
+> Per assicurarsi di eliminare tutti gli elementi correlati all'acceleratore di soluzioni, eseguire l'eliminazione dal sito [azureiotsuite.com][lnk-azureiotsuite]. Non eliminare il gruppo di risorse nel portale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver distribuito una soluzione preconfigurata è possibile proseguire con l'introduzione a IoT Suite vedendo gli articoli seguenti:
+Dopo aver distribuito un acceleratore di soluzioni funzionante è possibile proseguire con l'introduzione agli acceleratori di soluzioni IoT leggendo gli articoli seguenti:
 
-* [Procedura dettagliata per la soluzione preconfigurata di connected factory][lnk-rm-walkthrough]
-* [Connettere il dispositivo alla soluzione preconfigurata di connected factory][lnk-connect-cf]
+* [Procedura dettagliata dell'acceleratore di soluzioni di connected factory ][lnk-rm-walkthrough]
+* [Connect your device to the Connected Factory solution accelerator][lnk-connect-cf] (Connettere il dispositivo all'acceleratore di soluzioni di connected factory)
 * [Autorizzazioni per il sito azureiotsuite.com][lnk-permissions]
 
 [img-cf-home]:media/iot-suite-connected-factory-overview/cf-dashboard.png
@@ -293,7 +293,7 @@ Dopo aver distribuito una soluzione preconfigurata è possibile proseguire con l
 [cf-img-alert-filter-funnel]:media/iot-suite-connected-factory-overview/cf-filter-funnel.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk-preconfigured-solutions]: iot-suite-what-are-solution-accelerators.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory

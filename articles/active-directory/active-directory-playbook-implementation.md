@@ -1,12 +1,12 @@
 ---
 title: Implementazione del playbook di PoC di Azure Active Directory | Documentazione Microsoft
-description: "Esplorare e implementare rapidamente gli scenari di Gestione delle identità e degli accessi"
+description: Esplorare e implementare rapidamente gli scenari di Gestione delle identità e degli accessi
 services: active-directory
 keywords: azure active directory, playbook, modello di verifica, PoC
-documentationcenter: 
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: dstefan
-ms.openlocfilehash: e26dfe4aaa374f5587038a0de66c0bd8703c9a41
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f01bdee5ffcc9e2f48278c7209da40ef64cc030
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-implementation"></a>Playbook di PoC di Azure Active Directory: implementazione
 
@@ -87,7 +87,7 @@ Un'identità ibrida è la base per la maggior parte dei clienti aziendali che di
 
 ### <a name="secure-remote-access-to-on-premises-applications"></a>Proteggere l'accesso remoto alle applicazioni locali
 
-1. Bob, l'amministratore globale di AD Azure, ha ricevuto numerose richieste di consentire ai dipendenti di accedere alle numerose e utili risorse locali, ad esempio l'applicazione per le spese, mentre lavorano in modalità remota. Segue le indicazioni nella [documentazione del Proxy di applicazione](active-directory-application-proxy-enable.md) di installare un connettore e pubblica l'applicazione per le spese come applicazione Proxy dell'applicazione. 
+1. Bob, l'amministratore globale di AD Azure, ha ricevuto numerose richieste di consentire ai dipendenti di accedere alle numerose e utili risorse locali, ad esempio l'applicazione per le spese, mentre lavorano in modalità remota. Segue le indicazioni nella [documentazione del Proxy di applicazione](manage-apps/application-proxy-enable.md) di installare un connettore e pubblica l'applicazione per le spese come applicazione Proxy dell'applicazione. 
 2. Bob condivide l'URL dell'applicazione per le spese esterna con Susie, una delle dipendenti che necessita dell'accesso remoto. Susie accede al collegamento e dopo l'autenticazione con AAD è in grado di accedere all'app per le spese e restare produttiva con l'accesso remoto. 
 3. Bob continua quindi a pubblicare applicazioni locali aggiuntive usando lo stesso processo e concedendo l'accesso agli utenti in base alle esigenze. Aggiunge l'accesso condizionale e l'autenticazione Multi-Factor Authentication per le applicazioni più sensibili che pubblica, per garantire una protezione aggiuntiva.
 

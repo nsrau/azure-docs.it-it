@@ -315,7 +315,7 @@ Come descritto [qui](https://technet.microsoft.com/library/ee790567.aspx), $sslF
                     serverManager.CommitChanges(); 
     //</code snip> 
     
-Usando uno qualsiasi degli approcci descritti in precedenza, è necessario che i rispettivi certificati (PFX) per nomi host specifici vengano installati prima nelle istanze dei ruoli usando un'attività di avvio o tramite il codice perché l'associazione SNI diventi efficace.
+Usando uno qualsiasi degli approcci descritti in precedenza, è necessario che i rispettivi certificati (\*.PFX) per nomi host specifici vengano installati prima nelle istanze dei ruoli usando un'attività di avvio o tramite il codice perché l'associazione SNI diventi efficace.
 
 ### <a name="how-can-i-add-tags-to-my-azure-cloud-service"></a>Come è possibile aggiungere tag al servizio cloud di Azure? 
 

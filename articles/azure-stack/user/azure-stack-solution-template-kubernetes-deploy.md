@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 71d920ea1c143ed65510b77e1804e9c5e38cc180
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7cf865f0ce75d8308d6d42306e8e05852f763cae
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/10/2018
@@ -24,7 +24,7 @@ ms.lasthandoff: 05/10/2018
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-> [!note]  
+> [!Note]  
 > Il Kubernetes del contenitore Servizi di Azure (ACS) nello Stack di Azure è disponibile in anteprima privata. L'operatore di Stack Azure dovrà richiedere l'accesso per l'elemento del Kubernetes Marketplace necessaria per eseguire le istruzioni riportate in questo articolo.
 
 Il seguente articolo vengono esaminati utilizzando un modello di soluzione di gestione risorse di Azure per distribuire ed eseguire il provisioning di risorse per Kubernetes in un'operazione singola, coordinata. Verrà necessario per raccogliere le informazioni necessarie sull'installazione dello Stack di Azure, generare il modello e quindi distribuire al cloud di.
@@ -121,7 +121,7 @@ Dare l'accesso dell'entità servizio per la sottoscrizione in modo che l'entità
 
 6. Immettere il **prefisso DNS profilo master** che è univoco per l'area. Deve essere un nome univoco con area geografica, ad esempio `k8s-12345`. Provare a scelto uguale al gruppo di risorse denominare le procedure consigliate.
 
-    > [!note]  
+    > [!Note]  
     > Per ogni cluster, usare un prefisso DNS nuovi ed esclusivi profilo master.
 
 7. Immettere il numero di agenti nel cluster. Questo valore è noto come il **numero profilo del Pool di agenti**. Può esistere compreso tra 1 e 32

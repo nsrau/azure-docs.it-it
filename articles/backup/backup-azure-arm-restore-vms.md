@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: d3e088841bcf291363ec7c042b0fa160fc7d25ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a25a2f40e93c291d4c69ee726c732468005d2cd
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Usare il portale di Azure per ripristinare macchine virtuali
 È possibile proteggere i dati mediante la creazione di snapshot dei dati a intervalli definiti. Questi snapshot sono noti come punti di ripristino e vengono archiviati negli insiemi di credenziali dei servizi di ripristino. Se è necessario ripristinare o ricreare una macchina virtuale (VM), è possibile ripristinare la macchina virtuale da qualsiasi punto di ripristino salvato. Quando si ripristina un punto di ripristino, è possibile:
@@ -90,12 +90,12 @@ Il ripristino di una macchina virtuale o di tutti i dischi dal backup della macc
 
     Il pannello **Ripristina** indica che il punto di ripristino è stato impostato.
 
-9. Se non è già aperto, passare al pannello **Ripristina**. Verificare che [sia selezionato un punto di ripristino](#select-restore-point-for-restore) e selezionare **Configurazione di ripristino**. Viene visualizzato il pannello **Configurazione di ripristino**.
+9. Se non è già aperto, passare al pannello **Ripristina**. Verificare che [sia selezionato un punto di ripristino](#select-a-restore-point-for-restore) e selezionare **Configurazione di ripristino**. Viene visualizzato il pannello **Configurazione di ripristino**.
 
 ## <a name="choose-a-vm-restore-configuration"></a>Scegliere una configurazione di ripristino per la macchina virtuale
 Dopo aver selezionato il punto di ripristino, scegliere una configurazione di ripristino della VM. Per configurare la VM ripristinata, è possibile usare il portale di Azure o PowerShell.
 
-1. Se non è già aperto, passare al pannello **Ripristina**. Verificare che [sia selezionato un punto di ripristino](#select-restore-point-for-restore) e selezionare **Configurazione di ripristino**. Viene visualizzato il pannello **Configurazione di ripristino**.
+1. Se non è già aperto, passare al pannello **Ripristina**. Verificare che [sia selezionato un punto di ripristino](#select-a-restore-point-for-restore) e selezionare **Configurazione di ripristino**. Viene visualizzato il pannello **Configurazione di ripristino**.
 
     ![Configurazione guidata di ripristino](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. Nel pannello **Restore configuration** (Configurazione di ripristino) sono possibili due opzioni:

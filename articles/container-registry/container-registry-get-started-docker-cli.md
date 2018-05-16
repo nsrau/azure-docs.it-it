@@ -3,17 +3,17 @@ title: Effettuare il push di un'immagine Docker in un registro di Azure privato
 description: Effettuare il push e il pull di immagini Docker in un registro di contenitori privati in Azure tramite l'interfaccia della riga di comando di Docker
 services: container-registry
 author: stevelas
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d729a45b28ad02a652c265974d46fe1aaf752198
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Effettuare il push della prima immagine in un registro per contenitori Docker privati tramite l'interfaccia della riga di comando di Docker
 
@@ -103,7 +103,7 @@ Usare il comando [docker run](https://docs.docker.com/engine/reference/run/) per
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Passare a [http://localhost:8080/](http://localhost:8080) per visualizzare il contenitore in esecuzione.
+Passare a [http://localhost:8080](http://localhost:8080) per visualizzare il contenitore in esecuzione.
 
 Per arrestare e rimuovere il contenitore, premere `Control`+`C`.
 
@@ -125,6 +125,6 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 Una volta apprese le nozioni di base, si è pronti per iniziare a usare il registro. Distribuire le immagini del contenitore dal registro nella posizione seguente:
 
-* [Servizio contenitore di Azure](../aks/tutorial-kubernetes-prepare-app.md)
+* [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Istanze di contenitore di Azure](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

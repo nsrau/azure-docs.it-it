@@ -5,18 +5,16 @@ services: azure-stack
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
-ms.reviewer: anajod
-keywords: ''
-ms.openlocfilehash: cdabd2a9d336cdd8ac83d27460fe129c45b7e1c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.reviewer: kivenkat
+ms.openlocfilehash: 12425ab53ca16bb985a0a8658b5058998565b01a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Rendere il set di scalabilità di macchine virtuali disponibili nello Stack di Azure
 
@@ -38,14 +36,15 @@ Nello Stack di Azure, il set di scalabilità di macchine virtuali non supporta l
    Installare e PowerShell configurato per lo Stack di Azure e gli strumenti di Azure Stack. Vedere [diventare operativi con PowerShell nello Stack di Azure](azure-stack-powershell-configure-quickstart.md).
 
    Dopo aver installato gli strumenti di Azure Stack, accertarsi di aver importato il modulo di PowerShell seguente (percorso relativo ai. \ComputeAdmin cartella nella cartella AzureStack-strumenti-master):
-
+  ````PowerShell
         Import-Module .\AzureStack.ComputeAdmin.psm1
+  ````
 
 * **Immagine del sistema operativo**
 
    Se è stato aggiunto un'immagine del sistema operativo a Stack Azure Marketplace, vedere [aggiungere l'immagine di macchina virtuale di Windows Server 2016 nel Marketplace Azure Stack](azure-stack-add-default-image.md).
 
-   Per il supporto di Linux, scaricare Ubuntu Server 16.04 e aggiungerlo mediante ```Add-AzsVMImage``` con i seguenti parametri: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
+   Per il supporto di Linux, scaricare Ubuntu Server 16.04 e aggiungerlo mediante ```Add-AzsPlatformImage``` con i seguenti parametri: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
 
 
 ## <a name="add-the-virtual-machine-scale-set"></a>Aggiungere il set di scalabilità della macchina virtuale
@@ -54,7 +53,7 @@ Modificare lo script di PowerShell seguente per l'ambiente e quindi eseguire il 
 
 ``$User`` è l'account usato per connettere il portale dell'amministratore. Ad esempio, serviceadmin@contoso.onmicrosoft.com.
 
-```
+````PowerShell  
 $Arm = "https://adminmanagement.local.azurestack.external"
 $Location = "local"
 
@@ -72,7 +71,7 @@ $AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
-```
+````
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>Aggiornare le immagini in un set di scalabilità della macchina virtuale 
 Dopo aver creato un set di scalabilità della macchina virtuale, gli utenti possono aggiornare le immagini nella scala dei set senza la scala impostata dover essere ricreato. Il processo di aggiornamento di un'immagine a seconda dei casi nei seguenti scenari:
@@ -83,12 +82,14 @@ Dopo aver creato un set di scalabilità della macchina virtuale, gli utenti poss
 
    Ecco un esempio di definizione *più recente*:  
 
-          "imageReference": {
-             "publisher": "[parameters('osImagePublisher')]",
-             "offer": "[parameters('osImageOffer')]",
-             "sku": "[parameters('osImageSku')]",
-             "version": "latest"
-             }
+    ```Json  
+    "imageReference": {
+        "publisher": "[parameters('osImagePublisher')]",
+        "offer": "[parameters('osImageOffer')]",
+        "sku": "[parameters('osImageSku')]",
+        "version": "latest"
+        }
+    ```
 
    Prima di scalabilità verticale è possibile utilizzare una nuova immagine, è necessario scaricare la nuova immagine:  
 
@@ -110,12 +111,12 @@ Per altre informazioni, vedere [dischi del sistema operativo e immagini](.\user\
 
 Per rimuovere una macchina virtuale elemento della raccolta di set di scalabilità, eseguire il comando PowerShell seguente:
 
+```PowerShell  
     Remove-AzsVMSSGalleryItem
+````
 
 > [!NOTE]
 > L'elemento della raccolta non può essere rimosso immediatamente. Si potrebbe essere necessario aggiornare il portale più volte prima che l'elemento viene mostrato come rimossa dal Marketplace.
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 [Domande frequenti per Azure Stack](azure-stack-faq.md)
-

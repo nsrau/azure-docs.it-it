@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/11/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: 0d8c1ebe9688f32c460ef689119313b0682a0a68
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f34c4697439685ce6ea0ce3f2c7e954ee81b5079
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Registro dello Stack di Azure con Azure
 La registrazione [Azure Stack](azure-stack-poc.md) con Azure consente di scaricare gli elementi di marketplace da Azure e per impostare i dati di commerce segnalazioni a Microsoft. Dopo la registrazione dello Stack di Azure, viene segnalato l'utilizzo per Azure commerce ed è possibile visualizzare la sottoscrizione usata per la registrazione. 
 
 > [!IMPORTANT]
-> La registrazione è obbligatoria se si sceglie il modello di fatturazione retribuzione come-di-uso. In caso contrario, sarà violazione delle condizioni di licenza della distribuzione di Azure Stack come utilizzo non verranno segnalato.
+> La registrazione è necessario per supportare le funzionalità complete dello Stack di Azure, tra cui diffusione marketplace. Inoltre, sarà in violazione delle condizioni di licenza se non si registra quando si utilizza il modello di fatturazione retribuzione-come--l'utilizzo dello Stack di Azure. Per ulteriori informazioni sui modelli di licenza dello Stack di Azure, vedere la [come acquistare pagina](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di registrare dello Stack di Azure con Azure, è necessario disporre di:

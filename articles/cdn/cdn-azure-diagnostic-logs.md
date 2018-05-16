@@ -3,8 +3,8 @@ title: Log di diagnostica di Azure | Microsoft Docs
 description: Il cliente può abilitare l'analisi dei log per la rete CDN di Azure.
 services: cdn
 documentationcenter: ''
-author: ''
-manager: ''
+author: dksimpson
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: v-deasim
-ms.openlocfilehash: c367cffa8f0453a0f7e230571d861d039122c291
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: rli
+ms.openlocfilehash: 73c19383b791438c2ae899b45e1b4635e9cd5802
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Log di diagnostica di Azure
 
@@ -28,7 +28,7 @@ Con i log di diagnostica di Azure è possibile visualizzare le principali analis
  - Hub eventi di Azure
  - [Area di lavoro di Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
-Questa funzionalità è disponibile per tutti gli endpoint della rete CDN che appartengono a profili CDN Verizon (Standard e Premium) e Akamai (Standard). 
+Questa funzionalità è disponibile negli endpoint di rete CDN per tutti i piani tariffari. 
 
 I log di diagnostica di Azure consentono di esportare le metriche di utilizzo di base dall'endpoint CDN in diverse origini, per poterle usare in modo personalizzato. Ad esempio, è possibile eseguire i tipi di esportazione di dati seguenti:
 
@@ -156,10 +156,10 @@ Per poter accedere ai dati di analisi principali dell'account di archiviazione d
 
 **Descrizione dei campi:**
 
-|value|description|
+|Valore|DESCRIZIONE|
 |-------|---------|
 |ID sottoscrizione    |ID della sottoscrizione di Azure nel formato GUID.|
-|Risorsa |Nome gruppo    Nome del gruppo di risorse cui appartengono le risorse della rete CDN.|
+|Nome gruppo di risorse |Nome del gruppo di risorse cui appartengono le risorse della rete CDN.|
 |Nome profilo |Nome del profilo CDN|
 |Nome endpoint |Nome dell'endpoint della rete CDN|
 |Year|  Rappresentazione a 4 cifre dell'anno, ad esempio 2017|
@@ -276,47 +276,49 @@ Le offerte e i piani tariffari per le soluzioni di gestione sono disponibili [qu
     
 ## <a name="log-data-delays"></a>Ritardi dei dati di log
 
-Ritardi dei dati di log di Verizon | Ritardi dei dati di log di Akamai
---- | ---
-I dati dei log di Verizon hanno un ritardo di un'ora e richiedono fino a due ore prima di venire visualizzati dopo il completamento della propagazione degli endpoint. | I dati dei log di Akamai hanno un ritardo di 24 ore e richiedono fino a 2 ore prima di venire visualizzati se sono stati creati più di 24 ore prima. Se i log sono stati creati di recente, possono essere necessarie fino a 25 ore prima di poterli visualizzare.
+La tabella seguente mostra i ritardi dei dati di log per la **rete CDN Standard di Azure con tecnologia Microsoft**, la **rete CDN Standard di Azure con tecnologia Akamai** e la **rete CDN Standard/Premium di Azure con tecnologia Verizon**.
+
+Ritardi dei dati di log di Microsoft | Ritardi dei dati di log di Verizon | Ritardi dei dati di log di Akamai
+--- | --- | ---
+Ritardato di 1 ora. | Ritardato di 1 ora e può richiedere fino a 2 ore prima di essere visualizzati dopo il completamento della propagazione dell'endpoint. | Ritardati di 24 ore e richiedono fino a 2 ore prima di venire visualizzati se sono stati creati più di 24 ore prima. Se i log sono stati creati di recente, possono essere necessarie fino a 25 ore prima di poterli visualizzare.
 
 ## <a name="diagnostic-log-types-for-cdn-core-analytics"></a>Tipi di log di diagnostica per l'analisi principale della rete CDN
 
 Attualmente sono disponibili solo i log di analisi principale, contenenti metriche che mostrano le statistiche sulle risposte HTTP e le statistiche relative all'uscita rilevate dai server POP/perimetrali della rete CDN.
 
 ### <a name="core-analytics-metrics-details"></a>Dettagli delle metriche dell'analisi principale
-La tabella seguente mostra un elenco di metriche disponibili nei log di analisi principale. Non tutte le metriche sono disponibili da tutti i provider, sebbene le differenze siano minime. La tabella seguente indica anche se una metrica specifica è disponibile presso un provider. Si noti che le metriche sono disponibili solo per gli endpoint della rete CDN in cui vi è traffico.
+La tabella seguente mostra un elenco di metriche disponibili nei log di analisi principale per la **rete CDN Standard di Azure con tecnologia Microsoft**, la **rete CDN Standard di Azure con tecnologia Akamai** e la **rete CDN Standard/Premium di Azure con tecnologia Verizon**. Non tutte le metriche sono disponibili da tutti i provider, sebbene le differenze siano minime. La tabella mostra anche se una determinata metrica può essere indicata da un provider. Si noti che le metriche sono disponibili solo per gli endpoint della rete CDN in cui vi è traffico.
 
 
-|Metrica                     | DESCRIZIONE   | Verizon  | Akamai 
-|---------------------------|---------------|---|---|
-| RequestCountTotal         |Numero totale di riscontri della richiesta durante questo periodo| Sì  |Sì   |
-| RequestCountHttpStatus2xx |Conteggio di tutte le richieste che hanno generato un codice HTTP 2xx (ad esempio 200, 202)              | Sì  |Sì   |
-| RequestCountHttpStatus3xx | Conteggio di tutte le richieste che hanno generato un codice HTTP 3xx (ad esempio 300, 302)              | Sì  |Sì   |
-| RequestCountHttpStatus4xx |Conteggio di tutte le richieste che hanno generato un codice HTTP 4xx (ad esempio 400, 404)               | Sì   |Sì   |
-| RequestCountHttpStatus5xx | Conteggio di tutte le richieste che hanno generato un codice HTTP 5xx (ad esempio 500, 504)              | Sì  |Sì   |
-| RequestCountHttpStatusOthers |  Conteggio di tutti gli altri codici HTTP (non inclusi nell'intervallo 2xx-5xx) | Sì  |Sì   |
-| RequestCountHttpStatus200 | Conteggio di tutte le richieste che hanno generato una risposta di codice HTTP 200              |No    |Sì   |
-| RequestCountHttpStatus206 | Conteggio di tutte le richieste che hanno generato una risposta di codice HTTP 206              |No    |Sì   |
-| RequestCountHttpStatus302 | Conteggio di tutte le richieste che hanno generato una risposta di codice HTTP 302              |No    |Sì   |
-| RequestCountHttpStatus304 |  Conteggio di tutte le richieste che hanno generato una risposta di codice HTTP 304             |No    |Sì   |
-| RequestCountHttpStatus404 | Conteggio di tutte le richieste che hanno generato una risposta di codice HTTP 404              |No    |Sì   |
-| RequestCountCacheHit |Conteggio di tutte le richieste che hanno generato un riscontro nella cache. L'asset è stato servito direttamente dal POP al client.               | Sì  |No    |
-| RequestCountCacheMiss | Conteggio di tutte le richieste che hanno generato un mancato riscontro nella cache. Questo significa che l'asset non è stato trovato nel POP più vicino al client e pertanto è stato recuperato dall'origine.              |Sì   | No   |
-| RequestCountCacheNoCache | Conteggio di tutte le richieste a un asset a cui è stata impedita la memorizzazione nella cache a causa di una configurazione dell'utente sull'edge.              |Sì   | No   |
-| RequestCountCacheUncacheable | Conteggio di tute le richieste su asset a cui è stata impedita la memorizzazione nella cache dalle intestazioni Cache-Control ed Expires dell'asset che indicano che non deve essere memorizzato nella cache in un POP o da un client HTTP                |Sì   |No    |
-| RequestCountCacheOthers | Conteggio di tutte le richieste con stato della cache non coperto dalle metriche precedenti.              |Sì   | No   |
-| EgressTotal | Trasferimento di dati in uscita in GB              |Sì   |Sì   |
-| EgressHttpStatus2xx | Trasferimento di dati in uscita* per risposte con codici di stato HTTP 2xx in GB            |Sì   |No    |
-| EgressHttpStatus3xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 3xx in GB              |Sì   |No    |
-| EgressHttpStatus4xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 4xx in GB               |Sì   | No   |
-| EgressHttpStatus5xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 5xx in GB               |Sì   |  No  |
-| EgressHttpStatusOthers | Trasferimento di dati in uscita per risposte con altri codici di stato HTTP in GB                |Sì   |No    |
-| EgressCacheHit |  Trasferimento di dati in uscita per risposte recapitate direttamente dalla cache CDN su POP/Edge della rete CDN  |Sì   |  No  |
-| EgressCacheMiss | Trasferimento di dati in uscita per risposte non trovate nel server POP più vicino e recuperate dal server di origine              |Sì   |  No  |
-| EgressCacheNoCache | Trasferimento di dati in uscita per asset a cui è stata impedita la memorizzazione nella cache a causa di una configurazione dell'utente sull'edge.                |Sì   |No    |
-| EgressCacheUncacheable | Trasferimento di dati in uscita per asset a cui è stata impedita la memorizzazione nella cache dalle intestazioni Cache-Control ed Expires dell'asset. Indica che non deve essere memorizzato nella cache in un POP o da un client HTTP.                   |Sì   | No   |
-| EgressCacheOthers |  Trasferimento di dati in uscita per altri scenari di cache.             |Sì   | No   |
+|Metrica                     | DESCRIZIONE | Microsoft | Verizon | Akamai |
+|---------------------------|-------------|----------|---------|--------|
+| RequestCountTotal         | Numero totale di riscontri della richiesta durante questo periodo. | Sì | Sì |Sì |
+| RequestCountHttpStatus2xx | Numero di tutte le richieste che hanno generato un codice HTTP 2xx (ad esempio 200, 202). | Sì | Sì |Sì |
+| RequestCountHttpStatus3xx | Numero di tutte le richieste che hanno generato un codice HTTP 3xx (ad esempio 300, 302). | Sì | Sì |Sì |
+| RequestCountHttpStatus4xx | Numero di tutte le richieste che hanno generato un codice HTTP 4xx (ad esempio 400, 404). | Sì | Sì |Sì |
+| RequestCountHttpStatus5xx | Numero di tutte le richieste che hanno generato un codice HTTP 5xx (ad esempio 500, 504). | Sì | Sì |Sì |
+| RequestCountHttpStatusOthers | Numero di tutti gli altri codici HTTP (non inclusi nell'intervallo 2xx-5xx). | Sì | Sì |Sì |
+| RequestCountHttpStatus200 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 200. | Sì | No   |Sì |
+| RequestCountHttpStatus206 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 206. | Sì | No   |Sì |
+| RequestCountHttpStatus302 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 302. | Sì | No   |Sì |
+| RequestCountHttpStatus304 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 304. | Sì | No   |Sì |
+| RequestCountHttpStatus404 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 404. | Sì | No   |Sì |
+| RequestCountCacheHit | Conteggio di tutte le richieste che hanno generato un riscontro nella cache. L'asset è stato servito direttamente dal POP al client. | Sì | Sì | No   |
+| RequestCountCacheMiss | Conteggio di tutte le richieste che hanno generato un mancato riscontro nella cache. Questo significa che l'asset non è stato trovato nel POP più vicino al client e pertanto è stato recuperato dall'origine. | Sì | Sì | No  |
+| RequestCountCacheNoCache | Conteggio di tutte le richieste a un asset a cui è stata impedita la memorizzazione nella cache a causa di una configurazione dell'utente sull'edge. | Sì | Sì | No  |
+| RequestCountCacheUncacheable | Numero di tute le richieste su asset a cui è stata impedita la memorizzazione nella cache dalle intestazioni Cache-Control ed Expires dell'asset che indicano che non deve essere eseguita la memorizzazione nella cache in un POP o da un client HTTP. | Sì | Sì | No  |
+| RequestCountCacheOthers | Conteggio di tutte le richieste con stato della cache non coperto dalle metriche precedenti. | No  | Sì | No   |
+| EgressTotal | Trasferimento di dati in uscita in GB | Sì |Sì |Sì |
+| EgressHttpStatus2xx | Trasferimento di dati in uscita* per risposte con codici di stato HTTP 2xx in GB. | Sì | Sì | No   |
+| EgressHttpStatus3xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 3xx in GB. | Sì | Sì | No   |
+| EgressHttpStatus4xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 4xx in GB. | Sì | Sì | No   |
+| EgressHttpStatus5xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 5xx in GB. | Sì | Sì | No  |
+| EgressHttpStatusOthers | Trasferimento di dati in uscita per risposte con altri codici di stato HTTP in GB. | Sì | Sì | No   |
+| EgressCacheHit | Trasferimento di dati in uscita per risposte recapitate direttamente dalla cache CDN su POP/Edge della rete CDN. | Sì | Sì | No  |
+| EgressCacheMiss. | Trasferimento di dati in uscita per risposte non trovate nel server POP più vicino e recuperate dal server di origine. | Sì | Sì | No  |
+| EgressCacheNoCache | Trasferimento di dati in uscita per asset a cui è stata impedita la memorizzazione nella cache a causa di una configurazione dell'utente sull'edge. | Sì | Sì | No  |
+| EgressCacheUncacheable | Trasferimento di dati in uscita per asset a cui è stata impedita la memorizzazione nella cache dalle intestazioni Cache-Control ed Expires dell'asset. Indica che non deve essere memorizzato nella cache in un POP o da un client HTTP. | Sì | Sì | No  |
+| EgressCacheOthers | Trasferimento di dati in uscita per altri scenari di cache. | No  | Sì | No  |
 
 *Il trasferimento di dati in uscita si riferisce al traffico recapitato da server POP della rete CDN al client.
 
@@ -368,7 +370,7 @@ Tutti i log vengono archiviati in formato JSON e per ogni voce sono presenti cam
 }
 ```
 
-Dove 'time' rappresenta l'ora di inizio del limite di ore per cui vengono restituite le statistiche. Quando una metrica non è supportata da un provider di rete CDN, anziché un valore double o integer, è presente un valore null. Questo valore null indica l'assenza di una metrica ed è diverso da un valore 0. Esiste un solo set di queste metriche per ogni dominio configurato nell'endpoint.
+Dove *time* rappresenta l'ora di inizio del limite di ore per cui vengono restituite le statistiche. Quando una metrica non è supportata da un provider di rete CDN, anziché un valore double o integer, è presente un valore null. Questo valore null indica l'assenza di una metrica ed è diverso da un valore 0. Esiste un solo set di queste metriche per ogni dominio configurato nell'endpoint.
 
 Proprietà di esempio:
 

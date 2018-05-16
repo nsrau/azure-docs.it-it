@@ -2,12 +2,12 @@
 title: 'Guida introduttiva: Installazione manuale di SAP HANA a istanza singola nelle macchine virtuali di Azure | Microsoft Docs'
 description: Guida introduttiva per l'installazione manuale di SAP HANA a istanza singola nelle macchine virtuali di Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: c51a2a06-6e97-429b-a346-b433a785c9f0
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 321a86d6ce355273820617e6de9df2b0816c73fa
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 45c7e1b76f64db142fc8fdca85b1e1fa9aca6a42
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Guida introduttiva: Installazione manuale di SAP HANA a istanza singola nelle macchine virtuali di Azure
 ## <a name="introduction"></a>Introduzione
@@ -251,7 +251,7 @@ Per una descrizione del layout del file system standard di SAP HANA, vedere [SAP
 
 Quando si installa SAP NetWeaver in un'immagine della raccolta standard di Azure per SLES/SLES for SAP Applications 12, viene visualizzato un messaggio per segnalare che non è disponibile spazio di swapping, come illustrato nello screenshot seguente. Per ignorare questo messaggio, è possibile aggiungere manualmente un file di scambio usando **dd**, **mkswap** e **swapon**. Per istruzioni, cercare "Adding a Swap File Manually" (Aggiunta manuale di un file di scambio) nella sezione [Using the YaST Partitioner](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip) (Uso del Partitioner YaST) della documentazione di SUSE.
 
-Un'altra opzione consiste nel configurare lo spazio di swapping tramite l'agente di macchine virtuali Linux. Per altre informazioni, vedere [Azure Linux Agent User Guide](../../linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Guida dell'utente dell'agente Linux di Azure).
+Un'altra opzione consiste nel configurare lo spazio di swapping tramite l'agente di macchine virtuali Linux. Per altre informazioni, vedere [Azure Linux Agent User Guide](../../extensions/agent-linux.md) (Guida dell'utente dell'agente Linux di Azure).
 
 ![Messaggio popup che segnala la presenza di spazio di swapping insufficiente](./media/hana-get-started/image010.jpg)
 

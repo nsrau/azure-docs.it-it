@@ -1,11 +1,11 @@
 ---
-title: "Informazioni sul registro delle identità dell'hub IoT di Azure | Documentazione Microsoft"
+title: Informazioni sul registro delle identità dell'hub IoT di Azure | Microsoft Docs
 description: "Guida per gli sviluppatori: descrizione del registro delle identità dell'hub IoT e come usarlo per gestire i dispositivi. Include informazioni sull'importazione e sull'esportazione in blocco delle identità dei dispositivi."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0706eccd-e84c-4ae7-bbd4-2b1a22241147
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,24 +15,24 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50020f007096b45b843515ff765e40c550fcf4e3
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 8c90bc4945b613f386f98178949e5451e8fe3673
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendere il registro delle identità nell'hub IoT
 
-Ogni hub IoT ha un registro delle identità in cui sono archiviate le informazioni sui dispositivi a cui è consentito connettersi all'hub IoT. Prima che un dispositivo possa connettersi a un hub IoT, è necessario che sia presente una voce relativa al dispositivo nel registro delle identità dell'hub IoT. Un dispositivo deve autenticarsi anche con l'hub IoT in base alle credenziali archiviate nel registro delle identità.
+A ogni hub IoT è associato un registro delle identità in cui sono archiviate le informazioni sui dispositivi e i moduli a cui è consentito connettersi all'hub IoT. Prima che un dispositivo o modulo possa connettersi a un hub IoT, è necessario che sia presente una voce relativa al dispositivo o al modulo nel registro delle identità dell'hub IoT. Un dispositivo o un modulo deve autenticarsi anche con l'hub IoT in base alle credenziali archiviate nel registro delle identità.
 
-L'ID dispositivo archiviato nel registro delle identità fa distinzione tra maiuscole e minuscole.
+L'ID dispositivo o modulo archiviato nel registro delle identità rispetta la distinzione tra maiuscole e minuscole.
 
-A livello generale, il registro delle identità è una raccolta delle risorse relative alle identità dei dispositivi che supporta REST. Quando si aggiunge una voce nel registro delle identità, l'hub IoT crea un set di risorse per dispositivo, ad esempio una coda contenente messaggi da cloud a dispositivo in elaborazione.
+A livello generale, il registro delle identità è una raccolta di risorse relative alle identità dei dispositivi e dei moduli che supportano REST. Quando si aggiunge una voce nel registro delle identità, l'hub IoT crea un set di risorse per dispositivo, ad esempio una coda contenente messaggi da cloud a dispositivo in elaborazione.
 
 Usare il registro delle identità quando è necessario:
 
-* Il provisioning dei dispositivi che si connettono per l'hub IoT.
-* Controllare l'accesso per dispositivo agli endpoint che usano dispositivi dell'hub.
+* Eseguire il provisioning dei dispositivi o dei moduli che si connettono all'hub IoT.
+* Controllare l'accesso per dispositivo/per modulo agli endpoint collegati al dispositivo o modulo dell'hub.
 
 > [!NOTE]
 > Il registro delle identità non contiene metadati specifici delle applicazioni.
@@ -41,13 +41,14 @@ Usare il registro delle identità quando è necessario:
 
 Il registro delle identità dell'hub IoT espone le operazioni seguenti:
 
-* Creare l'identità del dispositivo
-* Aggiornare l'identità del dispositivo
-* Recuperare l'identità del dispositivo tramite ID
-* Eliminare l'identità del dispositivo
+* Creazione dell'identità del dispositivo o del modulo
+* Aggiornamento dell'identità del dispositivo o del modulo
+* Recupero dell'identità del dispositivo o del modulo tramite ID
+* Eliminazione dell'identità del dispositivo o del modulo
 * Elencare al massimo 1000 identità
-* Esportare tutte le identità nell'Archiviazione BLOB di Azure
-* Importare le identità nell'Archiviazione BLOB di Azure
+> Le funzionalità di identità del modulo e di modulo gemello sono disponibili in anteprima pubblica. La funzionalità seguente è supportata per l'identità del modulo in disponibilità generale.
+* Esportare le identità del dispositivo in Archiviazione BLOB di Azure
+* Importare le identità del dispositivo da Archiviazione BLOB di Azure
 
 Tutte queste operazioni possono usare la concorrenza ottimistica, come specificato in [RFC7232][lnk-rfc7232].
 
@@ -57,7 +58,7 @@ Tutte queste operazioni possono usare la concorrenza ottimistica, come specifica
 Un registro delle identità di un hub IoT:
 
 * Non contiene metadati delle applicazioni.
-* È accessibile come un dizionario, usando il valore **deviceId** come chiave.
+* È accessibile come un dizionario, usando il valore **deviceId** o **moduleId** come chiave.
 * Non supporta le query espressive.
 
 Una soluzione IoT include in genere un archivio separato specifico della soluzione che contiene metadati specifici dell'applicazione. Ad esempio, l'archivio specifico della soluzione in una soluzione per un edificio efficiente registra l'ambiente in cui viene distribuito un sensore di temperatura.
@@ -71,6 +72,8 @@ Una soluzione IoT include in genere un archivio separato specifico della soluzio
 
 * Durante un processo di orchestrazione di provisioning. Per altre informazioni, vedere [Provisioning di dispositivi][lnk-guidance-provisioning].
 * Se per qualsiasi motivo si ritiene che un dispositivo sia compromesso o non più autorizzato.
+
+Questa funzionalità non è disponibile per i moduli.
 
 ## <a name="import-and-export-device-identities"></a>Importare ed esportare le identità dei dispositivi
 
@@ -99,29 +102,68 @@ Un'implementazione più complessa può includere le informazioni acquisite dal [
 > [!NOTE]
 > Se una soluzione IoT usa lo stato di connessione esclusivamente per determinare se inviare i messaggi da cloud a dispositivo e i messaggi non vengono trasmessi a grandi set di dispositivi, è da considerare l'uso del criterio *a breve scadenza* più semplice. Un modello di questo tipo consente di gestire il registro dello stato di connessione del dispositivo in modo analogo a un modello di heartbeat, ma con maggiore efficienza. Se si richiede l'acknowledgement dei messaggi, l'hub IoT può inviare una notifica per indicare quali dispositivi possono ricevere messaggi e quali no.
 
-## <a name="device-lifecycle-notifications"></a>Notifiche del ciclo di vita dei dispositivi
+## <a name="device-and-module-lifecycle-notifications"></a>Notifiche per il ciclo di vita di dispositivi e moduli
 
-L'hub IoT può inviare una notifica alla soluzione IoT quando un'identità dispositivo viene creata o eliminata inviando notifiche del ciclo di vita dei dispositivi. A questo scopo, la soluzione IoT deve creare una route e impostare l'origine dati su *DeviceLifecycleEvents*. Per impostazione predefinita, non vengono inviate notifiche del ciclo di vita, il che significa che queste route non sono preesistenti. Il messaggio di notifica include le proprietà e il corpo.
+L'hub IoT può inviare una notifica alla soluzione IoT quando un'identità viene creata o eliminata inviando notifiche del ciclo di vita. A questo scopo, la soluzione IoT deve creare una route e impostare l'origine dati su *DeviceLifecycleEvents* o *ModuleLifecycleEvents*. Per impostazione predefinita, non vengono inviate notifiche del ciclo di vita, il che significa che queste route non sono preesistenti. Il messaggio di notifica include le proprietà e il corpo.
 
 Proprietà: le proprietà di sistema del messaggio hanno come prefisso il simbolo `'$'`.
 
+Messaggio di notifica per il dispositivo:
+
 | NOME | Valore |
 | --- | --- |
-$content-type | application/json |
-$iothub-enqueuedtime |  Data e ora in cui è stata inviata la notifica |
-$iothub-message-source | deviceLifecycleEvents |
-$content-encoding | utf-8 |
-opType | **createDeviceIdentity** o **deleteDeviceIdentity** |
-hubName | Nome dell'hub IoT |
-deviceId | ID del dispositivo |
-operationTimestamp | Timestamp ISO8601 dell'operazione |
-iothub-message-schema | deviceLifecycleNotification |
+|$content-type | application/json |
+|$iothub-enqueuedtime |  Data e ora in cui è stata inviata la notifica |
+|$iothub-message-source | deviceLifecycleEvents |
+|$content-encoding | utf-8 |
+|opType | **createDeviceIdentity** o **deleteDeviceIdentity** |
+|hubName | Nome dell'hub IoT |
+|deviceId | ID del dispositivo |
+|operationTimestamp | Timestamp ISO8601 dell'operazione |
+|iothub-message-schema | deviceLifecycleNotification |
 
 Corpo: questa sezione è in formato JSON e rappresenta la copia dell'identità dispositivo creata. Ad esempio,
 
 ```json
 {
     "deviceId":"11576-ailn-test-0-67333793211",
+    "etag":"AAAAAAAAAAE=",
+    "properties": {
+        "desired": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        },
+        "reported": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        }
+    }
+}
+```
+Messaggio di notifica per il modulo:
+
+| NOME | Valore |
+| --- | --- |
+$content-type | application/json |
+$iothub-enqueuedtime |  Data e ora in cui è stata inviata la notifica |
+$iothub-message-source | moduleLifecycleEvents |
+$content-encoding | utf-8 |
+opType | **createModuleIdentity** o **deleteModuleIdentity** |
+hubName | Nome dell'hub IoT |
+moduleId | ID del modulo |
+operationTimestamp | Timestamp ISO8601 dell'operazione |
+iothub-message-schema | moduleLifecycleNotification |
+
+Corpo: questa sezione è in formato JSON e rappresenta la copia dell'identità modulo creata. Ad esempio,
+
+```json
+{
+    "deviceId":"11576-ailn-test-0-67333793211",
+    "moduleId":"tempSensor",
     "etag":"AAAAAAAAAAE=",
     "properties": {
         "desired": {
@@ -160,6 +202,25 @@ Le identità dei dispositivi vengono rappresentate da documenti JSON con le prop
 
 > [!NOTE]
 > Lo stato della connessione può rappresentare solo la visualizzazione Hub IoT dello stato della connessione. Gli aggiornamenti dello stato possono essere ritardati a seconda delle condizioni e delle configurazioni della rete.
+
+## <a name="module-identity-properties"></a>Proprietà delle identità dei moduli
+
+Le identità dei dispositivi vengono rappresentate da documenti JSON con le proprietà indicate di seguito.
+
+| Proprietà | Opzioni | DESCRIZIONE |
+| --- | --- | --- |
+| deviceId |Obbligatoria, di sola lettura negli aggiornamenti |Stringa con distinzione tra maiuscole/minuscole (lunghezza massima 128 caratteri) con caratteri alfanumerici ASCII a 7 bit più alcuni caratteri speciali: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| moduleId |Obbligatoria, di sola lettura negli aggiornamenti |Stringa con distinzione tra maiuscole/minuscole (lunghezza massima 128 caratteri) con caratteri alfanumerici ASCII a 7 bit più alcuni caratteri speciali: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| generationId |Obbligatoria, di sola lettura |Stringa con distinzione tra maiuscole/minuscole generata dall'hub IoT con lunghezza massima di 128 caratteri. Tale valore viene usato per distinguere i dispositivi con la stessa proprietà **deviceId** in caso di eliminazione e nuova creazione. |
+| etag |Obbligatoria, di sola lettura |Stringa che rappresenta un ETag vulnerabile per l'identità del dispositivo, come indicato in [RFC7232][lnk-rfc7232]. |
+| auth |Facoltativo |Oggetto composito contenente le informazioni di autenticazione e i materiali di sicurezza. |
+| auth.symkey |Facoltativo |Oggetto composito contenente una chiave primaria e una chiave secondaria, archiviate in formato Base 64. |
+| status |Obbligatoria |Indicatore di accesso. Può essere **Enabled** o **Disabled**. Se è **Enabled**, il dispositivo sarà autorizzato alla connessione. Se è **Disabled**, il dispositivo non potrà accedere ad alcun endpoint per il dispositivo. |
+| statusReason |Facoltativo |Stringa con 128 caratteri di lunghezza che memorizza il motivo dello stato dell'identità del dispositivo. Sono consentiti tutti i caratteri UTF-8. |
+| statusUpdateTime |Sola lettura |Indicatore temporale che mostra la data e l'ora dell'ultimo aggiornamento dello stato. |
+| connectionState |Sola lettura |Campo indicante lo stato della connessione: **Connected** o **Disconnected**. Questo campo rappresenta la visualizzazione Hub IoT dello stato di connessione del dispositivo. **Importante**: è consigliabile usare questo campo solo per scopi di sviluppo e di debug. Lo stato di connessione viene aggiornato solo per i dispositivi che usano MQTT o AMQP. Si basa anche su ping a livello di protocollo (ping MQTT o AMQP) e può avere un ritardo massimo di soli 5 minuti. Per questi motivi possono essere presenti falsi positivi, ad esempio dispositivi segnalati come connessi, ma in realtà disconnessi. |
+| connectionStateUpdatedTime |Sola lettura |Indicatore temporale che mostra la data e l'ora dell'ultimo aggiornamento dello stato della connessione. |
+| lastActivityTime |Sola lettura |Indicatore temporale che mostra la data e l'ora in cui il dispositivo si è connesso oppure ha ricevuto o inviato un messaggio per l'ultima volta. |
 
 ## <a name="additional-reference-material"></a>Materiale di riferimento
 

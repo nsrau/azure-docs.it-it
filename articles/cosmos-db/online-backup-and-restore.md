@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: a51b7d115a8287340450b3525a9b1a325702485b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5f8ddc9c57df878137ee1ff1b6431e40acfd5eb4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Backup online automatico e ripristino con Azure Cosmos DB
 Azure Cosmos DB esegue automaticamente il backup di tutti i dati a intervalli regolari. I backup automatici vengono eseguiti senza impatto sulle prestazioni o sulla disponibilità delle operazioni del database. Tutti i backup vengono archiviati separatamente in un altro servizio di archiviazione, oltre a essere replicati a livello globale per garantire la resilienza in caso di emergenze locali. I backup automatici sono destinati agli scenari in cui si elimina involontariamente il contenitore Cosmos DB e in un secondo momento è necessario il ripristino dei dati o una soluzione di ripristino di emergenza.  
@@ -50,7 +50,11 @@ L'immagine di seguito illustra i backup completi periodici di tutte le entità d
 ## <a name="backup-retention-period"></a>Periodo di conservazione dei backup
 Come descritto sopra, Azure Cosmos DB crea snapshot dei dati ogni quattro ore a livello di partizione. In qualsiasi momento risultano disponibili solo gli ultimi due snapshot. Tuttavia, se il database/raccolta viene eliminato, gli snapshot esistenti per tutte le partizioni eliminate all'interno del database/raccolta specificato vengono conservati per 30 giorni.
 
-Se si vuole mantenere gli snapshot, è possibile usare l'opzione di esportazione in JSON nello [strumento di migrazione dei dati](import-data.md#export-to-json-file) di Azure Cosmos DB per pianificare backup aggiuntivi.
+Per l'API SQL, se si vuole mantenere gli snapshot, è possibile usare l'opzione di esportazione in JSON nello [strumento di migrazione dei dati](import-data.md#export-to-json-file) di Azure Cosmos DB per pianificare backup aggiuntivi.
+
+> [!NOTE]
+> Se si "effettua il provisioning della velocità effettiva per un set di contenitori a livello di database", ricordarsi che il ripristino avviene a livello di account di database completo. È inoltre necessario assicurarsi di poter contattare il supporto tecnico entro 8 ore se si elimina accidentalmente il contenitore - tabella/raccolta/grafico, quando si usa questa nuova funzionalità. 
+
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Ripristino di un database da un backup online
 Se si elimina involontariamente il database o la raccolta, è possibile [creare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [contattare il supporto di Azure](https://azure.microsoft.com/support/options/) per ripristinare i dati dall'ultimo backup automatico. Se è necessario ripristinare il database a causa di un problema di danneggiamento dei dati, inclusa l'eliminazione di documenti contenuti in una raccolta, vedere [Gestione del danneggiamento dei dati](#handling-data-corruption) perché è necessario eseguire passaggi aggiuntivi per evitare che i dati danneggiati sovrascrivano i backup esistenti. Per il ripristino di uno snapshot specifico del backup, Cosmos DB richiede che i dati siano stati disponibili per la durata del ciclo di backup per tale snapshot.

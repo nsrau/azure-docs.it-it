@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 9a025716c2bb6266c1c1c552a2d0791b39429cac
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5224fe4682509f92e1f18d865e5cc5afb1218ad1
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-with-azure-and-azure-stack-applications"></a>Esercitazione: Configurare identità cloud ibrido con le applicazioni di Azure e Azure Stack
 
@@ -60,7 +60,7 @@ Un'installazione di Azure Stack connesso ad Azure Active Directory con una sotto
 
 Per connettersi allo Stack di Azure mediante il codice, usare gli endpoint di Azure Resource Manager API per ottenere l'autenticazione e l'endpoint graph per l'installazione dello Stack di Azure e quindi eseguire l'autenticazione usando richieste REST. È possibile trovare un'applicazione di esempio [qui](https://github.com/shriramnat/HybridARMApplication).
 
-> [!note]  
+> [!Note]  
 A meno che non Azure SDK per il linguaggio scelto supporta i profili di API di Azure, SDK potrebbe non funzionare con lo Stack di Azure. Per ulteriori informazioni sui profili di API di Azure, andare [qui](https://docs.microsoft.com/da-dk/azure/azure-stack/user/azure-stack-version-profiles).
 
 ## <a name="next-steps"></a>Passaggi successivi

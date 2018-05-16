@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7361a71d9e178f47761c42cebe706246eb9d5e64
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7446de27c306f795d885b4d929d7a8f75c3dcf23
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>Esercitazione: Aggiungere un endpoint HTTPS a un servizio front-end API Web ASP.NET Core
 Questa è la terza di una serie di esercitazioni.  Verrà illustrato come abilitare HTTPS in un servizio ASP.NET Core eseguito in Service Fabric. Al termine, si avrà un'applicazione di voto con un front-end Web ASP.NET Core abilitato per HTTPS in ascolto sulla porta 443. Se non si vuole creare manualmente l'applicazione di voto come illustrato in [Creare un'applicazione di Service Fabric .NET](service-fabric-tutorial-deploy-app-to-party-cluster.md), è possibile [scaricare il codice sorgente](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) per l'applicazione completa.
@@ -42,7 +42,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Configurare l'integrazione continua e la distribuzione continua usando Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di iniziare questa esercitazione:
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Installare Visual Studio 2017](https://www.visualstudio.com/) versione 15.5 o successiva con i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
@@ -274,7 +274,7 @@ Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory
 ### <a name="run-the-setup-script-as-a-local-administrator"></a>Eseguire lo script di configurazione come amministratore locale
 Per impostazione predefinita, l'eseguibile del punto di ingresso di configurazione del servizio viene eseguito con le stesse credenziali di Service Fabric (in genere, l'account NetworkService). *SetCertAccess.ps1* richiede privilegi di amministratore. Nel manifesto dell'applicazione, è possibile modificare le autorizzazioni di sicurezza per eseguire lo script di avvio con un account amministratore locale.  
 
-In Esplora soluzioni aprire *Voting/ApplicationPackageRoot/ManifestManifest.xml*. Per prima cosa, creare una sezione **Principals** e aggiungere un nuovo utente, ad esempio "SetupAdminUser". Aggiungere l'account utente SetupAdminUser al gruppo di sistema Administrators.
+In Esplora soluzioni aprire *Voting/ApplicationPackageRoot/ApplicationManifest.xml*. Per prima cosa, creare una sezione **Principals** e aggiungere un nuovo utente, ad esempio "SetupAdminUser". Aggiungere l'account utente SetupAdminUser al gruppo di sistema Administrators.
 Nella sezione **ServiceManifestImport** di VotingWebPkg configurare quindi un criterio **RunAsPolicy** per applicare l'entità di sicurezza SetupAdminUser al punto di ingresso di configurazione. Il criterio indica a Service Fabric che il file Setup.bat verrà eseguito con l'account SetupAdminUser, con privilegi di amministratore. 
 
 ```xml

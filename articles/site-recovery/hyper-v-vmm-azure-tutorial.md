@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 05/02/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 99477757c89fe2df7ae24b7ffe95c8fb7f470c93
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: a8bbbe0a5aca20222ff7385be9d0ecf0a4224d5c
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurare il ripristino di emergenza in Azure di macchine virtuali Hyper-V locali di cloud VMM
 
@@ -23,7 +23,7 @@ In questa esercitazione viene illustrato come configurare il ripristino di emerg
 > [!div class="checklist"]
 > * Selezionare l'origine e la destinazione della replica.
 > * Configurare l'ambiente di origine, inclusi i componenti locali di Site Recovery, e l'ambiente di destinazione della replica.
-> * Configurare il mapping di rete per eseguire il mapping tra le reti VM di VMM e le reti virtuali di Azure.
+> * Configurare il mapping di rete per eseguire il mapping tra le reti di macchine virtuali di VMM e le reti virtuali di Azure.
 > * Creare un criterio di replica
 > * Abilitare la replica per una macchina virtuale
 
@@ -39,11 +39,11 @@ Prima di iniziare, è utile [esaminare l'architettura](concepts-hyper-v-to-azure
 ## <a name="select-a-replication-goal"></a>Selezionare un obiettivo di replica
 
 1. In **Tutti i servizi** > **Insiemi di credenziali dei servizi di ripristino** fare clic sul nome dell'insieme di credenziali usato in queste esercitazioni, **ContosoVMVault**.
-2. In **Attività iniziali** fare clic su **Site Recovery**. Fare quindi clic su **Preparare l'infrastruttura**.
+2. In **Attività iniziali** fare clic su **Site Recovery** e quindi su **Preparare l'infrastruttura**.
 3. In **Obiettivo di protezione** > **Dove si trovano le macchine virtuali** selezionare **Locale**.
-4. Per **In quale destinazione si vuole eseguire la replica dei computer?** selezionare **In Azure**.
-5. In **I computer sono virtualizzati?** selezionare **Sì, con Hyper-V**.
-6. In **Are you using System Center VMM** (Si usa System Center VMM) selezionare **Sì**. Fare quindi clic su **OK**.
+4. Nella casella **In quale destinazione si vuole eseguire la replica dei computer** selezionare **In Azure**.
+5. In **I computer sono virtualizzati** selezionare **Sì, con Hyper-V**.
+6. In **Si sta usando System Center VMM per gestire gli host Hyper-V** selezionare **Sì**. Fare quindi clic su **OK**.
 
     ![Obiettivo di replica](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
 
@@ -55,7 +55,7 @@ Quando si configura l'ambiente di origine, si installano il provider di Azure Si
 
 1. In **Preparare l'infrastruttura** fare clic su **Origine**.
 2. In **Prepara origine** fare clic su **+ VMM** per aggiungere un server VMM. In **Aggiungi server** verificare che **System Center VMM server** compaia in **Tipo server**.
-3. Scaricare il programma di installazione di Microsoft Azure Site Recovery.
+3. Scaricare il programma di installazione del provider di Microsoft Azure Site Recovery.
 4. Scaricare la chiave di registrazione dell'insieme di credenziali, che sarà necessaria durante la configurazione del provider. La chiave è valida per cinque giorni dal momento in cui viene generata.
 5. Scaricare l'agente di Servizi di ripristino.
 
@@ -63,8 +63,8 @@ Quando si configura l'ambiente di origine, si installano il provider di Azure Si
 
 ### <a name="install-the-provider-on-the-vmm-server"></a>Installare il provider nel server VMM
 
-1. Nell'installazione guidata del provider di Azure Site Recovery > **Microsoft Update**, accettare esplicitamente di usare Microsoft Update per verificare la disponibilità degli aggiornamenti del provider.
-2. In **Installazione** accettare il percorso di installazione predefinito per il provider, quindi fare clic su **Installa**. 
+1. Nell'installazione guidata del provider di Azure Site Recovery > **Microsoft Update** acconsentire esplicitamente a usare Microsoft Update per verificare la disponibilità degli aggiornamenti del provider.
+2. In **Installazione** accettare il percorso di installazione predefinito per il provider e quindi fare clic su **Installa**. 
 3. Dopo l'installazione, in Registrazione guidata di Microsoft Azure Site Recovery > **Impostazioni dell'insieme di credenziali** fare clic su **Sfoglia** e in **File di chiave** selezionare il file di chiave dell'insieme di credenziali scaricato.
 4. Specificare la sottoscrizione di Azure Site Recovery e il nome dell'insieme di credenziali (**ContosoVMVault**). Specificare un nome descrittivo per identificare il server VMM nell'insieme di credenziali.
 5. In **Impostazioni proxy** selezionare **Connetti direttamente ad Azure Site Recovery senza server proxy**.
@@ -76,9 +76,9 @@ Al termine della registrazione, i metadati del server vengono recuperati da Azur
 
 ### <a name="install-the-recovery-services-agent"></a>Installare l'agente di Servizi di ripristino
 
-Installare l'agente in ogni host Hyper-V contenente le macchine virtuali da replicare.
+Installare l'agente in ogni host Hyper-V contenente macchine virtuali da replicare.
 
-1. In Installazione guidata di Agente servizi di ripristino di Microsoft Azure > **Verifica dei prerequisiti**, fare clic su **Avanti**. Gli eventuali prerequisiti mancanti verranno installati automaticamente.
+1. In Installazione guidata di Agente servizi di ripristino di Microsoft Azure > **Controllo dei prerequisiti** fare clic su **Avanti**. Gli eventuali prerequisiti mancanti verranno installati automaticamente.
 2. In **Impostazioni di installazione** accettare il percorso di installazione e il percorso della cache. L'unità di cache necessita di almeno 5 GB di spazio di archiviazione. Si consiglia un'unità con almeno 600 GB di spazio libero. Fare clic su **Installa**.
 3. In **Installazione**, al termine dell'installazione, fare clic su **Chiudi** per completare la procedura guidata.
 
@@ -88,7 +88,7 @@ Installare l'agente in ogni host Hyper-V contenente le macchine virtuali da repl
 ## <a name="set-up-the-target-environment"></a>Configurare l'ambiente di destinazione
 
 1. Fare clic su **Preparare l'infrastruttura** > **Destinazione**.
-2. Selezionare la sottoscrizione e il gruppo di risorse (**ContosoRG**) in cui verranno create le VM di Azure dopo il failover.
+2. Selezionare la sottoscrizione e il gruppo di risorse (**ContosoRG**) in cui verranno create le macchine virtuali di Azure dopo il failover.
 3. Selezionare il modello di distribuzione **Resource Manager**.
 
 Site Recovery verifica la disponibilità di uno o più account di archiviazione di Azure e reti compatibili.
@@ -107,13 +107,13 @@ Site Recovery verifica la disponibilità di uno o più account di archiviazione 
 ## <a name="set-up-a-replication-policy"></a>Configurare criteri di replica
 
 1. Fare clic su **Preparare l'infrastruttura** > **Impostazioni della replica** > **+Crea e associa**.
-2. In **Criteri di creazione e associazione** specificare il nome dei criteri, ovvero **ContosoReplicationPolicy**.
-3. Lasciare l'impostazione predefinita e fare clic su **OK**.
-    - **Frequenza di copia** indica che i dati differenziali (dopo la replica iniziale) verranno replicati ogni 5 minuti.
-    - **Conservazione del punto di ripristino** indica un intervallo di conservazione di due ore per ogni punto di ripristino.
-    - **Frequenza snapshot coerenti con l'app** indica che verranno creati ogni ora punti di ripristino contenenti snapshot coerenti con l'app.
-    - **Ora di inizio della replica iniziale** indica che la replica iniziale verrà avviata immediatamente.
-    - **Crittografare i dati archiviati in Azure** - l'impostazione predefinita **Off** indica che i dati inattivi in Azure non sono crittografati.
+2. In **Creare e associare i criteri** specificare il nome **ContosoReplicationPolicy**.
+3. Lasciare le impostazioni predefinite e fare clic su **OK**.
+    - **Frequenza di copia**: indica che i dati delta (dopo la replica iniziale) verranno replicati ogni 5 minuti.
+    - **Conservazione del punto di ripristino**: indica che i periodi di conservazione di ogni punto di ripristino avranno una durata di due ore.
+    - **Frequenza snapshot coerenti con l'app**: indica che i punti di ripristino contenenti snapshot coerenti con l'app verranno creati ogni ora.
+    - **Ora di inizio della replica iniziale**: indica che la replica iniziale verrà avviata immediatamente.
+    - **Crittografare i dati archiviati in Azure**: l'impostazione predefinita **No** indica che i dati inattivi di Azure non sono crittografati.
 4. Dopo aver creato i criteri, fare clic su **OK**. Quando si creano nuovi criteri, questi vengono associati automaticamente al cloud VMM.
 
 ## <a name="enable-replication"></a>Abilitare la replica

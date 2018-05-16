@@ -12,24 +12,31 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 9dac59d74347e21bebaf7cb65d199711f45b29a9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5e9de401f64a835c286c226bfac88caf5168b96e
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="manage-key-vault-in-azure-stack-by-using-powershell"></a>Gestire l'insieme di credenziali chiave nello Stack di Azure usando PowerShell
+# <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Gestire l'insieme di credenziali chiave nello Stack di Azure tramite PowerShell
 
-In questo articolo consente di iniziare a creare e gestire l'insieme di credenziali chiave nello Stack di Azure tramite PowerShell. Cmdlet di PowerShell di insieme di credenziali chiave descritti in questo articolo sono disponibili come parte di Azure PowerShell SDK. Nelle sezioni seguenti vengono descritti i cmdlet di PowerShell che è necessari:
-   - Creare un insieme di credenziali. 
-   - Archiviare e gestire i segreti e le chiavi di crittografia. 
-   - Autorizzare gli utenti o applicazioni per richiamare le operazioni nell'insieme di credenziali. 
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+
+È possibile gestire l'insieme di credenziali chiave nello Stack di Azure tramite PowerShell. Imparare a utilizzare i cmdlet di PowerShell nell'insieme di credenziali chiave per:
+
+* Creare un insieme di credenziali delle chiavi.
+* Archiviare e gestire i segreti e le chiavi di crittografia.
+* Autorizzare gli utenti o applicazioni per richiamare le operazioni nell'insieme di credenziali.
+
+>[!NOTE]
+>Il descritti i cmdlet PowerShell dell'insieme di credenziali chiave in questo articolo vengono fornite in Azure PowerShell SDK.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 * È necessario sottoscrivere un'offerta che include il servizio insieme credenziali chiavi Azure.
-* [Installare PowerShell per Azure Stack](azure-stack-powershell-install.md).  
+* [Installare PowerShell per Azure Stack](azure-stack-powershell-install.md).
 * [Configurare l'ambiente di PowerShell dell'utente Azure Stack](azure-stack-powershell-configure-user.md).
 
 ## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>Abilitare la sottoscrizione di tenant per le operazioni di insieme di credenziali chiave
@@ -39,11 +46,12 @@ Prima di poter eseguire qualsiasi operazione su un insieme di credenziali chiave
 ```PowerShell
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 ```
+
 **Output**
 
-Se la sottoscrizione è abilitata per le operazioni dell'insieme di credenziali, l'output mostra "RegistrationState" è uguale a "Registrata" per tutti i tipi di risorse di un insieme di credenziali chiave.
+Se la sottoscrizione è abilitata per le operazioni dell'insieme di credenziali, l'output mostra "RegistrationState" sia "registrata" per tutti i tipi di risorse di un insieme di credenziali delle chiavi.
 
-![Stato di registrazione](media/azure-stack-kv-manage-powershell/image1.png)
+![Stato della registrazione dell'insieme di credenziali chiave](media/azure-stack-kv-manage-powershell/image1.png)
 
 Se non sono abilitate le operazioni dell'insieme di credenziali, è possibile richiamare il comando seguente per registrare il servizio insieme di credenziali chiave nella sottoscrizione:
 
@@ -57,7 +65,7 @@ Se la registrazione ha esito positivo, viene restituito il seguente output:
 
 ![Registrare](media/azure-stack-kv-manage-powershell/image2.png) quando si richiamano i comandi dell'insieme di credenziali chiave, si verifichi un errore, ad esempio "la sottoscrizione non è registrata per l'utilizzo dello spazio dei nomi 'Microsoft.KeyVault'." Se si verifica un errore, verificare di avere [abilitato il provider di risorse dell'insieme di credenziali chiave](#enable-your-tenant-subscription-for-vault-operations) seguendo le istruzioni indicate in precedenza.
 
-## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi 
+## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
 Prima di creare un insieme di credenziali chiave, creare un gruppo di risorse in modo che tutte le risorse correlate all'insieme di credenziali chiave esiste in un gruppo di risorse. Utilizzare il comando seguente per creare un nuovo gruppo di risorse:
 
@@ -70,28 +78,31 @@ New-AzureRmResourceGroup -Name “VaultRG” -Location local -verbose -Force
 
 ![nuovo gruppo di risorse](media/azure-stack-kv-manage-powershell/image3.png)
 
-A questo punto, usare il **New AzureRMKeyVault** comando per creare un insieme di credenziali chiave nel gruppo di risorse creato in precedenza. Questo comando legge tre parametri obbligatori: nome del gruppo di risorse, il nome dell'insieme di credenziali chiave e posizione geografica. 
+A questo punto, usare il **New AzureRMKeyVault** comando per creare un insieme di credenziali chiave nel gruppo di risorse creato in precedenza. Questo comando legge tre parametri obbligatori: nome del gruppo di risorse, il nome dell'insieme di credenziali chiave e posizione geografica.
 
 Eseguire il comando seguente per creare un insieme di credenziali chiave:
 
 ```PowerShell
 New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -Location local -verbose
 ```
+
 **Output**
 
 ![Insieme di credenziali delle chiavi nuovo](media/azure-stack-kv-manage-powershell/image4.png)
 
-L'output di questo comando Mostra le proprietà dell'insieme di credenziali chiave che è stato creato. Quando un'applicazione accede a questo insieme di credenziali, Usa il **URI dell'insieme di credenziali** proprietà illustrato nell'output. Ad esempio, l'insieme di credenziali Uniform Resource Identifier (URI) in questo caso è "https://vault01.vault.local.azurestack.external". Applicazioni che interagiscono con questo insieme di credenziali chiave tramite l'API REST è necessario usare questo URI.
+L'output di questo comando Mostra le proprietà dell'insieme di credenziali chiave che è stato creato. Quando un'applicazione accede a questo insieme di credenziali, è necessario utilizzare il **URI dell'insieme di credenziali** proprietà, ovvero "https://vault01.vault.local.azurestack.external" in questo esempio.
 
-In Active Directory Federation Services (ADFS)-distribuzioni di base, quando si crea una chiave dell'insieme di credenziali con PowerShell, è possibile ricevere un avviso che segnala "criteri di accesso non sono impostato. Nessun utente o l'applicazione dispone di autorizzazioni di accesso per utilizzare questo insieme di credenziali." Per risolvere questo problema, impostare un criterio di accesso per l'insieme di credenziali usando il [Set-AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) comando:
+### <a name="active-directory-federation-services-ad-fs-deployment"></a>Distribuzione di Active Directory Federation Services (ADFS)
+
+In una distribuzione di ADFS, è possibile che venga visualizzato questo avviso: "criteri di accesso non sono impostato. Nessun utente o l'applicazione dispone di autorizzazioni di accesso per utilizzare questo insieme di credenziali." Per risolvere questo problema, impostare un criterio di accesso per l'insieme di credenziali usando il [Set-AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) comando:
 
 ```PowerShell
 # Obtain the security identifier(SID) of the active directory user
 $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
-$objectSID = $adUser.SID.Value 
+$objectSID = $adUser.SID.Value
 
 # Set the key vault access policy
-Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation 
+Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation
 ```
 
 ## <a name="manage-keys-and-secrets"></a>Gestire le chiavi e segreti
@@ -100,20 +111,21 @@ Dopo aver creato un insieme di credenziali, utilizzare la procedura seguente per
 
 ### <a name="create-a-key"></a>Creare una chiave
 
-Utilizzare il **Add-AzureKeyVaultKey** comando per creare o importare una chiave protetta tramite software in un insieme di credenziali chiave. 
+Utilizzare il **Add-AzureKeyVaultKey** comando per creare o importare una chiave protetta tramite software in un insieme di credenziali chiave.
 
 ```PowerShell
 Add-AzureKeyVaultKey -VaultName “Vault01” -Name “Key01” -verbose -Destination Software
 ```
+
 Il **destinazione** parametro viene utilizzato per specificare che la chiave sia protetto da software. Quando la chiave viene creata correttamente, il comando restituisce i dettagli della chiave creata.
 
 **Output**
 
 ![Nuova chiave](media/azure-stack-kv-manage-powershell/image5.png)
 
-È ora possibile fare riferimento la chiave creata utilizzando il relativo URI. Se si crea o si importa una chiave con stesso nome di una chiave esistente, la chiave originale viene aggiornata con i valori specificati in una nuova chiave. È possibile accedere alla versione precedente utilizzando l'URI specifico della versione della chiave. Ad esempio:  
+È ora possibile fare riferimento la chiave creata utilizzando il relativo URI. Se si crea o si importa una chiave con stesso nome di una chiave esistente, la chiave originale viene aggiornata con i valori specificati in una nuova chiave. È possibile accedere alla versione precedente utilizzando l'URI specifico della versione della chiave. Ad esempio: 
 
-* Utilizzare "https://vault10.vault.local.azurestack.external:443/keys/key01" ottenere sempre la versione corrente. 
+* Utilizzare "https://vault10.vault.local.azurestack.external:443/keys/key01" ottenere sempre la versione corrente.
 * Utilizzare "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" per ottenere la versione specifica.
 
 ### <a name="get-a-key"></a>Ottenere una chiave
@@ -124,7 +136,7 @@ Utilizzare il **Get-AzureKeyVaultKey** comando per la lettura di una chiave e i 
 Get-AzureKeyVaultKey -VaultName “Vault01” -Name “Key01”
 ```
 
-### <a name="create-a-secret"></a>Crea un segreto
+### <a name="create-a-secret"></a>Creare un segreto
 
 Utilizzare il **Set AzureKeyVaultSecret** comando per creare o aggiornare una chiave privata in un insieme di credenziali. Se non esiste già, viene creata una chiave privata. Se esiste già, viene creata una nuova versione del segreto.
 
@@ -135,11 +147,11 @@ Set-AzureKeyVaultSecret -VaultName “Vault01” -Name “Secret01” -SecretVal
 
 **Output**
 
-![Crea un segreto](media/azure-stack-kv-manage-powershell/image6.png)
+![Creare un segreto](media/azure-stack-kv-manage-powershell/image6.png)
 
 ### <a name="get-a-secret"></a>Ottenere una chiave privata
 
-Utilizzare il **Get AzureKeyVaultSecret** comando per la lettura di un segreto in un insieme di credenziali chiave. Questo comando può restituire tutte le versioni specifiche di un segreto o. 
+Utilizzare il **Get AzureKeyVaultSecret** comando per la lettura di un segreto in un insieme di credenziali chiave. Questo comando può restituire tutte le versioni specifiche di un segreto o.
 
 ```PowerShell
 Get-AzureKeyVaultSecret -VaultName “Vault01” -Name “Secret01”
@@ -163,6 +175,6 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalNa
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Distribuire una macchina virtuale con una password archiviate nell'insieme di credenziali chiave](azure-stack-kv-deploy-vm-with-secret.md) 
-* [Distribuire una macchina virtuale con un certificato archiviato nell'insieme di credenziali chiave](azure-stack-kv-push-secret-into-vm.md)
 
+* [Distribuire una macchina virtuale con una password archiviate nell'insieme di credenziali chiave](azure-stack-kv-deploy-vm-with-secret.md)
+* [Distribuire una macchina virtuale con un certificato archiviato nell'insieme di credenziali chiave](azure-stack-kv-push-secret-into-vm.md)

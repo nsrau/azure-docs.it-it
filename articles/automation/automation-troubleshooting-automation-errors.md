@@ -3,6 +3,7 @@ title: Risoluzione dei problemi comuni di Automazione di Azure | Documentazione 
 description: Questo articolo fornisce informazioni utili per la risoluzione dei problemi e la correzione degli errori comuni di Automazione di Azure.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
@@ -10,11 +11,11 @@ ms.topic: article
 manager: carmonm
 tags: top-support-issue
 keywords: errore di automazione, risoluzione dei problemi, problema
-ms.openlocfilehash: 44200ae9deb1a5c11c81550173b3f6f90b5d62ab
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d8bf617aaef463121abe76cd85a98615c83f11ae
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Risoluzione dei problemi comuni in Automazione di Azure 
 Questo articolo fornisce informazioni utili per la risoluzione degli errori comuni che si possono verificare in Automazione di Azure e suggerisce possibili soluzioni.

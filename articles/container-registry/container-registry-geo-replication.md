@@ -3,26 +3,20 @@ title: Replica geografica di un registro contenitori di Azure
 description: Introduzione alla creazione e gestione dei registri contenitori di Azure con replica geografica
 services: container-registry
 author: stevelas
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview-article
-ms.date: 10/24/2017
+ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: e4695428b03961f5e899007609dfb1088dde77a8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replica geografica nel servizio Registro contenitori di Azure
 
-Le aziende con esigenze di presenza online locale o di backup a caldo scelgono di eseguire i servizi da più aree di Azure. Come procedura consigliata, l'inserimento di un registro contenitori in ogni area in cui vengono eseguite le immagini consente l'esecuzione di operazioni in posizioni di rete vicine e quindi di trasferimenti di livelli di immagine più veloci e affidabili.
-
-La replica geografica consente al registro contenitori di Azure di fungere da singolo registro in modo da servire più aree con registri regionali multimaster.
-
-> [!IMPORTANT]
-> La funzionalità di replica geografica del servizio Registro contenitori di Azure è attualmente in versione di **anteprima**. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
->
+Le aziende con esigenze di presenza online locale o di backup a caldo scelgono di eseguire i servizi da più aree di Azure. Come procedura consigliata, l'inserimento di un registro contenitori in ogni area in cui vengono eseguite le immagini consente l'esecuzione di operazioni in posizioni di rete vicine e quindi di trasferimenti di livelli di immagine più veloci e affidabili. La replica geografica consente al registro contenitori di Azure di fungere da singolo registro in modo da servire più aree con registri regionali multimaster.
 
 Un registro con replica geografica è caratterizzato dai vantaggi seguenti:
 
@@ -70,7 +64,7 @@ La replica geografica è una funzionalità disponibile solo per i [registri Prem
 
 ![Cambio di SKU nel portale di Azure](media/container-registry-skus/update-registry-sku.png)
 
-Per configurare la replica geografica per il registro Premium, accedere al portale di Azure all'indirizzo http://portal.azure.com.
+Per configurare la replica geografica per un registro Premium, accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
 Passare al Registro contenitori di Azure e selezionare **Repliche**:
 

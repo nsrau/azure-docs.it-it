@@ -1,6 +1,6 @@
 ---
-title: Distribuzione continua di Jenkins con Kubernetes nel servizio contenitore di Azure
-description: Come automatizzare un processo di distribuzione continua con Jenkins per distribuire e aggiornare un'app nei contenitori in Kubernetes nel servizio contenitore di Azure
+title: Distribuzione continua di Jenkins con Kubernetes in Azure Kubernetes Service
+description: Come automatizzare un processo di distribuzione continua con Jenkins per distribuire e aggiornare un'app nei contenitori in Kubernetes in Azure Kubernetes Service
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7ebe7a88fcb0a0785b72c512e64a2d9aeb5fc506
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: efdb89c5f4c6bdb9b007b7c0020cbdb8f6034eed
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Distribuzione continua con Jenkins e il servizio contenitore di Azure
+# <a name="continuous-deployment-with-jenkins-and-azure-kubernetes-service"></a>Distribuzione continua con Jenkins e Azure Kubernetes Service
 
-Questo documento illustra come configurare un flusso di lavoro di base per la distribuzione continua tra Jenkins e un cluster del servizio contenitore di Azure (AKS).
+Questo documento illustra come configurare un flusso di lavoro di base per la distribuzione continua tra Jenkins e un cluster di Azure Kubernetes Service (AKS).
 
 Il flusso di lavoro di esempio include i passaggi seguenti:
 
@@ -33,7 +33,7 @@ Il flusso di lavoro di esempio include i passaggi seguenti:
 Per completare la procedura descritta in questo articolo, è necessario soddisfare i requisiti seguenti.
 
 - Avere una conoscenza di base di Kubernetes, Git, CI/CD e Registro contenitori di Azure (ACR).
-- Avere un [cluster del servizio contenitore di Azure (AKS)][aks-quickstart] e le [credenziali di AKS configurate][aks-credentials] nel sistema di sviluppo.
+- Un [cluster Azure Kubernetes Service (AKS)][aks-quickstart] e le [credenziali di AKS configurate][aks-credentials] nel sistema di sviluppo.
 - Avere un [registro del Registro contenitori di Azure (ACR)][acr-quickstart], il nome del server di accesso di ACR e le [credenziali di ACR][acr-authentication] con accesso push e pull.
 - Avere l'interfaccia della riga di comando di Azure installata nel sistema di sviluppo.
 - Avere il docker installato nel sistema di sviluppo.

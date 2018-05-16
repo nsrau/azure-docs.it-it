@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a2d8f66b0364535cbb7e8cadd8067dd8f7facb2c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 52654704662b736811f429a811e10669a752b75a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi per Funzioni di Azure
 
@@ -337,6 +337,9 @@ In alternativa, è possibile inviare una richiesta HTTP PUT per specificare il v
 
 ## <a name="local-testing-with-requestbin"></a>Test locale con RequestBin
 
+> [!NOTE]
+> Il sito RequestBin non è attualmente disponibile, ma è comunque possibile usare questo approccio con https://hookbin.com. Se tale sito è inattivo, è possibile usare [ngrok](#local-testing-with-ngrok).
+
 Per testare un trigger Griglia di eventi in locale, è necessario ottenere le richieste HTTP di Griglia di eventi inviate dalla rispettiva origine nel cloud al computer locale. A tale scopo, è possibile acquisire le richieste online e rinviarle manualmente al computer locale:
 
 2. [Creare un endpoint RequestBin](#create-a-RequestBin-endpoint).
@@ -348,7 +351,7 @@ Al termine del test, è possibile usare la stessa sottoscrizione per scopi di pr
 
 ### <a name="create-a-requestbin-endpoint"></a>Creare un endpoint RequestBin
 
-RequestBin è uno strumento open source che accetta le richieste HTTP e visualizza il corpo di tali richieste. Griglia di eventi di Azure riserva all'URL http://requestb.in un trattamento speciale. Per facilitare il test, Griglia di eventi invia gli eventi all'URL RequestBin senza richiedere una risposta corretta alle richieste di convalida della sottoscrizione. Ad altri due strumenti di test viene riservato lo stesso trattamento: http://webhookinbox.com e http://hookbin.com.
+RequestBin è uno strumento open source che accetta le richieste HTTP e visualizza il corpo di tali richieste. Griglia di eventi di Azure riserva all'URL http://requestb.in un trattamento speciale. Per facilitare il test, Griglia di eventi invia gli eventi all'URL RequestBin senza richiedere una risposta corretta alle richieste di convalida della sottoscrizione. Anche a un altro strumento di test viene riservato lo stesso trattamento: http://hookbin.com.
 
 RequestBin non è destinato all'utilizzo con velocità effettiva elevata. Se si esegue il push di più di un evento alla volta, è possibile che non vengano visualizzati tutti gli eventi nello strumento.
 

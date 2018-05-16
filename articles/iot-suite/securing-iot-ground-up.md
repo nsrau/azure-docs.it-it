@@ -1,12 +1,12 @@
 ---
 title: Sicurezza dell'Internet of Things sin dall'inizio | Microsoft Docs
-description: "In questo articolo vengono descritte le funzionalità di protezione integrate in Azure IoT Suite di Microsoft"
-services: 
+description: In questo articolo vengono descritte le funzionalità di protezione integrate negli acceleratori di soluzioni Azure IoT di Microsoft
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 10252dfa-8313-4a97-9bd6-a3f1345dd3be
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 6df45a64c70bda632c3f8b721aa962dd8b6d3fa2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 991a668bbebf09c7394552b1dc5928e5dbe58841
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
@@ -34,10 +34,10 @@ Per altre informazioni sulla protezione della soluzione IoT, vedere:
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-È anche possibile esplorare alcune altre funzionalità delle soluzioni preconfigurate di IoT Suite:
+È anche possibile esplorare alcune altre funzionalità degli acceleratori di soluzioni IoT:
 
-* [Panoramica della soluzione preconfigurata di manutenzione predittiva][lnk-predictive-overview]
-* [Domande frequenti su IoT Suite][lnk-faq]
+* [Panoramica dell'acceleratore di soluzioni di manutenzione predittiva][lnk-predictive-overview]
+* [Domande frequenti sugli acceleratori di soluzioni IoT][lnk-faq]
 
 Informazioni sulla protezione dell'hub IoT sono disponibili in [Controllare l'accesso all'hub IoT][lnk-devguide-security] nella guida per gli sviluppatori dell'hub IoT.
 

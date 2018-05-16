@@ -3,16 +3,17 @@ title: Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore 
 description: Questa soluzione di gestione di VM avvia e arresta le macchine virtuali di Azure Resource Manager in base a una pianificazione e le monitora in modo attivo da Log Analytics.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 41a5ff2613706b7454a96daa52c7cb20c734c394
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 410f76d406ab65ff1732525a501fe007eeeb5f6a
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) in Automazione di Azure
 
@@ -26,7 +27,7 @@ Questa soluzione fornisce un'opzione di automazione decentralizzata per gli uten
 
 ## <a name="prerequisites"></a>prerequisiti
 
-* I runbook funzionano con un [account RunAs di Azure](automation-offering-get-started.md#authentication-methods). L'account RunAs è il metodo di autenticazione preferito perché usa l'autenticazione del certificato anziché una password, che potrebbe scadere o essere modificata di frequente.
+* I runbook funzionano con un [account RunAs di Azure](automation-create-runas-account.md). L'account RunAs è il metodo di autenticazione preferito perché usa l'autenticazione del certificato anziché una password, che potrebbe scadere o essere modificata di frequente.
 * Questa soluzione gestisce solo le macchine virtuali nella stessa sottoscrizione dell'account di Automazione di Azure.
 * È possibile eseguire la distribuzione solo nelle aree di Azure seguenti: Australia sud-orientale, Canada centrale, India centrale, Stati Uniti orientali, Giappone orientale, Asia sud-orientale, Regno Unito meridionale ed Europa occidentale.
 
@@ -80,8 +81,8 @@ Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine v
    * Selezionare una **pianificazione**. Si tratta di una data e un'ora ricorrenti per l'avvio e l'arresto delle macchine virtuali nei gruppi di risorse di destinazione. Per impostazione predefinita, la pianificazione è configurata per il fuso orario UTC. Non è possibile selezionare un'altra area. Per configurare la pianificazione per il fuso orario specifico dopo aver configurato la soluzione, vedere [Modifica della pianificazione di avvio e arresto](#modify-the-startup-and-shutdown-schedule).
    * Per ricevere **notifiche tramite posta elettronica** da SendGrid, accettare il valore predefinito **Sì** e fornire un indirizzo di posta elettronica valido. Se si seleziona **No**, ma in seguito si decide di voler ricevere le notifiche tramite posta elettronica, è possibile aggiornare la variabile **External_EmailToAddress** con gli indirizzi di posta elettronica validi separati da virgola e quindi modificare la variabile **External_IsSendEmail** con il valore **Sì**.
 
-> [!IMPORTANT]
-> Il valore predefinito per i **nomi dei gruppi di risorse di destinazione** è **&ast;**, destinato a tutte le macchine virtuali in una sottoscrizione. Se non si vuole che la soluzione interessi tutte le macchine virtuali nella sottoscrizione, questo valore deve essere aggiornato con un elenco di nomi di gruppi di risorse prima di abilitare le pianificazioni.
+    > [!IMPORTANT]
+    > Il valore predefinito per i **nomi dei gruppi di risorse di destinazione** è **&ast;**, destinato a tutte le macchine virtuali in una sottoscrizione. Se non si vuole che la soluzione interessi tutte le macchine virtuali nella sottoscrizione, questo valore deve essere aggiornato con un elenco di nomi di gruppi di risorse prima di abilitare le pianificazioni.
 
 1. Dopo aver configurato le impostazioni iniziali necessarie per la soluzione, fare clic su **OK** per chiudere la pagina **Parametri** e selezionare **Crea**. Dopo la convalida di tutte le impostazioni, la soluzione viene distribuita nella sottoscrizione. Questo processo può richiedere alcuni secondi. Per tenere traccia dello stato di avanzamento, è possibile usare la voce **Notifiche** nel menu.
 
@@ -218,7 +219,7 @@ In tutti gli scenari le variabili **External_Start_ResourceGroupNames**, **Exter
 
 ### <a name="schedules"></a>Pianificazioni
 
-Nella tabella seguente sono elencate le pianificazioni create nell'account di Automazione.  È possibile modificarle o creare le proprie pianificazioni personalizzate. Ognuna è disabilitata per impostazione predefinita, a eccezione di **Scheduled_StartVM** e **Scheduled-StopVM**.
+Nella tabella seguente sono elencate le pianificazioni create nell'account di Automazione. È possibile modificarle o creare le proprie pianificazioni personalizzate. Ognuna è disabilitata per impostazione predefinita, a eccezione di **Scheduled_StartVM** e **Scheduled-StopVM**.
 
 Non è consigliabile abilitare tutte le pianificazioni, perché potrebbe verificarsi una sovrapposizione delle azioni di pianificazione. È meglio determinare quali ottimizzazioni si vogliono eseguire e apportare le modifiche di conseguenza. Per altre informazioni, vedere gli scenari di esempio nella sezione Panoramica.
 
@@ -226,7 +227,7 @@ Non è consigliabile abilitare tutte le pianificazioni, perché potrebbe verific
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Ogni 8 ore | Esegue il runbook AutoStop_CreateAlert_Parent ogni 8 ore, che a sua volta arresta i valori basati sulla macchina virtuale in External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames ed External_ExcludeVMNames nelle variabili di Automazione di Azure. In alternativa, è possibile specificare un elenco separato da virgole delle macchine virtuali usando il parametro VMList.|
 |Scheduled_StopVM | Definita dall'utente, giornalmente | Esegue il runbook Scheduled_Parent con un parametro *Stop* ogni giorno all'ora specificata. Arresta automaticamente tutte le macchine virtuali che soddisfano le regole definite dalle variabili di asset. È consigliabile abilitare la pianificazione correlata, **Scheduled-StartVM**.|
-|Scheduled_StartVM | Definita dall'utente, giornalmente | Esegue il runbook Scheduled_Parent con un parametro *Start* ogni giorno all'ora specificata.  Avvia automaticamente tutte le macchine virtuali che soddisfano le regole definite dalle variabili appropriate. È consigliabile abilitare la pianificazione correlata, **Scheduled-StopVM**.|
+|Scheduled_StartVM | Definita dall'utente, giornalmente | Esegue il runbook Scheduled_Parent con un parametro *Start* ogni giorno all'ora specificata. Avvia automaticamente tutte le macchine virtuali che soddisfano le regole definite dalle variabili appropriate. È consigliabile abilitare la pianificazione correlata, **Scheduled-StopVM**.|
 |Sequenced-StopVM | 1:00 (UTC), ogni venerdì | Esegue il runbook Sequenced_Parent con un parametro *Stop* ogni venerdì all'ora specificata. Arresterà in sequenza (crescente) tutte le macchine virtuali con un tag **SequenceStop** definito dalle variabili appropriate. Vedere la sezione Runbook per altre informazioni sui valori di tag e sulle variabili di asset. È consigliabile abilitare la pianificazione correlata, **Sequenced-StartVM**.|
 |Sequenced-StartVM | 13:00 (UTC), ogni lunedì | Esegue il runbook Sequenced_Parent con un parametro *Start* ogni lunedì a una determinata ora. Avvia in sequenza (decrescente) tutte le macchine virtuali con un tag **SequenceStart** definito dalle variabili appropriate. Vedere la sezione Runbook per altre informazioni sui valori di tag e sulle variabili di asset. È consigliabile abilitare la pianificazione correlata, **Sequenced-StopVM**.|
 

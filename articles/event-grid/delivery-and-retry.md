@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 017cb5850788bd230c4a4ba256997f2776c07bec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: db16a4ba2177e92fa4500af0969c44471004ba73
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi 
 
@@ -35,7 +35,7 @@ I codici di risposta HTTP seguenti indicano che un evento è stato recapitato co
 
 ### <a name="failure-codes"></a>Codici di errore
 
-I codici di risposta HTTP seguenti indicano che un tentativo di recapito di un evento non è riuscito. Griglia di eventi tenta nuovamente di inviare l'evento. 
+I codici di risposta HTTP seguenti indicano che un tentativo di recapito di un evento non è riuscito. 
 
 - 400 - Richiesta non valida
 - 401 - Non autorizzato
@@ -46,9 +46,9 @@ I codici di risposta HTTP seguenti indicano che un tentativo di recapito di un e
 - 503 - Servizio non disponibile
 - 504 - Timeout gateway
 
-Qualsiasi altro codice di risposta o la mancanza di una risposta indica un errore. Griglia di eventi esegue un nuovo tentativo di recapito. 
+Se Griglia di eventi riceve un errore che indica che l'endpoint non è disponibile, tenta nuovamente di inviare l'evento. 
 
-## <a name="retry-intervals"></a>Intervalli tra tentativi
+## <a name="retry-intervals-and-duration"></a>Intervalli e durata dei tentativi
 
 Griglia di eventi usa criteri per i tentativi di tipo backoff esponenziale per il recapito degli eventi. Se il webhook non risponde o restituisce un codice di errore, Griglia di eventi esegue un nuovo tentativo di recapito in base alla pianificazione seguente:
 
@@ -62,9 +62,7 @@ Griglia di eventi usa criteri per i tentativi di tipo backoff esponenziale per i
 
 Griglia di eventi aggiunge una piccola parte di casualità a tutti gli intervalli tra tentativi. Dopo un'ora, il recapito degli eventi viene ripetuto una volta all'ora.
 
-## <a name="retry-duration"></a>Durata dei tentativi
-
-Griglia di eventi di Azure imposta come scaduti tutti gli eventi che non vengono recapitati entro 24 ore.
+Per impostazione predefinita, Griglia di eventi fa scadere tutti gli eventi che non vengono recapitati entro 24 ore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

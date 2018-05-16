@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
-ms.author: rli; v-deasim
-ms.openlocfilehash: 88c1b98a9dcaa1d22cdc1be3853b1fa7116c8a48
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/30/2018
+ms.author: v-deasim
+ms.openlocfilehash: bb0824995972b49febdb1695e41f45fbd0966cd1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-caching-works"></a>Funzionamento della memorizzazione nella cache
 
@@ -71,12 +71,13 @@ La rete CDN di Azure supporta le seguenti intestazioni di direttive della cache 
 **Cache-Control:**
 - Introdotta nella specifica HTTP 1.1 per superare le limitazioni dell'intestazione `Expires` e per offrire un maggiore controllo sui contenuti nella pubblicazione di contenuti Web.
 - Ha la precedenza sull'intestazione `Expires`, se questa è definita insieme all'intestazione `Cache-Control`.
-- Quando viene usata in una richiesta HTTP, `Cache-Control` viene ignorata dalla rete CDN di Azure per impostazione predefinita.
-- I profili di **rete CDN di Azure con tecnologia Verizon** supportano tutte le direttive `Cache-Control`, quando usate in una risposta HTTP.
-- I profili di **rete CDN di Azure con tecnologia Akamai** supportano solo le direttive seguenti, quando usate in una risposta HTTP. Tutte le altre vengono ignorate:
-   - `max-age`: una cache può archiviare il contenuto per il numero di secondi specificato, Ad esempio, `Cache-Control: max-age=5`. Questa direttiva specifica il tempo massimo per il quale il contenuto viene considerato aggiornato.
-   - `no-cache`: il contenuto viene memorizzato nella cache, ma è necessario convalidarlo ogni volta prima di inviarlo dalla cache. È equivalente a `Cache-Control: max-age=0`.
-   - `no-store`: il contenuto non viene mai memorizzato nella cache e viene rimosso se è stato archiviato in precedenza.
+- Quando usato in una richiesta HTTP dal client al POP della rete CDN, per impostazione predefinita `Cache-Control` viene ignorato da tutti i profili di rete CDN.
+- Se usato in una risposta HTTP dal client al POP della rete CDN:
+     - La **rete CDN Standard/Premium di Azure con tecnologia Verizon** e la **rete CDN Standard di Azure con tecnologia Microsoft** supportano tutte le direttive `Cache-Control`.
+     - La **rete CDN Standard/Premium di Azure con tecnologia Akamai** supporta solo le direttive `Cache-Control` seguenti e tutte le altre vengono ignorate:
+         - `max-age`: una cache può archiviare il contenuto per il numero di secondi specificato, Ad esempio, `Cache-Control: max-age=5`. Questa direttiva specifica il tempo massimo per il quale il contenuto viene considerato aggiornato.
+         - `no-cache`: il contenuto viene memorizzato nella cache, ma è necessario convalidarlo ogni volta prima di inviarlo dalla cache. È equivalente a `Cache-Control: max-age=0`.
+         - `no-store`: il contenuto non viene mai memorizzato nella cache e viene rimosso se è stato archiviato in precedenza.
 
 **Expires:**
 - Intestazione legacy introdotta in HTTP 1.0; supportata per la compatibilità con le versioni precedenti.
@@ -92,17 +93,17 @@ La rete CDN di Azure supporta le seguenti intestazioni di direttive della cache 
 
 ## <a name="validators"></a>Validator
 
-Quando la cache non è aggiornata, vengono usati validator della cache HTTP per confrontare la versione di un file memorizzata nella cache con la versione presente nel server di origine. La **rete CDN di Azure con tecnologia Verizon** supporta entrambi i validator `ETag` e `Last-Modified` per impostazione predefinita, mentre la **rete CDN di Azure con tecnologia Akamai** supporta solo `Last-Modified` per impostazione predefinita.
+Quando la cache non è aggiornata, vengono usati validator della cache HTTP per confrontare la versione di un file memorizzata nella cache con la versione presente nel server di origine. La **rete CDN Standard/Premium di Azure con tecnologia Verizon** supporta entrambi i controlli server di convalida `ETag` e `Last-Modified` per impostazione predefinita, mentre la **rete CDN Standard/Premium di Azure con tecnologia Microsoft** e la **rete CDN Standard/Premium di Azure con tecnologia Akamai** supporta solo `Last-Modified` per impostazione predefinita.
 
 **ETag:**
-- La **rete CDN di Azure con tecnologia Verizon** usa `ETag` per impostazione predefinita, mentre la **rete CDN di Azure con tecnologia Akamai** non lo usa.
+- La **rete CDN Standard/Premium di Azure con tecnologia Verizon** supporta `ETag` per impostazione predefinita, a differenza della **rete CDN Standard/Premium di Azure con tecnologia Microsoft** e della **rete CDN Standard di Azure con tecnologia Akamai**.
 - `ETag` definisce una stringa univoca per ogni file e versione di un file, Ad esempio, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - Introdotta nella specifica HTTP 1.1 ed è più recente di `Last-Modified`. È utile quando è difficile determinare la data dell'ultima modifica.
 - Supporta sia la convalida avanzata che la convalida debole. La rete CDN di Azure supporta tuttavia solo la convalida avanzata. Per la convalida avanzata, le due rappresentazioni della risorsa devono essere identiche byte per byte. 
 - La cache convalida un file che usa `ETag` inviando un'intestazione `If-None-Match` con uno o più validator `ETag` nella richiesta, Ad esempio, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Se la versione del server corrisponde a un validator `ETag` nell'elenco, il server invia il codice di stato 304 (Non modificato) nella risposta. Se la versione è diversa, il server risponde con il codice di stato 200 (OK) e la risorsa aggiornata.
 
 **Last-Modified:**
-- Solo per la **rete CDN di Azure con tecnologia Verizon**, viene usato `Last-Modified` se `ETag` non fa parte della risposta HTTP. 
+- Solo per la **rete CDN Standard/Premium di Azure con tecnologia Verizon**, `Last-Modified` è usato se `ETag` non fa parte della risposta HTTP. 
 - Specifica la data e ora dell'ultima modifica della risorsa secondo quanto determinato dal server, Ad esempio, `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - La cache convalida un file che usa `Last-Modified` inviando un'intestazione `If-Modified-Since` con la data e ora nella richiesta. Il server di origine confronta tale data con l'intestazione `Last-Modified` della risorsa più recente. Se la risorsa non è stata modificata dopo la data e ora specificate, il server restituisce il codice di stato 304 (Non modificato) nella risposta. Se la risorsa è stata modificata, il server restituisce il codice di stato 200 (OK) e la risorsa aggiornata.
 
@@ -110,20 +111,22 @@ Quando la cache non è aggiornata, vengono usati validator della cache HTTP per 
 
 Non tutte le risorse possono essere memorizzate nella cache. La tabella seguente mostra le risorse che possono essere memorizzate nella cache, in base al tipo di risposta HTTP. Non è possibile memorizzare nella cache le risorse distribuite con risposte HTTP che non soddisfano tutte queste condizioni. Solo per la **rete CDN Premium di Azure con tecnologia Verizon** è possibile usare il motore regole per personalizzare alcune di queste condizioni.
 
-|                   | Rete CDN di Azure di Verizon | Rete CDN di Azure di Akamai            |
-|------------------ |------------------------|----------------------------------|
-| Codici di stato HTTP | 200                    | 200, 203, 300, 301, 302 e 401 |
-| Metodo HTTP       | GET                    | GET                              |
-| Dimensioni complete         | 300 GB                 | - Ottimizzazione distribuzione Web generale: 1,8 GB<br />- Ottimizzazioni dello streaming multimediale: 1,8 GB<br />- Ottimizzazione di file di grandi dimensioni: 150 GB |
+|                   | Rete CDN di Azure di Microsoft          | Rete CDN di Azure di Verizon | Rete CDN di Azure di Akamai        |
+|-------------------|-----------------------------------|------------------------|------------------------------|
+| Codici di stato HTTP | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
+| Metodi HTTP      | GET, HEAD                         | GET                    | GET                          |
+| Limiti delle dimensioni dei file  | 300 GB                            | 300 GB                 | - Ottimizzazione distribuzione Web generale: 1,8 GB<br />- Ottimizzazioni dello streaming multimediale: 1,8 GB<br />- Ottimizzazione di file di grandi dimensioni: 150 GB |
+
+Affinché la memorizzazione nella cache per la **rete CDN Standard di Azure con tecnologia Microsoft** funzioni su un asset, il server di origine deve supportare qualsiasi richiesta HEAD e HTTP GET e i valori di lunghezza del contenuto devono corrispondere per tutte le risposte HEAD e GET HTTP per l'asset. Per una richiesta HEAD, il server di origine deve supportare la richiesta HEAD e deve rispondere con le stesse intestazioni come se avesse ricevuto una richiesta GET.
 
 ## <a name="default-caching-behavior"></a>Comportamento predefinito di memorizzazione nella cache
 
 La tabella seguente descrive il comportamento predefinito di memorizzazione nella cache per i prodotti della rete CDN di Azure e le relative ottimizzazioni.
 
-|                    | Verizon: distribuzione Web generale | Verizon: DSA | Akamai: distribuzione Web generale | Akamai: DSA | Akamai: download di file di grandi dimensioni | Akamai: streaming multimediale generale o di video on demand |
-|--------------------|--------|------|-----|----|-----|-----|
-| **Rispetta intestazioni origine**   | Sì    | No    | Sì | No  | Sì | Sì |
-| **Durata cache rete CDN** | 7 giorni | Nessuna | 7 giorni | Nessuna | 1 giorno | 1 anno |
+|    | Microsoft: distribuzione Web generale | Verizon: distribuzione Web generale | Verizon: DSA | Akamai: distribuzione Web generale | Akamai: DSA | Akamai: download di file di grandi dimensioni | Akamai: streaming multimediale generale o di video on demand |
+|------------------------|--------|-------|------|--------|------|-------|--------|
+| **Rispetta intestazioni origine**       | Sì    | Sì   | No    | Sì    | No    | Sì   | Sì    |
+| **Durata cache rete CDN** | 2 giorni |7 giorni | Nessuna | 7 giorni | Nessuna | 1 giorno | 1 anno |
 
 **Honor origin** (Rispetta intestazioni origine): specifica se rispettare le [intestazioni di direttive di memorizzazione nella cache supportate](#http-cache-directive-headers) se presenti nella risposta HTTP del server di origine.
 

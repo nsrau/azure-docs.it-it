@@ -9,15 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b929eaf17255210a5c813e3e91478f9202941b64
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Esempi di query per modelli di uso comune di Analisi di flusso
+
 ## <a name="introduction"></a>Introduzione
-Le query in Analisi di flusso di Azure sono espresse in un linguaggio di query di tipo SQL. Queste query sono documentate nella guida [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx). Questo articolo illustra le soluzioni per diversi modelli di query comuni basati su scenari reali. È un lavoro in corso che continua a essere periodicamente aggiornato con nuovi modelli.
+Le query in Analisi di flusso di Azure sono espresse in un linguaggio di query di tipo SQL. Questi costrutti di linguaggio sono documentati nella guida [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
+
+La progettazione delle query può definire una logica pass-through semplice per spostare i dati degli eventi da un flusso di input in un altro archivio dati di output. In alternativa, è possibile eseguire criteri di ricerca e analisi temporali avanzate per calcolare le aggregazioni attraverso diverse finestre temporali, come nel TollApp di esempio. È possibile aggiungere dati da più input per combinare flussi di eventi ed eseguire ricerche sui dati di riferimento statici per arricchire i valori degli eventi. È anche possibile scrivere dati per più output.
+
+Questo articolo illustra le soluzioni per diversi modelli di query comuni basati su scenari reali. È un lavoro in corso che continua a essere periodicamente aggiornato con nuovi modelli.
 
 ## <a name="query-example-convert-data-types"></a>Esempio di query: convertire tipi di dati
 **Descrizione**: definire i tipi di proprietà nel flusso di input.
@@ -571,7 +576,7 @@ WHERE
     AND t2.maxPower > 10
 ````
 
-**Spiegazione**: la prima query `max_power_during_last_3_mins`, usa la [finestra scorrevole](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) per trovare il valore massimo del sensore di alimentazione per ogni dispositivo, durante gli ultimi 3 minuti. La seconda query viene unita alla prima query per trovare il valore di potenza nella finestra più recente rilevante per l'evento corrente. A condizione che le condizioni siano soddisfatte, viene quindi generato un avviso per il dispositivo.
+**Spiegazione**: la prima query `max_power_during_last_3_mins`, usa la [finestra scorrevole](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) per trovare il valore massimo del sensore di alimentazione per ogni dispositivo, durante gli ultimi 3 minuti. La seconda query viene unita alla prima query per trovare il valore di potenza nella finestra più recente rilevante per l'evento corrente. A condizione che le condizioni siano soddisfatte, viene quindi generato un avviso per il dispositivo.
 
 
 ## <a name="get-help"></a>Ottenere aiuto

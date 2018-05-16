@@ -1,12 +1,12 @@
 ---
 title: Configurare le origini di distribuzione per Servizi app in Azure Stack | Documentazione Microsoft
-description: "Procedura con cui un amministratore del servizio può configurare le origini di distribuzione (Git, GitHub, BitBucket, DropBox e OneDrive) per il servizio app in Azure Stack"
+description: Procedura con cui un amministratore del servizio può configurare le origini di distribuzione (Git, GitHub, BitBucket, DropBox e OneDrive) per il servizio app in Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 277ed277b14886d386e097e0ce4bef8add5d4ba1
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 46242fd7ab9e05cfc2edde119afdc6053f129e40
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="configure-deployment-sources"></a>Configurare le origini di distribuzione
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
@@ -36,7 +36,7 @@ Oltre a Git locale, sono supportati i seguenti provider controllo codice sorgent
 
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Visualizzazione di origini di distribuzione nell'amministrazione del servizio App
 
-1. Accedere al portale di amministrazione di Azure Stack (https://adminportal.local.azurestack.external) come amministratore del servizio.
+1. Accedere al portale di amministrazione di Azure Stack (https://adminportal.local.azurestack.external) come l'amministratore del servizio.
 2. Passare a  **Resource Providers** (Provider di risorse) e selezionare **App Service Resource Provider Admin** (Amministrazione provider risorse servizio app).  ![App Service Resource Provider Admin (Amministrazione provider risorse servizio app)][1]
 3. Fare clic su **Source Control Configuration** (Configurazione controllo codice sorgente).  Ecco un elenco di tutte le origini di distribuzione configurate.
     ![Configurazione controllo codice sorgente amministrazione dei provider di risorse servizio app][2]
@@ -50,10 +50,10 @@ Oltre a Git locale, sono supportati i seguenti provider controllo codice sorgent
 2. Immettere un **nome applicazione** , ad esempio - servizio App nello Stack di Azure.
 3. Immettere l'**URL della homepage**. L'URL della home page deve essere l'indirizzo del portale di Azure dello Stack. Ad esempio, https://portal.local.azurestack.external.
 4. Immettere un **la descrizione dell'applicazione**.
-5. Immettere il valore relativo all'**URL di callback autorizzazione**.  In una distribuzione di Azure Stack predefinita, l'Url è in https://portal.local.azurestack.external/tokenauthorize il modulo, se si esegue in un sostituto di un dominio diverso del dominio per local.azurestack.external ![GitHub - registrare una nuova applicazione con i valori popolati][4]
+5. Immettere il valore relativo all'**URL di callback autorizzazione**.  In una distribuzione di Azure Stack predefinita, l'Url è nel formato https://portal.local.azurestack.external/TokenAuthorize, se si è in esecuzione con un sostituto di dominio diverso del dominio per local.azurestack.external
 6. Fare clic su **Register application**.  Verrà ora visualizzata una pagina che elenca l'**ID client** e **il segreto client** per l'applicazione.
     ![GitHub - Registrazione applicazione completata][5]
-7.  In una nuova scheda del browser o finestra Accedi al portale di amministrazione di Stack (https://adminportal.local.azurestack.external) Azure come amministratore del servizio.
+7.  In una nuova scheda del browser o finestra accedere al portale di amministrazione di Azure Stack (https://adminportal.local.azurestack.external) come l'amministratore del servizio.
 8.  Passare a  **Resource Providers** (Provider di risorse) e selezionare **App Service Resource Provider Admin** (Amministrazione provider risorse servizio app).
 9. Fare clic su **Source Control Configuration** (Configurazione controllo codice sorgente).
 10. Copiare e incollare il **ID Client** e **segreto Client** all'input corrispondenti caselle per GitHub.
@@ -69,14 +69,14 @@ Oltre a Git locale, sono supportati i seguenti provider controllo codice sorgent
     ![BitBucket aggiungere Consumer OAuth][8]
 3. Immettere un **nome** per il consumer, ad esempio di servizio App nello Stack di Azure.
 4. Immettere un **descrizione** per l'applicazione.
-5. Copiare l'**URL di callback**.  In una distribuzione di Azure Stack predefinita, l'Url Callback è https://portal.local.azurestack.external/TokenAuthorize il modulo, se si esegue in un sostituto di un dominio diverso del dominio per azurestack.local.  L'URL deve seguire le lettere maiuscole come indicato di seguito per una corretta integrazione di BitBucket.
-6. Immettere il **URL** -l'Url deve essere l'URL del portale Stack Azure, ad esempio https://portal.local.azurestack.external.
+5. Copiare l'**URL di callback**.  In una distribuzione di Azure Stack predefinita, l'Url Callback è nel formato https://portal.local.azurestack.external/TokenAuthorize, se si è in esecuzione con un sostituto di dominio diverso del dominio per azurestack.local.  L'URL deve seguire le lettere maiuscole come indicato di seguito per una corretta integrazione di BitBucket.
+6. Immettere il **URL** -l'Url deve essere l'URL del portale Azure Stack, ad esempio https://portal.local.azurestack.external.
 7. Selezionare il **autorizzazioni** necessarie:
     - **Repository**: *lettura*
     - **Webhook**: *lettura e scrittura*
 8. Fare clic su **Save**.  Verrà ora visualizzata questa nuova applicazione, insieme alla **chiave** e al **segreto** in **OAuth consumers** (Consumer OAuth).
     ![Elenco applicazioni BitBucket][9]
-9.  In una nuova scheda del browser o finestra Accedi al portale di amministrazione di Stack (https://adminportal.local.azurestack.external) Azure come amministratore del servizio.
+9.  In una nuova scheda del browser o finestra accedere al portale di amministrazione di Azure Stack (https://adminportal.local.azurestack.external) come l'amministratore del servizio.
 10.  Passare a  **Resource Providers** (Provider di risorse) e selezionare **App Service Resource Provider Admin** (Amministrazione provider risorse servizio app).
 11. Fare clic su **Source Control Configuration** (Configurazione controllo codice sorgente).
 12. Copiare e incollare il **chiave** nel **ID Client** casella di input e **Secret** nel **segreto Client** casella di input per BitBucket.
@@ -90,7 +90,7 @@ Oltre a Git locale, sono supportati i seguenti provider controllo codice sorgent
 > [!NOTE]
 > Gli account OneDrive for Business non sono attualmente supportati.
 
-1. Passare a https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm e accedere con l'account Microsoft.
+1. Passare a https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm e accedere con l'Account Microsoft.
 2. In **applicazioni personali**, fare clic su **aggiungere un'app**.
 ![Applicazioni OneDrive][10]
 3. Immettere un **nome** per la registrazione della nuova applicazione, immettere **Servizio App di Azure Stack** e fare clic su **Crea applicazione**
@@ -98,13 +98,13 @@ Oltre a Git locale, sono supportati i seguenti provider controllo codice sorgent
 ![Proprietà dell'applicazione OneDrive][11]
 5. In **applicazione segreti**, fare clic su **generare una nuova Password**. Prendere nota del **nuova password generata**. Questo è il segreto dell'applicazione e non è recuperabile dopo aver fatto clic **OK** in questa fase.
 6. In **piattaforme** fare clic su **aggiungere piattaforma** e selezionare **Web**.
-7. Immettere l'**URI di reindirizzamento**.  In una distribuzione di Azure Stack predefinita, l'URI di reindirizzamento è in https://portal.local.azurestack.external/tokenauthorize il modulo, se si esegue in un sostituto di un dominio diverso del dominio per azurestack.local ![applicazione OneDrive - Aggiungi Piattaforma Web][12]
+7. Immettere l'**URI di reindirizzamento**.  In una distribuzione di Azure Stack predefinita, l'URI di reindirizzamento è nel formato https://portal.local.azurestack.external/TokenAuthorize, se si è in esecuzione con un sostituto di dominio diverso del dominio per azurestack.local ![applicazione OneDrive - Aggiungi piattaforma Web][12]
 8. Aggiungere il **le autorizzazioni di Microsoft Graph** - **autorizzazioni delegate**
     - **Files.ReadWrite.AppFolder**
     - **User.Read**  
       ![Applicazione OneDrive - Autorizzazioni di Microsoft Graph][13]
 9. Fare clic su **Save**.
-10.  In una nuova scheda del browser o finestra Accedi al portale di amministrazione di Stack (https://adminportal.local.azurestack.external) Azure come amministratore del servizio.
+10.  In una nuova scheda del browser o finestra accedere al portale di amministrazione di Azure Stack (https://adminportal.local.azurestack.external) come l'amministratore del servizio.
 11.  Passare a  **Resource Providers** (Provider di risorse) e selezionare **App Service Resource Provider Admin** (Amministrazione provider risorse servizio app).
 12. Fare clic su **Source Control Configuration** (Configurazione controllo codice sorgente).
 13. Copiare e incollare il **ID applicazione** nel **ID Client** casella di input e **Password** nel **segreto Client** casella di input per OneDrive.
@@ -115,7 +115,7 @@ Oltre a Git locale, sono supportati i seguenti provider controllo codice sorgent
 > [!NOTE]
 > È necessario disporre di un account DropBox per completare questa attività.  È consigliabile usare un account per l'organizzazione anziché un account personale.
 
-1. Sfoglia https://www.dropbox.com/developers/apps e accedere con l'Account dell'area di sincronizzazione.
+1. Passare a https://www.dropbox.com/developers/apps e accedere con il DropBox Account.
 2. Fare clic su **Create app**.
 
     ![Applicazioni dell'area di sincronizzazione][14]
@@ -126,9 +126,9 @@ Oltre a Git locale, sono supportati i seguenti provider controllo codice sorgent
 ![Registrazione applicazione Dropbox][15]
 6. Fare clic su **Crea app**.  Verrà ora visualizzata una pagina che elenca le impostazioni per l'applicazione, tra cui la **chiave** e il **segreto app**.
 7. Controllare il **nome della cartella App** è impostato su **servizio App di Azure stack**.
-8. Impostare l'**URI di reindirizzamento OAuth 2** e fare clic su **Aggiungi**.  In una distribuzione di Azure Stack predefinita, l'URI di reindirizzamento è https://portal.local.azurestack.external/tokenauthorize il modulo, se si esegue in un sostituto di un dominio diverso del dominio per azurestack.local.
+8. Impostare l'**URI di reindirizzamento OAuth 2** e fare clic su **Aggiungi**.  In una distribuzione di Azure Stack predefinita, l'URI di reindirizzamento è nel formato https://portal.local.azurestack.external/TokenAuthorize, se si è in esecuzione con un sostituto di dominio diverso del dominio per azurestack.local.
 ![Configurazione dell'applicazione dell'area di sincronizzazione][16]
-9.  In una nuova scheda del browser o finestra Accedi al portale di amministrazione di Stack (https://adminportal.local.azurestack.external) Azure come amministratore del servizio.
+9.  In una nuova scheda del browser o finestra accedere al portale di amministrazione di Azure Stack (https://adminportal.local.azurestack.external) come l'amministratore del servizio.
 10.  Passare a  **Resource Providers** (Provider di risorse) e selezionare **App Service Resource Provider Admin** (Amministrazione provider risorse servizio app).
 11. Fare clic su **Source Control Configuration** (Configurazione controllo codice sorgente).
 12. Copiare e incollare il **chiave applicazione** nel **ID Client** casella di input e **segreto dell'App** nel **segreto Client** casella di input per DropBox.

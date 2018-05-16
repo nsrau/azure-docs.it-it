@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti relative al servizio contenitore di Azure
-description: Risposte ad alcune domande comuni sul servizio contenitore di Azure.
+title: Domande frequenti relative ad Azure Kubernetes Service
+description: Risposte ad alcune domande comuni su Azure Kubernetes Service.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -8,21 +8,21 @@ ms.service: container-service
 ms.topic: article
 ms.date: 2/14/2018
 ms.author: nepeters
-ms.openlocfilehash: 5eb949e420d9b055d014b973d452dc95fc358f83
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 55006a3f0193c96849c52f87ab01dc13ac0c7a16
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-about-azure-container-service-aks"></a>Domande frequenti relative al servizio contenitore di Azure (AKS)
+# <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative ad Azure Kubernetes Service (AKS)
 
-Questo articolo tratta alcune domande frequenti relative al servizio contenitore di Azure (AKS).
+Questo articolo tratta alcune domande frequenti relative ad Azure Kubernetes Service (AKS).
 
 > [!IMPORTANT]
-> Il servizio contenitore di Azure è attualmente disponibile in **anteprima**. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+> Azure Kubernetes Service (AKS) è attualmente disponibile in **anteprima**. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 >
 
-## <a name="which-azure-regions-provide-the-azure-container-service-aks-today"></a>Quali aree di Azure forniscono il servizio contenitore di Azure (AKS) oggi?
+## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Quali aree di Azure forniscono Azure Kubernetes Service (AKS) oggi?
 
 - Canada centrale
 - Canada orientale

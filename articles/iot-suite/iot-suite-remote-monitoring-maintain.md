@@ -1,74 +1,74 @@
 ---
 title: Risolvere i problemi dei dispositivi nella soluzione di monitoraggio remoto - Azure | Microsoft Docs
 description: Questa esercitazione mostra come risolvere e correggere i problemi dei dispositivi nella soluzione di monitoraggio remoto.
-services: 
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: dd01246075a5c0db0ed49133ed51fb56d8fcf8e5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: a959276ea61ec0e44ad45197019dfc80f26b768e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Risolvere e correggere i problemi dei dispositivi
 
 Questa esercitazione mostra come usare la pagina **Maintenance** (Manutenzione) nella soluzione per risolvere e correggere i problemi dei dispositivi. Per presentare queste funzionalità, l'esercitazione usa uno scenario nell'applicazione IoT Contoso.
 
-Contoso sta testando un nuovo dispositivo **Prototype** (Prototipo) sul campo. Un operatore di Contoso durante i test nota che il dispositivo **Prototype** (Prototipo) attiva in modo imprevisto un allarme relativo alla temperatura nel dashboard. È necessario esaminare il comportamento di questo dispositivo **Prototype** (Prototipo) difettoso.
+Contoso sta testando un nuovo dispositivo **Prototype** (Prototipo) sul campo. Un operatore di Contoso durante i test nota che il dispositivo **Prototype** (Prototipo) attiva in modo imprevisto un avviso relativo alla temperatura nel dashboard. È necessario esaminare il comportamento di questo dispositivo **Prototype** (Prototipo) difettoso.
 
 In questa esercitazione si apprenderà come:
 
 >[!div class="checklist"]
-> * Usare la pagina **Maintenance** (Manutenzione) per esaminare l'allarme
+> * Usare la pagina **Maintenance** (Manutenzione) per esaminare l'avviso
 > * Chiamare un metodo del dispositivo per correggere il problema
 
 ## <a name="prerequisites"></a>prerequisiti
 
 Per seguire questa esercitazione, è necessaria un'istanza distribuita della soluzione di monitoraggio remoto nella sottoscrizione di Azure.
 
-Se la soluzione di monitoraggio remoto non è stata ancora distribuita, è necessario completare l'esercitazione [Distribuire la soluzione preconfigurata di monitoraggio remoto](iot-suite-remote-monitoring-deploy.md).
+Se la soluzione di monitoraggio remoto non è stata ancora distribuita, completare l'esercitazione [Distribuire l'acceleratore di soluzioni di monitoraggio remoto](iot-suite-remote-monitoring-deploy.md).
 
 ## <a name="use-the-maintenance-dashboard"></a>Usare il dashboard di manutenzione
 
-Nella pagina **Dashboard** è possibile vedere alcuni allarmi imprevisti relativi alla temperatura provenienti dalla regola associata ai dispositivi **Prototype** (Prototipo):
+Nella pagina **Dashboard** è possibile vedere alcuni avvisi imprevisti relativi alla temperatura provenienti dalla regola associata ai dispositivi **Prototype** (Prototipo):
 
-![Allarmi visualizzati nel dashboard](media/iot-suite-remote-monitoring-maintain/dashboardalarm.png)
+![Avvisi visualizzati nel dashboard](media/iot-suite-remote-monitoring-maintain/dashboardalarm.png)
 
-Per esaminare in modo più approfondito il problema, scegliere l'opzione **Explore Alarm** (Esplora allarme) accanto all'allarme:
+Per esaminare in modo più approfondito il problema, scegliere l'opzione **Explore Alert** (Esplora avviso) accanto all'allarme:
 
-![Esplorare l'allarme nel dashboard](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
+![Esplorare l'avviso nel dashboard](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
 
-La visualizzazione dettagli dell'allarme mostra:
+La visualizzazione dettagli dell'avviso mostra:
 
-* Data e ora di attivazione dell'allarme
-* Informazioni sullo stato dei dispositivi associati all'allarme
-* Dati di telemetria dei dispositivi associati all'allarme
+* Data e ora di attivazione dell'avviso
+* Informazioni sullo stato dei dispositivi associati all'avviso
+* Dati di telemetria dei dispositivi associati all'avviso
 
-![Dettagli dell'allarme](media/iot-suite-remote-monitoring-maintain/maintenancealarmdetail.png)
+![Dettagli dell'avviso](media/iot-suite-remote-monitoring-maintain/maintenancealarmdetail.png)
 
-Per confermare di aver visto l'allarme, selezionare le occorrenze in **Alarm occurrences** (Occorrenze allarme) e scegliere **Acknowledge** (Conferma). In questo modo, altri operatori sapranno che l'allarme è stato visto e che qualcuno ci sta lavorando.
+Per confermare di aver visto l'avviso, selezionare le occorrenze in **Alert occurrences** (Occorrenze avviso) e scegliere **Acknowledge** (Conferma). In questo modo, altri operatori sapranno che l'avviso è stato visto e che qualcuno ci sta lavorando.
 
-![Confermare gli allarmi](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
+![Confermare gli avvisi.](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
-Quando si conferma l'allarme, lo stato dell'occorrenza passa a **Confermato**.
+Quando si conferma l'avviso, lo stato dell'occorrenza passa a **Confermato**.
 
-Nell'elenco è possibile vedere il dispositivo **Prototype** (Prototipo) responsabile della generazione dell'allarme relativo alla temperatura:
+Nell'elenco è possibile vedere il dispositivo **Prototype** (Prototipo) responsabile della generazione dell'avviso relativo alla temperatura:
 
-![Elencare i dispositivi che causano l'allarme](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
+![Elencare i dispositivi che causano l'avviso](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
 
 ## <a name="remediate-the-issue"></a>Correggere il problema
 
 Per correggere il problema per il dispositivo **Prototype** (Prototipo), è necessario chiamare il metodo **DecreaseTemperature** sul dispositivo.
 
-Per eseguire operazioni su un dispositivo, selezionarlo nell'elenco dei dispositivi e quindi scegliere **Schedule** (Pianifica). Il modello di dispositivo **Prototype** (Prototipo) specifica quattro metodi che un dispositivo deve supportare:
+Per eseguire operazioni su un dispositivo, selezionarlo nell'elenco dei dispositivi e quindi scegliere **Processi**. Il modello di dispositivo **Prototype** (Prototipo) specifica sei metodi che un dispositivo deve supportare:
 
 ![Visualizzare i metodi supportati dai dispositivi](media/iot-suite-remote-monitoring-maintain/maintenancemethods.png)
 
@@ -90,7 +90,7 @@ In questa esercitazione si è visto come:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
-> * Usare la pagina **Maintenance** (Manutenzione) per esaminare l'allarme
+> * Usare la pagina **Maintenance** (Manutenzione) per esaminare l'avviso
 > * Chiamare un metodo del dispositivo per correggere il problema
 
 Ora che si è appreso come gestire i problemi dei dispositivi, il passaggio successivo consigliato consente di apprendere come [Testare la soluzione con dispositivi simulati](iot-suite-remote-monitoring-test.md).

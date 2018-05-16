@@ -41,7 +41,7 @@
 ### [Concessione del codice di autenticazione OAuth 2.0](active-directory-protocols-oauth-code.md)
 ### [Concessione implicita OAuth 2.0](active-directory-dev-understanding-oauth2-implicit-grant.md)
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
-### [Configurazione dell'attestazione basata su ruolo](active-directory-enterprise-app-role-management.md)
+### [Configurazione dell'attestazione basata su ruolo](../active-directory-enterprise-app-role-management.md)
 ### [Personalizzazione delle attestazioni](active-directory-saml-claims-customization.md)
 ### [Eseguire il debug di Single Sign-On basato su SAML](active-directory-saml-debugging.md)
 ### [Protocollo SAML per Single Sign-On](active-directory-single-sign-on-protocol-reference.md)

@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.openlocfilehash: fd373093264122fda45697acc81929d3c723c957
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/07/2018
+ms.openlocfilehash: 44a7c0721d8a0683162d2219bff0e4a4ecb117e6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure
 Questo articolo illustra come sfruttare i vantaggi della parallelizzazione in Analisi di flusso di Azure. Si apprenderà come ridimensionare i processi di Analisi di flusso configurando partizioni di input e ottimizzando la definizione di query.
@@ -35,7 +35,15 @@ Tutti gli input di Analisi di flusso di Azure possono sfruttare i vantaggi del p
 
 ### <a name="outputs"></a>Output
 
-Quando si usa Analisi di flusso, è possibile sfruttare il partizionamento per la maggior parte dei sink di output. Altre informazioni sul partizionamento dell'output sono disponibili nella [sezione relativa al partizionamento nella pagina dell'output](stream-analytics-define-outputs.md#partitioning).
+Quando si usa Analisi di flusso di Azure, è possibile sfruttare il partizionamento negli output:
+-   Archiviazione di Azure Data Lake
+-   Funzioni di Azure
+-   tabella di Azure
+-   Archiviazione BLOB (è necessario impostare la chiave di partizione in modo esplicito)
+-   Cosmos DB (è necessario impostare la chiave di partizione in modo esplicito)
+-   Hub eventi (è necessario impostare la chiave di partizione in modo esplicito)
+-   Hub IoT (è necessario impostare la chiave di partizione in modo esplicito)
+-   Bus di servizio
 
 Gli output di PowerBI, SQL e SQL Data Warehouse non supportano il partizionamento. È tuttavia possibile suddividere gli input in partizioni come descritto in [questa sezione](#multi-step-query-with-different-partition-by-values) 
 
@@ -54,13 +62,13 @@ Un processo *perfettamente parallelo* è lo scenario più scalabile che può pre
 
 3. La maggior parte degli output può sfruttare i vantaggi del partizionamento. Se tuttavia si usa un tipo di output che non supporta il partizionamento, il processo non sarà perfettamente parallelo. Per altri dettagli, vedere la [sezione output](#outputs).
 
-4. Il numero delle partizioni di input deve essere uguale a quello delle partizioni di output. L'output dell'archiviazione BLOB attualmente non supporta le partizioni, ma questo non è un problema perché lo schema di partizionamento viene ereditato dalla query upstream. Ecco alcuni esempi di valori di partizioni che consentono un processo perfettamente parallelo:  
+4. Il numero delle partizioni di input deve essere uguale a quello delle partizioni di output. L'output dell'archiviazione BLOB può supportare le partizioni ed eredita lo schema di partizionamento della query a monte. Quando viene specificata una chiave di partizione per l'archiviazione BLOB, i dati vengono partizionati per partizione di input, pertanto il risultato è ancora completamente parallelo. Ecco alcuni esempi di valori di partizioni che consentono un processo perfettamente parallelo:
 
    * 8 partizioni di input di hub eventi e 8 partizioni di output di hub eventi
-   * 8 partizioni di input di hub eventi e output di archiviazione BLOB  
-   * 8 partizioni di input dell'hub IoT e 8 partizioni di output di hub eventi
-   * 8 partizioni di input di archiviazione BLOB e output di archiviazione BLOB  
-   * 8 partizioni di input di archiviazione BLOB e 8 partizioni di output di hub eventi  
+   * 8 partizioni di input di hub eventi e output di archiviazione BLOB
+   * 8 partizioni di input dell'hub eventi e output di archiviazione BLOB partizionato in base a un campo personalizzato con cardinalità arbitraria
+   * 8 partizioni di input di archiviazione BLOB e output di archiviazione BLOB
+   * 8 partizioni di input di archiviazione BLOB e 8 partizioni di output di hub eventi
 
 Le sezioni seguenti illustrano alcuni esempi di scenari perfettamente paralleli.
 

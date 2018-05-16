@@ -13,16 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/11/2018
 ms.author: jeffgo
-ms.openlocfilehash: d7b79962822dcfec96c7087100b1537d8046ab46
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 524c3b3b86e43b56e1d1f2a1653bdf7b82061022
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Preparare una macchina virtuale basata su Red Hat per lo Stack di Azure
 In questo articolo si apprenderà come preparare una macchina virtuale Red Hat Enterprise Linux (RHEL) per l'utilizzo nello Stack di Azure. Le versioni di RHEL trattate in questo articolo sono 7.1 +. Gli hypervisor per la preparazione illustrati in questo articolo sono Hyper-V, KVM (Kernel-based Virtual Machine) e VMware.
+
+Per informazioni sul supporto di Red Hat Enterprise Linux, consultare [Red Hat e Stack di Azure: domande frequenti su](https://access.redhat.com/articles/3413531).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Preparare una macchina virtuale basata su Red Hat dalla console di gestione di Hyper-V
 

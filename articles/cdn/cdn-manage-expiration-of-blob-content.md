@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 72a823ef04ad69d1d3b40377c32a02bacb8328c2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a0f89a272fa300f6acced2de02ba5465ab282079
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Gestire la scadenza del servizio Archiviazione BLOB di Azure nella rete per la distribuzione di contenuti di Azure
+# <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gestire la scadenza del servizio Archiviazione BLOB di Azure nella rete CDN di Azure
 > [!div class="op_single_selector"]
 > * [Contenuto Web di Azure](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Archivio BLOB di Azure](cdn-manage-expiration-of-blob-content.md)
@@ -148,7 +148,7 @@ class Program
 ## <a name="setting-cache-control-headers-by-using-other-methods"></a>Impostazione delle intestazioni Cache-Control tramite altri metodi
 
 ### <a name="azure-storage-explorer"></a>Esplora archivi Azure
-Con [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/), è possibile visualizzare e modificare le risorse di archiviazione BLOB, incluse le proprietà, come ad esempio la proprietà *CacheControl*. 
+Con [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), è possibile visualizzare e modificare le risorse di archiviazione BLOB, incluse le proprietà, come ad esempio la proprietà *CacheControl*. 
 
 Per aggiornare la proprietà *CacheControl* di un BLOB con Azure Storage Explorer:
    1. Selezionare un BLOB e quindi selezionare **Proprietà** nel menu di scelta rapida. 
@@ -168,8 +168,8 @@ azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .
 ### <a name="azure-storage-services-rest-api"></a>API REST dei servizi di archiviazione di Azure
 È possibile usare l'[API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx) per impostare in modo esplicito la prorpietà *x-ms-blob-cache-control* tramite le operazioni seguenti in una richiesta:
   
-   - [Put Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
-   - [Elenco Put Block](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
+   - [Put Blob](https://msdn.microsoft.com/library/azure/dd179451.aspx)
+   - [Elenco Put Block](https://msdn.microsoft.com/library/azure/dd179467.aspx)
    - [Impostare le proprietà BLOB](https://msdn.microsoft.com/library/azure/ee691966.aspx)
 
 ## <a name="testing-the-cache-control-header"></a>Test dell'intestazione Cache-Control

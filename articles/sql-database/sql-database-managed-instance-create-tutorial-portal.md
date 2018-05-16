@@ -8,14 +8,14 @@ ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 1e04b12241121d3894e2d71df423bae4f000a60d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 198a637fcfc2268e393a63b27a153b163dc4331e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Creare un'istanza gestita di database SQL di Azure nel portale di Azure
 
@@ -107,7 +107,7 @@ La procedura seguente illustra come creare una route 0.0.0.0/0 con hop successiv
    |**Sottoscrizione**|Sottoscrizione in uso|Per informazioni dettagliate sulle sottoscrizioni, vedere [Subscriptions](https://account.windowsazure.com/Subscriptions) (Sottoscrizioni).|
    |**Gruppo di risorse**|Selezionare il gruppo di risorse creato nella procedura precedente|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Posizione**|Selezionare la località specificata nella procedura precedente| Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/).|
-   |**Disabilita propagazione route BGP**|Disabled||
+   |**Disabilita propagazione route BGP**|Attivato||
    ||||
 
    ![Modulo per la creazione della tabella di route](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)

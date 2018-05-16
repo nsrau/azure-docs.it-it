@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 15cdee0fb3994874c88b16bebec35f5eae9f8de2
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1229a66ec84b4272337a5dd1e17942e46b25e9a0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Creare cluster DSVM e HDI Spark come destinazioni di calcolo
 
@@ -148,7 +148,7 @@ $ az vm start -g <resource group name> -n <vm name>
 ```
 
 ## <a name="expand-the-dsvm-os-disk"></a>Espandere il disco del sistema operativo DSVM
-La macchina virtuale Linux di Azure viene in genere fornita con un disco del sistema operativo da 30 GB. Quando usato come destinazione di calcolo per Machine Learning di Azure, è possibile che venga mangiato rapidamente dal motore di Docker che sposta in modo forzato le immagini Docker e crea strati di conda sopra di esso. È consigliabile espandere il disco del sistema operativo a una dimensione maggiore (ad esempio 200 GB) per evitare l'errore "disco pieno" mentre è ancora in corso un'esecuzione. Fare riferimento a [Procedura per espandere i dischi rigidi virtuali in una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](../../virtual-machines/linux/expand-disks.md) per imparare facilmente la procedura in azure-cli. 
+Ubuntu DSVM viene fornito con un disco del sistema operativo da 50 GB e un disco dati da 100 GB. Docker archivia le immagini sul disco dati, su cui è disponibile maggiore spazio. Quando usato come destinazione di calcolo per Machine Learning di Azure, è possibile che questo disco venga esaurito rapidamente dal motore di Docker che sposta in modo forzato le immagini Docker e crea strati di conda sopra di esso. Potrebbe essere necessario espandere il disco a una dimensione maggiore (ad esempio 200 GB) per evitare l'errore "disco pieno" mentre è ancora in corso un'esecuzione. Fare riferimento a [Procedura per espandere i dischi rigidi virtuali in una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](../../virtual-machines/linux/expand-disks.md) per imparare facilmente la procedura in azure-cli. 
 
 ## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Creare un cluster Apache Spark per Azure HDInsight nel portale di Azure
 

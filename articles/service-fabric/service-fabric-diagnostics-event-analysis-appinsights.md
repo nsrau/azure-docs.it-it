@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/04/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: fa04e7a3c0d6f19603befed026b316eba6e46eb7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ef7517e91965b0d7444d158f041b1d2bddea6bd2
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analisi e visualizzazione degli eventi con Application Insights
 
@@ -32,7 +32,7 @@ Lo scopo di questo articolo è illustrare come ottenere informazioni dettagliate
 
 ## <a name="monitoring-in-app-insights"></a>Monitoraggio in Application Insights
 
-Application Insights offre funzionalità predefinite complete con Service Fabric. Nella pagina di panoramica Application Insights fornisce informazioni chiave sul servizio, ad esempio il tempo di risposta e il numero di richieste elaborate. Facendo clic sul pulsante 'Cerca' nella parte superiore, è possibile visualizzare un elenco delle richieste recenti nell'applicazione. In questa posizione verranno inoltre visualizzate le richieste non riuscite e sarà possibile diagnosticare gli errori che possono verificarsi.
+Application Insights è perfettamente compatibile con l'uso di Service Fabric. Nella pagina di panoramica Application Insights fornisce informazioni chiave sul servizio, ad esempio il tempo di risposta e il numero di richieste elaborate. Facendo clic sul pulsante 'Cerca' nella parte superiore, è possibile visualizzare un elenco delle richieste recenti nell'applicazione. In questa posizione verranno inoltre visualizzate le richieste non riuscite e sarà possibile diagnosticare gli errori che possono verificarsi.
 
 ![Panoramica di Application Insights](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 

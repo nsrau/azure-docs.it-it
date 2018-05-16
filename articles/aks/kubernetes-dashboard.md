@@ -3,19 +3,19 @@ title: Gestire un cluster Azure Kubernetes con l'interfaccia utente Web
 description: Uso del dashboard Kubernetes nel servizio contenitore di Azure
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 47608993320d987822422ea103e4e2043de2d2e8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: cdb406c5a0a314562ae886c797c5ebd9dc5f8796
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Dashboard di Kubernetes con il servizio contenitore di Azure
+# <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Dashboard di Kubernetes con Azure Kubernetes Service (AKS)
 
 Per avviare il dashboard di Kubernetes, è possibile usare l'interfaccia della riga di comando di Azure. Questo documento illustra la procedura per avviare il dashboard di Kubernetes con l'interfaccia della riga di comando di Azure, oltre ad alcune operazioni di base con il dashboard. Per altre informazioni sul dashboard di Kubernetes, vedere [Web UI (Dashboard) (Interfaccia utente Web - Dashboard)][kubernetes-dashboard].
 

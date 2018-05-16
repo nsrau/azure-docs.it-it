@@ -1,12 +1,12 @@
 ---
-title: Soluzioni di Azure per Internet delle cose (IoT Suite) | Documentazione Microsoft
-description: Una panoramica di IoT in Azure, inclusa un'architettura della soluzione di esempio e la sua relazione con Azure IoT Suite e le soluzioni preconfigurate.
-services: 
+title: Soluzioni di Azure per l'Internet delle cose | Microsoft Docs
+description: Una panoramica di IoT in Azure, inclusa un'architettura della soluzione di esempio e la sua relazione con gli acceleratori di soluzioni Azure IoT e gli acceleratori di soluzioni.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 437d2655-896f-4a9e-a4a8-b864790d3ef8
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: c72108434bf25c56000361caeb570435a86dc78f
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 88a39f0dec80429bae70077391b9039f6d1cd2c9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
@@ -29,6 +29,6 @@ Dopo avere ottenuto informazioni sull'architettura IoT tipica, esplorare le dive
 
 Per altre informazioni sui singoli servizi IoT per Azure, vedere:
 
-* [Informazioni su Azure IoT Suite](iot-suite-what-are-preconfigured-solutions.md)
+* [Informazioni sugli acceleratori di soluzioni IoT](iot-suite-what-are-solution-accelerators.md)
 * [Informazioni su Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/overview-iot-central)
 * [Che cos'è l'hub IoT di Azure?](../iot-hub/iot-hub-what-is-iot-hub.md)

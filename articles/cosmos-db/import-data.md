@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 9c4908775ab9a471201cc4bb0c35ab863f5d6d50
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cd9c5888724b634002d3029cccd42cfda4a433af
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Utilità di migrazione dati
 
@@ -433,7 +433,7 @@ Per importare in un'unica raccolta, immettere il nome della raccolta in cui verr
 Dopo aver specificato il nome della raccolta, scegliere la velocità effettiva desiderata della raccolta, da 400 UR a 250.000 UR. Per ottimizzare le prestazioni di importazione, scegliere una velocità effettiva superiore. Per altre informazioni sui livelli di prestazioni, vedere l'articolo relativo ai [livelli di prestazioni in Azure Cosmos DB](performance-levels.md). Eventuali importazioni nelle raccolte con una velocità effettiva > 10.000 UR richiedono una chiave di partizione. Se si sceglie di avere più di 250.000 UR, è necessario inviare una richiesta di nel portale per incrementare l'account.
 
 > [!NOTE]
-> L'impostazione della velocità effettiva si applica solo alla creazione di raccolte. Se la raccolta specificata esiste già, la velocità effettiva non verrà modificata.
+> L'impostazione della velocità effettiva si applica solo alla creazione di raccolte o del database. Se la raccolta specificata esiste già, la velocità effettiva non verrà modificata.
 > 
 > 
 

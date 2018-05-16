@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: d6bc7824687f5418f1270e22b216f8637578aa6d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorare un database SQL di Azure usando Azure SQL Analytics (anteprima) in Log Analytics
 
@@ -136,7 +136,8 @@ Tramite le prospettive relativa a durata e attese delle query, è possibile corr
 
 ### <a name="analyze-data-and-create-alerts"></a>Analizzare i dati e creare avvisi
 
-È possibile creare facilmente avvisi con i dati provenienti dalle risorse del database SQL di Azure. Di seguito sono riportate alcune query utili di [ricerca nei log](log-analytics-log-searches.md) che è possibile usare per gli avvisi:
+È possibile [creare avvisi](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) facilmente con i dati provenienti dalle risorse del database SQL di Azure. Di seguito sono riportate alcune query utili di [ricerca log](log-analytics-log-searches.md) che è possibile usare con un avviso log:
+
 
 
 *Elevato utilizzo di DTU nel database SQL di Azure*
@@ -157,18 +158,7 @@ AzureMetrics
 | render timechart
 ```
 
-È possibile usare queste query basate su avvisi per creare avvisi per soglie specifiche sia per i database SQL di Azure che per i pool elastici. Per configurare un avviso per l'area di lavoro di Log Analytics:
 
-#### <a name="to-configure-an-alert-for-your-workspace"></a>Per configurare un avviso per l'area di lavoro
-
-1. Aprire il [portale di OMS](http://mms.microsoft.com/) e accedere.
-2. Aprire l'area di lavoro configurata per la soluzione.
-3. Nella pagina Panoramica fare clic sul riquadro **Azure SQL Analytics (anteprima)**.
-4. Eseguire una delle query di esempio.
-5. In Ricerca log fare clic su **Avviso**.  
-![Creare un avviso nella ricerca](./media/log-analytics-azure-sql/create-alert01.png)
-6. Nella pagina **Aggiungi regola di avviso** configurare le proprietà necessarie e le soglie specifiche desiderate e quindi fare clic su **Salva**. 
-![Aggiungere una regola di avviso](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

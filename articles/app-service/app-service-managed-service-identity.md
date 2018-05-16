@@ -11,16 +11,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: mahender
-ms.openlocfilehash: 800105d29fa284531e02ce80db69eff3a9915652
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ed2db5fd48c60601b90fc7ffb1094b8d89573b1f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Come usare Identità del servizio gestito di Azure (anteprima pubblica) nel Servizio App e in Funzioni di Azure
 
 > [!NOTE] 
 > Identità del servizio gestito in Servizio App e Funzioni di Azure è attualmente disponibile in anteprima. Servizio app su Linux e le app Web per contenitori non sono attualmente supportati.
+
+
+> [!Important] 
+> Identità del servizio gestita per Servizio app di Azure e Funzioni di Azure non funzioneranno come previsto se viene eseguita la migrazione dell'app tra sottoscrizioni/tenant. Sarà necessario ottenere una nuova identità per l'app, mentre l'identità esistente non potrà essere eliminata correttamente senza eliminare il sito stesso. L'app dovrà essere ricreata con una nuova identità, mentre le risorse a valle dovranno disporre di criteri di accesso aggiornati per usare la nuova identità.
+
 
 Questo argomento illustra come creare un'identità di applicazione gestita per le applicazioni di Servizio App e Funzioni di Azure e come usarla per accedere ad altre risorse. Un'identità del servizio gestito da Azure Active Directory consente all'app di accedere facilmente ad altre risorse protette da Azure come ad esempio Azure Key Vault. L'identità viene gestita dalla piattaforma Azure e non è necessario eseguire il provisioning o ruotare alcun segreto. Per altre informazioni sull'identità del servizio gestito, vedere il [Identità del servizio gestito per le risorse di Azure](../active-directory/managed-service-identity/overview.md).
 
