@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 70297bd0af6322d0f3ac2c719d1827e4bc5898cd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e8c20f4b8e39615e2a8c486130d7c8bec655a936
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>Visualizzare i dati di Azure Blockchain Workbench con Microsoft Excel
 
@@ -67,4 +67,5 @@ Dopo aver caricato i dati, è possibile usare le caratteristiche di Excel per cr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Database views in Azure Blockchain Workbench](blockchain-workbench-database-views.md) (Viste di database in Azure Blockchain Workbench)
+> [!div class="nextstepaction"]
+> [Database views in Azure Blockchain Workbench](blockchain-workbench-database-views.md) (Viste di database in Azure Blockchain Workbench)

@@ -2,10 +2,10 @@
 title: Notifiche di Report di Azure Active Directory
 description: Come utilizzare le notifiche di report di Azure Active Directory per gli accessi sospetti.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ae6d4b0e-5931-4cb3-98bf-9be91b381c92
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 01/03/2018
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 99783eebb76363ca3fa96c6777906239f3de1131
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c279b923ed4e63d810861c579dd54b3a2b7f415e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Notifiche di Report di Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Quali report generano notifiche tramite posta elettronica
@@ -39,7 +39,7 @@ Il messaggio di posta elettronica viene inviato se si verificano 10 nuove attivi
 Quando si fa clic sul collegamento, si verrà reindirizzati alla pagina del report nel portale di Azure. Per accedere al report, è necessario essere:
 
 * Un amministratore o un coamministratore della sottoscrizione di Azure.
-* Un amministratore globale nella directory e assegnata una licenza di Active Directory Premium. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
+* Un amministratore globale nella directory e assegnata una licenza di Active Directory Premium. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-whatis.md).
 
 ## <a name="can-i-turn-off-these-emails"></a>È possibile disattivare questi messaggi di posta elettronica?
 Sì, per disattivare le notifiche correlate ad accessi anomali all'interno del portale di Azure, fare clic su **Configura** e quindi selezionare **Disabilitato** nella sezione **Notifiche**.

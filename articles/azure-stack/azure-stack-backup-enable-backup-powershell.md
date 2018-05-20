@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 5/10/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 4faa6930c37f9d491a3efa4b34519dbb13761a9d
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5fab656734d0984cf44a9fe1f29fd73530bd9aa8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Abilitare il Backup per lo Stack di Azure con PowerShell
 
@@ -64,7 +64,7 @@ Nella stessa sessione di PowerShell, modificare lo script di PowerShell seguente
 
 | Variabile        | DESCRIZIONE   |
 |---              |---                                        |
-| $username       | Tipo di **Username** utilizzando il dominio e il nome utente per il percorso dell'unità condivisa. Ad esempio, `Contoso\administrator`. |
+| $username       | Tipo di **Username** usando il dominio e il nome utente per il percorso dell'unità condivisa con diritti di accesso sufficienti per leggere e scrivere file. Ad esempio, `Contoso\backupshareuser`. |
 | $password       | Tipo di **Password** per l'utente. |
 | $sharepath      | Digitare il percorso di **il percorso di archiviazione di Backup**. È necessario utilizzare una stringa di Universal Naming Convention (UNC) per il percorso di una condivisione file ospitata su un dispositivo distinto. Una stringa UNC specifica il percorso delle risorse, ad esempio i dispositivi o file condivisi. Per garantire la disponibilità dei dati di backup, il dispositivo deve essere in una posizione separata. |
 

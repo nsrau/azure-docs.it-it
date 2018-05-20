@@ -112,14 +112,6 @@
           href: disk-scalability-targets.md
         - name: Backup e ripristino di emergenza per i dischi
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-        - name: Come abilitare l'acceleratore di scrittura
-          href: how-to-enable-write-accelerator.md
-        - name: Risolvere i problemi dei dischi rigidi virtuali collegati
-          items:
-            - name: Errori nell'eliminazione di risorse di archiviazione
-              href: storage-resource-deletion-errors.md
-            - name: Riavvii imprevisti di VM con dischi rigidi virtuali collegati
-              href: unexpected-reboots-attached-vhds.md
     - name: Rete
       href: network-overview.md
     - name: Ridimensionare automaticamente le applicazioni
@@ -393,6 +385,8 @@
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Eseguire la distribuzione di dischi con un modello
           href: using-managed-disks-template-deployments.md
+        - name: Abilitare l'acceleratore di scrittura
+          href: how-to-enable-write-accelerator.md
         - name: Ottimizzare le prestazioni
           href: optimization.md
           items:
@@ -500,6 +494,12 @@
               href: troubleshoot-recovery-disks.md
             - name: Portale di Azure
               href: troubleshoot-recovery-disks-portal.md
+        - name: Dischi rigidi virtuali collegati
+          items:
+            - name: Errori nell'eliminazione di risorse di archiviazione
+              href: storage-resource-deletion-errors.md
+            - name: Riavvii imprevisti di VM con dischi rigidi virtuali collegati
+              href: unexpected-reboots-attached-vhds.md
 - name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure

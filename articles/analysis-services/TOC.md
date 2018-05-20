@@ -11,6 +11,7 @@
 ## [Creare un modello nel portale di Azure (anteprima)](analysis-services-create-model-portal.md)
 
 # Concetti
+## [Automazione con le entità servizio](analysis-services-service-principal.md)
 ## [Origini dati supportate](analysis-services-datasource.md)
 ## [Connessione a origini dati locali](analysis-services-gateway.md)
 ## [Connessione ai server](analysis-services-connect.md)

@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ba73f386a19cc8bedb8879e6f7eea316154b7a57
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fcbeb6bbd090fc31febb326d3cbef90187d3e7e3
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 Le dimensioni delle macchine virtuali con ottimizzazione per la memoria offrono un rapporto memoria-CPU elevato, ideale per server di database relazionali, cache di medie e grandi dimensioni e analisi in memoria. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, oltre che sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per ogni dimensione di questo raggruppamento. 
 
@@ -26,9 +26,11 @@ Le dimensioni delle macchine virtuali con ottimizzazione per la memoria offrono 
 
 * La serie Ev3 include il processore E5-2673 v4 a 2,3 GHz (Broadwell) in una configurazione con hyperthreading, assicurando una proposta di valore ottimizzata per la maggior parte dei carichi di lavoro per uso generico e garantendo l'allineamento della serie Ev3 alle macchine virtuali per uso generico della maggior parte degli altri cloud.  La memoria è stata estesa (da 7 GiB/vCPU a 8 GiB/vCPU) mentre i limiti di rete e dei dischi sono stati modificati in base al core per consentire l'allineamento con il passaggio all'hyperthreading.  La serie Ev3 rappresenta un passo avanti rispetto alle dimensioni delle macchine virtuali con memoria elevata delle famiglie D/Dv2.
 
-## <a name="esv3-series-sup1sup"></a>Serie Esv3 <sup>1</sup>
+* Calcolo di Azure offre dimensioni delle macchine virtuali con piano Isolato per uno specifico tipo di hardware e dedicate a un singolo cliente.  Queste dimensioni delle macchine virtuali sono particolarmente adatte ai carichi di lavoro che richiedono un elevato livello di isolamento dagli altri clienti, per i carichi di lavoro con aspetti come i requisiti normativi e di conformità.  I clienti possono anche scegliere di suddividere ulteriormente le risorse di tali macchine virtuali con piano Isolato usando il [supporto di Azure per le macchine virtuali annidate](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).  Per le opzioni di VM con piano Isolato vedere le tabelle delle famiglie di macchine virtuali di seguito.
 
-Unità di calcolo di Azure: 160-190
+## <a name="esv3-series"></a>Serie Esv3 
+
+ACU: 160-190 <sup>1</sup>
 
 Le istanze della serie ESv3 sono basate sul processore Intel Xeon® E5-2673 v4 (Broadwell) a 2,3 GHz e con la tecnologia Intel Turbo Boost 2.0 possono arrivare fino a 3,5 GHz e usare Archiviazione Premium. Le istanze della serie Ev3 sono ideali per applicazioni aziendali a uso intensivo di memoria.
 
@@ -51,9 +53,9 @@ Le istanze della serie ESv3 sono basate sul processore Intel Xeon® E5-2673 v4 (
 <sup>3</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 
 
-## <a name="ev3-series-sup1sup"></a>Serie Ev3 <sup>1</sup>
+## <a name="ev3-series"></a>Serie Ev3 
 
-Unità di calcolo di Azure: 160-190 
+ACU: 160 - 190 <sup>1</sup>
 
 Le istanze della serie Ev3 sono basate sul processore Intel Xeon® E5-2673 v4 (Broadwell) a 2,3 GHz e con la tecnologia Intel Turbo Boost 2.0 possono arrivare fino a 3,5 GHz. Le istanze della serie Ev3 sono ideali per applicazioni aziendali a uso intensivo di memoria.
 
@@ -75,9 +77,9 @@ L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtu
 <sup>2</sup> Disponibili dimensioni core vincolate. 
 
 
-## <a name="m-series-sup1sup"></a>Serie M <sup>1</sup>
+## <a name="m-series"></a>Serie M 
 
-ACU: 160-180
+ACU: 160-180 <sup>1</sup>
 
 | Dimensione            | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
@@ -95,9 +97,9 @@ ACU: 160-180
 <sup>4</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 <br>
 
-## <a name="gs-series-sup1sup"></a>Serie GS <sup>1</sup>
+## <a name="gs-series"></a>Serie GS 
 
-ACU: 180 - 240
+ACU: 180 - 240 <sup>1</sup>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -131,9 +133,9 @@ ACU: 180 - 240
 <br>
 
 
-## <a name="dsv2-series-sup1sup"></a>Serie DSv2 <sup>1</sup>
+## <a name="dsv2-series"></a>Serie DSv2 
 
-ACU: 210 - 250
+ACU: 210 - 250 <sup>1</sup>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -174,9 +176,9 @@ ACU: 210 - 250
 
 <br>
 
-## <a name="ds-series-sup1sup"></a>Serie DS <sup>1</sup>
+## <a name="ds-series"></a>Serie DS 
 
-ACU: 160
+ACU: 160 <sup>1</sup>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

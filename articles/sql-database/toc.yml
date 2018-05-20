@@ -104,6 +104,16 @@
       items:
         - name: Panoramica
           href: sql-database-security-overview.md
+        - name: Advanced Threat Protection
+          href: sql-advanced-threat-protection.md
+        - name: Individuazione dati e classificazione
+          href: sql-database-data-discovery-and-classification.md
+        - name: Valutazione della vulnerabilità
+          href: sql-vulnerability-assessment.md
+        - name: Rilevamento delle minacce - Database SQL
+          href: sql-database-threat-detection.md
+        - name: Rilevamento delle minacce - Istanza gestita
+          href: sql-database-managed-instance-threat-detection.md
         - name: Regole del firewall
           href: sql-database-firewall-configure.md
         - name: Regole della rete virtuale del firewall
@@ -120,18 +130,10 @@
           href: sql-database-auditing.md
         - name: Controllo - Istanza gestita
           href: sql-database-managed-instance-auditing.md
-        - name: Rilevamento delle minacce - Database SQL
-          href: sql-database-threat-detection.md
-        - name: Rilevamento delle minacce - Istanza gestita
-          href: sql-database-managed-instance-threat-detection.md
         - name: Controllo Tabella e TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Maschera dati dinamica
           href: sql-database-dynamic-data-masking-get-started.md
-        - name: Valutazione della vulnerabilità
-          href: sql-vulnerability-assessment.md
-        - name: Individuazione dati e classificazione
-          href: sql-database-data-discovery-and-classification.md
     - name: Continuità aziendale
       items:
         - name: Panoramica

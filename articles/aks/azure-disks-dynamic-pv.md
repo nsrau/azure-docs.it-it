@@ -3,16 +3,16 @@ title: Usare un disco di Azure con AKS
 description: Usare Dischi di Azure con il servizio contenitore di Azure
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: 5c82659e4dd980b9285d81d51eb17b227ec33035
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 858961db439b28a71d3475d2608073287e02f2fd
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Volumi permanenti con i dischi di Azure
 
@@ -60,10 +60,10 @@ spec:
       storage: 5Gi
 ```
 
-Creare l'attestazione di volume permanente con il comando [kubectl create][kubectl-create].
+Creare l'attestazione di volume permanente con il comando [kubectl apply][kubectl-apply].
 
 ```azurecli-interactive
-kubectl create -f azure-premimum.yaml
+kubectl apply -f azure-premimum.yaml
 ```
 
 ## <a name="using-the-persistent-volume"></a>Uso del volume permanente
@@ -90,10 +90,10 @@ spec:
         claimName: azure-managed-disk
 ```
 
-Creare il pod con il comando [kubectl create][kubectl-create].
+Creare il pod con il comando [kubectl apply][kubectl-apply].
 
 ```azurecli-interactive
-kubectl create -f azure-pvc-disk.yaml
+kubectl apply -f azure-pvc-disk.yaml
 ```
 
 A questo punto è disponibile un pod in esecuzione con il disco di Azure montato nella directory `/mnt/azure`. Questa configurazione può essere visualizzata durante il controllo del pod tramite `kubectl describe pod mypod`.
@@ -107,7 +107,7 @@ Altre informazioni sui volumi permanenti Kubernetes che usano i dischi di Azure.
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/

@@ -1,8 +1,8 @@
 ---
 title: Raccogliere e analizzare messaggi Syslog in Log Analytics di OMS | Documentazione Microsoft
-description: "Syslog è un protocollo di registrazione di eventi comunemente usato in Linux. Questo articolo descrive come configurare una raccolta di messaggi Syslog in Log Analytics e illustra i dettagli dei record creati nel repository OMS."
+description: Syslog è un protocollo di registrazione di eventi comunemente usato in Linux. Questo articolo descrive come configurare una raccolta di messaggi Syslog in Log Analytics e illustra i dettagli dei record creati nel repository OMS.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 061c32fe39530f8b67899b1b9e1104e7fe006380
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 011eaf1a4705f9078225b9b871f81b4333b05ee8
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Origini dati Syslog in Log Analytics
 Syslog è un protocollo di registrazione di eventi comunemente usato in Linux.  Le applicazioni inviano messaggi che possono essere archiviati nel computer locale o recapitati a un agente di raccolta di Syslog.  Quando viene installato, l'agente OMS per Linux configura il daemon Syslog locale in modo da inoltrare i messaggi all'agente.  Quest'ultimo invia quindi il messaggio a Log Analytics, dove viene creato un record corrispondente nel repository OMS.  
@@ -31,10 +31,10 @@ Syslog è un protocollo di registrazione di eventi comunemente usato in Linux.  
 ![Raccolta Syslog](media/log-analytics-data-sources-syslog/overview.png)
 
 ## <a name="configuring-syslog"></a>Configurazione di Syslog
-L'agente OMS per Linux raccoglie solo gli eventi con le funzionalità e i livelli di gravità specificati nella configurazione.  È possibile configurare Syslog tramite il portale di OMS o mediante la gestione dei file di configurazione sugli agenti Linux.
+L'agente OMS per Linux raccoglie solo gli eventi con le funzionalità e i livelli di gravità specificati nella configurazione.  È possibile configurare Syslog tramite il portale di Azure o mediante la gestione dei file di configurazione negli agenti Linux.
 
-### <a name="configure-syslog-in-the-oms-portal"></a>Configurare Syslog nel portale di OMS
-Configurare Syslog usando il [menu Dati in Impostazioni di Log Analytics](log-analytics-data-sources.md#configuring-data-sources).  Questa configurazione viene distribuita al file di configurazione su ogni agente Linux.
+### <a name="configure-syslog-in-the-azure-portal"></a>Configurare Syslog nel portale di Azure
+Configurare Syslog usando il [menu Dati in Impostazioni avanzate di Log Analytics](log-analytics-data-sources.md#configuring-data-sources).  Questa configurazione viene distribuita al file di configurazione su ogni agente Linux.
 
 È possibile aggiungere una nuova funzionalità digitando il nome corrispondente e facendo clic su **+**.  Per ogni funzionalità vengono raccolti solo i messaggi con i livelli di gravità selezionati.  Controllare i livelli di gravità relativi alla funzionalità per la quale si vuole raccogliere i dati.  Non è possibile specificare altri criteri per filtrare i messaggi.
 

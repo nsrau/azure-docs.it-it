@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 1625b37a41082f8536d103701b1356a13a5dd837
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 140779ca1786bc9fa2afcfd08fdac0857580e8cf
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Espressioni e funzioni in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -215,7 +215,7 @@ Nell'esempio seguente la pipeline accetta i parametri **inputPath** e **outputPa
 |-------------------|-----------------|  
 |int|Converte il parametro in un valore intero. Ad esempio, l'espressione seguente restituisce 100 sotto forma di numero, invece di una stringa: `int('100')`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Value<br /><br /> **Descrizione**: obbligatoria. Valore convertito in un valore intero.|  
 |stringa|Converte il parametro in una stringa. Ad esempio, l'espressione seguente restituisce `'10'`: `string(10)`. È anche possibile convertire un oggetto in una stringa, ad esempio se il parametro **foo** è un oggetto con una sola proprietà `bar : baz`, l'espressione seguente restituisce `{"bar" : "baz"}`.`string(pipeline().parameters.foo)`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Value<br /><br /> **Descrizione**: obbligatoria. Valore convertito in una stringa.|  
-|json|Converte il parametro in un valore di tipo JSON. È il contrario di string(). Ad esempio, l'espressione seguente restituisce `[1,2,3]` come matrice, anziché come stringa:<br /><br /> `parse('[1,2,3]')`<br /><br /> È analogamente possibile convertire una stringa in un oggetto. Ad esempio, `json('{"bar" : "baz"}')` restituisce:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: String<br /><br /> **Descrizione**: obbligatoria. Stringa convertita in un valore di tipo nativo.<br /><br /> La funzione JSON supporta anche l'input XML. Ad esempio, il valore del parametro di:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> viene convertito nel codice JSON seguente:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
+|json|Converte il parametro in un valore di tipo JSON. È il contrario di string(). Ad esempio, l'espressione seguente restituisce `[1,2,3]` come matrice, anziché come stringa:<br /><br /> `json('[1,2,3]')`<br /><br /> È analogamente possibile convertire una stringa in un oggetto. Ad esempio, `json('{"bar" : "baz"}')` restituisce:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: String<br /><br /> **Descrizione**: obbligatoria. Stringa convertita in un valore di tipo nativo.<br /><br /> La funzione JSON supporta anche l'input XML. Ad esempio, il valore del parametro di:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> viene convertito nel codice JSON seguente:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|Converte l'argomento del parametro in un numero a virgola mobile. Ad esempio, l'espressione seguente restituisce `10.333`: `float('10.333')`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Value<br /><br /> **Descrizione**: obbligatoria. Valore convertito in un numero a virgola mobile.|  
 |bool|Converte il parametro in un valore booleano. Ad esempio, l'espressione seguente restituisce `false`: `bool(0)`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Value<br /><br /> **Descrizione**: obbligatoria. Valore convertito in un valore booleano.|  
 |coalesce|Restituisce il primo oggetto non Null negli argomenti passati. Nota: una stringa vuota non è Null. Se ad esempio i parametri 1 e 2 non sono definiti, questa funzione restituisce `fallback`: `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Numero di parametro**: 1 ... *n*<br /><br /> **Nome**: Object*n*<br /><br /> **Descrizione**: obbligatoria. Oggetto da controllare per rilevare valori `null`.|  

@@ -16,7 +16,7 @@ ms.date: 05/11/2018
 ms.author: jeffgilb
 ms.openlocfilehash: 0ef8247eba4605d3c8e5ef0992ce97bce989002e
 ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/12/2018
 ---

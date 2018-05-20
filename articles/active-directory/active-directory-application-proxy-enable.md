@@ -1,30 +1,30 @@
 ---
-title: "Proxy app di Azure AD - Attività iniziali e installazione del connettore | Microsoft Docs"
+title: Proxy app di Azure AD - Attività iniziali e installazione del connettore | Microsoft Docs
 description: Attivare il proxy di applicazione nel portale di Azure e installare i connettori per il proxy inverso.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2c2e0f977cdf0d31da19f71d9260b500184858e9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d636542c788aff43acf9e35583b4c0615fe0c7db
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Attività iniziali del proxy di applicazione e installazione del connettore
 Questo articolo illustra la procedura per abilitare il proxy di applicazione di Microsoft Azure AD per la directory cloud in Azure AD.
 
-Se non si conoscono ancora i vantaggi in termini di produttività e sicurezza offerti all'organizzazione dal proxy di applicazione, vedere [Come fornire l'accesso remoto sicuro alle applicazioni locali](active-directory-application-proxy-get-started.md).
+Se non si conoscono ancora i vantaggi in termini di produttività e sicurezza offerti all'organizzazione dal proxy di applicazione, vedere [Come fornire l'accesso remoto sicuro alle applicazioni locali](manage-apps/application-proxy.md).
 
 ## <a name="application-proxy-prerequisites"></a>Prerequisiti del proxy dell'applicazione
 Prima di poter abilitare e utilizzare i servizi del proxy dell'applicazione, è necessario disporre di:
@@ -81,7 +81,7 @@ Per preparare l'ambiente per il proxy di applicazione di Azure AD, è necessario
 
    * Fornire le credenziali di amministratore globale di Azure AD. Il tenant di amministratore globale può essere diverso dalle credenziali di Microsoft Azure.
    * Verificare che l'amministratore che registra il connettore si trovi nella stessa directory in cui è stato abilitato il servizio proxy dell'applicazione. Se il dominio del tenant è contoso.com, ad esempio, l'amministratore deve essere admin@contoso.com o qualsiasi altro alias di tale dominio.
-   * Se l'opzione **Configurazione sicurezza avanzata IE** è **attivata** nel server in cui si sta installando il connettore, potrebbe non venire visualizzata la schermata di registrazione. Per ottenere l'accesso, seguire le istruzioni contenute nel messaggio di errore. Verificare che Internet Explorer Enhanced Security Context sia disabilitato.
+   * Se l'opzione **Configurazione sicurezza avanzata IE** è**** attivata nel server in cui si sta installando il connettore, potrebbe non venire visualizzata la schermata di registrazione. Per ottenere l'accesso, seguire le istruzioni contenute nel messaggio di errore. Verificare che Internet Explorer Enhanced Security Context sia disabilitato.
 
 Per ottenere una disponibilità elevata, è consigliabile distribuire almeno due connettori. Ogni connettore deve essere registrato separatamente.
 

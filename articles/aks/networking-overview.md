@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: marsma
-ms.openlocfilehash: 80d12d1f5d6b388c46ed90eb84b7bc00250e17ff
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 818bae2e05f6a3256ccbf0cbcc901dd337b9a260
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configurazione della rete in Azure Kubernetes Service (AKS)
 
@@ -86,7 +86,7 @@ Le domande e le risposte seguenti si applicano alla configurazione della rete**a
 
   di serie La distribuzione di macchine virtuali nella subnet usata per il cluster Kubernetes non è supportata. Le macchine virtuali possono essere distribuite nella stessa rete virtuale, ma in una subnet diversa.
 
-* *È possibile configurare criteri di rete per pod?
+* *È possibile configurare criteri di rete per pod?*
 
   di serie I criteri di rete per pod non sono attualmente supportati.
 

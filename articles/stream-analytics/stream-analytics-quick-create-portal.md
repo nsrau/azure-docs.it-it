@@ -2,69 +2,68 @@
 title: Creare un processo di Analisi di flusso di Azure tramite il portale di Azure | Microsoft Docs
 description: Questa guida introduttiva descrive come iniziare a creare un processo di Analisi di flusso, configurare gli input e gli output e definire una query.
 services: stream-analytics
-keywords: Analisi di flusso, processi cloud, portale di Azure, input del processo, output del processo, trasformazione del processo
-author: SnehaGunda
-ms.author: sngun
-ms.date: 03/16/2018
+author: mamccrea
+ms.author: mamccrea
+ms.date: 05/11/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: c421ab96585da011cdaef9933ceb8a78ffe356a9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 86d4bab282db0ffc7b48813b9817eed0b45c3199
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Guida introduttiva: Creare un processo di Analisi di flusso di Azure tramite il portale di Azure
 
-Questa guida introduttiva descrive come iniziare a creare un processo di Analisi di flusso. In questa guida introduttiva si definirà un processo di Analisi di flusso che legge dati di esempio di sensori e filtra le righe che contengono una temperatura media maggiore di 100 per ogni 30 secondi. In questo articolo i dati vengono letti dall'archiviazione BLOB, vengono trasformati e quindi vengono scritti in un contenitore diverso nella stessa risorsa di archiviazione BLOB.
+Questa guida introduttiva descrive come iniziare a creare un processo di Analisi di flusso. In questa guida introduttiva si definirà un processo di Analisi di flusso che legge dati di esempio di sensori e filtra le righe che contengono una temperatura media maggiore di 100 per ogni 30 secondi. In questo articolo i dati vengono letti dall'archiviazione BLOB, vengono trasformati e quindi vengono scritti in un contenitore diverso nella stessa risorsa di archiviazione BLOB. Il file di dati di input utilizzati in questa guida introduttiva contiene i dati statici solo a scopo illustrativo. In uno scenario reale, si utilizza il flusso di dati di input per un processo di Analisi di flusso.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-* In assenza di una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free/).
+* Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/).
 
 * Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="prepare-the-input-data"></a>Preparare i dati di input
 
-Prima di definire il processo di Analisi di flusso, è necessario preparare i dati configurati come input per il processo. Eseguire i passaggi seguenti per preparare i dati di input richiesti dal processo:
+Prima di definire il processo di Analisi di flusso, è necessario preparare i dati configurati come input per il processo. Per preparare i dati di input richiesti dal processo, seguire questa procedura:
 
-1. Scaricare i [dati di esempio dei sensori](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) da GitHub. I dati di esempio contengono informazioni sui sensori nel formato JSON seguente:  
+1. Scaricare i [dati di esempio dei sensori](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) da GitHub. I dati di esempio contengono informazioni sui sensori nel formato JSON seguente:  
 
    ```json
    {
-     "time": "2016-01-26T21:18:52.0000000",
+     "time": "2018-01-26T21:18:52.0000000",
      "dspl": "sensorC",
      "temp": 87,
      "hmdt": 44
    }
    ```
-2. Accedere al portale di Azure  
+2. Accedere al portale di Azure.  
 
-3. Nell'angolo superiore sinistro del portale di Azure selezionare **Crea risorsa** > **Archiviazione** > **Account di archiviazione**. Completare il pannello del processo dell'account di archiviazione impostando **Nome** su "myasastorageaccount", **Località** su "Stati Uniti occidentali 2", **Gruppo di risorse** su "MyRG" (ospitare l'account di archiviazione nello stesso gruppo di risorse del processo di streaming per ottenere prestazioni migliori). Per le altre impostazioni è possibile lasciare i valori predefiniti.  
+3. Nell'angolo superiore sinistro del portale di Azure selezionare **Crea risorsa** > **Archiviazione** > **Account di archiviazione**. Compilare la pagina del processo dell'account di archiviazione impostando **Nome** su "myasastorageaccount", **Località** su "Stati Uniti occidentali 2", **Gruppo di risorse** su "MyRG" (ospitare l'account di archiviazione nello stesso gruppo di risorse del processo di streaming per ottenere prestazioni migliori). Per le altre impostazioni è possibile lasciare i valori predefiniti.  
 
    ![Crea account di archiviazione](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
 
-4. Nel pannello **Tutte le risorse** individuare l'account di archiviazione creato nel passaggio precedente. Aprire il pannello **Panoramica** e quindi il riquadro **BLOB**.  
+4. Nella pagina **Tutte le risorse** individuare l'account di archiviazione creato nel passaggio precedente. Aprire la pagina **Panoramica** e quindi il riquadro **BLOB**.  
 
-5. Nel pannello **Servizio BLOB** selezionare **Contenitore**, impostare il campo **Nome** per il contenitore, ad esempio *container1*, modificare il valore di **Livello di accesso pubblico** in BLOB (accesso in lettura anonimo solo per BLOB) e quindi selezionare **OK**.  
+5. Nella pagina **Servizio BLOB** selezionare **Contenitore**, impostare il campo **Nome** per il contenitore, ad esempio *container1*, modificare il valore di **Livello di accesso pubblico** in BLOB (accesso in lettura anonimo solo per BLOB) e quindi selezionare **OK**.  
 
    ![Creare un contenitore](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 
-6. Passare al contenitore creato nel passaggio precedente, selezionare **Carica** e caricare i dati dei sensori ottenuti nel passaggio 1.  
+6. Andare al contenitore creato nel passaggio precedente. Selezionare **Carica** e caricare i dati del sensore ottenuti nel primo passaggio.  
 
    ![Caricare i dati di esempio nel BLOB](./media/stream-analytics-quick-create-portal/upload-sample-data-to-blob.png)
 
 ## <a name="create-a-stream-analytics-job"></a>Creare un processo di Analisi di flusso.
 
-1. Accedere al portale di Azure  
+1. Accedere al portale di Azure.
 
 2. Selezionare **Crea risorsa** nell'angolo superiore sinistro del portale di Azure.  
 
 3. Selezionare **Dati e analisi** > **Processo di Analisi di flusso** nell'elenco dei risultati.  
 
-4. Completare il pannello Processo di Analisi di flusso con le informazioni seguenti:
+4. Compilare la pagina del processo di Analisi di flusso con le informazioni seguenti:
 
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
@@ -91,7 +90,7 @@ In questa sezione viene configurata l'archiviazione BLOB come input per il proce
 
 2. Selezionare **Input** > **Aggiungi input del flusso** > **Archivio BLOB**.  
 
-3. Completare il pannello **Archivio BLOB** con i valori seguenti:
+3. Compilare la pagina **Archivio BLOB** con i valori seguenti:
 
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
@@ -110,7 +109,7 @@ In questa sezione viene configurata l'archiviazione BLOB come input per il proce
 
 2. Selezionare **Output > Aggiungi > Archivio BLOB**.  
 
-3. Completare il pannello **Archivio BLOB** con i valori seguenti:
+3. Compilare la pagina **Archivio BLOB** con i valori seguenti:
 
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
@@ -135,9 +134,9 @@ In questa sezione viene configurata l'archiviazione BLOB come input per il proce
    dspl AS SensorName,
    Avg(temp) AS AvgTemperature
    INTO
-     MyBlobOutput
+     BlobOutput
    FROM
-     MyBlobInput TIMESTAMP BY time
+     BlobInput TIMESTAMP BY time
    GROUP BY TumblingWindow(second,30),dspl
    HAVING Avg(temp)>100
    ```
@@ -148,13 +147,13 @@ In questa sezione viene configurata l'archiviazione BLOB come input per il proce
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Avviare il processo di Analisi di flusso e controllare l'output
 
-1. Tornare al pannello Panoramica per il processo e selezionare **Avvia**  
+1. Tornare alla pagina della panoramica del processo e selezionare **Avvia**.
 
-2. In **Avvia processo** selezionare **Personalizzata** per il campo **Ora inizio**. Selezionare un giorno prima di quando è stato caricato il file nell'archiviazione BLOB, perché il momento in cui è stato caricato il file è precedente al momento attuale. Al termine, selezionare **Salva**.  
+2. In **Avvia processo** selezionare **Personalizzata** per il campo **Ora inizio**. Selezionare `2018-01-24` come data di inizio, ma non modificare l'ora. La data di inizio viene selezionata in quanto precede il timestamp dell'evento dai dati di esempio. Al termine, selezionare **Salva**.
 
    ![Avviare il processo](./media/stream-analytics-quick-create-portal/start-the-job.png)
 
-3. Dopo pochi minuti, nel portale individuare l'account di archiviazione e il contenitore configurato come output per il processo. È ora possibile visualizzare il file di output nel contenitore. L'avvio del processo richiede pochi minuti la prima volta e, dopo l'avvio, l'esecuzione prosegue man mano che arrivano i dati.  
+3. Dopo pochi minuti, individuare nel portale l'account di archiviazione e il contenitore configurato come output per il processo. È ora possibile visualizzare il file di output nel contenitore. L'avvio del processo richiede pochi minuti la prima volta e, dopo l'avvio, l'esecuzione prosegue man mano che arrivano i dati.  
 
    ![Output trasformato](./media/stream-analytics-quick-create-portal/transformed-output.png)
 
@@ -168,7 +167,7 @@ Quando non sono più necessari, eliminare il gruppo di risorse, il processo di s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato distribuito un semplice processo di Analisi di flusso. Per informazioni sulla configurazione di altre origini di input e sull'esecuzione del rilevamento in tempo reale, continuare con l'articolo seguente:
+In questa guida introduttiva, è stato distribuito un semplice processo di Analisi del flusso. Per informazioni sulla configurazione di altre origini di input e sull'esecuzione del rilevamento in tempo reale, continuare con l'articolo seguente:
 
 > [!div class="nextstepaction"]
 > [Rilevamento delle frodi in tempo reale tramite Analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)

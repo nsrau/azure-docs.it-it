@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/19/2018
 ms.author: sngun
-ms.openlocfilehash: a63a8577bda951613f60102475396f72ea1a4bdf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bab2728db7cdb410e995c30d69642c968ef6567d
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Creare un'app Web per le API MongoDB con .NET e il portale di Azure
 
@@ -104,6 +104,24 @@ Tutti i frammenti di codice seguenti sono tratti dal file Dal.cs nella directory
     ```cs
     collection.Find(new BsonDocument()).ToList();
     ```
+
+* Creare un'attività e inserirla nella raccolta MongoDB
+
+   ```csharp
+    public void CreateTask(MyTask task)
+    {
+        var collection = GetTasksCollectionForEdit();
+        try
+        {
+            collection.InsertOne(task);
+        }
+        catch (MongoCommandException ex)
+        {
+            string msg = ex.Message;
+        }
+    }
+   ```
+   Analogamente, è possibile aggiornare ed eliminare documenti tramite i metodi [collection.UpdateOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/index.html) e [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html). 
 
 ## <a name="update-your-connection-string"></a>Aggiornare la stringa di connessione
 

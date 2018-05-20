@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 5/04/2018
 ms.author: deguhath
-ms.openlocfilehash: 03104b497034ef92ddb2c6216d6e9200e65168b0
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ce349aedc6b733d34ab61eb2e23b378727e01800
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Spostamento dei dati in un database di SQL Azure per Azure Machine Learning
 Questo argomento indica le opzioni per lo spostamento dei dati da file flat, con estensione csv o tsv, o da dati archiviati in SQL Server locale a un database SQL di Azure. Queste attività per lo spostamento dei dati nel cloud fanno parte del Processo di analisi scientifica dei dati per i team.
@@ -33,8 +33,8 @@ Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dat
 
 | <b>SOURCE</b> | <b>DESTINATION: database SQL di Azure</b> |
 | --- | --- |
-| <b>File flat (con formato CSV o TSV)</b> |<a href="#bulk-insert-sql-query">Inserimento di massa query SQL |
-| <b>SQL Server locale</b> |1. <a href="#export-flat-file">Esportazione in un file flat<br> 2. <a href="#insert-tables-bcp">Migrazione guidata database SQL<br> 3. <a href="#db-migration">Backup e ripristino database<br> 4. <a href="#adf">Data factory di Azure |
+| <b>File flat (con formato CSV o TSV)</b> |[Inserimento di massa query SQL](#bulk-insert-sql-query) |
+| <b>SQL Server locale</b> |1. [Esportazione in un file flat](#export-flat-file)<br> 2. [Migrazione guidata database SQL](#insert-tables-bcp)<br> 3. [Backup e ripristino database](#db-migration)<br> 4. [Azure Data Factory](#adf) |
 
 ## <a name="prereqs"></a>Prerequisiti
 Questa procedura descritta di seguito richiede di disporre di:

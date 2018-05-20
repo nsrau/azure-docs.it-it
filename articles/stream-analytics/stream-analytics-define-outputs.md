@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2018
-ms.openlocfilehash: 54bf0cd80d1fcc6d761f977484a1a5539d581361
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/11/2018
+ms.openlocfilehash: 030af72951e226d3484706e627bc8b74d5469670
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 Questo articolo descrive i diversi tipi di output disponibili per un processo di Analisi di flusso di Azure. Gli output consentono di archiviare e salvare i risultati del processo di Analisi di flusso di Azure. Usando i dati di output, è possibile eseguire altre analisi di business e il data warehousing dei dati. 
@@ -86,7 +86,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 | Account di archiviazione | Nome dell'account di archiviazione a cui si sta inviando l'output. |
 | Chiave dell'account di archiviazione | Chiave privata associata all'account di archiviazione. |
 | Contenitore di archiviazione | I contenitori forniscono un raggruppamento logico per gli oggetti BLOB archiviati nel servizio BLOB di Microsoft Azure. Quando si carica un oggetto BLOB nel servizio BLOB, è necessario specificare un contenitore per il BLOB. |
-| Modello di percorso | facoltativo. Il modello di percorso del file usato per scrivere i BLOB nel contenitore specificato. </br></br> Nel modello del percorso è possibile scegliere di usare una o più istanze delle variabili di data e ora per specificare la frequenza di scrittura dei BLOB: </br> {date}, {time} </br> </br>È anche possibile specificare un nome di campo {colonna} dei dati in base al quale eseguire il partizionamento dei BLOB, dove il nome del campo è un valore alfanumerico e può includere spazi, trattini e caratteri di sottolineatura. Le restrizioni sui campi personalizzati includono le seguenti: <ul><li>Mancata distinzione tra maiuscole e minuscole (impossibilità di distinguere tra "ID" e "id" colonna)</li><li>I campi annidati non sono consentiti. Usare in alternativa un alias della query di processo per rendere flat il campo.</li><li>Le espressioni non possono essere usate come nome di campo</li></ul>Esempi: <ul><li>Esempio 1: cluster1/logs/{date}/{time}</li><li>Esempio 2: cluster1/logs/{date}</li><li>Esempio 3: cluster1/{client_id}/{date}/{time}</li><li>Esempio 4: cluster1/{myField} dove la query è: SELECT data.myField AS myField FROM Input;</li></ul><BR> La denominazione dei file segue questa convenzione: </br> {Schema prefisso percorso}/schemaHashcode_Guid_Number.extension </br></br> File di output di esempio: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
+| Modello di percorso | facoltativo. Il modello di percorso del file usato per scrivere i BLOB nel contenitore specificato. </br></br> Nel modello del percorso è possibile scegliere di usare una o più istanze delle variabili di data e ora per specificare la frequenza di scrittura dei BLOB: </br> {date}, {time} </br> </br>È anche possibile specificare un nome {field} personalizzato dai dati dell'evento in base al quale eseguire il partizionamento dei BLOB, dove il nome del campo è un valore alfanumerico e può includere spazi, trattini e caratteri di sottolineatura. Le restrizioni sui campi personalizzati includono le seguenti: <ul><li>Mancata distinzione tra maiuscole e minuscole (impossibilità di distinguere tra "ID" e "id" colonna)</li><li>I campi annidati non sono consentiti. Usare in alternativa un alias della query di processo per rendere flat il campo.</li><li>Le espressioni non possono essere usate come nome di campo</li></ul>Esempi: <ul><li>Esempio 1: cluster1/logs/{date}/{time}</li><li>Esempio 2: cluster1/logs/{date}</li><li>Esempio 3: cluster1/{client_id}/{date}/{time}</li><li>Esempio 4: cluster1/{myField} dove la query è: SELECT data.myField AS myField FROM Input;</li></ul><BR> La denominazione dei file segue questa convenzione: </br> {Schema prefisso percorso}/schemaHashcode_Guid_Number.extension </br></br> File di output di esempio: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
 | Formato data | facoltativo. Se nel percorso di prefisso viene usato il token di data, è possibile selezionare il formato della data in cui sono organizzati i file. Esempio: AAAA/MM/GG |
 | Formato ora | facoltativo. Se nel percorso di prefisso viene usato il token dell'ora, specificare il formato dell'ora in cui sono organizzati i file. Al momento, l'unico valore supportato è HH. |
 | Formato di serializzazione eventi | Formato di serializzazione per i dati di output.  Sono supportati i formati JSON, CSV e Avro.
@@ -289,7 +289,7 @@ Nella tabella seguente viene riepilogato il supporto della partizione e il numer
 | --- | --- | --- | --- |
 | Archivio Azure Data Lake | Sì | Use i token {date} e {time} nello schema prefisso percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
 | database SQL di Azure | No  | Nessuna | Non applicabile | 
-| Archivio BLOB di Azure | Sì | Usare i token {date} e {time} nel modello di percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
+| Archivio BLOB di Azure | Sì | Usare i token {date} e {time} o un singolo {fieldname} dai campi dell'evento nel modello di percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
 | Hub eventi di Azure | Sì | Sì | Varia a seconda dell'allineamento della partizione.</br> Quando la chiave di partizione di output di Hub eventi è ugualmente allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni di Hub eventi. Ogni writer usa la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) di EventHub per inviare eventi alla partizione specifica. </br> Quando la chiave di partizione di output di Hub eventi non è allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni in tale passo precedente. Ogni writer usa la [classe SendBatchAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) di EventHubClient per inviare eventi a tutte le partizioni di output. |
 | Power BI | No  | Nessuna | Non applicabile | 
 | Archiviazione tabelle di Azure | Sì | Qualsiasi colonna di output.  | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
@@ -318,7 +318,7 @@ La tabella seguente spiega alcune considerazioni per l'invio in batch dell'outpu
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Creare un processo di Analisi di flusso di Azure tramite il portale di Azure](stream-analytics-quick-create-portal.md)
+> [Avvio rapido: creare un processo di Analisi di flusso di Azure tramite il portale di Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

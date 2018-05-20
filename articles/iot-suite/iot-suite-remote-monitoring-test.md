@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 905e64d004c02db663634eb784cacf6fab805193
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d2523502c20a7cdc4fb4ec388f167f1640919717
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Creare un nuovo dispositivo simulato
 
@@ -225,7 +225,7 @@ In questa esercitazione si usano i progetti di Visual Studio **device-simulation
 1. Per clonare la versione .NET del repository di **storage-adapter**, eseguire questo comando:
 
     ```cmd
-    git clone https://github.com/Azure/storage-adapter.git
+    git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
     Il servizio di simulazione di dispositivi usa il servizio adattatore di archiviazione per la connessione al servizio Cosmos DB in Azure. La soluzione di monitoraggio remoto archivia i dati di configurazione del dispositivo simulato in un database Cosmos DB.
@@ -258,7 +258,11 @@ Il modo più semplice per creare un nuovo tipo di dispositivo nel servizio di si
 
 1. Nella sezione **Variabili di ambiente** modificare il valore della variabile **PCS\_IOTHUB\_CONNSTRING** in modo che corrisponda alla stringa di connessione dell'hub IoT annotata in precedenza. Salvare quindi le modifiche.
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione **device-simulation** e scegliere **Imposta progetti di avvio**. Scegliere **Progetto di avvio singolo** e selezionare **SimulationAgent**. Fare quindi clic su **OK**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **WebService**, scegliere **Proprietà** e quindi scegliere **Debug**.
+
+1. Nella sezione **Variabili di ambiente** modificare il valore della variabile **PCS\_IOTHUB\_CONNSTRING** in modo che corrisponda alla stringa di connessione dell'hub IoT annotata in precedenza. Salvare quindi le modifiche.
+
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione **device-simulation** e scegliere **Imposta progetti di avvio**. Scegliere **Progetto di avvio singolo** e selezionare **WebService**. Fare quindi clic su **OK**.
 
 1. Per ogni tipo di dispositivo sono presenti un file modello JSON e gli script associati nella cartella **Services/data/devicemodels**. In Esplora soluzioni copiare i file relativi a **Chiller** (Refrigeratore) per creare i file relativi a **Lightbulb** (Lampadina) come illustrato nella tabella seguente:
 
@@ -294,10 +298,12 @@ Il file **lightbulb-01.json** definisce le caratteristiche del tipo, ad esempio 
         "status": "on"
       },
       "Interval": "00:00:20",
-      "Scripts": {
-        "Type": "javascript",
-        "Path": "lightbulb-01-state.js"
-      }
+      "Scripts": [
+        {
+          "Type": "javascript",
+          "Path": "lightbulb-01-state.js"
+        }
+      ]
     },
     ```
 
@@ -468,7 +474,7 @@ Per limitare il numero di dispositivi simulati che si connettono alla soluzione 
 
 A questo punto si è pronti per testare il nuovo tipo di lampadina simulata eseguendo il progetto di simulazione di dispositivi in locale.
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse su **SimulationAgent**, scegliere **Debug** e quindi scegliere **Avvia nuova istanza**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse su **WebService**, scegliere **Debug** e quindi scegliere **Avvia nuova istanza**.
 
 1. Per controllare che i due dispositivi simulati siano connessi all'hub IoT, aprire il portale di Azure nel browser.
 

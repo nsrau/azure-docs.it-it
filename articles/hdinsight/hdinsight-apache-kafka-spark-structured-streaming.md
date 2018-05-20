@@ -10,13 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 05/08/2018
 ms.author: larryfr
-ms.openlocfilehash: bdb2369f81ae8aeeb0a57e092dc1af7d0a7ded8f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8c7c1b37102e94f00ac6077958952eb52b342668
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Esercitazione: Usare lo streaming strutturato Spark con Kafka in HDInsight
 
@@ -147,8 +147,8 @@ Per creare una Rete virtuale di Microsoft Azure e quindi crearvi i cluster Kafka
     | Sottoscrizione | Sottoscrizione di Azure |
     | Gruppo di risorse | Gruppo di risorse che contiene le risorse. |
     | Località | Area di Azure in cui vengono create le risorse. |
-    | Nome del cluster Spark | Nome del cluster Spark. |
-    | Nome del cluster Kafka | Nome del cluster Kafka. |
+    | Nome del cluster Spark | Nome del cluster Spark. I primi sei caratteri devono essere diversi dal nome di cluster Kafka. |
+    | Nome del cluster Kafka | Nome del cluster Kafka. I primi sei caratteri devono essere diversi dal nome di cluster Spark. |
     | Nome utente dell'account di accesso del cluster | Nome utente dell'amministratore per i cluster. |
     | Password di accesso al cluster | Password dell'utente amministratore per i cluster. |
     | Nome utente SSH | Utente SSH da creare per i cluster. |
@@ -169,7 +169,7 @@ Per caricare il notebook dal progetto nel cluster Spark su HDInsight, seguire qu
 
 1. Scaricare il progetto da [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming).
 
-1. Nel Web browser connettersi a Jupyter Notebook nel cluster Spark. Nell'URL seguente sostituire `CLUSTERNAME` con il nome del cluster __Spark__:
+1. Nel Web browser connettersi al notebook Jupyter nel cluster Spark. Nell'URL seguente sostituire `CLUSTERNAME` con il nome del cluster __Spark__:
 
         https://CLUSTERNAME.azurehdinsight.net/jupyter
 

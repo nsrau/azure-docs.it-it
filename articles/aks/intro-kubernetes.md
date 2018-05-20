@@ -3,17 +3,17 @@ title: Introduzione ad Azure Kubernetes Service
 description: Azure Kubernetes Service semplifica la distribuzione e la gestione delle applicazioni basate su contenitore in Azure.
 services: container-service
 author: gabrtv
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 4936554465fbbed45000f43853a6a77567c3028f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4a36809b0f6a041ac4d9250624495aeaf1e397e9
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="introduction-to-azure-kubernetes-service-aks-preview"></a>Introduzione ad Azure Kubernetes Service (AKS) - anteprima
 

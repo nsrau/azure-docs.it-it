@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 49071044-6767-4041-9EDD-6132295FA551
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a158da6fb397b864a439e067ca99d79814e2b8d2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a3dfce6ce1b136e39047cfd47b336b2fb2a35af9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Ruotare i segreti nello Stack di Azure
 
@@ -49,6 +48,24 @@ Certificati di infrastruttura a servizio per i servizi con connessione esterna c
 
 Per salvaguardare l'integrità dell'infrastruttura di Azure Stack, gli operatori devono avere la possibilità di ruotare periodicamente i segreti dell'infrastruttura frequenze che siano coerenti con i requisiti di sicurezza della propria organizzazione.
 
+### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>La rotazione di segreti con certificati esterni da un'autorità di certificazione nuovo
+
+Stack di Azure supporta la rotazione secret con certificati esterni da un'autorità di certificazione (CA) nuovo nei contesti seguenti:
+
+|Certificazione installati|Autorità di certificazione per la rotazione a|Supportato|Versioni di Azure Stack supportate|
+|-----|-----|-----|-----|-----|
+|Da autofirmato|A Enterprise Edition|Non supportato||
+|Da autofirmato|Per autofirmato|Non supportato||
+|Da autofirmato|Al ruolo Public<sup>*</sup>|Supportato|1803 e versioni successive|
+|Da Enterprise|A Enterprise Edition|Supportato, purché i clienti di utilizzare la stessa azienda autorità di certificazione utilizzate in fase di distribuzione|1803 e versioni successive|
+|Da Enterprise|Per autofirmato|Non supportato||
+|Da Enterprise|Al ruolo Public<sup>*</sup>|Supportato|1803 e versioni successive|
+|Da Public<sup>*</sup>|A Enterprise Edition|Non supportato|1803 e versioni successive|
+|Da Public<sup>*</sup>|Per autofirmato|Non supportato||
+|Da Public<sup>*</sup>|Al ruolo Public<sup>*</sup>|Supportato|1803 e versioni successive|
+
+<sup>*</sup> Autorità di certificazione pubblica qui sono quelli che fanno parte del programma Windows Trusted Root. È possibile trovare l'elenco completo [Microsoft Trusted Root Certificate Program: partecipanti (a partire da 27 giugno 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+
 ## <a name="alert-remediation"></a>Avviso monitoraggio e aggiornamento
 
 Quando i segreti sono entro 30 giorni di scadenza, nel portale di amministrazione vengono generati gli avvisi seguenti: 
@@ -74,7 +91,7 @@ Esegue la rotazione secret usando le istruzioni seguenti correggerà questi avvi
 
 ## <a name="rotating-external-and-internal-secrets"></a>La rotazione dei segreti interni ed esterni
 
-Per ruotare un interno segreti entrambi esterno:
+Per ruotare entrambi esterno un segreto interno:
 
 1. All'interno di appena creato **certificati** directory creata nei passaggi precedenti, inserire il nuovo set di certificati esterni di sostituzione nella struttura di directory in base al formato descritto nella sezione certificati obbligatori del [requisiti dei certificati di infrastruttura a chiave pubblica di Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 2. Creare una sessione di PowerShell con il [Endpoint con privilegi](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) usando la **CloudAdmin** account e le sessioni vengono archiviati come una variabile. Utilizzare questa variabile come parametro nel passaggio successivo.

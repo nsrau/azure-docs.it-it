@@ -1,10 +1,10 @@
 ---
-title: Funzionalità dei prodotti della rete per la distribuzione di contenuti di Azure (rete CDN) | Microsoft Docs
+title: Confronto tra funzionalità dei prodotti della rete per la distribuzione di contenuti di Azure (rete CDN) | Microsoft Docs
 description: Informazioni sulle funzionalità supportate da ogni prodotto della rete per la distribuzione di contenuti di Azure (rete CDN).
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,20 +12,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/25/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: ae57d4e9feb23f67bb4f05148d87fec96f055a7f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 01396ceba142a91a88040ac28c51275734476e5d
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="azure-cdn-product-features"></a>Funzionalità del prodotto rete CDN di Azure
+# <a name="compare-azure-cdn-product-features"></a>Confronto tra funzionalità dei prodotti della rete CDN di Azure
 
-La rete per la distribuzione di contenuti (rete CDN) di Azure include quattro prodotti: **rete CDN Standard di Azure con tecnologia Microsoft**, **rete CDN Standard di Azure con tecnologia Akamai**, **rete CDN Standard di Azure con tecnologia Verizon** e **rete CDN Premium di Azure con tecnologia Verizon**. La tabella seguente confronta le funzionalità disponibili con ogni prodotto.
+La rete per la distribuzione di contenuti (rete CDN) di Azure include quattro prodotti: **rete CDN Standard di Azure con tecnologia Microsoft** (in anteprima), **rete CDN Standard di Azure con tecnologia Akamai**, **rete CDN Standard di Azure con tecnologia Verizon** e **rete CDN Premium di Azure con tecnologia Verizon**. 
 
-| **Ottimizzazioni e funzionalità per le prestazioni** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** |
+La tabella seguente confronta le funzionalità disponibili con ogni prodotto.
+
+| **Ottimizzazioni e funzionalità per le prestazioni** | **Standard Microsoft (anteprima)** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** |
 | --- | --- | --- | --- | --- |
 | [Accelerazione sito dinamico](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Accelerazione sito dinamico - Compressione di immagini adattiva](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only)  |  | **&#x2713;**  |  |  |
@@ -61,7 +63,7 @@ La rete per la distribuzione di contenuti (rete CDN) di Azure include quattro pr
 | [Avvisi in tempo reale](cdn-real-time-alerts.md)  |  | | |**&#x2713;** |
 ||||
 | **Semplicità d'uso** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
-| Semplice integrazione con i servizi di Azure, ad esempio [Archiviazione](cdn-create-a-storage-account-with-cdn.md), [Servizi cloud](cdn-cloud-service-with-cdn.md), [App Web](../app-service/app-service-web-tutorial-content-delivery-network.md) e [Servizi multimediali](../media-services/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Integrazione semplice con i servizi di Azure, come [Archiviazione](cdn-create-a-storage-account-with-cdn.md), [App Web](app-service-web-tutorial-content-delivery-network.md) e [Servizi multimediali](../media-services/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Gestione tramite [API REST](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) oppure [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Motore di distribuzione di contenuti personalizzabile, basato su regole](cdn-rules-engine.md)  |  | | |**&#x2713;** |
 | Riscrittura/reindirizzamento URL (con il [motore regole](cdn-rules-engine.md))  |  | | |**&#x2713;** |

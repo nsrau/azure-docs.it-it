@@ -4,7 +4,7 @@ description: Informazioni sulla rete per la distribuzione di contenuti (rete CDN
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: cdn
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/20/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 36de1011e48f274759c0aeebde74bd26c6604e19
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2f760c1b47da7273827ce2a980cdc9b4db943904
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Definizione di rete per la distribuzione di contenuti
 Una rete per la distribuzione di contenuti (CDN) è una rete di server distribuita in grado di fornire contenuti Web agli utenti in modo efficiente. Per ridurre al minimo la latenza, le reti CDN archiviano il contenuto memorizzato nella cache in server perimetrali presenti in località POP (Point of Presence) prossime agli utenti finali. 
@@ -70,7 +70,7 @@ La rete CDN di Azure offre le funzionalità chiave seguenti:
 - [Compressione dei file](cdn-improve-performance.md)
 - [Filtro geografico](cdn-restrict-access-by-country.md)
 
-Per un elenco completo delle funzionalità supportate da ogni prodotto della rete CDN di Azure, vedere [Funzionalità del prodotto rete CDN di Azure](cdn-features.md).
+Per un elenco completo delle funzionalità supportate da ogni prodotto della rete CDN di Azure, vedere [Compare Azure CDN product features](cdn-features.md) (Confrontare le funzionalità dei prodotti della rete CDN di Azure).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per iniziare a usare la rete CDN, vedere [Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).

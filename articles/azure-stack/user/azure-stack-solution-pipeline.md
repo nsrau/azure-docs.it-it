@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 49a80805c976e5584bb158965583a03eda68cc46
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 483122f5d2e39c8595d0f28a6b937772c4ea2e50
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Esercitazione: Distribuire le App in Azure e Azure Stack
 
@@ -71,7 +71,7 @@ Azure Stack
     - È possibile trovare istruzioni dettagliate sulla distribuzione ASDK in "[esercitazione: distribuire ASDK utilizzando il programma di installazione](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy)"
     - È possibile automatizzare molte i passaggi di post-distribuzione ASDK con il seguente script di PowerShell [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ).
 
-    > [!note]  
+    > [!Note]  
     > L'installazione ASDK richiede un sette ore per completare, pertanto, pianificare di conseguenza.
 
  - Distribuire [servizio App](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) servizi PaaS allo Stack di Azure. 
@@ -87,7 +87,7 @@ Azure Stack
  - [Installare Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) e [Accedi a Visual Studio Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
  - Connettersi al progetto e [clonare localmente](https://www.visualstudio.com/docs/git/gitquickstart).
  
- > [!note]  
+ > [!Note]  
  > È necessario Azure Stack con immagini appropriate RSS per l'esecuzione (Windows Server e SQL) e dispone di servizio App distribuito.
  
 ## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>Preparare la compilazione privata e l'agente della versione per l'integrazione con Visual Studio Team Services
@@ -207,7 +207,7 @@ Anziché gestire singolarmente ogni agente, organizzare gli agenti in pool di ag
 
 3. Copiare il token.
     
-    > [!note]  
+    > [!Note]  
     > Ottenere le informazioni del token. Non verrà visualizzato dopo aver se si lascia questa schermata. 
     
     ![Testo alternativo](media\azure-stack-solution-hybrid-pipeline\000_19.png)
@@ -268,7 +268,7 @@ Gli utenti possono creare gli endpoint in modo da VSTO compilazioni possono dist
 
 Consente di impostare CI/CD-ROM per distribuire l'App Web in Azure e Azure Stack e auto push delle modifiche per entrambi i cloud ibridi.
 
-> [!note]  
+> [!Note]  
 > È necessario Azure Stack con immagini appropriate RSS per l'esecuzione (Windows Server e SQL) e dispone di servizio App distribuito. Rivedere la documentazione di servizio App sezione "Prerequisiti" di Azure Stack operatore requisiti.
 
 ### <a name="add-code-to-vsts-project"></a>Aggiungere codice al progetto di Visual Studio Team Services
@@ -399,7 +399,7 @@ Visual Studio Team Services (VSTS) e Team Foundation Server (TFS) forniscono una
 
 21. Salvare tutte le modifiche.
 
-> [!note]  
+> [!Note]  
 > Alcune impostazioni per le attività possono essere state automaticamente definite come [variabili di ambiente](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) al momento della creazione di una definizione di versione da un modello. Queste impostazioni non possono essere modificate nelle impostazioni di attività; In alternativa, è necessario selezionare l'elemento ambiente padre per modificare queste impostazioni.
 
 ## <a name="create-a-release"></a>Crea una versione

@@ -14,17 +14,19 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/17/2018
 ms.author: wesmc
-ms.openlocfilehash: e7107e5c75d79714ae8d2d78d35e2cd3742ac674
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 748e5839233b9d71b9ed072d0cfe45f018471c52
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Esercitazione: Autenticazione del servizio Azure SignalR
 
+Il servizio Microsoft Azure SignalR è attualmente disponibile in [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Questa esercitazione si basa sull'applicazione di chat room presentata nella guida di avvio rapido. Se non è stato completato l'esercizio [Creare una chat room con il servizio SignalR](signalr-quickstart-dotnet-core.md), completarlo ora. 
 
-Questa esercitazione spiegherà come implementare la propria autenticazione e integrarla con il servizio Azure SignalR. 
+Questa esercitazione spiegherà come implementare la propria autenticazione e integrarla con il servizio Microsoft Azure SignalR. 
 
 L'autenticazione utilizzata inizialmente nell'applicazione di chat room della guida di avvio rapido è troppo semplice per gli scenari reali. L'applicazione consente a ogni client di dichiarare la propria identità, mentre il server si limita ad accettare tale identità. Questo approccio non è molto utile nelle applicazioni reali in cui un utente non autorizzato potrebbe rappresentare altri utenti per accedere a dati sensibili. 
 
@@ -580,7 +582,7 @@ L'ultima operazione da eseguire è l'aggiornamento dell'**URL della home page** 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si proseguirà con l'esercitazione successiva, è possibile mantenere le risorse create in questa guida di avvio rapido e riutilizzarle.
+Se si proseguirà con l'esercitazione successiva, sarà possibile conservare le risorse create in questa guida introduttiva e riutilizzarle.
 
 In caso contrario, se si è terminato il lavoro con l'applicazione di esempio della guida di avvio rapido, è possibile eliminare le risorse di Azure create in questa guida di avvio rapido per evitare i costi correlati. 
 
@@ -599,13 +601,11 @@ Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di ri
 
 Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e fare clic su **Elimina**.
    
-Dopo alcuni minuti il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati.
+Dopo qualche istante il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata aggiunta l'autenticazione con OAuth per fornire un approccio migliore all'autenticazione con il servizio Azure SignalR. Per altre informazioni sull'uso di Azure SignalR Server, continuare con l'esercitazione successiva che illustrata l'integrazione con Funzioni di Azure.
+In questa esercitazione è stata aggiunta l'autenticazione con OAuth per fornire un approccio migliore all'autenticazione con il servizio Azure SignalR. Per altre informazioni sull'uso di Azure SignalR Server, continuare con gli esempi dell'interfaccia della riga di comando di Azure per il servizio SignalR.
 
 > [!div class="nextstepaction"]
-> [Integrare Funzioni di Azure con il servizio Azure SignalR](./signalr-integrate-functions.md)
-
-
+> [Esempi dell'interfaccia della riga di comando di Azure SignalR](./signalr-cli-samples.md)

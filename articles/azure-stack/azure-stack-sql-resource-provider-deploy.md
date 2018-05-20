@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 70b07cae9a1dc8b45e27f95e19fbc84f06a0b6d3
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 20b289c16a73bd20ed020987116975c8abe893f0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Utilizzare i database SQL nello Stack di Microsoft Azure
 Utilizzare il provider di risorse di Azure Stack SQL Server per esporre i database SQL come servizio dello Stack di Azure. Il servizio provider di risorse SQL viene eseguito nel provider di risorse macchina virtuale, che è una macchina virtuale di Windows Server core di SQL.
@@ -73,6 +73,8 @@ Distribuzione di provider di risorse SQL inizia e crea il gruppo di risorse syst
 | **Disinstallare** | Rimuove il provider di risorse e tutte le risorse associate (vedere le note seguenti). | No  |
 | **DebugMode** | Impedisce la pulizia automatica in caso di errore. | No  |
 
+>[!NOTE]
+> SKU può richiedere a un'ora per essere visibile nel portale. È possibile creare un database fino a quando non viene creato lo SKU.
 
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Distribuire il provider di risorse SQL utilizzando uno script personalizzato

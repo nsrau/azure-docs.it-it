@@ -8,11 +8,11 @@ ms.author: tomfitz
 ms.date: 05/04/2018
 ms.topic: article
 ms.service: event-grid
-ms.openlocfilehash: c95cfee787244367688b82959474e2a8028b7ff6
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 42b3e88d4bf411aa8a0d3bb129795f0d8ab98525
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Instradare eventi personalizzati a Connessioni ibride di Inoltro di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
@@ -21,8 +21,6 @@ La griglia di eventi di Azure è un servizio di gestione degli eventi per il clo
 ## <a name="prerequisites"></a>prerequisiti
 
 Questo articolo presuppone che l'utente disponga già di una connessione ibrida e di un'applicazione listener. Per iniziare a usare le connessioni ibride, vedere [Introduzione alle connessioni ibride di inoltro - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) oppure [Introduzione alle connessioni ibride di inoltro - Node](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -41,10 +39,6 @@ az group create --name gridResourceGroup --location westus2
 Un argomento di Griglia di eventi fornisce un endpoint definito dall'utente in cui vengono pubblicati gli eventi. L'esempio seguente crea l'argomento personalizzato nel gruppo di risorse. Sostituire `<topic_name>` con un nome univoco per l'argomento. Il nome dell'argomento deve essere univoco perché è rappresentato da una voce DNS.
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 

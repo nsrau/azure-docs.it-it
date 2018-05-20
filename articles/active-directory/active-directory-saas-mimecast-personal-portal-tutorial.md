@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 04/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 4f2c5f7323d9d10b6a784da8f45577ccf774b78f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7d8a746df9bea22970da9dc47b5e436a94335f49
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Esercitazione: Integrazione di Azure Active Directory con Mimecast Personal Portal
 
@@ -80,8 +80,6 @@ In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure 
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve individuare l'utente di Mimecast Personal Portal corrispondente a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Mimecast Personal Portal.
 
-Per stabilire la relazione di collegamento, in Mimecast Personal Portal assegnare il valore di **nome utente** in Azure AD come valore di **Username** (Nome utente).
-
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Mimecast Personal Portal, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
@@ -127,6 +125,16 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | Sud Africa    | `https://za-api.mimecast.com/sso/<accountcode>`|
     | Australia       | `https://au-api.mimecast.com/sso/<accountcode>`|
     | Estero        | `https://jer-api.mimecast.com/sso/<accountcode>`|
+
+    c. Nella casella di testo **URL di risposta** digitare un URL: 
+
+    | Region  |  Valore | 
+    | --------------- | --------------- | 
+    | Europa          | `https://eu-api.mimecast.com/login/saml`|
+    | Stati Uniti   | `https://us-api.mimecast.com/login/saml`|
+    | Sud Africa    | `https://za-api.mimecast.com/login/saml`|
+    | Australia       | `https://au-api.mimecast.com/login/saml`|
+    | Estero        | `https://jer-api.mimecast.com/login/saml`|
     
     > [!NOTE] 
     > Il valore dell'identificatore non è reale. È necessario aggiornare questo valore con l'ID effettivo. Per ottenerlo, contattare il [team di supporto clienti di Mimecast Personal Portal](http://www.mimecast.com/customer-success/technical-support/). 
@@ -178,10 +186,6 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     h. Selezionare **Allow Single Sign On**.
    
     i. Fare clic su **Save**.
-
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 

@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/26/2018
 ms.author: spelluru
-ms.openlocfilehash: 5af348bfdccb9392948af962cf582e33ebd40872
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 347b7d183839868f3b52adbdfd00b38cee3f3fbc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services-formerly-azure-devtest-labs"></a>Esercitazione: Configurare un account lab con Azure Lab Services (precedentemente Azure DevTest Labs)
 Questa esercitazione descrive come un amministratore del lab può creare un account lab con Azure Lab Services. Quindi, fornire ai docenti l'autorizzazione per creare lab per le proprie classi nell'account lab. Un docente può impostare un lab per una classe usando il [sito Web di Azure Lab Services](https://labs.azure.com).   
@@ -29,28 +29,27 @@ In questa esercitazione vengono completate le azioni seguenti:
 > * Creare un account lab
 > * Aggiungere un utente al ruolo di creatore di lab
 
-## <a name="prerequisites"></a>Prerequisiti
-
-- Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-- Azure Lab Services è attualmente in anteprima controllata. Per creare un account lab, [eseguire l'iscrizione all'anteprima](https://aka.ms/azlabspreviewsignup).
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="create-a-lab-account"></a>Creare un account lab
 La procedura seguente illustra come usare il portale di Azure per creare un account lab con Azure Lab Services. 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nel menu principale sul lato sinistro selezionare **Crea una risorsa** (nella parte superiore dell'elenco), scegliere **Strumenti di sviluppo** e fare clic su **Lab Services (anteprima)**.
+2. Scegliere **Creare una risorsa** dal menu principale a sinistra.
+3. Cercare **Lab Services** in Azure Marketplace e quindi selezionare **Lab Services** nell'elenco a discesa. 
+4. Selezionare **Lab Services (Preview)** nell'elenco filtrato dei servizi. 
 1. Nella finestra **Create a lab account** (Crea un account lab) selezionare **Crea**.
 2. Nella finestra **Lab account** (Account lab) eseguire queste operazioni: 
     1. In **Lab account name** (Nome account lab) immettere un nome. 
     2. Selezionare la **sottoscrizione di Azure** in cui creare l'account lab.
     3. In **Gruppo di risorse** selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse.
     4. In **Posizione** selezionare una posizione o un'area in cui si vuole creare l'account lab. 
-    5. Selezionare **Crea**. 
+    5. Selezionare **Create**. 
 
-        ![Finestra Crea un account lab](./media/tutorial-setup-lab-account/lab-account-settings.png)
+        ![Finestra Create a lab account (Crea un account lab)](./media/tutorial-setup-lab-account/lab-account-settings.png)
 5. Se non viene visualizzata la pagina dell'account lab, selezionare il pulsante delle **notifiche** e quindi fare clic su **Vai alla risorsa** in Notifiche. 
 
-    ![Finestra Crea un account lab](./media/tutorial-setup-lab-account/notification-go-to-resource.png)    
+    ![Finestra Create a lab account (Crea un account lab)](./media/tutorial-setup-lab-account/notification-go-to-resource.png)    
 6. Verrà visualizzata la pagina dell'**account lab** seguente:
 
     ![Pagina dell'account lab](./media/tutorial-setup-lab-account/lab-account-page.png)

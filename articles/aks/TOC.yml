@@ -45,14 +45,14 @@
           href: delete-cluster.md
     - name: Configurare i volumi di dati
       items:
-        - name: Volume Kubernetes - Dischi
-          href: azure-disk-volume.md
-        - name: Volume Kubernetes - File
-          href: azure-files-volume.md
-        - name: Volume permanente - Dischi
+        - name: Provisioning dinamico di AzureDisk
           href: azure-disks-dynamic-pv.md
-        - name: Volume permanente - File
+        - name: Provisioning statico di AzureDisk
+          href: azure-disk-volume.md
+        - name: Provisioning dinamico di AzureFile
           href: azure-files-dynamic-pv.md
+        - name: Provisioning statico di AzureFile
+          href: azure-files-volume.md
     - name: Configurare le impostazioni di rete
       items:
         - name: Panoramica delle reti

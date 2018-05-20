@@ -5,8 +5,8 @@ services: Functions
 documtationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: funzioni di azure, funzioni, architettura senza server, infrastruttura come codice, azure resource manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 28b2f5aba69e5c058feb7119eb31352220922998
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure
 
@@ -56,7 +56,9 @@ Per un'app per le funzioni è necessario l'account di archiviazione di Azure. È
 }
 ```
 
-È anche necessario specificare le proprietà `AzureWebJobsStorage` e `AzureWebJobsDashboard` come impostazioni dell'app nella configurazione del sito. Il runtime di Funzioni di Azure usa la stringa di connessione `AzureWebJobsStorage` per creare code interne. La stringa di connessione `AzureWebJobsDashboard` viene usata per accedere all'archivio tabelle di Azure e abilitare la scheda **Monitoraggio** nel portale.
+È anche necessario specificare la proprietà `AzureWebJobsStorage` come impostazione dell'app nella configurazione del sito. Se l'app per le funzioni non usa Application Insights per il monitoraggio, è necessario specificare anche `AzureWebJobsDashboard` come impostazione dell'app.
+
+Il runtime di Funzioni di Azure usa la stringa di connessione `AzureWebJobsStorage` per creare code interne.  Quando Application Insights non è abilitato, il runtime usa la stringa di connessione `AzureWebJobsDashboard` per accedere all'archivio tabelle di Azure e fornire dati per la scheda **Monitoraggio** nel portale.
 
 Queste proprietà sono specificate nella raccolta `appSettings` dell'oggetto `siteConfig`:
 
@@ -260,7 +262,7 @@ Il modello può essere distribuito in uno dei modi seguenti:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Portale di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Pulsante Deploy to Azure per la distribuzione in Azure

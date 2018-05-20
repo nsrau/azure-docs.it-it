@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 087dafe426b835d447c69a44f6842c41a48cec8c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9024036c5340e9afb2369feedde140d84e880265
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Esercitazione: Monitorare i contenitori di Windows in Service Fabric usando Log Analytics
 
-Questa è la terza parte di un'esercitazione in cui si spiega come impostare Log Analytics per monitorare i contenitori di Windows orchestrati in Service Fabric.
+Questa è la seconda parte di un'esercitazione in cui si spiega come configurare Log Analytics per monitorare i contenitori di Windows orchestrati in Service Fabric.
 
 In questa esercitazione si apprenderà come:
 

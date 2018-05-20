@@ -138,6 +138,8 @@
         - name: Usare Zeppelin
           href: ../hdinsight-apache-spark-zeppelin-notebook.md
           maintainContext: true
+        - name: Usare Grafana
+          href: ./hdinsight-grafana.md
         - name: Sviluppare applicazioni HDInsight
           items:
             - name: Installare app personalizzate
@@ -349,7 +351,7 @@
         - name: Monitorare le prestazioni di un cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

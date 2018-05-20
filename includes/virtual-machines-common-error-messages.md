@@ -1,3 +1,19 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: virtual-machines-windows
+author: genlin
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 04/25/2018
+ms.author: genli
+ms.custom: include file
+ms.openlocfilehash: db241c1a3c8bfd15e13ae0bd9f1cdf4c92c7081d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 05/10/2018
+---
 >[!NOTE]
 > È possibile lasciare commenti in questa pagina oppure nel forum di [commenti e suggerimenti](https://feedback.azure.com/forums/216843-virtual-machines) su Azure tramite #azerrormessage.
 
@@ -33,7 +49,7 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  AllocationFailed  |  Allocazione non riuscita. Provare a ridurre le dimensioni della macchina virtuale o il numero di macchine virtuali, riprovare più tardi oppure provare la distribuzione in un set di disponibilità o in un percorso di Azure diverso.  |  
 |  AllocationFailed  |  Allocazione della macchina virtuale non riuscita a causa di un errore interno. Riprovare più tardi o provare a distribuire in un percorso diverso.  |
 |  ArtifactNotFound  |  L'estensione della macchina virtuale con editore '{0}' e tipo '{1}' non è stata trovata nel percorso '{2}'.  |
-|  ArtifactNotFound  |  L'estensione con editore '{0}', tipo '{1}' e versione del gestore dei tipi '{2}' non è stata trovata nel repository di estensioni.  |
+|  ArtifactNotFound  |  L'estensione con editore '{0}', tipo '{1}', e versione del gestore dei tipi {2}' non è stata trovata nel repository di estensioni.  |
 |  ArtifactVersionNotFound  |  Nel repository di elementi non sono state trovate versioni che soddisfano la versione richiesta '{0}'.  |
 |  ArtifactVersionNotFound  |  Nel repository di elementi non sono state trovate versioni che soddisfano la versione richiesta '{0}' per l'estensione della macchina virtuale con editore '{1}' e tipo '{2}'.  |
 |  AttachDiskWhileBeingDetached  |  Non è possibile collegare un disco dati '{0}' alla macchina virtuale '{1}' perché il disco è attualmente in fase di scollegamento. Attendere che il disco sia completamente scollegato, quindi riprovare.  |
@@ -42,10 +58,10 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  RichiestaNonValida  |  Il servizio Managed Disks non è supportato in questa area.  |
 |  RichiestaNonValida  |  Per il tipo di sistema operativo '{0}' non sono supportate più estensioni della macchina virtuale per ciascun gestore. L'estensione della macchina virtuale '{1}' con gestore '{2}' è già stata aggiunta o specificata nell'input.  |
 |  RichiestaNonValida  |  L'operazione '{0}' non è supportata nella risorsa '{1}' con dischi gestiti.  |
-|  CertificateImproperlyFormatted  |  La rappresentazione JSON di un segreto recuperato da {0} ha un campo dati che non corrisponde a un file PFX formattato correttamente oppure la password fornita non decodifica correttamente il file PFX.  |
+|  CertificateImproperlyFormatted  |  La rappresentazione JSON di un segreto recuperato da {0} ha un campo di dati che non è un file PFX formattato correttamente, o la password fornita non decodifica correttamente il file PFX.  |
 |  CertificateImproperlyFormatted  |  I dati recuperati da {0} non sono deserializzabili in JSON.  |
 |  Conflitto  |  Il ridimensionamento del disco è consentito solo quando viene creata o deallocata una macchina virtuale.  |
-|  ConflictingUserInput  |  Non è possibile collegare il disco '{0}' perché è già di proprietà della macchina virtuale '{1}'.  |
+|  ConflictingUserInput  |  Il disco '{0}'non può essere collegato poiché il disco è già di proprietà dalla macchina virtuale'{1}'.  |
 |  ConflictingUserInput  |  I gruppi di risorse di origine e di destinazione sono uguali.  |
 |  ConflictingUserInput  |  Gli account di archiviazione di origine e di destinazione per il disco {0} sono diversi.  |
 |  ContainerAlreadyOnLease  |  Esiste già un lease nel contenitore di archiviazione in cui si trova il BLOB con URI {0}.  |
@@ -56,7 +72,7 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  DiskBlobNotFound  |  Il BLOB VHD con URI {0} non è stato trovato.  |
 |  DiskEncryptionKeySecretMissingTags  |  Il segreto {0} non contiene i tag {1}. Aggiornare la versione del segreto, aggiungere i tag richiesti e riprovare.  |
 |  DiskEncryptionKeySecretUnwrapFailed  |  L'annullamento del wrapping del valore {0} del segreto tramite la chiave {1} non è riuscito.  |
-|  DiskImageNotReady  |  L'immagine del disco {0} si trova nello stato {1}. Riprovare quando l'immagine è pronta.  |
+|  DiskImageNotReady  |  L'immagine del disco {0} è nello stato {1}. Riprovare quando l'immagine è pronta.  |
 |  DiskPreparationError  |  Si sono verificati uno o più errori durante la preparazione dei dischi della macchina virtuale. Per informazioni, vedere la visualizzazione dell'istanza del disco.  |
 |  DiskProcessingError  |  L'elaborazione del disco è stata interrotta perché la macchina virtuale contiene altri dischi in stato di errore.  |
 |  ImageBlobNotFound  |  Il BLOB VHD con URI {0} per il disco '{1}' non è stato trovato.  |
@@ -71,7 +87,7 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  InvalidAccountType  |  Il tipo di account {0} non è valido.  |
 |  InvalidParameter  |  Il valore del parametro {0} non è valido.  |
 |  InvalidParameter  |  La password amministratore specificata non è consentita.  |
-|  InvalidParameter  |  La password fornita deve avere una lunghezza compresa tra {0} e {1} caratteri e deve soddisfare almeno {2} dei seguenti requisiti di complessità delle password: <ol><li> Contiene un carattere maiuscolo</li><li>Contiene un carattere minuscolo</li><li>Contiene una cifra numerica</li><li>Contiene un carattere speciale.</li></ol>  |
+|  InvalidParameter  |  La password fornita deve avere una lunghezza compresa tra {0} e3{1} caratteri e deve soddisfare almeno {2} dei seguenti requisiti di complessità delle password: <ol><li> Contiene un carattere maiuscolo</li><li>Contiene un carattere minuscolo</li><li>Contiene una cifra numerica</li><li>Contiene un carattere speciale.</li></ol>  |
 |  InvalidParameter  |  Il nome utente amministratore specificato non è consentito.  |
 |  InvalidParameter  |  Non è possibile collegare un disco del sistema operativo esistente se la macchina virtuale è stata creata da una piattaforma o da un'immagine utente.  |
 |  InvalidParameter  |  Il nome del contenitore {0} non è valido. I nomi dei contenitori devono avere una lunghezza compresa tra 3 e 63 caratteri e possono contenere solo caratteri alfanumerici minuscoli e trattini. Il trattino deve essere preceduto e seguito da un carattere alfanumerico.  |
@@ -81,7 +97,7 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  InvalidParameter  |  Un disco denominato '{0}' usa già lo stesso LUN: {1}.  |
 |  InvalidParameter  |  Un disco denominato '{0}' esiste già.  |
 |  InvalidParameter  |  Non è possibile specificare gli override dell'immagine utente per un disco già definito nel riferimento all'immagine specificato.  |
-|  InvalidParameter  |  Un disco denominato '{0}' usa già lo stesso URL VHD {1}.  |
+|  InvalidParameter  |  Un disco denominato '{0}' usa già lo stesso URL VHD: {1}.  |
 |  InvalidParameter  |  Il conteggio del dominio di errore specificato {0} deve essere compreso nell'intervallo {1}-{2}.  |
 |  InvalidParameter  |  Il tipo di licenza {0} non è valido. I tipi di licenza validi sono: Windows_Client o Windows_Server, con distinzione tra maiuscole e minuscole.  |
 |  InvalidParameter  |  Il nome dell'host Linux non può superare i {0} caratteri o contenere i caratteri seguenti: {1}.  |
@@ -89,13 +105,13 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  InvalidParameter  |  Esiste già un disco in corrispondenza del numero di unità logica (LUN) {0}.  |
 |  InvalidParameter  |  La sottoscrizione {0} della richiesta deve corrispondere alla sottoscrizione {1} contenuta nell'ID del disco gestito.  |
 |  InvalidParameter  |  I dati personalizzati in OSProfile devono essere con codifica Base 64 e con una lunghezza massima di {0} caratteri.  |
-|  InvalidParameter  |  Il nome BLOB nell'URL {0} deve terminare con l'estensione '{1}'.  |
+|  InvalidParameter  |  Il nome del BLOB nell'URL {0} deve terminare con l'estensione '{1}'.  |
 |  InvalidParameter  |  {0}' non è un prefisso del nome BLOB VHD acquisito valido. Un prefisso valido corrisponde a regex '{1}'.  |
 |  InvalidParameter  |  Non è possibile aggiungere i certificati alla macchina virtuale se non è stato eseguito il provisioning dell'agente della macchina virtuale.  |
 |  InvalidParameter  |  Esiste già un disco in corrispondenza del numero di unità logica (LUN) {0}.  |
-|  InvalidParameter  |  Non è possibile creare la macchina virtuale perché le dimensioni {0} richieste non sono disponibili nel cluster in cui il set di disponibilità è attualmente allocato. Le dimensioni disponibili sono: {1}. Per altre informazioni sulla strategia di ridimensionamento delle macchine virtuali, vedere https://aka.ms/azure-resizevm.  |
-|  InvalidParameter  |  Le dimensioni di macchina virtuale {0} richieste non sono disponibili nell'area corrente. Le dimensioni disponibili nell'area corrente sono: {1}. Per altre informazioni sulle dimensioni di macchina virtuale disponibili in ogni area, vedere https://aka.ms/azure-regions.  |
-|  InvalidParameter  |  Le dimensioni di macchina virtuale {0} richieste non sono disponibili nell'area corrente. Per altre informazioni sulle dimensioni di macchina virtuale disponibili in ogni area, vedere https://aka.ms/azure-regions.  |
+|  InvalidParameter  |  Non è possibile creare la macchina virtuale perché le dimensioni {0} richieste non sono disponibili nel cluster in cui il set di disponibilità è attualmente allocato. Le dimensioni disponibili sono: {1}. Leggere altre informazioni sulla strategia di ridimensionamento della macchina virtuale in https://aka.ms/azure-resizevm.  |
+|  InvalidParameter  |  Le dimensioni richieste per la macchina virtuale {0} non sono disponibili nell'area corrente. Le dimensioni disponibili nell'area corrente sono: {1}. Per altre informazioni sulle dimensioni della macchina virtuale disponibili in ogni area, vedere https://aka.ms/azure-regions.  |
+|  InvalidParameter  |  Le dimensioni richieste per la macchina virtuale {0} non sono disponibili nell'area corrente. Per altre informazioni sulle dimensioni della macchina virtuale disponibili in ogni area, vedere https://aka.ms/azure-regions.  |
 |  InvalidParameter  |  Il nome utente amministratore di Windows non può superare i {0} caratteri, terminare con un punto (.) o contenere i seguenti caratteri: {1}.  |
 |  InvalidParameter  |  Il nome del computer di Windows non può contenere più di {0} caratteri, non può essere interamente numerico e non può contenere i caratteri seguenti: {1}.  |
 |  MissingMoveDependentResources  |  La richiesta di spostamento delle risorse non contiene tutte le risorse dipendenti. Controllare i dettagli dell'errore per individuare gli ID delle risorse mancanti.  |
@@ -109,7 +125,7 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  NotFound  |  La macchina virtuale di origine '{0}' specificata nella richiesta non esiste in questa località di Azure.  |
 |  NotFound  |  Il tenant con ID {0} non è stato trovato.  |
 |  NotFound  |  L'immagine {0} non è stata trovata.  |
-|  NotSupported  |  Il tipo di licenza è {0}, ma il BLOB {1} dell'immagine non è locale.  |
+|  NotSupported  |  Il tipo di licenza è {0}, ma il BLOB {1}dell'immagine non è locale.  |
 |  OperationNotAllowed  |  Il set di disponibilità {0} non può essere eliminato. Prima di eliminare un set di disponibilità, verificare che non contenga macchine virtuali.  |
 |  OperationNotAllowed  |  Non è consentito modificare lo SKU del set di disponibilità dal tipo 'Allineato' al tipo 'Classico'.  |
 |  OperationNotAllowed  |  Non è possibile modificare le estensioni nella macchina virtuale quando non è in esecuzione.  |
@@ -142,13 +158,13 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  OperationNotAllowed  |  L'operazione di acquisizione non può essere completata perché la macchina virtuale non è generalizzata.  |
 |  OperationNotAllowed  |  Le operazioni di gestione nella macchina virtuale '{0}' non sono consentite perché i dischi della macchina virtuale sono in fase di conversione a dischi gestiti.  |
 |  OperationNotAllowed  |  Un'operazione in corso sta modificando lo stato di alimentazione della macchina virtuale {0} a {1}. Eseguire l'operazione {2} più tardi.  |
-|  OperationNotAllowed  |  Non è possibile aggiungere o aggiornare la macchina virtuale. Le dimensioni di macchina virtuale {0} richieste potrebbero non essere disponibili nell'unità di allocazione esistente. Per altre informazioni sulla strategia di ridimensionamento delle macchine virtuali, vedere https://aka.ms/azure-resizevm.  |
-|  OperationNotAllowed  |  Non è possibile ridimensionare la macchina virtuale perché le dimensioni {0} richieste non sono disponibili nel cluster in cui il set di disponibilità è attualmente allocato. Le dimensioni disponibili sono: {1}. Per altre informazioni sulla strategia di ridimensionamento delle macchine virtuali, vedere https://aka.ms/azure-resizevm.  |
-|  OperationNotAllowed  |  Non è possibile ridimensionare la macchina virtuale perché le dimensioni {0} richieste non sono disponibili nel cluster in cui la macchina virtuale è attualmente allocata. Per passare a una macchina virtuale di dimensioni {1}, deallocarla (tramite l'operazione Arresta nel portale di Azure) e ripetere l'operazione di ridimensionamento. Per altre informazioni sulla strategia di ridimensionamento delle macchine virtuali, vedere https://aka.ms/azure-resizevm.  |
+|  OperationNotAllowed  |  Non è possibile aggiungere o aggiornare la macchina virtuale. Le dimensioni di macchina virtuale {0} richieste potrebbero non essere disponibili nell'unità di allocazione esistente. Leggere altre informazioni sulla strategia di ridimensionamento della macchina virtuale in https://aka.ms/azure-resizevm.  |
+|  OperationNotAllowed  |  Non è possibile ridimensionare la macchina virtuale perché le dimensioni {0} richieste non sono disponibili nel cluster in cui il set di disponibilità è attualmente allocato. Le dimensioni disponibili sono: {1}. Leggere altre informazioni sulla strategia di ridimensionamento della macchina virtuale in https://aka.ms/azure-resizevm.  |
+|  OperationNotAllowed  |  Non è possibile ridimensionare la macchina virtuale perché la dimensione richiesta {0} non è disponibile nel cluster in cui la macchina virtuale è attualmente allocata. Per passare a una macchina virtuale di dimensioni {1}, deallocarla (tramite l'operazione Arresta nel portale di Azure) e ripetere l'operazione di ridimensionamento. Leggere altre informazioni sulla strategia di ridimensionamento della macchina virtuale in https://aka.ms/azure-resizevm.  |
 |  OSProvisioningClientError  |  Il provisioning del sistema operativo per la macchina virtuale '{0}' non è riuscito perché il sistema operativo guest è ancora in fase di provisioning.  |
 |  OSProvisioningClientError  |  Il provisioning del sistema operativo per la macchina virtuale '{0}' non è riuscito. Dettagli dell'errore: {1} Assicurarsi che l'immagine sia stata preparata correttamente (generalizzata). <ul><li>Istruzioni per Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
-|  OSProvisioningClientError  |  La generazione della chiave host SSH non è riuscita. Dettagli sull'errore: {0}. Per risolvere il problema, verificare che l'agente Linux sia stato configurato correttamente. <ul><li>Per le istruzioni, vedere: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/ </li></ul> |
-|  OSProvisioningClientError  |  Il nome utente specificato per la macchina virtuale non è valido per questa distribuzione Linux. Dettagli sull'errore: {0}.  |
+|  OSProvisioningClientError  |  La generazione della chiave host SSH non è riuscita. Dettagli dell'errore: {0}. Per risolvere il problema, verificare che l'agente Linux sia stato configurato correttamente. <ul><li>È possibile controllare le istruzioni in: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/ </li></ul> |
+|  OSProvisioningClientError  |  Il nome utente specificato per la macchina virtuale non è valido per questa distribuzione Linux. Dettagli dell'errore: {0}.  |
 |  OSProvisioningInternalError  |  Il provisioning del sistema operativo non è riuscito per la macchina virtuale '{0}' a causa di un errore interno.  |
 |  OSProvisioningTimedOut  |  Il provisioning del sistema operativo per la macchina virtuale '{0}' non è stato completato nel tempo assegnato. La macchina virtuale può comunque completare il provisioning. Controllare lo stato del provisioning più tardi.  |
 |  OSProvisioningTimedOut  |  Il provisioning del sistema operativo per la macchina virtuale '{0}' non è stato completato nel tempo assegnato. La macchina virtuale può comunque completare il provisioning. Controllare lo stato del provisioning più tardi. Assicurarsi inoltre che l'immagine sia stata preparata correttamente (generalizzata).   <ul><li>Istruzioni per Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Istruzioni per Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
@@ -156,7 +172,7 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  OverConstrainedAllocationRequest  |  Le dimensioni della macchina virtuale richieste non sono attualmente disponibili nel percorso selezionato.  |
 |  ResourceUpdateBlockedOnPlatformUpdate  |  Non è possibile aggiornare la risorsa in questo momento perché è in corso un aggiornamento della piattaforma. Riprovare più tardi.  |
 |  StorageAccountLimitation  |  L'account di archiviazione '{0}' non supporta i BLOB di pagine richiesti per creare i dischi.  |
-|  StorageAccountLimitation  |  L'account di archiviazione '{0}' ha superato la quota allocata.  |
+|  StorageAccountLimitation  |  È stata superata la quota allocata per l'account di archiviazione '{0}'.  |
 |  StorageAccountLocationMismatch  |  Non è stato possibile risolvere l'account di archiviazione {0}. Verificare che sia stato creato con il provider delle risorse di archiviazione nello stesso percorso della risorsa di calcolo.  |
 |  StorageAccountNotFound  |  L'account di archiviazione {0} non è stato trovato. Verificare che l'account di archiviazione non sia stato eliminato e che appartenga allo stesso percorso di Azure della macchina virtuale.  |
 |  StorageAccountNotRecognized  |  Usare un account di archiviazione gestito dal provider delle risorse di archiviazione. L'uso di {0} non è supportato.  |
@@ -164,7 +180,7 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  StorageAccountSubscriptionMismatch  |  L'account di archiviazione {0} non appartiene alla sottoscrizione {1}.  |
 |  StorageAccountTooBusy  |  L'account di archiviazione '{0}' è attualmente occupato. Valutare l'uso di un altro account.  |
 |  StorageAccountTypeNotSupported  |  Il disco {0} usa {1} che è un account di archiviazione BLOB. Riprovare con un account di archiviazione per utilizzo generico.  |
-|  StorageAccountTypeNotSupported  |  L'account di archiviazione {0} è di tipo {1}. La diagnostica di avvio supporta account di archiviazione di tipo {2}.  |
+|  StorageAccountTypeNotSupported  |  L'account di archiviazione {0} è di tipo {1}. La diagnostica di avvio supporta account di archiviazione di tipo {2}.  <ul><li>Questo errore si verifica se si usa l'account di archiviazione premium per la diagnostica di avvio. Per altre informazioni, vedere l'articolo relativo alla [Come usare la diagnostica di avvio](../articles/virtual-machines/windows/boot-diagnostics.md). </li></ul> |
 |  SubscriptionNotAuthorizedForImage  |  La sottoscrizione non è autorizzata.  |
 |  TargetDiskBlobAlreadyExists  |  Il BLOB {0} esiste già. Specificare un URI BLOB diverso per creare un nuovo disco dati vuoto '{1}'.  |
 |  TargetDiskBlobAlreadyExists  |  L'operazione di acquisizione non può continuare perché il BLOB dell'immagine di destinazione {0} esiste già e il flag per sovrascrivere i BLOB VHD non è impostato. Eliminare il BLOB o impostare il flag per sovrascrivere i BLOB VHD, quindi riprovare.  |
@@ -175,7 +191,7 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  VMAgentStatusCommunicationError  |  La macchina virtuale '{0}' non ha segnalato lo stato per le estensioni o l'agente di macchine virtuali. Verificare che la macchina virtuale contenga un agente di macchine virtuali e che possa stabilire connessioni in uscita ad Archiviazione di Azure.  |
 |  VMArtifactRepositoryInternalError  |  Si è verificato un errore durante la comunicazione con il repository di elementi per recuperare i dettagli sull'elemento della macchina virtuale.  |
 |  VMArtifactRepositoryInternalError  |  Si è verificato un errore interno durante il recupero dei dati dell'elemento della macchina virtuale dal repository di elementi.  |
-|  VMExtensionHandlerNonTransientError  |  Il gestore '{0}' ha segnalato un errore per l'estensione '{1}' della macchina virtuale con codice di errore terminale '{2}' e messaggio di errore '{3}'  |
+|  VMExtensionHandlerNonTransientError  |  Il gestore '{0}' ha segnalato un errore per l'estensione '{1}' della macchina virtuale con codice di errore terminale '{2}' messaggio di errore '{3}'  |
 |  VMExtensionManagementInternalError  |  Si è verificato un errore interno durante l'elaborazione dell'estensione della macchina virtuale '{0}'.  |
 |  VMExtensionManagementInternalError  |  Si sono verificati più errori durante la preparazione delle estensioni della macchina virtuale. Per informazioni, vedere la visualizzazione dell'istanza dell'estensione della macchina virtuale.  |
 |  VMExtensionProvisioningError  |  La macchina virtuale ha segnalato un errore durante l'elaborazione dell'estensione '{0}'. Messaggio di errore: "{1}".  |
@@ -184,7 +200,7 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  VMMarketplaceInvalidInput  |  Per la creazione di una macchina virtuale da un'immagine non Marketplace non sono richieste informazioni sul piano. Rimuovere le informazioni sul piano nella richiesta. Il nome del disco del sistema operativo è {0}.  |
 |  VMMarketplaceInvalidInput  |  Le informazioni di acquisto non corrispondono. La distribuzione dall'immagine Marketplace non è riuscita. Il nome del disco del sistema operativo è {0}.  |
 |  VMMarketplaceInvalidInput  |  Per la creazione di una macchina virtuale da un'immagine Marketplace sono richieste informazioni sul piano nella richiesta. Il nome del disco del sistema operativo è {0}.  |
-|  VMNotFound  |  La macchina virtuale '{0}' non è stata trovata.  |
+|  VMNotFound  |  Impossibile trovare la macchina virtuale '{0}'.  |
 |  VMRedeploymentFailed  |  La ridistribuzione della macchina virtuale '{0}' non è riuscita a causa di un errore interno. Riprovare più tardi.  |
 |  VMRedeploymentTimedOut  |  La ridistribuzione della macchina virtuale '{0}' non è stata completata nel tempo previsto. È possibile che venga comunque completata in futuro. In alternativa, inviare di nuovo la richiesta.  |
 |  VMStartTimedOut  |  La macchina virtuale '{0}' non è stata avviata nel tempo assegnato. La macchina può comunque essere avviata. Controllare lo stato di alimentazione più tardi.  |

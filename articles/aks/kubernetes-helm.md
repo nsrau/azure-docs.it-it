@@ -3,17 +3,17 @@ title: Distribuire contenitori con Helm in Kubernetes in Azure
 description: Usare lo strumento per la creazione di pacchetti Helm per distribuire contenitori in un cluster Kubernetes nel servizio contenitore di Azure
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 02/24/2018
+ms.date: 05/13/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c46bd64b3fec06e4ba4050542f27ba3e70862e45
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 70e13fb377be3ec501cce5170ed391aac8cb6e5d
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-helm-with-azure-kubernetes-service-aks"></a>Usare Helm con Azure Kubernetes Service (AKS)
 
@@ -53,7 +53,7 @@ Bash completion has been installed to:
 Il comando [helm init][helm-init] consente di installare i componenti di Helm in un cluster Kubernetes e di effettuare le configurazioni lato client. Eseguire il comando seguente per installare Helm nel cluster AKS e configurare il client Helm.
 
 ```azurecli-interactive
-helm init
+helm init --upgrade --service-account default
 ```
 
 Output:
@@ -118,7 +118,7 @@ Update Complete. ⎈ Happy Helming!⎈
 Per distribuire un controller di ingresso NGINX, usare il comando [helm install][helm-install].
 
 ```azurecli-interactive
-helm install stable/nginx-ingress
+helm install stable/nginx-ingress --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
 
 L'output sarà simile al seguente, ma includerà informazioni aggiuntive, ad esempio istruzioni su come usare la distribuzione di Kubernetes.

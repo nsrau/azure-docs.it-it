@@ -1,3 +1,6 @@
+## <a name="automatic-device-management"></a>Gestione automatica dei dispositivi
+La gestione automatica dei dispositivi nell'hub IoT di Azure consente di automatizzare molte attività ripetitive e complesse di gestione di un numero elevato di dispositivi nel loro intero ciclo di vita. La gestione automatica dei dispositivi consente di indirizzare un insieme di dispositivi in base alle proprietà, definire la configurazione desiderata e permette all'hub IoT di aggiornare i dispositivi quando rientrano nell'ambito.  Si compone delle [configurazioni automatiche del dispositivo](/articles/iot-hub/iot-hub-auto-device-config.md) e delle [distribuzioni automatiche di IoT Edge](/articles/iot-edge/how-to-deploy-monitor.md).
+
 ## <a name="iot-edge"></a>IoT Edge
 Azure IoT Edge consente la distribuzione basata su cloud di codice specifico per soluzioni o servizi di Azure nei dispositivi locali. I dispositivi IoT Edge possono aggregare dati da altri dispositivi per eseguire operazioni di elaborazione e analisi prima che i dati vengano inviati al cloud. Per altre informazioni, vedere [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/).
 
@@ -7,8 +10,8 @@ La parte del runtime di IoT Edge responsabile della distribuzione e del monitora
 ## <a name="iot-edge-device"></a>Dispositivo IoT Edge
 Nei dispositivi IoT Edge è installato il runtime IoT. Nei dettagli dei dispositivi sono contrassegnati come "Dispositivo IoT Edge". Altre informazioni sono disponibili in [Distribuire Azure IoT Edge in un dispositivo simulato in Linux: anteprima](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux).
 
-## <a name="iot-edge-deployment"></a>Distribuzione di IoT Edge
-Una distribuzione di IoT Edge configura un set di destinazione di dispositivi IoT Edge per l'esecuzione di un set di moduli IoT Edge. Ogni distribuzione garantisce continuamente che tutti i dispositivi conformi alla condizione di destinazione eseguano il set di moduli specificato, anche quando vengono creati nuovi dispositivi o vengono modificati in modo che corrispondano alla condizione di destinazione. Ogni dispositivo IoT Edge riceve solo la distribuzione con priorità più alta tra quelle di cui soddisfa la condizione di destinazione. Per altre informazioni, vedere [Distribuzione di IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
+## <a name="iot-edge-automatic-deployment"></a>Distribuzione automatica di IoT Edge
+Una distribuzione automatica di IoT Edge configura un set di destinazione di dispositivi IoT Edge per eseguire un set di moduli IoT Edge. Ogni distribuzione garantisce continuamente che tutti i dispositivi conformi alla condizione di destinazione eseguano il set di moduli specificato, anche quando vengono creati nuovi dispositivi o vengono modificati in modo che corrispondano alla condizione di destinazione. Ogni dispositivo IoT Edge riceve solo la distribuzione con priorità più alta tra quelle di cui soddisfa la condizione di destinazione. Altre informazioni sulla [distribuzione automatica di IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
 ## <a name="iot-edge-deployment-manifest"></a>Manifesto della distribuzione di IoT Edge
 Documento Json contenente le informazioni da copiare in uno o più moduli gemelli di dispositivi IoT Edge per distribuire un set di moduli, route e le proprietà desiderate del modulo associato.

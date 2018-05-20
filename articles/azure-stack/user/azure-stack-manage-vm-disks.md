@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 314c5b51608192719c77ce143b3530f0bb310bc2
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: HT
+ms.openlocfilehash: 8e91b4d83aa90a7e744fb8e73cda788dbf8c58ec
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Eseguire il provisioning di archiviazione su disco di macchina virtuale in Azure Stack
 
@@ -65,22 +65,22 @@ Ogni disco non gestito che si aggiungono deve essere inserita in un contenitore 
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Usare il portale per creare e collegare un nuovo disco dati
 
-1.  Nel portale, fare clic su **macchine virtuali**.    
+1.  Nel portale, scegliere **macchine virtuali**.    
     ![Esempio: Dashboard macchina virtuale](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2.  Selezionare una macchina virtuale che in precedenza è stato eseguito il provisioning.   
     ![Esempio: Selezionare una macchina virtuale nel dashboard](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  Per la macchina virtuale, fare clic su **dischi** > **nuovo collegamento**.       
+3.  Per la macchina virtuale, selezionare **dischi** > **Attach nuovo**.       
     ![Esempio: Collega un nuovo disco alla macchina virtuale](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  Nel **Collega nuovo disco** riquadro, fare clic su **percorso**. Per impostazione predefinita, il percorso viene impostato allo stesso contenitore che contiene il disco del sistema operativo.      
+4.  Nel **Attach nuovo disco** riquadro, selezionare **percorso**. Per impostazione predefinita, il percorso viene impostato allo stesso contenitore che contiene il disco del sistema operativo.      
     ![Esempio: Impostare il percorso del disco](media/azure-stack-manage-vm-disks/disk-location.png)
 
-5.  Selezionare il **account di archiviazione** da utilizzare. Selezionare quindi il **contenitore** in cui si desidera inserire il disco dati. Dal **contenitori** pagina, è possibile creare un nuovo contenitore se si desidera. È quindi possibile modificare il percorso per il nuovo disco al contenitore. Quando si utilizza un contenitore separato per ogni disco, si distribuisce la posizione del disco dati che può migliorare le prestazioni. Fare clic su **selezionare** per salvare la selezione.     
+5.  Selezionare il **account di archiviazione** da utilizzare. Selezionare quindi il **contenitore** in cui si desidera inserire il disco dati. Dal **contenitori** pagina, è possibile creare un nuovo contenitore se si desidera. È quindi possibile modificare il percorso per il nuovo disco al contenitore. Quando si utilizza un contenitore separato per ogni disco, si distribuisce la posizione del disco dati che può migliorare le prestazioni. Scegliere **selezionare** per salvare la selezione.     
     ![Esempio: Selezionare un contenitore](media/azure-stack-manage-vm-disks/select-container.png)
 
-6.  Nel **Collega nuovo disco** pagina, aggiornare il **nome**, **tipo**, **dimensioni**, e **ospitare la memorizzazione nella cache** impostazioni del disco. Quindi fare clic su **OK** per salvare la nuova configurazione del disco per la macchina virtuale.  
+6.  Nel **Collega nuovo disco** pagina, aggiornare il **nome**, **tipo**, **dimensioni**, e **ospitare la memorizzazione nella cache** impostazioni del disco. Quindi selezionare **OK** per salvare la nuova configurazione del disco per la macchina virtuale.  
     ![Esempio: Allegato completo del disco](media/azure-stack-manage-vm-disks/complete-disk-attach.png)  
 
 7.  Dopo il dello Stack di Azure viene creato il disco che viene associato alla macchina virtuale, il nuovo disco viene elencato per le impostazioni del disco della macchina virtuale in **dischi dati**.   
@@ -94,22 +94,22 @@ Ogni disco non gestito che si aggiungono deve essere inserita in un contenitore 
   Prevede di utilizzare un diverso contenitore deve per contenere il file con estensione vhd di contenitore che contiene il disco del sistema operativo.   
   ![Esempio: Caricare un file VHD](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
-2.  Dopo aver caricato il file con estensione vhd, si è pronti per collegare il disco rigido virtuale a una macchina virtuale. Nel menu a sinistra, fare clic su **macchine virtuali**.  
+2.  Dopo aver caricato il file con estensione vhd, si è pronti per collegare il disco rigido virtuale a una macchina virtuale. Nel menu a sinistra, selezionare **macchine virtuali**.  
  ![Esempio: Selezionare una macchina virtuale nel dashboard](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-3.  Selezionare la macchina virtuale dall'elenco.    
+3.  Scegliere la macchina virtuale dall'elenco.    
   ![Esempio: Selezionare una macchina virtuale nel dashboard](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-4.  Nella pagina per la macchina virtuale, fare clic su **dischi** > **collegamento esistente**.   
+4.  Nella pagina per la macchina virtuale, selezionare **dischi** > **Attach esistente**.   
   ![Esempio: Collegare un disco esistente](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
-5.  Nel **collegare un disco esistente** pagina, fare clic su **File VHD**. Il **gli account di archiviazione** verrà visualizzata la pagina.    
+5.  Nel **collegare il disco esistente** pagina, selezionare **File VHD**. Il **gli account di archiviazione** verrà visualizzata la pagina.    
   ![Esempio: Selezionare un file di disco rigido virtuale](media/azure-stack-manage-vm-disks/select-vhd.png)
 
-6.  In **gli account di archiviazione**, selezionare l'account da utilizzare e quindi selezionare un contenitore che include il file con estensione vhd caricato in precedenza. Selezionare il file con estensione vhd e quindi fare clic su **selezionare** per salvare la selezione.    
+6.  Sotto **gli account di archiviazione**, selezionare l'account da utilizzare e quindi scegliere un contenitore che include il file con estensione vhd caricato in precedenza. Selezionare il file con estensione vhd e quindi scegliere **selezionare** per salvare la selezione.    
   ![Esempio: Selezionare un contenitore](media/azure-stack-manage-vm-disks/select-container2.png)
 
-7.  In **collegare un disco esistente**, il file selezionato è elencato in **File VHD**. Aggiornamento di **ospitare la memorizzazione nella cache** l'impostazione del disco e quindi fare clic su **OK** per salvare la nuova configurazione del disco per la macchina virtuale.    
+7.  In **collegare un disco esistente**, il file selezionato è elencato in **File VHD**. Aggiornamento di **ospitare la memorizzazione nella cache** impostazione del disco e quindi selezionare **OK** per salvare la nuova configurazione del disco per la macchina virtuale.    
   ![Esempio: Collegare il file di disco rigido virtuale](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
 8.  Dopo il dello Stack di Azure viene creato il disco che viene associato alla macchina virtuale, il nuovo disco viene elencato per le impostazioni del disco della macchina virtuale in **dischi dati**.   

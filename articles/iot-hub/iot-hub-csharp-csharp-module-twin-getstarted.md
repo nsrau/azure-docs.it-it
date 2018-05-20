@@ -1,0 +1,174 @@
+---
+title: Introduzione all'identità del modulo e ai moduli gemelli dell'hub IoT di Azure (.NET) | Microsoft Docs
+description: Come creare l'identità del modulo e aggiornare il modulo gemello usando gli SDK per IoT per .NET.
+services: iot-hub
+documentationcenter: .net
+author: chrissie926
+manager: timlt
+editor: ''
+ms.assetid: f40604ff-8fd6-4969-9e99-8574fbcf036c
+ms.service: iot-hub
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 04/26/2018
+ms.author: menchi
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: ea22106a41e7e440cb3e76f02814b76a64627279
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 05/03/2018
+---
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-backup-and-net-device"></a>Creare l'identità del modulo e il modulo gemello dell'hub IoT usando il backup .NET e l'SDK per dispositivi .NET
+
+> [!NOTE]
+> [Le identità del modulo e i moduli gemelli](iot-hub-devguide-module-twins.md) sono simili alle identità del dispositivo e ai dispositivi gemelli dell'hub IoT di Azure, ma offrono una granularità superiore. Mentre l'identità del dispositivo e il dispositivo gemello dell'hub IoT di Azure consentono all'applicazione back-end di configurare un dispositivo e forniscono visibilità sulle condizioni del dispositivo, l'identità del modulo e il modulo gemello forniscono queste funzionalità per i singoli componenti di un dispositivo. Nei dispositivi con più componenti, ad esempio i dispositivi basati su sistema operativo o i dispositivi firmware, è possibile isolare la configurazione e le condizioni di ogni componente.
+
+Al termine di questa esercitazione si ottengono due app console .NET:
+
+* **CreateIdentities**, che crea un'identità del dispositivo, un'identità del modulo e una chiave di sicurezza associata per connettere i client dispositivo e modulo.
+* **UpdateModuleTwinReportedProperties**, che invia le proprietà segnalate aggiornate del modulo gemello all'hub IoT.
+
+> [!NOTE]
+> Per informazioni sugli Azure IoT SDK che consentono di compilare le applicazioni da eseguire nei dispositivi e i back-end della soluzione, vedere [Azure IoT SDK][lnk-hub-sdks].
+
+Per completare l'esercitazione, sono necessari gli elementi seguenti:
+
+* Visual Studio 2015 o Visual Studio 2017.
+* Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
+
+[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+
+L'hub IoT è stato così creato e sono ora disponibili il nome host e la stringa di connessione dell'hub necessari per completare il resto di questa esercitazione.
+
+<a id="DeviceIdentity_csharp"></a>
+[!INCLUDE [iot-hub-get-started-create-module-identity-csharp](../../includes/iot-hub-get-started-create-module-identity-csharp.md)]
+
+
+<a id="D2C_csharp"></a>
+## <a name="update-the-module-twin-using-net-device-sdk"></a>Aggiornare il modulo gemello usando l'SDK per dispositivi .NET
+
+In questa sezione, nel dispositivo simulato viene creata un'app console .NET che aggiorna le proprietà segnalate del modulo gemello.
+
+1. **Creare un progetto di Visual Studio** - In Visual Studio aggiungere un progetto desktop di Windows classico Visual C# alla soluzione esistente usando il modello di progetto **App console (.NET Framework)**. Verificare che la versione di .NET Framework sia 4.6.1 o successiva. Assegnare al progetto il nome **UpdateModuleTwinReportedProperties**.
+
+    ![Creare un progetto di Visual Studio][13]
+
+2. **Installare Azure IoT SDK per dispositivi .NET V1.16.0-preview-005** - L'identità del modulo e il modulo gemello sono in anteprima pubblica. Sono disponibili solo nella versione preliminare di Azure IoT SDK per dispositivi. In Visual Studio aprire Strumenti > Gestione pacchetti NuGet > Gestisci pacchetti NuGet per la soluzione. Cercare Microsoft.Azure.Devices.Client. Verificare di aver selezionato la casella di controllo Includi versione preliminare. Selezionare la versione V1.16.0-preview-005 e avviare l'installazione. Ora si ha accesso a tutte le funzionalità dei moduli. 
+
+    ![Installare Azure IoT SDK per dispositivi .NET V1.16.0-preview-005][14]
+
+3. **Ottenere la stringa di connessione del modulo** - Accedere al [portale di Azure][lnk-portal]. Passare all'hub IoT e fare clic su Dispositivi IoT. Trovare myFirstDevice e aprirlo. Si vedrà che myFirstModule è stato creato correttamente. Copiare la stringa di connessione del modulo. Sarà necessaria nel prossimo passaggio.
+
+    ![Dettagli del modulo nel portale di Azure][15]
+
+4. **Creare l'app console UpdateModuleTwinReportedProperties** Aggiungere le istruzioni `using` seguenti all'inizio del file **Program.cs**:
+
+    ```csharp
+    using Microsoft.Azure.Devices.Client;
+    using Microsoft.Azure.Devices.Shared;
+    using System.Threading.Tasks;
+    using Newtonsoft.Json;
+    ```
+
+    Aggiungere i campi seguenti alla classe **Program**. Sostituire il valore del segnaposto con la stringa di connessione del modulo.
+
+    ```csharp
+    private const string ModuleConnectionString = "<Your module connection string>";
+    private static DeviceClient Client = null;
+    static void ConnectionStatusChangeHandler(ConnectionStatus status, ConnectionStatusChangeReason reason)
+    {
+        Console.WriteLine("Connection Status Changed to {0}; the reason is {1}", status, reason);
+    }
+    ```
+
+    Aggiungere il metodo **OnDesiredPropertyChanged** seguente alla classe **Program**:
+
+    ```csharp
+    private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
+        {
+            Console.WriteLine("desired property change:");
+            Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
+            Console.WriteLine("Sending current time as reported property");
+            TwinCollection reportedProperties = new TwinCollection
+            {
+                ["DateTimeLastDesiredPropertyChangeReceived"] = DateTime.Now
+            };
+
+            await Client.UpdateReportedPropertiesAsync(reportedProperties).ConfigureAwait(false);
+        }
+    ```
+
+    Aggiungere infine le righe seguenti al metodo **Main**:
+
+    ```csharp
+    static void Main(string[] args)
+    {
+        Microsoft.Azure.Devices.Client.TransportType transport = Microsoft.Azure.Devices.Client.TransportType.Amqp;
+
+        try
+        {
+            Client = DeviceClient.CreateFromConnectionString(ModuleConnectionString, transport);
+            Client.SetConnectionStatusChangesHandler(ConnectionStatusChangeHandler);
+            Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
+
+            Console.WriteLine("Retrieving twin");
+            var twinTask = Client.GetTwinAsync();
+            twinTask.Wait();
+            var twin = twinTask.Result;
+            Console.WriteLine(JsonConvert.SerializeObject(twin));
+
+            Console.WriteLine("Sending app start time as reported property");
+            TwinCollection reportedProperties = new TwinCollection();
+            reportedProperties["DateTimeLastAppLaunch"] = DateTime.Now;
+
+            Client.UpdateReportedPropertiesAsync(reportedProperties);
+        }
+        catch (AggregateException ex)
+        {
+            Console.WriteLine("Error in sample: {0}", ex);
+        }
+
+        Console.WriteLine("Waiting for Events.  Press enter to exit...");
+        Console.ReadLine();
+        Client.CloseAsync().Wait();
+    }
+    ```
+
+    Questo esempio di codice mostra come recuperare il modulo gemello e aggiornare le proprietà segnalate con il protocollo AMQP. L'anteprima pubblica supporta AMQP solo per le operazioni di modulo gemello.
+
+5. Oltre al metodo **Main** riportato sopra, è possibile aggiungere il blocco di codice seguente per inviare eventi all'hub IoT dal modulo:
+    ```csharp
+    Byte[] bytes = new Byte[2];
+    bytes[0] = 0;
+    bytes[1] = 1;
+    var sendEventsTask = Client.SendEventAsync(new Message(bytes));
+    sendEventsTask.Wait();
+    Console.WriteLine("Event sent to IoT Hub.");
+    ```
+
+## <a name="run-the-apps"></a>Eseguire le app
+
+A questo punto è possibile eseguire le app. In Esplora soluzioni in Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Imposta progetti di avvio**. Selezionare **Progetti di avvio multipli** e quindi selezionare **Avvia** come azione per l'app console. Quindi premere F5 per avviare l'app. 
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per altre informazioni sulle attività iniziali con l'hub IoT e per esplorare altri scenari IoT, vedere:
+
+* [Introduzione alla gestione dei dispositivi][lnk-device-management]
+* [Introduzione a IoT Edge][lnk-iot-edge]
+
+
+<!-- Images. -->
+[13]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG
+[14]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png
+[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+<!-- Links -->
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
+[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-portal]: https://portal.azure.com/
+
+[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md

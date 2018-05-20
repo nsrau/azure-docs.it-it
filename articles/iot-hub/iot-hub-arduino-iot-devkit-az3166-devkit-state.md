@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: ac013cf234fdc7249d4d71992435adcc27fcc64e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: feb31b0cc89c511f7487f995ba6045f89767abbb
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 05/07/2018
 
 1. Connettere il dispositivo MXChip IoT DevKit al computer.
 2. Fare clic sul menu a discesa **Attività** in Visual Studio Code e selezionare **Esegui attività...** - **config-device-connection**
-3. Sul dispositivo MXChip IoT DevKit premere e tenere premuto il pulsante **A**, premere il pulsante di **reimpostazione**, quindi rilasciare il pulsante **A** per fare in modo che il DevKit entri in modalità di configurazione.
+3. Sul dispositivo MXChip IoT DevKit premere e tenere premuto il pulsante **A**, premere il pulsante di**reimpostazione**, quindi rilasciare il pulsante **A** per fare in modo che il DevKit entri in modalità di configurazione.
 4. Attendere il completamento del processo di configurazione della stringa di connessione.
 
 ## <a name="upload-arduino-code-to-devkit"></a>Caricare il codice Arduino in DevKit
@@ -96,4 +96,4 @@ Si è appreso come:
 Ecco i passaggi successivi suggeriti:
 
 * [Panoramica dell'acceleratore di soluzioni di monitoraggio remoto di Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit) (Connettere un dispositivo MXChip IoT DevKit all'applicazione Microsoft IoT Central)
+* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit) (Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central)

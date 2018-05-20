@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 95a78df20f5bed07213dfa3cc2c9b35e283f54e7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7372a0c49f6e41ef4d336188ceb5cf4393f4c982
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 La famiglia di macchine virtuali della serie B consente di scegliere le dimensioni di VM che offrono le prestazioni di livello base necessarie per il carico di lavoro, con la possibilità di aumentare le prestazioni della CPU fino al 100% per una vCPU con processore Intel® Broadwell E5-2673 v4 2.3 GHz o Intel® Haswell 2.4 GHz E5-2673 v3.
 
@@ -58,7 +58,8 @@ Se si considerano i 120 crediti accumulati negli orari non di picco e si sottrag
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>D: La serie B supporta i dischi dati di Archiviazione Premium?
 **R**: Sì, tutte le dimensioni della serie B supportano dischi dati di Archiviazione Premium.   
     
-
+### <a name="q-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>D: Il credito rimanente è impostato su 0 dopo una ridistribuzione o un arresto/avvio.
+**R**: quando una VM viene "RIDISTRIBUITA", viene spostata in un altro nodo e il credito accumulato viene perso. Se la VM viene arrestata o avviata, ma resta nello stesso nodo, mantiene il credito accumulato. Ogni volta che la VM viene avviata per la prima volta in un nodo, ottiene un credito iniziale, che per Standard_B8ms è di 240 minuti.
 
     
 

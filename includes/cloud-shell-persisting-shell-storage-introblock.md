@@ -18,6 +18,9 @@ Quando si usano le impostazioni di base e si seleziona una sola sottoscrizione, 
 
 La condivisione viene montata come `clouddrive` nella directory `$Home`. Questa azione viene eseguita una sola volta e la condivisione file viene ripetuta automaticamente nelle sessioni successive. 
 
+> [!NOTE]
+> Per la sicurezza, ogni utente deve effettuare il provisioning del proprio spazio di archiviazione.  Per il controllo degli accessi in base al ruolo, gli utenti devono disporre dell'accesso del collaboratore o di quanto indicato in precedenza.
+
 In Bash la condivisione file contiene anche un'immagine da 5 GB creata per l'utente che rende automaticamente persistenti i dati nella directory `$Home`. 
 
 ### <a name="use-existing-resources"></a>Usare le risorse esistenti

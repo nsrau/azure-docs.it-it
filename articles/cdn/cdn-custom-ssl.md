@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f64f25713dd05ece018138624a06c225218f68e2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 95f73dd702b3fffcefbdea28d58ad36bf8eb7eb5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Esercitazione: Configurare HTTPS in un dominio personalizzato della rete CDN di Azure
 
@@ -46,7 +46,7 @@ In questa esercitazione si apprenderà come:
 > - Convalidare il dominio
 > - Disabilitare il protocollo HTTPS nel dominio personalizzato
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di poter completare i passaggi di questa esercitazione, è necessario creare un profilo della rete CDN e almeno un endpoint della rete CDN. Per altre informazioni, vedere [Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).
 
@@ -74,13 +74,20 @@ Per abilitare il protocollo HTTPS in un dominio personalizzato, seguire questa p
 
 4. In Tipo di gestione dei certificati selezionare **Gestito dalla rete CDN**.
 
-4. Selezionare **Sì** per abilitare HTTPS.
+5. Selezionare **Sì** per abilitare HTTPS.
 
     ![Stato HTTPS del dominio personalizzato](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
 
+6. Procedere a [Convalidare il dominio](#validate-the-domain).
+
 
 ## <a name="option-2-enable-the-https-feature-with-your-own-certificate"></a>Opzione 2: Abilitare la funzionalità HTTPS con un certificato personale 
+
+> [!IMPORTANT]
+> Questa funzionalità è disponibile solo con i profili della **rete CDN Standard di Azure di Microsoft**. 
+>
  
+
 Per distribuire contenuti tramite HTTPS è possibile usare un certificato personale nella rete CDN di Azure. Questo processo viene eseguito tramite un'integrazione con Azure Key Vault. Azure Key Vault consente ai clienti di archiviare i propri certificati in modo sicuro. Il servizio CDN di Azure sfrutta questo meccanismo sicuro per ottenere il certificato. Per usare un certificato personale sono necessari alcuni passaggi aggiuntivi.
 
 ### <a name="step-1-prepare-your-azure-key-vault-account-and-certificate"></a>Passaggio 1: Preparare l'account e il certificato di Azure Key Vault
@@ -89,9 +96,23 @@ Per distribuire contenuti tramite HTTPS è possibile usare un certificato person
  
 2. Certificati di Azure Key Vault: è possibile caricare direttamente nell'account Azure Key Vault un certificato già esistente oppure creare un nuovo certificato direttamente tramite Azure Key Vault presso una delle autorità di certificazione (CA) partner con cui Azure Key Vault è integrato. 
 
-### <a name="step-2-grant-azure-cdn-access-to-your-key-vault"></a>Passaggio 2: Concedere alla rete CDN di Azure l'accesso all'insieme di credenziali delle chiavi
+### <a name="step-2-register-azure-cdn"></a>Passaggio 2: Registrare la rete CDN di Azure
+
+Registrare la rete CDN di Azure come app in Azure Active Directory tramite PowerShell.
+
+1. Se necessario, installare [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) in PowerShell nel computer locale.
+
+2. In PowerShell eseguire questo comando:
+
+     `New-AzureRmADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
+
+    ![Registrare la rete CDN di Azure in PowerShell](./media/cdn-custom-ssl/cdn-register-powershell.png)
+              
+
+### <a name="step-3-grant-azure-cdn-access-to-your-key-vault"></a>Passaggio 3: Concedere alla rete CDN di Azure l'accesso all'insieme di credenziali delle chiavi
  
-È necessario concedere alla rete CDN di Azure l'autorizzazione ad accedere ai certificati (segreti) nell'account Azure Key Vault.
+Concedere alla rete CDN di Azure l'autorizzazione ad accedere ai certificati (segreti) nell'account Azure Key Vault.
+
 1. Nell'account Key Vault selezionare **Criteri di accesso** in IMPOSTAZIONI e quindi **Aggiungi nuovo** per creare un nuovo criterio.
 
     ![Creare un nuovo criterio di accesso](./media/cdn-custom-ssl/cdn-new-access-policy.png)
@@ -106,7 +127,7 @@ Per distribuire contenuti tramite HTTPS è possibile usare un certificato person
 
     La rete CDN di Azure può ora accedere a questo insieme di credenziali delle chiavi e ai certificati (segreti) in esso archiviati.
  
-### <a name="step-3-select-the-certificate-for-azure-cdn-to-deploy"></a>Passaggio 3: Selezionare il certificato da distribuire per la rete CDN di Azure
+### <a name="step-4-select-the-certificate-for-azure-cdn-to-deploy"></a>Passaggio 4: Selezionare il certificato da distribuire per la rete CDN di Azure
  
 1. Tornare al portale della rete CDN di Azure e selezionare il profilo e l'endpoint della rete CDN in cui si vuole abilitare la funzionalità HTTPS personalizzato. 
 
@@ -126,16 +147,20 @@ Per distribuire contenuti tramite HTTPS è possibile usare un certificato person
     - Versioni del certificato disponibili. 
  
 5. Selezionare **Sì** per abilitare HTTPS.
+  
+6. Quando si usa un certificato proprio, la convalida del dominio non è necessaria. Passare ad [Attendere la propagazione](#wait-for-propagation).
 
 
 ## <a name="validate-the-domain"></a>Convalidare il dominio
 
-Se è già in uso un dominio personalizzato mappato all'endpoint personalizzato con un record CNAME record, passare a  
+Se è già in uso un dominio personalizzato mappato all'endpoint personalizzato con un record CNAME record o se si usa un certificato proprio, passare a  
 [Il dominio personalizzato è mappato all'endpoint della rete CDN](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record). In caso contrario, se la voce del record CNAME per l'endpoint non esiste più o se contiene il sottodominio cdnverify, passare a [Il dominio personalizzato non è mappato all'endpoint della rete CDN](#custom-domain-is-not-mapped-to-your-cdn-endpoint).
 
 ### <a name="custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record"></a>Il dominio personalizzato è mappato all'endpoint della rete CDN da un record CNAME
 
-Quando viene aggiunto un dominio personalizzato all'endpoint, nella tabella DNS del registrar viene creato un record CNAME per eseguire il mapping del nome host dell'endpoint della rete CDN. Se il record CNAME esiste già e non contiene il sottodominio cdnverify, l'autorità di certificazione (CA) DigiCert lo usa per convalidare la proprietà del dominio personalizzato. 
+Quando viene aggiunto un dominio personalizzato all'endpoint, nella tabella DNS del registrar viene creato un record CNAME per eseguire il mapping del nome host dell'endpoint della rete CDN. Se il record CNAME esiste già e non contiene il sottodominio cdnverify, l'autorità di certificazione (CA) DigiCert lo usa per convalidare automaticamente la proprietà del dominio personalizzato. 
+
+Se si usa un certificato proprio, la convalida del dominio non è necessaria.
 
 Il record CNAME deve avere il formato seguente, dove *Nome* è il nome del dominio personalizzato e *Valore* è il nome host dell'endpoint rete CDN:
 

@@ -1,56 +1,58 @@
 ---
-title: Informazioni sui DNS nello Stack di Azure | Documenti Microsoft
-description: "La comprensione di DNS e le funzionalità nello Stack di Azure"
+title: Informazioni sui nomi IDN nello Stack di Azure | Documenti Microsoft
+description: Informazioni sui nomi IDN caratteristiche e funzionalità in Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 60f5ac85-be19-49ac-a7c1-f290d682b5de
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 86ed2805e93bd147841e22a773b52d1451f8c353
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: df9c22877eeac381d936f2fb86f5720c9cc9c930
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Introduzione a nomi IDN per Azure Stack
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-nomi IDN è una funzione nello Stack di Azure che consente di risolvere i nomi DNS esterni (ad esempio http://www.bing.com).
-Consente inoltre di registrare i nomi di rete virtuale interna. In questo modo, è possibile risolvere le macchine virtuali nella stessa rete virtuale con nome anziché come indirizzo IP, senza dover fornire voci dei server DNS personalizzate.
-
-Si tratta di qualcosa che è sempre stato presente in Azure, ma è disponibile in Windows Server 2016 e Stack di Azure.
+i nomi IDN è una funzionalità di rete dello Stack di Azure che consente di risolvere i nomi DNS esterni (ad esempio, http://www.bing.com.) consente di registrare i nomi di rete virtuale interna. In questo modo, è possibile risolvere le macchine virtuali nella stessa rete virtuale con nome anziché indirizzo IP. Questo approccio elimina la necessità di fornire voci dei server DNS personalizzate. Per ulteriori informazioni su DNS, vedere la [Panoramica di DNS di Azure](https://docs.microsoft.com/en-us/azure/dns/dns-overview).
 
 ## <a name="what-does-idns-do"></a>Scopo di nomi IDN
+
 Con nomi IDN nello Stack di Azure, sono disponibili le seguenti funzionalità, senza dover specificare voci dei server DNS personalizzate:
 
 * Condiviso di servizi di risoluzione DNS per i carichi di lavoro tenant.
 * Servizio DNS autorevole per la risoluzione dei nomi e la registrazione DNS nella rete virtuale del tenant.
-* Servizio Recursive DNS per la risoluzione dei nomi Internet da macchine virtuali tenant. Tenant non è più necessario specificare le voci DNS personalizzate per la risoluzione dei nomi Internet (ad esempio, www.bing.com).
+* Servizio Recursive DNS per la risoluzione dei nomi Internet da macchine virtuali tenant. I tenant non è più necessario specificare le voci DNS personalizzate per risolvere i nomi Internet (ad esempio, www.bing.com.)
 
-È comunque possibile portare il proprio servizio DNS e se si desidera utilizzare i server DNS personalizzati. Ma, a questo punto, se si desidera essere in grado di risolvere il DNS Internet i nomi e in grado di connettersi ad altre macchine virtuali nella stessa rete virtuale, non è necessario specificare un valore e funzionerà solo.
+È comunque possibile portare il propria DNS e utilizzare i server DNS personalizzati. Tuttavia, tramite nomi IDN, è possibile risolvere i nomi DNS Internet e connettersi ad altre macchine virtuali nella stessa rete virtuale, non è necessario creare voci DNS personalizzate.
 
-## <a name="what-does-idns-not-do"></a>Quali sono nomi IDN non?
-I nomi IDN non consente di eseguire la creazione di un record DNS per un nome che può essere risolto dall'esterno della rete virtuale.
+## <a name="what-doesnt-idns-do"></a>Non i nomi IDN deve procedere?
 
-In Azure, è possibile specificare un'etichetta del nome DNS che può essere associata a un indirizzo IP pubblico. È possibile scegliere l'etichetta (prefisso), ma Azure sceglie il suffisso è basato sull'area in cui creare l'indirizzo IP pubblico.
+I nomi IDN non consente di eseguire l'operazione, la creazione di un record DNS per un nome che può essere risolto dall'esterno della rete virtuale.
 
-![Etichetta del nome della schermata di DNS](media/azure-stack-understanding-dns-in-tp2/image3.png)
+In Azure, è possibile specificare un'etichetta del nome DNS associato a un indirizzo IP pubblico. È possibile scegliere l'etichetta (prefisso), ma Azure sceglie il suffisso è basato sull'area in cui creare l'indirizzo IP pubblico.
 
-Nell'immagine precedente, Azure creerà un"record" in DNS per l'etichetta del nome DNS specificato nella zona **westus.cloudapp.azure.com**. Il prefisso e il suffisso insieme costituiscono un dominio nome (completo) che può essere risolto da un punto qualsiasi sulla rete Internet pubblica.
+![Esempio di un'etichetta del nome DNS](media/azure-stack-understanding-dns-in-tp2/image3.png)
+
+Come mostra l'immagine precedente, Azure creerà un record "A" in DNS per l'etichetta del nome DNS specificato nella zona **westus.cloudapp.azure.com**. Il prefisso e il suffisso vengono combinate per comporre un [nome di dominio completo](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN) che possono essere risolti da un punto qualsiasi nella rete Internet pubblica.
 
 Stack di Azure supporta solo i nomi IDN per la registrazione del nome interno, pertanto non è possibile eseguire le operazioni seguenti:
 
-* Creare un record DNS in una zona DNS ospitato esistente (ad esempio, local.azurestack.external).
+* Creare un record DNS in una zona DNS ospitato esistente (ad esempio, local.azurestack.external.)
 * Creare una zona DNS (ad esempio, Contoso.com).
 * Creare un record nella zona DNS personalizzato.
 * Supporta l'acquisto di nomi di dominio.
 
+## <a name="next-steps"></a>Passaggi successivi
+
+[Tramite DNS nello Stack di Azure](azure-stack-dns.md)

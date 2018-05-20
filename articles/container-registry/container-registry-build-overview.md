@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: marsma
-ms.openlocfilehash: 7506351c0d65fb167136478d2dc383cdabd81835
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3ef91270bceb5865bdbdf9c436e4519595a3dc09
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>Automatizzare l'applicazione di patch al sistema operativo e al framework con ACR Build
 
@@ -20,8 +20,7 @@ I contenitori offrono nuovi livelli di virtualizzazione, isolando le dipendenze 
 
 **ACR Build** è un gruppo di funzionalità in Registro contenitori di Azure che non solo offre funzionalità native di compilazione delle immagini dei contenitori, ma automatizza anche l'[applicazione di patch al sistema operativo e al framework](#automate-os-and-framework-patching) per i contenitori Docker.
 
-> [!IMPORTANT]
-> ACR Build è attualmente in anteprima ed è supportato dai registri contenitori di Azure solo nelle aree **Stati Uniti orientali** ed **Europa occidentale**. Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 ## <a name="what-is-acr-build"></a>Informazioni su ACR Build
 
@@ -73,7 +72,6 @@ Quando si è pronti ad automatizzare l'applicazione di patch al sistema operativ
 [base-node]: https://hub.docker.com/_/node/
 [base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

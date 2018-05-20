@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: ffc8be29cecac05fda440eaf72b51ffc6f024424
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 485f761e22871396dace71333868ba7712e41f67
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Creare un'applicazione blockchain in Azure Blockchain Workbench
 
@@ -35,6 +35,8 @@ Si apprenderà come:
 * Un account di amministratore di Blockchain Workbench. Per altre informazioni, vedere [Aggiungere amministratori di Blockchain Workbench in Azure Blockchain Workbench](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
 
 Creare ora un'applicazione di base in cui un richiedente invia una richiesta e un risponditore invia una risposta alla richiesta. Una richiesta può essere per esempio "Ciao, come stai?" e la risposta "Sto benissimo!". Sia la richiesta che la risposta vengono registrate nel blockchain sottostante. 
+
+Seguire i passaggi per creare i file dell'applicazione oppure [scaricare l'esempio da GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain). 
 
 ## <a name="configuration-file"></a>File di configurazione
 
@@ -398,4 +400,7 @@ Per altre informazioni sulla gestione degli utenti in Blockchain Workbench, vede
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo avere creato un'applicazione, provare a [usare l'applicazione blockchain](blockchain-workbench-use.md).
+In questa procedura dettagliata si è creata un'applicazione di richiesta e risposta di base. Per informazioni su come usare l'applicazione, proseguire con la procedura dettagliata successiva.
+
+> [!div class="nextstepaction"]
+> [Usare un'applicazione blockchain](blockchain-workbench-use.md)

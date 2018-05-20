@@ -16,7 +16,7 @@ ms.date: 05/11/2018
 ms.author: brenduns
 ms.openlocfilehash: 1c22eb17ffcd070c1c5529033eeaa73dc7bd3859
 ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/12/2018
 ---

@@ -5,14 +5,14 @@ services: service-bus-messaging
 author: sethmanheim
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 02/12/2018
+ms.date: 05/10/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 74732008b336dc1b95ec96e8550d218105973ca4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3be379c2513fa20c1a84b547333a4ef2139bb45d
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 La tabella seguente include le informazioni sulle quote specifiche per la messaggistica del Bus di servizio: Per informazioni sui prezzi e altre quote del bus di servizio, vedere la panoramica [Prezzi di Azure](https://azure.microsoft.com/pricing/details/service-bus/) .
 
@@ -20,7 +20,7 @@ La tabella seguente include le informazioni sulle quote specifiche per la messag
 | --- | --- | --- | --- | --- |
 | Numero massimo di spazi dei nomi Basic / Standard per sottoscrizione di Azure |Spazio dei nomi |Le successive richieste di altri spazi dei nomi Basic/Standard vengono rifiutate dal portale. |100|
 | Numero massimo di spazi dei nomi Premium per sottoscrizione di Azure |Spazio dei nomi |Le successive richieste di altri spazi dei nomi Premium vengono rifiutate dal portale. |10 |
-| Dimensioni coda/argomento |Entità |Definito al momento della creazione della coda o dell'argomento. <br/><br/> I messaggi in arrivo successivi vengono rifiutati e viene ricevuta un'eccezione dal codice chiamante. |1, 2, 3, 4 o 5 GB.<br /><br />Se è abilitato il [partizionamento](../articles/service-bus-messaging/service-bus-partitioning.md) , le dimensioni massime di code o argomenti sono di 80 GB. |
+| Dimensioni coda/argomento |Entità |Definito al momento della creazione della coda o dell'argomento. <br/><br/> I messaggi in arrivo successivi vengono rifiutati e viene ricevuta un'eccezione dal codice chiamante. |1, 2, 3, 4 o 5 GB.<br /><br />Nello SKU Premium, nonché nello Standard con il [partizionamento](../articles/service-bus-messaging/service-bus-partitioning.md) abilitato, la dimensione massima della coda o dell'argomento è di 80 GB. |
 | Numero di connessioni simultanee per uno spazio dei nomi |Spazio dei nomi |Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. Le operazioni REST non vengono conteggiate ai fini del numero di connessioni TCP simultanee. |NetMessaging: 1.000<br /><br />AMQP: 5.000 |
 | Numero di richieste di ricezione simultanee su un'entità coda, argomento o sottoscrizione |Entità |Le richieste di ricezione successive vengono rifiutate e viene ricevuta un'eccezione dal codice chiamante. Questa quota si applica al numero combinato di operazioni di ricezione simultanee per tutte le sottoscrizioni relative a un argomento. |5.000 |
 | Numero di argomenti/code per spazio dei nomi servizio |Spazio dei nomi |Le successive richieste di creazione di un nuovo argomento o di una nuova coda nello spazio dei nomi del servizio vengono rifiutate. Se pertanto la configurazione viene eseguita tramite il [portale di Azure][Azure portal], viene generato un messaggio di errore. Se viene chiamato dall'API di gestione, viene ricevuta un'eccezione dal codice chiamante. |10.000<br /><br />Il numero totale degli argomenti più le code in uno spazio dei nomi del servizio deve essere minore o uguale a 10.000.<br/>Non si applica al livello Premium perché tutte le entità vengono partizionate. |

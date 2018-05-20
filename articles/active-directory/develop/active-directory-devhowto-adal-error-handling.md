@@ -5,19 +5,20 @@ services: active-directory
 documentationcenter: ''
 author: danieldobalian
 manager: mtillman
-ms.author: bryanla
+ms.author: celested
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: 2b4c945f5707c158c76c8edbd233d1a8b034111f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 27315262ff64b640acc3af16a26fc3887d852a00
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Procedure consigliate di gestione degli errori per i client di Azure Active Directory Authentication Library (ADAL)
 
@@ -74,7 +75,7 @@ catch (AdalSilentTokenAcquisitionException e) {
     // Exception: AdalSilentTokenAcquisitionException
     // Caused when there are no tokens in the cache or a required refresh failed. 
 
-    // Action: Case 1, resolvable with an interactive request.  
+    // Action: Case 1, resolvable with an interactive request. 
 } 
 
 catch(AdalServiceException e) {
@@ -157,7 +158,7 @@ Il codice verrebbe implementato come segue:
             // Error: AD_ERROR_CACHE_MULTIPLE_USERS
             // Description: There was ambiguity in the silent request resulting in multiple cache items.
             // Action: Special Case, application should perform another silent request and specify the user using ADUserIdentifier. 
-            // Can be caused in cases of a multi-user application.  
+            // Can be caused in cases of a multi-user application. 
 
             // Action: Case 2, not resolvable with an interactive request.
             // Attempt retry after some time or user action.
@@ -170,9 +171,9 @@ Il codice verrebbe implementato come segue:
 
 ## <a name="acquiretoken"></a>AcquireToken
 
-AcquireToken è il metodo ADAL predefinito usato per ottenere i token. Nei casi in cui è richiesta l'identità dell'utente, AcquireToken tenta prima di tutto di ottenere un token in modo invisibile all'utente, quindi visualizza l'interfaccia utente se necessario (a meno che non venga passato PromptBehavior.Never). Nei casi in cui è richiesta l'identità dell'applicazione, AcquireToken tenta di ottenere un token, ma non visualizza l'interfaccia utente perché non esiste alcun utente finale.  
+AcquireToken è il metodo ADAL predefinito usato per ottenere i token. Nei casi in cui è richiesta l'identità dell'utente, AcquireToken tenta prima di tutto di ottenere un token in modo invisibile all'utente, quindi visualizza l'interfaccia utente se necessario (a meno che non venga passato PromptBehavior.Never). Nei casi in cui è richiesta l'identità dell'applicazione, AcquireToken tenta di ottenere un token, ma non visualizza l'interfaccia utente perché non esiste alcun utente finale. 
 
-Per la gestione degli errori AcquireToken, la gestione degli errori dipende dalla piattaforma e dallo scenario che l'applicazione sta tentando di realizzare.  
+Per la gestione degli errori AcquireToken, la gestione degli errori dipende dalla piattaforma e dallo scenario che l'applicazione sta tentando di realizzare. 
 
 Anche il sistema operativo può generare un set di errori e ciò richiede una gestione degli errori dipendente dall'applicazione specifica. Per altre informazioni, vedere "Errori del sistema operativo" in [Informazioni di riferimento su errori e registrazione](#error-and-logging-reference). 
 
@@ -187,7 +188,7 @@ Anche il sistema operativo può generare un set di errori e ciò richiede una ge
 
 ### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Casi di errore e azioni implementabili: applicazioni client native
 
-Se si sta creando un'applicazione client nativa, esistono alcuni casi di gestione degli errori da prendere in considerazione che riguardano i problemi di rete, gli errori temporanei e altri errori specifici della piattaforma. Nella maggior parte dei casi, un'applicazione non deve eseguire nuovi tentativi immediati, ma attendere invece l'interazione con l'utente finale che richiede un accesso.  
+Se si sta creando un'applicazione client nativa, esistono alcuni casi di gestione degli errori da prendere in considerazione che riguardano i problemi di rete, gli errori temporanei e altri errori specifici della piattaforma. Nella maggior parte dei casi, un'applicazione non deve eseguire nuovi tentativi immediati, ma attendere invece l'interazione con l'utente finale che richiede un accesso. 
 
 Esistono alcuni casi speciali in cui un singolo tentativo potrebbe risolvere il problema. Ad esempio, quando un utente deve abilitare i dati in un dispositivo o ha completato il download del broker di Azure AD dopo l'errore iniziale. 
 
@@ -365,7 +366,7 @@ catch (AdalException e) {
 
 ### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Casi di errore e azioni implementabili: applicazioni a pagina singola (adal.js)
 
-Se si sta creando un'applicazione a pagina singola con adal.js e AcquireToken, il codice di gestione degli errori è simile a quello di una tipica chiamata invisibile all'utente.  In particolare in adal.js, AcquireToken non visualizza mai un'interfaccia utente. 
+Se si sta creando un'applicazione a pagina singola con adal.js e AcquireToken, il codice di gestione degli errori è simile a quello di una tipica chiamata invisibile all'utente. In particolare in adal.js, AcquireToken non visualizza mai un'interfaccia utente. 
 
 Per una chiamata AcquireToken non riuscita esistono i casi seguenti:
 
@@ -512,7 +513,7 @@ Logger.getInstance().setExternalLogger(new ILogger() {
     @Override   
     public void Log(String tag, String message, String additionalMessage, LogLevel level, ADALError errorCode) { 
     // …
-    // You can write this to logfile depending on level or errorcode.     
+    // You can write this to logfile depending on level or errorcode. 
     writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);    
     }
 }

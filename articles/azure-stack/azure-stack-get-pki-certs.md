@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 17737c2b272f2a123df3d58c62c471b3da5bebe1
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 69a4529e009d9fdd7081bc4d4b53c468befd8e6d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Certificati di Stack Azure generazione di una richiesta di firma
 
@@ -68,10 +68,10 @@ Utilizzare questi passaggi per preparare e convalidare i certificati di infrastr
     > [!note]  
     > Se viene fornito un nome comune (CN) questo verrà sovrascritto dal nome DNS primo della richiesta di certificato.
 
-3.  Dichiarare una directory di output che esiste già:
+3.  Dichiarare una directory di output che esiste già. Ad esempio: 
 
     ````PowerShell  
-    $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
+    $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ````
 4.  Dichiarare identificare sistema
 
@@ -95,7 +95,7 @@ Utilizzare questi passaggi per preparare e convalidare i certificati di infrastr
     ````
 
     > [!note]  
-    > `<regionName>.<externalFQDN>` costituisce la base in cui vengono creati tutti i nomi DNS esterni nello Stack di Azure, in questo esempio, il portale sarebbe `portal.east.azurestack.contoso.com`.
+    > `<regionName>.<externalFQDN>` costituisce la base in cui vengono creati tutti i nomi DNS esterni nello Stack di Azure, in questo esempio, il portale sarebbe `portal.east.azurestack.contoso.com`.  
 
 6. Per generare una richiesta di certificato singolo con più nomi di soggetto alternativo:
 

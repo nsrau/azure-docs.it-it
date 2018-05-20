@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 91e85fb25f9324f9b8d83884fe34a014f280de0b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9de8119cbde486800639bc5f3559a1a2859ec204
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Guida di riferimento a Funzioni di Azure per sviluppatori di script C# (.csx)
 
@@ -335,7 +335,7 @@ Gli assembly seguenti vengono aggiunti automaticamente dall'ambiente di hosting 
 ## <a name="referencing-custom-assemblies"></a>Fare riferimento ad assembly personalizzati
 
 Per fare riferimento a un assembly personalizzato, è possibile usare un assembly *condiviso* o un assembly *privato*:
-- Gli assembly condivisi sono condivisi da tutte le funzioni all'interno di un'app di funzione. Per fare riferimento a un assembly personalizzato, caricare l'assembly nell'app di funzione, ad esempio una cartella `bin` nella radice dell'app per le funzioni. 
+- Gli assembly condivisi sono condivisi da tutte le funzioni all'interno di un'app di funzione. Per fare riferimento a un assembly personalizzato, caricare l'assembly nella cartella denominata `bin` nella [cartella radice dell'app per le funzioni](functions-reference.md#folder-structure) (wwwroot). 
 - Gli assembly privati fanno parte del contesto di una funzione specificata e supportano il caricamento laterale di versioni diverse. Gli assembly privati devono essere caricati in una cartella `bin` nella directory di funzione. Fare riferimento agli assembly usando il nome del file, ad esempio `#r "MyAssembly.dll"`. 
 
 Per informazioni su come caricare i file nella cartella della funzione, vedere la sezione sulla [gestione dei pacchetti](#using-nuget-packages).

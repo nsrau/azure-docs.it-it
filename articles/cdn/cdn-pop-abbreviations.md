@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: mazha
-ms.openlocfilehash: bbb62a5f47c2fda6e24a204f30939e43676b33a9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 373095d1783a8e6e52d43e80377c01b448706fbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Località POP della rete CDN di Azure per abbreviazione
 > [!div class="op_single_selector"]
@@ -35,10 +35,12 @@ AGA | Atlanta, Georgia, Stati Uniti | America del Nord: costa orientale degli St
 AGB | Atlanta, Georgia, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
 AKL | Auckland, Nuova Zelanda | Asia
 AMA | Amsterdam, Paesi Bassi | Europa
+AMB | Amsterdam, Paesi Bassi | Europa
 AMS | Amsterdam, Paesi Bassi | Europa
 ARN | Stoccolma, Svezia | Europa
 ATL | Atlanta, Georgia, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
 BAQ | Barranquilla, Colombia | America Latina
+BLR | Bengaluru (Bangalore), India | Asia
 BNJ | Newark, New Jersey, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
 BOS | Boston, Massachusetts, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
 BTH | Batam, Indonesia | Asia
@@ -49,10 +51,10 @@ CGH | São Paulo, Brasile | America Latina
 CGK | Giacarta, Indonesia | Asia
 CHA | Chicago, Illinois, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
 CHB | Chicago, Illinois, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
-CJB | Bangalore, India | Asia
 CNJ | Newark, New Jersey, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
 CPH | Copenhagen, Danimarca | Europa
 CPM | Los Angeles, California, Stati Uniti | America del Nord: costa occidentale degli Stati Uniti
+CVA | Ashburn, Virginia, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
 DAA | Dallas, Texas, Stati Uniti | America del Nord: costa centrale degli Stati Uniti
 DAB | Dallas, Texas, Stati Uniti | America del Nord: costa centrale degli Stati Uniti
 DCA | Ashburn, Virginia, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
@@ -74,9 +76,9 @@ FTY | Atlanta, Georgia, Stati Uniti | America del Nord: costa orientale degli St
 GIG | Rio de Janeiro, Brasile | America Latina
 GRU | São Paulo, Brasile | America Latina
 HEL | Helsinki, Finlandia | Europa
-HHP | Hong Kong - R.A.S. | Asia
-HKC | Hong Kong - R.A.S. | Asia
-HKG | Hong Kong - R.A.S. | Asia
+HHP | RAS di Hong Kong | Asia
+HKC | RAS di Hong Kong | Asia
+HKG | RAS di Hong Kong | Asia
 HND | Tokyo, Giappone | Asia
 IAD | Ashburn, Virginia, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
 ICN | Seoul, Corea | Asia
@@ -108,9 +110,10 @@ MEX | Città del Messico, Messico | America del Nord
 MIA | Miami, Florida, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
 MIB | Miami, Florida, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
 MIC | Miami, Florida, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
+MRS | Marsiglia, Francia | Europa
 MXP | Milano, Italia | Europa
 NAG | Mumbai, India | Asia
-NJA | Tokyo, Giappone | Asia
+NDL | Delhi, India | Asia
 NRT | Tokyo, Giappone | Asia
 NYA | New York, New York, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
 NYB | New York, New York, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
@@ -118,6 +121,7 @@ OMM | Muscat, Oman | Medio Oriente
 ORD | Chicago, Illinois, Stati Uniti | America del Nord: area centrale degli Stati Uniti
 ORY | Parigi, Francia | Europa
 OXR | Los Angeles, California, Stati Uniti | America del Nord: costa occidentale degli Stati Uniti
+PAB | Parigi, Francia | Europa
 PAE | Seattle, Washington, Stati Uniti | America del Nord: costa occidentale degli Stati Uniti
 PBC | Puebla, Messico | America del Nord
 PHL | Philadelphia, Pennsylvania, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
@@ -125,6 +129,7 @@ PNQ | Mumbai, India | Asia
 POX | Parigi, Francia | Europa
 QRO | Santiago de Querétaro, Messico | America del Nord
 RHV | San Jose, California, Stati Uniti | America del Nord: costa occidentale degli Stati Uniti
+RIB | Rio de Janeiro, Brasile | America Latina
 RIX | Riga, Lettonia | Europa
 RTM | Amsterdam, Paesi Bassi | Europa
 SAA | San Jose, California, Stati Uniti | America del Nord: costa occidentale degli Stati Uniti
@@ -133,12 +138,13 @@ SCL | Valparaíso, Cile | America Latina
 SEA | Seattle, Washington, Stati Uniti | America del Nord: costa occidentale degli Stati Uniti
 SEB | Seattle, Washington, Stati Uniti | America del Nord: costa occidentale degli Stati Uniti
 SEC | Seattle, Washington, Stati Uniti | America del Nord: costa occidentale degli Stati Uniti
+SGB | Singapore | Asia
 SIN | Singapore | Asia
 SJC | San Jose, California, Stati Uniti | America del Nord: costa occidentale degli Stati Uniti
 SJO | San Jose, California, Stati Uniti | America del Nord: costa occidentale degli Stati Uniti
 STO | Stoccolma, Svezia | Europa
 SYD | Sydney, Australia | Asia
-TEB | New York, New York, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
+TIR | Chennai, India | Asia
 TKA | Tokyo, Giappone | Asia
 TKB | Tokyo, Giappone | Asia
 TOJ | Madrid, Spagna | Europa

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: d73869d1371247a269b6601c35b1a938d89176c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cd8579fe29282f3875ecfddf67a34444e3de9ef5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Apprendimento avanzato e framework AI
 La [macchina virtuale per data science](http://aka.ms/dsvm) e la [macchina virtuale per l'apprendimento avanzato](http://aka.ms/dsvm/deeplearning) supportano diversi framework per consentire la creazione delle applicazioni di Intelligenza artificiale con analisi predittiva e funzionalità cognitive come comprensione delle immagini e del linguaggio. 
@@ -80,6 +80,7 @@ Di seguito sono riportati i dettagli su tutti i framework di apprendimento avanz
 | Che cos'è?   | Framework per l'apprendimento avanzato      |
 | Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Caffe è installato in `/opt/caffe`.    |
+| Come passare a Python 2.7 | Eseguire `source activate root` |
 | Collegamenti agli esempi      | Gli esempi sono inclusi in `/opt/caffe/examples`.      |
 | Strumenti correlati nella macchina virtuale per data science      | Caffe2      |
 ### <a name="how-to-use--run-it"></a>Come usarla o eseguirla?  
@@ -88,12 +89,15 @@ Usare X2Go per accedere alla macchina virtuale, quindi avviare un nuovo terminal
 
 ```
 cd /opt/caffe/examples
+source activate root
 jupyter notebook
 ```
 
 Si apre una nuova finestra del browser con i blocchi appunti di esempio.
 
-I file binari vengono installati in /opt/caffe/build/installazioni/bin. 
+I file binari vengono installati in /opt/caffe/build/installazioni/bin.
+
+La versione installata di Caffe richiede Python 2.7 e non funziona con Python 3.5 attivato per impostazione predefinita. Eseguire `source activate root` per attivare l'ambiente Anaconda. 
 
 ## <a name="caffe2"></a>Caffe2
 

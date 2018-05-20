@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 05/14/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 165a899dbad0893b3a2bddcfc68c9b5d737e9d3d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Stack di archiviazione Azure: Considerazioni e le differenze
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/28/2018
 
 Stack di archiviazione di Azure è il set di servizi di archiviazione cloud in Microsoft Azure Stack. Stack di archiviazione di Azure fornisce blob, tabelle, code e funzionalità di gestione di account con semantica coerente con Azure.
 
-In questo articolo riepiloga le differenze di Stack di archiviazione di Azure note da archiviazione di Azure. Inoltre, riepiloga altre considerazioni da tenere presenti quando si distribuisce Azure Stack. Per ulteriori informazioni sulle differenze generali tra Stack di Azure e Azure, vedere il [considerazioni chiave](azure-stack-considerations.md) argomento.
+In questo articolo riepiloga le differenze dello Stack di archiviazione di Azure note da servizi di archiviazione di Azure. Elenca inoltre aspetti da considerare quando si distribuisce Azure Stack. Per ulteriori informazioni sulle differenze generali tra Stack di Azure e Azure, vedere il [considerazioni chiave](azure-stack-considerations.md) argomento.
 
 ## <a name="cheat-sheet-storage-differences"></a>Schede di riferimento rapido: differenze di archiviazione
 
@@ -49,26 +49,28 @@ Eliminazione temporanea per l'archiviazione blob|Preview|Non è ancora supportat
 |Dimensione di chiave di riga e chiave di partizione di tabella|1.024 caratteri (2.048 byte)|400 caratteri (800 byte)
 |Snapshot del BLOB|Il numero massimo di snapshot di un blob non è limitato.|Il numero massimo di snapshot di un blob è 1.000.|
 
-### <a name="metrics"></a>Metriche
-Esistono inoltre alcune differenze con le metriche di archiviazione:
+Esistono anche differenze con le metriche di archiviazione:
+
 * I dati delle transazioni di metriche di archiviazione non viene applicata alcuna distinzione della larghezza di banda di rete interna o esterna.
 * I dati delle transazioni di metriche di archiviazione non include macchina virtuale di accedere ai dischi installati.
 
 ## <a name="api-version"></a>Versione dell'API
+
 Con Stack di archiviazione di Azure sono supportate le seguenti versioni:
 
 API dei servizi di archiviazione Azure:
 
 aggiornare 1802 o versione successiva:
+
  - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
  - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
  - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08 ](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
  - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Versioni precedenti:
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Le API di gestione dei servizi di archiviazione Azure:
 
@@ -78,7 +80,7 @@ Le API di gestione dei servizi di archiviazione Azure:
 
 ## <a name="sdk-versions"></a>Versioni SDK
 
-Le librerie client seguenti sono supportate con Stack di archiviazione di Azure:
+Stack di archiviazione Azure supporta le librerie client seguenti:
 
 | Libreria client | Versione supportata di Azure Stack | Collegamento                                                                                                                                                                                                                                                                                                                                     | Specifica dell'endpoint       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -94,4 +96,3 @@ Le librerie client seguenti sono supportate con Stack di archiviazione di Azure:
 
 * [Introduzione a strumenti di sviluppo dello Stack di archiviazione di Azure](azure-stack-storage-dev.md)
 * [Introduzione all'archiviazione di Azure Stack](azure-stack-storage-overview.md)
-

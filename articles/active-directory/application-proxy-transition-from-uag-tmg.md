@@ -3,23 +3,23 @@ title: Eseguire l'aggiornamento al proxy di applicazione di Azure AD | Microsoft
 description: Scegliere la soluzione del proxy migliore se si esegue l'aggiornamento da Microsoft Forefront o Unified Access Gateway.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5323a9225adb9a9bfca2dccec5c84f288c4fd25d
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: e6764a0eeb27b8bff24140ff2c12e9e66b06b48b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="compare-remote-access-solutions"></a>Confrontare le soluzioni di accesso remoto
 
@@ -45,7 +45,7 @@ Usare questa tabella per comprendere come vengono confrontate tra loro Threat Ma
 | Autenticazione con intestazioni | - | Sì | - | Sì, con PingAccess | 
 | Sicurezza a livello di cloud | - | - | - | Sì | 
 | Accesso condizionale | - | Sì | - | Sì |
-| Nessun componente all'interno della rete perimetrale | - | - | - | Sì |
+| Nessun componente all'interno della zona demilitarizzata (DMZ) | - | - | - | Sì |
 | Nessuna connessione in ingresso | - | - | - | Sì |
 
 Per la maggior parte degli scenari, è consigliabile l'applicazione Azure AD come soluzione moderna. Il Proxy applicazione Web è preferito esclusivamente in scenari che richiedono un server proxy per il servizio federativo AD e non è possibile usare domini personalizzati in Azure Active Directory. 
@@ -62,5 +62,5 @@ Il proxy dell'applicazione Azure AD offre vantaggi esclusivi rispetto ai prodott
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Come fornire l'accesso remoto sicuro alle applicazioni locali](active-directory-application-proxy-get-started.md)
+- [Come fornire l'accesso remoto sicuro alle applicazioni locali](manage-apps/application-proxy.md)
 - [Transition from Forefront TMG and UAG to Application Proxy](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/) (Eseguire la transizione da Forefront TMG e UAG al proxy dell'applicazione).

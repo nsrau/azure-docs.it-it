@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 2446fac7526015d11737529c26d54e910643b750
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 12306b7868fa7fb2321f26657aab81beabb9db35
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Architetture di database multimaster replicate a livello globale con Microsoft Azure Cosmos DB 
  
@@ -22,6 +22,25 @@ Lo sviluppo di applicazioni distribuite a livello globale che rispondono con lat
 ![Architettura multimaster](./media/multi-region-writers/multi-master-architecture.png)
 
 Con il supporto multimaster offerto da Azure Cosmo DB, è possibile eseguire operazioni di scrittura in contenitori di dati, ad esempio raccolte, grafici e tabelle, distribuiti ovunque nel mondo. È possibile aggiornare i dati in qualsiasi area che sia associata all'account di database. Questi aggiornamenti di dati possono essere propagati in modo asincrono. Oltre a offrire accesso rapido e latenza di scrittura breve ai dati, l'architettura multimaster rappresenta inoltre una soluzione pratica ai problemi di bilanciamento del carico e di failover. Microsoft Azure Cosmos DB offre, in altre parole, una latenza di scrittura di < 10 ms al 99° percentile, una disponibilità di lettura e scrittura del 99,999% e la possibilità di scalare la velocità effettiva di lettura e scrittura ovunque nel mondo.   
+
+> [!IMPORTANT]
+> Il supporto dell'architettura multimaster è in anteprima privata. Per usare la versione di anteprima, [iscriversi](#sign-up-for-multi-master-support) ora.
+
+## <a name="sign-up-for-multi-master-support"></a>Effettuare l'iscrizione per il supporto multimaster
+
+Se si dispone già di una sottoscrizione di Azure, è possibile iscriversi per partecipare al programma di anteprima multimaster nel portale di Azure. Se non si ha familiarità con Azure, registrarsi per una [versione di prova gratuita](https://azure.microsoft.com/free) che prevede 12 mesi di accesso libero ad Azure Cosmos DB. Per richiedere l'accesso al programma di anteprima multimaster, completare i passaggi seguenti.
+
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Crea una risorsa** > **Database** > **Azure Cosmos DB**.  
+
+2. Nella pagina Nuovo account, specificare un nome per l'account di Azure Cosmos DB e quindi scegliere API, sottoscrizione, gruppo di risorse e località.  
+
+3. Selezionare poi **Iscrizione immediata all'anteprima** nel campo Multi Master Preview.  
+
+   ![Effettuare l'iscrizione per l'anteprima multimaster](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
+
+4. Nel riquadro **Iscrizione immediata all'anteprima** fare clic su **OK**. Dopo aver inviato la richiesta, nel riquadro di creazione dell'account lo stato diventa **In attesa di approvazione**.  
+
+Dopo l'invio della richiesta, si riceverà una notifica di approvazione della richiesta tramite posta elettronica. A causa dell'elevato volume di richieste, si riceverà una notifica entro una settimana. Non è necessario creare un ticket di supporto per completare la richiesta. Le richieste verranno esaminate nell'ordine in cui sono state ricevute.
 
 ## <a name="a-simple-multi-master-example--content-publishing"></a>Esempio semplice di architettura multimaster: pubblicazione di contenuto  
 
@@ -93,7 +112,7 @@ La sfida che spesso il modello multimaster deve affrontare è che due o più rep
 
 **Esempio** - Si supponga di usare Microsoft Azure Cosmos DB come archivio di salvataggi permanenti per un'applicazione di carrelli acquisti e che questa applicazione sia distribuita in due aree, Stati Uniti orientali e Stati Uniti occidentali.  Approssimativamente nello stesso momento, un utente a San Francisco aggiunge un articolo al proprio carrello acquisti, ad esempio un libro, mentre un processo di gestione magazzino negli Stati Uniti orientali invalida un altro articolo del carrello acquisti (ad esempio un nuovo smartphone) dello stesso utente in risposta a una notifica da parte del fornitore relativa a un ritardo nella data di uscita del prodotto. All'ora T1, i record del carrello acquisti nelle due aree sono diversi. Il database usa il proprio meccanismo di replica e di risoluzione dei conflitti per risolvere questa incoerenza e, alla fine, viene selezionata una delle due versioni del carrello acquisti. Usando l'euristica della risoluzione dei conflitti applicata nella maggior parte dei casi dai database multimaster (ad esempio, la precedenza all'ultima scrittura), è impossibile per l'utente o l'applicazione prevedere quale versione viene selezionata. In entrambi i casi si verifica una perdita dei dati o un comportamento imprevisto. Se viene selezionata la versione dell'area orientale, la selezione di un nuovo articolo (il libro) da parte dell'utente viene persa e se viene selezionata la versione dell'area occidentale, l'articolo precedentemente scelto (lo smartphone) rimane nel carrello. In ogni caso, alcune informazioni vengono perse. Qualsiasi altro processo che analizza il carrello acquisti nel periodo compreso tra T1 e T2 si trova di fronte a un comportamento non deterministico. Un processo in background che seleziona il magazzino per l'evasione e aggiorna i costi del carrello acquisti produce risultati che sono in conflitto con l'eventuale contenuto del carrello. Se il processo è in esecuzione nell'area occidentale e l'alternativa 1 diventa realtà, il processo calcola i costi di spedizione per due articoli, anche se il carrello presto potrebbe avere un solo articolo, vale a dire il libro. 
 
-Microsoft Azure Cosmos DB implementa la logica per la gestione delle scritture in conflitto all'interno del motore del database stesso. DB Cosmos Azure offre **supporto per la risoluzione dei conflitti completo e flessibile** offrendo molti modelli di risoluzione dei conflitti, tra cui automatico (tipi di dati replicati senza conflitti CRDT), priorità dell'ultima scrittura (LWW), personalizzato ( Stored Procedure) e manuale per la risoluzione dei conflitti automatica. I modelli di risoluzione dei conflitti offrono garanzie di correttezza e coerenza e alleviano il carico di lavoro degli sviluppatori, i quali non devono più preoccuparsi della coerenza, la disponibilità, le prestazioni, la latenza di replica e le complesse combinazioni di eventi in caso di failover geografici e conflitti di scrittura tra più aree.  
+Microsoft Azure Cosmos DB implementa la logica per la gestione delle scritture in conflitto all'interno del motore del database stesso. Azure Cosmos DB offre **supporto per la risoluzione dei conflitti completo e flessibile** offrendo vari modelli di risoluzione dei conflitti, tra cui Automatico (tipi di dati replicati senza conflitti), Priorità dell'ultima scrittura (LWW) e Personalizzato (stored procedure) per la risoluzione dei conflitti automatica. I modelli di risoluzione dei conflitti offrono garanzie di correttezza e coerenza e alleviano il carico di lavoro degli sviluppatori, i quali non devono più preoccuparsi della coerenza, la disponibilità, le prestazioni, la latenza di replica e le complesse combinazioni di eventi in caso di failover geografici e conflitti di scrittura tra più aree.  
 
   ![Risoluzione dei conflitti nel modello multimaster](./media/multi-region-writers/multi-master-conflict-resolution-blade.png)
 
@@ -111,7 +130,7 @@ In questo articolo è stato spiegato come usare il supporto multimaster distribu
 
 * [Altre informazioni sul modo in cui Microsoft Azure Cosmos DB supporta la distribuzione globale](distribute-data-globally.md)  
 
-* [Altre informazioni sui failover automatici e manuali in Microsoft Azure Cosmos DB](regional-failover.md)  
+* [Altre informazioni sui failover automatici in Azure Cosmos DB](regional-failover.md)  
 
 * [Informazioni sulla consistenza globale con Microsoft Azure Cosmos DB](consistency-levels.md)  
 

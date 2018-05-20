@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 447f9867649c7c3a44c8a0ba894e037040023f79
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a3d1ca210d490e7a8c634fbfb2a2e11f4e82fae4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Binding dell'archiviazione BLOB di Azure per Funzioni di Azure
 
@@ -31,23 +31,42 @@ Questo articolo illustra come operare con le associazioni dell'archiviazione BLO
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-> [!NOTE]
-> [Gli account di archiviazione solo BLOB](../storage/common/storage-create-storage-account.md#blob-storage-accounts) non sono supportati per i trigger di BLOB. I trigger di BLOB richiedono un account di archiviazione generico. Per le associazioni di input e output è possibile usare gli account di archiviazione solo BLOB.
-
 ## <a name="packages"></a>Pacchetti
 
 Le associazioni di archiviazione BLOB sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs). Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src).
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+> [!NOTE]
+> Usare il trigger di Griglia di eventi anziché il trigger di archiviazione BLOB per gli account di archiviazione solo BLOB, per la scalabilità elevata, o per evitare ritardi di avvio a freddo. Per altre informazioni, vedere la sezione **Trigger**. 
+
 ## <a name="trigger"></a>Trigger
 
-Usare un trigger di archiviazione BLOB per l'avvio di una funzione quando viene rilevato un BLOB nuovo o aggiornato. I contenuti del BLOB vengono dati come input alla funzione.
+Il trigger di archiviazione BLOB avvia una funzione quando viene rilevato un BLOB nuovo o aggiornato. I contenuti del BLOB vengono dati come input alla funzione.
 
-> [!NOTE]
-> Quando si usa un trigger di tipo BLOB in un piano a consumo, è possibile che si verifichi un ritardo di un massimo di 10 minuti per l'elaborazione di nuovi BLOB in caso di inattività di un'app per le funzioni. Quando l'app per le funzioni è in esecuzione, i BLOB vengono elaborati immediatamente. Per evitare questo ritardo iniziale, prendere in considerazione una delle opzioni seguenti:
-> - Usare un piano di servizio app con l'opzione Always On abilitata.
-> - Usare un altro meccanismo per attivare l'elaborazione dei BLOB, ad esempio un messaggio della coda che contiene il nome del BLOB. Per un esempio, vedere l'[esempio di associazione di input BLOB più avanti in questo articolo](#input---example).
+Il [trigger di Griglia di eventi](functions-bindings-event-grid.md) include il supporto incorporato per gli [eventi BLOB](../storage/blobs/storage-blob-event-overview.md) e può essere usato anche per avviare una funzione quando viene rilevato un BLOB nuovo o aggiornato. Per un esempio, vedere l'esercitazione [Ridimensionamento di immagini con Griglia di eventi](../event-grid/resize-images-on-storage-blob-upload-event.md).
+
+Usare Griglia eventi anziché il trigger di archiviazione BLOB per gli scenari seguenti:
+
+* Account di archiviazione solo BLOB
+* Scalabilità elevata
+* Ritardo di avvio a freddo
+
+### <a name="blob-only-storage-accounts"></a>Account di archiviazione solo BLOB
+
+Gli [account di archiviazione solo BLOB](../storage/common/storage-create-storage-account.md#blob-storage-accounts) sono supportati per le associazioni di input e output BLOB, ma non per i trigger BLOB. I trigger di BLOB richiedono un account di archiviazione generico.
+
+### <a name="high-scale"></a>Scalabilità elevata
+
+La scalabilità elevata può essere definita in modo generico come i contenitori con più di 100.000 BLOB o gli account di archiviazione con più di 100 aggiornamenti BLOB al secondo.
+
+### <a name="cold-start-delay"></a>Ritardo di avvio a freddo
+
+Se l'app per le funzioni è inclusa nel piano a consumo, è possibile che si verifichi un ritardo di un massimo di 10 minuti per l'elaborazione di nuovi BLOB in caso di inattività di un'app per le funzioni. Per evitare questo ritardo di avvio a freddo, è possibile passare a un piano di servizio app con Always On abilitato o usare un tipo di trigger diverso.
+
+### <a name="queue-storage-trigger"></a>Trigger per l'archiviazione code
+
+Oltre alla Griglia di eventi, un'alternativa per l'elaborazione di BLOB è il trigger di archiviazione code, che tuttavia non include un supporto integrato per gli eventi BLOB. È necessario creare messaggi della coda quando si creano o aggiornano i BLOB. Per un esempio in cui si presuppone che sia stata eseguita l'operazione, vedere l'[esempio di associazione di input BLOB più avanti in questo articolo](#input---example).
 
 ## <a name="trigger---example"></a>Trigger - esempio
 
