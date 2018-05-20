@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 1/4/2018
+ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4c219820fd5b8d5502bae394142dfbe80db1f59
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ef80c99225a9045686ba8de3fe8fd7cf7070b5cd
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Node.js SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -61,6 +61,16 @@ ms.lasthandoff: 05/07/2018
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="1.14.4"/>1.14.4</a>
+* Correzione della documentazione di npm.
+
+### <a name="1.14.3"/>1.14.3</a>
+* Aggiunta del supporto per nuovi tentativi predefiniti in caso di problemi di connessione.
+* Aggiunta del supporto per la lettura del feed delle modifiche della raccolta.
+* Risoluzione di un bug di coerenza della sessione che causava in modo intermittente un errore di sessione di lettura non disponibile.
+* Aggiunta del supporto per le metriche di query.
+* Modifica del numero massimo di connessioni dell'agente HTTP.
 
 ### <a name="1.14.2"/>1.14.2</a>
 * Documentazione aggiornata con riferimento a Azure Cosmos DB anziché Azure DocumentDB.
@@ -193,6 +203,8 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato viene rifiutata dal 
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.14.4](#1.14.4) |3 maggio 2018 |--- |
+| [1.14.3](#1.14.3) |3 maggio 2018 |--- |
 | [1.14.2](#1.14.2) |21 dicembre 2017 |--- |
 | [1.14.1](#1.14.1) |10 novembre 2017 |--- |
 | [1.14.0](#1.14.0) |09 novembre 2017 |--- |

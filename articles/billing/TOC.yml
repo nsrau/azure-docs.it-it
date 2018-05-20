@@ -16,8 +16,21 @@
       href: billing-use-existing-azure-account-for-office-365-subscription.md
     - name: Organizzare le risorse con i gruppi di gestione
       href: billing-enterprise-mgmt-group-overview.md
-    - name: Risparmiare con le istanze di macchina virtuale riservate
+    - name: Salvare con le istanze riservate di Azure
       href: billing-save-compute-costs-reservations.md
+      items:
+        - name: Pagare in anticipo le macchine virtuali tramite le istanze riservate
+          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Gestire le istanze riservate
+          href: billing-manage-reserved-vm-instance.md
+        - name: Informazioni sull'applicazione di sconti con le istanze riservate
+          href: billing-understand-vm-reservation-charges.md
+        - name: Informazioni sull'utilizzo di istanze riservate per il pagamento in base al consumo
+          href: billing-understand-reserved-instance-usage.md
+        - name: Informazioni sull'utilizzo di istanze riservate per Enterprise
+          href: billing-understand-reserved-instance-usage-ea.md
+        - name: Costi di Windows con le istanze riservate
+          href: billing-reserved-instance-windows-software-costs.md
     - name: Limiti e quote
       href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Procedure
@@ -38,20 +51,12 @@
           href: billing-understand-your-azure-marketplace-charges.md
         - name: Comprendere il mapping del misuratore di servizi gratuiti
           href: billing-understand-free-service-meter-mapping.md
-        - name: Costi di Windows con le istanze di macchina virtuale riservate
-          href: billing-reserved-instance-windows-software-costs.md
-        - name: Informazioni sull'applicazione di sconti con le istanze di macchina virtuale riservate
-          href: billing-understand-vm-reservation-charges.md
         - name: Informazioni sul limite di spesa
           href: billing-spending-limit.md
         - name: Impostare avvisi di fatturazione per le sottoscrizioni Microsoft Azure
           href: billing-set-up-alerts.md
         - name: Risolvere i problemi relativi al saldo scaduto
           href: billing-azure-subscription-past-due-balance.md
-        - name: Informazioni sull'utilizzo di istanze riservate per il pagamento in base al consumo
-          href: billing-understand-reserved-instance-usage.md
-        - name: Informazioni sull'utilizzo di istanze riservate per Enterprise
-          href: billing-understand-reserved-instance-usage-ea.md
     - name: Gestisci sottoscrizioni
       items:
         - name: Trovare una sottoscrizione o un gruppo di gestione
@@ -82,8 +87,6 @@
           href: billing-partner-admin-link-started.md
         - name: Visualizzare gli account di fatturazione
           href: billing-view-all-accounts.md
-    - name: Gestire le istanze di macchina virtuale riservate
-      href: billing-manage-reserved-vm-instance.md
     - name: Risolvere problemi
       items:
         - name: Problemi di iscrizione

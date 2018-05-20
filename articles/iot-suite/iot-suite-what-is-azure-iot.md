@@ -1,5 +1,5 @@
 ---
-title: Soluzioni di Azure per l'Internet delle cose | Microsoft Docs
+title: Soluzioni di Azure per l'Internet delle cose | Documentazione Microsoft
 description: Una panoramica di IoT in Azure, inclusa un'architettura della soluzione di esempio e la sua relazione con gli acceleratori di soluzioni Azure IoT e gli acceleratori di soluzioni.
 services: iot-suite
 suite: iot-suite
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 88a39f0dec80429bae70077391b9039f6d1cd2c9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ab68549bada8c49d3c00b86005af2d3651f47ea9
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
@@ -30,5 +30,5 @@ Dopo avere ottenuto informazioni sull'architettura IoT tipica, esplorare le dive
 Per altre informazioni sui singoli servizi IoT per Azure, vedere:
 
 * [Informazioni sugli acceleratori di soluzioni IoT](iot-suite-what-are-solution-accelerators.md)
-* [Informazioni su Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/overview-iot-central)
+* [Che cos'è Azure IoT Central?](https://docs.microsoft.com/microsoft-iot-central/overview-iot-central)
 * [Che cos'è l'hub IoT di Azure?](../iot-hub/iot-hub-what-is-iot-hub.md)

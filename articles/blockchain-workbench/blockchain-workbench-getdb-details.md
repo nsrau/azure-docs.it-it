@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: bf7cc85e823e6630dbd3278bc91fba85f404059f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 63b718bcb8722c5fd501891d162eadfae9fb8ec2
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="get-information-about-your-azure-blockchain-workbench-database"></a>Ottenere informazioni sul database di Azure Blockchain Workbench
 
@@ -48,4 +48,5 @@ Il nome del server del database e il nome del database consentono di connettersi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Database views in Azure Blockchain Workbench](blockchain-workbench-database-views.md) (Viste di database in Azure Blockchain Workbench)
+> [!div class="nextstepaction"]
+> [Database views in Azure Blockchain Workbench](blockchain-workbench-database-views.md) (Viste di database in Azure Blockchain Workbench)

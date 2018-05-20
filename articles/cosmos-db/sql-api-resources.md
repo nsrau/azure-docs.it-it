@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20af4611920328ddcaa6e658101184451217a011
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 69ee7baeda524647dd259ea22bb948b0168fd913
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Modello di risorsa gerarchico e concetti di base relativi ad Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Come illustrato nel diagramma seguente, il **modello di risorsa** gerarchico di 
 ![Modello di risorsa gerarchico di Azure Cosmos DB][1]  
 **Modello di risorse gerarchico**   
 
-Per iniziare a usare le risorse è necessario [creare un account di database](create-sql-api-dotnet.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ognuno contenente più **raccolte**. Ogni raccolta include a propria volta **stored procedure, trigger, funzioni definite dall'utente, documenti **e allegati correlati**. Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, UDF, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.  
+Per iniziare a usare le risorse è necessario [creare un account di database](create-sql-api-dotnet.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ognuno contenente più **raccolte**. Ogni raccolta include a propria volta **stored procedure, trigger, funzioni definite dall'utente, documenti e allegati correlati**. Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, UDF, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.  
 
 | Risorsa | DESCRIZIONE |
 | --- | --- |

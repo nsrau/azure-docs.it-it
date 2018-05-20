@@ -3,17 +3,17 @@ title: 'Esercitazione su Kubernetes in Azure: distribuire un cluster'
 description: Esercitazione sul servizio contenitore di Azure - Distribuire un cluster
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e4e4e7c3956f396024513a4c48722dfb86e89151
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c793aa02e614ead146806888d26a18867ff2eebb
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Esercitazione: distribuire un cluster di Azure Kubernetes Service (AKS)
 
