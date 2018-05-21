@@ -1,12 +1,13 @@
 ---
-title: Creare un'istanza di Load Balancer Standard pubblica - Interfaccia della riga di comando di Azure | Microsoft Docs
-description: Informazioni su come creare un servizio di bilanciamento del carico pubblico con l'interfaccia della riga di comando di Azure
+title: Guida introduttiva - Creare un'istanza di Load Balancer Standard pubblica usando l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: In questa guida introduttiva si apprende come creare un servizio pubblico di bilanciamento del carico con l'interfaccia della riga di comando di Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
 ms.service: load-balancer
 ms.devlang: na
@@ -15,13 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: ee2e70e710be9badda7318aec307325da66e4c58
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: 997129d1c67a690fb4890aeb2de9f45a681e3efc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Creare un'istanza di Load Balancer Standard pubblica per bilanciare il carico delle macchine virtuali tramite l'interfaccia della riga di comando di Azure 2.0
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Guida introduttiva - Creare un'istanza di Load Balancer Standard per bilanciare il carico delle macchine virtuali tramite l'interfaccia della riga di comando di Azure 2.0
 
 Questa guida introduttiva illustra come creare un'istanza di Load Balancer Standard. Per testare il servizio di bilanciamento del carico, si distribuiscono due macchine virtuali (VM) che eseguono Ubuntu Server e si bilancia il carico di un'app Web tra le due macchine virtuali.
 

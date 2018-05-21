@@ -1,36 +1,36 @@
 ---
-title: Centro sicurezza di Azure e macchine virtuali Windows in Azure | Microsoft Docs
-description: Informazioni sulla sicurezza delle macchine virtuali Windows in Azure con il Centro sicurezza di Azure.
+title: 'Esercitazione: Usare il Centro sicurezza di Azure per le macchine virtuali Windows in Azure | Microsoft Docs'
+description: In questa esercitazione vengono descritte le funzionalità del Centro sicurezza di Azure che assicurano la protezione e la sicurezza delle macchine virtuali Windows in Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35b6c8910b0dd5e8d1c388ee83223ce77a08f6d1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b573208107b07b47b471d9c5247b362ef144099e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Monitorare la sicurezza delle macchine virtuali con il Centro sicurezza di Azure
+# <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Esercitazione: Usare il Centro sicurezza di Azure per monitorare le macchine virtuali Windows
 
 Il Centro sicurezza di Azure consente di ottenere visibilità nelle procedure per la sicurezza delle risorse di Azure. Il Centro sicurezza offre il monitoraggio della sicurezza integrato. Consente di rilevare minacce che altrimenti non verrebbero rilevate. Questa esercitazione illustra il Centro sicurezza di Azure e come:
- 
+
 > [!div class="checklist"]
 > * configurare la raccolta dei dati
 > * configurare i criteri di sicurezza
 > * visualizzare e risolvere i problemi di integrità della configurazione
-> * esaminare le minacce rilevate  
+> * esaminare le minacce rilevate
 
 ## <a name="security-center-overview"></a>Panoramica del Centro sicurezza di Azure
 

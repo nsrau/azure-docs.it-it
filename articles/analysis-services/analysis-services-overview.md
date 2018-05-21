@@ -5,16 +5,16 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: overview
-ms.date: 04/12/2018
+ms.date: 04/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: da2ab7b0d8b83238def346790362b680cd8eda23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2a2818be8ef609946e53f585aadb0a5b4ac0f3a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="azure-analysis-services-overview"></a>Panoramica di Azure Analysis Services
+# <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services fornisce funzionalità di modellazione di dati di livello aziendale sul cloud. È una piattaforma distribuita come servizio (PaaS) completamente gestita, integrata con i servizi della piattaforma dati di Azure. 
@@ -96,7 +96,7 @@ Azure Analysis Services usa l'archiviazione BLOB di Azure per rendere persistent
 
 #### <a name="firewall"></a>Firewall
 
-Il firewall di Azure Analysis Services blocca tutte le connessioni client non specificate nelle regole. Configurare le regole che specificano gli indirizzi IP consentiti in base agli indirizzi IP dei singoli client o per intervalli di indirizzi IP. Le connessioni di Power BI (servizio) possono essere consentite o bloccate/consentite. 
+Il firewall di Azure Analysis Services blocca tutte le connessioni client non specificate nelle regole. Configurare le regole che specificano gli indirizzi IP consentiti in base agli indirizzi IP dei singoli client o per intervalli di indirizzi IP. Le connessioni di Power BI (servizio) possono essere consentite o bloccate. 
 
 #### <a name="on-premises-data-sources"></a>Origini dati locali
 È possibile ottenere la sicurezza dell'accesso ai dati in locale all'interno dell'organizzazione installando e configurando un [gateway dati locale](analysis-services-gateway.md). I gateway forniscono accesso ai dati per le modalità DirectQuery e in memoria. Quando un modello di Azure Analysis Services si connette a un'origine dati locale, viene creata una query con le credenziali crittografate per l'origine dati locale. Il servizio cloud del gateway analizza la query e inserisce la richiesta in un'istanza del bus di servizio di Azure. Il gateway locale esegue il polling del bus di servizio per le richieste in sospeso. Il gateway riceve quindi la query, decrittografa le credenziali e si connette all'origine dati per l'esecuzione. I risultati vengono inviati dall'origine dati al gateway e quindi al database Azure Analysis Services.
@@ -134,4 +134,5 @@ In caso di suggerimenti o richieste di funzionalità, assicurarsi di lasciare i 
 In caso di suggerimenti sulla documentazione, è possibile aggiungere commenti usando Livefyre nella parte inferiore di ogni articolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver ottenuto alcune informazioni su Azure Analysis Services, è possibile iniziare a usarlo. Altre informazioni su come [creare un server](analysis-services-create-server.md) in Azure. Quando il server è pronto, vedere l'[esercitazione di Adventure Works](tutorials/aas-adventure-works-tutorial.md) per informazioni su come creare un modello tabulare completamente funzionale e distribuirlo nel server.
+Altre informazioni su come [creare un server](analysis-services-create-server.md) in Azure.   
+Una volta creato un server, [aggiungere un modello di esempio](analysis-services-create-sample-model.md).   

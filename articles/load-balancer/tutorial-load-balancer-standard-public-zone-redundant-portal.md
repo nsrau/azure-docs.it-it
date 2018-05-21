@@ -1,39 +1,50 @@
 ---
-title: Servizio Load Balancer per il bilanciamento del carico delle macchine virtuali tra zone di disponibilità - Portale di Azure | Microsoft Docs
-description: Creare un servizio Load Balancer Standard con front-end con ridondanza della zona per bilanciare il carico delle macchine virtuali tra zone di disponibilità tramite il portale di Azure
+title: Esercitazione - Servizio Load Balancer per il bilanciamento del carico delle macchine virtuali tra zone di disponibilità - Portale di Azure | Microsoft Docs
+description: Questa esercitazione illustra come creare un'istanza di Load Balancer Standard con front-end con ridondanza della zona per bilanciare il carico delle macchine virtuali tra zone di disponibilità tramite il portale di Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: ''
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/18
+ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: ad476922342844a908961960407eb344711932f5
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: 9ff0b53f6c6f10a2e97bd3158f874fa5cfe33bb6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Bilanciare il carico delle macchine virtuali tra zone di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
+# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Esercitazione - Bilanciare il carico delle macchine virtuali tra zone di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
 
-Questo articolo illustra i passaggi per la creazione di un servizio Load Balancer Standard pubblico con un front-end con ridondanza della zona per ottenere la ridondanza della zona senza dipendenza da più record DNS. Un singolo indirizzo IP front-end in un servizio Load Balancer Standard prevede automaticamente la ridondanza della zona. Se si usa un front-end con ridondanza della zona per il servizio di bilanciamento del carico, con un singolo indirizzo IP è ora possibile raggiungere qualsiasi macchina virtuale in una rete virtuale all'interno di un'area che include tutte le zone di disponibilità. Usare le zone di disponibilità per proteggere app e dati da un poco probabile errore o perdita di un intero data center. Con la ridondanza della zona, in caso di errore di una o più zone di disponibilità, il percorso dati continua a funzionare, a condizione che una zona dell'area rimanga integra. 
+Il bilanciamento del carico offre un livello più elevato di disponibilità distribuendo le richieste in ingresso tra più macchine virtuali. Questa esercitazione illustra i passaggi necessari per creare un'istanza pubblica di Load Balancer Standard per il bilanciamento del carico delle macchine virtuali tra zone di disponibilità. Ciò facilita la protezione di app e dati da un poco probabile errore o perdita di un intero data center. Con la ridondanza della zona, in caso di errore di una o più zone di disponibilità, il percorso dati continua a funzionare, a condizione che una zona dell'area rimanga integra. Si apprenderà come:
+
+> [!div class="checklist"]
+> * Creare un'istanza di Load Balancer Standard
+> * Creare gruppi di sicurezza di rete per definire le regole del traffico in ingresso
+> * Creare macchine virtuali con ridondanza della zona su più zone e collegarle a un servizio di bilanciamento del carico
+> * Creare un probe di integrità per il servizio di bilanciamento del carico
+> * Creare regole del traffico di bilanciamento del carico
+> * Creare un sito IIS di base
+> * Visualizzare un bilanciamento del carico in azione
 
 Per altre informazioni sull'uso delle zone di disponibilità con Load Balancer Standard, vedere [Load Balancer Standard e zone di disponibilità](load-balancer-standard-availability-zones.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://portal.azure.com).
 
-## <a name="create-a-public-standard-load-balancer"></a>Creare un servizio Load Balancer Standard pubblico
+## <a name="create-a-standard-load-balancer"></a>Creare un'istanza di Load Balancer Standard
 
 Load Balancer Standard supporta solo un indirizzo IP pubblico standard. Quando si crea un nuovo indirizzo IP pubblico durante la creazione del servizio di bilanciamento del carico, l'indirizzo viene automaticamente configurato come versione SKU Standard e con ridondanza della zona.
 
@@ -51,9 +62,11 @@ Load Balancer Standard supporta solo un indirizzo IP pubblico standard. Quando s
 
 ## <a name="create-backend-servers"></a>Creare i server back-end
 
-In questa sezione si crea una rete virtuale, si creano macchine virtuali in zone diverse (zona 1, zona 2 e zona 3) per l'area da aggiungere al pool back-end del servizio di bilanciamento del carico e quindi si installa IIS nelle macchine virtuali per testare il servizio di bilanciamento del carico con ridondanza della zona. Di conseguenza, in caso di errore di una zona, il probe di integrità per la macchina virtuale nella stessa zona ha esito negativo e il traffico continua a funzionare nelle macchine virtuali nelle altre zone.
+In questa sezione viene creata una rete virtuale, macchine virtuali in diverse zone dell'area e quindi si installa IIS nelle macchine virtuali per testare il servizio di bilanciamento del carico con ridondanza della zona. Di conseguenza, in caso di errore di una zona, il probe di integrità per la macchina virtuale nella stessa zona ha esito negativo e il traffico continua a funzionare nelle macchine virtuali nelle altre zone.
 
 ### <a name="create-a-virtual-network"></a>Crea rete virtuale
+Creare una rete virtuale per la distribuzione dei server back-end.
+
 1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa** > **Rete** > **Rete virtuale** e immettere i valori seguenti per la rete virtuale:
     - *myVnet* come nome della rete virtuale.
     - *myResourceGroupLBAZ* come nome del gruppo di risorse esistente.
@@ -64,6 +77,8 @@ In questa sezione si crea una rete virtuale, si creano macchine virtuali in zone
 
 ## <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
+Creare un gruppo di sicurezza di rete per definire le connessioni in ingresso alla rete virtuale.
+
 1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa**, nella casella di ricerca digitare *Gruppo di sicurezza di rete* e nella pagina Gruppo di sicurezza di rete fare clic su **Crea**.
 2. Nella pagina Crea gruppo di sicurezza di rete immettere i valori seguenti:
     - *myNetworkSecurityGroup* come nome del gruppo di sicurezza di rete.
@@ -71,9 +86,9 @@ In questa sezione si crea una rete virtuale, si creano macchine virtuali in zone
    
 ![Crea rete virtuale](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
-### <a name="create-nsg-rules"></a>Creare le regole NSG
+### <a name="create-network-security-group-rules"></a>Creare regole del gruppo di sicurezza di rete
 
-In questa sezione vengono create regole NSG per consentire le connessioni in ingresso tramite HTTP e RDP usando il portale di Azure.
+In questa sezione vengono create regole del gruppo di sicurezza di rete per consentire le connessioni in ingresso tramite HTTP e RDP usando il portale di Azure.
 
 1. Nel portale di Azure scegliere **Tutte le risorse** dal menu a sinistra e quindi cercare e fare clic su **myNetworkSecurityGroup** nel gruppo di risorse **myResourceGroupLBAZ**.
 2. In **Impostazioni** fare clic su **Regole di sicurezza in ingresso** e quindi su **Aggiungi**.
@@ -84,8 +99,8 @@ In questa sezione vengono create regole NSG per consentire le connessioni in ing
     - *TCP* come **Protocollo**
     - *Consenti* come **Azione**
     - *100* come **Priorità**
-    - *myHTTPRule* come nome
-    - *Consenti HTTP* come descrizione
+    - *myHTTPRule* come nome della regola di bilanciamento del carico.
+    - *Consenti HTTP* come descrizione della regola di bilanciamento del carico.
 4. Fare clic su **OK**.
  
  ![Crea rete virtuale](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
@@ -99,8 +114,9 @@ In questa sezione vengono create regole NSG per consentire le connessioni in ing
     - *myRDPRule* come nome
     - *Consenti RDP* come descrizione
 
-
 ### <a name="create-virtual-machines"></a>Creare macchine virtuali
+
+Creare macchine virtuali in zone diverse (area 1, 2 e 3) per l'area che può fungere da server di back-end per il bilanciamento del carico.
 
 1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa** > **Calcolo** > **Windows Server 2016 Datacenter** e immettere i valori seguenti per la macchina virtuale:
     - *myVM1* come nome della macchina virtuale.        
@@ -145,12 +161,12 @@ In questa sezione si configurano le impostazioni del servizio di bilanciamento d
 
 ### <a name="create-a-backend-address-pool"></a>Creare un pool di indirizzi back-end
 
-Per distribuire il traffico alle macchine virtuali, è necessario che un pool di indirizzi back-end contenga gli indirizzi IP delle schede di interfaccia di rete virtuale connesse al bilanciamento del carico. Creare il pool di indirizzi back-end *myBackendPool* per includere *VM1* e *VM2*.
+Per distribuire il traffico alle macchine virtuali, è necessario che un pool di indirizzi back-end contenga gli indirizzi IP delle schede di interfaccia di rete virtuale connesse al bilanciamento del carico. Creare il pool di indirizzi back-end *myBackendPool* per includere *VM1*, *VM2* e *VM3*.
 
 1. Fare clic su **Tutte le risorse** nel menu a sinistra e quindi fare clic su **myLoadBalancer** nell'elenco di risorse.
 2. In **Impostazioni** fare clic su **Pool back-end** e quindi su **Aggiungi**.
 3. Nella pagina **Add a backend pool** (Aggiungi pool back-end) seguire questa procedura:
-    - Digitare *myBackEndPool come nome del pool back-end.
+    - Digitare *myBackEndPool* come nome del pool back-end.
     - Per **Rete virtuale** nel menu a discesa fare clic su **myVNet**.
     - Per **Macchina virtuale** nel menu a discesa fare clic su **myVM1**.
     - Per **Indirizzo IP** nel menu a discesa fare clic sull'indirizzo IP di myVM1.
@@ -200,6 +216,8 @@ Una regola di bilanciamento del carico consente di definire come il traffico ver
 2. Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Nel browser verrà visualizzata la pagina predefinita del server Web IIS.
 
       ![Server Web IIS](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+
+Per vedere come il servizio di bilanciamento del carico distribuisce il traffico nelle due VM distribuite nell'area, forzare l'aggiornamento del Web browser.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

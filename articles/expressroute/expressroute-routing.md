@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: 8bf1381ad089b9db41a3ef9f6fd3b9521a16da7e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -183,10 +183,11 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | Giappone orientale | 12076:51012 |
 | Giappone occidentale | 12076:51013 |
 | **Australia** | |
-| Australia centrale | 12076:51032 |
-| Australia centrale 2 | 12076:51033 |
 | Australia orientale | 12076:51015 |
 | Australia sudorientale | 12076:51016 |
+| **Australia Government** | |
+| Australia centrale | 12076:51032 |
+| Australia centrale 2 | 12076:51033 |
 | **India** | |
 | India meridionale | 12076:51019 |
 | India occidentale | 12076:51018 |

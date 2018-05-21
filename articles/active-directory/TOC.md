@@ -225,7 +225,7 @@
 ### [Configurare l'accelerazione automatica dell'accesso tramite i criteri HRD](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md) (Gestire l'accesso alle app)
-#### [Accesso SSO](active-directory-appssoaccess-whatis.md)
+#### [Accesso SSO](manage-apps/what-is-single-sign-on.md)
 #### [Certificati per SSO](active-directory-sso-certs.md)
 #### [Restrizioni relative ai tenant](active-directory-tenant-restrictions.md)
 #### [Usare SCIM per il provisioning degli utenti](active-directory-scim-provisioning.md)
