@@ -14,17 +14,112 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6274e4ebbc9f3c5b21c479b10e112459000fd28b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7e290b3bbe3fa70522533f23febe587fbb873e35
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer
 
-Questo articolo contiene le note sulla versione di anteprima di Azure Storage Explorer 0.9.6, nonché sulle versioni precedenti.
+Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.0.0, nonché sulle versioni precedenti.
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
+
+## <a name="version-100"></a>Versione 1.0.0
+04/16/2018
+
+### <a name="download-azure-storage-explorer-100"></a>Scaricare Azure Storage Explorer 1.0.0
+- [Azure Storage Explorer 1.0.0 per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.0.0 per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.0.0 per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nuovo
+* Autenticazione avanzata che consente a Storage Explorer di utilizzare lo stesso archivio account di Visual Studio 2017. Per utilizzare questa funzionalità, sarà necessario accedere nuovamente agli account e impostare nuovamente le sottoscrizioni filtrate.
+* Per gli account Azure Stack supportati da AAD, Storage Explorer recupererà ora le sottoscrizioni Azure Stack quando "Stack Azure di destinazione" è abilitato. Non è necessario creare un ambiente di accesso personalizzato.
+* Alcuni tasti di scelta rapida sono stati aggiunti per consentire una navigazione più veloce. Sono inclusi diversi pannelli di attivazione/disattivazione e lo spostamento tra gli editor. Vedere il menu Visualizza per altri dettagli.
+* I feedback di Storage Explorer ora si basano su GitHub. È possibile raggiungere la pagina dei problemi facendo clic sul pulsante di feedback nella parte inferiore sinistra o andando su [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). È possibile fornire suggerimenti, segnalare un problema, porre domande o lasciare qualsiasi altra forma di feedback.
+* Se si sono verificati problemi relativi ai certificati SSL ed è impossibile trovare il certificato che causa l'errore, è possibile avviare Storage Explorer dalla riga di comando con il flag `--ignore-certificate-errors`. Quando viene avviato con questo flag, Storage Explorer ignorerà gli errori del certificato SSL.
+* È ora disponibile l'opzione "Scarica" nel menu di scelta rapida per gli elementi di BLOB e di file.
+* Accessibilità e supporto di lettura dello schermo migliorati. Se ci si basa sulle funzionalità di accessibilità, vedere la nostra [documentazione di accessibilità](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) per ulteriori informazioni.
+* Storage Explorer usa ora Electron 1.8.3
+
+### <a name="breaking-changes"></a>Modifiche di rilievo
+* Storage Explorer è diventato una nuova libreria di autenticazione. A seguito del passaggio alla libreria, sarà necessario accedere nuovamente agli account e impostare nuovamente le sottoscrizioni filtrate
+* Il metodo utilizzato per crittografare i dati sensibili è stato modificato. Questo può comportare che alcuni elementi di Accesso rapido devono essere nuovamente aggiunti e/o alcune delle risorse associate devono essere ricollegate.
+
+### <a name="fixes"></a>Correzioni
+* Alcuni utenti dietro i proxy hanno raggruppato caricamenti o download di BLOB a interrotti da un messaggio di errore "Impossibile risolvere". Questo problema è stato risolto.
+* Se l’accesso fosse stato necessario durante l’utilizzo di un collegamento diretto, facendo clic sul prompt dei comandi "Accedi" sarebbe stata visualizzata una finestra di dialogo vuoto. Questo problema è stato risolto.
+* In Linux, se Storage Explorer non è in grado di avviarsi a causa di un arresto anomalo del processo GPU, si riceveranno informazioni sull'arresto anomalo, verrà indicato come utilizzare lo switch "-disable-gpu"e Storage Explorer verrà riavviato automaticamente con l'opzione abilitata.
+* Era difficile l’identificazione di criteri di accesso non validi nella finestra di dialogo Criteri di accesso. Gli iD dei criteri di accesso non validi sono ora indicati in rosso per una maggiore visibilità.
+* Il registro attività aveva talvolta vaste porzioni di spazi vuoti tra le diverse parti di un'attività. Questo problema è stato risolto.
+* Nell'editor di query di tabella, se vi fosse stata una clausola timestamp in uno stato non valido e quindi si fosse tentato di modificare un'altra clausola, l'editor si sarebbe bloccato. L'editor ripristinerà la clausola timestamp all’ultimo stato valido quando viene rilevata una modifica in un'altra clausola.
+* Se ci si fosse arrestati durante la digitazione nella query di ricerca nella visualizzazione struttura ad albero, la ricerca sarebbe iniziata e lo stato attivo sarebbe stato rubato dalla casella di testo. A questo punto, avviare esplicitamente la ricerca, premendo "invio" o facendo clic sul pulsante per avviare la ricerca.
+* Il comando "Ottieni firma di accesso condiviso" talvolta era disattivato quando si faceva clic con il tasto destro del mouse su un file in una condivisione file. Questo problema è stato risolto.
+* Se il nodo della struttura albero delle risorse con lo stato attivo fosse stato filtrato durante la ricerca, sarebbe stato impossibile aggiungere una tabulazione nell’albero delle risorse e usare i tasti di direzione per esplorare l'albero delle risorse. A questo punto, se il nodo dell'albero delle risorse con lo stato attivo è nascosto, il primo nodo nell'albero delle risorse verrà automaticamente attivato.
+* Un separatore aggiuntivo era visibile in alcuni casi nella barra degli strumenti dell'editor. Questo problema è stato risolto.
+* Talvolta, la casella di testo di navigazione era in eccesso. Questo problema è stato risolto.
+* Gli editor BLOB e di condivisione file erano talvolta aggiornati costantemente durante il caricamento di molti file in una sola volta. Questo problema è stato risolto.
+* La funzionalità "Statistiche cartella" non aveva alcun ruolo nella visualizzazione di gestione snapshot di condivisione file. Ora è stata disabilitata.
+* In Linux, il menu File non è stato visualizzato. Questo problema è stato risolto.
+* Durante il caricamento di una cartella in una condivisione file, per impostazione predefinita, venivano caricati solo i contenuti della cartella. A questo punto, il comportamento predefinito è caricare il contenuto della cartella in una cartella corrispondente nella condivisione file.
+* L'ordinamento dei pulsanti in alcune finestre di dialogo era stato invertito. Questo problema è stato risolto.
+* Varie correzioni relative alla sicurezza.
+
+### <a name="known-issues"></a>Problemi noti
+* In rari casi, lo stato attivo dell'albero può rimanere bloccato in Accesso rapido. Per sbloccare lo stato attivo, è possibile eseguire l’operazione Aggiorna tutto.
+* Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta di seguito. 
+* Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
+* La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
+* Sebbene Azure Stack attualmente non supporta le condivisioni file, viene comunque visualizzato un nodo delle condivisioni di file in un account di archiviazione di Azure Stack associato.
+* La shell Electron utilizzata da Azure Storage Explorer ha problemi con l'accelerazione hardware di alcune GPU (graphics processing unit, unità di elaborazione grafica). Se Azure Storage Explorer mostra una finestra principale vuota, è possibile provare ad avviare Azure Storage Explorer dalla riga di comando e disattivare l'accelerazione GPU aggiungendo il parametro `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Per gli utenti di Ubuntu 17.04, è necessario installare GConf. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versioni precedenti
+
+* [Versione 0.9.6](#version-096)
+* [Versione 0.9.5](#version-095)
+* [Versione 0.9.4 e 0.9.3](#version-094-and-093)
+* [Versione 0.9.2](#version-092)
+* [Versione 0.9.1 e 0.9.0](#version-091-and-090)
+* [ 0.8.16](#version-0816)
+* [Versione 0.8.14](#version-0814)
+* [Versione 0.8.13](#version-0813)
+* [Versione 0.8.12, 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
+* [Versione 0.8.9 e 0.8.8](#version-089-and-088)
+* [Versione 0.8.7](#version-087)
+* [Versione 0.8.6](#version-086)
+* [Versione 0.8.5](#version-085)
+* [Versione 0.8.4](#version-084)
+* [Versione 0.8.3](#version-083)
+* [Versione 0.8.2](#version-082)
+* [Versione 0.8.0](#version-080)
+* [Versione 0.7.20160509.0](#version-07201605090)
+* [Versione 0.7.20160325.0](#version-07201603250)
+* [Versione 0.7.20160129.1](#version-07201601291)
+* [Versione 0.7.20160105.0](#version-07201601050)
+* [Versione 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-096"></a>Versione 0.9.6
 28/02/2018
@@ -66,30 +161,6 @@ Questo articolo contiene le note sulla versione di anteprima di Azure Storage Ex
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versioni precedenti
-
-* [Versione 0.9.5](#version-095)
-* [Versione 0.9.4 e 0.9.3](#version-094-and-093)
-* [Versione 0.9.2](#version-092)
-* [Versione 0.9.1 e 0.9.0](#version-091-and-090)
-* [ 0.8.16](#version-0816)
-* [Versione 0.8.14](#version-0814)
-* [Versione 0.8.13](#version-0813)
-* [Versione 0.8.12, 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
-* [Versione 0.8.9 e 0.8.8](#version-089-and-088)
-* [Versione 0.8.7](#version-087)
-* [Versione 0.8.6](#version-086)
-* [Versione 0.8.5](#version-085)
-* [Versione 0.8.4](#version-084)
-* [Versione 0.8.3](#version-083)
-* [Versione 0.8.2](#version-082)
-* [Versione 0.8.0](#version-080)
-* [Versione 0.7.20160509.0](#version-07201605090)
-* [Versione 0.7.20160325.0](#version-07201603250)
-* [Versione 0.7.20160129.1](#version-07201601291)
-* [Versione 0.7.20160105.0](#version-07201601050)
-* [Versione 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-095"></a>Version 0.9.5
 02/06/2018

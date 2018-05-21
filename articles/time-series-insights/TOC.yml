@@ -92,6 +92,8 @@
       href: /azure/stream-analytics/
 - name: Risorse
   items:
+    - name: Richieste di dati del cliente
+      href: time-series-insights-customer-data-requests.md
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Prezzi

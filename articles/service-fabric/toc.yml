@@ -658,6 +658,17 @@
       href: service-fabric-cluster-fabric-settings.md
     - name: Schema XML del modello del servizio
       href: service-fabric-service-model-schema.md
+      items:
+        - name: Elementi
+          href: service-fabric-service-model-schema-elements.md
+        - name: Tipi complessi
+          href: service-fabric-service-model-schema-complex-types.md
+        - name: Gruppi di attributi
+          href: service-fabric-service-model-schema-attribute-groups.md
+        - name: Tipi semplici
+          href: service-fabric-service-model-schema-simple-types.md
+        - name: Gruppi di elementi
+          href: service-fabric-service-model-schema-element-groups.md
     - name: Variabili di ambiente
       href: service-fabric-environment-variables-reference.md
 - name: Risorse

@@ -3,9 +3,9 @@ title: Panoramica del routing di contenuti basato su URL | Documentazione Micros
 description: Questa pagina fornisce una panoramica del routing di contenuti basato su URL del gateway applicazione, della configurazione UrlPathMap e della regola PathBasedRouting.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 ms.assetid: 4409159b-e22d-4c9a-a103-f5d32465d163
 ms.service: application-gateway
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
-ms.author: davidmu
-ms.openlocfilehash: a5d26a603eb1bbe3ce7f8f95b19ba816c32222c2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: f6108b5ac628b8bc2c1d74dcc871f96115094859
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="url-path-based-routing-overview"></a>Panoramica del routing basato su percorso URL
 
@@ -30,7 +30,7 @@ Nell'esempio seguente, il gateway applicazione soddisfa le richieste di traffico
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Le richieste per http://contoso.com/video/* vengono instradate a VideoServerPool, mentre quelle per http://contoso.com/images/* vengono instradate a ImageServerPool. In caso di mancata corrispondenza dei percorsi, viene selezionato DefaultServerPool.
+Per le richieste http://contoso.com/video/* viene eseguito il rounting verso VideoServerPool mentre per le richieste http://contoso.com/images/* verso il rounting verso ImageServerPool. In caso di mancata corrispondenza dei percorsi, viene selezionato DefaultServerPool.
 
 > [!IMPORTANT]
 > Le regole vengono elaborate nell'ordine in cui sono elencate nel portale. È consigliabile configurare i listener multisito prima di configurare un listener di base.  In questo modo il traffico viene indirizzato al back-end appropriato. Se un listener di base viene elencato per primo e corrisponde a una richiesta in ingresso, sarà tale listener a elaborarla.

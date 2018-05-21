@@ -1,11 +1,11 @@
 ---
-title: "Rete per i set di scalabilità di macchine virtuali di Azure | Microsoft Docs"
-description: "Configurazione delle proprietà della rete per i set di scalabilità di macchine virtuali di Azure."
+title: Rete per i set di scalabilità di macchine virtuali di Azure | Microsoft Docs
+description: Configurazione delle proprietà della rete per i set di scalabilità di macchine virtuali di Azure.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 27f1ec18026b38d5cdb2aecfde2d01f32a86349e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1db4c7ae78320eb08b2aa0b9da701d9678baf798
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rete per i set di scalabilità di macchine virtuali di Azure
 
@@ -55,9 +55,28 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 
 ```
 
+## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Creare un set di scalabilità che fa riferimento a un gateway applicazione
+Per creare un set di scalabilità che usa un gateway applicazione, fare riferimento al pool di indirizzi back-end del gateway applicazione nella sezione Configurazioni IP del set di scalabilità, come in questa configurazione ARM modello:
+```json
+"ipConfigurations": [{
+  "name": "{config-name}",
+  "properties": {
+  "subnet": {
+    "id": "{subnet-id}"
+  },
+  "ApplicationGatewayBackendAddressPools": [{
+    "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/applicationGateways/{gateway-name}/backendAddressPools/{pool-name}"
+  }]
+}]
+```
+
+>[!NOTE]
+> Si noti che il gateway applicazione deve trovarsi nella stessa rete virtuale del set di scalabilità, ma in una subnet diversa.
+
+
 ## <a name="configurable-dns-settings"></a>Impostazioni DNS configurabili
 Per impostazione predefinita, ai set di scalabilità vengono applicate le impostazioni DNS specifiche della rete virtuale e della subnet in cui sono state create. È tuttavia possibile configurare direttamente le impostazioni DNS per un set di scalabilità.
-~
+
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Creazione di un set di scalabilità con server DNS configurabili
 Per creare un set di scalabilità con una configurazione DNS personalizzata usando l'interfaccia della riga di comando 2.0, aggiungere l'argomento **--dns-servers** al comando **vmss create**, seguito dagli indirizzi IP dei server separati da spazi, Ad esempio: 
 ```bash
@@ -145,7 +164,7 @@ PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 
 Per eseguire una query degli indirizzi IP pubblici assegnati alle macchine virtuali del set di scalabilità, usare [Azure Resource Explorer](https://resources.azure.com) o l'API REST di Azure con versione **2017-03-30** o successiva.
 
-Per visualizzare gli indirizzi IP pubblici per un set di scalabilità usando Resource Explorer, esaminare la sezione **publicipaddresses** sotto il set di scalabilità. Ad esempio: https://resources.azure.com/subscriptions/_ID_sottoscrizione_/resourceGroups/_gruppo_di_risorse_/providers/Microsoft.Compute/virtualMachineScaleSets/_set_di_scalabilità_di_macchine_virtuali_/publicipaddresses
+Per visualizzare gli indirizzi IP pubblici per un set di scalabilità usando Resource Explorer, esaminare la sezione **publicipaddresses** sotto il set di scalabilità. Ad esempio: https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
 
 ```
 GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/02/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 47894f0a3d7b74c8d0e271afb7d2657ce7d3be0c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ebad9304c38333173cec66c6b5574a9b45b17cd1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Codici di errore del report delle attività di accesso nel portale di Azure Active Directory
 
@@ -67,14 +67,21 @@ La sezione seguente offre una panoramica completa di tutti gli errori possibili 
 |50058|Non sono state trovate informazioni sull'identità dell'utente tra le credenziali specificate. Oppure, l'utente non è stato trovato nel tenant. Oppure, è stata inviata una richiesta di accesso automatica ma nessun utente ha eseguito l'accesso. Oppure, il servizio non è riuscito ad autenticare l'utente.|
 |50072|L'utente deve registrarsi per il secondo fattore di autenticazione (interattivo).|
 |50074|L'utente non ha superato la richiesta di verifica MFA.|
+|50076|L'utente non ha superato la richiesta di verifica MFA (non interattivo)|
 |50079|L'utente deve registrarsi per l'autenticazione del secondo fattore.|
 |50089|La convalida del token di flusso non è riuscita perché il token di flusso è scaduto.|
 |50097|Il dispositivo non è autenticato.|
 |50105|L'utente connesso non è assegnato a un ruolo per questa applicazione.|
+|50125|L'accesso è stato interrotto a causa della reimpostazione della password o una voce di registrazione password|
 |50126|Sono stati usati un nome utente o una password non validi oppure un nome utente o una password locali non validi.|
+|50127|È necessario installare un'app broker per ottenere l'accesso al contenuto.|
+|50129|Il dispositivo non è aggiunto all'area di lavoro: per registrare il dispositivo è necessaria l'aggiunta alla rete aziendale.|
 |50131|Usato in diversi errori di accesso condizionale. Ad esempio, in caso di stato del dispositivo Windows non valido, in caso di richiesta bloccata a causa di un'attività sospetta oppure per decisioni relative a criteri di accesso e criteri di sicurezza.|
 |50133|La sessione non è valida perché è scaduta o la password è stata modificata di recente.|
+|50140|Viene richiesto il consenso dell'utente per mantenerlo connesso sul dispositivo|
 |50144|La password di Active Directory dell'utente è scaduta.|
+|53000|Il criterio di accesso condizionale richiede un dispositivo conforme e il dispositivo non è conforme.|
+|53003|L'accesso è stato bloccato a causa di criteri di accesso condizionale.|
 |65001|L'applicazione X non è autorizzata ad accedere all'applicazione Y o l'autorizzazione è stata revocata. Oppure, l'utente o l'amministratore non ha acconsentito all'uso dell'applicazione con ID X. Inviare una richiesta di autorizzazione interattiva per questo utente e questa risorsa. Oppure, l'utente o l'amministratore non ha acconsentito all'uso dell'applicazione con ID X. Inviare all'amministratore del tenant una richiesta di autorizzazione ad agire per conto dell'applicazione Y per la risorsa Z.|
 |65005|L'elenco di accesso alle risorse necessario per l'applicazione non contiene applicazioni individuabili dalla risorsa. Oppure, l'applicazione client ha richiesto l'accesso a una risorsa non specificata nell'elenco di accesso alle risorse necessario. Oppure, il servizio Graph ha restituito una richiesta non valida o la risorsa non è stata trovata.|
 |70001|L'applicazione denominata X non è stata trovata nel tenant denominato Y. Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o non è consentita da uno degli utenti nel tenant. La richiesta di autenticazione potrebbe essere stata inviata al tenant sbagliato.|
@@ -98,8 +105,7 @@ La sezione seguente offre una panoramica completa di tutti gli errori possibili 
 |81013|Impossibile trovare l'oggetto utente in base alle informazioni nel ticket Kerberos dell'utente.|
 |90014|Usato in diversi casi quando un campo previsto non è presente nelle credenziali.|
 |90093|Graph ha restituito un codice di errore non consentito per la richiesta.|
-
-
+|90094|È necessario il consenso dell'amministratore.|
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni, vedere [Report delle attività di accesso nel portale di Azure Active Directory](active-directory-reporting-activity-sign-ins.md).

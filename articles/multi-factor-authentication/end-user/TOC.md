@@ -14,3 +14,4 @@
 ### [Accedere tramite il telefono](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Backup e ripristino delle credenziali dell'account](microsoft-authenticator-app-backup-and-recovery.md)
 ### [Domande frequenti](microsoft-authenticator-app-faq.md)
+### [Aggiornamenti dell'esperienza di accesso](sign-in-experience-updates.md)

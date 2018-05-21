@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: af01676276232f4dba5a11c219a3b83259945dfb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6632ab962f3df0cfee8d28d7dad40bad8baf3f50
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
 
@@ -64,7 +64,7 @@ Per altre informazioni sulla sincronizzazione con Azure AD, vedere l'articolo [I
 
 La gestione di più directory rappresenta un problema di amministrazione non solo per il reparto IT, ma anche per gli utenti finali che devono tenere a mente più password. L'accesso [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) offre agli utenti la possibilità di usare lo stesso set di credenziali per accedere alle risorse necessarie, indipendentemente dalla posizione di tali risorse in locale o nel cloud.
 
-Usare SSO per consentire agli utenti di accedere alle [applicazioni SaaS](../active-directory/active-directory-appssoaccess-whatis.md) in base all'account aziendale in Azure AD. Questo vale non solo per le app SaaS Microsoft, ma anche per altre app come [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) e [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). L'applicazione può essere configurata per l'uso di Azure AD come provider di [identità basata su SAML](../active-directory/fundamentals-identity.md). Come controllo di sicurezza, Azure AD non rilascia un token per l'accesso all'applicazione a meno che l'accesso non sia stato concesso con Azure AD. L'accesso può essere concesso direttamente agli utenti o attraverso un gruppo di cui sono membri.
+Usare SSO per consentire agli utenti di accedere alle [applicazioni SaaS](../active-directory/manage-apps/what-is-single-sign-on.md) in base all'account aziendale in Azure AD. Questo vale non solo per le app SaaS Microsoft, ma anche per altre app come [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) e [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). L'applicazione può essere configurata per l'uso di Azure AD come provider di [identità basata su SAML](../active-directory/fundamentals-identity.md). Come controllo di sicurezza, Azure AD non rilascia un token per l'accesso all'applicazione a meno che l'accesso non sia stato concesso con Azure AD. L'accesso può essere concesso direttamente agli utenti o attraverso un gruppo di cui sono membri.
 
 > [!NOTE]
 > La decisione di usare il Single Sign-On influisce sulla modalità di integrazione della directory locale con la directory cloud. Per usare SSO, è necessario usare la federazione, perché la sincronizzazione della directory offre solo un'[esperienza Same Sign-On](../active-directory/active-directory-aadconnect.md).

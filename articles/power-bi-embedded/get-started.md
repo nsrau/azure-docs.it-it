@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/11/2018
 ms.author: maghan
-ms.openlocfilehash: 7b604f9a26fc4c9a2c76a28ca01d066fe1640718
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 692edc9a685ce7d1906f13f08c763909a2513b03
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Introduzione a Microsoft Power BI Embedded
 
@@ -48,7 +48,7 @@ Sono disponibili esempi introduttivi. Per una procedura dettagliata relativa all
 Creare capacità di Power BI Embedded in Microsoft Azure per spostare l'applicazione in produzione. Per informazioni su come creare capacità, vedere [Create Power BI Embedded capacity in the Azure portal](create-capacity.md) (Creare capacità di Power BI Embedded nel portale di Azure).
 
 > [!IMPORTANT]
-> Poiché i token di incorporamento sono destinati solo ai test di sviluppo, il numero di questi token che può essere generato da un account proprietario di Power BI è limitato. Per gli scenari di incorporamento di produzione, [è necessario acquistare capacità](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical). Dopo aver acquistato la capacità necessaria, la generazione di token di incorporamento è illimitata.
+> Poiché i token di incorporamento sono destinati solo ai test di sviluppo, il numero di questi token che può essere generato da un account proprietario di Power BI è limitato. Per gli scenari di incorporamento di produzione, [è necessario acquistare capacità](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical). Dopo aver acquistato la capacità necessaria, la generazione di token di incorporamento è illimitata. Passare a [Ottenere funzioni disponibili](https://msdn.microsoft.com/en-us/library/mt846473.aspx) per controllare l'uso incorporato corrente in percentuale.
 
 Gestire la capacità nel portale di amministrazione di Power BI. Assegnare un assegnatore di area di lavoro per assistenza con le aree di lavoro delle app. Per altre informazioni, vedere [Gestire capacità all'interno di Power BI Premium e Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 

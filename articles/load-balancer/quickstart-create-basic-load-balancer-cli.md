@@ -1,27 +1,29 @@
 ---
-title: Creare un servizio di bilanciamento del carico pubblico - Interfaccia della riga di comando di Azure | Microsoft Docs
-description: Informazioni su come creare un servizio di bilanciamento del carico pubblico con l'interfaccia della riga di comando di Azure
+title: 'Guida introduttiva: Creare un servizio di bilanciamento del carico pubblico - Interfaccia della riga di comando di Azure | Microsoft Docs'
+description: Questa guida introduttiva mostra come creare un servizio di bilanciamento del carico pubblico con l'interfaccia della riga di comando di Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
+Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/19/2017
+ms.date: 03/19/2018
 ms.author: kumud
-ms.openlocfilehash: f2ba819c2341b2e481c2cfa5d5231f4cd5b6295b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: 263cb6e588c9714504a5bb5d9a064f5c4be73e9d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Creare un servizio pubblico di bilanciamento del carico per le macchine virtuali tramite l'interfaccia della riga di comando di Azure 2.0
+# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Guida introduttiva: Creare un servizio di bilanciamento del carico pubblico per le macchine virtuali tramite l'interfaccia della riga di comando di Azure 2.0
 
 Questa guida introduttiva illustra come creare un servizio Azure Load Balancer. Per testare il servizio di bilanciamento del carico, si distribuiscono due macchine virtuali (VM) che eseguono Ubuntu Server e si bilancia il carico di un'app Web tra di esse.
 
