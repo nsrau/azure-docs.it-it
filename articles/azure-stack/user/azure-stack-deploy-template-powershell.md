@@ -1,11 +1,11 @@
 ---
-title: Distribuire i modelli con PowerShell nello Stack di Azure | Documenti Microsoft
-description: Informazioni su come distribuire una macchina virtuale utilizzando un modello di gestione risorse e PowerShell.
+title: Distribuire i modelli di utilizzo di PowerShell nello Stack di Azure | Documenti Microsoft
+description: Distribuire un modello allo Stack di Azure usando PowerShell.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
 ms.service: azure-stack
 ms.workload: na
@@ -14,27 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: d271b155d65a7dd95a92262da338cf3a272d140b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.reviewer: ''
+ms.openlocfilehash: 4af82deef029120aa2699e7c69c501ae61a1e8bd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/20/2018
 ---
-# <a name="deploy-templates-in-azure-stack-using-powershell"></a>Distribuire modelli in Azure Stack tramite PowerShell
+# <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Distribuire un modello allo Stack di Azure usando PowerShell
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Utilizzare PowerShell per distribuire modelli di gestione risorse di Azure il Kit di sviluppo dello Stack di Azure.  Modelli di gestione risorse distribuiscono ed eseguire il provisioning di tutte le risorse per l'applicazione in un'operazione singola, coordinata.
+È possibile utilizzare PowerShell per distribuire modelli di Azure Resource Manager allo Stack di Azure. In questo articolo viene illustrato come utilizzare PowerShell per distribuire un modello.
 
 ## <a name="run-azurerm-powershell-cmdlets"></a>Eseguire cmdlet di PowerShell di Gestione risorse di Azure
-In questo esempio, si esegue uno script per distribuire una macchina virtuale al Kit di sviluppo dello Stack di Azure utilizzando un modello di gestione risorse.  Prima di procedere, verificare di aver [configurato PowerShell](azure-stack-powershell-configure-user.md)  
 
-Il disco rigido virtuale utilizzato in questo modello di esempio è Windows Server-2012 R2 Datacenter.
+Questo esempio Usa i cmdlet AzureRM PowerShell e un modello archiviato su GitHub. Il modello crea una macchina virtuale di Windows Server 2012 R2 Datacenter.
 
-1. Passare a <http://aka.ms/AzureStackGitHub>, cercare il **101-simple-windows-vm** , modello e salvarlo nel percorso seguente: c:\\modelli\\ azuredeploy-101-simple-windows-vm.json.
-2. In PowerShell eseguire lo script di distribuzione seguente. Sostituire *username* e *password* con il nome utente e password. Nei successivi usi, incrementare il valore per il *$myNum* parametro per evitare la sovrascrittura della distribuzione.
-   
+>[!NOTE]
+>Prima di procedere in questo esempio, assicurarsi di aver [configurato PowerShell](azure-stack-powershell-configure-user.md) per un utente di Azure Stack.
+
+1. Passare a <http://aka.ms/AzureStackGitHub> e individuare il **101-simple-windows-vm** modello. Salvare il modello in questo percorso: c:\\modelli\\azuredeploy-101-simple-windows-vm.json.
+2. Aprire un prompt dei comandi di PowerShell con privilegi elevati.
+3. Sostituire *username* e *password* nello script seguente con il nome utente e password e quindi eseguire lo script.
+
    ```PowerShell
        # Set Deployment Variables
        $myNum = "001" #Modify this per deployment
@@ -56,9 +59,12 @@ Il disco rigido virtuale utilizzato in questo modello di esempio è Windows Serv
            -VmName myVM$myNum `
            -WindowsOSVersion 2012-R2-Datacenter
    ```
-3. Aprire Azure Stack portale, fare clic **Sfoglia**, fare clic su **macchine virtuali**e cercare la nuova macchina virtuale (*myDeployment001*).
 
+   >[!IMPORTANT]
+   >Ogni volta che si esegue questo script, incrementare il valore del parametro "$myNum" per impedire la sovrascrittura della distribuzione.
+
+4. Aprire l'istruzione select portale Azure Stack **Sfoglia**, quindi selezionare **macchine virtuali** per trovare la nuova macchina virtuale (*myDeployment001*).
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Distribuire modelli con Visual Studio](azure-stack-deploy-template-visual-studio.md)
 
+[Distribuire modelli con Visual Studio](azure-stack-deploy-template-visual-studio.md)

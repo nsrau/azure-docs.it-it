@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Note sulla versione
       items:
+        - name: aggiornamento 1804
+          href: azure-stack-update-1804.md
         - name: aggiornamento 1803
           href: azure-stack-update-1803.md
         - name: aggiornamento 1802
           href: azure-stack-update-1802.md
         - name: aggiornamento 1712
           href: azure-stack-update-1712.md
-        - name: aggiornamento 1711
-          href: azure-stack-update-1711.md
 - name: Guide introduttive
   expanded: true
   items:
@@ -156,6 +156,8 @@
               href: azure-stack-backup-enable-backup-powershell.md
             - name: Eseguire il backup di Azure Stack
               href: azure-stack-backup-back-up-azure-stack.md
+            - name: Eseguire il backup di file e le applicazioni nello Stack di Azure
+              href: ..\backup\backup-mabs-files-applications-azure-stack.md?toc=%2fazure%2fazure-stack%2ftoc.json
             - name: Recupero dalla perdita di dati
               href: azure-stack-backup-recover-data.md
             - name: Backup e le procedure consigliate
@@ -245,6 +247,8 @@
               href: azure-stack-app-service-configure-deployment-sources.md
             - name: Servizio app di note sulla versione 1 di aggiornamento dello Stack di Azure
               href: azure-stack-app-service-release-notes-update-one.md
+            - name: Servizio app di note sulla versione di Azure Stack update 2
+              href: azure-stack-app-service-release-notes-update-two.md
         - name: Popolare Marketplace
           items:
             - name: Panoramica del Marketplace

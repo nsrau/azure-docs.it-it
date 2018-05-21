@@ -12,20 +12,20 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 7907056635049ce90a2653b0d58ef6299b77c71e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5b4281de4a6c2efee8e96f98a3cd46fec191fe22
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Aggiungere un provider di risorse del servizio App a un ambiente Azure Stack disconnesso protetto da AD FS
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Applicare l'aggiornamento 1802 al sistema Azure Stack integrato o distribuire il kit di sviluppo dello Stack di Azure più recente prima di distribuire il servizio App di Azure.
+> Applicare l'aggiornamento 1804 al sistema Azure Stack integrato o distribuire il kit di sviluppo dello Stack di Azure più recente prima di distribuire Azure App Service 1.2.
 >
 >
 
@@ -80,7 +80,7 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
 7. Nella pagina successiva:
     1. Fare clic su di **Connetti** accanto al pulsante il **sottoscrizioni di Azure Stack** casella.
         - Specificare l'account amministratore. Ad esempio, cloudadmin@azurestack.local. Immettere la password e fare clic su **Accedi**.
-    2. Nel **sottoscrizioni di Azure Stack** , selezionare la sottoscrizione.
+    2. Nel **sottoscrizioni di Azure Stack** , quindi selezionare il **predefinito sottoscrizione Provider**.
     3. Nel **percorsi Stack Azure** , selezionare il percorso che corrisponde all'area in cui esegue la distribuzione. Ad esempio, selezionare **locale** se la distribuzione al Kit di sviluppo dello Stack di Azure.
     4. Fare clic su **Avanti**.
 
@@ -126,7 +126,7 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
 
     ![Programma di installazione del servizio App][11]
 
-12. Immettere i dettagli di SQL Server per l'istanza del server utilizzato per ospitare i database di provider di risorse di servizio App e quindi fare clic su **Avanti**. Il programma di installazione convalida le proprietà di connessione SQL.
+12. Immettere i dettagli di SQL Server per l'istanza del server utilizzato per ospitare i database di provider di risorse di servizio App e quindi fare clic su **Avanti**. Il programma di installazione convalida le proprietà di connessione SQL. Si **necessario** immettere l'indirizzo ip interno o nome di dominio completo per il nome del Server SQL.
 
 > [!NOTE]
 > Il programma di installazione tenta di verificare la connettività a SQl Server prima di procedere.  Tuttavia, se si sceglie di distribuire in una rete virtuale esistente, il programma di installazione potrebbe non essere in grado di connettersi a SQL Server e viene visualizzato un avviso che chiede se desideri continuare.  Verificare le informazioni di SQL Server e continuare se sono corrette.

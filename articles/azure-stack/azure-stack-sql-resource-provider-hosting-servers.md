@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/18/2018
 ms.author: jeffgilb
-ms.openlocfilehash: a89e5bf48c24abf72f18ee98f2dcb0eda6db35cd
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e08c0bfd3cbed64f5042e469801e20c913c2f70e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Aggiungere server di hosting per il provider di risorse SQL
 È possibile utilizzare le istanze di SQL in macchine virtuali all'interno del [Azure Stack](azure-stack-poc.md), o un'istanza all'esterno dell'ambiente dello Stack di Azure, fornito al provider di risorse può connettersi ad essa. I requisiti generali sono:
@@ -96,25 +96,21 @@ Configurazione delle istanze di SQL Always On richiede passaggi aggiuntivi e inc
 > [!NOTE]
 > L'adapter SQL RP _solo_ supporta SQL 2016 SP1 Enterprise Edition o istanze successive per Always On, poiché richiede la nuova funzionalità di SQL, ad esempio il seeding automatico. Oltre all'elenco precedente comune di requisiti:
 
-* È necessario fornire un file server oltre i computer SQL Always On. È presente un [modello di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-ha) che può creare questo ambiente. Inoltre può fungere da una Guida per la creazione di un'istanza personalizzata.
+In particolare, è necessario abilitare [il Seeding automatico](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) su ogni gruppo di disponibilità per ogni istanza di SQL Server:
 
-* È necessario configurare SQL Server. In particolare, è necessario abilitare [il Seeding automatico](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) in ogni gruppo di disponibilità per ogni istanza di SQL Server.
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>]
+      MODIFY REPLICA ON 'InstanceName'
+      WITH (SEEDING_MODE = AUTOMATIC)
+  GO
+  ```
 
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>]
-    MODIFY REPLICA ON 'InstanceName'
-    WITH (SEEDING_MODE = AUTOMATIC)
-GO
-```
+Utilizzare questi comandi SQL su istanze secondarie:
 
-Nelle istanze secondarie
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
-GO
-
-```
-
-
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
+  GO
+  ```
 
 Per aggiungere i server di hosting SQL Always On, seguire questi passaggi:
 
@@ -124,14 +120,16 @@ Per aggiungere i server di hosting SQL Always On, seguire questi passaggi:
 
     Il **server di Hosting SQL** pannello è dove è possibile connettersi il Provider di risorse di SQL Server per le istanze effettive di SQL Server che fungono da back-end del provider di risorse.
 
-
-3. Riempire il form con i dettagli della connessione dell'istanza di SQL Server, assicurarsi di usare l'indirizzo FQDN o IPv4 del sempre sul Listener (e il numero di porta facoltativa). Fornire le informazioni sull'account per l'account che è configurato con privilegi di amministratore di sistema.
+3. Riempire il form con i dettagli della connessione dell'istanza di SQL Server, assicurarsi di usare l'indirizzo FQDN del sempre sul Listener (e numero di porta facoltativo). Fornire le informazioni sull'account per l'account che è configurato con privilegi di amministratore di sistema.
 
 4. Selezionare questa casella per abilitare il supporto per le istanze di SQL gruppo di disponibilità AlwaysOn.
 
     ![Server di hosting](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
-5. Aggiungere l'istanza SQL Always On a uno SKU. Con Always On le istanze nella stessa SKU non è possibile combinare i server autonomi. Che verrà determinato quando si aggiunge il primo server di hosting. Si tenta di combinare diversi tipi in un secondo momento verrà generato un errore.
+5. Aggiungere l'istanza SQL Always On a uno SKU. 
+
+> [!IMPORTANT]
+> Con Always On le istanze nella stessa SKU non è possibile combinare i server autonomi. È stato effettuato un tentativo di combinare tipi dopo l'aggiunta del server di hosting prima comporta un errore.
 
 
 ## <a name="making-sql-databases-available-to-users"></a>Rendere disponibili agli utenti i database SQL

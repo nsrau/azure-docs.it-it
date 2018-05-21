@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/24/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4fb522e1a5a3c1adeaf5f46b8ccc3b9a852f4a88
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bc88140bf1adea49ff4bc76667d30a379f829bbc
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Utilizzare i database MySQL in Microsoft Azure Stack
 
@@ -117,7 +117,7 @@ Lo script esegue le operazioni:
 Di seguito è riportato un esempio che è possibile eseguire dal prompt di PowerShell. Assicurarsi di modificare le informazioni sull'account e password in base alle esigenze:
 
 
-```
+```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
@@ -214,6 +214,10 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
     - capacità di database
     - Backup automatico
     - server ad alte prestazioni per i singoli reparti di riserva
+
+
+  > [!IMPORTANT]
+  > Con Always On le istanze nella stessa SKU non è possibile combinare i server autonomi. È stato effettuato un tentativo di combinare tipi dopo l'aggiunta del server di hosting prima comporta un errore.
  
 
 Il nome SKU deve riflettere le proprietà in modo che i tenant è possono posizionare i database in modo appropriato. Tutti i server di hosting in un'unità SKU devono avere le stesse funzionalità.
