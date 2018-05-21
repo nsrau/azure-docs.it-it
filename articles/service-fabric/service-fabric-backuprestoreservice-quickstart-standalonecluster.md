@@ -9,16 +9,16 @@ editor: hrushib
 ms.assetid: FAADBCAB-F0CF-4CBC-B663-4A6DCCB4DEE1
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: b8d81e713bce8cdbb2c8000c740b16553620fe7f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cfbc0e6ca255bd005bb6e4cc381a9121347fe227
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Backup e ripristino periodici in Azure Service Fabric (Anteprima)
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.lasthandoff: 04/19/2018
 > * [Cluster autonomi](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
 > 
 
-Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica lo sviluppo e la gestione di applicazioni cloud basate su microservizi distribuiti e affidabili. Consente l'esecuzione di microservizi senza stato e con stato. I servizi con stato possono mantenere lo stato modificabile e autorevole oltre alla richiesta e alla risposta o una transazione completa. Se un servizio con stato non funziona per molto tempo o perde informazioni a causa di un'emergenza, potrebbe essere necessario ripristinare un backup recente del relativo stato per poter continuare a fornire servizi dopo il back up.
+Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica lo sviluppo e la gestione di applicazioni cloud basate su microservizi distribuiti e affidabili. Consente l'esecuzione di microservizi senza stato e con stato. I servizi con stato possono mantenere lo stato modificabile e autorevole oltre alla richiesta e alla risposta o una transazione completa. Se un servizio con stato non funziona per molto tempo o perde informazioni a causa di un'emergenza, potrebbe essere necessario ripristinare un backup recente del relativo stato per poter continuare a fornire il servizio dopo il back up.
 
-Service Fabric consente di replicare lo stato tra più nodi per assicurarsi che il servizio sia a disponibilità elevata. Anche in caso di errore di un nodo nel cluster, il servizio rimarrà quindi comunque disponibile. In alcuni casi, tuttavia, è comunque consigliabile che i dati del servizio siano affidabili contro errori maggiori.
+Service Fabric consente di replicare lo stato tra più nodi per assicurarsi che il servizio sia a disponibilità elevata. Anche in caso di errore di un nodo nel cluster, il servizio rimarrà quindi comunque disponibile. In alcuni casi, tuttavia, è comunque preferibile che i dati del servizio siano protetti contro errori maggiori.
  
 Ad esempio, è possibile che in un servizio sia consigliabile eseguire il backup dei dati per evitare gli scenari seguenti:
 - Perdita definitiva di un intero cluster di Service Fabric.
@@ -37,9 +37,9 @@ Ad esempio, è possibile che in un servizio sia consigliabile eseguire il backup
 - Bug nel servizio che provocano il danneggiamento dei dati. Ad esempio, questo problema può verificarsi quando un aggiornamento del codice di servizio inizia a scrivere dati non corretti in una raccolta Reliable Collections. In tal caso, potrebbe essere necessario ripristinare uno stato precedente sia per il codice che per i dati.
 - Elaborazione dati offline. Potrebbe essere utile eseguire offline l'elaborazione dei dati per la business intelligence separatamente dal servizio che genera i dati.
 
-Service Fabric fornisce un'API incorporata per eseguire [backup e ripristino](service-fabric-reliable-services-backup-restore.md) in un determinato momento. Gli sviluppatori di applicazioni possono usare queste API per eseguire periodicamente il backup dello stato del servizio. Inoltre, se gli amministratori del servizio desiderano attivare un backup dall'esterno del servizio in un momento specifico, ad esempio prima di aggiornare l'applicazione, gli sviluppatori devono esporre il backup (e il ripristino) come API dal servizio. Il mantenimento dei backup rappresenta un costo aggiuntivo. Ad esempio, è possibile eseguire 5 backup incrementali ogni mezz'ora, seguiti da un backup completo. Dopo il backup completo, è possibile eliminare i backup incrementali precedenti. Questo approccio richiede un codice aggiuntivo che comporta costi aggiuntivi durante lo sviluppo dell'applicazione.
+Service Fabric fornisce un'API incorporata per eseguire [backup e ripristino](service-fabric-reliable-services-backup-restore.md) in un determinato momento. Gli sviluppatori di applicazioni possono usare queste API per eseguire periodicamente il backup dello stato del servizio. Inoltre, se gli amministratori del servizio desiderano attivare un backup dall'esterno del servizio in un momento specifico, ad esempio prima di aggiornare l'applicazione, gli sviluppatori devono esporre il backup (e il ripristino) come API dal servizio. Mantenere i backup rappresenta un costo aggiuntivo ulteriore. Ad esempio, potrebbe essere necessario eseguire 5 backup incrementali ogni mezz'ora, seguiti da un backup completo. Dopo il backup completo, è possibile eliminare i backup incrementali precedenti. Questo approccio richiede un codice aggiuntivo che comporta costi ulteriori durante lo sviluppo delle applicazioni.
 
-Il backup dei dati delle applicazioni su base periodica è una necessità fondamentale per la gestione di un'applicazione distribuita e la protezione contro la perdita di dati o la perdita prolungata della disponibilità del servizio. Service Fabric fornisce un servizio opzionale di backup e ripristino, che consente di configurare il backup periodico dei servizi Reliable con stato (inclusi i servizi Actor) senza dover scrivere alcun codice aggiuntivo. Facilita inoltre il ripristino dei backup precedentemente eseguiti. 
+Il backup dei dati delle applicazioni a cadenza periodica è una necessità fondamentale per la gestione di un'applicazione distribuita e per proteggersi contro la perdita di dati o la perdita prolungata della disponibilità del servizio. Service Fabric fornisce un servizio opzionale di backup e ripristino, che consente di configurare il backup periodico dei servizi Reliable con stato (inclusi i servizi Actor) senza dover scrivere alcun codice aggiuntivo. Facilita inoltre il ripristino dei backup precedentemente eseguiti. 
 
 > [!NOTE]
 > La funzione di backup e ripristino periodico è attualmente in **Anteprima** e non è supportata per i carichi di lavoro di produzione. 
@@ -53,7 +53,7 @@ Service Fabric fornisce un set di API per ottenere le seguenti funzionalità rel
 - Enumerazione di backup
 - Attivazione di un backup ad hoc di una partizione
 - Ripristino di una partizione utilizzando un backup precedente
-- Sospensione temporanea di backup
+- Sospensione temporanea dei backup
 - Gestione della memorizzazione dei backup (a breve)
 
 ## <a name="prerequisites"></a>prerequisiti
@@ -165,7 +165,7 @@ Dopo aver abilitato il backup per l'applicazione, tutte le partizioni appartenen
 
 ![Evento di integrità del backup della partizione][0]
 
-### <a name="list-backups"></a>Elenco backup
+### <a name="list-backups"></a>Elenco dei backup
 
 I backup associati a tutte le partizioni appartenenti ai servizi Reliable con stato e agli Reliable Actors dell'applicazione possono essere enumerati utilizzando gli API _GetBackups_. A seconda del requisito, i backup possono essere enumerati per applicazione, servizio o partizione.
 
