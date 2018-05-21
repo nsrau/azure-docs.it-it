@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d1c9f4dd8504c2409663cb87b0c0d56164229ed2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 1d31b11c3307cc2e54b91e68e1e1a3811ae2ef96
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Come viene offerto l'accesso Single Sign-On dal proxy di applicazione di Azure AD?
 
@@ -60,7 +60,7 @@ Per informazioni sulla configurazione dell'accesso basato su password, vedere [I
 
 Se è già stata configurata una soluzione di accesso Single Sign-On per le identità locali, scegliere **Accesso collegato**. Questa opzione consente ad Azure Active Directory di sfruttare le soluzioni Single Sign-On esistenti, ma continua a offrire agli utenti l'accesso remoto all'applicazione. 
 
-Per altre informazioni sul linked sign-on (accesso collegato), noto formalmente come Single Sign-On esistente, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Per altre informazioni sul linked sign-on (accesso collegato), noto formalmente come Single Sign-On esistente, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## <a name="integrated-windows-authentication"></a>Autenticazione integrata di Windows
 

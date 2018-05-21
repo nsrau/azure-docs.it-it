@@ -14,21 +14,21 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/2/2017
 ms.author: hshapiro
-ms.openlocfilehash: d089dd24df3308994aab0cf135da8be9a3e28d79
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 095cc724beb9f35896bd02e299523839a9f43f4b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: compilare un'app Flask con l'API MongoDB
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB.
 
-Questa guida introduttiva usa l'[esempio di Flask](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) seguente e illustra come compilare una semplice app Flask To-Do con l'[emulatore di Azure Cosmos DB](/local-emulator.md) e l'[API di MongoDB](mongodb-introduction.md) in Azure Cosmos DB invece che con MongoDB.
+Questa guida introduttiva usa l'[esempio di Flask](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) seguente e illustra come compilare una semplice app Flask To-Do con l'[emulatore di Azure Cosmos DB](local-emulator.md) e l'[API di MongoDB](mongodb-introduction.md) in Azure Cosmos DB invece che con MongoDB.
 
 ## <a name="prerequisites"></a>prerequisiti
 
-- Scaricare l'[emulatore di Azure Cosmos DB](/local-emulator.md). L'emulatore è attualmente supportato solo in Windows. Viene illustrato come è possibile usare l'esempio con una chiave di produzione di Azure in qualsiasi piattaforma.
+- Scaricare l'[emulatore di Azure Cosmos DB](local-emulator.md). L'emulatore è attualmente supportato solo in Windows. Viene illustrato come è possibile usare l'esempio con una chiave di produzione di Azure in qualsiasi piattaforma.
 
 - Se necessario, è possibile installare rapidamente [Visual Studio Code](https://code.visualstudio.com/Download) per la piattaforma in uso (Windows, Mac, Linux).
 

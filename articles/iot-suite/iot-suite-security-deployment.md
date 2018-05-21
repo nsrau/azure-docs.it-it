@@ -1,5 +1,5 @@
 ---
-title: Proteggere la distribuzione di IoT (Internet delle cose) | Microsoft Docs
+title: Proteggere la distribuzione di IoT (Internet delle cose) | Documentazione Microsoft
 description: Questo articolo illustra come proteggere la distribuzione di IoT
 services: iot-suite
 suite: iot-suite
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: c14d2082854fe88df9d1139c619b061699e443aa
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 995759cf4831deedc642c0850603947b22ee1222
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
@@ -50,5 +50,5 @@ Gli acceleratori di soluzioni IoT supportano i pacchetti di crittografia seguent
 Informazioni sulla protezione dell'hub IoT sono disponibili in [Controllare l'accesso all'hub IoT][lnk-devguide-security] nella guida per gli sviluppatori dell'hub IoT.
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-faq]:../iot-accelerators/iot-accelerators-faq.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md
