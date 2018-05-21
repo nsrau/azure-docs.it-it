@@ -56,6 +56,9 @@
         - name: Riconoscimento di entità biomediche
           href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
+        - name: Classificazione delle immagini per i tumori della pelle
+          href: isic-image-classification.md
+          maintainContext: true
     - name: Spark con PySpark e Scala
       href: walkthroughs-spark.md
       items:
