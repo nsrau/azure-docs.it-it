@@ -5,14 +5,14 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: overview
-ms.date: 04/23/2018
+ms.date: 05/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2a2818be8ef609946e53f585aadb0a5b4ac0f3a9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27b394a6b2d2f85afeb809fcad3b88564f3054e7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -57,7 +57,7 @@ I server di Azure Analysis Services possono essere creati nelle [aree di Azure](
 
 | Americhe | Europa | Asia/Pacifico |
 |----------|--------|--------------|
-|  Brasile meridionale<br> Canada centrale<br> Stati Uniti orientali 2<br> Stati Uniti centro-settentrionali<br> Stati Uniti centro-meridionali<br> Stati Uniti centro-occidentali<br> Stati Uniti occidentali | Europa settentrionale<br> Regno Unito meridionale<br> Europa occidentale |   Australia sudorientale<br> Giappone orientale<br> Asia sudorientale<br> India occidentale  |
+|  Brasile meridionale<br> Canada centrale<br> Stati Uniti orientali<br> Stati Uniti orientali 2<br> Stati Uniti centro-settentrionali<br> Stati Uniti centrali<br> Stati Uniti centro-meridionali<br> Stati Uniti centro-occidentali<br> Stati Uniti occidentali<br> Stati Uniti occidentali 2 | Europa settentrionale<br> Regno Unito meridionale<br> Europa occidentale |   Australia sudorientale<br> Giappone orientale<br> Asia sudorientale<br> India occidentale  |
 
 Vengono continuamente aggiunte nuove aree, quindi è possibile che questo elenco non sia completo. Scegliere una località in cui creare il server nel portale di Azure oppure usando i modelli di Azure Resource Manager. Per ottenere prestazioni ottimali, selezionare una località vicina alla base di utenti più estesa. È possibile assicurare la [disponibilità elevata](analysis-services-bcdr.md) distribuendo i modelli in server ridondanti in più aree.
 

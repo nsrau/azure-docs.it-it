@@ -9,11 +9,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 64d16182ce1992ec312ad1620d9d5cf11e0ddea8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 752df29200a5e020ccf10f511ae2f02c0d72bd48
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure
 Questo articolo illustra come configurare un indicizzatore di BLOB di Ricerca di Azure per estrarre contenuto strutturato dai BLOB JSON in Archiviazione BLOB di Azure.
@@ -23,7 +23,7 @@ I BLOB JSON in Archiviazione BLOB di Azure consistono in genere in un singolo do
 | Documento JSON | parsingMode | DESCRIZIONE | Disponibilità |
 |--------------|-------------|--------------|--------------|
 | Un solo documento per BLOB | `json` | Analizza i BLOB JSON come un singolo blocco di testo. Ogni BLOB JSON diventa un singolo documento di Ricerca di Azure. | Disponibile a livello generale nelle API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer). |
-| Più documenti per BLOB | `jsonArray` | Analizza una matrice JSON nel BLOB, dove ogni elemento della matrice diventa un documento separato di Ricerca di Azure.  | In anteprima, in [REST api-version=`2016-09-01-Preview`](search-api-2016-09-01-preview.md) e nella [versione di anteprima di .NET SDK](https://aka.ms/search-sdk-preview). |
+| Più documenti per BLOB | `jsonArray` | Analizza una matrice JSON nel BLOB, dove ogni elemento della matrice diventa un documento separato di Ricerca di Azure.  | In anteprima, in [REST api-version=`2017-11-11-Preview`](search-api-2017-11-11-preview.md) e nella [versione di anteprima di .NET SDK](https://aka.ms/search-sdk-preview). |
 
 > [!Note]
 > Le API di anteprima sono destinate alle attività di test e valutazione e non devono essere usate negli ambienti di produzione.
@@ -116,7 +116,7 @@ In alternativa, è possibile scegliere la funzionalità di anteprima per le matr
 
 Per una matrice JSON, la richiesta dell'indicizzatore usa l'API di anteprima e la modalità di analisi `jsonArray`. Questi sono gli unici due requisiti specifici delle matrici per l'indicizzazione di BLOB JSON.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -129,6 +129,8 @@ Per una matrice JSON, la richiesta dell'indicizzatore usa l'API di anteprima e l
     }
 
 Anche in questo caso, è opportuno notare che i mapping dei campi non sono obbligatori. Dato un indice con i campi "id" e "text", l'indicizzatore di BLOB è in grado di dedurre il mapping corretto senza un elenco di mapping di campi.
+
+<a name="nested-json-arrays"></a>
 
 ### <a name="nested-json-arrays"></a>Matrici JSON annidate
 Se si vuole indicizzare una matrice di oggetti JSON, ma questa matrice è annidata in un punto qualsiasi all'interno del documento? È possibile scegliere la proprietà che contiene la matrice usando la proprietà di configurazione `documentRoot` . Ad esempio, se i BLOB sono simili a questo:
