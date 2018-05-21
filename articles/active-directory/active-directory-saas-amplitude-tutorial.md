@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 5bcf666774876a6def48766f93066657862536df
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 711660b2360503c2dfa7b11e275cf5928983b688
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amplitude"></a>Esercitazione: Integrazione di Azure Active Directory con Amplitude
 
@@ -30,7 +30,7 @@ L'integrazione di Amplitude con Azure AD offre i vantaggi seguenti:
 - È possibile abilitare gli utenti per l'accesso automatico ad Amplitude (Single Sign-On) con i propri account Azure AD.
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -228,7 +228,7 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

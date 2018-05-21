@@ -2,18 +2,18 @@
 title: Creazione di database cloud scalabili | Documentazione Microsoft
 description: Creare applicazioni di database .NET scalabili con la libreria client di database elastici
 services: sql-database
-manager: jhubbard
+manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 6000b06950ddd442b76838e5632196808f893ef9
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 5a54980e866a31b576265487fdff128f53f30470
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="building-scalable-cloud-databases"></a>Creazione di database cloud scalabili
 La scalabilità orizzontale dei database può essere ottenuta facilmente con gli strumenti e le funzionalità scalabili per il database SQL di Azure. In particolare, è possibile usare la **libreria client dei database elastici** per creare e gestire i database con scalabilità orizzontale. Questa funzionalità consente di sviluppare con facilità applicazioni partizionate usando centinaia o anche migliaia di database SQL Azure. [processi elastici](sql-database-elastic-jobs-powershell.md) possono quindi essere usati per facilitare la gestione di questi database.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: d07ad69b3a1f6023cf70bb0b9a82cd54defc5c49
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 46e4466085200bf9042c4342ea5e6b37fd2fb701
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Informazioni generali sulla sicurezza della gestione delle identità di Azure
 Le soluzioni Microsoft di gestione degli accessi e delle identità consentono all'IT di proteggere l'accesso ad applicazioni e risorse nel data center aziendale e nel cloud, abilitando altri livelli di convalida, ad esempio Multi-Factor Authentication e criteri di accesso condizionale. Il monitoraggio delle attività sospette tramite funzioni avanzate di report di sicurezza, controllo e avvisi consente di attenuare i potenziali problemi di sicurezza. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) offre l'accesso Single Sign-On a migliaia di app cloud (SaaS) e alle app Web eseguite in locale.
@@ -56,7 +56,7 @@ Non solo gli utenti non devono più gestire diversi set di nomi utente e passwor
 Altre informazioni:
 
 * [Informazioni generali su Single Sign-On](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../active-directory/active-directory-appssoaccess-whatis.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../active-directory/manage-apps/what-is-single-sign-on.md)
 * [Integrare i servizi Single Sign-On di Azure Active Directory nelle app SaaS](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## <a name="reverse-proxy"></a>Proxy inverso

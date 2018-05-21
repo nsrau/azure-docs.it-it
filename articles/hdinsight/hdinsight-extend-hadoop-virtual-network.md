@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: cb005549fcd9a5850c990d8ef8acb724443f9908
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3df32c39152c8dda24fd5d0796f8074af8ce8a1a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estendere Azure HDInsight usando Rete virtuale di Azure
 
@@ -93,7 +93,7 @@ Seguire la procedura in questa sezione per aggiungere un nuovo cluster HDInsight
         Per altre informazioni, vedere il documento [Risolvere i problemi relativi ai gruppi di sicurezza di rete](../virtual-network/virtual-network-nsg-troubleshoot-portal.md).
 
         > [!IMPORTANT]
-        > Le regole di gruppo di sicurezza di rete vengono applicate seguendo un ordine basato sulla priorità delle regole. Viene applicata la prima regola che corrisponde al modello di traffico, dopodiché non vengono applicate altre regole per quel traffico. Ordinare le regole dalla più permissiva alla più restrittiva. Per altre informazioni, vedere il documento [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
+        > Le regole di gruppo di sicurezza di rete vengono applicate seguendo un ordine basato sulla priorità delle regole. Viene applicata la prima regola che corrisponde al modello di traffico, dopodiché non vengono applicate altre regole per quel traffico. Ordinare le regole dalla più permissiva alla più restrittiva. Per altre informazioni, vedere il documento [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 
     * Route definite dall'utente
 
@@ -214,7 +214,7 @@ Per connettersi alle pagine Ambari e ad altre pagine Web tramite la rete virtual
 
 Il traffico di rete nelle reti virtuali di Azure può essere controllato usando i modi seguenti:
 
-* i **gruppi di sicurezza di rete** (NSG) consentono di filtrare il traffico di rete in ingresso e in uscita. Per altre informazioni, vedere il documento [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
+* i **gruppi di sicurezza di rete** (NSG) consentono di filtrare il traffico di rete in ingresso e in uscita. Per altre informazioni, vedere il documento [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 
     > [!WARNING]
     > HDInsight non supporta la limitazione del traffico in uscita.
@@ -242,7 +242,7 @@ Se si intende usare **gruppi di sicurezza di rete** o **route definite dall'uten
 
 Per altre informazioni sui gruppi di sicurezza di rete o sulle route definite dall'utente, vedere la documentazione seguente:
 
-* [Gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
+* [Gruppo di sicurezza di rete](../virtual-network/security-overview.md)
 
 * [Route definite dall'utente](../virtual-network/virtual-networks-udr-overview.md)
 
@@ -666,6 +666,6 @@ Dopo avere completato questi passaggi, è possibile connettersi alle risorse nel
 * Per la configurazione della replica geografica di HBase, vedere [Configurare la replica di cluster HBase nelle reti virtuali di Azure](hbase/apache-hbase-replication.md).
 * Per altre informazioni sulle reti virtuali di Azure, vedere la [panoramica sulle reti virtuali di Azure](../virtual-network/virtual-networks-overview.md).
 
-* Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
+* Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 
 * Per altre informazioni sulle route definite dall'utente, vedere [Route definite dall'utente e inoltro IP](../virtual-network/virtual-networks-udr-overview.md).

@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3b0ea0e55653e7b6087e21bd531ba3f6649d4967
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/20/2018
 ---
 Quando si crea una macchina virtuale (VM) di Azure, è necessario creare una [rete virtuale](../articles/virtual-network/virtual-networks-overview.md) o usarne una esistente. È anche necessario decidere come si accederà alle macchine virtuali nella rete virtuale. È importante [pianificare prima di creare risorse](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e comprendere i [limiti delle risorse di rete](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -95,7 +95,7 @@ Questa tabella elenca i metodi che è possibile usare per creare una rete virtua
 
 ## <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 
-Un [gruppo di sicurezza di rete (NSG)](../articles/virtual-network/virtual-networks-nsg.md) contiene una serie di regole dell'elenco di controllo di accesso (ACL) che consentono o rifiutano il traffico di rete verso le subnet, le interfacce di rete o entrambe. I gruppi di sicurezza di rete possono essere associati a subnet o singole interfacce di rete connesse a una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le VM in tale subnet. Il traffico verso una singola interfaccia di rete può essere limitato associando un gruppo di sicurezza di rete direttamente a un'interfaccia di rete.
+Un [gruppo di sicurezza di rete (NSG)](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) contiene una serie di regole dell'elenco di controllo di accesso (ACL) che consentono o rifiutano il traffico di rete verso le subnet, le interfacce di rete o entrambe. I gruppi di sicurezza di rete possono essere associati a subnet o singole interfacce di rete connesse a una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le VM in tale subnet. Il traffico verso una singola interfaccia di rete può essere limitato associando un gruppo di sicurezza di rete direttamente a un'interfaccia di rete.
 
 I gruppi di sicurezza di rete includono due tipi di regole: In ingresso e In uscita. La priorità per una regola deve essere univoca all'interno di ogni set. Ogni regola ha proprietà di protocollo, intervalli di porte di origine e destinazione, prefissi degli indirizzi, direzione del traffico, priorità e tipo di accesso. 
 
@@ -103,7 +103,7 @@ Tutti i gruppi di sicurezza di rete contengono un set di regole predefinite. Le 
 
 Quando si associa un NSG a una scheda di rete, le regole di accesso di rete nell’NSG vengono applicate solo a tale scheda di rete. Un gruppo di sicurezza di rete applicato a una singola interfaccia di rete di una VM con più interfacce di rete non influisce sul traffico verso le altre interfacce di rete. È possibile associare più gruppi di sicurezza di rete a un'interfaccia di rete (o a una VM, a seconda del modello di distribuzione) e alla subnet a cui è associata un'interfaccia di rete o una VM. La priorità viene assegnata in base alla direzione del traffico.
 
-[Pianificare](../articles/virtual-network/virtual-networks-nsg.md#planning) i gruppi di sicurezza di rete quando si pianificano le VM e la rete virtuale.
+[Pianificare](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) i gruppi di sicurezza di rete quando si pianificano le VM e la rete virtuale.
 
 Questa tabella elenca i metodi che è possibile usare per creare un gruppo di sicurezza di rete.
 

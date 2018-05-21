@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: c5be53f06e009cb2d5180e43318c8670139a68db
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: aa3366810a40b004fe510cb2909f8da0f3513ddb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrate-azure-active-directory-with-palo-alto-networks---admin-ui"></a>Integrare Azure Active Directory con Palo Alto Networks - Admin UI
 
@@ -30,7 +30,7 @@ L'integrazione di Azure AD con Palo Alto Networks - Admin UI offre i vantaggi se
 - È possibile abilitare l'accesso automatico degli utenti a Palo Alto Networks - Admin UI (Single Sign-On) con i loro account Azure AD.
 - È possibile gestire gli account da una posizione centrale, il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -312,7 +312,7 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Elenco di esercitazioni sull'integrazione di app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 
 
 

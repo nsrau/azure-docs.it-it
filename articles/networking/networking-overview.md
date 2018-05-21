@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 47ee22df081b71e7bafa40210a9c4cac0a844825
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2e5862e99b3e883554b42341d2c1dbe9d8b8ec72
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-networking"></a>Rete di Azure
 
@@ -94,7 +94,7 @@ Il servizio Gestione traffico di Azure offre il bilanciamento del carico DNS glo
 
 La figura seguente mostra una richiesta per un'applicazione Web indirizzata a un endpoint dell'app Web. Gli endpoint possono anche essere altri servizi di Azure, ad esempio Macchine virtuali o Servizi cloud.
 
-![servizio Gestione traffico](./media/networking-overview/traffic-manager.png)
+![Gestione traffico](./media/networking-overview/traffic-manager.png)
 
 Il client si connette direttamente a tale endpoint. Gestione traffico di Azure rileva gli endpoint non integri e reindirizza i client a un diverso endpoint integro. Per altre informazioni su Gestione traffico, vedere l'articolo [Panoramica di Gestione traffico](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
@@ -106,7 +106,7 @@ Altre funzionalità di routing di livello 7 includono la distribuzione round rob
 
 La figura seguente mostra il routing basato sul percorso dell'URL con un gateway applicazione:
 
-![gateway applicazione](./media/networking-overview/application-gateway.png)
+![Gateway applicazione](./media/networking-overview/application-gateway.png)
 
 **Bilanciamento carico di rete**
 
@@ -120,7 +120,7 @@ La figura seguente mostra un'applicazione multilivello con connessione Internet 
 
 È possibile filtrare il traffico in ingresso e in uscita dalle risorse di Azure usando le opzioni seguenti:
 
-- **Rete:** è possibile implementare gruppi di sicurezza di rete di Azure per filtrare il traffico in ingresso e in uscita dalle risorse di Azure. Ogni gruppo di sicurezza di rete contiene una o più regole in ingresso e in uscita. Ogni regola specifica di indirizzi IP di origine, gli indirizzi IP di destinazione, la porta e il protocollo in base al quale viene filtrato il traffico. I gruppi di sicurezza di rete si possono applicare a singole subnet e macchine virtuali. Per altre informazioni sui gruppi di sicurezza di rete, vedere la [panoramica dei gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json).
+- **Rete:** è possibile implementare gruppi di sicurezza di rete di Azure per filtrare il traffico in ingresso e in uscita dalle risorse di Azure. Ogni gruppo di sicurezza di rete contiene una o più regole in ingresso e in uscita. Ogni regola specifica di indirizzi IP di origine, gli indirizzi IP di destinazione, la porta e il protocollo in base al quale viene filtrato il traffico. I gruppi di sicurezza di rete si possono applicare a singole subnet e macchine virtuali. Per altre informazioni sui gruppi di sicurezza di rete, vedere la [panoramica dei gruppi di sicurezza di rete](../virtual-network/security-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Applicazione:** usando un gateway applicazione con un Web application firewall è possibile proteggere le applicazioni Web da vulnerabilità ed exploit, ad esempio attacchi SQL injection, cross-site scripting e intestazioni non valide. Il gateway applicazione filtra questo tipo di traffico e gli impedisce di raggiungere i server Web. Le regole da abilitare sono configurabili. Viene offerta la possibilità di configurare i criteri di negoziazione SSL per consentire la disabilitazione di determinati criteri. Per altre informazioni in proposito, vedere l'articolo relativo al [Web application firewall](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
 Per fare uso di funzionalità di rete non offerte da Azure o di applicazioni di rete usate in locale, è possibile implementare i prodotti in macchine virtuali e connetterle alla rete virtuale. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances) include varie macchine virtuali di diverso tipo preconfigurate con applicazioni di rete che attualmente potrebbero essere in uso. Le macchine virtuali preconfigurate sono dette in genere appliance virtuali di rete e sono disponibili con applicazioni quali firewall e ottimizzazione WAN.
