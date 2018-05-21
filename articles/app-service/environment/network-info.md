@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: ccompy
-ms.openlocfilehash: 54257ae3e02a00c5097aa7880fa356da3bc0ecce
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d099163cdc34624afd8f01b8f1978c5ee902d1ff
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -128,7 +128,7 @@ Se l'ambiente del servizio app con bilanciamento del carico interno è il nome d
 
 ## <a name="functions-and-web-jobs"></a>Funzioni e processi Web ##
 
-Le funzioni e i processi Web dipendono dal sito di Gestione controllo servizi, ma il relativo uso nel portale è supportato, anche se le app sono presenti in un ambiente del servizio app con bilanciamento del carico interno, purché il browser possa raggiungere il sito di Gestione controllo servizi.  Se si usa un certificato autofirmato con l'ambiente del servizio app con bilanciamento del carico interno, è necessario impostare il browser in modo da considerare attendibile il certificato.  A tale scopo, per IE ed Microsoft Edge, è necessario che il certificato si trovi nell'archivio Attendibilità del computer.  Se si usa Chrome, ciò implica che il certificato sia stato accettato nel browser in precedenza, presumibilmente accedendo direttamente al sito di Gestione controllo servizi.  La soluzione migliore consiste nell'usare un certificato commerciale incluso nella catena di certificati del browser.  
+Le funzioni e i processi Web dipendono dal sito di Gestione controllo servizi, ma il relativo uso nel portale è supportato, anche se le app sono presenti in un ambiente del servizio app con bilanciamento del carico interno, purché il browser possa raggiungere il sito di Gestione controllo servizi.  Se si usa un certificato autofirmato con l'ambiente del servizio app con bilanciamento del carico interno, è necessario impostare il browser in modo da considerare attendibile il certificato.  A tale scopo, per IE ed Edge, è necessario che il certificato si trovi nell'archivio Attendibilità del computer.  Se si usa Chrome, ciò implica che il certificato sia stato accettato nel browser in precedenza, presumibilmente accedendo direttamente al sito di Gestione controllo servizi.  La soluzione migliore consiste nell'usare un certificato commerciale incluso nella catena di certificati del browser.  
 
 ## <a name="ase-ip-addresses"></a>Indirizzi IP dell'ambiente del servizio app ##
 
@@ -163,7 +163,7 @@ I primi due requisiti in ingresso per il funzionamento dell'ambiente del servizi
 
 ![Regole di sicurezza in ingresso][4]
 
-Una regola predefinita consente agli indirizzi IP di comunicare con la subnet dell'ambiente del servizio app nella rete virtuale. Un'altra regola predefinita consente al bilanciamento del carico, noto anche come VIP pubblico, di comunicare con l'ambiente del servizio app. Per visualizzare le regole predefinite selezionare **Regole predefinite** accanto all'icona **Aggiungi**. Aggiungendo una regola per negare tutto il resto dopo le regole dei gruppi di sicurezza di rete visualizzate, si impedisce il traffico tra l'indirizzo VIP e l'ambiente del servizio app. Per impedire il traffico proveniente da all'interno della rete virtuale, aggiungere una regola personalizzata per consentire connessioni in entrata. Usare un'origine uguale ad AzureLoadBalancer con una destinazione **qualsiasi** e un intervallo di porte di **\*\**. Dato che la regola del gruppo di sicurezza di rete viene applicata solo alla subnet dell'ambiente del servizio app, non è necessario impostare una destinazione specifica.
+Una regola predefinita consente agli indirizzi IP di comunicare con la subnet dell'ambiente del servizio app nella rete virtuale. Un'altra regola predefinita consente al bilanciamento del carico, noto anche come VIP pubblico, di comunicare con l'ambiente del servizio app. Per visualizzare le regole predefinite selezionare **Regole predefinite** accanto all'icona **Aggiungi**. Aggiungendo una regola per negare tutto il resto dopo le regole dei gruppi di sicurezza di rete visualizzate, si impedisce il traffico tra l'indirizzo VIP e l'ambiente del servizio app. Per impedire il traffico proveniente da all'interno della rete virtuale, aggiungere una regola personalizzata per consentire connessioni in entrata. Usare un'origine uguale ad AzureLoadBalancer con una destinazione **qualsiasi** e un intervallo di porte di **\***. Dato che la regola del gruppo di sicurezza di rete viene applicata solo alla subnet dell'ambiente del servizio app, non è necessario impostare una destinazione specifica.
 
 Se è stato assegnato un indirizzo IP all'app, accertarsi di mantenere le porte aperte. Per visualizzare le porte selezionare **Ambiente del servizio app** > **Indirizzi IP**.  
 
@@ -224,7 +224,7 @@ Quando gli endpoint servizio sono abilitati in una subnet con un'istanza di SQL 
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
