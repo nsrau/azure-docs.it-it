@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.openlocfilehash: af26e007c953c4157f5ee7a4251a52e9c45a6eac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3b19f3c7ed84a63f48320a2c7af8d06a9cc5deb4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Esercitazione: Integrazione di Azure Active Directory con OpenAthens
 
@@ -30,7 +30,7 @@ L'integrazione di OpenAthens con Azure AD offre i vantaggi seguenti:
 - È possibile abilitare gli utenti per l'accesso automatico a OpenAthens (Single Sign-On) con gli account Azure AD personali.
 - Gli account possono essere gestiti da una posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -224,7 +224,7 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * Per un elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory, vedere [Integrazione dell'applicazione SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md).
-* Per altre informazioni sull'accesso alle applicazioni e single-sign on con Azure Active Directory, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+* Per altre informazioni sull'accesso alle applicazioni e single-sign on con Azure Active Directory, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 <!--Image references-->
 
