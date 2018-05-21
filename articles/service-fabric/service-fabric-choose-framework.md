@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 974b2614-014e-4587-a947-28fcef28b382
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 6c4503b3e05f7d78f64a161f620b1fbd6cd38ab1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a03bb3c74d9c776b893b11c3dec8788fe9ac598c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-programming-model-overview"></a>Panoramica dei modelli di programmazione di Service Fabric
 Service Fabric offre diversi modi per scrivere e gestire i servizi. I servizi possono scegliere di usare le API di Service Fabric per sfruttare appieno le funzionalità della piattaforma e i framework applicazione. I servizi possono essere anche qualsiasi programma eseguibile compilato scritto in qualsiasi linguaggio o qualsiasi codice eseguito in un contenitore e ospitato in un cluster di Service Fabric.

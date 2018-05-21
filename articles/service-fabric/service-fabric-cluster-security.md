@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 26b58724-6a43-4f20-b965-2da3f086cf8a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2017
 ms.author: aljo
-ms.openlocfilehash: f60b428ba7fe93713af68851a3e9d246a3b1641b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ac288575d29699d03728e74b73ed7359dd7252e2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenari di sicurezza di un cluster di Service Fabric
 Un cluster di Azure Service Fabric è una risorsa di cui si è proprietari. È responsabilità dell'utente proteggere i cluster per evitare che utenti non autorizzati si connettano a essi. Un cluster sicuro è particolarmente importante quando si eseguono carichi di lavoro nel cluster. La creazione di cluster non protetti, anche se possibile, potrebbe consentire a utenti anonimi di connettersi a un cluster che espone gli endpoint di gestione a Internet pubblico. I cluster non protetti non sono supportati per l'esecuzione di carichi di lavoro di produzione. 
