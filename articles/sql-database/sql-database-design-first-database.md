@@ -1,5 +1,5 @@
 ---
-title: Progettare il primo database SQL di Azure con SSMS | Microsoft Docs
+title: 'Esercitazione: Progettare il primo database SQL di Azure con SSMS | Microsoft Docs'
 description: Informazioni su come progettare il primo database SQL di Azure con SQL Server Management Studio.
 services: sql-database
 author: CarlRabeler
@@ -7,28 +7,30 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 04/23/2018
 ms.author: carlrab
-ms.openlocfilehash: 1415edf8ea70b3835e99daa1691d278fe833b950
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ba14208e971d712184052e7470757ce48ac26879
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="design-your-first-azure-sql-database-using-ssms"></a>Progettare il primo database SQL di Azure con SSMS
+# <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Esercitazione: Progettare il primo database SQL di Azure con SSMS
 
 Il database SQL di Azure è un database relazionale distribuito come servizio, ovvero DBaaS, in Microsoft Cloud (Azure). Questa esercitazione illustra come usare il portale di Azure e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) per le operazioni seguenti: 
 
 > [!div class="checklist"]
-> * Creare un database nel portale di Azure
+> * Creare un database nel portale di Azure*
 > * Impostare una regola del firewall a livello di server nel portale di Azure
 > * Connettersi al database con SSMS
 > * Creare tabelle con SQL Server Management Studio
 > * Eseguire il caricamento bulk dei dati con BCP
 > * Eseguire una query su quei dati con SQL Server Management Studio
-> * Ripristinare il database a un [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) con il portale di Azure
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+
+   >[!NOTE]
+   > Ai fini di questa esercitazione verrà usato il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md), ma è possibile scegliere il [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md). 
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -42,13 +44,13 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Creare un database SQL vuoto
 
-Un database SQL di Azure viene creato con un set definito di [risorse di calcolo e di archiviazione](sql-database-service-tiers.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di database SQL di Azure](sql-database-features.md). 
+Un database SQL di Azure viene creato con un set definito di [risorse di calcolo e di archiviazione](sql-database-service-tiers-dtu.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di database SQL di Azure](sql-database-features.md). 
 
 Per creare un database SQL vuoto, attenersi alla procedura seguente. 
 
 1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 
-2. Selezionare **Database** dalla pagina **Nuovo**, quindi selezionare **Crea** in **Database SQL** nella pagina **Nuovo**.
+2. Nella pagina **Nuovo**, selezionare **Database** nella sezione Azure Marketplace e quindi fare clic su **Database SQL** nella sezione **In primo piano**.
 
    ![creare database vuoto](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -74,7 +76,7 @@ Per creare un database SQL vuoto, attenersi alla procedura seguente.
 
 5. Fare clic su **Seleziona**.
 
-6. Fare clic su **Piano tariffario** per specificare il livello di servizio, il numero di DTU o vCores e la quantità di risorse di archiviazione. Esplorare le opzioni relative al numero di DTU/vCores e di risorse di archiviazione disponibile per ogni livello di servizio. 
+6. Fare clic su **Piano tariffario** per specificare il livello di servizio, il numero di DTU o vCores e la quantità di risorse di archiviazione. Esplorare le opzioni relative al numero di DTU/vCores e di risorse di archiviazione disponibile per ogni livello di servizio. Ai fini di questa esercitazione verrà usato il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md), ma è possibile scegliere il [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md). 
 
 7. Per questa esercitazione selezionare il livello di servizio **Standard** e quindi usare il dispositivo di scorrimento per selezionare **100 DTU (S3)** e **400** GB di archiviazione.
 
@@ -83,10 +85,9 @@ Per creare un database SQL vuoto, attenersi alla procedura seguente.
 8. Accettare le condizioni dell'anteprima per usare l'opzione **Spazio di archiviazione aggiuntivo**. 
 
    > [!IMPORTANT]
-   > \* Le dimensioni di archiviazione superiori alla quantità di risorse di archiviazione incluse sono disponibili in anteprima e vengono applicati costi aggiuntivi. Per ulteriori informazioni, vedere [Database SQL Prezzi](https://azure.microsoft.com/pricing/details/sql-database/). 
-   >
-   >\* Nel livello Premium sono attualmente disponibili più di 1 TB di risorse di archiviazione nelle aree seguenti: Australia orientale, Australia sud-orientale, Brasile meridionale, Canada centrale, Canada orientale, Stati Uniti centrali, Francia centrale, Germania centrale, Giappone orientale, Giappone occidentale, Corea centrale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Regno Unito orientale, Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia ed Europa occidentale. Vedere [Limitazioni correnti per P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   > 
+   > -  Le dimensioni di archiviazione superiori alla quantità di risorse di archiviazione incluse sono disponibili in anteprima e vengono applicati costi aggiuntivi. Per ulteriori informazioni, vedere [Database SQL Prezzi](https://azure.microsoft.com/pricing/details/sql-database/). 
+   >-  Nel livello Premium sono attualmente disponibili più di 1 TB di risorse di archiviazione nelle aree seguenti: Australia orientale, Australia sud-orientale, Brasile meridionale, Canada centrale, Canada orientale, Stati Uniti centrali, Francia centrale, Germania centrale, Giappone orientale, Giappone occidentale, Corea centrale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Regno Unito orientale, Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia ed Europa occidentale. Vedere [Limitazioni correnti per P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+
 
 9. Dopo la selezione del livello di servizio, del numero di DTU e della quantità di risorse di archiviazione, fare clic su **Applica**.  
 
@@ -108,7 +109,7 @@ Il servizio di database SQL crea un firewall a livello di server che impedisce a
 
 1. Al termine della distribuzione, scegliere **Database SQL** dal menu a sinistra e fare clic su **mySampleDatabase** nella pagina **Database SQL**. Si apre la pagina di panoramica per il database che visualizza il nome completo del server, ad esempio **mynewserver-20170824.database.windows.net**, e offre altre opzioni di configurazione. 
 
-2. Copiare il nome completo del server per connettersi al server e ai relativi database nelle guide introduttive successive. 
+2. Copiare il nome completo del server per connettersi al server e ai relativi database nelle esercitazioni e nelle guide introduttive successive. 
 
    ![Nome del server](./media/sql-database-get-started-portal/server-name.png) 
 
@@ -147,7 +148,7 @@ Usare [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-ser
 
    | Impostazione       | Valore consigliato | DESCRIZIONE | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Tipo di server | Motore di database | Questo valore è obbligatorio. |
+   | Tipo di server | Motore di database | Questo valore è obbligatorio |
    | Nome server | Nome completo del server | Il nome sarà simile a: **mynewserver20170824.database.windows.net**. |
    | Authentication | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
    | Login | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
@@ -297,26 +298,6 @@ Eseguire le query seguenti per recuperare informazioni dalle tabelle del databas
    AND person.LastName = 'Coleman'
    ```
 
-## <a name="restore-a-database-to-a-previous-point-in-time"></a>Ripristinare un database a un momento precedente
-
-Si supponga di aver eliminato accidentalmente una tabella. Si tratta di un elemento che non è facile da ripristinare. Il Database SQL di Azure consente di tornare in qualsiasi punto degli ultimi 35 giorni e di ripristinare questo punto nel tempo in un nuovo database. È possibile usare questo database per ripristinare i dati eliminati. La procedura seguente consente di ripristinare il database di esempio in un punto precedente all'aggiunta delle tabelle.
-
-1. Nella pagina Database SQL del database fare clic su **Ripristina** sulla barra degli strumenti. Si apre la pagina **Ripristina** .
-
-   ![ripristinare](./media/sql-database-design-first-database/restore.png)
-
-2. Compilare il modulo **Ripristina** con le informazioni obbligatorie:
-    * Nome database: specificare un nome per il database 
-    * Temporizzato: Selezionare la scheda **Temporizzato** del modulo Ripristino 
-    * Punto di ripristino: selezionare un punto nel tempo precedente alla modifica del database
-    * Server di destinazione: non è possibile modificare questo valore quando si ripristina un database 
-    * Pool di database elastici: selezionare **Nessuno**  
-    * Piano tariffario: selezionare **20 DTU** e **40 GB** di memoria.
-
-   ![punto di ripristino](./media/sql-database-design-first-database/restore-point.png)
-
-3. Fare clic su **OK** per ripristinare il database da ripristinare [ in un punto nel tempo ](sql-database-recovery-using-backups.md#point-in-time-restore) precedente all'aggiunta delle tabelle. Il ripristino di un database in un altro punto nel tempo crea un duplicato del database nello stesso server del database originale nel punto nel tempo specificato, a condizione che si trovi nell'ambito del periodo di conservazione per il [livello di servizio](sql-database-service-tiers.md) applicato.
-
 ## <a name="next-steps"></a>Passaggi successivi 
 Questa esercitazione ha illustrato le attività di base che è possibile eseguire con i database, come creare database e tabelle, caricare dati, eseguire query sui dati e ripristinare un database a un momento precedente. Si è appreso come:
 > [!div class="checklist"]
@@ -326,7 +307,6 @@ Questa esercitazione ha illustrato le attività di base che è possibile eseguir
 > * Creare tabelle
 > * Eseguire il caricamento bulk dei dati
 > * Eseguire query sui dati
-> * Ripristinare il database a un momento precedente usando le funzionalità di [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) del database SQL
 
 Per informazioni sulla progettazione di un database con Visual Studio e C#, passare all'esercitazione successiva.
 

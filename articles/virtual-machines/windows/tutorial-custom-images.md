@@ -1,6 +1,6 @@
 ---
-title: Creare immagini di VM personalizzate con Azure PowerShell | Microsoft Docs
-description: "Esercitazione: creare un'immagine di VM personalizzata con Azure PowerShell."
+title: 'Esercitazione: creare immagini personalizzate della macchina virtuale con Azure PowerShell | Microsoft Docs'
+description: In questa esercitazione viene descritto come usare Azure PowerShell per creare un'immagine personalizzata della macchina virtuale in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -10,19 +10,19 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 443f47b98ea063c6fe1f0b3517c00b6cf3692161
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a449c1f9781ffc86de4786eaab3cb83999b86a72
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>Creare un'immagine personalizzata di una VM di Azure con PowerShell
+# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Esercitazione: creare un'immagine personalizzata di una macchina virtuale di Azure con Azure PowerShell
 
 Le immagini personalizzate sono come le immagini di marketplace, ma si possono creare autonomamente. Le immagini personalizzate possono essere usate per le configurazioni di avvio, ad esempio il precaricamento e le configurazioni di applicazioni e altre configurazioni del sistema operativo. In questa esercitazione viene creata un'immagine personalizzata di una macchina virtuale di Azure. Si apprenderà come:
 
@@ -33,7 +33,6 @@ Le immagini personalizzate sono come le immagini di marketplace, ma si possono c
 > * Elencare tutte le immagini nella sottoscrizione
 > * Eliminare un'immagine
 
-
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 La procedura riportata di seguito illustra come prendere una VM esistente e convertirla in un'immagine personalizzata riutilizzabile che è possibile usare per creare nuove istanze di VM.
@@ -42,7 +41,7 @@ Per completare l'esempio contenuto in questa esercitazione è necessario disporr
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo AzureRM versione 5.6.0 o successiva. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo AzureRM versione 5.7.0 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="prepare-vm"></a>Preparare la VM
 
@@ -101,7 +100,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## <a name="create-vms-from-the-image"></a>Creare VM dall'immagine
 
-Ora che si dispone di un'immagine, è possibile creare una o più nuove VM dall'immagine. Creare una VM da un'immagine personalizzata è molto simile a creare una VM usando un'immagine del Marketplace. Quando si usa un'immagine del Marketplace, è necessario immettere le informazioni sull'immagine, il provider dell'immagine, l'offerta, lo SKU e la versione. Usando il parametro semplificato impostato per il cmdlet [New-AzureRMVM](), è sufficiente specificare il nome dell'immagine personalizzata, purché sia nello stesso gruppo di risorse. 
+Ora che si dispone di un'immagine, è possibile creare una o più nuove VM dall'immagine. La creazione di una macchina virtuale da un'immagine personalizzata è un'operazione simile alla creazione di una macchina virtuale con un'immagine del Marketplace. Quando si usa un'immagine del Marketplace, è necessario immettere le informazioni sull'immagine, il provider dell'immagine, l'offerta, lo SKU e la versione. Usando il parametro semplificato impostato per il cmdlet [New-AzureRMVM](), è sufficiente specificare il nome dell'immagine personalizzata, purché sia nello stesso gruppo di risorse. 
 
 Questo esempio crea una VM denominata *myVMfromImage* dall'immagine denominata *myImage* in *myResourceGroup*.
 

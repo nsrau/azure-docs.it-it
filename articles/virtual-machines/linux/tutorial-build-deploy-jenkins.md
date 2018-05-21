@@ -1,11 +1,11 @@
 ---
-title: CI/CD da Jenkins in macchine virtuali di Azure con Team Services | Microsoft Docs
-description: Configurare l'integrazione continua (CI) e la distribuzione continua (CD) di un'app Node.js usando Jenkins in macchine virtuali di Azure da Release Management in Visual Studio Team Services o Microsoft Team Foundation Server
+title: Esercitazione - CI/CD da Jenkins in macchine virtuali di Azure con Team Services | Microsoft Docs
+description: In questa esercitazione viene descritto come configurare l'integrazione continua (CI) e la distribuzione continua (CD) di un'app Node.js usando Jenkins in macchine virtuali di Azure da Release Management in Visual Studio Team Services o Microsoft Team Foundation Server
 author: ahomer
 manager: douge
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
@@ -14,19 +14,17 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fc301edf13f8e6874f0b77440e2b0dc01b2a55fc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>Distribuire l'app in macchine virtuali Linux usando Jenkins e Team Services
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>Esercitazione: Distribuire l'app su macchine virtuali Linux in Azure con Jenkins e Visual Studio Team Services
 
 L'integrazione continua (CI) e la distribuzione continua (CD) formano una pipeline con cui è possibile compilare, rilasciare e distribuire codice. Visual Studio Team Services offre un set di strumenti di automazione CI/CD completo per la distribuzione in Azure. Jenkins è uno strumento di terze parti diffuso basato su server per CI/CD che offre anche l'automazione CI/CD. È possibile usare insieme Team Services e Jenkins per personalizzare la fornitura dell'app o del servizio cloud.
 
-In questa esercitazione si compila un'app Web Node.js usando Jenkins. Usare quindi Team Services o Team Foundation Server per distribuirla in un [gruppo di distribuzione](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) che contiene macchine virtuali (VM) Linux.
-
-Si apprenderà come:
+In questa esercitazione si compila un'app Web Node.js usando Jenkins. Usare quindi Team Services o Team Foundation Server per distribuirla in un [gruppo di distribuzione](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) che contiene macchine virtuali (VM) Linux. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Ottenere l'app di esempio.

@@ -10,11 +10,11 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 172780512dd179d91300459987ad0ba683727859
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a22aadff2d58ace60a980a138035e30a638b08fa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Scheda di riferimento rapido per Azure SQL Data Warehouse
 Questa scheda di riferimento fornisce suggerimenti utili e procedure consigliate per creare rapidamente soluzioni Azure SQL Data Warehouse. Prima di iniziare, ottenere altre informazioni dettagliate su ogni passaggio leggendo [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns (Modelli e anti-modelli del carico di lavoro di Azure SQL Data Warehouse)](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), che spiega cos'è e cosa non è SQL Data Warehouse.
@@ -34,7 +34,7 @@ Conoscere in anticipo il tipo di operazioni consente di ottimizzare la progettaz
 
 ## <a name="data-migration"></a>Migrazione dei dati
 
-Innanzitutto, caricare i dati in [Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store) o nell'archivio BLOB di Azure. Quindi usare PolyBase per caricare i dati in SQL Data Warehouse in una tabella di staging. Usare la configurazione seguente:
+Innanzitutto, caricare i dati in [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) o nell'archivio BLOB di Azure. Quindi usare PolyBase per caricare i dati in SQL Data Warehouse in una tabella di staging. Usare la configurazione seguente:
 
 | Progettazione | Raccomandazione |
 |:--- |:--- |
@@ -43,7 +43,7 @@ Innanzitutto, caricare i dati in [Azure Data Lake Store](https://docs.microsoft.
 | Partizionamento | Nessuna |
 | Classe di risorse | largerc o xlargerc |
 
-Sono disponibili altre informazioni sulla [migrazione dei dati], sul [caricamento dei dati] e sul [processo di estrazione, caricamento e trasformazione (ELT - Extract, Load, and Transform)](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading). 
+Sono disponibili altre informazioni sulla [migrazione dei dati], sul [caricamento dei dati] e sul [processo di estrazione, caricamento e trasformazione (ELT - Extract, Load, and Transform)](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading). 
 
 ## <a name="distributed-or-replicated-tables"></a>Tabelle distribuite o replicate
 
@@ -78,7 +78,7 @@ L'indicizzazione è utile per leggere rapidamente le tabelle. È disponibile un 
 **Suggerimenti:**
 * Su un indice cluster si potrebbe voler aggiungere un indice non cluster a una colonna usata di frequente per il filtro. 
 * Prestare attenzione a come viene gestita la memoria in una tabella con indice columnstore cluster. Quando si caricano i dati, è opportuno che l'utente (o la query) tragga vantaggio da una classe di risorse di grandi dimensioni. Assicurarsi di evitare il trimming e la creazione di molti gruppi di righe compressi di piccole dimensioni.
-* Ottimizzato per livello di calcolo con indice columnstore cluster.
+* In Gen2, le tabelle con indice ColumnStore cluster vengono memorizzati nella cache in locale sui nodi di calcolo per ottimizzare le prestazioni.
 * Per l'indice columnstore cluster può verificarsi un rallentamento delle prestazioni a causa della scarsa compressione dei gruppi di righe. In questo caso, ricompilare o riorganizzare l'indice columnstore cluster. Sono necessarie almeno 100.000 righe per gruppi di righe compressi. La soluzione ideale è 1 milione di righe in un gruppo di righe.
 * In base alle dimensioni e alla frequenza di caricamento incrementale, è possibile procedere all'automatizzazione quando si riorganizzano o si ricompilano gli indici. È sempre utile fare pulizia.
 * Adottare una strategia per il trimming di un gruppo di righe. Quanto devono essere grandi i gruppi di righe aperti? Quanti dati si prevedere di caricare nei prossimi giorni?
@@ -111,7 +111,7 @@ SQL Data Warehouse usa i gruppi di risorse per allocare la memoria per le query.
 
 Se si nota che le query richiedono troppo tempo, verificare che gli utenti non vengano eseguiti in classi di risorse di grandi dimensioni. Le classi di risorse estese usano molti slot di concorrenza e possono comportare l'accodamento di altre query.
 
-Infine, se si usa il livello ottimizzato per il calcolo, ogni classe di risorse ottiene 2,5 volte più memoria rispetto al livello ottimizzato elastico.
+Infine, tramite Gen2 di SQL Data Warehouse, ogni classe di risorse ottiene 2,5 volte più memoria rispetto a Gen1.
 
 Sono disponibili altre informazioni su come lavorare con [classi di risorse e concorrenza].
 

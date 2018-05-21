@@ -2,11 +2,11 @@
 title: Azure Site Recovery Deployment Planner per distribuzioni da VMware ad Azure | Microsoft Docs
 description: Questo articolo illustra l'analisi del report generato da Azure Site Recovery Deployment Planner per uno scenario da VMware ad Azure.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: dce374d85ef32fe1fbfc88502780fa2ad7a5eae4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2d44d8410734193ba8b7fdda3134727d9064340c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Report di Azure Site Recovery Deployment Planner
 Il report di Microsoft Excel generato contiene i fogli riportati di seguito.
@@ -198,9 +198,9 @@ Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla
 
 **Storage Account** (Account di archiviazione): nome che usa il prefisso dell'account di archiviazione suggerito.
 
-**R/W IOPS (with Growth Factor)** (Operazioni di I/O al secondo in lettura/scrittura - con fattore di crescita): picco di operazioni di I/O al secondo in lettura/scrittura del carico di lavoro nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che il numero totale di operazioni di I/O al secondo in lettura/scrittura di una VM non è sempre costituito dalla somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi della VM, perché il picco di operazioni di I/O al secondo in lettura/scrittura della VM è il picco della somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi per ogni minuto del periodo di profilatura.
+**Peak R/W IOPS (with Growth Factor)** (Picco operazioni di I/O al secondo in lettura/scrittura - con fattore di crescita): picco di operazioni di I/O al secondo in lettura/scrittura del carico di lavoro nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che il numero totale di operazioni di I/O al secondo in lettura/scrittura di una VM non è sempre costituito dalla somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi della VM, perché il picco di operazioni di I/O al secondo in lettura/scrittura della VM è il picco della somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi per ogni minuto del periodo di profilatura.
 
-**Data Churn in Mbps (with Growth Factor)** (Varianza dati in Mbps - con fattore di crescita): picco della frequenza di varianza nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che la varianza dei dati totale della VM non è sempre costituita dalla somma delle varianze dei singoli dischi della VM perché il picco della varianza dei dati corrisponde al picco della somma delle varianze dei singoli dischi per ogni minuto del periodo di profilatura.
+**Peak Data Churn in Mbps (with Growth Factor)** (Picco varianza dati in Mbps - con fattore di crescita): picco della frequenza di varianza nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che la varianza dei dati totale della VM non è sempre costituita dalla somma delle varianze dei singoli dischi della VM perché il picco della varianza dei dati corrisponde al picco della somma delle varianze dei singoli dischi per ogni minuto del periodo di profilatura.
 
 **Azure VM Size** (Dimensioni VM Azure): dimensioni ideali del mapping per Servizi cloud di Azure per questa VM locale. Il mapping si basa sulla memoria, sul numero di dischi/core/schede di interfaccia di rete e operazioni di I/O al secondo in lettura/scrittura della VM locale. La raccomandazione prevede sempre le dimensioni minime della VM di Azure corrispondenti a tutte le caratteristiche della VM locale.
 

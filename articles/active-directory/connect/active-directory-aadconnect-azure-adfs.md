@@ -1,12 +1,12 @@
 ---
 title: Active Directory Federation Services in Azure | Documentazione Microsoft
-description: "Questo documento illustra come distribuire AD FS in Azure per ottenere una disponibilità elevata."
+description: Questo documento illustra come distribuire AD FS in Azure per ottenere una disponibilità elevata.
 keywords: distribuire AD FS in azure, distribuire azure adfs, azure adfs, azure ad fs, distribuire adfs, distribuire ad fs, adfs in azure, distribuire adfs in azure, distribuire AD FS in azure, adfs azure, introduzione ad AD FS, Azure, AD FS in Azure, iaas, ADFS, trasferire adfs in azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba14244a3f5786ebcd667aa090d0245ce45f741d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 76ed05d55389e2c05b38fe1f2c239f544c6a5d38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Distribuzione di Active Directory Federation Services in Azure
 AD FS offre funzionalità di federazione delle identità e Single Sign-On (SSO) Web protette e semplificate. La federazione con Azure AD o O365 consente agli utenti di eseguire l'autenticazione con credenziali locali e accedere a tutte le risorse nel cloud. Di conseguenza, diventa importante la presenza di un'infrastruttura AD FS a disponibilità elevata per garantire l'accesso alle risorse sia in locale sia nel cloud. La distribuzione di AD FS in Azure consente di raggiungere facilmente la disponibilità elevata necessaria.
@@ -55,7 +55,7 @@ Come indicato in precedenza, è possibile creare due subnet in una singola rete 
 ![Creare una rete virtuale](./media/active-directory-aadconnect-azure-adfs/deploynetwork1.png)
 
 Nel portale di Azure selezionare la rete virtuale. È possibile distribuire immediatamente la rete virtuale e una subnet con un solo clic. Viene definita anche la subnet INT, che è pronta per l'aggiunta di VM.
-Il passaggio successivo consiste nell’aggiungere un’altra subnet (denominata “rete perimetrale”) alla rete. Per creare la subnet della rete perimetrale, è sufficiente:
+Il passaggio successivo consiste nell’aggiungere un’altra subnet (denominata “rete perimetrale”) alla rete. Per creare la subnet DMZ, è sufficiente:
 
 * Selezionare la rete appena creata
 * Nelle proprietà selezionare Subnet
@@ -64,7 +64,7 @@ Il passaggio successivo consiste nell’aggiungere un’altra subnet (denominata
 
 ![Subnet](./media/active-directory-aadconnect-azure-adfs/deploynetwork2.png)
 
-![Subnet della rete perimetrale](./media/active-directory-aadconnect-azure-adfs/deploynetwork3.png)
+![Subnet DMZ](./media/active-directory-aadconnect-azure-adfs/deploynetwork3.png)
 
 **1.2. Creare i gruppi di sicurezza di rete**
 
@@ -214,7 +214,7 @@ Affinché i server proxy applicazione Web possano raggiungere i server AD FS con
 
 **7.2. Installare il ruolo Proxy applicazione Web**
 
-Dopo aver verificato che i server proxy applicazione Web possano raggiungere i server AD FS controllati dal servizio di bilanciamento del carico interno, è possibile installare i server proxy applicazione Web. I server proxy applicazione Web non vengono aggiunti al dominio. Installare i ruoli Proxy applicazione Web nei due server proxy applicazione Web selezionando il ruolo Accesso remoto. Server Manager consentirà di completare l'installazione di WAP.
+Dopo aver verificato che i server proxy applicazione Web possano raggiungere i server AD FS controllati dal servizio di bilanciamento del carico interno, è possibile installare i server proxy applicazione Web. I server proxy applicazione Web non devono necessariamente essere aggiunti al dominio. Installare i ruoli Proxy applicazione Web nei due server proxy applicazione Web selezionando il ruolo Accesso remoto. Server Manager consentirà di completare l'installazione di WAP.
 Per altre informazioni sulla distribuzione di WAP, vedere [Installare e configurare il server del proxy dell'applicazione Web](https://technet.microsoft.com/library/dn383662.aspx).
 
 ### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Distribuire il servizio di bilanciamento del carico con connessione Internet (pubblico)
