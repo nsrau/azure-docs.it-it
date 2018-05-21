@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 40fa33aad8bf5ac042f9d80493b97a914fe770bb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0718365153390f525b22ef07559a822c777c2ff4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Guida introduttiva: ridimensionare le risorse di calcolo in Azure SQL Data Warehouse con PowerShell
 
@@ -55,19 +55,19 @@ Individuare il nome del database, il nome del server e il gruppo di risorse del 
 Seguire questa procedura per trovare le informazioni sulla posizione del data warehouse.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Nella pagina di sinistra del portale di Azure fare clic su **Database SQL**.
-3. Selezionare **mySampleDataWarehouse** nella pagina **Database SQL**. Verrà aperto il data warehouse.
+2. Nella pagina di sinistra del portale di Azure fare clic su **SQL Data Warehouse**.
+3. Selezionare **mySampleDataWarehouse** nella pagina **SQL Data Warehouse**. Verrà aperto il data warehouse.
 
     ![Nome del server e gruppo di risorse](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
 4. Annotare il nome del data warehouse che verrà usato come nome del database. Tenere presente che un data warehouse è un tipo di database. Annotare anche il nome del server e il gruppo di risorse. Queste informazioni verranno usate nei comandi di sospensione e ripresa.
-5. Se il server è foo.database.windows.net, usare solo la prima parte come nome del server nei cmdlet PowerShell. Nella figura precedente il nome completo del server è newserver-20171113.database.windows.net. Come nome del server nel cmdlet PowerShell viene usato **newserver-20171113**.
+5. Se il server è foo.database.windows.net, usare solo la prima parte come nome del server nei cmdlet PowerShell. Nella figura precedente il nome completo del server è newserver-20171113.database.windows.net. Come nome del server nel cmdlet PowerShell viene usato **newserver-20180430**.
 
 ## <a name="scale-compute"></a>Ridimensionare le risorse di calcolo
 
 In SQL Data Warehouse è possibile aumentare o ridurre le risorse di calcolo agendo sulle unità Data Warehouse. Nella pagina [Creare e connettere - portale](create-data-warehouse-portal.md) **mySampleDataWarehouse** è stato creato e inizializzato con 400 unità Data Warehouse. La procedura seguente modifica le unità Data Warehouse per **mySampleDataWarehouse**.
 
-Per modificare le unità Data Warehouse, usare il cmdlet PowerShell [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase). L'esempio seguente imposta le unità Data Warehouse su DW300 per il database **mySampleDataWarehouse** che è ospitato nel gruppo di risorse **myResourceGroup** nel server **mynewserver-20171113**.
+Per modificare le unità Data Warehouse, usare il cmdlet PowerShell [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase). L'esempio seguente imposta le unità del data warehouse su DW300 per il database **mySampleDataWarehouse** che è ospitato nel gruppo di risorse **myResourceGroup** del server **mynewserver-20180430**.
 
 ```Powershell
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
@@ -75,7 +75,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySam
 
 ## <a name="check-data-warehouse-state"></a>Controllare lo stato del data warehouse
 
-Per visualizzare lo stato corrente del data warehouse, usare il cmdlet PowerShell [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase), che consente di ottenere lo stato del database **mySampleDataWarehouse** nel gruppo di risorse **myResourceGroup** e nel server **mynewserver-20171113.database.windows.net**.
+Per visualizzare lo stato corrente del data warehouse, usare il cmdlet PowerShell [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase), che consente di ottenere lo stato del database **mySampleDataWarehouse** nel gruppo di risorse **myResourceGroup** e nel server **mynewserver-20180430.database.windows.net**.
 
 ```powershell
 $database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse

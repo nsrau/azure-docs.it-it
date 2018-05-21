@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/28/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9246fccb1713f69d2c6c655b09f0daf51055596f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b999792876f82de9500dccf9e6263f85e3e3105e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="https-ingress-on-azure-kubernetes-service-aks"></a>Ingresso HTTPS in Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ helm repo update
 Installare il controller di ingresso NGINX. In questo esempio si installa il controller nello spazio dei nomi `kube-system`; è possibile scegliere un altro spazio dei nomi.
 
 ```
-helm install stable/nginx-ingress --namespace kube-system
+helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
 
 Durante l'installazione viene creato un indirizzo IP pubblico di Azure per il controller di ingresso. Per ottenere l'indirizzo IP pubblico, usare il comando kubectl get service. L'assegnazione dell'indirizzo IP al servizio potrebbe richiedere del tempo.
