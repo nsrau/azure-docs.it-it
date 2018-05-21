@@ -3,22 +3,23 @@ title: Gestire l'accesso alle risorse di Azure con Azure Active Directory
 description: Informazioni sulle modalità di gestione dell'accesso alle risorse di Azure tramite diverse funzionalità di Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: skwan
+author: rolyon
 manager: mtillman
-editor: bryanla
+editor: skwan
 ms.assetid: f66abf54-3809-436c-92b6-018e1179780e
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/05/2017
-ms.author: skwan
-ms.openlocfilehash: f8f8af1380dc47a4a97845d9d47ac17bd4bba3e0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: rolyon
+ms.reviewer: skwan
+ms.openlocfilehash: 55bd18b127fea8a06e58f14873a584f0b5849906
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-access-to-azure-resources-with-azure-active-directory"></a>Gestire l'accesso alle risorse di Azure con Azure Active Directory
 

@@ -1,6 +1,6 @@
 ---
-title: Creare VM che eseguono uno stack SQL&#92;IIS&#92;.NET in Azure| Microsoft Docs
-description: 'Esercitazione: Installare uno stack Azure SQL, IIS, .NET in una macchina virtuale Windows.'
+title: 'Esercitazione: Creare macchine virtuali che eseguono uno stack SQL&#47;IIS&#47;.NET in Azure| Microsoft Docs'
+description: In questa esercitazione viene descritto come installare lo stack SQL di Azure, IIS e .NET in una macchina virtuale Windows in Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,15 +15,15 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ac6038f7600d6eb4c8d021998f9cfc40bd369332
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f9fea933dd664955a0bc6f47db775fbc469fd684
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="install-a-sql92iis92net-stack-in-azure"></a>Installare uno stack SQL&#92;IIS&#92;.NET in Azure
+# <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>Esercitazione: Installare lo stack SQL&#47;IIS&#47;.NET in una macchina virtuale Windows con Azure PowerShell
 
-In questa esercitazione viene installato uno stack SQL&#92;IIS&#92;.NET usando Azure PowerShell. Questo stack è costituito da due VM che eseguono Windows Server 2016, una con IIS e .NET e l'altra con SQL Server.
+In questa esercitazione verrà installato uno stack SQL&#47;IIS&#47;.NET usando Azure PowerShell. Questo stack è costituito da due VM che eseguono Windows Server 2016, una con IIS e .NET e l'altra con SQL Server.
 
 > [!div class="checklist"]
 > * Creare una macchina virtuale 
@@ -33,7 +33,7 @@ In questa esercitazione viene installato uno stack SQL&#92;IIS&#92;.NET usando A
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo AzureRM.Compute versione 4.3.1 o successiva. Eseguire `Get-Module -ListAvailable AzureRM.Compute` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo AzureRM.Compute versione 5.7.0 o successive. Eseguire `Get-Module -ListAvailable AzureRM.Compute` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-a-iis-vm"></a>Creare una VM IIS 
 
@@ -80,7 +80,7 @@ $vNet = Get-AzureRmVirtualNetwork `
    -ResourceGroupName $resourceGroup
 ```
 
-Creare una configurazione per la subnet con [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig).
+Creare una configurazione per la subnet usando [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig).
 
 
 ```azurepowershell-interactive
