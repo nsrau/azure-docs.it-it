@@ -1,24 +1,24 @@
 ---
 title: Cluster Resource Manager di Service Fabric - Integrazione della gestione | Microsoft Docs
-description: "Panoramica dei punti di integrazione tra Cluster Resource Manager e le funzionalità di gestione di Service Fabric."
+description: Panoramica dei punti di integrazione tra Cluster Resource Manager e le funzionalità di gestione di Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 70c0cc37a1d362c937ab86bd630c5ab051e63870
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f93ca94d5aa3e95637a53a4c8fe3d9d264dd58c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integrazione di Cluster Resource Manager con la gestione dei cluster di Service Fabric
 Cluster Resource Manager di Service Fabric non gestisce gli aggiornamenti in Service Fabric ma partecipa al processo. Il primo modo in cui Cluster Resource Manager facilita la gestione è monitorando lo stato desiderato del cluster e i servizi al suo interno. Cluster Resource Manager invia report di integrità quando non riesce ad attivare la configurazione del cluster desiderata. Se ad esempio la capacità è insufficiente, Cluster Resource Manager invia avvisi ed errori relativi all'integrità che indicano il problema. Un altro aspetto dell'integrazione ha a che fare con il funzionamento degli aggiornamenti. Durante gli aggiornamenti Cluster Resource Manager modifica leggermente il suo comportamento.  

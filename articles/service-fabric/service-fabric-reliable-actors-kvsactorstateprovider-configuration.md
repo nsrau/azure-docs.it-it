@@ -5,20 +5,20 @@ services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: d3424aa7a8e0f6011bbef4aa61274c1f598f5c86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f29754c73db74f02214522a4de15904e65df0e98
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configurare KVSActorStateProvider di Reliable Actors
 È possibile modificare la configurazione predefinita di KVSActorStateProvider cambiando il file settings.xml generato nella radice del pacchetto di Microsoft Visual Studio all'interno della cartella Config per l'attore specificato.

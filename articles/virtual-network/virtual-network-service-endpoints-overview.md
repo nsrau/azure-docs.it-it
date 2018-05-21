@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/07/2018
+ms.date: 05/04/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: fc95077ada75ef5447e80a5252bebe3ed95dc167
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint del servizio Rete virtuale
 
@@ -27,14 +27,12 @@ Gli endpoint del servizio Rete virtuale estendono lo spazio di indirizzi privato
 
 Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti:
 
-- **Archiviazione di Azure**: disponibile a livello generale. Tutte le aree nel cloud pubblico di Azure e di Azure per enti pubblici.
-- **Database SQL di Azure**: disponibile a livello generale in tutte le aree di Azure. 
-- **Azure SQL Data Warehouse**: anteprima. Tutte le aree nel cloud pubblico di Azure.
+- **Archiviazione di Azure**: disponibile a livello generale in tutte le aree di Azure
+- **Database SQL di Azure**: disponibile a livello generale in tutte le aree di Azure
+- **Azure Cosmos DB**: disponibile a livello generale in tutte le aree di del cloud pubblico di Azure 
+- **Azure SQL Data Warehouse**: anteprima in tutte le aree di cloud pubblico di Azure
 
-Per le notifiche più aggiornate per l'anteprima, vedere la pagina [Aggiornamenti di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
-
->[!NOTE]
-> Durante l'anteprima, la funzionalità potrebbe non avere lo stesso livello di disponibilità e affidabilità delle funzionalità presenti nella versione con disponibilità generale. Per altre informazioni, vedere [Condizioni Supplementari di Microsoft Azure le Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Per le notifiche più aggiornate, vedere la pagina [Aggiornamenti della rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="key-benefits"></a>Vantaggi principali
 
@@ -50,7 +48,7 @@ Gli endpoint di servizio offrono i vantaggi seguenti:
 
 - La funzionalità è disponibile solo per le reti virtuali distribuite con il modello di distribuzione Azure Resource Manager.
 - Gli endpoint vengono abilitati nelle subnet configurate nelle reti virtuali di Azure. Gli endpoint non possono essere usati per il traffico dall'ambiente locale ai servizi di Azure. Per altre informazioni, vedere [Proteggere l'accesso ai servizi di Azure dall'ambiente locale](#securing-azure-services-to-virtual-networks)
-- Un endpoint di servizio si applica solo al traffico del servizio di Azure nell'area della rete virtuale. Per il supporto del traffico RA-GRS e GRS in Archiviazione di Azure, gli endpoint includono anche le aree abbinate nelle quali è distribuita la rete virtuale. Vedere altre informazioni sulle [aree abbinate di Azure.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)
+- Per SQL di Azure, un endpoint di servizio si applica solo al traffico del servizio di Azure nell'area della rete virtuale. Per il supporto del traffico RA-GRS e GRS in Archiviazione di Azure, gli endpoint includono anche le aree abbinate nelle quali è distribuita la rete virtuale. Vedere altre informazioni sulle [aree abbinate di Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Associazione di servizi di Azure a reti virtuali
 
@@ -68,7 +66,7 @@ Gli endpoint di servizio offrono i vantaggi seguenti:
 
 - Gli endpoint di servizio sono configurati in una subnet di una rete virtuale. Gli endpoint funzionano con qualsiasi tipo di istanza di calcolo in esecuzione in tale subnet.
 - È possibile configurare più endpoint di servizio per tutti i servizi di Azure supportati in una subnet, ad esempio Archiviazione di Azure e Database SQL di Azure.
-- Le reti virtuali devono trovarsi nella stessa area della risorsa del servizio di Azure. Se si usano account di archiviazione di Azure GRS e RA-GRS, l'account principale deve trovarsi nella stessa area della rete virtuale.
+- Per SQL di Azure, le reti virtuali devono trovarsi nella stessa area della risorsa del servizio di Azure. Se si usano account di archiviazione di Azure GRS e RA-GRS, l'account principale deve trovarsi nella stessa area della rete virtuale. Per tutti gli altri servizi, le risorse del servizio di Azure possono essere protette per le reti virtuali in qualsiasi area. 
 - La rete virtuale in cui è configurato l'endpoint può trovarsi nella stessa sottoscrizione della risorsa del servizio di Azure o in una sottoscrizione diversa. Per altre informazioni sulle autorizzazioni necessarie per configurare gli endpoint e proteggere i servizi di Azure, vedere la sezione [Provisioning](#Provisioning).
 - Per i servizi supportati, è possibile associare risorse nuove o esistenti alle reti virtuali tramite gli endpoint di servizio.
 
@@ -112,7 +110,7 @@ Le reti virtuali e le risorse dei servizi di Azure possono trovarsi nella stessa
 
 ## <a name="pricing-and-limits"></a>Prezzi e limiti
 
-Non sono previsti costi aggiuntivi per l'uso degli endpoint di servizio. Viene applicato il modello di determinazione dei prezzi corrente per i servizi di Azure, ovvero Archiviazione di Azure e Database SQL di Azure.
+Non sono previsti costi aggiuntivi per l'uso degli endpoint di servizio. Viene applicato il modello di determinazione dei prezzi corrente per i servizi di Azure, ovvero Archiviazione di Azure, Database SQL di Azure, ecc.
 
 Non viene applicato alcun limite al numero totale di endpoint di servizio in una rete virtuale.
 
