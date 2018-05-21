@@ -2,35 +2,31 @@
 title: Guida alla distribuzione della reimpostazione della password self-service - Azure Active Directory
 description: Consigli per l'implementazione della reimpostazione password self-service di Azure AD
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: 22086a0d9fc774b75e1b0873188b16fc548d0791
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 4d3e07c6c395645ef34b1707f33a4e37a20bf05d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Come implementare la reimpostazione della password self-service
 
 Per garantire un'implementazione semplice della funzionalità di reimpostazione della password self-service di Azure Active Directory (Azure AD), la maggior parte dei clienti completa la procedura seguente:
 
-1. [Abilitare la reimpostazione della password nella directory](../active-directory-passwords-getting-started.md).
-2. [Configurare le autorizzazioni di Active Directory locali per il writeback delle password](../active-directory-passwords-writeback.md#active-directory-permissions).
-3. [Configurare il writeback delle password](../active-directory-passwords-writeback.md#configure-password-writeback) per riscrivere le password da Azure AD alla directory locale.
+> [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
+
+1. [Abilitare la reimpostazione della password nella directory](quickstart-sspr.md).
+2. [Configurare le autorizzazioni di Active Directory locali per il writeback delle password](howto-sspr-writeback.md#active-directory-permissions).
+3. [Configurare il writeback delle password](howto-sspr-writeback.md#configure-password-writeback) per riscrivere le password da Azure AD alla directory locale.
 4. [Assegnare e verificare le licenze necessarie](concept-sspr-licensing.md).
-5. Stabilire se si vuole effettuare un'implementazione graduale. Per implementare gradualmente la reimpostazione della password nella directory, è possibile limitare l'accesso a un gruppo di utenti per poter eseguire il programma pilota con un gruppo specifico. Per implementare un gruppo specifico, impostare l'opzione **Reimpostazione delle password self-service abilitata** su **Selezionata** e selezionare il gruppo di sicurezza a cui si vuole consentire la reimpostazione della password. 
+5. Stabilire se si vuole effettuare un'implementazione graduale. Per implementare gradualmente la reimpostazione della password nella directory, è possibile limitare l'accesso a un gruppo di utenti per poter eseguire il programma pilota con un gruppo specifico. Per implementare un gruppo specifico, impostare l'opzione **Reimpostazione delle password self-service abilitata** su **Selezionata** e selezionare il gruppo di sicurezza a cui si vuole consentire la reimpostazione della password.  È supportato l'annidamento dei gruppi di sicurezza.
 6. Immettere i [dati di autenticazione](howto-sspr-authenticationdata.md) necessari agli utenti per la registrazione, ad esempio il telefono dell'ufficio, il telefono cellulare e l'indirizzo di posta elettronica alternativo.
 7. [Personalizzare l'esperienza di accesso di Azure AD per includere le informazioni personalizzate distintive dell'azienda](concept-sspr-customization.md).
 8. Illustrare agli utenti l'uso della reimpostazione password self-service. Inviare istruzioni per la registrazione e la reimpostazione delle password.
@@ -41,7 +37,7 @@ Per garantire un'implementazione semplice della funzionalità di reimpostazione 
    > [!NOTE]
    > La modifica di questa opzione da un gruppo selezionato a tutti gli utenti non invalida i dati di autenticazione esistenti registrati da un utente come parte di un gruppo di test. Gli utenti configurati e aventi dati di autenticazione validi registrati continuano a funzionare.
 
-12. [Consentire agli utenti di Windows 10 di reimpostare la password nella schermata di accesso](../active-directory-passwords-login.md).
+12. [Consentire agli utenti di Windows 10 di reimpostare la password nella schermata di accesso](tutorial-sspr-windows.md).
 
    > [!IMPORTANT]
    > Testare la reimpostazione password self-service con un utente e non con un amministratore, perché Microsoft applica requisiti di autenticazione avanzata per gli account di tipo amministratore di Azure. Per altre informazioni sui criteri delle password amministratore, vedere l'[articolo sui criteri delle password](concept-sspr-policy.md#administrator-password-policy-differences).
@@ -67,6 +63,10 @@ Molti clienti scelgono di ospitare una pagina Web e di creare una voce DNS radic
 
 In qualsiasi comunicazione cartacea o di posta elettronica inviata è possibile includere un URL personalizzato facile da ricordare al quale gli utenti possono accedere quando devono usare i servizi. È stata creata una [pagina di reimpostazione della password di esempio](https://github.com/ajamess/password-reset-page), che è possibile usare e personalizzare in base alle esigenze dell'organizzazione.
 
+## <a name="step-by-step-deployment-plan"></a>Piano di distribuzione dettagliato
+
+Il gruppo che si occupa dei prodotti Azure Active Directory ha creato un [piano di distribuzione dettagliato](https://aka.ms/SSPRDeploymentPlan) che le organizzazioni possono usare in parallelo con la documentazione di questo sito per delineare un caso aziendale e un piano per la distribuzione della funzionalità di reimpostazione della password self-service.
+
 ## <a name="use-enforced-registration"></a>Usare la registrazione applicata
 
 Se si vuole che gli utenti eseguano la registrazione per la reimpostazione della password, è possibile rendere obbligatoria la registrazione quando accedono tramite Azure AD. È possibile abilitare questa opzione dal riquadro **Reimpostazione password** della directory, selezionando l'opzione **Richiedere agli utenti di registrarsi all'accesso?** nella scheda **Registrazione**.
@@ -90,7 +90,7 @@ La disabilitazione della reimpostazione password self-service è un'operazione s
 * [Domande sulle licenze](concept-sspr-licensing.md)
 * [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
 * [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)
-* [Panoramica del writeback delle password](../active-directory-passwords-writeback.md)
+* [Panoramica del writeback delle password](howto-sspr-writeback.md)
 * [Come creare un report sull'attività relativa alla reimpostazione della password self-service](howto-sspr-reporting.md)
 * [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
 * [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)

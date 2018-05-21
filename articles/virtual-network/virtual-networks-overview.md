@@ -17,15 +17,15 @@ ms.workload: infrastructure-services
 ms.date: 3/23/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 072a4a483cb39a6f2827b6d5973ec544fd58d09c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 851c8c1eb13497355038ef4a8d5f1f9326c8c3bc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-azure-virtual-network"></a>Che cos'è Rete virtuale di Azure?
 
-Rete virtuale di Azure consente a diversi tipi di risorse di Azure, ad esempio Macchine virtuali di Azure, di comunicare in modo sicuro tra di esse, con Internet e con le reti locali. Rete virtuale di Azure offre le funzionalità chiave seguenti: 
+Rete virtuale di Azure consente a diversi tipi di risorse di Azure, ad esempio Macchine virtuali di Azure, di comunicare in modo sicuro tra di esse, con Internet e con le reti locali. Rete virtuale di Azure offre le funzionalità chiave seguenti:
 
 ## <a name="isolation-and-segmentation"></a>Isolamento e segmentazione
 
@@ -42,7 +42,7 @@ Per impostazione predefinita, tutte le risorse in una rete virtuale possono comu
 
 Le risorse di Azure comunicano in modo sicuro tra di esse in uno dei modi seguenti:
 
-- **Tramite una rete virtuale**: è possibile distribuire VM e diversi altri tipi di risorse di Azure in una rete virtuale, ad esempio ambienti del servizio app di Azure e set di scalabilità di macchine virtuali di Azure. Per visualizzare un elenco completo delle risorse di Azure che è possibile distribuire in una rete virtuale, vedere [Integrazione del servizio di rete virtuale](virtual-network-for-azure-services.md). 
+- **Tramite una rete virtuale**: è possibile distribuire VM e diversi altri tipi di risorse di Azure in una rete virtuale, ad esempio ambienti del servizio app di Azure, Azure Kubernetes Service (AKS) e set di scalabilità di macchine virtuali di Azure. Per visualizzare un elenco completo delle risorse di Azure che è possibile distribuire in una rete virtuale, vedere [Integrazione del servizio di rete virtuale](virtual-network-for-azure-services.md). 
 - **Tramite un endpoint servizio di rete virtuale**: estendere lo spazio di indirizzi privato della rete virtuale e l'identità della rete virtuale alle risorse dei servizi di Azure, ad esempio gli account di archiviazione di Azure e i database SQL di Azure, tramite una connessione diretta. Gli endpoint servizio consentono di associare le risorse critiche dei servizi di Azure solo a una rete virtuale. Per altre informazioni, vedere [Panoramica degli endpoint del servizio Rete virtuale](virtual-network-service-endpoints-overview.md).
  
 ## <a name="communicate-with-on-premises-resources"></a>Comunicare con le risorse locali

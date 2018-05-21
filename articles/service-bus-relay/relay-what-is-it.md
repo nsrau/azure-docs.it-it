@@ -5,30 +5,32 @@ services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
 ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 12/20/2017
+ms.date: 05/02/2018
 ms.author: sethm
-ms.openlocfilehash: d1b1c0661458669dc8f05a49037943320de2ecb3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2b179f8f5de9a0020ea6457c11bb6f48f3a51320
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="what-is-azure-relay"></a>Che cos'è il servizio di inoltro di Azure?
 
 Il servizio di inoltro di Azure semplifica le applicazioni ibride consentendo di esporre in modo sicuro nel cloud pubblico i servizi che risiedono in una rete aziendale, senza dover aprire una connessione firewall o richiedere modifiche di notevole impatto a un'infrastruttura di rete aziendale. Il servizio di inoltro supporta un'ampia gamma di protocolli di trasporto e standard dei servizi Web.
 
-Il servizio di inoltro supporta il tradizionale traffico unidirezionale, richiesta/risposta e peer-to-peer. Supporta inoltre la distribuzione degli eventi nell'ambito di Internet per abilitare scenari di pubblicazione/sottoscrizione e le comunicazioni tramite socket bidirezionale per migliorare l'efficienza point-to-point. 
+Il servizio di inoltro supporta il tradizionale traffico unidirezionale, richiesta/risposta e peer-to-peer. Supporta inoltre la distribuzione degli eventi nell'ambito di Internet per abilitare scenari di pubblicazione/sottoscrizione e le comunicazioni tramite socket bidirezionale per migliorare l'efficienza point-to-point.
 
 Nel modello di trasferimento dati con inoltro, un servizio locale si connette al servizio di inoltro attraverso una porta in uscita e crea un socket bidirezionale per la comunicazione associato a un determinato indirizzo rendezvous. Il client può quindi comunicare con il servizio locale inviando traffico al servizio di inoltro con l'indirizzo rendezvous come destinazione. Il servizio di inoltro "inoltra" quindi i dati al servizio locale tramite un socket bidirezionale dedicato a ogni client. Il client non necessita di una connessione diretta al servizio locale, non deve conoscere la posizione in cui risiede il servizio e il servizio locale non richiede porte in ingresso aperte sul firewall.
 
-Le principali funzionalità offerte dal servizio di inoltro sono la comunicazione bidirezionale senza buffer attraverso i limiti di rete con limitazione di tipo TCP, individuazione degli endpoint, stato della connettività e sicurezza degli endpoint sovrapposta. Le funzionalità di inoltro si differenziano da quelle delle tecnologie di integrazione a livello di rete come VPN perché l'ambito dell'inoltro può essere limitato a un singolo endpoint applicazione in un singolo computer, mentre la tecnologia VPN ha un impatto molto più elevato perché si basa sulla modifica dell'ambiente di rete.
+Le principali funzionalità offerte dal servizio di inoltro sono la comunicazione bidirezionale senza buffer attraverso i limiti di rete con limitazione di tipo TCP, individuazione degli endpoint, stato della connettività e sicurezza degli endpoint sovrapposta.
+
+Le funzionalità di inoltro si differenziano da quelle delle tecnologie di integrazione a livello di rete come VPN perché l'ambito dell'inoltro può essere limitato a un singolo endpoint applicazione in un singolo computer, mentre la tecnologia VPN ha un impatto molto più elevato perché si basa sulla modifica dell'ambiente di rete.
 
 Il servizio di inoltro di Azure include due funzionalità.
 
@@ -48,7 +50,9 @@ Sia le connessioni ibride che gli inoltri WCF consentono la connessione sicura a
 
 ## <a name="hybrid-connections"></a>connessioni ibride
 
-La funzionalità [Connessioni ibride del servizio di inoltro di Azure](relay-hybrid-connections-protocol.md) è un'evoluzione sicura basata su protocolli aperti delle funzionalità di inoltro esistenti e può essere implementata in qualsiasi piattaforma e linguaggio con funzionalità WebSocket di base. Questo include esplicitamente l'API WebSocket dei comuni Web browser. La funzionalità Connessioni ibride è basata su HTTP e WebSocket.
+La funzionalità Connessioni ibride del servizio Inoltro di Azure è un'evoluzione sicura basata su protocolli aperti delle funzionalità di inoltro esistenti e può essere implementata in qualsiasi piattaforma e linguaggio. Il servizio Connessioni ibride consente di inoltrare WebSockets, nonché richieste e risposte HTTP(S). Queste funzionalità sono compatibili con l'API WebSocket nei browser Web comuni. La funzionalità Connessioni ibride è basata su HTTP e WebSocket.
+
+Il protocollo è documentato in modo completo in [Hybrid Connections protocol guide](relay-hybrid-connections-protocol.md) (Guida al protocollo Connessioni ibride), consentendo l'uso dell'inoltro di Connessioni ibride con praticamente qualsiasi libreria WebSockets per qualsiasi runtime e linguaggio.
 
 ### <a name="service-history"></a>Storia del servizio
 
@@ -70,6 +74,8 @@ Quando viene stabilita la connessione di inoltro, i client possono scambiare mes
 
 * [Domande frequenti sull'inoltro](relay-faq.md)
 * [Creare uno spazio dei nomi](relay-create-namespace-portal.md)
-* [Introduzione a .NET](relay-hybrid-connections-dotnet-get-started.md)
-* [Introduzione a Node](relay-hybrid-connections-node-get-started.md)
+* [Introduzione a Websockets .NET](relay-hybrid-connections-dotnet-get-started.md)
+* [Introduzione alle richieste HTTP .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md)
+* [Introduzione a Websockets Node](relay-hybrid-connections-node-get-started.md)
+* [Introduzione alle richieste HTTP Node](relay-hybrid-connections-http-requests-node-get-started.md)
 

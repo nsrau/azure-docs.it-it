@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione di un database di SQL Server al database SQL di Azure con Servizio Migrazione del database | Microsoft Docs
-description: Informazioni su come eseguire la migrazione di un database di SQL Server al database SQL di Azure usando Servizio Migrazione del database.
+title: Eseguire la migrazione di un database di SQL Server al database SQL di Azure con DMA | Microsoft Docs
+description: Informazioni su come eseguire la migrazione di un database di SQL Server al database SQL di Azure usando DMA.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,13 +9,13 @@ ms.custom: mvc,migrate
 ms.topic: tutorial
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 36548e4d088b809f4fb16d89aaa3ef0a802d6d5c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e714667183704670807fd2f62767b75f62978a38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>Migrazione di un database di SQL Server al database SQL di Azure con Servizio Migrazione del database
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Migrazione di un database di SQL Server al database SQL di Azure con DMA
 
 La migrazione di un database di SQL Server a un database singolo di Database SQL di Azure è un processo semplice che prevede la creazione di un database SQL vuoto in Azure e quindi l'uso di [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) per importare il database in Azure. Per altre opzioni di migrazione, vedere l'articolo relativo alla [migrazione di un database al database SQL di Azure](sql-database-cloud-migrate.md).
 
@@ -46,7 +46,7 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Creare un database SQL vuoto
 
-Un database SQL di Azure viene creato con un set definito di [risorse di calcolo e di archiviazione](sql-database-service-tiers.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di database SQL di Azure](sql-database-features.md). 
+Un database SQL di Azure viene creato con un set definito di [risorse di calcolo e di archiviazione](sql-database-service-tiers-dtu.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di database SQL di Azure](sql-database-features.md). 
 
 Per creare un database SQL vuoto, attenersi alla procedura seguente. 
 
@@ -87,9 +87,9 @@ Per creare un database SQL vuoto, attenersi alla procedura seguente.
 8. Accettare le condizioni dell'anteprima per usare l'opzione **Spazio di archiviazione aggiuntivo**. 
 
    > [!IMPORTANT]
-   > \* Le dimensioni di archiviazione superiori alla quantità di risorse di archiviazione incluse sono disponibili in anteprima e vengono applicati costi aggiuntivi. Per ulteriori informazioni, vedere [Database SQL Prezzi](https://azure.microsoft.com/pricing/details/sql-database/). 
+   > - Le dimensioni di archiviazione superiori alla quantità di risorse di archiviazione incluse sono disponibili in anteprima e vengono applicati costi aggiuntivi. Per ulteriori informazioni, vedere [Database SQL Prezzi](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Nel livello Premium sono attualmente disponibili più di 1 TB di risorse di archiviazione nelle aree seguenti: Brasile meridionale, Canada centrale, Canada orientale, Stati Uniti centrali, Francia centrale, Germania centrale, Giappone orientale, Giappone occidentale, Corea centrale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Regno Unito occidentale, Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia ed Europa occidentale. Vedere [Limitazioni correnti per P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > - Nel livello Premium è attualmente disponibile più di 1 TB di spazio di archiviazione nelle aree seguenti: Brasile meridionale, Canada centrale, Canada orientale, Stati Uniti centrali, Francia centrale, Germania centrale, Giappone orientale, Giappone occidentale, Corea centrale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Regno Unito occidentale, Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia ed Europa occidentale. Vedere [Limitazioni correnti per P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Dopo la selezione del livello di servizio, del numero di DTU e della quantità di risorse di archiviazione, fare clic su **Applica**.  

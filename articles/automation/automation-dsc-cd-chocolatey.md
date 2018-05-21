@@ -7,13 +7,13 @@ ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9c3cb5a00433a76e8cc444cc48c648cb2749a2ae
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: f695eaadc0aa2d01473262c478a3b184d89d882c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Esempio di utilizzo: Distribuzione continua in macchine virtuali tramite Automation DSC e Chocolatey
 In un ambiente DevOps sono disponibili molti strumenti utili in diversi punti della pipeline di integrazione continua.  Automation DSC (Desired State Configuration) per Azure è una nuova aggiunta alle opzioni disponibili per i team DevOps.  Questo articolo illustra come configurare la distribuzione continua per un computer Windows.  La tecnica può essere facilmente estesa per includere nel ruolo, ad esempio un sito Web, tutti i computer Windows necessari, estendendola quindi anche ad altri ruoli.

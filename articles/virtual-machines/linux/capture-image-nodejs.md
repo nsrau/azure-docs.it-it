@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: 71c60c8d29e4db8aab1932a1bece03396a12e4da
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3b45f46197467dd7b83bd986604338e14daa8107
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Acquisire una VM Linux in esecuzione su Azure
 Seguire i passaggi descritti in questo articolo per generalizzare e acquisire la macchina virtuale Linux di Azure (VM) nel modello di distribuzione Azure Resource Manager. Quando si generalizza la macchina virtuale, si rimuovono le informazioni sull'account personale e si prepara la macchina virtuale da usare come immagine. Si acquisisce quindi l'immagine di un disco rigido virtuale generalizzato (VHD) per il sistema operativo, i dischi rigidi virtuali per i dischi dati collegati, e un [modello di Resource Manager](../../azure-resource-manager/resource-group-overview.md) per nuove distribuzioni di macchine virtuali. Questo articolo descrive come acquisire un'immagine di macchina virtuale con l'interfaccia della riga di comando di Azure 1.0 tramite i dischi non gestiti. È anche possibile [acquisire una macchina virtuale tramite Azure Managed Disks con l'interfaccia della riga di comando di Azure 2.0 ](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). La funzionalità Managed Disks viene gestita dalla piattaforma Azure e non richiede alcuna pianificazione o alcuna posizione per l'archiviazione. Per altre informazioni, vedere [Azure Managed Disks Overview](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Panoramica di Azure Managed Disks). 
@@ -44,7 +44,7 @@ Accertarsi che siano soddisfatti i prerequisiti seguenti:
 * **Interfaccia della riga di comando di Azure**: installare l'[interfaccia della riga di comando di Azure](../../cli-install-nodejs.md) sul computer locale.
 
 ## <a name="step-1-remove-the-azure-linux-agent"></a>Passaggio 1: Rimuovere l'agente Linux di Azure
-Eseguire innanzitutto il comando **waagent** con il parametro **deprovision** sulla VM Linux. Questo comando elimina file e dati per preparare la VM per la generalizzazione. Per informazioni dettagliate, vedere [Guida dell'utente dell'agente Linux di Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Eseguire innanzitutto il comando **waagent** con il parametro **deprovision** sulla VM Linux. Questo comando elimina file e dati per preparare la VM per la generalizzazione. Per informazioni dettagliate, vedere [Guida dell'utente dell'agente Linux di Azure](../extensions/agent-windows.md).
 
 1. Connettersi alla VM Linux tramite un client SSH.
 2. Nella finestra SSH digitare il comando seguente:
