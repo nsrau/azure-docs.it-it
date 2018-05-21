@@ -1,6 +1,6 @@
 ---
-title: Configurare la governance delle macchine virtuali di Azure con l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: "Esercitazione: gestire macchine virtuali di Azure applicando Controllo degli accessi in base al ruolo, criteri, blocchi e tag con l'interfaccia della riga di comando di Azure"
+title: Esercitazione - Configurare la governance delle macchine virtuali di Azure con l'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
+description: In questa esercitazione viene descritto come usare l'interfaccia della riga di comando di Azure 2.0 per gestire macchine virtuali di Azure applicando controllo degli accessi in base al ruolo, criteri, blocchi e tag
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -10,22 +10,23 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: a7d44e421162cf5784dde58f757e235d12b63cba
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.custom: mvc
+ms.openlocfilehash: 4ce2b133ed4266028f1d99151939538fb8ce60f5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="virtual-machine-governance-with-azure-cli"></a>Governance delle macchine virtuali con l'interfaccia della riga di comando di Azure
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>Esercitazione: Informazioni sulla governance di macchine virtuali Linux con l'interfaccia della riga di comando di Azure 2.0
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Per installare e usare l'interfaccia della riga di comando in locale, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="understand-scope"></a>Informazioni sull'ambito
 

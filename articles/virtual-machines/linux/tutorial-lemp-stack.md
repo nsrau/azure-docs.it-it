@@ -1,6 +1,6 @@
 ---
-title: Distribuire LEMP in una macchina virtuale Linux in Azure | Microsoft Docs
-description: 'Esercitazione: installare lo stack LEMP in una macchina virtuale Linux in Azure'
+title: 'Esercitazione: distribuire LEMP in una macchina virtuale Linux in Azure | Microsoft Docs'
+description: In questa esercitazione viene descritto come installare lo stack di LEMP in una macchina virtuale Linux in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
@@ -15,13 +15,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: f907b468a409135d4b45e76297fc7cd86eeead78
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1f4c74ab96fc9494d1b3c7dd626265516533330b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Installare un server Web LEMP in una macchina virtuale di Azure
+# <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Esercitazione: installare un server Web LEMP in una macchina virtuale Linux in Azure
+
 Questo articolo illustra come distribuire un server Web NGINX, MySQL e PHP (lo stack LEMP) in una VM Ubuntu in Azure. Lo stack LEMP è un alternativa al popolare [stack LAMP](tutorial-lamp-stack.md), che è anche possibile installare in Azure. Per verificare il funzionamento del server LEMP, è facoltativamente possibile installare e configurare un sito WordPress. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
@@ -31,12 +32,11 @@ Questo articolo illustra come distribuire un server Web NGINX, MySQL e PHP (lo s
 > * Verificare l'installazione e la configurazione
 > * Installare WordPress nel server LEMP
 
-
 Questa installazione è utilizzabile per i test rapidi o il modello di prova.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, in questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 

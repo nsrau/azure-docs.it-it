@@ -2,7 +2,7 @@
 title: 'Azure Active Directory Domain Services: aggiornare le impostazioni DNS per la rete virtuale di Azure | Microsoft Docs'
 description: Introduzione ad Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: maheshu
-ms.openlocfilehash: c99d42eaf52a13afef6df76b6bb1a714e719fa64
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 972b995d3768e765b95c136b3cfbee91ab0a88ab
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enable-azure-active-directory-domain-services"></a>Abilitare Azure Active Directory Domain Services
 
@@ -47,4 +47,4 @@ Per aggiornare l'impostazione del server DNS per la rete virtuale in cui è stat
 >
 
 ## <a name="next-step"></a>Passaggio successivo
-[Attività 5: Abilitare la sincronizzazione password con Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
+[Attività 5: Abilitare la sincronizzazione dell'hash delle password con Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)

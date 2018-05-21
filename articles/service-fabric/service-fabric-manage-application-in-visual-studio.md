@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: 5c5c3dc20996fbbdee9f9ed61eb3b09e4b274d92
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 25c7f0e8d6ebc31121e29870026a735495ef7900
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Usare Visual Studio per semplificare la scrittura e la gestione delle applicazioni di Service Fabric
-È possibile gestire le applicazioni e i servizi di Azure Service Fabric tramite Visual Studio. Dopo aver [configurato l'ambiente di sviluppo](service-fabric-get-started.md), è infatti possibile usare Visual Studio per creare applicazioni di Service Fabric, aggiungere servizi o creare i pacchetti, registrare e distribuire le applicazioni nel cluster di sviluppo locale.
+# <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Usare Visual Studio per semplificare la scrittura e la gestione delle applicazioni dell’infrastruttura di servizi
+È possibile gestire le applicazioni e i servizi di Service Fabric di Azure tramite Visual Studio. Dopo aver [configurato l'ambiente di sviluppo](service-fabric-get-started.md), è infatti possibile usare Visual Studio per creare applicazioni di Service Fabric, aggiungere servizi o creare i pacchetti, registrare e distribuire le applicazioni nel cluster di sviluppo locale.
 
 ## <a name="deploy-your-service-fabric-application"></a>Distribuire l'applicazione di Service Fabric
 Per impostazione predefinita, la distribuzione di un'applicazione combina in un'unica operazione i passaggi seguenti:
@@ -84,7 +84,7 @@ In Visual Studio è possibile eseguire operazioni di gestione dei cluster di bas
 * [Distribuzione di un'applicazione di Service Fabric](service-fabric-deploy-remove-applications.md)
 * [Gestione dei parametri dell'applicazione per più ambienti](service-fabric-manage-multiple-environment-app-configuration.md)
 * [Debug dell'applicazione di Service Fabric](service-fabric-debugging-your-application.md)
-* [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+* [Visualizzazione del cluster con l’explorer di Service Fabric](service-fabric-visualizing-your-cluster.md)
 
 <!--Image references-->
 [addserviceproject]:./media/service-fabric-manage-application-in-visual-studio/addserviceproject.png

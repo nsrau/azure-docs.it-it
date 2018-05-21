@@ -9,16 +9,16 @@ editor: hrushib
 ms.assetid: FAA58600-897E-4CEE-9D1C-93FACF98AD1C
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: f2ab583ecc77122f2c76f905a1cd7b936278bd41
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b2e2e7dcc26bece79ae0423d55b08416065d599e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Backup e ripristino periodici in Azure Service Fabric (Anteprima)
 > [!div class="op_single_selector"]
@@ -37,9 +37,9 @@ Ad esempio, è possibile che in un servizio sia consigliabile eseguire il backup
 - Bug nel servizio che provocano il danneggiamento dei dati. Ad esempio, questo problema può verificarsi quando un aggiornamento del codice di servizio inizia a scrivere dati non corretti in una raccolta Reliable Collections. In tal caso, potrebbe essere necessario ripristinare uno stato precedente sia per il codice che per i dati.
 - Elaborazione dati offline. Potrebbe essere utile eseguire offline l'elaborazione dei dati per la business intelligence separatamente dal servizio che genera i dati.
 
-Service Fabric fornisce un'API integrata per [backup e ripristino](service-fabric-reliable-services-backup-restore.md) temporizzati. Gli sviluppatori di applicazioni possono usare queste API per eseguire periodicamente il backup dello stato del servizio. Inoltre, se gli amministratori del servizio desiderano attivare un backup dall'esterno del servizio in un momento specifico, ad esempio prima di aggiornare l'applicazione, gli sviluppatori devono esporre il backup (e il ripristino) come API dal servizio. Mantenere i backup rappresenta un costo aggiuntivo ulteriore. Ad esempio, potrebbe essere necessario eseguire 5 backup incrementali ogni mezz'ora, seguiti da un backup completo. Dopo il backup completo, è possibile eliminare i backup incrementali precedenti. Questo approccio richiede un codice aggiuntivo che comporta costi ulteriori durante lo sviluppo delle applicazioni.
+Service Fabric fornisce un'API incorporata per eseguire [backup e ripristino](service-fabric-reliable-services-backup-restore.md) in un determinato momento. Gli sviluppatori di applicazioni possono usare queste API per eseguire periodicamente il backup dello stato del servizio. Inoltre, se gli amministratori del servizio desiderano attivare un backup dall'esterno del servizio in un momento specifico, ad esempio prima di aggiornare l'applicazione, gli sviluppatori devono esporre il backup (e il ripristino) come API dal servizio. Mantenere i backup rappresenta un costo aggiuntivo ulteriore. Ad esempio, potrebbe essere necessario eseguire 5 backup incrementali ogni mezz'ora, seguiti da un backup completo. Dopo il backup completo, è possibile eliminare i backup incrementali precedenti. Questo approccio richiede un codice aggiuntivo che comporta costi ulteriori durante lo sviluppo delle applicazioni.
 
-Il backup dei dati delle applicazioni a cadenza periodica è una necessità fondamentale per la gestione di un'applicazione distribuita e per proteggersi contro la perdita di dati o la perdita prolungata della disponibilità del servizio. Service Fabric fornisce un servizio opzionale di backup e ripristino, che consente di configurare il backup periodico dei servizi Reliable con stato (inclusi i servizi attore) senza dover scrivere alcun codice aggiuntivo. Facilita inoltre il ripristino dei backup precedentemente eseguiti. 
+Il backup dei dati delle applicazioni a cadenza periodica è una necessità fondamentale per la gestione di un'applicazione distribuita e per proteggersi contro la perdita di dati o la perdita prolungata della disponibilità del servizio. Service Fabric fornisce un servizio opzionale di backup e ripristino, che consente di configurare il backup periodico dei servizi Reliable con stato (inclusi i servizi Actor) senza dover scrivere alcun codice aggiuntivo. Facilita inoltre il ripristino dei backup precedentemente eseguiti. 
 
 > [!NOTE]
 > La funzione di backup e ripristino periodico è attualmente in **Anteprima** e non è supportata per i carichi di lavoro di produzione. 
@@ -47,7 +47,7 @@ Il backup dei dati delle applicazioni a cadenza periodica è una necessità fond
 
 Service Fabric fornisce un set di API per ottenere le seguenti funzionalità relative alle funzioni di backup e ripristino periodico:
 
-- Pianificazione del backup periodico dei servizi Reliable con stato e degli attori Reliable con supporto per il caricamento del backup in posizioni di archiviazione (esterne). Posizioni di archiviazione supportate
+- Pianificazione del backup periodico dei servizi Reliable con stato e Reliable Actors con supporto per il caricamento del backup in posizioni di archiviazione (esterne). Posizioni di archiviazione supportate
     - Archiviazione di Azure
     - Condivisione di file (locale)
 - Enumerazione di backup
@@ -65,7 +65,7 @@ Service Fabric fornisce un set di API per ottenere le seguenti funzionalità rel
 ## <a name="enabling-backup-and-restore-service"></a>Attivazione del backup e del ripristino del servizio
 È innanzitutto necessario abilitare il _servizio di backup e ripristino_ nel cluster. Ottenere il modello per il cluster che si vuole distribuire. È possibile usare i [modelli di esempio](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) o creare un modello di Resource Manager. Per abilitare il _servizio di backup e ripristino_, seguire questa procedura:
 
-1. Verificare che `apiversion` sia impostato su ** per la risorsa `2018-02-01` e, se non lo è, aggiornarlo come illustrato nel frammento seguente:
+1. Verificare che `apiversion` sia impostato su  **`2018-02-01`** per la risorsa `Microsoft.ServiceFabric/clusters` e, se non lo è, aggiornarlo come illustrato nel frammento seguente:
 
     ```json
     {
@@ -110,7 +110,7 @@ Service Fabric fornisce un set di API per ottenere le seguenti funzionalità rel
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Abilita i backup periodici per servizio Reliable con stato e Reliable Actors
 Seguire il procedimento per abilitare i backup periodici per servizio Reliable con stato e Reliable Actors. Questi passaggi presuppongono che
 - Che il cluster sia installato utilizzando il certificato di sicurezza X.509 con _backup e ripristino del servizio_.
-- Un servizio Reliable con stato viene distribuito nel cluster. Ai fini di questa Guida rapida, l'Uri dell'applicazione è `fabric:/SampleApp` e l'Uri per il servizio Reliable con stato che appartiene a questa applicazione è `fabric:/SampleApp/MyStatefulService`. Questo servizio viene distribuito con singola partizione e l'ID di partizione è `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
+- Un servizio Reliable con stato viene distribuito nel cluster. Ai fini della presente Guida rapida, l'applicazione Uri è `fabric:/SampleApp` e il servizio Uri per il servizio Reliable con stato appartenente a questa applicazione è `fabric:/SampleApp/MyStatefulService`. Questo servizio viene distribuito con singola partizione e l'ID di partizione è `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
 - Il certificato client con ruolo di amministratore è installato in _My_ (_Personale_) nome di archivio _CurrentUser_ percorso del certificato dal computer da cui gli script seguenti verranno richiamati. Questo esempio utilizza `1b7ebe2174649c45474a4819dafae956712c31d3` come identificazione personale del certificato. Per altre informazioni sui certificati client, vedere [Controllo degli accessi in base al ruolo per i client di Service Fabric](service-fabric-cluster-security-roles.md).
 
 ### <a name="create-backup-policy"></a>Creare criteri di backup
@@ -149,7 +149,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ### <a name="enable-periodic-backup"></a>Abilitare il backup periodico
 Dopo aver definito il criterio di backup per soddisfare i requisiti di protezione dei dati dell'applicazione, il criterio di backup deve essere associato all'applicazione. A seconda del requisito, il criterio di backup può essere associato a un'applicazione, un servizio o una partizione.
 
-Eseguire lo script PowerShell seguente per richiamare l’API REST necessaria per associare il criterio di backup al nome `BackupPolicy1` creato nel passaggio precedente con l'applicazione `SampleApp`.
+Eseguire lo script PowerShell seguente per richiamare l'API REST necessaria per associare il criterio di backup al nome `BackupPolicy1` creato nel passaggio precedente con l'applicazione `SampleApp`.
 
 ```powershell
 $BackupPolicyReference = @{

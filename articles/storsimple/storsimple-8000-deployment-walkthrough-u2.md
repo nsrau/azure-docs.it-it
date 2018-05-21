@@ -4,21 +4,21 @@ description: Descrive i passaggi e le procedure consigliate per la distribuzione
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2017
+ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: dc021d2277c419dd5a892aacd7bff0707e5564fa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 85a493e05fb87292f303bccdcef65d119223bc76
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Distribuire un dispositivo StorSimple locale (aggiornamento 3 e successivi)
 
@@ -195,6 +195,19 @@ Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un 
 Seguire questa procedura nel portale di Azure per creare un backup manuale su richiesta per un singolo volume nel dispositivo StorSimple.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-8000-create-manual-backup.md)]
+
+## <a name="view-the-pinout-diagram-for-serial-cable-for-storsimple"></a>Visualizzare il diagramma di piedinatura per il cavo seriale per StorSimple
+Il diagramma di piedinatura seguente può essere usato per il cavo console seriale per StorSimple.
+
+Nell'illustrazione di seguito il connettore femmina DB9 è P1 e il connettore da 3,5 mm è P2.
+
+![Diagramma di piedinatura 1 per il cavo console seriale per StorSimple](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram1.png)
+
+La punta del connettore jack è PIN RX 3, la parte centrale è PIN 2 TX e la base è PIN 1 GND, come illustrato nel diagramma seguente.
+
+![Diagramma di piedinatura 2 per il cavo console seriale per StorSimple](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram2.png)
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Configurare un'appliance cloud StorSimple](storsimple-8000-cloud-appliance-u2.md).
