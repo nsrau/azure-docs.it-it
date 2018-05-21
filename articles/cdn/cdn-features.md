@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 01396ceba142a91a88040ac28c51275734476e5d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 3368a8a14a3d1314e4c7ecae9256071f1fe646f9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="compare-azure-cdn-product-features"></a>Confronto tra funzionalità dei prodotti della rete CDN di Azure
 
@@ -44,16 +44,16 @@ La tabella seguente confronta le funzionalità disponibili con ogni prodotto.
 | IPv4/IPv6 dual stack | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Supporto HTTP/2](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||
- **Sicurezza** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
+ **Sicurezza** | **Standard Microsoft (anteprima)** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | Supporto per HTTPS con endpoint della rete CDN | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTPS dominio personalizzato](cdn-custom-ssl.md)  | **&#x2713;** | |**&#x2713;** |**&#x2713;** |
 | [Supporto del nome di dominio personalizzato.](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Filtro geografico](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Autenticazione tramite token](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
 | [Protezione DDoS](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Usare un certificato personale](cdn-custom-ssl.md#option-2-enable-the-https-feature-with-your-own-certificate) |**&#x2713;** |  |  |  |
+| [Usare un certificato personale](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates) |**&#x2713;** |  |  |  |
 ||||
-| **Analisi e report** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
+| **Analisi e report** | **Standard Microsoft (anteprima)** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | [Log di diagnostica di Azure](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Report principali da Verizon](cdn-analyze-usage-patterns.md)  |  | |**&#x2713;** |**&#x2713;** |
 | [Report personalizzati da Verizon](cdn-verizon-custom-reports.md)  |  | |**&#x2713;** |**&#x2713;** |
@@ -62,8 +62,8 @@ La tabella seguente confronta le funzionalità disponibili con ogni prodotto.
 | [Prestazioni del nodo perimetrale](cdn-edge-performance.md)  |  | | |**&#x2713;** |
 | [Avvisi in tempo reale](cdn-real-time-alerts.md)  |  | | |**&#x2713;** |
 ||||
-| **Semplicità d'uso** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
-| Integrazione semplice con i servizi di Azure, come [Archiviazione](cdn-create-a-storage-account-with-cdn.md), [App Web](app-service-web-tutorial-content-delivery-network.md) e [Servizi multimediali](../media-services/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| **Semplicità d'uso** | **Standard Microsoft (anteprima)** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
+| Integrazione semplice con i servizi di Azure, come [Archiviazione](cdn-create-a-storage-account-with-cdn.md), [App Web](cdn-add-to-web-app.md) e [Servizi multimediali](../media-services/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Gestione tramite [API REST](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) oppure [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Motore di distribuzione di contenuti personalizzabile, basato su regole](cdn-rules-engine.md)  |  | | |**&#x2713;** |
 | Riscrittura/reindirizzamento URL (con il [motore regole](cdn-rules-engine.md))  |  | | |**&#x2713;** |

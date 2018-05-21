@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: baf437294dbbca7f63f9d4cdc80ac1cb33a67e42
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 548bd4ca9e8ec66e4c50ea078dc0bccc1788095a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gestione dell'accesso Single Sign-On per le app aziendali
 
-Questo articolo descrive come usare il [portale di Azure](https://portal.azure.com) per gestire impostazioni del Single Sign-On per le applicazioni aziendali. Le app aziendali sono app distribuite e usate all'interno dell'organizzazione. Questo articolo si applica in particolare alle app aggiunte dalla [raccolta di applicazioni di Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
+Questo articolo descrive come usare il [portale di Azure](https://portal.azure.com) per gestire impostazioni del Single Sign-On per le applicazioni aziendali. Le app aziendali sono app distribuite e usate all'interno dell'organizzazione. Questo articolo si applica in particolare alle app aggiunte dalla [raccolta di applicazioni di Azure Active Directory](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## <a name="finding-your-apps-in-the-portal"></a>Individuazione delle app nel portale
 Tutte le app aziendali impostate per il Single Sign-On possono essere visualizzate e gestite nel portale di Azure. Le applicazioni sono disponibili nella sezione **Tutti i servizi** &gt; **Applicazioni aziendali** del portale. 
@@ -43,7 +43,7 @@ L'area **Single Sign-On** inizia con un menu **Modalità** che consente di confi
 * **Accesso basato su password**: questa opzione è disponibile se Azure AD supporta la compilazione di moduli con password per questa applicazione.
 * **Accesso collegato**: precedentemente nota come "Accesso Single Sign-On esistente", questa opzione consente agli amministratori di inserire un collegamento all'applicazione nel riquadro di accesso di Azure AD degli utenti o nella schermata di avvio delle applicazioni di Office 365.
 
-Per altre informazioni su queste modalità, vedere [Come funziona Single Sign-On con Azure Active Directory (PHP)?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Per altre informazioni su queste modalità, vedere [Come funziona Single Sign-On con Azure Active Directory (PHP)?](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## <a name="saml-based-sign-on"></a>Accesso basato su SAML
 L'opzione **Accesso basato su SAML** è suddivisa in quattro sezioni:
@@ -79,12 +79,12 @@ Il menu a comparsa **Configura applicazione** fornisce nuove istruzioni concise 
 ![Documenti incorporati](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.png)
 
 ## <a name="password-based-sign-on"></a>Accesso basato su password
-Se supportato dall'applicazione, selezionando la modalità di accesso Single Sign-On basato su password e quindi **Salva** sarà possibile eseguire la configurazione immediata dell'app per l'accesso Single Sign-On basato su password. Per altre informazioni sulla distribuzione dell'accesso Single Sign-On basato su password, vedere [Come funziona Single Sign-On con Azure Active Directory (PHP)?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Se supportato dall'applicazione, selezionando la modalità di accesso Single Sign-On basato su password e quindi **Salva** sarà possibile eseguire la configurazione immediata dell'app per l'accesso Single Sign-On basato su password. Per altre informazioni sulla distribuzione dell'accesso Single Sign-On basato su password, vedere [Come funziona Single Sign-On con Azure Active Directory (PHP)?](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Accesso basato su password](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.png)
 
 ## <a name="linked-sign-on"></a>Linked sign-on (Accesso collegato)
-Se supportato dall'applicazione, la selezione della modalità di accesso Single Sign-On collegato consente di immettere l'URL a cui si vuole che il riquadro di accesso di Azure AD oppure Office 365 eseguano il reindirizzamento quando gli utenti selezionano l'app. Per altre informazioni sull'accesso Single Sign-On collegato, noto in precedenza come "Accesso Single Sign-On esistente", vedere [Come funziona Single Sign-On con Azure Active Directory (PHP)?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Se supportato dall'applicazione, la selezione della modalità di accesso Single Sign-On collegato consente di immettere l'URL a cui si vuole che il riquadro di accesso di Azure AD oppure Office 365 eseguano il reindirizzamento quando gli utenti selezionano l'app. Per altre informazioni sull'accesso Single Sign-On collegato, noto in precedenza come "Accesso Single Sign-On esistente", vedere [Come funziona Single Sign-On con Azure Active Directory (PHP)?](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Linked sign-on (Accesso collegato)](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.png)
 

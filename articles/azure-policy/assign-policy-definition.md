@@ -2,18 +2,18 @@
 title: Creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente Azure
 description: Questo articolo illustra i passaggi per creare una definizione dei criteri per identificare le risorse non conformi.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 05/07/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 25e8e7837328fa8691066631514414e4455e4851
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+manager: carmonm
+ms.openlocfilehash: 9b1cfd762d6f050994688d1cd6afd91f0e43bfc3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente Azure
 
@@ -38,7 +38,7 @@ In questa guida introduttiva si crea un'assegnazione dei criteri e si assegna la
 
 4. Nella pagina **Assegna criterio** selezionare il valore di **Ambito** facendo clic sui puntini di sospensione e quindi selezionando una sottoscrizione (obbligatorio) e un gruppo di risorse (facoltativo). L'ambito determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri  Fare quindi clic su **Seleziona** nella parte inferiore della pagina **Ambito**.
 
-   In questo esempio viene usata la **sottoscrizione Contoso**. Le opzioni disponibili sono diverse.
+   Questo esempio descrive come usare la **sottoscrizione Contoso**. ma le opzioni disponibili sono diverse.
 
 5. Per escludere uno o più gruppi di risorse (se come ambito è stata definita solo una sottoscrizione) o risorse specifiche all'interno di un gruppo di risorse (per entrambi i tipi di ambito), è possibile configurare l'opzione **Esclusioni** per l'assegnazione dei criteri. Per il momento, lasciare vuoto il campo.
 
