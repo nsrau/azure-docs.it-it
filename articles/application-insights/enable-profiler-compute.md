@@ -3,7 +3,7 @@ title: Abilitare Application Insights Profiler per le applicazioni ospitate nell
 description: Informazioni su come configurare Application Insights Profiler in un'applicazione in esecuzione in Servizi cloud di Azure.
 services: application-insights
 documentationcenter: ''
-author: ramach-msft
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: ramach
-ms.openlocfilehash: ef6d8cb47971b1cf261edceb13485b940eff3d13
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: ramach; mbullwin
+ms.openlocfilehash: 9d95cb637607e69c4b7a7ab22f3c6239bd67c4f7
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Abilitare Application Insights Profiler per macchine virtuali di Azure, Service Fabric e Servizi cloud di Azure
 

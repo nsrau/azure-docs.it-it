@@ -3,7 +3,7 @@ title: Correlazione di dati di Application Insights Telemetry di Azure | Microso
 description: Correlazione di dati di Application Insights Telemetry
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/09/2018
-ms.author: mbullwin
-ms.openlocfilehash: 9adecca35524962402d46169c531d135d0772bbd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: mbullwin; sergkanz
+ms.openlocfilehash: 12b46b4abaa17fe9dd0e9055bca5463312bbd15d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 

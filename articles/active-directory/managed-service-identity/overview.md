@@ -1,6 +1,6 @@
 ---
-title: Identità del servizio gestito per Azure Active Directory
-description: Panoramica dell'Identità del servizio gestito per le risorse di Azure.
+title: Informazioni sull'identità del servizio gestita per le risorse di Azure
+description: Panoramica dell'Identità del servizio gestita per le risorse di Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -8,97 +8,105 @@ manager: mtillman
 editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
+ms.component: msi
 ms.devlang: ''
-ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: identity
-ms.date: 12/19/2017
-ms.author: skwan
-ms.openlocfilehash: e4f9d9e4e0f84610ad072d889abf68b62c0dd41f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.topic: overview
+ms.custom: mvc
+ms.date: 03/28/2018
+ms.author: daveba
+ms.openlocfilehash: 3493c726b600c1fd70e0c6041ec57c8f0ba01c38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
-#  <a name="managed-service-identity-msi-for-azure-resources"></a>Identità del servizio gestito per le risorse di Azure
+#  <a name="what-is-managed-service-identity-msi-for-azure-resources"></a>Informazioni sull'identità del servizio gestita per le risorse di Azure.
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Una difficoltà comune durante la creazione di applicazioni cloud è rappresentata dalla gestione delle credenziali che devono essere presenti nel codice per l'autenticazione ai servizi cloud. Proteggere le credenziali è un'attività importante. In teoria, non sono mai presenti nelle workstation di sviluppo oppure vengono verificate nel controllo del codice sorgente. Azure Key Vault consente di archiviare in modo sicuro le credenziali e altre chiavi e segreti, ma è necessario autenticare il codice in Key Vault per recuperarle. Identità del servizio gestito consente di risolvere il problema in maniera più semplice, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory, ovvero Azure AD. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire le credenziali nel codice.
+Una difficoltà comune durante la creazione di applicazioni cloud è rappresentata dalla gestione delle credenziali che devono essere presenti nel codice per l'autenticazione ai servizi cloud. Proteggere le credenziali è un'attività importante. In teoria, non sono mai presenti nelle workstation di sviluppo oppure vengono verificate nel controllo del codice sorgente. Azure Key Vault consente di archiviare in modo sicuro le credenziali e altre chiavi e segreti, ma è necessario autenticare il codice in Key Vault per recuperarle. L'identità del servizio gestita consente di risolvere il problema in maniera più semplice, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory, ovvero Azure AD. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire le credenziali nel codice.
 
 ## <a name="how-does-it-work"></a>Come funziona?
 
-Quando si abilita Identità del servizio gestito in un servizio di Azure, Azure crea automaticamente un'identità per l'istanza del servizio nel tenant di Azure AD usato dalla sottoscrizione di Azure.  A livello sottostante, Azure offre le credenziali per l'identità nell'istanza del servizio.  Il codice può quindi fare una richiesta locale per ottenere i token di accesso ai servizi che supportano l'autenticazione di Azure AD.  Azure gestisce le credenziali usate dall'istanza del servizio in sequenza.  Se l'istanza del servizio viene eliminata, Azure pulisce automaticamente le credenziali e l'identità in Azure AD.
+Ci sono due tipi di identità del servizio gestita: **assegnata dal sistema** e **assegnata dall'utente**.
 
-Di seguito è riportato un esempio di come Identità del servizio gestito funziona con le macchine virtuali di Azure.
+- Un'**identità assegnata dal sistema** è abilitata direttamente in un'istanza del servizio di Azure. In caso di abilitazione, Azure crea un'identità per l'istanza del servizio nel tenant di Azure AD considerato attendibile dalla sottoscrizione dell'istanza del servizio. Una volta creata l'identità, ne viene effettuato il provisioning delle credenziali nell'istanza del servizio. Il ciclo di vita di un'identità assegnata dal sistema è direttamente associato all'istanza del servizio di Azure in cui l'identità è abilitata. Se l'istanza del servizio viene eliminata, Azure pulisce automaticamente le credenziali e l'identità in Azure AD.
+- Un'**identità assegnata dall'utente** (anteprima pubblica) viene creata come risorsa di Azure autonoma. Tramite un processo di creazione, Azure crea un'identità nel tenant di Azure AD considerato attendibile dalla sottoscrizione in uso. Dopo la creazione, l'identità può essere assegnata a una o più istanze del servizio di Azure. Il ciclo di vita di un'identità assegnata dall'utente viene gestito separatamente dal ciclo di vita delle istanze del servizio di Azure a cui l'identità è assegnata.
 
-![Esempio di Identità del servizio gestito per la macchina virtuale](../media/msi-vm-example.png)
+Di conseguenza, il codice può usare un'identità assegnata dal sistema o dall'utente per richiedere i token di accesso per i servizi che supportano l'autenticazione di Azure AD. Azure si occupa della gestione delle credenziali usate dall'istanza del servizio.
 
-1. Azure Resource Manager riceve un messaggio per abilitare l'Identità del servizio gestito in una macchina virtuale.
+Ecco un esempio del funzionamento delle identità assegnate dal sistema con Macchine virtuali di Azure:
+
+![Esempio di identità del servizio gestita per la macchina virtuale](overview/msi-vm-vmextension-imds-example.png)
+
+1. Azure Resource Manager riceve una richiesta per abilitare l'identità assegnata dal sistema in una macchina virtuale.
 2. Azure Resource Manager crea un'entità servizio in Azure AD per rappresentare l'identità della macchina virtuale. L'entità servizio viene creata nel tenant di Azure AD considerata attendibile da questa sottoscrizione.
-3. Azure Resource Manager consente di configurare i dettagli dell'entità servizio nell'estensione dell'Identità del servizio gestito della macchina virtuale.  Questo passaggio include la configurazione dell'ID client e del certificato usato dall'estensione per ottenere i token di accesso da Azure AD.
-4. Ora che l'identità dell'entità servizio della macchina virtuale è nota, è possibile concedere l'accesso alle risorse di Azure.  Ad esempio, se il codice deve chiamare Azure Resource Manager, è necessario assegnare all'entità servizio della macchina virtuale il ruolo appropriato usando il controllo degli accessi in base ai ruoli in Azure AD.  Se il codice deve chiamare Key Vault, è necessario concedere al codice l'accesso alla chiave o al segreto specifico in Key Vault.
-5. Il codice in esecuzione nella macchina virtuale richiede un token da un endpoint locale ospitato dall'estensione della macchina virtuale per l'identità del servizio gestito: http://localhost:50342/oauth2/token.  Il parametro della risorsa specifica il servizio a cui viene inviato il token. Ad esempio, se si desidera che il codice venga autenticato in Azure Resource Manager, si userà resource=https://management.azure.com/.
-6. L'estensione della macchina virtuale per l'Identità del servizio gestito usa l'ID client configurato e un certificato per richiedere un token di accesso da Azure AD.  Azure AD restituisce un token di accesso JSON Web.
+3. Azure Resource Manager configura l'identità nella macchina virtuale:
+    - Aggiorna l'endpoint dell'identità del servizio metadati dell'istanza di Azure con l'ID client e il certificato dell'entità servizio.
+    - Effettua il provisioning dell'estensione della macchina virtuale dell'identità del servizio gestita e aggiunge l'ID client e il certificato dell'entità servizio. Questo elemento sarà deprecato.
+4. Ora che la macchina virtuale ha un'identità, è possibile usare le informazioni della relativa entità servizio per concedere alla macchina virtuale l'accesso alle risorse di Azure. Ad esempio, se il codice deve chiamare Azure Resource Manager, è necessario assegnare all'entità servizio della macchina virtuale il ruolo appropriato usando il controllo degli accessi in base ai ruoli in Azure AD. Se il codice deve chiamare Key Vault, è necessario concedere al codice l'accesso alla chiave o al segreto specifico in Key Vault.
+5. Il codice in esecuzione nella macchina virtuale può richiedere un token da due endpoint accessibili solo dalla macchina virtuale:
+
+    - Endpoint dell'identità del servizio metadati dell'istanza di Azure: http://169.254.169.254/metadata/identity/oauth2/token (consigliato)
+        - Il parametro della risorsa specifica il servizio a cui viene inviato il token. Ad esempio, se si desidera che il codice venga autenticato in Azure Resource Manager, si userà resource=https://management.azure.com/.
+        - Il parametro della versione API specifica la versione del servizio metadati dell'istanza. Usare api-version=2018-02-01 o una versione successiva.
+    - Endpoint dell'estensione della macchina virtuale per l'identità del servizio gestita: http://localhost:50342/oauth2/token (questo elemento sarà deprecato)
+        - Il parametro della risorsa specifica il servizio a cui viene inviato il token. Ad esempio, se si desidera che il codice venga autenticato in Azure Resource Manager, si userà resource=https://management.azure.com/.
+
+6. Viene effettuata una chiamata ad Azure AD per richiedere un token di accesso come specificato nel passaggio 5, usando l'ID client e il certificato di cui è stata eseguita la configurazione nel passaggio 3. Azure AD restituisce un token di accesso JSON Web.
 7. Il codice invia il token di accesso in una chiamata a un servizio che supporta l'autenticazione di Azure AD.
 
-Ogni servizio di Azure che supporta l'Identità del servizio gestito ha il proprio metodo per ottenere il token di accesso nel codice. Consultare le esercitazioni per ogni servizio per vedere il metodo specifico per ottenere un token.
+Usando lo stesso diagramma, ecco un esempio del funzionamento di un'identità del servizio gestita assegnata dall'utente con Macchine virtuali di Azure.
 
-## <a name="try-managed-service-identity"></a>Provare l'Identità del servizio gestito
+1. Azure Resource Manager riceve una richiesta per creare un'identità assegnata dall'utente.
+2. Azure Resource Manager crea un'entità servizio in Azure AD per rappresentare l'identità assegnata dall'utente. L'entità servizio viene creata nel tenant di Azure AD considerata attendibile da questa sottoscrizione.
+3. Azure Resource Manager riceve una richiesta per configurare l'identità assegnata dall'utente in una macchina virtuale:
+    - Aggiorna l'endpoint dell'identità del servizio metadati dell'istanza di Azure con l'ID client e il certificato dell'entità servizio dell'identità assegnata dall'utente.
+    - Effettua il provisioning dell'estensione della macchina virtuale dell'identità del servizio gestita e aggiunge l'ID client e il certificato dell'entità servizio dell'identità assegnata dall'utente (questo elemento sarà deprecato).
+4. Ora che l'identità assegnata dall'utente è stata creata, è possibile usare le informazioni della relativa entità servizio per concedere l'accesso alle risorse di Azure. Se, ad esempio, il codice deve chiamare Azure Resource Manager, è necessario assegnare all'entità servizio dell'identità assegnata dall'utente il ruolo appropriato usando il controllo degli accessi in base al ruolo in Azure AD. Se il codice deve chiamare Key Vault, è necessario concedere al codice l'accesso alla chiave o al segreto specifico in Key Vault. Nota: questo passaggio può essere eseguito anche prima del passaggio 3.
+5. Il codice in esecuzione nella macchina virtuale può richiedere un token da due endpoint accessibili solo dalla macchina virtuale:
 
-Eseguire un'esercitazione relativa a Identità del servizio gestito per informazioni sugli scenari end-to-end per l'accesso alle diverse risorse di Azure:
+    - Endpoint dell'identità del servizio metadati dell'istanza di Azure: http://169.254.169.254/metadata/identity/oauth2/token (consigliato)
+        - Il parametro della risorsa specifica il servizio a cui viene inviato il token. Ad esempio, se si desidera che il codice venga autenticato in Azure Resource Manager, si userà resource=https://management.azure.com/.
+        - Il parametro dell'ID client specifica l'identità per cui viene richiesto il token. Tale parametro è necessario per evitare ambiguità quando in una singola macchina virtuale ci sono più identità assegnate dall'utente.
+        - Il parametro della versione API specifica la versione del servizio metadati dell'istanza. Usare api-version=2018-02-01 o una versione successiva.
+
+    - Endpoint dell'estensione della macchina virtuale per l'identità del servizio gestita: http://localhost:50342/oauth2/token (questo elemento sarà deprecato)
+        - Il parametro della risorsa specifica il servizio a cui viene inviato il token. Ad esempio, se si desidera che il codice venga autenticato in Azure Resource Manager, si userà resource=https://management.azure.com/.
+        - Il parametro dell'ID client specifica l'identità per cui viene richiesto il token. Tale parametro è necessario per evitare ambiguità quando in una singola macchina virtuale ci sono più identità assegnate dall'utente.
+6. Viene effettuata una chiamata ad Azure AD per richiedere un token di accesso come specificato nel passaggio 5, usando l'ID client e il certificato di cui è stata eseguita la configurazione nel passaggio 3. Azure AD restituisce un token di accesso JSON Web.
+7. Il codice invia il token di accesso in una chiamata a un servizio che supporta l'autenticazione di Azure AD.
+     
+## <a name="try-managed-service-identity"></a>Provare l'identità del servizio gestita
+
+Eseguire un'esercitazione relativa all'identità del servizio gestita per informazioni sugli scenari end-to-end per l'accesso alle diverse risorse di Azure:
 <br><br>
-| Da risorse basate su Identità del servizio gestito | Scopri come |
+| Da risorse basate sull'identità del servizio gestita | Scopri come |
 | ------- | -------- |
-| Macchina virtuale Azure (Windows) | [Usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Data Lake Store](tutorial-windows-vm-access-datalake.md) |
-|                    | [Usare un'Identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Resource Manager](tutorial-windows-vm-access-arm.md) |
-|                    | [Accedere ad Azure SQL con un'identità del servizio gestito di una macchina virtuale Windows](tutorial-windows-vm-access-sql.md) |
-|                    | [Accedere ad Archiviazione di Azure tramite chiave di accesso con un'identità del servizio gestito di una macchina virtuale Windows](tutorial-windows-vm-access-storage.md) |
-|                    | [Accedere ad Archiviazione di Azure tramite firma di accesso condiviso con un'identità del servizio gestito di una macchina virtuale Windows](tutorial-windows-vm-access-storage-sas.md) |
-|                    | [Usare un'Identità del servizio gestito per una macchina virtuale Windows e Azure Key Vault per accedere a una risorsa diversa da Azure AD](tutorial-windows-vm-access-nonaad.md) |
-| Macchina virtuale Azure (Linux)   | [Usare un'identità del servizio gestito per una macchina virtuale Linux per accedere ad Azure Data Lake Store](tutorial-linux-vm-access-datalake.md) |
-|                    | [Usare un'Identità del servizio gestito per una macchina virtuale Linux per accedere ad Azure Resource Manager](tutorial-linux-vm-access-arm.md) |
-|                    | [Accedere ad Archiviazione di Azure tramite chiave di accesso con un'identità del servizio gestito di una macchina virtuale Linux](tutorial-linux-vm-access-storage.md) |
-|                    | [Accedere ad Archiviazione di Azure tramite firma di accesso condiviso con un'identità del servizio gestito di una macchina virtuale Linux](tutorial-linux-vm-access-storage-sas.md) |
-|                    | [Accedere a una risorsa non Azure AD con l'identità del servizio gestito di una macchina virtuale Linux e con Azure Key Vault](tutorial-linux-vm-access-nonaad.md) |
-| Servizio app di Azure  | [Usare Identità del servizio gestito con Funzioni di Azure o Servizio app di Azure](/azure/app-service/app-service-managed-service-identity) |
-| Funzioni di Azure    | [Usare Identità del servizio gestito con Funzioni di Azure o Servizio app di Azure](/azure/app-service/app-service-managed-service-identity) |
-| Bus di servizio di Azure  | [Usare l'identità del servizio gestito con il bus di servizio di Azure](../../service-bus-messaging/service-bus-managed-service-identity.md) |
-| Hub eventi di Azure   | [Usare l'identità del servizio gestito con Hub eventi di Azure](../../event-hubs/event-hubs-managed-service-identity.md) |
+| Macchina virtuale Azure (Windows) | [Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere ad Azure Data Lake Store](tutorial-windows-vm-access-datalake.md) |
+|                    | [Usare un'Identità del servizio gestita per una macchina virtuale Windows per accedere ad Azure Resource Manager](tutorial-windows-vm-access-arm.md) |
+|                    | [Accedere ad Azure SQL con un'identità del servizio gestita di una macchina virtuale Windows](tutorial-windows-vm-access-sql.md) |
+|                    | [Accedere ad Archiviazione di Azure tramite chiave di accesso con un'identità del servizio gestita di una macchina virtuale Windows](tutorial-windows-vm-access-storage.md) |
+|                    | [Accedere ad Archiviazione di Azure tramite firma di accesso condiviso con un'identità del servizio gestita di una macchina virtuale Windows](tutorial-windows-vm-access-storage-sas.md) |
+|                    | [Usare un'Identità del servizio gestita per una macchina virtuale Windows e Azure Key Vault per accedere a una risorsa diversa da Azure AD](tutorial-windows-vm-access-nonaad.md) |
+| Macchina virtuale Azure (Linux)   | [Usare un'identità del servizio gestita per una macchina virtuale Linux per accedere ad Azure Data Lake Store](tutorial-linux-vm-access-datalake.md) |
+|                    | [Usare un'Identità del servizio gestita per una macchina virtuale Linux per accedere ad Azure Resource Manager](tutorial-linux-vm-access-arm.md) |
+|                    | [Accedere ad Archiviazione di Azure tramite chiave di accesso con un'identità del servizio gestita di una macchina virtuale Linux](tutorial-linux-vm-access-storage.md) |
+|                    | [Accedere ad Archiviazione di Azure tramite firma di accesso condiviso con un'identità del servizio gestita di una macchina virtuale Linux](tutorial-linux-vm-access-storage-sas.md) |
+|                    | [Accedere a una risorsa non Azure AD con l'identità del servizio gestita di una macchina virtuale Linux e con Azure Key Vault](tutorial-linux-vm-access-nonaad.md) |
+| Servizio app di Azure  | [Usare l'identità del servizio gestita con Funzioni di Azure o Servizio app di Azure](/azure/app-service/app-service-managed-service-identity) |
+| Funzioni di Azure    | [Usare l'identità del servizio gestita con Funzioni di Azure o Servizio app di Azure](/azure/app-service/app-service-managed-service-identity) |
+| Bus di servizio di Azure  | [Usare l'identità del servizio gestita con il bus di servizio di Azure](../../service-bus-messaging/service-bus-managed-service-identity.md) |
+| Hub eventi di Azure   | [Usare l'identità del servizio gestita con Hub eventi di Azure](../../event-hubs/event-hubs-managed-service-identity.md) |
 
-## <a name="which-azure-services-support-managed-service-identity"></a>Quali servizi di Azure supportano l'Identità del servizio gestito?
+## <a name="which-azure-services-support-managed-service-identity"></a>Quali servizi di Azure supportano l'identità del servizio gestita?
 
-I servizi di Azure che supportano l'Identità del servizio gestito possono usare l'Identità del servizio gestito per eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD.  È in corso l'integrazione dell'autenticazione di Azure AD e dell'Identità del servizio gestito in Azure.  Controllare spesso gli aggiornamenti.
+Le identità gestite possono essere usate per eseguire l'autenticazione nei servizi che supportano l'autenticazione di Azure AD. Per un elenco dei servizi di Azure che supportano l'identità del servizio gestita, vedere l'articolo seguente:
+- [Servizi che supportano Identità del servizio gestita](services-support-msi.md)
 
-### <a name="azure-services-that-support-managed-service-identity"></a>Servizi di Azure che supportano Identità del servizio gestito
+## <a name="how-much-does-managed-service-identity-cost"></a>Quanto costa l'identità del servizio gestita?
 
-I servizi di Azure seguenti supportano Identità del servizio gestito.
-
-| Service | Status | Data | Configurare | Acquisizione di un token |
-| ------- | ------ | ---- | --------- | ----------- |
-| Macchine virtuali di Azure | Preview | Settembre 2017 | [Portale di Azure](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[Interfaccia della riga di comando di Azure](qs-configure-cli-windows-vm.md)<br>[Modelli di Gestione risorse di Azure](qs-configure-template-windows-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
-| Servizio app di Azure | Preview | Settembre 2017 | [Portale di Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modello di Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Funzioni di Azure<sup>1</sup> | Preview | Settembre 2017 | [Portale di Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modello di Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure Data Factory V2 | Preview | Novembre 2017 | [Portale di Azure](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
-
-<sup>1</sup> Il supporto di Funzioni di Azure consente al codice utente di usare un'identità, anche se i trigger e le associazioni potrebbe continuare a richiedere le stringhe di connessione.
-
-### <a name="azure-services-that-support-azure-ad-authentication"></a>Servizi di Azure che supportano l'autenticazione di Azure AD
-
-I servizi seguenti supportano l'autenticazione di Azure AD e sono stati testati con i servizi client che usano l'Identità del servizio gestito.
-
-| Service | ID risorsa | Status | Data | Assegnare l'accesso |
-| ------- | ----------- | ------ | ---- | ------------- |
-| Gestione risorse di Azure | https://management.azure.com | Disponibile | Settembre 2017 | [Portale di Azure](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Interfaccia della riga di comando di Azure](howto-assign-access-CLI.md) |
-| Azure Key Vault | https://vault.azure.net | Disponibile | Settembre 2017 | |
-| Azure Data Lake | https://datalake.azure.net | Disponibile | Settembre 2017 | |
-| SQL di Azure | https://database.windows.net | Disponibile | Ottobre 2017 | |
-| Hub eventi di Azure | https://eventhubs.azure.net | Disponibile | Dicembre 2017 | |
-| Bus di servizio di Azure | https://servicebus.azure.net | Disponibile | Dicembre 2017 | |
-
-## <a name="how-much-does-managed-service-identity-cost"></a>Quanto costa Identità del servizio gestito?
-
-Identità del servizio gestito viene fornito con Azure Active Directory Free, ovvero il servizio predefinito per le sottoscrizioni di Azure.  Non ci sono costi aggiuntivi per l'Identità del servizio gestito.
+L'identità del servizio gestita viene fornita con Azure Active Directory Free, ovvero il servizio predefinito per le sottoscrizioni di Azure. Non ci sono costi aggiuntivi per l'identità del servizio gestita.
 
 ## <a name="support-and-feedback"></a>Supporto, commenti e suggerimenti
 
@@ -107,8 +115,9 @@ I commenti degli utenti sono molto apprezzati.
 * È possibile inserire domande sulle procedure su Stack Overflow con il tag [azure-msi](http://stackoverflow.com/questions/tagged/azure-msi).
 * È possibile fare richieste sulla funzionalità o inviare un commento sul [forum per i commenti e i suggerimenti di Azure AD per gli sviluppatori](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
 
+## <a name="next-steps"></a>Passaggi successivi
 
+Per un'introduzione all'identità del servizio gestita di Azure, vedere le guide introduttive seguenti:
 
-
-
-
+* [Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere a Resource Manager - Macchina virtuale Windows](tutorial-windows-vm-access-arm.md)
+* [Usare un'identità del servizio gestita per una macchina virtuale Linux per accedere ad Azure Resource Manager - Macchina virtuale Linux](tutorial-linux-vm-access-arm.md)
