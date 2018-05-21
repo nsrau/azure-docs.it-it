@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: 69264ac7ffe8124b964a10c11aacaca5c712fd63
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 24d739e45ddaa7669fe1836eea53f0b091383d1e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
-Il peering di rete virtuale consente di connettere facilmente due [reti virtuali](virtual-networks-overview.md) di Azure. Dopo avere eseguito il peering, le reti virtuali vengono visualizzate come una sola per scopi di connettività. Il traffico tra macchine virtuali presenti in reti virtuali di cui è stato eseguito il peering viene instradato tramite l'infrastruttura backbone Microsoft, in modo simile all'instradamento del traffico tra macchine virtuali presenti nella stessa rete virtuale, solo tramite indirizzi IP *privati*. 
+Il peering di rete virtuale consente di connettere facilmente due [reti virtuali](virtual-networks-overview.md) di Azure. Dopo avere eseguito il peering, le reti virtuali vengono visualizzate come una sola per scopi di connettività. Il traffico tra macchine virtuali presenti in reti virtuali di cui è stato eseguito il peering viene instradato tramite l'infrastruttura backbone Microsoft, in modo simile all'instradamento del traffico tra macchine virtuali presenti nella stessa rete virtuale, solo tramite indirizzi IP *privati*. Azure supporta:
+* Peering reti virtuali - Connessione di reti virtuali entro la stessa area di Azure
+* Peering reti virtuali globali - Connessione di reti virtuali in diverse aree di Azure
 
-Il peering reti virtuali include i vantaggi seguenti:
+Il peering reti virtuali, locale o globale, include i vantaggi seguenti:
 
 * Il traffico di rete tra reti virtuali di cui è stato eseguito il peering è privato. Il traffico tra le reti virtuali viene mantenuto nella rete backbone Microsoft. Nella comunicazione tra le reti virtuali non sono necessari gateway, una rete Internet pubblica o la crittografia.
 * Connessione a bassa latenza e larghezza di banda elevata tra le risorse in reti virtuali diverse.
@@ -62,7 +64,7 @@ Dopo aver eseguito il peering delle reti virtuali nella stessa area, gli utenti 
 
 ![Peering reti virtuali con transito](./media/virtual-networks-peering-overview/figure04.png)
 
-Il transito gateway non è supportato nella relazione di peering tra le reti virtuali create in aree o con modelli di distribuzione diversi. Perché un transito gateway possa funzionare, entrambe le reti virtuali nella relazione di peering devono essere state create tramite Resource Manager e trovarsi nella stessa area.
+Il transito gateway non è supportato nella relazione di peering tra reti virtuali create in regioni diverse. Entrambe le reti virtuali nella relazione di peering devono trovarsi nella stessa area per consentire il transito del gateway. Il transito del gateway tra reti virtuali create tramite modelli di distribuzione diversi (Gestione risorse e classico) è supportato solo se il gateway si trova nella rete virtuale (Resource Manager). Per altre informazioni sull'uso di un gateway per la trasmissione, vedere [Configurare un gateway VPN per il transito nel peering di rete virtuale](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Quando viene eseguito il peering di reti virtuali che condividono una singola connessione Azure ExpressRoute, il traffico tra di esse passa attraverso la relazione di peering, ovvero tramite la rete backbone di Azure. È comunque possibile continuare a usare i gateway locali in ogni rete virtuale per connettersi al circuito locale. oppure usare un gateway condiviso e configurare il transito per la connettività locale.
 
@@ -95,5 +97,5 @@ Per altre informazioni sulle autorizzazioni necessarie per creare un peering di 
     |Uno di Resource Manager, uno della versione classica  |[Uguale](create-peering-different-deployment-models.md)|
     |                                   |[Diversa](create-peering-different-deployment-models-subscriptions.md)|
 
-* Informazioni su come creare una [topologia di rete hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+* Altre informazioni su come creare una [topologia di rete hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
 * Acquisire informazioni più dettagliate su tutte le [impostazioni per il peering di rete virtuale e su come modificarle](virtual-network-manage-peering.md).

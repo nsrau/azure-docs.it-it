@@ -6,32 +6,34 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 04/02/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 34f1edf441a18e22bcbef0c827ab4301f97c1aa1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6aa6fb27b2aa7c8b9614e5812fadc629b1e185f8
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Guida introduttiva: Creare il primo contenitore in Istanze di contenitore di Azure
 
-Istanze di contenitore di Azure semplifica la creazione e la gestione dei contenitori in Azure. In questo avvio rapido si crea un contenitore in Azure e lo si espone a Internet con un indirizzo IP pubblico. Questa operazione viene eseguita nel portale di Azure. Bastano pochi clic per visualizzare quanto segue nel browser:
+Istanze di contenitore di Azure semplifica la creazione e gestione di contenitori Docker in Azure, senza dover eseguire il provisioning di macchine virtuali o di adottare un servizio di livello superiore. In questa guida introduttiva viene usato il portale di Azure per creare un contenitore in Azure, che viene quindi esposto a Internet con un nome di dominio completo (FQDN). Dopo aver configurato alcune impostazioni, nel browser verrà visualizzato quanto segue:
 
 ![App distribuita usando Istanze di contenitore di Azure visualizzata nel browser][aci-portal-07]
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di Azure all'indirizzo http://portal.azure.com.
+Accedere al portale di Azure all'indirizzo https://portal.azure.com.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito][azure-free-account] prima di iniziare.
 
 ## <a name="create-a-container-instance"></a>Creare un'istanza di contenitore
 
-Selezionare **Crea una risorsa** > **Contenitori** > **Istanze di contenitore di Azure**.
+Selezionare **Crea una risorsa** > **Contenitori** > **Istanze di contenitore**.
 
 ![Iniziare a creare una nuova istanza di contenitore nel portale di Azure][aci-portal-01]
 
-Immettere i valori seguenti nelle caselle di testo **Nome contenitore**, **Immagine del contenitore** e **Gruppo di risorse**. Lasciare invariati gli altri valori predefiniti, quindi fare clic su **OK**.
+Immettere i valori seguenti nelle caselle di testo **Nome contenitore**, **Immagine del contenitore** e **Gruppo di risorse**. Lasciare invariati gli altri valori predefiniti e quindi selezionare **OK**.
 
 * Nome contenitore: `mycontainer`
 * Immagine del contenitore: `microsoft/aci-helloworld`
@@ -39,9 +41,11 @@ Immettere i valori seguenti nelle caselle di testo **Nome contenitore**, **Immag
 
 ![Configurazione delle impostazioni di base per una nuova istanza di contenitore nel portale di Azure][aci-portal-03]
 
-Istanze di contenitore di Azure permette di creare contenitori Windows e Linux. In questo avvio rapido verranno usati i valori predefiniti di **Linux** perché nel passaggio precedente è stato specificato un contenitore basato su Linux (`microsoft/aci-helloworld`).
+Istanze di contenitore di Azure permette di creare contenitori Windows e Linux. Per questa guida introduttiva, lasciare l'impostazione predefinita **Linux** per distribuire l'immagine `microsoft/aci-helloworld` basata su Linux.
 
-Lasciare le altre impostazioni in **Configurazione** impostate sui valori predefiniti, quindi fare clic su **OK** per convalidare la configurazione.
+In **Configurazione** specificare un'**Etichetta del nome DNS** per il contenitore. Il nome deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza di contenitore. Il contenitore sarà pubblicamente raggiungibile in `<dns-name-label>.<region>.azurecontainer.io`.
+
+Lasciare le altre impostazioni in **Configurazione** impostate sui valori predefiniti e quindi selezionare **OK** per convalidare la configurazione.
 
 ![Configurazione di una nuova istanza di contenitore nel portale di Azure][aci-portal-04]
 
@@ -49,30 +53,47 @@ Al termine della convalida, viene visualizzato un riepilogo delle impostazioni d
 
 ![Riepilogo delle impostazioni per una nuova istanza di contenitore nel portale di Azure][aci-portal-05]
 
-All'avvio della distribuzione, nel dashboard del portale viene inserito un riquadro che indica lo stato di avanzamento della distribuzione. Una volta completata la distribuzione, il riquadro viene aggiornato in modo da mostrare il nuovo gruppo di contenitori **mycontainer myc1**.
+All'avvio della distribuzione, nel dashboard del portale viene visualizzato un riquadro che indica che la distribuzione è in corso. Dopo la distribuzione, il riquadro visualizza la nuova istanza di contenitore.
 
 ![Stato di avanzamento della creazione di una nuova istanza di contenitore nel portale di Azure][aci-portal-08]
 
-Selezionare il gruppo di contenitori **mycontainer myc1** per visualizzarne le proprietà. Prendere nota dell'**Indirizzo IP** del gruppo di contenitori e dello **STATO** del contenitore.
+Selezionare l'istanza di contenitore **mycontainer** per visualizzare le relative proprietà. Prendere nota dell'**FQDN** (nome di dominio completo) dell'istanza di contenitore, nonché dello **Stato**.
 
 ![Panoramica del gruppo di contenitori nel portale di Azure][aci-portal-06]
 
-Quando il contenitore passa allo stato **In esecuzione**, passare all'indirizzo IP annotato nel passaggio precedente per visualizzare l'applicazione ospitata nel nuovo contenitore.
+Quando lo **Stato** è *In esecuzione*, passare al nome di dominio completo del contenitore nel browser.
 
 ![App distribuita usando Istanze di contenitore di Azure visualizzata nel browser][aci-portal-07]
 
-## <a name="delete-the-container"></a>Eliminare il contenitore
-Quando il contenitore non è più necessario, selezionare il gruppo di contenitori **mycontainer-myc1** e quindi fare clic su **Elimina**.
+Congratulazioni! Configurando poche impostazioni è stata distribuita un'applicazione accessibile pubblicamente in Istanze di contenitore di Azure.
+
+## <a name="view-container-logs"></a>Visualizzare i log dei contenitori
+
+La visualizzazione dei log per un'istanza di contenitore è utile per risolvere i problemi con il contenitore o l'applicazione eseguita.
+
+Per visualizzare i log del contenitore, in **Impostazioni** selezionare **Contenitori** e quindi **Log**. Dovrebbe essere visualizzata la richiesta HTTP GET generata quando è stata visualizzata l'applicazione nel browser.
+
+![Log dei contenitori nel portale di Azure][aci-portal-11]
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando il contenitore non serve più, selezionare **Panoramica** per l'istanza di contenitore *mycontainer* e quindi selezionare **Elimina**.
 
 ![Eliminazione dell'istanza di contenitore nel portale di Azure][aci-portal-09]
 
-Verrà aperta una finestra di dialogo di conferma. Selezionare **Sì** quando richiesto.
+Selezionare **Sì** quando viene visualizzata la finestra di dialogo di conferma.
 
 ![Conferma dell'eliminazione di un'istanza di contenitore nel portale di Azure][aci-portal-10]
 
+## <a name="next-steps"></a>Passaggi successivi
+
+In questa guida introduttiva è stata creata un'istanza di contenitore di Azure da un'immagine nel registro nell'hub Docker pubblico. Per provare a creare personalmente un'immagine del contenitore e a distribuirla in Istanze di contenitore di Azure da un registro contenitori di Azure privato, passare all'esercitazione su Istanze di contenitore di Azure.
+
+> [!div class="nextstepaction"]
+> [Esercitazione su Istanze di contenitore di Azure](./container-instances-tutorial-prepare-app.md)
+
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
-<!--[aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png-->
 [aci-portal-03]: ./media/container-instances-quickstart-portal/qs-portal-03.png
 [aci-portal-04]: ./media/container-instances-quickstart-portal/qs-portal-04.png
 [aci-portal-05]: ./media/container-instances-quickstart-portal/qs-portal-05.png
@@ -81,10 +102,7 @@ Verrà aperta una finestra di dialogo di conferma. Selezionare **Sì** quando ri
 [aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
 [aci-portal-09]: ./media/container-instances-quickstart-portal/qs-portal-09.png
 [aci-portal-10]: ./media/container-instances-quickstart-portal/qs-portal-10.png
+[aci-portal-11]: ./media/container-instances-quickstart-portal/qs-portal-11.png
 
-## <a name="next-steps"></a>Passaggi successivi
-
-In questo avvio rapido è stata creata un'istanza di contenitore di Azure da un'immagine in un repository pubblico dell'hub Docker. Per provare a creare personalmente e distribuire un contenitore in Istanze di contenitore di Azure tramite Registro contenitori di Azure, passare all'esercitazione su Istanze di contenitore di Azure.
-
-> [!div class="nextstepaction"]
-> [Esercitazioni su Istanze di contenitore di Azure](./container-instances-tutorial-prepare-app.md)
+<!-- LINKS - External -->
+[azure-free-account]: https://azure.microsoft.com/free/

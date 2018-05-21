@@ -1,6 +1,6 @@
 ---
-title: Eseguire il backup di macchine virtuali Windows in Azure | Microsoft Docs
-description: Proteggere le macchine virtuali Windows eseguendo il backup con Backup di Azure.
+title: Esercitazione - Backup di macchine virtuali Windows nel portale di Azure | Microsoft Docs
+description: In questa esercitazione viene illustrato come usare il portale di Azure per proteggere macchine virtuali Windows con Backup di Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -10,29 +10,26 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 12859bf967cf8de1b57ab9dfd5c0bd080806f2eb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6ae014597a89c75e4426715227bbb19f1e98a438
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="back-up-windows-virtual-machines-in-azure"></a>Eseguire il backup di macchine virtuali Windows in Azure
+# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Esercitazione: Backup e ripristino di file per macchine virtuali Windows in Azure
 
-È possibile proteggere i dati eseguendo backup a intervalli regolari. Backup di Azure crea punti di recupero che vengono archiviati negli insiemi di credenziali di ripristino con ridondanza geografica. Quando si ripristina da un punto di recupero, è possibile ripristinare la macchina virtuale intera o parziale. Questo articolo spiega come ripristinare un singolo file in una macchina virtuale che esegue Windows Server e IIS. Se non si dispone già di una macchina virtuale da usare, è possibile crearne una usando la [guida introduttiva di Windows](quick-create-portal.md). In questa esercitazione si apprenderà come:
+È possibile proteggere i dati eseguendo backup a intervalli regolari. Backup di Azure crea punti di recupero che vengono archiviati negli insiemi di credenziali di ripristino con ridondanza geografica. Quando si esegue il ripristino da un punto di recupero, è possibile ripristinare la macchina virtuale intera o parziale. Questo articolo spiega come ripristinare un singolo file in una macchina virtuale che esegue Windows Server e IIS. Se non si dispone già di una macchina virtuale da usare, è possibile crearne una usando la [guida introduttiva di Windows](quick-create-portal.md). In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un backup di una macchina virtuale
 > * Pianificare un backup giornaliero
 > * Ripristinare un file da un backup
-
-
-
 
 ## <a name="backup-overview"></a>Panoramica del servizio Backup
 
@@ -55,7 +52,7 @@ Creare un semplice backup giornaliero pianificato per un insieme di credenziali 
 7. Nel pannello **Abilita backup** fare clic su **Abilita backup**. Verrà creato un backup giornaliero in base alla pianificazione predefinita.
 10. Per creare un punto di recupero iniziale, nel pannello **Backup** fare clic su **Esegui backup ora**.
 11. Nel pannello **Esegui backup ora** fare clic sull'icona del calendario, usare il comando del calendario per selezionare l'ultimo giorno di conservazione di tale punto di recupero e fare clic su **Backup**.
-12. Nel pannello **Backup** per la macchina virtuale in uso verrà visualizzato il numero di punti di recupero completati.
+12. Nel pannello **Backup** per la macchina virtuale in uso viene visualizzato il numero di punti di recupero completati.
 
     ![Punti di ripristino](./media/tutorial-backup-vms/backup-complete.png)
     
@@ -63,7 +60,7 @@ Il primo backup richiede circa 20 minuti. Al termine del backup, procedere con l
 
 ## <a name="recover-a-file"></a>Recupero di un file
 
-Se accidentalmente si elimina o si apportano modifiche a un file, è possibile usare Ripristino file per ripristinare il file dall'insieme di credenziali di backup. Ripristino file usa uno script eseguito nella macchina virtuale, per montare il punto di recupero come unità locale. Queste unità rimarranno montate per 12 ore in modo che sia possibile copiare i file dal punto di recupero e ripristinarli nella macchina virtuale.  
+Se accidentalmente si elimina o si apportano modifiche a un file, è possibile usare Ripristino file per ripristinare il file dall'insieme di credenziali di backup. Ripristino file usa uno script eseguito nella macchina virtuale, per montare il punto di recupero come unità locale. Queste unità rimangono montate per 12 ore in modo che sia possibile copiare i file dal punto di recupero e ripristinarli nella macchina virtuale.  
 
 Questo esempio spiega come ripristinare il file di immagine usato nella pagina Web predefinita per IIS. 
 
@@ -77,15 +74,15 @@ Questo esempio spiega come ripristinare il file di immagine usato nella pagina W
 
     ![Pagina Web IIS predefinita](./media/tutorial-backup-vms/iis-broken.png)
 
-5. Nel computer locale aprire una nuova scheda e passare al [portale di Azure](https://portal.azure.com).
+5. Nel computer locale, aprire una nuova scheda e passare al [portale di Azure](https://portal.azure.com).
 6. Nel menu a sinistra selezionare **Macchine virtuali** e scegliere la macchina virtuale dall'elenco.
 8. Nel pannello della macchina virtuale, nella sezione **Impostazioni** fare clic su **Backup**. Verrà visualizzato il pannello **Backup**. 
 9. Dal menu nella parte superiore del pannello scegliere **Ripristino file**. Verrà aperto il pannello **Ripristino file**.
 10. In **Passaggio 1: Selezionare il punto di recupero** selezionare un punto di recupero dall'elenco a discesa.
 11. In **Passaggio 2: Scaricare lo script per cercare e ripristinare i file** fare clic sul pulsante **Scarica eseguibile**. Salvare il file nella cartella **Downloads**.
-12. Nel computer locale aprire **Esplora file**, andare alla cartella **Downloads** e copiare il file con estensione exe scaricato. Il nome del file verrà preceduto dal nome della macchina virtuale. 
+12. Nel computer locale aprire **Esplora file**, andare alla cartella **Downloads** e copiare il file con estensione exe scaricato. Il nome file verrà preceduto dal nome della macchina virtuale. 
 13. Incollare il file con estensione exe sul desktop della macchina virtuale (tramite la connessione RDP). 
-14. Passare al desktop della macchina virtuale e fare doppio clic sul file con estensione exe. Verrà aperto un prompt dei comandi e il punto di recupero sarà montato come condivisione di file a cui è possibile accedere. Al termine della creazione della condivisione, digitare **q** per chiudere il prompt dei comandi.
+14. Passare al desktop della macchina virtuale e fare doppio clic sul file con estensione exe. Viene aperto un prompt dei comandi e il punto di recupero è montato come condivisione di file a cui è possibile accedere. Al termine della creazione della condivisione, digitare **q** per chiudere il prompt dei comandi.
 15. Nella macchina virtuale aprire **Esplora file** e passare alla lettera di unità usata per la condivisione file.
 16. Passare a \inetpub\wwwroot e copiare **iisstart.png** dalla condivisione file e incollarlo in \inetpub\wwwroot. Ad esempio, copiare F:\inetpub\wwwroot\iisstart.png e incollarlo in c:\inetpub\wwwroot per ripristinare il file.
 17. Nel computer locale aprire la scheda del browser in cui si è connessi all'indirizzo IP della macchina virtuale che mostra la pagina IIS predefinita. Premere CTRL + F5 per aggiornare la pagina del browser. Si noterà ora che l'immagine è stata ripristinata.

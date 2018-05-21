@@ -7,13 +7,13 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 12/04/2017
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: f24777fe5bb482eb74aba4acbd7313665f22c38b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9ee88b254131b40fdf1e01b771afa92127734e18
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Creare, eseguire query e filtrare un indice di Ricerca di Azure nel portale
 
@@ -110,7 +110,7 @@ Ora è disponibile un indice di ricerca su cui è possibile eseguire query. **Es
 
    ![Comandi dell'indice e dell'API][6]
 
-3. Fare clic su **Imposta versione API** nella barra dei comandi per verificare quali API REST sono disponibili. Le API di anteprima permettono di accedere a nuove funzionalità non ancora rilasciate a livello generale. Per le query seguenti, usare la versione disponibile a livello generale (2016-09-01), se non diversamente specificato. 
+3. Fare clic su **Imposta versione API** nella barra dei comandi per verificare quali API REST sono disponibili. Le API di anteprima permettono di accedere a nuove funzionalità non ancora rilasciate a livello generale. Per le query seguenti, usare la versione disponibile a livello generale (2017-11-11), se non diversamente specificato. 
 
     > [!NOTE]
     > L'[API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/search-documents) e la [libreria .NET](search-howto-dotnet-sdk.md#core-scenarios) sono totalmente equivalenti, ma **Esplora ricerche** può gestire unicamente le chiamate REST. Accetta sia la [sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) che la [sintassi completa del parser di query Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), oltre a tutti i parametri di ricerca disponibili nelle operazioni di [ricerca nei documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents).
