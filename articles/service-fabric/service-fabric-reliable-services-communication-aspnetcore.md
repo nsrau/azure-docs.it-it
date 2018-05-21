@@ -9,22 +9,22 @@ editor: ''
 ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7786e08e04d2ebce757b4c47b8ed599036c95958
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core in Reliable Services di Service Fabric
 
 ASP.NET Core è un nuovo framework open source e multipiattaforma per la compilazione di applicazioni Internet moderne basate sul cloud, ad esempio app Web, app per IoT e back-end per dispositivi mobili. 
 
-Questo articolo è una guida dettagliata per l'hosting dei servizi ASP.NET Core in Reliable Services di Service Fabric mediante il set di pacchetti NuGet **Microsoft.ServiceFabric.AspNetCore.**\*.
+Questo articolo è una guida dettagliata per l'hosting dei servizi ASP.NET Core in Reliable Services di Service Fabric mediante il set di pacchetti NuGet **Microsoft.ServiceFabric.AspNetCore.** \*.
 
 Per un'esercitazione introduttiva su ASP.NET Core in Service Fabric e istruzioni per la configurazione dell'ambiente di sviluppo, vedere [Creare un'applicazione .NET](service-fabric-tutorial-create-dotnet-app.md).
 
