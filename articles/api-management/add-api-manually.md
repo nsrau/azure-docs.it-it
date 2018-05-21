@@ -2,10 +2,10 @@
 title: Aggiungere manualmente un'API usando il portale di Azure | Microsoft Docs
 description: Questa esercitazione illustra come usare Gestione API per aggiungere manualmente un'API.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 9426839f88daece1bb688a2079b7854ccaebdc57
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ef7cfa0f30eaaa426c312b21ce0a73aa4409d2ec
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="add-an-api-manually"></a>Aggiungere manualmente un'API 
 
@@ -47,7 +47,7 @@ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di
     |**Nome**|**Valore**|**Descrizione**|
     |---|---|---|
     |**Nome visualizzato**|"*Blank API*" |Questo nome viene visualizzato nel portale per sviluppatori.|
-    |**URL del servizio Web** (facoltativo)| "*http://httpbin.org*"| Per simulare un'API, è possibile non immettere nulla. <br/>In questo caso viene immesso [http://httpbin.org](http://httpbin.org). Si tratta di un servizio pubblico di test. <br/>Per importare un'API di cui viene eseguito il mapping automatico a un back-end, vedere uno degli argomenti nella sezione [Argomenti correlati](#related-topics).|
+    |**URL del servizio Web** (facoltativo)| "*http://httpbin.org*"| Per simulare un'API, è possibile non immettere nulla. <br/>In questo caso, immettere [http://httpbin.org](http://httpbin.org). Si tratta di un servizio pubblico di test. <br/>Per importare un'API di cui viene eseguito il mapping automatico a un back-end, vedere uno degli argomenti nella sezione [Argomenti correlati](#related-topics).|
     |**Schema URL**|"*HTTPS*"|In questo caso, anche se il back end ha accesso HTTP non sicuro, viene specificato un accesso di Gestione API HTTPS sicuro al back-end. <br/>Questo tipo di scenario (da HTTPS a HTTP) viene chiamato terminazione HTTPS. È possibile eseguirlo se l'API esiste in una rete virtuale (dove è certo che l'accesso è sicuro anche se non viene usato HTTPS). <br/>È possibile usare la "terminazione HTTPS" per il salvataggio in alcuni cicli di CPU.|
     |**Suffisso dell'URL dell'API**|"*hbin*"| Il suffisso è un nome che identifica questa specifica API in questa istanza di Gestione API. Deve essere univoco nell'istanza di Gestione API.|
     |**Prodotti**|"*Unlimited*" |Pubblicare l'API associandola a un prodotto. Per fare in modo che l'API venga pubblicata e sia disponibile per gli sviluppatori, aggiungerla a un prodotto. È possibile eseguire questa operazione durante la creazione dell'API o in un secondo momento.<br/><br/>I prodotti sono associazioni di una o più API. È possibile includere diverse API e proporle agli sviluppatori tramite il portale per sviluppatori. <br/>Per avere accesso all'API, gli sviluppatori devono prima sottoscrivere un prodotto. In questo modo ottengono una chiave di sottoscrizione valida per tutte le API nel prodotto. Se si è creata l'istanza di Gestione API, si è già un amministratore e la sottoscrizione a ogni prodotto è stata effettuata per impostazione predefinita.<br/><br/> Per impostazione predefinita, con ogni istanza di Gestione API vengono forniti due prodotti di esempio: **Starter** e **Unlimited**.| 
