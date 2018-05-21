@@ -2,25 +2,19 @@
 title: Guida introduttiva alla reimpostazione della password self-service - Azure Active Directory
 description: Distribuire rapidamente la reimpostazione self-service della password di Azure AD
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: 6add6e71c9acf6d63858ea921ec85924b4e6c60f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Distribuzione rapida della reimpostazione della password self-service di Azure AD
 
@@ -33,11 +27,13 @@ Questa guida presuppone che sia già disponibile un tenant di valutazione o con 
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Abilitare la reimpostazione della password self-service per il tenant di Azure AD
 
+> [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
+
 1. Nel tenant di Azure AD esistente selezionare **Reimpostazione password** nel **portale di Azure** sotto **Azure Active Directory**.
 
 2. Nella pagina **Proprietà** scegliere una delle opzioni seguenti in **Reimpostazione password self-service abilitata**:
    * **Nessuno**: nessuno può usare la reimpostazione password self-service.
-   * **Selezionato**: solo i membri di un gruppo specifico di Azure AD scelti dall'amministratore possono usare la reimpostazione password self-service. È consigliabile definire un gruppo di utenti e usare questa impostazione nella distribuzione di questa funzionalità per un modello di verifica.
+   * **Selezionato**: solo i membri di un gruppo specifico di Azure AD scelti dall'amministratore possono usare la reimpostazione password self-service. È consigliabile definire un gruppo di utenti e usare questa impostazione nella distribuzione di questa funzionalità per un modello di verifica. È supportato l'annidamento dei gruppi di sicurezza.
    * **Tutti**: tutti gli utenti con account nel tenant di Azure AD possono usare la reimpostazione password self-service. È consigliabile usare questa impostazione quando si è pronti a distribuire la funzionalità nell'intero tenant dopo avere completato un modello di verifica.
 
    > [!IMPORTANT]

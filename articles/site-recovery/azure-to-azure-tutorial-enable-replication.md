@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2018
+ms.date: 05/02/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1bc6fcb17732da7f6b0985122dd2cff3c2c9cdf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ca1f8fcd3a69e3f2e287c3d627f41c0f493bea1f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurare il ripristino di emergenza per macchine virtuali di Azure in un'area di Azure secondaria (anteprima)
 
@@ -134,7 +134,7 @@ Site Recovery crea le impostazioni predefinite e i criteri di replica per l'area
 
 - **Percorso di destinazione**: area di destinazione usata per il ripristino di emergenza. È consigliabile che il percorso di destinazione corrisponda al percorso dell'insieme di credenziali di Site Recovery.
 
-- **Gruppo di risorse di destinazione**: gruppo di risorse nell'area di destinazione in cui si trovano le macchine virtuali di Azure dopo il failover. Per impostazione predefinita, Site Recovery crea un nuovo gruppo di risorse nell'area di destinazione con suffisso "asr".
+- **Gruppo di risorse di destinazione**: gruppo di risorse nell'area di destinazione in cui si trovano le macchine virtuali di Azure dopo il failover. Per impostazione predefinita, Site Recovery crea un nuovo gruppo di risorse nell'area di destinazione con suffisso "asr". Il percorso del gruppo di risorse di destinazione può essere qualsiasi area, ad eccezione di quella in cui sono ospitate le macchine virtuali di origine. 
 
 - **Rete virtuale di destinazione**: rete nell'area di destinazione in cui si trovano le macchine virtuali dopo il failover.
   Per impostazione predefinita, Site Recovery crea una nuova rete virtuale e subnet nell'area di destinazione con suffisso "asr".

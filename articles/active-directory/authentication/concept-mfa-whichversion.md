@@ -1,24 +1,20 @@
 ---
 title: Scegliere tra Azure MFA nel cloud e Azure MFA Server| Documentazione Microsoft
-description: Scegliere la soluzione di sicurezza Multi-Factor Authentication adatta alle proprie esigenze considerando i contenuti da proteggere e il luogo in cui si trovano gli utenti.  Scegliere quindi cloud, Server di autenticazione a più fattori o AD FS.
+description: Scegliere la soluzione di sicurezza Multi-Factor Authentication adatta alle proprie esigenze considerando i contenuti da proteggere e il luogo in cui si trovano gli utenti.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ec2270ea-13d7-4ebc-8a00-fa75ce6c746d
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 04fdd2df070ac347d5ef0a328da39141956c1df8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8314d72aa2cc6787d3f65dd48cd693a0ac332c0a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Scegliere la soluzione Azure Multi-Factor Authentication più adatta alle proprie esigenze
 Esistono diverse versioni di Azure Multi-Factor Authentication (MFA) ed è necessario rispondere ad alcune domande per individuare la versione corretta da usare.  Le domande sono:
@@ -47,8 +43,8 @@ Successivamente, a seconda di dove si trovano gli utenti, è possibile determina
 | --- |:---:|:---:|
 | Azure Active Directory |● | |
 | Azure AD e AD locale usando la federazione con AD FS |● |● |
-| Azure AD e AD locale con DirSync, Azure AD Sync, Azure AD Connect, senza sincronizzazione di password |● |● |
-| Azure AD e AD locale con DirSync, Azure AD Sync, Azure AD Connect, con sincronizzazione di password |● | |
+| Azure AD e AD locale con DirSync, Azure AD Sync, Azure AD Connect, senza sincronizzazione dell'hash delle password o autenticazione pass-through |● |● |
+| Azure AD e AD locale con DirSync, Azure AD Sync, Azure AD Connect, con sincronizzazione dell'hash delle password o autenticazione pass-through |● | |
 | Active Directory locale | |● |
 
 ## <a name="what-features-do-i-need"></a>Quali funzionalità sono necessarie?
@@ -81,4 +77,4 @@ Ora che si sono apprese le differenze tra Azure Multi-Factor Authentication nel 
 
 <center>
 
-[![MFA nel cloud](./media/concept-mfa-whichversion/cloud2.png)](howto-mfa-getstarted.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Server MFA](howto-mfaserver-deploy.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</center>
+[![MFA nel cloud](./media/concept-mfa-whichversion/cloud2.png)](howto-mfa-getstarted.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Server MFA](./media/concept-mfa-whichversion/server2.png)](howto-mfaserver-deploy.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </center>
