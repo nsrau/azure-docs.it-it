@@ -1,6 +1,6 @@
 ---
 title: Provider e tipi di risorse di Azure | Microsoft Docs
-description: "Descrive i provider di risorse che supportano Gestione risorse, i relativi schemi e le versioni API disponibili, nonché le aree che possono ospitare le risorse."
+description: Descrive i provider di risorse che supportano Gestione risorse, i relativi schemi e le versioni API disponibili, nonché le aree che possono ospitare le risorse.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,16 +9,16 @@ editor: tysonn
 ms.assetid: 3c7a6fe4-371a-40da-9ebe-b574f583305b
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6b1915288feff8f1d9fc780fef40a247d1c35839
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 811bb40816339dbe7097e429722625a3ae5c95c0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="resource-providers-and-types"></a>Provider e tipi di risorse
 
