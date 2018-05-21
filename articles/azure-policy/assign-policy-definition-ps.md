@@ -2,18 +2,18 @@
 title: Guida introduttiva - Usare PowerShell per creare un'assegnazione dei criteri per identificare le risorse non conformi nell'ambiente Azure
 description: In questa guida introduttiva si userà PowerShell per creare un'assegnazione di criteri di Azure per identificare le risorse non conformi.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 05/07/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: f24dc2a28acfbd3fd80578fed17c6d57275366f0
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+manager: carmonm
+ms.openlocfilehash: 770b3b1b52953f6fd3bd1874c28b2de45251ed17
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi con il modulo AzureRM di PowerShell
 

@@ -5,14 +5,14 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 04/27/2018
+ms.date: 05/16/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 03b7ce49f935c36b0e0652925c41deea987a2a26
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 63653795ad8c52e2743fb02fa804dd2edbf0d2ab
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 Data Factory è un servizio multi-tenant che presenta i seguenti limiti predefiniti in modo che le sottoscrizioni dei clienti siano protette da ogni altro carico di lavoro. Molti dei limiti possono essere facilmente aumentati per la sottoscrizione fino al limite massimo contattando il supporto tecnico.
 
@@ -27,8 +27,8 @@ Data Factory è un servizio multi-tenant che presenta i seguenti limiti predefin
 | Servizi collegati in una data factory | 2500 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Runtime di integrazione in una data factory <sup>4</sup> | 2500 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Totale di core CPU per i runtime di integrazione Azure-SSIS in una sottoscrizione | 100 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Esecuzioni di pipeline simultanee per pipeline | 20 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Numero massimo di attività per pipeline | 20 | 30 |
+| Esecuzioni di pipeline simultanee per pipeline | 100 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Numero massimo di attività per pipeline | 20 | 40 |
 | Numero massimo di parametri per pipeline | 20 | 30 |
 | Byte per oggetto per gli oggetti pipeline <sup>1</sup> | 200 KB | 200 KB |
 | Byte per oggetto per oggetti set di dati e servizio collegato <sup>1</sup> | 100 KB | 2000 KB |

@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: ''
-ms.openlocfilehash: 08a4f3fc135aae2772bd60c67cbd282603cd4f8d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 49e91287d23c35d8cfea858d41c47ba15efd820c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-maps-traffic-coverage"></a>Copertura per il traffico in Mappe di Azure
 
@@ -99,4 +99,4 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 |Stati Uniti     |✓         |✓        |
 |+Portorico     |✓         |✓         |
 
-Per altre informazioni sui dati relativi al traffico di Mappe di Azure, vedere le pagine di riferimento sul [traffico](https://docs.microsoft.com/rest/api/azure-maps/traffic).
+Per altre informazioni sui dati relativi al traffico di Mappe di Azure, vedere le pagine di riferimento sul [traffico](https://docs.microsoft.com/rest/api/maps/traffic).
