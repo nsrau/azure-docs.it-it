@@ -1,26 +1,26 @@
 ---
-title: Creare un gateway applicazione con reindirizzamento basato su percorsi URL - Interfaccia della riga di comando di Azure | Microsoft Docs
+title: Creare an gateway applicazione con reindirizzamento basato sui percorsi URL - Interfaccia della riga di comando di Azure
 description: Informazioni su come creare un gateway applicazione con traffico reindirizzato in base ai percorsi URL usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
-ms.topic: article
+ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 01/24/2018
-ms.author: davidmu
-ms.openlocfilehash: 73fc20cf738f584008e7d8a019b8f7012dcacab1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 4/27/2018
+ms.author: victorh
+ms.custom: mvc
+ms.openlocfilehash: 23e3fdc168b2337b142f3cba554073bad1f5eb4a
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento basato su percorsi URL usando l'interfaccia della riga di comando di Azure
+# <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Esercitazione: Creare un gateway applicazione con reindirizzamento basato sui percorsi URL tramite l'interfaccia della riga di comando di Azure
 
 È possibile usare l'interfaccia della riga di comando di Azure per configurare [regole di routing basato su percorsi URL](application-gateway-url-route-overview.md) quando si crea un [gateway applicazione](application-gateway-introduction.md). In questa esercitazione si creano pool back-end usando i [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Si creano quindi le regole di routing degli URL per garantire che il traffico Web venga reindirizzato nel pool back-end appropriato.
 
-In questo articolo viene spiegato come:
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Configurare la rete
@@ -31,6 +31,8 @@ In questo articolo viene spiegato come:
 L'esempio seguente illustra il traffico del sito in arrivo dalle porte 8080 e 8081 e indirizzato agli stessi pool back-end:
 
 ![Esempio di routing basato su URL](./media/tutorial-url-redirect-cli/scenario.png)
+
+Se si preferisce, è possibile completare questa esercitazione usando [Azure PowerShell](tutorial-url-redirect-powershell.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -60,11 +62,13 @@ az network vnet create \
   --address-prefix 10.0.0.0/16 \
   --subnet-name myAGSubnet \
   --subnet-prefix 10.0.1.0/24
+
 az network vnet subnet create \
   --name myBackendSubnet \
   --resource-group myResourceGroupAG \
   --vnet-name myVNet \
   --address-prefix 10.0.2.0/24
+
 az network public-ip create \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress
@@ -72,7 +76,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>Creare un gateway applicazione
 
-È possibile usare [az network application-gateway create](/cli/azure/application-gateway#create) per creare il gateway applicazione denominato myAppGateway. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Il gateway applicazione viene assegnato alla subnet *myAGSubnet* e all'indirizzo IP pubblico *myPublicIPSddress* creati in precedenza.  
+Usare [az network application-gateway create](/cli/azure/application-gateway#create) per creare il gateway applicazione denominato myAppGateway. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Il gateway applicazione viene assegnato alla subnet *myAGSubnet* e all'indirizzo IP pubblico *myPublicIPSddress* creati in precedenza.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -108,15 +112,18 @@ az network application-gateway address-pool create \
   --gateway-name myAppGateway \
   --resource-group myResourceGroupAG \
   --name imagesBackendPool
+
 az network application-gateway address-pool create \
   --gateway-name myAppGateway \
   --resource-group myResourceGroupAG \
   --name videoBackendPool
+
 az network application-gateway frontend-port create \
   --port 8080 \
   --gateway-name myAppGateway \
   --resource-group myResourceGroupAG \
   --name bport
+
 az network application-gateway frontend-port create \
   --port 8081 \
   --gateway-name myAppGateway \
@@ -138,6 +145,7 @@ az network application-gateway http-listener create \
   --frontend-port bport \
   --resource-group myResourceGroupAG \
   --gateway-name myAppGateway
+
 az network application-gateway http-listener create \
   --name redirectedListener \
   --frontend-ip appGatewayFrontendIP \
@@ -161,6 +169,7 @@ az network application-gateway url-path-map create \
   --default-http-settings appGatewayBackendHttpSettings \
   --http-settings appGatewayBackendHttpSettings \
   --rule-name imagePathRule
+
 az network application-gateway url-path-map rule create \
   --gateway-name myAppGateway \
   --name videoPathRule \
@@ -210,6 +219,7 @@ az network application-gateway rule create \
   --rule-type PathBasedRouting \
   --url-path-map urlpathmap \
   --address-pool appGatewayBackendPool
+
 az network application-gateway rule create \
   --gateway-name myAppGateway \
   --name redirectedRule \
@@ -238,6 +248,7 @@ for i in `seq 1 3`; do
   then
     poolName="videoBackendPool"
   fi
+
   az vmss create \
     --name myvmss$i \
     --resource-group myResourceGroupAG \
@@ -264,13 +275,14 @@ for i in `seq 1 3`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+
 done
 ```
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Per ottenere l'indirizzo IP pubblico del gateway applicazione, è possibile usare [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Ad esempio, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, *http://40.121.222.19:8080/video/test.htm*, oppure *http://40.121.222.19:8081/images/test.htm*.
+Per ottenere l'indirizzo IP pubblico del gateway applicazione, usare [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Ad esempio, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, *http://40.121.222.19:8080/video/test.htm* oppure *http://40.121.222.19:8081/images/test.htm*.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -282,7 +294,7 @@ az network public-ip show \
 
 ![Testare l'URL di base nel gateway applicazione](./media/tutorial-url-redirect-cli/application-gateway-nginx.png)
 
-Modificare l'URL in http://&lt;ip-address&gt;:8080/video/test.html sostituendo &lt;ip-address&gt; con l'indirizzo IP usato come nell'esempio seguente:
+Modificare l'URL in http://&lt;indirizzo-ip&gt;:8080/video/test.htm, sostituendo &lt;indirizzo-ip&gt; con l'indirizzo IP desiderato per ottenere qualcosa di simile all'esempio seguente:
 
 ![Testare l'URL delle immagini nel gateway applicazione](./media/tutorial-url-redirect-cli/application-gateway-nginx-images.png)
 
@@ -292,6 +304,13 @@ Modificare l'URL in http://&lt;ip-address&gt;:8080/video/test.html sostituendo &
 
 A questo punto modificare l'URL in http://&lt;ip-address&gt;:8081/images/test.htm e sostituendo &lt;ip-address&gt; con l'indirizzo IP usato dovrebbe essere possibile visualizzare il traffico reindirizzato al pool back-end delle immagini in http://&lt;ip-address&gt;:8080/images.
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non sono più necessari, rimuovere il gruppo di risorse, il gateway applicazione e tutte le risorse correlate.
+
+```azurecli-interactive
+az group delete --name myResourceGroupAG --location eastus
+```
 ## <a name="next-steps"></a>Passaggi successivi
 
 Questa esercitazione illustra come:

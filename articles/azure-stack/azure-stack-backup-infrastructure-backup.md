@@ -1,24 +1,25 @@
 ---
 title: Backup e ripristino dei dati per lo Stack di Azure con il servizio di Backup infrastruttura | Documenti Microsoft
-description: "È possibile eseguire il backup e ripristinare i dati di configurazione e del servizio tramite il servizio di Backup di infrastruttura."
+description: È possibile eseguire il backup e ripristinare i dati di configurazione e del servizio tramite il servizio di Backup di infrastruttura.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 9B51A3FB-EEFC-4CD8-84A8-38C52CFAD2E4
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 4/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 84ce0d72ff826ecb3f5deff165db00a1e50ae89d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.reviewer: hectorl
+ms.openlocfilehash: 8c8037fe3936485082299250e603b2f3ea3859b9
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Backup e ripristino dei dati per lo Stack di Azure con il servizio di Backup di infrastruttura
 

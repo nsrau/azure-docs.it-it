@@ -9,24 +9,28 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2018
+ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: 46ba7b6e638fafa512d4a3f291c49acc1ddf02e4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 31f23e3f8e792c6b61870c640f99ec3392a940d3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="monitoring-the-cluster-and-platform"></a>Monitoraggio del cluster e della piattaforma
 
 Il monitoraggio a livello piattaforma è importante per determinare se l'hardware e il cluster abbiano o meno il comportamento previsto. Service Fabric può mantenere in esecuzione le applicazioni durante un errore hardware, ma è comunque necessario diagnosticare se l'errore si sia verificato in un'applicazione o nell'infrastruttura sottostante. È consigliabile monitorare i cluster anche per pianificare in modo più efficiente la capacità e supportare le decisioni in merito all'aggiunta o alla rimozione dell'hardware.
 
-Service Fabric fornisce i seguenti canali di log già pronti:
+Service Fabric espone diversi eventi di piattaforma strutturati, come "[eventi di Service Fabric](service-fabric-diagnostics-events.md)", tramite EventStore e diversi canali di log immediatamente disponibili. 
 
-* **Canale operativo**  
+EventStore consente l'accesso agli eventi del cluster per singola entità (tra cui cluster, nodi, applicazioni, servizi, partizioni, repliche e contenitori) e li espone tramite API REST e la libreria client di Service Fabric. Usare EventStore per monitorare i cluster di sviluppo/test e per ottenere un riconoscimento temporizzato dello stato dei cluster di produzione. Altre informazioni in merito sono disponibili nella [Panoramica di EventStore](service-fabric-diagnostics-eventstore.md).
+
+Service Fabric fornisce anche i seguente canali di log predefiniti per la configurazione di una pipeline per monitorare i cluster di produzione:
+
+* [**Canale operativo**](service-fabric-diagnostics-event-generation-operational.md)  
 Operazioni generali eseguite da Service Fabric e dal cluster, inclusi gli eventi per l'attivazione di un nodo, la distribuzione di una nuova applicazione, il ripristino dello stato precedente a un aggiornamento e così via.
 
 * **Canale OPERATIVO - in dettaglio**  

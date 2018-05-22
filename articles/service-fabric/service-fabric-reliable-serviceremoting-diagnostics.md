@@ -1,6 +1,6 @@
 ---
 title: Monitoraggio e diagnostica di Azure ServiceFabric | Microsoft Docs
-description: "Questo articolo illustra le funzionalità monitoraggio delle prestazioni disponibili nel runtime di Service Fabric Reliable ServiceRemoting, inclusi i contatori delle prestazioni emessi dal runtime."
+description: Questo articolo illustra le funzionalità monitoraggio delle prestazioni disponibili nel runtime di Service Fabric Reliable ServiceRemoting, inclusi i contatori delle prestazioni emessi dal runtime.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -9,16 +9,16 @@ editor: suchiagicha
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
-ms.openlocfilehash: f54e157654fb15d2f7ff48ddc666c6c8803c75a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d462ba0955a362c27b786ee6a5670eec20c52a22
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostica e monitoraggio delle prestazioni per Reliable Service Remoting
 Il runtime Reliable ServiceRemoting genera [i contatori delle prestazioni](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) che forniscono informazioni utili per comprendere il funzionamento di ServiceRemoting e per eseguire la risoluzione dei problemi e il monitoraggio delle prestazioni.

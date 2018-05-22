@@ -1,24 +1,24 @@
 ---
-title: Registrare l'utente corrente per le notifiche push mediante l'API Web | Documentazione Microsoft
+title: Registrare l'utente corrente per le notifiche push mediante l'API Web | Microsoft Docs
 description: Informazioni su come chiedere la registrazione per le notifiche push in un'app per iOS con Hub di notifica di Azure quando la registrazione viene eseguita mediante l'API Web ASP.NET.
 services: notification-hubs
 documentationcenter: ios
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 4e3772cf-20db-4b9f-bb74-886adfaaa65d
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: fd56bb2dd627b31f00363851a4e76484aa382988
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: c43c15131afb5fbf346b0137dac566f5331c65a2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registrazione dell'utente corrente per le notifiche push mediante ASP.NET
 > [!div class="op_single_selector"]
@@ -98,7 +98,7 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
    
-    La prima riga inizializza il singleton **DeviceInfo** . La seconda riga avvia la registrazione per le notifiche push, che è già presente se si è completata l'esercitazione [Introduzione ad Hub di notifica] .
+    La prima riga inizializza il singleton **DeviceInfo** . La seconda riga avvia la registrazione per le notifiche push, che è già presente se si è completata l'esercitazione [Introduzione ad Hub di notifica].
 7. In PushToUserAppDelegate.m implementare il metodo **didRegisterForRemoteNotificationsWithDeviceToken** nel delegato dell'app e aggiungere il codice seguente:
    
         self.deviceInfo.deviceToken = deviceToken;
@@ -111,7 +111,7 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
    > 
 8. Nel file PushToUserAppDelegate.m aggiungere il metodo del seguente gestore:
    
-   * (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {   NSLog(@"%@", userInfo);   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:                         [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:                         @"OK" otherButtonTitles:nil, nil];   [alert show]; }
+   * (void) application:(UIApplication *) application didReceiveRemoteNotification:(NSDictionary *)userInfo {   NSLog(@"%@", userInfo);   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:                         [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:                         @"OK" otherButtonTitles:nil, nil];   [alert show]; }
    
    Questo metodo visualizza un avviso nell'interfaccia utente quando l'app riceve notifiche mentre è in esecuzione.
 9. Aprire il file PushToUserViewController.m e restituire la tastiera nell'implementazione seguente:

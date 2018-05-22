@@ -2,23 +2,21 @@
 title: Registrare i dati da Data Lake Store in Azure Data Catalog | Documentazione Microsoft
 description: Registrare i dati da Archivio Data Lake in Azure Data Catalog
 services: data-lake-store,data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: e341f6a4b3a6aef0a328aa4f5d8c9ae92dc24137
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ea5d658b8f465b3a527033ef5e9d2126732c7029
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Registrare i dati da Archivio Data Lake in Azure Data Catalog
 Questo articolo descrive come integrare Archivio Azure Data Lake con Azure Data Catalog per individuare i dati all'interno dell'organizzazione integrandoli con il catalogo dati. Per altre informazioni sulla catalogazione dei dati, vedere [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Per informazioni sugli scenari in cui è possibile usare il catalogo dati, vedere l'articolo relativo agli [scenari comuni di Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).

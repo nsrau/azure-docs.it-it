@@ -10,7 +10,6 @@
 ### [Combinare i metodi di bilanciamento del carico](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Pianificare e progettare
 ### [Reti virtuali](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Filtro del traffico](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connettività cross-premise: VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connettività cross-premise: privata dedicata](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 

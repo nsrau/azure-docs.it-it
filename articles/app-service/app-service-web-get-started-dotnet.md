@@ -35,7 +35,7 @@ Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 

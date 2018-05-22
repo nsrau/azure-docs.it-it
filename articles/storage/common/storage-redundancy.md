@@ -1,5 +1,5 @@
 ---
-title: Replica dei dati in Archiviazione di Azure |  Microsoft Docs
+title: Replica dei dati in Archiviazione di Azure | Documentazione Microsoft
 description: I dati nell'account di archiviazione di Microsoft Azure vengono replicati per durabilità e disponibilità elevata. Le opzioni di replica includono archiviazione con ridondanza locale (LRS), archiviazione con ridondanza della zona (ZRS), archiviazione con ridondanza geografica (GRS) e archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
 services: storage
 author: tamram
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: bdb9bfaa85f526af0c5e42294a75664fa7137849
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2b105cd05ace9be6ad24d092f2b12c7ad092188e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-storage-replication"></a>Replica di Archiviazione di Azure
 
@@ -25,13 +25,13 @@ Garantisce infine che l'account di archiviazione soddisfi il [Contratto di servi
 Quando si crea un account di archiviazione, è possibile selezionare una delle opzioni di replica seguenti:
 
 * [Archiviazione con ridondanza locale (LRS)](storage-redundancy-lrs.md)
-* [Archiviazione con ridondanza della zona (ZRS)](storage-redundancy-zrs.md)
+* [Archiviazione con ridondanza della zona (ZRS).](storage-redundancy-zrs.md)
 * [Archiviazione con ridondanza geografica (GRS)](storage-redundancy-grs.md)
-* [Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
+* [Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).](storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
 La tabella seguente presenta una rapida panoramica dell'ambito di durabilità e disponibilità che ogni strategia di replica è in grado di offrire per un determinato tipo di evento (o un evento di impatto simile).
 
-| Scenario | LRS | ZRS | GRS | RA-GRS |
+| Scenario | Archiviazione con ridondanza locale | ZRS | Archiviazione con ridondanza geografica | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
 | Mancata disponibilità di un nodo in un data center |Sì |Sì |Sì |Sì
 | Mancata disponibilità di un intero data center (di zona o non di zona) |No  |Sì |Sì |Sì |
@@ -46,7 +46,7 @@ Per informazioni sui prezzi delle varie opzioni di ridondanza, vedere [Panoramic
 > Archiviazione Premium supporta solo l'archiviazione con ridondanza locale. Per informazioni su Archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../../virtual-machines/windows/premium-storage.md).
 
 ## <a name="changing-replication-strategy"></a>Modifica della strategia di replica
-È possibile modificare la strategia di replica dell'account di archiviazione tramite il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) o una delle numerose [librerie client di Azure](https://docs.microsoft.com/en-us/azure/index?view=azure-dotnet#pivot=sdkstools). La modifica del tipo di replica dell'account di archiviazione non comporta un tempo di inattività.
+È possibile modificare la strategia di replica dell'account di archiviazione tramite il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o una delle numerose [librerie client di Azure](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). La modifica del tipo di replica dell'account di archiviazione non comporta un tempo di inattività.
 
    > [!NOTE]
    > Attualmente non è possibile usare il portale o l'API per convertire l'account in archiviazione ZRS. Microsoft prevede tuttavia di fornire il supporto per la migrazione all'archiviazione ZRS dall'archiviazione LRS, GRS e RA-GRS dopo che ZRS sarà disponibile a livello generale. Per informazioni dettagliate, vedere [Archiviazione con ridondanza della zona (ZRS)](storage-redundancy-zrs.md).
@@ -58,9 +58,9 @@ Se si passa da GRS a LRS non sono previsti costi aggiuntivi, ma i dati replicati
 
 ## <a name="see-also"></a>Vedere anche 
 
-- [Archiviazione con ridondanza locale (LRS): ridondanza dei dati a basso costo per Archiviazione di Azure](storage-redundancy-lrs.md)
+- [Archiviazione con ridondanza locale: ridondanza dei dati a basso costo per l'Archiviazione di Azure](storage-redundancy-lrs.md)
 - [Archiviazione con ridondanza della zona (ZRS): applicazioni di Archiviazione di Azure a disponibilità elevata](storage-redundancy-zrs.md)
-- [Archiviazione con ridondanza geografica (GRS): replica tra più aree per Archiviazione di Azure](storage-redundancy-grs.md)
+- [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy-grs.md)
 - [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md)
 - [Progettazione di applicazioni a disponibilità elevata con archiviazione RA-GRS](../storage-designing-ha-apps-with-ragrs.md)
 - [Opzioni di ridondanza di Archiviazione di Microsoft Azure e archiviazione con ridondanza geografica e accesso in lettura ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)

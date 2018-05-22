@@ -1,11 +1,11 @@
 ---
 title: Note sulla versione dell'aggiornamento 2 di StorSimple serie 8000 | Documentazione Microsoft
-description: "Descrive le nuove funzionalità, i problemi e le soluzioni alternative dell'aggiornamento 2 per StorSimple serie 8000."
+description: Descrive le nuove funzionalità, i problemi e le soluzioni alternative dell'aggiornamento 2 per StorSimple serie 8000.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: e2c8bffd-7fc5-4b77-b632-a4f59edacc3a
 ms.service: storsimple
 ms.devlang: NA
@@ -14,15 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 285c5abf574544737f3d30981a6c5b8f9548922a
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 0667c62e2ee2039c2b96b8c4ba81619969c3611b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>Note sulla versione dell'aggiornamento 2 di StorSimple serie 8000
-> [!NOTE]
-> Il portale classico per StorSimple è deprecato. Le istanze di Gestione dispositivi StorSimple passeranno automaticamente al nuovo portale di Azure in base alla pianificazione per la funzionalità deprecata. Si riceveranno un messaggio di posta elettronica e una notifica del portale relativi a questo passaggio. Anche questo documento verrà ritirato a breve. Per domande relative al passaggio, vedere [Domande frequenti: spostamento nel portale di Azure](storsimple-8000-move-azure-portal-faq.md).
 
 ## <a name="overview"></a>Panoramica
 Le note sulla versione seguenti descrivono le nuove funzionalità e identificano i problemi critici non risolti relativi all'aggiornamento 2 di StorSimple serie 8000. Le note contengono anche un elenco degli aggiornamenti del software, del driver e del firmware del disco di StorSimple inclusi in questa versione. 

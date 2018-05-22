@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5b94092d1fbcb76210f132d4b08d131533e25397
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: be19130f7a2f45049cd7e08bb961ac6cb5aa14ff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Informazioni di riferimento sulle attività di controllo di Azure AD
 
@@ -107,7 +107,7 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Risorsa|Rimozione di un'entità servizio|
 
 
-## <a name="automated-password-rollover"></a>Automated Password Rollover (Rollover automatizzato delle password)
+## <a name="automated-password-rollover"></a>Rollover automatizzato delle password
 
 |Categoria di controllo|Attività|
 |---|---|
@@ -547,7 +547,7 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 
 
 
-## <a name="self-service-group-management"></a>Gestione gruppi self-service
+## <a name="self-service-group-management"></a>Gestione di gruppi self-service
 
 |Categoria di controllo|Attività|
 |---|---|

@@ -3,16 +3,17 @@ title: Introduzione ad Automation DSC per Azure
 description: Spiegazione ed esempi delle attività più comuni in Automation DSC (Desired State Configuration) per Azure
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0a00050712aa62f3b12e4af4c3da3a1dc0e60219
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: cd26c4b070ed7b92a73e43c1568805a9ac679d12
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Introduzione ad Automation DSC per Azure
 

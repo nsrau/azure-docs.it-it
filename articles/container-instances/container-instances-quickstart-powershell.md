@@ -3,17 +3,17 @@ title: Avvio rapido - Creare il primo contenitore di Istanze di contenitore di A
 description: In questa guida introduttiva si userà Azure PowerShell per distribuire un contenitore Windows in Istanze di contenitore di Azure
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: d958cb5ae2a1adf1968099bd198162e25d963bc4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4a1d338304dbd5e2845768b7bf0273eed23af0ec
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Guida introduttiva: Creare il primo contenitore in Istanze di contenitore di Azure
 
@@ -21,7 +21,7 @@ Istanze di contenitore di Azure semplifica la creazione e gestione di contenitor
 
 ![App distribuita usando Istanze di contenitore di Azure visualizzata nel browser][qs-powershell-01]
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -81,9 +81,9 @@ Quando il valore di **ProvisioningState** del contenitore diventa `Succeeded`, p
 
 ![IIS distribuito con Istanze di contenitore di Azure visualizzato nel browser][qs-powershell-01]
 
-## <a name="delete-the-container"></a>Eliminare il contenitore
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando il contenitore non è più necessario, è possibile rimuoverlo con il cmdlet [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup]:
+Quando il contenitore non è più necessario, rimuoverlo con il cmdlet [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup]:
 
  ```azurepowershell-interactive
 Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -91,7 +91,7 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato avviato un contenitore di Windows predefinito in Istanze di contenitore di Azure. Per provare a creare personalmente e distribuire un contenitore in Istanze di contenitore di Azure tramite Registro contenitori di Azure, passare all'esercitazione su Istanze di contenitore di Azure.
+In questa guida introduttiva è stata creata un'istanza di contenitore di Azure da un'immagine nel registro nell'hub Docker pubblico. Per provare a creare personalmente un'immagine del contenitore e a distribuirla in Istanze di contenitore di Azure da un registro contenitori di Azure privato, passare all'esercitazione su Istanze di contenitore di Azure.
 
 > [!div class="nextstepaction"]
 > [Esercitazione su Istanze di contenitore di Azure](./container-instances-tutorial-prepare-app.md)

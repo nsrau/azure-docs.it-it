@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: ef86af61284bb208cc8c469e3fe75bd4f4bdc5bf
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 65e1f8a907c8bf64497f7439e5b635ad336cd23a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -43,12 +43,14 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 | Inoltri dal dispositivo al cloud | Più di 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24/sec, ma si hanno almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9\*12) tra le unità. | 120/sec/unità | 6000/sec/unità |
 | Inoltri dal cloud al dispositivo<sup>1</sup> | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
 | Ricezioni dal cloud al dispositivo<sup>1</sup> <br/> (solo quando il dispositivo usa HTTPS)| 16,67/sec/unità (1000/min/unità) | 16,67/sec/unità (1000/min/unità) | 833,33/sec/unità (50000/min/unità) |
-| Caricamento di file | 1,67 notifiche caricamento file/sec/unità (100/min/unità) | 1,67 notifiche caricamento file/sec/unità (100/min/unità) | 83,33 notifiche caricamento file/sec/unità (5000/min/unità) |
+| Caricamento di file | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 83,33 notifice caricamento file/sec/unità (5000/min/unità) |
 | Metodi diretti<sup>1</sup> | 160 KB/sec/unità<sup>2</sup> | 480 KB/sec/unità<sup>2</sup> | 24 MB/sec/unità<sup>2</sup> | 
-| Letture del dispositivo gemello<sup>1</sup> | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
-| Aggiornamenti del dispositivo gemello<sup>1</sup> | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
+| Letture di dispositivi e moduli gemelli <sup>1</sup> | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
+| Aggiornamenti di dispositivi e moduli gemelli <sup>1</sup> | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
 | Operazioni dei processi<sup>1</sup> <br/> (creazione, aggiornamento, elenco, eliminazione) | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
 | Velocità effettiva delle operazioni dei processi per dispositivo<sup>1</sup> | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
+| Configurazioni e distribuzioni Edge<sup>1</sup> <br/> (creazione, aggiornamento, elenco, eliminazione) | 0,33/sec/unità (20/min/unità) | 0,33/sec/unità (20/min/unità) | 0,33/sec/unità (20/min/unità) |
+
 
 <sup>1</sup>Questa funzionalità non è disponibile nel livello di base dell'hub IoT. Per altre informazioni, vedere [How to choose the right IoT Hub](iot-hub-scaling.md) (Come scegliere il livello dell'hub IoT corretto). <br/><sup>2</sup>La dimensione del contatore delle limitazioni è 8 KB.
 
@@ -76,6 +78,9 @@ L'hub IoT applica altri limiti operativi:
 | Messaggistica da dispositivo a cloud | Dimensioni massime dei messaggi 256 KB |
 | Messaggistica da cloud a dispositivo<sup>1</sup> | La dimensione massima dei messaggi è 64 KB. Il numero massimo di messaggi in sospeso è 50. |
 | Metodo diretto<sup>1</sup> | La dimensione massima del payload del metodo diretto è 128 KB. |
+| Configurazioni | 20 configurazioni per hub. |
+| Distribuzioni Edge | 20 distribuzioni per hub. 20 moduli per distribuzione. |
+| Elementi gemelli | Le dimensioni massime per ogni sezione dell'elemento gemello (tag, proprietà desiderate, proprietà segnalate) sono pari a 8 kB |
 
 <sup>1</sup>Questa funzionalità non è disponibile nel livello di base dell'hub IoT. Per altre informazioni, vedere [How to choose the right IoT Hub](iot-hub-scaling.md) (Come scegliere il livello dell'hub IoT corretto).
 

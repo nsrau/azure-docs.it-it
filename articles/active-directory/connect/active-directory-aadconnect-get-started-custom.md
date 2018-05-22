@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2018
+ms.date: 05/02/2018
 ms.author: billmath
-ms.openlocfilehash: 14d2a29e65bf2f3a974f2713f36d9b9fa497ee1c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d7d1beff419ed2bf4c58f0646cd6c8aacf8e5e7b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installazione personalizzata di Azure AD Connect
 **Impostazioni personalizzate** di Azure AD Connect viene usato quando sono necessarie altre opzioni per l'installazione. Viene usato se sono presenti più foreste o per configurare funzionalità facoltative non incluse nell'installazione rapida. Viene usato in tutti i casi in cui l'opzione di [**installazione rapida**](active-directory-aadconnect-get-started-express.md) non soddisfa la distribuzione o la topologia.
@@ -45,13 +45,14 @@ Durante l'installazione dei servizi di sincronizzazione è possibile lasciare de
 ### <a name="user-sign-in"></a>Accesso utente
 Dopo l'installazione dei componenti necessari, viene richiesta la selezione del metodo di accesso Single Sign-On degli utenti. La tabella seguente fornisce una breve descrizione delle opzioni disponibili. Per una descrizione completa dei metodi di accesso, vedere [Accesso utente](active-directory-aadconnect-user-signin.md).
 
-![Accesso utente](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
+![Accesso utente](./media/active-directory-aadconnect-get-started-custom/usersignin4.png)
 
 | Opzione Single Sign-On | DESCRIZIONE |
 | --- | --- |
 | Sincronizzazione dell'hash delle password |Gli utenti possono accedere ai servizi cloud Microsoft, ad esempio Office 365, usando la stessa password specificata nella rete locale. Le password degli utenti vengono sincronizzate in Azure AD come hash della password e l'autenticazione viene eseguita sul cloud. Per altre informazioni, vedere [Sincronizzazione dell’hash delle password](active-directory-aadconnectsync-implement-password-hash-synchronization.md) . |
 |Autenticazione pass-through|Gli utenti possono accedere ai servizi cloud Microsoft, ad esempio Office 365, usando la stessa password specificata nella rete locale.  La password degli utenti viene passata al controller di dominio di Active Directory locale per la convalida.
 | Federazione con ADFS |Gli utenti possono accedere ai servizi cloud Microsoft, ad esempio Office 365, usando la stessa password specificata nella rete locale.  Gli utenti vengono reindirizzati alla rispettiva istanza locale di AD FS per l'accesso e l'autenticazione viene eseguita in locale. |
+| Federazione con PingFederate|Gli utenti possono accedere ai servizi cloud Microsoft, ad esempio Office 365, usando la stessa password specificata nella rete locale.  Gli utenti vengono reindirizzati all'istanza locale di PingFederate per l'accesso e l'autenticazione viene eseguita in locale. |
 | Non configurare |Nessuna funzionalità di accesso utente verrà installata e configurata. Scegliere questa opzione se si dispone già di un server federativo di terze parti o di un'altra soluzione esistente installata. |
 |Abilita Single Sign-On|Questa opzione è disponibile con la sincronizzazione delle password e l'autenticazione pass-through e fornisce un'esperienza di accesso Single Sign-On per gli utenti desktop nella rete aziendale. Per altre informazioni, vedere [Single Sign-On](active-directory-aadconnect-sso.md) (Accesso Single Sign-On). </br>Nota per i clienti AD FS: questa opzione non è disponibile perché AD FS offre già lo stesso livello di accesso Single Sign-On,</br>
 
@@ -301,6 +302,39 @@ Quando si seleziona il dominio da federare, Azure AD Connect fornisce le informa
 >
 >
 
+## <a name="configuring-federation-with-pingfederate"></a>Configurazione della federazione con PingFederate
+La configurazione di PingFederate con Azure AD Connect è semplice e richiede solo pochi clic. Prima della configurazione, sono necessari gli elementi seguenti.  Sono tuttavia necessari i prerequisiti seguenti.
+- PingFederate 8.4 o versione successiva.  Per altre informazioni, vedere [PingFederate Integration with Azure Active Directory and Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html) (Integrazione di PingFederate con Azure Active Directory e Office 365)
+- Un certificato SSL per il nome del servizio federativo che si intende usare, ad esempio sts.contoso.com
+
+### <a name="verify-the-domain"></a>Verificare il dominio
+Dopo aver selezionato la federazione con PingFederate, verrà chiesto di verificare il dominio da federare.  Selezionare il dominio nella casella di riepilogo a discesa.
+
+![Verificare un dominio](./media/active-directory-aadconnect-get-started-custom/ping1.png)
+
+### <a name="export-the-pingfederate-settings"></a>Esportare le impostazioni di PingFederate
+
+
+È necessario configurare PingFederate come server federativo per ogni dominio di Azure federato.  Fare clic sul pulsante Esporta impostazioni e condividere le informazioni con l'amministratore di PingFederate.  L'amministratore del server federativo aggiornerà la configurazione, quindi fornirà l'URL del server PingFederate e il numero di porta, in modo che Azure AD Connect possa verificare le impostazioni dei metadati.  
+
+![Verificare un dominio](./media/active-directory-aadconnect-get-started-custom/ping2.png)
+
+Contattare l'amministratore di PingFederate per risolvere eventuali problemi di convalida.  Di seguito è riportato un esempio di un server PingFederate che non ha una relazione di trust valida con Azure:
+
+![Trust](./media/active-directory-aadconnect-get-started-custom/ping5.png)
+
+
+
+
+### <a name="verify-federation-connectivity"></a>Verificare la connettività della federazione
+Azure AD Connect cercherà di convalidare gli endpoint di autenticazione recuperati dai metadati di PingFederate nel passaggio precedente.  Azure AD Connect cercherà prima di tutto di risolvere gli endpoint usando i server DNS locali.  Cercherà quindi di risolvere gli endpoint usando un provider DNS esterno.  Contattare l'amministratore di PingFederate per risolvere eventuali problemi di convalida.  
+
+![Verificare la connettività](./media/active-directory-aadconnect-get-started-custom/ping3.png)
+
+### <a name="verify-federation-login"></a>Verificare l'accesso federato
+Infine, è possibile verificare il flusso di accesso federato appena configurato accedendo al dominio federato. In caso di esito positivo, la federazione con PingFederate è configurata correttamente.
+![Verificare l'accesso](./media/active-directory-aadconnect-get-started-custom/ping4.png)
+
 ## <a name="configure-and-verify-pages"></a>Configurare e verificare le pagine
 La configurazione viene eseguita in questa pagina.
 
@@ -308,6 +342,7 @@ La configurazione viene eseguita in questa pagina.
 > Se è stata configurata la federazione, prima di continuare l'installazione assicurarsi di avere configurato la [Risoluzione dei nomi per i server federativi](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers).
 >
 >
+
 
 ![Pronto per la configurazione](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
@@ -336,8 +371,9 @@ Azure AD Connect verifica automaticamente le impostazioni DNS quando si fa clic 
 
 ![Verificare](./media/active-directory-aadconnect-get-started-custom/adfs7.png)
 
-Inoltre, eseguire i passaggi di verifica seguenti:
+Per verificare che l'autenticazione end-to-end avvenga correttamente, è necessario eseguire manualmente uno o più dei test seguenti:
 
+* Una volta completata la sincronizzazione, usare l'attività aggiuntiva di verifica dell'accesso federato in Azure AD Connect per verificare l'autenticazione per un account utente locale di propria scelta.
 * Verificare che sia possibile accedere da un browser da un computer aggiunto a un dominio nella Intranet. Connettersi a https://myapps.microsoft.com e verificare l'accesso con l'account connesso. L'account amministratore di Servizi di dominio Active Directory non è sincronizzato e non può essere usato per la verifica.
 * Assicurarsi che sia possibile accedere da un dispositivo dalla Extranet. In un computer di casa o in un dispositivo mobile connettersi a https://myapps.microsoft.com e fornire le credenziali.
 * Convalidare l'accesso rich client. Connettersi a https://testconnectivity.microsoft.com, scegliere la scheda **Office 365**, quindi scegliere **Test di Single Sign-On in Office 365**.

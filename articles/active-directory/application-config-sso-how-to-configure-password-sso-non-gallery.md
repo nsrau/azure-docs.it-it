@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: b928d71fbff232ae93dbf3d24517e7efc4cf8bfd
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: afa976d94b77a98e4c8678310bb80d81b74e54f6
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Come configurare un accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta
 
@@ -190,4 +190,4 @@ Per assegnare uno o più gruppi direttamente a un'applicazione, seguire questa p
 Dopo un breve periodo di tempo, gli utenti selezionati saranno in grado di avviare queste applicazioni nel riquadro di accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Fornire l'accesso Single Sign-On alle app con il proxy di applicazione](active-directory-application-proxy-sso-using-kcd.md)
+[Fornire l'accesso Single Sign-On alle app con il proxy di applicazione](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

@@ -1,27 +1,23 @@
 ---
 title: Gestire utenti e dispositivi come amministratore - Azure MFA | Documentazione Microsoft
 description: Viene descritto come modificare le impostazioni utente (ad esempio, come imporre agli utenti di ripetere il processo di registrazione).
-documentationcenter: ''
 services: multi-factor-authentication
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: aac3b922-7cc1-428c-9044-273579aa7b5a
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 9a570740b84ee2016ae7a4882c87c9544ea66a88
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8dd30f53dc37734e1c01b3712b5adb7d81a1489b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gestire le impostazioni utente nel cloud con Azure Multi-Factor Authentication
+
 Come amministratore, è possibile gestire le impostazioni relative all'utente e al dispositivo riportate di seguito:
 
 * Richiedere agli utenti di fornire di nuovo i metodi di contatto

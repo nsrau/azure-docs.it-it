@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: c02b7a74eea6973d6ccfbc1cc59d15bfd5cb5b77
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2fabf0d61ffd2f526fab49816eab36a86497a358
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
@@ -30,11 +30,7 @@ Quando si distribuiscono l'app Web, il back-end per dispositivi mobili, l'app We
 * La distribuzione preliminare di un'app in uno slot e la successiva implementazione in un ambiente di produzione garantiscono che tutte le istanze dello slot vengano effettivamente eseguite prima di passare alla fase di produzione. Ciò consente di evitare i tempi di inattività al momento della distribuzione dell'app. Il reindirizzamento del traffico è lineare e nessuna richiesta viene eliminata in seguito alle operazioni di scambio. L'intero flusso di lavoro può essere automatizzata tramite la configurazione di [scambio automatico](#Auto-Swap) quando non è necessario spazio di pre-swapping convalida.
 * Dopo uno scambio, lo slot con l'app gestita temporaneamente include l'app di produzione precedente. Se le modifiche applicate nello slot di produzione non risultano corrette, è possibile ripetere immediatamente lo scambio dei due slot per recuperare l'ultimo sito con i dati corretti.
 
-Ogni piano del servizio app supporta un numero diverso di slot di distribuzione. Per conoscere il numero di slot supportati dal piano dell'app, vedere [Limiti relativi a Servizio app](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits).
-
-* Se l'app ha più slot, non è possibile cambiare il piano.
-* Gli slot non di produzione non sono scalabili.
-* La gestione delle risorse collegate non è supportata per gli slot non di produzione. Solo nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) è possibile evitare questo impatto potenziale su uno slot di produzione spostando temporaneamente lo slot non di produzione in un piano diverso del servizio app. Si noti che, per poter scambiare i due slot, è necessario che lo slot non di produzione condivida ancora una volta lo stesso piano con lo slot di produzione.
+Ogni piano del servizio app supporta un numero diverso di slot di distribuzione. Per conoscere il numero di slot supportati dal piano dell'app, vedere [Limiti relativi a Servizio app](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Per ridimensionare l'app passando a un livello diverso, è necessario che il livello di destinazione supporti il numero di slot già usato dall'app. Se l'app ha più di 5 slot, ad esempio, non è possibile passare un piano inferiore scegliendo **Standard**, perché il livello **Standard** supporta solo 5 slot di distribuzione.
 
 <a name="Add"></a>
 
@@ -54,7 +50,7 @@ Per poter abilitare più slot di distribuzione, l'app deve essere in esecuzione 
    
     ![Origine della configurazione][ConfigurationSource1]
    
-    La prima volta che si aggiunge uno slot, sono disponibili solo due opzioni: clonare la configurazione dallo slot predefinito in produzione oppure no.
+    La prima volta che si aggiunge uno slot, sono disponibili solo due opzioni: clonare la configurazione dello slot predefinito in produzione oppure no.
     Dopo aver creato vari slot, sarà possibile clonare la configurazione da uno slot diverso da quello in produzione:
    
     ![Origini della configurazione][MultipleConfigurationSources]
@@ -67,8 +63,8 @@ Non è presente alcun contenuto dopo la creazione dello slot di distribuzione. �
 
 <a name="AboutConfiguration"></a>
 
-## <a name="configuration-for-deployment-slots"></a>Configurazione per gli slot di distribuzione ##
-Quando si clona la configurazione da un altro slot di distribuzione, la configurazione clonata è modificabile. Inoltre, alcuni elementi della configurazione seguiranno il contenuto nello scambio (non specifici dello slot) mentre altri elementi della configurazione resteranno nello stesso slot dopo uno scambio (specifici dello slot). Negli elenchi seguenti sono riportati gli elementi di configurazione che verranno modificati al momento dello scambio degli slot.
+## <a name="which-settings-are-swapped"></a>Impostazioni incluse nello scambio
+Quando si clona la configurazione da un altro slot di distribuzione, la configurazione clonata è modificabile. Inoltre, alcuni elementi della configurazione seguiranno il contenuto nello scambio (non specifici dello slot) mentre altri elementi della configurazione resteranno nello stesso slot dopo uno scambio (specifici dello slot). Negli elenchi seguenti sono riportate le impostazioni che vengono modificate durante lo scambio degli slot.
 
 **Impostazioni che vengono scambiate**:
 
@@ -87,7 +83,7 @@ Quando si clona la configurazione da un altro slot di distribuzione, la configur
 * Impostazioni di scalabilità
 * Utilità di pianificazione WebJobs
 
-Per configurare un'impostazione app o una stringa di connessione in modo da adattarla a uno (non scambiata), accedere al pannello **Impostazioni applicazione** di uno slot specifico, quindi selezionare la casella **Impostazione slot** per gli elementi di configurazione che devono adattarsi allo slot. Si noti che contrassegnando un elemento della configurazione come specifico dello slot, si determina che non può essere scambiato tra tutti gli slot di distribuzione associati all'app.
+Per configurare un'impostazione app o una stringa di connessione in modo da adattarla a uno (non scambiata), accedere al pannello **Impostazioni applicazione** di uno slot specifico, quindi selezionare la casella **Impostazione slot** per gli elementi di configurazione che devono adattarsi allo slot. Contrassegnando un elemento della configurazione come specifico dello slot si stabilisce che non può essere scambiato tra tutti gli slot di distribuzione associati all'app.
 
 ![Impostazioni di slot][SlotSettings]
 
@@ -123,13 +119,13 @@ Per i carichi di lavoro mission-critical, è possibile convalidare il comportame
 
 Quando si usa l'opzione **Scambio con anteprima** (vedere [Swap degli slot di distribuzione](#Swap)), il servizio app effettua le seguenti operazioni:
 
-- Mantiene invariato lo slot di destinazione in modo che non interessi il carico di lavoro esistente in questo slot, ad esempio, la produzione.
+- Mantiene invariato lo slot di destinazione in modo da evitare un impatto sul carico di lavoro esistente nello slot, ad esempio di produzione.
 - Applica gli elementi di configurazione dello slot di destinazione allo slot di origine, incluse le impostazioni delle app e le stringhe di connessione specifiche dello slot.
 - Riavvia i processi di lavoro nello slot di origine usando questi elementi di configurazione menzionati.
 - Al completamento dello scambio: lo slot di origine pre-riscaldato viene spostato nello slot di destinazione. Lo slot di destinazione viene spostato nello slot di origine come in uno scambio manuale.
 - In caso di annullamento dello scambio: gli elementi di configurazione dello slot di origine vengono riapplicati allo slot di origine.
 
-È possibile visualizzare in anteprima il funzionamento esatto dell'app con la configurazione dello slot di destinazione. Al termine della convalida, completare lo scambio in un passaggio separato. Questo passaggio ha anche il vantaggio che lo slot di origine è già riscaldato con la configurazione desiderata e i client non subiranno tempi di inattività.  
+È possibile visualizzare in anteprima il funzionamento esatto dell'app con la configurazione dello slot di destinazione. Al termine della convalida, completare lo scambio in un passaggio separato. Questo passaggio offre anche il vantaggio di evitare tempi di inattività per i client perché lo slot di origine è già stato riscaldato con la configurazione desiderata.  
 
 Degli esempi per i cmdlet PowerShell di Azure disponibili per lo swap multifase sono inclusi nei cmdlet PowerShell di Azure per la sezione relativa agli slot di distribuzione.
 
@@ -144,16 +140,16 @@ Lo scambio automatico semplifica gli scenari DevOps nei quali si vuole distribui
 > 
 
 > [!NOTE]
-> Lo scambio automatico non è supportato nelle applicazioni Web in Linux.
+> Lo scambio automatico non è supportato nelle app Web in Linux.
 
-La configurazione dello scambio automatico per uno slot è semplice. Attenersi ai passaggi indicati di seguito:
+La configurazione dello scambio automatico per uno slot è semplice. A tale scopo, seguire questa procedura:
 
 1. In **Slot di distribuzione** selezionare uno slot non di produzione e scegliere **Impostazioni applicazione** nel pannello delle risorse di questo slot.  
    
     ![][Autoswap1]
 2. Selezionare **On** per **Scambio automatico**, scegliere lo slot di destinazione desiderato in **Slot scambio automatico**, quindi fare clic su **Salva** nella barra dei comandi. Assicurarsi che la configurazione dello slot corrisponda esattamente alla configurazione desiderata per lo slot di destinazione.
    
-    Dopo il completamento dell'operazione, nella scheda **Notifiche** verrà visualizzata la scritta verde lampeggiante **OPERAZIONE RIUSCITA**.
+    Al termine dell'operazione, nella scheda **Notifiche** verrà visualizzato il messaggio lampeggiante in verde **OPERAZIONE RIUSCITA**.
    
     ![][Autoswap2]
    
@@ -161,26 +157,36 @@ La configurazione dello scambio automatico per uno slot è semplice. Attenersi a
    > Per verificare lo scambio automatico per l'app, è possibile selezionare prima uno slot di destinazione non di produzione in **Scambia automaticamente slot** per acquisire familiarità con la funzionalità.  
    > 
    > 
-3. Eseguire un push del codice in tale slot di distribuzione. Lo scambio automatico verrà eseguito poco dopo e l'aggiornamento verrà riflesso nell'URL dello slot di destinazione.
+3. Eseguire un push del codice in tale slot di distribuzione. Lo scambio automatico viene eseguito dopo un breve intervallo di tempo e l'aggiornamento si riflette nell'URL dello slot di destinazione.
 
 <a name="Rollback"></a>
 
-## <a name="to-rollback-a-production-app-after-swap"></a>Per eseguire il rollback di un'app di produzione dopo lo scambio
+## <a name="roll-back-a-production-app-after-swap"></a>Eseguire il rollback di un'app di produzione dopo lo scambio
 Se vengono identificati errori nel sito di produzione dopo lo scambio di uno slot, ripristinare i due slot allo stato precedente scambiandoli immediatamente.
 
 <a name="Warm-up"></a>
 
 ## <a name="custom-warm-up-before-swap"></a>Riscaldamento personalizzato prima dello scambio
-Alcune app potrebbero richiedere azioni di riscaldamento personalizzate. L'elemento di configurazione `applicationInitialization` in web.config consente di specificare le azioni di inizializzazione personalizzate da eseguire prima che venga ricevuta una richiesta. L'operazione di scambio attenderà il completamento del riscaldamento personalizzato. Di seguito è riportato un frammento web.config di esempio.
+Alcune app potrebbero richiedere azioni di riscaldamento personalizzate. L'elemento di configurazione `applicationInitialization` in web.config consente di specificare le azioni di inizializzazione personalizzate da eseguire prima che venga ricevuta una richiesta. L'operazione di scambio attende il completamento del riscaldamento personalizzato. Di seguito è riportato un frammento web.config di esempio.
 
     <applicationInitialization>
         <add initializationPage="/" hostName="[app hostname]" />
         <add initializationPage="/Home/About" hostname="[app hostname]" />
     </applicationInitialization>
 
+## <a name="monitor-swap-progress"></a>Monitorare lo stato di avanzamento dello scambio
+
+Il completamento dell'operazione di scambio talvolta richiede tempo, ad esempio quando l'app scambiata presenta un lungo tempo di riscaldamento. È possibile visualizzare altre informazioni sulle operazioni di scambio nel [log attività](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) nel [portale di Azure](https://portal.azure.com).
+
+Nella pagina dell'app nel portale selezionare **Log attività** nel riquadro di spostamento a sinistra.
+
+Un'operazione di scambio è riportata nella query di log come `Slotsswap`. È possibile espandere la voce e selezionare una sotto-operazione o un errore per visualizzare i dettagli.
+
+![Log attività per lo scambio di slot](media/web-sites-staged-publishing/activity-log.png)
+
 <a name="Delete"></a>
 
-## <a name="to-delete-a-deployment-slot"></a>Per eliminare uno slot di distribuzione##
+## <a name="delete-a-deployment-slot"></a>Eliminare uno slot di distribuzione
 Nel pannello di uno slot di distribuzione aprire il pannello dello slot di distribuzione, fare clic su **Panoramica** (la pagina predefinita), quindi fare clic su **Elimina** nella barra dei comandi.  
 
 ![Per eliminare uno slot di distribuzione][DeleteStagingSiteButton]
@@ -189,41 +195,47 @@ Nel pannello di uno slot di distribuzione aprire il pannello dello slot di distr
 
 <a name="PowerShell"></a>
 
-## <a name="azure-powershell-cmdlets-for-deployment-slots"></a>Cmdlet Azure PowerShell per gli slot di distribuzione
+## <a name="automate-with-azure-powershell"></a>Automatizzare le operazioni con Azure PowerShell
+
 Azure PowerShell è un modulo che fornisce i cmdlet per gestire Azure tramite Windows PowerShell, tra cui il supporto per la gestione degli slot di distribuzione in Servizio app di Azure.
 
 * Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con l'abbonamento di Microsoft Azure, vedere l'argomento relativo alla [procedura di installazione e configurazione di Azure PowerShell](/powershell/azure/overview).  
 
 - - -
 ### <a name="create-a-web-app"></a>Creare un'app Web
-```
+```PowerShell
 New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="create-a-deployment-slot"></a>Creare uno slot di distribuzione
-```
+```PowerShell
 New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="initiate-a-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>Avviare uno scambio con anteprima (swap multifase) e applicare la configurazione dello slot di destinazione allo slot di origine
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="cancel-a-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>Annullare uno scambio (scambio con anteprima) in sospeso e ripristinare la configurazione dello slot di origine
-```
+```PowerShell
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="swap-deployment-slots"></a>Swap degli slot di distribuzione
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
+
+### <a name="monitor-swap-events-in-the-activity-log"></a>Monitore gli eventi di scambio nel log attività
+```PowerShell
+Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
 - - -
@@ -237,52 +249,13 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 
 <a name="CLI"></a>
 
-## <a name="azure-command-line-interface-azure-cli-commands-for-deployment-slots"></a>Comandi dell'interfaccia della riga di comando di Azure per gli slot di distribuzione
-L'interfaccia della riga di comando di Azure fornisce comandi multipiattaforma che è possibile usare con Azure, incluso il supporto per la gestione degli slot di distribuzione del servizio app.
+## <a name="automate-with-azure-cli"></a>Automatizzare le operazioni con l'interfaccia della riga di comando di Azure
 
-* Per istruzioni sull'installazione e la configurazione dell'interfaccia della riga di comando di Azure, incluse le informazioni su come collegarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
-* Per l'elenco dei comandi disponibili per il servizio app di Azure, chiamare `azure site -h`.
-
-> [!NOTE] 
-> Per i comandi dell'[interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-cli) relativi agli slot di distribuzione, vedere [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
-
-- - -
-### <a name="azure-site-list"></a>azure site list
-Per informazioni sulle app nell'attuale sottoscrizione, chiamare **azure site list**, come nell'esempio seguente.
-
-`azure site list webappslotstest`
-
-- - -
-### <a name="azure-site-create"></a>azure site create
-Per creare uno slot di distribuzione, chiamare **azure site create** e specificare il nome di un'app esistente e il nome dello slot da creare, come nell'esempio seguente.
-
-`azure site create webappslotstest --slot staging`
-
-Per abilitare il controllo del codice sorgente per il nuovo slot, utilizzare l'opzione **- git** , come nell'esempio seguente.
-
-`azure site create --git webappslotstest --slot staging`
-
-- - -
-### <a name="azure-site-swap"></a>azure site swap
-Per applicare lo slot di distribuzione aggiornato al sito di produzione, utilizzare il comando **azure site swap** per eseguire un'operazione di scambio, come nell'esempio seguente. L'app di produzione non sarà caratterizzata da tempi di inattività, né subirà un avvio a freddo.
-
-`azure site swap webappslotstest`
-
-- - -
-### <a name="azure-site-delete"></a>azure site delete
-Per eliminare uno slot di distribuzione non più necessario, usare il comando **azure site delete** , come nell'esempio seguente.
-
-`azure site delete webappslotstest --slot staging`
-
-- - -
-> [!NOTE]
-> Verificare il funzionamento di un'app Web. [provare il servizio app](https://azure.microsoft.com/try/app-service/) immediatamente e creare un'app iniziale temporanea, senza necessità di fornire una carta di credito e senza impegni.
-> 
-> 
+Per i comandi dell'[interfaccia della riga di comando di Azure](https://github.com/Azure/azure-cli) relativi agli slot di distribuzione, vedere [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Blocco dell'accesso Web agli slot di distribuzione non di produzione nell'app Web del servizio app di Azure](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-[Introduzione al servizio app in Linux](../app-service/containers/app-service-linux-intro.md)
+[Blocco dell'accesso Web agli slot di distribuzione non di produzione nell'app Web del servizio app di Azure](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
+[Introduzione al servizio app in Linux](../app-service/containers/app-service-linux-intro.md)  
 [Versione di valutazione gratuita di Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->

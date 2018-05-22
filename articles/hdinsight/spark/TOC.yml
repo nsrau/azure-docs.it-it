@@ -1,27 +1,36 @@
 - name: Documentazione di Azure HDInsight
   href: /azure/hdinsight
-- name: Spark in HDInsight
+- name: Panoramica
   items:
-    - name: Panoramica
+    - name: Informazioni su Spark in HDInsight
       href: apache-spark-overview.md
     - name: Componenti Hadoop in HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: Attività iniziali
+- name: Guide introduttive
   items:
-    - name: Creare un cluster Spark
+    - name: Creare un cluster Spark - Portale
+      href: apache-spark-jupyter-spark-sql-use-portal.md
+    - name: Creare un cluster Spark - PowerShell
+      href: apache-spark-jupyter-spark-sql-use-powershell.md
+    - name: Creare un cluster Spark - Modello
       href: apache-spark-jupyter-spark-sql.md
+- name: Esercitazioni
+  items:
     - name: Eseguire query in un cluster Spark
       href: apache-spark-load-data-run-query.md
+    - name: Usare VSCode per eseguire query Spark
+      href: ../hdinsight-for-vscode.md
+    - name: Usare IntelliJ per eseguire query Spark
+      href: apache-spark-intellij-tool-plugin.md
     - name: Analizzare i dati usando gli strumenti di business intelligence
       href: apache-spark-use-bi-tools.md
-    - name: Gestire le risorse cluster
-      href: apache-spark-resource-manager.md
-    - name: Eseguire il debug di processi Spark
-      href: apache-spark-job-debugging.md
-    - name: Installare app HDInsight
-      href: ../hdinsight-apps-install-applications.md
-      maintainContext: true
+    - name: Eseguire un processo di streaming
+      href: apache-spark-eventhub-streaming.md
+    - name: Creare un'applicazione di Machine Learning
+      href: apache-spark-ipython-notebook-machine-learning.md
+    - name: Creare un'applicazione Spark con IntelliJ
+      href: apache-spark-create-standalone-application.md
 - name: Procedure
   items:
     - name: Usare l'archiviazione cluster
@@ -34,8 +43,6 @@
           maintainContext: true
     - name: Sviluppo
       items:
-        - name: Creare un'app autonoma
-          href: apache-spark-create-standalone-application.md
         - name: Usare una shell di Spark interattiva
           href: apache-spark-shell.md
         - name: Processi remoti con Livy
@@ -44,10 +51,10 @@
           href: apache-spark-eclipse-tool-plugin.md
         - name: Creare app usando IntelliJ
           href: apache-spark-intellij-tool-plugin.md
-        - name: Eseguire il debug remoto dei processi Spark con IntelliJ tramite VPN
-          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Eseguire il debug remoto dei processi Spark con IntelliJ tramite SSH
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+        - name: Eseguire il debug remoto dei processi Spark con IntelliJ tramite VPN
+          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Creare applicazioni .NET HDInsight di autenticazione non interattive
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
@@ -110,8 +117,6 @@
           href: apache-spark-streaming-exactly-once.md
     - name: Spark e Machine Learning
       items:
-        - name: Prevedere le prestazioni HVAC
-          href: apache-spark-ipython-notebook-machine-learning.md
         - name: Prevedere i risultati di un controllo alimentare
           href: apache-spark-machine-learning-mllib-ipython.md
         - name: Analizzare i log dei siti Web
@@ -205,6 +210,8 @@
           maintainContext: true
     - name: Gestisci
       items:
+        - name: Gestire le risorse cluster
+          href: apache-spark-resource-manager.md
         - name: Configurare le impostazioni di Spark
           href: apache-spark-settings.md
         - name: Ottimizzare i processi Spark
@@ -311,6 +318,10 @@
           maintainContext: true
     - name: Risolvere problemi
       items:
+        - name: Eseguire il debug di processi Spark
+          href: apache-spark-job-debugging.md
+        - name: Usare IntelliJ per il debug di un processo Spark
+          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: Risolvere i problemi di un cluster HDInsight lento o in errore
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true
@@ -397,7 +408,7 @@
         - name: Monitorare le prestazioni di un cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

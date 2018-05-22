@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 05b60b091fe87620c88ad9eb761f1028c24d5730
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5bc0fd3854488704f5368bfe1134d8fa9c959c9b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Risoluzione dei problemi relativi a un oggetto che non esegue la sincronizzazione in Azure AD
 
@@ -139,7 +139,7 @@ La scheda Connectors (Connettori) visualizza tutti gli spazi connettore che hann
 - Ogni foresta di Active Directory in cui l'utente viene rappresentato. Questa rappresentazione può includere foreignSecurityPrincipals e gli oggetti Contatto.
 - Un connettore in Azure AD.
 
-Se manca il connettore in Azure AD, leggere [Attributi MV](#MV-attributes) per verificare i criteri per il provisioning in Azure AD.
+Se manca il connettore in Azure AD, leggere [Attributi MV](#mv-attributes) per verificare i criteri per il provisioning in Azure AD.
 
 Questa scheda consente anche di passare all'[oggetto spazio connettore](#connector-space-object-properties). Selezionare una riga e fare clic su **Proprietà**.
 

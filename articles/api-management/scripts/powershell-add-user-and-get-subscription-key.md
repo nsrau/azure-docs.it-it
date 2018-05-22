@@ -3,7 +3,7 @@ title: 'Esempio di script di Azure PowerShell: aggiungere un utente | Microsoft 
 description: 'Esempio di script di Azure PowerShell: aggiungere un utente'
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -13,11 +13,11 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 49b2ed42f0fedde06dd452bd56580a53b0170259
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 58590f8e47cb033e512b945a140813905214c543
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="add-a-user"></a>Aggiungere un utente
 

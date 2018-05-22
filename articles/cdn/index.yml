@@ -1,0 +1,85 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione della rete CDN di Azure
+metadata:
+  title: Documentazione della rete CDN di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
+  description: La rete di distribuzione dei contenuti di Azure (rete CDN) è una soluzione globale della rete CDN per la distribuzione di contenuti con esigenze elevate di larghezza di banda. Può essere ospitata in Azure o in qualsiasi altra posizione. Con la rete CDN di Azure è possibile memorizzare nella cache gli oggetti statici caricati dall'archivio BLOB di Azure, da un'applicazione Web o da qualsiasi server Web accessibile pubblicamente, tramite il server POP (Point of Presence) più vicino. La rete CDN di Azure consente anche di accelerare contenuto dinamico, non memorizzabile nella cache, sfruttando diverse ottimizzazioni di rete con i POP della rete CDN, ad esempio la rete CDN di Azure può usare l'ottimizzazione delle route per ignorare il BGP (Border Gateway Protocol).
+  services: cdn
+  author: czeumault
+  manager: carolz
+  ms.service: cdn
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/03/2018
+  ms.author: carolz
+  ms.openlocfilehash: 42d08e9a5893bf58ecf405cc5caf750ee3e1daf7
+  ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 05/11/2018
+abstract:
+  description: La rete di distribuzione dei contenuti di Azure (rete CDN) è una soluzione globale della rete CDN per la distribuzione di contenuti con esigenze elevate di larghezza di banda. Può essere ospitata in Azure o in qualsiasi altra posizione. Con la rete CDN di Azure è possibile memorizzare nella cache gli oggetti statici caricati dall'archivio BLOB di Azure, da un'applicazione Web o da qualsiasi server Web accessibile pubblicamente, tramite il server POP (Point of Presence) più vicino. La rete CDN di Azure consente anche di accelerare contenuto dinamico, non memorizzabile nella cache, sfruttando diverse ottimizzazioni di rete con i POP della rete CDN, ad esempio la rete CDN di Azure può usare l'ottimizzazione delle route per ignorare il BGP (Border Gateway Protocol).
+sections:
+- title: 
+  items:
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/cdn.svg
+      text: Informazioni sulla rete CDN di Azure
+      href: /azure/cdn/cdn-overview
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: Informazioni su come abilitare la rete CDN di Azure creando un profilo e un endpoint della rete CDN.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/get-started.svg
+      text: Introduzione alla rete CDN
+      href: /azure/cdn/cdn-create-new-endpoint
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni su come configurare la rete CDN di Azure per le proprie esigenze.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/cdn/cdn-map-content-to-custom-domain">Aggiungere un dominio personalizzato all'endpoint della rete CDN</a>
+    - html: <a href="/azure/cdn/cdn-custom-ssl">Configurare HTTPS in un dominio personalizzato</a>
+    - html: <a href="/azure/cdn/cdn-caching-rules-tutorial">Impostare le regole di memorizzazione nella cache</a>
+- title: Video
+  items:
+  - type: paragraph
+    text: Video che illustrano il funzionamento della rete CDN Azure.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/video-library.svg
+      text: Catalogo video della rete CDN di Azure
+      href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
+- title: Esempi
+  items:
+  - type: paragraph
+    text: Trovare script per gestire le attività comuni.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=cdn">Esempi di codice</a>
+- title: Riferimenti
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Riga di comando
+      html: <p><a href="/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn">PowerShell</a></p>
+    - title: Lingue
+      html: <p><a href="/dotnet/api/microsoft.azure.management.cdn">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.cdn">Java</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/cdn/">Informazioni di riferimento sulle API REST</a></p>

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: fd30a8eb5149647a24ff04e099bf5c3e187459ef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5d0ab8cf9e87fc13b78b00dbe77ec6f9fb38c4b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Esempi dell'integrazione del bus di servizio di Azure in Griglia di eventi di Azure
 
@@ -62,7 +62,7 @@ Creare uno spazio dei nomi Premium del bus di servizio e un argomento del bus di
 
 Prima di affrontare l'intero scenario, configurare almeno una semplice funzione di test utilizzabile per il debug e per osservare quali eventi vengono trasmessi.
 
-1. Nel portale di Azure creare una nuova applicazione per Funzioni di Azure. Per i concetti di base di Funzioni di Azure, vedere [Documentazione di Funzioni di Azure](https://docs.microsoft.com/en-us/azure/azure-functions/).
+1. Nel portale di Azure creare una nuova applicazione per Funzioni di Azure. Per i concetti di base di Funzioni di Azure, vedere [Documentazione di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/).
 
 2. Nella funzione appena creata selezionare il segno più (+) per aggiungere una funzione trigger HTTP:
 

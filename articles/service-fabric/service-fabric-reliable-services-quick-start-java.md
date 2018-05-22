@@ -1,24 +1,24 @@
 ---
 title: Creare il primo microservizio di Azure affidabile in Java | Documentazione Microsoft
-description: "Introduzione alla creazione di un’applicazione dell’infrastruttura di servizi di Microsoft Azure con i servizi con e senza stato."
+description: Introduzione alla creazione di un’applicazione dell’infrastruttura di servizi di Microsoft Azure con i servizi con e senza stato.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: e885a482edcba48c18e425c54f4acc28ee650ddd
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 48546e84b94ad0c11a159b2f88f7e21f7eb6ae0e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Introduzione a Reliable Services
 > [!div class="op_single_selector"]

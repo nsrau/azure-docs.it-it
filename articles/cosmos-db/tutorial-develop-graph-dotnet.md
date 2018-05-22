@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB: Sviluppare con l'API Graph in .NET | Documentazione Microsoft"
+title: "Azure Cosmos DB: Sviluppare con l'API Graph in .NET | Microsoft Docs"
 description: Informazioni su come sviluppare con l'API SQL di Azure Cosmos DB usando .NET
 services: cosmos-db
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 66f0d0064fe59c6e1d249eb69c1b433fe661c513
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3391213600300067ad1685e4f8cccacbf52de86e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: Sviluppare con l'API Graph in .NET
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
@@ -121,7 +121,7 @@ Ad esempio, è possibile usare una social network semplice con quattro utenti. V
 Lo spazio dei nomi `Microsoft.Azure.Graphs.Elements` fornisce le classi `Vertex`, `Edge`, `Property` e `VertexProperty` per la deserializzazione delle risposte GraphSON a oggetti .NET ben definiti.
 
 ## <a name="run-gremlin-using-creategremlinquery"></a>Eseguire Gremlin usando CreateGremlinQuery
-Gremlin, come SQL, supporta le operazioni di lettura, scrittura e le query. Ad esempio, il frammento seguente illustra come creare vertici e archi, eseguire alcune query di esempio usando `CreateGremlinQuery<T>` e iterare in modo asincrono questi risultati usando `ExecuteNextAsync` e 'HasMoreResults.
+Gremlin, come SQL, supporta le operazioni di lettura, scrittura e le query. Il frammento di codice riportato di seguito, ad esempio, mostra come creare vertici, spigoli, eseguire alcune query di esempio usando `CreateGremlinQuery<T>` e scorrere in modo asincrono i risultati usando `ExecuteNextAsync` e `HasMoreResults`.
 
 ```cs
 Dictionary<string, string> gremlinQueries = new Dictionary<string, string>

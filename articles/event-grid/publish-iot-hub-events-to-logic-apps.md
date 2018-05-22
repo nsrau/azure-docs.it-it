@@ -2,21 +2,21 @@
 title: Uso di eventi dell'hub IoT per attivare App per la logica di Azure | Microsoft Docs
 description: Tramite il servizio di routing di eventi di Griglia di eventi di Azure, creare processi automatizzati per eseguire azioni di App per la logica di Azure in base ad eventi dell'hub IoT.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: f54db95b0dfe5dc39c8e2a85375e56a93d1562ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4fed42a45f8d291bd3ba1e4fd5d636b7d0b0fbfc
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando App per la logica
 
@@ -24,7 +24,7 @@ Griglia di eventi di Azure consente di rispondere agli eventi dell'hub IoT attiv
 
 Questo articolo illustra una configurazione di esempio che usa l'hub IoT e Griglia di eventi. Al termine, si otterrà un'app per la logica di Azure configurata per l'invio di un messaggio di posta elettronica di notifica ogni volta che viene aggiunto un dispositivo all'hub IoT. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un account di un provider di posta elettronica supportato da App per la logica di Azure, ad esempio Office 365 Outlook, Outlook.com o Gmail. Questo account di posta elettronica viene usato per inviare le notifiche degli eventi. Per un elenco completo dei connettori per App per la logica supportati, vedere [Panoramica dei connettori](https://docs.microsoft.com/connectors/).
 * Un account Azure attivo. Se non si ha un account, è possibile [crearne uno gratuito](http://azure.microsoft.com/pricing/free-trial/).
@@ -156,7 +156,7 @@ Prima di uscire da Progettazione app per la logica, copiare l'URL su cui è in a
 In questa sezione viene configurato l'hub IoT per la pubblicazione degli eventi che si verificano. 
 
 1. Nel portale di Azure passare all'hub IoT. 
-2. Selezionare **Griglia di eventi**.
+2. Selezionare **Eventi**.
 
    ![Aprire i dettagli di Griglia di eventi](./media/publish-iot-hub-events-to-logic-apps/event-grid.png)
 
@@ -198,7 +198,7 @@ Testare l'app per la logica creando un nuovo dispositivo per l'attivazione di un
 
 Dopo aver aggiunto alcuni dispositivi all'hub IoT, controllare la posta elettronica per vedere quali sono quelli che hanno attivato l'app per la logica. 
 
-## <a name="use-the-azure-cli"></a>Usare l'interfaccia della riga di comando di Azure
+## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
 
 Anziché tramite il portale di Azure, è possibile eseguire le procedure relative all'hub IoT usando l'interfaccia della riga di comando di Azure. Per informazioni dettagliate, vedere le pagine relative all'interfaccia della riga di comando di Azure per la [creazione di una sottoscrizione di eventi](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) e la [creazione di un dispositivo IoT](https://docs.microsoft.com/cli/azure/iot/device).
 

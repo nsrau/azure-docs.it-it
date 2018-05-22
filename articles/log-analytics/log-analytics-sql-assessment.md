@@ -1,11 +1,11 @@
 ---
 title: Ottimizzare l'ambiente SQL Server con Log Analytics di Azure|Documentazione Microsoft
-description: "Con Azure Log Analytics, è possibile usare la soluzione Controllo integrità SQL per valutare i rischi e l'integrità degli ambienti a intervalli regolari."
+description: Con Azure Log Analytics, è possibile usare la soluzione Controllo integrità SQL per valutare i rischi e l'integrità degli ambienti a intervalli regolari.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 47f912932f9a0e1383ef5f82d1d3e33b5ababa9c
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Ottimizzare l'ambiente SQL Server con la soluzione Controllo integrità SQL Server in Log Analytics
 
@@ -54,7 +54,7 @@ Per eseguire il controllo integrità dei server SQL Server, sono necessari un ag
 
 1. Installare [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) se il server non è già monitorato da System Center 2016 Operations Manager o Operations Manager 2012 R2.
 2. Se si esegue il monitoraggio con System Center 2016 Operations Manager o Operations Manager 2012 R2 e il gruppo di gestione non è integrato con il servizio Log Analytics, è possibile usare una configurazione multihomed del server con Log Analytics per raccogliere i dati e inoltrarli al servizio, mantenendo il monitoraggio di Operations Manager.  
-3. In caso contrario, se il gruppo di gestione di Operations Manager è integrato con il servizio, è necessario aggiungere i controller di dominio per la raccolta dati da parte del servizio seguendo i passaggi descritti in [Aggiungere computer gestiti dagli agenti](log-analytics-om-agents.md#connecting-operations-manager-to-oms) dopo aver abilitato la soluzione nell'area di lavoro.  
+3. In caso contrario, se il gruppo di gestione di Operations Manager è integrato con il servizio, è necessario aggiungere i controller di dominio per la raccolta dati da parte del servizio seguendo i passaggi descritti in [Aggiungere computer gestiti dagli agenti](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) dopo aver abilitato la soluzione nell'area di lavoro.  
 
 L'agente in SQL Server che invia i contenuti a un gruppo di gestione di Operations Manager raccoglie i dati e li inoltra al server di gestione assegnato, quindi viene eseguito l'invio direttamente da un server di gestione al servizio Log Analytics.  I dati non vengono scritti nei database di Operations Manager.  
 

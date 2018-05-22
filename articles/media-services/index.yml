@@ -1,0 +1,84 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione su Servizi multimediali di Azure
+metadata:
+  document_id: 
+  title: Documentazione su Servizi multimediali di Azure | Microsoft Docs
+  meta.description: Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more.
+  services: media-services
+  author: juliako
+  manager: cfowler
+  ms.service: media-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04-21-2018
+  ms.author: juliako
+  ms.openlocfilehash: 781cd8eb2796062b3cebb6b848ee5f1fe204f460
+  ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 05/20/2018
+abstract:
+  description: Servizi multimediali di Azure è una piattaforma basata su cloud che consente di creare soluzioni che offrono streaming video di alta qualità, migliorano accessibilità e distribuzione, analizzano il contenuto e molto altro ancora.
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - href: /azure/media-services/latest/
+      html: <p>Informazioni su come eseguire la codifica, lo streaming on demand, la trasmissione in tempo reale e l'analisi dei video con Servizi multimediali v3.</p>
+      image:
+        src: media/index/media-services-v3.png
+      title: Servizi multimediali di Azure v3 (anteprima)
+    - href: /azure/media-services/previous/
+      html: <p>Informazioni su come eseguire la codifica, lo streaming on demand e la trasmissione in tempo reale dei video con Servizi multimediali v2.</p>
+      image:
+        src: media/index/media-services-v2.png
+      title: Servizi multimediali di Azure v2 (disponibilità generale)
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: 'Informazioni su come eseguire lo streaming live e on demand con Servizi multimediali:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/stream.png
+      title: Streaming live
+    - image:
+        src: media/index/stream.png
+      title: Streaming di file
+    rows:
+    - title: Servizi multimediali v3
+      values:
+      - href: https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live
+      - href: /azure/media-services/latest/stream-files-dotnet-quickstart
+    - title: Servizi multimediali v2
+      values:
+      - href: /azure/media-services/previous/media-services-portal-live-passthrough-get-started
+      - href: /azure/media-services/previous/media-services-portal-vod-get-started
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: 'Informazioni su come eseguire lo streaming di file e analizzare i video con Servizi multimediali:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/encode.png
+      title: Eseguire la codifica e lo streaming
+    - image:
+        src: media/index/analyze.png
+      title: Analizzare i video
+    rows:
+    - title: Servizi multimediali v3
+      values:
+      - href: /azure/media-services/latest/stream-files-tutorial-with-api
+      - href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+    - title: Servizi multimediali v2
+      values:
+      - href: /azure/media-services/previous/media-services-dotnet-get-started
+      - href: 

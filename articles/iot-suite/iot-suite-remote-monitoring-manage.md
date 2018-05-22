@@ -1,22 +1,22 @@
 ---
 title: Gestione dei dispositivi nella soluzione di monitoraggio remoto - Azure | Microsoft Docs
 description: Questa esercitazione mostra come gestire i dispositivi connessi alla soluzione di monitoraggio remoto.
-services: 
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 66005b78a368c15a463844b3f098eac9fd64f621
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d05b7ca2ab1d5b2f3d3fd3973eefe1b3ec5a1c04
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>Gestire e configurare i dispositivi
 
@@ -24,7 +24,7 @@ Questa esercitazione mostra le funzionalità di gestione dei dispositivi della s
 
 Contoso ha ordinato nuovi macchinari per espandere una delle strutture e aumentare la produzione. Mentre si attende la consegna dei nuovi macchinari, si vuole eseguire una simulazione per verificare il comportamento della soluzione. Un operatore vuole gestire e configurare i dispositivi nella soluzione di monitoraggio remoto.
 
-Per fornire una modalità estendibile di gestione e configurazione dei dispositivi, la soluzione di monitoraggio remoto usa funzionalità dell'hub IoT come i [processi](../iot-hub/iot-hub-devguide-jobs.md) e i [metodi diretti](../iot-hub/iot-hub-devguide-direct-methods.md). Per informazioni su come uno sviluppatore di dispositivi implementa i metodi in un dispositivo fisico, vedere [Personalizzare la soluzione preconfigurata di monitoraggio remoto](iot-suite-remote-monitoring-customize.md).
+Per fornire una modalità estendibile di gestione e configurazione dei dispositivi, la soluzione di monitoraggio remoto usa funzionalità dell'hub IoT come i [processi](../iot-hub/iot-hub-devguide-jobs.md) e i [metodi diretti](../iot-hub/iot-hub-devguide-direct-methods.md). Per informazioni su come uno sviluppatore di dispositivi implementa i metodi in un dispositivo fisico, vedere [Personalizzare l'acceleratore di soluzioni di monitoraggio remoto](iot-suite-remote-monitoring-customize.md).
 
 In questa esercitazione si apprenderà come:
 
@@ -38,7 +38,7 @@ In questa esercitazione si apprenderà come:
 
 Per seguire questa esercitazione, è necessaria un'istanza distribuita della soluzione di monitoraggio remoto nella sottoscrizione di Azure.
 
-Se la soluzione di monitoraggio remoto non è stata ancora distribuita, è necessario completare l'esercitazione [Distribuire la soluzione preconfigurata di monitoraggio remoto](iot-suite-remote-monitoring-deploy.md).
+Se la soluzione di monitoraggio remoto non è stata ancora distribuita, completare l'esercitazione [Distribuire l'acceleratore di soluzioni di monitoraggio remoto](iot-suite-remote-monitoring-deploy.md).
 
 ## <a name="add-a-simulated-device"></a>Aggiungere un dispositivo simulato
 
@@ -50,7 +50,7 @@ Lasciare il numero di dispositivi di cui effettuare il provisioning impostato su
 
 ![Effettuare il provisioning di un dispositivo motore simulato](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
-Per informazioni su come effettuare il provisioning di un dispositivo *fisico*, vedere [Connettere il dispositivo alla soluzione preconfigurata di monitoraggio remoto](iot-suite-connecting-devices-node.md).
+Per informazioni su come effettuare il provisioning di un dispositivo *fisico*, vedere [Connettere il dispositivo all'acceleratore di soluzioni di monitoraggio remoto](iot-suite-connecting-devices-node.md).
 
 ## <a name="test-the-simulated-device"></a>Testare il dispositivo simulato
 
@@ -68,11 +68,11 @@ Per visualizzare i dati di diagnostica dettagliati, scorrere fino a **Diagnostic
 
 ## <a name="act-on-a-device"></a>Eseguire operazioni su un dispositivo
 
-Per eseguire operazioni su uno o più dispositivi, selezionarli nell'elenco dei dispositivi e quindi scegliere **Schedule** (Pianifica). Il modello di dispositivo **Engine** (Motore) specifica quattro metodi che un dispositivo deve supportare:
+Per eseguire operazioni su uno o più dispositivi, selezionarli nell'elenco dei dispositivi e quindi scegliere **Jobs** (Processi). Il modello di dispositivo **Engine** (Motore) specifica tre metodi che un dispositivo deve supportare:
 
 ![Metodi per il motore](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
-Scegliere **Restart** (Riavvia), impostare il nome del processo su **RestartEngine** e quindi scegliere **Apply** (Applica):
+Scegliere **FillTank**, impostare il nome del processo **FillEngineTank**, quindi scegliere **Applica**:
 
 ![Pianificare il metodo di riavvio](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
@@ -84,11 +84,11 @@ Per tenere traccia dello stato del processo nella pagina **Maintenance** (Manute
 
 Quando si esplorano i diversi tipi di dispositivi simulati, è possibile vedere che altri tipi di dispositivi supportano metodi diversi. In una distribuzione con dispositivi fisici, il modello di dispositivo specifica i metodi che il dispositivo deve supportare. In genere, lo sviluppatore di dispositivi è responsabile per lo sviluppo del codice che determina il comportamento del dispositivo in risposta a una chiamata a un metodo.
 
-Per pianificare un metodo per l'esecuzione in più dispositivi, è possibile selezionare più dispositivi nell'elenco nella pagina **Devices** (Dispositivi). Il pannello **Schedule** (Pianifica) mostra i tipi di metodi comuni a tutti i dispositivi selezionati.
+Per pianificare un metodo per l'esecuzione in più dispositivi, è possibile selezionare più dispositivi nell'elenco nella pagina **Devices** (Dispositivi). Il pannello **Jobs** (Processi) mostra i tipi di metodi comuni a tutti i dispositivi selezionati.
 
 ## <a name="reconfigure-a-device"></a>Riconfigurare un dispositivo
 
-Per modificare la configurazione di un dispositivo, selezionarlo nell'elenco dei dispositivi nella pagina **Devices** (Dispositivi) e quindi scegliere **Reconfigure** (Riconfigura). Il pannello per la riconfigurazione mostra i valori delle proprietà per il dispositivo selezionato che è possibile modificare:
+Per modificare la configurazione di un dispositivo, selezionarlo nell'elenco dei dispositivi nella pagina **Devices** (Dispositivi), scegliere **Jobs** (Processi) e **Reconfigure** (Riconfigura). Il pannello dei processi mostra i valori delle proprietà per il dispositivo selezionato che è possibile modificare:
 
 ![Riconfigurare un dispositivo](media/iot-suite-remote-monitoring-manage/devicesreconfigure.png)
 
@@ -113,6 +113,6 @@ Ora che si è appreso come gestire i dispositivi, i passaggi successivi consigli
 
 * [Risolvere e correggere i problemi dei dispositivi](iot-suite-remote-monitoring-maintain.md).
 * [Testare la soluzione con dispositivi simulati](iot-suite-remote-monitoring-test.md).
-* [Connettere il dispositivo alla soluzione preconfigurata di monitoraggio remoto](iot-suite-connecting-devices-node.md).
+* [Connettere il dispositivo all'acceleratore di soluzioni di monitoraggio remoto (Linux)](iot-suite-connecting-devices-node.md).
 
 <!-- Next tutorials in the sequence -->

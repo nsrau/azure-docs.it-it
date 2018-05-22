@@ -1,5 +1,5 @@
 ---
-title: Conoscere gli endpoint di Azure IoT Hub | Documentazione Microsoft
+title: Conoscere gli endpoint di Azure IoT Hub | Microsoft Docs
 description: "Guida per gli sviluppatori: informazioni di riferimento sugli endpoint dell'hub IoT per dispositivi e per servizi."
 services: iot-hub
 documentationcenter: .net
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 17479fce776b0786e2fa32054eec8b0456871aae
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d9378a084d8ff421539a445986a5a18d073f3ce6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Informazioni di riferimento - Endpoint dell'hub IoT
 
@@ -88,7 +88,7 @@ L'hub IoT supporta solo la scrittura dei dati nei contenitori di Archiviazione d
 * Il batch raggiunge una dimensione specifica, oppure
 * è trascorsa una certa quantità di tempo.
 
-Se non sono presenti dati da scrivere, l'hub IoT scrive un BLOB vuoto.
+L'hub IoT scriverà in un BLOB vuoto se non sono presenti dati da scrivere.
 
 Per impostazione predefinita, l'hub IoT usa la convenzione di denominazione di file seguente:
 

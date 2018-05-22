@@ -10,16 +10,16 @@ ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 02/22/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.reviewer: anirudha
-ms.openlocfilehash: ce61dec785d6207e2d2df21884525f76a6778f4a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.reviewer: xiaofmao
+ms.openlocfilehash: 2ae2b628b2e61893a5289151c3b405e7412e7d13
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gestire gli account di archiviazione in Azure Stack
 Informazioni su come gestire gli account di archiviazione nello Stack di Azure per trovare, ripristinare e recuperare la capacità di archiviazione in base alle esigenze aziendali.
@@ -29,13 +29,13 @@ L'elenco di account di archiviazione nell'area può essere visualizzato nello St
 
 1. In un browser Internet, passare a https://adminportal.local.azurestack.external.
 2. Accedere al portale di amministrazione di Azure Stack come un operatore cloud (utilizzando le credenziali specificate durante la distribuzione)
-3. Nel dashboard predefinito: trovare il **Gestione area** elenco e fare clic sull'area in cui si desidera esplorare, ad esempio **(locale**).
+3. Nel dashboard predefinito: trovare il **la gestione delle regioni** elenco e selezionare l'area che si desidera esplorare, ad esempio **(locale**).
    
    ![](media/azure-stack-manage-storage-accounts/image1.png)
 4. Selezionare **archiviazione** dal **i provider di risorse** elenco.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. A questo punto, nel riquadro amministrazione Provider di risorse di archiviazione: scorrere verso il basso il **gli account di archiviazione** scheda e farvi clic sopra.
+5. A questo punto, nel riquadro amministrazione Provider di risorse di archiviazione: scorrere verso il basso il **gli account di archiviazione** scheda e selezionarlo.
    
    ![](media/azure-stack-manage-storage-accounts/image3.png)
    
@@ -52,12 +52,12 @@ Se si è interessati a un determinato account di archiviazione, è possibile **f
 
 **Per filtrare per gli account:**
 
-1. Fare clic su **filtro** nella parte superiore del riquadro.
+1. Selezionare **filtro** nella parte superiore del riquadro.
 2. Nel riquadro filtro consente di specificare **nome account**, * * ID sottoscrizione, o **stato** per ottimizzare l'elenco di account di archiviazione da visualizzare. Li utilizzi come appropriato.
-3. Fare clic su **Update**. L'elenco è necessario aggiornare di conseguenza.
+3. Selezionare **Aggiorna**. L'elenco è necessario aggiornare di conseguenza.
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)
-4. Per reimpostare il filtro: fare clic su **filtro**, cancellare le selezioni e aggiornare.
+4. Per reimpostare il filtro: selezionare **filtro**, cancellare le selezioni e aggiornare.
 
 La casella di testo di ricerca (nella parte superiore nel riquadro elenco gli account di archiviazione) consente di evidenziare il testo selezionato nell'elenco di account. È possibile utilizzare questo quando il nome completo o l'ID non è facilmente disponibile.
 
@@ -66,7 +66,7 @@ La casella di testo di ricerca (nella parte superiore nel riquadro elenco gli ac
 ![](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>Esaminare i dettagli dell'account
-Dopo aver individuato gli account che si desidera visualizzare, è possibile scegliere l'account specifico per visualizzare determinate informazioni. Apre un nuovo riquadro con i dettagli dell'account, ad esempio: il tipo dell'account, l'ora di creazione, posizione, e così via.
+Dopo aver individuato gli account a cui che si è interessati a visualizzare, è possibile selezionare l'account specifico per visualizzare determinati dettagli. Apre un nuovo riquadro con i dettagli dell'account, ad esempio: il tipo dell'account, l'ora di creazione, posizione, e così via.
 
 ![](media/azure-stack-manage-storage-accounts/image7.png)
 
@@ -79,12 +79,12 @@ Nello Stack di Azure è un modo semplice per eseguire questa operazione:
 2. Individuare l'account specifico nell'elenco. Potrebbe essere necessario filtrare.
 3. Controllare il *stato* dell'account. Dovrebbe essere visualizzato **Deleted**.
 4. Selezionare l'account, che consente di aprire il riquadro dei dettagli account.
-5. Nella parte superiore di questo riquadro, individuare il **ripristinare** pulsante e farvi clic sopra.
-6. Fare clic su **Sì** per confermare.
+5. Nella parte superiore di questo riquadro, individuare il **ripristinare** pulsante e selezionarlo.
+6. Selezionare **Sì** per confermare.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
 7. È ora il ripristino *elaborare... Attendere* per un'indicazione che sia stato eseguito correttamente.
-   È anche possibile fare clic sull'icona "campanello" nella parte superiore del portale per visualizzare le indicazioni di stato di avanzamento.
+   È anche possibile selezionare l'icona di "controllo del segnale acustico" nella parte superiore del portale per visualizzare le indicazioni di stato di avanzamento.
    
    ![](media/azure-stack-manage-storage-accounts/image9.png)
    
@@ -105,10 +105,10 @@ L'impostazione del periodo di conservazione consente un operatore di cloud speci
 
 1. In un browser internet, passare a https://adminportal.local.azurestack.external.
 2. Accedere al portale di amministrazione di Azure Stack come un operatore cloud (utilizzando le credenziali specificate durante la distribuzione)
-3. Nel dashboard predefinito: trovare il **Gestione area** elenco e fare clic sull'area in cui si desidera esplorare, ad esempio **(locale**).
+3. Nel dashboard predefinito: trovare il **la gestione delle regioni** elenco e selezionare l'area che si desidera esplorare: ad esempio **(locale**).
 4. Selezionare **archiviazione** dal **i provider di risorse** elenco.
-5. Fare clic su **impostazioni** nella parte superiore per aprire il riquadro di impostazione.
-6. Fare clic su **configurazione** quindi modificare il valore del periodo di memorizzazione.
+5. Selezionare **impostazioni** nella parte superiore per aprire il riquadro di impostazione.
+6. Selezionare **configurazione** quindi modificare il valore del periodo di memorizzazione.
 
    Imposta il numero di giorni e quindi salvarlo.
    
@@ -123,8 +123,8 @@ Uno degli effetti collaterali del periodo di memorizzazione è che un account el
 
 **Per recuperare la capacità di utilizzo del portale:**
 1. Passare al riquadro di account di archiviazione. Vedere [trovare un account di archiviazione](#find).
-2. Fare clic su **recuperare spazio** nella parte superiore del riquadro.
-3. Leggere il messaggio e quindi fare clic su **OK**.
+2. Selezionare **recuperare spazio** nella parte superiore del riquadro.
+3. Leggere il messaggio e quindi selezionare **OK**.
 
     ![](media/azure-stack-manage-storage-accounts/image11.png)
 4. Attendere per vedere l'icona di campanello nel portale di notifica di esito positivo.
@@ -139,84 +139,20 @@ Uno degli effetti collaterali del periodo di memorizzazione è che un account el
 1. Verificare di disporre di Azure PowerShell installato e configurato. In caso contrario, utilizzare le istruzioni seguenti: 
    * Per installare la versione più recente di Azure PowerShell e associarlo a una sottoscrizione di Azure, vedere [come installare e configurare Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
    Per ulteriori informazioni sui cmdlet di gestione risorse di Azure, vedere [tramite Azure PowerShell con Gestione risorse di Azure](http://go.microsoft.com/fwlink/?LinkId=394767)
-2. Eseguire il cmdlet seguente:
+2. Eseguire i cmdlet seguenti:
 
 > [!NOTE]
-> Se si esegue questo cmdlet, è eliminare definitivamente l'account e il relativo contenuto. e non è più recuperabile. Utilizzarlo con cautela.
+> Se si eseguono questi cmdlet, verrà eliminato in modo permanente l'account e il relativo contenuto. e non è più recuperabile. Utilizzarlo con cautela.
 
+```PowerShell  
+    $farm_name = (Get-AzsStorageFarm)[0].name
+    Start-AzsReclaimStorageCapacity -FarmName $farm_name
+````
 
-        Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
-
-
-Per ulteriori informazioni, vedere [documentazione di powershell Azure Stack.](https://msdn.microsoft.com/library/mt637964.aspx)
+Per altre informazioni, vedere [documentazione di Azure PowerShell dello Stack.](https://msdn.microsoft.com/library/mt637964.aspx)
  
 
-## <a name="migrate-a-container"></a>Eseguire la migrazione di un contenitore
-A causa di archiviazione non uniformi utilizzato dai tenant, un operatore di cloud può trovare una o più sottostante tenant condivisioni con più spazio rispetto ad altri utenti. In questo caso, l'operatore cloud possibile tentare di liberare spazio nella condivisione accentata eseguendo manualmente la migrazione di alcuni contenitori di blob in un'altra condivisione. 
+## <a name="next-steps"></a>Passaggi successivi
 
-È necessario utilizzare PowerShell per eseguire la migrazione di contenitori.
-> [!NOTE]
->Non supporta la migrazione in tempo reale la migrazione di contenitore di BLOB e attualmente è un'operazione offline. Durante la migrazione e fino al completamento dei BLOB presenti nel contenitore sottostanti non è possibile usare sono "offline". 
-
-**Per eseguire la migrazione di contenitori con PowerShell:**
-
-1. Verificare di disporre di Azure PowerShell installato e configurato. In caso contrario, utilizzare le istruzioni seguenti:
-    * Per installare la versione più recente di Azure PowerShell e associarlo a una sottoscrizione di Azure, vedere [come installare e configurare Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Per ulteriori informazioni sui cmdlet di gestione risorse di Azure, vedere [tramite Azure PowerShell con Gestione risorse di Azure](http://go.microsoft.com/fwlink/?LinkId=394767)
-2. Ottenere il nome della farm: 
-      
-      `$farm = Get-ACSFarm -ResourceGroupName system.local`
-3. Ottenere le condivisioni: 
-
-   `$shares = Get-ACSShare -ResourceGroupName system.local -FarmName $farm.FarmName`
-
-4. Ottenere i contenitori per una determinata condivisione. Si noti che conteggio e delle relative finalità parametri facoltativi:
-            
-   `$containers = Get-ACSContainer -ResourceGroupName system.local -FarmName $farm.FarmName -ShareName $shares[0].ShareName -Count 4 -Intent Migration`  
-
-   Esaminare quindi $containers:
-
-   `$containers`
-
-    ![](media/azure-stack-manage-storage-accounts/image13.png)
-5. Ottenere le migliori condivisioni di destinazione per la migrazione del contenitore:
-
-    `$destinationshares= Get-ACSSharesForMigration  -ResourceGroupName system.local -FarmName $farm.farmname -SourceShareName $shares[0].ShareName`
-
-    Esaminare quindi $destinationshares:
-
-    `$destinationshares`
-
-    ![](media/azure-stack-manage-storage-accounts/image14.png)
-6. Avviare la migrazione di un contenitore, questa è un'implementazione asincrona, in modo sia possibile ciclo in una condivisione di tutti i contenitori e tenere traccia dello stato utilizzando l'ID di processo restituito.
-
-    `$jobId = Start-ACSContainerMigration -ResourceGroupName system.local -FarmName $farm.farmname -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares.UncPath`
-
-    Esaminare quindi $jobId:
-
-   ```
-   $jobId
-   d1d5277f-6b8d-4923-9db3-8bb00fa61b65
-   ```
-7. Controllare lo stato del processo di migrazione dall'ID processo. Al termine della migrazione di contenitore, MigrationStatus è impostata su "Completato".
-
-    `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
-
-    ![](media/azure-stack-manage-storage-accounts/image15.png)
-
-8. È possibile annullare un processo di migrazione in corso. Questo nuovo è un'operazione asincrona e può essere rilevato tramite $jobid:
-
-    `Stop-ACSContainerMigration-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId-Verbose`
-
-    ![](media/azure-stack-manage-storage-accounts/image16.png)
-
-    È possibile controllare che lo stato della migrazione Annulla nuovamente:
-
-    `Get-ACSContainerMigrationStatus-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
-
-    ![](media/azure-stack-manage-storage-accounts/image17.png)
-
-
-
-
-  
-  
+ - Per informazioni sulla gestione delle autorizzazioni, vedere [controllo di accesso Manage Role-Based](azure-stack-manage-permissions.md).
+ - Per informazioni su gestire la capacità di archiviazione per lo Stack di Azure, vedere [gestire la capacità di archiviazione per lo Stack di Azure](azure-stack-manage-storage-shares.md).

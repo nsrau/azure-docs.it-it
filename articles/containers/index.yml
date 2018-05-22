@@ -4,7 +4,7 @@ title: Azure per contenitori
 metadata:
   document_id: 
   title: Azure per contenitori - Esercitazioni, informazioni di riferimento sulle API
-  description: "Per iniziare a sviluppare app con Azure, è possibile usare le risorse seguenti che offrono guide introduttive, esercitazioni e strumenti utili per contenitori."
+  description: Per iniziare a sviluppare app con Azure, è possibile usare le risorse seguenti che offrono guide introduttive, esercitazioni e strumenti utili per contenitori.
   keywords: Azure, Contenitori, Docker, API, Kubernetes
   author: bketelsen
   ms.author: brketels
@@ -17,15 +17,16 @@ metadata:
   ms.technology: azure
   ms.devlang: multiple
   ms.service: multiple
-  ms.openlocfilehash: c455ee4d6c315de9d2366ff9a9d672639c1026cf
-  ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+  ms.openlocfilehash: 39de19dc8c536d33150b9da368a2236ef8571ef3
+  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/09/2018
+  ms.lasthandoff: 05/07/2018
 sections:
 - items:
   - type: markdown
-    text: "Per iniziare a sviluppare app con Azure, è possibile usare le risorse seguenti che offrono esercitazioni e strumenti utili per i contenitori.\n"
+    text: >
+      Per iniziare a sviluppare app con Azure, è possibile usare le risorse seguenti che offrono esercitazioni e strumenti utili per i contenitori.
 - items:
   - type: list
     style: cards
@@ -36,7 +37,7 @@ sections:
       html: <p>Creare un'app inclusa in contenitori con Istanze di contenitore di Azure</p>
       image:
         src: https://docs.microsoft.com/media/common/i_get-started.svg
-      title: "Attività iniziali"
+      title: Attività iniziali
     - href: https://docs.microsoft.com/azure/container-service/kubernetes/cli-samples
       html: <p>Esempi dell'interfaccia della riga di comando di Azure per il servizio contenitore di Azure</p>
       image:
@@ -52,7 +53,7 @@ sections:
     columns: 2
     items:
     - href: ../aks/kubernetes-walkthrough.md
-      title: Creare un cluster Kubernetes con il servizio contenitore di Azure
+      title: Creare un cluster Kubernetes con Azure Kubernetes Service (AKS)
       image:
         src: /azure/media/index/ContainerService.svg
     - href: https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers
@@ -89,7 +90,7 @@ sections:
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: Informazioni su come usare il servizio contenitore di Azure
+    text: Informazioni su come usare Azure Kubernetes Service (AKS)
   - type: list
     style: unordered
     items:

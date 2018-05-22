@@ -1,6 +1,6 @@
 ---
-title: 'Streaming strutturato Apache Spark con Kafka: Azure HDInsight | Microsoft Docs'
-description: Informazioni su come è possibile usare lo streaming Apache Spark (DStream) per trasmettere dati all'interno o all'esterno di Apache Kafka. In questo esempio i dati vengono trasmessi in streaming tramite un notebook Jupyter da Spark in HDInsight.
+title: 'Esercitazione: Streaming strutturato Apache Spark con Kafka - Azure HDInsight | Microsoft Docs'
+description: Informazioni su come usare lo streaming Apache Spark per ottenere o trasmettere dati da o verso Apache Kafka. In questa esercitazione, si esegue lo streaming dei dati usando Jupyter Notebook da Spark in HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -10,28 +10,107 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/04/2018
+ms.date: 05/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 49c13bbea537d7de60ecf509bc28675191c0b34d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8c7c1b37102e94f00ac6077958952eb52b342668
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Usare lo streaming strutturato Spark con Kafka in HDInsight
+# <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Esercitazione: Usare lo streaming strutturato Spark con Kafka in HDInsight
 
-Informazioni su come usare lo streaming strutturato Spark per leggere i dati da Apache Kafka in Azure HDInsight.
+Questa esercitazione illustra come usare lo streaming strutturato Spark per leggere e scrivere dati con Apache Kafka in Azure HDInsight.
 
-Lo streaming strutturato Spark è un motore di elaborazione del flusso basato su Spark SQL. Consente di esprimere i calcoli di streaming come il calcolo di batch in dati statici. Per altre informazioni sullo streaming strutturato, vedere la pagina [Structured Streaming Programming Guide [Alpha]](http://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) di Apache.org.
+Lo streaming strutturato Spark è un motore di elaborazione del flusso basato su Spark SQL. Consente di esprimere i calcoli di streaming come il calcolo di batch in dati statici. 
+
+In questa esercitazione si apprenderà come:
+
+> [!div class="checklist"]
+> * Streaming strutturato con Kafka
+> * Creare cluster Kafka e Spark
+> * Caricare il notebook in Spark
+> * Usare il notebook
+> * Pulire le risorse
+
+Al termine della procedura descritta in questo documento, eliminare i cluster per evitare costi supplementari.
+
+## <a name="prerequisites"></a>prerequisiti
+
+* Familiarità nell'uso di Jupyter Notebook con Spark in HDInsight. Per altre informazioni, vedere il documento [Load data and run queries with Spark on HDInsight](spark/apache-spark-load-data-run-query.md) (Caricare i dati ed eseguire query con Spark in HDInsight).
+
+* Familiarità con il linguaggio di programmazione [Scala](https://www.scala-lang.org/). Il codice usato in questa esercitazione è scritto in Scala.
+
+* Familiarità con la creazione di argomenti Kafka. Per altre informazioni, vedere il documento [Creare un cluster Kafka in HDInsight](kafka/apache-kafka-get-started.md).
 
 > [!IMPORTANT]
-> Questo esempio usa Spark 2.2 su HDInsight 3.6.
+> La procedura descritta in questo documento richiede che venga creato un gruppo di risorse di Azure che contenga sia un cluster Spark in HDInsight che un cluster Kafka in HDInsight. Entrambi questi cluster si trovano all'interno di una rete virtuale di Azure, che consente al cluster Spark di comunicare direttamente con il cluster Kafka.
+> 
+> Per comodità, questo documento si collega a un modello in grado di creare tutte le risorse di Azure necessarie. 
 >
-> La procedura descritta in questo documento permette di creare un gruppo di risorse di Azure che contiene sia un cluster Spark in HDInsight che un cluster Kafka in HDInsight. Entrambi questi cluster si trovano all'interno di una rete virtuale di Azure, che consente al cluster Spark di comunicare direttamente con il cluster Kafka.
->
-> Al termine della procedura descritta in questo documento, eliminare i cluster per evitare costi supplementari.
+> Per altre informazioni sull'uso di HDInsight in una rete virtuale, vedere il documento [Estendere Azure HDInsight usando Rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
+
+## <a name="structured-streaming-with-kafka"></a>Streaming strutturato con Kafka
+
+Lo streaming strutturato Spark è un motore di elaborazione del flusso basato sul motore SQL di Spark. Quando si usa lo streaming strutturato, è possibile scrivere query di streaming nello stesso modo in cui si scrivono le query batch.
+
+I frammenti di codice seguenti illustrano la lettura da Kafka e l'archiviazione in file. La prima è un'operazione batch, mentre la seconda è un'operazione di flusso:
+
+```scala
+// Read a batch from Kafka
+val kafkaDF = spark.read.format("kafka")
+                .option("kafka.bootstrap.servers", kafkaBrokers)
+                .option("subscribe", kafkaTopic)
+                .option("startingOffsets", "earliest")
+                .load()
+// Select data and write to file
+kafkaDF.select(from_json(col("value").cast("string"), schema) as "trip")
+                .write
+                .format("parquet")
+                .option("path","/example/batchtripdata")
+                .option("checkpointLocation", "/batchcheckpoint")
+                .save()
+```
+
+```scala
+// Stream from Kafka
+val kafkaStreamDF = spark.readStream.format("kafka")
+                .option("kafka.bootstrap.servers", kafkaBrokers)
+                .option("subscribe", kafkaTopic)
+                .option("startingOffsets", "earliest")
+                .load()
+// Select data from the stream and write to file
+kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip")
+                .writeStream
+                .format("parquet")
+                .option("path","/example/streamingtripdata")
+                .option("checkpointLocation", "/streamcheckpoint")
+                .start.awaitTermination(30000)
+```
+
+In entrambi i frammenti di codice, i dati vengono letti da Kafka e scritti nel file. Le differenze tra gli esempi sono:
+
+| Batch | Streaming |
+| --- | --- |
+| `read` | `readStream` |
+| `write` | `writeStream` |
+| `save` | `start` |
+
+L'operazione di streaming usa anche `awaitTermination(30000)`, che arresta il flusso dopo 30000 ms. 
+
+Per usare lo streaming strutturato con Kafka, il progetto deve avere una dipendenza sul pacchetto `org.apache.spark : spark-sql-kafka-0-10_2.11`. La versione di questo pacchetto deve corrispondere alla versione di Spark in HDInsight. Per Spark 2.2.0 (disponibile in HDInsight 3.6), è possibile trovare le informazioni sulle dipendenze per diversi tipi di progetto in [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar).
+
+Per Jupyter Notebook incluso con questa esercitazione, la cella seguente carica questa dipendenza dal pacchetto:
+
+```
+%%configure -f
+{
+    "conf": {
+        "spark.jars.packages": "org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0",
+        "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11"
+    }
+}
+```
 
 ## <a name="create-the-clusters"></a>Creare i cluster
 
@@ -44,7 +123,7 @@ Il diagramma seguente illustra il flusso delle comunicazioni tra Spark e Kafka:
 > [!NOTE]
 > Il servizio Kafka è limitato alle comunicazioni all'interno della rete virtuale. Altri servizi nel cluster, ad esempio SSH e Ambari, sono accessibili tramite Internet. Per altre informazioni sulle porte pubbliche disponibili con HDInsight, vedere [Porte e URI usati da HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
-Per praticità, la procedura seguente usa un modello di Azure Resource Manager per creare cluster Kafka e Spark in una rete virtuale.
+Per creare una Rete virtuale di Microsoft Azure e quindi crearvi i cluster Kafka e Spark, seguire questa procedura:
 
 1. Usare il pulsante seguente per accedere ad Azure e aprire il modello nel portale di Azure.
     
@@ -59,7 +138,7 @@ Per praticità, la procedura seguente usa un modello di Azure Resource Manager p
     * Una rete virtuale Azure contenente i cluster HDInsight.
 
     > [!IMPORTANT]
-    > Il notebook di streaming strutturato che è stato usato in questo esempio richiede Spark in HDInsight 3.6. Se si usa una versione precedente di Spark in HDInsight, si ricevono errori durante l'uso del notebook.
+    > Il notebook di streaming strutturato che è stato usato in questa esercitazione richiede Spark 2.2.0 in HDInsight 3.6. Se si usa una versione precedente di Spark in HDInsight, si ricevono errori durante l'uso del notebook.
 
 2. Usare le informazioni seguenti per popolare le voci nella sezione **Modello personalizzato**:
 
@@ -68,8 +147,8 @@ Per praticità, la procedura seguente usa un modello di Azure Resource Manager p
     | Sottoscrizione | Sottoscrizione di Azure |
     | Gruppo di risorse | Gruppo di risorse che contiene le risorse. |
     | Località | Area di Azure in cui vengono create le risorse. |
-    | Nome del cluster Spark | Nome del cluster Spark. |
-    | Nome del cluster Kafka | Nome del cluster Kafka. |
+    | Nome del cluster Spark | Nome del cluster Spark. I primi sei caratteri devono essere diversi dal nome di cluster Kafka. |
+    | Nome del cluster Kafka | Nome del cluster Kafka. I primi sei caratteri devono essere diversi dal nome di cluster Spark. |
     | Nome utente dell'account di accesso del cluster | Nome utente dell'amministratore per i cluster. |
     | Password di accesso al cluster | Password dell'utente amministratore per i cluster. |
     | Nome utente SSH | Utente SSH da creare per i cluster. |
@@ -77,18 +156,18 @@ Per praticità, la procedura seguente usa un modello di Azure Resource Manager p
    
     ![Screenshot del modello personalizzato](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
 
+3. Leggere le **Condizioni** e quindi selezionare **Accetto le condizioni riportate sopra**.
+
 4. Selezionare infine **Aggiungi al dashboard** e quindi **Acquista**. 
 
 > [!NOTE]
 > La creazione dei cluster può richiedere fino a 20 minuti.
 
-## <a name="get-the-notebook"></a>Ottenere il notebook
-
-Il codice di esempio descritto in questo documento è disponibile all'indirizzo [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming).
-
-## <a name="upload-the-notebooks"></a>Caricare i notebook
+## <a name="upload-the-notebook"></a>Caricare il notebook
 
 Per caricare il notebook dal progetto nel cluster Spark su HDInsight, seguire questa procedura:
+
+1. Scaricare il progetto da [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming).
 
 1. Nel Web browser connettersi al notebook Jupyter nel cluster Spark. Nell'URL seguente sostituire `CLUSTERNAME` con il nome del cluster __Spark__:
 
@@ -128,7 +207,7 @@ Per rimuovere il gruppo di risorse usando il portale di Azure:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come usare lo streaming strutturato Spark, vedere i documenti seguenti per trovare altre informazioni su come lavorare con Spark e Kafka:
+In questa esercitazione è stato descritto come usare lo streaming strutturato Spark per scrivere e leggere i dati da Kafka in HDInsight. Usare il collegamento seguente per informazioni su come usare Storm con Kafka.
 
-* [Come usare lo streaming Spark (DStream) con Kafka](hdinsight-apache-spark-with-kafka.md).
-* [Iniziare a usare un notebook Jupyter e Spark in HDInsight](spark/apache-spark-jupyter-spark-sql.md)
+> [!div class="nextstepaction"]
+> [Usare Apache Storm con Kafka](hdinsight-apache-storm-with-kafka.md)

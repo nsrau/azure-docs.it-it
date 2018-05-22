@@ -2,7 +2,7 @@
 title: Installazione di Visual Studio e connettersi a Azure Stack | Documenti Microsoft
 description: Informazioni sui passaggi necessari per installare Visual Studio e connettersi a Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
 ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
@@ -11,29 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 5eae2553af1e41ace878a2f8f2c1a1656c63a7c4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3eaefbe011c4d98fe9a76d4f277a76a2f167b191
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>Installazione di Visual Studio e connettersi a Azure Stack
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Utilizzare Visual Studio per creare e distribuire Azure Resource Manager [modelli](azure-stack-arm-templates.md) nello Stack di Azure. È possibile utilizzare i passaggi descritti in questo articolo per l'installazione di Visual Studio da [Kit di sviluppo di Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), o da un client esterno con codifica basata su Windows se si è connessi tramite [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). Questi passaggi eseguono una nuova installazione di Visual Studio 2015 Community Edition. Altre informazioni sui [coesistenza](https://msdn.microsoft.com/library/ms246609.aspx) tra le altre versioni di Visual Studio.
+Utilizzare Visual Studio per creare e distribuire Azure Resource Manager [modelli](azure-stack-arm-templates.md) nello Stack di Azure. È possibile utilizzare i passaggi descritti in questo articolo per l'installazione di Visual Studio da [Kit di sviluppo di Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), o da un client esterno con codifica basata su Windows se si è connessi tramite [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). Questi passaggi in questo articolo sono per una nuova installazione di Visual Studio 2015 Community Edition. Ulteriori informazioni, vedere [coesistenza](https://msdn.microsoft.com/library/ms246609.aspx) con altre versioni di Visual Studio.
 
 ## <a name="install-visual-studio"></a>Installazione di Visual Studio
-1. Scaricare ed eseguire il [installazione guidata piattaforma Web](https://www.microsoft.com/web/downloads/platform.aspx).             
-2. Cercare **Visual Studio Community 2015 con Microsoft Azure SDK - 2.9.6**, fare clic su **Aggiungi**, e **installare**.
 
-    ![Schermata di WebPI passaggi di installazione](./media/azure-stack-install-visual-studio/image1.png) 
+1. Scaricare ed eseguire il [installazione guidata piattaforma Web](https://www.microsoft.com/web/downloads/platform.aspx).
+2. Cercare **Visual Studio Community 2015 con Microsoft Azure SDK - 2.9.6**, selezionare **Add**, quindi selezionare **installare**.
+
+    ![Acquisizione schermo di passaggi di installazione di WebPI](./media/azure-stack-install-visual-studio/image1.png)
 
 3. Disinstallare il **Microsoft Azure PowerShell** che viene installato come parte di Azure SDK.
 
-    ![Schermata dell'interfaccia di programmi di installazione per Azure PowerShell](./media/azure-stack-install-visual-studio/image2.png) 
+    ![Cattura di schermata dell'interfaccia di programmi di installazione per Azure PowerShell](./media/azure-stack-install-visual-studio/image2.png)
 
 4. [Installare PowerShell per Azure Stack](azure-stack-powershell-install.md)
 
@@ -45,11 +46,11 @@ Utilizzare Visual Studio per creare e distribuire Azure Resource Manager [modell
 
 2. Dal **vista** dal menu **Cloud Explorer**.
 
-3. Selezionare il nuovo riquadro **Aggiungi Account** e accedere con le credenziali di Azure Active Directory.  
-    ![Schermata di Cloud Explorer una volta effettuato l'accesso e connesso allo Stack di Azure](./media/azure-stack-install-visual-studio/image6.png)
+3. Selezionare il nuovo riquadro **Aggiungi Account** e accedere con le credenziali di Azure Active Directory.
+    ![Acquisizione schermo Cloud Explorer dopo l'accesso in e connesso a Azure Stack](./media/azure-stack-install-visual-studio/image6.png)
 
-Una volta effettuato l'accesso, è possibile [distribuire modelli](azure-stack-deploy-template-visual-studio.md) o cercare i tipi di risorse disponibili e i gruppi di risorse per creare modelli personalizzati.  
+Una volta effettuato l'accesso, è possibile [distribuire modelli](azure-stack-deploy-template-visual-studio.md) o cercare i tipi di risorse disponibili e i gruppi di risorse per creare modelli personalizzati.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
- - [Sviluppo di modelli per Azure Stack](azure-stack-develop-templates.md)
+* [Sviluppo di modelli per Azure Stack](azure-stack-develop-templates.md)

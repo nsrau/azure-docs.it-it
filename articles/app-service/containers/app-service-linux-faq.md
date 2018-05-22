@@ -3,11 +3,11 @@ title: Domande frequenti sul Servizio app di Azure in Linux |Microsoft Docs
 description: Domande frequenti sul Servizio app di Azure in Linux.
 keywords: Servizio app di Azure, app Web, domande frequenti, Linux, OSS
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 author: ahmedelnably
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: b22d5f3497c388192764aa6b4ee8c95fec568bd8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
 
@@ -46,6 +46,10 @@ Questa azione equivale a un riavvio di Docker.
 **È possibile usare Secure Shell (SSH) per connettersi alla macchina virtuale (VM) del contenitore dell'app?**
 
 Sì, è possibile farlo tramite il sito di gestione controllo del codice sorgente.
+
+> [!NOTE] 
+> È anche possibile connettersi al contenitore di app direttamente dal computer di sviluppo locale tramite SSH, SFTP o Visual Studio Code (per eseguire il debug attivo di app Node.js). Per altre informazioni, vedere [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug) (Debug remoto e SHH nel servizio app in Linux).
+>
 
 **Come è possibile creare un piano di servizio app Linux tramite un SDK o un modello di Azure Resource Manager?**
 

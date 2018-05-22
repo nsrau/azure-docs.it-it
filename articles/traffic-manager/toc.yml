@@ -8,12 +8,6 @@
   items:
     - name: Creare un profilo di Gestione traffico
       href: traffic-manager-create-profile.md
-- name: Esempi
-  items:
-    - name: Interfaccia della riga di comando di Azure
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
 - name: Esercitazioni
   items:
     - name: Indirizzare il traffico in base alla posizione geografica dell'endpoint
@@ -24,6 +18,12 @@
       href: traffic-manager-configure-weighted-routing-method.md
     - name: Indirizzare il traffico a un endpoint prioritario
       href: traffic-manager-configure-priority-routing-method.md
+- name: Esempi
+  items:
+    - name: Interfaccia della riga di comando di Azure
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: Concetti
   items:
     - name: Metodi di routing
@@ -89,9 +89,9 @@
       href: 'https://msdn.microsoft.com/library/mt163667.aspx'
 - name: Risorse correlate
   items:
-    - name: gateway applicazione
+    - name: Gateway applicazione
       href: /azure/application-gateway/
-    - name: Bilanciamento del carico
+    - name: Load Balancer
       href: /azure/load-balancer/
     - name: DNS di Azure
       href: /azure/dns/

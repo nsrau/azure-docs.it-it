@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/29/2018
+ms.date: 04/30/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7840dc86ec7753980bb2c35f932f132c50d65f9e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: df455f46e5fbc6bc1a4a7f0c30eac1bb185dea3d
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Esercitazione: creare e distribuire un'applicazione con un servizio front-end API Web ASP.NET Core e un servizio back-end con stato
 Questa è la prima di una serie di esercitazioni.  Illustra come creare un'applicazione di Azure Service Fabric con un front-end API Web ASP.NET Core e un servizio back-end con stato per archiviare i dati. Al termine, sarà disponibile un'applicazione di voto con un front-end Web ASP.NET Core che salva i risultati delle votazioni in un servizio back-end con stato nel cluster. Se non si vuole creare manualmente l'applicazione di voto, è possibile [scaricare il codice sorgente](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) per l'applicazione completata e passare direttamente alla [Descrizione dettagliata dell'applicazione di voto di esempio](#walkthrough_anchor).  Se si preferisce, è anche possibile guardare una [procedura dettagliata video](https://channel9.msdn.com/Events/Connect/2017/E100) di questa esercitazione.
@@ -460,13 +460,24 @@ namespace VotingData.Controllers
 }
 ```
 
-
 ## <a name="connect-the-services"></a>Connettere i servizi
 In questo successivo passaggio, connettere i due servizi e configurare l'applicazione Web front-end per il recupero e l'impostazione delle informazioni di voto dal servizio back-end.
 
 L'infrastruttura di servizi offre la massima flessibilità nella comunicazione con Reliable Services. All'interno di una singola applicazione possono esserci servizi accessibili tramite TCP. Altri servizi potrebbero essere accessibili tramite un'API REST HTTP e altri ancora tramite Web Socket. Per informazioni sulle opzioni disponibili e sui compromessi necessari, vedere [Comunicazione con i servizi](service-fabric-connect-and-communicate-with-services.md).
 
-In questa esercitazione usare l'[API Web ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md).
+In questa esercitazione usare l'[API Web di ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) e il [proxy inverso di Service Fabric](service-fabric-reverseproxy.md) affinché il servizio Web front-end possa comunicare con il servizio dati backend. Il proxy inverso in genere è configurato per usare la porta 19081, la quale è impostata nel modello di ARM usato per configurare il cluster. Per individuare la porta usata, esaminare il modello del cluster nella risorsa **Microsoft.ServiceFabric/cluster**:
+
+```json
+"nodeTypes": [
+          {
+            ...
+            "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
+            "isPrimary": true,
+            "vmInstanceCount": "[parameters('nt0InstanceCount')]",
+            "reverseProxyEndpointPort": "[parameters('SFReverseProxyPort')]"
+          }
+        ],
+```
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 

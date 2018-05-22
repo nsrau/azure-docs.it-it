@@ -2,23 +2,23 @@
 title: Aggiornare il servizio di App di Azure non in linea | Documenti Microsoft
 description: Linee guida dettagliate per l'aggiornamento di servizio App di Azure nello Stack di Azure non in linea
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 61a3169229cc121c078a934f6b979bdaffafd565
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8671cba484a779e8d7cd0172df141497bb396a97
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Aggiornamento non in linea di servizio App di Azure nello Stack di Azure
 
@@ -43,7 +43,7 @@ Seguendo le istruzioni riportate in questo articolo, è possibile aggiornare il 
 
 Per aggiornare il provider di risorse del servizio App in un ambiente dello Stack di Azure, è necessario completare queste attività:
 
-1. Scaricare il [programma di installazione del servizio App](https://aka.ms/appsvcupdate1installer)
+1. Scaricare il [programma di installazione del servizio App](https://aka.ms/appsvcupdate2installer)
 2. Creare un pacchetto di aggiornamento non in linea.
 3. Eseguire il programma di installazione di servizio App (appservice.exe) e completare l'aggiornamento.
 
@@ -52,7 +52,7 @@ Durante questo processo, l'aggiornamento sarà:
 * Rilevare precedente distribuzione di servizio App
 * Caricare in memoria
 * Aggiornare tutti i ruoli del servizio App (controller, gestione, front-end, Publisher e Worker ruoli)
-* Aggiornare le definizioni degli insiemi di scala di servizio App
+* Aggiorna definizioni del set di scalabilità del servizio app
 * Aggiornare manifesto del Provider di risorse di servizio App
 
 ## <a name="create-an-offline-upgrade-package"></a>Creare un pacchetto di aggiornamento non in linea
@@ -78,7 +78,7 @@ Per eseguire l'aggiornamento di servizio App in un ambiente disconnesso, è inna
 >
 >
 
-1. Eseguire appservice.exe come amministratore.  
+1. Eseguire appservice.exe come amministratore.
 
     ![Programma di installazione del servizio App][1]
 
@@ -101,7 +101,7 @@ Per eseguire l'aggiornamento di servizio App in un ambiente disconnesso, è inna
    1. Fare clic su di **Connetti** accanto al pulsante il **sottoscrizioni di Azure Stack** casella.
         * Se si usa Azure Active Directory (Azure AD), immettere l'account amministratore di Azure AD e la password forniti quando è stato distribuito Azure Stack. Fare clic su **Accedi**.
         * Se si utilizza Active Directory Federation Services (ADFS), specificare l'account amministratore. Ad esempio, *cloudadmin@azurestack.local*. Immettere la password e fare clic su **Accedi**.
-   2. Nel **sottoscrizioni di Azure Stack** , selezionare la sottoscrizione.
+   2. Nel **sottoscrizioni di Azure Stack** , quindi selezionare il **predefinito sottoscrizione Provider**.
    3. Nel **percorsi Stack Azure** , selezionare il percorso che corrisponde all'area in cui esegue la distribuzione. Ad esempio, selezionare **locale** se la distribuzione al Kit di sviluppo dello Stack di Azure.
    4. Se viene individuata una distribuzione di servizio App esistente, l'account di archiviazione e di gruppo di risorse verrà compilato e visualizzate in grigio.
    5. Fare clic su **Avanti** per esaminare il riepilogo dell'aggiornamento.

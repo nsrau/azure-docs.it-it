@@ -2,8 +2,8 @@
 title: Analisi di utenti, sessioni ed eventi in Azure Application Insights | Microsoft Docs
 description: Analisi demografica degli utenti dell'app Web.
 services: application-insights
-documentationcenter: 
-author: botatoes
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: mbullwin; daviste
-ms.openlocfilehash: 1a5380cac08ab32cfea4cf457aed1fb1510099ed
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 3ac738d6b3c0f1f3579a9b644a03a01f1509173a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analisi di utenti, sessioni ed eventi in Application Insights
 
@@ -43,14 +43,14 @@ Tre pannelli d'uso usano lo stesso strumento per effettuare un'analisi approfond
 Modificando le opzioni di query nella parte superiore dello strumento Utenti, è possibile esaminare diversi gruppi di utenti:
 
 * Mostra: scegliere una coorte di utenti da analizzare.
-* Che ha usato: scegliere gli eventi personalizzati e le visualizzazioni pagina.
+* Who used (Usato da): scegliere gli eventi personalizzati e le visualizzazioni di pagina.
 * Durante: scegliere un intervallo di tempo.
-* Entro: scegliere la modalità di ordinazione dei dati in base un intervallo di tempo o a un'altra proprietà, ad esempio la città o il browser.
-* Diviso per: scegliere una proprietà in base alla quale dividere o segmentare i dati. 
+* By (Da): scegliere la modalità di ordinazione dei dati in base un intervallo di tempo o a un'altra proprietà, ad esempio la città o il browser.
+* Split By (Dividi per): scegliere una proprietà in base alla quale dividere o segmentare i dati. 
 * Aggiungi filtri: limitare le query a determinati utenti, sessioni o eventi in base alle relative proprietà, ad esempio città o browser. 
  
 ## <a name="saving-and-sharing-reports"></a>Salvataggio e condivisione di report 
-È possibile salvare i report Utenti, mantenendoli privati nella sezione Report personali o condividendoli con tutti gli utenti con accesso a questa risorsa di Application Insights nella sezione Report condivisi.
+È possibile salvare i report Utenti, mantenendoli privati nella sezione My Reports (Report personali) o condividendoli con tutti gli utenti con accesso a questa risorsa di Application Insights nella sezione Report condivisi.
 
 Per condividere un collegamento a un report Utenti, Sessioni o Eventi, fare clic su **Condividi** nella barra degli strumenti e quindi copiare il collegamento.
 

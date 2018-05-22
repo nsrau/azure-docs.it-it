@@ -1,5 +1,5 @@
 ---
-title: Confrontare l'hub IoT e Hub eventi di Azure | Microsoft Docs
+title: Confrontare l'Hub IoT di Azure e gli Hub eventi di Azure | Documentazione Microsoft
 description: Un confronto tra i servizi di Azure Hub IoT e Hub eventi evidenzia le differenze funzionali e i casi d'uso. Il confronto include protocolli supportati, gestione dei dispositivi, monitoraggio e caricamenti di file.
 services: iot-hub
 documentationcenter: ''
@@ -14,19 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.openlocfilehash: 303a2bde0a1e0b25ca6eb145e7b0cd6c91fff351
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b86132b42aef981e6218b27e271e6db645d14071
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="comparison-of-azure-iot-hub-and-azure-event-hubs"></a>Confronto tra l'hub IoT e Hub eventi di Azure
+# <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Connessione di dispositivi IoT di Azure: hub IoT e hub eventi
 
-L'hub IoT di Azure e Hub eventi di Azure sono entrambi servizi cloud che supportano l'inserimento di grandi quantità di dati e sono in grado di elaborare o archiviare tali dati per generare informazioni aziendali dettagliate. I due servizi sono simili poiché entrambi supportano l'elaborazione dei dati di eventi e di telemetria con bassa latenza e affidabilità elevata. Tuttavia, solo l'hub IoT è stato sviluppato con le funzionalità specifiche necessarie per supportare scenari di Internet delle cose (IoT, Internet of Things) su larga scala. 
+Azure offre servizi sviluppati in modo specifico per tipi diversi di connettività e comunicazione che consentono di connettere i dati alla potenza del cloud. L'hub IoT di Azure e Hub eventi di Azure sono entrambi servizi cloud che supportano l'inserimento di grandi quantità di dati e sono in grado di elaborare o archiviare tali dati per generare informazioni aziendali dettagliate. I due servizi sono simili in quanto entrambi supportano l'inserimento di dati con bassa latenza e affidabilità elevata, ma sono progettati per scopi diversi. L'hub IoT è stato sviluppato in modo specifico per soddisfare i requisiti specifici di connessione su larga scala di dispositivi IoT al cloud di Azure, mentre l'hub eventi è stato progettato per il flusso dei Big Data. Ecco perché Microsoft consiglia di usare l'hub IoT di Azure per la connessione di dispositivi IoT ad Azure
 
-L'hub IoT di Azure è il gateway cloud che connette i dispositivi e raccoglie i dati per generare informazioni aziendali dettagliate e per l'automazione. L'hub IoT facilita il flusso dei dati verso il cloud e la gestione dei dispositivi su larga scala. Un'importante differenza tra l'hub IoT e altri servizi di inserimento dati è rappresentata dalla presenza nell'hub IoT di funzionalità che rafforzano la relazione tra i dispositivi e i sistemi back-end. Con le funzionalità di comunicazione bidirezionale è possibile ricevere dati dai dispositivi e al tempo stesso inviare messaggi di risposta ai dispositivi per aggiornare le proprietà o richiamare un'azione. L'identità a livello di dispositivo consente di proteggere il sistema. L'elaborazione distribuita sposta la logica del servizio cloud sui dispositivi periferici.
+L'hub IoT di Azure è il gateway cloud che connette i dispositivi IoT per raccogliere i dati e generare informazioni aziendali dettagliate e per l'automazione. L'hub IoT include anche funzionalità che arricchiscono la relazione tra i dispositivi e i sistemi back-end. Con le funzionalità di comunicazione bidirezionale è possibile ricevere dati dai dispositivi e al tempo stesso inviare comandi e criteri ai dispositivi per aggiornare le proprietà o richiamare un'azione di gestione dei dispositivi stessi.  Tale connettività da cloud a dispositivo rafforza anche l'importante funzionalità di rilascio di intelligence cloud per i dispositivi perimetrali con Azure IoT Edge. L'identità univoca a livello di dispositivo fornita dall'hub IoT consente di proteggere meglio la soluzione IoT da potenziali attacchi. 
 
-[Hub eventi di Azure][Azure Event Hubs] è un servizio per l'inserimento di eventi in grado di elaborare e archiviare grandi quantità di informazioni e dati di telemetria. Hub eventi è stato progettato per l'inserimento di eventi su larga scala, nel contesto di scenari tra più data center o all'interno di uno stesso data center, ma non fornisce le funzionalità IoT avanzate che sono disponibili con l'hub IoT. Per questo motivo non è consigliabile usare Hub eventi per le soluzioni IoT. 
+[Hub eventi di Azure][Azure Event Hubs] è il servizio di flusso dei Big Data di Azure. È progettato per scenari basati sul flusso di dati a una velocità effettiva elevata in cui i clienti possono inviare miliardi di richieste al giorno. Hub eventi usa un modello consumer partizionato per scalare orizzontalmente il flusso ed è integrato nei servizi Big Data e analisi di Azure, inclusi Databricks, Analisi di flusso, ADLS e HDInsight. Con funzionalità quali l'acquisizione di hub eventi e l'aumento automatico, questo servizio è progettato per supportare applicazioni e soluzioni per Big Data. L'IoT Hub sfrutta anche Hub eventi per il proprio percorso del flusso di dati di telemetria, pertanto la soluzione IoT sfrutta anche la potenza notevole di Hub eventi.
+
+Per riepilogare, anche se entrambe le soluzioni sono progettate per l'inserimento di dati su larga scala, solo Hub IoT offre le ricche funzionalità specifiche per IoT progettate per ottimizzare il valore aziendale di connessione dei dispositivi IoT al cloud di Azure.  In una fase iniziale, iniziare con Hub IoT per supportare gli scenari di inserimento dati garantisce di avere accesso immediato alle funzionalità IoT complete laddove le esigenze aziendali e tecniche lo richiedano.
 
 La tabella seguente mette a confronto i due livelli dell'hub IoT con Hub eventi per facilitare la valutazione di questi servizi in termini di funzionalità IoT. Per altre informazioni sui livelli Standard e Basic dell'hub IoT, vedere [Come scegliere il livello corretto dell'hub IoT][lnk-scaling].
 

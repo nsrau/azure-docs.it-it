@@ -1,12 +1,12 @@
 ---
-title: "Architettura di identità per lo Stack di Azure | Documenti Microsoft"
-description: "Informazioni sull'architettura di identità che è possibile utilizzare con lo Stack di Azure."
+title: Architettura di identità per lo Stack di Azure | Documenti Microsoft
+description: Informazioni sull'architettura di identità che è possibile utilizzare con lo Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/28/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 899e0fc0c1eb93d68c79c92c9cc042462ebc2fef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: ''
+ms.openlocfilehash: a6da27740efd613b8a81ffa85092d6b00b3e47d8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Architettura di identità per lo Stack di Azure
 Prima di scegliere un provider di identità da usare con lo Stack di Azure, comprendere le differenze principali tra le opzioni di Azure Active Directory (Azure AD) e Active Directory Federation Services (ADFS). 
@@ -33,7 +33,7 @@ Il provider di identità che si sceglie può limitare le opzioni, incluso il sup
 |------------------------------|----------|-------|
 |Connesso a internet     |Sì       |Facoltativo|
 |Supporto per multi-tenancy     |Sì       |No       |
-|Diffusione di Marketplace       |Sì       |Sì. Richiede l'uso del [offline Marketplace diffusione](azure-stack-download-azure-marketplace-item.md#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) dello strumento.|
+|Diffusione di Marketplace       |Sì       |Sì. Richiede l'uso del [offline Marketplace diffusione](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) dello strumento.|
 |Supporto per Active Directory Authentication Library (ADAL) |Sì |Sì|
 |Supporto per strumenti quali CLI di Azure, Visual Studio e PowerShell  |Sì |Sì|
 |Creare le entità servizio tramite il portale di Azure     |Sì |No |

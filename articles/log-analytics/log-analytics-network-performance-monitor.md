@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 6e81f2cdd0cd3f62d93c85c1a073e0b9df542ec7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1d12df7c37c4c96198865479326851040b46986a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -249,6 +249,24 @@ La topologia mostrata sulla mappa è di livello 3 e non contiene connessioni e d
 ## <a name="log-analytics-search"></a>Ricerca di Log Analytics 
 
 Tutti i dati esposti graficamente attraverso il dashboard di Monitoraggio prestazioni rete e le pagine di drill-down sono disponibili in modalità nativa nella ricerca di [Log Analytics](log-analytics-log-search-new.md). È possibile eseguire l'analisi interattiva dei dati nel repository e correlare i dati da origini diverse. È anche possibile creare visualizzazioni e avvisi personalizzati ed esportare i dati in Excel, Power BI o un collegamento condivisibile. L'area  **Query comuni**  del dashboard contiene alcune query utili che è possibile usare come punto di partenza per creare query e report. 
+
+## <a name="alerts"></a>Avvisi
+
+Il Monitoraggio delle prestazioni di rete usa le funzionalità di avviso di [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
+
+Ciò significa che tutti gli avvisi vengono gestiti mediante [gruppi di azioni](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
+
+Per gli utenti di NPM che creano un avviso tramite OMS: 
+1. Verrà visualizzato un collegamento di reindirizzamento al portale di Azure. Fare clic per accedere al portale.
+2. Fare clic sul riquadro della soluzione di Monitoraggio delle prestazioni di rete. 
+3. Passare a Configura.  
+4. Selezionare il test desiderato per creare un avviso e seguire i passaggi indicati di seguito.
+
+Per gli utenti di NPM che creano un avviso tramite il portale di Azure:  
+1. È possibile scegliere di immettere direttamente l'indirizzo di posta elettronica o creare avvisi tramite gruppi di azioni.
+2. Se si sceglie di immettere direttamente l'indirizzo di posta elettronica, viene creato un gruppo di azioni denominato **NPM Email ActionGroup** e l'ID di posta elettronica viene aggiunto a tale gruppo di azioni.
+3. Se si sceglie di usare gruppi di azioni, è necessario selezionare un gruppo di azioni creato in precedenza. È possibile imparare a creare un gruppo di azioni [qui.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
+4. Una volta creato correttamente l'avviso è possibile usare il collegamento Gestisci avvisi per gestire gli avvisi. 
 
 ##<a name="pricing"></a>Prezzi
 

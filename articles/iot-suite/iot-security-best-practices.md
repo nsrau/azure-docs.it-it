@@ -1,12 +1,12 @@
 ---
 title: Procedure consigliate per la sicurezza IoT | Documentazione Microsoft
 description: Procedure consigliate per la protezione dell'infrastruttura IoT
-services: 
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24e7bda2-5f7b-44e3-b8af-761abd3276ff
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: e21911d0b0748c50d6f93ff267b8d0283fd74400
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 3a1c83a6b68eb9b43087c6d536ac7be9e0764a3a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/20/2018
 ---
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
@@ -29,15 +29,15 @@ Per altre informazioni sulla protezione della soluzione IoT, vedere:
 * [Architettura della sicurezza IoT][lnk-security-architecture]
 * [Proteggere la distribuzione di IoT][lnk-security-deployment]
 
-È anche possibile esplorare alcune altre funzionalità delle soluzioni preconfigurate di IoT Suite:
+È anche possibile esplorare alcune altre funzionalità degli acceleratori di soluzioni IoT:
 
-* [Panoramica della soluzione preconfigurata di manutenzione predittiva][lnk-predictive-overview]
-* [Domande frequenti su Azure IoT Suite][lnk-faq]
+* [Panoramica dell'acceleratore di soluzioni di manutenzione predittiva][lnk-predictive-overview]
+* [Domande frequenti sugli acceleratori di soluzioni IoT][lnk-faq]
 
 Informazioni sulla protezione dell'hub IoT sono disponibili in [Controllare l'accesso all'hub IoT][lnk-devguide-security] nella guida per gli sviluppatori dell'hub IoT.
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-faq]:../iot-accelerators/iot-accelerators-faq.md
 
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md

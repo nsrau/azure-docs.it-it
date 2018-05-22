@@ -1,11 +1,11 @@
 ---
 title: Come configurare un accesso Single Sign-On basato su password per un'applicazione della raccolta di Azure AD | Microsoft Docs
-description: "Come configurare un'applicazione con un accesso Single Sign-On sicuro basato su password quando è già elencata nella raccolta delle applicazioni di Azure AD"
+description: Come configurare un'applicazione con un accesso Single Sign-On sicuro basato su password quando è già elencata nella raccolta delle applicazioni di Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: aa02bfd22a656024d8638226dc1c5551b63e6d42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8e1d8471d2feb838a6ba3eb08eedc3ca4d30ab07
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Come configurare un accesso Single Sign-On basato su password per un'applicazione della raccolta di Azure AD
 
@@ -179,4 +179,4 @@ Per assegnare uno o più gruppi direttamente a un'applicazione, seguire questa p
 Dopo un breve periodo di tempo, gli utenti selezionati saranno in grado di avviare queste applicazioni nel riquadro di accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Fornire l'accesso Single Sign-On alle app con il proxy di applicazione](active-directory-application-proxy-sso-using-kcd.md)
+[Fornire l'accesso Single Sign-On alle app con il proxy di applicazione](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

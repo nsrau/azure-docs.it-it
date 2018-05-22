@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno
 
@@ -79,7 +79,7 @@ Entrambi i tipi di dati vengono inviati a un hub eventi tramite un'impostazione 
 
 ### <a name="stream-linux-data-to-an-event-hub"></a>Trasmettere dati di Linux a un hub eventi
 
-L'[agente Diagnostica di Azure per Linux](../virtual-machines/linux/diagnostic-extension.md) consente di inviare i dati di monitoraggio da un computer Linux a un hub eventi. A questo scopo, aggiungere l'hub eventi come sink nella sezione JSON impostazioni protette del file di configurazione LAD. [Per altre informazioni sull'aggiunta del sink di hub eventi all'agente Diagnostica di Azure per Linux, vedere questo articolo](../virtual-machines/linux/diagnostic-extension.md#protected-settings).
+L'[agente Diagnostica di Azure per Linux](../virtual-machines/extensions/diagnostics-linux.md) consente di inviare i dati di monitoraggio da un computer Linux a un hub eventi. A questo scopo, aggiungere l'hub eventi come sink nella sezione JSON impostazioni protette del file di configurazione LAD. [Per altre informazioni sull'aggiunta del sink di hub eventi all'agente Diagnostica di Azure per Linux, vedere questo articolo](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > Non è possibile configurare la trasmissione dei dati di monitoraggio del sistema operativo guest a un hub eventi nel portale. In alternativa, è necessario modificare manualmente il file di configurazione.

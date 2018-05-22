@@ -6,13 +6,13 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 04/26/2018
 ms.author: babanisa
-ms.openlocfilehash: 179f7c46186762eed2f7f8ac90620ac2fec9caf3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: db79629c5f806fe50d22200574c29052a485dd06
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ricevere eventi in un endpoint HTTP
 
@@ -27,9 +27,9 @@ Questo articolo descrive come [convalidare un endpoint HTTP](security-authentica
 
 ## <a name="add-dependencies"></a>Aggiungere le dipendenze
 
-Se si sviluppa in .Net, [aggiungere una dipendenza](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) alla funzione per il `Microsoft.Azure.EventGrid` [pacchetto NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Gli SDK per le altre lingue sono disponibili tramite il riferimento agli [SDK di pubblicazione](./sdk-overview.md#publish-sdks). Questi pacchetti contengono i modelli per i tipi di evento nativo, ad esempio `EventGridEvent`, `StorageBlobCreatedEventData` e `EventHubCaptureFileCreatedEventData`.
+Se si sviluppa in .NET, [aggiungere una dipendenza](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) alla funzione per il [pacchetto NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) `Microsoft.Azure.EventGrid`. Gli SDK per le altre lingue sono disponibili tramite il riferimento agli [SDK di pubblicazione](./sdk-overview.md#data-plane-sdks). Questi pacchetti contengono i modelli per i tipi di evento nativo, ad esempio `EventGridEvent`, `StorageBlobCreatedEventData` e `EventHubCaptureFileCreatedEventData`.
 
-A tale scopo, fare clic sul collegamento "View Files" (Visualizza file) nella Funzione di Azure (riquadro più a destra nel portale delle funzioni di Azure) e creare un file denominato project.json. Aggiungere il contenuto seguente al file `project.json` e salvarlo:
+Fare clic sul collegamento "Visualizza file" nella funzione di Azure (riquadro più a destra nel portale delle funzioni di Azure) e creare un file denominato project.json. Aggiungere il contenuto seguente al file `project.json` e salvarlo:
 
  ```json
 {
@@ -41,19 +41,17 @@ A tale scopo, fare clic sul collegamento "View Files" (Visualizza file) nella Fu
     }
    }
 }
-
 ```
 
 ![Aggiunta del pacchetto NuGet](./media/receive-events/add-dependencies.png)
 
 ## <a name="endpoint-validation"></a>Convalida degli endpoint
 
-La prima cosa si intende fare è gestire gli eventi `Microsoft.EventGrid.SubscriptionValidationEvent`. Ogni volta che viene creata una nuova sottoscrizione evento, la griglia di eventi di Azure invia un evento di convalida all'endpoint con un `validationCode` nel payload dei dati. L'endpoint è tenuto a ripeterlo nel corpo della risposta per [dimostrare che l'endpoint è valido e di proprietà dell'utente](security-authentication.md#webhook-event-delivery). Se si usa un [Trigger griglia di eventi di Azure](../azure-functions/functions-bindings-event-grid.md) anziché una funzione attivata da WebHook, la convalida dell'endpoint viene gestita dall'utente.
+La prima cosa da fare è gestire gli eventi `Microsoft.EventGrid.SubscriptionValidationEvent`. Ogni volta che qualcuno sottoscrive un evento, Griglia di eventi invia un evento di convalida all'endpoint con un `validationCode` nel payload dei dati. L'endpoint è tenuto a ripeterlo nel corpo della risposta per [dimostrare che l'endpoint è valido e di proprietà dell'utente](security-authentication.md#webhook-event-delivery). Se si usa un [Trigger griglia di eventi di Azure](../azure-functions/functions-bindings-event-grid.md) anziché una funzione attivata da WebHook, la convalida dell'endpoint viene gestita dall'utente. Se si usa un servizio API di terze parti, ad esempio [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/), potrebbe non essere possibile ripetere a livello di programmazione il codice di convalida. Per questi servizi, è possibile convalidare manualmente la sottoscrizione usando un URL di convalida che viene inviato quando si verifica l'evento di convalida della sottoscrizione. Copiare l'URL nella proprietà `validationUrl` e inviare una richiesta GET tramite un client REST o un Web browser.
 
-Il codice seguente consente di gestire la convalida della sottoscrizione:
+Per ripetere a livello di programmazione il codice di convalida, usare il codice seguente:
 
 ```csharp
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -102,7 +100,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -122,7 +119,6 @@ module.exports = function (context, req) {
     }
     context.done();
 };
-
 ```
 
 ### <a name="test-validation-response"></a>Test della risposta di convalida
@@ -130,7 +126,6 @@ module.exports = function (context, req) {
 Testare la funzione di risposta della convalida incollando l'evento di esempio nel campo di test per la funzione:
 
 ```json
-
 [{
   "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -143,7 +138,6 @@ Testare la funzione di risposta della convalida incollando l'evento di esempio n
   "metadataVersion": "1",
   "dataVersion": "1"
 }]
-
 ```
 
 Quando si fa clic su Run (Esegui), l'Output deve essere 200 OK e `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` nel corpo:
@@ -152,10 +146,9 @@ Quando si fa clic su Run (Esegui), l'Output deve essere 200 OK e `{"ValidationRe
 
 ## <a name="handle-blob-storage-events"></a>Gestire gli eventi di archiviazione BLOB
 
-È ora possibile estendere la funzione per gestire `Microsoft.Storage.BlobCreated`:
+Verrà ora estesa la funzione per gestire `Microsoft.Storage.BlobCreated`:
 
 ```cs
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -211,7 +204,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -245,7 +237,6 @@ module.exports = function (context, req) {
 Verificare la nuova funzionalità della funzione inserendo un [evento di archiviazione BLOB](./event-schema-blob-storage.md#example-event) nel campo di test ed eseguendo:
 
 ```json
-
 [{
   "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount",
   "subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt",
@@ -269,23 +260,21 @@ Verificare la nuova funzionalità della funzione inserendo un [evento di archivi
   "dataVersion": "",
   "metadataVersion": "1"
 }]
-
 ```
 
 Si dovrebbe vedere l'output dell'URL BLOB nel log delle funzioni:
 
 ![Log di output](./media/receive-events/blob-event-response.png)
 
-È inoltre possibile verificarlo in tempo reale creando un account di archiviazione BLOB o un account di archiviazione General Purpose V2 (GPv2), [aggiungendo una sottoscrizione evento](../storage/blobs/storage-blob-event-quickstart.md) e impostando l'endpoint sull'URL della funzione:
+È anche possibile verificarlo creando un account di archiviazione BLOB o un account di archiviazione General Purpose V2 (GPv2), [aggiungendo una sottoscrizione evento](../storage/blobs/storage-blob-event-quickstart.md) e impostando l'endpoint sull'URL della funzione:
 
 ![URL della funzione](./media/receive-events/function-url.png)
 
 ## <a name="handle-custom-events"></a>Gestione di eventi personalizzati
 
-Infine estendiamo la funzione ancora una volta in modo che possa gestire anche gli eventi personalizzati. Aggiungiamo un controllo per il nostro evento `Contoso.Items.ItemReceived`. Il codice finale avrà un aspetto simile al seguente:
+Infine estendiamo la funzione ancora una volta in modo che possa gestire anche gli eventi personalizzati. Aggiungere un controllo per l'evento `Contoso.Items.ItemReceived`. Il codice finale avrà un aspetto simile al seguente:
 
 ```cs
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -354,7 +343,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 var t = require('tcomb');
 
@@ -401,7 +389,6 @@ module.exports = function (context, req) {
 Infine verificare che la funzione estesa possa ora gestire il tipo di evento personalizzato:
 
 ```json
-
 [{
     "subject": "Contoso/foo/bar/items",
     "eventType": "Microsoft.EventGrid.CustomEventType",
@@ -415,7 +402,6 @@ Infine verificare che la funzione estesa possa ora gestire il tipo di evento per
     "dataVersion": "",
     "metadataVersion": "1"
 }]
-
 ```
 
 È anche possibile testare questa funzionalità in tempo reale [inviando un evento personalizzato con CURL dal portale](./custom-event-quickstart-portal.md) o [registrando un argomento personalizzato](./post-to-custom-topic.md) usando qualsiasi servizio o applicazione in grado di REGISTRARE un endpoint, ad esempio [Postman](https://www.getpostman.com/). Creare un argomento personalizzato e una sottoscrizione di eventi con l'endpoint impostato come URL della funzione.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 231e8110dc6e1844108502e5c2277edc3ba77132
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introduzione al cloud computing e a Microsoft Azure
 
@@ -238,7 +238,7 @@ I prezzi dei servizi di Azure sono diversi tra loro. Molti servizi di Azure sono
 
 Dopo aver distribuito l'applicazione o una soluzione in Azure, è possibile creare avvisi per l'invio di messaggi di posta elettronica all'approssimarsi dei limiti di spesa definiti per ogni avviso. Per altre informazioni, vedere [Configurare avvisi di fatturazione per le sottoscrizioni di Microsoft Azure](../../billing/billing-set-up-alerts.md).
 
-## <a name="azure-resource-manager"></a>Gestione risorse di Azure
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 
 Azure Resource Manager è un meccanismo di distribuzione, gestione e organizzazione delle risorse di Azure. Con Resource Manager è possibile riunire molte risorse singole in un unico gruppo di risorse.
 
@@ -509,7 +509,7 @@ Analogamente, è possibile usare l'interfaccia della riga di comando di Azure pe
 
 ### <a name="access-and-security-for-virtual-networks"></a>Accesso e sicurezza delle reti virtuali
 
-È possibile contribuire alla sicurezza delle reti virtuali di Azure usando un gruppo di sicurezza di rete. I gruppi di sicurezza di rete (NSG) contengono un elenco di regole dell'elenco di controllo di accesso (ACL, Access Control List) che consentono o impediscono il traffico di rete alle istanze delle VM in una rete virtuale. È possibile associare un gruppo NSG a una subnet o a singole istanze di VM all'interno di tale subnet. Quando si associa un gruppo NSG a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet. È anche possibile limitare ulteriormente il traffico verso una singola VM associando un gruppo NSG direttamente a tale VM. Per altre informazioni, vedere [Filtrare il traffico di rete con gruppi di sicurezza di rete](../../virtual-network/virtual-networks-nsg.md).
+È possibile contribuire alla sicurezza delle reti virtuali di Azure usando un gruppo di sicurezza di rete. I gruppi di sicurezza di rete (NSG) contengono un elenco di regole dell'elenco di controllo di accesso (ACL, Access Control List) che consentono o impediscono il traffico di rete alle istanze delle VM in una rete virtuale. È possibile associare un gruppo NSG a una subnet o a singole istanze di VM all'interno di tale subnet. Quando si associa un gruppo NSG a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet. È anche possibile limitare ulteriormente il traffico verso una singola VM associando un gruppo NSG direttamente a tale VM. Per altre informazioni, vedere [Filtrare il traffico di rete con gruppi di sicurezza di rete](../../virtual-network/security-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5f3c3bbb23b9d4439188286342d80eb1cc1d0833
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Esercitazione: Integrazione di Azure Active Directory con Workday
 
@@ -174,19 +174,17 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![SAML Identity Providers](./media/active-directory-saas-workday-tutorial/IC7829272.png "SAML Identity Providers")
    
-    c. Selezionare **Enable idp Initiated Logout** (Abilita disconnessione avviata da IDP).
-   
-    d. Nella finestra **Configura accesso** del portale di Azure copiare l'**URL di accesso** e incollarlo nella casella di testo dell'**URL di risposta di disconnessione**.
+    c. Nella finestra **Configura accesso** del portale di Azure copiare l'**URL di accesso** e incollarlo nella casella di testo dell'**URL di risposta di disconnessione**.
 
-    e. Nella finestra **Configura accesso** del portale di Azure copiare l'**URL del servizio Single Sign-On SAML** e quindi incollarlo nella casella dell'**URL del servizio SSO IdP**.
+    d. Nella finestra **Configura accesso** del portale di Azure copiare l'**URL del servizio Single Sign-On SAML** e quindi incollarlo nella casella dell'**URL del servizio SSO IdP**.
 
-    f. Nella casella di testo **Used for Environments** (Usato per gli ambienti) selezionare il nome dell'ambiente.
+    e. Nella casella di testo **Used for Environments** (Usato per gli ambienti) selezionare il nome dell'ambiente.
 
-    g. Fare clic su **Certificato di chiave pubblica del provider di identità** e quindi su **Crea**. 
+    f. Fare clic su **Certificato di chiave pubblica del provider di identità** e quindi su **Crea**. 
 
     ![Creare](./media/active-directory-saas-workday-tutorial/IC782928.png "Creare")
 
-    h. Fare clic su **Crea chiave pubblica x509**. 
+    g. Fare clic su **Crea chiave pubblica x509**. 
 
     ![Creare](./media/active-directory-saas-workday-tutorial/IC782929.png "Creare")
 

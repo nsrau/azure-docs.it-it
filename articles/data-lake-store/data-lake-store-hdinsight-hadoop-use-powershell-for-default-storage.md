@@ -10,17 +10,16 @@ ms.assetid: 8917af15-8e37-46cf-87ad-4e6d5d67ecdb
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 81074d303fbcefdf396de09510f69067eac3f3f6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2a9f2e9c2634173cf2feb9ded2e87e49f9c8d1e4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-as-default-storage-by-using-powershell"></a>Creare cluster HDInsight con Data Lake Store come risorsa di archiviazione predefinita usando PowerShell
+
 > [!div class="op_single_selector"]
 > * [Usare il portale di Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Usare PowerShell (per l'archiviazione predefinita)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
@@ -38,11 +37,12 @@ Di seguito sono riportate alcune considerazioni importanti per l'uso di HDInsigh
 Per configurare HDInsight per il funzionamento con Data Lake Store usando PowerShell, seguire le istruzioni nelle cinque sezioni seguenti.
 
 ## <a name="prerequisites"></a>prerequisiti
+
 Prima di iniziare l'esercitazione, verificare di soddisfare i requisiti seguenti:
 
 * **Sottoscrizione di Azure**: passare a [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 o versione successiva**: vedere l'articolo su [come installare e configurare PowerShell](/powershell/azure/overview).
-* **Windows Software Development Kit (SDK)**: per installare Windows SDK, passare a [Download e strumenti per Windows 10](https://dev.windows.com/en-us/downloads). L'SDK viene usato per creare un certificato di sicurezza.
+* **Windows Software Development Kit (SDK)**: per installare Windows SDK, passare a [Download e strumenti per Windows 10](https://dev.windows.com/downloads). L'SDK viene usato per creare un certificato di sicurezza.
 * **Entità servizio Azure Active Directory**: questa esercitazione descrive come creare un'entità servizio in Azure Active Directory (Azure AD). Tuttavia, per creare un'entità servizio è necessario essere un amministratore di Azure AD. Se si è un amministratore, è possibile ignorare questo prerequisito e procedere con l'esercitazione.
 
     >[!NOTE]
@@ -50,6 +50,7 @@ Prima di iniziare l'esercitazione, verificare di soddisfare i requisiti seguenti
     >
 
 ## <a name="create-a-data-lake-store-account"></a>Creare un account Archivio Data Lake
+
 Per creare un account Data Lake Store, procedere come segue:
 
 1. Sul desktop aprire una finestra di PowerShell e quindi immettere i frammenti di codice seguenti. Quando viene richiesto di effettuare l'accesso, accedere come amministratore o proprietario della sottoscrizione. 
@@ -142,7 +143,7 @@ In questa sezione si crea un'entità servizio per un'applicazione Azure AD, si a
 
         $certificateFilePath = "$certificateFileDir\CertFile.pfx"
 
-        $password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
+        $password = Read-Host -Prompt "Enter the password" # This is the password you specified for the .pfx file
 
         $certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 

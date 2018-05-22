@@ -2,35 +2,29 @@
 title: Reimpostazione password self-service di Azure AD dalla schermata di accesso di Windows 10 | Microsoft Docs
 description: Configurare la reimpostazione password self-service di Azure AD dalla schermata di accesso di Windows 10
 services: active-directory
-keywords: ''
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: get-started-article
+ms.date: 04/27/2018
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: ''
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: a85cb6aea1027d657d38007a397321de10e16d07
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Reimpostazione password self-service di Azure AD dalla schermata di accesso
 
 La reimpostazione password self-service di Azure AD è già stata distribuita, ma gli utenti continuano a chiamare il supporto tecnico quando dimenticano la password, perché non possono aprire un Web browser per accedere alla reimpostazione password self-service.
 
-Con il nuovo Windows 10 Fall Creators Update, gli utenti con dispositivi aggiunti ad Azure AD possono visualizzare un collegamento "Reimposta password" nella schermata di accesso. Facendo clic su questo collegamento, viene visualizzata l'esperienza di reimpostazione password self-service (SSPR) che gli utenti conoscono.
+Con il nuovo aggiornamento del 10 aprile 2018 di Windows 10, gli utenti con dispositivi **aggiunti ad Azure AD** o **aggiunti all'identità ibrida di Azure AD** possono visualizzare e usare il collegamento "Reimposta password" nella schermata di accesso. Facendo clic su questo collegamento, viene visualizzata l'esperienza di reimpostazione password self-service (SSPR) che gli utenti conoscono.
 
 Per consentire agli utenti di reimpostare la password di Azure AD dalla schermata di accesso di Windows 10, è necessario soddisfare i requisiti seguenti:
 
-* Client di Windows 10 versione 1709 o successiva [aggiunto ad Azure AD](../device-management-azure-portal.md).
+* Aggiornamento del 10 aprile 2018 di Windows 10 o un client più recente [aggiunto ad Azure AD](../device-management-azure-portal.md) o [aggiunto all'identità ibrida di Azure AD](../device-management-hybrid-azuread-joined-devices-setup.md).
 * È necessario abilitare la reimpostazione password self-service di Azure AD.
 * Configurare e distribuire l'impostazione per abilitare il collegamento di reimpostazione della password tramite uno dei metodi seguenti:
    * [Profilo di configurazione dei dispositivi di Intune](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
@@ -66,7 +60,7 @@ Per consentire agli utenti di reimpostare la password di Azure AD dalla schermat
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Azure Active Directory**.
 2. Passare a **Utenti e gruppi** > **Tutti gli utenti** > **Nuovo gruppo**
-3. Specificare un nome per il gruppo e in **Tipo di appartenenza** scegliere **Assegnato** 
+3. Specificare un nome per il gruppo e in **Tipo di appartenenza** scegliere **Assegnato**
    * In **Membri** scegliere i dispositivi Windows 10 aggiunti ad Azure AD ai quali si vogliono applicare i criteri.
    * Fare clic su **Seleziona**
 4. Fare clic su **Crea**
@@ -117,6 +111,7 @@ Durante il test di questa funzionalità con Desktop remoto, il collegamento "Rei
 * La reimpostazione della password non è attualmente supportata da Desktop remoto.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazione della password con Azure AD
 
 * [Come si esegue la distribuzione della reimpostazione password self-service?](howto-sspr-deployment.md)

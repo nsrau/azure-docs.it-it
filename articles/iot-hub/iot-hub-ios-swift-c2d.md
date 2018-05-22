@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 032412c329e79ec671f59a049da7d8ddc0b9dd08
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 23dbd1f359f947b8e87ab4115887120dfd55907a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Inviare messaggi da cloud a dispositivo con l'hub IoT (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -60,7 +60,7 @@ Questo è il dispositivo di esempio creato nell'articolo [Inviare dati di teleme
 
 CocoaPods gestisce le dipendenze per i progetti iOS che usano librerie di terze parti.
 
-In una finestra di Terminale passare alla cartella Azure-IoT-Samples-iOS scaricata nei prerequisiti. Passare quindi alla cartella del progetto di esempio:
+In una finestra del terminale passare alla cartella Azure-IoT-Samples-iOS scaricata nei prerequisiti. Passare quindi alla cartella del progetto di esempio:
 
 ```sh
 cd quickstart/sample-device
@@ -166,7 +166,7 @@ L'output dovrebbe essere simile all'esempio seguente:
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione è stato descritto come inviare e ricevere messaggi da cloud a dispositivo. 
 
-Per avere degli esempi di soluzioni complete che utilizzano l'hub IoT, vedere la [Azure IoT Suite].
+Per avere degli esempi di soluzioni complete che usano l'hub IoT, vedere [Acceleratore di soluzioni di monitoraggio remoto di Azure IoT].
 
 Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per sviluppatori dell'hub IoT].
 
@@ -185,4 +185,4 @@ Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
-[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[Acceleratore di soluzioni di monitoraggio remoto di Azure IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/

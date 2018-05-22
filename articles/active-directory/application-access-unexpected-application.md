@@ -2,10 +2,10 @@
 title: Applicazione non prevista nell'elenco delle applicazioni | Microsoft Docs
 description: Come visualizzare tutte le applicazioni nel tenant e capire come le applicazioni vengono visualizzate nell'elenco Tutte le applicazioni in Applicazioni aziendali
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: ef04e557aca69e5a15bb38d816ca9f9b9ffaf502
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 75fb5fcb98605a080efa2c9232d186c9a81acf2b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Applicazione non prevista nell'elenco delle applicazioni
 
@@ -71,7 +71,7 @@ Quando si imposta il filtro su **Tutte le applicazioni**, l'**elenco** di **tutt
 
 9.  Quando un [utente consente a un'applicazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) di usare i dati nel tenant.
 
-10. Quando si abilitano determinati servizi che archiviano dati nel tenant. Un esempio è la reimpostazione della password, che è modellata come un'entità servizio per archiviare in modo sicuro i criteri di reimpostazione password.
+10. Quando si abilitano determinati servizi che archiviano dati nel tenant, Un esempio è la reimpostazione della password, che è modellata come un'entità servizio per archiviare in modo sicuro i criteri di reimpostazione password.
 
 Per ottenere altre informazioni dettagliate sull'aggiunta di app alla directory, vedere [Come vengono aggiunte le applicazioni in Azure AD e perché](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added).
 
@@ -122,4 +122,4 @@ Per **disabilitare tutte le future operazioni di consenso utente nell'intera dir
 6.  Disabilitare tutte le future operazioni di consenso degli utenti impostando l'opzione **Gli utenti possono consentire alle app di accedere ai propri dati** su **No** e facendo clic sul pulsante **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Gestione di applicazioni con Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Gestione di applicazioni con Azure Active Directory](manage-apps/what-is-application-management.md)

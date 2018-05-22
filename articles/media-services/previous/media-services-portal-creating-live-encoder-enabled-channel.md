@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 4f512d906f9d35efbc602b104d8742bdedba7261
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b9ac1696594ab9f7cb67bb0e340c6a80158e67e2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli con il portale di Azure
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 > 
 > 
 
-1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit singola in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS). Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a bitrate singolo in uno dei protocolli seguenti: RTMP o Smooth Streaming. Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
    
     Questa operazione può essere eseguita anche dopo la creazione del canale.
 2. Creare e avviare un canale. 
@@ -95,7 +95,6 @@ Per completare l'esercitazione è necessario quanto segue.
       
       * MP4 frammentato (Smooth Streaming) a velocità in bit singola
       * RTMP a velocità in bit singola
-      * RTP (MPEG-TS): MPEG-2 Transport Stream su RTP.
         
         Per una descrizione dettagliata di ogni protocollo, vedere [Streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli](media-services-manage-live-encoder-enabled-channels.md).
         

@@ -1,23 +1,37 @@
 ---
-title: Accesso SSH in nodi del cluster del servizio contenitore di Azure (AKS)
-description: Creare una connessione SSH con i nodi di un cluster del servizio contenitore di Azure (AKS)
+title: Accesso SSH in nodi del cluster Azure Kubernetes Service (AKS)
+description: Creare una connessione SSH con i nodi di un cluster Azure Kubernetes Service (AKS)
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 085a2976443db8ece7a36dbfc133b173432ce4c8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 95b385e9847a7809492bbb74bd1eba616df90d72
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="ssh-into-azure-container-service-aks-cluster-nodes"></a>Accesso SSH in nodi del cluster del servizio contenitore di Azure (AKS)
+# <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>Accesso SSH in nodi del cluster Azure Kubernetes Service (AKS)
 
-A volte potrebbe essere necessario accedere a un nodo del servizio contenitore di Azure (AKS) per operazioni di manutenzione, raccolta di log o risoluzione dei problemi. I nodi del servizio contenitore di Azure (AKS) non sono esposti in Internet. Usare la procedura descritta in questo documento per creare una connessione SSH a un nodo AKS.
+A volte potrebbe essere necessario accedere a un nodo di Azure Kubernetes Service (AKS) per operazioni di manutenzione, raccolta di log o risoluzione dei problemi. I nodi AKS non sono esposti in Internet. Usare la procedura descritta in questo documento per creare una connessione SSH a un nodo AKS.
+
+## <a name="reset-ssh-keys"></a>Ripristinare le chiavi SSH
+
+Se è stato eseguito un AKS senza chiavi SSH o se non si ha accesso alle chiavi SSH corrette, è possibile reimpostare queste ultime tramite il portale di Azure.
+
+Passare al cluster AKS, selezionare un nodo AKS (macchina virtuale) e selezionare **Reimposta password** per reimpostare la chiave pubblica SSH.
+
+![Macchina virtuale AKS con pulsante di ripristino della password](media/aks-ssh/reset-password.png)
+
+Selezionare **Reimposta chiave pubblica SSH**, immettere il nome utente cluster AKS, ovvero **azueruser** per impostazione predefinita e copiarlo in una chiave pubblica SSH. Selezionare **Aggiorna** al termine dell’operazione.
+
+![Macchina virtuale del portale AKS con pulsante di ripristino della password](media/aks-ssh/reset-password-2.png)
+
+Una volta reimpostata la chiave SSH, è possibile creare una connessione SSH tramite la chiave privata corrispondente.
 
 ## <a name="get-aks-node-address"></a>Ottenere l'indirizzo del nodo del servizio contenitore di Azure
 
@@ -56,7 +70,7 @@ NAME                       READY     STATUS    RESTARTS   AGE
 aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
 ```
 
-Copiare la chiave SSH nel pod, sostituire il nome del pod con il valore appropriato.
+Copiare la chiave privata SSH nel pod, sostituire il nome del pod con il valore appropriato.
 
 ```console
 kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa

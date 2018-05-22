@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: d869a21230661e473ffff6bbdb1ea29b1ea336d5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 43a4db9114cd47da5bef98ed634847b547589b47
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Configurazione dell'attestazione basata su ruolo rilasciata nel token SAML per le applicazioni aziendali in Azure Active Directory
 
@@ -54,7 +54,7 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati nella rispost
 
 5. Dopo avere aggiunto l'applicazione, andare alla pagina **Proprietà** e copiare l'**ID oggetto**.
 
-    ![Pagina Proprietà](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.PNG)
+<!-- ![Properties Page](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png) Note: Image is missing. -->
 
 6. Aprire [Graph Explorer di Azure AD](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra.
 
@@ -120,7 +120,7 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati nella rispost
             "origin": "ServicePrincipal",
             "value": "Administrator"
         }
-    ],
+    ]
     }
     ```
     > [!Note]

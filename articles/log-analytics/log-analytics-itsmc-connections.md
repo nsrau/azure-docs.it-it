@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 35d04fabc66ede309fe91969c5bec3131a282afb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fdf3c7d1a6621437c414e2c1fe0628f2f585d98a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](log-analytics-itsmc-overview.md).
@@ -271,7 +271,10 @@ Al termine della creazione dell'utente, lo stato di **Check Installation Checkli
 
 > [!NOTE]
 
-> Il connettore di Gestione dei servizi IT può inviare eventi imprevisti a ServiceNow senza che altri moduli siano installati nell'istanza di ServiceNow. Se si usa il modulo EventManagement nell'istanza di ServiceNow e si vuole creare gli eventi o avvisi in ServiceNow tramite il connettore, aggiungere i seguenti ruoli all'utente di integrazione: - evt_mgmt_integration - evt_mgmt_operator  
+> Il connettore di Gestione dei servizi IT può inviare eventi imprevisti a ServiceNow senza che altri moduli siano installati nell'istanza di ServiceNow. Se si usa il modulo EventManagement nell'istanza di ServiceNow e si vuole creare gli eventi o avvisi in ServiceNow tramite il connettore, aggiungere i ruoli seguenti all'utente di integrazione:
+
+>    - evt_mgmt_integration
+>    - evt_mgmt_operator  
 
 
 ## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Connettere Provance a Connettore di Gestione dei servizi IT in Azure

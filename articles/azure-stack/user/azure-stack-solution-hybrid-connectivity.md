@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8b5f59d3fea402efa50bdafd7fc0439a93051e69
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 048e2636aabe406728c8fe1b93ef861f13346256
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Esercitazione: configurare la connettività di cloud ibrido con Azure e Azure Stack
 
@@ -93,7 +93,7 @@ Specifiche per le connessioni:
 
 ## <a name="create-a-virtual-network-in-global-azure-and-azure-stack"></a>Creare una rete virtuale in globale Azure e Azure Stack
 
-> [!note]  
+> [!Note]  
 > È necessario assicurarsi che non si verificano sovrapposizioni di indirizzi IP in Azure o Azure Stack spazi di indirizzi della rete virtuale. 
 
 Per creare una rete virtuale nel modello di distribuzione di gestione risorse tramite il portale di Azure. Usare i [valori di esempio](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values) se si usa questa procedura come esercitazione. In caso contrario, assicurarsi di sostituire i valori di esempio con valori reali. 
@@ -129,7 +129,7 @@ Nel [portale](http://portal.azure.com/) passare alla rete virtuale di Resource M
         - Fare clic su **+ Crea nuovo** per aprire la **Crea indirizzo IP pubblico** pagina.
         - Immettere un **nome** per l'indirizzo IP pubblico. Lasciare la SKU come **base**, quindi selezionare **OK** nella parte inferiore della pagina per salvare le modifiche.
 
-    > [!note]  
+    > [!Note]  
     > Gateway VPN supporta attualmente solo allocazione di indirizzi IP pubblici dinamici. Ciò non significa tuttavia che l'indirizzo IP viene modificato dopo l'assegnazione al gateway VPN. L'indirizzo IP pubblico viene modificato solo quando il gateway viene eliminato e ricreato. Non viene modificato in caso di ridimensionamento, reimpostazione o altre manutenzioni/aggiornamenti del gateway VPN.
 
 4. Verificare le impostazioni. 

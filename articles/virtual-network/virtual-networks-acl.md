@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 0f22bae1e1e40d3ea735861b9a633ae46eae5c33
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f532ed9ad1254aa8082f212b8190f83bb71767e9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>Informazioni sugli elenchi di controllo di accesso agli endpoint
 
 > [!IMPORTANT]
 > Azure offre due [modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per creare e usare le risorse: Resource Manager e la distribuzione classica. Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di distribuzione Resource Manager per le distribuzioni più recenti. 
 
-Un elenco di controllo di accesso (ACL) agli endpoint è un miglioramento della sicurezza disponibile per la distribuzione di Azure. Offre la possibilità di consentire o negare in modo selettivo il traffico per un endpoint di macchina virtuale. Questa funzionalità di filtro per i pacchetti garantisce un ulteriore livello di sicurezza. È possibile specificare elenchi di controllo di accesso di rete solo per gli endpoint e non per una rete virtuale o una subnet specifica in essa contenuta. È consigliabile usare i gruppi di sicurezza di rete invece degli elenchi di controllo di accesso, laddove possibile. Per altre informazioni sui gruppi di accesso di rete, vedere [Panoramica dei gruppi di sicurezza di rete](virtual-networks-nsg.md).
+Un elenco di controllo di accesso (ACL) agli endpoint è un miglioramento della sicurezza disponibile per la distribuzione di Azure. Offre la possibilità di consentire o negare in modo selettivo il traffico per un endpoint di macchina virtuale. Questa funzionalità di filtro per i pacchetti garantisce un ulteriore livello di sicurezza. È possibile specificare elenchi di controllo di accesso di rete solo per gli endpoint e non per una rete virtuale o una subnet specifica in essa contenuta. È consigliabile usare i gruppi di sicurezza di rete invece degli elenchi di controllo di accesso, laddove possibile. Per altre informazioni sui gruppi di accesso di rete, vedere [Panoramica dei gruppi di sicurezza di rete](security-overview.md).
 
 Gli elenchi di controllo di accesso possono essere configurati tramite PowerShell o il portale di Azure. Per configurare un elenco di controllo di accesso di rete usando PowerShell, vedere [Gestione degli elenchi di controllo di accesso per gli endpoint tramite PowerShell](virtual-networks-acl-powershell.md). Per configurare un elenco di controllo di accesso di rete usando il portale di Azure, vedere [Come configurare gli endpoint in una macchina virtuale](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 33d8a36cc88bd1c263f2c4a38a59e04e1253357c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: feb31b0cc89c511f7487f995ba6045f89767abbb
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 04/28/2018
 
 1. Connettere il dispositivo MXChip IoT DevKit al computer.
 2. Fare clic sul menu a discesa **Attività** in Visual Studio Code e selezionare **Esegui attività...** - **config-device-connection**
-3. Sul dispositivo MXChip IoT DevKit premere e tenere premuto il pulsante **A**, premere il pulsante di **reimpostazione**, quindi rilasciare il pulsante **A** per fare in modo che il DevKit entri in modalità di configurazione.
+3. Sul dispositivo MXChip IoT DevKit premere e tenere premuto il pulsante **A**, premere il pulsante di**reimpostazione**, quindi rilasciare il pulsante **A** per fare in modo che il DevKit entri in modalità di configurazione.
 4. Attendere il completamento del processo di configurazione della stringa di connessione.
 
 ## <a name="upload-arduino-code-to-devkit"></a>Caricare il codice Arduino in DevKit
@@ -90,10 +90,10 @@ Con il dispositivo MXChip IoT DevKit connesso al computer:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Si è appreso come:
-- Connettere un dispositivo MXChip IoT DevKit ad Azure IoT Suite.
+- Connettere un dispositivo MXChip IoT DevKit all'acceleratore di soluzioni di monitoraggio remoto di Azure IoT.
 - Usare la funzione dei dispositivi gemelli di Azure IoT per rilevare e controllare il colore del LED RGB del DevKit.
 
 Ecco i passaggi successivi suggeriti:
 
-* [Panoramica di Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit) (Connettere un dispositivo MXChip IoT DevKit all'applicazione Microsoft IoT Central)
+* [Panoramica dell'acceleratore di soluzioni di monitoraggio remoto di Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
+* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit) (Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central)

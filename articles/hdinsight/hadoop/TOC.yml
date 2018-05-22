@@ -1,8 +1,8 @@
 - name: Documentazione di Azure HDInsight
   href: /azure/hdinsight
-- name: Hadoop in HDInsight
+- name: Panoramica
   items:
-    - name: Panoramica
+    - name: Informazioni su Hadoop in HDInsight
       href: apache-hadoop-introduction.md
     - name: Architettura Hadoop in HDInsight
       href: ../hdinsight-hadoop-architecture.md
@@ -10,20 +10,32 @@
     - name: Componenti Hadoop in HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: Attività iniziali
+- name: Guida introduttiva
   items:
-    - name: Iniziare a usare Hadoop
+    - name: Creare un cluster Hadoop - Portale
+      href: apache-hadoop-linux-create-cluster-get-started-portal.md
+    - name: Creare un cluster Hadoop - Resource Manager
       href: apache-hadoop-linux-tutorial-get-started.md
-    - name: Sandbox Hadoop
-      href: apache-hadoop-emulator-get-started.md
-    - name: Installare app HDInsight
-      href: ../hdinsight-apps-install-applications.md
+- name: Esercitazioni
+  items:
+    - name: Eseguire operazioni ETL
+      href: ../hdinsight-analyze-flight-delay-data-linux.md
       maintainContext: true
+    - name: Creare cluster su richiesta
+      href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+      maintainContext: true
+- name: Concetti
+  items:
     - name: Pianificazione della capacità dei cluster
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
+    - name: Disponibilità e affidabilità
+      href: ../hdinsight-high-availability-linux.md
+      maintainContext: true
 - name: Procedure
   items:
+    - name: Usare sandbox Hadoop
+      href: apache-hadoop-emulator-get-started.md
     - name: Usare l'archiviazione cluster
       items:
         - name: Uso di Archiviazione di Azure
@@ -37,6 +49,10 @@
         - name: Hive con Hadoop
           href: hdinsight-use-hive.md
           items:
+            - name: Usare gli strumenti di HDInsight per VSCode
+              href: ../hdinsight-for-vscode.md
+            - name: Usare gli strumenti di HDInsight per Visual Studio
+              href: apache-hadoop-use-hive-visual-studio.md
             - name: Usare la visualizzazione Hive
               href: apache-hadoop-use-hive-ambari-view.md
             - name: Usare Beeline
@@ -47,8 +63,6 @@
               href: apache-hadoop-use-hive-powershell.md
             - name: Usare .NET SDK
               href: apache-hadoop-use-hive-dotnet-sdk.md
-            - name: Usare gli strumenti di HDInsight per Visual Studio
-              href: apache-hadoop-use-hive-visual-studio.md
             - name: Usare Desktop remoto
               href: apache-hadoop-use-hive-remote-desktop.md
             - name: Usare Console query
@@ -144,9 +158,6 @@
         - name: Analizzare i tweet archiviati
           href: ../hdinsight-analyze-twitter-data-linux.md
           maintainContext: true
-        - name: Analizzare i dati relativi ai ritardi dei voli
-          href: ../hdinsight-analyze-flight-delay-data-linux.md
-          maintainContext: true
         - name: Generare suggerimenti con Mahout
           href: apache-hadoop-mahout-linux-mac.md
         - name: Analizzare i log dei siti Web con Hive
@@ -164,6 +175,9 @@
           maintainContext: true
     - name: Estendere i cluster
       items:
+        - name: Installare app HDInsight
+          href: ../hdinsight-apps-install-applications.md
+          maintainContext: true
         - name: Personalizzare i cluster usando bootstrap
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
           maintainContext: true
@@ -260,9 +274,6 @@
             - name: Usare i modelli di Gestione risorse di Azure
               href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
               maintainContext: true
-        - name: Creare cluster su richiesta
-          href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-          maintainContext: true
         - name: Gestire cluster Hadoop
           href: ../hdinsight-administer-use-portal-linux.md
           maintainContext: true
@@ -329,9 +340,6 @@
           maintainContext: true
         - name: Eseguire la migrazione agli strumenti di sviluppo di Resource Manager
           href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
-          maintainContext: true
-        - name: Disponibilità e affidabilità
-          href: ../hdinsight-high-availability-linux.md
           maintainContext: true
         - name: Aggiornare il cluster HDInsight a una versione più recente
           href: ../hdinsight-upgrade-cluster.md
@@ -430,7 +438,7 @@
           maintainContext: true
         - name: Analizzare i log di Hadoop
           href: apache-hadoop-debug-jobs.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

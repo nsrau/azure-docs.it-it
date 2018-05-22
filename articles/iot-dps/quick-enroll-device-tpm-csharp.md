@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 942ec7253bb011855a07c5ddbed0eebb9596644a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c9492d47461e95c7baa28f82b8a95fd7e370ac16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con C# Service SDK
 
@@ -42,7 +42,7 @@ Per l'esempio in questa guida introduttiva è necessaria la stringa di connessio
 
 ## <a name="create-the-individual-enrollment-sample"></a>Creare l'esempio di registrazione singola 
 
-La procedura disponibile in questa sezione mostra come creare un'app console di .NET Core che aggiunge una singola registrazione per un dispositivo TPM al servizio di provisioning. Con alcune modifiche, è anche possibile seguire questa procedura per creare un'app console di [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) per aggiungere la singola registrazione. Per altre informazioni sullo sviluppo con IoT Core, vedere la [documentazione di Windows IoT Core per sviluppatori](https://docs.microsoft.com/en-us/windows/iot-core/).
+La procedura disponibile in questa sezione mostra come creare un'app console di .NET Core che aggiunge una singola registrazione per un dispositivo TPM al servizio di provisioning. Con alcune modifiche, è anche possibile seguire questa procedura per creare un'app console di [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) per aggiungere la singola registrazione. Per altre informazioni sullo sviluppo con IoT Core, vedere la [documentazione di Windows IoT Core per sviluppatori](https://docs.microsoft.com/windows/iot-core/).
 1. In Visual Studio aggiungere un progetto di app console di Visual C# .NET Core a una nuova soluzione usando il modello di progetto **Console App (.NET Core)** (App console - .NET Core). Verificare che la versione di .NET Framework sia 4.5.1 o successiva. Denominare il progetto **CreateTpmEnrollment**.
 
     ![Nuovo progetto desktop di Windows classico in Visual C#](media//quick-enroll-device-tpm-csharp/create-app.png)

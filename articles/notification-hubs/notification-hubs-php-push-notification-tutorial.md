@@ -2,23 +2,23 @@
 title: Come usare Hub di notifica con PHP
 description: Informazioni su come usare Hub di notifica di Azure da un back-end PHP.
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 0156f994-96d0-4878-b07b-49b7be4fd856
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: php
 ms.devlang: php
 ms.topic: article
-ms.date: 06/07/2016
-ms.author: yuaxu
-ms.openlocfilehash: c27b6308ff528224a0398e0ff40537db05417bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 930da7cca312ac6233b337dd7ddac478c3bbee7b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Come usare Hub di notifica da PHP
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -31,7 +31,7 @@ In questo argomento viene illustrato come:
 * Completare l' [esercitazione introduttiva](notification-hubs-ios-apple-push-notification-apns-get-started.md) per la piattaforma mobile preferita, implementando la parte del backend in PHP.
 
 ## <a name="client-interface"></a>Interfaccia del client
-L'interfaccia del client principale può fornire gli stessi metodi disponibili nell'[SDK di Hub di notifica per .NET](http://msdn.microsoft.com/library/jj933431.aspx). In questo modo sarà possibile tradurre direttamente tutte le esercitazioni e gli esempi disponibili in questo sito oppure messi a disposizione dalla community in Internet.
+L'interfaccia del client principale può fornire gli stessi metodi disponibili nell'[SDK di Hub di notifica per .NET](http://msdn.microsoft.com/library/jj933431.aspx). In questo modo sarà possibile tradurre direttamente tutte le esercitazioni e gli esempi disponibili in questo sito e messi a disposizione dalla community in Internet.
 
 Tutto il codice disponibile è incluso nell' [esempio di wrapper REST PHP].
 
@@ -45,7 +45,7 @@ Per inviare una notifica nativa iOS:
     $hub->sendNotification($notification, null);
 
 ## <a name="implementation"></a>Implementazione
-Se non è già stato fatto, seguire l' [esercitazione Introduzione ad Hub di notifica] fino all'ultima sezione in cui è necessario implementare il back-end.
+Se non è già stato fatto, seguire l'[Introduzione a Hub di notifica] fino all'ultima sezione in cui è necessario implementare il back-end.
 Si può anche usare il codice dell'[esempio di wrapper REST PHP] e passare direttamente alla sezione [Completare l'esercitazione](#complete-tutorial).
 
 Tutti i dettagli per implementare un wrapper REST completo sono disponibili in [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). In questa sezione viene illustrata l'implementazione PHP dei passaggi principali necessari per accedere agli endpoint REST di Hub di notifica:
@@ -200,7 +200,7 @@ I metodi sopra indicati inviano una richiesta POST HTTP all'endpoint /messages d
 ## <a name="complete-tutorial"></a>Completare l'esercitazione
 È ora possibile completare l'esercitazione introduttiva inviando la notifica da un back-end PHP.
 
-Inizializzare il client di Hub di notifica, sostituendo la stringa di connessione e il nome hub come indicato nell'esercitazione [esercitazione Introduzione ad Hub di notifica]:
+Inizializzare il client di Hub di notifica, sostituendo la stringa di connessione e il nome hub come indicato nell'esercitazione [Introduzione a Hub di notifica]:
 
     $hub = new NotificationHub("connection string", "hubname");    
 
@@ -252,5 +252,5 @@ In questo argomento è stato illustrato come creare un semplice client REST Java
 Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/develop/php/).
 
 [esempio di wrapper REST PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[esercitazione Introduzione ad Hub di notifica]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Introduzione a Hub di notifica]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 

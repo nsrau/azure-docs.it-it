@@ -1,12 +1,12 @@
 ---
 title: Procedura dettagliata della soluzione preconfigurata per il monitoraggio remoto| Microsoft Docs
 description: Descrizione della soluzione preconfigurata per il monitoraggio remoto di Azure IoT e relativa architettura.
-services: 
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 7cef60998cf9e46a8d89f8ad53edd0382e3ce76e
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Procedura dettagliata della soluzione preconfigurata per il monitoraggio remoto
 
@@ -35,7 +35,17 @@ Questo articolo illustra alcuni degli elementi principali della soluzione di mon
 
 Il diagramma seguente illustra i componenti logici della soluzione preconfigurata:
 
-![Architettura logica](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
+![Architettura logica](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+
+## <a name="microservices--docker-containers"></a>Microservizi e contenitori Docker
+Monitoraggio remoto è la prima delle nostre soluzioni preconfigurate a sfruttare un'architettura di microservizi. La soluzione è disponibile sia in [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) che in [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+I microservizi sono emersi come modello prevalente per ottenere scalabilità e flessibilità consentendo di ridimensionare i singoli contenitori, senza compromettere la velocità di sviluppo.
+I microservizi dividono il codice in compartimenti e forniscono interfacce ben definite che rendono la soluzione più semplice da comprendere e meno monolitica. Amplia ulteriormente le opzioni per i partner che vogliono estendere gli acceleratori di soluzioni correnti per creare soluzioni complete che possono essere monetizzate.
+
+**Altre informazioni sui contenitori Docker**
+* [Installare Docker](https://docs.docker.com/engine/installation/)
+* [Comandi Docker comuni per il monitoraggio remoto](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#common-docker-commands)
+* [Introduzione a Docker](https://docs.docker.com/get-started/)
 
 ## <a name="simulated-devices"></a>Dispositivi simulati
 

@@ -3,7 +3,7 @@ title: 'Application Insights: linguaggi, piattaforme e integrazioni | Microsoft 
 description: Linguaggi, piattaforme e integrazioni disponibili per Application Insights
 services: application-insights
 documentationcenter: ''
-author: OlegAnaniev-MSFT
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
-ms.author: mbullwin
-ms.openlocfilehash: fdc75c69008d2f448d8a077a42bfccd24db6579a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.author: mbullwin; olegan
+ms.openlocfilehash: 8aec8567fd15865887a5fe5ded8b45cad0290bf9
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Developer Analytics: linguaggi, piattaforme e integrazioni
 Di seguito sono riportate implementazioni di [Application Insights](app-insights-overview.md) già illustrate, incluse alcune di terze parti.
@@ -29,6 +29,7 @@ Di seguito sono riportate implementazioni di [Application Insights](app-insights
 * [Node.JS](app-insights-nodejs.md)
 
 ## <a name="languages---community-supported"></a>Linguaggi: supportati dalla community
+* [F#](https://safe-stack.github.io/docs/template-azure-ai/)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
@@ -38,25 +39,25 @@ Di seguito sono riportate implementazioni di [Application Insights](app-insights
 * [ASP.NET](app-insights-asp-net.md)
 * [ASP.NET - per app già attive](app-insights-monitor-performance-live-website-now.md)
 * [ASP.NET Core](app-insights-asp-net-core.md)
-* [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center, HockeyApp)
+* [Android](app-insights-mobile-center-quickstart.md) (App Center)
+* [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [App Web di Azure](app-insights-azure-web-apps.md)
 * [Servizi cloud di Azure](app-insights-cloudservices.md)&#151;che includono sia i ruoli Web che i ruoli di lavoro
 * [Funzioni di Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
+* [iOS](app-insights-mobile-center-quickstart.md) (App Center)
 * [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
-* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center, HockeyApp)
+* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center)
 * [J2EE](app-insights-java-get-started.md)
 * [J2EE - per app già attive](app-insights-java-live.md)
-* [App macOS](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x) (HockeyApp)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
+* [SAFE Stack](https://safe-stack.github.io/docs/template-azure-ai/)
 * [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
-* [App di Windows universale](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp) (App Center, HockeyApp)
+* [App di Windows universale](app-insights-mobile-center-quickstart.md) (App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
-* [App Windows Phone 8 e 8.1](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81) (HockeyApp)
-* [App Windows Presentation Foundation](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps) (HockeyApp)
 * [Ruoli di lavoro, servizi e applicazioni desktop di Windows](app-insights-windows-desktop.md)
 * [Altro](#projects)
 

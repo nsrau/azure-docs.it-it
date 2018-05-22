@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 8187a4bc6278f917c28418baf3cda2d75ea4e3d8
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d1dec6f2da4f6fcbeb38585fc6a1cfcd9d622c4a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Riferimento host.json per Funzioni di Azure
 
@@ -142,6 +142,46 @@ Controlla le [funzionalità di campionamento in Application Insights](functions-
 |isEnabled|true|Abilita o disabilita il campionamento.| 
 |maxTelemetryItemsPerSecond|5|La soglia oltre la quale viene avviato il campionamento.| 
 
+## <a name="durabletask"></a>durableTask
+
+Impostazioni di configurazione per [Funzioni permanenti](durable-functions-overview.md).
+
+```json
+{
+  "durableTask": {
+    "HubName": "MyTaskHub",
+    "ControlQueueBatchSize": 32,
+    "PartitionCount": 4,
+    "ControlQueueVisibilityTimeout": "00:05:00",
+    "WorkItemQueueVisibilityTimeout": "00:05:00",
+    "MaxConcurrentActivityFunctions": 10,
+    "MaxConcurrentOrchestratorFunctions": 10,
+    "AzureStorageConnectionStringName": "AzureWebJobsStorage",
+    "TraceInputsAndOutputs": false,
+    "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+    "EventGridKeySettingName":  "EventGridKey"
+  }
+}
+```
+
+I nomi degli hub attività devono iniziare con una lettera e contenere solo lettere e numeri. Se non specificato, il nome dell'hub attività predefinito per un'app per le funzioni è **DurableFunctionsHub**. Per altre informazioni, vedere [Hub attività](durable-functions-task-hubs.md).
+
+|Proprietà  |Predefinito | DESCRIZIONE |
+|---------|---------|---------|
+|HubName|DurableFunctionsHub|I nomi alternativi dell'[hub attività](durable-functions-task-hubs.md) possono essere usati per separare le applicazioni di Funzioni permanenti, anche se usano lo stesso back-end di archiviazione.|
+|ControlQueueBatchSize|32|Numero di messaggi di cui eseguire il pull dalla coda di controllo contemporaneamente.|
+|PartitionCount |4|Numero di partizioni per la coda di controllo. Può essere un numero intero positivo compreso tra 1 e 16.|
+|ControlQueueVisibilityTimeout |5 minuti|Timeout di visibilità dei messaggi rimossi dalla coda di controllo.|
+|WorkItemQueueVisibilityTimeout |5 minuti|Timeout di visibilità dei messaggi rimossi dalla coda degli elementi di lavoro.|
+|MaxConcurrentActivityFunctions |10 volte il numero di processori sul computer corrente|Numero massimo di funzioni di attività che possono essere elaborate contemporaneamente in una singola istanza host.|
+|MaxConcurrentOrchestratorFunctions |10 volte il numero di processori sul computer corrente|Numero massimo di funzioni di attività che possono essere elaborate contemporaneamente in una singola istanza host.|
+|AzureStorageConnectionStringName |AzureWebJobsStorage|Nome dell'impostazione dell'app che include la stringa di connessione di Archiviazione di Azure usata per gestire le risorse di Archiviazione di Azure sottostanti.|
+|TraceInputsAndOutputs |false|Valore che indica se tenere traccia degli input e degli output di chiamate di funzione. Quando si tiene traccia degli eventi di esecuzione delle funzioni, il comportamento predefinito prevede di includere il numero di byte degli input e output serializzati per le chiamate di funzione. In questo modo vengono offerte informazioni minime sull'aspetto di input e output senza aumentare il numero di registri o esporre inavvertitamente informazioni riservate ai registri stessi. Se questa proprietà viene impostata su true, per impostazione predefinita viene registrato l'intero contenuto degli input e output della funzione.|
+|EventGridTopicEndpoint ||URL di un endpoint di un argomento personalizzato di Griglia di eventi di Azure. Se questa proprietà è impostata, gli eventi di notifica del ciclo di vita dell'orchestrazione vengono pubblicati in questo endpoint.|
+|EventGridKeySettingName ||Nome dell'impostazione dell'app che contiene la chiave usata per l'autenticazione con l'argomento personalizzato di Griglia di eventi di Azure in `EventGridTopicEndpoint`.
+
+Molti di questi elementi vengono usati per ottimizzare le prestazioni. Per altre informazioni, vedere [Prestazioni e scalabilità](durable-functions-perf-and-scale.md).
+
 ## <a name="eventhub"></a>eventHub
 
 Impostazioni di configurazione per i [trigger e le associazioni di Hub eventi](functions-bindings-event-hubs.md).
@@ -150,7 +190,7 @@ Impostazioni di configurazione per i [trigger e le associazioni di Hub eventi](f
 
 ## <a name="functions"></a>functions
 
-Un elenco di funzioni che verrà eseguito dall'host di processo.  Una matrice vuota indica l’esecuzione di tutte le funzioni.  Deve essere utilizzato solo in caso di [esecuzione in locale](functions-run-local.md). Nelle app per le funziono, utilizzare la proprietà *function.json* `disabled` anziché questa proprietà in *host.json*.
+Un elenco di funzioni che verrà eseguito dall'host di processo. Una matrice vuota indica l’esecuzione di tutte le funzioni. Deve essere utilizzato solo in caso di [esecuzione in locale](functions-run-local.md). Nelle app per le funziono, utilizzare la proprietà *function.json* `disabled` anziché questa proprietà in *host.json*.
 
 ```json
 {
@@ -299,21 +339,6 @@ Un set di [directory codice condivise](functions-reference-csharp.md#watched-dir
     "watchDirectories": [ "Shared" ]
 }
 ```
-
-## <a name="durabletask"></a>durableTask
-
-Nome [hub attività](durable-functions-task-hubs.md) per [Funzioni permanenti](durable-functions-overview.md).
-
-```json
-{
-  "durableTask": {
-    "HubName": "MyTaskHub"
-  }
-}
-```
-
-I nomi degli hub attività devono iniziare con una lettera e contenere solo lettere e numeri. Se non specificato, il nome dell'hub attività predefinito per un'app per le funzioni è **DurableFunctionsHub**. Per altre informazioni, vedere [Hub attività](durable-functions-task-hubs.md).
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

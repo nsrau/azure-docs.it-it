@@ -10,6 +10,7 @@
 ## [Installare l'agente di Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 ## [Operazioni di Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 ## [Errori durante la sincronizzazione](../active-directory-aadconnect-troubleshoot-sync-errors.md)
+## [Diagnosticare gli errori di sincronizzazione di attributi duplicati](active-directory-aadconnect-health-diagnose-sync-errors.md)
 
 # Risolvere problemi
 ## [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)

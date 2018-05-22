@@ -4,9 +4,9 @@ description: Informazioni sul funzionamento dei checkpoint e della riesecuzione 
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 39cdb9b2c6eae9a3176aedc64b8d187e298fdfdd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Checkpoint e riesecuzione in Funzioni permanenti (Funzioni di Azure)
 
@@ -28,7 +28,9 @@ L'estensione Funzioni permanenti garantisce comunque un'esecuzione affidabile de
 
 ## <a name="orchestration-history"></a>Cronologia di orchestrazione
 
-Si supponga di avere la funzione seguente dell'agente di orchestrazione.
+Si supponga di avere la funzione seguente dell'agente di orchestrazione:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -46,7 +48,22 @@ public static async Task<List<string>> Run(
 }
 ```
 
-In ogni istruzione `await` il framework di attività permanenti imposta un checkpoint dello stato di esecuzione della funzione nella tabella di archiviazione. Questo stato viene definito come *cronologia di orchestrazione*.
+#### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const output = [];
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Tokyo"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Seattle"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "London"));
+
+    return output;
+});
+```
+
+In ogni istruzione `await` (C#) o `yield` (JavaScript) il framework di attività permanenti imposta un checkpoint dello stato di esecuzione della funzione nella tabella di archiviazione. Questo stato viene definito come *cronologia di orchestrazione*.
 
 ## <a name="history-table"></a>Tabella di cronologia
 

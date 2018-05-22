@@ -4,13 +4,13 @@ description: Descrive come ottenere indicazioni per la migrazione di computer do
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: e6e32e9bd2384987a1d0315bfbef913c46fc5dbb
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 242a8b95e7eb278a7884eec7d0cc6a607bdf24d4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="migrate-machines-after-assessment"></a>Eseguire la migrazione dei computer dopo la valutazione
 

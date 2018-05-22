@@ -3,23 +3,23 @@ title: Comprendere i connettori del proxy applicazione Azure AD | Microsoft Docs
 description: Tratta i fondamenti dei connettori del proxy applicazione di Azure AD.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
-ms.author: billmath
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: fe8d5c40249431be60dc8844adf7efa1b8e87c5f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c7f27d3fd8a5785017d580df02007abaac503c39
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Comprendere i connettori del proxy applicazione Azure AD
 
@@ -33,7 +33,7 @@ I connettori sono agenti semplici che si trovano a livello locale e facilitano l
 
 Per distribuire correttamente il proxy di applicazione, è necessario almeno un connettore, ma sono consigliati due o più connettori per assicurare maggiore resilienza. Installare il connettore in computer con Windows Server 2012 R2 o 2016. Il connettore deve poter comunicare con il servizio proxy di applicazione e con le applicazioni locali che vengono pubblicate. 
 
-Per ulteriori informazioni sui requisiti di rete per il server del connettore, vedere [Introduzione al proxy dell'applicazione e installazione di un connettore](active-directory-application-proxy-enable.md).
+Per ulteriori informazioni sui requisiti di rete per il server del connettore, vedere [Introduzione al proxy dell'applicazione e installazione di un connettore](manage-apps/application-proxy-enable.md).
 
 ## <a name="maintenance"></a>Manutenzione 
 I connettori e il servizio si occupano di tutte le attività che richiedono disponibilità elevata. Possono essere aggiunti o rimossi in modo dinamico. Ogni volta che arriva una nuova richiesta, questa viene indirizzata a uno dei connettori attualmente disponibili. Se un connettore è temporaneamente non disponibile, non risponde a questo traffico.
@@ -50,7 +50,7 @@ Non è necessario eliminare manualmente i connettori che non vengono usati. Quan
 
 ## <a name="automatic-updates"></a>Aggiornamenti automatici
 
-Azure AD offre aggiornamenti automatici per tutti i connettori da distribuire. Fino a quando il servizio di aggiornamento del connettore proxy di applicazione è in esecuzione, i connettori vengono aggiornati automaticamente. Se non viene visualizzato il servizio di aggiornamento del connettore nel server, è necessario [reinstallare il connettore](active-directory-application-proxy-enable.md) per ottenere gli aggiornamenti. 
+Azure AD offre aggiornamenti automatici per tutti i connettori da distribuire. Fino a quando il servizio di aggiornamento del connettore proxy di applicazione è in esecuzione, i connettori vengono aggiornati automaticamente. Se non viene visualizzato il servizio di aggiornamento del connettore nel server, è necessario [reinstallare il connettore](manage-apps/application-proxy-enable.md) per ottenere gli aggiornamenti. 
 
 Se non si vuole attendere l'aggiornamento automatico del connettore, è possibile eseguire un aggiornamento manuale. Passare alla [pagina di download del connettore](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) nel server in cui si trova il connettore e selezionare **Download**. Grazie a questo processo viene avviato un aggiornamento del connettore locale. 
 
@@ -85,7 +85,7 @@ Sebbene i connettori bilanceranno automaticamente il carico all'interno di un gr
 
 ## <a name="security-and-networking"></a>Sicurezza e rete
 
-I connettori possono essere installati in qualsiasi punto della rete che consenta loro di inviare richieste al servizio proxy dell'applicazione. È importante che il computer che esegue il connettore abbia anche accesso alle app. È possibile installare i connettori all'interno della rete aziendale o in una macchina virtuale che viene eseguita nel cloud. I connettori possono essere eseguiti in una rete perimetrale, ma non è necessario poiché tutto il traffico è in uscita, in modo che la rete è protetta.
+I connettori possono essere installati in qualsiasi punto della rete che consenta loro di inviare richieste al servizio proxy dell'applicazione. È importante che il computer che esegue il connettore abbia anche accesso alle app. È possibile installare i connettori all'interno della rete aziendale o in una macchina virtuale che viene eseguita nel cloud. I connettori possono essere eseguiti in una zona demilitarizzata (DMZ), ma non è necessario poiché tutto il traffico è in uscita, in modo che la rete è protetta.
 
 I connettori inviano le richieste soltanto in uscita. Il traffico in uscita viene inviato al servizio proxy applicazione e alle applicazioni pubblicate. Non è necessario aprire porte in ingresso perché il traffico scorre in entrambe le direzioni, dopo aver stabilito una sessione. Non è necessario configurare il bilanciamento del carico tra i connettori o configurare l'accesso in ingresso attraverso firewall. 
 
@@ -123,7 +123,7 @@ I connettori possono anche essere aggiunti a domini o foreste con attendibilità
 
 Nella maggior parte dei casi la distribuzione dei connettori è molto semplice e non richiede una configurazione speciale. Esistono tuttavia alcune condizioni specifiche che devono essere considerate:
 
-* Le organizzazioni che limitano il traffico in uscita devono [aprire le porte necessarie](active-directory-application-proxy-enable.md#open-your-ports).
+* Le organizzazioni che limitano il traffico in uscita devono [aprire le porte necessarie](manage-apps/application-proxy-enable.md#open-your-ports).
 * Per i computer conformi FIPS potrebbe essere necessario modificare la configurazione per consentire ai processi connettore di generare e archiviare un certificato.
 * Le organizzazioni, che bloccano il proprio ambiente in base ai processi che inviano le richieste di rete, devono assicurarsi che siano abilitati entrambi i servizi connettore per accedere a tutte le porte e agli indirizzi IP necessari.
 * In alcuni casi il proxy di inoltro in uscita può interrompere l'autenticazione bidirezionale con certificato e non consentire la comunicazione.

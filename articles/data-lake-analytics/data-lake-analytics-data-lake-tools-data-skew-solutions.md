@@ -2,11 +2,11 @@
 title: Risolvere i problemi di asimmetria dei dati tramite Strumenti Azure Data Lake per Visual Studio | Documentazione Microsoft
 description: Potenziali risoluzioni dei problemi di asimmetria dei dati tramite Strumenti Azure Data Lake per Visual Studio.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/16/2016
 ms.author: yanacai
-ms.openlocfilehash: 9b284ef33be4b935569fc368d81ddf040b2c2b7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1d33b5d2392832899fd30636e9d40231fc74ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Risolvere i problemi di asimmetria dei dati tramite Strumenti Azure Data Lake per Visual Studio
 
@@ -49,13 +49,13 @@ Invece di usare solo _Stato_ come chiave di partizione, è possibile impiegare p
 
 ### <a name="option-4-use-round-robin-distribution"></a>Opzione 4. Usare la distribuzione round robin
 
-Qualora non sia possibile trovare una chiave adeguata per la partizione e la distribuzione, si può usare la distribuzione round robin. La distribuzione round robin considera tutte le righe in modo uguale e le inserisce in modo casuale nei bucket corrispondenti. I dati vengono distribuiti uniformemente ma si perdono le informazioni sulla località, uno svantaggio che riduce anche le prestazioni del processo rispetto ad alcune operazioni. In aggiunta, se si sta eseguendo un'aggregazione per risolvere un problema di chiave differente, il problema dell'asimmetria dei dati non verrà risolto. Per altre informazioni sulla distribuzione round robin, vedere la sezione U-SQL Table Distributions (Distribuzioni di tabelle U-SQL) in [CREATE TABLE (U-SQL): Creating a Table with Schema](https://msdn.microsoft.com/en-us/library/mt706196.aspx#dis_sch) (CREATE TABLE (U-SQL): creazione di una tabella con Schema).
+Qualora non sia possibile trovare una chiave adeguata per la partizione e la distribuzione, si può usare la distribuzione round robin. La distribuzione round robin considera tutte le righe in modo uguale e le inserisce in modo casuale nei bucket corrispondenti. I dati vengono distribuiti uniformemente ma si perdono le informazioni sulla località, uno svantaggio che riduce anche le prestazioni del processo rispetto ad alcune operazioni. In aggiunta, se si sta eseguendo un'aggregazione per risolvere un problema di chiave differente, il problema dell'asimmetria dei dati non verrà risolto. Per altre informazioni sulla distribuzione round robin, vedere la sezione U-SQL Table Distributions (Distribuzioni di tabelle U-SQL) in [CREATE TABLE (U-SQL): Creating a Table with Schema](https://msdn.microsoft.com/library/mt706196.aspx#dis_sch) (CREATE TABLE (U-SQL): creazione di una tabella con Schema).
 
 ## <a name="solution-2-improve-the-query-plan"></a>Soluzione 2. Migliorare il piano di query
 
 ### <a name="option-1-use-the-create-statistics-statement"></a>Opzione 1. Usare l'istruzione CREATE STATISTICS
 
-U-SQL fornisce l'istruzione CREATE STATISTICS nelle tabelle. Questa istruzione offre al Query Optimizer altre informazioni relative alle caratteristiche dei dati, ad esempio la distribuzione dei valori, archiviati in una tabella. Per la maggior parte delle query, il Query Optimizer genera già le statistiche necessarie per un piano di query di elevata qualità. In alcuni casi, potrebbe essere necessario migliorare le prestazioni delle query creando statistiche aggiuntive con CREATE STATISTICS o modificando la struttura delle query. Per altre informazioni, vedere la pagina [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/en-us/library/azure/mt771898.aspx) (CREATE STATISTICS (U-SQL)).
+U-SQL fornisce l'istruzione CREATE STATISTICS nelle tabelle. Questa istruzione offre al Query Optimizer altre informazioni relative alle caratteristiche dei dati, ad esempio la distribuzione dei valori, archiviati in una tabella. Per la maggior parte delle query, il Query Optimizer genera già le statistiche necessarie per un piano di query di elevata qualità. In alcuni casi, potrebbe essere necessario migliorare le prestazioni delle query creando statistiche aggiuntive con CREATE STATISTICS o modificando la struttura delle query. Per altre informazioni, vedere la pagina [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/library/azure/mt771898.aspx) (CREATE STATISTICS (U-SQL)).
 
 Esempio di codice:
 

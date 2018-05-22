@@ -1,6 +1,6 @@
 ---
 title: Informazioni sul linguaggio di query dell'hub IoT di Azure | Documentazione Microsoft
-description: "Guida per sviluppatori: descrizione del linguaggio di query dell'hub IoT simile a SQL usato per recuperare informazioni su dispositivi gemelli e processi dall'hub IoT."
+description: "Guida per sviluppatori: descrizione del linguaggio di query dell'hub IoT simile a SQL usato per recuperare informazioni su dispositivi/moduli gemelli e processi dall'hub IoT."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: ef0d135a744cd37d888496073c7959ddc815ec91
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 27ddc41c463c00a061a396098f0ccfaa6cec80a1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing di messaggi
+# <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguaggio di query dell'hub IoT per dispositivi e moduli gemelli, processi e routing di messaggi
 
 L'hub IoT offre un linguaggio simile a SQL avanzato per recuperare informazioni su [dispositivi gemelli][lnk-twins], [processi][lnk-jobs] e [routing di messaggi][lnk-devguide-messaging-routes]. Questo articolo contiene:
 
@@ -29,9 +29,9 @@ L'hub IoT offre un linguaggio simile a SQL avanzato per recuperare informazioni 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="device-twin-queries"></a>Query del dispositivo gemello
-I [dispositivi gemelli][lnk-twins] possono contenere oggetti JSON arbitrari come tag e proprietà. L'hub IoT consente di effettuare una query dei dispositivi gemelli come singolo documento JSON contenente tutte le informazioni sui dispositivi gemelli.
-Si supponga, ad esempio, che i dispositivi gemelli dell'hub IoT abbiano la struttura seguente:
+## <a name="device-and-module-twin-queries"></a>Query su dispositivi e moduli gemelli
+I [dispositivi gemelli][lnk-twins] possono contenere oggetti JSON arbitrari come tag e proprietà. L'hub IoT consente di effettuare una query sui dispositivi e i moduli gemelli come singolo documento JSON contenente tutte le informazioni sui dispositivi e i moduli gemelli.
+Si supponga, ad esempio, che i dispositivi gemelli dell'hub IoT abbiano la struttura seguente (i moduli gemelli sarebbero simili, avrebbero solo un moduleId aggiuntivo):
 
 ```json
 {
@@ -82,6 +82,8 @@ Si supponga, ad esempio, che i dispositivi gemelli dell'hub IoT abbiano la strut
     }
 }
 ```
+
+### <a name="device-twin-queries"></a>Query del dispositivo gemello
 
 L'hub IoT espone i dispositivi gemelli come raccolta di documenti denominata **devices**.
 Quindi la query seguente recupera l'intero set di dispositivi:
@@ -158,6 +160,26 @@ Le query di proiezione consentono agli sviluppatori di restituire solo le propri
 
 ```sql
 SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+```
+
+### <a name="module-twin-queries"></a>Query sui moduli gemelli
+
+Le query sui moduli gemelli sono simili alle query sui dispositivi gemelli, ma usano raccolte/spazi dei nomi differenti, ad esempio invece di "from devices" è possibile eseguire questa query
+
+```sql
+SELECT * FROM devices.modules
+```
+
+Il join tra i dispositivi e le raccolte devices.modules non è consentito. Se si vogliono eseguire query sui moduli gemelli nei dispositivi, usare i tag. Questa query restituirà tutti i moduli gemelli presenti in tutti i dispositivi con lo stato di analisi:
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning'
+```
+
+Questa query restituirà tutti i moduli gemelli con lo stato di analisi, ma solo nel subset di dispositivi specificato.
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>Esempio in C#

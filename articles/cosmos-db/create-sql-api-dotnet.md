@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 7b1579b84f3ee3c24c087c481fab7eb702f20afc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+clicktale: true
+ms.openlocfilehash: a9f33cb87149575af4549a6e4da793852b7d18ba
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Guida introduttiva: Creare un'app Web .NET con Azure Cosmos DB usando l'API SQL e il portale di Azure
 
@@ -101,7 +102,6 @@ Tutti i frammenti di codice seguenti sono tratti dal file DocumentDBRepository.c
     ```csharp
     await client.CreateDocumentCollectionAsync(
         UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection { Id = CollectionId },
         new DocumentCollection
             {
                Id = CollectionId

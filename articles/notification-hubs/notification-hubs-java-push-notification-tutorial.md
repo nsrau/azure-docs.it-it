@@ -2,28 +2,28 @@
 title: Come usare Hub di notifica con Java
 description: Informazioni su come usare Hub di notifica di Azure da un back-end Java.
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 4c3f966d-0158-4a48-b949-9fa3666cb7e4
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: java
 ms.devlang: java
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 41f978750ddef9f7e878c65b0017e909720154aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 88e3ab3cc03cc1e760672120bc5c484af1ba4722
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Come usare Hub di notifica da Java
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Questo argomento descrive le funzionalità principali del nuovo ufficiale SDK per Java di Hub di notifica di Azure, completamente supportato. Si tratta di un progetto open source ed è possibile visualizzare il codice SDK completo nell'articolo relativo all' [SDK per Java]. 
+Questo argomento descrive le funzionalità principali del nuovo ufficiale SDK per Java di Hub di notifica di Azure, completamente supportato. Questo è un progetto open source ed è possibile visualizzare il codice SDK completo nell'articolo relativo all'[SDK per Java]. 
 
 In generale, è possibile accedere a tutte le funzionalità di Hub di notifica da un back-end Java/PHP/Python/Ruby tramite l'interfaccia REST di Hub di notifica, come descritto nell'argomento [API REST degli hub di notifica](http://msdn.microsoft.com/library/dn223264.aspx)di MSDN. L'SDK per Java fornisce un semplice wrapper per le interfacce REST in Java. 
 
@@ -102,7 +102,7 @@ Analogamente, è possibile creare registrazioni per Android (GCM), Windows Phone
     reg.getHeaders().put("X-WNS-Type", "wns/toast");
     hub.createRegistration(reg);
 
-**Creare registrazioni usando il modello create registrationid + upsert**
+**Creare registrazioni usando il modello create registration ID + upsert**
 
 Rimuove i duplicati causati dalle risposte perse se gli ID di registrazione sono stati archiviati nel dispositivo:
 
@@ -122,23 +122,27 @@ Rimuove i duplicati causati dalle risposte perse se gli ID di registrazione sono
 
 * **Ottenere una singola registrazione:**
   
-    hub.getRegistration(regid);
+        hub.getRegistration(regid);
+
 * **Ottenere tutte le registrazioni nell'hub:**
   
-    hub.getRegistrations();
+        hub.getRegistrations();
+
 * **Ottenere registrazioni con tag:**
   
-    hub.getRegistrationsByTag("myTag");
+        hub.getRegistrationsByTag("myTag");
+
 * **Ottenere registrazioni per canale:**
   
-    hub.getRegistrationsByChannel("devicetoken");
+        hub.getRegistrationsByChannel("devicetoken");
+
 
 Tutte le query di raccolta supportano i token $top e di continuazione.
 
 ### <a name="installation-api-usage"></a>Uso dell'API di installazione
-L'API di installazione rappresenta un meccanismo alternativo per la gestione delle registrazioni. Il mantenimento di più registrazioni non è semplice e può facilmente essere eseguito in maniera errata o inefficace, pertanto ora è possibile usare un SINGOLO oggetto di installazione. L'installazione contiene tutti gli elementi necessari: il canale push (token del dispositivo), tag, modelli, riquadri secondari (per WNS e APN). Non è più necessario chiamare il servizio per ottenere l'Id. È sufficiente generare un GUID o qualsiasi altro identificatore, mantenerlo nel dispositivo e inviarlo al back-end con il canale push (token del dispositivo). Nel back-end, effettuare una singola chiamata: CreateOrUpdateInstallation, del tutto idempotente, per cui se necessario è possibile ritentare.
+L'API di installazione rappresenta un meccanismo alternativo per la gestione delle registrazioni. Il mantenimento di più registrazioni non è semplice e può facilmente essere eseguito in maniera errata o inefficace, pertanto ora è possibile usare un SINGOLO oggetto di installazione. L'installazione contiene tutti gli elementi necessari: il canale push (token del dispositivo), tag, modelli, riquadri secondari (per WNS e APN). Non è più necessario chiamare il servizio per ottenere l'ID. È sufficiente generare un GUID o qualsiasi altro identificatore, mantenerlo nel dispositivo e inviarlo al back-end con il canale push (token del dispositivo). Nel back-end effettuare una singola chiamata: CreateOrUpdateInstallation, del tutto idempotente, per cui se necessario è possibile ritentare.
 
-Un esempio per Amazon Kindle Fire è simile al seguente:
+Un esempio per Amazon Kindle Fire:
 
     Installation installation = new Installation("installation-id", NotificationPlatform.Adm, "adm-push-channel");
     hub.createOrUpdateInstallation(installation);
@@ -150,7 +154,7 @@ Per aggiornarlo:
     installation.addTemplate("template2", new InstallationTemplate("{\"data\":{\"key2\":\"$(value2)\"}}","tag-for-template2"));
     hub.createOrUpdateInstallation(installation);
 
-Per scenari avanzati è possibile usare la funzionalità di aggiornamento parziale, che consente di modificare solo determinate proprietà dell'oggetto di installazione. L'aggiornamento parziale è essenzialmente un subset di operazioni Patch JSON che è possibile eseguire in un oggetto di installazione.
+Per scenari avanzati, usare la funzionalità di aggiornamento parziale che consente di modificare solo determinate proprietà dell'oggetto di installazione. L'aggiornamento parziale è un subset di operazioni Patch JSON che è possibile eseguire in un oggetto di installazione.
 
     PartialUpdateOperation addChannel = new PartialUpdateOperation(UpdateOperationType.Add, "/pushChannel", "adm-push-channel2");
     PartialUpdateOperation addTag = new PartialUpdateOperation(UpdateOperationType.Add, "/tags", "bar");
@@ -161,9 +165,9 @@ Eliminare l'installazione:
 
     hub.deleteInstallation(installation.getInstallationId());
 
-Le operazioni CreateOrUpdate, Patch e Delete saranno coerenti con l'operazione Get. L'operazione richiesta passa alla coda di sistema durante la chiamata e verrà eseguita in background. Si noti che l'operazione Get non è progettata per lo scenario di runtime principale, ma solo per il debug e la risoluzione dei problemi ed è strettamente limitata dal servizio.
+Le operazioni CreateOrUpdate, Patch e Delete saranno coerenti con l'operazione Get. L'operazione richiesta passa alla coda di sistema durante la chiamata e viene eseguita in background. L'operazione Get non è progettata per lo scenario di runtime principale, ma solo per il debug e la risoluzione dei problemi ed è strettamente limitata dal servizio.
 
-Il flusso di invio per le installazioni è identico a quello delle registrazioni. È stata introdotta un'opzione per indirizzare la notifica all'installazione specifica: per farlo, usare il tag "InstallationId: {desired-id}". Nel caso riportato sopra l'aspetto dovrebbe essere simile al seguente:
+Il flusso di invio per le installazioni è identico a quello delle registrazioni. Per indirizzare la notifica all'installazione specifica: per farlo, usare il tag "InstallationId: {desired-id}". In questo caso, il codice è:
 
     Notification n = Notification.createWindowsNotification("WNS body");
     hub.sendNotification(n, "InstallationId:{installation-id}");
@@ -186,7 +190,7 @@ Si tratta di un invio normale ma con un parametro aggiuntivo, scheduledTime, che
     hub.scheduleNotification(n, c.getTime());
 
 ### <a name="importexport-available-for-standard-tier"></a>Importazione/esportazione (disponibile per il livello STANDARD)
-Talvolta è necessario eseguire un'operazione di massa nelle registrazioni. In genere si tratta dell'integrazione con un altro sistema o di una correzione di grandi dimensioni, ad esempio per l'aggiornamento di tag. Se si ha a che fare con migliaia di registrazioni, non è consigliabile usare il flusso Get/Update. La soluzione appropriata per tale scenario è la funzionalità di importazione/esportazione. Essenzialmente è necessario fornire un accesso a un contenitore BLOB dell'account di archiviazione come origine dei dati in ingresso e come percorso per l'output.
+Talvolta è necessario eseguire un'operazione di massa nelle registrazioni. In genere si tratta dell'integrazione con un altro sistema o di una correzione di grandi dimensioni, ad esempio per l'aggiornamento di tag. Se sono coinvolte migliaia di registrazioni, non è consigliabile usare il flusso Get/Update. La soluzione appropriata per tale scenario è la funzionalità di importazione/esportazione. Essenzialmente è necessario fornire un accesso a un contenitore BLOB dell'account di archiviazione come origine dei dati in ingresso e come percorso per l'output.
 
 **Inviare il processo di esportazione:**
 
@@ -217,7 +221,7 @@ Talvolta è necessario eseguire un'operazione di massa nelle registrazioni. In g
 
     List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**URI con firma SAS** : l'URL di un file BLOB o di un contenitore BLOB con un insieme di parametri come le autorizzazioni e l'ora di scadenza e con la firma di tutti questi elementi effettuata usando la chiave della firma di accesso condiviso dell'account. L'SDK per Java di Archiviazione di Azure dispone di funzionalità avanzate, compresa la creazione di tale tipo di URI. In alternativa è possibile esaminare la classe di test ImportExportE2E (dal percorso Github) che include un'implementazione molto semplice e compatta dell'algoritmo di firma.
+**URI con firma SAS** : l'URL di un file BLOB o di un contenitore BLOB con un insieme di parametri come le autorizzazioni e l'ora di scadenza e con la firma di tutti questi elementi effettuata usando la chiave della firma di accesso condiviso dell'account. L'SDK per Java di Archiviazione di Azure dispone di funzionalità avanzate, compresa la creazione di tale tipo di URI. In alternativa è possibile esaminare la classe di test ImportExportE2E (dal percorso Github) che include un'implementazione semplice e compatta dell'algoritmo di firma.
 
 ### <a name="send-notifications"></a>Inviare notifiche
 L'oggetto notifica è semplicemente un corpo con intestazioni ed esistono alcuni metodi di utilità che consentono la creazione di notifiche modello e notifiche native.

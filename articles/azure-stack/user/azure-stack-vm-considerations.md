@@ -2,29 +2,29 @@
 title: Le differenze e le considerazioni per le macchine virtuali nello Stack di Azure | Documenti Microsoft
 description: Informazioni sulle considerazioni e le differenze quando si lavora con le macchine virtuali nello Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 05/10/2018
 ms.author: brenduns
-ms.openlocfilehash: 50c0f293ac669ade4e45a5f45b0adf9a7c4b6c36
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 83a0b8ff040425ac30cff96936f2f639fd1b5643
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considerazioni per le macchine virtuali in Azure Stack
+# <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considerazioni sull'utilizzo di macchine virtuali nello Stack di Azure
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Macchine virtuali sono un su richiesta, le risorse di elaborazione scalabili offerti dallo Stack di Azure. Quando si usano macchine virtuali, è necessario comprendere che non esistono differenze tra le funzionalità disponibili in Azure e Azure Stack. In questo articolo viene fornita una panoramica delle considerazioni univoche per le macchine virtuali e delle relative funzionalità nello Stack di Azure. Per ulteriori informazioni sulle differenze generali tra Stack di Azure e Azure, vedere il [considerazioni chiave](azure-stack-considerations.md) articolo.
+Macchine virtuali di Azure Stack fornire risorse di elaborazione su richiesta e scalabili. Prima di distribuire le macchine virtuali (VM), è necessario comprendere le differenze tra le funzionalità di macchina virtuale disponibili nello Stack di Azure e Microsoft Azure. In questo articolo vengono descritte queste differenze e identifica le considerazioni chiave per la pianificazione della distribuzione delle macchine virtuali. Per ulteriori informazioni sulle differenze generali tra Stack di Azure e Azure, vedere il [considerazioni chiave](azure-stack-considerations.md) articolo.
 
 ## <a name="cheat-sheet-virtual-machine-differences"></a>Schede di riferimento rapido: macchina virtuale differenze
 
@@ -41,10 +41,12 @@ Macchine virtuali sono un su richiesta, le risorse di elaborazione scalabili off
 |set di scalabilità di macchine virtuali|Scalabilità automatica è supportata|Scalabilità automatica non è supportato.<br>Aggiungere più istanze di una scala impostata utilizzando il portale, i modelli di gestione risorse o PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Dimensioni delle macchine virtuali
-Azure impone limiti delle risorse in diversi modi per evitare l'utilizzo eccessivo delle risorse (server locali e a livello di servizio). Senza inserire alcuni limiti in un consumo di tenant di risorsa, l'esperienza di tenant può risultare compromesse quando un vicino fastidioso overconsumes risorse. 
-- Rete in uscita dalla macchina virtuale, siano estremità della larghezza di banda in uso. Estremità nello Stack di Azure corrispondere i delimitatori in Azure.  
-- Per le risorse di archiviazione, Stack di Azure implementa i limiti di IOPs di archiviazione per evitare l'uso eccessivo di base delle risorse dai tenant per l'accesso all'archiviazione. 
-- Per le macchine virtuali con più dischi dati collegati, la velocità effettiva massima di ogni disco dati individuali è 500 operazioni di IOPS per HHDs e 2300 IOPS per unità SSD.
+
+Stack di Azure impone i limiti delle risorse per evitare di consumo delle risorse per server locale e a livello di servizio. Questi limiti migliorano l'esperienza di tenant, riducendo l'impatto dell'utilizzo delle risorse da altri tenant.
+
+- Rete in uscita dalla macchina virtuale, siano estremità della larghezza di banda in uso. Estremità nello Stack di Azure sono le stesse i delimitatori in Azure.
+- Per le risorse di archiviazione, Stack di Azure implementa i limiti di IOPS di archiviazione per evitare base consumo eccessivo di risorse da parte dei tenant per l'accesso all'archiviazione.
+- Per le macchine virtuali con più dischi dati collegati, la velocità effettiva massima di ogni disco dati è 500 operazioni di IOPS per HHDs e 2300 IOPS per unità SSD.
 
 Nella tabella seguente sono elencate le macchine virtuali che sono supportate nello Stack di Azure con la relativa configurazione:
 
@@ -61,11 +63,11 @@ Nella tabella seguente sono elencate le macchine virtuali che sono supportate ne
 |Ottimizzate per la memoria|Serie Dv2     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
 |Ottimizzate per la memoria|DSv2-series-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
-Dimensioni delle macchine virtuali e le relative quantità di risorse associati sono coerenti tra Stack di Azure e Azure. Ad esempio, questa coerenza include la quantità di memoria, numero di core e la dimensione o numero di dischi dati che possono essere creati. Prestazioni delle stesse dimensioni di macchina virtuale nello Stack di Azure dipendono tuttavia le caratteristiche di un particolare ambiente dello Stack di Azure sottostante.
+Dimensioni delle macchine virtuali e le relative quantità di risorse associati sono coerenti tra Stack di Azure e Azure. Ciò include la quantità di memoria, il numero di core e le dimensioni o un numero di dischi dati che possono essere creati. Prestazioni delle macchine virtuali con la stessa dimensione dipendono tuttavia le caratteristiche di un particolare ambiente dello Stack di Azure sottostante.
 
 ## <a name="virtual-machine-extensions"></a>Estensioni macchina virtuale
 
- Lo Stack di Azure include un piccolo set di estensioni. Gli aggiornamenti ed estensioni aggiuntive e sono disponibile tramite diffusione Marketplace.
+ Stack di Azure include un piccolo set di estensioni. Gli aggiornamenti ed estensioni aggiuntive sono disponibili tramite diffusione Marketplace.
 
 Utilizzare lo script di PowerShell seguente per ottenere l'elenco di estensioni di macchine virtuali che sono disponibili nell'ambiente dello Stack di Azure:
 
@@ -92,7 +94,17 @@ Get-AzureRmResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
+
 L'elenco dei tipi di risorse supportati e le versioni dell'API può variare se l'operatore cloud Aggiorna ambiente dello Stack di Azure a una versione più recente.
+
+## <a name="windows-activation"></a>Attivazione di Windows
+
+In base ai diritti di utilizzo del prodotto e condizioni di licenza Microsoft, è necessario utilizzare prodotti Windows. Usa Azure Stack [attivazione automatica della macchina virtuale](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (l'attivazione automatica della) per attivare le macchine virtuali di Windows Server (VM).
+
+- Host di Stack Azure attiva Windows con le chiavi di attivazione automatica per Windows Server 2016. Tutte le macchine virtuali che eseguono Windows Server 2012 o versioni successive vengono attivate automaticamente.
+- Le macchine virtuali che esecuzione Windows Server 2008 R2 non vengono attivati automaticamente e deve essere attivato utilizzando [attivazione MAK](https://technet.microsoft.com/library/ff793438.aspx).
+
+Microsoft Azure utilizza l'attivazione di gestione delle CHIAVI per attivare le macchine virtuali di Windows. Se si sposta una macchina virtuale dallo Stack di Azure in Azure e di reclami attivare problemi, vedere [problemi di attivazione di macchina virtuale Windows Azure di risolvere i problemi](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Informazioni aggiuntive sono reperibile nel [gli errori di attivazione di risoluzione dei problemi di Windows nelle macchine virtuali di Azure](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) post di blog del Team di supporto di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

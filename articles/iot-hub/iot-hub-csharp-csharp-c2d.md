@@ -1,5 +1,5 @@
 ---
-title: Messaggi da cloud a dispositivo con l'hub IoT di Azure (.NET) | Documentazione Microsoft
+title: Messaggi da cloud a dispositivo con l'hub IoT di Azure (.NET) | Microsoft Docs
 description: Come inviare messaggi da cloud a dispositivo a un dispositivo da un hub IoT di Azure usando gli SDK di Azure IoT per .NET. Si modifica un'app per dispositivi per ricevere i messaggi diretti dal cloud al dispositivo e si modifica un'app back-end per inviare i messaggi diretti dal cloud al dispositivo.
 services: iot-hub
 documentationcenter: .net
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: f3110e81a7229f8f279609a64949c7f0ce78d338
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b867976c637cdd4dd9b696382103c63f1af2e8b3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Inviare messaggi dal cloud al dispositivo con Hub IoT (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -176,7 +176,7 @@ In questa sezione viene modificata l'app **SendCloudToDevice** per richiedere fe
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione è stato descritto come inviare e ricevere messaggi da cloud a dispositivo. 
 
-Per avere degli esempi di soluzioni complete che utilizzano l'hub IoT, vedere la [Azure IoT Suite].
+Per avere degli esempi di soluzioni complete che usano l'hub IoT, vedere l'[acceleratore di soluzioni di monitoraggio remoto di Azure IoT].
 
 Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per sviluppatori dell'hub IoT].
 
@@ -195,5 +195,5 @@ Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [
 [Guida per sviluppatori dell'hub IoT]: iot-hub-devguide.md
 [Introduzione all'hub IoT di Azure]: iot-hub-csharp-csharp-getstarted.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[Azure IoT Suite]: https://docs.microsoft.com/azure/iot-suite/
+[acceleratore di soluzioni di monitoraggio remoto di Azure IoT]: https://docs.microsoft.com/azure/iot-suite/
 [SDK del dispositivo IoT Azure]: iot-hub-devguide-sdks.md

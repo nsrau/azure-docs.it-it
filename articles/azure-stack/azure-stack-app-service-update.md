@@ -2,30 +2,30 @@
 title: Aggiornamento di servizio App di Azure nello Stack di Azure | Documenti Microsoft
 description: Linee guida dettagliate per l'aggiornamento di servizio App di Azure nello Stack di Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 151456bbb7f9331730e640e4bece3872c3c92f8d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c822f25e25953b8709f481e51d6a63e6a912a60a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Aggiornamento di servizio App di Azure nello Stack di Azure
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Applicare l'aggiornamento 1802 al sistema Azure Stack integrato o distribuire il kit di sviluppo dello Stack di Azure più recente prima di distribuire il servizio App di Azure.
+> Applicare l'aggiornamento 1804 al sistema Azure Stack integrato o distribuire il kit di sviluppo dello Stack di Azure più recente prima di distribuire Azure App Service 1.2.
 >
 >
 
@@ -44,7 +44,7 @@ Durante questo processo, l'aggiornamento sarà:
 * Preparare tutti i pacchetti di aggiornamento e le nuove versioni di tutte le raccolte di SharePoint Server da distribuire
 * Caricare in memoria
 * Aggiornare tutti i ruoli del servizio App (controller, gestione, front-end, Publisher e Worker ruoli)
-* Aggiornare le definizioni degli insiemi di scala di servizio App
+* Aggiorna definizioni del set di scalabilità del servizio app
 * Aggiornare manifesto del Provider di risorse di servizio App
 
 > [!IMPORTANT]
@@ -54,7 +54,7 @@ Durante questo processo, l'aggiornamento sarà:
 
 Per aggiornare la distribuzione di servizio App nello Stack di Azure, seguire questi passaggi:
 
-1. Scaricare il [programma di installazione del servizio App](https://aka.ms/appsvcupdate1installer)
+1. Scaricare il [programma di installazione del servizio App](https://aka.ms/appsvcupdate2installer)
 
 2. Eseguire appservice.exe come amministratore
 
@@ -75,7 +75,7 @@ Per aggiornare la distribuzione di servizio App nello Stack di Azure, seguire qu
    1. Fare clic su di **Connetti** accanto al pulsante il **sottoscrizioni di Azure Stack** casella.
         * Se si usa Azure Active Directory (Azure AD), immettere l'account amministratore di Azure AD e la password forniti quando è stato distribuito Azure Stack. Fare clic su **Accedi**.
         * Se si utilizza Active Directory Federation Services (ADFS), specificare l'account amministratore. Ad esempio, *cloudadmin@azurestack.local*. Immettere la password e fare clic su **Accedi**.
-   2. Nel **sottoscrizioni di Azure Stack** , selezionare la sottoscrizione.
+   2. Nel **sottoscrizioni di Azure Stack** , quindi selezionare il **predefinito sottoscrizione Provider**.
    3. Nel **percorsi Stack Azure** , selezionare il percorso che corrisponde all'area in cui esegue la distribuzione. Ad esempio, selezionare **locale** se la distribuzione al Kit di sviluppo dello Stack di Azure.
    4. Se viene individuata una distribuzione di servizio App esistente, l'account di archiviazione e di gruppo di risorse verrà compilato e visualizzate in grigio.
    5. Fare clic su **Avanti** per esaminare il riepilogo dell'aggiornamento.

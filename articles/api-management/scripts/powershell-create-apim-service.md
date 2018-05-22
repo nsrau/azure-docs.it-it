@@ -3,7 +3,7 @@ title: 'Esempio di script di Azure PowerShell: creare un servizio Gestione API |
 description: 'Esempio di script di Azure PowerShell: creare un servizio Gestione API'
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -13,11 +13,11 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 6239df69cda26857d2842b8ba14f19d5dce78bc1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6e7e95d3b5f747e320e0fea0cea44194f9da1dd6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-an-api-management-service"></a>Creare un servizio Gestione API
 

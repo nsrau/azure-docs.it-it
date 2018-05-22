@@ -1,10 +1,10 @@
 ---
 ms.topic: include
-ms.openlocfilehash: b41b93db63038645257bc348d5a027fbc4f7fdc9
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 31b0d0018129ee65bb124c8008759cc6c7c8510e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate
 
@@ -13,6 +13,7 @@ Pagare in anticipo le macchine virtuali e risparmiare sui costi tramite le istan
 È possibile acquistare le istanze di macchina virtuale riservate nel [portale di Azure](https://portal.azure.com). Per acquistare un'istanza di macchine virtuali riservata:
 -   È necessario disporre del ruolo di Proprietario per almeno una sottoscrizione aziendale o con pagamento in base al consumo.
 -   Per le sottoscrizioni aziendali gli acquisti di prenotazioni devono essere abilitati nel [portale EA](https://ea.azure.com).
+-   Per il programma Cloud Solution Provider (CSP), solo gli agenti di amministrazione o gli agenti di vendita possono acquistare le prenotazioni.
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Acquistare un'istanza di macchine virtuali riservata
 1. Accedere al [Portale di Azure](https://portal.azure.com).
@@ -50,3 +51,4 @@ Per altre informazioni sulle istanze di macchine virtuali riservate, vedere gli 
 - [Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Costi del software Windows non inclusi nelle istanze riservate](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+- [Istanze riservate nel programma Cloud Solution Provider (CSP) del Centro per i partner](https://docs.microsoft.com/partner-center/azure-reservations)

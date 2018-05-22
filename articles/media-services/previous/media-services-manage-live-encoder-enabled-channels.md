@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 05/08/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: f5bee7b85a423ba7a1b0b36b4b6910275551849c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c4d5533c443d27afa56471ce048efc5a375f6780
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/07/2018
 ## <a name="overview"></a>Panoramica
 In Servizi multimediali di Azure (AMS) un **canale** rappresenta una pipeline per l'elaborazione dei contenuti in streaming live. Un **canale** riceve i flussi di input live in uno dei due modi seguenti:
 
-* Un codificatore live locale invia un flusso a velocità in bit singola al canale abilitato per l'esecuzione della codifica live con Servizi multimediali in uno dei seguenti formati: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 frammentato). Il canale esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
+* Un codificatore live locale invia un flusso a bitrate singolo al canale abilitato per l'esecuzione della codifica live con Servizi multimediali in uno dei seguenti formati: RTMP o Smooth Streaming (MP4 frammentato). Il canale esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
 * Un codificatore live locale invia un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a bitrate multipli a un canale non abilitato per eseguire la codifica live con AMS. I flussi inseriti passano attraverso il **canale**senza altre elaborazioni. Questo metodo viene chiamato **pass-through**. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a bitrate multipli: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco ed Elemental. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek e codificatori Tricaster.  Un codificatore live può anche inviare un flusso a bitrate singolo a un canale non abilitato per la codifica live, ma questa operazione non è consigliata. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
   
   > [!NOTE]
@@ -79,7 +79,7 @@ A partire dal 25 gennaio 2016, Servizi multimediali ha distribuito un aggiorname
 La soglia per un periodo di mancato utilizzo nominalmente è 12 ore, ma è soggetta a modifiche.
 
 ## <a name="live-encoding-workflow"></a>Flusso di lavoro della codifica live
-Il diagramma seguente rappresenta un flusso di lavoro di streaming live in cui un canale riceve un flusso a velocità in bit singola in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS), quindi ne esegue la codifica in un flusso a più velocità in bit. 
+Il diagramma seguente rappresenta un flusso di lavoro di streaming live in cui un canale riceve un flusso a bitrate singolo in uno dei protocolli seguenti: RTMP o Smooth Streaming. Viene quindi eseguita la codifica de flusso in un flusso a bitrate multipli. 
 
 ![Flusso di lavoro live][live-overview]
 
@@ -91,7 +91,7 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 > 
 > 
 
-1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit **singola** in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS). 
+1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a bitrate **singolo** in uno dei protocolli seguenti: RTMP o Smooth Streaming. 
    
     Questa operazione può essere eseguita anche dopo la creazione del canale.
 2. Creare e avviare un canale. 
@@ -125,48 +125,8 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 ### <a id="Ingest_Protocols"></a>Protocollo di streaming di inserimento
 Se **Tipo di codificatore** è impostato su **Standard**, le opzioni valide sono le seguenti:
 
-* **RTP** (MPEG-TS): MPEG-2 Transport Stream su RTP.  
 * **RTMP**
 * **MP4 frammentato** (Smooth Streaming) a velocità in bit singola
-
-#### <a name="rtp-mpeg-ts---mpeg-2-transport-stream-over-rtp"></a>RTP (MPEG-TS): MPEG-2 Transport Stream su RTP.
-Caso di utilizzo tipico: 
-
-Per inviare un flusso, le emittenti professionali usano in genere codificatori live locali di fascia alta di fornitori come Elemental Technologies, Ericsson, Ateme, Imagine o Envivio. Usato spesso insieme a reti di reparti IT e private.
-
-Considerazioni:
-
-* È consigliabile usare l'input di un singolo flusso di trasporto del programma (SPTS). 
-* È tuttavia possibile immettere fino a otto flussi audio usando MPEG-2 TS su RTP. 
-* Il flusso video dovrà avere una velocità in bit media inferiore a 15 Mbps.
-* La velocità in bit media aggregata dei flussi video e audio dovrà essere inferiore a 1 Mbps.
-* Di seguito sono elencati i codec supportati:
-  
-  * MPEG-2/H.262 Video 
-    
-    * Main Profile (4:2:0)
-    * High Profile (4:2:0, 4:2:2)
-    * 422 Profile (4:2:0, 4:2:2)
-  * MPEG-4 AVC/H.264 Video  
-    
-    * Baseline, Main, High Profile (4:2:0 a 8 bit)
-    * High 10 Profile (4:2:0 a 10 bit)
-    * High 422 Profile (4:2:2 a 10 bit)
-  * MPEG-2 AAC-LC Audio 
-    
-    * Mono, Stereo, Surround (5.1, 7.1)
-    * Stile MPEG-2, pacchetto ADTS
-  * Dolby Digital (AC-3) Audio 
-    
-    * Mono, Stereo, Surround (5.1, 7.1)
-  * MPEG Audio (Layer II e III) 
-    
-    * Mono, Stereo
-* I codificatori di trasmissione consigliati includono:
-  
-  * Imagine Communications Selenio ENC 1
-  * Imagine Communications Selenio ENC 2
-  * Elemental Live
 
 #### <a id="single_bitrate_RTMP"></a>RTMP a velocità in bit singola
 Considerazioni:
@@ -232,36 +192,21 @@ Una volta che il canale inizia a inserire i dati, è possibile visualizzare in a
 Questa sezione descrive come è possibile modificare le impostazioni del codificatore live all'interno del canale, quando **Tipo di codifica** di un canale è impostato su **Standard**.
 
 > [!NOTE]
-> Quando si immettono più tracce di lingua e si esegue la codifica live con Azure, per l'input multilingua è supportato solo RTP. È tuttavia possibile definire fino a otto flussi audio usando MPEG-2 TS su RTP. Non è invece supportato l'inserimento di più tracce audio con RTMP o Smooth Streaming. Quando si esegue la codifica live con [codifiche live locali](media-services-live-streaming-with-onprem-encoders.md), questa limitazione non esiste perché qualsiasi informazione inviata ad AMS passa attraverso un canale senza ulteriori elaborazioni.
+> Il feed di contributi può contenere solo una singola traccia audio: l'inserimento di più tracce audio non è attualmente supportato. Quando si esegue la codifica live con [codifiche live locali](media-services-live-streaming-with-onprem-encoders.md), è possibile inviare un feed di contributi nel protocollo Smooth Streaming contenente più tracce audio.
 > 
 > 
 
 ### <a name="ad-marker-source"></a>Origine del marcatore di annunci
 È possibile specificare l'origine per i segnali dei marcatori di annunci. Il valore predefinito è **API**. Indica che il codificatore live all'interno del canale deve restare in attesa di un'**API Ad Marker** asincrona.
 
-L'altra opzione valida è **Scte35** (consentita solo se il protocollo di streaming di inserimento è impostato su RTP (MPEG-TS). Quando è specificato Scte35, il codificatore live analizza i segnali SCTE-35 dal flusso di input RTP (MPEG-TS).
-
 ### <a name="cea-708-closed-captions"></a>Sottotitoli codificati CEA-708
 Flag facoltativo che indica al codificatore live di ignorare i dati di tutti i sottotitoli codificati CEA 708 incorporati nel video in ingresso. Quando il flag è impostato su false (impostazione predefinita), il codificatore rileva e reinserisce i dati CEA 708 nei flussi video di output.
-
-### <a name="video-stream"></a>Flusso video
-facoltativo. Descrive il flusso video di input. Se questo campo non è specificato, viene usato il valore predefinito. Questa impostazione è consentita solo se il protocollo di streaming di input è impostato su RTP (MPEG-TS).
-
-#### <a name="index"></a>Indice
-Indice in base zero che specifica quale flusso video di input dovrà essere elaborato dal codificatore live all'interno del canale. Questa impostazione si applica solo se il protocollo di streaming di inserimento è RTP (MPEG-TS).
-
-Il valore predefinito è zero. È consigliabile effettuare l'invio tramite un singolo flusso di trasporto del programma (SPTS). Se il flusso di input contiene più programmi, il codificatore live analizza la tabella di mappa dei programmi (PMT, Program Map Table) nell'input, individua quindi gli input che presentano un nome del tipo di flusso MPEG-2 Video o H.264 e li dispone in base all'ordine specificato nella tabella di mappa dei programmi. L'indice in base zero viene quindi usato per selezionare la voce n in tale disposizione.
-
-### <a name="audio-stream"></a>Flusso audio
-facoltativo. Descrive i flussi audio di input. Se questo campo non è specificato, si applica il valore predefinito specificato. Questa impostazione è consentita solo se il protocollo di streaming di input è impostato su RTP (MPEG-TS).
 
 #### <a name="index"></a>Indice
 È consigliabile effettuare l'invio tramite un singolo flusso di trasporto del programma (SPTS). Se il flusso di input contiene più programmi, il codificatore live all'interno del canale analizza la tabella di mappa dei programmi (PMT, Program Map Table) nell'input, individua quindi gli input che presentano un nome del tipo di flusso MPEG-2 AAC ADTS, AC-3 System-A, AC-3 System-B, MPEG-2 Private PES, MPEG-1 Audio o MPEG-2 Audio e li dispone in base all'ordine specificato nella tabella di mappa dei programmi. L'indice in base zero viene quindi usato per selezionare la voce n in tale disposizione.
 
 #### <a name="language"></a>Linguaggio
 Identificatore lingua del flusso audio, conforme alla specifica ISO 639-2, ad esempio ITA. Se non è presente, il valore predefinito è UND (undefined).
-
-È possibile specificare un massimo di 8 set di flussi audio se l'input per il canale è MPEG-2 TS su RTP. Tuttavia, non possono essere presenti due voci con lo stesso valore di indice.
 
 ### <a id="preset"></a>Set di impostazioni del sistema
 Specifica il set di impostazioni che dovrà essere usato dal codificatore live all'interno del canale. Attualmente, l'unico valore consentito è **Default720p** (impostazione predefinita).
@@ -387,13 +332,11 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 * Il costo viene addebitato solo quando il canale è nello stato **In esecuzione** . Per altre informazioni, vedere [questa](media-services-manage-live-encoder-enabled-channels.md#states) sezione.
 * Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amslived@microsoft.com.
 * Verificare che lo stato dell'endpoint di streaming da cui si vuole trasmettere il contenuto sia **In esecuzione**.
-* Quando si immettono più tracce di lingua e si esegue la codifica live con Azure, per l'input multilingua è supportato solo RTP. È tuttavia possibile definire fino a otto flussi audio usando MPEG-2 TS su RTP. Non è invece supportato l'inserimento di più tracce audio con RTMP o Smooth Streaming. Quando si esegue la codifica live con [codifiche live locali](media-services-live-streaming-with-onprem-encoders.md), questa limitazione non esiste perché qualsiasi informazione inviata ad AMS passa attraverso un canale senza ulteriori elaborazioni.
 * Il set di impostazioni di codifica usa la nozione di "frequenza fotogrammi massima" di 30 fps. Pertanto, se l'input è 60 fps/59.97 i, i fotogrammi di input vengono eliminati/de-interlacciati a 30/29.97 fps. Se l'input è 50 fps/50 i, i fotogrammi di input vengono eliminati/de-interlacciati a 25 fps. Se l'input è 25 fps, l'output rimane di 25 fps.
 * Non dimenticare di INTERROMPERE I CANALI al termine dell'operazione per evitare il proseguimento della fatturazione.
 
 ## <a name="known-issues"></a>Problemi noti
 * I tempi di avvio del canale sono stati ridotti a una media di 2 minuti ma, in caso di aumento delle richieste, possono arrivare anche a oltre 20 minuti.
-* Alle emittenti professionali viene fornito il supporto RTP. Rivedere le note su RTP in [questo](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 * Le immagini dello slate devono essere conformi alle limitazioni descritte [qui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se si tenta di creare un canale con uno slate predefinito con una risoluzione superiore a 1920x1080, la richiesta genererà un errore.
 * Ancora una volta... per evitare il proseguimento della fatturazione.
 

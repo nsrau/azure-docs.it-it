@@ -1,11 +1,33 @@
-
-# <a name="call-the-microsoft-graph-api-from-an-android-app"></a>Chiamare l'API Microsoft Graph da un'app Android
+---
+title: File di inclusione
+description: File di inclusione
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: aa21168f1e19ccddc190379b30e1b612d96b56d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/28/2018
+---
+# <a name="sign-in-users-and-all-the-microsoft-graph-api-from-an-android-app"></a>Accesso utenti e intera API Microsoft Graph da un'app di Android
 
 Questa guida illustra come un'applicazione Android nativa può ottenere un token di accesso e chiamare l'API Microsoft Graph o altre API che richiedono token di accesso dall'endpoint di Azure Active Directory v2.
 
 Al termine della guida, l'applicazione potrà accettare accessi sia di account personali (ad esempio outlook.com, live.com e di altro tipo) sia di account aziendali e di istituti di istruzione di qualsiasi azienda od organizzazione che usa Azure Active Directory. L'applicazione chiamerà quindi un'API protetta dall'endpoint di Azure Active Directory v2.  
 
-## <a name="how-this-sample-works"></a>Come interpretare questo esempio
+## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funzionamento dell'app di esempio generata da questa guida
 ![Come interpretare questo esempio](media/active-directory-develop-guidedsetup-android-intro/android-intro.png)
 
 L'applicazione di esempio creata in questa guida è basata su uno scenario in cui un'applicazione Android viene usata per eseguire query su un'API Web che accetta token dall'endpoint di Azure Active Directory v2 (in questo caso l'API Microsoft Graph). Per questo scenario, l'applicazione aggiunge il token acquisito alle richieste HTTP tramite l'intestazione dell'autorizzazione. L'acquisizione e il rinnovo del token vengono gestiti automaticamente da Microsoft Authentication Library (MSAL).

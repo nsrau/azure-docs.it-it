@@ -4,7 +4,7 @@ description: Panoramica degli scenari comuni per l'uso di Zone private di DNS di
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jennoc
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: dns
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: fc6c871f89cd5f837eda741dfbadd64fd021bfbe
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: de543913d4f8264fa8e5b3bca0c510c99c479cae
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Scenari di Zone private di DNS di Azure
 Il servizio Zone private di DNS di Azure consente la risoluzione dei nomi all'interno di una rete virtuale e tra reti virtuali. In questo articolo vengono esaminati alcuni scenari comuni che è possibile attuare con questa funzionalità. 

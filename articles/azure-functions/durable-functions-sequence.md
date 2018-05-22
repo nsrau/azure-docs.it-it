@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0020f19e00f3365c4a0d80ebb67aeeedd7fe76df
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e53b38bf336816ca670fad3ab70a43e5cc8b3437
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Concatenamento di funzioni in Funzioni permanenti - Esempio di sequenza di Hello
 
@@ -35,9 +35,13 @@ Questo articolo descrive le funzioni seguenti nell'app di esempio:
 * `E1_HelloSequence`: funzione di orchestrazione che chiama `E1_SayHello` più volte in una sequenza. Archivia gli output delle chiamate `E1_SayHello` e registra i risultati.
 * `E1_SayHello`: funzione di attività che antepone una stringa con "Hello".
 
-Le sezioni seguenti illustrano la configurazione e il codice usati per gli script in C#. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
- 
-## <a name="functionjson-file"></a>File function.json
+Le sezioni seguenti illustrano la configurazione e il codice usati per gli script in C# e in JavaScript. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
+
+> [!NOTE]
+> L'estensione Funzioni permanenti è disponibile solo in JavaScript nel runtime di funzioni v2.
+
+## <a name="e1hellosequence"></a>E1_HelloSequence
+### <a name="functionjson-file"></a>File function.json
 
 Se si usa Visual Studio Code o il portale di Azure per lo sviluppo, questo è il contenuto del file *function.json* per la funzione di orchestrazione. La maggior parte dei file *function.json* dell'agente di orchestrazione sono quasi identici a questo.
 
@@ -48,7 +52,7 @@ Fondamentale è il tipo di associazione `orchestrationTrigger`. Tutte le funzion
 > [!WARNING]
 > Per rispettare la regola "no I/O" delle funzioni di orchestrazione, non usare associazioni di input o output quando si usa l'associazione di trigger `orchestrationTrigger`.  Quando sono necessarie altre associazioni di input o output, occorre invece usarle nel contesto delle funzioni `activityTrigger` già chiamate dall'agente di orchestrazione.
 
-## <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Script C# (Visual Studio Code e codice di esempio del portale di Azure) 
+### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Script C# (Visual Studio Code e codice di esempio del portale di Azure) 
 
 Il codice sorgente è il seguente:
 
@@ -57,6 +61,23 @@ Il codice sorgente è il seguente:
 Tutte le funzioni di orchestrazione C# devono avere un parametro di tipo `DurableOrchestrationContext` disponibile nell'assembly `Microsoft.Azure.WebJobs.Extensions.DurableTask`. Se si usa lo script C#, è possibile fare riferimento all'assembly usando la notazione `#r`. Questo contesto di ambiente consente di chiamare altre funzioni di *attività* e di passare i parametri di input usando il relativo metodo [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
 
 Il codice chiama `E1_SayHello` tre volte in sequenza con valori dei parametri diversi. Il valore restituito di ogni chiamata viene aggiunto all'elenco `outputs`, che viene restituito al termine della funzione.
+
+### <a name="javascript"></a>JavaScript
+
+Il codice sorgente è il seguente:
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
+
+Tutte le funzioni di orchestrazione JavaScript devono includere il modulo `durable-functions`. Si tratta di una libreria JavaScript che traduce le azioni della funzione di orchestrazione nel protocollo di esecuzione di Funzioni permanenti per lingue out-of-process. Esistono tre differenze significative tra una funzione di orchestrazione e altre funzioni JavaScript:
+
+1. La funzione è una [funzione generatore.](https://docs.microsoft.com/en-us/scripting/javascript/advanced/iterators-and-generators-javascript)
+2. Per la funzione viene eseguito il wrapping in una chiamata al modulo `durable-functions` (qui `df`).
+3. La funzione termina chiamando `return`, non `context.done`.
+
+L'oggetto `context` contiene un oggetto `df` che consente di chiamare altre funzioni di *attività* e di passare parametri di input tramite il metodo `callActivityAsync`. Il codice chiama `E1_SayHello` tre volte in sequenza con valori di parametro diversi, usando `yield` per indicare che l'esecuzione deve attendere la restituzione delle chiamate di funzioni di attività asincrone. Il valore restituito di ogni chiamata viene aggiunto all'elenco `outputs`, che viene restituito al termine della funzione.
+
+## <a name="e1sayhello"></a>E1_SayHello
+### <a name="functionjson-file"></a>File function.json
 
 Il file *function.json* per la funzione di attività `E1_SayHello` è simile a quello di `E1_HelloSequence` ad eccezione del fatto che usa un tipo di associazione `activityTrigger` anziché un tipo di associazione `orchestrationTrigger`.
 
@@ -67,9 +88,17 @@ Il file *function.json* per la funzione di attività `E1_SayHello` è simile a q
 
 L'implementazione di `E1_SayHello` è un'operazione di formattazione delle stringhe relativamente semplice.
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
 Questa funzione ha un parametro di tipo [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), usato per ottenere l'input passato dalla chiamata della funzione di orchestrazione a [`CallActivityAsync<T>`](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
+
+### <a name="javascript"></a>JavaScript
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
+
+A differenza di una funzione di orchestrazione di JavaScript, una funzione di attività JavaScript non ha bisogno di alcuna configurazione speciale. L'input passato al metodo tramite la funzione dell'agente di orchestrazione è presente nell'oggetto `context.bindings` sotto il nome del binding `activitytrigger`, in questo caso `context.bindings.name`. Il nome del binding può essere impostato come parametro della funzione esportata e vi si può accedere direttamente, come nel codice di esempio.
 
 ## <a name="run-the-sample"></a>Eseguire l'esempio
 

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: mihauss
-ms.openlocfilehash: 649838af1d4c753ac1d82a66c855ef313f14e85b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="soft-delete-for-azure-storage-blobs-preview"></a>Eliminazione temporanea per i BLOB di Archiviazione di Azure (anteprima)
 
@@ -292,7 +292,7 @@ Sì, l'eliminazione temporanea può essere configurata sia per gli account di ar
 
 **Se si elimina un intero account o un intero contenitore con l'eliminazione temporanea abilitata, tutti i BLOB associati verranno salvati?**
 
-No, se si elimina un intero account o un intero contenitore, tutti i BLOB associati verranno eliminati definitivamente. Per informazioni su come proteggere un account di archiviazione da eliminazioni accidentali, vedere l'articolo su Azure Resource Manager [Bloccare le risorse per impedire modifiche impreviste](/azure-resource-manager/resource-group-lock-resources.md).
+No, se si elimina un intero account o un intero contenitore, tutti i BLOB associati verranno eliminati definitivamente. Per informazioni su come proteggere un account di archiviazione da eliminazioni accidentali, vedere l'articolo su Azure Resource Manager [Bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/resource-group-lock-resources.md).
 
 **È possibile visualizzare le metriche relative alla capacità per i dati eliminati?**
 

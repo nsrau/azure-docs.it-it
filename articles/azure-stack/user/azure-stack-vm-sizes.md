@@ -2,30 +2,33 @@
 title: Le dimensioni di macchina virtuale supportate nello Stack di Azure | Documenti Microsoft
 description: Riferimento per le dimensioni di macchina virtuale supportate nello Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 05/11/2018
 ms.author: brenduns
-ms.openlocfilehash: fd352d6d073c5eff0ddf17588df022ffa3caef8c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: 1c22eb17ffcd070c1c5529033eeaa73dc7bd3859
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Dimensioni di macchina virtuale supportate nello Stack di Azure
 
-Questo articolo elenca le dimensioni di macchina virtuale (VM) che sono supportate dallo Stack di Azure. 
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
+Questo articolo elenca le dimensioni di macchina virtuale (VM) che sono disponibili nello Stack di Azure.
 
 ## <a name="general-purpose"></a>Scopo generico
+
+Dimensioni delle macchine Virtuali di utilizzo generico forniscono un rapporto CPU alla memoria con carico bilanciato. Vengono utilizzati per il testing e sviluppo, minimo ai server web traffico medie e piccole e medie dimensioni database.
 
 ### <a name="basic-a"></a>Basic A
 |Dimensione - Size\Name |vCPU     |Memoria | Dimensioni massime per il disco temporaneo | Velocità effettiva del disco max OS: (IOPS) | Velocità effettiva di archiviazione temporanea massima (IOPS) | Velocità effettiva del disco dati max (IOPS) | Schede di interfaccia di rete max |    
@@ -61,9 +64,9 @@ Questo articolo elenca le dimensioni di macchina virtuale (VM) che sono supporta
 ### <a name="ds-series"></a>Serie DS
 |Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva del disco del sistema operativo max (IOPS) | Velocità effettiva di archiviazione temporanea massima (IOPS) | I dischi dati max / velocità effettiva (IOPS) | Numero massimo di schede di interfaccia / previsto di larghezza di banda (Mbps) |
 |-----------------|----|----|-----|-----|------|-------------|---------|
-|**Standard_DS1** |1   |3,5 |7    |1000 |4000  |4 / 4x2300   |1 / 500  |
+|**Standard_DS1** |1   |3,5 |7    |1000 |4000  |4 / 4 x 2300   |1 / 500  |
 |**Standard_DS2** |2   |7   |14   |1000 |8000  |8 / 8x2300   |2 / 1000 |
-|**Standard_DS3** |4   |14  |28   |1000 |16000 |16 / 16x2300 |4 / 2000 |
+|**Standard_DS3** |4   |14  |28   |1000 |16000 |16 / 16 x 2300 |4 / 2000 |
 |**Standard_DS4** |8   |28  |56   |1000 |32000 |32 / 32x2300 |8 / 4000 |
 
 ### <a name="dv2-series"></a>Serie Dv2
@@ -78,14 +81,15 @@ Questo articolo elenca le dimensioni di macchina virtuale (VM) che sono supporta
 ### <a name="dsv2-series"></a>Serie DSv2
 |Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva del disco del sistema operativo max (IOPS) | Velocità effettiva di archiviazione temporanea massima (IOPS) | I dischi dati max / velocità effettiva (IOPS) | Numero massimo di schede di interfaccia / previsto di larghezza di banda (Mbps) |
 |--------------------|----|----|----|-----|------|-------------|---------|
-|**Standard_DS1_v2** |1   |3,5 |7   |1000 |4000  |4 / 4x2300   |1 / 750  |
+|**Standard_DS1_v2** |1   |3,5 |7   |1000 |4000  |4 / 4 x 2300   |1 / 750  |
 |**Standard_DS2_v2** |2   |7   |14  |1000 |8000  |8 / 8x2300   |2 / 1500 |
-|**Standard_DS3_v2** |4   |14  |28  |1000 |16000 |16 / 16x2300 |4 / 3000 |
+|**Standard_DS3_v2** |4   |14  |28  |1000 |16000 |16 / 16 x 2300 |4 / 3000 |
 |**Standard_DS4_v2** |8   |28  |56  |1000 |32000 |32 / 32x2300 |8 / 6000 |
-|**Standard_DS5_v2** |16  |56  |112 |1000 |64000 |64 / 64x2300 |8 / 10000 |
-
+|**Standard_DS5_v2** |16  |56  |112 |1000 |64000 |64 / 64 x 2300 |8 / 10000 |
 
 ## <a name="memory-optimized"></a>Ottimizzate per la memoria
+
+Memoria ottimizzati dimensioni delle macchine Virtuali forniscono un alto rapporto di memoria per CPU che è stato progettato per i server di database relazionali, cache medie-grandi dimensioni e analitica in memoria.
 
 ### <a name="mo-d"></a>Serie D
 |Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva del disco del sistema operativo max (IOPS) | Velocità effettiva di archiviazione temporanea massima (IOPS) | I dischi dati max / velocità effettiva (IOPS) | Numero massimo di schede di interfaccia / previsto di larghezza di banda (Mbps) |
@@ -99,9 +103,9 @@ Questo articolo elenca le dimensioni di macchina virtuale (VM) che sono supporta
 |Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva del disco del sistema operativo max (IOPS) | Velocità effettiva di archiviazione temporanea massima (IOPS) | I dischi dati max / velocità effettiva (IOPS) | Numero massimo di schede di interfaccia / previsto di larghezza di banda (Mbps) |
 |-------------------|---|----|----|--------|------|-------------|---------|
 |**Standard_DS11**  |2  |14  |28  |1000    |8000  |8 / 8x2300   |2 / 1000 |
-|**Standard_DS12**  |4  |28  |56  |1000    |12000 |16 / 16x2300 |4 / 2000 |
+|**Standard_DS12**  |4  |28  |56  |1000    |12000 |16 / 16 x 2300 |4 / 2000 |
 |**Standard_DS13**  |8  |56  |112 |1000    |32000 |32 / 32x2300 |8 / 4000 |
-|**Standard_DS14**  |16 |112 |224 |1000    |64000 |64 / 64x2300 |8 / 8000 |
+|**Standard_DS14**  |16 |112 |224 |1000    |64000 |64 / 64 x 2300 |8 / 8000 |
 
 ### <a name="mo-dv2"></a>Serie di Dv2
 |Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva del disco del sistema operativo max (IOPS) | Velocità effettiva di archiviazione temporanea massima (IOPS) | I dischi dati max / velocità effettiva (IOPS) | Numero massimo di schede di interfaccia / previsto di larghezza di banda (Mbps) |
@@ -116,10 +120,9 @@ Questo articolo elenca le dimensioni di macchina virtuale (VM) che sono supporta
 |Dimensione     |vCPU     |Memoria (GiB) | Archiviazione temporanea (GiB)  | Velocità effettiva del disco del sistema operativo max (IOPS) | Velocità effettiva di archiviazione temporanea massima (IOPS) | I dischi dati max / velocità effettiva (IOPS) | Numero massimo di schede di interfaccia / previsto di larghezza di banda (Mbps) |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
 |**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |8 / 8x2300    |2 / 1500 |
-|**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |16 / 16x2300  |4 / 3000 |
+|**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |16 / 16 x 2300  |4 / 3000 |
 |**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |32 / 32x2300  |8 / 6000 |
-|**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |64 / 64x2300  |8 / 10000 |
-
+|**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |64 / 64 x 2300  |8 / 10000 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

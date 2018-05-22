@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: dc6c8ef2953b7495c734ec8b16530cdd812ac792
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: cc15c92037e18800a6f919d0ca18acb20ed5e893
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Azure Data Center di Stack - identità
 È possibile distribuire dello Stack di Azure mediante Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. Prima di distribuire Azure Stack, è necessario effettuare la scelta. Distribuzione tramite ADFS viene detta anche la distribuzione di Azure Stack in modalità disconnessa.
@@ -289,6 +289,9 @@ Esistono molti scenari che richiedono l'uso di un nome principale servizio (SPN)
 - Provider di risorse nello Stack di Azure quando distribuito con AD FS
 - Diverse applicazioni
 - È necessario un account di accesso interattivo
+
+> [!Important]  
+> ADFS supporta solo le sessioni di accesso interattivo. Se è necessario un account di accesso non interattivo per uno scenario automatizzato, è necessario utilizzare un nome SPN.
 
 Per ulteriori informazioni sulla creazione di un nome SPN, vedere [creare l'entità servizio per AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 

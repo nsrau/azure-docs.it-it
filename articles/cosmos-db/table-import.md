@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: 7a8eaaaaa8bbfa8cf9397ce52dfa93d71b0df30c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b6e912d450e1a2fed98fab5b18ba835396257ac9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Importare dati da usare con l'API Tabelle di Azure Cosmos DB
 
@@ -29,6 +29,10 @@ Questa esercitazione illustra le attività seguenti:
 > * Importazione dei dati con l'Utilità di migrazione dati
 > * Importazione dei dati con AzCopy
 > * Migrazione dall'API Table (anteprima) all'API Table 
+
+## <a name="prerequisites"></a>prerequisiti
+
+* Aumentare la velocità effettiva: la durata della migrazione dei dati dipende dalla quantità di velocità effettiva che si configura per una raccolta o un set di raccolte. Assicurarsi di aumentare la velocità effettiva per le migrazioni dei dati di dimensioni più grandi. Dopo avere completato la migrazione, diminuire la velocità effettiva per ridurre i costi. Per altre informazioni sull'aumento della velocità effettiva nel portale di Azure, vedere Livelli di prestazioni e piani tariffari in Azure Cosmos DB.
 
 ## <a name="data-migration-tool"></a>Utilità di migrazione dati
 

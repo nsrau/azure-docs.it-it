@@ -3,16 +3,17 @@ title: Scollegare l'account di Automazione di Azure da Log Analytics
 description: Questo articolo offre una panoramica su come scollegare l'account di Automazione di Azure da un'area di lavoro di Log Analytics.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/04/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4928f1b92e84fc2b960c1f41e7531de9e346dfa2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f51103045f6a0cac1b1ed4f32200eaf7bef9cf24
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Come scollegare l'account di automazione da un'area di lavoro di Log Analytics
 

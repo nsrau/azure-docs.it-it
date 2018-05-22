@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/16/2018
+ms.date: 05/02/2018
 ms.author: raynew
-ms.openlocfilehash: 3b138546ffb1cb6d5bec0aaf2bb11510ab399933
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4d6d3b776995233f3729a76788504678dc8979d7
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quali carichi di lavoro è possibile proteggere con Azure Site Recovery?
 
@@ -42,7 +42,7 @@ Site Recovery contribuisce alla protezione e al ripristino a livello di applicaz
 * Replica quasi sincrona con RPO di 30 secondi per soddisfare le esigenze delle app aziendali più critiche.
 * Snapshot coerenti con l'app per le applicazioni a uno o più livelli.
 * Integrazione con SQL Server AlwaysOn e interazione con altre tecnologie di replica a livello di applicazione, tra cui la replica di AD, SQL AlwaysOn, i gruppi di disponibilità dei database di Exchange e Oracle Data Guard.
-* Piani di ripristino flessibili che consentono di ripristinare un intero stack di applicazioni con un singolo clic e includono script esterni o azioni manuali.
+* Piani di ripristino flessibili che consentono di ripristinare un intero stack di applicazioni con un solo clic e includono script esterni o azioni manuali.
 * Gestione di rete avanzata in Site Recovery e in Azure per semplificare i requisiti di rete per le app, incluse la prenotazione di indirizzi IP, la configurazione del servizio di bilanciamento del carico o l'integrazione di Gestione traffico di Azure per transizioni di rete con RTO ridotto.
 * Una libreria di automazione avanzata che fornisce script pronti per la produzione e specifici per ogni applicazione, che possono essere scaricati e integrati nei piani di ripristino.
 

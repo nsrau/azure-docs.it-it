@@ -1,6 +1,6 @@
 ---
-title: Creare uno stack MEAN in una VM Linux in Azure | Microsoft Docs
-description: Informazioni su come creare uno stack MongoDB, Express, AngularJS e Node.js (MEAN) in una VM Linux in Azure.
+title: 'Esercitazione: Creare uno stack MEAN in una macchina virtuale Linux in Azure | Microsoft Docs'
+description: In questa esercitazione viene descritto come creare uno stack MongoDB, Express, AngularJS e Node.js (MEAN) in una macchina virtuale Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2bd89bf25f619caef07ae099232add55dbe0cda7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a9adcd03c5f75b4065273c4ccf657b01bc3d96d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Creare uno stack MongoDB, Express, AngularJS e Node.js (MEAN) in una VM Linux in Azure
+# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Esercitazione: Creare uno stack MongoDB, Express, AngularJS e Node.js (MEAN) in una macchina virtuale Linux in Azure
 
-Questa esercitazione illustra come implementare uno stack MongoDB, Express, AngularJS e Node.js (MEAN) in una VM Linux in Azure. Lo stack MEAN creato consente di aggiungere, eliminare ed elencare libri in un database. Si apprenderà come:
+Questa esercitazione illustra come implementare uno stack MongoDB, Express, AngularJS e Node.js (MEAN) in una macchina virtuale Linux in Azure. Lo stack MEAN creato consente di aggiungere, eliminare ed elencare libri in un database. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare una macchina virtuale Linux
@@ -36,7 +36,7 @@ Questa esercitazione illustra come implementare uno stack MongoDB, Express, Angu
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, in questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Creare una macchina virtuale Linux
@@ -323,7 +323,7 @@ sudo apt-get install -y nodejs
     nodejs server.js
     ```
 
-2. Aprire un Web browser all'indirizzo registrato per la VM. Ad esempio: *http://13.72.77.9:3300*. Verrà visualizzata una pagina simile alla seguente:
+2. Aprire un Web browser all'indirizzo registrato per la VM. Ad esempio, *http://13.72.77.9:3300*. Verrà visualizzata una pagina simile alla seguente:
 
     ![Record del libro](media/tutorial-mean/meanstack-init.png)
 

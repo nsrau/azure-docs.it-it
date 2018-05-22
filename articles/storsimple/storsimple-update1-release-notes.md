@@ -1,11 +1,11 @@
 ---
 title: Note sulla versione dell'aggiornamento 1.2 di StorSimple serie 8000 | Documentazione Microsoft
-description: "Vengono descritte le nuove funzionalità, i problemi e le soluzioni alternative dell'aggiornamento 1.2 per StorSimple serie 8000."
+description: Vengono descritte le nuove funzionalità, i problemi e le soluzioni alternative dell'aggiornamento 1.2 per StorSimple serie 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6c9aae87-6f77-44b8-b7fa-ebbdc9d8517c
 ms.service: storsimple
 ms.devlang: NA
@@ -15,16 +15,13 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2856cda1fde04ab61b4cf15ad0dcc3db2a9df68
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 67603c04cf7b5f45517d16620e5b79241aaae94d
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Note sulla versione dell'aggiornamento 1.2 del dispositivo StorSimple serie 8000
-> [!NOTE]
-> Il portale classico per StorSimple è deprecato. Le istanze di Gestione dispositivi StorSimple passeranno automaticamente al nuovo portale di Azure in base alla pianificazione per la funzionalità deprecata. Si riceveranno un messaggio di posta elettronica e una notifica del portale relativi a questo passaggio. Anche questo documento verrà ritirato a breve. Per domande relative al passaggio, vedere [Domande frequenti: spostamento nel portale di Azure](storsimple-8000-move-azure-portal-faq.md).
-
 
 ## <a name="overview"></a>Panoramica
 Nelle note sulla versione seguenti vengono descritte le nuove funzionalità e sono indicati i problemi critici non risolti relativi all'aggiornamento 1.2 di StorSimple serie 8000. Le note contengono inoltre un elenco degli aggiornamenti del firmware del software, del driver e del disco di StorSimple inclusi in questa versione. 

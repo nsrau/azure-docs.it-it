@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mazha
-ms.openlocfilehash: 9d92602ef5071579e0c741dd24a4e3e9f7b2c747
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a1ef5f3e502b5383343dbec2c427d36054a3edc4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Controllare il comportamento di memorizzazione nella cache con stringhe di query della rete CDN di Azure: livello Premium
 > [!div class="op_single_selector"]
@@ -28,10 +28,10 @@ ms.lasthandoff: 04/05/2018
 > 
 
 ## <a name="overview"></a>Panoramica
-Con la funzionalità di memorizzazione nella cache con stringhe di query, la rete per la distribuzione di contenuti (CDN) di Azure controlla il modo in cui i file vengono memorizzati nella cache per una richiesta Web contenente una stringa di query. In una richiesta Web con una stringa di query, la stringa di query è la parte della richiesta che si verifica dopo un punto di domanda (?). Una stringa di query può contenere una o più coppie chiave-valore, in cui il nome del campo e il relativo valore sono separati da un segno di uguale (=). Ogni coppia chiave-valore è separata da una e commerciale (&). Ad esempio, http:\//www.contoso.com/content.mov?field1=value1&field2=value2. Se è presente più di una coppia chiave-valore in una stringa di query di una richiesta, l'ordine non ha importanza. 
+La rete per la distribuzione di contenuti (CDN) di Azure consente di controllare la modalità di memorizzazione nella cache dei file per una richiesta Web contenente una stringa di query. In una richiesta Web con una stringa di query, la stringa di query è la parte della richiesta che si verifica dopo un punto di domanda (?). Una stringa di query può contenere una o più coppie chiave-valore, in cui il nome del campo e il relativo valore sono separati da un segno di uguale (=). Ogni coppia chiave-valore è separata da una e commerciale (&). Ad esempio, http:\//www.contoso.com/content.mov?field1=value1&field2=value2. Se è presente più di una coppia chiave-valore in una stringa di query di una richiesta, l'ordine non ha importanza. 
 
-> [!NOTE]
-> I prodotti di rete CDN Standard e Premium di Azure forniscono la stessa funzionalità di memorizzazione nella cache con stringhe di query, ma l'interfaccia utente è diversa.  Questo articolo descrive l'interfaccia della **rete CDN Premium di Azure fornita da Verizon**. Per informazioni sulla memorizzazione nella cache con stringhe di query per la **rete CDN Standard di Azure con tecnologia Akamai** e la **rete CDN Standard di Azure con tecnologia Verizon**, vedere l'articolo [Controllare il comportamento di memorizzazione nella cache con stringhe di query della rete CDN di Azure: livello Standard](cdn-query-string.md).
+> [!IMPORTANT]
+> I prodotti della rete CDN Standard e Premium forniscono la stessa funzionalità di memorizzazione nella cache delle stringhe di query, ma l'interfaccia utente è diversa. Questo articolo descrive l'interfaccia della **rete CDN Premium di Azure fornita da Verizon**. Per memorizzare nella cache stringhe di query con prodotti di rete CDN Standard di Azure, vedere [Controllare il comportamento di memorizzazione nella cache con stringhe di query della rete CDN di Azure: livello Standard](cdn-query-string.md).
 >
 
 

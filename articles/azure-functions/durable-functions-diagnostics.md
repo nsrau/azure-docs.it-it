@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f2fc1c87a0eee9e822ffc997f67320ed23dd5916
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4829ea88e0b6507159c192c111acf8ec7e5088e2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnostica in Funzioni permanenti (Funzioni di Azure)
 
@@ -68,7 +68,7 @@ Il livello di dettaglio dei dati di rilevamento generati ad Application Insights
 
 Per impostazione predefinita, vengono generati tutti gli eventi di rilevamento. Il volume dei dati può essere ridotto impostando `Host.Triggers.DurableTask` su `"Warning"` o `"Error"`; in questo caso gli eventi di rilevamento verranno generati solo per le situazioni eccezionali.
 
-> [!WARNING]
+> [!NOTE]
 > Per impostazione predefinita, la telemetria di Application Insights viene campionata dal runtime di Funzioni di Azure per evitare di generare dati con eccessiva frequenza. In questo modo è possibile che le informazioni di rilevamento vengano perse quando si verificano molti eventi del ciclo di vita in un breve periodo di tempo. L'[articolo sul monitoraggio in Funzioni di Azure](functions-monitoring.md#configure-sampling) illustra come configurare questo comportamento.
 
 ### <a name="single-instance-query"></a>Query per singola istanza
@@ -124,6 +124,8 @@ Il risultato è un elenco di ID istanza e dello stato di runtime corrente.
 
 È importante tenere presente il comportamento di riesecuzione dell'agente di orchestrazione quando si scrivono i log direttamente da una funzione dell'agente di orchestrazione. Ad esempio, si consideri la seguente funzione dell'agente di orchestrazione:
 
+#### <a name="c"></a>C#
+
 ```cs
 public static async Task Run(
     DurableOrchestrationContext ctx,
@@ -137,6 +139,22 @@ public static async Task Run(
     await ctx.CallActivityAsync("F3");
     log.Info("Done!");
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context){
+    context.log("Calling F1.");
+    yield context.df.callActivityAsync("F1");
+    context.log("Calling F2.");
+    yield context.df.callActivityAsync("F2");
+    context.log("Calling F3.");
+    yield context.df.callActivityAsync("F3");
+    context.log("Done!");
+});
 ```
 
 I dati di log risultanti eseguono una ricerca simile alla seguente:
@@ -181,6 +199,49 @@ Calling F2.
 Calling F3.
 Done!
 ```
+
+> [!NOTE]
+> La proprietà `IsReplaying` non è ancora disponibile in JavaScript.
+
+## <a name="custom-status"></a>Stato personalizzato
+
+Lo stato dell'orchestrazione personalizzato consente di impostare un valore di stato per la funzione dell'agente di orchestrazione. Questo stato viene fornito tramite l'API della query sullo stato HTTP o l'API `DurableOrchestrationClient.GetStatusAsync`. Lo stato di un'orchestrazione personalizzato consente di eseguire il monitoraggio in modo più completo per le funzioni dell'agente di orchestrazione. Il codice della funzione dell'agente di orchestrazione, ad esempio, può includere chiamate `DurableOrchestrationContext.SetCustomStatus` per aggiornare lo stato di avanzamento per un'operazione con esecuzione prolungata. Un client, ad esempio una pagina Web o un sistema esterno, può eseguire una query periodicamente sulle API di query dello stato HTTP per ottenere informazioni più dettagliate. Un esempio che usa `DurableOrchestrationContext.SetCustomStatus` viene indicato di seguito:
+
+```csharp
+public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
+{
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    var customStatus = new { completionPercentage = 90.0, status = "Updating database records" };
+    ctx.SetCustomStatus(customStatus);
+
+    // ...do more work...
+}
+```
+
+Mentre l'orchestrazione è in esecuzione, i client esterni possono recuperare questo stato personalizzato:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/instance123
+
+```
+
+I client visualizzano la risposta seguente: 
+
+```http
+{
+  "runtimeStatus": "Running",
+  "input": null,
+  "customStatus": { "completionPercentage": 90.0, "status": "Updating database records" },
+  "output": null,
+  "createdTime": "2017-10-06T18:30:24Z",
+  "lastUpdatedTime": "2017-10-06T19:40:30Z"
+}
+```
+
+> [!WARNING]
+>  Il payload dello stato personalizzato è limitato a 16 KB di testo JSON UTF-16, perché deve rientrare in una colonna dell'archiviazione tabelle di Azure. È possibile usare l'archiviazione esterna se è necessario un payload di dimensioni maggiori.
 
 ## <a name="debugging"></a>Debug
 

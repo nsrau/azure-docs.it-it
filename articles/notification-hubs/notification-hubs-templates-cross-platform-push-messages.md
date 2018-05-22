@@ -3,22 +3,22 @@ title: Modelli
 description: In questo argomento vengono illustrati i modelli per Hub di notifica di Azure.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 1ca24a4bf08ecdbe1c1e47a931613144309a04a9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 3e587bdf0efc7c5b416183640abb19286a5cff31
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="templates"></a>Modelli
 ## <a name="overview"></a>Panoramica
@@ -50,9 +50,9 @@ Per inviare un messaggio di avviso popup simile in un'applicazione di Windows St
 
 Tale requisito impone al back-end dell'app la produzione di payload diversi per ciascuna piattaforma e di fatto rende il back-end responsabile di parte del livello di presentazione dell'app. Alcuni dei problemi riguardano la localizzazione e i layout grafici (soprattutto per applicazioni di Windows Store che comprendono notifiche per vari tipi di riquadri).
 
-La funzionalità del modello degli Hub di notifica consente a un'app client di creare registrazioni speciali, denominate registrazioni con modello, comprendenti un modello, oltre al set di tag. La funzionalità del modello Hub di notifica consente a un'app client di associare i dispositivi con i modelli, indipendentemente dall'utilizzo di installazioni (scelta consigliata) o di registrazioni. Dati gli esempi di payload precedenti, le sole informazioni indipendenti dalla piattaforma consistono nel messaggio di avviso effettivo (Hello!). Un modello è un set di istruzioni per l'Hub di notifica circa la modalità di formattazione di un messaggio indipendente dalla piattaforma per la registrazione di una determinata app client. Nell'esempio precedente, il messaggio indipendente dalla piattaforma consiste in una singola proprietà: **message = Hello!**.
+La funzionalità del modello degli Hub di notifica consente a un'app client di creare registrazioni speciali, denominate registrazioni con modello, comprendenti un modello, oltre al set di tag. La funzionalità del modello Hub di notifica consente a un'app client di associare i dispositivi con i modelli, indipendentemente dall'utilizzo di installazioni (scelta consigliata) o di registrazioni. Dati gli esempi di payload precedenti, le sole informazioni indipendenti dalla piattaforma consistono nel messaggio di avviso effettivo (Hello!). Un modello è un set di istruzioni per l'Hub di notifica circa la modalità di formattazione di un messaggio indipendente dalla piattaforma per la registrazione di una determinata app client. Nell'esempio precedente il messaggio indipendente dalla piattaforma consiste in una singola proprietà: **message = Hello!**.
 
-Nell'immagine seguente viene illustrato il processo indicato in precedenza:
+Nell'immagine seguente viene illustrato il processo:
 
 ![](./media/notification-hubs-templates/notification-hubs-hello.png)
 
@@ -74,7 +74,7 @@ Si noti che il messaggio effettivo viene sostituito dall'espressione $(message).
 
 Se si utilizza il modello di installazione, la chiave dei "modelli" di installazione contiene un JSON composto da più modelli. Se si utilizza il modello di registrazione, l'applicazione client può creare più registrazioni per poter utilizzare più modelli: ad esempio, un modello per i messaggi di avviso e un modello per gli aggiornamenti dei riquadri. Inoltre, le applicazioni client possono unire registrazioni native (registrazioni senza modello) e registrazioni con modello.
 
-L'Hub di notifica invia una notifica per ciascun modello senza considerare se appartengono alla stessa app client. Questo comportamento può essere utilizzato per convertire notifiche indipendenti dalla piattaforma in più notifiche. Ad esempio, lo stesso messaggio indipendente dalla piattaforma all'Hub di notifica può essere facilmente convertito in un avviso popup e in un aggiornamento del riquadro, senza essere rilevato dal back-end. Si noti che alcune piattaforme (ad esempio, iOS) potrebbero comprimere più notifiche allo stesso dispositivo se queste vengono inviate in un breve periodo di tempo.
+L'Hub di notifica invia una notifica per ciascun modello senza considerare se appartengono alla stessa app client. Questo comportamento può essere utilizzato per convertire notifiche indipendenti dalla piattaforma in più notifiche. Ad esempio, lo stesso messaggio indipendente dalla piattaforma all'Hub di notifica può essere facilmente convertito in un avviso popup e in un aggiornamento del riquadro, senza essere rilevato dal back-end. Alcune piattaforme (ad esempio, iOS) potrebbero comprimere più notifiche allo stesso dispositivo se queste vengono inviate in un breve periodo di tempo.
 
 ## <a name="using-templates-for-personalization"></a>Utilizzo di modelli per la personalizzazione
 Un altro vantaggio derivante dall'utilizzo di modelli è la possibilità di utilizzare gli Hub di notifica per eseguire la personalizzazione delle notifiche per registrazione. Si consideri ad esempio un'app meteo che visualizza un riquadro sulle condizioni meteorologiche relative a un luogo specifico. Un utente può scegliere tra gradi Celsius o Fahrenheit e una previsione singola o di cinque giorni. Mediante i modelli, ciascuna installazione dell'app client può registrare il formato richiesto (1 giorno in gradi Celsius 1 giorno in gradi Fahrenheit, 5 giorni in gradi Celsius, 5 giorni in gradi Fahrenheit), e far sì che il back-end invii un unico messaggio contenente tutte le informazioni necessarie per compilare i modelli (ad esempio una previsione di cinque giorni con gradi Celsius e Fahrenheit).
@@ -120,13 +120,13 @@ Nella tabella seguente viene descritto il linguaggio consentito nei modelli:
 | $(prop, n) |Come in precedenza, ma il testo viene esplicitamente troncato dopo n caratteri, ad esempio $(title, 20) tronca il contenuto della proprietà del riquadro dopo 20 caratteri. |
 | .(prop, n) |Come in precedenza, ma vengono aggiunti tre punti alla fine del testo troncato. La dimensione totale della stringa troncata e del suffisso non supera n caratteri. .(title, 20) con una proprietà di input "Questa è la riga del titolo" restituisce **Questa è la riga...** |
 | %(prop) |È simile a $(name), a eccezione del fatto che l'output è codificato in formato URI. |
-| #(prop) |Utilizzata nei modelli JSON (ad esempio, per modelli iOS e Android).<br><br>Questa funzione opera esattamente come l'espressione $(prop) specificata in precedenza, salvo quando viene utilizzata nei modelli JSON (ad esempio, nei modelli Apple). In questo caso, se questa funzione non è racchiusa tra "{','}", ad esempio 'myJsonProperty' : '#(name)', e restituisce un numero in formato Javascript, ad esempio regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, l'output JSON sarà un numero.<br><br>Ad esempio, ' badge : '#(name)' diventa 'badge' : 40 (e non '40'). |
+| #(prop) |Utilizzata nei modelli JSON (ad esempio, per modelli iOS e Android).<br><br>Questa funzione opera esattamente come l'espressione $(prop) specificata in precedenza, salvo quando viene utilizzata nei modelli JSON (ad esempio, nei modelli Apple). In questo caso, se questa funzione non è racchiusa tra "{','}", ad esempio 'myJsonProperty' : '#(name)', e restituisce un numero in formato Javascript, ad esempio regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, l'output JSON sarà un numero.<br><br>Ad esempio, 'badge : '#(name)' diventa 'badge': 40 (e non '40'). |
 | 'text' o "text" |Valore letterale. I valori letterali contengono testo arbitrario racchiuso tra virgolette singole o doppie. |
 | expr1 + expr2 |Operatore di concatenazione che unisce due espressioni in una singola stringa. |
 
 Il formato delle espressioni può essere uno dei precedenti.
 
-Quando si utilizza la concatenazione, l'intera espressione deve essere racchiusa tra parentesi graffe {}. Ad esempio, {$(prop) + ' - ' + $(prop2)}. |
+Quando si usa la concatenazione, l'intera espressione deve essere racchiusa tra {}. Ad esempio, {$(prop) + ' - ' + $(prop2)}. |
 
 Ad esempio, il modello XML seguente non è valido:
 
@@ -139,7 +139,7 @@ Ad esempio, il modello XML seguente non è valido:
     </tile>
 
 
-Come spiegato in precedenza, quando si utilizza la concatenazione, le espressioni devono essere racchiuse tra parentesi graffe. Ad esempio: 
+Come spiegato in precedenza, quando si usa la concatenazione, le espressioni devono essere racchiuse tra parentesi graffe. Ad esempio: 
 
     <tile>
       <visual>

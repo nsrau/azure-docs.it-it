@@ -3,7 +3,7 @@ title: Abilitare Application Insights Profiler per le applicazioni ospitate nell
 description: Informazioni su come configurare Application Insights Profiler in un'applicazione in esecuzione in Servizi cloud di Azure.
 services: application-insights
 documentationcenter: ''
-author: ramach-msft
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: ramach
-ms.openlocfilehash: a24695f7bbb5fb0546e27c934319a60a3418b9e1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: ramach; mbullwin
+ms.openlocfilehash: 9d95cb637607e69c4b7a7ab22f3c6239bd67c4f7
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Abilitare Application Insights Profiler per macchine virtuali di Azure, Service Fabric e Servizi cloud di Azure
 
@@ -40,7 +40,7 @@ Per abilitare completamente Profiler, è necessario modificare la configurazione
 
 ## <a name="set-up-the-application-insights-instance"></a>Configurare l'istanza di Application Insights
 
-1. [Creare una nuova risorsa di Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource) o selezionarne una esistente. 
+1. [Creare una nuova risorsa di Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-create-new-resource) o selezionarne una esistente. 
 
 2. Passare alla risorsa di Application Insights e quindi copiare la chiave di strumentazione.
 

@@ -1,7 +1,7 @@
 ---
 title: Simulazione dei dispositivi nella soluzione di monitoraggio remoto - Azure | Microsoft Docs
-description: Questa esercitazione mostra come usare il simulatore di dispositivi con la soluzione preconfigurata di monitoraggio remoto.
-services: 
+description: Questa esercitazione mostra come usare il simulatore di dispositivi con l'acceleratore di soluzioni di monitoraggio remoto.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,15 +12,19 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 563a5a1c177b1f18be18d9b3cc9f3f9a7ee8ae4a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d2523502c20a7cdc4fb4ec388f167f1640919717
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Creare un nuovo dispositivo simulato
 
-Questa esercitazione illustra come personalizzare il microservizio del simulatore di dispositivi nella soluzione preconfigurata di monitoraggio remoto. Per illustrare le funzionalità del simulatore di dispositivi, questa esercitazione usa due scenari nell'applicazione IoT Contoso.
+Questa esercitazione illustra come personalizzare il microservizio del simulatore di dispositivi nell'acceleratore di soluzioni di monitoraggio remoto. Per illustrare le funzionalità del simulatore di dispositivi, questa esercitazione usa due scenari nell'applicazione IoT Contoso.
+
+Il video seguente offre una panoramica delle opzioni di personalizzazione del microservizio del simulatore di dispositivi:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 Nel primo scenario Contoso vuole testare un nuovo dispositivo lampadina intelligente. Per eseguire i test, si crea un nuovo dispositivo simulato con le caratteristiche seguenti:
 
@@ -68,7 +72,7 @@ La tabella seguente mostra lo stato iniziale del dispositivo:
 
 Nel secondo scenario si aggiunge un nuovo tipo di telemetria al dispositivo **Chiller** (Refrigeratore) esistente di Contoso.
 
-Questa esercitazione mostra come usare il simulatore di dispositivi con la soluzione preconfigurata di monitoraggio remoto:
+Questa esercitazione mostra come usare il simulatore di dispositivi con l'acceleratore di soluzioni di monitoraggio remoto:
 
 In questa esercitazione si apprenderà come:
 
@@ -86,7 +90,7 @@ Il video seguente illustra una procedura dettagliata di connessione di dispositi
 
 Per eseguire questa esercitazione, è necessario quanto segue:
 
-* Un'istanza distribuita della soluzione di monitoraggio remoto nella sottoscrizione di Azure. Se la soluzione di monitoraggio remoto non è stata ancora distribuita, è necessario completare l'esercitazione [Distribuire la soluzione preconfigurata di monitoraggio remoto](iot-suite-remote-monitoring-deploy.md).
+* Un'istanza distribuita della soluzione di monitoraggio remoto nella sottoscrizione di Azure. Se la soluzione di monitoraggio remoto non è stata ancora distribuita, completare l'esercitazione [Distribuire l'acceleratore di soluzioni di monitoraggio remoto](iot-suite-remote-monitoring-deploy.md).
 
 * Visual Studio 2017. Se Visual Studio 2017 non è installato, è possibile scaricare l'edizione gratuita [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/).
 
@@ -221,7 +225,7 @@ In questa esercitazione si usano i progetti di Visual Studio **device-simulation
 1. Per clonare la versione .NET del repository di **storage-adapter**, eseguire questo comando:
 
     ```cmd
-    git clone https://github.com/Azure/storage-adapter.git
+    git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
     Il servizio di simulazione di dispositivi usa il servizio adattatore di archiviazione per la connessione al servizio Cosmos DB in Azure. La soluzione di monitoraggio remoto archivia i dati di configurazione del dispositivo simulato in un database Cosmos DB.
@@ -254,7 +258,11 @@ Il modo più semplice per creare un nuovo tipo di dispositivo nel servizio di si
 
 1. Nella sezione **Variabili di ambiente** modificare il valore della variabile **PCS\_IOTHUB\_CONNSTRING** in modo che corrisponda alla stringa di connessione dell'hub IoT annotata in precedenza. Salvare quindi le modifiche.
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione **device-simulation** e scegliere **Imposta progetti di avvio**. Scegliere **Progetto di avvio singolo** e selezionare **SimulationAgent**. Fare quindi clic su **OK**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **WebService**, scegliere **Proprietà** e quindi scegliere **Debug**.
+
+1. Nella sezione **Variabili di ambiente** modificare il valore della variabile **PCS\_IOTHUB\_CONNSTRING** in modo che corrisponda alla stringa di connessione dell'hub IoT annotata in precedenza. Salvare quindi le modifiche.
+
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione **device-simulation** e scegliere **Imposta progetti di avvio**. Scegliere **Progetto di avvio singolo** e selezionare **WebService**. Fare quindi clic su **OK**.
 
 1. Per ogni tipo di dispositivo sono presenti un file modello JSON e gli script associati nella cartella **Services/data/devicemodels**. In Esplora soluzioni copiare i file relativi a **Chiller** (Refrigeratore) per creare i file relativi a **Lightbulb** (Lampadina) come illustrato nella tabella seguente:
 
@@ -289,11 +297,13 @@ Il file **lightbulb-01.json** definisce le caratteristiche del tipo, ad esempio 
         "temperature_unit": "F",
         "status": "on"
       },
-      "Script": {
-        "Type": "javascript",
-        "Path": "lightbulb-01-state.js",
-        "Interval": "00:00:20"
-      }
+      "Interval": "00:00:20",
+      "Scripts": [
+        {
+          "Type": "javascript",
+          "Path": "lightbulb-01-state.js"
+        }
+      ]
     },
     ```
 
@@ -464,7 +474,7 @@ Per limitare il numero di dispositivi simulati che si connettono alla soluzione 
 
 A questo punto si è pronti per testare il nuovo tipo di lampadina simulata eseguendo il progetto di simulazione di dispositivi in locale.
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse su **SimulationAgent**, scegliere **Debug** e quindi scegliere **Avvia nuova istanza**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse su **WebService**, scegliere **Debug** e quindi scegliere **Avvia nuova istanza**.
 
 1. Per controllare che i due dispositivi simulati siano connessi all'hub IoT, aprire il portale di Azure nel browser.
 
@@ -474,7 +484,7 @@ A questo punto si è pronti per testare il nuovo tipo di lampadina simulata eseg
 
     ![Numero di dispositivi connessi](media/iot-suite-remote-monitoring-test/connecteddevices.png)
 
-1. Nel browser passare al **dashboard** per la soluzione di monitoraggio remoto. Nel pannello di telemetria nel **dashboard** selezionare **temperature** (temperatura). La temperatura per i due dispositivi simulati viene visualizzata nel grafico:
+1. Nel browser passare al **dashboard** per la soluzione di monitoraggio remoto. Nel pannello di telemetria nel **dashboard** selezionare **temperature** (temperatura). La temperatura di tutti i dispositivi simulati viene visualizzata nel grafico:
 
     ![Dati di telemetria sulla temperatura](media/iot-suite-remote-monitoring-test/telemetry.png)
 

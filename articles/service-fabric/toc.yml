@@ -73,6 +73,16 @@
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: 4- Distribuire Gestione API con Service Fabric
           href: service-fabric-tutorial-deploy-api-management.md
+    - name: Creare un cluster autonomo in AWS
+      items:
+        - name: 1- Creare l'infrastruttura in AWS
+          href: service-fabric-tutorial-standalone-create-infrastructure.md
+        - name: 2- Configurare Service Fabric
+          href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
+        - name: 3- Distribuire un'applicazione nel cluster
+          href: service-fabric-tutorial-standalone-install-an-application.md
+        - name: 4- Pulire il cluster ed eliminare l'infrastruttura
+          href: service-fabric-tutorial-standalone-clean-up.md
 - name: Esempi
   items:
     - name: Esempi di codice
@@ -461,7 +471,7 @@
           items:
             - name: Distribuire applicazioni in un cluster locale
               href: service-fabric-get-started-with-a-local-cluster.md
-            - name: Gestione risorse di Azure
+            - name: Azure Resource Manager
               href: service-fabric-application-arm-resource.md
             - name: Azure PowerShell
               href: service-fabric-deploy-remove-applications.md
@@ -507,7 +517,7 @@
               items:
                 - name: Portale di Azure
                   href: service-fabric-cluster-creation-via-portal.md
-                - name: Gestione risorse di Azure
+                - name: Azure Resource Manager
                   href: service-fabric-cluster-creation-via-arm.md
                 - name: Cluster che usa il nome comune del certificato
                   href: service-fabric-create-cluster-using-cert-cn.md
@@ -533,6 +543,8 @@
               href: service-fabric-cluster-delete.md
             - name: Connessione remota a una VM del nodo cluster
               href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+            - name: Aggiornare/Eseguire la migrazione di VMSS SKU
+              href: service-fabric-update-vmss-sku.md
         - name: Cluster autonomi
           items:
             - name: Create
@@ -646,6 +658,17 @@
       href: service-fabric-cluster-fabric-settings.md
     - name: Schema XML del modello del servizio
       href: service-fabric-service-model-schema.md
+      items:
+        - name: Elementi
+          href: service-fabric-service-model-schema-elements.md
+        - name: Tipi complessi
+          href: service-fabric-service-model-schema-complex-types.md
+        - name: Gruppi di attributi
+          href: service-fabric-service-model-schema-attribute-groups.md
+        - name: Tipi semplici
+          href: service-fabric-service-model-schema-simple-types.md
+        - name: Gruppi di elementi
+          href: service-fabric-service-model-schema-element-groups.md
     - name: Variabili di ambiente
       href: service-fabric-environment-variables-reference.md
 - name: Risorse

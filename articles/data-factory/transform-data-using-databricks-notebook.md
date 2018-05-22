@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 6c3eb1e86d2dd98590d3a17dedf76c2a694f1a6d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 78954e2dd00e425d2dfdd81d2c3e386f199f4f8f
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Eseguire un notebook di Databricks con l'attività dei notebook di Databricks in Azure Data Factory
 
@@ -34,6 +34,10 @@ In questa esercitazione vengono completati i passaggi seguenti:
   - Monitorare l'esecuzione della pipeline.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+
+Per un'introduzione di undici minuti e una dimostrazione di questa funzionalità, guardare il video seguente:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/ingest-prepare-and-transform-using-azure-databricks-and-data-factory/player]
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -149,7 +153,7 @@ In questa sezione viene creato un servizio collegato Databricks. Questo servizio
 
           ![Creare una nuova cartella](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       3. [Creare un nuovo notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) denominato **mynotebook** nella cartella **adftutorial****** e quindi fare clic su **Crea**.
+       3. [Creare un nuovo notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) denominato **mynotebook** nella cartella **adftutorial**e quindi **,** fare clic su **Crea**.
 
           ![Creare un nuovo notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 

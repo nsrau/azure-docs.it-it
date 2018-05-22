@@ -1,16 +1,22 @@
 ---
-ms.assetid: 
-title: Guida alla limitazione delle richieste per Azure Key Vault | Microsoft Docs
-ms.service: key-vault
+title: Guida alla limitazione delle richieste per Azure Key Vault
+description: La limitazione delle richieste di Key Vault consente di limitare il numero di chiamate simultanee per evitare l'uso eccessivo delle risorse.
+services: key-vault
+documentationcenter: ''
 author: lleonard-msft
-ms.author: alleonar
 manager: mbaldwin
-ms.date: 06/21/2017
-ms.openlocfilehash: cc39a5ee466d2e1661281a32010c3d3201c4a0af
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+tags: ''
+ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
+ms.service: key-vault
+ms.workload: identity
+ms.topic: article
+ms.date: 05/10/2018
+ms.author: alleonar
+ms.openlocfilehash: 59968f2bccbe2828ebe5fb33c57ed28d4f8509b6
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Guida alla limitazione delle richieste per Azure Key Vault
 

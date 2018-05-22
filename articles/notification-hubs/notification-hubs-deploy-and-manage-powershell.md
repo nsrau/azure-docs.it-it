@@ -2,23 +2,23 @@
 title: Distribuire e gestire hub di notifica tramite PowerShell
 description: Come creare e gestire Hub di notifica utilizzando PowerShell per l'automazione
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 7c58f2c8-0399-42bc-9e1e-a7f073426451
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 4db058e4bd91dc287b14e887abc6c378c65c4a2b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: d2350d8021925278d6362c8227d408476a569319
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuire e gestire hub di notifica tramite PowerShell
 ## <a name="overview"></a>Panoramica
@@ -32,7 +32,6 @@ Se si desidera anche creare un nuovo spazio dei nomi per l'hub di notifica, vede
 La gestione degli hub di notifica non è supportata direttamente tramite i cmdlet inclusi con Azure PowerShell. L'approccio migliore da PowerShell consiste nel fare riferimento all'assembly Microsoft.Azure.NotificationHubs.dll. L'assembly viene distribuito con il [pacchetto NuGet degli hub di notifica di Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 ## <a name="prerequisites"></a>prerequisiti
-Per eseguire le procedure descritte nell'articolo è necessario:
 
 * Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto], [Offerte per i membri] oppure [Versione di valutazione gratuita].
 * Un computer con Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell].
@@ -73,7 +72,7 @@ catch [System.Exception]
 ## <a name="create-the-namespacemanager-class"></a>Creare la classe NamespaceManager
 Per eseguire il provisioning degli hub di notifica creare un'istanza della classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) dall’SDK. 
 
-È possibile usare il cmdlet [Get-AzureSBAuthorizationRule] incluso con Azure PowerShell per recuperare una regola di autorizzazione usata per fornire una stringa di connessione. Verrà archiviato un riferimento all'istanza di `NamespaceManager` nella variabile `$NamespaceManager`. Si utilizzerà `$NamespaceManager` per eseguire il provisioning di un hub di notifica.
+È possibile usare il cmdlet [Get-AzureSBAuthorizationRule] incluso con Azure PowerShell per recuperare una regola di autorizzazione usata per fornire una stringa di connessione. Viene archiviato un riferimento all'istanza di `NamespaceManager` nella variabile `$NamespaceManager`. Si usa `$NamespaceManager` per eseguire il provisioning di un hub di notifica.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -87,17 +86,17 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 ## <a name="provisioning-a-new-notification-hub"></a>Provisioning di un nuovo hub di notifica
 Per eseguire il provisioning di un nuovo hub di notifica, utilizzare l’ [API .NET per Hub di notifica].
 
-In questa parte dello script verranno impostate quattro variabili locali. 
+In questa parte dello script vengono impostate quattro variabili locali. 
 
 1. `$Namespace` : impostare sul nome dello spazio dei nomi in cui si desidera creare un hub di notifica.
 2. `$Path` : impostare il percorso sul nome del nuovo hub di notifica.  Ad esempio, "MyHub".    
-3. `$WnsPackageSid` : impostare sul SID di pacchetto per l’applicazione Windows dal [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
-4. `$WnsSecretkey`: impostare sulla chiave privata per l’applicazione Windows dal [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+3. `$WnsPackageSid`: impostare sul SID di pacchetto per l'App di Windows dal [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+4. `$WnsSecretkey`: impostare sulla chiave privata per l'App di Windows dal [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 
 Queste variabili vengono utilizzate per connettersi allo spazio dei nomi e creare un nuovo Hub di notifica configurato per gestire le notifiche Windows Notification Services (WNS) con credenziali WNS per un’applicazione Windows. Per informazioni su come ottenere il SID di pacchetto e la chiave privata, vedere l’esercitazione [Introduzione agli Hub di notifica](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) . 
 
 * Il frammento di script utilizza l’oggetto `NamespaceManager` da controllare per verificare se l'Hub di notifica è identificato da `$Path` esiste.
-* Se non esiste, lo script creerà un `NotificationHubDescription` con credenziali WNS e lo passerà alla classe `NamespaceManager`, metodo `CreateNotificationHub`.
+* Se non esiste, lo script crea un `NotificationHubDescription` con credenziali WNS e lo passa alla classe `NamespaceManager`, metodo `CreateNotificationHub`.
 
 ``` powershell
 

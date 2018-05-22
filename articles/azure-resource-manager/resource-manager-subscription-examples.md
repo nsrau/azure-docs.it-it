@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2c16c0414ddf023e7055a8b57c514fc069f3112a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Esempi di implementazione di scaffold enterprise di Azure
-In questo argomento vengono forniti esempi di come un'azienda può implementare gli elementi consigliati per uno [scaffold  enterprise di Azure](resource-manager-subscription-governance.md). Usa una società fittizia denominata Contoso per illustrare le procedure consigliate per scenari comuni.
+In questo articolo vengono forniti esempi di come un'azienda può implementare gli elementi consigliati per uno [scaffold enterprise di Azure](resource-manager-subscription-governance.md). Usa una società fittizia denominata Contoso per illustrare le procedure consigliate per scenari comuni.
 
 ## <a name="background"></a>Background
-Contoso è una società che opera in tutto il mondo per fornire soluzioni della supply chain per i clienti in ogni ambito, dal modello "Software come servizio" a un modello in pacchetto distribuito in locale.  La società sviluppa software in tutto il mondo e dispone di importanti centri per lo sviluppo in India, Stati Uniti e Canada.
+Contoso è una società globale che fornisce ai propri clienti soluzioni di supply chain. La gamma delle soluzioni offerte va da un modello SaaS a un pacchetto applicativo distribuito in locale.  La società sviluppa software in tutto il mondo e dispone di importanti centri per lo sviluppo in India, Stati Uniti e Canada.
 
 La parte ISV della società è suddivisa in diverse business unit indipendenti che gestiscono i prodotti di un importante settore. Ogni business unit ha i suoi sviluppatori, responsabili di prodotto e architetti.
 
 La business unit Enterprise Technology Services (ETS) fornisce funzionalità IT centralizzata e gestisce più data center in cui le business unit ospitano le loro applicazioni. Oltre a gestire i data center, l'organizzazione ETS fornisce e gestisce una collaborazione centralizzata (ad esempio e-mail e siti Web) e i servizi di rete/telefonia. Gestisce inoltre i carichi di lavoro rivolti ai clienti per business unit più piccole che non dispongono di personale operativo.
 
-In questa esercitazione vengono usati gli utenti tipo seguenti.
+In questo articolo vengono usati gli utenti tipo seguenti:
 
 * Dave è l'amministratore di Azure ETS.
 * Alice è Director of Development di Contoso della business unit della supply chain.
 
-Contoso deve creare un'app line-of-business e un'app rivolta ai clienti. Ha deciso di eseguire le app in Azure. Dave legge l'argomento relativo alla [governance normativa delle sottoscrizioni](resource-manager-subscription-governance.md) e ora è pronto a mettere in atto i consigli.
+Contoso deve creare un'app line-of-business e un'app rivolta ai clienti. Ha deciso di eseguire le app in Azure. Dave legge l'articolo relativo alla [governance normativa delle sottoscrizioni](resource-manager-subscription-governance.md) e ora è pronto a mettere in atto le indicazioni.
 
 ## <a name="scenario-1-line-of-business-application"></a>Scenario 1: applicazione line-of-business
 Contoso sta creando un sistema per la gestione dei codici sorgente (BitBucket) che possa essere usato dagli sviluppatori in tutto il mondo.  L'applicazione usa l'infrastruttura distribuita come servizio (IaaS) per l'hosting ed è costituita da server Web e server di database. Gli sviluppatori accedono ai server nei loro ambienti di sviluppo, tuttavia non hanno bisogno di accedervi in Azure. Contoso ETS vuole consentire ai proprietari delle applicazioni e ai team di gestire l'applicazione. L'applicazione è disponibile solo mentre si trova nella rete aziendale di Contoso. Dave deve configurare la sottoscrizione per l'applicazione. In futuro, la sottoscrizione ospiterà anche altri software destinati agli sviluppatori.  
 
 ### <a name="naming-standards--resource-groups"></a>Standard di denominazione e gruppi di risorse
-Dave crea una sottoscrizione per supportare gli strumenti di sviluppo più diffusi nelle business unit. Deve creare nomi significativi per ila sottoscrizione e i gruppi di risorse (per l'applicazione e le reti). Crea le sottoscrizioni e i gruppi di risorse seguenti:
+Dave crea una sottoscrizione per supportare gli strumenti di sviluppo più diffusi nelle business unit. Dave deve creare nomi significativi per la sottoscrizione e i gruppi di risorse (per l'applicazione e le reti). Crea le sottoscrizioni e i gruppi di risorse seguenti:
 
 | Elemento | NOME | DESCRIZIONE |
 | --- | --- | --- |
@@ -57,7 +57,7 @@ Dave assegna i ruoli seguenti per la sottoscrizione:
 | Ruolo | Assegnato a | DESCRIZIONE |
 | --- | --- | --- |
 | [Proprietario](../role-based-access-control/built-in-roles.md#owner) |ID gestito da Active Directory di Contoso |Questo ID è controllato con accesso Just in Time (JIT) tramite lo strumento di gestione delle identità di Contoso e assicura il totale controllo degli accessi dei proprietari delle sottoscrizioni |
-| [Gestore della sicurezza SQL](../role-based-access-control/built-in-roles.md#security-manager) |Reparto di gestione dei rischi e della sicurezza |Questo ruolo consente agli utenti di esaminare il Centro sicurezza di Azure e lo stato delle risorse |
+| [Ruolo con autorizzazioni di lettura per la sicurezza](../role-based-access-control/built-in-roles.md#security-reader) |Reparto di gestione dei rischi e della sicurezza |Questo ruolo consente agli utenti di esaminare il Centro sicurezza di Azure e lo stato delle risorse |
 | [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor) |Team di rete |Questo ruolo consente team di rete di Contoso gestire la VPN da sito a sito e le reti virtuali |
 | *Ruolo personalizzato* |Proprietario dell'applicazione |Dave crea un ruolo che concede la possibilità di modificare le risorse all'interno del gruppo di risorse. Per altre informazioni, vedere [Ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/custom-roles.md) |
 
@@ -90,7 +90,7 @@ Aggiunge i [tag](resource-group-using-tags.md) seguenti ai gruppi di risorse e a
 | BusinessUnit |**ETS** (la business unit associata alla sottoscrizione) |
 
 ### <a name="core-network"></a>Rete core
-Il team di gestione dei rischi e della sicurezza delle informazioni di Contoso ETS esamina il piano proposto da Dave per spostare l'applicazione in Azure. Desidera assicurarsi che l'applicazione non sia esposto su Internet.  Dave dispone anche di app per gli sviluppatori che in futuro verranno spostate in Azure. Queste app richiedono interfacce pubbliche.  Per soddisfare questi requisiti, fornisce reti virtuali interne ed esterne e un gruppo di sicurezza di rete per limitare l'accesso.
+Il team di gestione dei rischi e della sicurezza delle informazioni di Contoso ETS esamina il piano proposto da Dave per spostare l'applicazione in Azure. Vuole assicurarsi che l'applicazione non sia esposta su Internet.  Dave dispone anche di app per gli sviluppatori che in futuro verranno spostate in Azure. Queste app richiedono interfacce pubbliche.  Per soddisfare questi requisiti, fornisce reti virtuali interne ed esterne e un gruppo di sicurezza di rete per limitare l'accesso.
 
 Crea le risorse seguenti:
 
@@ -115,7 +115,7 @@ Dave non ha nulla da automatizzare per questa applicazione. Anche se ha creato u
 ### <a name="azure-security-center"></a>Centro sicurezza di Azure
 La gestione dei servizi IT di Contoso deve identificare e gestire rapidamente i rischi. Inoltre è necessario capire quali problemi potrebbero esistere.  
 
-Per soddisfare questi requisiti, Dave abilita il [Centro sicurezza di Azure](../security-center/security-center-intro.md) e fornisce l'accesso al responsabile della sicurezza.
+Per soddisfare questi requisiti, Dave abilita il [Centro sicurezza di Azure](../security-center/security-center-intro.md) e fornisce l'accesso al ruolo con autorizzazioni di lettura per la sicurezza.
 
 ## <a name="scenario-2-customer-facing-app"></a>Scenario 2: app destinata ai clienti
 I responsabili aziendali della business unit della supply chain hanno identificato diverse opportunità per aumentare il coinvolgimento dei clienti Contoso attraverso l'uso di una carta fedeltà. Il team di Alice deve creare l'applicazione e decide che Azure aumenta la capacità di soddisfare le esigenze aziendali. Alice collabora con Dave di ETS per configurare due sottoscrizioni per sviluppare e far funzionare l'applicazione.

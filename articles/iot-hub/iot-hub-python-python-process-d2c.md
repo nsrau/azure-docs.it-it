@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: v-masebo;kgremban
-ms.openlocfilehash: 5803d237a946a91536eb662a28416926f6f690fb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 98216328e970af5f8acf04c7e7c3ca855f7065f1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-messages-with-iot-hub-python"></a>Routing dei messaggi tramite l'hub IoT (Python)
 
@@ -259,7 +259,7 @@ In questa sezione, viene illustrato come creare un account di archiviazione, com
 
 In questa esercitazione è stato descritto come inviare i messaggi da dispositivo a cloud in modo affidabile usando la funzionalità di routing dei messaggi dell'hub IoT.
 
-Per avere esempi di soluzioni complete che usano l'hub IoT, vedere [Azure IoT Suite][lnk-suite].
+Per avere degli esempi di soluzioni complete che usano l'hub IoT, vedere [Acceleratore di soluzioni di monitoraggio remoto di Azure IoT][lnk-suite].
 
 Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per sviluppatori dell'hub IoT].
 

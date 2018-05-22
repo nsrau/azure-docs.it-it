@@ -3,9 +3,9 @@ title: Invio di notifiche push sicure con Hub di notifica di Azure
 description: Informazioni su come inviare notifiche push sicure a un'app per Android da Azure. Gli esempi di codice sono scritti in Java e C#.
 documentationcenter: android
 keywords: notifica push, notifiche push, push dei messaggi, notifiche push di android
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 services: notification-hubs
 ms.assetid: daf3de1c-f6a9-43c4-8165-a76bfaa70893
 ms.service: notification-hubs
@@ -13,13 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 29f8c516e611c13fb73c7edc15e7c52708c75bb0
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 04/25/2018
+ms.author: dimazaid
+ms.openlocfilehash: 58f6967c59a5060baa10ff83752b9c6ed08226cb
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Invio di notifiche push sicure con Hub di notifica di Azure
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ A livello generale, il flusso è il seguente:
    * Il dispositivo Android contatta il back-end richiedendo il payload sicuro.
    * L'app può indicare il payload come una notifica sul dispositivo.
 
-È importante notare che nel flusso precedente e in questa esercitazione si presuppone che il dispositivo archivi un token di autenticazione nella memoria locale, dopo l’accesso dell'utente. Ciò garantisce un'esperienza completamente lineare, in quanto il dispositivo può recuperare il payload sicuro della notifica tramite questo token. Se invece l'applicazione non archivia i token di autenticazione nel dispositivo o se questi hanno una scadenza, l'app per dispositivo, alla ricezione della notifica push, dovrà visualizzare una notifica generica in cui si richiede all'utente di avviare l'app. L'app autentica quindi l'utente e mostra il payload di notifica.
+È importante notare che nel flusso precedente e in questa esercitazione si presuppone che il dispositivo archivi un token di autenticazione nella memoria locale, dopo l'accesso dell'utente. Questo approccio garantisce un'esperienza lineare, in quanto il dispositivo può recuperare il payload sicuro della notifica tramite questo token. Se invece l'applicazione non archivia i token di autenticazione nel dispositivo o se questi hanno una scadenza, l'app per dispositivo, alla ricezione della notifica push, dovrà visualizzare una notifica generica in cui si richiede all'utente di avviare l'app. L'app autentica quindi l'utente e mostra il payload di notifica.
 
 Questa esercitazione descrive come inviare notifiche push sicure. Poiché i passaggi descritti in questa esercitazione si basano su quella relativa all' [invio di notifiche agli utenti](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) , sarà prima necessario completare i passaggi di quest'ultima.
 
@@ -60,10 +60,10 @@ Questa esercitazione descrive come inviare notifiche push sicure. Poiché i pass
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## <a name="modify-the-android-project"></a>Modificare il progetto Android
-Ora che è stato modificato il back-end dell'app in modo da inviare solo l' *ID* di una notifica push, è necessario modificare l'app per Android in modo da gestire tale notifica e richiamare il back-end per recuperare il messaggio sicuro da visualizzare.
+Ora che è stato modificato il back-end dell'app in modo da inviare solo l'*ID* di una notifica push, è necessario modificare l'app per Android in modo da gestire tale notifica e richiamare il back-end per recuperare il messaggio sicuro da visualizzare.
 Per conseguire questo obiettivo, è necessario assicurarsi che l'app per Android sia in grado di eseguire l'autenticazione con il back-end quando riceve le notifiche push.
 
-Ora si modificherà il flusso di *accesso* per salvare il valore dell'intestazione di autenticazione nelle preferenze condivise dell'app. Un meccanismo analogo può essere usato per archiviare eventuali token di autenticazione (ad esempio token OAuth) che l'app dovrà usare senza richiedere le credenziali dell'utente.
+Ora si modifica il flusso di *accesso* per salvare il valore dell'intestazione di autenticazione nelle preferenze condivise dell'app. Un meccanismo analogo può essere usato per archiviare eventuali token di autenticazione (ad esempio token OAuth) che l'app deve usare senza richiedere le credenziali dell'utente.
 
 1. Nel progetto di app per Android, aggiungere le costanti seguenti all'inizio della classe **MainActivity** :
    
@@ -126,10 +126,10 @@ A questo punto, modificare il gestore chiamato quando si riceve la notifica.
 
 Questo metodo chiama il back-end dell'app per recuperare il contenuto della notifica usando le credenziali memorizzate nelle preferenze condivise e lo visualizza come una normale notifica. L'utente dell'app vedrà la notifica esattamente come qualsiasi altra notifica push.
 
-Notare che è preferibile gestire i casi in cui manca la proprietà dell'intestazione di autenticazione o di rifiuto da parte del back-end. La gestione specifica di questi casi dipende in larga misura dall'esperienza dell'utente di destinazione. Una delle opzioni consiste nel visualizzare una notifica con un prompt generico affinché l'utente possa autenticarsi per recuperare la notifica effettiva.
+È preferibile gestire i casi in cui manca la proprietà dell'intestazione di autenticazione o di rifiuto da parte del back-end. La gestione specifica di questi casi dipende in larga misura dall'esperienza dell'utente di destinazione. Una delle opzioni consiste nel visualizzare una notifica con un prompt generico affinché l'utente possa autenticarsi per recuperare la notifica effettiva.
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
-Per eseguire l'applicazione, eseguire le operazioni seguenti:
+Per eseguire l'applicazione, completare queste azioni:
 
 1. Assicurarsi che il progetto **AppBackend** sia distribuito in Azure. Se si usa Visual Studio, eseguire l'applicazione API Web **AppBackend** . Verrà visualizzata una pagina Web ASP.NET.
 2. In Eclipse eseguire l'app su un dispositivo Android fisico o sull'emulatore.

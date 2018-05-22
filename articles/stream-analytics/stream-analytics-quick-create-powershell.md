@@ -1,8 +1,7 @@
 ---
-title: Creare un processo di Analisi di flusso tramite Azure PowerShell | Microsoft Docs
+title: Creare un processo di Analisi di flusso tramite Azure PowerShell
 description: Questa guida introduttiva illustra in dettaglio l'uso del modulo Azure PowerShell per distribuire ed eseguire un processo di Analisi di flusso di Azure.
 services: stream-analytics
-keywords: Analisi di flusso, processi cloud, Azure PowerShell, input del processo, output del processo, trasformazione del processo
 author: SnehaGunda
 ms.author: sngun
 ms.date: 03/16/2018
@@ -10,11 +9,11 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 8a1036531ea0e7c1426224bc4d42c83e9049cabf
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0be8cee9e6c7874282f4e8f43f75fa7f2490c14e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-azure-powershell"></a>Guida introduttiva: Creare un processo di Analisi di flusso tramite Azure PowerShell
 
@@ -34,9 +33,11 @@ Accedere alla sottoscrizione di Azure con il comando `Connect-AzureRmAccount` e 
 # Log in to your Azure account
 Connect-AzureRmAccount
 
-# Select the Azure subscription you want to use to create the resource group.
-Get-AzureRmSubscription `
-  -SubscriptionName “<your subscription>” | Select-AzureRmSubscription
+# List all available subscriptions.
+Get-AzureRmSubscription
+
+# Select the Azure subscription you want to use to create the resource group and resources.
+Get-AzureRmSubscription -SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
 ```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
@@ -257,7 +258,7 @@ Start-AzureRMStreamAnalyticsJob `
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, eliminare il gruppo di risorse, il processo di streaming e tutte le risorse correlate. Eliminando il processo si evita di pagare per le unità di streaming usate dal processo. Se si prevede di usare il processo in futuro, è possibile arrestarlo e riavviarlo in un secondo momento, quando è necessario. Se non si intende continuare a usare il processo, eliminare tutte le risorse create tramite questa guida introduttiva eseguendo il cmdlet seguente:
+Quando non sono più necessari, eliminare il gruppo di risorse, il processo di streaming e tutte le risorse correlate. Eliminando il processo si evita di pagare per le unità di streaming utilizzate dal processo. Se si prevede di usare il processo in futuro, è possibile arrestarlo e riavviarlo in un secondo momento, quando è necessario. Se non si intende continuare a usare il processo, eliminare tutte le risorse create tramite questa guida introduttiva eseguendo il cmdlet seguente:
 
 ```powershell
 Remove-AzureRmResourceGroup `

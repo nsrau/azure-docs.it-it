@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 66994dfcd84db1de0ba072e9e3a45e7ec11fcec0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2053ed8cc420183d493097eeb2cd2ad93c82c70c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Uso della macchina virtuale per l'apprendimento avanzato
 
@@ -35,7 +35,7 @@ Oltre a esempi basati su framework viene fornito anche un set di procedure detta
 
 - [Guida dettagliata alla creazione di una soluzione end-to-end per individuare prodotti all'interno di immagini](https://github.com/Azure/cortana-intelligence-product-detection-from-images): il rilevamento immagine è una tecnica che consente di individuare e classificare gli oggetti all'interno delle immagini. Questa tecnologia può portare enormi vantaggi in molte applicazioni aziendali reali. Ad esempio, i negozianti possono usare questa tecnica per determinare quale prodotto un cliente ha prelevato dallo scaffale. Queste informazioni a loro volta consentono ai negozi di gestire l'inventario dei prodotti. 
 
-- [Estrazione di un'entità denominata dai sunti di PubMed](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) Questa esercitazione illustra come estrarre le entità denominate, ad esempio nomi di farmaci o nomi di malattie, da un testo non strutturato. Esegue il training dell'incorporamento personalizzato di una parola su un corpus di testi di 18 milioni di sunti di PubMed, usa tale modello per compilare un modello di rete neurale ricorrente Long Short-Term Memory, ovvero LSTM, per l'estrazione delle entità e mostra che il modello di incorporamento della parola specifico per il dominio può avere prestazioni migliori di un incorporamento delle parole generico per l'estrazione delle entità.
+- [Estrazione di un'entità denominata dai sunti di PubMed](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) Questa esercitazione illustra come estrarre le entità denominate, ad esempio nomi di farmaci o nomi di malattie, da un testo non strutturato. Esegue il training dell'incorporamento personalizzato di una parola su un corpus di testi di 18 milioni di sunti di PubMed, usa tale modello per compilare un modello di rete neurale ricorrente Long Short-Term Memory, ovvero LSTM, per l'estrazione delle entità e mostra che il modello di incorporamento della parola specifico per il dominio può avere prestazioni migliori di un incorporamento delle parole generico per l'estrazione delle entità.
 
 - [Apprendimento per l'audio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) Questa esercitazione illustra come eseguire il training di un modello di apprendimento avanzato per il rilevamento di eventi audio nel [set di dati dei suoni urbani](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) e offre una panoramica di come usare i dati audio.
 

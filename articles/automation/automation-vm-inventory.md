@@ -3,17 +3,18 @@ title: Gestire una macchina virtuale di Azure con la raccolta dell'inventario | 
 description: Gestire una macchina virtuale di Azure con la raccolta dell'inventario
 services: automation
 ms.service: automation
+ms.component: change-inventory-management
 keywords: inventario, automazione, modifica, gestione
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 03/30/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0b744911d37e2d54f88ebeac3ec64a309bab22b9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d5f9bae34dabba71861adc9b2aeb0d33b8a1e226
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gestire una macchina virtuale di Azure con la raccolta dell'inventario
 

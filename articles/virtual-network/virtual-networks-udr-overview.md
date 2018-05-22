@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: eb00bd3a9680091827a6e1d768a9b828a15d1b97
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 87e548dcca655436c00b84b440b72e01ad575338
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -118,12 +118,12 @@ Il nome visualizzato e a cui si fa riferimento per i tipi di hop successivi è d
 
 Un gateway di rete locale può scambiare le route con un gateway di rete virtuale di Azure tramite Border Gateway Protocol (BGP). L'uso di BGP con un gateway di rete virtuale di Azure dipende dal tipo selezionato al momento della creazione del gateway stesso. Se il tipo selezionato era:
 
-- **ExpressRoute**: è necessario usare BGP per annunciare le route locali al router perimetrale Microsoft. Se si distribuisce un gateway di rete virtuale di tipo ExpressRoute, non è possibile creare route definite dall'utente per forzare il traffico verso il gateway di rete virtuale ExpressRoute. Si possono usare route definite dall'utente per forzare il traffico da ExpressRoute, ad esempio verso un'appliance virtuale di rete. 
+- **ExpressRoute**: è necessario usare BGP per annunciare le route locali al router perimetrale Microsoft. Se si distribuisce un gateway di rete virtuale di tipo ExpressRoute, non è possibile creare route definite dall'utente per forzare il traffico verso il gateway di rete virtuale ExpressRoute. È possibile usare route definite dall'utente per forzare il traffico da ExpressRoute, ad esempio verso un'appliance virtuale di rete.
 - **VPN**: è possibile usare BGP. Per informazioni dettagliate, vedere [BGP con connessioni VPN da sito a sito](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Quando si scambiano le route con Azure tramite BGP, viene aggiunta una route separata alla tabella di route di tutte le subnet di una rete virtuale per ogni prefisso annunciato. La route viene aggiunta con *Gateway di rete virtuale* come origine e tipo di hop successivo. 
 
-È possibile disabilitare la propagazione delle route BGP su una subnet mediante una proprietà in una tabella di route. Quando si scambiano le route con Azure tramite BGP, le route non vengono aggiunte alla tabella di route di tutte le subnet con propagazione BGP disabilitata. La connettività con connessioni VPN è ottenuta usando route personalizzate (#custom-routes) con un tipo di hop successivo VPN. Per informazioni dettagliate, vedere [come disabilitare la propagazione delle route BGP](/manage-route-table#create-a-route-table.md).
+È possibile disabilitare la propagazione delle route BGP su una subnet mediante una proprietà in una tabella di route. Quando si scambiano le route con Azure tramite BGP, le route non vengono aggiunte alla tabella di route di tutte le subnet con propagazione BGP disabilitata. La connettività con connessioni VPN è ottenuta usando route personalizzate (#custom-routes) con un tipo di hop successivo VPN. Per informazioni dettagliate, vedere [come disabilitare la propagazione delle route BGP](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Modalità di selezione di una route da parte di Azure
 
@@ -258,5 +258,5 @@ La tabella di route per *Subnet2* contiene tutte le route predefinite create da 
 - [Creare una tabella di route definite dall'utente con route e un'appliance virtuale di rete](tutorial-create-route-table-portal.md)
 - [Configurare BGP per un gateway VPN di Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Usare BGP con ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
-- [Visualizzare tutte le route di una subnet](virtual-network-routes-troubleshoot-portal.md). Una tabella di route definite dall'utente visualizza solo le route definite dall'utente, non le route BGP e predefinite di una subnet. La visualizzazione di tutte le route elenca le route predefinite, BGP e definite dall'utente per la subnet in cui si trova un'interfaccia di rete.
-- [Determinare il tipo di hop successivo](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) tra una macchina virtuale e un indirizzo IP di destinazione. La funzionalità di hop successivo di Azure Network Watcher consente di determinare se il traffico è in uscita da una subnet e viene indirizzato dove previsto.
+- [Visualizzare tutte le route di una subnet](virtual-network-routes-troubleshoot-portal.md). Una tabella di route definite dall'utente mostra solo le route definite dall'utente, non le route BGP e predefinite di una subnet. La visualizzazione di tutte le route elenca le route predefinite, BGP e definite dall'utente per la subnet in cui si trova un'interfaccia di rete.
+- [Determinare il tipo di hop successivo](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) tra una macchina virtuale e un indirizzo IP di destinazione. La funzionalità di hop successivo di Azure Network Watcher consente di determinare se il traffico è in uscita da una subnet e viene indirizzato dove previsto.

@@ -1,6 +1,6 @@
 ---
-title: Monitorare e aggiornare le macchine virtuali Linux in Azure | Microsoft Docs
-description: Informazioni su come monitorare la diagnostica di avvio e le metriche delle prestazioni e gestire gli aggiornamenti dei pacchetti in una macchina virtuale Linux in Azure
+title: Esercitazione - Monitorare e aggiornare le macchine virtuali Linux in Azure | Microsoft Docs
+description: In questa esercitazione si apprenderà come monitorare la diagnostica di avvio e le metriche delle prestazioni e gestire gli aggiornamenti dei pacchetti in una macchina virtuale Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d5fb239ffd6a957cbb088bf4843819e2c886cee8
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0dc403d92855902daef09c91a5dd022beb23fd71
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Come monitorare e aggiornare una macchina virtuale Linux in Azure
+# <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Esercitazione: Come monitorare e aggiornare una macchina virtuale Linux in Azure
 
 Per assicurarsi che le macchine virtuali in Azure vengano eseguite correttamente, è possibile esaminare la diagnostica di avvio e le metriche delle prestazioni e gestire gli aggiornamenti dei pacchetti. In questa esercitazione si apprenderà come:
 
@@ -39,7 +39,7 @@ Per assicurarsi che le macchine virtuali in Azure vengano eseguite correttamente
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, in questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-vm"></a>Creare una macchina virtuale
 

@@ -4,7 +4,7 @@ description: Documentazione di riferimento per le funzionalità del motore regol
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: c7681d6ed867f218eb871f1e96c18d00813798af
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e1e002b51aa5a93e7fcc800f5cf48ac401c5cb2d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funzionalità del motore regole della rete CDN di Azure
 Questo articolo offre una descrizione dettagliata delle funzionalità disponibili per il [motore regole](cdn-rules-engine.md) della rete di distribuzione dei contenuti (CDN) di Azure.
@@ -392,7 +392,7 @@ Per configurare questa funzionalità è necessario definire entrambe le opzioni 
 Opzione|DESCRIZIONE
 --|--
 Percorso originale| Consente di definire il percorso relativo dei tipi di richieste di cui viene riscritta la chiave di cache. Un percorso relativo può essere definito selezionando un percorso di origine di base e quindi definendo un modello di espressione regolare.
-Nuovo percorso|Consente di definire il percorso relativo della nuova chiave di cache. Un percorso relativo può essere definito selezionando un percorso di origine di base e quindi definendo un modello di espressione regolare. Questo percorso relativo può essere creato dinamicamente tramite l'uso di variabili HTTP
+Nuovo percorso|Consente di definire il percorso relativo della nuova chiave di cache. Un percorso relativo può essere definito selezionando un percorso di origine di base e quindi definendo un modello di espressione regolare. Questo percorso relativo può essere creato dinamicamente tramite l'uso di [variabili HTTP](cdn-http-variables.md).
 **Comportamento predefinito:** la chiave di cache di una richiesta è determinata dall'URI della richiesta.
 
 [Torna all'inizio](#azure-cdn-rules-engine-features)
@@ -884,9 +884,9 @@ Su un'intestazione di richiesta è possibile eseguire una delle azioni seguenti:
 
 Opzione|DESCRIZIONE|Esempio
 -|-|-
-Append|Il valore specificato verrà aggiunto alla fine del valore dell'intestazione di richiesta esistente.|**Valore intestazione richiesta (Client):** Value1 <br/> **Valore intestazione richiesta (Motore regole HTTP):** Value2 <br/>**Valore nuova intestazione di richiesta:** Value1Value2
-Overwrite|Il valore dell'intestazione di richiesta verrà impostato sul valore specificato.|**Valore intestazione richiesta (Client):** Value1 <br/>**Valore intestazione richiesta (Motore regole HTTP):** Value2 <br/>**Valore nuova intestazione richiesta:** Value2 <br/>
-Delete|Elimina l'intestazione di richiesta specificata.|**Valore intestazione richiesta (Client):** Value1 <br/> **Configurazione Modify Client Request Header (Modifica intestazione richiesta client):** elimina l'intestazione di richiesta in questione. <br/>**Risultato:** l'intestazione di richiesta specificata non verrà inoltrata al server di origine.
+Append|Il valore specificato verrà aggiunto alla fine del valore dell'intestazione di richiesta esistente.|**Valore intestazione richiesta (client):**<br/>Value1<br/>**Valore intestazione richiesta (motore regole):**<br/>Value2 <br/>**Valore nuova intestazione richiesta:** <br/>Value1Value2
+Overwrite|Il valore dell'intestazione di richiesta verrà impostato sul valore specificato.|**Valore intestazione richiesta (client):**<br/>Value1<br/>**Valore intestazione richiesta (motore regole):**<br/>Value2<br/>**Valore nuova intestazione richiesta:**<br/> Value2 <br/>
+Delete|Elimina l'intestazione di richiesta specificata.|**Valore intestazione richiesta (client):**<br/>Value1<br/>**Modificare la configurazione dell'intestazione della richiesta client:**<br/>Eliminare l'intestazione della richiesta in questione.<br/>**Risultato:**<br/>L'intestazione della richiesta specificata non verrà inoltrata al server di origine.
 
 Informazioni chiave:
 
@@ -922,9 +922,9 @@ Su un'intestazione di risposta è possibile eseguire una delle azioni seguenti:
 
 Opzione|DESCRIZIONE|Esempio
 -|-|-
-Append|Il valore specificato verrà aggiunto alla fine del valore dell'intestazione di risposta esistente.|**Valore intestazione risposta (Client):** Value1 <br/> **Valore intestazione risposta (Motore regole HTTP):** Value2 <br/>**Valore nuova intestazione risposta:** Value1Value2
-Overwrite|Il valore dell'intestazione di risposta verrà impostato sul valore specificato.|**Valore intestazione risposta (Client):** Value1 <br/>**Valore intestazione risposta (Motore regole HTTP):** Value2 <br/>**Valore nuova intestazione risposta:** Value2 <br/>
-Delete|Elimina l'intestazione di risposta specificata.|**Valore intestazione risposta (Client):** Value1 <br/> **Configurazione Modify Client Request Header (Modifica intestazione risposta client):** elimina l'intestazione di risposta in questione. <br/>**Risultato:** l'intestazione di risposta specificata non verrà inoltrata al richiedente.
+Append|Il valore specificato verrà aggiunto alla fine del valore dell'intestazione di risposta esistente.|**Valore intestazione risposta (client):**<br />Value1<br/>**Valore intestazione risposta (motore regole):**<br/>Value2<br/>**Valore nuova intestazione risposta:**<br/>Value1Value2
+Overwrite|Il valore dell'intestazione di risposta verrà impostato sul valore specificato.|**Valore intestazione risposta (client):**<br/>Value1<br/>**Valore intestazione risposta (motore regole):**<br/>Value2 <br/>**Valore nuova intestazione risposta:**<br/>Value2 <br/>
+Delete|Elimina l'intestazione di risposta specificata.|**Valore intestazione risposta (client):**<br/>Value1<br/>**Modificare la configurazione dell'intestazione della risposta client:**<br/>Eliminare l'intestazione della risposta in questione.<br/>**Risultato:**<br/>L'intestazione della risposta specificata non verrà inoltrata al richiedente.
 
 Informazioni chiave:
 
@@ -1234,31 +1234,31 @@ Per configurare questa funzionalità è necessario impostare le opzioni seguenti
 Opzione|DESCRIZIONE
 -|-
 Codice|Selezionare il codice di risposta che verrà restituito al richiedente.
-Source & Pattern (Origine e modello)| Queste impostazioni definiscono un modello di URI di richiesta che identifica il tipo di richieste che possono essere reindirizzate. Verranno reindirizzate solo le richieste il cui URL soddisfa entrambi i criteri seguenti: <br/> <br/> **Origine (o un punto di accesso dei contenuti):** selezionare un percorso relativo che identifica un server di origine. Questo percorso è costituito dalla sezione _/XXXX/_ e dal nome dell'endpoint. <br/> **Origine (modello):** deve essere definito un modello che identifica le richieste in base al percorso relativo. Questo modello di espressione regolare deve definire un percorso che inizia immediatamente dopo il punto di accesso dei contenuti selezionato in precedenza (vedere sopra). <br/> - Assicurarsi che i criteri dell'URI di richiesta, ad esempio origine e modello, definiti in precedenza non entrino in conflitto con le condizioni di corrispondenza definite per questa funzionalità. <br/> - Specificare un criterio; se si usa un valore vuoto come criterio, viene eseguito il confronto di tutte le stringhe.
-Destination| Definire l'URL a cui verranno reindirizzate le richieste precedenti. <br/> Costruire l'URL in modo dinamico usando: <br/> - Un modello di espressione regolare <br/>- Variabili HTTP <br/> Sostituire nel modello di destinazione i valori acquisiti nel modello di origine usando $_n_ dove _n_ identifica un valore in base all'ordine in cui è stato acquisito. Ad esempio, $1 rappresenta il primo valore acquisito nel modello di origine e $2 rappresenta il secondo valore. <br/> 
+Source & Pattern (Origine e modello)| Queste impostazioni definiscono un modello di URI di richiesta che identifica il tipo di richieste che possono essere reindirizzate. Verranno reindirizzate solo le richieste il cui URL soddisfa entrambi i criteri seguenti: <br/> <br/> **Origine (o un punto di accesso dei contenuti):** selezionare un percorso relativo che identifica un server di origine. Questo percorso è costituito dalla sezione _/XXXX/_ e dal nome dell'endpoint. <br/><br/> **Origine (modello):** deve essere definito un modello che identifica le richieste in base al percorso relativo. Questo modello di espressione regolare deve definire un percorso che inizia immediatamente dopo il punto di accesso dei contenuti selezionato in precedenza (vedere sopra). <br/> - Assicurarsi che i criteri dell'URI di richiesta, ad esempio origine e modello, definiti in precedenza non entrino in conflitto con le condizioni di corrispondenza definite per questa funzionalità. <br/> - Specificare un criterio; se si usa un valore vuoto come criterio, viene eseguito il confronto di tutte le stringhe.
+Destination| Definire l'URL a cui verranno reindirizzate le richieste precedenti. <br/><br/> Costruire l'URL in modo dinamico usando: <br/> - Un modello di espressione regolare <br/>- [Variabili HTTP](cdn-http-variables.md) <br/><br/> Sostituire nel modello di destinazione i valori acquisiti nel modello di origine usando $_n_ dove _n_ identifica un valore in base all'ordine in cui è stato acquisito. Ad esempio, $1 rappresenta il primo valore acquisito nel modello di origine e $2 rappresenta il secondo valore. <br/> 
 È consigliabile usare un URL assoluto, poiché l'uso di un URL relativo può reindirizzare gli URL CDN su un percorso non valido.
 
 **Scenario di esempio**
 
-Questo esempio mostra come reindirizzare un URL CNAME perimetrale che viene risolto in questo URL CDN di base: http://marketing.azureedge.net/brochures
+Questo esempio dimostra come reindirizzare un URL CNAME perimetrale che viene risolto nell'URL CDN di base: http:\//marketing.azureedge.net/brochures
 
-Le richieste idonee verranno reindirizzate a questo URL CNAME perimetrale di base: http://cdn.mydomain.com/resources
+Le richieste idonee verranno reindirizzate a questo URL CNAME perimetrale di base: http:\//cdn.mydomain.com/resources
 
-Questo reindirizzamento URL può essere ottenuto tramite la configurazione seguente: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+Questo reindirizzamento URL può essere ottenuto tramite la configurazione seguente: ![Reindirizzamento URL](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **Punti principali:**
 
 - La funzionalità Reindirizzamento URL definisce gli URL di richiesta che verranno reindirizzati. Non sono quindi necessarie condizioni di corrispondenza aggiuntive. Anche se la condizione di corrispondenza è stata definita come "Always" (Sempre), verranno reindirizzate solo le richieste che puntano alla cartella "brochures" nell'origine cliente "marketing". 
 - Tutte le richieste corrispondenti verranno reindirizzate all'URL CNAME periferico definito nell'opzione Destinazione. 
     - Scenario di esempio #1: 
-        - Richiesta di esempio (URL rete CDN): http://marketing.azureedge.net/brochures/widgets.pdf 
-        - URL della richiesta (dopo il reindirizzamento): http://cdn.mydomain.com/resources/widgets.pdf  
+        - Richiesta di esempio (URL CDN): http:\//marketing.azureedge.net/brochures/widgets.p 
+        - URL richiesta (dopo il reindirizzamento): http:\//cdn.mydomain.com/resources/widgets.pdf  
     - Scenario di esempio #2: 
-        - Richiesta di esempio (URL CNAME perimetrale): http://marketing.mydomain.com/brochures/widgets.pdf 
-        - URL della richiesta (dopo il reindirizzamento): http://cdn.mydomain.com/resources/widgets.pdf
+        - Richiesta di esempio (URL CNAME perimetrale): http:\//marketing.mydomain.com/brochures/widgets.pdf 
+        - URL richiesta (dopo il reindirizzamento): http:\//cdn.mydomain.com/resources/widgets.pdf  Sample scenario
     - Scenario di esempio #3: 
-        - Richiesta di esempio (URL CNAME perimetrale): http://brochures.mydomain.com/campaignA/final/productC.ppt 
-        - URL della richiesta (dopo il reindirizzamento): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+        - Richiesta di esempio (URL CNAME perimetrale): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
+        - URL richiesta (dopo il reindirizzamento): http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - La variabile Schema richiesta (%{scheme}) viene usata nell'opzione Destinazione, che assicura che lo schema della richiesta rimanga invariato dopo il reindirizzamento.
 - I segmenti di URL acquisiti dalla richiesta vengono aggiunti al nuovo URL tramite "$1."
 
@@ -1276,23 +1276,23 @@ Informazioni chiave:
 
 Opzione|DESCRIZIONE
 -|-
- Source & Pattern (Origine e modello) | Queste impostazioni definiscono un modello di URI di richiesta che identifica il tipo di richieste che possono essere riscritte. Verranno riscritte solo le richieste il cui URL soddisfa entrambi i criteri seguenti: <br/>     - **Origine (o un punto di accesso dei contenuti):** selezionare un percorso relativo che identifica un server di origine. Questo percorso è costituito dalla sezione _/XXXX/_ e dal nome dell'endpoint. <br/> - **Origine (modello):** deve essere definito un modello che identifica le richieste in base al percorso relativo. Questo modello di espressione regolare deve definire un percorso che inizia immediatamente dopo il punto di accesso dei contenuti selezionato in precedenza (vedere sopra). <br/> Assicurarsi che i criteri dell'URI di richiesta, ad esempio origine e modello, definiti in precedenza non entrino in conflitto con le condizioni di corrispondenza definite per questa funzionalità. Specificare un criterio; se si usa un valore vuoto come criterio, tutte le stringhe vengono confrontate. 
- Destination  |Definire l'URL relativo in cui verranno riscritte le richieste precedenti: <br/>    1. Selezionando un punto di accesso dei contenuti che identifichi un server di origine. <br/>    2. Definendo di un percorso tramite: <br/>        - Un modello di espressione regolare <br/>        - Variabili HTTP <br/> <br/> Sostituire nel modello di destinazione i valori acquisiti nel modello di origine usando $_n_ dove _n_ identifica un valore in base all'ordine in cui è stato acquisito. Ad esempio, $1 rappresenta il primo valore acquisito nel modello di origine e $2 rappresenta il secondo valore. 
+ Source & Pattern (Origine e modello) | Queste impostazioni definiscono un modello di URI di richiesta che identifica il tipo di richieste che possono essere riscritte. Verranno riscritte solo le richieste il cui URL soddisfa entrambi i criteri seguenti: <br/><br/>  - **Origine (o un punto di accesso dei contenuti):** selezionare un percorso relativo che identifica un server di origine. Questo percorso è costituito dalla sezione _/XXXX/_ e dal nome dell'endpoint. <br/><br/> - **Origine (modello):** deve essere definito un modello che identifica le richieste in base al percorso relativo. Questo modello di espressione regolare deve definire un percorso che inizia immediatamente dopo il punto di accesso dei contenuti selezionato in precedenza (vedere sopra). <br/> Assicurarsi che i criteri dell'URI di richiesta, ad esempio origine e modello, definiti in precedenza non entrino in conflitto con le condizioni di corrispondenza definite per questa funzionalità. Specificare un criterio; se si usa un valore vuoto come criterio, tutte le stringhe vengono confrontate. 
+ Destination  |Definire l'URL relativo in cui verranno riscritte le richieste precedenti: <br/>    1. Selezionando un punto di accesso dei contenuti che identifichi un server di origine. <br/>    2. Definendo di un percorso tramite: <br/>        - Un modello di espressione regolare <br/>        - [Variabili HTTP](cdn-http-variables.md) <br/> <br/> Sostituire nel modello di destinazione i valori acquisiti nel modello di origine usando $_n_ dove _n_ identifica un valore in base all'ordine in cui è stato acquisito. Ad esempio, $1 rappresenta il primo valore acquisito nel modello di origine e $2 rappresenta il secondo valore. 
  Questa funzionalità consente ai POP di riscrivere l'URL senza eseguire un reindirizzamento tradizionale. Questo significa che il richiedente riceve lo stesso codice di risposta che riceverebbe se avesse richiesto l'URL riscritto.
 
 **Scenario di esempio 1**
 
-Questo esempio mostra come reindirizzare un URL CNAME perimetrale che viene risolto in questo URL CDN di base: http://marketing.azureedge.net/brochures/
+Questo esempio dimostra come reindirizzare un URL CNAME perimetrale che viene risolto nell'URL CDN di base: http:\//marketing.azureedge.net/brochures/
 
-Le richieste idonee verranno reindirizzate a questo URL CNAME perimetrale di base: http://MyOrigin.azureedge.net/resources/
+Le richieste idonee verranno reindirizzate a questo URL CNAME perimetrale di base: http:\//MyOrigin.azureedge.net/resources/
 
-Questo reindirizzamento URL può essere ottenuto tramite la configurazione seguente: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+Questo reindirizzamento URL può essere ottenuto tramite la configurazione seguente: ![Reindirizzamento URL](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
 **Scenario di esempio 2**
 
 Questo esempio dimostra come reindirizzare un URL CNAME perimetrale da MAIUSCOLO a minuscolo mediante espressioni regolari.
 
-Questo reindirizzamento URL può essere ottenuto tramite la configurazione seguente: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+Questo reindirizzamento URL può essere ottenuto tramite la configurazione seguente: ![Reindirizzamento URL](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
 
 **Punti principali:**

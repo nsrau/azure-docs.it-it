@@ -2,8 +2,8 @@
 title: Creare un gateway applicazione con reindirizzamento del traffico esterno - Interfaccia della riga di comando di Azure | Microsoft Docs
 description: Informazioni su come creare un gateway applicazione che reindirizza il traffico Web interno al pool appropriato usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
-ms.author: davidmu
-ms.openlocfilehash: fed23c7138516b3af8af170383948b14c49a61a9
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: victorh
+ms.openlocfilehash: 3ded6fc0950c82d0aa36da89fdd5635afef7be0b
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento esterno tramite l'interfaccia della riga di comando di Azure
 
@@ -39,7 +39,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse usando [az group create](/cli/azure/group#create).
 
-L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupAG* nella posizione *eastus*.
+L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupAG* nella località *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -88,7 +88,7 @@ Il processo di creazione del gateway applicazione può richiedere alcuni minuti.
 - *appGatewayBackendHttpSettings*: specifica che per le comunicazioni vengono usati la porta 80 e il protocollo HTTP.
 - *appGatewayHttpListener*: il listener predefinito associato ad *appGatewayBackendPool*.
 - *appGatewayFrontendIP*: assegna *myAGPublicIPAddress* ad *appGatewayHttpListener*.
-- *rule1*: la regola di routing predefinita associata ad *appGatewayHttpListener*.
+- *rule1*: regola di routing predefinita associata ad *appGatewayHttpListener*.
 
 ### <a name="add-the-redirection-configuration"></a>Aggiungere la configurazione di reindirizzamento
 

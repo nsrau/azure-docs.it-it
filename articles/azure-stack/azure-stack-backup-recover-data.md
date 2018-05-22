@@ -1,24 +1,25 @@
 ---
 title: Recupero dalla perdita di dati irreversibile nello Stack di Azure tramite il servizio di Backup infrastruttura | Documenti Microsoft
-description: "Quando un errore irreversibile determina dello Stack Azure hanno esito negativo, è possibile ripristinare i dati di infrastruttura durante la distribuzione di Azure Stack ristabilita."
+description: Quando un errore irreversibile determina dello Stack Azure hanno esito negativo, è possibile ripristinare i dati di infrastruttura durante la distribuzione di Azure Stack ristabilita.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 2ECE8580-0BDE-4D4A-9120-1F6771F2E815
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 4/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 141641b01b338e3426861dad7424a1de1bd2c63c
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.reviewer: hectorl
+ms.openlocfilehash: 7ca3945dd3768ac71e0a962417f0a621aa83be1e
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Recupero dalla perdita di dati
 

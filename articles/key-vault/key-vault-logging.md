@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: 3406d314fb4dba92830933c4e4d373fc8bebeba3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e7dcb3778de31258f4aa3c946ffa214d87cb858a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione dell'insieme di credenziali delle chiavi di Azure
 L'insieme di credenziali delle chiavi di Azure è disponibile nella maggior parte delle aree. Per altre informazioni, vedere la [pagina Insieme di credenziali delle chiavi - Prezzi](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -235,32 +235,32 @@ La tabella seguente include un elenco di operationName con il comando API REST c
 | operationName | Comando API REST |
 | --- | --- |
 | Authentication |Tramite l'endpoint di Azure Active Directory |
-| VaultGet |[Ottenere informazioni su un insieme di credenziali delle chiavi](https://msdn.microsoft.com/en-us/library/azure/mt620026.aspx) |
-| VaultPut |[Creare o aggiornare un insieme di credenziali delle chiavi](https://msdn.microsoft.com/en-us/library/azure/mt620025.aspx) |
-| VaultDelete |[Eliminare un insieme di credenziali delle chiavi](https://msdn.microsoft.com/en-us/library/azure/mt620022.aspx) |
+| VaultGet |[Ottenere informazioni su un insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
+| VaultPut |[Creare o aggiornare un insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
+| VaultDelete |[Eliminare un insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
 | VaultPatch |[Aggiornare un insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| VaultList |[Elencare tutti gli insiemi di credenziali delle chiavi in un gruppo di risorse](https://msdn.microsoft.com/en-us/library/azure/mt620027.aspx) |
-| KeyCreate |[Creare una chiave](https://msdn.microsoft.com/en-us/library/azure/dn903634.aspx) |
-| KeyGet |[Ottenere informazioni su una chiave](https://msdn.microsoft.com/en-us/library/azure/dn878080.aspx) |
-| KeyImport |[Importare una chiave in un insieme di credenziali](https://msdn.microsoft.com/en-us/library/azure/dn903626.aspx) |
-| KeyBackup |[Eseguire il backup di una chiave](https://msdn.microsoft.com/en-us/library/azure/dn878058.aspx) |
-| KeyDelete |[Eliminare una chiave](https://msdn.microsoft.com/en-us/library/azure/dn903611.aspx) |
-| KeyRestore |[Ripristinare una chiave](https://msdn.microsoft.com/en-us/library/azure/dn878106.aspx) |
-| KeySign |[Firmare con una chiave](https://msdn.microsoft.com/en-us/library/azure/dn878096.aspx) |
-| KeyVerify |[Verificare con una chiave](https://msdn.microsoft.com/en-us/library/azure/dn878082.aspx) |
-| KeyWrap |[Eseguire il wrapping di una chiave](https://msdn.microsoft.com/en-us/library/azure/dn878066.aspx) |
-| KeyUnwrap |[Annullare il wrapping di una chiave](https://msdn.microsoft.com/en-us/library/azure/dn878079.aspx) |
-| KeyEncrypt |[Crittografare con una chiave](https://msdn.microsoft.com/en-us/library/azure/dn878060.aspx) |
-| KeyDecrypt |[Decrittografare con una chiave](https://msdn.microsoft.com/en-us/library/azure/dn878097.aspx) |
-| KeyUpdate |[Aggiornare una chiave](https://msdn.microsoft.com/en-us/library/azure/dn903616.aspx) |
-| KeyList |[Elencare le chiavi in un insieme di credenziali](https://msdn.microsoft.com/en-us/library/azure/dn903629.aspx) |
-| KeyListVersions |[Elencare le versioni di una chiave](https://msdn.microsoft.com/en-us/library/azure/dn986822.aspx) |
-| SecretSet |[Creare un segreto](https://msdn.microsoft.com/en-us/library/azure/dn903618.aspx) |
-| SecretGet |[Ottenere informazioni su un segreto](https://msdn.microsoft.com/en-us/library/azure/dn903633.aspx) |
-| SecretUpdate |[Aggiornare un segreto](https://msdn.microsoft.com/en-us/library/azure/dn986818.aspx) |
-| SecretDelete |[Eliminare un segreto](https://msdn.microsoft.com/en-us/library/azure/dn903613.aspx) |
-| SecretList |[Elencare i segreti in un insieme di credenziali](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
-| SecretListVersions |[Elencare le versioni di un segreto](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
+| VaultList |[Elencare tutti gli insiemi di credenziali delle chiavi in un gruppo di risorse](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
+| KeyCreate |[Creare una chiave](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
+| KeyGet |[Ottenere informazioni su una chiave](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
+| KeyImport |[Importare una chiave in un insieme di credenziali](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
+| KeyBackup |[Eseguire il backup di una chiave](https://msdn.microsoft.com/library/azure/dn878058.aspx) |
+| KeyDelete |[Eliminare una chiave](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
+| KeyRestore |[Ripristinare una chiave](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
+| KeySign |[Firmare con una chiave](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
+| KeyVerify |[Verificare con una chiave](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
+| KeyWrap |[Eseguire il wrapping di una chiave](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
+| KeyUnwrap |[Annullare il wrapping di una chiave](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
+| KeyEncrypt |[Crittografare con una chiave](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
+| KeyDecrypt |[Decrittografare con una chiave](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
+| KeyUpdate |[Aggiornare una chiave](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
+| KeyList |[Elencare le chiavi in un insieme di credenziali](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
+| KeyListVersions |[Elencare le versioni di una chiave](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
+| SecretSet |[Creare un segreto](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
+| SecretGet |[Ottenere informazioni su un segreto](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
+| SecretUpdate |[Aggiornare un segreto](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
+| SecretDelete |[Eliminare un segreto](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
+| SecretList |[Elencare i segreti in un insieme di credenziali](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
+| SecretListVersions |[Elencare le versioni di un segreto](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
 ## <a id="loganalytics"></a>Usare Log Analytics
 

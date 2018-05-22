@@ -1,4 +1,4 @@
-- name: Registro di sistema del contenitore di Azure
+- name: Registro contenitori di Azure
   href: ./index.yml
 - name: Panoramica
   items:
@@ -17,7 +17,7 @@
   items:
     - name: Istanze di contenitore di Azure
       href: ../container-instances/container-instances-tutorial-prepare-app.md
-    - name: Servizio contenitore di Azure
+    - name: Azure Kubernetes Service (AKS)
       href: ../aks/tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
@@ -29,7 +29,7 @@
           href: container-registry-tutorial-build-task.md
         - name: 3 - Creazione all'aggiornamento delle immagini di base
           href: container-registry-tutorial-base-image-update.md
-    - name: Replica geografica (anteprima)
+    - name: Replica geografica
       items:
         - name: '1: Preparare un registro contenitori'
           href: container-registry-tutorial-prepare-registry.md
@@ -45,7 +45,7 @@
       href: container-registry-storage.md
     - name: Creare e applicare patch con ACR Build
       href: container-registry-build-overview.md
-    - name: Replica geografica (anteprima)
+    - name: Replica geografica
       href: container-registry-geo-replication.md
     - name: Procedure consigliate per il registro contenitori
       href: container-registry-best-practices.md

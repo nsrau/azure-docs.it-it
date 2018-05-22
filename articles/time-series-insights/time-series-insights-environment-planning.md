@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 991db58db1bb07f338c0f80aa4db69ddb868dcab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4da62d808caf1e88aef8e67f91815b959a19af0f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Pianificare l'ambiente Azure Time Series Insights
 
@@ -87,14 +87,14 @@ Non è possibile determinare in anticipo la quantità di dati di cui si prevede 
 Per informazioni su come evitare la limitazione e la latenza, vedere [Ridurre la limitazione e la latenza](time-series-insights-environment-mitigate-latency.md). 
 
 ## <a name="shaping-your-events"></a>Forme degli eventi
-È importante assicurarsi che la modalità di invio degli eventi a Time Series Insights usata supporti le dimensioni dell'ambiente di cui si esegue il provisioning. In alternativa, è possibile mappare le dimensioni dell'ambiente al numero di eventi letti da Time Series Insights e alle dimensioni di ogni evento.  Analogamente, è importante tenere conto degli attributi che potrebbe essere necessario sezionare e filtrare durante l'esecuzione di query sui dati.  Considerando questi aspetti, è consigliabile esaminare la sezione dedicata alle forme JSON supportate nella documentazione *Inviare eventi* [documentazione] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-send-events).  Questa sezione è verso la fine della pagina.  
+È importante assicurarsi che la modalità di invio degli eventi a Time Series Insights usata supporti le dimensioni dell'ambiente di cui si esegue il provisioning. In alternativa, è possibile mappare le dimensioni dell'ambiente al numero di eventi letti da Time Series Insights e alle dimensioni di ogni evento.  Analogamente, è importante tenere conto degli attributi che potrebbe essere necessario sezionare e filtrare durante l'esecuzione di query sui dati.  Considerando questi aspetti, è consigliabile esaminare la sezione dedicata alle forme JSON supportate nella documentazione *Inviare eventi* [documentazione] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events).  Questa sezione è verso la fine della pagina.  
 
 ## <a name="ensuring-you-have-reference-data-in-place"></a>Assicurarsi di avere dati di riferimento a disposizione
 Un set di dati di riferimento è una raccolta di elementi che aumentano gli eventi dell'origine evento. Il motore in ingresso di Time Series Insights crea un join tra ogni evento dell'origine evento e la riga di dati corrispondente nel set di dati di riferimento. Questo evento aumentato sarà quindi disponibile per le query. Questo join è basato sulla colonna o le colonne di chiavi primarie definite nel set di dati di riferimento.
 
 Si noti che non viene creato un join dei dati di riferimento in maniera retroattiva. Questo significa che solo i dati in ingresso correnti e futuri vengono uniti in join al set di dati di riferimento, appena viene configurato e caricato.  Se si prevede di inviare molti dati cronologici a Time Series Insights e non si caricano o creano i dati di riferimento in Time Series Insights prima di tutto, potrebbe essere necessario rieseguire il lavoro.  
 
-Per altre informazioni su come creare, caricare e gestire i dati di riferimento in Time Series Insights, vedere la documentazione dedicata ai *dati di riferimento* [documentazione] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Per altre informazioni su come creare, caricare e gestire i dati di riferimento in Time Series Insights, vedere la documentazione dedicata ai *dati di riferimento* [documentazione] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

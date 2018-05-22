@@ -6,21 +6,19 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
 ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 1e258473614e01ca35eaa5970d02544844da6972
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6664a2b9bb6375314090bf4dae9190c7d52565d2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Come associare o aggiungere una sottoscrizione di Azure ad Azure Active Directory
 
@@ -53,6 +51,8 @@ Tutti gli utenti dispongono di una singola home directory che li autentica, ma p
 
     ![Screenshot che illustra il controllo per cambiare directory](./media/active-directory-how-subscriptions-associated-directory/directory-switcher.PNG)
 
+
+Gli insiemi di credenziali delle chiavi di Azure di cui si dispone sono inoltre influenzati dallo spostamento di una sottoscrizione, pertanto [modificare l'ID tenant dell'insieme di credenziali delle chiavi](../key-vault/key-vault-subscription-move-fix.md) prima di riprendere le operazioni.
 
 La modifica della directory della sottoscrizione è un'operazione a livello di servizio. Non ha effetto sulla proprietà della fatturazione della sottoscrizione e l'amministratore account può continuare a modificare l'amministratore del servizio usando il [Centro account](https://account.azure.com/subscriptions). Per eliminare la directory originale, è necessario trasferire la proprietà della fatturazione della sottoscrizione a un nuovo amministratore account. Per altre informazioni sul trasferimento della proprietà della fatturazione, vedere [Trasferire la proprietà di una sottoscrizione di Azure a un altro account](../billing/billing-subscription-transfer.md). 
 

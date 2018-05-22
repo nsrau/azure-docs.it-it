@@ -53,7 +53,7 @@
       href: cli-samples.md
 - name: Concetti
   items:
-    - name: Gestione risorse di Azure
+    - name: Azure Resource Manager
       href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Aree e disponibilità
       href: regions-and-availability.md
@@ -102,14 +102,6 @@
           href: disk-scalability-targets.md
         - name: Backup e ripristino di emergenza per i dischi
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-        - name: Come abilitare l'acceleratore di scrittura
-          href: how-to-enable-write-accelerator.md
-        - name: Risolvere i problemi dei dischi rigidi virtuali collegati
-          items:
-            - name: Errori nell'eliminazione di risorse di archiviazione
-              href: storage-resource-deletion-errors.md
-            - name: Riavvii imprevisti di VM con dischi rigidi virtuali collegati
-              href: unexpected-reboots-attached-vhds.md
     - name: Rete
       href: network-overview.md
     - name: Ridimensionare automaticamente le applicazioni
@@ -206,7 +198,7 @@
         - name: Scaricare il modello
           href: download-template.md
         - name: Agente VM di Azure
-          href: agent-user-guide.md
+          href: ../extensions/agent-windows.md
         - name: Manutenzione pianificata
           href: maintenance-notifications.md
         - name: Attenuazione dell'esecuzione speculativa
@@ -306,6 +298,8 @@
           href: mount-azure-file-storage.md
         - name: Eseguire la distribuzione di dischi con un modello
           href: using-managed-disks-template-deployments.md
+        - name: Abilitare l'acceleratore di scrittura
+          href: how-to-enable-write-accelerator.md
         - name: Eseguire la migrazione a Managed Disks
           href: migrate-to-managed-disks.md
           items:
@@ -369,7 +363,7 @@
         - name: Agente Network Watcher
           href: extensions-nwa.md
         - name: Limitare l'installazione dell'estensione
-          href: extensions-rmpolicy-howto-ps.md
+          href: ../extensions/extensions-rmpolicy-howto-ps.md
     - name: Eseguire la migrazione di VM
       items:
         - name: Eseguire la migrazione di AWS e macchine virtuali locali
@@ -449,6 +443,12 @@
           href: troubleshoot-vm-by-use-nested-virtualization.md
         - name: Installare l'agente di macchine virtuali in modalità offline
           href: install-vm-agent-offline.md
+        - name: Risolvere i problemi dei dischi rigidi virtuali collegati
+          items:
+            - name: Errori nell'eliminazione di risorse di archiviazione
+              href: storage-resource-deletion-errors.md
+            - name: Riavvii imprevisti di VM con dischi rigidi virtuali collegati
+              href: unexpected-reboots-attached-vhds.md
 - name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure

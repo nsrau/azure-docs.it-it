@@ -82,7 +82,7 @@ L'installazione di software personalizzato nel cluster tramite Connessione Deskt
 
    * Per personalizzare il menu fare clic con il pulsante destro del mouse su un punto qualsiasi del menu e scegliere **Personalizza**.
    * **Impostazioni** e **Tutte le impostazioni**: consentono di visualizzare il pannello **Impostazioni** per il cluster, che consente di accedere a informazioni dettagliate sulla configurazione del cluster.
-   * **Dashboard**, **Dashboard cluster** e **URL: sono modi per accedere al dashboard del cluster, che per i cluster basati su Linux è Ambari Web. -**Secure Shell**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH).
+   * **Dashboard**, **Dashboard cluster** e **URL: sono modi per accedere al dashboard del cluster, che per i cluster basati su Linux è Ambari Web. -** Secure Shell\*\*: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH).
    * **Scala Cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
    * **Elimina**: elimina il cluster.
    * **Avvio rapido**: visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
@@ -276,7 +276,7 @@ La console query HDInsight include le funzionalità seguenti:
 
     ![Portale cronologia processi in HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-    Fare clic su **Nome query** per visualizzare i dettagli, incluse le proprietà del processo, **Job Query** (Query processo) e **Output processo. È anche possibile scaricare sia la query che l'output nella workstation.
+    Fare clic su **Nome query** per visualizzare i dettagli, incluse le proprietà del processo, **Job Query** (Query processo) e \*\*Output processo. È anche possibile scaricare sia la query che l'output nella workstation.
 * **Browser file**: sfoglia l'account di archiviazione predefinito e gli account di archiviazione collegati.
 
     ![Esplorazione del browser file portale in HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)
@@ -286,7 +286,7 @@ La console query HDInsight include le funzionalità seguenti:
 
     ![Interfaccia utente Hadoop portale in HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
 
-    Dall'*interfaccia utente di Hadoop*è possibile cercare i file e controllare i log.
+    Dall'\**interfaccia utente di Hadoop*è possibile cercare i file e controllare i log.
 * **Interfaccia utente Yarn**.
 
     ![Interfaccia utente YARN portale in HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)

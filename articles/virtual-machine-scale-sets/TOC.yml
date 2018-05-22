@@ -1,0 +1,163 @@
+- name: Documentazione sui set di scalabilità di macchine virtuali
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Che cosa sono i set di scalabilità delle macchine virtuali?
+      href: overview.md
+- name: Guide introduttive
+  items:
+    - name: Creare nel portale di Azure
+      href: quick-create-portal.md
+    - name: Creare con l'interfaccia della riga di comando di Azure 2.0
+      href: quick-create-cli.md
+    - name: Creare con Azure PowerShell
+      href: quick-create-powershell.md
+    - name: Creare con un modello
+      items:
+        - name: Set di scalabilità Linux
+          href: quick-create-template-linux.md
+        - name: Set di scalabilità Windows
+          href: quick-create-template-windows.md
+- name: Esercitazioni
+  items:
+    - name: 1 - Creare/gestire set di scalabilità
+      items:
+        - name: Interfaccia della riga di comando di Azure 2.0
+          href: tutorial-create-and-manage-cli.md
+        - name: Azure PowerShell
+          href: tutorial-create-and-manage-powershell.md
+    - name: 2 - Usare dischi dati
+      items:
+        - name: Interfaccia della riga di comando di Azure 2.0
+          href: tutorial-use-disks-cli.md
+        - name: Azure PowerShell
+          href: tutorial-use-disks-powershell.md
+    - name: 3 - Usare un'immagine di macchina virtuale personalizzata
+      items:
+        - name: Interfaccia della riga di comando di Azure 2.0
+          href: tutorial-use-custom-image-cli.md
+        - name: Azure PowerShell
+          href: tutorial-use-custom-image-powershell.md
+    - name: 4 - Distribuire le app in un set di scalabilità
+      items:
+        - name: Interfaccia della riga di comando di Azure 2.0
+          href: tutorial-install-apps-cli.md
+        - name: Azure PowerShell
+          href: tutorial-install-apps-powershell.md
+        - name: Modello
+          href: tutorial-install-apps-template.md
+    - name: 5 - Ridimensionare automaticamente un set di scalabilità
+      items:
+        - name: Interfaccia della riga di comando di Azure 2.0
+          href: tutorial-autoscale-cli.md
+        - name: Azure PowerShell
+          href: tutorial-autoscale-powershell.md
+        - name: Modello
+          href: tutorial-autoscale-template.md
+    - name: Distribuire le app in un set di scalabilità di macchine virtuali di Azure con un'immagine Packer personalizzata
+      items:
+        - name: Interfaccia della riga di comando di Azure 2.0
+          href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
+- name: Esempi
+  items:
+    - name: Interfaccia della riga di comando di Azure 2.0
+      href: cli-samples.md
+    - name: PowerShell
+      href: powershell-samples.md
+- name: Procedure
+  items:
+    - name: Pianificare e progettare
+      items:
+        - name: Considerazioni sulla progettazione
+          href: virtual-machine-scale-sets-design-overview.md
+        - name: Informazioni sugli ID istanza
+          href: virtual-machine-scale-sets-instance-ids.md
+    - name: Creare un modello
+      items:
+        - name: Informazioni sui modelli dei set di scalabilità
+          href: virtual-machine-scale-sets-mvss-start.md
+        - name: Usare una rete virtuale esistente
+          href: virtual-machine-scale-sets-mvss-existing-vnet.md
+        - name: Usare un'immagine personalizzata
+          href: virtual-machine-scale-sets-mvss-custom-image.md
+        - name: Usare la scalabilità automatica basata su guest con un modello di set di scalabilità Linux
+          href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
+    - name: Distribuire
+      items:
+        - name: Creare con Visual Studio
+          href: virtual-machine-scale-sets-vs-create.md
+        - name: Usare le zone di disponibilità
+          href: virtual-machine-scale-sets-use-availability-zones.md
+        - name: Ridimensionare automaticamente un set di scalabilità
+          href: virtual-machine-scale-sets-autoscale-overview.md
+          items:
+            - name: Usare il portale di Azure
+              href: virtual-machine-scale-sets-autoscale-portal.md
+            - name: Scalabilità automatica avanzata
+              href: ../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md
+        - name: Applicazioni nei set di scalabilità
+          href: virtual-machine-scale-sets-deploy-app.md
+        - name: Usare dischi di dati con set di scalabilità
+          href: virtual-machine-scale-sets-attached-disks.md
+        - name: Crittografare i dischi nei set di scalabilità
+          items:
+            - name: Usare PowerShell
+              href: virtual-machine-scale-sets-encrypt-disks-ps.md
+            - name: Usare l'interfaccia della riga di comando di Azure 2.0
+              href: virtual-machine-scale-sets-encrypt-disks-cli.md
+        - name: Usare set di scalabilità di grandi dimensioni
+          href: virtual-machine-scale-sets-placement-groups.md
+        - name: Convertire un modello di set di scalabilità per l'uso di dischi gestiti
+          href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: Usare VM con priorità bassa
+          href: virtual-machine-scale-sets-use-low-priority.md
+    - name: Gestisci
+      items:
+        - name: Attività di gestione comuni
+          items:
+            - name: Usare l'interfaccia della riga di comando di Azure 2.0
+              href: virtual-machine-scale-sets-manage-cli.md
+            - name: Usare Azure PowerShell
+              href: virtual-machine-scale-sets-manage-powershell.md
+        - name: Ridimensionamento verticale in un set di scalabilità
+          href: virtual-machine-scale-sets-vertical-scale-reprovision.md
+        - name: Aggiornamenti automatici del sistema operativo
+          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Modificare un set di scalabilità
+          href: virtual-machine-scale-sets-upgrade-scale-set.md
+        - name: Uso di DSC e di set di scalabilità
+          href: virtual-machine-scale-sets-dsc.md
+        - name: Risorse di rete per i set di scalabilità
+          href: virtual-machine-scale-sets-networking.md
+        - name: Convertire un modello in dischi gestiti
+          href: virtual-machine-scale-sets-convert-template-to-md.md
+    - name: Risolvere problemi
+      items:
+        - name: Autoscale
+          href: virtual-machine-scale-sets-troubleshoot.md
+    - name: Domande frequenti
+      items:
+        - name: Domande frequenti sui set di scalabilità
+          href: virtual-machine-scale-sets-faq.md
+- name: Riferimenti
+  items:
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: Interfaccia della riga di comando di Azure
+      href: ../virtual-machines/azure-cli-arm-commands.md
+    - name: REST
+      href: /rest/api/virtualmachinescalesets/
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Prezzi
+      items:
+        - name: Linux
+          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/'
+        - name: Windows
+          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-vm-scale-set'

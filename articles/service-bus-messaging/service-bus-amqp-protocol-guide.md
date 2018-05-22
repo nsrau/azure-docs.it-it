@@ -5,20 +5,20 @@ services: service-bus-messaging,event-hubs
 documentationcenter: .net
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
-ms.author: clemensv;hillaryc;sethm
-ms.openlocfilehash: 4e1fa9db3b4801103069163c55a9b342a27d00ac
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.date: 04/30/2018
+ms.author: clemensv
+ms.openlocfilehash: e124ea3f932a81634191785e7ee69c2492cb32fa
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 
@@ -205,6 +205,8 @@ Le frecce della seguente tabella visualizzano la direzione del flusso performati
 
 Le sezioni seguenti spiegano quali proprietà delle sessioni di messaggi AMQP standard vengono usate dal bus di servizio e ne illustrano il mapping al set di API del bus di servizio.
 
+Eventuali proprietà che l’applicazione deve definire dovranno essere mappate al mapping `application-properties` di AMQP.
+
 #### <a name="header"></a>intestazione
 
 | Nome campo | Uso | Nome API |
@@ -232,6 +234,80 @@ Le sezioni seguenti spiegano quali proprietà delle sessioni di messaggi AMQP st
 | group-id |Identificatore definito dall'applicazione per un set correlato di messaggi. Usato per le sessioni del bus di servizio. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | group-sequence |Contatore che identifica il numero di sequenza relativo al messaggio in una sessione. Ignorato dal bus di servizio. |Non è accessibile tramite l'API del bus di servizio. |
 | reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+
+#### <a name="message-annotations"></a>Annotazioni di messaggio
+
+Esistono alcune altre proprietà del messaggio del bus di servizio che non fanno parte della proprietà del messaggio AMQP e vengono trasmesse come `MessageAnnotations` sul messaggio.
+
+| Mappatura della chiave di annotazione | Uso | Nome API |
+| --- | --- | --- |
+| x-opt-scheduled-enqueue-time | Dichiara in quale momento dovrà essere visualizzato il messaggio nell'entità |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
+| x-opt-partition-key | Chiave definite dall'applicazione che stabilisce in quale partizione dovrà essere recapitato il messaggio. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
+| x-opt-via-partition-key | Valore definito dall'applicazione della chiave di partizione quando una transazione deve essere utilizzata per inviare messaggi tramite una coda di trasferimento. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
+| x-opt-enqueued-time | Ora UTC definita dal servizio che rappresenta l’ora effettiva di inserimento in coda del messaggio. Ignorato durante l'input. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
+| x-opt-sequence-number | Numero univoco definito dal servizio assegnato a un messaggio. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
+| x-opt-offset | Numero di sequenza di accodamento definito dal servizio del messaggio. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
+| x-opt-locked-until | Definito dal servizio. La data e l'ora fino alla quale il messaggio sarà bloccato nella coda/sottoscrizione. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
+| x-opt-deadletter-source | Definito dal servizio. Se il messaggio viene ricevuto dalla coda di messaggi non recapitabili, l'origine del messaggio originale. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+
+### <a name="transaction-capability"></a>Funzionalità delle transazioni
+
+Una transazione raggruppa due o più operazioni in un ambito di esecuzione. Per natura, questo tipo di transazione deve garantire che tutte le operazioni appartenenti a un determinato gruppo di operazioni abbiano esito positivo o negativo.
+Le operazioni sono raggruppate per un identificatore `txn-id`.
+
+Per l'interazione transazionale, il client viene utilizzato come `transaction controller` che controlla le operazioni da raggruppare. Il servizio del bus di servizio di Microsoft Azure viene utilizzato come un `transactional resource` ed esegue operazioni come richiesto dal `transaction controller`.
+
+Il client e il servizio comunicano tramite una `control link` che viene stabilita dal client. I messaggi `declare` e `discharge` vengono inviati dal controller al collegamento di controllo rispettivamente per allocare e completare le transazioni (e non rappresentano la delimitazione dell’attività transazionale). La trasmissione/ricezione effettiva non viene eseguita su questo collegamento. Ogni attività transazionale richiesta è esplicitamente identificata con l'oggetto desiderato `txn-id` e pertanto può verificarsi su un qualsiasi collegamento di connessione. Se il collegamento di controllo è chiuso mentre esistono transazioni non eseguite, viene immediatamente eseguito il rollback di tutte le transazioni e i tentativi di eseguire un'ulteriore attività transazionale su di esse falliranno. I messaggi sul collegamento di controllo non devono essere predefiniti.
+
+Ogni connessione deve avviare il proprio collegamento di controllo per poter iniziare e terminare le transazioni. Il servizio definisce una destinazione speciale che funziona come un `coordinator`. Il client/controller stabilisce un collegamento di controllo a questa destinazione. Il collegamento di controllo esula dai confini di un'entità, ad esempio, lo stesso collegamento di controllo può essere utilizzato per avviare ed eseguire le transazioni per più entità.
+
+#### <a name="starting-a-transaction"></a>Avviare una transazione
+
+Per avviare attività transazionali. il controller deve ricevere un `txn-id` dal coordinatore. Ciò avviene mediante l'invio di un messaggio di tipo `declare`. Se la dichiarazione ha esito positivo, il coordinatore risponde con un risultato di disposizione`declared` che esegue l'oggetto assegnato `txn-id`.
+
+| Client (controller) | | Bus di servizio (coordinatore) |
+| --- | --- | --- |
+| attach(<br/>name={nome collegamento},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
+|  | <------ | attach(<br/>name={nome collegamento},<br/>... ,<br/>target=Coordinator()<br/>) |
+| transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (**Dichiara()**)}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={id transazione}<br/>))|
+
+#### <a name="discharging-a-transaction"></a>Eseguire una transazione
+
+Il controller concluderà l’attività transazionale inviando un `discharge` messaggio al coordinatore. Il controller indica che desidera eseguire il commit o il rollback dell’attività transazionale impostando il flag `fail` nel corpo di esecuzione. Se il coordinatore non riesce a completare l’esecuzione, il messaggio viene rifiutato con questo risultato trasportando `transaction-error`.
+
+> Nota: esito negativo=vero intende l’esecuzione di rollback di una transazione ed esito negativo=falso fa riferimento all’esecuzione del commit.
+
+| Client (controller) | | Bus di servizio (coordinatore) |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={id transazione}<br/>))|
+| | . . . <br/>Attività transazionali<br/>in altri collegamenti<br/> . . . |
+| transfer(<br/>delivery-id=57, ...)<br/>{ ValoreAmqp (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}| ------> |  |
+| | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)|
+
+#### <a name="sending-a-message-in-a-transaction"></a>Invio di un messaggio in una transazione
+
+Tutte le attività transazionali vengono eseguite con lo stato di recapito transazionale `transactional-state` che trasmette l'id txn. In caso di invio dei messaggi, lo stato transazionale viene eseguito dal frame di trasferimento del messaggio. 
+
+| Client (controller) | | Bus di servizio (coordinatore) |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={id transazione}<br/>))|
+| transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
+| | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
+
+#### <a name="disposing-a-message-in-a-transaction"></a>Eliminazione di un messaggio in una transazione
+
+L’eliminazione del messaggio include operazioni come `Complete` / `Abandon` / `DeadLetter` / `Defer`. Per eseguire queste operazioni all'interno di una transazione, trasmettere `transactional-state` con la disposizione.
+
+| Client (controller) | | Bus di servizio (coordinatore) |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={id transazione}<br/>))|
+| | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
+| disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
+
 
 ## <a name="advanced-service-bus-capabilities"></a>Funzionalità avanzate del bus di servizio
 
@@ -315,6 +391,19 @@ Il meccanismo ANONYMOUS deve quindi essere supportato dal client AMQP 1.0 scelto
 Dopo aver stabilito la connessione e la sessione, le uniche operazioni consentite sono l'associazione dei collegamenti al nodo *$cbs* e l'invio della richiesta *put-token*. Un token valido deve essere impostato correttamente usando una richiesta *put-token* per un nodo di entità entro 20 secondi dall'avvio della connessione. In caso contrario, la connessione viene interrotta unilateralmente dal bus di servizio.
 
 Il client è successivamente responsabile della verifica della scadenza del token. Alla scadenza di un token il bus di servizio elimina immediatamente tutti i collegamenti alla rispettiva entità nella connessione. Per evitare questo problema, il client può sostituire il token per il nodo con un nuovo token in qualsiasi momento tramite il nodo di gestione virtuale *$cbs* con lo stesso gesto *put-token* e senza ostacolare il traffico di payload tra i diversi collegamenti.
+
+### <a name="send-via-functionality"></a>Funzionalità di invio tramite
+
+[Invio tramite/Trasferisci mittente](service-bus-transactions.md#transfers-and-send-via) è una funzionalità che consente ai bus di servizio di inoltrare un determinato messaggio all'entità di destinazione tramite un'altra entità. Viene utilizzata principalmente per eseguire operazioni tra le entità in una singola transazione.
+
+Con questa funzionalità, si crea un mittente e si stabilisce il collegamento a `via-entity`. Durante il tentativo di stabilire il collegamento, vengono trasmesse informazioni aggiuntive per stabilire la destinazione reale dei messaggi/trasferimenti a questo collegamento. Dopo che il collegamento è stato eseguito correttamente, tutti i messaggi inviati a questo collegamento verranno inoltrati automaticamente all’*entità di destinazione* tramite *Entità tramite*. 
+
+> Nota: l'autenticazione server deve essere eseguita sia per *Entità tramite* e *Entità di destinazione* prima di stabilire il collegamento.
+
+| Client | | Bus di servizio |
+| --- | --- | --- |
+| attach(<br/>name={nome collegamento},<br/>role=sender,<br/>source={ID collegamento client},<br/>target=**{tramite entità}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{entità destinazione} )]** ) | ------> | |
+| | <------ | attach(<br/>name={nome collegamento},<br/>role=receiver,<br/>source={ID collegamento client},<br/>target={tramite entità},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{entità destinazione} )] ) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
-title: Avvio rapido in Azure - Creare un portale di VM | Microsoft Docs
-description: Avvio rapido in Azure - Creare un portale di VM
+title: Guida introduttiva - Creare una macchina virtuale Linux nel portale di Azure | Microsoft Docs
+description: Questa guida introduttiva illustra come usare il portale di Azure per creare una macchina virtuale Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/11/2017
+ms.date: 04/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6585f28e2b70aee6efbfa99bf2ec4320d6d15382
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 18ac0291bff2c0fbfffdd5dfa3097f8a6acb561f
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Creare una macchina virtuale Linux con il portale di Azure
+# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Guida introduttiva: Creare una macchina virtuale Linux nel portale di Azure
 
-È possibile creare macchine virtuali di Azure tramite il portale di Azure. Questo metodo fornisce un'interfaccia utente basata sul browser per la creazione e la configurazione delle macchine virtuali e di tutte le risorse correlate. Questa guida introduttiva illustra la creazione di una macchina virtuale e l'installazione di un server Web nella VM.
+È possibile creare macchine virtuali di Azure tramite il portale di Azure. Questo metodo fornisce un'interfaccia utente basata su browser per creare le macchine virtuali e le risorse associate. Questa guida introduttiva illustra come usare il portale di Azure per distribuire una macchina virtuale Linux in Azure che esegue Ubuntu. Per visualizzare la macchina virtuale in azione, viene quindi usato SSH per accedere alla macchina virtuale e installare il server Web NGINX.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -32,95 +32,94 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per completare questa guida introduttiva è necessaria una coppia di chiavi SSH. Se è già disponibile una coppia di chiavi SSH, questo passaggio può essere ignorato.
 
-In una shell Bash eseguire questo comando e attenersi alle indicazioni visualizzate. L'output del comando include il nome del file di chiave pubblica. Copiare il contenuto del file di chiave pubblica (`cat ~/.ssh/id_rsa.pub`) negli Appunti. Se si usa il sottosistema Windows per Linux, assicurarsi di non copiare i caratteri di interruzione di riga dall'output. Annotare il nome del file di chiave privata per usarlo in un secondo momento.
+Per creare una coppia di chiavi SSH e accedere alle macchine virtuali Linux, eseguire il comando seguente da una shell Bash e seguire le istruzioni visualizzate. Ad esempio, è possibile usare [Azure Cloud Shell](../../cloud-shell/overview.md) o il [sottosistema di Windows per Linux](/windows/wsl/install-win10). L'output del comando include il nome del file di chiave pubblica. Copiare il contenuto del file di chiave pubblica (`cat ~/.ssh/id_rsa.pub`) negli Appunti:
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
-Altre informazioni dettagliate su questo processo sono disponibili [qui](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
+Per informazioni più dettagliate su come creare coppie di chiavi SSH, incluso l'uso di PuTTy, vedere [Come usare le chiavi SSH con Windows in Azure](ssh-from-windows.md).
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure 
+## <a name="log-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di Azure all'indirizzo http://portal.azure.com.
+Accedere al portale di Azure all'indirizzo http://portal.azure.com
 
 ## <a name="create-virtual-machine"></a>Crea macchina virtuale
 
-1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
+1. Scegliere **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 
-2. Selezionare **Calcolo** e quindi **Ubuntu Server 16.04 LTS**. 
+2. Nella casella di ricerca sopra l'elenco delle risorse di Azure Marketplace, cercare e selezionare **Ubuntu Server 16.04 LTS** di Canonical e quindi scegliere **Crea**.
 
-3. Immettere le informazioni relative alla macchina virtuale. In **Tipo di autenticazione** selezionare **Chiave pubblica SSH**. Quando si incolla la chiave pubblica SSH, prestare attenzione a rimuovere gli eventuali spazi iniziali o finali. Al termine fare clic su **OK**.
+3. Specificare un nome di macchina virtuale, ad esempio *macchinavirtuale*, lasciare il tipo di disco *SSD* e quindi specificare un nome utente, ad esempio *utenteazure*.
+
+4. . Per **Tipo di autenticazione** selezionare **Chiave pubblica SSH** e quindi incollare la chiave pubblica nella casella di testo. Prestare attenzione a rimuovere gli eventuali spazi iniziali o finali nella chiave pubblica.
 
     ![Immettere le informazioni di base sulla VM nel pannello del portale](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 
-4. Selezionare una dimensione per la VM. Per visualizzare altre dimensioni, selezionare **Visualizza tutto** o modificare il filtro **Supported disk type** (Tipo di disco supportato). 
+5. Scegliere **Crea nuovo** per creare un nuovo gruppo di risorse e quindi specificare un nome, ad esempio *GruppoRisorse*. Scegliere la **Località** desiderata e quindi selezionare **OK**.
 
-    ![Screenshot che mostra le dimensioni delle VM](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
+4. Selezionare una dimensione per la VM. È possibile filtrare in base a *Tipo di calcolo* oppure a *Tipo di disco*, ad esempio. Le dimensioni consigliate per le macchine virtuali sono *D2s_v3*.
 
-5. In **Impostazioni** mantenere le impostazioni predefinite e fare clic su **OK**.
+    ![Screenshot che mostra le dimensioni delle VM](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
 
-6. Nella pagina del riepilogo fare clic su **OK** per avviare la distribuzione della macchina virtuale.
+5. In **Impostazioni**  accettare tutte le impostazioni predefinite e selezionare **OK**.
 
-7. La macchina virtuale verrà aggiunta al dashboard del portale di Azure. Una volta completata la distribuzione verrà automaticamente aperto il riepilogo della macchina virtuale.
+6. Nella pagina di riepilogo selezionare **Crea** per avviare la distribuzione della macchina virtuale.
 
+7. La macchina virtuale viene aggiunta al dashboard del portale di Azure. Una volta completata la distribuzione verrà automaticamente aperto il riepilogo della macchina virtuale.
 
 ## <a name="connect-to-virtual-machine"></a>Connettersi alla macchina virtuale
 
-Creare una connessione SSH alla macchina virtuale.
+Creare una connessione SSH con la macchina virtuale.
 
-1. Fare clic sul pulsante **Connetti** nelle proprietà della macchina virtuale. Il pulsante Connetti mostra una stringa di connessione SSH che può essere usata per connettersi alla macchina virtuale.
+1. Selezionare il pulsante **Connetti** nella pagina di panoramica per la macchina virtuale. 
 
-    ![Portale 9](./media/quick-create-portal/portal-quick-start-9.png) 
+    ![Portale 9](./media/quick-create-portal/portal-quick-start-9.png)
 
-2. Usare il comando seguente per creare una sessione SSH. Sostituire la stringa di connessione con quella copiata dal portale di Azure.
+2. Nella pagina **Connetti a macchina virtuale** mantenere le opzioni predefinite per la connessione con nome DNS sulla porta 22. In **Accedi con l'account locale della macchina virtuale** viene visualizzato un comando di connessione. Fare clic sul pulsante per copiare il comando. Di seguito è mostrato un esempio di comando di connessione SSH:
 
-```bash 
-ssh azureuser@40.112.21.50
-```
+    ```bash
+    ssh azureuser@myvm-123abc.eastus.cloudapp.azure.com
+    ```
 
-## <a name="install-nginx"></a>Installare NGINX
+3. Incollare il comando di connessione SSH in una shell, ad esempio Azure Cloud Shell o Bash in Ubuntu in Windows per creare la connessione. 
 
-Usare lo script bash seguente per aggiornare le origini dei pacchetti e installare il pacchetto NGINX più recente. 
+## <a name="install-web-server"></a>Installare il server Web
 
-```bash 
-#!/bin/bash
+Per visualizzare la macchina virtuale in azione, installare il server Web NGINX. Per aggiornare le origini dei pacchetti e installare il pacchetto NGINX più recente, eseguire i comandi seguenti dalla sessione SSH:
 
-# update package source
+```bash
+# update packages
 sudo apt-get -y update
 
 # install NGINX
 sudo apt-get -y install nginx
 ```
 
-Al termine chiudere la sessione SSH e tornare alle proprietà della macchina virtuale nel portale di Azure.
+Al termine, usare `exit` per chiudere la sessione SSH e tornare alle proprietà della macchina virtuale nel portale di Azure.
 
+## <a name="open-port-80-for-web-traffic"></a>Aprire la porta 80 per il traffico Web
 
-## <a name="open-port-80-for-web-traffic"></a>Aprire la porta 80 per il traffico Web 
+Un gruppo di sicurezza di rete (NSG) protegge il traffico in ingresso e in uscita. Quando si crea una VM nel portale di Azure, viene creata una regola in ingresso sulla porta 22 per le connessioni SSH. Questa macchina virtuale ospita un server Web, quindi è necessario creare una regola del gruppo di sicurezza di rete per la porta 80.
 
-Un gruppo di sicurezza di rete (NSG) consente il traffico in ingresso e in uscita. Quando si crea una VM nel portale di Azure, viene creata una regola in ingresso sulla porta 22 per le connessioni SSH. Questa VM ospita un server Web, quindi è necessario creare una regola del gruppo di sicurezza di rete per la porta 80.
+1. Nella pagina di panoramica per la macchina virtuale selezionare **Rete**.
+2. Viene visualizzato l'elenco delle regole ingresso e in uscita esistenti. Scegliere **Aggiungi regola porta in ingresso**.
+3. Selezionare l'opzione **Base** nella parte superiore e quindi scegliere *HTTP* nell'elenco dei servizi disponibili. Vengono forniti automaticamente la porta 80, una priorità e un nome.
+4. Per creare la regola, selezionare **Aggiungi**.
 
-1. Nella macchina virtuale fare clic sul nome del **gruppo di risorse**.
-2. Selezionare il **gruppo di sicurezza di rete**. Il gruppo di sicurezza di rete può essere identificato tramite la colonna **Tipo**. 
-3. Nel menu a sinistra fare clic su **Regole di sicurezza in ingresso** in Impostazioni.
-4. Fare clic su **Aggiungi**.
-5. In **Nome** digitare **http**. Assicurarsi che l'opzione **Intervallo di porte di origine** sia impostata su `*`, che l'opzione **Intervallo di porte di destinazione** sia impostata su *80* e che l'opzione **Azione** sia impostata su *Consenti*. 
-6. Fare clic su **OK**.
+## <a name="view-the-web-server-in-action"></a>Visualizzare il server Web in azione
 
+Con NGINX installato e la porta 80 aperta per la macchina virtuale, è ora possibile accedere al server Web da Internet. Aprire un Web browser e immettere l'indirizzo IP pubblico della VM. L'indirizzo IP pubblico è reperibile nella pagina di panoramica per la macchina virtuale o all'inizio della pagina *Rete* in cui viene aggiunta la regola di porta in ingresso.
 
-## <a name="view-the-nginx-welcome-page"></a>Visualizzare la pagina iniziale di NGINX
-
-Con NGINX installato e la porta 80 aperta per la macchina virtuale, è ora possibile accedere al server Web da Internet. Aprire un Web browser e immettere l'indirizzo IP pubblico della VM. L'indirizzo IP pubblico è indicato nelle proprietà della macchina virtuale nel portale di Azure.
-
-![Sito NGINX predefinito](./media/quick-create-cli/nginx.png) 
+![Sito NGINX predefinito](./media/quick-create-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non serve più, eliminare il gruppo di risorse e tutte le risorse correlate. A tale scopo selezionare il gruppo di risorse per la macchina virtuale e fare clic su **Elimina**.
+Quando non serve più, è possibile eliminare il gruppo di risorse, la macchina virtuale e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse per la macchina virtuale, selezionare **Elimina** e quindi confermare il nome del gruppo di risorse da eliminare.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata distribuita una macchina virtuale semplice, è stata creata una regola del gruppo di sicurezza di rete ed è stato installato un server Web. Per altre informazioni sulle macchine virtuali di Azure, passare all'esercitazione per le VM di Linux.
+In questa guida introduttiva è stata distribuita una macchina virtuale semplice, sono stati creati un gruppo di sicurezza di rete e una regola ed è stato installato un server Web. Per altre informazioni sulle macchine virtuali di Azure, passare all'esercitazione per le VM di Linux.
 
 > [!div class="nextstepaction"]
 > [Esercitazioni per le macchine virtuali di Linux in Azure](./tutorial-manage-vm.md)

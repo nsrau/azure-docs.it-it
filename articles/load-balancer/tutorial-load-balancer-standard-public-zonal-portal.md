@@ -1,29 +1,41 @@
 ---
-title: Bilanciamento del carico delle macchine virtuali all'interno di una zona - Portale di Azure | Microsoft Docs
-description: Creare un servizio Load Balancer Standard con front-end di zona per bilanciare il carico delle macchine virtuali all'interno di una zona di disponibilità tramite il portale di Azure
+title: "Esercitazione: bilanciamento del carico delle macchine virtuali all'interno di una zona - Portale di Azure | Microsoft Docs"
+description: Questa esercitazione dimostra come creare un servizio Load Balancer Standard con front-end di zona per bilanciare il carico delle macchine virtuali all'interno di una zona di disponibilità tramite il portale di Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: ''
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/18/2018
+ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: 41a33436cb0d2c4c2bbfef4888bb704c62e2b91e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: mvc
+ms.openlocfilehash: 9067ea350997ed0c4fc5c65dccb72f403adfa774
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="load-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>Bilanciare il carico delle macchine virtuali all'interno di una zona di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
+# <a name="tutorialload-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>Esercitazione: bilanciare il carico delle macchine virtuali all'interno di una zona di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
 
-Questo articolo illustra la creazione di un servizio [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) pubblico con un front-end di zona tramite un indirizzo IP pubblico standard usando il portale di Azure. In questo scenario, specificare una zona particolare per le istanze front-end e back-end, per allineare il percorso dati e le risorse a una zona specifica.
+Questa esercitazione illustra dettagliatamente la creazione di un servizio [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) pubblico con un front-end di zona tramite un indirizzo IP pubblico standard usando il portale di Azure. In questo scenario, specificare una zona particolare per le istanze front-end e back-end, per allineare il percorso dati e le risorse a una zona specifica. Si apprenderà come:
+
+> [!div class="checklist"]
+> * Creare un servizio Load Balancer Standard con un front-end di zona
+> * Creare gruppi di sicurezza di rete per definire le regole del traffico in ingresso
+> * Creare macchine virtuali di zona e collegarsi a un bilanciamento del carico
+> * Creare un probe di integrità per il servizio di bilanciamento del carico
+> * Creare regole del traffico di bilanciamento del carico
+> * Creare un sito IIS di base
+> * Visualizzare un bilanciamento del carico in azione
+
 Per altre informazioni sull'uso delle zone di disponibilità con Load Balancer Standard, vedere [Load Balancer Standard e zone di disponibilità](load-balancer-standard-availability-zones.md).
 
 Se si preferisce, è possibile completare questa esercitazione usando l'[interfaccia della riga di comando di Azure](load-balancer-standard-public-zonal-cli.md).

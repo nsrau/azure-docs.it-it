@@ -1,27 +1,27 @@
 ---
-title: Esercitazione sull'anteprima dei sinonimi in Ricerca di Azure | Microsoft Docs
-description: Aggiungere la funzionalità di anteprima dei sinonimi a un indice in Ricerca di Azure.
+title: Esercitazione sui sinonimi in Ricerca di Azure | Microsoft Docs
+description: Aggiungere la funzionalità dei sinonimi a un indice in Ricerca di Azure.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 03/31/2017
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 0f082397f832883b272a2ca38850a340b618adde
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5482185a4a4cc8b76c1094ce12a7ac52985ec57c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="synonym-preview-c-tutorial-for-azure-search"></a>Esercitazione sui sinonimi (anteprima) in C# per Ricerca di Azure
+# <a name="synonym-c-tutorial-for-azure-search"></a>Esercitazione sui sinonimi in C# per Ricerca di Azure
 
 I sinonimi espandono una query tramite la corrispondenza con termini considerati semanticamente uguali al termine di input. È ad esempio possibile che si voglia che il termine "auto" consenta di rilevare corrispondenze con documenti contenenti i termini "automobile" o "veicolo".
 
 In Ricerca di Azure i sinonimi sono definiti in una *mappa di sinonimi* tramite *regole di mapping* che associano termini equivalenti. È possibile creare più mappe di sinonimi, inserirle come risorse a livello di servizio disponibili per qualsiasi indice e quindi fare riferimento alla mappa da usare a livello di campo. In fase di query, oltre a eseguire ricerche in un indice, Ricerca di Azure esegue una ricerca in una mappa di sinonimi, se tale mappa viene specificata nei campi usati nella query.
 
 > [!NOTE]
-> La funzionalità relativa ai sinonimi è attualmente disponibile in anteprima ed è supportata solo nelle versioni più recenti dell'anteprima di API e SDK (api-version=2016-09-01-Preview, SDK versione 4.x-anteprima). Non è attualmente disponibile alcun supporto nel portale di Azure. Le API disponibili in anteprima non rientrano nel Contratto di servizio e le funzionalità disponibili in anteprima possono subire modifiche, quindi non è consigliabile usarle nelle applicazioni di produzione.
+> La funzionalità dei sinonimi è supportata nelle ultime versioni API e SDK (api-version=2017-11-11, versione SDK 5.0.0). Non è attualmente disponibile alcun supporto nel portale di Azure. Se l'utente considera utile il supporto dei sinonimi del portale di Azure, può fornire un feedback tramite [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -29,7 +29,7 @@ I requisiti per l'esercitazione includono i seguenti:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Servizio Ricerca di Azure](search-create-service-portal.md)
-* [Versione di anteprima della libreria Microsoft.Azure.Search .NET](https://aka.ms/search-sdk-preview)
+* [Libreria Microsoft.Azure.Search .NET](https://aka.ms/search-sdk)
 * [Come utilizzare Ricerca di Azure da un'applicazione .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Panoramica

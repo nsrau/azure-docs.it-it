@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: fd68658d2549e47f69005af4012c2c328e192631
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: bb981bcfb391362bad80aabf5808fd085e937232
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Esercitazione: Associare un certificato SSL personalizzato esistente ad app Web di Azure
 
@@ -303,6 +303,6 @@ Questa esercitazione illustra come:
 Passare all'esercitazione successiva per imparare a usare la rete di distribuzione dei contenuti di Azure.
 
 > [!div class="nextstepaction"]
-> [Aggiungere una rete per la distribuzione di contenuti (CDN) a un servizio app di Azure](app-service-web-tutorial-content-delivery-network.md)
+> [Aggiungere una rete per la distribuzione di contenuti (CDN) a un servizio app di Azure](../cdn/app-service-web-tutorial-content-delivery-network.md)
 
 Per altre informazioni, vedere l'articolo relativo all'[utilizzo di un certificato SSL nel codice dell'applicazione nel servizio app di Azure](app-service-web-ssl-cert-load.md).

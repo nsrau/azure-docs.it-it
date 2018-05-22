@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 23bab643a88fe27eb34750f970f962041f8c18f4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 204702eee1cf502ac873e0c1f5e3fd257ecce33c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-preview"></a>Limiti del modello di acquisto in base ai vCore per il database SQL di Azure (anteprima)
 
@@ -40,8 +40,7 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 |Operazioni di I/O al secondo di destinazione|320|640|1280|2560|5120|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|800|1600|3200|
-|Numero massimo di accessi simultanei|200|400|800|1600|3200|
-|Numero massimo di sessioni consentite|3000|3000|3000|3000|3000|
+|Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|
 |Numero di repliche|1|1|1|1|1|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|
@@ -63,8 +62,7 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 |Operazioni di I/O al secondo di destinazione|5000|10000|20000|40000|80000|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|800|1600|3200|
-|Numero massimo di accessi simultanei|200|400|800|1600|3200|
-|Numero massimo di sessioni consentite|3000|3000|3000|3000|3000|
+|Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|
 |Numero di repliche|3|3|3|3|3|
 |Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|
@@ -117,8 +115,7 @@ Per i pool elastici del database SQL le tabelle seguenti illustrano le risorse d
 |Operazioni di I/O al secondo di destinazione|320|640|1280|2560|5120|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|210|420|840|1680|3360|
-|Numero massimo di accessi simultanei|210|420|840|1680|3360|
-|Numero massimo di sessioni consentite|3000|3000|3000|3000|3000|
+|Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|
 |Massima densità dei pool|100|200|500|500|500|
 |Numero minimo/massimo di arresti del pool elastico|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|
 |Numero di repliche|1|1|1|1|1|
@@ -128,7 +125,7 @@ Per i pool elastici del database SQL le tabelle seguenti illustrano le risorse d
 |||
 
 ### <a name="business-critical-service-tier"></a>Livello di servizio business critical
-|Livello di prestazioni|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
+|Livello di prestazioni|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|
 |:--- | --: |--: |--: |--: |--: |
 |Generazione hardware|4|4|4|4|4|
 |vCore|1|2|4|8|16|
@@ -142,8 +139,7 @@ Per i pool elastici del database SQL le tabelle seguenti illustrano le risorse d
 |Operazioni di I/O al secondo di destinazione|320|640|1280|2560|5120|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|210|420|840|1680|3360|
-|Numero massimo di accessi simultanei|210|420|840|1680|3360|
-|Numero massimo di sessioni consentite|3000|3000|3000|3000|3000|
+|Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|
 |Massima densità dei pool|N/D|50|100|100|100|
 |Numero minimo/massimo di arresti del pool elastico|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|
 |Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|

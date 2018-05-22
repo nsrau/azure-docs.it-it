@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2018
+ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 810e3e8af5295348ba73b4f7433e3203f47f4554
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 109bd61963b918f2a20c48a5bf7bd89dc353db96
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Usare l'emulatore di Azure Cosmos DB per sviluppo e test locali
 
@@ -478,6 +478,10 @@ Per raccogliere le tracce di debug, eseguire i comandi seguenti da un prompt dei
 ## <a name="change-list"></a>Elenco delle modifiche
 
 È possibile controllare il numero di versione facendo clic con il pulsante destro del mouse sull'icona dell'emulatore locale sulla barra delle applicazioni e scegliendo la voce di menu Informazioni su.
+
+### <a name="1220-released-on-april-20-2018"></a>1.22.0. Versione rilasciata il 20 aprile 2018
+
+Oltre ad aggiornare i servizi dell'emulatore per la parità con i servizi cloud di Cosmos DB, in questa versione sono state incluse una documentazione PowerShell migliorata e correzioni di bug di diverso tipo.
 
 ### <a name="12106-released-on-march-27-2018"></a>Versione 1.21.0.6 rilasciata il 27 marzo 2018
 

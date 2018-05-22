@@ -1,4 +1,4 @@
-- name: Servizio contenitore di Azure
+- name: Azure Kubernetes Service (AKS)
   href: ./index.yml
 - name: Panoramica
   items:
@@ -25,9 +25,7 @@
       href: tutorial-kubernetes-scale.md
     - name: '6: Aggiornare l''applicazione'
       href: tutorial-kubernetes-app-update.md
-    - name: '7: Monitorare con Log Analytics'
-      href: tutorial-kubernetes-monitor.md
-    - name: '8: Aggiornare il cluster'
+    - name: 7 - Aggiornare il cluster
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: Concetti
   items:
@@ -47,22 +45,26 @@
           href: delete-cluster.md
     - name: Configurare i volumi di dati
       items:
-        - name: Volume Kubernetes - Dischi
-          href: azure-disk-volume.md
-        - name: Volume Kubernetes - File
-          href: azure-files-volume.md
-        - name: Volume permanente - Dischi
+        - name: Disco di Azure - Configurazione dinamica
           href: azure-disks-dynamic-pv.md
-        - name: Volume permanente - File
+        - name: Disco di Azure - Configurazione statica
+          href: azure-disk-volume.md
+        - name: File di Azure - Configurazione dinamica
           href: azure-files-dynamic-pv.md
+        - name: File di Azure - Configurazione statica
+          href: azure-files-volume.md
     - name: Configurare le impostazioni di rete
       items:
+        - name: Panoramica delle reti
+          href: networking-overview.md
         - name: Indirizzo IP statico
           href: static-ip.md
         - name: Servizio di bilanciamento del carico interno
           href: internal-lb.md
         - name: Traffico in ingresso e TLS
           href: ingress.md
+        - name: Routing di applicazioni HTTP
+          href: http-application-routing.md
     - name: Sicurezza e autenticazione
       items:
         - name: Creare un'entità servizio
@@ -95,7 +97,7 @@
           href: aks-ssh.md
         - name: Ottenere i log di kubelet
           href: kubelet-logs.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/aks

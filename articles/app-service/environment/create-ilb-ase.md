@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6e09bdc336821720c970f8b8daf13f52b0a69ed0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app #
 
@@ -63,6 +63,8 @@ Per creare un ambiente del servizio app con bilanciamento del carico interno:
 
 4. Selezionare o creare una rete virtuale.
 
+    * Se si seleziona una nuova rete virtuale, è possibile specificare un nome e una località. Se si prevede di ospitare app Linux in questo ambiente del servizio app, attualmente sono supportate solo 6 aree, ovvero **Stati Uniti occidentali, Stati Uniti orientali, Europa occidentale, Europa settentrionale, Australia orientale, Asia sud-orientale.** 
+
 5. Se si seleziona una rete virtuale esistente, è necessario creare una subnet per contenere l'ambiente del servizio app. Assicurarsi di impostare una subnet con dimensioni sufficientemente grandi per supportare la crescita futura dell'ambiente del servizio app. La dimensione consigliata è `/25`, contenente 128 indirizzi, in grado di gestire un ambiente del servizio app con dimensione massima. La dimensione minima selezionabile è `/28`. In base alle esigenze dell'infrastruttura, è possibile ridimensionare questo valore solo fino a un massimo di 3 istanze.
 
     * Superare il valore massimo predefinito di 100 istanze nei piani di servizio app.
@@ -106,7 +108,7 @@ Se si imposta il **Tipo di indirizzo VIP** su **Interno**, il nome dell'ambiente
 
 La creazione di un'app in un ambiente del servizio app con bilanciamento del carico interno è la stessa eseguita in un ambiente del servizio app regolare.
 
-1. Nel portale di Azure selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **Web** o **Dispositivi mobili** o **App per le API**.
+1. Nel portale di Azure selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **App Web**.
 
 2. Immettere il nome dell'app.
 
@@ -114,9 +116,13 @@ La creazione di un'app in un ambiente del servizio app con bilanciamento del car
 
 4. Selezionare o creare un gruppo di risorse.
 
-5. Selezionare o creare un piano di servizio app. Se si vuole creare un nuovo piano di servizio app, selezionare l'ambiente del servizio app in uso come località. Selezionare il pool di lavoro in cui si vuole creare il piano di servizio app. Quando si crea il piano di servizio app, selezionare l'ambiente del servizio app come località e il pool di lavoro. Quando si specifica il nome dell'app, il dominio sotto il nome dell'app verrà sostituito con il dominio dell'ambiente del servizio app.
+5. Selezionare il sistema operativo. 
 
-6. Selezionare **Create**. Se si vuole che l'app venga visualizzata nel dashboard, selezionare la casella di controllo **Aggiungi al dashboard**.
+    * Se si intende creare un'app di Linux usando un contenitore Docker personalizzato, è possibile usare un proprio contenitore seguendo queste istruzioni. 
+
+6. Selezionare o creare un piano di servizio app. Se si vuole creare un nuovo piano di servizio app, selezionare l'ambiente del servizio app in uso come località. Selezionare il pool di lavoro in cui si vuole creare il piano di servizio app. Quando si crea il piano di servizio app, selezionare l'ambiente del servizio app come località e il pool di lavoro. Quando si specifica il nome dell'app, il dominio sotto il nome dell'app verrà sostituito con il dominio dell'ambiente del servizio app.
+
+7. Selezionare **Create**. Se si vuole che l'app venga visualizzata nel dashboard, selezionare la casella di controllo **Aggiungi al dashboard**.
 
     ![Creazione del piano di servizio app][2]
 
@@ -209,7 +215,7 @@ Il nome del sito di gestione controllo servizi consente di passare alla console 
 
 Nel servizio app multi-tenant e in un ambiente del servizio app esterno, è incluso l'accesso Single Sign-On tra il portale di Azure e la console Kudu. Per l'ambiente del servizio app ILB, è necessario usare invece le credenziali di pubblicazione per accedere alla console Kudu.
 
-I sistemi di integrazione continua basati su Internet, ad esempio GitHub e Visual Studio Team Services, non funzionano con un ambiente del servizio app con bilanciamento del carico interno perché l'endpoint di pubblicazione non è accessibile tramite Internet. È invece necessario usare un sistema di integrazione continua che usa un modello pull, ad esempio Dropbox.
+I sistemi di integrazione continua basati su Internet, come GitHub e Visual Studio Team Services, continueranno a funzionare con un ambiente del servizio app ILB se l'agente di compilazione è accessibile da Internet e si trova nella stessa rete dell'ambiente del servizio app ILB. Quindi, nel caso di Visual Studio Team Services, se l'agente di compilazione viene creato nella stessa rete virtuale dell'ambiente del servizio app ILB (anche se la subnet è diversa), potrà eseguire il pull del codice dal GIT VSTS e distribuirlo nell'ambiente del servizio app ILB. Se non si vuole creare il proprio agente di compilazione, è necessario usare un sistema di integrazione continua che adotta un modello pull, ad esempio Dropbox.
 
 Gli endpoint di pubblicazione per le app in un ambiente del servizio app con bilanciamento del carico interno usano il dominio con cui l'ambiente del servizio app con bilanciamento del carico interno è stato creato, che può essere visualizzato nel profilo di pubblicazione dell'app e nel pannello del portale dell'app (in **Panoramica** > **Informazioni di base** e anche in **Proprietà**). Se si dispone di un ambiente del servizio app ILB con il sottodominio *contoso.net* e di un'app denominata *mytest*, usare *mytest.contoso.net* per FTP e *mytest.scm.contoso.net* per la distribuzione Web.
 
@@ -238,7 +244,7 @@ Per altre informazioni sulla configurazione dell'ambiente del servizio app ILB c
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../app-service-web-overview.md

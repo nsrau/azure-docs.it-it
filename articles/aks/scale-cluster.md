@@ -1,21 +1,21 @@
 ---
-title: Ridimensionare un cluster del servizio contenitore di Azure
-description: Ridimensionare un cluster del servizio contenitore di Azure.
+title: Ridimensionare un cluster di Azure Kubernetes Service (AKS)
+description: Ridimensionare un cluster di Azure Kubernetes Service (AKS).
 services: container-service
 author: gabrtv
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: fbbc24c958152806964412b426aff81a894d4412
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 577fff2e659759647ffc7e96158ebcbe5a88ab25
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="scale-an-azure-container-service-aks-cluster"></a>Ridimensionare un cluster del servizio contenitore di Azure
+# <a name="scale-an-azure-kubernetes-service-aks-cluster"></a>Ridimensionare un cluster di Azure Kubernetes Service (AKS)
 
 Un cluster del servizio contenitore di Azure può essere facilmente ridimensionato in modo da passare a un diverso numero di nodi.  Selezionare il numero di nodi desiderato ed eseguire il comando `az aks scale`.  In caso di riduzione, i nodi verranno accuratamente [contrassegnati come non pianificabili e svuotati][kubernetes-drain] per ridurre al minimo le interruzioni nelle applicazioni in esecuzione.  In caso di aumento, il comando `az` attende finché i nodi non vengono contrassegnati come `Ready` dal cluster Kubernetes.
 

@@ -8,16 +8,16 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15e7e811c7cb1777e34f1bfb629fa24a60f9e5cb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 1d73142931a5cfa84cb24df7a85c799a0f508385
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Esportare il modello di Azure Resource Manager con l'interfaccia della riga di comando di Azure
 
@@ -26,7 +26,7 @@ Resource Manager consente di esportare un modello di Resource Manager dalle riso
 Si noti che è possibile eseguire l'esportazione di un modello in due modi diversi:
 
 * È possibile esportare il **modello effettivo usato per una distribuzione**. Il modello esportato include tutti i parametri e le variabili uguali a quelli visualizzati nel modello originale. Questo approccio è utile quando si vuole recuperare un modello.
-* È possibile esportare un **modello generato che rappresenta lo stato corrente del gruppo di risorse**. Il modello esportato non si basa su un modello qualsiasi usato per la distribuzione, ma crea un modello che è uno "snapshot" o un "backup" del gruppo di risorse. Il modello esportato ha diversi valori hardcoded e probabilmente meno parametri di quelli che si definiscono in genere. Usare questa opzione per ridistribuire le risorse allo stesso gruppo di risorse. Per usare questo modello per un altro gruppo di risorse, è necessario apportare alcune importanti modifiche.
+* È possibile esportare un **modello generato che rappresenta lo stato corrente del gruppo di risorse**. Il modello esportato non si basa su un modello qualsiasi usato per la distribuzione, ma crea un modello che è uno "snapshot" o un "backup" del gruppo di risorse. Il modello esportato ha diversi valori hardcoded e probabilmente meno parametri di quelli che si definiscono in genere. Usare questa opzione per ridistribuire le risorse nello stesso gruppo di risorse. Per usare questo modello per un altro gruppo di risorse, è necessario apportare alcune importanti modifiche.
 
 Questo articolo illustra entrambi gli approcci.
 
@@ -55,7 +55,7 @@ Restituisce il modello. Copiare il codice JSON e salvarlo come file. Si noti che
 
 ## <a name="export-resource-group-as-template"></a>Esportare un gruppo di risorse come modello
 
-Invece di recuperare un modello dalla cronologia della distribuzione, è possibile recuperarne uno che rappresenta lo stato corrente di un gruppo di risorse tramite il comando [az group export](/cli/azure/group#az_group_export). Usare questo comando quando sono state apportate molte modifiche al gruppo di risorse e nessun modello esistente rappresenta tutte le modifiche. Si tratta di uno snapshot del gruppo di risorse, che è possibile usare per la ridistribuzione allo stesso gruppo di risorse. Per usare il modello esportato per altre soluzioni, è necessario apportare alcune importanti modifiche.
+Invece di recuperare un modello dalla cronologia della distribuzione, è possibile recuperarne uno che rappresenta lo stato corrente di un gruppo di risorse tramite il comando [az group export](/cli/azure/group#az_group_export). Usare questo comando quando sono state apportate molte modifiche al gruppo di risorse e nessun modello esistente rappresenta tutte le modifiche. Si tratta di uno snapshot del gruppo di risorse, che è possibile usare per la ridistribuzione nello stesso gruppo di risorse. Per usare il modello esportato per altre soluzioni, è necessario apportare alcune importanti modifiche.
 
 ```azurecli
 az group export --name ExampleGroup

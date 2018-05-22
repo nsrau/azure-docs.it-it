@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/24/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 66e1d5691b431be0c3d040570b13e8d16b1669ef
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bc88140bf1adea49ff4bc76667d30a379f829bbc
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Utilizzare i database MySQL in Microsoft Azure Stack
 
@@ -117,7 +117,7 @@ Lo script esegue le operazioni:
 Di seguito è riportato un esempio che è possibile eseguire dal prompt di PowerShell. Assicurarsi di modificare le informazioni sull'account e password in base alle esigenze:
 
 
-```
+```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
@@ -179,6 +179,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 | **DebugMode** | Impedisce la pulizia automatica in caso di errore. | No  |
 | **AcceptLicense** | Ignora la richiesta di accettare le condizioni di licenza GPL.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
+>[!NOTE]
+> SKU può richiedere a un'ora per essere visibile nel portale. È possibile creare un database fino a quando non viene creato lo SKU.
 
 ## <a name="verify-the-deployment-by-using-the-azure-stack-portal"></a>Verificare la distribuzione tramite il portale di Azure Stack
 
@@ -212,6 +214,10 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
     - capacità di database
     - Backup automatico
     - server ad alte prestazioni per i singoli reparti di riserva
+
+
+  > [!IMPORTANT]
+  > Con Always On le istanze nella stessa SKU non è possibile combinare i server autonomi. È stato effettuato un tentativo di combinare tipi dopo l'aggiunta del server di hosting prima comporta un errore.
  
 
 Il nome SKU deve riflettere le proprietà in modo che i tenant è possono posizionare i database in modo appropriato. Tutti i server di hosting in un'unità SKU devono avere le stesse funzionalità.
@@ -219,8 +225,7 @@ Il nome SKU deve riflettere le proprietà in modo che i tenant è possono posizi
 ![Creare uno SKU di MySQL](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
->[!NOTE]
-> SKU può richiedere a un'ora per essere visibile nel portale. È possibile creare un database fino a quando non viene creato lo SKU.
+
 
 
 ## <a name="test-your-deployment-by-creating-your-first-mysql-database"></a>Testare la distribuzione tramite la creazione di un database MySQL
@@ -458,5 +463,5 @@ Per rimuovere il provider di risorse, è necessario innanzitutto rimuovere tutte
 7. Eseguire nuovamente lo script di distribuzione con gli elementi seguenti:
     - -Disinstallare parametro
     - Gli endpoint di gestione risorse di Azure
-    - The DirectoryTenantID
+    - Il DirectoryTenantID
     - Le credenziali per l'account amministratore del servizio

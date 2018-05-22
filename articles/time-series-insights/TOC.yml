@@ -7,10 +7,13 @@
     - name: Informazioni su Time Series Insights
       href: time-series-insights-overview.md
 - name: Guide introduttive
-  expanded: true
   items:
     - name: Esplorare Time Series Insights
       href: time-series-quickstart.md
+- name: Esercitazioni
+  items:
+    - name: Esplorare la libreria client JavaScript TSI
+      href: tutorial-explore-js-client-lib.md
 - name: Concetti
   items:
     - name: Pianificare l'ambiente
@@ -73,8 +76,8 @@
           href: /azure/iot-hub
         - name: Servizio Device Provisioning in hub IoT
           href: /azure/iot-dps
-        - name: Servizi Location Based
-          href: /azure/location-based-services
+        - name: Mappe
+          href: /azure/azure-maps
         - name: SDK per servizi
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Time Series Insights
@@ -89,6 +92,8 @@
       href: /azure/stream-analytics/
 - name: Risorse
   items:
+    - name: Richieste di dati del cliente
+      href: time-series-insights-customer-data-requests.md
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Prezzi

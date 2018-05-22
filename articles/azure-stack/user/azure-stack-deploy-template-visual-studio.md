@@ -2,46 +2,47 @@
 title: Distribuire modelli in Azure Stack con Visual Studio | Documentazione Microsoft
 description: Informazioni su come distribuire modelli in Azure Stack con Visual Studio.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 628da2ae-64cc-42e0-b8b7-a6a3724cb974
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 05/17/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: ecefa8c3695aad0593516cb9ad8812216e163192
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.reviewer: ''
+ms.openlocfilehash: 4101567eff68789fe5d46a01de26f6a873b519fa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Distribuire modelli in Azure Stack tramite Visual Studio
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Utilizzare Visual Studio per distribuire i modelli di gestione risorse di Azure al kit di sviluppo dello Stack di Azure.
+È possibile utilizzare Visual Studio per distribuire modelli di Azure Resource Manager allo Stack di Azure.
+
+Per distribuire un modello:
 
 1. [Installazione e connessione](azure-stack-install-visual-studio.md) ad Azure Stack con Visual Studio.
 2. Aprire Visual Studio.
-3. Fare clic su **File**, quindi su **Nuovo** e nella finestra di dialogo **Nuovo progetto** selezionare **Gruppo di risorse di Azure**.
-4. Immettere un **nome** per il nuovo progetto e quindi fare clic su **OK**.
-5. Nella finestra di dialogo **Selezione del modello di Azure**, modificare l'elenco a discesa *Mostra modelli da questo percorso* in **Azure Stack Quickstart**
-6. Fare clic su **101-crea--account di archiviazione**, quindi fare clic su **OK**.  
-7. È possibile visualizzare un elenco dei modelli disponibili nel nuovo progetto espandendo il nodo **Modelli** nel riquadro **Esplora soluzioni**.
-8. Nel riquadro **Esplora soluzioni** fare clic con il pulsante destro del mouse sul nome del progetto, selezionare **Distribuisci**, quindi fare clic su **Nuova distribuzione**.
-9. Nella finestra di dialogo **Distribuzione in un gruppo di risorse** nell'elenco a discesa **Sottoscrizione** selezionare la sottoscrizione di Microsoft Azure Stack.
-10. Scegliere un gruppo di risorse esistente dall'elenco **Gruppo di risorse** o crearne uno nuovo.
-11. Scegliere un percorso dall'elenco **Località del gruppo di risorse** e quindi fare clic su **Distribuisci**.
-12. Nella finestra di dialogo **Modifica parametri** immettere i valori per i parametri (che variano in base al modello), quindi fare clic su **Salva**.
+3. Selezionare **File**, quindi selezionare **New**. In **nuovo progetto**, selezionare **gruppo di risorse di Azure**.
+4. Immettere un **nome** per il nuovo progetto e quindi selezionare **OK**.
+5. In **Seleziona modello di Azure**, selezionare **Guida introduttiva di Azure Stack** dall'elenco a discesa.
+6. Selezionare **101-crea--account di archiviazione**, quindi selezionare **OK**.
+7. Nel nuovo progetto, espandere la **modelli** nodo **Esplora** per visualizzare i modelli disponibili.
+8. In **Esplora soluzioni**, selezionare il nome del progetto e quindi selezionare **Distribuisci**. Selezionare **nuova distribuzione**.
+9. In **Distribuisci a gruppo di risorse**, utilizzare il **sottoscrizione** elenco a discesa per selezionare la sottoscrizione di Microsoft Azure Stack.
+10. Dal **gruppo di risorse** elenco, scegliere un gruppo di risorse esistente o crearne uno nuovo.
+11. Dal **percorso del gruppo di risorse** elenco, scegliere un percorso e quindi selezionare **Distribuisci**.
+12. In **modifica parametri**, specificare i valori per i parametri (che variano da modello), quindi selezionare **salvare**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Distribuire modelli con la riga di comando](azure-stack-deploy-template-command-line.md)
 
-[Sviluppo di modelli per Azure Stack](azure-stack-develop-templates.md)
-
+* [Distribuire modelli con la riga di comando](azure-stack-deploy-template-command-line.md)
+* [Sviluppo di modelli per Azure Stack](azure-stack-develop-templates.md)

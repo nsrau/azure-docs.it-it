@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: bwren
-ms.openlocfilehash: 5e01ea901f1ba07c0ee5a99720c00c5f03574365
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: cf1842c6abbbfd767184d8f480a5f3a5fd654ed0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Informazioni sugli avvisi in Log Analytics
 
@@ -67,7 +67,7 @@ Le regole di avviso vengono definite dai dettagli seguenti:
  
     - **Falsi avvisi**. A volta le query di avviso sono progettate per identificare l'assenza di eventi. Ad esempio, per rilevare quando una macchina virtuale è offline cercando heartbeat mancanti. Come nel caso precedente, se l'heartbeat non è disponibile per la ricerca nell'intervallo di tempo di avviso, viene generato un avviso in quanto i dati dell'heartbeat non sono ancora disponibili per la ricerca e quindi sono assenti. Il risultato sarebbe lo stesso quando la macchina virtuale è legittimamente offline e non genera dati di heartbeat. Eseguendo la query il giorno successivo nell'intervallo di tempo corretto, risulterà che gli heartbeat erano presenti e si è verificato un errore dell'avviso. Gli heartbeat, di fatto, non erano ancora disponibili per la ricerca perché l'intervallo di tempo di avviso è stato impostato su un valore troppo piccolo.
 
-- **Frequenza**.  Specifica la frequenza con cui la query deve essere eseguita e consente di creare avvisi con velocità di risposta maggiore. Il valore deve essere compreso tra cinque minuti e 24 ore e deve essere uguale o minore all'intervallo di tempo di avviso.  Se il valore è maggiore dell'intervallo di tempo, si rischia di omettere il record.<br>Se l'obiettivo è l'affidabilità con ritardi fino a 30 minuti e il ritardo normale è di 10 minuti, l'intervallo di tempo deve essere di un'ora e il valore della frequenza deve essere di 10 minuti. In questo modo verrà attivato un avviso con i dati con un ritardo di inserimento di 10 minuti tra 10 e 20 minuti da quando i dati dell'avviso sono stati generati.<br>Per evitare di creare più avvisi per gli stessi dati a causa di un intervallo di tempo troppo grande, è possibile usare l'opzione [Elimina avvisi](log-analytics-tutorial-response.md#create-alerts) per eliminare gli avvisi per un tempo corrispondente almeno all'intervallo di tempo.
+- **Frequenza**.  Specifica la frequenza con cui la query deve essere eseguita e consente di creare avvisi con velocità di risposta maggiore. Il valore deve essere compreso tra cinque minuti e 24 ore e deve essere uguale o minore all'intervallo di tempo di avviso.  Se il valore è maggiore dell'intervallo di tempo, si rischia di omettere il record.<br>Se l'obiettivo è l'affidabilità con ritardi fino a 30 minuti e il ritardo normale è di 10 minuti, l'intervallo di tempo deve essere di un'ora e il valore della frequenza deve essere di 10 minuti. In questo modo verrà attivato un avviso con i dati con un ritardo di inserimento di 10 minuti tra 10 e 20 minuti da quando i dati dell'avviso sono stati generati.<br>Per evitare di creare più avvisi per gli stessi dati a causa di un intervallo di tempo troppo grande, è possibile usare l'opzione Elimina avvisi per eliminare gli avvisi per un tempo corrispondente almeno all'intervallo di tempo.
   
 - **Soglia**. Per determinare se è necessario creare un avviso, vengono valutati i risultati della ricerca log. La soglia è diversa per i diversi tipi di regole di avviso.
 

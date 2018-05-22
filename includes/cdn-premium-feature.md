@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: ef947ada93e9520e53cecf2dfc26bb1ad01155c7
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 54be18f2b114f4bb3ac9dd71e4517ee8806339bf
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 > [!IMPORTANT]
-> Questa è una funzionalità della **rete CDN Premium di Azure con tecnologia Verizon** e non è disponibile con prodotti della rete CDN Standard di Azure. Per un confronto delle funzionalità della rete CDN, vedere [Funzionalità del prodotto rete CDN di Azure](../articles/cdn/cdn-features.md). 
+> Questa è una funzionalità solo della **rete CDN Premium di Azure fornita da Verizon** e non è disponibile con prodotti della rete CDN Standard di Azure. Per un confronto delle funzionalità della rete CDN, vedere [Funzionalità del prodotto rete CDN di Azure](../articles/cdn/cdn-features.md). 
 > 
 > 
 

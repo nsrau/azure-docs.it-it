@@ -1,6 +1,6 @@
 ---
-title: Reti virtuali di Azure e macchine virtuali Linux | Microsoft Docs
-description: "Esercitazione: gestire reti virtuali di Azure e macchine virtuali Linux con l'interfaccia della riga di comando di Azure"
+title: 'Esercitazione: Creare e gestire reti virtuali di Azure per macchine virtuali Linux | Microsoft Docs'
+description: In questa esercitazione viene descritto come usare l'interfaccia della riga di comando di Azure 2.0 per creare e gestire reti virtuali di Azure per macchine virtuali Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4fc6779472a0c680c53d7f25e6fe412ab386fc32
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 306d33dd5b5910e990caf80dae4c37fee020f7a1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Gestire reti virtuali di Azure e macchine virtuali Linux con l'interfaccia della riga di comando di Azure
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli-20"></a>Esercitazione: creare e gestire reti virtuali di Azure per macchine virtuali Linux con l'interfaccia della riga di comando di Azure 2.0
 
 Le macchine virtuali di Azure usano la rete di Azure per la comunicazione di rete interna ed esterna. Questa esercitazione illustra la distribuzione di due macchine virtuali e la configurazione della rete di Azure per tali VM. Gli esempi in questa esercitazione presuppongono che le VM ospitino un'applicazione Web con un back-end di database, ma nell'esercitazione non viene distribuita un'applicazione. In questa esercitazione si apprenderà come:
 
@@ -33,7 +33,15 @@ Le macchine virtuali di Azure usano la rete di Azure per la comunicazione di ret
 > * Proteggono il traffico di rete
 > * Creare una macchina virtuale back-end
 
-Durante il completamento di questa esercitazione è possibile visualizzare queste risorse create:
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+
+## <a name="vm-networking-overview"></a>Panoramica della rete per le VM
+
+Le reti virtuali di Azure consentono connessioni di rete sicure tra macchine virtuali, Internet e altri servizi di Azure come il database SQL di Azure. Le reti virtuali sono suddivise in segmenti logici denominati subnet. Le subnet vengono usate per controllare il flusso di rete e come limite di sicurezza. Quando si distribuisce una VM, questa include in genere un'interfaccia di rete virtuale collegata a una subnet.
+
+Dopo avere completato l'esercitazione, vengono create le seguenti risorse di rete virtuale:
 
 ![Rete virtuale con due subnet](./media/tutorial-virtual-network/networktutorial.png)
 
@@ -46,15 +54,6 @@ Durante il completamento di questa esercitazione è possibile visualizzare quest
 - *myBackendSubnet*: la subnet associata a *myBackendNSG* e usata dalle risorse back-end.
 - *myBackendNic*: l'interfaccia di rete utilizzata da *myBackendVM* per comunicare con *myFrontendVM*.
 - *myBackendVM*: la VM che usa la porta 22 e 3306 per comunicare con *myFrontendVM*.
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, in questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
-
-## <a name="vm-networking-overview"></a>Panoramica della rete per le VM
-
-Le reti virtuali di Azure consentono connessioni di rete sicure tra macchine virtuali, Internet e altri servizi di Azure come il database SQL di Azure. Le reti virtuali sono suddivise in segmenti logici denominati subnet. Le subnet vengono usate per controllare il flusso di rete e come limite di sicurezza. Quando si distribuisce una VM, questa include in genere un'interfaccia di rete virtuale collegata a una subnet.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Creare una rete virtuale e una subnet
 

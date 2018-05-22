@@ -30,6 +30,8 @@
       href: app-service-app-service-environment-geo-distributed-scale.md
     - name: ASEv1
       href: app-service-app-service-environment-intro.md
+    - name: Diagnostica
+      href: ../app-service-diagnostics.md
 - name: Guide alle procedure
   items:
     - name: Usare un ambiente del servizio app
@@ -73,7 +75,7 @@
         - name: Usare la sicurezza su più livelli
           href: app-service-app-service-environment-layered-security.md
     - name: Interfaccia della riga di comando 2.0
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/appservice

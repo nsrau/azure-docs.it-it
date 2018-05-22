@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bfb9b62a8965fa1f7daf62d814665ca23491cc04
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Raccogliere i contatori delle prestazioni per applicazioni Linux in Log Analytics 
 Questo articolo fornisce informazioni dettagliate per configurare l'[agente OMS per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) in modo che raccolga i contatori delle prestazioni per applicazioni specifiche.  Le applicazioni incluse in questo articolo sono:  
@@ -78,9 +78,9 @@ La tabella seguente fornisce informazioni dettagliate sulla sintassi per l'utili
 
 | Operazione | Esempio | DESCRIZIONE
 |:--|:--|:--|
-| autoupdate *false\|true* | mycimprovauth autoupdate false | Specifica se il file di autenticazione verrà aggiornato automaticamente in caso di riavvio o aggiornamento. |
-| default *bind-address nomeutente password* | mycimprovauth default 127.0.0.1 root pwd | Imposta l'istanza predefinita nel file di autenticazione di OMI MySQL.<br>Nel campo della password deve essere immesso un valore in testo normale: la password nel file di autenticazione di OMI MySQL verrà codificata in Base 64. |
-| delete *default\|numero_porta* | mycimprovauth 3308 | Elimina l'istanza specificata per impostazione predefinita o in base al numero di porta. |
+| aggiornamento automatico *vero o falso* | mycimprovauth autoupdate false | Specifica se il file di autenticazione verrà aggiornato automaticamente in caso di riavvio o aggiornamento. |
+| default *bind-address nome utente password* | mycimprovauth default 127.0.0.1 root pwd | Imposta l'istanza predefinita nel file di autenticazione di OMI MySQL.<br>Nel campo della password deve essere immesso un valore in testo normale: la password nel file di autenticazione di OMI MySQL verrà codificata in Base 64. |
+| eliminare *predefinito o port_num* | mycimprovauth 3308 | Elimina l'istanza specificata per impostazione predefinita o in base al numero di porta. |
 | help | mycimprov help | Stampa un elenco di comandi da usare. |
 | print | mycimprov print | Stampa un file di autenticazione di OMI MySQL di facile lettura. |
 | update port_num *bind-address nome utente password* | mycimprov update 3307 127.0.0.1 root pwd | Aggiorna l'istanza specificata o aggiunge l'istanza, se non esiste. |

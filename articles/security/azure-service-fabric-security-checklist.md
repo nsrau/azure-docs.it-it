@@ -4,9 +4,9 @@ description: Questo articolo include un set di elenchi di controllo per la sicur
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 526f10bab30b7d0fae796e47f5a27a58428b9a3b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ef404b106d600f5cb25a46319d75c8978148b466
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Elenco di controllo per la sicurezza di Azure Service Fabric
 Questo articolo include un elenco di controllo di facile utilizzo che aiuta a proteggere l'ambiente Azure Service Fabric.
@@ -43,7 +43,7 @@ Usare l'elenco seguente per assicurarsi di non trascurare eventuali problemi imp
 |ClientCertificateThumbprints| <ul><li>Si tratta di un set di certificati che da installare nei client autenticati. </li></ul>|
 |ClientCertificateCommonNames| <ul><li>Impostare il nome comune del primo certificato client per CertificateCommonName. CertificateIssuerThumbprint è l'identificazione personale dell'autorità emittente del certificato. </li></ul>|
 |ReverseProxyCertificate| <ul><li>Si tratta di un certificato facoltativo che è possibile specificare se si vuole proteggere il [proxy inverso](https://docs.microsoft.com/en-in/azure/service-fabric/service-fabric-reverseproxy). </li></ul>|
-|Insieme di credenziali di chiave| <ul><li>Serve a gestire i certificati dei cluster di Service Fabric in Azure.  </li></ul>|
+|Key Vault| <ul><li>Serve a gestire i certificati dei cluster di Service Fabric in Azure.  </li></ul>|
 
 
 ## <a name="next-steps"></a>Passaggi successivi

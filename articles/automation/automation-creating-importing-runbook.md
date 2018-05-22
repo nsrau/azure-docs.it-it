@@ -3,16 +3,17 @@ title: Creazione o importazione di un runbook in Automazione di Azure
 description: In questo articolo viene descritto come creare un nuovo runbook in Automazione di Azure o importarne uno da un file.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c49b2f19da7f59e413dedbd757ca8b6fc6c7e674
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ac7b050bf96401d33254dedad5035e43850ecc52
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Creazione o importazione di un runbook in Automazione di Azure
 Per aggiungere un runbook ad Automazione di Azure, è possibile [creare un nuovo runbook](#creating-a-new-runbook) oppure importarne uno esistente da un file o dalla [raccolta di runbook](automation-runbook-gallery.md). In questo articolo vengono fornite informazioni sulla creazione e importazione di runbook da un file.  È possibile ottenere tutti i dettagli sull'accesso ai runbook e ai moduli della community in [Raccolte di runbook e moduli per l'automazione di Azure](automation-runbook-gallery.md).

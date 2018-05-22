@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4c43477a28efe01fd197a0c09afadb338638036
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3b4bf8d8ca43110dcfa4aeaed279a8e340e5d529
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
@@ -95,9 +95,7 @@ Nel piano a consumo il controller di scalabilità offre la scalabilità automati
 Quando si usa un piano di hosting a consumo, i file di codice delle funzioni vengono archiviati nelle condivisioni di File di Azure nell'account di archiviazione principale della funzione. Quando si elimina l'account di archiviazione principale dell'app per le funzioni, i file di codice delle funzioni vengono eliminati e non possono essere recuperati.
 
 > [!NOTE]
-> Quando si usa un trigger di tipo BLOB in un piano a consumo, può verificarsi un ritardo massimo di 10 minuti per l'elaborazione di nuovi BLOB in caso di inattività di un'app per le funzioni. Quando l'app per le funzioni è in esecuzione, i BLOB vengono elaborati immediatamente. Per evitare questo ritardo iniziale, prendere in considerazione una delle opzioni seguenti:
-> - Eseguire l'hosting dell'app per le funzioni in un piano di servizio app con l'opzione Always On abilitata.
-> - Usare un altro meccanismo per attivare l'elaborazione dei BLOB, ad esempio una sottoscrizione di Griglia di eventi o un messaggio della coda che contiene il nome del BLOB. Per un esempio, vedere gli [esempi di associazione di input BLOB](functions-bindings-storage-blob.md#input---example).
+> Quando si usa un trigger di tipo BLOB in un piano a consumo, può verificarsi un ritardo massimo di 10 minuti per l'elaborazione di nuovi BLOB in caso di inattività di un'app per le funzioni. Quando l'app per le funzioni è in esecuzione, i BLOB vengono elaborati immediatamente. Per evitare questo ritardo di avvio a freddo, usare un piano di servizio app con Always On abilitato oppure il trigger di Griglia di eventi. Per altre informazioni, vedere l'articolo di riferimento sull'[associazione del trigger BLOB](functions-bindings-storage-blob.md#trigger).
 
 ### <a name="runtime-scaling"></a>Ridimensionamento in fase di runtime
 

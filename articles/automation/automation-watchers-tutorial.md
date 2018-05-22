@@ -3,15 +3,16 @@ title: Creare un'attività watcher nell'account di Automazione di Azure
 description: Informazioni su come creare un'attività watcher nell'account di Automazione di Azure per controllare i nuovi file creati in una cartella.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: eamonoreilly
 ms.author: eamono
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2017
-ms.openlocfilehash: 8cd5f77d9711ffc95e6a55e97297a23fd87c6bb7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0cc215d6643c86460a1d5471aa1eed8fdf18e028
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Creare un'attività watcher di Automazione di Azure per tenere traccia delle modifiche dei file in un computer locale
 

@@ -3,23 +3,23 @@ title: Monitorare il cluster Kubernetes di Azure - Operations Management
 description: Monitoraggio di un cluster Kubernetes nel servizio contenitore di Azure con Log Analytics
 services: container-service
 author: bburns
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: efe4b3a1a63fa1986682a2fdde1a20221dc5d93a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3b014ce4c91d1dc9fae744ef4b528c98f9f787b3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Monitorare un cluster del servizio contenitore di Azure con Log Analytics
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Si presume che questa procedura dettagliata abbia [creato un cluster Kubernetes mediante il servizio contenitore di Azure](container-service-kubernetes-walkthrough.md).
 
 Si presume anche che gli strumenti dell'interfaccia della riga di comando di Azure `az` e `kubectl` siano installati.
@@ -30,8 +30,8 @@ Si presume anche che gli strumenti dell'interfaccia della riga di comando di Azu
 $ az --version
 ```
 
-Se lo strumento `az` non è installato, le istruzioni sono disponibili [qui](https://github.com/azure/azure-cli#installation).  
-In alternativa, è possibile usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), che presenta l'interfaccia della riga di comando `az` di Azure e gli strumenti `kubectl` già installati per l'utente.  
+Se lo strumento `az` non è installato, le istruzioni sono disponibili [qui](https://github.com/azure/azure-cli#installation).
+In alternativa, è possibile usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), che presenta l'interfaccia della riga di comando `az` di Azure e gli strumenti `kubectl` già installati per l'utente.
 
 È possibile verificare se lo strumento `kubectl` è installato eseguendo:
 
@@ -67,40 +67,40 @@ Per altre informazioni sulla soluzione contenitore, consultare [Log Analytics de
 ## <a name="installing-log-analytics-on-kubernetes"></a>Installazione di Log Analytics in Kubernetes
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Ottenere l'ID e la chiave dell'area di lavoro
-Per consentire la comunicazione dell'agente OMS con il servizio, è necessario configurare il rispettivo ID e la rispettiva chiave dell'area di lavoro. Per ottenere l'ID e la chiave dell'area di lavoro è necessario creare un account in <https://mms.microsoft.com>.
+Per consentire la comunicazione dell'agente di Log Analytics con il servizio, è necessario configurare il rispettivo ID e la rispettiva chiave dell'area di lavoro. Per ottenere l'ID e la chiave dell'area di lavoro, è necessario creare un account in <https://mms.microsoft.com>.
 Attenersi alla procedura di creazione di un account. Al termine della creazione dell'account, è necessario ottenere l'ID e la chiave facendo clic su **Impostazioni**, quindi **Origini connesse** e infine **Server Linux**, come illustrato di seguito.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-### <a name="install-the-oms-agent-using-a-daemonset"></a>Installare l'agente OMS usando un oggetto DaemonSet
+### <a name="install-the-log-analytics-agent-using-a-daemonset"></a>Installare l'agente di Log Analytics usando un oggetto DaemonSet
 Gli elementi DaemonSet vengono usati da Kubernetes per eseguire una singola istanza di un contenitore in ogni host del cluster.
 Sono ideali per l'esecuzione di agenti di monitoraggio.
 
 Ecco il file [YAML di DaemonSet](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Salvarlo in un file denominato `oms-daemonset.yaml` e sostituire i valori segnaposto per `WSID` e `KEY` con l'ID e la chiave dell'area di lavoro disponibili nel file.
 
-Dopo avere aggiunto l'ID e la chiave dell'area di lavoro alla configurazione di DaemonSet, è possibile installare l'agente OMS nel cluster con lo strumento da riga di comando `kubectl`:
+Dopo avere aggiunto l'ID e la chiave dell'area di lavoro alla configurazione di DaemonSet, è possibile installare l'agente di Log Analytics nel cluster con lo strumento da riga di comando `kubectl`:
 
 ```console
 $ kubectl create -f oms-daemonset.yaml
 ```
 
-### <a name="installing-the-oms-agent-using-a-kubernetes-secret"></a>Installazione dell'agente OMS tramite un segreto Kubernetes
+### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Installazione dell'agente di Log Analytics tramite un segreto Kubernetes
 Per proteggere l'ID e la chiave dell'area di lavoro di Log Analytics è possibile usare il segreto Kubernetes come parte del file YAML di DaemonSet.
 
- - Copiare lo script, il file modello dei segreti e il file YAML di DaemonSet (dal [repository](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) e assicurarsi che siano nella stessa directory. 
+ - Copiare lo script, il file modello dei segreti e il file YAML di DaemonSet (dal [repository](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) e assicurarsi che siano nella stessa directory.
       - Script per la generazione di segreti: secret-gen.sh
       - Modello di segreto: secret-template.yaml
    - File DaemonSet YAML: omsagent-ds-secrets.yaml
- - Eseguire lo script. Lo script richiederà l'ID e la chiave primaria dell'area di lavoro di Log Analytics. Inserirli e lo script creerà un file yaml del segreto in modo da poterlo eseguire.   
+ - Eseguire lo script. Lo script richiederà l'ID e la chiave primaria dell'area di lavoro di Log Analytics. Inserirli e lo script creerà un file YAML del segreto in modo da poterlo eseguire.
    ```
-   #> sudo bash ./secret-gen.sh 
+   #> sudo bash ./secret-gen.sh
    ```
 
    - Creare il pod dei segreti eseguendo l'istruzione seguente: ``` kubectl create -f omsagentsecret.yaml ```
- 
-   - Per verificare, eseguire quanto segue: 
 
-   ``` 
+   - Per verificare, eseguire quanto segue:
+
+   ```
    root@ubuntu16-13db:~# kubectl get secrets
    NAME                  TYPE                                  DATA      AGE
    default-token-gvl91   kubernetes.io/service-account-token   3         50d
@@ -116,10 +116,10 @@ Per proteggere l'ID e la chiave dell'area di lavoro di Log Analytics è possibil
    Data
    ====
    WSID:   36 bytes
-   KEY:    88 bytes 
+   KEY:    88 bytes
    ```
- 
+
   - Creare il DaemonSet dell'agente OMS eseguendo l'istruzione ``` kubectl create -f omsagent-ds-secrets.yaml ```
 
 ### <a name="conclusion"></a>Conclusioni
-L'operazione è terminata. Dopo qualche minuto dovrebbe essere visualizzato il flusso di dati verso il dashboard OMS.
+L'operazione è terminata. Dopo qualche minuto dovrebbe essere visualizzato il flusso di dati verso il dashboard di Log Analytics.

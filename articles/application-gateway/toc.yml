@@ -7,17 +7,17 @@
 - name: Guide introduttive
   expanded: true
   items:
-    - name: Indirizzare il traffico Web - Portale
+    - name: Gestire il traffico Web - Portale
       href: quick-create-portal.md
-    - name: Indirizzare il traffico Web - PowerShell
+    - name: Gestire il traffico Web - PowerShell
       href: quick-create-powershell.md
-    - name: Indirizzare il traffico Web - Interfaccia della riga di comando di Azure
+    - name: Gestire il traffico Web - Interfaccia della riga di comando di Azure
       href: quick-create-cli.md
 - name: Esercitazioni
   items:
     - name: Gestire il traffico Web
       href: tutorial-manage-web-traffic-cli.md
-    - name: Limitare il traffico Web
+    - name: Abilitare il web application firewall
       href: tutorial-restrict-web-traffic-cli.md
     - name: Proteggere con SSL
       href: tutorial-ssl-cli.md
@@ -35,16 +35,23 @@
       href: cli-samples.md
 - name: Concetti
   items:
+    - name: Terminazione SSL
+      href: ssl-overview.md
+    - name: Panoramica dei criteri SSL
+      href: application-gateway-ssl-policy-overview.md
     - name: Web application firewall
       href: waf-overview.md
     - name: Routing basato su URL
       href: url-route-overview.md
     - name: Hosting di più siti
       href: multiple-site-overview.md
-    - name: Terminazione SSL
-      href: ssl-overview.md
-    - name: Reindirizzamento URL
+    - name: Supporto per il reindirizzamento
       href: redirect-overview.md
+    - name: Supporto multi-tenant
+    - name: Monitoraggio dell’integrità
+      href: application-gateway-probe-overview.md
+    - name: Supporto per WebSocket
+      href: application-gateway-websocket.md
 - name: Guide alle procedure
   items:
     - name: Creare il gateway applicazione
@@ -53,10 +60,20 @@
           href: create-vmss-template.md
         - name: App Web - PowerShell
           href: create-web-app.md
-    - name: Abilitare la terminazione SSL - Portale
+        - name: Configurare un servizio di bilanciamento del carico interno
+          href: application-gateway-ilb.md
+    - name: Configurare la terminazione SSL - Portale
       href: create-ssl-portal.md
     - name: Ospitare più siti - Portale
       href: create-multiple-sites-portal.md
+    - name: Personalizzare le regole del web application firewall
+      items:
+        - name: Portale di Azure
+          href: application-gateway-customize-waf-rules-portal.md
+        - name: Azure PowerShell
+          href: application-gateway-customize-waf-rules-powershell.md
+        - name: Interfaccia della riga di comando di Azure
+          href: application-gateway-customize-waf-rules-cli.md
     - name: Reindirizzare il traffico esterno
       items:
         - name: Azure PowerShell
@@ -85,14 +102,34 @@
       href: tutorial-restrict-web-traffic-powershell.md
     - name: Terminazione SSL con Azure PowerShell
       href: tutorial-ssl-powershell.md
+    - name: Rinnovare i certificati
+      href: renew-certificates.md
     - name: Ospitare più siti con Azure PowerShell
       href: tutorial-multiple-sites-powershell.md
     - name: Indirizzare il traffico Web con Azure PowerShell
       href: tutorial-url-route-powershell.md
     - name: Reindirizzare il traffico Web con Azure PowerShell
       href: tutorial-url-redirect-powershell.md
+    - name: Creare un gateway applicazione con ridondanza della zona
+      href: create-zone-redundant.md
+    - name: Probe personalizzati
+      items:
+        - name: Portale
+          href: application-gateway-create-probe-portal.md
+        - name: PowerShell classico
+          href: application-gateway-create-probe-classic-ps.md
+        - name: Resource Manager - PowerShell
+          href: application-gateway-create-probe-ps.md
+    - name: Risolvere problemi
+      items:
+        - name: Risolvere gli errori di tipo Gateway non valido (502)
+          href: application-gateway-troubleshooting-502.md
+        - name: Diagnostica
+          href: application-gateway-diagnostics.md
 - name: Riferimenti
   items:
+    - name: Regole CRS
+      href: application-gateway-crs-rulegroups-rules.md
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/network/application-gateway
     - name: Azure PowerShell
@@ -107,7 +144,7 @@
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST
       href: /rest/api/applicationgateway
-    - name: Gestione risorse di Azure
+    - name: Azure Resource Manager
       href: ../azure-resource-manager/resource-group-overview.md
 - name: Risorse
   items:

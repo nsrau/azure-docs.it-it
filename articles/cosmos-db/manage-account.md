@@ -64,7 +64,7 @@ Se si dispone di applicazioni o servizi cloud che usano l'account Azure Cosmos D
 
 1. Aggiornare la chiave di accesso nel codice dell'applicazione in modo che faccia riferimento alla chiave di accesso secondaria dell'account Azure Cosmos DB.
 2. Rigenerare la chiave di accesso primaria per l'account Azure Cosmos DB. Nel [portale di Azure](https://portal.azure.com/) accedere all'account Azure Cosmos DB.
-3. Nella pagina **Account Azure Cosmos DB** fare clic su **Chiavi** (o **Stringa di connessione** per gli account MongoDB**).
+3. Nella pagina **Account Azure Cosmos DB** fare clic su **Chiavi** (o **Stringa di connessione** per gli account MongoDB\*\*).
 4. Nella pagina **Chiavi**/**Stringa di connessione** fare clic sul comando per rigenerare e quindi su **OK** per confermare che si vuole generare una nuova chiave.
     ![Per rigenerare le chiavi di accesso](./media/manage-account/regenerate-keys.png)
 5. Dopo aver verificato che la nuova chiave sia disponibile per l'utilizzo (circa cinque minuti dopo la rigenerazione), aggiornare la chiave di accesso nel codice dell'applicazione in modo che faccia riferimento alla nuova chiave di accesso primaria.

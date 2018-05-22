@@ -2,7 +2,7 @@
 title: Caricare i dati immagine nel cloud con Archiviazione di Azure | Microsoft Docs
 description: Usare l'archiviazione BLOB di Azure con un'applicazione Web per archiviare i dati dell'applicazione
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: jeconnoc
 ms.service: storage
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: e3c40d0f3db1a33a405a341a714a7ce199908ca4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 29accb3394e9a2f6939a657172c1a5c2e411706a
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Caricare i dati immagine nel cloud con Archiviazione di Azure
 
@@ -72,7 +72,7 @@ Usare il comando [az storage account keys list](/cli/azure/storage/account/keys#
 In questo caso, `<blob_storage_account>` è il nome dell'account di archiviazione BLOB creato. L'accesso pubblico ai contenitori _images_ è impostato su `off`, mentre l'accesso pubblico ai contenitori _thumbails_ è impostato su `container`. L'accesso pubblico `container` fa sì che le anteprime siano visibili agli utenti che visitano la pagina Web.
  
 ```azurecli-interactive 
-blobStorageAccount=<blob_storage_account>
+$blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 

@@ -41,7 +41,7 @@
 ### [Concessione del codice di autenticazione OAuth 2.0](active-directory-protocols-oauth-code.md)
 ### [Concessione implicita OAuth 2.0](active-directory-dev-understanding-oauth2-implicit-grant.md)
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
-### [Configurazione dell'attestazione basata su ruolo](active-directory-enterprise-app-role-management.md)
+### [Configurazione dell'attestazione basata su ruolo](../active-directory-enterprise-app-role-management.md)
 ### [Personalizzazione delle attestazioni](active-directory-saml-claims-customization.md)
 ### [Eseguire il debug di Single Sign-On basato su SAML](active-directory-saml-debugging.md)
 ### [Protocollo SAML per Single Sign-On](active-directory-single-sign-on-protocol-reference.md)
@@ -102,14 +102,13 @@
 ### App Web
 #### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-aspnetcore-webapp-openidconnect-v2)
-#### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
+#### [NodeJS](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs)
 ### API Web
 #### [ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
 #### [ASP.NET Core](https://azure.microsoft.com/en-us/resources/samples/active-directory-dotnet-native-aspnetcore-v2)
+#### [NodeJS](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
 ### App a singola pagina
 #### [JavaScript](guidedsetups/active-directory-javascriptspa.md)
-### API Web
-#### [NodeJS](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
 ### Da servizio a servizio
 #### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Guide

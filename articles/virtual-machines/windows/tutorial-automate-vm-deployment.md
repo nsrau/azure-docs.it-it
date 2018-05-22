@@ -1,6 +1,6 @@
 ---
-title: Personalizzare una macchina virtuale Windows in Azure | Microsoft Docs
-description: Informazioni su come usare l'estensione script personalizzata per automatizzare le installazioni di applicazioni nelle macchine virtuali Windows in Azure
+title: Esercitazione - Installare applicazioni in una macchina virtuale Windows in Azure| Microsoft Docs
+description: Questa esercitazione illustra come usare l'estensione di script personalizzati per eseguire gli script e distribuire applicazioni in macchine virtuali Windows in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,14 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6afb5757e11108eec856d821d92afed9681a2668
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 51a66d524e72968d95f3415b890567015165063a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>Come personalizzare una macchina virtuale Windows in Azure
+# <a name="tutorial---deploy-applications-to-a-windows-virtual-machine-in-azure-with-the-custom-script-extension"></a>Esercitazione - Distribuire applicazioni in una macchina virtuale Windows in Azure usando l'estensione script personalizzati
+
 Per configurare macchine virtuali (VM) in modo rapido e coerente, di norma è consigliabile una qualche forma di automazione. Un approccio comune per personalizzare una macchina virtuale Windows consiste nell'usare l'[estensione script personalizzata per Windows](extensions-customscript.md). In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
@@ -32,7 +33,7 @@ Per configurare macchine virtuali (VM) in modo rapido e coerente, di norma è co
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 5.3 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure. 
+Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 5.7.0 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
 
 
 ## <a name="custom-script-extension-overview"></a>Panoramica dell'estensione script personalizzata

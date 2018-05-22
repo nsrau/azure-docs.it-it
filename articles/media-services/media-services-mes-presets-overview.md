@@ -1,11 +1,11 @@
 ---
-title: "Set di impostazioni di attività per Media Encoder Standard (MES) | Microsoft Docs"
+title: Set di impostazioni di attività per Media Encoder Standard (MES) | Microsoft Docs
 description: Questo argomento offre una panoramica dei set di impostazioni di esempio definiti dal servizio per Media Encoder Standard (MES).
 author: Juliako
 manager: cfow
 editor: johndeu
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f243ed1c-ac9c-4300-a5f7-f092cf9853b9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2017
 ms.author: juliako
-ms.openlocfilehash: 5753b1dffe5a1a4ee069b83f58e9c2dac433b89d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c518771d95dcb571da294f8a752e7b5740ef19f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Set di impostazioni di esempio per Media Encoder Standard (MES)
 
@@ -85,4 +85,4 @@ Quando si usa Media Encoder Standard, la rotazione del video è abilitata per im
   
  [Codec video H.264 a bitrate singolo con risoluzione SD di bassa qualità per Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md) genera un file MP4 con audio AAC stereo e una velocità in bit di 56 kbps.  
   
- Per altre informazioni sui codificatori di servizi multimediali, vedere [Codifica su richiesta con i servizi multimediali di Azure](https://azure.microsoft.com/en-us/documentation/articles/media-services-encode-asset/).
+ Per altre informazioni sui codificatori di servizi multimediali, vedere [Codifica su richiesta con i servizi multimediali di Azure](https://azure.microsoft.com/documentation/articles/media-services-encode-asset/).

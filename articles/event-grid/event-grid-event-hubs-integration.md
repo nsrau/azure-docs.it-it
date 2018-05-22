@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 60857327685fca9a5f97588ab51909ce2537d68f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Trasmettere Big Data a un data warehouse
 
@@ -118,67 +118,41 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 1. Aprire il [progetto di esempio EventHubsCaptureEventGridDemo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) in Visual Studio 2017 15.3.2 o versione successiva.
 
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse su **FunctionDWDumper** e selezionare **Pubblica**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse su **FunctionDWDumper** e selezionare **Pubblica**.
 
    ![Pubblicare l'app per le funzioni](media/event-grid-event-hubs-integration/publish-function-app.png)
 
-3. Selezionare **App per le funzioni di Azure** e **Seleziona esistente**. Selezionare **OK**.
+1. Selezionare **App per le funzioni di Azure** e **Seleziona esistente**. Selezionare **Pubblica**.
 
    ![App per le funzioni di destinazione](media/event-grid-event-hubs-integration/pick-target.png)
 
-4. Selezionare l'app per le funzioni che è stata distribuita tramite il modello. Selezionare **OK**.
+1. Selezionare l'app per le funzioni che è stata distribuita tramite il modello. Selezionare **OK**.
 
    ![Selezionare l'app per le funzioni](media/event-grid-event-hubs-integration/select-function-app.png)
 
-5. Quando il profilo è stato configurato automaticamente in Visual Studio, selezionare **Pubblica**.
+1. Quando il profilo è stato configurato automaticamente in Visual Studio, selezionare **Pubblica**.
 
    ![Select publish](media/event-grid-event-hubs-integration/select-publish.png)
 
-6. Dopo la pubblicazione della funzione accedere al [portale di Azure](https://portal.azure.com/). Selezionare il gruppo di risorse e l'app per le funzioni.
-
-   ![Visualizzare l'app per le funzioni](media/event-grid-event-hubs-integration/view-function-app.png)
-
-7. Selezionare la funzione.
-
-   ![Selezionare la funzione](media/event-grid-event-hubs-integration/select-function.png)
-
-8. Ottenere l'URL per la funzione. Questo URL è necessario quando si crea la sottoscrizione di eventi.
-
-   ![Ottenere l'URL della funzione](media/event-grid-event-hubs-integration/get-function-url.png)
-
-9. Copiare il valore.
-
-   ![Copia l'URL](media/event-grid-event-hubs-integration/copy-url.png)
+Dopo aver pubblicato la funzione, si è pronti per sottoscrivere l'evento.
 
 ## <a name="subscribe-to-the-event"></a>Sottoscrivere l'evento
 
-È possibile usare l'interfaccia della riga di comando di Azure o il portale per sottoscrivere l'evento. Questo articolo illustra entrambi gli approcci.
+1. Accedere al [portale di Azure](https://portal.azure.com/). Selezionare il gruppo di risorse e l'app per le funzioni.
 
-### <a name="portal"></a>Portale
+   ![Visualizzare l'app per le funzioni](media/event-grid-event-hubs-integration/view-function-app.png)
 
-1. Dallo spazio dei nomi di Hub eventi selezionare **Griglia di eventi** a sinistra.
+1. Selezionare la funzione.
 
-   ![Selezionare Griglia di eventi](media/event-grid-event-hubs-integration/select-event-grid.png)
+   ![Selezionare la funzione](media/event-grid-event-hubs-integration/select-function.png)
 
-2. Aggiungere una sottoscrizione di eventi.
+1. Selezionare **Aggiungi sottoscrizione di Griglia di eventi**.
 
-   ![Aggiungere una sottoscrizione di eventi](media/event-grid-event-hubs-integration/add-event-subscription.png)
+   ![Aggiungi sottoscrizione](media/event-grid-event-hubs-integration/add-event-grid-subscription.png)
 
-3. Fornire i valori per la sottoscrizione di eventi. Usare l'URL di Funzioni di Azure che è stato copiato. Selezionare **Create**.
+9. Assegnare un nome alla sottoscrizione di Griglia di eventi. Usare **Spazi dei nomi di Hub eventi** come tipo di evento. Indicare i valori per selezionare l'istanza dello spazio dei nomi di Hub eventi. Lasciare l'endpoint del sottoscrittore come valore specificato. Selezionare **Create**.
 
-   ![Fornire i valori della sottoscrizione](media/event-grid-event-hubs-integration/provide-values.png)
-
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-
-Per sottoscrivere l'evento, eseguire i comandi seguenti (che richiedono la versione 2.0.24 o successiva dell'interfaccia della riga di comando di Azure):
-
-```azurecli-interactive
-namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
-az eventgrid event-subscription create \
-  --resource-id $namespaceid \
-  --name captureEventSub \
-  --endpoint <your-function-endpoint>
-```
+   ![Creare la sottoscrizione](media/event-grid-event-hubs-integration/set-subscription-values.png)
 
 ## <a name="run-the-app-to-generate-data"></a>Eseguire l'app per generare i dati
 
@@ -198,10 +172,10 @@ az eventgrid event-subscription create \
 
 4. Tornare al progetto Visual Studio. Nel progetto WindTurbineDataGenerator aprire **program.cs**.
 
-5. Sostituire i due valori costanti. Usare il valore copiato per **EventHubConnectionString**. Usare il nome dell'hub eventi per **EventHubName**.
+5. Sostituire i due valori costanti. Usare il valore copiato per **EventHubConnectionString**. Usare **hubdatamigration** come nome dell'hub eventi.
 
    ```cs
-   private const string EventHubConnectionString = "Endpoint=sb://tfdatamigratens.servicebus.windows.net/...";
+   private const string EventHubConnectionString = "Endpoint=sb://demomigrationnamespace.servicebus.windows.net/...";
    private const string EventHubName = "hubdatamigration";
    ```
 

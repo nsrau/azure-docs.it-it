@@ -6,84 +6,49 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 7DFEFEBE-D6B7-4BE0-ADC1-1C01FB7E81A6
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 5/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 6fbd82c3d49a4d64523bf0e10b67ce3aabe96de2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.reviewer: hectorl
+ms.openlocfilehash: 5fab656734d0984cf44a9fe1f29fd73530bd9aa8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Abilitare il Backup per lo Stack di Azure con PowerShell
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Abilitare il servizio di Backup di infrastruttura con Windows PowerShell in modo che Azure Stack può essere ripristinato se si è verificato un errore. Per visualizzare i cmdlet PowerShell per abilitare il backup, avviare il backup e ottenere informazioni di backup tramite l'endpoint di gestione di operatore.
+Abilitare il servizio di Backup di infrastruttura con Windows PowerShell così eseguire backup periodici del:
+ - Identità interne del servizio e il certificato radice
+ - I piani di utente, offerte, le sottoscrizioni
+ - Segreti Keyvault
+ - I criteri e i ruoli utente RBAC
 
-## <a name="download-azure-stack-tools"></a>Scaricare strumenti di Azure Stack
+Per visualizzare i cmdlet PowerShell per abilitare il backup, avviare il backup e ottenere informazioni di backup tramite l'endpoint di gestione di operatore.
 
-Installare e PowerShell configurato per lo Stack di Azure e gli strumenti di Azure Stack. Vedere [diventare operativi con PowerShell nello Stack di Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+## <a name="prepare-powershell-environment"></a>Preparazione ambiente di PowerShell
 
-##  <a name="load-the-connect-and-infrastructure-modules"></a>Caricare i moduli di connessione e l'infrastruttura
+Per istruzioni sulla configurazione dell'ambiente di PowerShell, vedere [installazione di PowerShell per Azure Stack ](azure-stack-powershell-install.md).
 
-Aprire Windows PowerShell con un prompt dei comandi con privilegi elevati ed eseguire i comandi seguenti:
-
-   ```powershell
-    cd C:\tools\AzureStack-Tools-master\Connect
-    Import-Module .\AzureStack.Connect.psm1
-    
-    cd C:\tools\AzureStack-Tools-master\Infrastructure
-    Import-Module .\AzureStack.Infra.psm1 
-    
-   ```
-
-##  <a name="setup-rm-environment-and-log-into-the-operator-management-endpoint"></a>Ambiente Rm e log di installazione nell'endpoint di gestione (operatore)
-
-Nella stessa sessione di PowerShell, modificare lo script di PowerShell seguente aggiungendo le variabili per l'ambiente. Eseguire lo script aggiornato per configurare l'ambiente RM e accedere all'endpoint di gestione di operatore.
-
-| Variabile    | DESCRIZIONE |
-|---          |---          |
-| $TenantName | Nome di tenant di Azure Active Directory. |
-| Nome dell'account (operatore)        | Il nome dell'account Azure Stack operatore. |
-| Endpoint di gestione risorse di Azure | URL per Gestione risorse di Azure. |
-
-   ```powershell
-   # Specify Azure Active Directory tenant name
-    $TenantName = "contoso.onmicrosoft.com"
-    
-    # Set the module repository and the execution policy
-    Set-PSRepository `
-      -Name "PSGallery" `
-      -InstallationPolicy Trusted
-    
-    Set-ExecutionPolicy RemoteSigned `
-      -force
-    
-    # Configure the Azure Stack operator’s PowerShell environment.
-    Add-AzureRMEnvironment `
-      -Name "AzureStackAdmin" `
-      -ArmEndpoint "https://adminmanagement.seattle.contoso.com"
-    
-    Set-AzureRmEnvironment `
-      -Name "AzureStackAdmin" `
-      -GraphAudience "https://graph.windows.net/"
-    
-    $TenantID = Get-AzsDirectoryTenantId `
-      -AADTenantName $TenantName `
-      -EnvironmentName AzureStackAdmin
-    
-    # Sign-in to the operator's console.
-    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
-    
-   ```
 ## <a name="generate-a-new-encryption-key"></a>Generare una nuova chiave di crittografia
 
+Installare e PowerShell configurato per lo Stack di Azure e gli strumenti di Azure Stack.
+ - Vedere [diventare operativi con PowerShell nello Stack di Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+ - Vedere [strumenti scaricare Azure Stack da GitHub](azure-stack-powershell-download.md)
+
+Aprire Windows PowerShell con un prompt dei comandi con privilegi elevati ed eseguire i comandi seguenti:
+   
+   ```powershell
+    cd C:\tools\AzureStack-Tools-master\Infrastructure
+    Import-Module .\AzureStack.Infra.psm1 
+   ```
+   
 Nella stessa sessione di PowerShell, eseguire i comandi seguenti:
 
    ```powershell
@@ -99,7 +64,7 @@ Nella stessa sessione di PowerShell, modificare lo script di PowerShell seguente
 
 | Variabile        | DESCRIZIONE   |
 |---              |---                                        |
-| $username       | Tipo di **Username** utilizzando il dominio e il nome utente per il percorso dell'unità condivisa. Ad esempio, `Contoso\administrator`. |
+| $username       | Tipo di **Username** usando il dominio e il nome utente per il percorso dell'unità condivisa con diritti di accesso sufficienti per leggere e scrivere file. Ad esempio, `Contoso\backupshareuser`. |
 | $password       | Tipo di **Password** per l'utente. |
 | $sharepath      | Digitare il percorso di **il percorso di archiviazione di Backup**. È necessario utilizzare una stringa di Universal Naming Convention (UNC) per il percorso di una condivisione file ospitata su un dispositivo distinto. Una stringa UNC specifica il percorso delle risorse, ad esempio i dispositivi o file condivisi. Per garantire la disponibilità dei dati di backup, il dispositivo deve essere in una posizione separata. |
 
@@ -118,7 +83,7 @@ Nella stessa sessione di PowerShell, modificare lo script di PowerShell seguente
 Nella stessa sessione di PowerShell, eseguire i comandi seguenti:
 
    ```powershell
-   Get-AzsBackupLocation | Select-Object -Property Path, UserName, Password | ConvertTo-Json 
+   Get-AzsBackupLocation | Select-Object -ExpandProperty externalStoreDefault | Select-Object -Property Path, UserName, Password | ConvertTo-Json
    ```
 
 Il risultato dovrebbe essere simile all'output JSON seguente:
@@ -136,4 +101,4 @@ Il risultato dovrebbe essere simile all'output JSON seguente:
 ## <a name="next-steps"></a>Passaggi successivi
 
  - Informazioni su come eseguire un backup, vedere [backup Azure Stack](azure-stack-backup-back-up-azure-stack.md ).  
-- Informazioni su come verificare che sia stato eseguito il backup, vedere [backup conferma completata nel portale di amministrazione](azure-stack-backup-back-up-azure-stack.md ).
+ - Informazioni su come verificare che sia stato eseguito il backup, vedere [backup conferma completata nel portale di amministrazione](azure-stack-backup-back-up-azure-stack.md ).

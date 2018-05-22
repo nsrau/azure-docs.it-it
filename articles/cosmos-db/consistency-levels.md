@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 512f9e22d01e3bdb90210402aaf123ac6326759a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0f38d05dc720dd596c81a51abf7040ac062e8158
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza dei dati ottimizzabili in Azure Cosmos DB
 Azure Cosmos DB è stato progettato da zero pensando alla distribuzione globale di tutti i modelli di dati. È pensato per offrire garanzie di bassa latenza stimabile e più modelli di coerenza meno rigidi e ben definiti. Azure Cosmos DB offre attualmente cinque livelli di coerenza: assoluta, decadimento ristretto, sessione, prefisso coerente e finale. I modelli di coerenza con obsolescenza associata, sessione, finale e con prefisso coerente vengono definiti "modelli di coerenza meno rigidi" in quanto forniscono un livello di coerenza inferiore alla coerenza assoluta, ovvero il modello di coerenza massima disponibile. 
@@ -44,7 +44,7 @@ La tabella seguente illustra le garanzie specifiche fornite da ciascun livello d
 | Livello di coerenza | Garanzie |
 | --- | --- |
 | Assoluta | Linearità. Le letture restituiscono sempre la versione più recente di un elemento.|
-| Decadimento ristretto | Prefisso coerente. Ritardo delle letture rispetto alle scritture in base a prefissi k o intervallo t |
+| Decadimento ristretto | Prefisso coerente. Ritardo delle letture rispetto alle scritture almeno di prefissi k o intervallo t |
 | sessione   | Prefisso coerente. Letture costanti, scritture costanti, lettura delle proprie scritture, scrittura basata sulle letture |
 | Prefisso coerente | Gli aggiornamenti restituiti sono un prefisso di tutti gli aggiornamenti, senza interruzioni |
 | Finale  | Letture non in ordine |

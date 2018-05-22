@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: dda444e77f588cd1ba5989b393e9a3987241ef9a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: faa28a6b28c721e4088ccfbb00514be7f605f3e2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Preparare un'immagine di macchina virtuale Linux di Azure esistente da usare con cloud-init
 Questo articolo descrive come preparare una macchina virtuale di Azure esistente per ridistribuirla e renderla pronta per l'uso di cloud-init. L'immagine risultante può essere usata per distribuire una nuova macchina virtuale o un nuovo set di scalabilità di macchine virtuali, ciascuno dei quali può quindi essere ulteriormente personalizzato tramite cloud-init in fase di distribuzione.  Questi script cloud-init vengono eseguiti al primo avvio dopo il provisioning delle risorse da parte di Azure. Per altre informazioni sul funzionamento di cloud-init in modo nativo in Azure e sulle distribuzioni Linux supportate, vedere la [panoramica di cloud-init](using-cloud-init.md)
@@ -136,7 +136,7 @@ In tutte le immagini della piattaforma Azure è installato l'agente Linux di Azu
 sudo waagent -deprovision+user -force
 ```
 
-Per altre informazioni sui comandi di deprovisioning dell'agente Linux di Azure, vedere [Agente Linux di Azure](agent-user-guide.md).
+Per altre informazioni sui comandi di deprovisioning dell'agente Linux di Azure, vedere [Agente Linux di Azure](../extensions/agent-linux.md).
 
 Uscire dalla sessione SSH, quindi eseguire i comandi AzureCLI seguenti dalla shell Bash per deallocare, generalizzare e creare una nuova immagine di macchina virtuale di Azure.  Sostituire `myResourceGroup` e `sourceVmName` con le informazioni appropriate in base alla macchina virtuale di origine.
 

@@ -4,22 +4,22 @@ description: Informazioni su come usare Hub di notifica per inviare notifiche pu
 keywords: notifica push,notifiche push,push node.js,push ios
 services: notification-hubs
 documentationcenter: nodejs
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: yuaxu
-ms.openlocfilehash: ff2dd0c2ededa3664c48b5ff77b05466fceb4b3f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 7463d41382c59e4f7f03b58dbcbc3f5c45e9d15c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Invio di notifiche push con Hub di notifica di Azure e Node.js
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -65,7 +65,7 @@ Utilizzando un editor di testo, aggiungere quanto segue nella parte superiore de
 
     var azure = require('azure');
 
-### <a name="setup-an-azure-notification-hub-connection"></a>Configurare una connessione all'Hub di notifica di Azure
+### <a name="set-up-an-azure-notification-hub-connection"></a>Configurare una connessione all'Hub di notifica di Azure
 L'oggetto **NotificationHubService** consente di lavorare con gli hub di notifica. Il codice seguente consente di creare un oggetto **NotificationHubService** per l'hub di notifica denominato **hubname**. Aggiungerlo nella parte superiore del file **server.js** dopo l'istruzione per l'importazione del modulo azure:
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
@@ -75,7 +75,7 @@ Il valore **connectionstring** della connessione può essere recuperato dal [por
 1. Nel riquadro di spostamento a sinistra fare clic su **Sfoglia**.
 2. Selezionare **Hub di notifica**e quindi individuare l'hub da utilizzare per l'esempio. Per informazioni sulla creazione di un nuovo hub di notifica, vedere l' [esercitazione introduttiva per Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) .
 3. Selezionare **Impostazioni**.
-4. Fare clic su **Criteri di accesso**. Verranno visualizzate la stringhe di connessione di accesso completo e condiviso.
+4. Fare clic su **Criteri di accesso**. Vengono visualizzate la stringhe di connessione di accesso completo e condiviso.
 
 ![Portale di Azure - Hub di notifica](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
@@ -95,7 +95,7 @@ L'oggetto **NotificationHubService** espone le istanze seguenti dell'oggetto per
 ### <a name="how-to-send-push-notifications-to-android-applications"></a>Procedura: Inviare notifiche push ad applicazioni Android
 L’oggetto **GcmService** specifica un metodo **send** che è possibile usare per inviare notifiche push alle applicazioni Android. Di seguito sono illustrati i parametri accettati dal metodo **send** .
 
-* **Tags** : l'identificatore tag. Se non viene specificato alcun tag, la notifica verrà inviata a tutti i client.
+* **Tags** : l'identificatore tag. Se non viene specificato alcun tag, la notifica viene inviata a tutti i client.
 * **Payload** : il payload JSON o la stringa non elaborata del messaggio.
 * **Callback** : la funzione di richiamata.
 
@@ -117,7 +117,7 @@ Nel codice seguente viene usata l'istanza **GcmService** esposta dall'oggetto **
 ### <a name="how-to-send-push-notifications-to-ios-applications"></a>Procedura: Inviare notifiche push ad applicazioni iOS
 Come per le applicazioni Android descritte sopra, l'oggetto **ApnsService** specifica un metodo **send** che è possibile usare per inviare notifiche push alle applicazioni iOS. Di seguito sono illustrati i parametri accettati dal metodo **send** .
 
-* **Tags** : l'identificatore tag. Se non viene specificato alcun tag, la notifica verrà inviata a tutti i client.
+* **Tags** : l'identificatore tag. Se non viene specificato alcun tag, la notifica viene inviata a tutti i client.
 * **Payload** : il payload JSON o stringa del messaggio.
 * **Callback** : la funzione di richiamata.
 
@@ -137,7 +137,7 @@ Nel codice seguente viene usata l'istanza **ApnsService** esposta dall'oggetto *
 ### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>Procedura: Inviare notifiche push ad applicazioni Windows Phone
 L'oggetto **MpnsService** specifica un metodo **send** che è possibile usare per inviare notifiche push alle applicazioni Windows Phone. Di seguito sono illustrati i parametri accettati dal metodo **send** .
 
-* **Tags** : l'identificatore tag. Se non viene specificato alcun tag, la notifica verrà inviata a tutti i client.
+* **Tags** : l'identificatore tag. Se non viene specificato alcun tag, la notifica viene inviata a tutti i client.
 * **Payload** : il payload XML del messaggio.
 * **TargetName** - `toast` per le notifiche di tipo avviso popup. `token` per le notifiche di tipo riquadro.
 * **NotificationClass** : la priorità della notifica. Per i valori validi, vedere la sezione relativa agli **elementi dell'intestazione HTTP** nel documento sul [push di notifiche da un server](http://msdn.microsoft.com/library/hh221551.aspx) .
@@ -158,7 +158,7 @@ Nel codice di esempio seguente viene usata l'istanza **MpnsService** esposta dal
 ### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>Procedura: Inviare notifiche push alle applicazioni della piattaforma UWP (Universal Windows Platform)
 L'oggetto **WnsService** specifica un metodo **send** che è possibile usare per inviare notifiche push alle applicazioni della piattaforma UWP (Universal Windows Platform).  Di seguito sono illustrati i parametri accettati dal metodo **send** .
 
-* **Tags** : l'identificatore tag. Se non viene specificato alcun tag, la notifica verrà inviata a tutti i client registrati.
+* **Tags** : l'identificatore tag. Se non viene specificato alcun tag, la notifica viene inviata a tutti i client registrati.
 * **Payload** : il payload XML del messaggio.
 * **Type** : il tipo di notifica.
 * **Options** : intestazioni delle richieste facoltative.
@@ -210,4 +210,4 @@ I frammenti di codice di esempio riportati sopra consentono di creare facilmente
 [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
 [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
-[portale di Azure]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com

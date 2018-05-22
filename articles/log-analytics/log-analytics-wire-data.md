@@ -2,23 +2,23 @@
 title: Soluzione Wire Data in Log Analytics | Documentazione Microsoft
 description: I dati in transito sono dati consolidati di rete e sulle prestazioni provenienti da computer con agenti OMS, inclusi Operations Manager e gli agenti connessi a Windows. I dati di rete vengono combinati con i dati dei log per poter correlare i dati.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 05/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 658d92900763249aeeb3542132f4fe0c43ba005f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: c86d1274ed46ff725c9db3093a8852fbae7f67ff
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Soluzione Wire Data 2.0 (anteprima) in Log Analytics
 
@@ -58,8 +58,8 @@ Wire Data ottiene i dati da Microsoft Dependency Agent. Dependency Agent dipende
 
 | **Origine connessa** | **Supportato** | **Descrizione** |
 | --- | --- | --- |
-| Agenti di Windows | Sì | Wire Data analizza e raccoglie i dati da computer agente Windows. <br><br> Oltre a [OMS Agent](log-analytics-windows-agent.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems). |
-| Agenti Linux | Sì | Wire Data analizza e raccoglie i dati da computer agente Linux.<br><br> Oltre a [OMS Agent](log-analytics-quick-collect-linux-computer.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems). |
+| Agenti di Windows | Sì | Wire Data analizza e raccoglie i dati da computer agente Windows. <br><br> Oltre a [OMS Agent](log-analytics-windows-agent.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](../monitoring/monitoring-service-map-configure.md#supported-operating-systems). |
+| Agenti Linux | Sì | Wire Data analizza e raccoglie i dati da computer agente Linux.<br><br> Oltre a [OMS Agent](log-analytics-quick-collect-linux-computer.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](../monitoring/monitoring-service-map-configure.md#supported-operating-systems). |
 | Gruppo di gestione di System Center Operations Manager | Sì | Wire Data analizza e raccoglie i dati dagli agenti Windows e Linux in un [gruppo di gestione di System Center Operations Manager](log-analytics-om-agents.md) connesso. <br><br> È necessaria una connessione diretta dal computer agente System Center Operations Manager a Log Analytics. I dati vengono inoltrati dal gruppo di gestione a Log Analytics. |
 | Account di archiviazione di Azure | No  | Wire Data raccoglie i dati dai computer agente, quindi non devono essere raccolti dati da Archiviazione di Azure. |
 
@@ -379,7 +379,7 @@ Dopo l'installazione degli agenti e della soluzione, nell'area di lavoro verrà 
 
 ## <a name="using-the-wire-data-20-solution"></a>Uso della soluzione Wire Data 2.0
 
-Nel portale di OMS fare clic sul riquadro **Wire Data 2.0** per aprire il dashboard di Wire Data. Il dashboard include i pannelli nella tabella seguente. Ogni panello elenca fino a 10 elementi corrispondenti ai criteri del pannello per lo scope e l'intervallo di tempo specificati. È possibile eseguire una ricerca log per ottenere tutti i record facendo clic su **Vedi tutto** nella parte inferiore del pannello o facendo clic sull'intestazione del pannello.
+Nella pagina **Panoramica** dell'area di lavoro di Log Analytics nel portale di Azure, fare clic sul riquadro **Wire Data 2.0** per aprire il dashboard di Wire Data. Il dashboard include i pannelli nella tabella seguente. Ogni panello elenca fino a 10 elementi corrispondenti ai criteri del pannello per lo scope e l'intervallo di tempo specificati. È possibile eseguire una ricerca log per ottenere tutti i record facendo clic su **Vedi tutto** nella parte inferiore del pannello o facendo clic sull'intestazione del pannello.
 
 | **Pannello** | **Descrizione** |
 | --- | --- |

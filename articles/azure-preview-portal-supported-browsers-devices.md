@@ -1,26 +1,26 @@
 ---
 title: Browser e dispositivi supportati per il portale di Azure | Microsoft Docs
 description: Descrive i browser e i dispositivi con cui funziona il Portale di Azure.
-services: ''
+services: azure-portal
 documentationcenter: ''
 author: flanakin
 writer: flanakin
 manager: lwelicki
 editor: ''
 ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
-ms.service: multiple
+ms.service: azure-portal
 ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: micflan
 ms.custom: accessibility
-ms.openlocfilehash: ff718b3482b298392a8f7fcbe410c62aeb8c1ea5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d3964bcfc78fccbd949b30ebb09db44ec5fd5bde
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Browser e dispositivi supportati per il portale di Azure
 È possibile eseguire il [portale di Azure](https://portal.azure.com) in tutti i moderni browser e dispositivi tablet e desktop.

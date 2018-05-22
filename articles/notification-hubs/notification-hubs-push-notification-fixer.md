@@ -3,22 +3,22 @@ title: Diagnosi dei problemi delle notifiche non recapitate da Hub di notifica d
 description: Informazioni su come diagnosticare i problemi comuni relativi alle notifiche non recapitate in Hub di notifica di Azure.
 services: notification-hubs
 documentationcenter: Mobile
-author: jwhitedev
+author: dimazaid
 manager: kpiteira
-editor: 
+editor: spelluru
 ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 12/22/2017
-ms.author: jawh
-ms.openlocfilehash: 3925208fe56bcd9513ec4c0f21aa1e2dd8fbf9c5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: bc9ef70560f0485da81c1f54aa955cee76d280ab
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Diagnosticare le notifiche non recapitate in Hub di notifica
 
@@ -30,16 +30,16 @@ Una delle domande più comuni dei clienti di Hub di notifica di Azure è come ri
 
 In un flusso tipico di invio delle notifiche, il messaggio viene inviato dal *back-end dell'applicazione* ad Hub di notifica. Hub di notifica esegue alcune operazioni di elaborazione per tutte le registrazioni. L'elaborazione prende in considerazione i tag e le espressioni tag configurati per determinare le "destinazioni". Le destinazioni sono tutte le registrazioni che devono ricevere la notifica push. Queste registrazioni possono coprire alcune o tutte le piattaforme supportate: iOS, Google, Windows, Windows Phone, Kindle e Baidu per Android in Cina.
 
-Con le destinazioni stabilite, Hub di notifica esegue il push delle notifiche al *servizio di notifica push* per la piattaforma del dispositivo. Alcuni esempi sono il servizio Apple Push Notification (APN) per Apple e Firebase Cloud Messaging (FCM) per Google. Hub di notifica esegue il push delle notifiche suddivise in più batch di registrazioni. Hub di notifica esegue l'autenticazione nel servizio di notifica push corrispondente in base alle credenziali impostate nel portale di Azure, in **Configure Notification Hub** (Configura Hub di notifica). Il servizio di notifica push inoltra quindi le notifiche ai *dispositivi client* corrispondenti. 
+Con le destinazioni stabilite, il servizio Hub di notifica esegue il push delle notifiche al *servizio di notifica push* per la piattaforma del dispositivo. Alcuni esempi sono il servizio Apple Push Notification (APN) per Apple e Firebase Cloud Messaging (FCM) per Google. Hub di notifica esegue il push delle notifiche suddivise in più batch di registrazioni. Hub di notifica esegue l'autenticazione nel servizio di notifica push corrispondente in base alle credenziali impostate nel portale di Azure, in **Configure Notification Hub** (Configura Hub di notifica). Il servizio di notifica push inoltra quindi le notifiche ai *dispositivi client* corrispondenti. 
 
-Tenere presente che l'ultima parte del recapito delle notifiche avviene tra il servizio di notifica push della piattaforma e il dispositivo. Uno qualsiasi dei quattro componenti principali del processo di notifica push (client, back-end dell'applicazione, Hub di notifica e servizio di notifica push della piattaforma) potrebbe causare l'eliminazione delle notifiche. Per altre informazioni sull'architettura di Hub di notifica, vedere [Panoramica dell'Hub di notifica].
+L'ultima parte del recapito delle notifiche avviene tra il servizio di notifica push della piattaforma e il dispositivo. Uno qualsiasi dei quattro componenti principali del processo di notifica push (client, back-end dell'applicazione, Hub di notifica e servizio di notifica push della piattaforma) potrebbe causare l'eliminazione delle notifiche. Per altre informazioni sull'architettura di Hub di notifica, vedere [Panoramica dell'Hub di notifica].
 
 Il mancato recapito delle notifiche potrebbe verificarsi durante la fase iniziale di test/staging. Le notifiche non recapitate in questa fase potrebbero indicare un problema di configurazione. Se i problemi di recapito delle notifiche si verificano nell'ambiente di produzione, potrebbero essere eliminate alcune o tutte le notifiche. In questo caso, si tratta di un problema più articolato a livello di applicazione o della messaggistica. 
 
 Nella sezione successiva vengono esaminati gli scenari in cui potrebbe verificarsi il mancato recapito notifiche, dai più comuni a quelli più rari.
 
 ## <a name="notification-hubs-misconfiguration"></a>Configurazione errata di Hub di notifica
-Per inviare notifiche al servizio di notifica push corrispondente, Hub di notifica di Azure deve eseguire l'autenticazione nel contesto dell'applicazione dello sviluppatore. A questo scopo, lo sviluppatore crea un account sviluppatore con la piattaforma corrispondente (Google, Apple, Windows e così via). Lo sviluppatore registra quindi l'applicazione per la piattaforma da cui ottiene le credenziali. 
+Per inviare notifiche al servizio di notifica push corrispondente, il servizio Hub di notifica deve eseguire l'autenticazione nel contesto dell'applicazione dello sviluppatore. A questo scopo, lo sviluppatore crea un account sviluppatore con la piattaforma corrispondente (Google, Apple, Windows e così via). Lo sviluppatore registra quindi l'applicazione per la piattaforma da cui ottiene le credenziali. 
 
 È necessario aggiungere le credenziali della piattaforma nel portale di Azure. Se il dispositivo non riceve alcuna notifica, è prima di tutto necessario assicurarsi che in Hub di notifica siano configurate le credenziali corrette. Le credenziali devono corrispondere all'applicazione creata con un account sviluppatore specifico della piattaforma. 
 
@@ -88,7 +88,7 @@ Ecco alcuni errori di configurazione comuni:
 
 * **Registrazioni non valide**
 
-    Se l'hub di notifica è stato configurato correttamente e se gli eventuali tag o espressioni tag sono stati usati correttamente, vengono trovate destinazioni valide. Le notifiche devono essere inviate a queste destinazioni. Hub di notifica attiva quindi vari batch di elaborazione in parallelo. Ogni batch invia messaggi a un set di registrazioni. 
+    Se l'hub di notifica è stato configurato correttamente e se gli eventuali tag o espressioni tag sono stati usati correttamente, vengono trovate destinazioni valide. Le notifiche devono essere inviate a queste destinazioni. Il servizio Hub di notifica attiva quindi vari batch di elaborazione in parallelo. Ogni batch invia messaggi a un set di registrazioni. 
 
     > [!NOTE]
     > Dato che l'elaborazione viene eseguita in parallelo, l'ordine di recapito delle notifiche non è garantito. 
@@ -102,7 +102,7 @@ Ecco alcuni errori di configurazione comuni:
     Per ottenere ulteriori informazioni sul tentativo di recapito non riuscito per una registrazione, è possibile usare le API REST di Hub di notifica: [Per Message Telemetry: Get Notification Message Telemetry](https://msdn.microsoft.com/library/azure/mt608135.aspx) (Dati di telemetria per messaggio: ottenere i dati di telemetria del messaggio di notifica) e [PNS feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx) (Feedback PNS). Per un esempio di codice, vedere l'[esempio REST per l'invio](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample).
 
 ## <a name="push-notification-service-issues"></a>Problemi del servizio di notifica push
-Dopo la ricezione del messaggio di notifica dal servizio di notifica push della piattaforma, è responsabilità del servizio di notifica push recapitare la notifica al dispositivo. A questo punto, Hub di notifica non è coinvolto in questa operazione e non controlla in alcun modo se e quando la notifica viene recapitata al dispositivo. 
+Dopo la ricezione del messaggio di notifica dal servizio di notifica push della piattaforma, è responsabilità del servizio di notifica push recapitare la notifica al dispositivo. A questo punto, il servizio Hub di notifica non è coinvolto in questa operazione e non controlla in alcun modo se e quando la notifica viene recapitata al dispositivo. 
 
 Dato che i servizi di notifica della piattaforma sono affidabili, le notifiche raggiungono tendenzialmente i dispositivi in pochi secondi dal servizio di notifica push. Se il servizio di notifica push è limitato, Hub di notifica applica una strategia con backoff esponenziale. Se il servizio di notifica push rimane non raggiungibile per 30 minuti, viene applicato un criterio che determina la scadenza dei messaggi e la loro eliminazione permanente. 
 
@@ -226,7 +226,7 @@ Questo messaggio indica che in Hub di notifica sono configurate credenziali non 
    
         ![Dashboard di panoramica di Hub di notifica][5]
    
-    2. Nella scheda **Monitoraggio** è possibile aggiungere molte altre metriche specifiche della piattaforma per un'analisi più approfondita. È possibile esaminare in particolare gli eventuali errori relativi al servizio di notifica push restituiti quando Hub di notifica tenta l'invio della notifica al servizio di notifica push. 
+    2. Nella scheda **Monitoraggio** è possibile aggiungere molte altre metriche specifiche della piattaforma per un'analisi più approfondita. È possibile esaminare in particolare gli eventuali errori relativi al servizio di notifica push restituiti quando il servizio Hub di notifica tenta l'invio della notifica al servizio di notifica push. 
    
         ![Log attività del portale di Azure][6]
    

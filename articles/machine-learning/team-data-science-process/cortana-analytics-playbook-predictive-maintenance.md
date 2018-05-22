@@ -1,8 +1,8 @@
 ---
-title: Manutenzione predittiva nel settore aerospaziale con Azure - Modello della soluzione Cortana Intelligence | Documentazione Microsoft
-description: Modello di soluzione con Microsoft Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale, nei servizi pubblici e nei trasporti.
+title: Azure AI Playbook per soluzioni di manutenzione predittiva | Microsoft Docs
+description: Descrizione completa delle funzioni di data science che consentono di creare soluzioni di manutenzione predittiva in più settori di mercato.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 05/01/2018
 ms.author: fboylu
-ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ad06617fb8c14928dca7d9ce18ad86190e8255fe
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Studio del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi
+# <a name="azure-ai-playbook-for-predictive-maintenance-solutions"></a>Azure AI Playbook per soluzioni di manutenzione predittiva 
 ## <a name="executive-summary"></a>Riepilogo
 La manutenzione predittiva è una delle applicazioni dell'analisi predittiva più richieste, che offre indiscutibili vantaggi tra cui un risparmio significativo in termini di costi. Questo studio ha lo scopo di fornire un riferimento per le soluzioni di manutenzione predittiva, con particolare attenzione ai principali casi d'uso.
 È concepito per offrire al lettore una descrizione dei più comuni scenari aziendali di manutenzione predittiva, delle sfide legate ai problemi aziendali idonei per queste soluzioni, dei dati richiesti per risolvere questi problemi aziendali, delle tecniche di modellazione predittiva per creare soluzioni con questi dati e delle procedure consigliate con architetture delle soluzioni di esempio.

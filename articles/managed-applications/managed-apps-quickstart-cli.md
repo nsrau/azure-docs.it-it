@@ -1,20 +1,20 @@
 ---
 title: Creare un'applicazione gestita di Azure con l'interfaccia della riga di comando di Azure | Microsoft Docs
 description: Questo articolo descrive come creare un'applicazione gestita di Azure studiata per i membri della propria organizzazione.
-services: azure-resource-manager
+services: managed-applications
 author: tfitzmac
 manager: timlt
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
-ms.date: 12/15/2017
+ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35059603096279f7d58da1c1b40dd2ab3f1b5c38
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f84fdd421ec6857cd940108546a16eb47770c766
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Creare e distribuire un'applicazione gestita di Azure con l'interfaccia della riga di comando di Azure
 
@@ -75,7 +75,7 @@ Al completamento del comando, è disponibile una definizione dell'applicazione g
 Ecco alcuni parametri usati nell'esempio precedente:
 
 * **resource-group**: nome del gruppo di risorse in cui viene creata la definizione di applicazione gestita.
-* **lock-level**: tipo di blocco inserito nel gruppo di risorse gestito. Impedisce al cliente di eseguire operazioni indesiderate su questo gruppo di risorse. ReadOnly è attualmente il solo livello di blocco supportato. Quando ReadOnly è specificato, il cliente può solo leggere le risorse presenti nel gruppo di risorse gestito.
+* **lock-level**: tipo di blocco inserito nel gruppo di risorse gestito. Impedisce al cliente di eseguire operazioni indesiderate su questo gruppo di risorse. ReadOnly è attualmente il solo livello di blocco supportato. Quando ReadOnly è specificato, il cliente può solo leggere le risorse presenti nel gruppo di risorse gestito. Le identità degli autori a cui è concesso l'accesso al gruppo di risorse gestito sono esenti dal blocco.
 * **authorizations**: indica l'ID dell'entità di sicurezza e l'ID di definizione del ruolo usati per concedere l'autorizzazione al gruppo di risorse gestito. Viene specificato nel formato `<principalId>:<roleDefinitionId>`. Per questa proprietà si possono specificare anche altri valori. Se sono necessari più valori, deve essere specificata nel formato `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. I valori multipli sono separati da uno spazio.
 * **package-file-uri**: percorso di un pacchetto con estensione zip che include i file necessari. Il pacchetto contiene almeno i file **mainTemplate.json** e **createUiDefinition.json**. **mainTemplate.json** definisce le risorse di Azure di cui viene effettuato il provisioning nell'ambito dell'applicazione gestita. Il modello non è diverso da un modello standard di Resource Manager. **createUiDefinition.json** genera l'interfaccia utente per gli utenti che creano l'applicazione gestita tramite il portale.
 

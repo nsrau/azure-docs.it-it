@@ -1,0 +1,10 @@
+- name: Servizi multimediali di Azure v3 (anteprima)
+  href: latest/media-services-overview.md
+- name: Servizi multimediali di Azure v2 (disponibilità generale)
+  href: previous/media-services-overview.md
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=media'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'

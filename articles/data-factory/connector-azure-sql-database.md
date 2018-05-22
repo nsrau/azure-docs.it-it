@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: c4f27f59412fbfc72e193f916895c3e67091f5f6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0503b355089fe6bbcc7632ac93fd21e71f268032
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiare dati da o nel database SQL di Azure tramite Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -100,7 +100,7 @@ Per usare l'autenticazione token dell'applicazione di AAD basata sull'entità se
     - Chiave applicazione
     - ID tenant
 
-2. **[Effettuare il provisioning di un amministratore di Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** per il server SQL di Azure nel portale di Azure, se l'operazione non è già stata eseguita. L'amministratore di AAD deve essere un utente o un gruppo di AAD, ma non può essere un'entità servizio. Questo passaggio viene eseguito in modo che, nel passaggio successivo, sia possibile usare un'identità di AAD per creare un utente di database indipendente per l'entità servizio.
+2. **[Effettuare il provisioning di un amministratore di Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** per il server SQL di Azure nel portale di Azure, se l'operazione non è già stata eseguita. L'amministratore di AAD deve essere un utente o un gruppo di AAD, ma non può essere un'entità servizio. Questo passaggio viene eseguito in modo che, nel passaggio successivo, sia possibile usare un'identità di AAD per creare un utente di database indipendente per l'entità servizio.
 
 3. **Creare un utente di database indipendente per l'entità servizio** tramite la connessione al database da/verso cui si vogliono copiare i dati usando strumenti come SQL Server Management Studio, con un'identità di AAD che abbia almeno l'autorizzazione ALTER ANY USER, e l'esecuzione del comando in T-SQL seguente. Per altre informazioni sull'utente di database indipendente, consultare [questo articolo](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -111,7 +111,7 @@ Per usare l'autenticazione token dell'applicazione di AAD basata sull'entità se
 4. **Concedere all'entità servizio le autorizzazioni necessarie**, come si fa di norma per gli utenti SQL, ad esempio tramite l'esecuzione del codice seguente:
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. Nel file di definizione dell'applicazione (ADF) configurare un servizio collegato al database SQL di Azure.
@@ -160,7 +160,7 @@ Per usare l'autenticazione token dell'applicazione di AAD basata sull'identità 
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Effettuare il provisioning di un amministratore di Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** per il server SQL di Azure nel portale di Azure, se l'operazione non è già stata eseguita. L'amministratore di AAD può essere un utente o un gruppo di AAD. Se si concede al gruppo con identità del servizio gestito un ruolo di amministratore, ignorare i passaggi 3 e 4 riportati di seguito, in quanto l'amministratore avrà l'accesso completo al database.
+2. **[Effettuare il provisioning di un amministratore di Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** per il server SQL di Azure nel portale di Azure, se l'operazione non è già stata eseguita. L'amministratore di AAD può essere un utente o un gruppo di AAD. Se si concede al gruppo con identità del servizio gestito un ruolo di amministratore, ignorare i passaggi 3 e 4 riportati di seguito, in quanto l'amministratore avrà l'accesso completo al database.
 
 3. **Creare un utente di database indipendente per il gruppo di AAD** tramite la connessione al database da/verso cui si vogliono copiare i dati usando strumenti come SQL Server Management Studio, con un'identità di AAD che abbia almeno l'autorizzazione ALTER ANY USER, e l'esecuzione del comando in T-SQL seguente. Per altre informazioni sull'utente di database indipendente, consultare [questo articolo](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -171,7 +171,7 @@ Per usare l'autenticazione token dell'applicazione di AAD basata sull'identità 
 4. **Concedere al gruppo di AAD le autorizzazioni necessarie**, come si fa di norma per gli utenti SQL, ad esempio tramite l'esecuzione del codice seguente:
 
     ```sql
-    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
 5. Nel file di definizione dell'applicazione (ADF) configurare un servizio collegato al database SQL di Azure.

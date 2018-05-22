@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
-ms.openlocfilehash: 3bfedf940bd884fc8093f14236b6f3e4f7596839
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3eecf8918e6628071e44cc588b1826df68a00f10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gestione dell'archiviazione nei cloud indipendenti di Azure con PowerShell
 
@@ -85,11 +85,10 @@ Questo comando restituisce i risultati seguenti.
 
 | NOME| StorageEndpointSuffix|
 |----|----|
-|AzureChinaCloud | core.chinacloudapi.cn|
+| AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
 | AzureGermanCloud | core.cloudapi.de|
-| AzureUSGovernment | core.usgov.cloudapi.net |
-
+| AzureUSGovernment | core.usgovcloudapi.net |
 
 Per recuperare tutte le proprietà per l'ambiente specificato, chiamare **Get-AzureRmEnvironment** e specificare il nome del cloud. Questo frammento di codice restituisce un elenco di proprietà. Cercare **StorageEndpointSuffix** nell'elenco. L'esempio seguente si riferisce al cloud per la Germania.
 

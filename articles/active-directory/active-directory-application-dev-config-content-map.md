@@ -2,21 +2,22 @@
 title: Problemi di configurazione o di registrazione dell'applicazione
 description: Problemi di configurazione o di registrazione dell'applicazione
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 87a6d083ef314669c85434b8079f882f7e9158b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eb242b075753b098616601cf2f4e636c29e3301f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="problems-configuring-or-registering-my-application"></a>Problemi di configurazione o di registrazione dell'applicazione
 

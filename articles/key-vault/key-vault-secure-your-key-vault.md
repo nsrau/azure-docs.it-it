@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/07/2017
+ms.date: 05/10/2017
 ms.author: ambapat
-ms.openlocfilehash: 3a769d15fe79a56d623399d0d38b6dd9c060db36
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a3493c9e9ef6a5bafd832510f42f33cc3f07f088
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="secure-your-key-vault"></a>Proteggere l'insieme di credenziali delle chiavi
 Insieme di credenziali delle chiavi di Azure è un servizio cloud che consente di proteggere le chiavi di crittografia e i segreti (ad esempio, certificati, stringhe di connessione e password) per le applicazioni cloud. Poiché questi dati sono riservati e importanti per l'azienda, è opportuno limitare l'accesso agli insiemi di credenziali delle chiavi alle applicazioni e agli utenti autorizzati. Questo articolo offre una panoramica del modello di accesso all'insieme di credenziali delle chiavi, illustra i criteri di autenticazione e autorizzazione e spiega come proteggere l'accesso all'insieme di credenziali delle chiavi per le applicazioni cloud presentando un esempio.

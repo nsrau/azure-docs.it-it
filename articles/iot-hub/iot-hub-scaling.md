@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/02/2018
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3237ee41f8596ed3ce508857adf7dc29cee1ada
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 01e6c3a6fb922a649f0ae139af9c8515fcb8b2e0
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Scegliere il livello di hub IoT più adatto per la soluzione
 
@@ -48,7 +48,7 @@ Dopo aver creato l'hub IoT, è possibile eseguire l'aggiornamento dal livello Ba
 | [Servizio Device Provisioning](../iot-dps/about-iot-dps.md) | Sì | Sì |
 | [Monitoraggio e diagnostica](iot-hub-monitor-resource-health.md) | Sì | Sì |
 | [Messaggistica da cloud a dispositivo](iot-hub-devguide-c2d-guidance.md) |   | Sì |
-| [Dispositivi gemelli](iot-hub-devguide-device-twins.md) e [gestione dei dispositivi](iot-hub-device-management-overview.md) |   | Sì |
+| [Dispositivi gemelli](iot-hub-devguide-device-twins.md), [Module gemelli](iot-hub-devguide-module-twins.md) e [Gestione dei dispositivi](iot-hub-device-management-overview.md) |   | Sì |
 | [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Sì |
 
 L'hub IoT offre inoltre un livello gratuito adatto per il testing e la valutazione. Include tutte le funzionalità del livello standard, ma offre un supporto limitato delle funzionalità di messaggistica. Non è possibile eseguire l'aggiornamento dal livello gratuito al livello Basic o Standard. 
@@ -61,19 +61,26 @@ La differenza a livello di funzionalità supportate tra i livelli Basic e Standa
 | --- | ---------- | ------------- |
 | [Eliminazione dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice) | Sì | Sì |
 | [Recupero dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice) | Sì | Sì |
+| Eliminazione modulo | Sì | Sì |
+| Recupero modulo | Sì | Sì |
 | [Recupero statistiche del Registro di sistema](https://docs.microsoft.com/rest/api/iothub/deviceapi/getregistrystatistics) | Sì | Sì |
 | [Recupero statistiche dei servizi](https://docs.microsoft.com/rest/api/iothub/deviceapi/getservicestatistics) | Sì | Sì |
 | [Inserimento dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Sì | Sì |
+| Inserimento modulo | Sì | Sì |
 | [Query su dispositivi](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | Sì | Sì |
+| Query su moduli | Sì | Sì |
 | [Creazione URI di firma di accesso condiviso per il caricamento di file](https://docs.microsoft.com/rest/api/iothub/httpruntime/createfileuploadsasuri) | Sì | Sì |
 | [Ricezione notifica di dispositivo associato](https://docs.microsoft.com/rest/api/iothub/httpruntime/receivedeviceboundnotification) | Sì | Sì |
 | [Invio evento dispositivo](https://docs.microsoft.com/rest/api/iothub/httpruntime/senddeviceevent) | Sì | Sì |
+| Invio evento modulo | Sì | Sì |
 | [Aggiornamento stato di caricamento file](https://docs.microsoft.com/rest/api/iothub/httpruntime/updatefileuploadstatus) | Sì | Sì |
 | [Operazioni in blocco su dispositivi](https://docs.microsoft.com/rest/api/iothub/deviceapi/bulkdeviceoperation) | Sì, ad eccezione delle funzionalità di IoT Edge | Sì | 
 | [Eliminazione coda di comandi](https://docs.microsoft.com/rest/api/iothub/deviceapi/purgecommandqueue) |   | Sì |
 | [Recupero dispositivo gemello](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/getdevicetwin) |   | Sì |
+| Recupero modulo gemello |   | Sì |
 | [Richiamo metodo dispositivo](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/invokedevicemethod) |   | Sì |
 | [Aggiornamento dispositivo gemello](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/updatedevicetwin) |   | Sì | 
+| Aggiornamento modulo gemello |   | Sì | 
 | [Abbandono notifica di dispositivo associato](https://docs.microsoft.com/rest/api/iothub/httpruntime/abandondeviceboundnotification) |   | Sì |
 | [Completamento notifica di dispositivo associato](https://docs.microsoft.com/rest/api/iothub/httpruntime/completedeviceboundnotification) |   | Sì |
 | [Annullamento processo](https://docs.microsoft.com/rest/api/iothub/jobapi/canceljob) |   | Sì |

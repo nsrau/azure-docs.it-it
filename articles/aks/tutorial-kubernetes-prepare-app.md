@@ -3,24 +3,24 @@ title: "Esercitazione su Kubernetes in Azure: preparare un'app"
 description: "Esercitazione sul servizio contenitore di Azure: preparare un'app"
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8a2c2e53ed04cf00cc02135c5e5f82ded18fc2bc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 50c302ddc7bad9cd2de666c1b99d1fbc6d5a62a8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="tutorial-prepare-application-for-azure-container-service-aks"></a>Esercitazione: Preparare un'applicazione per il servizio contenitore di Azure (AKS)
+# <a name="tutorial-prepare-application-for-azure-kubernetes-service-aks"></a>Esercitazione: preparare un'applicazione per Azure Kubernetes servizio (AKS)
 
-In questa esercitazione, la prima di otto, si prepara un'applicazione multi-contenitore per l'uso in Kubernetes. I passaggi completati comprendono:  
+In questa esercitazione, la prima di otto, si prepara un'applicazione multi-contenitore per l'uso in Kubernetes. I passaggi completati comprendono:
 
 > [!div class="checklist"]
-> * Clonazione dell'origine applicazione da GitHub  
+> * Clonazione dell'origine applicazione da GitHub
 > * Creazione di un'immagine del contenitore dall'origine applicazione
 > * Test dell'applicazione in un ambiente Docker locale
 
@@ -32,7 +32,7 @@ Nelle esercitazioni successive, l'immagine del contenitore verrà caricata in un
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questa esercitazione presuppone una conoscenza di base dei concetti principali di Docker, come contenitori, immagini dei contenitore e comandi essenziali. Se necessario, vedere [Introduzione a Docker][docker-get-started] per una panoramica sui concetti fondamentali relativi al contenitore. 
+Questa esercitazione presuppone una conoscenza di base dei concetti principali di Docker, come contenitori, immagini dei contenitore e comandi essenziali. Se necessario, vedere [Introduzione a Docker][docker-get-started] per una panoramica sui concetti fondamentali relativi al contenitore.
 
 Per completare questa esercitazione è necessario un ambiente di sviluppo Docker. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [Mac][docker-for-mac], [Windows][docker-for-windows] o [Linux][docker-for-linux].
 
@@ -40,7 +40,7 @@ Azure Cloud Shell non include i componenti di Docker necessari per completare og
 
 ## <a name="get-application-code"></a>Ottenere il codice dell'applicazione
 
-L'applicazione di esempio utilizzata in questa esercitazione è un'app di voto base. L'applicazione è costituita da un componente Web front-end e un'istanza Redis back-end. Viene creato un pacchetto del componente Web in un'immagine del contenitore personalizzata. L'istanza di Redis usa un'immagine non modificata dell'hub Docker.  
+L'applicazione di esempio utilizzata in questa esercitazione è un'app di voto base. L'applicazione è costituita da un componente Web front-end e un'istanza Redis back-end. Viene creato un pacchetto del componente Web in un'immagine del contenitore personalizzata. L'istanza di Redis usa un'immagine non modificata dell'hub Docker.
 
 Usare git per scaricare una copia dell'applicazione per l'ambiente di sviluppo.
 
@@ -54,7 +54,7 @@ Cambiare directory in modo da usare la directory clonata.
 cd azure-voting-app-redis
 ```
 
-All'interno della directory sono disponibili il codice sorgente dell'applicazione, un file Docker Compose creato in precedenza e un file manifesto Kubernetes. Questi file vengono usati in tutta la serie di esercitazioni. 
+All'interno della directory sono disponibili il codice sorgente dell'applicazione, un file Docker Compose creato in precedenza e un file manifesto Kubernetes. Questi file vengono usati in tutta la serie di esercitazioni.
 
 ## <a name="create-container-images"></a>Creare immagini del contenitore
 
@@ -124,7 +124,7 @@ Al termine si avrà un'immagine del contenitore con l'applicazione Azure Vote.
 In questa esercitazione è stata testata un'applicazione e sono state create le immagini del contenitore per l'applicazione stessa. Sono stati completati i passaggi seguenti:
 
 > [!div class="checklist"]
-> * Clonazione dell'origine applicazione da GitHub  
+> * Clonazione dell'origine applicazione da GitHub
 > * Creazione di un'immagine del contenitore dall'origine applicazione
 > * Test dell'applicazione in un ambiente Docker locale
 

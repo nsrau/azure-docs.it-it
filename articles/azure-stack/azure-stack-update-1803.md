@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 26c77b706f17f49eff782e6d0d73087050739874
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 095356e76dc72c3e549c23ab3855962e9c2f1d26
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-stack-1803-update"></a>Aggiornamento dello Stack 1803 Azure
 
@@ -40,8 +40,18 @@ In questo articolo vengono descritti i miglioramenti e correzioni nel pacchetto 
 
 
 ### <a name="prerequisites"></a>Prerequisiti
-- Installare lo Stack di Azure [1802 aggiornare](azure-stack-update-1802.md) prima di applicare l'aggiornamento di Azure Stack 1803.    
+- Installare lo Stack di Azure [1802 aggiornare](azure-stack-update-1802.md) prima di applicare l'aggiornamento di Azure Stack 1803.   
 
+- Installare **AzS Hotfix – 1.0.180312.1-compilare 20180222.2** prima di applicare l'aggiornamento di Azure Stack 1803. Questo aggiornamento rapido gli aggiornamenti di Windows Defender ed è disponibile quando si scaricano gli aggiornamenti per lo Stack di Azure.
+
+  Per installare l'aggiornamento rapido, seguire le procedure normale per [l'installazione degli aggiornamenti per Azure Stack](azure-stack-apply-updates.md). Il nome dell'aggiornamento viene visualizzato come **AzS Hotfix: 1.0.180312.1**e include i file seguenti: 
+    - PUPackageHotFix_20180222.2-1.exe
+    - PUPackageHotFix_20180222.2-1.bin
+    - Metadata.xml
+
+  Dopo aver caricato i file a un account di archiviazione e contenitore, eseguire l'installazione dal riquadro aggiornamento nel portale di amministrazione. 
+  
+  A differenza degli aggiornamenti allo Stack di Azure, installare questo aggiornamento non modifica la versione dello Stack di Azure. Per confermare l'installazione di questo aggiornamento, visualizzare l'elenco di **aggiornamenti installati**.
 
 ### <a name="post-update-steps"></a>Passaggi di post-aggiornamento
 - Dopo l'installazione di 1803, installare gli aggiornamenti rapidi applicabili. Per ulteriori informazioni, vedere i seguenti articoli della knowledge base, nonché il nostro [manutenzione criteri](azure-stack-servicing-policy.md).
@@ -108,8 +118,6 @@ Di seguito sono i problemi noti di post-installazione per la compilazione **2018
 - Che non sia possibile visualizzare le risorse di calcolo o di archiviazione nel portale di amministrazione. La causa del problema è un errore durante l'installazione dell'aggiornamento che causa l'aggiornamento da segnalare in modo non corretto come completata correttamente. Se si verifica questo problema, contattare il supporto tecnico clienti Microsoft per assistenza.
 
 - È possibile visualizzare un dashboard vuoto nel portale. Per ripristinare il dashboard, selezionare l'icona dell'ingranaggio in alto a destra del portale e quindi selezionare **ripristinare le impostazioni predefinite**.
-
-- Quando si visualizzano le proprietà di una risorsa o un gruppo di risorse, il **spostare** pulsante è disabilitato. Questo comportamento è previsto. Lo spostamento di risorse o gruppi di risorse tra gruppi di risorse o le sottoscrizioni non è attualmente supportato.
 
 - Se si elimina utente sottoscrizioni nelle risorse orfane. In alternativa, eliminare prima le risorse utente o l'intero gruppo di risorse e quindi eliminare le sottoscrizioni dell'utente.
 
@@ -234,6 +242,7 @@ Di seguito sono i problemi noti di post-installazione per la compilazione **2018
 
 - Per creare gli elementi nei server di tale host SQL o MySQL, è supportato solo il provider di risorse. Gli elementi creati in un server host che non vengono creati dal provider di risorse potrebbe essere in uno stato non corrispondente.  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > Dopo l'aggiornamento alla 1803 dello Stack di Azure, è possibile continuare a utilizzare i provider di risorse MySQL e SQL distribuito in precedenza.  È consigliabile che aggiornare MySQL e SQL Server quando diventa disponibile una nuova versione. Come Stack di Azure, applicare gli aggiornamenti in sequenza per i provider di risorse MySQL e SQL Server.  Ad esempio, se si utilizza versione 1711, applicare prima versione 1712 quindi 1802 e quindi aggiornare a 1803.      

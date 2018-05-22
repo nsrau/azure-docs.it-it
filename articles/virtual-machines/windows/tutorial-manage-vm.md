@@ -1,6 +1,6 @@
 ---
-title: Creare e gestire macchine virtuali di Windows con il modulo Azure PowerShell | Microsoft Docs
-description: 'Esercitazione: creare e gestire macchine virtuali di Windows con il modulo Azure PowerShell'
+title: 'Esercitazione: Creare e gestire macchine virtuali Windows con Azure PowerShell | Microsoft Docs'
+description: In questa esercitazione viene descritto come usare Azure PowerShell per creare e gestire macchine virtuali Windows in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cce3fd003888c76490cb402b658f5c3aa76ab11e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8eeba3b38e4a78bc33b995ee06f76116601c4d12
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Creare e gestire macchine virtuali di Windows con il modulo Azure PowerShell
+# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Esercitazione: Creare e gestire macchine virtuali Windows con Azure PowerShell
 
 Le macchine virtuali di Azure offrono un ambiente di elaborazione completamente configurabile e flessibile. Questa esercitazione illustra gli elementi di base della distribuzione di una macchina virtuale di Azure, ad esempio la selezione delle dimensioni di una VM, la selezione dell'immagine di una VM e la distribuzione di una VM. Si apprenderà come:
 
@@ -33,10 +33,9 @@ Le macchine virtuali di Azure offrono un ambiente di elaborazione completamente 
 > * Ridimensionare una VM
 > * Visualizzare e comprendere lo stato di una macchina virtuale
 
-
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 5.3 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure. 
+Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 5.7.0 o successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
 
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
@@ -94,11 +93,11 @@ Nella finestra **Sicurezza di Windows** selezionare **Altre opzioni** e quindi *
 
 ## <a name="understand-vm-images"></a>Informazioni sulle immagini delle VM
 
-Azure Marketplace include diverse immagini di macchine virtuali che possono essere usate per creare nuove VM. Nei passaggi precedenti è stata creata una macchina virtuale usando un'immagine Windows Server 2016-Datacenter. In questo passaggio viene usato il modulo PowerShell per cercare nel marketplace altre immagini di Windows che possono essere usate come base per nuove macchine virtuali. Questo processo consiste nell'individuazione del server di pubblicazione, dell'offerta, dello SKU e, facoltativamente, di un numero di versione per [identificare](cli-ps-findimage.md#terminology) l'immagine. 
+Azure Marketplace include diverse immagini di macchine virtuali che possono essere usate per creare nuove VM. Nei passaggi precedenti è stata creata una macchina virtuale usando l'immagine Windows Server 2016 Datacenter. In questo passaggio viene usato il modulo PowerShell per cercare nel marketplace altre immagini di Windows che possono essere usate come base per nuove macchine virtuali. Questo processo consiste nell'individuazione del server di pubblicazione, dell'offerta, dello SKU e, facoltativamente, di un numero di versione per [identificare](cli-ps-findimage.md#terminology) l'immagine. 
 
 Usare il comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) per restituire un elenco di server di pubblicazione di immagini:
 
-```powersehll
+```powershell
 Get-AzureRmVMImagePublisher -Location "EastUS"
 ```
 
@@ -157,12 +156,12 @@ New-AzureRmVm `
     -AsJob
 ```
 
-Il parametro `-AsJob` crea la VM come attività in background, in modo che i prompt di PowerShell vengano restituiti all'utente. È possibile visualizzare i dettagli dei processi in background con il cmdlet `Job`.
+Il parametro `-AsJob` crea la VM come attività in background, in modo che i prompt di PowerShell vengano restituiti all'utente. È possibile visualizzare i dettagli dei processi in background con il cmdlet `Get-Job`.
 
 
 ## <a name="understand-vm-sizes"></a>Informazioni sulle dimensioni delle VM
 
-La dimensioni di una macchina virtuale determinano la quantità di risorse di calcolo, ad esempio CPU, GPU e memoria, disponibili per la macchina virtuale. Le macchine virtuali devono essere create con dimensioni adeguate al carico di lavoro previsto. Se aumenta il carico di lavoro, è possibile ridimensionare una macchina virtuale esistente.
+La dimensioni di una macchina virtuale determinano la quantità di risorse di calcolo, ad esempio CPU, GPU e memoria, disponibili per la macchina virtuale. Le macchine virtuali devono essere create con dimensioni adeguate per il carico di lavoro previsto. Se aumenta il carico di lavoro, è possibile ridimensionare una macchina virtuale esistente.
 
 ### <a name="vm-sizes"></a>Dimensioni delle VM
 

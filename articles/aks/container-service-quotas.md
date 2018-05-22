@@ -1,22 +1,22 @@
 ---
-title: Quote e aree disponibili per il servizio contenitore di Azure (AKS)
-description: Quote e aree predefinite disponibili per il servizio contenitore di Azure (AKS).
+title: Disponibilità di quote e aree di Azure Kubernetes Service (AKS)
+description: Disponibilità di quote e aree predefinite di Azure Kubernetes Service (AKS).
 services: container-service
-author: david-stanford
-manager: timlt
+author: neilpeterson
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
-ms.date: 01/16/2018
-ms.author: dastanfo
-ms.openlocfilehash: eddfab874501fd045820d7da3c968d340fdffe93
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 04/26/2018
+ms.author: nepeters
+ms.openlocfilehash: adf2d57961df9a4e8d03f2b3fe43ca0603685eb2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="quotas-and-region-availability-for-azure-container-service-aks"></a>Quote e aree disponibili per il servizio contenitore di Azure (AKS)
+# <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Disponibilità di quote e aree per Azure Kubernetes Service (AKS)
 
-Tutti i servizi di Azure prevedono determinati limiti predefiniti e quote per le risorse e le funzionalità. Le sezioni seguenti illustrano in modo dettagliato i limiti predefiniti per determinate risorse del servizio contenitore di Azure (AKS), oltre alla disponibilità del servizio AKS nelle aree di Azure.
+Tutti i servizi di Azure prevedono determinati limiti predefiniti e quote per le risorse e le funzionalità. Le sezioni seguenti illustrano in modo dettagliato i limiti predefiniti per determinate risorse di Azure Kubernetes Service (AKS), oltre alla disponibilità del servizio contenitore di Azure nelle aree di Azure.
 
 ## <a name="service-quotas-and-limits"></a>Quote e limiti del servizio
 
@@ -28,7 +28,7 @@ Tutte le altre limitazioni relative alla rete, al calcolo e all'archiviazione si
 
 ## <a name="region-availability"></a>Aree di disponibilità
 
-Il servizio contenitore di Azure (AKS) è disponibile in versione di anteprima nelle aree seguenti:
+Azure Kubernetes Service (AKS) è disponibile in anteprima nelle aree seguenti:
 - Stati Uniti orientali
 - Europa occidentale
 - Stati Uniti centrali

@@ -5,25 +5,25 @@ services: azure-stack
 documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/17/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: f7398945efe6b9b5ad148f6fa0d303363da9abaa
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: eb1f939f76c3528f05a9002b6365359fb6599aa2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
-# <a name="register-azure-stack-with-azure"></a>Registro dello Stack di Azure con Azure
-È possibile registrare l'installazione di Azure Stack Development Kit (ASDK) con Azure per scaricare gli elementi di marketplace da Azure e per impostare i dati di commerce segnalazioni a Microsoft. La registrazione è consigliata perché consente di testare importanti funzionalità di Stack di Azure, ad esempio diffusione marketplace e report sull'utilizzo. Dopo la registrazione dello Stack di Azure, viene segnalato l'utilizzo per Azure commerce. È possibile visualizzarlo nella sottoscrizione che è usata per la registrazione. Tuttavia, gli utenti ASDK non sono applicati addebiti per qualsiasi utilizzo che fanno.
+# <a name="azure-stack-registration"></a>Registrazione di Azure Stack
+È possibile registrare l'installazione di Azure Stack Development Kit (ASDK) con Azure per scaricare gli elementi di marketplace da Azure e per impostare i dati di commerce segnalazioni a Microsoft. La registrazione è necessario per supportare le funzionalità complete dello Stack di Azure, tra cui diffusione marketplace. La registrazione è consigliata perché consente di testare importanti funzionalità di Stack di Azure, ad esempio diffusione marketplace e report sull'utilizzo. Dopo la registrazione dello Stack di Azure, viene segnalato l'utilizzo per Azure commerce. È possibile visualizzarlo nella sottoscrizione che è usata per la registrazione. Tuttavia, gli utenti ASDK non sono applicati addebiti per qualsiasi utilizzo che fanno.
 
+Se non si registra il ASDK, si potrebbero riscontrare un **attivazione necessaria** messaggio di avviso che consiglia di registrare il Kit di sviluppo dello Stack di Azure. Questo comportamento è previsto.
 
 ## <a name="register-azure-stack-with-azure"></a>Registro dello Stack di Azure con Azure 
 Seguire questi passaggi per registrare il ASDK con Azure.

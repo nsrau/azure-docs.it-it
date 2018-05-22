@@ -4,7 +4,7 @@ description: L'articolo offre una panoramica del processo del test di penetrazio
 services: security
 documentationcenter: na
 author: terrylan
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: 695d918c-a9ac-4eba-8692-af4526734ccc
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 27737c2b8b36772fc48db7a9cf97cb9a69c44cfc
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a64316eda25bd02f89b5afdd7b98c0193381d023
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="pen-testing"></a>Test di penetrazione
 Uno dei vantaggi che si ottengono usando Azure per il test e la distribuzione delle applicazioni consiste nella creazione rapida degli ambienti.  Non è necessario richiedere, acquistare e installare il proprio hardware locale.

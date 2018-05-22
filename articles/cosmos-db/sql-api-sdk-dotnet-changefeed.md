@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: 24a1a04bf7170886b232611eefd7174192904ff0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 6ae2ae9cdf018652b5ca81efc014c0c6ccb2e813
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK del processore dei feed delle modifiche .NET: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -31,6 +31,8 @@ ms.lasthandoff: 04/23/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
@@ -40,6 +42,8 @@ ms.lasthandoff: 04/23/2018
 |**Framework attualmente supportato**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="stable-builds"></a>Build stabili
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 * Correzioni per la stima del lavoro in sospeso.
@@ -65,6 +69,23 @@ ms.lasthandoff: 04/23/2018
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * SDK con disponibilità generale
 * Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.14.1 e versioni precedenti.
+
+### <a name="pre-release-builds"></a>Build preliminari
+
+### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
+* Nuova API v2:
+  * Modello di generatore per la costruzione flessibile del processore: classe ChangeFeedProcessorBuilder.
+    * Può accettare qualsiasi combinazione di parametri.
+    * Può accettare l'istanza DocumentClient per il monitoraggio e/o la raccolta di lease (non disponibile in v1).
+  * IChangeFeedObserver.ProcessChangesAsync accetta ora CancellationToken.
+  * IRemainingWorkEstimator: la stima del lavoro rimanente può essere usata separatamente dal processore.
+  * Nuovi punti di estendibilità:
+    * IParitionLoadBalancingStrategy: per il bilanciamento del carico personalizzato di partizioni tra le istanze del processore.
+    * ILease, ILeaseManager: per la gestione personalizzata dei lease.
+    * IPartitionProcessor: per modifiche di elaborazione personalizzate in una partizione.
+* Registrazione: usa la libreria [LibLog](https://github.com/damianh/LibLog).
+* 100% compatibile con l'API v1.
+* Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21.1 e versioni successive.
 
 ## <a name="release--retirement-dates"></a>Date di rilascio e di ritiro
 Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.

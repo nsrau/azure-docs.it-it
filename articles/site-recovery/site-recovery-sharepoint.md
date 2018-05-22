@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/02/2018
 ms.author: sutalasi
-ms.openlocfilehash: 86a1d53570aeefd57c5133688e67064da6f5dc77
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: de787ec5078d4cec53bcd2fcc24129e651c711bc
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Eseguire la replica di un'applicazione di SharePoint multilivello per il ripristino di emergenza con Azure Site Recovery
 
@@ -53,7 +53,7 @@ Prima di iniziare, è necessario comprendere i concetti illustrati di seguito:
 
 ## <a name="sharepoint-architecture"></a>Architettura di SharePoint
 
-SharePoint può essere distribuito in uno o più server usando topologie a livelli e ruoli del server per implementare una progettazione di farm in grado di soddisfare finalità e obiettivi specifici. Una tipica server farm di SharePoint con esigenze e dimensioni elevate che supporta molti utenti simultanei ed elementi di contenuto usa il raggruppamento dei servizi come parte della strategia di scalabilità. Questo approccio comporta l'esecuzione di servizi su server dedicati, il raggruppamento dei servizi e quindi la scalabilità orizzontale dei server come gruppi. La topologia seguente mostra il raggruppamento di servizi e server per una server farm di SharePoint a tre livelli. Per indicazioni dettagliate sulle diverse topologie di SharePoint, fare riferimento alla documentazione e alle architetture delle linee di prodotti di SharePoint. Altre informazioni sulla distribuzione di SharePoint 2013 sono disponibili in [questo documento](https://technet.microsoft.com/en-us/library/cc303422.aspx).
+SharePoint può essere distribuito in uno o più server usando topologie a livelli e ruoli del server per implementare una progettazione di farm in grado di soddisfare finalità e obiettivi specifici. Una tipica server farm di SharePoint con esigenze e dimensioni elevate che supporta molti utenti simultanei ed elementi di contenuto usa il raggruppamento dei servizi come parte della strategia di scalabilità. Questo approccio comporta l'esecuzione di servizi su server dedicati, il raggruppamento dei servizi e quindi la scalabilità orizzontale dei server come gruppi. La topologia seguente mostra il raggruppamento di servizi e server per una server farm di SharePoint a tre livelli. Per indicazioni dettagliate sulle diverse topologie di SharePoint, fare riferimento alla documentazione e alle architetture delle linee di prodotti di SharePoint. Altre informazioni sulla distribuzione di SharePoint 2013 sono disponibili in [questo documento](https://technet.microsoft.com/library/cc303422.aspx).
 
 
 
@@ -117,7 +117,7 @@ Per i siti con connessione Internet, [creare un profilo di Gestione traffico di 
 
 | **Where** | **Origine** | **Destinazione**|
 | --- | --- | --- |
-| DNS pubblico | DNS pubblico per siti di SharePoint <br/><br/> Esempio: sharepoint.contoso.com | servizio Gestione traffico <br/><br/> contososharepoint.trafficmanager.net |
+| DNS pubblico | DNS pubblico per siti di SharePoint <br/><br/> Esempio: sharepoint.contoso.com | Gestione traffico <br/><br/> contososharepoint.trafficmanager.net |
 | DNS locale | sharepointonprem.contoso.com | IP pubblico nella farm locale |
 
 

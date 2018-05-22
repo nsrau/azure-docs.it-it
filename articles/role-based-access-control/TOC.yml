@@ -17,15 +17,17 @@
           href: role-assignments-powershell.md
         - name: REST
           href: role-assignments-rest.md
+    - name: Informazioni sulle definizioni del ruolo
+      href: role-definitions.md
     - name: Ruoli predefiniti
       href: built-in-roles.md
     - name: Ruoli personalizzati
       href: custom-roles.md
-    - name: Assegnare ruoli personalizzati per utenti interni ed esterni
+    - name: Gestire le assegnazioni di ruolo per utenti esterni
       href: role-assignments-external-users.md
     - name: Log attività
       href: change-history-report.md
-    - name: Elevare l'accesso al tenant con privilegi di amministratore
+    - name: Eseguire con privilegi elevati l'accesso per l'amministratore globale
       href: elevate-access-global-admin.md
     - name: Risolvere problemi
       href: troubleshooting.md

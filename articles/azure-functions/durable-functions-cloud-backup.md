@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 35877831c7f63c20fee2f2bc3838e73bb98328c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4e7b7b6af1f41eb0077d8a8605eb2a553c251f8e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scenario di fan-out/fan-it in Funzioni permanenti - Esempio di backup cloud
 
@@ -57,7 +57,13 @@ La funzione `E2_BackupSiteContent` usa il codice *function.json* standard per le
 
 Il codice che implementa la funzione dell'agente di orchestrazione è il seguente:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
 Le operazioni di questa funzione dell'agente di orchestrazione sono le seguenti:
 
@@ -67,9 +73,11 @@ Le operazioni di questa funzione dell'agente di orchestrazione sono le seguenti:
 4. Attesa del completamento di tutti i caricamenti.
 5. Restituzione dei byte totali caricati in Archiviazione BLOB di Azure.
 
-Si noti la riga `await Task.WhenAll(tasks);`. Tutte le chiamate alla funzione `E2_CopyFileToBlob` *non* erano in attesa. Questa condizione è intenzionale per consentire l'esecuzione in parallelo. Quando si passa questa matrice di attività a `Task.WhenAll`, viene restituita un'attività che non verrà completata *fino al completamento di tutte le operazioni di copia*. Se si ha familiarità con Task Parallel Library (TPL) in .NET, questo scenario non è una novità. La differenza è che queste attività potrebbero essere in esecuzione in più macchine virtuali contemporaneamente e l'estensione di Funzioni permanenti assicura che l'esecuzione end-to-end sia resiliente al riciclo dei processi.
+Si noti la riga `await Task.WhenAll(tasks);` (C#) e `yield context.df.Task.all(tasks);` (JS). Tutte le chiamate alla funzione `E2_CopyFileToBlob` *non* erano in attesa. Questa condizione è intenzionale per consentire l'esecuzione in parallelo. Quando si passa questa matrice di attività a `Task.WhenAll`, viene restituita un'attività che non verrà completata *fino al completamento di tutte le operazioni di copia*. Se si ha familiarità con Task Parallel Library (TPL) in .NET, questo scenario non è una novità. La differenza è che queste attività potrebbero essere in esecuzione in più macchine virtuali contemporaneamente e l'estensione di Funzioni permanenti assicura che l'esecuzione end-to-end sia resiliente al riciclo dei processi.
 
-Dopo l'attesa da `Task.WhenAll`, tutte le chiamate di funzione sono state completate e hanno restituito valori. Ogni chiamata a `E2_CopyFileToBlob` restituisce il numero di byte caricato e di conseguenza per calcolare il numero di byte totale è sufficiente sommare tutti i valori restituiti.
+Le attività sono molto simile al concetto di promesse di JavaScript. In `Promise.all` sono tuttavia presenti alcune differenze da `Task.WhenAll`. Il concetto di `Task.WhenAll` è stato trasferito come parte del modulo `durable-functions` JavaScript ed è esclusivo per tale modulo.
+
+Dopo l'attesa da `Task.WhenAll` (o la sospensione da `context.df.Task.all`), tutte le chiamate di funzione sono state completate e hanno restituito valori. Ogni chiamata a `E2_CopyFileToBlob` restituisce il numero di byte caricato e di conseguenza per calcolare il numero di byte totale è sufficiente sommare tutti i valori restituiti.
 
 ## <a name="helper-activity-functions"></a>Funzioni di attività helper
 
@@ -79,7 +87,15 @@ Le funzioni di attività helper, in modo analogo agli altri esempi, sono normali
 
 Di seguito ne viene riportata l'implementazione:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
+
+L'implementazione JavaScript di `E2_GetFileList` usa il modulo `readdirp` per leggere in modo ricorsivo la struttura delle directory.
 
 > [!NOTE]
 > È lecito chiedersi perché non è sufficiente inserire questo codice direttamente nella funzione dell'agente di orchestrazione. Sebbene possibile, questa operazione violerebbe una delle regole fondamentali delle funzioni dell'agente di orchestrazione, ovvero quella in base alla quale non è consigliabile che tali funzioni eseguano operazioni di I/O, incluso l'accesso al file system locale.
@@ -88,9 +104,17 @@ Il file *function.json* per `E2_CopyFileToBlob` è analogamente semplice:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/function.json)]
 
-Anche l'implementazione è semplice perché usa alcune funzionalità avanzate delle associazioni di Funzioni di Azure (ovvero l'uso del parametro `Binder`), senza che sia necessario preoccuparsi di tali informazioni per gli scopi di questa procedura dettagliata.
+Anche l'implementazione C# è semplice perché usa alcune funzionalità avanzate delle associazioni di Funzioni di Azure (ovvero l'uso del parametro `Binder`), senza che sia necessario preoccuparsi di tali informazioni per gli scopi di questa procedura dettagliata.
+
+### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+
+L'implementazione JavaScript non dispone dell'accesso alla funzionalità `Binder` di Funzioni di Azure, pertanto [Azure Storage SDK per Node](https://github.com/Azure/azure-storage-node) ne esegue la funzione. Si noti che SDK richiede un'impostazione dell'app `AZURE_STORAGE_CONNECTION_STRING`.
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/index.js)]
 
 L'implementazione carica il file dal disco e trasmette il contenuto in modo asincrono in un BLOB con lo stesso nome nel contenitore dei backup. Il valore restituito è il numero di byte copiati nell'archiviazione, che viene quindi usato dalla funzione dell'agente di orchestrazione per calcolare la somma di aggregazione.
 

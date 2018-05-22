@@ -5,20 +5,20 @@ services: key-vault
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
-ms.assetid: ''
+ms.assetid: 1126f665-2e6c-4cca-897e-7d61842e8334
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/18/2018
+ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: e980eafc5bd70a15de11239c7543a7f1dde4ef64
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e7aa675e849fb8c4dac0bfb5a1ae44dd16ca25e3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-create-an-azure-key-vault-using-powershell"></a>Guida introduttiva: Creare un'istanza di Key Vault usando PowerShell
 
@@ -104,4 +104,4 @@ Remove-AzureRmResourceGroup -Name ContosoResourceGroup
 In questa guida introduttiva è stata creata un'istanza di Key Vault nella quale è stata archiviata una chiave software. Per altre informazioni su Key Vault e su come usarlo con le applicazioni, passare all'esercitazione per le applicazioni Web che usano Key Vault.
 
 > [!div class="nextstepaction"]
-> [Usare l'insieme di credenziali chiave di Azure da un'applicazione Web](key-vault-use-from-web-application.md)
+> Per informazioni su come leggere un segreto da Key Vault in un'applicazione Web usando le identità del servizio gestito, proseguire con l'esercitazione seguente [Configurare un'applicazione Web di Azure per leggere un segreto da Key Vault](tutorial-web-application-keyvault.md).

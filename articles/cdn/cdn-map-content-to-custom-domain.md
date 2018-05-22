@@ -6,20 +6,19 @@ documentationcenter: ''
 author: dksimpson
 manager: akucer
 editor: ''
-ms.assetid: 289f8d9e-8839-4e21-b248-bef320f9dbfc
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/09/2018
-ms.author: mazha
+ms.date: 04/06/2018
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: de04253a51d30885e936cb65a1925df4e5e96eaf
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f57cfe19fd2eee0952a20fabcaa0d73ca96894ef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Esercitazione: Aggiungere un dominio personalizzato all'endpoint della rete CDN di Azure
 Questa esercitazione illustra come aggiungere un dominio personalizzato a un endpoint della rete CDN di Azure. Quando si usa un endpoint della rete CDN per distribuire il contenuto, è necessario un dominio personalizzato se si vuole che il nome di dominio sia visibile nell'URL della rete CDN. Avere un nome di dominio visibile può essere pratico per i clienti e utile a scopo di personalizzazione. 
@@ -28,9 +27,9 @@ Dopo avere creato un endpoint della rete CDN nel profilo, il nome dell'endpoint,
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
-> - Creare un record DNS CNAME
-> - Associare il dominio personalizzato all'endpoint della rete CDN
-> - Verificare il dominio personalizzato
+> - Creare un record DNS CNAME.
+> - Associare il dominio personalizzato all'endpoint della rete CDN.
+> - Verificare il dominio personalizzato.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,7 +48,8 @@ Prima di poter usare un dominio personalizzato con un endpoint della rete CDN di
 
 Un dominio personalizzato e il relativo sottodominio possono essere associati a un singolo endpoint alla volta. È tuttavia possibile usare più sottodomini dello stesso dominio personalizzato per endpoint di servizio di Azure diversi usando più record CNAME. È anche possibile eseguire il mapping di un dominio personalizzato con sottodomini diversi allo stesso endpoint della rete CDN.
 
-## <a name="map-temporary-cdnverify-subdomain"></a>Eseguire il mapping del sottodominio cdnverify temporaneo
+
+## <a name="map-the-temporary-cdnverify-subdomain"></a>Eseguire il mapping del sottodominio cdnverify temporaneo
 
 Quando si esegue il mapping di un dominio esistente in fase di produzione, è necessario tenere presenti alcune considerazioni speciali. Mentre si sta registrando il dominio personalizzato nel portale di Azure, può verificarsi un breve tempo di inattività per il dominio. Per evitare l'interruzione del traffico Web, eseguire prima il mapping del dominio personalizzato al nome host dell'endpoint della rete CDN con il sottodominio cdnverify di Azure per creare un mapping CNAME temporaneo. Con questo metodo, gli utenti possono accedere al dominio senza interruzioni durante l'esecuzione del mapping DNS. 
 
@@ -135,7 +135,8 @@ Dopo aver completato la registrazione del dominio personalizzato, verificare che
 
 2. Nel browser passare all'indirizzo del file usando il dominio personalizzato. Se il dominio personalizzato è cdn.contoso.com, ad esempio, l'URL del file memorizzato nella cache sarà simile al seguente: http:\//cdn.contoso.com/my-public-container/my-file.jpg.
 
-## <a name="map-permanent-custom-domain"></a>Eseguire il mapping del dominio personalizzato permanente
+
+## <a name="map-the-permanent-custom-domain"></a>Eseguire il mapping del dominio personalizzato permanente
 
 Se si è verificato che il mapping del sottodominio cdnverify all'endpoint è stato eseguito correttamente (o se si usa un nuovo dominio personalizzato non in produzione), è possibile eseguire il mapping del dominio personalizzato direttamente al nome host dell'endpoint della rete CDN.
 
@@ -160,6 +161,8 @@ Per creare un record CNAME per il dominio personalizzato:
 4. Salvare le modifiche.
 
 5. Se si è creato in precedenza un record CNAME del sottodominio cdnverify temporaneo, eliminarlo. 
+
+6. Se si usa questo dominio personalizzato nell'ambiente di produzione per la prima volta, seguire i passaggi illustrati in [Associare il dominio personalizzato all'endpoint della rete CDN](#associate-the-custom-domain-with-your-cdn-endpoint) e [Verificare il dominio personalizzato](#verify-the-custom-domain).
 
 La procedura per il registrar GoDaddy, ad esempio, è la seguente:
 
@@ -193,8 +196,6 @@ La procedura per il registrar GoDaddy, ad esempio, è la seguente:
 
 8. Selezionare **Delete** (Elimina) per eliminare il record CNAME.
 
-Se si usa questo dominio personalizzato nell'ambiente di produzione per la prima volta, seguire i passaggi illustrati in [Associare il dominio personalizzato all'endpoint della rete CDN](#associate-the-custom-domain-with-your-cdn-endpoint) e [Verificare il dominio personalizzato](#verify-the-custom-domain).
-
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -209,16 +210,16 @@ Nei passaggi precedenti è stato aggiunto un dominio personalizzato a un endpoin
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Contenuto dell'esercitazione:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
-> - Creazione di un record DNS CNAME
-> - Associazione del dominio personalizzato all'endpoint della rete CDN
-> - Verifica del dominio personalizzato
+> - Creare un record DNS CNAME.
+> - Associare il dominio personalizzato all'endpoint della rete CDN.
+> - Verificare il dominio personalizzato.
 
 Passare alla prossima esercitazione per imparare a configurare HTTPS in un dominio personalizzato della rete CDN di Azure.
 
 > [!div class="nextstepaction"]
-> [Configurare HTTPS in un dominio personalizzato della rete CDN di Azure](cdn-custom-ssl.md)
+> [Esercitazione: Configurare HTTPS in un dominio personalizzato della rete CDN di Azure](cdn-custom-ssl.md)
 
 

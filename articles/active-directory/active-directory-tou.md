@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/29/2018
 ms.author: billmath
-ms.openlocfilehash: 208a65c09b13acad62c9b6d8e55b6050041c9f5d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzione Azure Active Directory Terms of Use (Condizioni per l'utilizzo di Azure Active Directory)
 Azure Active Directory Terms of Use (Condizioni per l'utilizzo di Azure Active Directory) offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali.  In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità.
@@ -96,7 +96,7 @@ Per iniziare con il controllo, seguire questa procedura:
 2. Fare clic su Visualizza log di controllo.</br>
 ![Evento di controllo](media/active-directory-tou/tou8.png)
 3.  Nella schermata dei registri di controllo di Azure AD è possibile filtrare le informazioni usando i menu a discesa forniti per visualizzare informazioni specifiche dei registri di controllo.
-![Evento di controllo](media/active-directory-tou/tou9.png)
+[Evento di controllo](media/active-directory-tou/tou9.png)
 4.  È inoltre possibile scaricare le informazioni in un file con estensione csv per l'utilizzo in locale.
 
 ## 

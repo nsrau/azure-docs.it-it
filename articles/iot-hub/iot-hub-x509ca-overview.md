@@ -5,8 +5,8 @@ services: iot-hub
 documentationcenter: .net
 author: eustacea
 manager: arjmands
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 7497753cc27867b1fdb9635ba6613ac75b449090
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 11f340ebe1719c680cce5f6ad34150d3717c57d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticazione dei dispositivi con i certificati della CA X.509
 
@@ -69,7 +69,7 @@ Informazioni su come [registrare il certificato della CA](iot-hub-security-x509-
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>Come creare un dispositivo nell'hub IoT
 
-Per impedire la rappresentazione del dispositivo, è necessario indicare all'hub IoT il dispositivo previsto.  A tale scopo, creare una voce specifica nel registro dei dispositivi dell'hub IoT.  Questo processo è automatico quando si usa il [servizio Device Provisioning](https://azure.microsoft.com/en-us/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DPS) dell'hub IoT. 
+Per impedire la rappresentazione del dispositivo, è necessario indicare all'hub IoT il dispositivo previsto.  A tale scopo, creare una voce specifica nel registro dei dispositivi dell'hub IoT.  Questo processo è automatico quando si usa il [servizio Device Provisioning](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DPS) dell'hub IoT. 
 
 Informazioni su come [creare manualmente un dispositivo nell'hub IoT](iot-hub-security-x509-get-started.md#createdevice).
 

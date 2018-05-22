@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: 36381ea9d59924e79b2fbd91d296e2c173b3ba0b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3b1b23924ea1f3f8a46c25df2737e4097ec96c44
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 > [!IMPORTANT]
-> Questa funzionalità è disponibile con prodotti della **rete CDN di Azure fornita da Verizon** (Standard e Premium). Non è supportata nella **rete CDN di Azure fornita da Akamai**. Per un confronto delle funzionalità della rete CDN, vedere [Funzionalità del prodotto rete CDN di Azure](../articles/cdn/cdn-features.md).
+> Questa funzionalità è disponibile solo con i prodotti **rete CDN Standard di Azure fornita da Verizon** e **rete CDN Premium di Azure fornita da Verizon**. Non è supportata nella **rete CDN di Azure fornita da Akamai**. Per un confronto delle funzionalità della rete CDN, vedere [Funzionalità del prodotto rete CDN di Azure](../articles/cdn/cdn-features.md).

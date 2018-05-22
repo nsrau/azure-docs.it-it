@@ -9,25 +9,18 @@ editor: tysonn
 ms.assetid: 1d8fbd4c-78b0-425b-ba76-f2b7fd260b45
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 05/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: b46b36805c2f33b1e066bbee2d0333113a26922a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6915395abfedb75ec3ec0a5bd8f569ef2490e5be
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Distribuire le risorse con i modelli e l'API REST di Resource Manager
-> [!div class="op_single_selector"]
-> * [PowerShell](resource-group-template-deploy.md)
-> * [Interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md)
-> * [Portale](resource-group-template-deploy-portal.md)
-> * [API REST](resource-group-template-deploy-rest.md)
-> 
-> 
 
 In questo articolo viene illustrato come utilizzare l'API REST di Resource Manager con i modelli di Resource Manager per distribuire le risorse in Azure.  
 
@@ -44,47 +37,79 @@ Il modello può essere un file locale oppure un file esterno disponibile tramite
 [!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
 ## <a name="deploy-with-the-rest-api"></a>Distribuire con l'API REST
-1. Impostare [parametri e intestazioni comuni](https://docs.microsoft.com/rest/api/index), tra cui i token di autenticazione.
-2. Se non è già disponibile un gruppo di risorse, crearne uno. Specificare l'ID sottoscrizione, il nome del nuovo gruppo di risorse e il percorso per la soluzione. Per ulteriori informazioni, vedere [Create a resource group](https://docs.microsoft.com/rest/api/resources/resourcegroups#ResourceGroups_CreateOrUpdate) (Creare un gruppo di risorse).
-   
-        PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
-          <common headers>
-          {
-            "location": "West US",
-            "tags": {
-               "tagname1": "tagvalue1"
-            }
-          }
-3. Convalidare la distribuzione prima dell'esecuzione eseguendo l'operazione di [convalida della distribuzione di un modello](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Validate) . Durante il test della distribuzione, specificare i parametri esattamente come quando si esegue la distribuzione (illustrata nel passaggio successivo).
+1. Impostare [parametri e intestazioni comuni](/rest/api/azure/), tra cui i token di autenticazione.
+
+2. Se non è già disponibile un gruppo di risorse, crearne uno. Specificare l'ID sottoscrizione, il nome del nuovo gruppo di risorse e il percorso per la soluzione. Per ulteriori informazioni, vedere [Create a resource group](/rest/api/resources/resourcegroups/createorupdate) (Creare un gruppo di risorse).
+
+  ```HTTP
+  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
+  {
+    "location": "West US",
+    "tags": {
+      "tagname1": "tagvalue1"
+    }
+  }
+  ```
+
+3. Convalidare la distribuzione prima dell'esecuzione eseguendo l'operazione di [convalida della distribuzione di un modello](/rest/api/resources/deployments/validate) . Durante il test della distribuzione, specificare i parametri esattamente come quando si esegue la distribuzione (illustrata nel passaggio successivo).
+
 4. Creare una distribuzione. Fornire l'ID sottoscrizione, il nome del gruppo di risorse, il nome della distribuzione e un collegamento al modello. Per informazioni sul file di modello, vedere [File di parametri](#parameter-file). Per altre informazioni sull'API REST per creare un gruppo di risorse, vedere [Create a template deployment](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_CreateOrUpdate) (Creare la distribuzione di un modello). Si noti che la **modalità** è impostata su **Incrementale**. Per eseguire una distribuzione completa, impostare **mode** su **Complete** (Completo). Quando si utilizza la modalità di completamento, fare attenzione a non eliminare inavvertitamente le risorse non presenti nel modello.
-   
-        PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
-          <common headers>
-          {
-            "properties": {
-              "templateLink": {
-                "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
-                "contentVersion": "1.0.0.0"
-              },
-              "mode": "Incremental",
-              "parametersLink": {
-                "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
-                "contentVersion": "1.0.0.0"
-              }
-            }
-          }
-   
-      Per registrare il contenuto della risposta, il contenuto della richiesta o entrambi, includere **debugSetting** nella richiesta.
-   
-        "debugSetting": {
-          "detailLevel": "requestContent, responseContent"
-        }
-   
-      È possibile impostare l'account di archiviazione per l'utilizzzo di un token di firma di accesso condiviso (SAS). Per altre informazioni, vedere [Delegating Access with a Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature) (Delega dell'accesso con una firma di accesso condiviso).
-5. Ottenere lo stato della distribuzione del modello. Per altre informazioni, vedere [Get information about a template deployment](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get) (Ottenere informazioni sulla distribuzione di un modello).
-   
-          GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
-           <common headers>
+
+  ```HTTP
+  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
+  {
+    "properties": {
+      "templateLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "mode": "Incremental",
+      "parametersLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
+        "contentVersion": "1.0.0.0"
+      }
+    }
+  }
+  ```
+
+    Per registrare il contenuto della risposta, il contenuto della richiesta o entrambi, includere **debugSetting** nella richiesta.
+
+  ```HTTP
+  "debugSetting": {
+    "detailLevel": "requestContent, responseContent"
+  }
+  ```
+
+    È possibile impostare l'account di archiviazione per l'utilizzzo di un token di firma di accesso condiviso (SAS). Per altre informazioni, vedere [Delegating Access with a Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature) (Delega dell'accesso con una firma di accesso condiviso).
+
+5. Ottenere lo stato della distribuzione del modello. Per altre informazioni, vedere [Get information about a template deployment](/rest/api/resources/deployments/get) (Ottenere informazioni sulla distribuzione di un modello).
+
+  ```HTTP
+  GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
+  ```
+
+## <a name="redeploy-when-deployment-fails"></a>Eseguire nuovamente la distribuzione se non è riuscita
+
+Per le distribuzioni che non vengono eseguite in modo corretto, è possibile specificare che una distribuzione precedente nella cronologia venga eseguita nuovamente in modo automatico. Per usare questa opzione, le distribuzioni devono avere nomi univoci in modo che sia possibile identificarle nella cronologia. Se non si dispone di nomi univoci, la distribuzione non riuscita corrente potrebbe sovrascrivere quella eseguita in modo corretto nella cronologia. È possibile usare questa opzione solo con le distribuzioni a livello di radice. Le distribuzioni di un modello annidato non sono disponibili per la ridistribuzione.
+
+Per eseguire nuovamente l'ultima distribuzione con esito positivo se la distribuzione corrente non riesce, usare:
+
+```HTTP
+"onErrorDeployment": {
+  "type": "LastSuccessful",
+},
+```
+
+Per eseguire nuovamente una distribuzione specifica se la distribuzione corrente non riesce, usare:
+
+```HTTP
+"onErrorDeployment": {
+  "type": "SpecificDeployment",
+  "deploymentName": "<deploymentname>"
+}
+```
+
+La distribuzione specificata deve aver avuto esito positivo.
 
 ## <a name="parameter-file"></a>File di parametri
 
@@ -116,7 +141,7 @@ Se si usa un file di parametri per passare i valori dei parametri durante la dis
 }
 ```
 
-La dimensione del file di parametro non può essere superiore a 64 KB.
+Le dimensioni del file di parametro non possono essere superiori a 64 KB.
 
 Se è necessario fornire un valore sensibile per un parametro (ad esempio una password), aggiungere tale valore a un insieme di credenziali delle chiavi. Recuperare l'insieme di credenziali delle chiavi durante la distribuzione, come illustrato nell'esempio precedente. Per ulteriori informazioni, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md). 
 

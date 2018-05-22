@@ -12,13 +12,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: b6ab734186f23d51d60e51bd0946329d5209097b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: e2107177663163259d1f731717c4910bc986fc1f
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Proteggere una distribuzione di applicazioni SAP NetWeaver multilivello usando Site Recovery
 
@@ -89,7 +89,7 @@ Il diagramma seguente illustra uno scenario di ripristino di emergenza da Azure 
 
 ![Diagramma di uno scenario di replica da Azure ad Azure](./media/site-recovery-sap/sap-replication-scenario.png)
 
-* Il data center principale è a Singapore (area Asia sud-orientale di Azure). Il data center di ripristino di emergenza è nella RAS di Hong Kong (area Asia orientale di Azure). In questo scenario, la disponibilità elevata locale viene resa disponibile con due VM che eseguono SQL Server AlwaysOn in modalità sincrona a Singapore.
+* Il data center principale è a Singapore (area Asia sud-orientale di Azure). Il data center di ripristino di emergenza è a Hong Kong (area Asia orientale di Azure). In questo scenario, la disponibilità elevata locale viene resa disponibile con due VM che eseguono SQL Server AlwaysOn in modalità sincrona a Singapore.
 * La condivisione file SAP ASCS offre disponibilità elevata per il singolo punto di guasto SAP. La condivisione file ASCS non richiede un disco condiviso del cluster. Non sono necessarie applicazioni come SIOS.
 * La protezione tramite ripristino di emergenza per il livello DBMS viene ottenuta con replica asincrona.
 * Questo scenario mostra "ripristino di emergenza simmetrico". Questo termine descrive una soluzione di ripristino di emergenza che corrisponde a una replica esatta di produzione. La soluzione di ripristino di emergenza SQL Server ha una disponibilità locale elevata. Il ripristino di emergenza simmetrico non è obbligatorio per il livello di database. Molti clienti sfruttano la flessibilità delle distribuzioni cloud per creare rapidamente un nodo a disponibilità locale elevata dopo un evento di ripristino di emergenza.

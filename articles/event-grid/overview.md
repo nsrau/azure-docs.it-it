@@ -5,14 +5,14 @@ services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
-ms.topic: article
-ms.date: 03/30/2018
+ms.topic: overview
+ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f1d235fe431cfe14019ffef7c043dfbc367bb2bc
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Introduzione a Griglia di eventi di Azure
 
@@ -24,11 +24,15 @@ Attualmente Griglia di eventi supporta le aree seguenti:
 
 * Asia sudorientale
 * Asia orientale
+* Australia orientale
+* Australia sudorientale
 * Stati Uniti centrali
 *   Stati Uniti orientali
 *   Stati Uniti orientali 2
 * Europa occidentale
 * Europa settentrionale
+* Giappone orientale
+* Giappone occidentale
 *   Stati Uniti centro-occidentali
 *   Stati Uniti occidentali
 *   Stati Uniti occidentali 2
@@ -45,10 +49,13 @@ Attualmente i servizi di Azure seguenti supportano l'invio degli eventi a Grigli
 * Argomenti personalizzati
 * Hub eventi
 * Hub IoT
+* Servizi multimediali
 * Gruppi di risorse (operazioni di gestione)
 * Bus di servizio
 * Archiviazione BLOB
 * Utilizzo generico dell'archiviazione v2 (GPv2)
+
+Per i collegamento agli articoli che illustrano come usare ogni origine evento, vedere [Event sources in Azure Event Grid](event-sources.md) (Origini eventi nella Griglia di eventi di Azure).
 
 ## <a name="event-handlers"></a>Gestori eventi
 
@@ -57,11 +64,15 @@ Attualmente i servizi di Azure seguenti supportano la gestione degli eventi da G
 * Automazione di Azure
 * Funzioni di Azure
 * Hub eventi
+* connessioni ibride
 * App per la logica
 * Microsoft Flow
+* Archiviazione code
 * Webhook
 
 Quando si usa Funzioni di Azure come gestore, l'uso del trigger della Griglia di eventi è consigliato rispetto ai trigger HTTP generici. Griglia di eventi convalida automaticamente i trigger di funzioni della Griglia di eventi. Con i trigger HTTP generici è necessario implementare la [risposta di convalida](security-authentication.md#webhook-event-delivery).
+
+Per i collegamenti agli articoli che illustrano come usare ogni origine evento, vedere [Event sources in Azure Event Grid](event-handlers.md) (Origini eventi nella Griglia di eventi di Azure).
 
 ## <a name="concepts"></a>Concetti
 

@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 65a3f6d71c0c0d92f703a5d48760dd348c726ba4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b7f0aa514cfffb8fb2ca76238a6a65a8e6443e56
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Distribuire Azure IoT Edge in un dispositivo simulato in Linux o macOS: anteprima
 
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come:
 
 Il dispositivo simulato creato in questa esercitazione è un monitor che genera i dati relativi a temperatura, umidità e pressione. Le altre esercitazioni di Azure IoT Edge si basano sulle operazioni eseguite qui tramite la distribuzione di moduli che consentono di analizzare i dati per ottenere informazioni aziendali accurate. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 In questa esercitazione viene usato un computer o una macchina virtuale come un dispositivo IoT. I servizi seguenti sono necessari per convertire il computer in uso in un dispositivo IoT Edge:
 
@@ -40,6 +40,7 @@ In questa esercitazione viene usato un computer o una macchina virtuale come un 
      * _Si noti che in alcune distribuzioni, ad esempio Raspbian, può anche essere necessario aggiornare alcuni pacchetti pip e installare dipendenze aggiuntive:_
      ```
      sudo pip install --upgrade setuptools pip
+     
      sudo apt-get install python2.7-dev libffi-dev libssl-dev
      ```
    * MacOS: `sudo easy_install pip`.

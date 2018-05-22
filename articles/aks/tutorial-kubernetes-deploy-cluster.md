@@ -3,19 +3,19 @@ title: 'Esercitazione su Kubernetes in Azure: distribuire un cluster'
 description: Esercitazione sul servizio contenitore di Azure - Distribuire un cluster
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 99b65ba5e5f0be40e464fd6565db40fda4170a0f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c793aa02e614ead146806888d26a18867ff2eebb
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="tutorial-deploy-an-azure-container-service-aks-cluster"></a>Esercitazione: Distribuire un cluster del servizio contenitore di Azure (AKS)
+# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Esercitazione: distribuire un cluster di Azure Kubernetes Service (AKS)
 
 Kubernetes fornisce una piattaforma distribuita per applicazioni in contenitori. Con il servizio contenitore di Azure, il provisioning di un cluster Kubernetes pronto per la produzione è semplice e rapido. In questa esercitazione, la terza parte di otto, viene distribuito un cluster di Kubernetes nel servizio contenitore di Azure. I passaggi completati comprendono:
 

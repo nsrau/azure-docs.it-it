@@ -1,24 +1,24 @@
 ---
-title: "Creare report e verificare l'integrità con Azure Service Fabric | Documentazione Microsoft"
-description: "Informazioni su come inviare report di integrità dal codice del servizio e su come verificare l'integrità del servizio usando gli strumenti di monitoraggio dell'integrità forniti da Azure Service Fabric."
+title: Creare report e verificare l'integrità con Azure Service Fabric | Documentazione Microsoft
+description: Informazioni su come inviare report di integrità dal codice del servizio e su come verificare l'integrità del servizio usando gli strumenti di monitoraggio dell'integrità forniti da Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: mfussell
-editor: 
+editor: ''
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/2/2017
 ms.author: dekapur
-ms.openlocfilehash: a8c1ac57d38ae504e677c44c6fec08164b9b74ce
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 82ee3cbca40713d527f64ae4698cb9ce64a10215
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="report-and-check-service-health"></a>Creare report e verificare l'integrità dei servizi
 Quando si verificano problemi nei servizi, la possibilità di rispondere e correggere interruzioni ed eventi imprevisti dipende dalla capacità di rilevare i problemi in tempi rapidi. Se si segnalano problemi ed errori allo strumento di gestione dell'integrità di Azure Service Fabric dal codice del servizio, è possibile usare gli strumenti standard di monitoraggio dell'integrità forniti da Service Fabric per verificare lo stato di integrità.

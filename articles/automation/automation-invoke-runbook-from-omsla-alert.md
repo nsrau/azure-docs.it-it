@@ -3,16 +3,17 @@ title: Chiamare un runbook di Automazione di Azure da un avviso di Log Analytics
 description: Questo articolo offre una panoramica della procedura per richiamare un runbook di Automazione da un avviso di Log Analytics in Azure.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a0e497535f783cbffc21004331ccd2a50ab8eef
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 5a3b14bd8409226772d210f60dadd525960f7890
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Chiamare un runbook di Automazione di Azure da un avviso di Log Analytics
 

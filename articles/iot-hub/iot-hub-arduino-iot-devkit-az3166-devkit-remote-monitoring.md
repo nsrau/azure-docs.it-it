@@ -1,6 +1,6 @@
 ---
 title: "DevKit di IoT al cloud: Connettere DevKit di IoT MXChip all'hub IoT di Azure | Microsoft Docs"
-description: In questa esercitazione viene descritto come inviare lo stato dei sensori nel dispositivo IoT DevKit AZ3166 ad Azure IoT Suite per il monitoraggio e la visualizzazione.
+description: In questa esercitazione si apprende come inviare lo stato dei sensori di IoT DevKit AZ3166 all'acceleratore di soluzioni di monitoraggio remoto di Azure IoT.
 services: iot-hub
 documentationcenter: ''
 author: liydu
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 92efd0970bcf516c4210f831a0c2f23b3ee7b5d8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d59a739e2222aca27993f6ae944a1d3bda567041
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>Connettere il DevKit di IoT MXChip ad Azure IoT Suite per il monitoraggio remoto
+# <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Connettere MXChip IoT DevKit all'acceleratore di soluzioni di monitoraggio remoto di Azure IoT
 
-In questa esercitazione viene descritto come eseguire un'app di esempio nel dispositivo DevKit per inviare i dati dei sensori ad Azure IoT Suite.
+In questa esercitazione si apprende come eseguire un'app di esempio in DevKit per inviare i dati dei sensori all'acceleratore di soluzioni di monitoraggio remoto di Azure IoT.
 
 [MXChip IoT DevKit](https://aka.ms/iot-devkit) è una scheda all-in-one compatibile con Arduino con sensori e periferiche avanzati. È possibile sviluppare per questa scheda tramite l'[estensione di Visual Studio Code per Arduino](https://aka.ms/arduino). Per la scheda esiste un [catalogo di progetti](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) in crescita che rappresenta una guida per sviluppare e creare prototipi di soluzioni di Internet delle cose (IoT) che usano i servizi di Microsoft Azure.
 
@@ -35,15 +35,15 @@ Completare la [Guida introduttiva](https://docs.microsoft.com/azure/iot-hub/iot-
 
 Una sottoscrizione di Azure attiva. Se non è disponibile, è possibile registrarsi tramite uno di questi metodi:
 
-* Attivare una [versione di prova gratuita di 30 giorni dell'account di Microsoft Azure](https://azureinfo.microsoft.com/us-freetrial.html)
+* Attivare una [versione di prova gratuita di 30 giorni dell'account di Microsoft Azure](https://azure.microsoft.com/free/)
 * Richiedere il [credito Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se si ha un abbonamento a MSDN o una sottoscrizione di Visual Studio
 
-## <a name="create-an-azure-iot-suite"></a>Creare un'istanza di Azure IoT Suite
+## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>Creare un acceleratore di soluzioni di monitoraggio remoto di Azure IoT
 
-1. Passare al sito [Azure IoT Suite](https://www.azureiotsuite.com/) e fare clic su **Creare una nuova soluzione**.
-  ![Selezionare il tipo di Azure IoT Suite](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
+1. Passare al [sito degli acceleratori di soluzioni di monitoraggio remoto di Azure IoT](https://www.azureiotsuite.com/) e fare clic su **Creare una nuova soluzione**.
+  ![Selezionare il tipo di acceleratore di soluzioni di Azure IoT](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
   > [!WARNING]
-  > Per impostazione predefinita, questo esempio crea un hub IoT S2 dopo aver creato un'istanza di IoT Suite. Se questo hub IoT non viene usato con un numero elevato di dispositivi, è consigliabile effettuare il downgrade da S2 a S1 ed eliminare l'istanza di IoT Suite in modo da poter eliminare anche l'hub IoT correlato quando non sarà più necessario. 
+  > Per impostazione predefinita, questo esempio crea un hub IoT S2 dopo aver creato un acceleratore di soluzioni di monitoraggio remoto IoT. Se questo hub IoT non viene usato con un numero elevato di dispositivi, è consigliabile effettuare il downgrade da S2 a S1 ed eliminare l'acceleratore di soluzioni di monitoraggio remoto IoT per poter eliminare anche l'hub IoT correlato quando non sarà più necessario. 
 
 2. Selezionare **Monitoraggio remoto**.
 
@@ -100,13 +100,13 @@ Il DevKit viene riavviato e inizia a eseguire il codice.
 
 ## <a name="test-the-project"></a>Verificare il progetto
 
-Quando viene eseguita l'app di esempio, il dispositivo DevKit invia i dati dei sensori tramite Wi-Fi ad Azure IoT Suite. Per visualizzare il risultato, seguire questi passaggi:
+Quando viene eseguita l'app di esempio, DevKit invia i dati dei sensori tramite Wi-Fi all'acceleratore di soluzioni di monitoraggio remoto Azure IoT. Per visualizzare il risultato, seguire questi passaggi:
 
-1. Passare ad Azure IoT Suite e fare clic su **DASHBOARD**.
+1. Passare all'acceleratore di soluzioni di monitoraggio remoto Azure IoT e fare clic su **DASHBOARD**.
 
-2. Nella console della soluzione Azure IoT Suite verrà visualizzato lo stato dei sensori del dispositivo DevKit.
+2. Nella console della soluzione di monitoraggio remoto verrà visualizzato lo stato dei sensori di DevKit.
 
-![Dati dei sensori in Azure IoT Suite](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/sensor-status.png)
+![Dati dei sensori nell'acceleratore di soluzioni di monitoraggio remoto di Azure IoT](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/sensor-status.png)
 
 ## <a name="change-device-id"></a>Modificare l'ID dispositivo
 
@@ -121,7 +121,7 @@ In caso di problemi, fare riferimento alle [domande frequenti](https://microsoft
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver appreso come connettere un dispositivo DevKit ad Azure IoT Suite e visualizzare i dati dei sensori, ecco i passaggi successivi consigliati:
+Dopo aver appreso come connettere un dispositivo DevKit all'acceleratore di soluzioni di monitoraggio remoto Azure IoT e visualizzare i dati dei sensori, ecco i passaggi successivi consigliati:
 
-* [Panoramica di Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit) (Connettere un dispositivo MXChip IoT DevKit all'applicazione Microsoft IoT Central)
+* [Panoramica degli acceleratori di soluzioni Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
+* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit) (Connettere un dispositivo MXChip IoT DevKit all'applicazione Microsoft IoT Central)

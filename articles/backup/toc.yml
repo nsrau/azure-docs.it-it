@@ -49,6 +49,8 @@
       href: backup-azure-security-feature.md
     - name: Configurare il backup offline
       href: backup-azure-backup-import-export.md
+    - name: Backup offline per DPM e server di Backup di Azure
+      href: backup-azure-backup-server-import-export-.md
     - name: Sostituire la libreria di nastri
       href: backup-azure-backup-cloud-as-tape.md
 - name: Procedure

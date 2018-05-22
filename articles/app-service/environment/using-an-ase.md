@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 66ef20616df77dc809a79e516a53133a80759dc7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-an-app-service-environment"></a>Usare un ambiente del servizio app #
 
@@ -58,19 +58,28 @@ Per creare un'app Web in un ambiente del servizio app:
 
 4. Immettere un nome per un nuovo gruppo di risorse, oppure fare clic su **Usa esistente** e selezionarne uno dall'elenco a discesa.
 
+5. Selezionare il sistema operativo. 
+
+    * L'hosting di un'app di Linux in un ambiente del servizio app è una nuova funzionalità di anteprima, pertanto è consigliabile non aggiungere app di Linux in un ambiente del servizio app che esegue attualmente carichi di lavoro di produzione. 
+    * L'aggiunta di un'app di Linux in un ambiente del servizio app determina l'esecuzione dell'ambiente in modalità di anteprima. 
+
 5. Selezionare un piano di servizio app esistente nell'ambiente del servizio app o crearne uno nuovo con la procedura seguente:
 
     a. Selezionare **Crea nuovo**.
 
     b. Immettere un nome per il piano di servizio app.
 
-    c. Selezionare l'ambiente del servizio app nel menu a discesa **Località**.
+    c. Selezionare l'ambiente del servizio app nel menu a discesa **Località**. L'hosting di un'app di Linux in un ambiente del servizio app è attualmente abilitato solo in 6 aree, ovvero **Stati Uniti occidentali, Stati Uniti orientali, Europa occidentale, Europa settentrionale, Australia orientale, Asia sud-orientale.** 
 
     d. Selezionare un piano tariffario **Isolato**. Scegliere **Seleziona**.
 
     e. Selezionare **OK**.
     
     ![Piani tariffari isolati][2]
+
+    > [!NOTE]
+    > Le app Web di Linux e di Windows non possono essere presenti nello stesso piano di servizio app, ma possono essere presenti nello stesso ambiente del servizio app. 
+    >
 
 6. Selezionare **Create**.
 
@@ -168,7 +177,7 @@ Per eliminare un ambiente del servizio app:
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml

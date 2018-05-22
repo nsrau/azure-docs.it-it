@@ -6,20 +6,19 @@ documentationcenter: ''
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5ac91dac3cb446abaf07492d8b6ec8aa0c120ef4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5e0349d6bae9295e7a0ba9f366f84753ebd838c2
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Creare e pubblicare un elemento del Marketplace
 

@@ -4,7 +4,7 @@ description: Informazioni sulla sicurezza in Azure, sui relativi servizi e sul f
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 51d0f1f6d2689e37c1c39bf4a5e8078a2482c76d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a7b8c480291360cb50af1ce4ae36cd406f0ddc21
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza in Azure
 ## <a name="overview"></a>Panoramica
@@ -78,7 +78,7 @@ La [soluzione Sicurezza e controllo di OMS](https://docs.microsoft.com/azure/ope
 
 È anche possibile configurare OMS Security & Compliance per [eseguire automaticamente azioni specifiche](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) quando viene rilevato un determinato evento.
 
-### <a name="azure-resource-manager"></a>Gestione risorse di Azure
+### <a name="azure-resource-manager"></a>Azure Resource Manager
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) consente di usare le risorse incluse nella soluzione come un gruppo. È possibile distribuire, aggiornare o eliminare tutte le risorse della soluzione con un'unica operazione coordinata. Per la distribuzione viene usato un [modello di Azure Resource Manager](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) che può essere usato per diversi ambienti, ad esempio di testing, di staging e di produzione. Gestione risorse offre funzionalità di sicurezza, controllo e categorizzazione che semplificano la gestione delle risorse dopo la distribuzione.
 
 Le distribuzioni basate su un modello di Azure Resource Manager consentono di migliorare la sicurezza delle soluzioni distribuite in Azure perché le impostazioni sono controllate dalla sicurezza standard, che può essere integrata in distribuzioni basate su modelli standardizzate. In questo modo si riduce il rischio di errori di configurazione della sicurezza che potrebbero verificarsi in caso di distribuzioni manuali.
@@ -238,10 +238,10 @@ Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, 
 Le connessioni ExpressRoute non usano la rete Internet pubblica e possono quindi essere considerate più sicure delle soluzioni basate su VPN. In questo modo possono offrire un livello di sicurezza superiore, maggiore affidabilità, velocità più elevate e minori latenze rispetto alle connessioni Internet tradizionali.
 
 
-### <a name="application-gateway"></a>gateway applicazione
+### <a name="application-gateway"></a>Gateway applicazione
 Il [gateway applicazione di Microsoft Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) offre un servizio di [controller per la distribuzione di applicazioni](https://en.wikipedia.org/wiki/Application_delivery_controller) con numerose funzionalità di bilanciamento del carico di livello 7 per l'applicazione.
 
-![gateway applicazione](./media/azure-security/azure-security-fig2.png)
+![Gateway applicazione](./media/azure-security/azure-security-fig2.png)
 
 Consente di ottimizzare la produttività delle Web farm eseguendo l'offload al gateway applicazione della terminazione SSL con utilizzo elevato di CPU, denominato anche "offload SSL" o "bridging SSL". Offre anche altre funzionalità di routing di livello 7, tra cui la distribuzione round robin del traffico in ingresso, l'affinità di sessione basata su cookie, il routing basato su percorso URL e la possibilità di ospitare più siti Web dietro un unico gateway applicazione. Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7.
 
@@ -268,7 +268,7 @@ Web application firewall è una funzionalità del [gateway applicazione di Azure
 
 
 L'uso di un Web application firewall centralizzato per la protezione dagli attacchi Web semplifica notevolmente la gestione della sicurezza e offre all'applicazione migliori garanzie contro le minacce di intrusione. Una soluzione WAF è anche in grado di reagire più velocemente a una minaccia alla sicurezza tramite l'applicazione di patch su una vulnerabilità nota in una posizione centrale, anziché proteggere ogni singola applicazione Web. È possibile convertire facilmente i gateway applicazione esistenti in gateway applicazione con Web application firewall.
-### <a name="traffic-manager"></a>servizio Gestione traffico
+### <a name="traffic-manager"></a>Gestione traffico
 [Gestione traffico di Microsoft Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) consente di controllare la distribuzione del traffico utente per gli endpoint di servizio in diversi data center. Gli endpoint di servizio supportati da Gestione traffico includono servizi cloud, app Web e VM di Azure. È anche possibile usare Gestione traffico con endpoint esterni, non di Azure. Gestione traffico usa il sistema DNS (Domain Name System) per indirizzare le richieste del client all'endpoint più appropriato in base a un [metodo di routing del traffico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) e all'integrità degli endpoint.
 
 Gestione traffico offre diversi metodi di routing del traffico per soddisfare le diverse esigenze delle applicazioni. Offre inoltre [monitoraggio](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) dell'integrità degli endpoint e failover automatico. Gestione traffico è resiliente agli errori, incluso l'errore di un'intera area di Azure.

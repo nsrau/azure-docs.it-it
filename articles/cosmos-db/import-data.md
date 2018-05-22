@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 9c4908775ab9a471201cc4bb0c35ab863f5d6d50
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a14dbaffe6bfa68e7606d117823195144250c230
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Utilità di migrazione dati
 
@@ -43,6 +43,8 @@ Questa esercitazione illustra le attività seguenti:
 Prima di seguire le istruzioni di questo articolo, verificare che siano installati i seguenti elementi:
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) o versione successiva.
+
+* Aumentare la velocità effettiva: la durata della migrazione dei dati dipende dalla quantità di velocità effettiva che si configura per una raccolta o un set di raccolte. Assicurarsi di aumentare la velocità effettiva per le migrazioni dei dati di dimensioni più grandi. Dopo avere completato la migrazione, diminuire la velocità effettiva per ridurre i costi. Per altre informazioni sull'aumento della velocità effettiva nel portale di Azure, vedere Livelli di prestazioni e piani tariffari in Azure Cosmos DB.
 
 ## <a id="Overviewl"></a>Panoramica
 Lo strumento di migrazione dati è una soluzione open source che importa dati in Azure Cosmos DB da diverse origini, tra cui:
@@ -433,7 +435,7 @@ Per importare in un'unica raccolta, immettere il nome della raccolta in cui verr
 Dopo aver specificato il nome della raccolta, scegliere la velocità effettiva desiderata della raccolta, da 400 UR a 250.000 UR. Per ottimizzare le prestazioni di importazione, scegliere una velocità effettiva superiore. Per altre informazioni sui livelli di prestazioni, vedere l'articolo relativo ai [livelli di prestazioni in Azure Cosmos DB](performance-levels.md). Eventuali importazioni nelle raccolte con una velocità effettiva > 10.000 UR richiedono una chiave di partizione. Se si sceglie di avere più di 250.000 UR, è necessario inviare una richiesta di nel portale per incrementare l'account.
 
 > [!NOTE]
-> L'impostazione della velocità effettiva si applica solo alla creazione di raccolte. Se la raccolta specificata esiste già, la velocità effettiva non verrà modificata.
+> L'impostazione della velocità effettiva si applica solo alla creazione di raccolte o del database. Se la raccolta specificata esiste già, la velocità effettiva non verrà modificata.
 > 
 > 
 

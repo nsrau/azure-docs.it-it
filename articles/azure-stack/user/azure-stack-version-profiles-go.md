@@ -10,14 +10,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 84ca616856f363e4d3d68ab1cc45b97f7c589185
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: dd2d0c46c0829a73d32c96b506b9f2111eda3c84
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Usare i profili di versione API con Vai nello Stack di Azure
 
@@ -61,7 +61,8 @@ il SDK GO dipende i moduli di Azure andare-AutoRest per inviare richieste REST a
 Per eseguire un esempio di codice Go nello Stack di Azure:
   1. Installare Azure SDK per Go e le relative dipendenze. Per istruzioni, vedere la sezione precedente [installare Azure SDK per Go](#install-azure-sdk-for-go).
   2. Ottenere le informazioni sui metadati dall'endpoint di gestione risorse. L'endpoint restituisce un file JSON con le informazioni necessarie per eseguire il codice di Go.
-  > [!note]  
+
+  > [!Note]  
   > Il **ResourceManagerUrl** in Azure Stack Development Kit (ASDK) è: `https://management.local.azurestack.external/`  
   > Il **ResourceManagerUrl** in sistemi integrati: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > Per recuperare i metadati richiesti: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
@@ -176,7 +177,8 @@ In questa sezione viene presentato un modo comune per ottenere i token authorize
 ## <a name="example"></a>Esempio
 
 In questa sezione viene illustrato un esempio di codice Go per creare una rete virtuale nello Stack di Azure. Per esempi completi di andare SDK, vedere [repository di esempi di Azure andare SDk](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Esempi di Stack di Azure sono disponibili in ibrida / percorso all'interno di cartelle del servizio del repository.
-> [!note]  
+
+> [!Note]  
 > Per eseguire il codice in questo esempio, verificare che la sottoscrizione utilizzata disponga **rete** elencato come provider di risorse **registrati**. Per verificarlo, cercare la sottoscrizione nel portale di Azure Stack e fare clic su **i provider di risorse.**
 
 1. Importare pacchetti richiesti nel codice. Utilizzare il profilo più recente nello Stack di Azure per importare il modulo di rete. 
@@ -194,7 +196,7 @@ In questa sezione viene illustrato un esempio di codice Go per creare una rete v
   )
   ````
 
-2. Definire le variabili di ambiente. Si noti che per creare una rete virtuale è necessario disporre di un gruppo di risorse. 
+2. Definire le variabili di ambiente. Per creare una rete virtuale che è necessario disporre di un gruppo di risorse. 
 
   ````go
   var (

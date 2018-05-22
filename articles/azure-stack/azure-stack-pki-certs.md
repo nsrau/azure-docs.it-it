@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: ff3fd8ea331c02aa2666ec20b56dbbaef473a4df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b1dcbfc51e63a5bca9186b62c871b2623653bbab
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisiti dei certificati di infrastruttura a chiave pubblica Azure Stack
 
@@ -35,7 +35,7 @@ Stack Azure dispone di una rete pubblica infrastruttura utilizzano accessibile d
 ## <a name="certificate-requirements"></a>Requisiti dei certificati
 L'elenco seguente descrive i requisiti del certificato che sono necessari per distribuire Azure Stack: 
 - I certificati devono essere emessi da un'autorità di certificazione interna o un'autorità di certificazione pubblica. Se si utilizza un'autorità di certificazione pubblica, deve essere incluso nell'immagine sistema operativo di base durante il programma Microsoft Root autorità attendibili. È possibile trovare l'elenco completo di seguito: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- L'infrastruttura di Azure Stack deve avere accesso alla rete per l'autorità di certificazione usata per firmare i certificati
+- L'infrastruttura di Azure Stack deve avere l'accesso alla rete posizione elenco certificati revocati (CRL) dell'autorità di certificazione pubblicata nel certificato. Il CRL deve essere un endpoint http
 - Quando la rotazione di certificati, certificati devono essere che uno rilasciato dall'autorità di certificazione interna stesso utilizzato per firmare i certificati nella distribuzione o qualsiasi autorità di certificazione pubblica sopra
 - L'utilizzo di certificati autofirmati non sono supportati
 - Il certificato può essere un certificato con caratteri jolly singolo che coprono tutti spazi dei nomi nel campo nome alternativo soggetto (SAN). In alternativa, è possibile utilizzare certificati singoli utilizzando i caratteri jolly per gli endpoint, ad esempio **acs** e insieme di credenziali chiave in cui sono necessarie. 
@@ -45,6 +45,7 @@ L'elenco seguente descrive i requisiti del certificato che sono necessari per di
 - Il file pfx del certificato devono avere i valori "Autenticazione Server (1.3.6.1.5.5.7.3.1)" e "Autenticazione Client (1.3.6.1.5.5.7.3.2)" nel campo "Utilizzo chiavi avanzato".
 - Il certificato "rilasciato a:" campo non deve essere lo stesso come relativo "rilasciato da:" campo.
 - Le password per tutti i file di certificato pfx devono essere uguale al momento della distribuzione
+- Password per il file di certificato pfx deve essere una password complessa.
 - Assicurarsi che i nomi di soggetto e i nomi di soggetto alternativo di tutti i certificati corrispondano a quanto descritto in questo articolo per evitare distribuzioni non riuscite.
 
 > [!NOTE]
@@ -67,12 +68,12 @@ Per la distribuzione, [region] e [externalfqdn] i valori devono corrispondere i 
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
 | Portale pubblico | portal.&lt;region>.&lt;fqdn> | Portali | &lt;region>.&lt;fqdn> |
 | Portale di amministrazione | adminportal.&lt;region>.&lt;fqdn> | Portali | &lt;region>.&lt;fqdn> |
-| Pubblico di gestione risorse di Azure | gestione. &lt;area >. &lt;fqdn > | Gestione risorse di Azure | &lt;region>.&lt;fqdn> |
-| Amministrazione di gestione risorse di Azure | adminmanagement.&lt;region>.&lt;fqdn> | Gestione risorse di Azure | &lt;region>.&lt;fqdn> |
+| Pubblico di gestione risorse di Azure | gestione. &lt;area >. &lt;fqdn > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Amministrazione di gestione risorse di Azure | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
 | ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) | Archiviazione BLOB | blob.&lt;region>.&lt;fqdn> |
 | ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) | Archiviazione tabelle | tavolo. &lt;area >. &lt;fqdn > |
-| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) | Archiviazione di accodamento | queue.&lt;region>.&lt;fqdn> |
-| Insieme di credenziali delle chiavi | *.vault.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) | Insieme di credenziali di chiave | vault.&lt;region>.&lt;fqdn> |
+| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) | Archiviazione code | queue.&lt;region>.&lt;fqdn> |
+| Insieme di credenziali delle chiavi | *.vault.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) | Key Vault | vault.&lt;region>.&lt;fqdn> |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificato SSL con carattere jolly) |  Keyvault interno |  adminvault.&lt;region>.&lt;fqdn> |
 
 ### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Per ambiente dello Stack di Azure sul versioni Pre-1803
@@ -81,10 +82,10 @@ Per la distribuzione, [region] e [externalfqdn] i valori devono corrispondere i 
 |-----|-----|-----|-----|
 |Portale pubblico|portal.*&lt;region>.&lt;fqdn>*|Portali|*&lt;region>.&lt;fqdn>*|
 |Portale di amministrazione|adminportal.*&lt;region>.&lt;fqdn>*|Portali|*&lt;region>.&lt;fqdn>*|
-|Pubblico di gestione risorse di Azure|Gestione.  *&lt;area >.&lt; nome di dominio completo >*|Gestione risorse di Azure|*&lt;region>.&lt;fqdn>*|
-|Amministrazione di gestione risorse di Azure|adminmanagement.  *&lt;area >.&lt; nome di dominio completo >*|Gestione risorse di Azure|*&lt;region>.&lt;fqdn>*|
+|Pubblico di gestione risorse di Azure|Gestione.  *&lt;area >.&lt; nome di dominio completo >*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
+|Amministrazione di gestione risorse di Azure|adminmanagement.  *&lt;area >.&lt; nome di dominio completo >*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
 |ACS<sup>1</sup>|Un certificato con caratteri jolly multi-sottodominio con nomi alternativi soggetto per:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Archiviazione|blob.*&lt;region>.&lt;fqdn>*<br>tavolo.  *&lt;area >.&lt; nome di dominio completo >*<br>coda.  *&lt;area >.&lt; nome di dominio completo >*|
-|Insieme di credenziali delle chiavi|&#42;.Vault.  *&lt;area >.&lt; nome di dominio completo >*<br>(Certificato SSL con carattere jolly)|Insieme di credenziali di chiave|insieme di credenziali.  *&lt;area >.&lt; nome di dominio completo >*|
+|Insieme di credenziali delle chiavi|&#42;.Vault.  *&lt;area >.&lt; nome di dominio completo >*<br>(Certificato SSL con carattere jolly)|Key Vault|insieme di credenziali.  *&lt;area >.&lt; nome di dominio completo >*|
 |KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Certificato SSL con carattere jolly)|Keyvault interno|adminvault.*&lt;region>.&lt;fqdn>*|
 |
 <sup>1</sup> certificato del servizio ACS richiede tre SAN con caratteri jolly in un solo certificato. Carattere jolly più reti SAN in un singolo certificato potrebbe non essere supportata da tutte le autorità di certificazione pubblica. 
@@ -118,7 +119,7 @@ La tabella seguente descrive gli endpoint e i certificati necessari per gli adap
 
 <sup>1</sup> richiede un certificato con più nomi alternativi del soggetto con caratteri jolly. Carattere jolly più reti SAN in un singolo certificato potrebbe non essere supportato da tutte le autorità di certificazione pubblica 
 
-<sup>2</sup> A &#42;.appservice. *&lt;area >. &lt;fqdn >* certificato con caratteri jolly non può essere utilizzato al posto di queste tre certificati (api.appservice. *&lt;area >. &lt;fqdn >*, ftp.appservice. *&lt;area >. &lt;fqdn >*e sso.appservice. *&lt;area >. &lt;fqdn >*. Servizio App richiede in modo esplicito l'utilizzo di certificati separati per questi endpoint. 
+<sup>2</sup> A &#42;.appservice. *&lt;area >. &lt;fqdn >* certificato con caratteri jolly non può essere utilizzato al posto di queste tre certificati (api.appservice. *&lt;area >. &lt;fqdn >*, ftp.appservice. *&lt;area >. &lt;fqdn >* e sso.appservice. *&lt;area >. &lt;fqdn >*. Servizio App richiede in modo esplicito l'utilizzo di certificati separati per questi endpoint. 
 
 ## <a name="learn-more"></a>Altre informazioni
 Informazioni su come [generare i certificati PKI per la distribuzione di Azure Stack](azure-stack-get-pki-certs.md). 

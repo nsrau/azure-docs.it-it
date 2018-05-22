@@ -9,16 +9,16 @@ editor: tysonn
 ms.assetid: 0644abe1-abaa-443d-820d-1966d7d26bfd
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 834488e259caf60ae96450fcf7c8188c5ffb0bc5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fce3fd03f22c7e2d1c1524b9deb1f6935dbc3755
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funzioni del modello di Azure Resource Manager
 Questo articolo descrive tutte le funzioni disponibili in un modello di Azure Resource Manager.
@@ -28,6 +28,8 @@ Le funzioni vengono aggiunte ai modelli racchiudendole tra parentesi quadre: `[`
 L'espressione di un modello non può superare i 24.576 caratteri.
 
 Le funzioni del modello e i relativi parametri non hanno la distinzione tra maiuscole e minuscole. Ad esempio, Gestione risorse consente di risolvere allo stesso modo le **variables('var1')** e le **VARIABLES('VAR1')**. Durante la valutazione, la funzione mantiene invariato l'uso delle maiuscole/minuscole, a meno che queste non vengano modificate espressamente dalla funzione, ad esempio toUpper o toLower. Alcuni tipi di risorse possono avere requisiti per le maiuscole e minuscole indipendentemente dalla modalità di valutazione delle funzioni.
+
+Per creare funzioni personalizzate, vedere [Funzioni definite dall'utente](resource-group-authoring-templates.md#functions).
 
 <a id="array" />
 <a id="coalesce" />

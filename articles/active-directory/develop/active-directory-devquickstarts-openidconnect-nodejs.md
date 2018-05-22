@@ -3,23 +3,25 @@ title: Introduzione all'app Web Node.js per Azure AD | Microsoft Docs
 description: Informazioni sulla compilazione di un'app Web Express MVC di Node.js che si integra con Azure AD per l'accesso.
 services: active-directory
 documentationcenter: nodejs
-author: navyasric
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7e92c50525efdf2854710d7e62781a5c6efb2cf3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8068e193ac267ef23bdaab1fc23bc7bf9b0d330b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Introduzione all'app Web Node.js per Azure AD
 Passport viene usato per:
@@ -37,7 +39,7 @@ Per effettuare questa operazione, eseguire i passaggi seguenti:
 3. Usare Passport per inviare le richieste di accesso e disconnessione ad Azure AD.
 4. Stampare dati relativi all'utente.
 
-Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS).  Per seguire la procedura, è possibile [scaricare la struttura dell'app come file .zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) o clonare la struttura:
+Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS). Per seguire la procedura, è possibile [scaricare la struttura dell'app come file .zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) o clonare la struttura:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
@@ -55,7 +57,7 @@ Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 5. Seguire le istruzioni e creare una nuova **applicazione Web** e/o **API Web**.
   * Il **nome** dell'applicazione descrive l'applicazione agli utenti.
 
-  * L' **URL accesso** è l'URL di base dell'app.  Il valore predefinito della struttura è `http://localhost:3000/auth/openid/return`.
+  * L' **URL accesso** è l'URL di base dell'app. Il valore predefinito della struttura è `http://localhost:3000/auth/openid/return`.
 
 6. Dopo la registrazione, Azure AD assegna all'app un ID applicazione univoco. Poiché questo valore sarà necessario nelle sezioni successive, è necessario copiarlo dalla pagina dell'applicazione.
 7. Dalla pagina **Impostazioni** -> **Proprietà** dell'applicazione aggiornare l'URI dell'ID app. L' **URI ID app** è un identificatore univoco dell'applicazione. La convenzione consiste nell'usare il formato `https://<tenant-domain>/<app-name>`, ad esempio: `https://contoso.onmicrosoft.com/my-first-aad-app`.
@@ -78,7 +80,7 @@ Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 Verranno installate le librerie da cui dipende `passport-azure-ad`.
 
 ## <a name="step-3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>Passaggio 3: Configurare l'app in modo che usi la strategia passport-node-js
-In questo caso, verrà configurato Express in modo che usi il protocollo di autenticazione OpenID Connect.  Passport verrà usato, tra le altre cose, per inviare richieste di accesso e disconnessione, gestire la sessione dell'utente e ottenere informazioni sull'utente.
+In questo caso, verrà configurato Express in modo che usi il protocollo di autenticazione OpenID Connect. Passport verrà usato, tra le altre cose, per inviare richieste di accesso e disconnessione, gestire la sessione dell'utente e ottenere informazioni sull'utente.
 
 1. Per iniziare, aprire il file `config.js` nella radice del progetto e immettere i valori di configurazione dell'app nella sezione `exports.creds`.
 
@@ -181,7 +183,7 @@ Il codice precedente accetta qualsiasi utente che esegue l'autenticazione al ser
             };
     ```
 
-5.  Quindi aggiungere il codice per caricare il motore Express. Qui usiamo i modelli /views e /routes predefiniti forniti da Express.
+5. Quindi aggiungere il codice per caricare il motore Express. Qui usiamo i modelli /views e /routes predefiniti forniti da Express.
 
     ```JavaScript
 
@@ -252,7 +254,7 @@ Il codice precedente accetta qualsiasi utente che esegue l'autenticazione al ser
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Passaggio 4: Usare Passport per inviare le richieste di accesso e disconnessione ad Azure AD
-L'app ora è configurata correttamente per comunicare con l'endpoint mediante il protocollo di autenticazione OpenID Connect.  `passport-azure-ad` ha gestito tutti i dettagli relativi alla creazione dei messaggi di autenticazione, alla convalida dei token da Azure AD e alla gestione delle sessioni utente. A questo punto è sufficiente offrire agli utenti un modo per accedere e disconnettersi e per raccogliere informazioni aggiuntive sugli utenti connessi.
+L'app ora è configurata correttamente per comunicare con l'endpoint mediante il protocollo di autenticazione OpenID Connect. `passport-azure-ad` ha gestito tutti i dettagli relativi alla creazione dei messaggi di autenticazione, alla convalida dei token da Azure AD e alla gestione delle sessioni utente. A questo punto è sufficiente offrire agli utenti un modo per accedere e disconnettersi e per raccogliere informazioni aggiuntive sugli utenti connessi.
 
 1. Aggiungere prima di tutto i metodi predefinito, di accesso, account e disconnessione al file `app.js`:
 
@@ -282,7 +284,7 @@ L'app ora è configurata correttamente per comunicare con l'endpoint mediante il
 
     ```
 
-2.  Esaminare nel dettaglio questi aspetti:
+2. Esaminare nel dettaglio questi aspetti:
 
   * Il percorso `/` reindirizza alla vista index.ejs passando l'utente nella richiesta (se presente).
   * Il percorso `/account` prima di tutto *verifica che l'autenticazione sia stata eseguita* (l'implementazione nell'esempio di seguito), quindi passa l'utente nella richiesta in modo da ottenere informazioni aggiuntive su quest'ultimo.

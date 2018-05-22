@@ -9,16 +9,16 @@ editor: motanv
 ms.assetid: 2bd13443-3478-4382-9a5a-1f6c6b32bfc9
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 81206257cb2c7157bbb1ffcf3a79ced7c896ef80
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 26a954412b8755cd112bf2931ed9bdda291fd727
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Eseguire Chaos in ambiente controllato nei cluster di Service Fabric
 I sistemi distribuiti di grandi dimensioni come le infrastrutture cloud sono intrinsecamente inaffidabili. Azure Service Fabric consente agli sviluppatori di scrivere servizi distribuiti affidabili in un'infrastruttura inaffidabile. Per scrivere servizi distribuiti affidabili in un'infrastruttura inaffidabile, gli sviluppatori devono poter testare la stabilità dei servizi quando nell'infrastruttura inaffidabile sottostante si verificano transizioni di stato complesse a causa di errori.
@@ -33,7 +33,7 @@ Dopo aver configurato Chaos con la frequenza e la tipologia di errori, è possib
 > Nella sua forma attuale, Chaos causa solo errori sicuri, il che implica che in assenza di errori esterni non si verifica mai una perdita del quorum o di dati.
 >
 
-Durante l'esecuzione, Chaos genera eventi diversi che acquisiscono lo stato dell'esecuzione al momento. Un oggetto ExecutingFaultsEvent contiene ad esempio tutti gli errori eseguiti da Chaos nell'iterazione. Un oggetto ValidationFailedEvent contiene i dettagli di un errore di convalida (problemi di integrità o di stabilità) rilevato durante la convalida del cluster. È possibile chiamare l'API GetChaosReport (C#, PowerShell o REST) per ottenere il report delle esecuzioni di Chaos. Gli eventi vengono conservati in un oggetto [Reliable ​Dictionary](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), che ha un criterio di troncamento influenzato da due configurazioni: **MaxStoredChaosEventCount** (valore predefinito 25000) e **StoredActionCleanupIntervalInSeconds** (valore predefinito 3600). A ogni intervallo indicato da *StoredActionCleanupIntervalInSeconds* Chaos esegue un controllo e tutti gli eventi *MaxStoredChaosEventCount*, escluso il più recente, vengono eliminati dall'oggetto Reliable ​Dictionary.
+Durante l'esecuzione, Chaos genera eventi diversi che acquisiscono lo stato dell'esecuzione al momento. Un oggetto ExecutingFaultsEvent contiene ad esempio tutti gli errori eseguiti da Chaos nell'iterazione. Un oggetto ValidationFailedEvent contiene i dettagli di un errore di convalida (problemi di integrità o di stabilità) rilevato durante la convalida del cluster. È possibile chiamare l'API GetChaosReport (C#, PowerShell o REST) per ottenere il report delle esecuzioni di Chaos. Gli eventi vengono conservati in un oggetto [Reliable ​Dictionary](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections), che ha un criterio di troncamento influenzato da due configurazioni: **MaxStoredChaosEventCount** (valore predefinito 25000) e **StoredActionCleanupIntervalInSeconds** (valore predefinito 3600). A ogni intervallo indicato da *StoredActionCleanupIntervalInSeconds* Chaos esegue un controllo e tutti gli eventi *MaxStoredChaosEventCount*, escluso il più recente, vengono eliminati dall'oggetto Reliable ​Dictionary.
 
 ## <a name="faults-induced-in-chaos"></a>Errori indotti da Chaos
 Chaos genera errori in tutto il cluster di Service Fabric e comprime in poche ore gli errori riscontrati in mesi o anni. Grazie alla combinazione di errori con interfoliazione e un'elevata frequenza di errori è possibile trovare casi limite che altrimenti non verrebbero considerati. Questa applicazione di Chaos consente di ottenere un notevole miglioramento della qualità del codice del servizio.

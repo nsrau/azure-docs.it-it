@@ -3,22 +3,23 @@ title: Gestire l'accesso alle app cloud limitando i tenant - Azure | Microsoft D
 description: Come usare Restrizioni dei tenant per gestire gli utenti che possono accedere alle app in base ai tenant di Azure AD.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: barbkess
 manager: mtillman
 editor: yossib
-ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2018
-ms.author: kgremban
-ms.openlocfilehash: dae4599db5127ac8fd266d5e0f299e1284fc9b9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/15/2018
+ms.author: barbkess
+ms.reviewer: richagi
+ms.openlocfilehash: 6584db755a586fcf5fd7318f9396b797edeaf0ad
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usare Restrizioni dei tenant per gestire l'accesso alle applicazioni cloud SaaS
 

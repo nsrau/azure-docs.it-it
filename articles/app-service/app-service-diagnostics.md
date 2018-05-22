@@ -3,10 +3,10 @@ title: Panoramica della diagnostica del servizio app di Azure | Microsoft Docs
 description: Informazioni su come risolvere i problemi dell'app Web con la diagnostica del servizio app.
 keywords: servizio app, servizio app di azure, diagnostica, supporto, app web, risoluzione dei problemi, self-help
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: jen7714
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: 9526817ce7969edcd5e9c56ec153bb4e3ebaa501
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 50e0e9f5edc18aac42ee80e232f70e09736124bc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Panoramica della diagnostica del servizio app di Azure 
 
@@ -26,11 +26,13 @@ Quando si esegue un'applicazione Web, si desidera essere pronti ad affrontare gl
  
 Sebbene ciò risulti particolarmente utile quando si verificano problemi nell'app Web nelle ultime 24 ore, tutti i grafici di diagnostica saranno disponibili per l'analisi in qualsiasi momento. Altri strumenti di risoluzione dei problemi e collegamenti a documentazione e forum utili sono disponibili nella colonna a destra.
 
+La diagnostica del servizio app funziona non solo per le app in Windows, ma anche per le app in [Linux e contenitori](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro), nell'[ambiente del servizio app](https://docs.microsoft.com/en-us/azure/app-service/environment/intro) e di [Funzioni di Azure](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview). 
+
 ## <a name="open-app-service-diagnostics"></a>Aprire la diagnostica del servizio app
 
-Per accedere alla diagnostica del servizio app, passare all'app Web del Servizio App nel [portale di Azure](https://portal.azure.com). 
+Per accedere alla diagnostica del servizio app, passare alla app del servizio app o all'ambiente del servizio app nel [portale di Azure](https://portal.azure.com). Nel riquadro di spostamento a sinistra fare clic su **Diagnostica e risoluzione dei problemi**. 
 
-Nel riquadro di spostamento a sinistra fare clic su **Diagnostica e risoluzione dei problemi**.
+Per Funzioni di Azure, passare all'app di funzione e nel riquadro di spostamento superiore, fare clic su **Funzionalità della piattaforma** e selezionare **Diagnosticare e risolvi i problemi** nella sezione **Monitoraggio**. 
 
 ![Home page](./media/app-service-diagnostics/Homepage1.png)
 
@@ -46,13 +48,22 @@ Se nelle ultime 24 ore viene rilevato un problema associato a una categoria spec
 
 ## <a name="tile-shortcuts"></a>Riquadro dei collegamenti
 
-Se si conosce con esattezza il tipo di informazioni da cercare per la risoluzione di un problema specifico, il riquadro dei collegamenti consente di passare direttamente al report di diagnostica completo relativo alla categoria desiderata. Rispetto al controllo di integrità, il riquadro dei collegamenti è un modo più diretto, ma meno dettagliato per accedere alle metriche di diagnostica.  
+Se si conosce con esattezza il tipo di informazioni da cercare per la risoluzione di un problema specifico, il riquadro dei collegamenti consente di passare direttamente al report di diagnostica completo relativo alla categoria desiderata. Rispetto al controllo di integrità, il riquadro dei collegamenti è un modo più diretto, ma meno dettagliato per accedere alle metriche di diagnostica. Nell'ambito dei tasti di scelta rapida del riquadro, in questo punto sono disponibili anche gli **strumenti di diagnostica**, ovvero strumenti più avanzati che consentono di esaminare i problemi relativi a codice dell'applicazione, lentezza, stringhe di connessione e altro ancora. 
 
 ![Riquadro dei collegamenti](./media/app-service-diagnostics/TileShortcuts4.png)
 
 ## <a name="diagnostic-report"></a>Report di diagnostica
 
-Se sono state richieste altre informazioni dopo aver eseguito un [controllo di integrità](#health-checkup) oppure è stato fatto clic su uno dei collegamenti disponibili nel [riquadro dei collegamenti](#tile-shortcuts), nel report di diagnostica completo verranno visualizzate le metriche più rilevati, sotto forma di grafici, relative alle ultime 24 ore. L'eventuale tempo di inattività dell'app è rappresentato da una barra arancione sotto la sequenza temporale. È possibile selezionare uno dei tempi di inattività per visualizzare le corrispondenti osservazioni dettagliate assieme alle soluzioni suggerite. 
+Se sono state richieste altre informazioni dopo aver eseguito un [controllo di integrità](#health-checkup) oppure è stato fatto clic su uno dei collegamenti disponibili nel [riquadro dei collegamenti](#tile-shortcuts), nel report di diagnostica completo verranno visualizzate le metriche più rilevati, sotto forma di grafici, relative alle ultime 24 ore. L'eventuale tempo di inattività dell'app è rappresentato da una barra arancione sotto la sequenza temporale. È possibile selezionare una delle barre arancione per selezionare il tempo di inattività al fine di visualizzare osservazioni relative e le operazioni di risoluzione dei problemi suggerite. 
 
 ![Report di diagnostica](./media/app-service-diagnostics/DiagnosticReport5.png)
+
+
+## <a name="investigating-application-code-issues"></a>Analisi dei problemi di codice dell'applicazione
+
+Poiché molti problemi di app sono associati a problemi nel codice dell'applicazione, la diagnostica del servizio app si integra con [Application Insights](https://azure.microsoft.com/services/application-insights/) per evidenziare le eccezioni e i problemi di dipendenza da correlare con il tempo di inattività selezionato. Application Insights deve essere abilitato separatamente. 
+
+Per visualizzare le eccezioni e le dipendenze di Application Insights, selezionare i collegamenti del riquadro **Web App Down** (App Web inattive) o **Web App Slow** (App Web lente). 
+
+![Application Insights](./media/app-service-diagnostics/AppInsights6.png)
 

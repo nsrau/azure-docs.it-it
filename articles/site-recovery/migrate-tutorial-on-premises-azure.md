@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 656ba02401d9ba610d0ebe33a683164af0b871f0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3e82983ff171e638415d6e7cafe0cb034dd978af
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Eseguire la migrazione di computer locali ad Azure
 
@@ -32,12 +32,12 @@ Questa esercitazione descrive come eseguire la migrazione di VM locali e server 
 Questa è la terza esercitazione di una serie. In questa esercitazione si presuppone che siano già state completate le attività delle esercitazioni precedenti:
 
 1. [Preparare Azure](tutorial-prepare-azure.md)
-2. Preparare i server [VMware](vmware-azure-tutorial-prepare-on-premises.md) o Hyper-V locali.
+2. Preparare i server [VMware](vmware-azure-tutorial-prepare-on-premises.md) o [Hyper-V] (hyper-v-prepare-on-premises-tutorial.md) locali.
 
 Prima di iniziare è utile esaminare le architetture [VMware](vmware-azure-architecture.md) o [Hyper-V](hyper-v-azure-architecture.md) per il ripristino di emergenza.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 I dispositivi esportati da driver paravirtualizzati non sono supportati.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 03/09/2018
 ms.author: danlep
-ms.openlocfilehash: c26dd85d896445e19efb9906d953fd535fc1fb5c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91f067de33d1ff4bc272773e3db49de47fac2feb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-an-hpc-pack-2016-cluster-in-azure"></a>Distribuire un cluster HPC Pack 2016 in Azure
 
@@ -56,7 +56,7 @@ Dopo aver creato il certificato nell'archivio Utente corrente, usare lo snap-in 
 
 ### <a name="upload-certificate-to-an-azure-key-vault"></a>Caricare il certificato nell'insieme di credenziali delle chiavi di Azure
 
-Prima di distribuire il cluster HPC, caricare il certificato PFX in un [insieme di credenziali delle chiavi di Azure](../../key-vault/index.md) come segreto e registrare le informazioni seguenti per l'uso durante la distribuzione: **Nome dell'insieme di credenziali**, **Gruppo di risorse dell'insieme di credenziali**, **URL certificato** e **identificazione personale certificato**.
+Prima di distribuire il cluster HPC, caricare il certificato PFX in un [insieme di credenziali delle chiavi di Azure](../../key-vault/index.yml) come segreto e registrare le informazioni seguenti per l'uso durante la distribuzione: **Nome dell'insieme di credenziali**, **Gruppo di risorse dell'insieme di credenziali**, **URL certificato** e **identificazione personale certificato**.
 
 Segue un script di PowerShell di esempio per caricare il certificato, creare l'insieme di credenziali delle chiavi e generare le informazioni necessarie. Per altre informazioni sul caricamento di un certificato in un insieme di credenziali delle chiavi di Azure, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-get-started.md).
 

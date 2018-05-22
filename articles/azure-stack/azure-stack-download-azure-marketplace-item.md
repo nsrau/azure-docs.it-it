@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: cdadf48aa23e3dd76d8a511794f00725f073611d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 2e92dc96a69400f689e49b70d1b855c955084362
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Scaricare gli elementi di marketplace da Azure allo Stack di Azure
 
@@ -28,10 +28,10 @@ ms.lasthandoff: 04/28/2018
 
 Come si decide il contenuto da includere nel marketplace dello Stack di Azure, è necessario considerare il contenuto disponibile da Azure marketplace. È possibile scaricare da un elenco di elementi di Azure marketplace che sono stati pre-verificate per l'esecuzione in Azure Stack curato. Spesso vengono aggiunti nuovi elementi a questo elenco, pertanto assicurarsi di selezionare nuovamente per il nuovo contenuto.
 
-## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Scaricare elementi del marketplace in uno scenario connesso (con connettività internet)
+## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Scaricare elementi del marketplace in uno scenario connesso (con connettività Internet)
 
 1. Per scaricare elementi del marketplace, è innanzitutto necessario [registro dello Stack di Azure con Azure](azure-stack-register.md).
-2. Accedi al portale di amministrazione di Azure Stack (https://portal.local.azurestack.external).
+2. Accedi al portale di amministrazione di Azure Stack (per ASDK, utilizzare https://portal.local.azurestack.external).
 3. Alcuni elementi del marketplace possono essere estesa. Verificare che si dispone di spazio sufficiente nel sistema, fare clic su **i provider di risorse** > **archiviazione**.
 
     ![](media/azure-stack-download-azure-marketplace-item/image01.png)
@@ -60,7 +60,7 @@ Prima di utilizzare lo strumento di diffusione marketplace, assicurarsi di aver 
 
 Dal computer con connettività internet, utilizzare la procedura seguente per scaricare gli elementi necessari marketplace:
 
-1. Aprire la console PowerShell come amministratore e [installare i moduli di PowerShell specifici di Azure Stack](azure-stack-powershell-install.md). Assicurarsi di installare **PowerShell versione 1.2.11 o versione successiva**.  
+1. Aprire la console PowerShell come amministratore e [installare i moduli di PowerShell specifici di Azure Stack](azure-stack-powershell-install.md). Assicurarsi di installare **modulo PowerShell dello Stack di Azure versione 1.2.11 o versione successiva**.  
 
 2. Aggiungere l'account di Azure che è stato utilizzato per registrare dello Stack di Azure. Per aggiungere l'account, eseguire il **Aggiungi AzureRmAccount** cmdlet senza parametri. Viene richiesto di immettere le credenziali dell'account Azure e potrebbe essere necessario utilizzare 2-factor authentication in base alla configurazione dell'account.  
 
@@ -92,7 +92,7 @@ Dal computer con connettività internet, utilizzare la procedura seguente per sc
 5. Importare il modulo di diffusione e avviare lo strumento di esecuzione dei comandi seguenti:  
 
    ```powershell
-   Import-Module .\ Syndication\AzureStack.MarketplaceSyndication.psm1
+   Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
      -destination "<Destination folder path>" `
@@ -100,21 +100,28 @@ Dal computer con connettività internet, utilizzare la procedura seguente per sc
      -AzureSubscriptionId $AzureContext.Subscription.Id  
    ```
 
-6. Quando si esegue lo strumento, viene chiesto di immettere le credenziali dell'account Azure. Accedi all'account di Azure che è stato utilizzato per registrare dello Stack di Azure. Al termine dell'account di accesso ha esito positivo, visualizzata la schermata seguente con l'elenco di elementi del marketplace disponibili.  
+6. Quando si esegue lo strumento, viene chiesto di immettere le credenziali dell'account Azure. Accedi all'account di Azure che è stato utilizzato per registrare dello Stack di Azure. Dopo che l'account di accesso ha esito positivo, è visualizzata la schermata seguente con l'elenco di elementi del marketplace disponibili.  
 
    ![Popup di elementi Azure Marketplace](./media/azure-stack-download-azure-marketplace-item/image05.png)
 
 7. Selezionare l'immagine che si desidera scaricare e prendere nota della versione dell'immagine. È possibile selezionare più immagini tenendo premuto il tasto Ctrl. Utilizzare la versione dell'immagine per importare l'immagine nella sezione successiva.  Successivamente, fare clic su **Ok**, quindi accettare i termini legali facendo clic su **Sì**. È anche possibile filtrare l'elenco delle immagini tramite il **aggiungere criteri** opzione. 
 
-   Il download richiede un certo tempo a seconda delle dimensioni dell'immagine. Una volta il download delle immagini è disponibile nel percorso di destinazione fornito in precedenza. Il download contiene gli elementi di raccolta e i file VHD nel formato Azpkg.
+   Il download richiede un certo tempo a seconda delle dimensioni dell'immagine. Una volta il download delle immagini è disponibile nel percorso di destinazione fornito in precedenza. Il download contiene un file di disco rigido virtuale (per le macchine virtuali) o un oggetto. File ZIP (per estensioni di macchina virtuale) e un elemento della raccolta nel formato Azpkg.
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>Importare l'immagine e pubblicarla in marketplace Azure Stack
+Esistono tre tipi diversi di elementi nel marketplace: le macchine virtuali, estensioni di macchine virtuali e modelli di soluzioni. Modelli di soluzioni sono descritte di seguito.
+> [!NOTE]
+> Estensioni di macchine virtuali non possono essere aggiunti allo Stack di Azure in questo momento.
 
 1. Dopo aver scaricato il pacchetto di raccolta e di immagine, salvare loro e il relativo contenuto nella cartella AzureStack-strumenti-master per un'unità disco rimovibile e copiarlo in un ambiente dello Stack di Azure (è possibile copiarlo in locale in qualsiasi posizione, ad esempio: "C:\MarketplaceImages").     
 
 2. Prima di importare l'immagine, è necessario connettersi all'ambiente dell'operatore dello Stack di Azure tramite la procedura descritta in [configurare l'ambiente di PowerShell Azure Stack operatore](azure-stack-powershell-configure-admin.md).  
 
-3. Importare l'immagine dello Stack di Azure tramite il cmdlet Add-AzsVMImage. Quando si utilizza questo cmdlet, assicurarsi di sostituire il *publisher*, *offrono*e altri valori di parametro con i valori dell'immagine che si desidera importare. È possibile ottenere il *publisher*, *offrono*, e *sku* i valori dell'immagine dall'oggetto imageReference del file Azpkg che è stato scaricato in precedenza e  *versione* valore al passaggio 6 nella sezione precedente.
+3. Se il download è incluso un piccolo file di disco rigido virtuale di 3MB denominato fixed3.vhd, è un modello di soluzione. Questo file non è necessaria; andare al passaggio 5. Assicurarsi che scaricare tutti gli elementi dipendenti come indicato nella descrizione per il download.
+
+4. Importare l'immagine dello Stack di Azure tramite il cmdlet Add-AzsVMImage. Quando si utilizza questo cmdlet, assicurarsi di sostituire il *publisher*, *offrono*e altri valori di parametro con i valori dell'immagine che si desidera importare. È possibile ottenere il *publisher*, *offrono*, e *sku* i valori dell'immagine dall'oggetto imageReference del file Azpkg che è stato scaricato in precedenza e  *versione* valore al passaggio 6 nella sezione precedente.
+
+Per trovare il imageReference, sarà necessario rinominare il file AZPKG con il. Estensione ZIP, estrarre i file in un percorso temporaneo e aprire il file DeploymentTemplates\CreateUiDefinition.json con un editor di testo. Trovare in questa sezione:
 
    ```json
    "imageReference": {
@@ -140,9 +147,9 @@ Dal computer con connettività internet, utilizzare la procedura seguente per sc
     -Location Local
    ```
 
-4. Portale di utilizzo per caricare l'elemento del Marketplace (. Azpkg) Stack archiviazione Blob di Azure. È possibile caricare in archiviazione di Azure Stack locale o caricare in archiviazione di Azure. (È un percorso temporaneo per il pacchetto). Assicurarsi che il blob è accessibile pubblicamente e prendere nota dell'URI.  
+5. Portale di utilizzo per caricare l'elemento del Marketplace (. Azpkg) Stack archiviazione Blob di Azure. È possibile caricare in archiviazione di Azure Stack locale o caricare in archiviazione di Azure. (È un percorso temporaneo per il pacchetto). Assicurarsi che il blob è accessibile pubblicamente e prendere nota dell'URI.  
 
-5. Pubblicare l'elemento del marketplace allo Stack di Azure tramite il **Aggiungi AzsGalleryItem**. Ad esempio: 
+6. Pubblicare l'elemento del marketplace allo Stack di Azure tramite il **Aggiungi AzsGalleryItem**. Ad esempio: 
 
    ```powershell
    Add-AzsGalleryItem `
@@ -150,7 +157,7 @@ Dal computer con connettività internet, utilizzare la procedura seguente per sc
      –Verbose
    ```
 
-6. Dopo l'elemento della raccolta viene pubblicato, è possibile visualizzarlo dal **New** > **Marketplace** riquadro.  
+7. Dopo l'elemento della raccolta viene pubblicato, è possibile visualizzarlo dal **New** > **Marketplace** riquadro. Se il download era un modello di soluzione, assicurarsi che anche scaricato l'immagine VHD dipendenti.
 
    ![Marketplace](./media/azure-stack-download-azure-marketplace-item/image06.png)
 

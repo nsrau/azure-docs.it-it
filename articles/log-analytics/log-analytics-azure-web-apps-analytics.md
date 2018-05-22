@@ -12,17 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: b70b626ca618fbfb7cbe25a4fcbc9aae797ce157
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7b83b9de08d024b91ca7008a4f0bf970e8d00688
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visualizzare i dati di analisi per le metriche di tutte le risorse app Web di Azure
 
-![Simbolo di App Web](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
+![Simbolo di app Web](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
+
+> [!NOTE]
+> La soluzione Analisi app Web di Azure è stata deprecata.  I clienti che hanno già installato la soluzione possono continuare a usarla, ma Analisi app Web di Azure non potrà essere aggiunto alle nuove aree di lavoro.
+
 La soluzione Analisi app Web di Azure (anteprima) fornisce informazioni dettagliate su [App Web di Azure](../app-service/app-service-web-overview.md), raccogliendo metriche diverse in tutte le risorse app Web di Azure. Con questa soluzione, è possibile analizzare e cercare i dati relativi alle metriche delle risorse app Web.
 
 La soluzione consente di visualizzare:
@@ -53,7 +57,7 @@ A differenza della maggior parte delle altre soluzioni di Log Analytics, i dati 
 Seguire questa procedura per configurare la soluzione Analisi app Web di Azure per le aree di lavoro.
 
 1. Abilitare la soluzione Analisi app Web di Azure da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di gestione di Log Analytics di Azure all'area di lavoro](log-analytics-add-solutions.md).
-2. [Abilitare la registrazione delle metriche delle risorse di Azure in OMS tramite PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
+2. [Abilitare la registrazione delle metriche delle risorse di Azure in Log Analytics tramite PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
 
 La soluzione Analisi app Web di Azure raccoglie due set di metriche da Azure:
 
@@ -73,10 +77,6 @@ La soluzione Analisi app Web di Azure raccoglie due set di metriche da Azure:
   - Percentuale memoria
 
 Le metriche del piano di servizio app vengono raccolte solo se si usa un piano di servizio dedicato. Ciò non si applica ai piani di servizio app gratuiti o condivisi.
-
-Se si aggiunge la soluzione usando il portale di OMS, verrà visualizzato il riquadro seguente. È necessario [abilitare la registrazione delle metriche delle risorse di Azure in OMS tramite PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
-
-![Notifica di esecuzione della valutazione](./media/log-analytics-azure-web-apps-analytics/performing-assessment.png)
 
 Dopo aver configurato la soluzione, il flusso di dati nell'area di lavoro deve iniziare entro 15 minuti.
 

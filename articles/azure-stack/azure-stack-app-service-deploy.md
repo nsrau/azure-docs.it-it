@@ -12,20 +12,20 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 330b8015bdddbbcf27e4325b97e8b734c4d98d12
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9554309522e4a1e60fd3599b9a19bcf9cf4bbefb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App di Azure Stack
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Applicare l'aggiornamento 1802 al sistema Azure Stack integrato o distribuire il kit di sviluppo dello Stack di Azure più recente prima di distribuire il servizio App di Azure.
+> Applicare l'aggiornamento 1804 al sistema Azure Stack integrato o distribuire il kit di sviluppo dello Stack di Azure più recente prima di distribuire Azure App Service 1.2.
 >
 >
 
@@ -70,7 +70,7 @@ Per distribuire il provider di risorse di servizio App, seguire questi passaggi:
 
     ![Programma di installazione del servizio App][3]
 
-4. È ora possibile distribuire in una rete virtuale esistente, come configurato tramite la procedura [qui](azure-stack-app-service-before-you-get-started.md#virtual-network), o consentire l'installazione di servizio App creare una rete virtuale e subnet associate.
+7. È ora possibile distribuire in una rete virtuale esistente, come configurato tramite la procedura [qui](azure-stack-app-service-before-you-get-started.md#virtual-network), o consentire l'installazione di servizio App creare una rete virtuale e subnet associate.
     1. Selezionare **crea rete virtuale con le impostazioni predefinite**, accettare le impostazioni predefinite e fare clic su **Avanti**, o;
     2. Selezionare **usare rete virtuale esistente e le subnet**.
         1. Selezionare il **gruppo di risorse** che contiene la rete virtuale.
@@ -80,7 +80,7 @@ Per distribuire il provider di risorse di servizio App, seguire questi passaggi:
 
     ![Programma di installazione del servizio App][4]
 
-7. Immettere le informazioni per la condivisione di file e quindi fare clic su **Avanti**. L'indirizzo della condivisione file è necessario utilizzare il nome di dominio completo o indirizzo IP del Server. Ad esempio, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites.
+8. Immettere le informazioni per la condivisione di file e quindi fare clic su **Avanti**. L'indirizzo della condivisione file è necessario utilizzare il nome di dominio completo o indirizzo IP del Server. Ad esempio, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites.
 
    > [!NOTE]
    > Il programma di installazione tenta di verificare la connettività per la condivisione file prima di procedere.  Tuttavia se si è scelto di distribuire in una rete virtuale esistente, il programma di installazione potrebbe non essere in grado di connettersi per la condivisione file e viene visualizzato un avviso che chiede se desideri continuare.  Verificare le informazioni sulla condivisione file e continuare se sono corrette.
@@ -89,7 +89,7 @@ Per distribuire il provider di risorse di servizio App, seguire questi passaggi:
 
    ![Programma di installazione del servizio App][7]
 
-8. Nella pagina successiva:
+9. Nella pagina successiva:
     1. Nel **ID applicazione identità** , immettere il GUID per l'applicazione in uso per l'identità (da Azure AD).
     2. Nel **file di certificato di identità applicazione** casella, immettere (o passare a) il percorso del file di certificato.
     3. Nel **password certificato di identità applicazione** , immettere la password per il certificato. Questa password è quello che si sia preso nota quando si usa lo script per creare i certificati.
@@ -98,7 +98,7 @@ Per distribuire il provider di risorse di servizio App, seguire questi passaggi:
 
     ![Programma di installazione del servizio App][9]
 
-9. Per ognuna delle tre caselle di file del certificato, fare clic su **Sfoglia** e passare al file di certificato appropriato. È necessario fornire la password per ogni certificato. Questi certificati sono quelli creati nel [passaggio di creazione certificati richiesti](azure-stack-app-service-before-you-get-started.md#get-certificates). Fare clic su **Avanti** dopo aver immesso tutte le informazioni.
+10. Per ognuna delle tre caselle di file del certificato, fare clic su **Sfoglia** e passare al file di certificato appropriato. È necessario fornire la password per ogni certificato. Questi certificati sono quelli creati nel [passaggio di creazione certificati richiesti](azure-stack-app-service-before-you-get-started.md#get-certificates). Fare clic su **Avanti** dopo aver immesso tutte le informazioni.
 
     | Box | Esempio di nome file di certificato |
     | --- | --- |
@@ -110,7 +110,7 @@ Per distribuire il provider di risorse di servizio App, seguire questi passaggi:
 
     ![Programma di installazione del servizio App][10]
 
-10. Immettere i dettagli di SQL Server per l'istanza del server utilizzato per ospitare i database di provider di risorse di servizio App e quindi fare clic su **Avanti**. Il programma di installazione convalida le proprietà di connessione SQL.
+11. Immettere i dettagli di SQL Server per l'istanza del server utilizzato per ospitare i database di provider di risorse di servizio App e quindi fare clic su **Avanti**. Il programma di installazione convalida le proprietà di connessione SQL.
 
     > [!NOTE]
     > Il programma di installazione tenta di verificare la connettività a SQl Server prima di procedere.  Tuttavia se si è scelto di distribuire in una rete virtuale esistente, il programma di installazione potrebbe non essere in grado di connettersi a SQL Server e viene visualizzato un avviso che chiede se desideri continuare.  Verificare le informazioni di SQL Server e continuare se sono corrette.
@@ -119,7 +119,7 @@ Per distribuire il provider di risorse di servizio App, seguire questi passaggi:
 
     ![Programma di installazione del servizio App][11]
 
-11. Esaminare le opzioni di SKU e l'istanza del ruolo. Il numero minimo di istanza e lo SKU minima per ogni ruolo in una distribuzione ASDK inserire i valori predefiniti. Viene fornito un riepilogo dei requisiti di memoria e CPU virtuali per la pianificazione della distribuzione. Dopo aver effettuato le selezioni, fare clic su **Avanti**.
+12. Esaminare le opzioni di SKU e l'istanza del ruolo. Il numero minimo di istanza e lo SKU minima per ogni ruolo in una distribuzione ASDK inserire i valori predefiniti. Viene fornito un riepilogo dei requisiti di memoria e CPU virtuali per la pianificazione della distribuzione. Dopo aver effettuato le selezioni, fare clic su **Avanti**.
 
     > [!NOTE]
     > Per le distribuzioni di produzione, le istruzioni disponibili in [pianificazione della capacità di ruoli del server di servizio App di Azure in Azure Stack](azure-stack-app-service-capacity-planning.md).
@@ -139,23 +139,23 @@ Per distribuire il provider di risorse di servizio App, seguire questi passaggi:
     > [!NOTE]
     > **Windows Server 2016 Core non è un'immagine di piattaforma supportata per l'utilizzo con il servizio App di Azure nello Stack di Azure.  Non utilizzare le immagini di valutazione per le distribuzioni di produzione.**
 
-12. Nel **selezionare immagine della piattaforma** selezionare l'immagine di macchina virtuale di distribuzione Windows Server 2016 le immagini disponibili nel provider di risorse di calcolo per il cloud di servizio App. Fare clic su **Avanti**.
+13. Nel **selezionare immagine della piattaforma** selezionare l'immagine di macchina virtuale di distribuzione Windows Server 2016 le immagini disponibili nel provider di risorse di calcolo per il cloud di servizio App. Fare clic su **Avanti**.
 
-13. Nella pagina successiva:
+14. Nella pagina successiva:
      1. Immettere il nome utente amministratore della macchina virtuale ruolo di lavoro e la password.
      2. Immettere il nome utente amministratore di altri ruoli macchina virtuale e la password.
      3. Fare clic su **Avanti**.
 
     ![Programma di installazione del servizio App][15]    
 
-14. Nella pagina di riepilogo:
+15. Nella pagina di riepilogo:
     1. Verificare le selezioni effettuate. Per apportare modifiche, utilizzare il **precedente** pulsanti a visitare pagine precedenti.
     2. Se le configurazioni sono corrette, selezionare la casella di controllo.
     3. Per avviare la distribuzione, fare clic su **Avanti**.
 
     ![Programma di installazione del servizio App][16]
 
-15. Nella pagina successiva:
+16. Nella pagina successiva:
     1. Tenere traccia dello stato di installazione. Servizio App nello Stack di Azure richiede circa 60 minuti per distribuire in base alle selezioni impostazione predefinita.
     2. Una volta completato correttamente il programma di installazione, fare clic su **uscita**.
 

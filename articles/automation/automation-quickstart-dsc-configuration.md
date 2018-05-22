@@ -2,6 +2,8 @@
 title: Guida introduttiva di Azure - Configurare una VM con DSC | Microsoft Docs
 description: Configurare uno stack LAMP in una macchina virtuale Linux con Desired State Configuration
 services: automation
+ms.service: automation
+ms.component: dsc
 keywords: dsc, configurazione, automazione
 author: KrisBash
 ms.author: krbash
@@ -9,11 +11,11 @@ ms.date: 12/17/2017
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7f35acc0d8d553a3f5d1576ae18cbafd1dcbb225
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurare una macchina virtuale Linux con Desired State Configuration
 
@@ -123,7 +125,7 @@ Si può assegnare una *configurazione del nodo* compilata ai nodi DSC. L'assegna
 1. Nel riquadro sinistro dell'account di Automazione selezionare **Nodi DSC**
 1. Selezionare il nodo a cui si vuole assegnare una configurazione
 1. Fare clic su **Assegna configurazione nodo**
-1. Selezionare la *configurazione del nodo* - **LAMPServer.localhost**, da assegnare e fare clic su **OK**
+1. Selezionare la *configurazione del nodo* -  **LAMPServer.localhost**, da assegnare e fare clic su **OK**
 1. La configurazione compilata è ora assegnata al nodo e lo stato del nodo viene impostato su *In sospeso*. Durante il successivo controllo periodico, il nodo recupera la configurazione, la applica e segnala lo stato. A seconda delle impostazioni, il nodo può impiegare fino a 30 minuti per recuperare la configurazione. Per forzare un controllo immediato, è possibile eseguire il comando seguente in locale sulla macchina virtuale Linux: `sudo /opt/microsoft/dsc/Scripts/PerformRequiredConfigurationChecks.py`
 
 ![Assegnazione di una configurazione del nodo](./media/automation-quickstart-dsc-configuration/dsc-assign-node-configuration.png)

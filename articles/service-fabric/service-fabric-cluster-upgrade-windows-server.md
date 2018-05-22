@@ -1,24 +1,24 @@
 ---
 title: Aggiornare un cluster autonomo di Azure Service Fabric in Windows Server | Microsoft Docs
-description: "Aggiornare il codice di Azure Service Fabric e/o della configurazione che esegue un cluster autonomo di Service Fabric e impostare la modalità di aggiornamento del cluster."
+description: Aggiornare il codice di Azure Service Fabric e/o della configurazione che esegue un cluster autonomo di Service Fabric e impostare la modalità di aggiornamento del cluster.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: c95c1827d0433dcb61eace34e7a905a5610c7781
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 20526c1ddd55671f815dc39b3e03c4f9b2f91788
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Aggiornare il cluster autonomo di Azure Service Fabric in Windows Server 
 > [!div class="op_single_selector"]
@@ -120,7 +120,7 @@ Modificare la configurazione del cluster per impostare la proprietà seguente su
 
         "fabricClusterAutoupgradeEnabled": false,
 
-Per informazioni dettagliate sull'utilizzo, vedere il [comando di PowerShell Start-ServiceFabricClusterConfigurationUpgrade](https://msdn.microsoft.com/en-us/library/mt788302.aspx). Prima di avviare l'aggiornamento della configurazione, verificare di aggiornare "clusterConfigurationVersion" nel file JSON.
+Per informazioni dettagliate sull'utilizzo, vedere il [comando di PowerShell Start-ServiceFabricClusterConfigurationUpgrade](https://msdn.microsoft.com/library/mt788302.aspx). Prima di avviare l'aggiornamento della configurazione, verificare di aggiornare "clusterConfigurationVersion" nel file JSON.
 
 ```powershell
 

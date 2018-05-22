@@ -1,29 +1,29 @@
 ---
-title: "Concetti fondamentali sulla gestione delle identità di Azure"
-description: "Le identità basate sul cloud rappresentano il modo migliore per mantenere il controllo e la visibilità sulle modalità e sui tempi di accesso ai dati e alle applicazioni aziendali da parte degli utenti."
-keywords: 
+title: Concetti fondamentali sulla gestione delle identità di Azure
+description: Le identità basate sul cloud rappresentano il modo migliore per mantenere il controllo e la visibilità sulle modalità e sui tempi di accesso ai dati e alle applicazioni aziendali da parte degli utenti.
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewr: jsnow
 ms.author: jeffgilb
 ms.date: 07/05/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: a7eb669aac109ae8cde6d75129004d322c270651
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 7c00ccf214cfd683d04a76cc3cfad9bd27080561
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Concetti fondamentali sulla gestione delle identità di Azure
 
 Un numero crescente di risorse digitali aziendali si trova oggi all'esterno delle reti aziendali, nel cloud e nei dispositivi. Per questo motivo, una soluzione efficace di gestione degli accessi e delle identità, basata sul cloud è diventata imprescindibile. Le identità basate sul cloud rappresentano il modo migliore per mantenere il controllo e la visibilità sulle modalità e sui tempi di accesso ai dati e alle applicazioni aziendali da parte degli utenti.
 
-Microsoft protegge le identità basate sul cloud da oltre dieci anni. Con [Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/active-directory-editions), questi stessi sistemi di protezione sono ora a disposizione dei clienti aziendali. Azure AD permette agli amministratori dell'organizzazione di assicurare facilmente la responsabilità di utenti e amministratori, migliorando notevolmente la sicurezza e la governance.
+Microsoft protegge le identità basate sul cloud da oltre dieci anni. Con [Azure Active Directory (AD)](active-directory-whatis.md), questi stessi sistemi di protezione sono ora a disposizione dei clienti aziendali. Azure AD permette agli amministratori dell'organizzazione di assicurare facilmente la responsabilità di utenti e amministratori, migliorando notevolmente la sicurezza e la governance.
 
 Azure AD Premium è una soluzione di gestione degli accessi e delle identità basata sul cloud con funzionalità di protezione avanzate che offre un'unica identità sicura per tutte le applicazioni, protezione delle identità migliorata dal [Graph di security intelligence di Microsoft](https://www.microsoft.com/en-us/security/intelligence) e Privileged Identity Management. Non si tratta di un semplice strumento di monitoraggio o reporting. Azure AD Premium può proteggere le identità degli utenti in tempo reale e permette di creare criteri di accesso adattivi basati sui rischi per proteggere i dati dell'organizzazione.
 

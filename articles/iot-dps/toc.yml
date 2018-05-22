@@ -135,8 +135,8 @@
           href: /azure/iot-hub
         - name: Servizio Device Provisioning in hub IoT
           href: /azure/iot-dps
-        - name: Servizi Location Based
-          href: /azure/location-based-services
+        - name: Mappe
+          href: /azure/azure-maps
         - name: SDK per servizi
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Time Series Insights
@@ -155,6 +155,8 @@
       href: 'https://catalog.azureiotsuite.com/'
     - name: Centro per sviluppatori Azure IoT
       href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Richieste di dati del cliente
+      href: iot-dps-customer-data-requests.md
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Strumento Device Explorer

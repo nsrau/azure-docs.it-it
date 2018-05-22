@@ -3,19 +3,19 @@ title: Guida introduttiva - Cluster Kubernetes Azure per Linux
 description: Informazioni per creare rapidamente un cluster Kubernetes per contenitori Linux nel servizio contenitore di Azure con l'interfaccia della riga di comando di Azure.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 03/14/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 2748b078586c27a7625c8e48172048d7a574a4d7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3bcdd4ba935b0fe9fe891503999c907aa1667abd
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>Avvio rapido: Distribuire un cluster del servizio contenitore di Azure (AKS)
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guida introduttiva: distribuire un cluster di Azure Kubernetes Service (AKS)
 
 In questa guida introduttiva viene distribuito un cluster del servizio contenitore di Azure usando l'interfaccia della riga di comando di Azure. Un'applicazione multi-contenitore costituita dal front-end Web e da un'istanza di Redis viene quindi eseguita nel cluster. Al termine, l'applicazione è accessibile tramite Internet.
 
@@ -108,9 +108,9 @@ k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
-Un file manifesto di Kubernetes definisce uno stato desiderato per il cluster, incluse le immagini del contenitore da eseguire. Per questo esempio, viene usato un manifesto per creare tutti gli oggetti necessari per eseguire l'applicazione Azure Vote. L'immagine fornita è un'applicazione di esempio, ma è possibile leggere informazioni sulla [creazione di un'immagine](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app) e sulla [distribuzione nel Registro contenitori di Azure](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-acr) per l'uso di un'immagine personalizzata.
+Un file manifesto di Kubernetes definisce uno stato desiderato per il cluster, incluse le immagini del contenitore da eseguire. Per questo esempio, viene usato un manifesto per creare tutti gli oggetti necessari per eseguire l'applicazione Azure Vote. Sono incluse due [distribuzioni di Kubernetes][kubernetes-deployment], una per applicazioni Azure Vote Python e l'altra per un'istanza Redis. Vengono anche creati due [servizi di Kubernetes][kubernetes-service], un servizio interno per l'istanza Redis e un servizio esterno per l'accesso all'applicazione Azure Vote da Internet.
 
-Creare un file denominato `azure-vote.yaml` e copiarvi il codice YAML seguente. Se si usa Azure Cloud Shell, questo file può essere creato usando vi o Nano come se si usasse un sistema virtuale o fisico. Se si lavora in locale, è possibile usare Visual Studio Code per creare questo file tramite l'esecuzione di `code azure-vote.yaml`.
+Creare un file denominato `azure-vote.yaml` e copiarvi il codice YAML seguente. Se si usa Azure Cloud Shell, questo file può essere creato usando vi o Nano come se si usasse un sistema virtuale o fisico.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -173,10 +173,10 @@ spec:
     app: azure-vote-front
 ```
 
-Usare il comando [kubectl create][kubectl-create] per eseguire l'applicazione.
+Usare il comando [kubectl apply][kubectl-apply] per eseguire l'applicazione.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl apply -f azure-vote.yaml
 ```
 
 Output:
@@ -211,13 +211,13 @@ Dopo il passaggio di *EXTERNAL-IP* da *pending* a un *indirizzo IP*, usare `CTRL
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-È ora possibile passare all'indirizzo IP esterno per visualizzare l'app Azure Vote.
+Passare ora all'indirizzo IP esterno per visualizzare l'app Azure Vote.
 
 ![Immagine del passaggio ad Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Eliminare il cluster
 
-Quando il cluster non è più necessario, è possibile usare il comando [az group delete][az-group-delete] per rimuovere il gruppo di risorse, il servizio contenitore e tutte le risorse correlate.
+Quando il cluster non è più necessario, usare il comando [az group delete][az-group-delete] per rimuovere il gruppo di risorse, il servizio contenitore e tutte le risorse correlate.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -241,9 +241,10 @@ Per altre informazioni sul servizio contenitore di Azure e l'analisi del codice 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->

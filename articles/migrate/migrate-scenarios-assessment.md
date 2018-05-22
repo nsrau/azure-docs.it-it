@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 04/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 33e31c47a6125ac363410a9a78e9c9310c74d51e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fb102cc43c6e1d17afaa78a2833ae447600a96af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>Scenario 1: Valutare i carichi di lavoro locali per la migrazione ad Azure
 
 Prendendo in considerazione la migrazione ad Azure, Contoso vuole eseguire una valutazione tecnica e finanziaria per determinare se i carichi di lavoro locali dell'azienda sono idonei per la migrazione al cloud. In particolare, l'azienda vuole valutare la compatibilità di computer e database ai fini della migrazione e stimare la capacità e i costi per l'esecuzione delle risorse in Azure.
 
-Per acquisire familiarità e conoscere meglio le tecnologie coinvolte, l'azienda esegue la valutazione e la migrazione di una piccola app di viaggio locale. È un'app a due livelli, con un'app Web in esecuzione in una VM e un database di SQL Server in una seconda VM. L'applicazione viene distribuita in VMware e l'ambiente è gestito da un server vCenter. La valutazione verrà eseguita usando Data Migration Assistant (DMA) e il servizio Azure Migrate.
+Per acquisire familiarità e conoscere meglio le tecnologie coinvolte, l'azienda esegue la valutazione e la migrazione di una piccola app di viaggio locale. È un'app a due livelli, con un'app Web in esecuzione in una VM e un database di SQL Server in una seconda VM. L'applicazione viene distribuita in VMware e l'ambiente è gestito da un server vCenter. La valutazione verrà eseguita usando Data Migration Assistant (DMA) e il servizio Azure Migrate. Se si desidera provare questo scenario usando l'app di viaggio illustrativa, è possibile scaricarla da [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 **Technology** | **Descrizione** | **Costii**
 --- | --- | ---
@@ -33,11 +33,11 @@ In questo scenario, verrà scaricato ed eseguito DMA per valutare il database di
 
 ## <a name="architecture"></a>Architecture
 
-Elementi configurati in questo scenario 
 
- ![Architettura per la valutazione della migrazione](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
+![Architettura per la valutazione della migrazione](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
 
 In questo scenario:
+- Contoso è un nome fittizio che rappresenta una tipica organizzazione aziendale. Contoso desidera valutare ed eseguire la migrazione della propria app di viaggio locale su due livelli.
 - Contoso ha un data center locale (**contoso-datacenter**) con un controller di dominio locale (**contosodc1**).
 - L'app di viaggio interna è suddivisa in livelli in due VM, **WEBVM** e **SQLVM**, e risiede nell'host VMware ESXi **contosohost1.contoso.com**.
 - L'ambiente VMware è gestito da un server vCenter (**vcenter.contoso.com**) in esecuzione in una VM.
@@ -489,7 +489,7 @@ In questo scenario:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Passare allo scenario successivo, per eseguire una migrazione in modalità lift-and-shift delle VM locali ad Azure.
+Passare allo scenario successivo, per eseguire una [migrazione in modalità lift-and-shift](migrate-scenarios-lift-and-shift.md) delle macchine virtuali e del database locali ad Azure.
 
 
 

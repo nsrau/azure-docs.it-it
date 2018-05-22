@@ -4,7 +4,7 @@ description: Questo articolo fornisce un set di elenchi di controllo per la sicu
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c03e8bcfe3b874e3897d3c2d94f42d10d64d7af5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ae8f2393b6965cc2fc78a297ea79e1170acc011f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-operational-security-checklist"></a>Elenco di controllo per la sicurezza operativa di Azure
 La distribuzione di un'applicazione in Azure è rapida, semplice ed economica. Prima di distribuire l'applicazione cloud nell'ambiente di produzione è utile disporre di un elenco di controllo per facilitare la valutazione dell'applicazione in un elenco di azioni di sicurezza operative essenziali e consigliate da prendere in considerazione.

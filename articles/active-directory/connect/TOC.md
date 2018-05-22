@@ -29,7 +29,11 @@
 ## [Gestire Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Rinnovare i certificati per Office 365 e Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Aggiornare il certificato SSL per una farm Active Directory Federation Services (AD FS)](active-directory-aadconnectfed-ssl-update.md)
-### [Abilitare il writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md)
+
+### [Opzioni del dispositivo](active-directory-azure-ad-connect-device-options.md)
+#### [Abilitare il writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md)
+#### [Attività post-configurazione per l'aggiunta ad Azure AD ibrido](active-directory-azure-ad-connect-hybrid-azure-ad-join-post-config-tasks.md)
+
 ### [Opzioni di accesso utente](active-directory-aadconnect-user-signin.md)
 #### [Seamless Single Sign-On](active-directory-aadconnect-sso.md)
 ##### [Avvio rapido](active-directory-aadconnect-sso-quick-start.md)
@@ -83,7 +87,8 @@
 
 
 ## Risolvere problemi
-### [Connettività](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [Connettività di Azure AD con Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [Connettività SQL](active-directory-aadconnect-tshoot-sql-connectivity.md)
 ### [Errori durante la sincronizzazione](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Oggetto non sincronizzato](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Sincronizzazione di oggetti tramite le attività di risoluzione dei problemi](active-directory-aadconnect-troubleshoot-objectsync.md)

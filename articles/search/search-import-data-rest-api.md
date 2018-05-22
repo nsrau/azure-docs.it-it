@@ -8,12 +8,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 12/08/2016
-ms.openlocfilehash: b622cffad66dc5d09df2d737bf2c1d30543a4252
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/20/2018
+ms.openlocfilehash: 53b20c9db7efe1f8876eec7c0167dc151aa38786
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Caricare dati in Ricerca di Azure tramite l'API REST
 > [!div class="op_single_selector"]
@@ -60,9 +60,9 @@ Ogni oggetto JSON nella matrice "value" rappresenta un documento da indicizzare.
 Ora che sono stati raccolti i valori dei campi necessari per le operazioni sull'indice, si è pronti per creare la richiesta HTTP effettiva e il corpo della richiesta JSON per importare i dati.
 
 #### <a name="request-and-request-headers"></a>Richiesta e intestazioni della richiesta
-Nell'URL è necessario fornire il nome del servizio, il nome dell'indice, in questo caso "hotels", nonché la versione corretta dell'API. Al momento della pubblicazione di questo documento la versione dell'API corrente è `2016-09-01`. È necessario definire le intestazioni della richiesta `Content-Type` e `api-key`. Nel secondo caso, usare una delle chiavi amministratore del servizio.
+Nell'URL è necessario fornire il nome del servizio, il nome dell'indice, in questo caso "hotels", nonché la versione corretta dell'API. Al momento della pubblicazione di questo documento la versione dell'API corrente è `2017-11-11`. È necessario definire le intestazioni della richiesta `Content-Type` e `api-key`. Nel secondo caso, usare una delle chiavi amministratore del servizio.
 
-    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
+    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

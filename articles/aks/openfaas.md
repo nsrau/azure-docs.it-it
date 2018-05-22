@@ -1,30 +1,30 @@
 ---
-title: Usare OpenFaaS con il servizio contenitore di Azure (AKS)
-description: Distribuire e usare OpenFaaS con il servizio contenitore di Azure (AKS)
+title: Usare OpenFaaS con Azure Kubernetes Service (AKS)
+description: Distribuire e usare OpenFaaS con Azure Kubernetes Service (AKS)
 services: container-service
 author: justindavies
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: d531bb40421716bf9fb3c253a3e76207b2806912
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e26f1c298b05153736edd2b2efd0f1b27162bc3d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="using-openfaas-on-aks"></a>Uso di OpenFaaS in AKS
 
-[OpenFaaS][open-faas] è un framework per la compilazione di funzioni senza server su contenitori. Il fatto che si tratta di un progetto Open Source ne ha favorito l'adozione su larga scala all'interno della community. Questo documento descrive l'installazione l'uso di OpenFaaS in un cluster del servizio contenitore di Azure (AKS).
+[OpenFaaS][open-faas] è un framework per la compilazione di funzioni senza server su contenitori. Il fatto che si tratta di un progetto Open Source ne ha favorito l'adozione su larga scala all'interno della community. Questo documento descrive l'installazione e l'uso di OpenFaaS in un cluster Azure Kubernetes Service (AKS).
 
 ## <a name="prerequisites"></a>prerequisiti
 
 Per completare la procedura descritta in questo articolo è necessario quanto segue.
 
 * Conoscenza di base di Kubernetes.
-* Un cluster del servizio contenitore di Azure (AKS) e le credenziali di AKS configurate nel sistema di sviluppo.
+* Un cluster Azure Kubernetes Service (AKS) e le credenziali di AKS configurate nel sistema di sviluppo.
 * Avere l'interfaccia della riga di comando di Azure installata nel sistema di sviluppo.
 * Strumenti da riga di comando di GIT installati nel sistema.
 
@@ -39,7 +39,7 @@ git clone https://github.com/openfaas/faas-netes
 Passare alla directory del repository clonato.
 
 ```azurecli-interactive
-cd faas-netes 
+cd faas-netes
 ```
 
 ## <a name="deploy-openfaas"></a>Distribuire OpenFaaS
@@ -54,7 +54,7 @@ kubectl create namespace openfaas
 
 Creare un secondo spazio dei nomi per le funzioni di OpenFaaS.
 
-```azurecli-interactive 
+```azurecli-interactive
 kubectl create namespace openfaas-fn
 ```
 
@@ -64,7 +64,7 @@ Il repository clonato include un grafico Helm per OpenFaaS. Usare questo grafico
 helm install --namespace openfaas -n openfaas \
   --set functionNamespace=openfaas-fn, \
   --set serviceType=LoadBalancer, \
-  --set rbac=false chart/openfaas/ 
+  --set rbac=false chart/openfaas/
 ```
 
 Output:
@@ -95,7 +95,7 @@ Viene creato un indirizzo IP pubblico per l'accesso al gateway OpenFaaS. Per rec
 kubectl get service -l component=gateway --namespace openfaas
 ```
 
-Output: 
+Output:
 
 ```console
 NAME               TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)          AGE
@@ -130,8 +130,8 @@ curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 Output:
 
 ```console
- _   _      _ _            _                        
-| | | | ___| | | ___      / \    _____   _ _ __ ___ 
+ _   _      _ _            _
+| | | | ___| | | ___      / \    _____   _ _ __ ___
 | |_| |/ _ \ | |/ _ \    / _ \  |_  / | | | '__/ _ \
 |  _  |  __/ | | (_) |  / ___ \  / /| |_| | | |  __/
 |_| |_|\___|_|_|\___/  /_/   \_\/___|\__,_|_|  \___|
@@ -140,7 +140,7 @@ Output:
 
 ## <a name="create-second-function"></a>Creare la seconda funzione
 
-Ora creare una seconda funzione. Questo esempio verrà distribuito mediante l'interfaccia della riga di comando di OpenFaaS e include un'immagine del contenitore personalizzata e il recupero dei dati da un database Cosmos DB. Prima di creare la funzione occorre configurare diversi elementi. 
+Ora creare una seconda funzione. Questo esempio verrà distribuito mediante l'interfaccia della riga di comando di OpenFaaS e include un'immagine del contenitore personalizzata e il recupero dei dati da un database Cosmos DB. Prima di creare la funzione occorre configurare diversi elementi.
 
 Prima di tutto, creare un nuovo gruppo di risorse per il database Cosmos DB.
 
@@ -148,13 +148,13 @@ Prima di tutto, creare un nuovo gruppo di risorse per il database Cosmos DB.
 az group create --name serverless-backing --location eastus
 ```
 
-Distribuire un'istanza di Cosmos DB di tipo `MongoDB`. Per l'istanza è necessario un nome univoco, aggiornare `openfaas-cosmos` in un valore univoco per l'ambiente. 
+Distribuire un'istanza di Cosmos DB di tipo `MongoDB`. Per l'istanza è necessario un nome univoco, aggiornare `openfaas-cosmos` in un valore univoco per l'ambiente.
 
 ```azurecli-interactive
 az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos --kind MongoDB
 ```
 
-Ottenere la stringa di connessione al database Cosmos DB e archiviarla in una variabile. 
+Ottenere la stringa di connessione al database Cosmos DB e archiviarla in una variabile.
 
 Aggiornare il valore per l'argomento `--resource-group` con il nome del gruppo di risorse e l'argomento `--name` con il nome del database Cosmos DB.
 
@@ -180,7 +180,7 @@ Popolare il database Cosmos DB con dati di test. Creare un file denominato `plan
 }
 ```
 
-Usare lo strumento *mongoimport* per caricare i dati nell'istanza di Cosmos DB. 
+Usare lo strumento *mongoimport* per caricare i dati nell'istanza di Cosmos DB.
 
 Se necessario, installare gli strumenti MongoDB. L'esempio seguente illustra come installare questi strumenti usando brew, per altre opzioni vedere la [documentazione di MongoDB][install-mongo].
 
@@ -232,7 +232,7 @@ Output:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-La distribuzione predefinita di OpenFaaS deve essere bloccata, sia per quanto riguarda il gateway OpenFaaS, sia per le funzioni. [Questo post di blog di Alex Ellis](https://blog.alexellis.io/lock-down-openfaas/) contiene informazioni dettagliate sulle opzioni di configurazione sicura. 
+La distribuzione predefinita di OpenFaaS deve essere bloccata, sia per quanto riguarda il gateway OpenFaaS, sia per le funzioni. [Questo post di blog di Alex Ellis](https://blog.alexellis.io/lock-down-openfaas/) contiene informazioni dettagliate sulle opzioni di configurazione sicura.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/

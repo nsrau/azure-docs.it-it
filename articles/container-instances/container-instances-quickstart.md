@@ -3,17 +3,17 @@ title: Avvio rapido - Creare il primo contenitore di 	Istanze di contenitore di 
 description: In questa guida introduttiva si userà l'interfaccia della riga di comando di Azure per distribuire un contenitore in Istanze di contenitore di Azure
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: b85c38bb561e4f1dc9a0545595590719ce1883e4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b68468cd8174d658d04d8e67433a8f18884493bd
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Guida introduttiva: Creare il primo contenitore in Istanze di contenitore di Azure
 
@@ -64,19 +64,21 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Una volta che il contenitore passa allo stato **Completato**, è possibile passare al contenitore nel browser tramite il relativo FQDN:
+Quando il contenitore passa allo stato **Completato**, passare al relativo FQDN nel browser:
 
 ![Screenshot del browser che mostra l'applicazione in esecuzione in un'istanza di contenitore di Azure][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>Effettuare il pull dei log del contenitore
 
-È possibile effettuare il pull dei log per il contenitore creato usando il comando [az container logs][az-container-logs]:
+La visualizzazione dei log per un'istanza di contenitore è utile per risolvere i problemi con il contenitore o l'applicazione eseguita.
+
+Effettuare il pull dei log del contenitore con il comando [az container logs][az-container-logs]:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-L'output dovrebbe essere simile al seguente:
+L'output visualizza i log per il contenitore e dovrebbe mostrare le richieste HTTP GET generate quando l'applicazione è stata visualizzata nel browser.
 
 ```console
 $ az container logs --resource-group myResourceGroup -n mycontainer
@@ -113,9 +115,9 @@ listening on port 80
 ::ffff:10.240.255.107 - - [15/Mar/2018:21:18:47 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
 ```
 
-## <a name="delete-the-container"></a>Eliminare il contenitore
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando il contenitore non è più necessario, è possibile rimuoverlo usando il comando [az container delete][az-container-delete]:
+Quando il contenitore non è più necessario, rimuoverlo usando il comando [az container delete][az-container-delete]:
 
 ```azurecli-interactive
 az container delete --resource-group myResourceGroup --name mycontainer
@@ -131,19 +133,19 @@ Il contenitore **mycontainer** non deve essere visualizzato nell'output del coma
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Tutto il codice per il contenitore usato in questo avvio rapido è disponibile [in GitHub][app-github-repo], con il relativo documento Dockerfile. Per provare a compilarlo personalmente e a distribuirlo in Istanze di contenitore di Azure usando il Registro contenitori di Azure, passare all'esercitazione su Istanze di contenitore di Azure.
+In questa guida introduttiva è stata creata un'istanza di contenitore di Azure da un'immagine nel registro nell'hub Docker pubblico. Per provare a creare personalmente un'immagine del contenitore e a distribuirla in Istanze di contenitore di Azure da un registro contenitori di Azure privato, passare all'esercitazione su Istanze di contenitore di Azure.
 
 > [!div class="nextstepaction"]
-> [Esercitazioni su Istanze di contenitore di Azure](./container-instances-tutorial-prepare-app.md)
+> [Esercitazione su Istanze di contenitore di Azure](./container-instances-tutorial-prepare-app.md)
 
-Per provare le opzioni per l'esecuzione di contenitori in un sistema di orchestrazione in Azure, vedere la guida introduttiva di [Service Fabric] [ service-fabric] o del [servizio contenitore di Azure] [ container-service].
+Per provare le opzioni per l'esecuzione di contenitori in un sistema di orchestrazione in Azure, vedere la guida introduttiva per [Service Fabric][service-fabric] o [Azure Kubernetes Service (AKS)][container-service].
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
-[azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[azure-account]: https://azure.microsoft.com/free/
 [node-js]: http://nodejs.org
 
 <!-- LINKS - Internal -->

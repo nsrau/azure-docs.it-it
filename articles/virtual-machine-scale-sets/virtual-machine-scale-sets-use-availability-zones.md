@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: iainfou
-ms.openlocfilehash: 9093fcf008f199cc1a78d50979f6387a2e1b5262
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: cc91366bda4dd443392c78cd61e5cc0ddb261fe2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità
 
@@ -194,7 +194,7 @@ L'esempio seguente crea un set di scalabilità a zona singola per Linux denomina
 }
 ```
 
-Per un esempio completo di un set di scalabilità a zona singola e delle relative risorse di rete, vedere [questo modello di esempio di Resource Manager](https://github.com/Azure/vm-scale-sets/blob/master/zones/singlezone.json).
+Per un esempio completo di un set di scalabilità a zona singola e delle relative risorse di rete, vedere [questo modello di esempio di Resource Manager](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/singlezone.json).
 
 ### <a name="zone-redundant-scale-set"></a>Set di scalabilità con ridondanza della zona
 
@@ -216,7 +216,7 @@ Per creare un set di scalabilità con ridondanza della zona, specificare più va
 
 Se si crea un indirizzo IP pubblico o un servizio di bilanciamento del carico, specificare la proprietà *"sku": { "name": "Standard" }"* per creare risorse di rete con ridondanza della zona. È anche necessario creare un gruppo di sicurezza di rete e le relative regole per consentire ogni tipo di traffico. Per altre informazioni, vedere [Panoramica dello SKU Standard di Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md).
 
-Per un esempio completo di un set di scalabilità con ridondanza della zona e delle relative risorse di rete, vedere [questo modello di esempio di Resource Manager](https://github.com/Azure/vm-scale-sets/blob/master/zones/multizone.json).
+Per un esempio completo di un set di scalabilità con ridondanza della zona e delle relative risorse di rete, vedere [questo modello di esempio di Resource Manager](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

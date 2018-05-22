@@ -10,14 +10,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 54de948597a5eddfcc808371c61e36d45089abc4
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: ee4321b905396f78e7dad9248b9e377dad250a13
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versioni di API del provider di risorse supportate dai profili nello Stack di Azure
 
@@ -30,7 +30,7 @@ Il profilo di API utilizza tre convenzioni di denominazione:
 
 Per una spiegazione dei profili di API e rilasci di versione per lo Stack di Azure, vedere [profili versione API di gestione in Azure Stack](azure-stack-version-profiles.md).
 
-> [!note]  
+> [!Note]  
 > Il **più recente** API profilo contiene la versione più recente della versione API del provider di risorse e non è elencato in questo articolo.
 
 ## <a name="overview-of-2018--03-01-hybrid"></a>Panoramica di 2018-03-01-ibrida
@@ -224,7 +224,7 @@ Il Provider di risorse di archiviazione (SRP) consente di gestire gli account di
 | Località | 2016-01-01 |
 | Quote di percorsi / | 2016-01-01 |
 | Operazioni | 2016-01-01 |
-| storageAccounts | 2016-01-01 |
+| StorageAccounts | 2016-01-01 |
 | Usi | 2016-01-01 |
 
 ## <a name="details-for-the-2017-03-09-profile"></a>Dettagli per 2017-03-09-profilo
@@ -319,7 +319,7 @@ Il Provider di risorse di archiviazione (SRP) consente di gestire gli account di
 | Località | 2016-01-01 |
 | Quote di percorsi / | 2016-01-01 |
 | Operazioni | 2016-01-01 |
-| storageAccounts | 2016-01-01 |
+| StorageAccounts | 2016-01-01 |
 | Usi | 2016-01-01 |
 
 ## <a name="next-steps"></a>Passaggi successivi

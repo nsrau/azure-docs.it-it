@@ -1,6 +1,6 @@
 ---
-title: Usare il servizio contenitore di Azure con Kafka in HDInsight | Microsoft Docs
-description: Informazioni su come usare Kafka in HDInsight dalle immagini del contenitore ospitate nel servizio contenitore di Azure.
+title: Usare Azure Kubernetes Service con Kafka in HDInsight | Microsoft Docs
+description: Informazioni su come usare Kafka in HDInsight dalle immagini del contenitore ospitate in Azure Kubernetes Service (AKS).
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2018
+ms.date: 05/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 16513cbd775e200a0821e8786ae823b82c67e437
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f54039a0e702aa3c789363969120e000760f6ef5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="use-azure-container-services-with-kafka-on-hdinsight"></a>Usare i servizi contenitore di Azure con Kafka in HDInsight
+# <a name="use-azure-kubernetes-service-with-kafka-on-hdinsight"></a>Usare Azure Kubernetes Service con Kafka in HDInsight
 
-Informazioni su come usare i servizi contenitore di Azure con Kafka nel cluster HDInsight. I passaggi illustrati in questo documento usano un'applicazione Node.js ospitata nel servizio contenitore di Azure per verificare la connettività con Kafka. Questa applicazione usa il pacchetto [kafka-node](https://www.npmjs.com/package/kafka-node) per comunicare con Kafka. Usa [Socket.io](https://socket.io/) per la messaggistica basata su eventi tra il client browser e il back-end ospitato nel servizio contenitore di Azure.
+Informazioni su come usare Azure Kubernetes Service (AKS) con Kafka nel cluster HDInsight. I passaggi illustrati in questo documento usano un'applicazione Node.js ospitata nel servizio contenitore di Azure per verificare la connettività con Kafka. Questa applicazione usa il pacchetto [kafka-node](https://www.npmjs.com/package/kafka-node) per comunicare con Kafka. Usa [Socket.io](https://socket.io/) per la messaggistica basata su eventi tra il client browser e il back-end ospitato nel servizio contenitore di Azure.
 
-[Apache Kafka](https://kafka.apache.org) è una piattaforma di streaming open source distribuita che può essere usata per compilare applicazioni e pipeline di dati in streaming in tempo reale. Il servizio contenitore di Azure gestisce l'ambiente Kubernetes ospitato e semplifica e velocizza la distribuzione delle applicazioni in contenitori. Usando una rete virtuale di Azure, è possibile connettere i due servizi.
+[Apache Kafka](https://kafka.apache.org) è una piattaforma di streaming open source distribuita che può essere usata per compilare applicazioni e pipeline di dati in streaming in tempo reale. Azure Kubernetes Service gestisce l'ambiente Kubernetes ospitato e semplifica e velocizza la distribuzione delle applicazioni in contenitori. Usando una rete virtuale di Azure, è possibile connettere i due servizi.
 
 > [!NOTE]
-> Questo documento è incentrato sui passaggi necessari per consentire ai servizi contenitore di Azure di comunicare con Kafka in HDInsight. L'esempio in sé è solo un client Kafka di base con cui si dimostra che la configurazione funziona.
+> Questo documento è incentrato sui passaggi necessari per consentire ad Azure Kubernetes Service di comunicare con Kafka in HDInsight. L'esempio in sé è solo un client Kafka di base con cui si dimostra che la configurazione funziona.
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -37,10 +37,10 @@ Informazioni su come usare i servizi contenitore di Azure con Kafka nel cluster 
 Questo documento presuppone che si abbia familiarità con la creazione e l'uso dei servizi di Azure seguenti:
 
 * Kafka in HDInsight
-* Servizio contenitore di Azure
+* Azure Kubernetes Service
 * Reti virtuali di Azure
 
-Questo documento presuppone anche che sia stata eseguita l'[esercitazione sui servizi contenitore di Azure](../../aks/tutorial-kubernetes-prepare-app.md). Questa esercitazione crea un servizio contenitore, un cluster Kubernetes e un registro contenitori e configura l'utilità `kubectl`.
+Questo documento presuppone anche che sia stata eseguita l'[esercitazione su Azure Kubernetes Service](../../aks/tutorial-kubernetes-prepare-app.md). Questa esercitazione crea un servizio contenitore, un cluster Kubernetes e un registro contenitori e configura l'utilità `kubectl`.
 
 ## <a name="architecture"></a>Architecture
 
@@ -56,12 +56,12 @@ Il diagramma seguente illustra la topologia di rete usata in questo documento:
 > [!IMPORTANT]
 > Poiché la risoluzione dei nomi non è abilitata tra le reti con peering, vengono usati gli indirizzi IP. Per impostazione predefinita, Kafka in HDInsight è configurato per restituire i nomi host invece degli indirizzi IP quando i client si connettono. I passaggi illustrati in questo documento modificano Kafka per poter usare invece la pubblicità IP.
 
-## <a name="create-an-azure-container-service-aks"></a>Creare un servizio contenitore di Azure
+## <a name="create-an-azure-kubernetes-service-aks"></a>Creare un'istanza di Azure Kubernetes Service (AKS)
 
 Se non si ha già un cluster del servizio contenitore di Azure, vedere uno dei documenti seguenti per informazioni su come crearne uno:
 
-* [Distribuire un cluster del servizio contenitore di Azure - Portale](../../aks/kubernetes-walkthrough-portal.md)
-* [Distribuire un cluster del servizio contenitore di Azure - Interfaccia della riga di comando](../../aks/kubernetes-walkthrough.md)
+* [Distribuire un cluster Azure Kubernetes Service (AKS) - Portale](../../aks/kubernetes-walkthrough-portal.md)
+* [Distribuire un cluster Azure Kubernetes Service (AKS) - Interfaccia della riga di comando](../../aks/kubernetes-walkthrough.md)
 
 > [!NOTE]
 > Il servizio contenitore di Azure crea una rete virtuale durante l'installazione. Viene eseguito il peering di questa rete a quella creata per HDInsight nella sezione successiva.
@@ -108,7 +108,7 @@ Quando si crea il cluster Kafka in HDInsight, è necessario accedere alla rete v
 
 Per configurare Kafka per creare pubblicità per gli indirizzi IP anziché per i nomi di dominio usare la procedura seguente:
 
-1. Usando un web browser, passare a https://CLUSTERNAME.azurehdinsight.net. Sostituire __CLUSTERNAME__ con il nome di Kafka nel cluster HDInsight.
+1. Usando un Web browser, passare a https://CLUSTERNAME.azurehdinsight.net. Sostituire __CLUSTERNAME__ con il nome di Kafka nel cluster HDInsight.
 
     Quando richiesto, usare il nome utente HTTPS e la password per il cluster. Viene visualizzata l'interfaccia utente di Ambari Web per il cluster.
 
@@ -154,11 +154,11 @@ Per configurare Kafka per creare pubblicità per gli indirizzi IP anziché per i
 
 ## <a name="test-the-configuration"></a>Testare la configurazione
 
-A questo punto, Kafka e il servizio contenitore di Azure sono in comunicazione tramite le reti virtuali con peering. Per testare la connessione, seguire questa procedura:
+A questo punto, Kafka ed Azure Kubernetes Service sono in comunicazione tramite le reti virtuali con peering. Per testare la connessione, seguire questa procedura:
 
 1. Creare un argomento Kafka usato dall'applicazione di test. Per informazioni sulla creazione di argomenti Kafka, vedere il documento [Creare un cluster Kafka](apache-kafka-get-started.md).
 
-2. Scaricare l'applicazione di esempio da [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test). 
+2. Scaricare l'applicazione di esempio da [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test).
 
 3. Modificare il file `index.js` e cambiare le righe seguenti:
 
@@ -184,7 +184,7 @@ A questo punto, Kafka e il servizio contenitore di Azure sono in comunicazione t
     ```
 
     > [!NOTE]
-    > Se non si conosce il nome del Registro contenitori di Azure o non si ha familiarità con l'uso dell'interfaccia della riga di comando di Azure per interagire con il servizio contenitore di Azure, vedere le [esercitazioni sul servizio contenitore di Azure](../../aks/tutorial-kubernetes-prepare-app.md).
+    > Se non si conosce il nome del Registro contenitori di Azure o non si ha familiarità con l'uso dell'interfaccia della riga di comando di Azure per interagire con Azure Kubernetes Service, vedere le [esercitazioni su AKS](../../aks/tutorial-kubernetes-prepare-app.md).
 
 6. Contrassegnare l'immagine `kafka-aks-test` locale con il server di accesso del Registro contenitori di Azure. Aggiungere anche `:v1` alla fine per indicare la versione dell'immagine:
 

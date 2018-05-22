@@ -1,9 +1,9 @@
 ---
-title: Distribuire un'applicazione di Azure Service Fabric in un cluster da Visual Studio | Microsoft Docs
-description: Informazioni su come distribuire un'applicazione in un cluster da Visual Studio
+title: Distribuire un'applicazione di Azure Service Fabric in un cluster | Microsoft Docs
+description: Informazioni su come distribuire un'applicazione in un cluster da Visual Studio.
 services: service-fabric
 documentationcenter: .net
--author: mikkelhegn
+-author: rwike77
 -manager: msfussell
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/23/2018
-ms.author: mikhegn
+ms.date: 05/11/2018
+ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 4f0d41dbc2438217cb4f382da7c44833379b9637
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f75a05e965a025a3041036679ac06cfe4f1ec8d7
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Esercitazione: Distribuire un'applicazione in un cluster di Service Fabric in Azure
 Questa esercitazione è la seconda parte di una serie e illustra come distribuire un'applicazione di Azure Service Fabric in un nuovo cluster in Azure direttamente da Visual Studio.
@@ -52,48 +52,56 @@ Se non si è creata l'applicazione di voto di esempio nella [prima parte di ques
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## <a name="deploy-the-sample-application"></a>Distribuire l'applicazione di esempio
+## <a name="create-a-service-fabric-cluster"></a>Creare un cluster di Service Fabric
+Ora che l'applicazione è pronta, è possibile distribuirla in un cluster direttamente da Visual Studio. Un [cluster di Service Fabric](/service-fabric/service-fabric-deploy-anywhere.md) è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi.
 
-### <a name="select-a-service-fabric-cluster-to-which-to-publish"></a>Selezionare un cluster di Service Fabric per la pubblicazione
-Ora che l'applicazione è pronta, è possibile distribuirla in un cluster direttamente da Visual Studio.
+Per la distribuzione all'interno di Visual Studio sono disponibili due opzioni:
+- Creare un cluster in Azure da Visual Studio. Questa opzione consente di creare un cluster sicuro direttamente da Visual Studio con le configurazioni preferite. Questo tipo di cluster è la soluzione ideale per scenari di test, in cui è possibile creare il cluster e quindi eseguirvi direttamente la pubblicazione all'interno di Visual Studio.
+- Eseguire la pubblicazione in un cluster esistente nella sottoscrizione.  È possibile creare cluster di Service Fabric tramite il [portale di Azure](https://portal.azure.com), usando [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) oppure script dell'[interfaccia della riga di comando di Azure](./scripts/cli-create-cluster.md) o da un [modello di Azure Resource Manager](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-Per la distribuzione sono disponibili due opzioni:
-- Creare un cluster da Visual Studio. Questa opzione consente di creare un cluster sicuro direttamente da Visual Studio con le configurazioni preferite. Questo tipo di cluster è la soluzione ideale per scenari di test, in cui è possibile creare il cluster e quindi eseguirvi direttamente la pubblicazione all'interno di Visual Studio.
-- Eseguire la pubblicazione in un cluster esistente nella sottoscrizione.
-
-In questa esercitazione si seguirà la procedura per creare un cluster da Visual Studio. Per le altre opzioni, è possibile copiare e incollare l'endpoint di connessione o sceglierlo dalla sottoscrizione.
+Questa esercitazione consente di creare un cluster da Visual Studio. Se è già disponibile un cluster distribuito, è possibile copiare e incollare l'endpoint di connessione o sceglierlo dalla sottoscrizione.
 > [!NOTE]
 > Molti servizi usano il proxy inverso per comunicare tra loro. Nei cluster creati da Visual Studio e nei party cluster, il proxy inverso è abilitato per impostazione predefinita.  Se si usa un cluster esistente, è necessario [abilitare il proxy inverso nel cluster](service-fabric-reverseproxy.md#setup-and-configuration).
 
-### <a name="deploy-the-app-to-the-service-fabric-cluster"></a>Distribuire l'app nel cluster di Service Fabric
-1. Fare clic con il pulsante destro del mouse sul progetto di applicazione in Esplora soluzioni e scegliere **Pubblica**.
+### <a name="find-the-votingweb-service-endpoint"></a>Trovare l'endpoint del servizio VotingWeb
+Prima di tutto, trovare l'endpoint del servizio Web front-end.  Il servizio Web front-end è in ascolto su una porta specifica.  Quando l'applicazione viene distribuita in un cluster in Azure, sia il cluster che l'applicazione vengono eseguiti dietro un servizio di bilanciamento del carico di Azure.  La porta dell'applicazione deve essere aperta nel servizio di bilanciamento del carico di Azure in modo che il traffico in entrata possa raggiungere il servizio Web.  La porta (ad esempio, 8080) è indicata nel file *VotingWeb/PackageRoot/ServiceManifest.xml* nell'elemento **Endpoint**:
 
-2. Accedere con l'account Azure per poter avere accesso alle sottoscrizioni. Se si usa un party cluster, questo passaggio è facoltativo.
+```xml
+<Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
+```
 
-3. Selezionare l'elenco a discesa per **Endpoint connessione** e quindi l'opzione "<Create New Cluster...>".
+Nel passaggio successivo specificare questa porta nella scheda **Avanzate** della finestra di dialogo **Crea cluster**.  Se si distribuisce l'applicazione in un cluster esistente, è possibile aprire questa porta nel servizio di bilanciamento carico di Azure usando uno [script di PowerShell](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) o il [portale di Azure](https://portal.azure.com).
+
+### <a name="create-a-cluster-in-azure-through-visual-studio"></a>Creare un cluster in Azure tramite Visual Studio
+Fare clic con il pulsante destro del mouse sul progetto di applicazione in Esplora soluzioni e scegliere **Pubblica**.
+
+Accedere con l'account Azure per poter avere accesso alle sottoscrizioni. Se si usa un party cluster, questo passaggio è facoltativo.
+
+Selezionare l'elenco a discesa per **Endpoint connessione** e quindi l'opzione **<Create New Cluster...>**.
     
-    ![Finestra di dialogo Pubblica](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+![Finestra di dialogo Pubblica](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
     
-4. Nella finestra di dialogo per la creazione del cluster modificare le impostazioni seguenti:
+Nella finestra di dialogo **Crea cluster** modificare le impostazioni seguenti:
 
-    1. Specificare il nome del cluster nel campo "Nome del cluster", nonché la sottoscrizione e la località da usare.
-    2. Facoltativamente, è possibile modificare il numero di nodi. Per impostazione predefinita vengono usati tre nodi, il numero minimo necessario per testare gli scenari di Service Fabric.
-    3. Selezionare la scheda "Certificato". In questa scheda digitare una password che verrà usata per proteggere il certificato del cluster. Questo certificato consente di rendere sicuro il cluster. È anche possibile modificare il percorso in cui si vuole salvare il certificato. Visual Studio può anche importare automaticamente il certificato, perché questo passaggio è obbligatorio per la pubblicazione dell'applicazione nel cluster.
-    4. Selezionare la scheda "Dettagli macchina virtuale". Specificare la password che si vuole usare per le macchine virtuali (VM) che costituiscono il cluster. Il nome utente e la password possono essere usati per la connessione remota alle VM. Si deve anche selezionare una dimensione di macchina virtuale ed è possibile modificare l'immagine di VM, se necessario.
-    5. Facoltativamente, nella scheda "Avanzate" è possibile modificare l'elenco delle porte da aprire nel servizio di bilanciamento del carico che verrà creato con il cluster. È anche possibile aggiungere una chiave di Application Insights esistente a cui indirizzare i file di log dell'applicazione.
-    6. Al termine della modifica delle impostazioni, selezionare il pulsante "Crea". La creazione del cluster richiede alcuni minuti. Il completamento dell'operazione verrà indicato nella finestra di output.
-    
-    ![Finestra di dialogo per la creazione del cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
+1. Specificare il nome del cluster nel campo **Nome del cluster**, nonché la sottoscrizione e la località da usare.
+2. Facoltativamente, è possibile modificare il numero di nodi. Per impostazione predefinita vengono usati tre nodi, il numero minimo necessario per testare gli scenari di Service Fabric.
+3. Selezionare la scheda **Certificato**. In questa scheda digitare una password che verrà usata per proteggere il certificato del cluster. Questo certificato consente di rendere sicuro il cluster. È anche possibile modificare il percorso in cui si vuole salvare il certificato. Visual Studio può anche importare automaticamente il certificato, perché questo passaggio è obbligatorio per la pubblicazione dell'applicazione nel cluster.
+4. Selezionare la scheda **Dettagli macchina virtuale**. Specificare la password che si vuole usare per le macchine virtuali (VM) che costituiscono il cluster. Il nome utente e la password possono essere usati per la connessione remota alle VM. Si deve anche selezionare una dimensione di macchina virtuale ed è possibile modificare l'immagine di VM, se necessario.
+5. Nella scheda **Avanzate** è possibile modificare l'elenco delle porte da aprire nel servizio di bilanciamento del carico creato con il cluster.  Aggiungere l'endpoint del servizio VotingWeb individuato in un passaggio precedente. È anche possibile aggiungere una chiave di Application Insights esistente a cui indirizzare i file di log dell'applicazione.
+6. Al termine della modifica delle impostazioni, selezionare il pulsante **Crea**. La creazione del cluster richiede alcuni minuti. Il completamento dell'operazione verrà indicato nella finestra di output.
 
-4. Quando il cluster che si vuole usare è pronto, fare clic con il pulsante destro del mouse sul progetto di applicazione e scegliere **Pubblica**.
+![Finestra di dialogo per la creazione del cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-    Al termine della pubblicazione, dovrebbe essere possibile inviare una richiesta all'applicazione tramite un browser.
+## <a name="deploy-the-sample-application"></a>Distribuire l'applicazione di esempio
+Quando il cluster che si vuole usare è pronto, fare clic con il pulsante destro del mouse sul progetto di applicazione e scegliere **Pubblica**.
 
-5. Aprire il browser preferito, digitare l'indirizzo del cluster (l'endpoint di connessione senza le informazioni sulla porta, ad esempio win1kw5649s.westus.cloudapp.azure.com).
+Al termine della pubblicazione, dovrebbe essere possibile inviare una richiesta all'applicazione tramite un browser.
 
-    Deve apparire lo stesso risultato visualizzato quando si esegue l'applicazione in locale.
+Aprire il browser preferito, digitare l'indirizzo del cluster (l'endpoint di connessione senza le informazioni sulla porta, ad esempio win1kw5649s.westus.cloudapp.azure.com).
 
-    ![Risposta API dal cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
+Deve apparire lo stesso risultato visualizzato quando si esegue l'applicazione in locale.
+
+![Risposta API dal cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questa esercitazione illustra come:

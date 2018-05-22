@@ -1,3 +1,19 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 7d7cd8a197a89781a75f47bb4b4e2ec8fe7c3cb4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 05/07/2018
+---
 # <a name="secure-your-iot-deployment"></a>Proteggere la distribuzione di IoT
 
 L'articolo fornisce una serie di informazioni avanzate per proteggere l'infrastruttura Azure IoT e fornisce i collegamenti ai dettagli a livello di implementazione per configurare e distribuire ciascun componente. Offre anche una serie di confronti e scelte tra i vari metodi concorrenti.
@@ -12,7 +28,7 @@ La protezione della distribuzione di Azure IoT può essere divisa nelle tre aree
 
 ## <a name="secure-device-provisioning-and-authentication"></a>Proteggere il provisioning dei dispositivi e l'autenticazione
 
-Azure IoT Suite protegge dispositivi IoT mediante i due metodi seguenti:
+Solution Accelerator di IoT protegge i dispositivi IoT mediante i due metodi seguenti:
 
 * Fornendo una chiave di identità univoca (token di sicurezza) per ogni dispositivo, che può essere utilizzata dal dispositivo per comunicare con l'hub IoT.
 * Usando un [certificato X.509 ][lnk-x509] su dispositivo e la chiave privata come mezzo per autenticare il dispositivo nell'hub IoT. Questo metodo di autenticazione assicura che la chiave privata sul dispositivo non sia mai nota all'esterno del dispositivo, garantendo un livello di sicurezza più elevato.
@@ -89,7 +105,7 @@ Questo articolo fornisce una panoramica a livello di implementazione per progett
 [lnk-sas-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
 [lnk-identity-registry]: ../articles/iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-protocols]: ../articles/iot-hub/iot-hub-devguide-security.md
-[lnk-custom-auth]: ../articles/iot-hub/iot-hub-devguide-security.md#custom-device-authentication
+[lnk-custom-auth]: ../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication
 [lnk-x509]: http://www.itu.int/rec/T-REC-X.509-201210-I/en
 [lnk-use-x509]: ../articles/iot-hub/iot-hub-devguide-security.md
 [lnk-tls12]: https://tools.ietf.org/html/rfc5246

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: e47f6e2bbac643729ad23eba0407bca71f7aff99
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 75c61894d5562f4bb0cb45fd8500bd9cf0f2bf8f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Creare un'app Web di Service Manager con lo script automatizzato
 
@@ -35,7 +35,7 @@ Eseguire lo script, fornendo i dettagli richiesti seguenti:
 
 Lo script creerà l'app Web usando il nome specificato insieme ad alcune stringhe aggiuntive per renderlo univoco. Genera **URL dell'app Web**, **ID del client** e **segreto client**.
 
-Salvare questi valori in quanto serviranno per la creazione di una connessione con IT Service Management Connector.
+Salvare questi valori in quanto serviranno per la creazione di una connessione con Connettore di Gestione dei servizi IT.
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -192,6 +192,8 @@ Add-Type -AssemblyName System.Web
 
 $clientSecret = [System.Web.Security.Membership]::GeneratePassword(30,2).ToString()
 
+$clientSecret = $clientSecret | ConvertTo-SecureString -AsPlainText -Force
+
 try
 {
 
@@ -206,7 +208,7 @@ catch
     # Delete the deployed web app if Azure AD application fails
     Remove-AzureRmResource -ResourceGroupName $resourceGroupName -ResourceName $siteName -ResourceType Microsoft.Web/sites -Force
 
-    Write-Host "Faiure occured in Azure AD application....Try again!!"
+    Write-Host "Failure occured in Azure AD application....Try again!!"
 
     exit
 

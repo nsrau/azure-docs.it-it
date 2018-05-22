@@ -3,16 +3,17 @@ title: Creare un modulo di integrazione di Automazione di Azure
 description: Esercitazione che illustra la creazione, i test e un uso di esempio dei moduli di integrazione in Automazione di Azure.
 services: automation
 ms.service: automation
+ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7b7aa09776045705ce98a472adbbe2f36d827ccc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e7135e620ab799131f772c16f6799ed80be312e0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-automation-integration-modules"></a>Moduli di integrazione di Automazione di Azure
 PowerShell è la tecnologia alla base di Automazione di Azure. Poiché Automazione di Azure è basato su PowerShell, i moduli di PowerShell sono essenziali per l'estendibilità di Automazione di Azure. Questo articolo illustra le specifiche dell'uso dei moduli di PowerShell, indicati come "moduli di integrazione", in Automazione di Azure e le procedure consigliate per creare moduli di PowerShell personalizzati destinati a fungere da moduli di integrazione in Automazione di Azure. 

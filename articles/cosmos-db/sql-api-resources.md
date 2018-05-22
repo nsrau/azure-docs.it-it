@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0fc8a977a172a859d6691a5b587135caf14e03f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 69ee7baeda524647dd259ea22bb948b0168fd913
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Modello di risorsa gerarchico e concetti di base relativi ad Azure Cosmos DB
 
@@ -31,7 +31,7 @@ In questo articolo vengono fornite le risposte alle domande seguenti:
 * Quali sono le risorse definite dal sistema e quali le risorse definite dall'utente?
 * Come si indirizza una risorsa?
 * Come si usano le raccolte?
-* Come si usano le stored procedure, i trigger e le funzioni definite dall'utente
+* Come si usano le stored procedure, i trigger e le funzioni definite dall'utente?
 
 Nel video seguente Andrew Liu, Program Manager di Azure Cosmos DB, descrive il modello di risorse di Azure Cosmos DB. 
 
@@ -50,7 +50,7 @@ Come illustrato nel diagramma seguente, il **modello di risorsa** gerarchico di 
 ![Modello di risorsa gerarchico di Azure Cosmos DB][1]  
 **Modello di risorse gerarchico**   
 
-Per iniziare a usare le risorse è necessario [creare un account di database](create-sql-api-dotnet.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ognuno contenente più **raccolte**. Ogni raccolta include a propria volta **stored procedure, trigger, funzioni definite dall'utente, documenti **e allegati correlati**. Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, UDF, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.  
+Per iniziare a usare le risorse è necessario [creare un account di database](create-sql-api-dotnet.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ognuno contenente più **raccolte**. Ogni raccolta include a propria volta **stored procedure, trigger, funzioni definite dall'utente, documenti e allegati correlati**. Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, UDF, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.  
 
 | Risorsa | DESCRIZIONE |
 | --- | --- |
@@ -58,7 +58,7 @@ Per iniziare a usare le risorse è necessario [creare un account di database](cr
 | Database |Un database è un contenitore logico di archiviazione documenti partizionato nelle raccolte. Un database è anche un contenitore degli utenti |
 | Utente |Spazio dei nomi logico per la definizione dell'ambito delle autorizzazioni. |
 | Autorizzazione |Token di autorizzazione associato a un utente per l'accesso a una risorsa specifica. |
-| Raccolta |Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata. Una raccolta è un'entità fatturabile, in cui il [costo](performance-levels.md) è determinato dal livello di prestazioni associato alla raccolta. Le raccolte possono estendersi su più partizioni o server e possono essere ridimensionate per gestire volumi praticamente illimitati di archiviazione o di velocità effettiva. |
+| Raccolta |Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata. Le raccolte possono estendersi su più partizioni o server e possono essere ridimensionate per gestire volumi praticamente illimitati di archiviazione o di velocità effettiva. |
 | Stored Procedure |Logica dell'applicazione scritta in JavaScript, registrata con una raccolta ed eseguita a livello di transazione all'interno del motore di database. |
 | Trigger |Logica dell'applicazione scritta in JavaScript ed eseguita prima o dopo un'operazione di inserimento, sostituzione o eliminazione. |
 | UDF |Logica dell'applicazione scritta in JavaScript. Le funzioni definite dall'utente consentono di modellare un operatore query personalizzato e quindi di estendere il linguaggio di query di base dell'API di SQL. |
@@ -166,14 +166,14 @@ Un database di Cosmos DB è un contenitore logico di uno o più utenti e raccolt
 ![Modello gerarchico di account di database e raccolte][2]  
 **Un database è un contenitore logico di utenti e raccolte**
 
-Un database può contenere risorse di archiviazione di documenti praticamente illimitate partizionate all'interno delle raccolte.
+Un database può contenere risorse di archiviazione di documenti illimitate partizionate all'interno delle raccolte.
 
 ### <a name="elastic-scale-of-an-azure-cosmos-db-database"></a>Scalabilità elastica di un database di Azure Cosmos DB
 Un database di Cosmos DB è elastico per impostazione predefinita e può includere da pochi GB a diversi petabyte di spazio di archiviazione per i documenti basato su SSD e velocità effettiva con provisioning. 
 
 A differenza di un database RDBMS tradizionale, l'ambito di un database in Cosmos DB non è limitato a un singolo computer. Con Cosmos DB, in caso di crescita delle esigenze di scalabilità dell'applicazione, sarà possibile creare più raccolte, più database o entrambi. Molte applicazioni prodotte direttamente da Microsoft usano Azure Cosmos DB su scala consumer, creando database di Azure Cosmos DB molto grandi, ognuno dei quali include migliaia di raccolte con terabyte di spazio di archiviazione per i documenti. È possibile aumentare o ridurre le dimensioni di un database aggiungendo o rimuovendo raccolte per soddisfare i requisiti di scalabilità dell'applicazione. 
 
-Il numero di raccolte che è possibile creare in un database dipende dall'offerta. Ogni raccolta dispone di risorse di archiviazione basate su SSD e velocità effettiva di cui è stato eseguito il provisioning in base al livello di prestazioni selezionato.
+Il numero di raccolte che è possibile creare in un database dipende dall'offerta. Ogni raccolta, o ogni set di raccolte (all'interno di un database), dispone di risorse di archiviazione basate su SSD e velocità effettiva di cui è stato eseguito il provisioning in base all'offerta.
 
 Un database di Azure Cosmos DB è anche un contenitore di utenti. Un utente, a sua volta, è uno spazio dei nomi logico per un set di autorizzazioni che fornisce autorizzazioni specifiche e accesso a raccolte, documenti e allegati.  
 
@@ -183,7 +183,7 @@ Come per le altre risorse nel modello di risorsa di Azure Cosmos DB, i database 
 Una raccolta di Cosmos DB è un contenitore per i documenti JSON. 
 
 ### <a name="elastic-ssd-backed-document-storage"></a>Archiviazione flessibile di documenti basata su unità SSD
-Una raccolta è intrinsecamente flessibile, poiché le dimensioni della raccolta aumentano o si riducono in seguito all'aggiunta o alla rimozione di documenti. Le raccolte sono risorse logiche e possono comprendere una o più partizioni fisiche o server. Il numero di partizioni in una raccolta è determinato da Cosmos DB in base allo spazio di archiviazione e alla velocità effettiva con provisioning della raccolta. Ogni partizione in Cosmos DB ha una quantità fissa di archiviazione supportata da unità SSD associata e viene replicata per la disponibilità elevata. Le partizioni vengono completamente gestite da Azure Cosmos DB e non è necessario scrivere codice complesso o gestire le partizioni. Le raccolte di Cosmos DB sono **praticamente illimitate** in termini di spazio di archiviazione e velocità effettiva. 
+Una raccolta è intrinsecamente flessibile, poiché le dimensioni della raccolta aumentano o si riducono in seguito all'aggiunta o alla rimozione di documenti. Le raccolte sono risorse logiche e possono comprendere una o più partizioni fisiche o server. Il numero di partizioni assegnate a una raccolta è determinato da Cosmos DB in base allo spazio di archiviazione e alla velocità effettiva di cui è stato eseguito il provisioning per la raccolta o per un set di raccolte. Ogni partizione in Cosmos DB ha una quantità fissa di archiviazione supportata da unità SSD associata e viene replicata per la disponibilità elevata. Le partizioni vengono completamente gestite da Azure Cosmos DB e non è necessario scrivere codice complesso o gestire le partizioni. Le raccolte di Cosmos DB sono **illimitate** in termini di risorse di archiviazione e di velocità effettiva. 
 
 ### <a name="automatic-indexing-of-collections"></a>Indicizzazione automatica delle raccolte
 Azure Cosmos DB è un sistema di database realmente privo di schema. Non si presuppone o richiede alcuno schema per i documenti JSON. Azure Cosmos DB indicizza automaticamente i documenti aggiunti a una raccolta e li rende disponibili per l'esecuzione di query. L'indicizzazione automatica di documenti senza la necessità di schemi o di indici secondari è una funzionalità chiave di Azure Cosmos DB ed è resa possibile da tecniche di manutenzione dell'indice ottimizzate per la scrittura, prive di blocco e strutturate in log. Azure Cosmos DB supporta un volume elevato di scritture estremamente veloci, gestendo al tempo stesso query coerenti. L'archiviazione documenti e l'archiviazione dell'indice sono usate per calcolare le risorse di archiviazione usate da ogni raccolta. È possibile controllare i compromessi tra archiviazione e prestazioni associati all'indicizzazione tramite la configurazione di un criterio di indicizzazione per una raccolta. 
@@ -222,7 +222,7 @@ In virtù dell'integrazione completa di JavaScript e JSON direttamente nel motor
 * Implementazione efficiente del controllo della concorrenza, ripristino e indicizzazione automatica dei grafici di oggetti JSON direttamente nel motore di database.
 * Espressione naturale di flusso di controllo, definizione dell'ambito delle variabili e assegnazione e integrazione delle primitive di gestione delle eccezioni con transazioni di database direttamente sotto forma di linguaggio di programmazione JavaScript
 
-La logica JavaScript registrata a livello di raccolta può quindi rilasciare operazioni sui documenti della raccolta specifica. Azure Cosmos DB esegue implicitamente il wrapping di stored procedure e trigger basati su JavaScript in transazioni di ambiente ACID con isolamento degli snapshot nei documenti in una raccolta. Se JavaScript genera un'eccezione durante l'esecuzione, l'intera transazione sarà interrotta. Il modello di programmazione risultante è molto semplice ma efficace. Gli sviluppatori JavaScript ottengono un modello di programmazione "durevole", usando al tempo stesso i costrutti dei propri linguaggi preferiti e i primitivi di librerie.   
+La logica JavaScript registrata a livello di raccolta può quindi rilasciare operazioni sui documenti della raccolta specifica. Azure Cosmos DB esegue implicitamente il wrapping di stored procedure e trigger basati su JavaScript in una transazione di ambiente ACID con isolamento degli snapshot nei documenti in una raccolta. Se JavaScript genera un'eccezione durante l'esecuzione, l'intera transazione sarà interrotta. Il modello di programmazione risultante è semplice ma efficace. Gli sviluppatori JavaScript ottengono un modello di programmazione "durevole", usando al tempo stesso i costrutti dei propri linguaggi preferiti e i primitivi di librerie.   
 
 La possibilità di eseguire JavaScript direttamente nel motore di database nello stesso spazio di indirizzi del pool di buffer permette l'esecuzione efficiente e transazionale di operazioni di database nei documenti di una raccolta. Poiché il motore di database di Cosmos DB adotta completamente JSON e JavaScript, elimina eventuali mancate corrispondenze di impedenza tra i sistemi di tipi dell'applicazione e del database.   
 
@@ -322,7 +322,7 @@ L'esecuzione di una stored procedure avviene tramite l'esecuzione di un metodo H
         });
 
 ### <a name="unregistering-a-stored-procedure"></a>Annullamento della registrazione di una stored procedure
-L'annullamento della registrazione di una stored procedure avviene tramite la semplice esecuzione di un'operazione HTTP DELETE su una risorsa stored procedure esistente.   
+L'annullamento della registrazione di una stored procedure avviene tramite l'esecuzione di un'operazione HTTP DELETE su una risorsa stored procedure esistente.   
 
     client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
         .then(function (response) {
@@ -364,7 +364,7 @@ L'esecuzione di un trigger è effettuata specificando il nome di un trigger esis
         });
 
 ### <a name="unregistering-a-pre-trigger"></a>Annullamento della registrazione di un trigger
-L'annullamento della registrazione di un trigger avviene tramite la semplice esecuzione di un'operazione HTTP DELETE su una risorsa trigger esistente.  
+L'annullamento della registrazione di un trigger avviene tramite l'esecuzione di un'operazione HTTP DELETE su una risorsa trigger esistente.  
 
     client.deleteTriggerAsync(createdPreTrigger._self);
         .then(function(response) {
@@ -415,7 +415,7 @@ Anche se i frammenti di codice precedenti illustrano la registrazione (POST), l'
 ## <a name="documents"></a>Documenti
 È possibile inserire, sostituire, eliminare, leggere, enumerare ed eseguire query in documenti JSON arbitrari in una raccolta. Azure Cosmos DB non impone alcuno schema e non richiede indici secondari per il supporto delle query sui documenti di una raccolta. Le dimensioni massime per un documento sono pari a 2 MB.   
 
-Essendo un vero e proprio servizio di database aperto, Azure Cosmos DB non genera tipi di dati specializzati (ad esempio, data e ora) né codifiche specifiche per i documenti JSON. Azure Cosmos DB non richiede alcuna convenzione JSON specifica per codificare le relazioni tra i diversi documenti. La sintassi SQL di Azure Cosmos DB fornisce operatori di query gerarchici e relazionali molto potenti per eseguire query e proiezioni sui documenti senza annotazioni speciali o senza dover codificare le relazioni tra i documenti usando proprietà distinte.  
+Essendo un vero e proprio servizio di database aperto, Azure Cosmos DB non genera tipi di dati specializzati (ad esempio, data e ora) né codifiche specifiche per i documenti JSON. Azure Cosmos DB non richiede alcuna convenzione JSON specifica per codificare le relazioni tra i diversi documenti. La sintassi SQL di Azure Cosmos DB fornisce operatori di query gerarchici e relazionali potenti per eseguire query e proiezioni sui documenti senza annotazioni speciali o senza dover codificare le relazioni tra i documenti usando proprietà distinte.  
 
 Analogamente a tutte le altre risorse, i documenti possono essere creati, sostituiti, eliminati, letti, enumerati e sottoposti a query con facilità tramite le API REST o uno degli [SDK dei client](sql-api-sdk-dotnet.md). Se si elimina un documento, la quota corrispondente a tutti gli allegati annidati sarà resa immediatamente disponibile. Il livello di coerenza di lettura dei documenti segue i criteri di coerenza applicati all'account di database. È possibile eseguire l'override di questo criterio per le singole richieste, in base ai requisiti di coerenza dei dati specifici dell'applicazione. Durante l'esecuzione di query nei documenti, la coerenza di lettura si basa sulla modalità di indicizzazione impostata per la raccolta. Ai fini della coerenza, si basa sui criteri di coerenza dell'account. 
 
@@ -457,7 +457,7 @@ Analogamente a tutte le altre risorse, gli utenti in Azure Cosmos DB possono ess
 ## <a name="permissions"></a>Autorizzazioni
 Dal punto di vista del controllo di accesso, le risorse quali account di database, database, utenti e autorizzazioni sono considerate come risorse *amministrative* perché necessitano di autorizzazioni amministrative. L'ambito di risorse quali raccolte, documenti, allegati, stored procedure, trigger e funzioni UDF invece è limitato a un database specifico e queste risorse sono considerate *risorse dell'applicazione*. Il modello di autorizzazione, che corrisponde ai due tipi di risorse e ai ruoli che vi accedono, ovvero l'amministratore e l'utente, definisce due tipi di *chiavi di accesso*: *chiave master* e *chiave risorsa*. La chiave master fa parte dell'account di database ed è fornita allo sviluppatore o all'amministratore che esegue il provisioning dell'account di database. La chiave master usa semantica di amministratore, ovvero può essere usata per autorizzare l'accesso alle risorse amministrative e dell'applicazione. La chiave di risorsa, invece, è una chiave di accesso granulare che permette l'accesso a una risorsa *specifica* dell'applicazione. Acquisisce quindi la relazione tra l'utente di un database e le autorizzazioni di cui l'utente dispone per una risorsa specifica, ad esempio una raccolta, un documento, un allegato, una stored procedure, un trigger o una funzione UDF.   
 
-L'unico modo per ottenere una chiave di risorsa consiste nella creazione di una risorsa di autorizzazione per un utente specifico. Si noti che per creare o recuperare un'autorizzazione è necessario presentare una chiave master nell'intestazione dell'autorizzazione. Una risorsa di autorizzazione associa la risorsa, l'accesso e l'utente. Dopo la creazione di una risorsa di autorizzazione, l'utente dovrà solo presentare la chiave di risorsa associata per ottenere l'accesso alla risorsa rilevante. Una chiave di risorsa può essere quindi considerata come una rappresentazione logica e compatta della risorsa di autorizzazione.  
+L'unico modo per ottenere una chiave di risorsa consiste nella creazione di una risorsa di autorizzazione per un utente specifico. Per creare o recuperare un'autorizzazione, è necessario presentare una chiave master nell'intestazione dell'autorizzazione. Una risorsa di autorizzazione associa la risorsa, l'accesso e l'utente. Dopo la creazione di una risorsa di autorizzazione, l'utente dovrà solo presentare la chiave di risorsa associata per ottenere l'accesso alla risorsa rilevante. Una chiave di risorsa può essere quindi considerata come una rappresentazione logica e compatta della risorsa di autorizzazione.  
 
 Come per tutte le altre risorse, le autorizzazioni in Azure Cosmos DB possono essere create, sostituite, eliminate, lette o enumerate facilmente usando le API REST o uno degli SDK client. Azure Cosmos DB offre sempre una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di un'autorizzazione. 
 

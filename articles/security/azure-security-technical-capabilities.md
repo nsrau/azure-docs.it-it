@@ -4,7 +4,7 @@ description: Informazioni sui servizi di calcolo basati sul cloud che includono 
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 489b2a66cadb77a338f9ae00443c072a4e19edfd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6643db7b732cc5b01ce7602eb3d679c130c46720
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
 
@@ -134,7 +134,7 @@ Con Azure Active Directory B2C, gli utenti possono registrarsi alle applicazioni
 
 #### <a name="device-registration"></a>Registrazione del dispositivo
 
-[Registrazione dispositivo Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/device-management-introduction) rappresenta il fondamento per gli scenari di [accesso condizionale](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-device-registration-on-premises-setup) basato su dispositivo. Quando un dispositivo viene registrato, Registrazione dispositivo Azure AD fornisce al dispositivo un'identità che viene usata per autenticare il dispositivo quando un utente esegue l'accesso. Il dispositivo autenticato e gli attributi del dispositivo possono quindi essere usati per imporre criteri di accesso condizionale per le applicazioni locali e ospitate nel cloud.
+[Registrazione dispositivo Azure AD](https://docs.microsoft.com/azure/active-directory/device-management-introduction) rappresenta il fondamento per gli scenari di [accesso condizionale](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) basato su dispositivo. Quando un dispositivo viene registrato, Registrazione dispositivo Azure AD fornisce al dispositivo un'identità che viene usata per autenticare il dispositivo quando un utente esegue l'accesso. Il dispositivo autenticato e gli attributi del dispositivo possono quindi essere usati per imporre criteri di accesso condizionale per le applicazioni locali e ospitate nel cloud.
 
 In combinazione con una soluzione di [gestione di dispositivi mobili (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) come Intune, gli attributi del dispositivo in Azure Active Directory vengono aggiornati con informazioni aggiuntive sul dispositivo. Ciò permette di creare regole di accesso condizionale che subordinano l'accesso dai dispositivi al rispetto dei propri standard di sicurezza e conformità.
 

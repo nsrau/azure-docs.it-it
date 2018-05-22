@@ -4,16 +4,17 @@ description: Panoramica della piattaforma DSC (Desired State Configuration) di A
 keywords: powershell dsc, configurazione dello stato desiderato, powershell dsc azure
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4282333fc8c6f0835c451b781f70dfaed0697d96
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 83d5b89422a0181c06dbfe3b2bd8975ef7214b9d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-automation-dsc-overview"></a>Panoramica della piattaforma DSC di Automazione di Azure
 

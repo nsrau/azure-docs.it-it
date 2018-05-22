@@ -1,6 +1,6 @@
 ---
-title: Eseguire il backup di macchine virtuali Linux in Azure | Microsoft Docs
-description: Proteggere le macchine virtuali Linux eseguendo il backup con Backup di Azure.
+title: Esercitazione - Backup di macchine virtuali Linux nel portale di Azure | Microsoft Docs
+description: In questa esercitazione viene illustrato come usare il portale di Azure per proteggere macchine virtuali Linux con Backup di Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4bd532a570a978715ba61880047f3a7e49b446ba
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c91e2b1380e5048fa1dfb7a0e028c88e589cbaa4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="back-up-linux--virtual-machines-in-azure"></a>Eseguire il backup di macchine virtuali Linux in Azure
+# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Esercitazione: Backup e ripristino di file per macchine virtuali Linux in Azure
 
 È possibile proteggere i dati eseguendo backup a intervalli regolari. Backup di Azure crea punti di recupero che vengono archiviati negli insiemi di credenziali di ripristino con ridondanza geografica. Quando si ripristina da un punto di recupero, è possibile ripristinare la macchina virtuale intera o parziale. Questo articolo spiega come ripristinare un singolo file in una VM Linux che esegue nginx. Se non si dispone già di una macchina virtuale da usare, è possibile crearne una usando la [Guida introduttiva Linux](quick-create-cli.md). In questa esercitazione si apprenderà come:
 
@@ -30,8 +30,6 @@ ms.lasthandoff: 04/06/2018
 > * Creare un backup di una macchina virtuale
 > * Pianificare un backup giornaliero
 > * Ripristinare un file da un backup
-
-
 
 ## <a name="backup-overview"></a>Panoramica del servizio Backup
 
@@ -43,7 +41,7 @@ Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e vien
 
 
 ## <a name="create-a-backup"></a>Creare un backup
-Creare un semplice backup giornaliero pianificato per un insieme di credenziali di Servizi di ripristino. 
+Creare un backup giornaliero pianificato per un insieme di credenziali di Servizi di ripristino:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Nel menu a sinistra selezionare **Macchine virtuali**. 
@@ -54,7 +52,7 @@ Creare un semplice backup giornaliero pianificato per un insieme di credenziali 
 7. Nel pannello **Abilita backup** fare clic su **Abilita backup**. Verrà creato un backup giornaliero in base alla pianificazione predefinita.
 10. Per creare un punto di recupero iniziale, nel pannello **Backup** fare clic su **Esegui backup ora**.
 11. Nel pannello **Esegui backup ora** fare clic sull'icona del calendario, usare il comando del calendario per selezionare l'ultimo giorno di conservazione di tale punto di recupero e fare clic su **Backup**.
-12. Nel pannello **Backup** per la macchina virtuale in uso verrà visualizzato il numero di punti di recupero completati.
+12. Nel pannello **Backup** per la macchina virtuale in uso viene visualizzato il numero di punti di recupero completati.
 
     ![Punti di ripristino](./media/tutorial-backup-vms/backup-complete.png)
 
@@ -62,7 +60,7 @@ Il primo backup richiede circa 20 minuti. Al termine del backup, procedere con l
 
 ## <a name="restore-a-file"></a>Ripristinare un file
 
-Se accidentalmente si elimina o si apportano modifiche a un file, è possibile usare Ripristino file per ripristinare il file dall'insieme di credenziali di backup. Ripristino file usa uno script eseguito nella VM per montare il punto di recupero come un'unità locale. Queste unità rimarranno montate per 12 ore in modo che sia possibile copiare i file dal punto di recupero e ripristinarli nella macchina virtuale.  
+Se accidentalmente si elimina o si apportano modifiche a un file, è possibile usare Ripristino file per ripristinare il file dall'insieme di credenziali di backup. Ripristino file usa uno script eseguito nella VM per montare il punto di recupero come un'unità locale. Queste unità rimangono montate per 12 ore in modo che sia possibile copiare i file dal punto di recupero e ripristinarli nella macchina virtuale.  
 
 Questo esempio illustra come ripristinare la pagina Web di nginx predefinita /var/www/html/index.nginx-debian.html. L'indirizzo IP pubblico della macchina virtuale in questo esempio è *13.69.75.209*. È possibile trovare l'indirizzo IP della macchina virtuale tramite:
 

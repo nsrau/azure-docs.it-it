@@ -316,22 +316,24 @@
           href: compute-linked-services.md
     - name: Flusso di controllo
       items:
-        - name: Attività della condizione If
-          href: control-flow-if-condition-activity.md
-        - name: Attività Until
-          href: control-flow-until-activity.md
-        - name: Attività Web
-          href: control-flow-web-activity.md
-        - name: Attività di ricerca
-          href: control-flow-lookup-activity.md
-        - name: Ottenere attività di metadati
-          href: control-flow-get-metadata-activity.md
         - name: Eseguire l'attività di pipeline
           href: control-flow-execute-pipeline-activity.md
+        - name: Filtrare attività
+          href: control-flow-filter-activity.md
         - name: Per ogni attività
           href: control-flow-for-each-activity.md
+        - name: Ottenere attività di metadati
+          href: control-flow-get-metadata-activity.md
+        - name: Attività della condizione If
+          href: control-flow-if-condition-activity.md
+        - name: Attività di ricerca
+          href: control-flow-lookup-activity.md
+        - name: Attività Until
+          href: control-flow-until-activity.md
         - name: Attività Wait
           href: control-flow-wait-activity.md
+        - name: Attività Web
+          href: control-flow-web-activity.md
         - name: Linguaggio di espressione
           href: control-flow-expression-language-functions.md
         - name: Variabili di sistema
@@ -348,16 +350,18 @@
           href: data-factory-service-identity.md
     - name: Monitorare e gestire
       items:
-        - name: Usare SDK
-          href: monitor-programmatically.md
-        - name: Usare Monitoraggio di Azure
-          href: monitor-using-azure-monitor.md
         - name: Monitorare visivamente
           href: monitor-visually.md
-        - name: Gestire il runtime di integrazione SSIS di Azure
-          href: manage-azure-ssis-integration-runtime.md
+        - name: Monitorare con Monitoraggio di Azure
+          href: monitor-using-azure-monitor.md
+        - name: Monitorare con SDK
+          href: monitor-programmatically.md
         - name: Monitorare il runtime di integrazione
           href: monitor-integration-runtime.md
+        - name: Monitorare il runtime di integrazione SSIS di Azure
+          href: 'monitor-integration-runtime.md#azure-ssis-integration-runtime'
+        - name: Gestire il runtime di integrazione SSIS di Azure
+          href: manage-azure-ssis-integration-runtime.md
     - name: Creare il runtime di integrazione
       items:
         - name: Runtime di integrazione di Azure
@@ -368,24 +372,22 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Eseguire pacchetti SSIS in Azure
       items:
-        - name: Configurazione personalizzata del runtime di integrazione SSIS di Azure
-          href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Eseguire il provisioning della Enterprise Edition per il runtime di integrazione SSIS di Azure
-          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale
           href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Gestire il runtime di integrazione SSIS di Azure
-          href: manage-azure-ssis-integration-runtime.md
-        - name: Configurare le prestazioni relative alle prestazioni del runtime di integrazione SSIS di Azure
+        - name: Configurare le prestazioni elevate per il runtime di integrazione SSIS di Azure
           href: configure-azure-ssis-integration-runtime-performance.md
+        - name: Eseguire il provisioning della Enterprise Edition per il runtime di integrazione SSIS di Azure
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Personalizzare la configurazione del runtime di integrazione SSIS di Azure
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Distribuire componenti concessi in licenza per il runtime di integrazione SSIS di Azure
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: Eseguire pacchetti SSIS tramite l'attività SSIS
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: Eseguire pacchetti SSIS tramite attività stored procedure
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Pianificare il runtime di integrazione Azure-SSIS
           href: how-to-schedule-azure-ssis-integration-runtime.md
-        - name: Sviluppare componenti concessi in licenza per il runtime di integrazione SSIS di Azure
-          href: how-to-develop-azure-ssis-ir-licensed-components.md
     - name: Creare trigger
       items:
         - name: Creare un trigger di pianificazione
@@ -404,19 +406,19 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Risorse
   items:
-    - name: Domande frequenti
-      href: frequently-asked-questions.md
-    - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
-    - name: Prezzi
-      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
-    - name: Stack Overflow
+    - name: Porre una domanda - Forum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc'
+    - name: Porre una domanda - Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: Richiedere una funzionalità
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
-    - name: Aree di disponibilità
-      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Domande frequenti
+      href: frequently-asked-questions.md
+    - name: Guida di orientamento
+      href: 'https://azure.microsoft.com/en-us/roadmap/?tag=data-factory'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
+    - name: Disponibilità per area
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Opzioni di supporto
       href: 'https://azure.microsoft.com/support/options/'

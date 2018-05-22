@@ -1,5 +1,5 @@
 ---
-title: Creare un profilo e un endpoint della rete CDN di Azure | Microsoft Docs
+title: Guida introduttiva - Creare un profilo e un endpoint della rete CDN di Azure | Microsoft Docs
 description: Questa guida introduttiva illustra come abilitare la rete CDN di Azure creando un nuovo profilo e un nuovo endpoint della rete CDN.
 services: cdn
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 03/13/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: 6237b47be878217115849b87ebcd3d980665643a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 91bb23b2790ed23c831bb1680f6f2bb2cdecc38f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure
 In questa guida introduttiva si abilita la rete per la distribuzione di contenuti (rete CDN) di Azure creando un nuovo profilo e un nuovo endpoint della rete CDN. Dopo aver creato un profilo e un endpoint, è possibile avviare la distribuzione di contenuti ai clienti.
@@ -69,8 +69,10 @@ Dopo aver creato un profilo di rete CDN, è possibile usarlo per creare un endpo
     
    ![Endpoint della rete CDN](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   Dato che la propagazione della registrazione richiede tempo, l'endpoint non è disponibile immediatamente per l'uso. 
-
+   Dato che la propagazione della registrazione richiede tempo, l'endpoint non è immediatamente disponibile per l'uso: 
+   - La propagazione dei profili della **rete CDN Standard di Azure con tecnologia Microsoft** viene in genere completata in dieci minuti. 
+   - La propagazione dei profili di **rete CDN Standard di Azure con tecnologia Akamai** viene in genere completata entro un minuto. 
+   - La propagazione dei profili della **rete CDN Standard di Azure con tecnologia Verizon** e della **rete CDN Premium di Azure con tecnologia Verizon** viene in genere completata entro 90 minuti. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Nei passaggi precedenti sono stati creati un profilo e un endpoint della rete CDN in un gruppo di risorse. Salvare queste risorse se si vuole continuare con i [passaggi successivi](#next-steps) e ottenere informazioni su come aggiungere un dominio personalizzato all'endpoint. Se tuttavia non si prevede di usare queste risorse in futuro, è possibile eliminarle eliminando il gruppo di risorse, evitando così costi aggiuntivi:
@@ -85,6 +87,6 @@ Nei passaggi precedenti sono stati creati un profilo e un endpoint della rete CD
 Per informazioni sull'aggiunta di un dominio personalizzato all'endpoint della rete CDN, vedere l'esercitazione seguente:
 
 > [!div class="nextstepaction"]
-> [Aggiungere un dominio personalizzato](cdn-map-content-to-custom-domain.md)
+> [Esercitazione: Aggiungere la rete CDN di Azure a un'app Web](app-service-web-tutorial-content-delivery-network.md)
 
 

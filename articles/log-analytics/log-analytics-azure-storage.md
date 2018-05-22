@@ -1,11 +1,11 @@
 ---
 title: Raccogliere log e metriche per i servizi di Azure per Log Analytics | Documentazione Microsoft
-description: "È possibile configurare la diagnostica per le risorse di Azure per scrivere log e metriche in Log Analytics."
+description: È possibile configurare la diagnostica per le risorse di Azure per scrivere log e metriche in Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a3785e39f0d1cf849dbbf0d83d89eaed58c5b0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a748cb0e2a08ed5e8ada5db171d5ef12b2fe121e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Raccolta di log e metriche per i servizi di Azure da usare in Log Analytics
 
@@ -68,6 +68,13 @@ Esistono quattro diversi modi per raccogliere log e metriche per i servizi di Az
 Molte risorse di Azure sono in grado di scrivere i log di diagnostica e le metriche direttamente in Log Analytics e questo è il modo migliore per raccogliere i dati per l'analisi. Quando si usa Diagnostica di Azure, i dati vengono scritti immediatamente in Log Analytics e non occorre scriverli prima nell'archiviazione.
 
 Le risorse di Azure che supportano [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md) possono inviare i log e le metriche direttamente a Log Analytics.
+
+> [!NOTE]
+> L'invio delle metriche multidimensionali a Log Analytics tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione.
+>
+> *Ad esempio*: la metrica 'Messaggi in ingresso' su un hub eventi può essere esplorata e rappresentata in un grafico a livello di singola coda. Tuttavia, in caso di esportazione tramite impostazione di diagnostica, la metrica viene rappresentata come tutti i messaggi in ingresso in tutte le code nell'hub eventi.
+>
+>
 
 * Per informazioni dettagliate sulle metriche disponibili, vedere [Metriche supportate con il monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 * Per informazioni dettagliate sui registri disponibili, vedere [Servizi supportati e schema per i log di diagnostica](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
@@ -145,7 +152,7 @@ Altre informazioni sul [connettore Application Insights](https://blogs.technet.m
 
 Per i servizi di Azure che non forniscono un modo diretto per inviare i log e le metriche a Log Analytics, è possibile usare uno script di Automazione di Azure per raccogliere i log e le metriche. Lo script può quindi inviare i dati a Log Analytics tramite l'[API di raccolta dati](log-analytics-data-collector-api.md)
 
-La raccolta di modelli di Azure include [esempi dell'uso di Automazione di Azure](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) per raccogliere dati dai servizi e inviarli a Log Analytics.
+La raccolta di modelli di Azure include [esempi dell'uso di Automazione di Azure](https://azure.microsoft.com/resources/templates/?term=OMS) per raccogliere dati dai servizi e inviarli a Log Analytics.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

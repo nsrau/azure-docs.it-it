@@ -1,18 +1,18 @@
 ---
-title: "Eseguire attività in contenitori in Istanze di contenitore di Azure"
-description: "Informazioni su come usare Istanze di contenitore di Azure per eseguire attività eseguite fino al completamento, ad esempio nella compilazione, nei test o nei processi per il rendering di immagini."
+title: Eseguire attività in contenitori in Istanze di contenitore di Azure
+description: Informazioni su come usare Istanze di contenitore di Azure per eseguire attività eseguite fino al completamento, ad esempio nella compilazione, nei test o nei processi per il rendering di immagini.
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: marsma
-ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 3bbe3e891423b6ad62a1d1093daef304206f3d76
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Eseguire un'attività in contenitori in Istanze di contenitore di Azure
 
@@ -26,7 +26,7 @@ Gli esempi presentati in questo articolo usano l'interfaccia della riga di coman
 
 Quando si crea un contenitore in Istanze di contenitore di Azure, è possibile specificare una delle tre impostazioni dei criteri di riavvio.
 
-| Criterio di riavvio   | Descrizione |
+| Criterio di riavvio   | DESCRIZIONE |
 | ---------------- | :---------- |
 | `Always` | I contenitori nel gruppo contenitore vengono sempre riavviati. Questa è l'impostazione **predefinita** applicata quando non si specifica alcun criterio di riavvio al momento della creazione del contenitore. |
 | `Never` | I contenitori nel gruppo contenitore non vengono riavviati mai. I contenitori vengono eseguiti al massimo una volta. |

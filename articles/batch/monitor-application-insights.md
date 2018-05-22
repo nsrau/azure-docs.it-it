@@ -2,7 +2,7 @@
 title: Monitorare Batch con Azure Application Insights | Microsoft Docs
 description: Informazioni su come instrumentare un'applicazione .NET di Azure Batch con la libreria di Azure Application Insights.
 services: batch
-author: paselem
+author: dlepow
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: dc2cb7206f5d180008d31bc559f2ce41210e719f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9f989ada01a2ffced509b42df9e46aa001386ab6
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorare ed eseguire il debug di un'applicazione .NET di Azure Batch con Application Insights
 
@@ -25,7 +25,7 @@ Questo articolo illustra come aggiungere e configurare la libreria di Applicatio
 
 In [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights) è disponibile una soluzione C# di esempio con codice per seguire questo articolo. Questo esempio aggiunge codice di strumentazione di Application Insights all'esempio [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords). Se non si ha familiarità con tale esempio, provare prima di tutto a compilare ed eseguire TopNWords. In questo modo sarà possibile comprendere un flusso di lavoro semplice di Batch per l'elaborazione di un set di BLOB di input in parallelo su più nodi di calcolo. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * [IDE di Visual Studio](https://www.visualstudio.com/vs) (Visual Studio 2015 o una versione più recente)
 
 * [Un account Batch e un account di archiviazione collegato](batch-account-create-portal.md)

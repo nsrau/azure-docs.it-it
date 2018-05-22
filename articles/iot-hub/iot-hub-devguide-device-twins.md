@@ -1,5 +1,5 @@
 ---
-title: Informazioni sui dispositivi gemelli nell'hub IoT di Azure | Documentazione Microsoft
+title: Informazioni sui dispositivi gemelli nell'hub IoT di Azure | Microsoft Docs
 description: Guida per gli sviluppatori - Usare dispositivi gemelli per sincronizzare stato e dati di configurazione tra l'hub IoT e i dispositivi
 services: iot-hub
 documentationcenter: .net
@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01e94298aa3691d5bce33a12745b54fd398c7ad3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ef048967bc08fed1a108872d2d7eecc2a66993fa
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendere e usare dispositivi gemelli nell'hub IoT
 
@@ -352,6 +352,7 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si è appreso come usare i dispositivi gemelli. Altri argomenti di interesse disponibili nella Guida per sviluppatori dell'hub IoT:
 
+* [Informazioni e uso dei moduli gemelli nell'hub IoT][lnk-module-twins]
 * [Richiamare un metodo diretto in un dispositivo][lnk-methods]
 * [Pianificare processi in più dispositivi][lnk-jobs]
 
@@ -385,5 +386,6 @@ Per provare alcuni dei concetti descritti in questo articolo, vedere le esercita
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
+[lnk-module-twins]:iot-hub-devguide-module-twins.md
 
 [img-twin]: media/iot-hub-devguide-device-twins/twin.png

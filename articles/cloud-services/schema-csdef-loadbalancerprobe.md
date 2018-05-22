@@ -1,23 +1,23 @@
 ---
 title: Schema LoadBalancerProbe di definizione di Servizi cloud di Azure | Microsoft Docs
-ms.custom: 
+ms.custom: ''
 ms.date: 04/14/2015
-ms.prod: azure
-ms.reviewer: 
+services: cloud-services
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
-caps.latest.revision: 
+caps.latest.revision: 14
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: 31c974c5a4b9dc9cff882ff42b73ee023fc4ad9b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6cd56c9b04fc4657cedf845e7f111005a8dee183
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Schema LoadBalancerProbe di definizione di Servizi cloud di Azure
 Il probe di bilanciamento del carico è un probe di integrità definito dal cliente per gli endpoint UDP e gli endpoint nelle istanze del ruolo. `LoadBalancerProbe` non è un elemento autonomo. Viene combinato con il ruolo Web o il ruolo di lavoro in un file di definizione del servizio. `LoadBalancerProbe` può essere usato da più di un ruolo.

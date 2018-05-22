@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: d0443128064332a37c95d5c39cd73b759a002cca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a908c242b5d41d5cd61d8775bdbe53f3cdddd3ec
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Introduzione alla sicurezza in Microsoft Azure
 
@@ -136,7 +136,7 @@ Il filtro IP impedisce alle macchine virtuali guest di:
 
 Per proteggere le comunicazioni sulla rete virtuale, è possibile usare le tecnologie di Rete virtuale di Azure seguenti:
 
-* [**Gruppi di sicurezza di rete (NSG)**](../virtual-network/virtual-networks-nsg.md). È possibile usare un gruppo di sicurezza di rete per controllare il traffico verso una o più istanze di macchina virtuale in una rete virtuale. Un NSG contiene le regole di controllo di accesso che consentono o negano il traffico in base alla direzione del traffico, al protocollo, all’indirizzo e alla porta di origine e all’indirizzo e alla porta di destinazione.
+* [**Gruppi di sicurezza di rete (NSG)**](../virtual-network/security-overview.md). È possibile usare un gruppo di sicurezza di rete per controllare il traffico verso una o più istanze di macchina virtuale in una rete virtuale. Un NSG contiene le regole di controllo di accesso che consentono o negano il traffico in base alla direzione del traffico, al protocollo, all’indirizzo e alla porta di origine e all’indirizzo e alla porta di destinazione.
 * [**Routing definito dall'utente**](../virtual-network/virtual-networks-udr-overview.md). È possibile controllare il routing dei pacchetti attraverso un'appliance virtuale creando route definite dall'utente che specifichino l'hop successivo per i pacchetti che passano a una subnet specifica per accedere a un'appliance di sicurezza di rete virtuale.
 * [**Inoltro IP**](../virtual-network/virtual-networks-udr-overview.md). Un'appliance di sicurezza di rete virtuale deve poter ricevere traffico in ingresso non indirizzato a se stessa. Per consentire a una macchina virtuale di ricevere il traffico indirizzato ad altre destinazioni, abilitare l'inoltro IP per la macchina virtuale.
 * [**Tunneling forzato**](../vpn-gateway/vpn-gateway-about-forced-tunneling.md). Il tunneling forzato consente di reindirizzare o "forzare" tutto il traffico associato a Internet generato dalle macchine virtuali in una rete virtuale verso la posizione locale tramite un tunnel VPN da sito a sito per l'ispezione e il controllo.

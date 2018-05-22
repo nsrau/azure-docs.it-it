@@ -3,16 +3,17 @@ title: Creare account RunAs di Automazione di Azure
 description: Questo articolo descrive come aggiornare l'account di Automazione e creare account RunAs con PowerShell o dal portale.
 services: automation
 ms.service: automation
+ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 239478a9e697d9eed474a9bfcc0d12fb6a05faee
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fd53ee7634769381f18e359762fa72dbba435a00
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Aggiornare l'autenticazione dell'account di Automazione con account RunAs 
 È possibile aggiornare l'account di Automazione esistente dal portale di Azure o con PowerShell se:

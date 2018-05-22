@@ -2,23 +2,23 @@
 title: Come configurare l'autenticazione Google per un'applicazione dei servizi app
 description: Informazioni su come configurare l'autenticazione Google per un'applicazione dei servizi app.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: mattchenderson
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: d6c1707f67d986487e5a45e76ffc9a02ddf16eb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1a174913446c0a1d5e3e3b01123db8b40bfd172c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Come configurare l'applicazione del servizio app per usare l'account di accesso di Google
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -30,11 +30,13 @@ Per completare la procedura descritta in questo argomento, è necessario avere u
 ## <a name="register"></a>Registrare l'applicazione con Google
 1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l' **URL**, che verrà usato in seguito per configurare l'app Google.
 2. Passare al sito Web delle [API di Google](http://go.microsoft.com/fwlink/p/?LinkId=268303)accedere con le credenziali dell'account Google, fare clic su **Crea progetto**, specificare un valore in **Nome progetto**, quindi fare clic su **Crea**.
-3. In **API Social** fare clic **Google+ API** e quindi su **Abilita**.
-4. Nel riquadro di spostamento a sinistra scegliere **Credenziali** > **Schermata consenso OAuth**, quindi selezionare il proprio **Indirizzo email**, immettere un **Nome del prodotto** e fare clic su **Salva**.
-5. Nella scheda **Credenziali** fare clic su **Crea credenziali**  > **ID client OAuth**, quindi selezionare **Applicazione web**.
-6. Incollare l'**URL** del servizio app copiato in precedenza in **Origini JavaScript autorizzate** e quindi incollare l'URI di reindirizzamento in **URI di reindirizzamento autorizzati**. L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso */.auth/login/google/callback*. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/google/callback`. Assicurarsi che sia in uso lo schema HTTPS. Fare quindi clic su **Crea**.
-7. Fare clic sulla schermata successiva e annotare i valori di ID client e Segreto client.
+3. Una volta creato il progetto, selezionarlo. Dal dashboard del progetto, fare clic su **Go to APIs overview** (panoramica Vai a API).
+4. Selezionare **Abilita API e servizi** (Abilita API e servizi). Cercare **Google + API**e selezionarlo. Fare quindi clic su **Attiva**.
+6. Nel riquadro di spostamento a sinistra scegliere **Credenziali** > **Schermata consenso OAuth**, quindi selezionare il proprio **Indirizzo email**, immettere un **Nome del prodotto** e fare clic su **Salva**.
+7. Nella scheda **Credenziali** fare clic su **Crea credenziali** > **ID client OAuth**. Fare clic su **Configure consent screen** (Configura schermata di consenso) e assegnare un **Nome prodotto**. Fare quindi clic su **Salva**
+8. Nella schermata "Create client ID" (Crea ID Cliente), selezionare **Applicazione Web**.
+9. Incollare l'**URL** del servizio app copiato in precedenza in **Origini JavaScript autorizzate** e quindi incollare l'URI di reindirizzamento in **URI di reindirizzamento autorizzati**. L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso */.auth/login/google/callback*. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/google/callback`. Assicurarsi che sia in uso lo schema HTTPS. Fare quindi clic su **Crea**.
+10. Fare clic sulla schermata successiva e annotare i valori di ID client e Segreto client.
 
     > [!IMPORTANT]
     > Il segreto client è un'importante credenziale di sicurezza. Non condividere questo valore con altri e non distribuirlo all'interno di un'applicazione client.

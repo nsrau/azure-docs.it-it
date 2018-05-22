@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dcfc295de39e909bf157edee4fec1ba51a583750
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 46e4466085200bf9042c4342ea5e6b37fd2fb701
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Informazioni generali sulla sicurezza della gestione delle identità di Azure
 Le soluzioni Microsoft di gestione degli accessi e delle identità consentono all'IT di proteggere l'accesso ad applicazioni e risorse nel data center aziendale e nel cloud, abilitando altri livelli di convalida, ad esempio Multi-Factor Authentication e criteri di accesso condizionale. Il monitoraggio delle attività sospette tramite funzioni avanzate di report di sicurezza, controllo e avvisi consente di attenuare i potenziali problemi di sicurezza. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) offre l'accesso Single Sign-On a migliaia di app cloud (SaaS) e alle app Web eseguite in locale.
@@ -56,7 +56,7 @@ Non solo gli utenti non devono più gestire diversi set di nomi utente e passwor
 Altre informazioni:
 
 * [Informazioni generali su Single Sign-On](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../active-directory/active-directory-appssoaccess-whatis.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../active-directory/manage-apps/what-is-single-sign-on.md)
 * [Integrare i servizi Single Sign-On di Azure Active Directory nelle app SaaS](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## <a name="reverse-proxy"></a>Proxy inverso
@@ -64,10 +64,10 @@ Il proxy di applicazione di Azure AD consente di pubblicare applicazioni locali,
 
 Altre informazioni:
 
-* [Abilitazione del proxy di applicazione di Azure AD](../active-directory/active-directory-application-proxy-enable.md)
+* [Abilitazione del proxy di applicazione di Azure AD](../active-directory/manage-apps/application-proxy-enable.md)
 * [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](../active-directory/active-directory-application-proxy-publish.md)
-* [Accesso Single Sign-On con il proxy di applicazione](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
-* [Utilizzo di access condizionale](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
+* [Accesso Single Sign-On con il proxy di applicazione](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+* [Utilizzo di access condizionale](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 ## <a name="multi-factor-authentication"></a>Autenticazione a più fattori
 Azure Multi-Factor Authentication (MFA) è un metodo di autenticazione che richiede più di un metodo di verifica e con il quale viene aggiunto un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. MFA consente di proteggere l'accesso ai dati e alle applicazioni dell'utente, garantendo al tempo stesso una procedura di accesso semplice. Offre autenticazione avanzata tramite diverse opzioni di verifica, ad esempio una telefonata, un SMS, una notifica dell'app per dispositivi mobili o un codice di verifica e token OAuth di terze parti.

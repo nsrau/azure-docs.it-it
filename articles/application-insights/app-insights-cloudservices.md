@@ -2,7 +2,7 @@
 title: Application Insights per Servizi cloud di Azure | Microsoft Docs
 description: Monitorare i ruoli Web e di lavoro in modo efficace con Application Insights
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 keywords: WAD2AI, Diagnostica di Azure
 author: mrbullwinkle
 manager: carmonm
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: dd35ef2239469be6ecf478f44a7e97389e5c5dd3
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f36a9e21478d2629d705d90179a6db5175c78299
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per Servizi cloud di Azure
 Le [app del servizio cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) possono essere monitorate da [Application Insights][start] in termini di disponibilità, prestazioni, errori e utilizzo combinando i dati degli SDK di Application Insights con i dati di [Diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) provenienti dai servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
@@ -223,7 +223,7 @@ Per ottenere una panoramica del sistema, è possibile riunire i grafici di monit
 
 Se il sistema usa altri servizi di Azure, ad esempio l'analisi di flusso, includere anche i relativi grafici di monitoraggio. 
 
-Se si ha un'app per dispositivi mobili client, inserire un codice per inviare eventi personalizzati sulle principali operazioni degli utenti e creare un'istanza di [HockeyApp Bridge](app-insights-hockeyapp-bridge-app.md). Creare query in [Analytics](app-insights-analytics.md) per visualizzare i conteggi degli eventi e aggiungerli al dashboard.
+Se si dispone di un'app client per dispositivi mobili, usare [App Center](app-insights-mobile-center-quickstart.md). Creare query in [Analytics](app-insights-analytics.md) per visualizzare i conteggi degli eventi e aggiungerli al dashboard.
 
 ## <a name="example"></a>Esempio
 [L'esempio](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitora un servizio che ha un ruolo Web e due ruoli di lavoro.

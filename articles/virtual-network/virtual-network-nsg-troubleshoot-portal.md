@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: b053993bec74d358dd7a0a8889fa05885b563b16
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: be400d674068d89f60d3c999006bc9291944ab1c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Risolvere i problemi relativi ai gruppi di sicurezza di rete tramite il portale di Azure
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Completare i passaggi seguenti per risolvere i problemi dei gruppi di sicurezza 
 
 È possibile visualizzare l'elenco completo delle regole di sicurezza effettive in un'interfaccia di rete dalla VM stessa. È anche possibile aggiungere, modificare ed eliminare le regole dei gruppi di sicurezza di rete per subnet e interfacce di rete usando il pannello delle regole effettive, se si hanno le autorizzazioni per eseguire queste operazioni.
 
-1. Accedere al portale di Azure all'indirizzo https://portal.azure.com con un account Azure. All'account deve essere assegnata l'operazione *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* per l'interfaccia di rete. Per informazioni su come assegnare operazioni agli account, vedere [Creare ruoli personalizzati per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Accedere al portale di Azure all'indirizzo https://portal.azure.com con un account Azure. All'account deve essere assegnata l'operazione *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* per l'interfaccia di rete. Per informazioni su come assegnare operazioni agli account, vedere [Creare ruoli personalizzati per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Fare clic su **Tutti i servizi** e quindi su **Macchine virtuali** nell'elenco visualizzato.
 3. Selezionare una VM in cui risolvere i problemi nell'elenco visualizzato. Verrà visualizzato un pannello della VM contenente opzioni.
 4. Fare clic su **Diagnostica e risoluzione dei problemi** e quindi selezionare un problema comune. Per questo esempio si seleziona **Non è possibile connettersi alla macchina virtuale Windows** . 

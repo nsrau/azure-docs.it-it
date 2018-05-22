@@ -1,22 +1,36 @@
 ---
-title: Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure
-description: Questo articolo descrive come eseguire meccanismi di query avanzati con funzioni JavaScript definite dall'utente in Analisi di flusso di Azure.
+title: "Esercitazione: Funzioni JavaScript definite dall'utente di Analisi di flusso di Azure | Microsoft Docs "
+description: In questa esercitazione si eseguono meccanismi di query avanzate con funzioni JavaScript definite dall'utente
+keywords: javascript, funzioni definite dall'utente, udf
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: SnehaGunda
 manager: kfile
-ms.reviewer: jasonh
+ms.assetid: ''
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 462bd55dfae3a2c471d1111637a6de0bc95e6bfa
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.topic: tutorial
+ms.reviewer: jasonh
+ms.custom: mvc
+ms.date: 04/01/2018
+ms.workload: data-services
+ms.author: sngun
+ms.openlocfilehash: f3a94017b95eb614669fa42594fe3a3499c74be7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure
+# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Esercitazione: Funzioni JavaScript definite dall'utente di Analisi di flusso di Azure
+
 L'Analisi di flusso di Azure supporta le funzioni definite dall'utente nel linguaggio JavaScript. Con il vasto set di metodi **String**, **RegExp**, **Math**, **Array** e **Date** offerti da JavaScript, risulta più facile creare trasformazioni di dati complessi con processi di Analisi di flusso.
+
+In questa esercitazione si apprenderà come:
+
+> [!div class="checklist"]
+> * Definire una funzione JavaScript definita dall'utente
+> * Aggiungere la funzione al portale
+> * Definire una query che esegue la funzione
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="javascript-user-defined-functions"></a>Funzioni JavaScript definite dall'utente
 Le funzioni JavaScript definite dall'utente supportano funzioni senza stato e di solo calcolo che non richiedono connettività esterna. Il valore restituito di una funzione può essere solo un valore scalare singolo. Dopo aver aggiunto una funzione JavaScript definita dall'utente a un processo, è possibile utilizzare la funzione in un punto qualsiasi nella query, ad esempio una funzione scalare incorporata.
@@ -133,12 +147,19 @@ FROM
     input PARTITION BY PARTITIONID
 ```
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non sono più necessari, eliminare il gruppo di risorse, il processo di streaming e tutte le risorse correlate. Eliminando il processo si evita di pagare per le unità di streaming utilizzate dal processo. Se si prevede di usare il processo in futuro, è possibile arrestarlo e riavviarlo in un secondo momento, quando è necessario. Se non si intende continuare a usare il processo, eliminare tutte le risorse create tramite questa guida introduttiva seguendo questa procedura:
+
+1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi fare clic sul nome della risorsa creata.  
+2. Nella pagina del gruppo di risorse fare clic su **Elimina**, digitare il nome della risorsa da eliminare nella casella di testo e quindi fare clic su **Elimina**.
+
 ## <a name="get-help"></a>Ottenere aiuto
 Per ulteriore assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
-* [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
+In questa esercitazione è stato creato un processo di Analisi di flusso che esegue una semplice funzione JavaScript definita dall'utente. Per altre informazioni su Analisi di flusso, vedere gli articoli sugli scenari in tempo reale:
+
+> [!div class="nextstepaction"]
+> [Analisi del sentiment su Twitter in tempo reale in Analisi di flusso di Azure](stream-analytics-twitter-sentiment-analysis-trends.md)

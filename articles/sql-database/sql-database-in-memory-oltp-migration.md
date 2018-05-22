@@ -10,14 +10,14 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: jodebrui
-ms.openlocfilehash: cd76f475f330c49dec737d2c4a25aa75a18b41a7
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 19ddcdf9a7d27535172c1e9ccfa89b3836589c84
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Uso di OLTP in memoria per migliorare le prestazioni delle applicazioni nel database SQL
-[OLTP in memoria](sql-database-in-memory.md) può essere usato per migliorare le prestazioni di elaborazione delle transazioni, l'inserimento dei dati e gli scenari di dati temporanei, nei database di [livello Premium e Business Critical](sql-database-service-tiers.md), senza aumentare il piano tariffario. 
+[OLTP in memoria](sql-database-in-memory.md) può essere usato per migliorare le prestazioni di elaborazione delle transazioni, l'inserimento dei dati e gli scenari di dati temporanei, nei database di [livello Premium e Business Critical](sql-database-service-tiers-vcore.md), senza aumentare il piano tariffario. 
 
 > [!NOTE] 
 > Informazioni in [Quorum doubles key database's workload while lowering DTU by 70% with SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database) (Il quorum raddoppia il carico di lavoro del database principale riducendo il DTU del 70% con il database SQL)

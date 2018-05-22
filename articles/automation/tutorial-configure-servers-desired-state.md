@@ -3,16 +3,17 @@ title: Configurare i server allo stato desiderato e gestire la deviazione con Au
 description: 'Esercitazione: Gestire configurazioni di server con Automation DSC per Azure'
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 manager: carmonm
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2017
-ms.openlocfilehash: b2d7614cf2e857253e0fb230cb514523476def49
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6203cc8679561fa342a2e15a3819dd5513774dde
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurare i server sullo stato desiderato e gestire gli orientamenti
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: e5310c59cbfe4080911768f29e1b8f635a611e63
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c1b04968f83271006240fc0e099175e9017574ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
 
@@ -44,7 +44,7 @@ In Visual Studio il modello di progetto **Funzioni di Azure** crea un progetto d
 > [!IMPORTANT]
 > Il processo di compilazione crea un file *function.json* per ogni funzione. Il file *function.json* non viene modificato direttamente. Non è possibile modificare la configurazione di associazione o disabilitare la funzione modificando il file. Per disabilitare una funzione, usare l'attributo il [Disable](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs). Aggiungere ad esempio all'app l'impostazione booleana MY_TIMER_DISABLED e applicare `[Disable("MY_TIMER_DISABLED")]` alla funzione. Sarà quindi possibile abilitarla e disabilitarla modificando l'impostazione dell'app.
 
-### <a name="functionname-and-trigger-attributes"></a>Attributi FunctionName e trigger
+## <a name="methods-recognized-as-functions"></a>Metodi riconosciuti come funzioni
 
 In una libreria di classi, una funzione è un metodo statico con un attributo `FunctionName` e trigger, come illustrato nell'esempio seguente:
 
@@ -61,13 +61,24 @@ public static class SimpleExample
 } 
 ```
 
-L'attributo `FunctionName` indica il metodo come punto di ingresso della funzione. Il nome deve essere univoco nel progetto.
+L'attributo `FunctionName` indica il metodo come punto di ingresso della funzione. Il nome deve essere univoco nel progetto. I modelli di progetto spesso creano un metodo denominato `Run`, ma il nome del metodo può essere qualsiasi nome di metodo c# valido.
 
 L'attributo trigger specifica il tipo di trigger e associa i dati di input a un parametro del metodo. La funzione di esempio viene attivata da un messaggio della coda e il messaggio della coda viene passato al metodo nel parametro `myQueueItem`.
 
-### <a name="additional-binding-attributes"></a>Altri attributi di associazione
+## <a name="method-signature-parameters"></a>Parametri di Method Signature
 
-È possibile usare altri attributi di associazione di input e output. L'esempio seguente differisce dal precedente per l'aggiunta di un'associazione di coda di output. La funzione scrive il messaggio della coda di input in un nuovo messaggio di un'altra coda.
+Method Signature può contenere parametri diversi da quelli usati con l'attributo trigger. Ecco alcuni dei parametri aggiuntivi che è possibile includere:
+
+* [Associazioni di input e output](functions-triggers-bindings.md) contrassegnate come tali tramite la decorazione con attributi.  
+* Un parametro `ILogger` o `TraceWriter` per la [registrazione](#logging).
+* Un parametro `CancellationToken` per [arresto normale](#cancellation-tokens).
+* Parametri di [espressioni di associazione](functions-triggers-bindings.md#binding-expressions-and-patterns) per ottenere i metadati trigger.
+
+L'ordine dei parametri nella firma della funzione non è rilevante. È ad esempio possibile inserire i parametri di trigger prima o dopo le altre associazioni e il parametro del logger prima o dopo i parametri di associazione o di trigger.
+
+### <a name="output-binding-example"></a>Esempio di associazione di output
+
+L'esempio seguente differisce dal precedente per l'aggiunta di un'associazione di coda di output. La funzione scrive il messaggio della coda che attiva la funzione in un nuovo messaggio di un'altra coda.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -84,13 +95,11 @@ public static class SimpleExampleWithOutput
 }
 ```
 
-### <a name="order-of-parameters"></a>Ordine dei parametri
+Gli articoli di riferimento di associazione ([Code di archiviazione](functions-bindings-storage-queue.md), ad esempio) illustrano quali tipi di parametri è possibile usare con attributi di associazione di trigger, input o output.
 
-L'ordine dei parametri nella firma della funzione non è rilevante. È ad esempio possibile inserire i parametri di trigger prima o dopo le altre associazioni e il parametro del logger prima o dopo i parametri di associazione o di trigger.
+### <a name="binding-expressions-example"></a>Esempio di espressioni di associazione
 
-### <a name="binding-expressions"></a>Espressioni di associazione
-
-È possibile usare le espressioni di associazione nei parametri di un costruttore di attributo e in quelli di una funzione. Il codice seguente, ad esempio, ottiene il nome della coda per il monitoraggio da un'impostazione di app e l'ora di creazione del messaggio della coda nel parametro `insertionTime`.
+Il codice seguente ottiene il nome della coda per il monitoraggio da un'impostazione di app e l'ora di creazione del messaggio della coda nel parametro `insertionTime`.
 
 ```csharp
 public static class BindingExpressionsExample
@@ -107,9 +116,7 @@ public static class BindingExpressionsExample
 }
 ```
 
-Per altre informazioni, vedere **Modelli ed espressioni di associazione** in [Trigger e associazioni](functions-triggers-bindings.md#binding-expressions-and-patterns).
-
-### <a name="conversion-to-functionjson"></a>Conversione in function.json
+## <a name="autogenerated-functionjson"></a>Function.json generato automaticamente
 
 Il processo di compilazione crea un file *function.json* in una cartella della funzione nella cartella di compilazione. Come affermato in precedenza, questo file non viene modificato direttamente. Non è possibile modificare la configurazione di associazione o disabilitare la funzione modificando il file. 
 
@@ -134,7 +141,7 @@ Il file *function.json* generato include una proprietà `configurationSource` ch
 }
 ```
 
-### <a name="microsoftnetsdkfunctions-nuget-package"></a>Pacchetto NuGet Microsoft.NET.Sdk.Functions
+## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
 La generazione del file *function.json* viene eseguita dal pacchetto NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
@@ -169,7 +176,7 @@ Il pacchetto `Sdk` dipende inoltre da [Newtonsoft.Json](http://www.nuget.org/pac
 
 Il codice sorgente per `Microsoft.NET.Sdk.Functions` è disponibile nel repository GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-### <a name="runtime-version"></a>Versione del runtime
+## <a name="runtime-version"></a>Versione del runtime
 
 Per eseguire i progetti di Funzioni, Visual Studio usa gli [strumenti di base di Funzioni di Azure](functions-run-local.md#install-the-azure-functions-core-tools). Gli strumenti di base offrono un'interfaccia della riga di comando per il runtime di Funzioni.
 

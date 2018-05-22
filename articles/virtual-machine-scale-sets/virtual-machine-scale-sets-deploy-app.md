@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: cadd0f4c07b7e8adec4956543f67313aa8442da3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e033439ba9f525307edb857a358d1f760a08aad0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuire l'applicazione nei set di scalabilità delle macchine virtuali
 Per eseguire applicazioni nelle istanze di macchine virtuali (VM) in un set di scalabilità, è necessario prima installare i componenti dell'applicazione e i file necessari. Questo articolo descrive come creare un'immagine personalizzata di macchina virtuale per le istanze in un set di scalabilità o eseguire automaticamente gli script di installazione nelle istanze di macchine virtuali esistenti. Si apprenderà anche come gestire gli aggiornamenti delle applicazioni o del sistema operativo in un set di scalabilità.
@@ -42,7 +42,7 @@ L'estensione script personalizzata scarica ed esegue gli script sulle macchine v
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Installare un'app su una macchina virtuale Windows con PowerShell DSC
-[PowerShell DSC (Desired State Configuration)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) è una piattaforma di gestione che permette di definire la configurazione dei computer di destinazione. Le configurazioni DSC definiscono che cosa installare nel computer e come configurare l'host. Un motore di Gestione configurazione locale viene eseguito in ogni nodo di destinazione che elabora le azioni necessarie in base alle configurazioni di cui è stato eseguito il push.
+[PowerShell DSC (Desired State Configuration)](https://msdn.microsoft.com/powershell/dsc/overview) è una piattaforma di gestione che permette di definire la configurazione dei computer di destinazione. Le configurazioni DSC definiscono che cosa installare nel computer e come configurare l'host. Un motore di Gestione configurazione locale viene eseguito in ogni nodo di destinazione che elabora le azioni necessarie in base alle configurazioni di cui è stato eseguito il push.
 
 L'estensione PowerShell DSC consente di personalizzare le istanze di macchine virtuali in un set di scalabilità con PowerShell. L'esempio seguente:
 

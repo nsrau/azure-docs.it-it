@@ -1,5 +1,5 @@
 ---
-title: Visualizzazione dei log di diagnostica per Azure Data Lake Store | Microsoft Docs
+title: Visualizzazione dei log di diagnostica per Azure Data Lake Store | Documentazione Microsoft
 description: 'Informazioni su come configurare e accedere ai log di diagnostica per Archivio Data Lake di Azure  '
 services: data-lake-store
 documentationcenter: ''
@@ -9,16 +9,14 @@ editor: cgronlun
 ms.assetid: f6e75eb1-d0ae-47cf-bdb8-06684b7c0a94
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a5cdc67a138e2316c2e87a72371a6df527cc36ac
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ed401b1d68463bc03f7931e80e2bfb18d9449970
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Accesso ai log di diagnostica per Archivio Data Lake di Azure
 Informazioni su come abilitare la registrazione diagnostica per l'account Data Lake Store e visualizzare i log raccolti per l'account.
@@ -114,7 +112,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
     }
 
 #### <a name="request-log-schema"></a>Schema del log delle richieste
-| NOME | type | Descrizione |
+| NOME | type | DESCRIZIONE |
 | --- | --- | --- |
 | time |string |Il timestamp del log (fusorario UTC) |
 | ResourceId |string |L’ID della risorsa interessata dall’operazione |
@@ -127,7 +125,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 | properties |JSON |Vedere di seguito per ulteriori dettagli |
 
 #### <a name="request-log-properties-schema"></a>Schema delle proprietà del log di richiesta
-| NOME | type | Descrizione |
+| NOME | type | DESCRIZIONE |
 | --- | --- | --- |
 | HttpMethod |string |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
 | path |string |Il percorso coinvolto nell'operazione |
@@ -161,7 +159,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
     }
 
 #### <a name="audit-log-schema"></a>Schema del log di controllo
-| NOME | type | Descrizione |
+| NOME | type | DESCRIZIONE |
 | --- | --- | --- |
 | time |string |Il timestamp del log (fusorario UTC) |
 | ResourceId |string |L’ID della risorsa interessata dall’operazione |
@@ -174,7 +172,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 | properties |JSON |Vedere di seguito per ulteriori dettagli |
 
 #### <a name="audit-log-properties-schema"></a>Schema delle proprietà del log di controllo
-| NOME | type | Descrizione |
+| NOME | type | DESCRIZIONE |
 | --- | --- | --- |
 | StreamName |string |Il percorso coinvolto nell'operazione |
 

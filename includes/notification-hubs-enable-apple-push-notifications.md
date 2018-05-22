@@ -1,7 +1,21 @@
-
-
-## <a name="generate-the-certificate-signing-request-file"></a>Generare il file di richiesta di firma del certificato
-Il servizio Apple Push Notification Service (APNS) usa i certificati per autenticare le notifiche push. Seguire queste istruzioni per creare il certificato push necessario per inviare e ricevere notifiche. Per altre informazioni su questi concetti, vedere la documentazione ufficiale relativa al servizio [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584) .
+---
+title: File di inclusione
+description: File di inclusione
+services: notification-hubs
+author: spelluru
+ms.service: notification-hubs
+ms.topic: include
+ms.date: 04/11/2018
+ms.author: spelluru
+ms.custom: include file
+ms.openlocfilehash: 08ff4b2190b26471d7b1ac1850ce89f889b8c256
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 05/07/2018
+---
+## <a name="generate-the-certificate-signing-request-file"></a>Generare il file della richiesta di firma del certificato
+Il servizio Apple Push Notification Service (APNS) usa i certificati per autenticare le notifiche push. Seguire queste istruzioni per creare il certificato push necessario per inviare e ricevere notifiche. Per altre informazioni su questi concetti, vedere la documentazione ufficiale [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584).
 
 Generare il file della richiesta di firma del certificato usato da Apple per la generazione di un certificato push firmato.
 
@@ -16,7 +30,7 @@ Generare il file della richiesta di firma del certificato usato da Apple per la 
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-save-csr.png)
    
-      Il file CSR viene salvato nel percorso selezionato. Il percorso predefinito è Scrivania. Tenere a mente il percorso scelto per il file.
+      Questa operazione consente di salvare il file CSR nel percorso selezionato. Il percorso predefinito è il Desktop. Tenere a mente il percorso scelto per il file.
 
 A questo punto registrare l'app con Apple, abilitare le notifiche push e caricare il file CSR esportato per creare un certificato push.
 
@@ -30,23 +44,23 @@ Per poter inviare notifiche push a un'app per iOS, è necessario registrare l'ap
 2. Aggiornare i tre campi seguenti per la nuova app e quindi fare clic su **Continue**:
    
    * **Name**: digitare un nome descrittivo per l'app nel campo **Name** della sezione **App ID Description**.
-   * **Bundle Identifier**: nella sezione **Explicit App ID** immettere un valore in **Bundle Identifier** nel formato `<Organization Identifier>.<Product Name>`, come indicato nel documento [App Distribution Guide](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). *Organization Identifier* e *Product Name* devono corrispondere all'identificatore dell'organizzazione e al nome del prodotto che verranno usati quando si crea il progetto XCode. Nella schermata seguente *NotificationHubs* viene usato come identificatore di organizzazione e *GetStarted* viene usato come nome del prodotto. Verificare che corrispondano ai valori che si useranno nel progetto XCode, in modo da usare il profilo di pubblicazione corretto con XCode. 
-   * **Notifiche Push**: selezionare l'opzione **Notifiche Push** nella sezione **Servizi app**.
+   * **Bundle Identifier**: nella sezione **Explicit App ID** immettere un valore in **Bundle Identifier** nel formato `<Organization Identifier>.<Product Name>`, come indicato nel documento [App Distribution Guide](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). L'*identificatore dell'organizzazione* e il *nome del prodotto* usati devono corrispondere all'identificatore dell'organizzazione e al nome del prodotto usati nella creazione del progetto XCode. Nello screenshot seguente *NotificationHubs* viene usato come identificatore dell'organizzazione e *GetStarted* viene usato come nome del prodotto. Verificare che questi valori corrispondano ai valori usati nel progetto XCode, in modo da usare il profilo di pubblicazione corretto con XCode. 
+   * **Push Notifications** (Notifiche Push): selezionare l'opzione **Push Notifications** nella sezione **App Services** (Servizi app).
      
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
      
-      Verrà generato l'ID app e all'utente verrà chiesto di confermare le informazioni. Fare clic su **Registra** per confermare il nuovo ID app.
+      Questa azione consente di generare l'ID dell'app e richiede all'utente di confermare le informazioni. Fare clic su **Registra** per confermare il nuovo ID app.
      
-      Dopo aver fatto clic su **Register** (Registrazione) verrà visualizzata la schermata **Registrazione completa**, come illustrato di seguito. Fare clic su **Done**.
+      Dopo aver fatto clic su **Register** (Registrazione) verrà visualizzata la schermata **Registration complete** (Registrazione completata), come mostrato nell'immagine seguente. Fare clic su **Done**.
       
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 
-1. In Developer Center, sotto App IDs trovare l'ID app appena creato e fare clic sulla relativa riga.
+1. In Developer Center (Centro per sviluppatori), individuare l'ID dell'app appena creata in App IDs (ID app) e fare clic sulla relativa riga.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
    
-      Facendo clic sull'ID app verranno visualizzati i dettagli relativi all'app. Fare clic sul pulsante **Edit** nella parte inferiore della schermata.
+      Se si fa clic sull'ID dell'app, verranno visualizzati i dettagli relativi all'app. Fare clic sul pulsante **Edit** nella parte inferiore della schermata.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
       
@@ -54,7 +68,7 @@ Per poter inviare notifiche push a un'app per iOS, è necessario registrare l'ap
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
    
-      Verrà visualizzato l'assistente "Add iOS Certificate".
+      Verrà visualizzato l'assistente "Add iOS Certificate" (Aggiungi il certificato iOS).
    
    > [!NOTE]
    > Questa esercitazione usa un certificato di sviluppo. La stessa procedura viene usata per registrare un certificato di produzione. Per l'invio delle notifiche, assicurarsi di usare lo stesso tipo di certificato.
@@ -77,34 +91,30 @@ Per poter inviare notifiche push a un'app per iOS, è necessario registrare l'ap
    > 
 5. Fare doppio clic sul certificato push scaricato **aps_development.cer**.
    
-      Il nuovo certificato verrà installato nel Portachiavi, come mostrato di seguito:
+      Questa azione consente di installare il nuovo certificato in Keychain, come illustrato nell'immagine seguente:
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
    
    > [!NOTE]
-   > Il nome del certificato potrebbe essere diverso, ma verrà preceduto da **Apple Development iOS Push Services:**.
-   > 
-   > 
+   > Il nome del certificato potrebbe essere diverso, ma verrà preceduto da **Apple Development iOS Push Services** (Servizi push iOS per lo sviluppo Apple).   
 6. In Accesso portachiavi fare clic con il pulsante destro del mouse sul nuovo certificato push creato nella categoria **Certificati** . Fare clic su **Esporta**, assegnare un nome al file, selezionare il formato **.p12** e quindi fare clic su **Salva**.
    
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
    
-    Prendere nota del nome del file e del percorso del certificato con estensione p12 esportato. Verrà usato per abilitare l'autenticazione con il servizio APN.
+    Prendere nota del nome del file e del percorso del certificato con estensione p12 esportato. Viene usato per abilitare l'autenticazione con il servizio APN.
    
    > [!NOTE]
    > In questa esercitazione viene creato un file QuickStart.p12. Il nome e il percorso del file potrebbero essere diversi.
-   > 
-   > 
-
+   
 ## <a name="create-a-provisioning-profile-for-the-app"></a>Creare un profilo di provisioning per l'app
-1. Nel <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">portale di provisioning iOS</a> selezionare **Provisioning Profiles**, quindi **All** e infine fare clic sul pulsante **+** per creare un nuovo profilo. Verrà avviata la procedura guidata **Add iOS Provisiong Profile**
+1. Nel <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">portale di provisioning iOS</a> selezionare **Provisioning Profiles**, quindi **All** e infine fare clic sul pulsante **+** per creare un nuovo profilo. Viene visualizzata la procedura guidata **Add iOS Provisioning Profile** (Aggiungi profilo di provisioning iOS)
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
-2. Selezionare **iOS App Development** in **Development** come tipo di profilo di provisioning e fare clic su **Continue**. 
-3. Selezionare quindi l'ID app appena creato nell'elenco a discesa **App ID**e fare clic su **Continue**.
+2. **Selezionare iOS App Development** (Sviluppo app iOS) in **Development** (Sviluppo) come tipo di profilo di provisioning e fare clic su **Continue** (Continua). 
+3. Selezionare quindi l'ID dell'app creata nell'elenco a discesa **App ID** (ID app) e fare clic su **Continue** (Continua)
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
-4. Nella schermata **Select certificates** selezionare il solito certificato di sviluppo usato per la firma del codice e fare clic su **Continue**. Questo non è il certificato push appena creato.
+4. Nella schermata **Select certificates** selezionare il solito certificato di sviluppo usato per la firma del codice e fare clic su **Continue**. Questo non è il certificato push creato.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
 5. In **Devices** selezionare i dispositivi da usare per il test e fare clic su **Continue**.

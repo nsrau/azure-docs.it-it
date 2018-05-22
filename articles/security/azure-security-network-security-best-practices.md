@@ -4,7 +4,7 @@ description: Questo articolo fornisce una serie di procedure consigliate per la 
 services: security
 documentationcenter: na
 author: TomShinder
-manager: swadhwa
+manager: mbaldwin
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d6d723f40cdc0382fa41a51eb32e7b59f0798627
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5ebeadd9c0805ac5f6ac543a49cb9ff63d8ded3f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-network-security-best-practices"></a>Procedure consigliate per la sicurezza della rete di Azure
 Microsoft Azure consente di connettere macchine e dispositivi virtuali ad altri dispositivi di rete inserendoli in reti virtuali di Azure. Una rete virtuale di Azure è un costrutto che consente di connettere le schede di interfaccia di rete virtuale a una rete virtuale per consentire le comunicazioni basate su TCP/IP tra dispositivi di rete abilitati. Le macchine virtuali di Azure connesse a una rete virtuale di Azure possono connettersi ai dispositivi nella stessa rete virtuale di Azure, in diverse reti virtuali di Azure, su Internet o persino in reti locali.
@@ -56,7 +56,7 @@ Analogamente alle operazioni svolte in locale, è consigliabile segmentare in su
 
 Il routing tra le subnet verrà eseguito automaticamente e non sarà necessario configurare manualmente le tabelle di routing. Tuttavia, per impostazione predefinita non sono presenti controlli di accesso di rete tra le subnet create nella rete virtuale di Azure. Per creare controlli di accesso di rete tra subnet, è necessario inserire un elemento tra le subnet.
 
-Uno degli elementi che è possibile usare per eseguire questa operazione è un [gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) (NSG). Gli NSG sono semplici dispositivi di ispezione dei pacchetti con stato che usano l'approccio a 5 tuple (indirizzo IP di origine, porta di origine, IP di destinazione, porta di destinazione e protocollo di livello 4) per creare regole allow/deny per il traffico di rete. È possibile consentire o negare il traffico da e verso un singolo indirizzo IP, a e da più indirizzi IP o persino a e da intere subnet.
+Uno degli elementi che è possibile usare per eseguire questa operazione è un [gruppo di sicurezza di rete](../virtual-network/security-overview.md) (NSG). Gli NSG sono semplici dispositivi di ispezione dei pacchetti con stato che usano l'approccio a 5 tuple (indirizzo IP di origine, porta di origine, IP di destinazione, porta di destinazione e protocollo di livello 4) per creare regole allow/deny per il traffico di rete. È possibile consentire o negare il traffico da e verso un singolo indirizzo IP, a e da più indirizzi IP o persino a e da intere subnet.
 
 L'uso di NSG per il controllo di accesso di rete tra subnet consente di inserire le risorse che appartengono alla stessa area di protezione o allo stesso ruolo nelle proprie subnet. Ad esempio, si pensi a una semplice applicazione a 3 livelli con un livello Web, un livello di logica di applicazione e un livello di database. Si inseriscono le macchine virtuali che appartengono a ciascuno di questi livelli nella propria subnet, quindi si usano gli NSG per controllare il traffico tra le subnet:
 
@@ -64,7 +64,7 @@ L'uso di NSG per il controllo di accesso di rete tra subnet consente di inserire
 * Le macchine virtuali a livello di logica dell'applicazione possono avviare connessioni solo con un livello database e accettare solo connessioni dal livello Web
 * Le macchine virtuali a livello database non possono avviare alcuna connessione all'esterno della propria subnet e possono accettare solo connessioni dal livello di logica dell'applicazione
 
-Per altre informazioni sui gruppi di sicurezza di rete e su come è possibile usarli per segmentare logicamente le reti virtuali di Azure, vedere [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
+Per altre informazioni sui gruppi di sicurezza di rete e su come è possibile usarli per segmentare logicamente le reti virtuali di Azure, vedere [Che cos'è un gruppo di sicurezza di rete](../virtual-network/security-overview.md).
 
 ## <a name="control-routing-behavior"></a>Controllare il comportamento di routing
 Quando si inserisce una macchina virtuale in una rete virtuale di Azure, si noterà che la macchina virtuale può connettersi a qualsiasi altra macchina virtuale nella stessa rete virtuale Azure, anche se le altre macchine virtuali si trovano in subnet diverse. Questo è possibile perché esiste un insieme di route di sistema, abilitate per impostazione predefinita, che consentono questo tipo di comunicazione. Queste route predefinite consentono alle macchine virtuali nella stessa rete virtuale di Azure di avviare le connessioni tra loro e con Internet (per le comunicazioni in uscita solo con Internet).

@@ -3,7 +3,7 @@ title: Progetto di analisi di Integrità di Azure
 description: Indicazioni per la distribuzione di un progetto di analisi della conformità HIPAA/HITRUST per i dati del settore sanitario
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 26566e0a-0a54-49f4-a91d-48e20b7cef71
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
-ms.author: simorjay
-ms.openlocfilehash: bdd7dbf4f39529ac76fb496f0d459577e6f929dc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: jomolesk
+ms.openlocfilehash: e627019f6219509c21ca6245ee1f7f54f2e1669a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Progetto per la sicurezza e la conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale
 

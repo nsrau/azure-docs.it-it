@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 79fc716f70fe0fb3273badd485e4c01ea5d04e1d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8649fc12bd36172f3a10e1a2c9da891685c0b821
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="tutorial-run-applications-in-azure-container-service-aks"></a>Esercitazione: Eseguire applicazioni nel servizio contenitore di Azure (AKS)
+# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: eseguire applicazioni in Azure Kubernetes Service (AKS)
 
 In questa esercitazione, parte 4 di 8, viene distribuita un'applicazione di esempio in un cluster Kubernetes. I passaggi completati comprendono:
 
@@ -30,7 +30,7 @@ Questa esercitazione presuppone una conoscenza di base dei concetti relativi a K
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Nelle esercitazioni precedenti è stato creato un pacchetto di un'applicazione in un'immagine del contenitore, caricata poi nel Registro contenitori di Azure, ed è stato creato un cluster Kubernetes. 
+Nelle esercitazioni precedenti è stato creato un pacchetto di un'applicazione in un'immagine del contenitore, caricata poi nel Registro contenitori di Azure, ed è stato creato un cluster Kubernetes.
 
 Per completare questa esercitazione, è necessario il file manifesto Kubernetes `azure-vote-all-in-one-redis.yaml` creato in precedenza. Questo file è stato scaricato con il codice sorgente dell'applicazione in un'esercitazione precedente. Verificare che sia stato clonato il repository e che si siano state cambiate le directory nel repository clonato.
 
@@ -89,7 +89,7 @@ service "azure-vote-front" created
 
 ## <a name="test-application"></a>Testare l'applicazione
 
-Viene creato un [servizio di Kubernetes][kubernetes-service] che espone l'applicazione a Internet. Il processo potrebbe richiedere alcuni minuti. 
+Viene creato un [servizio di Kubernetes][kubernetes-service] che espone l'applicazione a Internet. Il processo potrebbe richiedere alcuni minuti.
 
 Per monitorare lo stato, usare il comando [kubectl get service][kubectl-get] con l'argomento `--watch`.
 
@@ -98,12 +98,12 @@ kubectl get service azure-vote-front --watch
 ```
 
 *EXTERNAL-IP* per il servizio *azure-vote-front* inizialmente viene visualizzato come *pending*.
-  
+
 ```
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-Dopo il passaggio di *EXTERNAL-IP* da *pending* a un *indirizzo IP*, usare `CTRL-C` per arrestare il processo kubectl watch. 
+Dopo il passaggio di *EXTERNAL-IP* da *pending* a un *indirizzo IP*, usare `CTRL-C` per arrestare il processo kubectl watch.
 
 ```
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
@@ -119,14 +119,14 @@ Seguire questa procedura per [consentire l'accesso tramite un segreto Kubernetes
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione l'applicazione di voto di Azure è stata distribuita in un cluster Kubernetes nel servizio contenitore di Azure. Le attività completate comprendono:  
+In questa esercitazione l'applicazione di voto di Azure è stata distribuita in un cluster Kubernetes nel servizio contenitore di Azure. Le attività completate comprendono:
 
 > [!div class="checklist"]
 > * Scaricare i file manifesto Kubernetes
 > * Eseguire l'applicazione in Kubernetes
 > * Testare l'applicazione
 
-Passare all'esercitazione successiva per informazioni sulla scalabilità sia di un'applicazione Kubernetes sia dell'infrastruttura Kubernetes sottostante. 
+Passare all'esercitazione successiva per informazioni sulla scalabilità sia di un'applicazione Kubernetes sia dell'infrastruttura Kubernetes sottostante.
 
 > [!div class="nextstepaction"]
 > [Scalare l'applicazione e l'infrastruttura Kubernetes][aks-tutorial-scale]

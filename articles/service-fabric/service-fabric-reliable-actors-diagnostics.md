@@ -1,6 +1,6 @@
 ---
 title: Monitoraggio e diagnostica degli attori | Documentazione Microsoft
-description: "Questo articolo illustra le funzionalità di diagnostica e monitoraggio delle prestazioni disponibili nel runtime di Service Fabric Reliable Actors, inclusi gli eventi e i contatori delle prestazioni emessi dal runtime."
+description: Questo articolo illustra le funzionalità di diagnostica e monitoraggio delle prestazioni disponibili nel runtime di Service Fabric Reliable Actors, inclusi gli eventi e i contatori delle prestazioni emessi dal runtime.
 services: service-fabric
 documentationcenter: .net
 author: abhishekram
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: 5fbef8a3fb32f4bc47856ef6c6b459ae389dd541
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 9b4825be7ce7fb05b109310f21cd65cfe3819ae8
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostica e monitoraggio delle prestazioni per Reliable Actors
 Il runtime di Reliable Actors rende disponibili eventi [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) e [contatori delle prestazioni](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx), che forniscono informazioni utili per comprendere il funzionamento del runtime e per eseguire la risoluzione dei problemi e il monitoraggio delle prestazioni.

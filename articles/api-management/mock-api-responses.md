@@ -3,7 +3,7 @@ title: Simulare le risposte dell'API con il portale di Azure | Microsoft Docs
 description: Questa esercitazione illustra come usare Gestione API per impostare un criterio per un'API in modo che restituisca una risposta fittizia. Questo metodo consente agli sviluppatori di procedere con l'implementazione e il test dell'istanza di Gestione API qualora il back-end non sia disponibile per inviare risposte reali.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: f3209edb23577d656e228aa0d75d852f35cd93ef
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4383ce3788f6fade5299d69ef99b80221c58d9e7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="mock-api-responses"></a>Simulare le risposte di un'API
 

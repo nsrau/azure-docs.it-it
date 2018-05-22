@@ -2,24 +2,26 @@
 title: Personalizzazione delle attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure Active Directory | Microsoft Docs
 description: Informazioni su come personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure Active Directory
 services: active-directory
-documentationcenter: 
-author: jeevansd
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: jeedes
+ms.author: celested
+ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 7394857f55493b072e6ea549c8eeec54a808f5e5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 485e4c52751b390ebd440718e7a55de7b5b5ffd7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Personalizzazione delle attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure Active Directory
 Oggi Azure Active Directory supporta l'accesso single sign on con la maggior parte delle applicazioni aziendali comprese le applicazioni pre-integrate nella raccolta di app di Azure AD e le applicazioni personalizzate. Quando un utente esegue l'autenticazione in un'applicazione con Azure AD usando il protocollo SAML 2.0, Azure AD invia un token all'applicazione (via HTTP POST). che l'applicazione convalida e usa per l'accesso dell'utente anziché richiedere l'immissione di nome utente e password. Questi token SAML contengono informazioni sull'utente denominate "attestazioni".
@@ -40,7 +42,7 @@ Per modificare i valori di attestazione predefiniti, selezionare la riga dell'at
 
 ![Modifica attributo utente][2]
 
-È anche possibile rimuovere le attestazioni (ad eccezione di NameIdentifier) usando il menu di scelta rapida, che si apre facendo clic sull'icona **...**.  Si possono inoltre aggiungere nuove attestazioni usando il pulsante **Aggiungi attributo**.
+È anche possibile rimuovere le attestazioni (ad eccezione di NameIdentifier) usando il menu di scelta rapida, che si apre facendo clic sull'icona **...**. Si possono inoltre aggiungere nuove attestazioni usando il pulsante **Aggiungi attributo**.
 
 ![Modifica attributo utente][3]
 

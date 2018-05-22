@@ -2,24 +2,24 @@
 title: 'Esempio JSON di Criteri di Azure: immagini di macchine virtuali approvate | Microsoft Docs'
 description: Questo criterio di esempio JSON richiede che solo le immagini personalizzate approvate vengano distribuite nell'ambiente in uso.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: dcf43b5b820b41ec8722d843f1484c1607cfbde8
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: f20fc596783e348805977e2a8dceb29cd5cf6fb8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="approved-vm-images"></a>Immagini di macchine virtuali approvate
 
@@ -76,4 +76,5 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- I modelli di Criteri di Azure di esempio aggiuntivi sono disponibili nella pagina [Templates for Azure Policy](../json-samples.md) (Modelli per Criteri di Azure).
+- Altri modelli di esempio di Criteri di Azure sono disponibili nella pagina [Templates for Azure Policy](../json-samples.md) (Modelli per Criteri di Azure)
+- Altri esempi di Criteri di Azure per macchine virtuali in [Applicare criteri alle macchine virtuali Windows](/azure/virtual-machines/windows/policy)

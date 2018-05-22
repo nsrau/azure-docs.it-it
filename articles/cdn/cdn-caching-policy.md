@@ -1,11 +1,11 @@
 ---
-title: Gestire i criteri di memorizzazione nella cache della rete CDN di Azure in Servizi multimediali di Azure | Documentazione Microsoft
+title: Gestire i criteri di memorizzazione nella cache della rete CDN di Azure in Servizi multimediali di Azure | Microsoft Docs
 description: Informazioni su come gestire i criteri di memorizzazione nella cache della rete CDN di Azure in Servizi multimediali di Azure.
 services: media-services,cdn
 documentationcenter: .NET
 author: juliako
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: be33aecc-6dbe-43d7-a056-10ba911e0e94
 ms.service: media-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: bcb5a6e118c779e7e13ba8472d5bba510cddeb12
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: dce8d588a78b028223776e3ade737d4abd26094b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Gestire i criteri di memorizzazione nella cache della rete CDN di Azure in Servizi multimediali di Azure
 Servizi multimediali di Azure fornisce lo streaming adattivo e il download progressivo basati su HTTP. Lo streaming basato su HTTP è altamente scalabile con i vantaggi della cache nei livelli proxy e di rete CDN, nonché della cache sul lato client. Gli endpoint di streaming forniscono funzionalità di streaming generale e configurazione per le intestazioni di cache HTTP. Gli endpoint di streaming impostano le intestazioni HTTP Cache-Control: max-age ed Expires. È possibile ottenere ulteriori informazioni per le intestazioni della cache HTTP da [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
@@ -30,14 +30,14 @@ Per impostazione predefinita, gli endpoint di streaming applicano intestazioni d
 Servizi multimediali di Azure fornisce [la rete CDN integrata](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) per gli endpoint di streaming. Le intestazioni cache-control si applicano nello stesso modo in cui gli endpoint di streaming si applicano agli endpoint di streaming abilitati dalla rete CDN. La rete CDN di Azure utilizza i valori di cache configurati degli endpoint di streaming per definire la durata degli oggetti memorizzati nella cache internamente e inoltre utilizza questo valore per impostare le intestazioni della cache per i recapiti. Quando si utilizzano gli endpoint di streaming abilitati alla rete CDN non è consigliabile impostare i valori della cache piccoli. In tal modo, si verifica una riduzione delle prestazioni e del vantaggio della rete CDN. Non è consentito impostare intestazioni cache inferiori a 600 secondi per gli endpoint di streaming abilitati alla rete CDN.
 
 > [!IMPORTANT]
->Servizi multimediali di Azure assicura una perfetta integrazione con la rete CDN di Azure. Con un unico clic è possibile integrare tutti i provider di rete CDN di Azure disponibili, ossia Akamai e Verizon, all'endpoint di streaming che include i prodotti Standard e Premium per la rete CDN. Per altre informazioni, vedere questo [annuncio](https://azure.microsoft.com/blog/standardstreamingendpoint/).
+>Servizi multimediali di Azure assicura una perfetta integrazione con la rete CDN di Azure. Con un unico clic è possibile integrare tutti i provider di rete CDN di Azure disponibili all'endpoint di streaming che include i prodotti Standard e Premium. Per altre informazioni, vedere questo [annuncio](https://azure.microsoft.com/blog/standardstreamingendpoint/).
 > 
 > Gli addebiti per i dati dall'endpoint di streaming alla rete CDN vengono disabilitati solo se la rete CDN è abilitata tramite le API dell'endpoint di streaming o usando la sezione relativa agli endpoint di streaming del portale di Azure. Gli addebiti per i dati non vengono disabilitati in caso di integrazione manuale o creazione diretta di un endpoint di rete CDN usando le API della rete CDN o la sezione del portale.
 
 ## <a name="configuring-cache-headers-with-azure-media-services"></a>Configurazione delle intestazioni della cache con Servizi multimediali di Azure
 È possibile utilizzare il portale di Azure o le API di Servizi multimediali di Azure per configurare i valori di intestazione della cache.
 
-1. Per configurare le intestazioni delle cache mediante il portale di Azure, vedere la sezione [Come gestire gli endpoint di streaming](../media-services/media-services-portal-manage-streaming-endpoints.md) Configurazione dell'endpoint di streaming.
+1. Per configurare le intestazioni delle cache mediante il portale di Azure, vedere la sezione [Come gestire gli endpoint di streaming](../media-services/previous/media-services-portal-manage-streaming-endpoints.md) Configurazione dell'endpoint di streaming.
 2. API REST di Servizi multimediali di Azure, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
 3. SDK .NET di Servizi multimediali di Azure, [Proprietà StreamingEndpointCacheControl](http://go.microsoft.com/fwlink/?LinkId=615302).
 

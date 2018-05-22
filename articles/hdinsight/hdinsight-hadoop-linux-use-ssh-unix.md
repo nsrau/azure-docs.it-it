@@ -1,10 +1,10 @@
 ---
 title: 'Usare SSH con Hadoop: Azure HDInsight | Microsoft Docs'
-description: "È possibile accedere a HDInsight tramite Secure Shell (SSH). Questo documento offre informazioni sulla connessione a HDInsight con i comandi ssh e scp da client Windows, Linux, Unix o macOS."
+description: È possibile accedere a HDInsight tramite Secure Shell (SSH). Questo documento offre informazioni sulla connessione a HDInsight con i comandi ssh e scp da client Windows, Linux, Unix o macOS.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 keywords: comandi Hadoop in Linux, comandi Linux per Hadoop, Hadoop in macOS, Hadoop SSH, cluster Hadoop SSH
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/07/2018
+ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 1a1fbac1eb4c529ea89f0f4c72b3317718ac45ea
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 359b458d5fa9089fd7f35f94cd3f0265dc8ea3c9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Connettersi a HDInsight (Hadoop) con SSH
 
@@ -67,9 +67,9 @@ Per impostazione predefinita, Microsoft Windows non installa client SSH. I clien
 
 * [Azure Cloud Shell](../cloud-shell/quickstart.md): Cloud Shell offre un ambiente Bash nel browser, oltre a `ssh`, `scp` e altri comandi Linux comuni.
 
-* [Git (https://git-scm.com/)](https://git-scm.com/): i comandi `ssh` e `scp` sono disponibili tramite la riga di comando GitBash.
+* [Git (https://git-scm.com/)](https://git-scm.com/): I comandi `ssh` e `scp` sono disponibili tramite la riga di comando GitBash.
 
-Sono disponibili anche diversi client SSH con interfaccia grafica, come [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) e [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). Anche se questi client possono essere usati per connettersi a HDInsight, il processo di connessione è diverso rispetto a quello tramite l'utilità `ssh`. Per altre informazioni, vedere la documentazione del client con interfaccia grafica usato.
+Esistono anche diversi client SSH con interfaccia grafica, ad esempio [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) e [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). Anche se questi client possono essere usati per connettersi a HDInsight, il processo di connessione è diverso rispetto a quello tramite l'utilità `ssh`. Per altre informazioni, vedere la documentazione del client con interfaccia grafica usato.
 
 ## <a id="sshkey"></a>Autenticazione: chiavi SSH
 
@@ -117,6 +117,9 @@ Gli account SSH possono essere protetti con una password. Quando ci si connette 
 
 > [!WARNING]
 > Microsoft sconsiglia di usare l'autenticazione tramite password per SSH. Le password sono intuibili e vulnerabili ad attacchi di forza bruta. È consigliabile usare invece [chiavi SSH per l'autenticazione](#sshkey).
+
+> [!IMPORTANT]
+> La password dell'account SSH scade 70 giorni dopo aver creato il cluster HDInsight. Se la password scade, è possibile modificarla tramite le informazioni contenute nel documento [Gestire HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords).
 
 ### <a name="create-hdinsight-using-a-password"></a>Creare cluster HDInsight con una password
 
@@ -209,7 +212,7 @@ Se l'account SSH viene protetto usando __chiavi SSH__, verificare che l'inoltro 
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    Se non viene restituita alcuna informazione, `ssh-agent` non è in esecuzione. Per altre informazioni, vedere il contenuto relativo agli script di avvio agente in [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Uso di ssh-agent con ssh) o la documentazione del client SSH.
+    Se non viene restituita alcuna informazione, `ssh-agent` non è in esecuzione. Per altre informazioni, vedere il contenuto relativo agli script di avvio agente in [Uso di ssh-agent con ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) o la documentazione del client SSH.
 
 4. Dopo avere verificato che **ssh-agent** è in esecuzione, usare il comando seguente per aggiungere la chiave privata SSH all'agente:
 

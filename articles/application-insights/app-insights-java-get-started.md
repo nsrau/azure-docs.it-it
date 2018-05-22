@@ -3,7 +3,7 @@ title: Analisi di app Web Java con Azure Application Insights | Documentazione M
 description: 'Application Performance Monitoring per app Web Java con Application Insights. '
 services: application-insights
 documentationcenter: java
-author: harelbr
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: e1c4ea08b71c2e99b6c8e839e1fddc3172ca251d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a1212befd1cc6aaf74bc596459aa5be1ef689813
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introduzione ad Application Insights in un progetto Web Java
 
@@ -178,7 +178,7 @@ package devCamp.WebApp.configurations;
 
     import javax.servlet.Filter;
 
-    import org.springframework.boot.context.embedded.FilterRegistrationBean;
+    import org.springframework.boot.web.servlet.FilterRegistrationBean;
     import org.springframework.context.annotation.Bean;
     import org.springframework.core.Ordered;
     import org.springframework.beans.factory.annotation.Value;
@@ -217,6 +217,11 @@ package devCamp.WebApp.configurations;
             return new WebRequestTrackingFilter(applicationName);
         }   
     }
+```
+
+[!NOTE] Se si utilizza Spring Boot 1.3.8 o versioni precedenti, sostituire FilterRegistrationBean con la riga di seguito
+```Java
+    import org.springframework.boot.context.embedded.FilterRegistrationBean;
 ```
 
 Questa classe configurerà `WebRequestTrackingFilter` come primo filtro della catena di filtri HTTP. Eseguirà anche il pull della chiave di strumentazione dalla variabile di ambiente del sistema operativo, se disponibile.

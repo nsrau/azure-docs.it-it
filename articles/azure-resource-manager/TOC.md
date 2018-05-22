@@ -80,7 +80,7 @@
 ### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### [Problemi di distribuzione di Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
-# riferimento
+# Riferimenti
 ## [Formato del modello](/azure/templates/)
 ## [Funzioni di modello](resource-group-template-functions.md)
 ### [Matrici e funzioni oggetto](resource-group-template-functions-array.md)
@@ -102,6 +102,7 @@
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [Gestire dati personali](resource-manager-personal-data.md)
 ## [Limitazione delle richieste](resource-manager-request-limits.md)
 ## [Tenere traccia delle operazioni asincrone](resource-manager-async-operations.md)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)

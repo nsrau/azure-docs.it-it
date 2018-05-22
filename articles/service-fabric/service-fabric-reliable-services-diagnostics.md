@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 3ed03194ca095d539d10081578fa71c748ba1d23
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 268ec61515f438fb7f98b6cef7a8ec60ba22e23f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funzionalità di diagnostica per i servizi Reliable con stato
 La classe StatefulServiceBase dei servizi Reliable con stato in Azure Service Fabric genera eventi [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) che possono essere usati per eseguire il debug del servizio, ottenere informazioni dettagliate sul funzionamento del runtime e ottenere assistenza per la risoluzione dei problemi.
@@ -83,10 +83,10 @@ Il runtime di Reliable Services genera gli eventi seguenti nella categoria `Serv
 | --- | --- |
 | Operazioni di inizio transazione/sec | Numero di nuove transazioni di scrittura create al secondo.|
 | Operazioni di transazione/sec | Numero di operazioni di aggiunta/aggiornamento/eliminazione eseguite su raccolte Reliable Collections al secondo.|
-| Latenza media flush (ms) | Numero di byte scaricati sul disco da Replicatore transazionale al secondo. |
+| Avg. media flush (ms) | Numero di byte scaricati sul disco da Replicatore transazionale al secondo. |
 | Operazioni limitate/sec | Numero di operazioni rifiutate al secondo da Replicatore transazionale a causa della limitazione. |
-| Media transazione/commit (ms) | Latenza media commit per transazione in millisecondi |
-| Latenza media flush (ms) | Durata media delle operazioni di flush su disco avviate da Replicatore transazionale in millisecondi |
+| Avg. transazione/commit (ms) | Latenza media commit per transazione in millisecondi |
+| Avg. media flush (ms) | Durata media delle operazioni di flush su disco avviate da Replicatore transazionale in millisecondi |
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Provider di EventSource in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

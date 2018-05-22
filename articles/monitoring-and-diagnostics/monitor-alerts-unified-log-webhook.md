@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: a786ac2e241657cc0020ecfe9438e3d1a5e4c5fa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 28c8e6ab6a23a46bdea31c71b08b9c6a28d1be33
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Azioni webhook per le regole di avviso relative ai log
 Quando [viene creato un avviso in Avvisi di Azure](monitor-alerts-unified-usage.md), è possibile scegliere di [configurarlo con gruppi di azioni](monitoring-action-groups.md) in modo da eseguire una o più azioni.  Questo articolo descrive le diverse azioni webhook disponibili e spiega come configurare un webhook personalizzato basato su JSON.
@@ -161,9 +161,6 @@ Di seguito è riportato un payload di esempio per un'azione webhook standard *se
     }
 }
 ```
-
-> [!NOTE]
-> Gli avvisi di log per Application Insights sono attualmente disponibili in anteprima pubblica. Le funzionalità e l'esperienza utente sono soggette a modifiche.
 
 #### <a name="log-alert-with-custom-json-payload"></a>Avviso di log con payload JSON personalizzato
 Per creare un payload personalizzato che includa solo il nome dell'avviso e i risultati della ricerca, è ad esempio possibile usare il codice seguente: 

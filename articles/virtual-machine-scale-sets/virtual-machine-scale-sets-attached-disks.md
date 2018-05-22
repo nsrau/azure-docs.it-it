@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: ec11a2d66530129fb61d97681e6882b887c8654c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4dd13f1feedf53255daa351bd087845ec5cc845a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Set di scalabilità di macchine virtuali di Azure e dischi di dati collegati
 Per espandere lo spazio di archiviazione disponibile, i [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/) di Azure supportano le istanze di macchina virtuale con dischi dati collegati. È possibile collegare i dischi dati quando il set di scalabilità viene creato, ma anche a un set di scalabilità esistente.
@@ -91,21 +91,12 @@ Per preparare automaticamente i dischi dati in un cluster Linux, aggiungere quan
 ```
 
 
-## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Aggiunta di dischi dati pre-popolati a un set di scalabilità esistente 
-> Quando si aggiungono dischi a un modello di set di scalabilità esistente, da progettazione il disco viene sempre creato vuoto. Questo scenario include anche nuove istanze create dal set di scalabilità. Questo comportamento è dovuto alla presenza di un disco dati vuoto nella definizione del set di scalabilità. Per creare unità dati pre-popolate per un modello di set di scalabilità esistente, è possibile scegliere tra le due opzioni seguenti:
-
-* Copiare i dati dalla macchina virtuale dell'istanza 0 ai dischi dati delle altre macchine virtuali eseguendo uno script personalizzato.
-* Creare un'immagine gestita con il disco del sistema operativo e un disco dati, con i dati necessari, e creare un nuovo set di scalabilità con l'immagine. In questo modo ogni nuova macchina virtuale creata avrà un disco dati incluso nella definizione del set di scalabilità. Dato che la definizione fa riferimento a un'immagine con un disco dati che contiene dati personalizzati, ogni macchina virtuale nel set di scalabilità include tali modifiche.
-
-> Per informazioni su come creare un'immagine personalizzata, vedere [Creare un'immagine gestita di una macchina virtuale generalizzata in Azure](/azure/virtual-machines/windows/capture-image-resource/). 
-
-> L'utente deve acquisire la macchina virtuale dell'istanza 0 che contiene i dati necessari e usare tale disco rigido virtuale per la definizione dell'immagine.
+## <a name="adding-pre-populated-data-disks-to-an-existing-scale-set"></a>Aggiunta di dischi dati pre-popolati a un set di scalabilità esistente
+I dischi dati specificati nel modello del set di scalabilità sono sempre vuoti. Tuttavia è possibile collegare un disco dati esistente a una macchina virtuale specifica in un set di scalabilità. Questa funzionalità è disponibile in anteprima, con gli esempi in [GitHub](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk). Se si desidera propagare i dati in tutte le macchine virtuali del set di scalabilità, è possibile duplicare il disco dati e collegarlo a ogni macchina virtuale nel set di scalabilità, è possibile creare un'immagine personalizzata che contiene i dati ed eseguire il provisioning del set di scalabilità da questa immagine personalizzata, oppure è possibile usare File di Azure o un'offerta di archiviazione dati simile.
 
 
 ## <a name="additional-notes"></a>Note aggiuntive
 Il supporto per Azure Managed Disks e i set di scalabilità con dischi di dati collegati è disponibile nella versione [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) o successiva dell'API Microsoft.Compute.
-
-Nell'implementazione iniziale del supporto di dischi collegati per set di scalabilità, non è possibile collegare o scollegare dischi di dati a/da singole macchine virtuali in un set di scalabilità.
 
 Il supporto del portale di Azure per i dischi di dati collegati nei set di scalabilità è inizialmente limitato. A seconda dei requisiti è possibile usare modelli di Azure, interfaccia della riga di comando, PowerShell, SDK e API REST per gestire i dischi collegati.
 

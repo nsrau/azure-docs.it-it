@@ -1,37 +1,43 @@
 ---
 title: Abilitare il backup per lo Stack di Azure dal portale di amministrazione | Documenti Microsoft
-description: "Abilitare il servizio di Backup di infrastruttura tramite il portale di amministrazione in modo che Azure Stack può essere ripristinato se si è verificato un errore."
+description: Abilitare il servizio di Backup di infrastruttura tramite il portale di amministrazione in modo che Azure Stack può essere ripristinato se si è verificato un errore.
 services: azure-stack
-documentationcenter: 
-author: mattbriggs
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 56C948E7-4523-43B9-A236-1EF906A0304F
 ms.service: azure-stack
 ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: mabrigg
-ms.openlocfilehash: 456a0db9771f5963c8d4375d54a22257f6ca1c56
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
-ms.translationtype: MT
+ms.date: 05/11/2018
+ms.author: jeffgilb
+ms.openlocfilehash: 0ef8247eba4605d3c8e5ef0992ce97bce989002e
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Abilitare il backup per lo Stack di Azure dal portale di amministrazione
+Abilitare il servizio di Backup di infrastruttura tramite il portale di amministrazione in modo che Azure Stack può generare backup. È possibile utilizzare queste copie di backup per ripristinare l'ambiente cloud di ripristino in caso di utilizzo [un errore irreversibile](.\azure-stack-backup-recover-data.md). Lo scopo di ripristino cloud è garantire che gli operatori e gli utenti possono accedere di nuovo il portale al termine del ripristino. Gli utenti avranno le relative sottoscrizioni ripristinati incluse le autorizzazioni di accesso basata su ruoli e ruoli, piani originali, offerte e definito in precedenza calcolo, archiviazione e le quote di rete.
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+Tuttavia, il servizio di Backup dell'infrastruttura non esegue il backup le macchine virtuali IaaS, configurazioni di rete e le risorse di archiviazione, ad esempio gli account di archiviazione BLOB, tabelle e così via, in modo che gli utenti che accedono al termine del ripristino di cloud completa non verrà visualizzato uno dei relativi già esistente risorse. Piattaforma distribuita come servizio (PaaS) delle risorse e i dati inoltre non sottoposti a backup dal servizio. 
 
-Abilitare il servizio di Backup di infrastruttura tramite il portale di amministrazione in modo che Azure Stack può generare backup. È possibile utilizzare queste copie di backup per ripristinare l'ambiente in caso di errore.
+Gli amministratori e gli utenti sono responsabili per backup e ripristino risorse IaaS e PaaS separatamente dai processi di backup dell'infrastruttura. Per informazioni sul backup risorse IaaS e PaaS, vedere i collegamenti seguenti:
+
+- [Macchine virtuali](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-protect)
+- [Servizio app](https://docs.microsoft.com/azure/app-service/web-sites-backup)
+- [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
+
 
 > [!Note]  
 > Prima di abilitare il backup tramite la console, è necessario configurare il servizio di backup. È possibile configurare il servizio di backup tramite PowerShell. Per ulteriori informazioni, vedere [abilitare il Backup per lo Stack di Azure con PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## <a name="enable-backup"></a>Abilitare il backup
 
-1. Aprire il portale di amministrazione di Azure Stack in [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
+1. Aprire il portale di amministrazione dello Stack di Azure all'indirizzo [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
 2. Selezionare **più servizi** > **backup infrastruttura**. Scegliere **configurazione** nel **backup infrastruttura** blade.
 
     ![Stack di Azure - impostazioni Backup del controller](media\azure-stack-backup\azure-stack-backup-settings.png).
@@ -49,5 +55,5 @@ Per eseguire un backup, è necessario scaricare gli strumenti di Azure Stack e q
 
 ## <a name="next-steps"></a>Passaggi successivi
 
- - Informazioni su come eseguire un backup. Vedere [backup Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
-- Informazioni su come verificare che sia stato eseguito il backup. Vedere [backup conferma completata nel portale di amministrazione](azure-stack-backup-back-up-azure-stack.md ).
+- Informazioni su come eseguire un backup. Vedere [backup Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
+- Informazioni su come verificare che sia stato eseguito il backup. Vedere [backup conferma completata nel portale di amministrazione](azure-stack-backup-back-up-azure-stack.md).

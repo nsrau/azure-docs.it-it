@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50be809df0938272a3e1d710b879ca3dd5de9428
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3bdc7820910540b789fd11533389f79aa9f297f5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Partizionamento in Azure Cosmos DB con l'API SQL
 
@@ -102,10 +102,10 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 20000 });
 ```
 
-Questo metodo effettua una chiamata API REST a Cosmos DB e il servizio eseguirà il provisioning di una serie di partizioni in base alla velocità effettiva richiesta. È possibile modificare la velocità effettiva di un contenitore in base all'evoluzione delle esigenze in termini di prestazioni. 
+Questo metodo effettua una chiamata API REST a Cosmos DB e il servizio eseguirà il provisioning di una serie di partizioni in base alla velocità effettiva richiesta. È possibile modificare la velocità effettiva di un contenitore o un set di contenitori in base all'evoluzione delle esigenze in termini di prestazioni. 
 
 ### <a name="reading-and-writing-items"></a>Lettura e scrittura di elementi
-A questo punto si inseriscono i dati in Cosmos DB. Di seguito è riportata una classe di esempio contenente la lettura di un dispositivo e una chiamata a CreateDocumentAsync per inserire una nuova lettura del dispositivo in un contenitore. Questo esempio sfrutta l'API SQL:
+A questo punto si inseriscono i dati in Cosmos DB. Di seguito è riportata una classe di esempio contenente la lettura di un dispositivo e una chiamata a CreateDocumentAsync per inserire una nuova lettura del dispositivo in un contenitore. Di seguito è riportato un blocco di codice di esempio che usa l'API SQL:
 
 ```csharp
 public class DeviceReading
@@ -144,7 +144,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-L'elemento viene letto in base alla chiave di partizione e all'ID, viene aggiornato e infine viene eliminato in base alla chiave di partizione e all'ID. Si noti che le letture includono un valore PartitionKey, corrispondente all'intestazione di richiesta `x-ms-documentdb-partitionkey` nell'API REST.
+L'elemento viene letto in base alla chiave di partizione e all'ID, viene aggiornato e infine viene eliminato in base alla chiave di partizione e all'ID. Le letture includono un valore PartitionKey, corrispondente all'intestazione di richiesta `x-ms-documentdb-partitionkey` nell'API REST.
 
 ```csharp
 // Read document. Needs the partition key and the ID to be specified
@@ -178,7 +178,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
     .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
 ```
     
-La query seguente non dispone di un filtro per la chiave di partizione (DeviceId) e viene effettuato il fan-out a tutte le partizioni in cui viene eseguita a fronte dell'indice della partizione. Si noti che è necessario specificare EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` nell'API REST) affinché l'SDK esegua una query tra le partizioni.
+La query seguente non dispone di un filtro per la chiave di partizione (DeviceId) e viene effettuato il fan-out a tutte le partizioni in cui viene eseguita a fronte dell'indice della partizione. È necessario specificare EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` nell'API REST) affinché l'SDK esegua una query tra le partizioni.
 
 ```csharp
 // Query across partition keys
@@ -188,7 +188,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-Cosmos DB supporta le [funzioni di aggregazione](sql-api-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` e `AVG` su contenitori partizionati con SQL a partire da SDK 1.12.0 e versioni successive. Le query devono includere un unico operatore di aggregazione e un singolo valore nella proiezione.
+Cosmos DB supporta le [funzioni di aggregazione](sql-api-sql-query.md#Aggregates), `COUNT`, `MIN`, `MAX` e `AVG` su contenitori partizionati con SQL a partire da SDK 1.12.0 e versioni successive. Le query devono includere un unico operatore di aggregazione e un singolo valore nella proiezione.
 
 ### <a name="parallel-query-execution"></a>Esecuzione di query in parallelo
 Gli SDK di Cosmos DB 1.9.0 e versioni successive supportano opzioni per l'esecuzione di query in parallelo che consentono di eseguire query a bassa latenza sulle raccolte partizionate, anche quando è coinvolto un numero elevato di partizioni. Ad esempio, la query seguente è configurata in modo da essere eseguita in parallelo tra le partizioni.
@@ -204,8 +204,8 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     
 È possibile gestire l'esecuzione di query in parallelo, ottimizzando i parametri seguenti:
 
-* Impostando `MaxDegreeOfParallelism` è possibile controllare il grado di parallelismo, ossia il numero massimo di connessioni di rete simultanee alle partizioni del contenitore. Se si imposta questo valore su -1, il grado di parallelismo viene gestito dall'SDK. Se `MaxDegreeOfParallelism` non è specificato o è impostato su 0, ovvero il valore predefinito, esisterà una sola connessione di rete alle partizioni del contenitore.
-* Impostando `MaxBufferedItemCount` è possibile raggiungere un compromesso tra latenza della query e uso della memoria dal lato client. Se si omette questo parametro o si imposta su -1, il numero di elementi memorizzati nel buffer durante l'esecuzione di query in parallelo viene gestito dall'SDK.
+* Impostando `MaxDegreeOfParallelism` è possibile controllare il grado di parallelismo, ossia il numero massimo di connessioni di rete simultanee alle partizioni del contenitore. Se si imposta questa proprietà su -1, il grado di parallelismo viene gestito dall'SDK. Se `MaxDegreeOfParallelism` non è specificato o è impostato su 0, ovvero il valore predefinito, esisterà una sola connessione di rete alle partizioni del contenitore.
+* Impostando `MaxBufferedItemCount` è possibile raggiungere un compromesso tra latenza della query e uso della memoria dal lato client. Se si omette questa proprietà o si imposta su -1, il numero di elementi memorizzati nel buffer durante l'esecuzione di query in parallelo viene gestito dall'SDK.
 
 Considerato lo stato della raccolta, una query in parallelo restituirà i risultati nello stesso ordine dell'esecuzione seriale. Quando si esegue una query tra partizioni che include l'ordinamento (ORDER BY e/o TOP), Azure Cosmos DB SDK esegue la query in parallelo tra le partizioni e unisce i risultati ordinati parzialmente sul lato client per produrre risultati ordinati a livello globale.
 

@@ -3,16 +3,16 @@ title: Procedure consigliate in Registro contenitori di Azure
 description: Informazioni su come usare il Registro contenitori di Azure in modo efficace seguendo queste procedure consigliate.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/20/2017
+ms.date: 04/10/2018
 ms.author: marsma
-ms.openlocfilehash: 684b778f57da4adb331958c5daef6b9906b6d253
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1272a4b547a4ba650678ce083a44bde3a5a3e583
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Procedure consigliate per il Registro contenitori di Azure
 
@@ -27,7 +27,7 @@ In aggiunta, tutti i cloud pubblici, Azure incluso, implementano i corrispettivi
 
 ## <a name="geo-replicate-multi-region-deployments"></a>Eseguire la replica geografica della distribuzione in più aree
 
-Usare la funzione [replica geografica](container-registry-geo-replication.md) del registro contenitori di Azure se si distribuiscono contenitori a più aree. Se si servono clienti globali da data center locali o il proprio team di sviluppo è in più posizioni, è possibile semplificare la gestione del registro e ridurre al minimo la latenza eseguendo la replica geografica del proprio registro. Attualmente in anteprima, questa funzione è disponibile con registri [Premium](container-registry-skus.md).
+Usare la funzione [replica geografica](container-registry-geo-replication.md) del registro contenitori di Azure se si distribuiscono contenitori a più aree. Se si servono clienti globali da data center locali o il proprio team di sviluppo è in più posizioni, è possibile semplificare la gestione del registro e ridurre al minimo la latenza eseguendo la replica geografica del proprio registro. La replica geografica è disponibile solo con registri [Premium](container-registry-skus.md).
 
 Per capire come usare la replica geografica, vedere il tutorial in tre parti [Preparare un registro contenitori di Azure con replica geografica](container-registry-tutorial-prepare-registry.md).
 

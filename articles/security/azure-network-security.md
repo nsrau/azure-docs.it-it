@@ -4,7 +4,7 @@ description: Informazioni sui servizi di calcolo basati sul cloud che includono 
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: cc64ef8d820db6a072b708323eb110d62ed0a83c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 774d678c00b830f3932455c5b79fb44bde284d91
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-network-security"></a>Sicurezza di rete di Azure
 
@@ -253,7 +253,7 @@ Di seguito sono riportati i controlli di sicurezza che è possibile usare nelle 
 
 -   Appliance di sicurezza di rete
 
--   gateway applicazione
+-   Gateway applicazione
 
 -   Web application firewall di Azure
 
@@ -369,7 +369,7 @@ Le appliance di sicurezza di rete di Azure migliorano la sicurezza della rete vi
 
 Il [gateway applicazione di Microsoft Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) è un'appliance virtuale dedicata che offre un servizio di controller per la distribuzione di applicazioni.
 
- ![gateway applicazione](./media/azure-network-security/azure-network-security-fig-11.png)
+ ![Gateway applicazione](./media/azure-network-security/azure-network-security-fig-11.png)
 
 Il gateway applicazione consente di ottimizzare le prestazioni e la disponibilità delle Web farm eseguendo l'offload al gateway applicazione della terminazione SSL con utilizzo elevato di CPU (offload SSL). Offre inoltre funzionalità di routing di livello 7, tra cui:
 
@@ -386,7 +386,7 @@ Nel gateway applicazione è incluso anche un [Web application firewall (WAF)](ht
 
 È possibile eseguire il Web application firewall del gateway applicazione in modalità di rilevamento o di prevenzione. Gli amministratori lo eseguono comunemente in modalità di rilevamento per tenere traccia di eventuali schemi dannosi nel traffico. Quando vengono rilevati exploit potenziali, il passaggio alla modalità di prevenzione blocca il traffico in ingresso sospetto.
 
- ![gateway applicazione](./media/azure-network-security/azure-network-security-fig-12.png)
+ ![Gateway applicazione](./media/azure-network-security/azure-network-security-fig-12.png)
 
 Il Web application firewall del gateway applicazione permette anche di monitorare le applicazioni Web contro gli attacchi, grazie a un log WAF in tempo reale integrato con [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) e con il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/) per tenere traccia degli avvisi WAF e monitorare facilmente le tendenze.
 
@@ -412,9 +412,9 @@ Di seguito sono indicati i controlli di disponibilità di rete:
 
 -   Azure Load Balancer
 
--   gateway applicazione
+-   Gateway applicazione
 
--   servizio Gestione traffico
+-   Gestione traffico
 
 **Azure Load Balancer**
 
@@ -469,7 +469,7 @@ La sicurezza operativa di Azure include i servizi, i controlli e le funzionalit�
 
 -   [Azure Storage analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
 
--   Gestione risorse di Azure
+-   Azure Resource Manager
 
 #### <a name="azure-resource-manager"></a>Azure Resource Manager
 

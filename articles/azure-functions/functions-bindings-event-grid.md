@@ -15,17 +15,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a2d8f66b0364535cbb7e8cadd8067dd8f7facb2c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9228b1e80c8c46780a24d33e13fcedbd8da63ac3
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi per Funzioni di Azure
 
 Questo articolo illustra come gestire gli eventi di [Griglia di eventi](../event-grid/overview.md) in Funzioni di Azure.
 
-Griglia di eventi è un servizio di Azure che consente di inviare richieste HTTP per la notifica degli eventi che si verificano negli *editori*. Un editore è il servizio o la risorsa da cui ha origine l'evento. Ad esempio, un account di archiviazione BLOB di Azure è un editore, mentre un'eliminazione o un caricamento di BLOB è un evento. Alcuni [servizi di Azure includono il supporto incorporato per la pubblicazione di eventi in Griglia di eventi](../event-grid/overview.md#event-sources). 
+Griglia di eventi è un servizio di Azure che consente di inviare richieste HTTP per la notifica degli eventi che si verificano negli *editori*. Un editore è il servizio o la risorsa da cui ha origine l'evento. Ad esempio, un account di archiviazione BLOB di Azure è un editore, mentre [un'eliminazione o un caricamento di BLOB è un evento](../storage/blobs/storage-blob-event-overview.md). Alcuni [servizi di Azure includono il supporto incorporato per la pubblicazione di eventi in Griglia di eventi](../event-grid/overview.md#event-sources). 
 
 I *gestori* di eventi ricevono ed elaborano gli eventi. Funzioni di Azure è uno dei vari [servizi di Azure con supporto incorporato per la gestione degli eventi di Griglia di eventi](../event-grid/overview.md#event-handlers). In questo articolo viene spiegato come usare un trigger Griglia di eventi per richiamare una funzione quando Griglia di eventi riceve un evento.
 
@@ -42,6 +42,8 @@ If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` typ
 -->
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="example"></a>Esempio
 
@@ -337,6 +339,9 @@ In alternativa, è possibile inviare una richiesta HTTP PUT per specificare il v
 
 ## <a name="local-testing-with-requestbin"></a>Test locale con RequestBin
 
+> [!NOTE]
+> Il sito RequestBin non è attualmente disponibile, ma è comunque possibile usare questo approccio con https://hookbin.com. Se tale sito è inattivo, è possibile usare [ngrok](#local-testing-with-ngrok).
+
 Per testare un trigger Griglia di eventi in locale, è necessario ottenere le richieste HTTP di Griglia di eventi inviate dalla rispettiva origine nel cloud al computer locale. A tale scopo, è possibile acquisire le richieste online e rinviarle manualmente al computer locale:
 
 2. [Creare un endpoint RequestBin](#create-a-RequestBin-endpoint).
@@ -348,7 +353,7 @@ Al termine del test, è possibile usare la stessa sottoscrizione per scopi di pr
 
 ### <a name="create-a-requestbin-endpoint"></a>Creare un endpoint RequestBin
 
-RequestBin è uno strumento open source che accetta le richieste HTTP e visualizza il corpo di tali richieste. Griglia di eventi di Azure riserva all'URL http://requestb.in un trattamento speciale. Per facilitare il test, Griglia di eventi invia gli eventi all'URL RequestBin senza richiedere una risposta corretta alle richieste di convalida della sottoscrizione. Ad altri due strumenti di test viene riservato lo stesso trattamento: http://webhookinbox.com e http://hookbin.com.
+RequestBin è uno strumento open source che accetta le richieste HTTP e visualizza il corpo di tali richieste. Griglia di eventi di Azure riserva all'URL http://requestb.in un trattamento speciale. Per facilitare il test, Griglia di eventi invia gli eventi all'URL RequestBin senza richiedere una risposta corretta alle richieste di convalida della sottoscrizione. Anche a un altro strumento di test viene riservato lo stesso trattamento: http://hookbin.com.
 
 RequestBin non è destinato all'utilizzo con velocità effettiva elevata. Se si esegue il push di più di un evento alla volta, è possibile che non vengano visualizzati tutti gli eventi nello strumento.
 
@@ -523,7 +528,7 @@ module.exports = function (context, req) {
     // If the request is for subscription validation, send back the validation code.
     if (messages.length > 0 && messages[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
         context.log('Validate request received');
-        context.res = { status: 200, body: messages[0].data.validationCode }
+        context.res = { status: 200, body: JSON.stringify({validationResponse: messages[0].data.validationCode}) }
     }
     else {
         // The request is not for subscription validation, so it's for one or more events.

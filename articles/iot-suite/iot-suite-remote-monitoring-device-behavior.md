@@ -1,7 +1,7 @@
 ---
 title: Comportamento di un dispositivo simulato nella soluzione di monitoraggio remoto - Azure | Microsoft Docs
 description: Questo articolo descrive come usare JavaScript per definire il comportamento di un dispositivo simulato nella soluzione di monitoraggio remoto.
-services: 
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e5846893166c3e65b75e84d02849c2b8ab78e079
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2a2cbe5379adbd2c4ad6534b621871ecc30bfc81
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementare il comportamento del modello di dispositivo
 
@@ -53,10 +53,10 @@ L'esempio seguente mostra la definizione dell'oggetto di stato del dispositivo p
     "pressure_unit": "psig",
     "simulation_state": "normal_pressure"
   },
-  "Script": {
+  "Interval": "00:00:05",
+  "Scripts": {
     "Type": "javascript",
-    "Path": "chiller-01-state.js",
-    "Interval": "00:00:05"
+    "Path": "chiller-01-state.js"
   }
 }
 ```
@@ -66,7 +66,7 @@ Lo stato del dispositivo simulato, definito nella sezione `InitialState`, viene 
 Di seguito è riportata la struttura di una tipica funzione `main`:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   // Use the previous device state to
   // generate the new device state
@@ -108,7 +108,7 @@ function restoreState(previousState) {
   }
 }
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   restoreState(previousState);
 
@@ -133,7 +133,7 @@ function vary(avg, percentage, min, max) {
 }
 
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     restoreState(previousState);
 
@@ -192,7 +192,7 @@ Lo stato del dispositivo simulato, definito nella sezione `InitialState` dello s
 Di seguito è riportata la struttura di una tipica funzione `main`:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
 }
 ```
@@ -205,15 +205,18 @@ Il parametro `context` ha le proprietà seguenti:
 
 Il parametro `state` contiene lo stato del dispositivo mantenuto dal servizio di simulazione del dispositivo.
 
-Sono presenti due funzioni globali che è possibile usare per implementare il comportamento del metodo:
+Il parametro `properties` contiene le proprietà del dispositivo che vengono scritte come proprietà segnalate nel dispositivo gemello dell'hub IoT.
+
+Sono disponibili tre funzioni globali che è possibile usare per implementare il comportamento del metodo:
 
 - `updateState` per aggiornare lo stato mantenuto dal servizio di simulazione.
+- `updateProperty` per aggiornare una singola proprietà del dispositivo.
 - `sleep` per sospendere l'esecuzione della simulazione di un'attività a esecuzione prolungata.
 
 L'esempio seguente mostra una versione abbreviata dello script **IncreasePressure-method.js** usato dai dispositivi simulati refrigeratore:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     log("Starting 'Increase Pressure' method simulation (5 seconds)");
 

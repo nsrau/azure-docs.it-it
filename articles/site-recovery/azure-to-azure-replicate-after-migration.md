@@ -5,13 +5,13 @@ services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/07/2018
+ms.date: 05/16/2018
 ms.author: ponatara
-ms.openlocfilehash: c06af21cd6e273b98c004e8bd0e6eac61ba7d644
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: f64d61134f61476bcdd803f92019830b7cecf867
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure dopo la migrazione ad Azure 
 
@@ -30,11 +30,11 @@ Prima di configurare il ripristino di emergenza assicurarsi che la migrazione si
 
 ## <a name="install-the-azure-vm-agent"></a>Installare l'agente di macchine virtuali di Azure
 
-L'[agente di macchine virtuali](../virtual-machines/windows/agent-user-guide.md) di Azure deve essere installato nella macchina virtuale per consentire a Site Recovery di eseguire la replica.
+L'[agente di macchine virtuali](../virtual-machines/extensions/agent-windows.md) di Azure deve essere installato nella macchina virtuale per consentire a Site Recovery di eseguire la replica.
 
 
 1. Per installare l'agente di macchine virtuali in macchine virtuali che eseguono Windows, scaricare ed eseguire il [programma di installazione dell'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione, sono necessari i privilegi di amministratore.
-2. Per installare l'agente di macchine virtuali in macchine virtuali che eseguono Linux, installare l'ultima versione dell'[agente Linux](../virtual-machines/linux/agent-user-guide.md). Per completare l'installazione è necessario disporre dei privilegi di amministratore. È consigliabile eseguire l'installazione dal repository di distribuzione. Non è consigliabile installare l'agente di macchine virtuali Linux direttamente da GitHub. 
+2. Per installare l'agente di macchine virtuali in macchine virtuali che eseguono Linux, installare l'ultima versione dell'[agente Linux](../virtual-machines/extensions/agent-linux.md). Per completare l'installazione è necessario disporre dei privilegi di amministratore. È consigliabile eseguire l'installazione dal repository di distribuzione. Non è consigliabile installare l'agente di macchine virtuali Linux direttamente da GitHub. 
 
 
 ## <a name="validate-the-installation-on-windows-vms"></a>Convalidare l'installazione in macchine virtuali Windows

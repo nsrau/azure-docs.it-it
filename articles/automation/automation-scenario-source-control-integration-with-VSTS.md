@@ -2,18 +2,18 @@
 title: Integrazione di Automazione di Azure con controllo del codice sorgente di Visual Studio Team Services
 description: Questo scenario illustra l'impostazione dell'integrazione con un account di Automazione di Azure e controllo del codice sorgente di Visual Studio Team Services.
 services: automation
-documentationcenter: ''
 author: eamonoreilly
 ms.author: eamono
 keywords: Azure PowerShell, VSTS, controllo del codice sorgente, automazione
 ms.service: automation
-ms.topic: article
+ms.component: process-automation
+ms.topic: conceptual
 ms.date: 03/19/2017
-ms.openlocfilehash: a60143db03e5f89685a25f26789003de30d91f4c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f34267490a0db71e05ece97c23b86467dbf7dbeb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Scenario di Automazione di Azure - Integrazione del controllo del codice sorgente con Visual Studio Team Services
 

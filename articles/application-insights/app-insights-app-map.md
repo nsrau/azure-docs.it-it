@@ -3,7 +3,7 @@ title: Mappa delle applicazioni in Azure Application Insights | Microsoft Docs
 description: Monitorare topologie di applicazioni complesse con la mappa delle applicazioni
 services: application-insights
 documentationcenter: ''
-author: SoubhagyaDash
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: mbullwin
-ms.openlocfilehash: 4b95cd947cd977208dee32d18fbc6a1fb099ff3b
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.author: mbullwin; Soubhagya.Dash
+ms.openlocfilehash: a02d345c0f624f2d1694b4b9622bf3c82c009429
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: valutare le applicazioni distribuite
 La mappa delle applicazioni consente di individuare i colli di bottiglia delle prestazioni o le aree sensibili agli errori in tutti i componenti dell'applicazione distribuita. Ogni nodo nella mappa rappresenta un componente dell'applicazione o le relative dipendenze e ha un indicatore KPI dell'integrità e uno stato degli avvisi. È possibile fare clic da qualsiasi componente per ottenere una diagnostica più dettagliata, ad esempio sugli eventi di Application Insights. Se l'app usa i servizi di Azure, è possibile anche fare clic sulla diagnostica di Azure, ad esempio per consigli di Advisor su database SQL.

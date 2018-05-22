@@ -2,24 +2,24 @@
 title: Pubblicare Desktop remoto con il proxy applicazione di Azure AD | Microsoft Docs
 description: Tratta i fondamenti dei connettori del proxy applicazione di Azure AD.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: daveba
+ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 44b54ad4331d48202044316486a5b1d1ef9202d2
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c24781ad432a4682ebb0afcb95390bdcf8962d90
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Pubblicare Desktop remoto con il proxy applicazione di Azure AD
 
@@ -46,7 +46,7 @@ In una distribuzione di Servizi Desktop remoto, il ruolo di Web Desktop remoto e
 
 - Entrambi gli endpoint Web Desktop remoto e Gateway Desktop remoto devono trovarsi nello stesso computer e avere una radice comune. Web Desktop remoto e Gateway Desktop remoto vengono pubblicati come un'unica applicazione con il proxy di applicazione in modo da offrire un'esperienza di accesso Single Sign-On tra le due applicazioni.
 
-- Si dovrebbe avere già [distribuito Servizi Desktop remoto](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) e avere già [abilitato il proxy applicazione](active-directory-application-proxy-enable.md).
+- Si dovrebbe avere già [distribuito Servizi Desktop remoto](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) e avere già [abilitato il proxy applicazione](manage-apps/application-proxy-enable.md).
 
 - Questo scenario presuppone che gli utenti finali usino Internet Explorer su PC desktop Windows 7 o Windows 10 che si connettono tramite la pagina di Web Desktop remoto. Se è necessario supportare altri sistemi operativi, vedere [Supportare altre configurazione client](#support-for-other-client-configurations).
 
@@ -58,7 +58,7 @@ Dopo avere configurato Servizi Desktop remoto e il proxy applicazione di Azure A
 
 ### <a name="publish-the-rd-host-endpoint"></a>Pubblicare l'endpoint host di Desktop remoto
 
-1. [Pubblicare un nuovo proxy applicazione](application-proxy-publish-azure-portal.md) con i valori seguenti:
+1. [Pubblicare un nuovo proxy applicazione](manage-apps/application-proxy-publish-azure-portal.md) con i valori seguenti:
    - URL interno: https://\<rdhost\>.com, dove \<rdhost\> è la radice comune condivisa da Web Desktop remoto e Gateway Desktop remoto.
    - URL esterno: questo campo viene popolato automaticamente in base al nome dell'applicazione, ma è possibile modificarlo. Gli utenti passeranno a questo URL quando accedono a Servizi Desktop remoto.
    - Metodo di autenticazione preliminare: Azure Active Directory

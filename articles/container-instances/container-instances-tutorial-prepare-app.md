@@ -3,17 +3,17 @@ title: Esercitazione su Istanze di contenitore di Azure - Preparare l'app
 description: Esercitazione di Istanze di contenitore di Azure - Parte 1 di 3 - Preparare un'app per la distribuzione in Istanze di contenitore di Azure
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 134cc6ea84a5851755c757cbcf20130bf890575c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 79041123196559c5759789638228ea0dd21f2762
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-create-container-for-deployment-to-azure-container-instances"></a>Esercitazione: Creare un contenitore per la distribuzione in Istanze di contenitore di Azure
 
@@ -116,7 +116,7 @@ $ docker run -d -p 8080:80 aci-tutorial-app
 a2e3e4435db58ab0c664ce521854c2e1a1bda88c9cf2fcff46aedf48df86cccf
 ```
 
-Passare quindi a http://localhost:8080 nel browser per verificare che il contenitore sia un esecuzione. Dovrebbe essere visualizzata una pagina Web simile alla seguente:
+Passare quindi a http://localhost:8080 nel browser per verificare che il contenitore sia in esecuzione. Dovrebbe essere visualizzata una pagina Web simile alla seguente:
 
 ![Esecuzione locale dell'app nel browser][aci-tutorial-app-local]
 

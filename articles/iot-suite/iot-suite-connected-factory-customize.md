@@ -1,13 +1,13 @@
 ---
-title: Personalizzare la soluzione Fabbrica connessa - Azure | Microsoft Docs
-description: Informazioni su come personalizzare il comportamento della soluzione preconfigurata Fabbrica connessa.
-services: 
+title: Personalizzare la soluzione Connected Factory - Azure | Microsoft Docs
+description: Informazioni su come personalizzare il comportamento dell'acceleratore di soluzioni di connected factory.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: c#
 ms.topic: article
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 48c8036d0bc9534ce94529b96d32b004769246c1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5d074a5cf0dd5191b5d94531068341ad1b953391
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizzare la modalità di visualizzazione dei dati dai server OPC UA da parte della soluzione Fabbrica connessa
+# <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizzare la modalità di visualizzazione dei dati dai server OPC UA da parte della soluzione Connected Factory
 
-La soluzione Fabbrica connessa aggrega e visualizza dati dai server OPC UA connessi alla soluzione. È possibile individuare e inviare comandi ai server OPC UA nella soluzione. Per altre informazioni su OPC UA, vedere le [domande frequenti sulla soluzione di connected factory](iot-suite-faq-cf.md).
+La soluzione Connected Factory aggrega e visualizza dati dai server OPC UA connessi alla soluzione. È possibile individuare e inviare comandi ai server OPC UA nella soluzione. Per altre informazioni su OPC UA, vedere le [domande frequenti su Connected Factory](iot-suite-faq-cf.md).
 
 Gli esempi di dati aggregati nella soluzione includono i valori OEE (Overall Equipment Efficiency) e gli indicatori KPI visualizzabili nel dashboard a livello di fabbrica, linea e stazione. Lo screenshot seguente mostra i valori OEE e gli indicatori KPI per la stazione **Assemblaggio** nella **Linea di produzione 1** di uno stabilimento a **Monaco**:
 
@@ -44,7 +44,7 @@ L'articolo illustra:
 
 ## <a name="data-sources"></a>Origini dati
 
-La soluzione Fabbrica connessa visualizza dati dai server OPC UA connessi alla soluzione. L'installazione predefinita include diversi server OPC UA che eseguono una simulazione di fabbrica. È possibile aggiungere i propri server OPC UA che [si connettono tramite un gateway][lnk-connect-cf] alla soluzione.
+La soluzione Connected Factory visualizza dati dai server OPC UA connessi alla soluzione. L'installazione predefinita include diversi server OPC UA che eseguono una simulazione di fabbrica. È possibile aggiungere i propri server OPC UA che [si connettono tramite un gateway][lnk-connect-cf] alla soluzione.
 
 È possibile anche esplorare gli elementi dei dati che un server OPC UA connesso può inviare alla soluzione nel dashboard:
 
@@ -61,33 +61,33 @@ La soluzione Fabbrica connessa visualizza dati dai server OPC UA connessi alla s
 
     ![Elementi pubblicati][img-published]
 
-1. Gli *amministratori* della soluzione possono scegliere di pubblicare un elemento di dati per renderlo disponibile nella soluzione Fabbrica connessa. L'amministratore può anche modificare il valore degli elementi di dati e chiamare i metodi nel server OPC UA.
+1. Gli *amministratori* della soluzione possono scegliere di pubblicare un elemento di dati per renderlo disponibile nella soluzione Connected Factory. L'amministratore può anche modificare il valore degli elementi di dati e chiamare i metodi nel server OPC UA.
 
 ## <a name="map-the-data"></a>Eseguire il mapping di dati
 
-La soluzione Fabbrica connessa mappa e aggrega gli elementi di dati pubblicati dal server OPC UA nelle varie visualizzazioni nella soluzione. La soluzione Fabbrica connessa viene distribuita nell'account Azure dell'utente quando viene effettuato il provisioning della soluzione stessa. Le informazioni di mapping sono contenute in un file JSON nella soluzione Fabbrica connessa di Visual Studio. È possibile visualizzare e modificare questo file di configurazione JSON nella soluzione Fabbrica connessa di Visual Studio. È possibile ridistribuire la soluzione dopo aver apportato una modifica.
+La soluzione Connected Factory mappa e aggrega gli elementi di dati pubblicati dal server OPC UA nelle varie visualizzazioni nella soluzione. La soluzione Connected Factory viene distribuita nell'account Azure dell'utente quando viene effettuato il provisioning della soluzione stessa. Le informazioni di mapping sono contenute in un file JSON nella soluzione Connected Factory di Visual Studio. È possibile visualizzare e modificare questo file di configurazione JSON nella soluzione Connected Factory di Visual Studio. È possibile ridistribuire la soluzione dopo aver apportato una modifica.
 
 È possibile usare il file di configurazione per:
 
 - Modificare le stazioni, le linee di produzione e gli stabilimenti simulati esistenti.
 - Eseguire il mapping di dati dai server OPC UA effettivi che si connettono alla soluzione.
 
-Per altre informazioni sul mapping e sull'aggregazione dei dati per soddisfare requisiti specifici, vedere [Come configurare la soluzione Fabbrica connessa preconfigurata](iot-suite-connected-factory-configure.md).
+Per altre informazioni sul mapping e sull'aggregazione dei dati per soddisfare requisiti specifici, vedere [Come configurare l'acceleratore di soluzioni di connected factory](iot-suite-connected-factory-configure.md).
 
 ## <a name="deploy-the-changes"></a>Distribuire le modifiche
 
-Dopo avere apportato le modifiche al file **ContosoTopologyDescription.json**, è necessario ridistribuire la soluzione Fabbrica connessa al proprio account Azure.
+Dopo avere apportato le modifiche al file **ContosoTopologyDescription.json**, è necessario ridistribuire la soluzione Connected Factory al proprio account Azure.
 
 Il repository **azure-iot-connected-factory** include uno script PowerShell **build.ps1** che è possibile usare per ricompilare e distribuire la soluzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulla soluzione preconfigurata Fabbrica connessa sono disponibili negli articoli seguenti:
+Altre informazioni sull'acceleratore di soluzioni di connected factory sono disponibili negli articoli seguenti:
 
-* [Procedura dettagliata per la soluzione preconfigurata di connected factory][lnk-rm-walkthrough]
-* [Distribuire un gateway per Fabbrica connessa][lnk-connect-cf]
+* [Procedura dettagliata dell'acceleratore di soluzioni di connected factory ][lnk-rm-walkthrough]
+* [Distribuire un gateway per Connected Factory][lnk-connect-cf]
 * [Autorizzazioni per il sito azureiotsuite.com][lnk-permissions]
-* [Domande frequenti sulla soluzione di connected factory](iot-suite-faq-cf.md)
+* [Domande frequenti su Connected Factory](iot-suite-faq-cf.md)
 * [Domande frequenti][lnk-faq]
 
 

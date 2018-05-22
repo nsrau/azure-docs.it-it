@@ -65,8 +65,12 @@
           href: insights-alerts-command-line-interface.md
         - name: Configurare avvisi classici con Azure PowerShell
           href: insights-alerts-powershell.md
+        - name: Chiamare un webhook con un avviso di metrica classico
+          href: insights-webhooks-alerts.md
         - name: Azioni webhook per gli avvisi del log
           href: monitor-alerts-unified-log-webhook.md
+        - name: Creare un avviso del log con un modello di Resource Manager
+          href: monitor-alerts-unified-log-template.md
         - name: Creare un avviso di metrica più recente con un modello di Resource Manager
           href: monitoring-create-metric-alerts-with-templates.md
         - name: Creare un avviso di metrica classico con un modello di Resource Manager
@@ -85,6 +89,8 @@
           href: monitoring-alerts-rate-limiting.md
         - name: Creare gruppi di azioni con Gestione risorse
           href: monitoring-create-action-group-with-resource-manager-template.md
+        - name: Implementare un'azione dell'app per la logica
+          href: monitoring-action-groups-logic-app.md
     - name: Usare i log di diagnostica
       items:
         - name: Archiviazione
@@ -125,6 +131,8 @@
           href: insights-powershell-samples.md
     - name: Usare l'estensione di Diagnostica di Azure
       items:
+        - name: Inviare ad Archiviazione di Azure
+          href: azure-diagnostics-storage.md
         - name: Inviare dati ad Application Insights
           href: azure-diagnostics-configure-application-insights.md
         - name: Inviare dati a Hub eventi
@@ -175,6 +183,13 @@
       href: monitoring-activity-log-schema.md
     - name: Schema dell'estensione Diagnostica di Azure
       href: azure-diagnostics-schema.md
+      items:
+        - name: 1.3 e versioni successive
+          href: azure-diagnostics-schema-1dot3-and-later.md
+        - name: 1.2
+          href: azure-diagnostics-schema-1dot2.md
+        - name: 1
+          href: azure-diagnostics-schema-1dot0.md
 - name: Risorse
   items:
     - name: Roadmap per Azure

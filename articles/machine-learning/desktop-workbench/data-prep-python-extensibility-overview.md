@@ -4,19 +4,17 @@ description: Questo documento offre una panoramica e alcuni esempi dettagliati d
 services: machine-learning
 author: euangMS
 ms.author: euang
-manager: lanceo
-ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 02/01/2018
-ms.openlocfilehash: cc1aef7ed7c4a7d03a7fa63e71c8c27aca10095a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 05/09/2018
+ms.openlocfilehash: 6363d39b2dfbd36ccebff6780e35caf58ca84dda
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Estensioni della preparazione dati in Python
 Al fine di colmare i vuoti funzionali tra le funzioni incorporate, la preparazione dati di Azure Machine Learning include più livelli di estensibilità. In questo documento viene descritta l'estensibilità tramite lo script di Python. 
@@ -24,14 +22,10 @@ Al fine di colmare i vuoti funzionali tra le funzioni incorporate, la preparazio
 ## <a name="custom-code-steps"></a>Procedura per il codice personalizzato 
 La preparazione dati prevede le operazioni personalizzate seguenti tramite le quali gli utenti possono scrivere il codice:
 
-* Lettore di file*
-* Writer*
 * Aggiungere una colonna
 * Filtro avanzato
 * Trasformare il flusso di dati
 * Trasformare la partizione
-
-*Queste operazioni non sono attualmente supportate durante l'esecuzione di Spark.
 
 ## <a name="code-block-types"></a>Tipi di blocchi di codice 
 Per ognuna di queste operazioni, sono supportati due tipi di blocchi di codice. In primo luogo, viene supportata un'espressione di Python essenziale che viene eseguita così com'è. In secondo luogo, viene supportato un modulo di Python che richiama una particolare funzione con una firma nota nel codice indicato.
@@ -158,74 +152,6 @@ Esempi
     row.ColumnA + row.ColumnB  
     row["ColumnA"] + row["ColumnB"]
 ```
-
-## <a name="file-reader"></a>File Reader (Lettore di file) 
-### <a name="purpose"></a>Scopo 
-Il punto di estensione File Reader (Lettore di file) consente di controllare completamente il processo di lettura di un file in un flusso di dati. Il sistema chiama il codice e passa l'elenco di file da elaborare. Il codice deve creare e restituire un dataframe Pandas. 
-
->[!NOTE]
->Questo punto di estensione non funziona in Spark. 
-
-
-### <a name="how-to-use"></a>Utilizzo 
-Accedere a questo punto di estensione dalla creazione guidata **Apri origine dati**. Scegliere **File** nella prima pagina e quindi scegliere il percorso del file. Nella pagina **Choose File Parameters** (Scegli parametri del file) sfogliare l'elenco a discesa **File Type** (Tipo di file) e scegliere **Custom File (Script)** (File personalizzato - Script). 
-
-Il codice viene assegnato al dataframe di Pandas denominato "df" che contiene informazioni sui file da leggere. Se si sceglie di aprire una directory che contiene più file, il dataframe contiene più di una riga.  
-
-Questo dataframe è composto dalle colonne seguenti:
-
-- Path: il file da leggere.
-- PathHint: indica la posizione in cui si trova il file. Valori: Local, AzureBlobStorage e AzureDataLakeStorage.
-- AuthenticationType: il tipo di autenticazione usato per accedere al file. Valori: None, SasToken e OAuthToken.
-- AuthenticationValue: contiene None o il token da usare.
-
-### <a name="syntax"></a>Sintassi 
-Expression 
-
-```python
-    paths = df['Path'].tolist()  
-    df = pd.read_csv(paths[0])
-```
-
-
-Modulo  
-```python
-PathHint = Local  
-def read(df):  
-    paths = df['Path'].tolist()  
-    filedf = pd.read_csv(paths[0])  
-    return filedf  
-```
- 
-
-## <a name="writer"></a>Writer 
-### <a name="purpose"></a>Scopo 
-Il punto di estensione Writer consente di controllare completamente il processo di scrittura dei dati da un flusso di dati. Il sistema chiama il codice e passa un dataframe. Il codice può usare il dataframe per scrivere i dati secondo necessità. 
-
->[!NOTE]
->Il punto di estensione Writer non funziona in Spark.
-
-
-### <a name="how-to-use"></a>Utilizzo 
-È possibile aggiungere questo punto di estensione usando il blocco "Write Dataflow (Script)" (Scrivi flusso di dati - Script). È disponibile nel menu di primo livello **Transformations** (Trasformazioni).
-
-### <a name="syntax"></a>Sintassi 
-Expression
-
-```python
-    df.to_csv('c:\\temp\\output.csv')
-```
-
-Modulo
-
-```python
-def write(df):  
-    df.to_csv('c:\\temp\\output.csv')  
-    return df
-```
- 
- 
-Questo blocco di scrittura personalizzato può essere presente all'interno di un elenco dei passaggi. Se si usa un modulo, la funzione di scrittura deve restituire il dataframe che costituisce l'input per il passaggio seguente. 
 
 ## <a name="add-column"></a>Aggiungere una colonna 
 ### <a name="purpose"></a>Scopo

@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5548ced4f81cf52d6aec4ce5ab2a3262eb347bd3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -53,7 +53,7 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Se gli ID tenant per le sottoscrizioni di origine e di destinazione non sono uguali, usare i metodi descritti di seguito per risolvere le differenze degli ID tenant: 
+  Se gli ID tenant per le sottoscrizioni di origine e di destinazione non sono uguali, usare i metodi descritti di seguito per risolvere le differenze degli ID tenant:
 
   * [Trasferimento della proprietà di una sottoscrizione di Azure a un altro account](../billing/billing-subscription-transfer.md)
   * [Come associare o aggiungere una sottoscrizione di Azure ad Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
@@ -121,13 +121,14 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Servizi cognitivi
 * Content Moderator
 * Data Catalog
+* Data Factory: la versione 1 può essere spostata, mentre lo spostamento della versione 2 (anteprima) non è supportato
 * Data Lake Analytics
-* Archivio Data Lake
+* Data Lake Store
 * DNS
 * Hub eventi
 * Cluster HDInsight - vedere [Limitazioni di HDInsight](#hdinsight-limitations)
 * Hub IoT
-* Insieme di credenziali di chiave
+* Key Vault
 * Bilanciamenti del carico: vedere [Limitazioni del servizio di bilanciamento del carico](#lb-limitations)
 * App per la logica
 * Machine Learning: i servizi Web di Machine Learning Studio possono essere spostati in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non in un'altra sottoscrizione. Altre risorse di Machine Learning possono essere spostate da una sottoscrizione all'altra.
@@ -147,8 +148,8 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Archiviazione
 * Archiviazione (classica): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Analisi di flusso: i processi di analisi di flusso non possono essere spostati durante l'esecuzione.
-* Server di database SQL: il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database.
-* servizio Gestione traffico
+* Server di database SQL: il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database, inclusi il database SQL di Azure e i database di Azure SQL Data Warehouse. 
+* Gestione traffico
 * Macchine virtuali: non è possibile spostare macchine virtuali con dischi gestiti. Vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
 * Macchine virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Set di scalabilità di macchine virtuali: vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
@@ -161,12 +162,11 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 
 * AD Domain Services
 * Servizio ibrido per l'integrità di AD
-* gateway applicazione
+* Gateway applicazione
 * Database di Azure per MySQL
 * Servizi BizTalk
 * Certificati: i certificati del servizio app possono essere spostati, ma i certificati caricati presentano alcune [limitazioni](#app-service-limitations).
-* Servizio contenitore
-* Data factory
+* Kubernetes Service
 * DevTest Labs: lo spostamento in un nuovo gruppo di risorse nella stessa sottoscrizione è abilitato, ma lo spostamento tra sottoscrizioni diverse non lo è.
 * Dynamics LCS
 * Express Route
@@ -203,13 +203,13 @@ Non è possibile spostare una rete virtuale in un'altra sottoscrizione se la ret
 
 ## <a name="app-service-limitations"></a>Limitazioni del servizio app
 
-Le limitazioni per lo spostamento delle risorse del Servizio app variano a seconda che lo spostamento avvenga all'interno di una sottoscrizione o a una nuova sottoscrizione. 
+Le limitazioni per lo spostamento delle risorse del Servizio app variano a seconda che lo spostamento avvenga all'interno di una sottoscrizione o a una nuova sottoscrizione.
 
 Le limitazioni descritte in queste sezioni si applicano ai certificati caricati e non ai certificati del servizio app. È possibile spostare i certificati del servizio app in un nuovo gruppo di risorse o in una nuova sottoscrizione senza limitazioni. Se si hanno più app Web che usano lo stesso certificato del servizio app, spostare prima tutte le app Web e quindi spostare il certificato.
 
 ### <a name="moving-within-the-same-subscription"></a>Spostamento all'interno della stessa sottoscrizione
 
-Quando si sposta un'app Web _nella stessa sottoscrizione_, non è possibile spostare i certificati SSL caricati. È comunque possibile spostare un'app Web nel nuovo gruppo di risorse senza spostare il relativo certificato SSL caricato mantenendo effettiva la funzionalità SSL dell'app. 
+Quando si sposta un'app Web _nella stessa sottoscrizione_, non è possibile spostare i certificati SSL caricati. È comunque possibile spostare un'app Web nel nuovo gruppo di risorse senza spostare il relativo certificato SSL caricato mantenendo effettiva la funzionalità SSL dell'app.
 
 Se si desidera spostare il certificato SSL con l'app Web, attenersi alla procedura seguente:
 
@@ -227,7 +227,7 @@ Quando si sposta un'app Web _tra sottoscrizioni_, si applicano le limitazioni se
     - Certificati SSL importati o caricati
     - Ambienti del servizio app
 - Tutte le risorse del servizio app nel gruppo di risorse devono essere spostate insieme.
-- Le risorse del servizio app possono essere spostate solo dal gruppo di risorse in cui sono state originariamente create. Se una risorsa del servizio app non si trova più nel gruppo di risorse originale, deve essere spostata nuovamente in tale gruppo prima di poter essere spostata tra le sottoscrizioni. 
+- Le risorse del servizio app possono essere spostate solo dal gruppo di risorse in cui sono state originariamente create. Se una risorsa del servizio app non si trova più nel gruppo di risorse originale, deve essere spostata nuovamente in tale gruppo prima di poter essere spostata tra le sottoscrizioni.
 
 ## <a name="classic-deployment-limitations"></a>Limitazioni della distribuzione classica
 

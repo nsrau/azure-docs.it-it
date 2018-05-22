@@ -6,6 +6,7 @@
 # Attività iniziali
 ## [Portale di Azure](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Interfaccia della riga di comando di Azure](data-lake-analytics-get-started-cli2.md)
 
@@ -13,12 +14,14 @@
 
 ## Gestire Data Lake Analytics
 ### [Portale di Azure](data-lake-analytics-manage-use-portal.md)
-### [Interfaccia della riga di comando di Azure](data-lake-analytics-manage-use-cli.md)
-### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)
-### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
-### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### Riga di comando
+#### [Interfaccia della riga di comando di Azure](data-lake-analytics-manage-use-cli.md)
+#### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+### SDK
+#### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
+#### [Python](data-lake-analytics-manage-use-python-sdk.md)
+#### [Java](data-lake-analytics-manage-use-java-sdk.md)
+#### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [Criteri](data-lake-analytics-policies.md)
 ### [Accedere ai log di diagnostica](data-lake-analytics-diagnostic-logs.md)
 ### [Modificare i limiti di quota](data-lake-analytics-quota-limits.md)
@@ -36,6 +39,7 @@
 #### [Guida alla programmabilità](data-lake-analytics-u-sql-programmability-guide.md)
 
 ### Visual Studio
+#### [Installare](data-lake-analytics-data-lake-tools-install.md)
 #### [Sfogliare e visualizzare processi](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [Eseguire il debug di codice personalizzato in C#](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Risolvere i problemi dei processi ricorrenti](data-lake-analytics-data-lake-tools-debug-recurring-job.md)

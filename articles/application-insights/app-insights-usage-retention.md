@@ -3,7 +3,7 @@ title: Analisi della conservazione degli utenti per applicazioni Web con Azure A
 description: Quanti utenti tornano all'app?
 services: application-insights
 documentationcenter: ''
-author: botatoes
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 03f8bea65e319f357be4ca05fd4aa40da77a3436
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bafe9579cc783dbc5c851e626e3b9bea0c559520
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analisi della conservazione degli utenti per applicazioni Web con Application Insights
 
@@ -32,7 +32,7 @@ Se nello strumento Conservazione nel portale di Application Insights non vengono
 
 1. La barra degli strumenti consente agli utenti di creare nuovi report di conservazione, aprire i report di conservazione esistenti, salvare il report di conservazione corrente o salvarlo con un altro nome, ripristinare le modifiche apportate al report salvati, aggiornare i dati del report, condividere un report tramite posta elettronica o un collegamento diretto e accedere alla pagina della documentazione. 
 2. Per impostazione predefinita, il report di conservazione mostra tutti gli utenti che non hanno fatto alcuna operazione, poi sono tornati e non hanno fatto altro per un periodo. È possibile selezionare una diversa combinazione di eventi per restringere l'ambito ad attività specifiche degli utenti.
-3. Aggiungere uno o più filtri alle proprietà. Ad esempio, è possibile concentrarsi sugli utenti di un determinato paese o area geografica. Fare clic su **Aggiorna** sopo aver impostato i filtri. 
+3. Aggiungere uno o più filtri alle proprietà. Ad esempio, è possibile concentrarsi sugli utenti di un determinato paese o area. Fare clic su **Aggiorna** sopo aver impostato i filtri. 
 4. Il grafico generale della conservazione mostra un riepilogo degli utenti conservati per il periodo di tempo selezionato. 
 5. Nella griglia viene visualizzato il numero di utenti conservati secondo il generatore di query al numero 2. Ogni riga rappresenta una coorte di utenti che hanno eseguito qualsiasi evento nel periodo di tempo indicato. Ogni cella nella riga mostra il numero di utenti della coorte che sono ritornati almeno una volta nel periodo successivo. Alcuni utenti potrebbero ritornare in periodi diversi. 
 6. Le schede dei dettagli mostrano i primi 5 eventi di avvio e i primi 5 eventi restituiti per consentire agli utenti una migliore comprensione del report di conservazione. 

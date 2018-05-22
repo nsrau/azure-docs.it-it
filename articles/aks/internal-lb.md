@@ -1,6 +1,6 @@
 ---
-title: Creare un servizio di bilanciamento del carico interno del servizio contenitore di Azure (AKS)
-description: Usare un servizio di bilanciamento del carico interno con il servizio contenitore di Azure (AKS).
+title: Creare un servizio di bilanciamento del carico interno di Azure Kubernetes Service (AKS)
+description: Usare un servizio di bilanciamento del carico interno con Azure Kubernetes Service (AKS).
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 3/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7b9ecdb5364f7c0f5bb68ce693e53bc2c5327337
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 6a657df82e1670f7a9d604dd5166ab53bb38bf74
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-an-internal-load-balancer-with-azure-container-service-aks"></a>Usare un servizio di bilanciamento del carico interno con il servizio contenitore di Azure (AKS)
+# <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Usare un servizio di bilanciamento del carico interno con Azure Kubernetes Service (AKS)
 
-Il bilanciamento del carico interno rende accessibile un servizio Kubernetes alle applicazioni in esecuzione nella stessa rete virtuale del cluster Kubernetes. Questo documento illustra come creare un servizio di bilanciamento del carico interno con il servizio contenitore di Azure (AKS).
+Il bilanciamento del carico interno rende accessibile un servizio Kubernetes alle applicazioni in esecuzione nella stessa rete virtuale del cluster Kubernetes. Questo documento illustra come creare un servizio di bilanciamento del carico interno con Azure Kubernetes Service (AKS).
 
 ## <a name="create-internal-load-balancer"></a>Creare un servizio di bilanciamento del carico interno
 
@@ -38,11 +38,11 @@ spec:
     app: azure-vote-front
 ```
 
-Una volta distribuito, un servizio di bilanciamento del carico di Azure viene creato e reso disponibile nella stessa rete virtuale del cluster del servizio contenitore di Azure. 
+Una volta distribuito, un servizio di bilanciamento del carico di Azure viene creato e reso disponibile nella stessa rete virtuale del cluster del servizio contenitore di Azure.
 
 ![Immagine del servizio di bilanciamento del carico interno del servizio contenitore di Azure](media/internal-lb/internal-lb.png)
 
-Quando si recuperano i dettagli del servizio, l'indirizzo IP nella colonna `EXTERNAL-IP` corrisponde all'indirizzo IP del servizio di bilanciamento del carico interno. 
+Quando si recuperano i dettagli del servizio, l'indirizzo IP nella colonna `EXTERNAL-IP` corrisponde all'indirizzo IP del servizio di bilanciamento del carico interno.
 
 ```console
 $ kubectl get service azure-vote-front
@@ -71,7 +71,7 @@ spec:
     app: azure-vote-front
 ```
 
-Quando si recuperano i dettagli del servizio, l'indirizzo IP nella colonna `EXTERNAL-IP` deve riflettere l'indirizzo IP specificato. 
+Quando si recuperano i dettagli del servizio, l'indirizzo IP nella colonna `EXTERNAL-IP` deve riflettere l'indirizzo IP specificato.
 
 ```console
 $ kubectl get service azure-vote-front

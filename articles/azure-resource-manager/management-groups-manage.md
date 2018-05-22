@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/1/2018
+ms.date: 5/15/2018
 ms.author: rithorn
-ms.openlocfilehash: b69dce94e2e0bfaa413af9a95c5ef858f766ff1c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 822a2df113b848f07e616f155881f345028cee1d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gestire le risorse con i gruppi di gestione 
 I gruppi di gestione sono contenitori che semplificano la gestione dell'accesso, dei criteri e della conformità tra più sottoscrizioni. È possibile modificare, eliminare e gestire questi contenitori per creare gerarchie utilizzabili con [Criteri di Azure](../azure-policy/azure-policy-introduction.md) e [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md). Per altre informazioni sui gruppi di gestione, vedere [Organizzare le risorse con i gruppi di gestione di Azure](management-groups-overview.md).
@@ -24,6 +24,8 @@ I gruppi di gestione sono contenitori che semplificano la gestione dell'accesso,
 La funzionalità dei gruppi di gestione è disponibile come anteprima pubblica. Per iniziare a usare i gruppi di gestione, accedere al [portale di Azure](https://portal.azure.com). In alternativa, è possibile usare [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available) o l'[API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) per gestire i gruppi di gestione.
 
 Per apportare modifiche a un gruppo di gestione, è necessario disporre del ruolo Proprietario o Collaboratore per il gruppo di gestione. Per controllare le proprie autorizzazioni, selezionare il gruppo di gestione e quindi selezionare **IAM**. Per altre informazioni sui ruoli Controllo degli accessi in base al ruolo, vedere [Gestire accessi e autorizzazioni con il controllo degli accessi in base al ruolo](../role-based-access-control/overview.md).
+
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="change-the-name-of-a-management-group"></a>Modificare il nome di un gruppo di gestione 
 È possibile modificare il nome del gruppo di gestione tramite il portale, PowerShell o l'interfaccia della riga di comando di Azure.
@@ -103,9 +105,9 @@ C:\> az account management-group delete --group-name Contoso
 ### <a name="view-in-the-portal"></a>Visualizzare nel portale
 1. Accedere al [portale di Azure](https://portal.azure.com)
 2. Selezionare **Tutti i servizi** > **Gruppi di gestione** 
-3. Si apre la pagina della gerarchia dei gruppi di gestione, che mostra tutti i gruppi a cui si ha accesso. 
+3. Verrà caricata la pagina della gerarchia dei gruppi di gestione, in cui è possibile esplorare tutti i gruppi di gestione e le sottoscrizioni a cui si ha accesso. Quando si seleziona il nome del gruppo si scende di un livello nella gerarchia. Le funzioni di spostamento sono le stesse di Esplora file. 
     ![Principale](media/management-groups/main.png)
-4. Selezionare un gruppo di gestione per visualizzare i dettagli  
+4. Per visualizzare i dettagli del gruppo di gestione, selezionare il collegamento **(dettagli)** accanto al titolo del gruppo di gestione. Se questo collegamento non è disponibile, non si hanno le autorizzazioni per visualizzare il gruppo di gestione.  
 
 ### <a name="view-in-powershell"></a>Visualizzare in PowerShell
 Per recuperare tutti i gruppi, usare il comando Get-AzureRmManagementGroup.  
