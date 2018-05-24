@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: e12487c519a927b18574310b7af04a1811befd38
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 285961279a35d2770f05eb66b961f64e6781d9df
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34336552"
 ---
 # <a name="azure-active-directory-faq"></a>Domande frequenti su Azure Active Directory
 Azure Active Directory (Azure AD) è una soluzione IDaaS (Identity as a Service) completa che si estende a tutti gli aspetti relativi a identità, gestione degli accessi e sicurezza.
@@ -175,7 +176,7 @@ Per altre informazioni, vedere:
 * Accesso diretto alle applicazioni federate
 * Collegamenti diretti per applicazioni federate, basate su password o esistenti
 
-Per altre informazioni, vedere [Distribuzione di applicazioni integrate di Azure AD agli utenti](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+Per altre informazioni, vedere [Distribuzione di applicazioni integrate di Azure AD agli utenti](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
 
 - - -
 **D: Quali sono le diverse modalità usate da Azure AD per abilitare l'autenticazione e l'accesso Single Sign-On alle applicazioni?**
@@ -186,7 +187,7 @@ Per altre informazioni, vedere:
 
 * [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md)
 * [Protocolli di autenticazione di Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [Come funziona Single Sign-On con Azure Active Directory (PHP)?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [Come funziona Single Sign-On con Azure Active Directory (PHP)?](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 - - -
 **D: È possibile aggiungere applicazioni in esecuzione in locale?**
