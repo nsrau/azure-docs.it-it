@@ -2,7 +2,7 @@
 title: 'Esercitazione: Configurare Asana per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Asana.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: sakula
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: c2c9588e6c452714edcc594c05c59ed05f3c6666
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c7e33a46940c9bf0cda5e48c07d42db9f0c7cd96
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Esercitazione: Configurare Asana per il provisioning utenti automatico
 
@@ -100,5 +100,5 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Gestione del provisioning degli account utente per le app aziendali](active-directory-enterprise-apps-manage-provisioning.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 * [Configurare l'accesso Single Sign-On](active-directory-saas-asana-tutorial.md)

@@ -9,11 +9,11 @@ description: Informazioni su come integrare la soluzione di monitoraggio remoto 
 +ms.date: 04/029/2018
 +ms.topic: article
 +ms.service: iot-suite
-ms.openlocfilehash: 701dd51d13ec1880f23c48cc5e8b368b15d0deca
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 75ad9e9ac79dca4db902d7e72511a384dd769463
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrare la soluzione di monitoraggio remoto con Azure Data Lake Store
 
@@ -21,15 +21,15 @@ Se si hanno requisiti di analisi più elevati rispetto a quelli che può soddisf
 
 In questa procedura si userà un processo di Analisi di flusso di Azure per eseguire lo streaming di dati dall'hub IoT nella soluzione di monitoraggio remoto a un'istanza di Azure Data Lake Store.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per completare questa procedura è necessario avere eseguito le operazioni seguenti:
+Per completare questa procedura, è necessario quanto segue:
 
-* [Distribuire la soluzione preconfigurata di monitoraggio remoto](/iot-suite/iot-suite-remote-monitoring-deploy).
+* [Distribuire la soluzione preconfigurata di monitoraggio remoto](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
   * La soluzione implementerà l'hub IoT e il processo di Analisi di flusso di Azure usati in questo articolo nella sottoscrizione Azure.
-* [Distribuire un'istanza di Azure Data Lake Store](/data-lake-store/data-lake-store-get-started-portal).
+* [Distribuire un'istanza di Azure Data Lake Store](/data-lake-store/data-lake-store-get-started-portal.md).
   * L'istanza di Data Lake Store deve essere distribuita nella stessa area della soluzione di monitoraggio remoto.
-  * [Creare una cartella](/data-lake-store/data-lake-store-get-started-portal#createfolder) denominata "streaming" nell'account.
+  * [Creare una cartella](/data-lake-store/data-lake-store-get-started-portal.md#createfolder) denominata "streaming" nell'account.
 
 ## <a name="create-a-consumer-group"></a>Creare un gruppo di consumer
 
@@ -89,7 +89,7 @@ Creare un processo di Analisi di flusso di Azure per eseguire lo streaming dei d
 
     ![Selezionare l'input](media/iot-suite-integrate-data-lake/stream-analytics-new-input.png)
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 1. Nella pagina Panoramica fare clic su **Output**.
 
@@ -118,7 +118,7 @@ Creare un processo di Analisi di flusso di Azure per eseguire lo streaming dei d
     > [!NOTE]
     > Se nella finestra popup viene visualizzato un errore, aprire una nuova finestra del browser in incognito e riprovare.
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 ## <a name="edit-the-stream-analytics-query"></a>Modificare la query di Analisi di flusso
 
@@ -126,7 +126,7 @@ Analisi di flusso di Azure usa un linguaggio di query simile a SQL per specifica
 
 1. Nella scheda Panoramica fare clic su **Modifica query**.
 
-    ![Modificare la query](media/iot-suite-integrate-data-lake/stream-analytics-edit-query.png)
+    ![Edit Query](media/iot-suite-integrate-data-lake/stream-analytics-edit-query.png)
 
 1. Nell'editor di query sostituire i segnaposto [YourOutputAlias] e [YourInputAlias] con i valori definiti in precedenza.
 
@@ -141,10 +141,10 @@ Analisi di flusso di Azure usa un linguaggio di query simile a SQL per specifica
 
     ![Query di Analisi di flusso](media/iot-suite-integrate-data-lake/stream-analytics-query.png)
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 1. Fare clic su **Sì** per accettare le modifiche.
 
-## <a name="start-the-stream-analytics-job"></a>Avviare il processo di Analisi di flusso
+## <a name="start-the-stream-analytics-job"></a>Avviare il processo di analisi di flusso
 
 1. Nella scheda Panoramica fare clic su **Avvia**.
 

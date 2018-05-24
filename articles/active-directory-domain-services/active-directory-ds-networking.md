@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: a56413490decc928ff2643213084155ae469871c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: b40aa0e105c0e9fac9c9cab63a5b0a2a6116c4c9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerazioni sulla rete per Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Come selezionare una rete virtuale di Azure
@@ -95,7 +95,7 @@ Azure Active Directory Domain Services richiede le porte seguenti per la manuten
 
 
 ## <a name="network-security-groups"></a>Gruppi di sicurezza di rete
-Un [gruppo di sicurezza di rete (NSG)](../virtual-network/virtual-networks-nsg.md) contiene un elenco di regole dell'elenco di controllo di accesso (ACL) che consentono o rifiutano il traffico di rete alle istanze di VM in una rete virtuale. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet. Il traffico verso una singola VM può essere inoltre ulteriormente limitato associando un gruppo di sicurezza di rete direttamente a tale VM.
+Un [gruppo di sicurezza di rete (NSG)](../virtual-network/security-overview.md) contiene un elenco di regole dell'elenco di controllo di accesso (ACL) che consentono o rifiutano il traffico di rete alle istanze di VM in una rete virtuale. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet. Il traffico verso una singola VM può essere inoltre ulteriormente limitato associando un gruppo di sicurezza di rete direttamente a tale VM.
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Gruppo di sicurezza di rete (NSG) di esempio per le reti virtuali con Azure AD Domain Services
 La tabella seguente illustra un gruppo di sicurezza di rete di esempio che è possibile configurare per una rete virtuale con un dominio gestito di Azure AD Domain Services. Questa regola consente il traffico sulle porte specificate per garantire che il dominio gestito rimanga aggiornato, che vengano applicate le patch e possa essere monitorato da Microsoft. La regola predefinita "DenyAll" si applica a tutto il traffico in ingresso da Internet.
@@ -141,5 +141,5 @@ Un dominio gestito di Azure AD Domain Services può essere abilitato solo in una
 ## <a name="related-content"></a>Contenuti correlati
 * [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md)
 * [Configurare una connessione da rete virtuale a rete virtuale per il modello di distribuzione classico](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
-* [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
+* [Che cos'è un gruppo di sicurezza di rete](../virtual-network/security-overview.md)
 * [Creare un gruppo di sicurezza di rete](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

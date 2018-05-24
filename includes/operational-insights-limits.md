@@ -5,14 +5,14 @@ services: log-analytics
 author: MGoedtel
 ms.service: log-analytics
 ms.topic: include
-ms.date: 03/29/2018
+ms.date: 05/16/2018
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 29256b3bcfedb7fe5045ff4c6c3842eb25e00a28
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 66cd09df128d454973d008adf4ffc5dd1017a18f
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 I limiti seguenti si applicano alle risorse di Log Analytics per ogni sottoscrizione:
 
@@ -39,5 +39,5 @@ I limiti seguenti si applicano a ogni area di lavoro di Log Analytics:
 | Categoria | Limiti | Commenti
 | --- | --- | --- |
 | API dell'Agente di raccolta dati | La dimensione massima per un singolo post è di 30 MB<br>La dimensione massima per i valori dei campi è di 32 KB | Dividere i volumi più grandi in più post<br>I campi con una lunghezza superiore a 32 KB vengono troncati. |
-| API di ricerca | 5000 record restituiti per i dati non aggregati<br>500000 record per i dati aggregati | I dati aggregati sono una ricerca che include il comando `measure`
+| API di ricerca | 5000 record restituiti per i dati non aggregati<br>500000 record per i dati aggregati | I dati aggregati sono una ricerca che include il comando `summarize`
  

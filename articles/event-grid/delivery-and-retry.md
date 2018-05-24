@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 05/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: db16a4ba2177e92fa4500af0969c44471004ba73
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8eb6717369b48289bd31dcd1972ce275bc550c77
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi 
 

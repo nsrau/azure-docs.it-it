@@ -17,11 +17,11 @@ ms.date: 08/03/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 72516ce84fc9a4cf2657548be4ef98e75e46d550
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 844c19803f57987f4435d013cd12aa3d1ef8aeb8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Come ottenere la certificazione AppSource per Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) è la posizione in cui gli utenti aziendali possono trovare, provare e gestire applicazioni SaaS line-of-business (soluzioni SaaS autonome e componenti aggiuntivi per prodotti Microsoft SaaS esistenti).
@@ -43,7 +43,7 @@ Per abilitare la multi-tenancy nell'applicazione:
 Per altre informazioni sulla multi-tenancy, vedere [Come consentire l'accesso a qualsiasi utente di Azure Active Directory (AD) usando il modello di applicazione multi-tenant](./active-directory-devhowto-multi-tenant-overview.md).
 
 ### <a name="single-tenant-applications"></a>Applicazioni a tenant singolo
-Le applicazioni che accettano solo l'accesso degli utenti di un'istanza di Azure Active Directory definita sono note come *applicazioni a tenant singolo*. Gli utenti esterni, inclusi gli account aziendali o degli istituti di istruzione di altre organizzazioni o gli account personali, possono accedere a un'applicazione a tenant singolo dopo l'aggiunta di ogni utente come *account guest* all'istanza di Azure Active Directory a cui l'applicazione è registrata. È possibile aggiungere utenti come account guest in Azure Active Directory tramite la [*collaborazione B2B di Azure AD*](../active-directory-b2b-what-is-azure-ad-b2b.md) e l'operazione può essere eseguita [a livello di codice](../active-directory-b2b-code-samples.md). Quando si aggiunge un utente come account guest in Azure Active Directory, viene inviato un messaggio di posta elettronica di invito all'utente, che deve accettare l'invito facendo clic sul collegamento in esso contenuto. Gli inviti inviati a un utente aggiuntivo in un'organizzazione che emette l'invito che è anche membro dell'organizzazione partner non devono essere necessariamente accettati come condizione per l'accesso.
+Le applicazioni che accettano solo l'accesso degli utenti di un'istanza di Azure Active Directory definita sono note come *applicazioni a tenant singolo*. Gli utenti esterni, inclusi gli account aziendali o degli istituti di istruzione di altre organizzazioni o gli account personali, possono accedere a un'applicazione a tenant singolo dopo l'aggiunta di ogni utente come *account guest* all'istanza di Azure Active Directory a cui l'applicazione è registrata. È possibile aggiungere utenti come account guest in Azure Active Directory tramite la [*collaborazione B2B di Azure AD*](../b2b/what-is-b2b.md) e l'operazione può essere eseguita [a livello di codice](../b2b/code-samples.md). Quando si aggiunge un utente come account guest in Azure Active Directory, viene inviato un messaggio di posta elettronica di invito all'utente, che deve accettare l'invito facendo clic sul collegamento in esso contenuto. Gli inviti inviati a un utente aggiuntivo in un'organizzazione che emette l'invito che è anche membro dell'organizzazione partner non devono essere necessariamente accettati come condizione per l'accesso.
 
 Le applicazioni a tenant singolo possono consentire l'esperienza *Desidero essere contattato*, ma per abilitare l'esperienza di valutazione gratuita/singolo clic consigliata da AppSource è necessario abilitare la multi-tenancy per l'applicazione.
 

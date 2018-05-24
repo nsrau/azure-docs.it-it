@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a90fe2c919e0c5452072c4129dcb7a1135d9ec25
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d5c68e709b72e4032eca76dd35103df50030ccca
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Esercitazione: Configurare Google Apps per il provisioning utenti automatico
 
@@ -164,7 +164,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Gestione del provisioning degli account utente per app aziendali](active-directory-saas-tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 * [Configurare l'accesso Single Sign-On](active-directory-saas-google-apps-tutorial.md)
 
 

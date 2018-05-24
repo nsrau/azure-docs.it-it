@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 3d63e33adb9cbbe96ad2851870592cc07c9cc3da
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ffb18ef65bc0d901fe237ec9c4f97fdae43dc472
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure
 
@@ -35,6 +35,8 @@ Questo articolo descrive come usare le associazioni di [Azure Cosmos DB](..\cosm
 Le associazioni Cosmos DB per la versione 1.x di Funzioni sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB). Per Funzioni 2.x, il pacchetto è [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB). Il codice sorgente per le associazioni si trova nel repository GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="trigger"></a>Trigger
 

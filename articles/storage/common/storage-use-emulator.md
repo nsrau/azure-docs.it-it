@@ -2,23 +2,17 @@
 title: Usare l'emulatore di archiviazione di Azure per sviluppo e test | Microsoft Docs
 description: L'emulatore di archiviazione di Azure offre un ambiente di sviluppo locale gratuito per sviluppare e testare applicazioni di Archiviazione di Azure. Informazioni sulle modalità di autenticazione delle richieste, su come connettersi all'emulatore dall'applicazione e su come usare lo strumento da riga di comando.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: f480b059-df8a-4a63-b05a-7f2f5d1f5c2a
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 05/17/2018
 ms.author: tamram
-ms.openlocfilehash: f98b8c3a8217b60fd0ba3754ac4ba72e09039f24
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c16bf1e750ea059e663e05c91835884eb0bc54a5
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -44,17 +38,10 @@ Esistono alcune differenze a livello di funzionalità tra l'emulatore di archivi
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>Avviare e inizializzare l'emulatore di archiviazione
 
-### <a name="run-the-azure-storage-emulator-in-dockerhttpshubdockercomrmicrosoftazure-storage-emulator"></a>[Eseguire l'emulatore di archiviazione di Azure in Docker](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
-```
-docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
-```
-
-### <a name="using-sdk"></a>Uso dell'SDK
-
 Per avviare l'emulatore di archiviazione di Azure:
 1. Fare clic sul pulsante **Start** oppure premere il tasto **WINDOWS**.
-1. Iniziare a digitare `Azure Storage Emulator`.
-1. Selezionare l'emulatore nell'elenco delle applicazioni visualizzate.
+2. Iniziare a digitare `Azure Storage Emulator`.
+3. Selezionare l'emulatore nell'elenco delle applicazioni visualizzate.
 
 All'avvio dell'emulatore di archiviazione, viene visualizzata una finestra del prompt dei comandi. È possibile usare questa finestra della console per avviare e arrestare l'emulatore di archiviazione, cancellare i dati, ottenere lo stato e inizializzare l'emulatore. Per altre informazioni, vedere la sezione [Informazioni di riferimento sullo strumento da riga di comando dell'emulatore di archiviazione](#storage-emulator-command-line-tool-reference) più avanti in questo articolo.
 
@@ -71,6 +58,7 @@ Per impostazione predefinita, l'emulatore di archiviazione viene installato in `
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Inizializzare l'emulatore di archiviazione per l'uso di un database SQL diverso
+
 È possibile usare lo strumento della riga di comando Emulatore di archiviazione per inizializzare l'emulatore di archiviazione in modo che punti a un'istanza di database SQL diversa dall'istanza LocalDB predefinita:
 
 1. Aprire la finestra della console dell'emulatore di archiviazione come descritto nella sezione [Avviare e inizializzare l'emulatore di archiviazione](#start-and-initialize-the-storage-emulator).

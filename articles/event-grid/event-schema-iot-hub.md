@@ -1,20 +1,20 @@
 ---
 title: Schema di Griglia di eventi di Azure per l'hub IoT | Microsoft Docs
-description: "Pagina di riferimento per il formato e le proprietà dello schema di eventi dell'hub IoT"
+description: Pagina di riferimento per il formato e le proprietà dello schema di eventi dell'hub IoT
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 29ad1233a344c3085286c27cb925b2dc9fb41f7e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 812ca3ba546112f54a76319fda853d441ce34f1b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Schema di eventi di Griglia di eventi di Azure per l'hub IoT
 

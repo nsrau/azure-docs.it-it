@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: 638ae63057df00375b05a58e3ceab510e2a608de
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: daad9104798dc02b479b4e022287c3630e4a67a0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrate-azure-active-directory-with-box"></a>Integrare Azure Active Directory con Box
 
@@ -30,7 +30,7 @@ L'integrazione di Azure AD con Box offre i vantaggi seguenti:
 - È possibile abilitare l'accesso automatico degli utenti a Box (Single Sign-On) con i loro account Azure AD.
 - È possibile gestire gli account da una posizione centrale, il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -196,7 +196,7 @@ Quando si fa clic sul riquadro **Box** nel pannello di accesso, viene visualizza
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Elenco di esercitazioni sull'integrazione di app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 * [Configurare il provisioning utenti](active-directory-saas-box-userprovisioning-tutorial.md)
 
 

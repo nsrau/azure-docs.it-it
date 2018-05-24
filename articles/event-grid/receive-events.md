@@ -5,14 +5,14 @@ services: event-grid
 author: banisadr
 manager: darosa
 ms.service: event-grid
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: babanisa
-ms.openlocfilehash: db79629c5f806fe50d22200574c29052a485dd06
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 89d0f11ccfb9a359ca3e43bc1a370e0fb7514574
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ricevere eventi in un endpoint HTTP
 
@@ -48,6 +48,8 @@ Fare clic sul collegamento "Visualizza file" nella funzione di Azure (riquadro p
 ## <a name="endpoint-validation"></a>Convalida degli endpoint
 
 La prima cosa da fare è gestire gli eventi `Microsoft.EventGrid.SubscriptionValidationEvent`. Ogni volta che qualcuno sottoscrive un evento, Griglia di eventi invia un evento di convalida all'endpoint con un `validationCode` nel payload dei dati. L'endpoint è tenuto a ripeterlo nel corpo della risposta per [dimostrare che l'endpoint è valido e di proprietà dell'utente](security-authentication.md#webhook-event-delivery). Se si usa un [Trigger griglia di eventi di Azure](../azure-functions/functions-bindings-event-grid.md) anziché una funzione attivata da WebHook, la convalida dell'endpoint viene gestita dall'utente. Se si usa un servizio API di terze parti, ad esempio [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/), potrebbe non essere possibile ripetere a livello di programmazione il codice di convalida. Per questi servizi, è possibile convalidare manualmente la sottoscrizione usando un URL di convalida che viene inviato quando si verifica l'evento di convalida della sottoscrizione. Copiare l'URL nella proprietà `validationUrl` e inviare una richiesta GET tramite un client REST o un Web browser.
+
+La convalida manuale è disponibile in anteprima. Per usarla, è necessario installare l'[estensione Griglia di eventi](/cli/azure/azure-cli-extensions-list) per [AZ CLI 2.0](/cli/azure/install-azure-cli). È possibile installarla con `az extension add --name eventgrid`. Se si usa l'API REST, assicurarsi di usare `api-version=2018-05-01-preview`.
 
 Per ripetere a livello di programmazione il codice di convalida, usare il codice seguente:
 

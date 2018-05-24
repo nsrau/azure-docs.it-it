@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 63d5d8de82d97e7f8ca65ad04cdd4357cace0be1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e6bf1962115c4ee9212ae73eb98f664efa3b6a2d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Eseguire il monitoraggio avanzato tramite la soluzione di monitoraggio remoto
 
@@ -37,7 +37,7 @@ In questa esercitazione si apprenderà come:
 
 Per seguire questa esercitazione, è necessaria un'istanza distribuita della soluzione di monitoraggio remoto nella sottoscrizione di Azure.
 
-Se la soluzione di monitoraggio remoto non è stata ancora distribuita, completare l'esercitazione [Distribuire l'acceleratore di soluzioni di monitoraggio remoto](iot-suite-remote-monitoring-deploy.md).
+Se la soluzione di monitoraggio remoto non è stata ancora distribuita, completare l'esercitazione [Distribuire l'acceleratore di soluzioni di monitoraggio remoto](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="choose-the-devices-to-display"></a>Scegliere i dispositivi da visualizzare
 
@@ -115,7 +115,7 @@ Questa esercitazione ha mostrato come usare la pagina **Dashboard** per filtrare
 
 Ora che si è appreso come monitorare i dispositivi, i passaggi successivi consigliati consentono di apprendere come:
 
-* [Rilevare i problemi usando regole basate su soglie](./iot-suite-remote-monitoring-automate.md).
+* [Rilevare i problemi usando regole basate su soglie](../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 * [Gestire e configurare i dispositivi](./iot-suite-remote-monitoring-manage.md).
 * [Risolvere e correggere i problemi dei dispositivi](./iot-suite-remote-monitoring-maintain.md).
 * [Testare la soluzione con dispositivi simulati](iot-suite-remote-monitoring-test.md).

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 2bc2559dc1cf737e018895ffae61d0da0e56fc85
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a8844ea44bf604944c5980b0d41ab5d01a30b876
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure 
 
@@ -34,6 +34,8 @@ Questo articolo illustra come usare trigger timer in Funzioni di Azure. Un trigg
 Il trigger timer è disponibile nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions). Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/).
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="example"></a>Esempio
 
@@ -170,7 +172,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su "timerTrigger". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | n/d | Il valore deve essere impostato su "in". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
-|**name** | n/d | Nome della variabile che rappresenta l'oggetto timer nel codice della funzione. | 
+|**nome** | n/d | Nome della variabile che rappresenta l'oggetto timer nel codice della funzione. | 
 |**schedule**|**ScheduleExpression**|[Espressione CRON](#cron-expressions) o valore [TimeSpan](#timespan). `TimeSpan` può essere usato solo per un'app per le funzioni in esecuzione in un piano di servizio app. È possibile inserire l'espressione schedule in un'impostazione dell'app e definire per questa proprietà il nome dell'impostazione dell'app racchiuso tra simboli **%**, come in questo esempio: "%ImpostazioneAppSchedule%". |
 |**runOnStartup**|**RunOnStartup**|Se `true`, la funzione viene richiamata all'avvio del runtime. Ad esempio, il runtime viene avviato quando l'app per le funzioni si riattiva dopo un periodo di inattività, quando l'app per le funzioni viene riavviata a causa di modifiche alla funzione e quando l'app per le funzioni viene scalata orizzontalmente. Di conseguenza, **runOnStartup** deve essere impostato raramente, o addirittura mai, su `true`, in quando causa l'esecuzione del codice in momenti estremamente imprevedibili.|
 |**useMonitor**|**UseMonitor**|Impostata su `true` o `false` per indicare se monitorare la pianificazione. Il monitoraggio della pianificazione rende persistenti le occorrenze della pianificazione per garantire che la pianificazione venga gestita correttamente anche quando le istanze dell'app per le funzioni vengono riavviate. Se la proprietà non è impostata in modo esplicito, il valore predefinito è `true` per le pianificazioni che hanno un intervallo di ricorrenza maggiore di 1 minuto. Per le pianificazioni attivate più di una volta al minuto, il valore predefinito è `false`.
@@ -204,7 +206,7 @@ Un'espressione CRON per il trigger timer di Funzioni di Azure include sei campi:
 
 Ogni campo può avere uno dei tipi di valori seguenti:
 
-|Tipo  |Esempio  |Quando viene attivato  |
+|type  |Esempio  |Quando viene attivato  |
 |---------|---------|---------|
 |Valore specifico |<nobr>"0 5 * * * *"</nobr>|Alle hh.05.00, dove hh corrisponde a ogni ora (una volta all'ora)|
 |Tutti i valori (`*`)|<nobr>"0 * 5 * * *"</nobr>|Alle 5.mm.00 ogni giorno, dove mm è ogni minuto dell'ora (60 volte al giorno)|
