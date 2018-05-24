@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 07e638fbce863833eeb75ce6e680af3d1d6339eb
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 71c2463a38f2115bd3aeff82b100e3f2c20e7708
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Indice di articoli per la gestione di applicazioni in Azure Active Directory
 Questa pagina fornisce un elenco completo di tutti i documenti scritti sulle diverse funzionalità relative alle applicazioni in Azure Active Directory (Azure AD).
@@ -31,7 +31,7 @@ Gli articoli seguenti sono un ottimo punto di partenza per chi vuole semplicemen
 | Guida agli articoli |  |
 |:---:| --- |
 | Panoramica dei problemi di gestione delle applicazioni risolti da Azure AD. |[Gestione di applicazioni con Azure Active Directory](manage-apps/what-is-application-management.md) |
-| Panoramica delle diverse funzionalità di Azure AD correlate all'abilitazione dell'accesso Single Sign-On, alla definizione degli utenti autorizzati ad accedere alle app e al modo in cui gli utenti avviano le app. |[Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md) |
+| Panoramica delle diverse funzionalità di Azure AD correlate all'abilitazione dell'accesso Single Sign-On, alla definizione degli utenti autorizzati ad accedere alle app e al modo in cui gli utenti avviano le app. |[Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md) |
 | Panoramica delle diverse procedure necessarie per l'integrazione di app in Azure AD. |[Integrazione di Azure Active Directory con applicazioni](manage-apps/plan-an-application-integration.md)<br /><br />[Abilitazione dell'accesso Single Sign-On alle app SaaS](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Gestione dell'accesso alle app](active-directory-managing-access-to-apps.md) |
 | Spiegazione tecnica del modo in cui le app vengono rappresentate in Azure AD. |[Come vengono aggiunte le applicazioni in Azure AD e perché](active-directory-how-applications-are-added.md) |
 
@@ -52,8 +52,8 @@ L'accesso Single Sign-On consente agli utenti di accedere a diverse app e divers
 
 | Guida agli articoli |  |
 |:---:| --- |
-| Introduzione alla federazione e ad altri tipi di accesso. |[Single Sign-On con Azure AD](active-directory-appssoaccess-whatis.md) |
-| Migliaia di app SaaS preintegrate con Azure AD con procedure di configurazione semplificate per l'accesso Single Sign-On. |[Iniziare a usare la raccolta di applicazioni di Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Elenco completo di app preintegrate che supportano la federazione](active-directory-saas-tutorial-list.md)<br /><br />[Come aggiungere l'app nella raccolta di applicazioni Azure AD](active-directory-app-gallery-listing.md) |
+| Introduzione alla federazione e ad altri tipi di accesso. |[Single Sign-On con Azure AD](manage-apps/what-is-single-sign-on.md) |
+| Migliaia di app SaaS preintegrate con Azure AD con procedure di configurazione semplificate per l'accesso Single Sign-On. |[Iniziare a usare la raccolta di applicazioni di Azure AD](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Elenco completo di app preintegrate che supportano la federazione](active-directory-saas-tutorial-list.md)<br /><br />[Come aggiungere l'app nella raccolta di applicazioni Azure AD](active-directory-app-gallery-listing.md) |
 | Più di 150 esercitazioni sulle app per configurare l'accesso Single Sign-On per app quali [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md) e molte altre |[Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Come impostare e personalizzare manualmente la configurazione dell'accesso Single Sign-On. |[Come configurare il servizio Single Sign-On federato in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Personalizzazione delle attestazioni rilasciate nel token SAML per le app preintegrate](active-directory-saml-claims-customization.md) |
 | Guida alla risoluzione dei problemi per app federate che usano il protocollo SAML. |[Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](active-directory-saml-debugging.md) |
@@ -66,7 +66,7 @@ Per abilitare l'accesso Single Sign-On per le app che non supportano la federazi
 
 | Guida agli articoli |  |
 |:---:| --- |
-| Introduzione al funzionamento dell'accesso Single Sign-On basato su password e breve panoramica tecnica. |[Single Sign-On basato su password con Azure AD](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
+| Introduzione al funzionamento dell'accesso Single Sign-On basato su password e breve panoramica tecnica. |[Single Sign-On basato su password con Azure AD](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on) |
 | Riepilogo degli scenari correlati alla condivisione degli account e del modo in cui questi problemi vengono risolti da Azure AD. |[Condivisione di account con Azure AD](active-directory-sharing-accounts.md) |
 | Modifica automatica della password per determinate app a intervalli regolari. |[Rollover automatizzato delle password (anteprima)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Guide alla distribuzione e alla risoluzione dei problemi per la versione per Internet Explorer dell'estensione per la gestione delle password di Azure AD. |[Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo](active-directory-saas-ie-group-policy.md)<br /><br />[Risoluzione dei problemi dell’estensione del pannello di accesso per Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
@@ -183,11 +183,11 @@ Il pannello di accesso di Azure AD consente agli utenti finali di avviare le pro
 
 | Guida agli articoli |  |
 |:---:| --- |
-| Confronto tra le diverse opzioni disponibili per la distribuzione di app Single Sign-On agli utenti. |[Distribuzione di applicazioni integrate di Azure AD agli utenti](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
+| Confronto tra le diverse opzioni disponibili per la distribuzione di app Single Sign-On agli utenti. |[Distribuzione di applicazioni integrate di Azure AD agli utenti](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) |
 | Panoramica del pannello di accesso e dell'equivalente App personali per dispositivi mobili. |[Introduzione al Pannello di accesso e ad App personali](active-directory-saas-access-panel-introduction.md)<br />- [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />- [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Come accedere alle app di Azure AD dal sito Web di Office 365 |[Uso dell'icona di avvio delle app di Office 365](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Come accedere alle app di Azure AD dall'app per dispositivi mobili Intune Managed Browser |[Intune Managed Browser](https://technet.microsoft.com/library/dn878029.aspx)<br />- [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />- [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
-| Come accedere alle app di Azure AD usando i collegamenti diretti per avviare l'accesso Single Sign-On. |[Ottenere collegamenti di accesso diretto per le app](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
+| Come accedere alle app di Azure AD usando i collegamenti diretti per avviare l'accesso Single Sign-On. |[Ottenere collegamenti di accesso diretto per le app](manage-apps/what-is-single-sign-on.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Il pannello di accesso è disponibile per [tutte le edizioni di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

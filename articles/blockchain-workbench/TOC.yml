@@ -1,7 +1,6 @@
 - name: Azure Blockchain Workbench (anteprima pubblica)
   href: index.yml
 - name: Panoramica
-  expanded: true
   items:
     - name: Informazioni su Azure Blockchain Workbench
       href: blockchain-workbench-overview.md
@@ -12,7 +11,6 @@
     - name: Modelli di integrazione
       href: blockchain-workbench-integration-patterns.md
 - name: Guide alle procedure
-  expanded: true
   items:
     - name: Distribuire Workbench
       href: blockchain-workbench-deploy.md
