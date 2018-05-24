@@ -5,20 +5,20 @@ services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 79b48ffa-2474-4f1c-a857-3471f9590ded
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 5dcd1b4f5a070e9a09b6f8338928d93d10227d38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00ae5db5fc7a327ae19e64c3d8adf653afd12677
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configurare ReliableDictionaryActorStateProvider di Reliable Actors
 È possibile modificare la configurazione predefinita di ReliableDictionaryActorStateProvider cambiando il file settings.xml generato nella radice del pacchetto di Visual Studio all'interno della cartella Config per l'attore specificato.

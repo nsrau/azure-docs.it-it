@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 18549a8606285238f26d2c8cec54793e26e3e8d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d53305aae3b12c0de983dced85a9626cf98c6309
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI
 Informazioni su come configurare un cluster Linux RDMA in Azure con [Dimensioni delle VM High Performance Computing (HPC)](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per eseguire applicazioni MPI (Message Passing Interface) in parallelo. Questo articolo illustra la procedura per preparare un'immagine Linux HPC per l'esecuzione di Intel MPI in un cluster. Dopo la preparazione viene distribuito un cluster di macchine virtuali usando questa immagine e una delle dimensioni di macchina virtuale di Azure con supporto per RDMA (attualmente H16r, H16mr, A8 o A9). Usare il cluster per eseguire applicazioni MPI in grado di comunicare in modo efficiente tramite una rete a bassa latenza e velocità effettiva elevata basata sulla tecnologia di accesso diretto a memoria remota (RDMA).
@@ -210,7 +210,7 @@ In un cluster HPC basato su CentOS sono disponibili due metodi per stabilire rel
 
 In [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) è disponibile uno script di esempio fornito dalla community per abilitare l'autenticazione utente semplice in un cluster HPC basato su CentOS. Scaricare e usare questo script con la procedura seguente. È anche possibile modificare lo script o usare qualsiasi altro metodo per stabilire l'autenticazione SSH senza password tra i nodi di calcolo del cluster.
 
-    wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
+    wget https://raw.githubusercontent.com/tanewill/utils/master/user_authentication.sh
 
 Per eseguire lo script, è necessario conoscere il prefisso degli indirizzi IP della subnet. È possibile ottenere il prefisso con il comando seguente in uno dei nodi del cluster. L'output sarà essere simile a 10.1.3.5 e il prefisso è la parte 10.1.3.
 

@@ -1,23 +1,23 @@
 ---
 title: Elemento TextBlock dell'interfaccia utente di Azure | Microsoft Docs
 description: Descrive l'elemento Microsoft.Common.TextBlock dell'interfaccia utente per il portale di Azure.
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: f353aceb3cbd283d0ad3cc9d42e85e3f5b63678e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9026313b5022dd4d29bbe1d7e80cc1d51b89516a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="microsoftcommontextblock-ui-element"></a>Elemento Microsoft.Common.TextBlock dell'interfaccia utente
 Controllo che può essere usato per aggiungere testo all'interfaccia del portale.

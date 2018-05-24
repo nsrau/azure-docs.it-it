@@ -1,23 +1,23 @@
 ---
 title: Elemento TextBox dell'interfaccia utente di Azure | Microsoft Docs
 description: Illustra l'elemento Microsoft.Common.TextBox dell'interfaccia utente per il portale di Azure.
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4238d241ec5daacd06485b118a8ccf9b68a9d6d9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f11098f4af2e85df16e00ce6dac6e7c4b5b34e2b
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Elemento Microsoft.Common.TextBox dell'interfaccia utente
 Controllo che è possibile usare per modificare il testo non formattato.

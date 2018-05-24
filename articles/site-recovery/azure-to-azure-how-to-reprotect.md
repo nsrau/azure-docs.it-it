@@ -6,13 +6,13 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/15/2018
 ms.author: rajanaki
-ms.openlocfilehash: 4171a904626d3b624b39b8a3a261df0d342012df
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ccec4262297314bad261a852bb5db25c428ce0a0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Riproteggere macchine virtuali di Azure sottoposte a failover nell'area primaria
 
@@ -32,7 +32,7 @@ Quando si [effettua il failover](site-recovery-failover.md) di macchine virtuali
 > Per le macchine virtuali di cui è stata [eseguita la migrazione](migrate-overview.md#what-do-we-mean-by-migration) dall'area primaria all'area secondaria o lo spostamento in un altro gruppo di risorse o se è stata eliminata la macchina virtuale di Azure non è possibile effettuare la riprotezione o il failback.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 1. È necessario eseguire il commit del failover delle macchine virtuali dall'area primaria all'area secondaria.
 2. Il sito di destinazione primario deve essere disponibile e deve essere possibile accedere a quell'area o crearvi risorse.
 

@@ -1,24 +1,24 @@
 ---
-title: "Pianificazione della capacità per le app di Service Fabric | Microsoft Docs"
+title: Pianificazione della capacità per le app di Service Fabric | Microsoft Docs
 description: Descrive come identificare il numero di nodi di calcolo necessari per un'applicazione dell'infrastruttura di servizi
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: markfuss
-editor: 
+editor: ''
 ms.assetid: 9fa47be0-50a2-4a51-84a5-20992af94bea
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: dc5e81ff7e5466d258624cee80c520c848bd60fa
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ac8abbdbbe9125ea036d837c08e1089aa6d1e55d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Pianificazione della capacità per le applicazioni Service Fabric
 Questo documento illustra come stimare la quantità di risorse (CPU, RAM e spazio di archiviazione su disco) necessaria per eseguire le applicazioni di Azure Service Fabric. I requisiti delle risorse tendono a cambiare nel tempo. In genere sono necessarie poche risorse durante lo sviluppo e il test del servizio e un numero maggiore nella fase di produzione e di aumento della popolarità dell'applicazione. Quando si progetta un'applicazione, occorre prendere in considerazione i requisiti di lungo termine e adottare subito i provvedimenti necessari affinché il servizio possa essere ridimensionato per soddisfare le richieste elevate dei clienti.

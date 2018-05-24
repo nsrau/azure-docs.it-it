@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: d56b78a0274842c012e57f80f0c2fe5619a62962
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 16757af0bab7cfd43488118f62300fb167c193a3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Perché usare un approccio ai microservizi per la compilazione di applicazioni
 Per gli sviluppatori di software non c'è nulla di nuovo nel modo di considerare la fattorizzazione di un'applicazione nelle parti che la compongono. È il paradigma centrale della programmazione orientata a oggetti, delle astrazioni software e della componentizzazione. Oggi questa fattorizzazione tende ad assumere la forma di classi e interfacce fra livelli di tecnologia e librerie condivise. In genere viene adottato un approccio su più livelli con un archivio nel back-end, la logica di business al livello intermedio e l'interfaccia utente (UI) nel front-end. Ciò che *è* cambiato negli ultimi anni è il fatto che gli sviluppatori creano applicazioni distribuite destinate al cloud e basate sulle esigenze aziendali.
