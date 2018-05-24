@@ -3,23 +3,25 @@ title: Soluzione Gestione aggiornamenti in Azure
 description: Questo articolo illustra l'uso di questa soluzione per gestire gli aggiornamenti per i computer Windows e Linux.
 services: automation
 ms.service: automation
+ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/05/2018
+ms.date: 04/23/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2c54435d893753306e903c0851e319fc3d1621b1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c095576ccce7e32850c3fb2daf8303a0d6e957bc
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070296"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
-La soluzione Gestione aggiornamenti in Automazione di Azure consente di gestire gli aggiornamenti della sicurezza del sistema operativo per i computer Windows e Linux distribuiti in Azure, in ambienti locali o in altri provider di servizi cloud. È possibile valutare rapidamente lo stato degli aggiornamenti disponibili in tutti i computer agente e gestire il processo di installazione degli aggiornamenti necessari per i server.
+La soluzione Gestione aggiornamenti in Automazione di Azure consente di gestire gli aggiornamenti del sistema operativo per i computer Windows e Linux distribuiti in Azure, in ambienti locali o in altri provider di servizi cloud. È possibile valutare rapidamente lo stato degli aggiornamenti disponibili in tutti i computer agente e gestire il processo di installazione degli aggiornamenti necessari per i server.
 
-È possibile abilitare Gestione aggiornamenti per le macchine virtuali direttamente dall'account [Automazione di Azure](automation-offering-get-started.md).
-Per informazioni su come abilitare la Gestione aggiornamenti per le macchine virtuali dall'account Automazione, vedere [Gestire gli aggiornamenti per più macchine virtuali](manage-update-multi.md).
+È possibile abilitare Gestione aggiornamenti per le macchine virtuali direttamente dall'account Automazione di Azure.
+Per informazioni su come abilitare la Gestione aggiornamenti per le macchine virtuali dall'account Automazione, vedere [Gestire gli aggiornamenti per più macchine virtuali](manage-update-multi.md). È anche possibile abilitare Gestione aggiornamenti per una singola macchina virtuale dalla pagina della macchina virtuale nel portale di Azure. Questo scenario è disponibile per macchine virtuali [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) e [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management).
 
 ## <a name="solution-overview"></a>Panoramica della soluzione
 
@@ -38,6 +40,9 @@ Quando un computer ha completato l'analisi di conformità degli aggiornamenti, l
 
 La soluzione genera report sullo stato di aggiornamento del computer in base all'origine configurata per la sincronizzazione. Se il computer Windows è configurato per l'invio di report a WSUS, a seconda della data/ora in cui WSUS ha eseguito l'ultima sincronizzazione con Microsoft Update i risultati possono differire da quanto visualizzato da Microsoft Update. Lo stesso vale per i computer Linux configurati per l'invio di report a un repository locale rispetto a un repository pubblico.
 
+> [!NOTE]
+> Gestione aggiornamenti richiede l'attivazione di URL e porte specifici per poter inviare correttamente i report al servizio. Vedere [Network planning for Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning) (Pianificazione della rete per ruoli di lavoro ibridi) per altre informazioni su questi requisiti.
+
 È possibile distribuire e installare gli aggiornamenti software nei computer che richiedono gli aggiornamenti creando una distribuzione pianificata. A differenza degli aggiornamenti obbligatori, gli aggiornamenti classificati come *facoltativi* non sono inclusi nell'ambito della distribuzione per i computer Windows. La distribuzione pianificata definisce quali computer di destinazione ricevono gli aggiornamenti applicabili, specificando i computer in modo esplicito oppure selezionando un [gruppo di computer](../log-analytics/log-analytics-computer-groups.md) in base alle ricerche log di un determinato set di computer. Si specifica anche una pianificazione per approvare e definire un periodo di tempo entro il quale è possibile installare gli aggiornamenti. Gli aggiornamenti vengono installati da runbook in Automazione di Azure. Questi runbook non richiedono alcuna configurazione e non possono essere visualizzati. Quando si crea una distribuzione degli aggiornamenti, viene creata una pianificazione che avvia un runbook di aggiornamento master alla data e ora specificata per i computer inclusi. Questo runbook master avvia un runbook figlio in ogni agente che esegue l'installazione degli aggiornamenti necessari.
 
 Alla data e ora specificate nella distribuzione degli aggiornamenti, i computer di destinazione eseguono la distribuzione in parallelo. Viene prima di tutto eseguita un'analisi per verificare che gli aggiornamenti siano ancora necessari, quindi viene eseguita l'installazione. Per i computer client WSUS, la distribuzione degli aggiornamenti ha esito negativo se gli aggiornamenti non sono approvati in WSUS.
@@ -46,16 +51,16 @@ Alla data e ora specificate nella distribuzione degli aggiornamenti, i computer 
 
 ### <a name="supported-client-types"></a>Tipi di client supportati
 
-La tabella seguente elenca i sistemi operativi supportati: 
+La tabella seguente elenca i sistemi operativi supportati:
 
 |Sistema operativo  |Note  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Supporta solo le valutazioni degli aggiornamenti         |
-|Windows Server 2008 R2 SP1 e versioni successive     |Windows PowerShell 4.0 o versione successiva è obbligatorio ([scaricare WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).<br> Windows PowerShell 5.1 ([scaricare WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) è consigliato per la sua maggiore affidabilità.         |
+|Windows Server 2008 R2 SP1 e versioni successive     |Windows PowerShell 4.0 o versione successiva è obbligatorio ([scaricare WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([scaricare WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) è consigliato per la sua maggiore affidabilità.         |
 |CentOS 6 (x86/x64) e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
-|Ubuntu 12.04 LTS e versioni x86/x64 più recenti       |Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.         |
+|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.         |
 
 ### <a name="unsupported-client-types"></a>Tipi di client non supportati
 
@@ -122,7 +127,7 @@ Heartbeat
 
 In un computer Windows la connettività degli agenti con Log Analytics può essere verificata nel modo seguente:
 
-1. Aprire Microsoft Monitoring Agent nel Pannello di controllo. Nella scheda **Analisi dei log di Azure** l'agente visualizza il messaggio **The Microsoft Monitoring Agent has successfully connected to Log Analytics** (Microsoft Monitoring Agent ha eseguito la connessione a Log Analytics).   
+1. Aprire Microsoft Monitoring Agent nel Pannello di controllo. Nella scheda **Analisi dei log di Azure** l'agente visualizza il messaggio **The Microsoft Monitoring Agent has successfully connected to Log Analytics** (Microsoft Monitoring Agent ha eseguito la connessione a Log Analytics).
 2. Aprire il registro eventi di Windows, passare a **Registri applicazioni e servizi\Operations Manager** e cercare gli ID evento 3000 e 5002 del connettore del servizio di origine. Questi eventi indicano che il computer ha eseguito la registrazione all'area di lavoro di Log Analytics e sta ricevendo la configurazione.
 
 Se l'agente non può comunicare con Log Analytics ed è configurato per la comunicazione con Internet tramite firewall o server proxy, verificare che il firewall o il server proxy sia configurato correttamente come descritto nei paragrafi relativi alla [configurazione di rete per l'agente Windows](../log-analytics/log-analytics-agent-windows.md) o alla [configurazione di rete per l'agente Linux](../log-analytics/log-analytics-agent-linux.md).
@@ -133,7 +138,7 @@ Se l'agente non può comunicare con Log Analytics ed è configurato per la comun
 
 Gli agenti Linux appena aggiunti visualizzeranno lo stato **Aggiornato** dopo l'esecuzione di una valutazione. Il processo può richiedere fino a 6 ore.
 
-Per verificare che un gruppo di gestione di Operations Manager comunichi con Log Analytics, vedere [Convalidare l'integrazione di Operations Manager con Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
+Per verificare che un gruppo di gestione di Operations Manager comunichi con Log Analytics, vedere [Convalidare l'integrazione di Operations Manager con Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-log-analytics).
 
 ## <a name="data-collection"></a>Raccolta dei dati
 
@@ -145,7 +150,7 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 | --- | --- | --- |
 | Agenti di Windows |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e avvia l'installazione degli aggiornamenti necessari. |
 | Agenti Linux |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux e avvia l'installazione degli aggiornamenti necessari nelle distribuzioni supportate. |
-| Gruppo di gestione di Operations Manager |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti in un gruppo di gestione connesso.<br>Non è necessaria una connessione diretta dall'agente Operations Manager a Log Analytics. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro di Log Analytics. |
+| Gruppo di gestione di Operations Manager |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti in un gruppo di gestione connesso.</br>Non è necessaria una connessione diretta dall'agente Operations Manager a Log Analytics. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro di Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequenza della raccolta
 
@@ -196,6 +201,42 @@ Creare una nuova distribuzione degli aggiornamenti facendo clic sul pulsante **P
 |Impostazioni di pianificazione|Selezionare l'ora di inizio e selezionare Una sola volta o Ricorrente per la ricorrenza|
 | Finestra di manutenzione |Numero di minuti impostato per gli aggiornamenti. Il valore non può essere inferiore a 30 minuti e superiore a 6 ore |
 
+## <a name="update-classifications"></a>Classificazioni degli aggiornamenti
+
+Le tabelle seguenti contengono un elenco delle classificazioni degli aggiornamenti in Gestione aggiornamenti e una definizione per ogni classificazione.
+
+### <a name="windows"></a>Windows
+
+|classificazione  |DESCRIZIONE  |
+|---------|---------|
+|Aggiornamenti critici     | Un aggiornamento per un problema specifico che risolve un bug critico non correlato alla sicurezza.        |
+|Aggiornamenti della sicurezza     | Un aggiornamento per un problema specifico del prodotto correlato alla sicurezza.        |
+|Aggiornamenti cumulativi     | Un set cumulativo di aggiornamenti rapidi, contenuti nello stesso pacchetto per facilitarne la distribuzione.        |
+|Feature Pack     | Nuove funzionalità del prodotto distribuite di fuori di una versione del prodotto.        |
+|Service Pack     | Un set cumulativo di aggiornamenti rapidi applicati a un'applicazione.        |
+|Aggiornamenti della definizione     | Un aggiornamento per un virus o altri file di definizione.        |
+|Strumenti     | Utilità o funzionalità che consente di completare una o più attività.        |
+|Aggiornamenti     | Un aggiornamento di un'applicazione o di un file attualmente installati.        |
+
+### <a name="linux"></a>Linux
+
+|classificazione  |DESCRIZIONE  |
+|---------|---------|
+|Aggiornamenti critici e della sicurezza     | Aggiornamenti per un problema specifico o specifico del prodotto, correlato alla sicurezza.         |
+|Altri aggiornamenti     | Tutti gli aggiornamenti non critici per loro natura o che non sono aggiornamenti della sicurezza.        |
+
+## <a name="ports"></a>Porte
+
+I seguenti indirizzi sono necessari e specifici per Gestione aggiornamenti. La comunicazione verso questi indirizzi avviene sulla porta 443.
+
+|Azure Public  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+
+Per altre informazioni sulle porte richieste dal ruolo di lavoro ibrido per runbook, vedere [Porte del ruolo di lavoro ibrido](automation-hybrid-runbook-worker.md#hybrid-worker-role).
+
 ## <a name="search-logs"></a>Eseguire ricerche nei log
 
 Oltre ai dettagli forniti nel portale, è possibile eseguire ricerche nei log. Con la pagina **Rilevamento modifiche** aperta, fare clic su **Log Analytics**. Verrà visualizzata la pagina **Ricerca log**.
@@ -206,13 +247,13 @@ La tabella seguente contiene esempi di ricerche log per i record di aggiornament
 
 | Query | DESCRIZIONE |
 | --- | --- |
-|Aggiornamento<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; project Computer, Title, KBID, Classification, PublishedDate |Tutti i computer con aggiornamenti mancanti<br>Aggiungere uno dei valori seguenti per limitare il sistema operativo:<br>OSType = "Windows"<br>OSType == "Linux" |
-| Aggiornamento<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; where Computer == "ContosoVM1.contoso.com"<br>&#124; project Computer, Title, KBID, Product, PublishedDate |Aggiornamenti mancanti per un computer specifico. Sostituire il valore con il nome computer.|
-| Event<br>&#124; where EventLevelName == "error" and Computer in ((Update &#124; where (Classification == "Security Updates" or Classification == "Critical Updates")<br>&#124; where UpdateState == "Needed" and Optional == false <br>&#124; distinct Computer)) |Eventi di errore per computer con aggiornamenti critici o della sicurezza necessari mancanti |
-| Aggiornamento<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; distinct Title |Aggiornamenti distinti mancanti tra tutti i computer |
-| UpdateRunProgress<br>&#124; where InstallationStatus == "failed" <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Computer con aggiornamenti non riusciti in un'operazione di aggiornamento<br>Aggiungere uno dei valori seguenti per limitare il sistema operativo:<br>OSType = "Windows"<br>OSType == "Linux" |
-| Aggiornamento<br>&#124; where OSType == "Linux"<br>&#124; where UpdateState != "Not needed" and (Classification == "Critical Updates" or Classification == "Security Updates")<br>&#124; summarize AggregatedValue = count() by Computer |Elenco di tutti i computer Linux con un aggiornamento pacchetto critico o della sicurezza disponibile | 
-| UpdateRunProgress<br>&#124; where UpdateRunName == "DeploymentName"<br>&#124; summarize AggregatedValue = count() by Computer|Computer che sono stati aggiornati in questa operazione di aggiornamento. Sostituire il valore con il nome della distribuzione degli aggiornamenti | 
+|Aggiornamento</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; project Computer, Title, KBID, Classification, PublishedDate |Tutti i computer con aggiornamenti mancanti</br>Aggiungere uno dei valori seguenti per limitare il sistema operativo:</br>OSType = "Windows"</br>OSType == "Linux" |
+| Aggiornamento</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; where Computer == "ContosoVM1.contoso.com"</br>&#124; project Computer, Title, KBID, Product, PublishedDate |Aggiornamenti mancanti per un computer specifico. Sostituire il valore con il nome computer.|
+| Event</br>&#124; where EventLevelName == "error" and Computer in ((Update &#124; where (Classification == "Security Updates" or Classification == "Critical Updates")</br>&#124; where UpdateState == "Needed" and Optional == false </br>&#124; distinct Computer)) |Eventi di errore per computer con aggiornamenti critici o della sicurezza necessari mancanti |
+| Aggiornamento</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; distinct Title |Aggiornamenti distinti mancanti tra tutti i computer |
+| UpdateRunProgress</br>&#124; where InstallationStatus == "failed" </br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Computer con aggiornamenti non riusciti in un'operazione di aggiornamento</br>Aggiungere uno dei valori seguenti per limitare il sistema operativo:</br>OSType = "Windows"</br>OSType == "Linux" |
+| Aggiornamento</br>&#124; where OSType == "Linux"</br>&#124; where UpdateState != "Not needed" and (Classification == "Critical Updates" or Classification == "Security Updates")</br>&#124; summarize AggregatedValue = count() by Computer |Elenco di tutti i computer Linux con un aggiornamento pacchetto critico o della sicurezza disponibile |
+| UpdateRunProgress</br>&#124; where UpdateRunName == "DeploymentName"</br>&#124; summarize AggregatedValue = count() by Computer|Computer che sono stati aggiornati in questa operazione di aggiornamento. Sostituire il valore con il nome della distribuzione degli aggiornamenti |
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integrazione con System Center Configuration Manager
 
@@ -248,18 +289,18 @@ Se si riscontrano problemi durante il tentativo di caricare la soluzione o un ma
 
 | Message | Motivo | Soluzione |
 |----------|----------|----------|
-| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>System.InvalidOperationException: {"Message":"Machine is already<br>registered to a different account. "} | Il computer è già caricato in un'altra area di lavoro per Gestione aggiornamenti | Eseguire la pulizia degli elementi obsoleti [eliminando il gruppo di runbook ibridi](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
-| Unable to  Register Machine for Patch Management,<br>Registration Failed with Exception<br>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---><br>System.Net.WebException: The underlying connection<br>was closed: An unexpected error<br>occurred on a receive. ---> System.ComponentModel.Win32Exception:<br>The client and server cannot communicate,<br>because they do not possess a common algorithm | Proxy/Gateway/Firewall che blocca la comunicazione | [Esaminare i requisiti di rete](automation-offering-get-started.md#network-planning)|
-| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/Gateway/Firewall che blocca la comunicazione | [Esaminare i requisiti di rete](automation-offering-get-started.md#network-planning)|
-| The certificate presented by the service <wsid>.oms.opinsights.azure.com<br>was not issued by a certificate authority<br>used for Microsoft services. Contatto<br>your network administrator to see if they are running a proxy that intercepts<br>TLS/SSL communication. |Proxy/Gateway/Firewall che blocca la comunicazione | [Esaminare i requisiti di rete](automation-offering-get-started.md#network-planning)|
-| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Failed to create a self-signed certificate. ---><br>System.UnauthorizedAccessException: Access is denied. | Errore di generazione del certificato autofirmato | Verificare che l'account di sistema abbia<br>l'accesso in lettura alla cartella:<br>**C:\ProgramData\Microsoft\**<br>** Crypto\RSA**|
+| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>System.InvalidOperationException: {"Message":"Machine is already</br>registered to a different account. "} | Il computer è già caricato in un'altra area di lavoro per Gestione aggiornamenti | Eseguire la pulizia degli elementi obsoleti [eliminando il gruppo di runbook ibridi](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
+| Unable to Register Machine for Patch Management, Registration Failed with Exception</br>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---></br>System.Net.WebException: The underlying connection</br>was closed: An unexpected error</br>occurred on a receive. ---> System.ComponentModel.Win32Exception:</br>The client and server cannot communicate,</br>because they do not possess a common algorithm | Proxy/Gateway/Firewall che blocca la comunicazione | [Esaminare i requisiti di rete](automation-hybrid-runbook-worker.md#network-planning)|
+| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/Gateway/Firewall che blocca la comunicazione | [Esaminare i requisiti di rete](automation-hybrid-runbook-worker.md#network-planning)|
+| The certificate presented by the service \<wsid\>.oms.opinsights.azure.com</br>was not issued by a certificate authority</br>used for Microsoft services. Contatto</br>your network administrator to see if they are running a proxy that intercepts</br>TLS/SSL communication. |Proxy/Gateway/Firewall che blocca la comunicazione | [Esaminare i requisiti di rete](automation-hybrid-runbook-worker.md#network-planning)|
+| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>AgentService.HybridRegistration.</br>PowerShell.Certificates.CertificateCreationException:</br>Failed to create a self-signed certificate. ---></br>System.UnauthorizedAccessException: Access is denied. | Errore di generazione del certificato autofirmato | Verificare che l'account di sistema abbia</br>l'accesso in lettura alla cartella:</br>**C:\ProgramData\Microsoft\**</br>** Crypto\RSA**|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Continuare con l'esercitazione sulla gestione degli aggiornamenti per le macchine virtuali Windows.
 
 > [!div class="nextstepaction"]
-> [Gestire gli aggiornamenti e le patch per le macchine virtuali Windows di Azure](automation-tutorial-troubleshoot-changes.md)
+> [Gestire gli aggiornamenti e le patch per le macchine virtuali Windows di Azure](automation-tutorial-update-management.md)
 
 * Usare le ricerche log in [Log Analytics](../log-analytics/log-analytics-log-searches.md) per visualizzare dati dettagliati sugli aggiornamenti.
 * [Creare avvisi](../log-analytics/log-analytics-alerts.md) quando aggiornamenti critici vengono rilevati come mancanti nei computer oppure quando gli aggiornamenti automatici sono disabilitati per un computer.

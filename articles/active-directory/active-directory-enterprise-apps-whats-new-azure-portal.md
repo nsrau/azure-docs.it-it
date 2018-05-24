@@ -15,11 +15,12 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9a8b85539ac26629c31e49097fca5c3ce5c5abc2
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34053371"
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Novità della gestione delle applicazioni aziendali in Azure Active Directory 
 
@@ -28,17 +29,17 @@ Azure Active Directory (Azure AD) dispone di strumenti avanzati per la gestione 
 Di seguito sono descritti alcuni dei miglioramenti apportati per Azure AD nel [portale di Azure](https://portal.azure.com).
 
 - Raccolta di applicazioni migliorata, con un modello semplificato per la creazione di applicazioni e il supporto per tutti i tipi di applicazione già disponibili nel portale classico. 
-- Esperienza di avvio rapido completamente nuova che consente di creare rapidamente un progetto pilota dell'applicazione. 
+- Esperienza di avvio rapido completamente nuova, che consente di creare rapidamente un progetto pilota dell'applicazione. 
 - Possibilità di configurare i criteri self-service con pochi clic. 
 - Miglioramenti significativi al proxy dell'applicazione, alla configurazione Single Sign-On e all'esperienza "Bring Your Own Applications", per sfruttare al massimo le potenzialità del nuovo portale.
 
 ## <a name="improvements-to-the-azure-active-directory-application-gallery"></a>Miglioramenti alla raccolta di applicazioni di Azure Active Directory
 
-È possibile aggiungere le applicazioni preferite a prescindere che provengano dalla [raccolta di applicazioni](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), sia applicazioni personalizzate da estendere al cloud o nuove applicazioni in sviluppo.  È possibile iniziare a usare questa nuova esperienza facendo clic su **Aggiungi** nella panoramica **Applicazioni aziendali** o nel riquadro **Tutte le applicazioni**.
+È possibile aggiungere le applicazioni preferite a prescindere che provengano dalla [raccolta di applicazioni](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), sia applicazioni personalizzate da estendere al cloud o nuove applicazioni in sviluppo.  È possibile iniziare a usare questa nuova esperienza facendo clic su **Aggiungi** in **Applicazioni aziendali** o in **Tutte le applicazioni**.
  
   ![Aggiunta di un'applicazione](./media/active-directory-enterprise-apps-whats-new-azure-portal/01.png)
 
-All'interno della raccolta verranno visualizzate al centro tutte le applicazioni che supportano il provisioning utenti.  È possibile sfogliare tutte le categorie per trovare le applicazioni di interesse oppure usare l'esperienza di ricerca per trovare rapidamente le applicazioni da integrare.
+All'interno della raccolta vengono visualizzate tutte le applicazioni che supportano il provisioning utenti. È possibile sfogliare tutte le categorie per trovare le applicazioni di interesse oppure usare l'esperienza di ricerca per trovare rapidamente le applicazioni da integrare.
 
   ![Raccolta di applicazioni](./media/active-directory-enterprise-apps-whats-new-azure-portal/02.png)
 
@@ -51,7 +52,7 @@ Oltre all'aggiunta di applicazioni preintegrate dalla raccolta, nel nuovo portal
  
 **Per iniziare ad aggiungere la propria applicazione**:
 
-1. Fare clic sul collegamento **Aggiungere la propria applicazione** nella parte superiore della raccolta di applicazioni. 
+1. Fare clic sul collegamento per **aggiungere l'applicazione personalizzata** nella parte superiore della raccolta di applicazioni. 
 2. Verranno visualizzate due opzioni: **Distribuzione di un'applicazione esistente** o **Sviluppo di una nuova applicazione**. Di seguito viene illustrata la differenza tra le due opzioni e come usarle.
 
 ### <a name="deploying-existing-applications"></a>Distribuzione di applicazioni esistenti
@@ -64,9 +65,9 @@ Oltre all'aggiunta di applicazioni preintegrate dalla raccolta, nel nuovo portal
 ### <a name="developing-new-applications"></a>Sviluppo di nuove applicazioni
 
 1. Se si sviluppa una nuova applicazione, esiste un modo semplice per accedere al Registro applicazioni direttamente dalla raccolta:
-2. Fare clic su **Aggiungere la propria applicazione** nella raccolta di applicazioni, quindi scegliere **Sviluppo di una nuova applicazione**. Verrà visualizzato un collegamento rapido a destra dell'esperienza di aggiunta di applicazioni.
+2. Fare clic sull'opzione per **aggiungere l'applicazione personalizzata** nella raccolta di applicazioni, quindi scegliere **Sviluppo di una nuova applicazione**. Verrà visualizzato un collegamento rapido a destra dell'esperienza di aggiunta di applicazioni.
 
-  ![Aggiunta di un'applicazione appena sviluppata in pochi clic](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
+  ![Aggiunta di una nuova applicazione sviluppata con pochi clic](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
 
 
 >[!NOTE]
@@ -75,7 +76,7 @@ Oltre all'aggiunta di applicazioni preintegrate dalla raccolta, nel nuovo portal
   ![Gestione dell'accesso alla nuova applicazione in Applicazioni aziendali](./media/active-directory-enterprise-apps-whats-new-azure-portal/06.png)
 
 
-## <a name="quick-start-get-going-with-your-new-application-right-away"></a>Avvio rapido: iniziare a usare subito la nuova applicazione 
+## <a name="quickstart-get-going-with-your-new-application-right-away"></a>Avvio rapido: iniziare a usare subito la nuova applicazione 
 
 Dopo aver aggiunto un'applicazione preintegrata o sviluppata dall'utente, è disponibile un'esperienza di avvio rapido personalizzata che consente di iniziare a usare subito l'applicazione. Se si segue sistematicamente ogni opzione, verranno illustrate l'interfaccia utente e la procedura per iniziare a usare un progetto pilota della nuova applicazione nel minor tempo possibile. 
  
@@ -87,13 +88,13 @@ Dopo aver aggiunto un'applicazione preintegrata o sviluppata dall'utente, è dis
 ## <a name="updated-application-proxy-configuration"></a>Aggiornamento della configurazione del proxy dell'applicazione
 Si supponga che una delle nuove applicazioni aggiunte venga eseguita nell'ambiente locale e si voglia integrarla con Azure AD.  Una delle caratteristiche interessanti della nuova esperienza di configurazione dell'applicazione nel nuovo portale di Azure AD è che separando la modalità di accesso dell'applicazione dalla configurazione proxy è ora possibile esporre direttamente nel cloud applicazioni federate o con accesso Single Sign-On basato su password in esecuzione nella rete aziendale, senza dover creare più istanze dell'applicazione.
 
-Ora è anche possibile configurare le nuove applicazioni aggiunte per l'uso con il proxy dell'applicazione di Azure AD direttamente dal nuovo portale, incluse le applicazioni che supportano esperienze di autenticazione di Windows nativa.
+È anche possibile configurare le nuove applicazioni aggiunte per l'uso con il Azure Active Directory Application Proxy direttamente dal nuovo portale, incluse le applicazioni che supportano esperienze di autenticazione di Windows nativa.
 
   ![Configurazione di un'applicazione per l'uso dell'opzione di autenticazione integrata di Windows](./media/active-directory-enterprise-apps-whats-new-azure-portal/08.png)
  
 
 Per configurare un'applicazione con autenticazione di Windows nativa con il proxy dell'applicazione:
-1. Fare clic sull'elemento di navigazione Single Sign-On e scegliere **Autenticazione di Windows integrata** dal pannello delle impostazioni di accesso, quindi configurare le impostazioni in base alle esigenze.
+1. Fare clic sull'elemento di navigazione Single Sign-On e scegliere **Autenticazione integrata di Windows** dalle impostazioni di accesso, quindi configurare le impostazioni in base alle esigenze.
 2. Oltre a supportare queste nuove modalità di autenticazione, ora è anche possibile caricare certificati da domini personalizzati per supportare le applicazioni in esecuzione in un endpoint sicuro all'interno dell'organizzazione.  
  
    ![Caricamento di un certificato da usare con il proxy dell'applicazione](./media/active-directory-enterprise-apps-whats-new-azure-portal/09.png)
@@ -102,28 +103,28 @@ Per configurare un'applicazione con autenticazione di Windows nativa con il prox
 
 ## <a name="advanced-federated-single-sign-on-configuration"></a>Configurazione dell'accesso Single Sign-On federato avanzato
 
-Per coloro che usano applicazioni federate sono disponibili molte nuove funzionalità nel pannello di configurazione dell'accesso basato su SAML. Ora è possibile personalizzare, aggiungere, rimuovere e mappare completamente gli attributi utente esistenti emessi come attestazioni nei token SAML.
+Per coloro che usano applicazioni federate sono disponibili molte nuove funzionalità di configurazione dell'accesso basato su SAML. Ora è possibile personalizzare, aggiungere, rimuovere e mappare completamente gli attributi utente esistenti emessi come attestazioni nei token SAML.
  
   ![Personalizzazione degli attributi utente del token SAML passati a un'applicazione federata](./media/active-directory-enterprise-apps-whats-new-azure-portal/10.png)
 
 
 Per verificare la nuova configurazione di SSO federato:
-1. Aprire il pannello **Single Sign-On** di un'applicazione federata dal menu di navigazione a sinistra e assicurarsi che sia selezionata la modalità *Accesso basato su SAML*\*. 
+1. Aprire il riquadro **Single Sign-On** di un'applicazione federata dal menu di navigazione a sinistra e verificare che sia selezionata la modalità *Accesso basato su SAML**. 
 2. Abilitare quindi la casella di controllo sotto l'intestazione **Attributi utente** per modificare tutti gli attributi inclusi nel token SAML passato all'applicazione.
 
-È anche possibile creare e gestire i certificati usati per l'accesso Single Sign-On federato ed eseguirne il rollover, nonché modificare il destinatario della notifica di scadenza del certificato. Queste nuove opzioni sono disponibili nell'intestazione **Certificati** dello stesso pannello Single Sign-On.
+È anche possibile creare e gestire i certificati usati per l'accesso Single Sign-On federato ed eseguirne il rollover, nonché modificare il destinatario della notifica di scadenza del certificato. Queste nuove opzioni sono disponibili nell'intestazione **Certificati** dello stesso riquadro Single Sign-On.
  
   ![Creazione di un nuovo certificato, personalizzazione della notifica e-mail di scadenza e delle opzioni di firma del certificato](./media/active-directory-enterprise-apps-whats-new-azure-portal/11.png)
 
-### <a name="relay-state-paramenter"></a>Parametro Stato dell'inoltro
-Il set di parametri URL SAML supportati include ora il parametro **Stato dell'inoltro**, ovvero la pagina che verrà visualizzata all'interno di un'applicazione federata al termine della procedura di accesso. Si tratta di un'impostazione molto utile per indirizzare gli utenti a una pagina specifica dell'applicazione per iniziare a usarla rapidamente.
+### <a name="relay-state-parameter"></a>Parametro Stato dell'inoltro
+Il set di parametri URL SAML supportati include ora il parametro **Stato dell'inoltro**, ovvero la pagina che verrà visualizzata all'interno di un'applicazione federata al termine della procedura di accesso. Si tratta di un'impostazione utile per indirizzare gli utenti a una pagina specifica dell'applicazione per iniziare a usarla rapidamente.
 
   ![Impostazione del parametro Stato dell'inoltro SAML](./media/active-directory-enterprise-apps-whats-new-azure-portal/12.png)
  
 **Per impostare il parametro Stato dell'inoltro**:
 
-1. Abilitare la casella di controllo **Mostra impostazioni URL avanzate** sotto l'intestazione **URL e dominio** nel pannello di configurazione dell'accesso Single Sign-On. 
-2. Verrà quindi visualizzato un set di nuove caselle di input URL che consentono di definire queste impostazioni URL SAML.
+1. Abilitare la casella di controllo **Mostra impostazioni URL avanzate** sotto l'intestazione **URL e dominio** nel riquadro di configurazione dell'accesso Single Sign-On. 
+2. Viene visualizzato un set di nuove caselle di input URL che consentono di definire questo parametro e altre impostazioni URL SAML.
 
 ## <a name="bring-your-own-password-sso-applications"></a>Applicazioni con Single Sign-On basato su password con funzionalità "Bring Your Own Applications"
 
@@ -133,7 +134,8 @@ Non tutte le applicazioni supportano la federazione per impostazione predefinita
 
 **Per verificare la funzionalità 'Bring Your Own Applications'**:
 
-1. Dopo aver impostato la modalità Single Sign-On per la nuova applicazione personalizzata aggiunta ad **Accesso basato su password**, immettere l'URL in cui l'applicazione visualizza la schermata di accesso e fare clic su **Salva**.  
+1. Dopo aver impostato la modalità Single Sign-On per la nuova applicazione personalizzata aggiunta ad **Accesso basato su password**, immettere l'URL in cui l'applicazione visualizza la schermata di accesso. 
+2. Fare clic su **Save**.  
 2. Dopo questa operazione, dall'URL verrà creata automaticamente una casella di input per nome utente e password e sarà possibile usare Azure AD per la trasmissione sicura delle password all'applicazione tramite l'estensione del browser del pannello di accesso.
 
 ## <a name="configure-self-service-application-access"></a>Configurare l'accesso alle applicazioni self-service
@@ -153,7 +155,7 @@ Speriamo che gli utenti usino il nuovo Azure AD e inviino commenti e suggeriment
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altri dettagli, vedere [Gestione di applicazioni con Azure Active Directory](active-directory-enable-sso-scenario.md).
+Per altri dettagli, vedere [Gestione di applicazioni con Azure Active Directory](manage-apps/what-is-application-management.md).
 
 
 

@@ -7,14 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 04/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 9f9da67c885974be674f6e88aaacfe66bdc0d58a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 09fd39865a52767195ebf7dad13f24d883af476a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192782"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestione del carico di lavoro con le classi di risorse in Azure SQL Data Warehouse
 Indicazioni per l'uso delle classi di risorse per gestire la memoria e la concorrenza per le query in Azure SQL Data Warehouse.  
@@ -22,29 +23,31 @@ Indicazioni per l'uso delle classi di risorse per gestire la memoria e la concor
 ## <a name="what-is-workload-management"></a>Definizione di gestione del carico di lavoro
 La gestione del carico di lavoro è la possibilità di ottimizzare le prestazioni complessive di tutte le query. Un carico di lavoro ottimizzato consente di eseguire query e operazioni di caricamento in modo efficiente anche in presenza di un elevato utilizzo di calcolo o di I/O.  SQL Data Warehouse offre funzionalità di gestione del carico di lavoro per ambienti con più utenti. Il data warehouse non è concepito per i carichi di lavoro multi-tenant.
 
-La capacità di prestazioni di un data warehouse è determinata dal [livello di prestazioni](memory-and-concurrency-limits.md#performance-tiers) e dalle [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). 
+La capacità a livello di prestazioni di un data warehouse è determinata dalle [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). 
 
 - Per visualizzare i limiti di memoria e concorrenza per tutti i profili delle prestazioni, vedere [Memory and concurrency limits](memory-and-concurrency-limits.md) (Limiti di memoria e concorrenza).
 - Per regolare la capacità di prestazioni, è possibile [aumentare o ridurre la quantità di risorse](quickstart-scale-compute-portal.md).
 
-La capacità di prestazioni di una query è determinata dalla classe di risorse della query. Nella parte rimanente di questo articolo vengono illustrate le classi di risorse e viene descritto come modificarle.
-
+La capacità a livello di prestazioni di una query è determinata dalla classe di risorse della query. Nella parte restante di questo articolo vengono illustrate le classi di risorse e viene descritto come modificarle.
 
 ## <a name="what-are-resource-classes"></a>Che cosa sono le classi di risorse?
-Le classi di risorse sono limiti delle risorse predeterminati in Azure SQL Data Warehouse che regolano le risorse di calcolo e la concorrenza per l'esecuzione delle query. Le classi di risorse possono agevolare la gestione del carico di lavoro, consentendo di impostare limiti per il numero di query eseguite contemporaneamente e le risorse di calcolo assegnate a ogni query. È necessario trovare il giusto compromesso tra memoria e concorrenza.
+La capacità di prestazioni di una query è determinata dalla classe di risorse dell'utente.  Le classi di risorse sono limiti delle risorse predeterminati in Azure SQL Data Warehouse che regolano le risorse di calcolo e la concorrenza per l'esecuzione delle query. Le classi di risorse possono agevolare la gestione del carico di lavoro, consentendo di impostare limiti per il numero di query eseguite contemporaneamente e le risorse di calcolo assegnate a ogni query. È necessario trovare il giusto compromesso tra memoria e concorrenza.
 
 - Le classi di risorse di piccole dimensioni riducono la memoria massima per ogni query, ma aumentano la concorrenza.
 - Le classi di risorse di grandi dimensioni aumentano la memoria massima per ogni query, ma riducono la concorrenza. 
 
-La capacità di prestazioni di una query è determinata dalla classe di risorse dell'utente.
+Esistono due tipi di classi di risorse:
 
-- Per visualizzare l'uso delle risorse per le classi di risorse, vedere [Memory and concurrency limits](memory-and-concurrency-limits.md#concurrency-maximums) (Limiti di memoria e concorrenza).
-- Per modificare la classe di risorse, è possibile usare un altro utente per eseguire la query o [modificare l'appartenenza della classe di risorse dell'utente corrente](#change-a-user-s-resource-class). 
+- Le classi di risorse statiche che sono più adatte per assicurare maggiore concorrenza in un set di dati di dimensioni fisse.
+- Le classi di risorse dinamiche, che sono più adatte per i set di dati con dimensioni e prestazioni in aumento quando il livello di servizio passa a un piano superiore.   
 
 Le classi di risorse usano gli slot di concorrenza per misurare il consumo di risorse.  Gli [slot di concorrenza](#concurrency-slots) verranno illustrati più avanti nell'articolo. 
 
+- Per visualizzare l'uso delle risorse per le classi di risorse, vedere [Memory and concurrency limits](memory-and-concurrency-limits.md#concurrency-maximums) (Limiti di memoria e concorrenza).
+- Per modificare la classe di risorse, è possibile usare un altro utente per eseguire la query o [modificare l'appartenenza della classe di risorse dell'utente corrente](#change-a-users-resource-class). 
+
 ### <a name="static-resource-classes"></a>Classi di risorse statiche
-Le classi di risorse statiche allocano la stessa quantità di memoria indipendentemente dal livello di prestazioni corrente, misurato in [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). Poiché le query ottengono la stessa allocazione di memoria indipendentemente dal livello di prestazioni, la [scalabilità orizzontale del data warehouse](quickstart-scale-compute-portal.md) consente di eseguire più query in una classe di risorse.
+Le classi di risorse statiche allocano la stessa quantità di memoria indipendentemente dal livello di prestazioni corrente, misurato in [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). Poiché le query ottengono la stessa allocazione di memoria indipendentemente dal livello di prestazioni, la [scalabilità orizzontale del data warehouse](quickstart-scale-compute-portal.md) consente di eseguire più query in una classe di risorse.  Le classi di risorse statiche sono ideali se il volume di dati è noto e costante.
 
 Le classi di risorse statiche vengono implementate con i ruoli predefiniti del database seguenti:
 
@@ -57,19 +60,31 @@ Le classi di risorse statiche vengono implementate con i ruoli predefiniti del d
 - staticrc70
 - staticrc80
 
-Queste classi di risorse sono particolarmente adatte alle soluzioni che aumentano la classe di risorse per ottenere risorse di calcolo aggiuntive.
-
 ### <a name="dynamic-resource-classes"></a>Classi di risorse dinamiche
-Le classi di risorse dinamiche allocano una quantità variabile di memoria in base al livello di servizio corrente. Quando si passa a un livello di servizio superiore, le query ottengono automaticamente più memoria. 
+Le classi di risorse dinamiche allocano una quantità variabile di memoria in base al livello di servizio corrente. Anche se le classi di risorse statiche sono utili per assicurare maggiore concorrenza e per i volumi di dati statici, le classi di risorse dinamiche sono più adatte per una quantità di dati in aumento o variabile.  Quando si passa a un livello di servizio superiore, le query ottengono automaticamente più memoria.  
 
 Le classi di risorse dinamiche vengono implementate con i ruoli predefiniti del database seguenti:
 
 - smallrc
 - mediumrc
 - largerc
-- xlargerc. 
+- xlargerc 
 
-Queste classi di risorse sono particolarmente adatte alle soluzioni che aumentano la scala di calcolo per ottenere risorse aggiuntive. 
+### <a name="gen2-dynamic-resource-classes-are-truly-dynamic"></a>Le classi di risorse dinamiche della Seconda generazione sono realmente dinamiche.
+Se si approfondiscono i dettagli delle classi di risorse dinamiche della Prima generazione, alcuni dettagli aggiungono ulteriore complessità per la comprensione del comportamento specifico:
+
+- La classe di risorse smallrc funziona con un modello di memoria fissa, ad esempio una classe di risorse statica.  Le query smallrc non ottengono più memoria in modo dinamico quando aumenta il livello di servizio.
+- Quando cambiano i livelli di servizio, la concorrenza delle query disponibile può aumentare o diminuire.
+- Aumentando o diminuendo i livelli del servizio non cambia in modo proporzionale la memoria allocata alle stesse classi di risorse.
+
+**Solo con la Seconda generazione**, le classi di risorse dinamiche sono realmente dinamiche nel gestire i punti indicati in precedenza.  La nuova regola è 3-10-22-70 per le allocazioni in percentuale di memoria per le classi di risorse small-medium-large-xlarge, **indipendentemente dal livello di servizio**.  La tabella seguente contiene i dettagli consolidati delle percentuali di allocazione della memoria e il numero minimo di query simultanee eseguite, indipendentemente dal livello di servizio.
+
+| Classe di risorse | Percentuale di memoria | Numero minimo di query simultanee |
+|:--------------:|:-----------------:|:----------------------:|
+| smallrc        | 3%                | 32                     |
+| mediumrc       | 10%               | 10                     |
+| largerc        | 22%               | 4                      |
+| xlargerc       | 70%               | 1                      |
 
 
 ### <a name="default-resource-class"></a>Classe di risorse predefinita
@@ -145,10 +160,11 @@ Solo le query che dipendono da una risorsa usano tutti gli slot di concorrenza. 
 
 Le classi di risorse vengono implementate come ruoli predefiniti del database. Esistono due tipi di classi di risorse: statiche e dinamiche. Per visualizzare un elenco delle classi di risorse, usare la query seguente:
 
-    ```sql
-    SELECT name FROM sys.database_principals
-    WHERE name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
-    ```
+```sql
+SELECT name 
+FROM   sys.database_principals
+WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
+```
 
 ## <a name="change-a-users-resource-class"></a>Modificare la classe di risorse di un utente
 
@@ -198,7 +214,7 @@ Per ottimizzare le prestazioni, utilizzare diverse classi di risorse. La sezione
 
 ## <a name="example-code-for-finding-the-best-resource-class"></a>Esempio di codice per la ricerca della classe di risorse migliore
  
-È possibile usare la stored procedure seguente per ottenere informazioni sulla concorrenza e sulla concessione di memoria per ogni classe di risorse in un determinato SLO e sulla classe di risorse migliore possibile per operazioni CCI a elevato utilizzo di memoria su una tabella CCI non partizionata con una classe di risorse specifica:
+È possibile usare la stored procedure seguente solo con la **Prima generazione** per ottenere informazioni sulla concorrenza e sulla concessione di memoria per ogni classe di risorse in un determinato SLO e sulla classe di risorse migliore possibile per operazioni CCI a elevato utilizzo di memoria su una tabella CCI non partizionata con una classe di risorse specifica:
 
 Ecco lo scopo della stored procedure:  
 1. Visualizzare informazioni sulla concorrenza e sulla concessione di memoria per ogni classe di risorse in un determinato SLO. L'utente deve specificare NULL sia per lo schema che per il nome di tabella, come indicato nell'esempio.  
@@ -229,6 +245,10 @@ EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'Table1';
 EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;  
 EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;  
 ```
+> [!NOTE]
+> I valori definiti in questa versione della stored procedure si applicano solo alla Prima generazione.
+>
+>
 
 L'istruzione seguente crea l'elemento Table1 usato negli esempi precedenti.
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
@@ -295,7 +315,7 @@ AS
   UNION ALL
     SELECT 'DW400', 16, 16, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
-     SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
+    SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
     SELECT 'DW600', 24, 24, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
@@ -307,7 +327,7 @@ AS
   UNION ALL
     SELECT 'DW2000', 32, 80, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
-   SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
+    SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
     SELECT 'DW6000', 32, 240, 1, 32, 64, 128, 1, 2, 4, 8, 16, 32, 64, 128
 )
