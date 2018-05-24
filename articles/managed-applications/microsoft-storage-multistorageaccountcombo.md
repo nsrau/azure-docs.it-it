@@ -1,23 +1,23 @@
 ---
 title: Elemento MultiStorageAccountCombo dell'interfaccia utente di Azure | Microsoft Docs
 description: Illustra l'elemento Microsoft.Storage.MultiStorageAccountCombo dell'interfaccia utente per il portale di Azure.
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: c395c076a4910e124c1b93ebc61b5e491b2b53ff
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a4ec5a97f8655c0b5b53dea129d4648a05f6ef85
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Elemento Microsoft.Storage.MultiStorageAccountCombo dell'interfaccia utente
 Gruppo di controlli per la creazione di più account di archiviazione, con nomi che iniziano con un prefisso comune.

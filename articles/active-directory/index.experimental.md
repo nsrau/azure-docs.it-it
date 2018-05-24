@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
 ms.author: carolz
-ms.openlocfilehash: 0cd4ebf4718366a9bb36d6a02b8368e34f96119d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b8d87b44c1cc281153c8b65d24871b95e1bbe4db
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-active-directory-documentation"></a>Documentazione di Azure Active Directory
 
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) è un servizio di gestione di identità e dire
                         <p>
                         <a href="/azure/active-directory/active-directory-whatis">Informazioni su Azure AD</a><br/>
                         <a href="/azure/active-directory/understand-azure-identity-solutions">Soluzioni di identità</a><br/>
-                        <a href="/azure/active-directory/get-started-azure-ad">Introduzione</a><br/>
+                        <a href="/azure/active-directory/get-started-azure-ad">Attività iniziali</a><br/>
                         <a href="/azure/active-directory/whats-new">Novità</a>
                         </p>
                     </div>
@@ -65,7 +65,7 @@ Azure Active Directory (Azure AD) è un servizio di gestione di identità e dire
                     <div class="cardText">
                         <h3>Utenti esterni</h3>
                         <p>
-                        <a href="/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b">Business to Business (B2B)</a><br/>
+                        <a href="/azure/active-directory/b2b/what-is-b2b">Business to Business (B2B)</a><br/>
                         <a href="/azure/active-directory-b2c/">Business to Consumer (B2C)</a>
                         </p>
                     </div>
@@ -99,7 +99,7 @@ Azure Active Directory (Azure AD) è un servizio di gestione di identità e dire
                         <p>
                         <a href="/azure/active-directory/active-directory-identityprotection">Identity Protection</a><br/>
                         <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Accesso condizionale</a><br/>
-                        <a href="/azure/active-directory/privileged-identity-management/active-directory-securing-privileged-access">Privileged Identity Management</a>
+                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure">Privileged Identity Management</a>
                         </p>
                     </div>
                 </div>

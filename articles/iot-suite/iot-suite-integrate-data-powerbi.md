@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 8c9807119519dd1f93f08d0366311619a2e793eb
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 45b91241223b1286cc412ab609e60aeadef51b85
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizzare i dati della soluzione di monitoraggio remoto usando Power BI - Azure
 
@@ -107,7 +107,7 @@ In questo articolo è stato appreso come visualizzare i dati della soluzione di 
 
 Per altre informazioni sulla personalizzazione della soluzione di monitoraggio remoto, vedere:
 
-* [Personalizzare l'acceleratore di soluzioni di monitoraggio remoto](iot-suite-remote-monitoring-customize.md)
+* [Personalizzare l'acceleratore di soluzioni di monitoraggio remoto](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)
 * [Guida di riferimento per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Guida per la risoluzione dei problemi per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 

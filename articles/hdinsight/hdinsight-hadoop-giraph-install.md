@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: df7c5e175ecfd2eca2b1db7eb4ab056bb1588dda
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c4cd643d4bdd95493f63bb5b1c1f855bc95bf226
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>Installare e usare Giraph nei cluster HDInsight basati su Windows
 
@@ -169,7 +169,6 @@ Vedere [Personalizzare cluster HDInsight usando l'azione script](hdinsight-hadoo
 * [Personalizzare cluster HDInsight mediante l'azione Script][hdinsight-cluster-customize]: informazioni generali sulla personalizzazione di cluster HDInsight tramite Azione script.
 * [Sviluppare script di Azione script per HDInsight](hdinsight-hadoop-script-actions.md)
 * [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]: esempio di azione script sull'installazione di Spark.
-* [Installare R nei cluster HDInsight][hdinsight-install-r]: esempio di azione script sull'installazione di R.
 * [Installare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install.md): esempio di Azione di script sull'installazione di Solr.
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
@@ -177,6 +176,5 @@ Vedere [Personalizzare cluster HDInsight usando l'azione script](hdinsight-hadoo
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
