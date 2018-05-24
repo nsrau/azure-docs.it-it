@@ -3,8 +3,8 @@ title: Esempio di PowerShell - Ripristinare un backup del database SQL di Azure 
 description: Script di esempio di Azure PowerShell per ripristinare un database SQL di Azure da backup con ridondanza geografica
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: CarlRabeler
+manager: craigg
 editor: carlrab
 tags: azure-service-management
 ms.assetid: ''
@@ -15,12 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/01/2018
-ms.author: janeng
-ms.openlocfilehash: 58a764578e73fb12d35b7f3f08c39186297da980
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.author: carlrab
+ms.openlocfilehash: 789f5df60024651731b7ba34e1c6fdc53a4b9f2b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366665"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-database-from-backups"></a>Usare PowerShell per ripristinare un database SQL di Azure dai backup
 

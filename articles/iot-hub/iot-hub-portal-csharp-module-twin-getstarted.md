@@ -15,11 +15,12 @@ ms.workload: na
 ms.date: 04/26/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 99b0acbf6461750c2606cc3d4338c10b03a4b430
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 30a53620a640b0122286a6ac69c0f98cd0bbde40
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361689"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Creare l'identità del modulo e i moduli gemelli dell'hub IoT con il portale e l'SDK per dispositivi .NET
 
@@ -81,18 +82,18 @@ L'identità del modulo è stata correttamente creata nell'hub IoT. Proviamo ora 
 
     ![Dettagli del modulo nel portale di Azure] [15]
 
-4. **Creare l'app console UpdateModuleTwinReportedProperties**  Aggiungere le istruzioni `using` seguenti all'inizio del file **Program.cs**:
+4. **Creare l'app console UpdateModuleTwinReportedProperties** Aggiungere le istruzioni `using` seguenti all'inizio del file **Program.cs**:
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
     using Microsoft.Azure.Devices.Shared;
     ```
 
-    Aggiungere i campi seguenti alla classe **Program**. Sostituire il valore del segnaposto con la stringa di connessione del modulo.
+    Aggiungere i campi seguenti alla classe **Program** . Sostituire il valore del segnaposto con la stringa di connessione del modulo.
 
     ```csharp
     private const string ModuleConnectionString = "<Your module connection string>“;
-    private static DeviceClient Client = null;
+    private static ModuleClient Client = null;
     ```
 
     Aggiungere il metodo **OnDesiredPropertyChanged** seguente alla classe **Program**:
@@ -112,7 +113,7 @@ L'identità del modulo è stata correttamente creata nell'hub IoT. Proviamo ora 
         }
     ```
 
-    Aggiungere infine le righe seguenti al metodo **Main**:
+    Aggiungere infine le righe seguenti al metodo **Main** :
 
     ```csharp
     static void Main(string[] args)
@@ -121,7 +122,7 @@ L'identità del modulo è stata correttamente creata nell'hub IoT. Proviamo ora 
 
         try
         {
-            Client = DeviceClient.CreateFromConnectionString(ModuleConnectionString, transport);
+            Client = ModuleClient.CreateFromConnectionString(ModuleConnectionString, transport);
             Client.SetConnectionStatusChangesHandler(ConnectionStatusChangeHandler);
             Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
 

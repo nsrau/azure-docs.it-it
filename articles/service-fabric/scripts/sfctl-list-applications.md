@@ -1,25 +1,26 @@
 ---
 title: Esempio di script dell'interfaccia della riga di comando di Service Fabric - Elencare applicazioni in un cluster
-description: "Esempio di script dell'interfaccia della riga di comando di Service Fabric - Elencare le applicazioni di cui è stato eseguito il provisioning in un cluster di Service Fabric."
+description: Esempio di script dell'interfaccia della riga di comando di Service Fabric - Elencare le applicazioni di cui è stato eseguito il provisioning in un cluster di Service Fabric.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 12/06/2017
 ms.author: adegeo
-ms.custom: 
-ms.openlocfilehash: f764c36bcc4905224242cbdf1602d7482e52efac
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.custom: ''
+ms.openlocfilehash: be7464cab4f9a1014fa129314c332bc41b2f499c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212943"
 ---
 # <a name="list-applications-running-in-a-service-fabric-cluster"></a>Elenco di applicazioni eseguite in un cluster di Service Fabric
 

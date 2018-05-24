@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f8e9a2fbf28ace78b4ad2d361358bd394ac69ac7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f5630c8cb9c0ca13210c62652f8d7f2e98f94438
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366648"
 ---
 # <a name="security-management-in-azure"></a>Gestione della sicurezza in Azure
 I sottoscrittori di Azure possono gestire i propri ambienti cloud da più dispositivi, tra cui workstation di gestione, PC per sviluppatori e dispositivi di utenti finali con privilegi elevati con autorizzazioni specifiche per le attività. In alcuni casi le funzioni amministrative vengono eseguite tramite console basate sul Web, ad esempio il [portale di Azure](https://azure.microsoft.com/features/azure-portal/). In altri casi è possibile che vengano usate connessioni dirette ad Azure da sistemi locali su reti private virtuali (VPN), Servizi terminal, protocolli applicativi client oppure, a livello di codice, l'API Gestione dei servizi di Azure (SMAPI). Gli endpoint client possono essere inoltre aggiunti a un dominio o isolati e non gestiti, ad esempio tablet o smartphone.
@@ -111,7 +112,7 @@ Un Gateway Desktop remoto è un servizio proxy RDP basato su criteri che applica
 * Configurare un [criterio di autorizzazione di connessione client](http://technet.microsoft.com/library/cc753324.aspx) per consentire al Gateway Desktop remoto di verificare che il nome del computer client sia valido (aggiunto al dominio) e che sia autorizzato ad accedere al portale di Azure.
 * Usare IPsec per la [VPN di Azure](https://azure.microsoft.com/documentation/services/vpn-gateway/) per una maggiore protezione del traffico di gestione da intercettazioni e furto di token oppure prendere in considerazione un collegamento Internet isolato tramite [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 * Abilitare l'autenticazione a più fattori tramite [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) oppure l'autenticazione tramite smart card per gli amministratori che accedono tramite il Gateway Desktop remoto.
-* Configurare [restrizioni per l'indirizzo IP](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) di origine o [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) in Azure per ridurre al minimo il numero di endpoint di gestione consentiti.
+* Configurare [restrizioni per l'indirizzo IP](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) di origine o [gruppi di sicurezza di rete](../virtual-network/security-overview.md) in Azure per ridurre al minimo il numero di endpoint di gestione consentiti.
 
 ## <a name="security-guidelines"></a>Linee guida sulla sicurezza
 In genere, la configurazione della sicurezza delle workstation dell'amministratore per l'uso con il cloud è simile alle procedure usate per qualsiasi workstation locale, ad esempio compilazione ridotta al minimo e autorizzazioni restrittive. Alcuni aspetti unici della gestione cloud sono più simili alla gestione remota o alla gestione aziendale fuori banda, ad esempio l'uso e il controllo delle credenziali, l'accesso remoto con sicurezza avanzata e il rilevamento e la risposta alle minacce.

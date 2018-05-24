@@ -1,20 +1,21 @@
 ---
 title: Applicazioni gestite di Azure nel Marketplace| Microsoft Docs
 description: Descrive le applicazioni gestite di Azure disponibili tramite il Marketplace.
-services: azure-resource-manager
+services: managed-applications
 author: tfitzmac
 manager: timlt
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 753e13ea0dbfc7fe0c74987e1383f71329b76a63
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 39797bb4fe2b0576cd5696d7111826dcf807ff5c
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304532"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Applicazioni gestite di Azure nel marketplace
 

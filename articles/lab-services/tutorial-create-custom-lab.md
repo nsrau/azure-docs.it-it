@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: df70322a2d6562fce8da17fde652dd0dfbfcaec4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3a4f964fe4f103e970a6edb3e9ba716fd72b8c79
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362244"
 ---
 # <a name="tutorial-set-up-a-custom-lab-by-using-azure-devtest-labs"></a>Esercitazione: Configurare un lab personalizzato usando Azure DevTest Labs
 Questa esercitazione descrive come creare un lab personalizzato usando il portale di Azure. Un amministratore del lab configura un lab in un'organizzazione, crea le V M nel lab e configura i criteri. Gli utenti del lab (ad esempio, gli sviluppatori e i tester) richiedono le VM nel lab, si connettono a tali VM e le usano. 
@@ -44,7 +45,7 @@ La procedura seguente illustra come usare il portale di Azure per creare un lab 
     2. In **Sottoscrizione** selezionare la sottoscrizione in cui creare il lab. 
     3. In **Gruppo di risorse** selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse. 
     4. In **Posizione** selezionare la posizione o l'area in cui si vuole creare il lab. 
-    5. Selezionare **Crea**. 
+    5. Selezionare **Create**. 
     6. Selezionare **Aggiungi al dashboard**. Dopo la creazione, il lab viene visualizzato nel dashboard. 
 
         ![Creare una sezione di lab di DevTest Labs](./media/tutorial-create-custom-lab/create-custom-lab-blade.png)
@@ -63,7 +64,7 @@ La procedura seguente illustra come usare il portale di Azure per creare un lab 
     5. In **Make this machine claimable** (Rendi attestabile questa macchina) selezionare **Sì**.
     6. Verificare che **Conteggio istanze** sia impostato su **1**. Se questa opzione è impostata su **2**, vengono create 2 VM con i nomi: `<base image name>00' and <base image name>01`. Ad esempio: `win10vm00` e `win10vm01`. 
     7. Per chiudere la pagina **Avanzate** fare clic su **OK**. 
-    8. Selezionare **Crea**. 
+    8. Selezionare **Create**. 
 
         ![Scegli una base](./media/tutorial-create-custom-lab/new-virtual-machine.png)
     9. Viene visualizzato lo stato della VM nell'elenco delle **Macchine virtuali richiedibili**. Per la creazione della macchina virtuale possono essere necessari circa 25 minuti. La VM viene creata in un gruppo di risorse di Azure separato, il cui nome inizia con il nome del gruppo di risorse corrente con il lab. Ad esempio, se il lab è in `labrg`, la VM può essere creata nel gruppo di risorse `labrg3988722144002`. 

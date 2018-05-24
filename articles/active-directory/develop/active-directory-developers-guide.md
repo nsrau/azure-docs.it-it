@@ -16,11 +16,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f0f577e2ff18645cfa93763f2345ef4230907e09
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 6f3c0e93b20bbc570f4715318a49b502549ff295
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257550"
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory per sviluppatori
 
@@ -55,7 +56,6 @@ Queste guide illustrano in modo dettagliato alcune delle attività più comuni i
 |[Registrazione dell'applicazione](active-directory-integrating-applications.md)           | Come registrare un'applicazione in Azure AD. |
 |[Applicazioni multi-tenant](active-directory-devhowto-multi-tenant-overview.md)    | Come accedere a un account aziendale Microsoft. |
 |[Protocolli OAuth e OpenID Connect](active-directory-protocols-openid-connect-code.md)| Come consentire l'accesso agli utenti e chiamare le API Web usando i protocolli di autenticazione Microsoft. |
-|[Guide aggiuntive](active-directory-developers-guide-index.md#guides)        |  Elenco di guide disponibili per Azure AD. |
 |  |  |
 
 ## <a name="reference-topics"></a>Argomenti di riferimento
@@ -66,7 +66,6 @@ Gli articoli seguenti forniscono informazioni dettagliate su API, messaggi di pr
 | [Librerie di autenticazione (ADAL)](active-directory-authentication-libraries.md)   | Panoramica delle librerie e degli SDK forniti da Azure AD. |
 | [Esempi di codice](active-directory-code-samples.md)                                  | Elenco di tutti gli esempi di codice di Azure AD. |
 | [Glossario](active-directory-dev-glossary.md)                                      | Terminologia e definizioni dei termini usati nella documentazione. |
-| [Argomenti di riferimento aggiuntivi](active-directory-developers-guide-index.md#reference)| Elenco di argomenti di riferimento disponibili per Azure AD. |
 |  |  |
 
 

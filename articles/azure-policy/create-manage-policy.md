@@ -2,18 +2,19 @@
 title: Usare Criteri di Azure per creare e gestire i criteri per applicare la conformità aziendale
 description: Usare Criteri di Azure per applicare gli standard, soddisfare i requisiti di conformità e controllo normativi, controllare i costi, mantenere la coerenza di sicurezza e prestazioni e imporre principi di progettazione all'azienda nel suo complesso.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 2e04e08d22890246e2b68a55d79e82864201ef9d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+manager: carmonm
+ms.openlocfilehash: 1d13c5c0099b8e4c9ed83221edf6a2ee92fc3c8e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194870"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creare e gestire i criteri per applicare la conformità
 
@@ -60,7 +61,7 @@ Il primo passaggio per applicare la conformità a Criteri di Azure consiste nell
 
 Dopo avere assegnato una definizione predefinita del criterio, è possibile eseguire altre operazioni con Criteri di Azure. Creare quindi un nuovo criterio personalizzato per ridurre i costi assicurando che le macchine virtuali create nell'ambiente non siano della serie G. In questo modo, ogni volta che un utente dell'organizzazione prova a creare una macchina virtuale della serie G, la richiesta viene negata.
 
-1. Selezionare **definizioni** in **CREAZIONE** sul lato sinistro della pagina Criteri di Azure.
+1. Selezionare **Definizioni** in **CREAZIONE** sul lato sinistro della pagina Criteri di Azure.
 
    ![Definizione in Creazione](media/create-manage-policy/definition-under-authoring.png)
 

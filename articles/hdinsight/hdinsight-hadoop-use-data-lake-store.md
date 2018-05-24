@@ -3,7 +3,7 @@ title: Usare Data Lake Store con Hadoop in Azure HDInsight | Microsoft Docs
 description: Informazioni su come eseguire query sui dati da Azure Data Lake Store e come archiviare i risultati dell'analisi.
 keywords: archiviazione BLOB, hdfs, dati strutturati, dati non strutturati, Data Lake Store
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -14,13 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/20/2017
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: e14de80dc1fdf82c57f2a38d4ae2719ec83e01ed
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 0d0fb9bad8c6120100ae3ee766aea7620dd6105f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34201758"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Usare Data Lake Store con cluster Azure HDInsight
 

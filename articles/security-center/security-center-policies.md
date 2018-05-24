@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: a993338e5a16514e855d771e25aac3e451faab45
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: fed4a587d2258cdab35d09f5e3947a8cacade157
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364387"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Impostare i criteri di sicurezza nel Centro sicurezza di Azure
 Questo articolo illustra come configurare i criteri di sicurezza nel Centro sicurezza.
@@ -55,7 +56,7 @@ Per informazioni sulle definizioni dei criteri disponibili nel criterio di sicur
 | Configurazioni di sicurezza |Analizza giornalmente le configurazioni del sistema operativo per determinare i problemi che potrebbero rendere vulnerabile agli attacchi la macchina virtuale. Il criterio consiglia anche le modifiche alla configurazione necessarie per risolvere queste vulnerabilità. Per altre informazioni sulle configurazioni specifiche sottoposte a monitoraggio, vedere l'[elenco di baseline consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). (Al momento, Windows Server 2016 non è completamente supportato.) |
 | Endpoint Protection |Consiglia di configurare Endpoint Protection per tutte le macchine virtuali di Windows, per identificare e rimuovere virus, spyware e altro software dannoso. |
 | Crittografia del disco |Suggerisce di abilitare la crittografia dischi in tutte le macchine virtuali per migliorare la protezione dei dati inattivi. |
-| Gruppi di sicurezza di rete |Consiglia di configurare [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) per controllare il traffico in ingresso e in uscita nelle VM che hanno endpoint pubblici. I gruppi di sicurezza di rete configurati per una subnet vengono ereditati da tutte le interfacce di rete della macchina virtuale se non diversamente specificato. Oltre a controllare che sia stato configurato un gruppo di sicurezza di rete, questo criterio valuta le regole di sicurezza in ingresso per identificare le regole che consentono il traffico in ingresso. |
+| Gruppi di sicurezza di rete |Consiglia di configurare [gruppi di sicurezza di rete](../virtual-network/security-overview.md) per controllare il traffico in ingresso e in uscita nelle VM che hanno endpoint pubblici. I gruppi di sicurezza di rete configurati per una subnet vengono ereditati da tutte le interfacce di rete della macchina virtuale se non diversamente specificato. Oltre a controllare che sia stato configurato un gruppo di sicurezza di rete, questo criterio valuta le regole di sicurezza in ingresso per identificare le regole che consentono il traffico in ingresso. |
 | Web application firewall |Consiglia di configurare un Web application firewall nelle macchine virtuali quando una delle due affermazioni seguenti è vera: <ul><li>Viene usato un [IP pubblico a livello di istanza](../virtual-network/virtual-networks-instance-level-public-ip.md) e le regole di sicurezza in ingresso per il gruppo di sicurezza di rete associato vengono configurate in modo da consentire l'accesso alla porta 80/443.</li><li>Viene usato un IP con carico bilanciato e le regole NAT (Network Address Translation) in ingresso e di bilanciamento del carico associate sono configurate per consentire l'accesso alla porta 80/443. Per altre informazioni, vedere [Supporto di Azure Resource Manager per Load Balancer](../load-balancer/load-balancer-arm.md).</li> |
 | Firewall di nuova generazione |Estende le protezioni di rete oltre i gruppi di sicurezza di rete predefiniti di Azure. Il Centro sicurezza individua le distribuzioni per cui è consigliabile un firewall di nuova generazione ed è quindi possibile configurare un'appliance virtuale. |
 | Controllo e rilevamento delle minacce SQL |Consiglia l'abilitazione del controllo dell'accesso al database SQL per la conformità e il rilevamento avanzato delle minacce, per scopi di analisi. |
