@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 3d300eb397b58b4e1f8c8a6516e0a279980d8d09
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b5a85dd7d4ac6bdabcbab49f654ebfe4adae73cd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140462"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Esercitazione: Configurare Salesforce per il provisioning utenti automatico
 
@@ -27,9 +28,13 @@ Questa esercitazione descrive le procedure da eseguire in Salesforce e Azure AD 
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
-*   Tenant di Azure Active Directory.
-*   È necessario disporre di un tenant valido per Salesforce for Work o Salesforce for Education. È possibile usare un account della versione di valutazione gratuita per entrambi i servizi.
-*   Account utente in Salesforce con autorizzazioni di amministratore di team.
+*   Tenant di Azure Active Directory
+*   Tenant di Salesforce.com
+
+>[!IMPORTANT] 
+>Se si usa un account di valutazione di Salesforce.com, non sarà possibile configurare il provisioning automatizzato degli utenti. Gli account di valutazione non hanno l'accesso API necessario, che viene abilitato solo dopo l'acquisto. Per aggirare questa limitazione, è possibile usare un [account gratuito per sviluppatori](https://developer.salesforce.com/signup) per completare l'esercitazione.
+
+Se si usa un ambiente Salesforce Sandbox, vedere l' [Esercitazione: Integrazione di Azure Active Directory con Salesforce Sandbox](https://go.microsoft.com/fwLink/?LinkID=521879).
 
 ## <a name="assigning-users-to-salesforce"></a>Assegnazione di utenti a Salesforce
 

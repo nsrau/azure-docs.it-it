@@ -3,17 +3,18 @@ title: Monitorare un cluster DC/OS di Azure - Stack ELK
 description: Monitorare un cluster DC/OS nel cluster del servizio contenitore di Azure con ELK (Elasticsearch, Logstash e Kibana).
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: b378fc38233534df74582388e6e832d40f431d11
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: dc863894d8846e066c90bdf7b309f141d32a1186
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32163181"
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-elk"></a>Monitorare un cluster del servizio contenitore di Azure con ELK
 
@@ -27,7 +28,7 @@ Questo articolo descrive come distribuire lo stack ELK (Elasticsearch, Logstash,
 Lo stack ELK, una combinazione di Elasticsearch, Logstash e Kibana, fornisce uno stack end-to-end che può essere usato per monitorare e analizzare i log nel cluster.
 
 ## <a name="configure-the-elk-stack-on-a-dcos-cluster"></a>Configurare lo stack ELK in un cluster DC/OS
-Accedere all'interfaccia utente di DC/OS usando [http://localhost:80/](http://localhost:80/) Nell'interfaccia utente di DC/OS passare a **Universe**. Cercare e installare Elasticsearch, Logstash e Kibana da DC/OS Universe in questo ordine specifico. Altre informazioni sulla configurazione sono disponibili nel collegamento relativo all'**installazione avanzata**.
+Accedere all'interfaccia utente del controller di dominio/sistema operativo da [http://localhost:80/](http://localhost:80/) Nell'interfaccia utente del controller di dominio/sistema operativo passare a **Universe** (Universo). Cercare e installare Elasticsearch, Logstash e Kibana da DC/OS Universe in questo ordine specifico. Altre informazioni sulla configurazione sono disponibili nel collegamento relativo all'**installazione avanzata**.
 
 ![ELK1](./media/container-service-monitoring-elk/elk1.PNG) ![ELK2](./media/container-service-monitoring-elk/elk2.PNG) ![ELK3](./media/container-service-monitoring-elk/elk3.PNG) 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Informazioni di riferimento su ApplicationInsights.config: Azure | Documentazione Microsoft'
+title: 'Informazioni di riferimento su ApplicationInsights.config: Azure | Microsoft Docs'
 description: Abilitare o disabilitare i moduli di raccolta dati e aggiungere i contatori delle prestazioni e altri parametri.
 services: application-insights
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 94b6864bec157694e0192597c0fecfa0d3e407ec
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 62ecacb16c891905eb67a6bae08cf81ac2cdb173
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158562"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurazione di Application Insights SDK con ApplicationInsights.config o .xml
 Application Insights .NET SDK è costituito da alcuni pacchetti NuGet. Il [pacchetto di base](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fornisce l'API per l'invio di dati di telemetria ad Application Insights. [Altri pacchetti](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) forniscono *moduli* e *inizializzatori* di telemetria per il rilevamento automatico dei dati di telemetria dall'applicazione e dal rispettivo contesto. Modificando il file di configurazione, è possibile abilitare o disabilitare i moduli e gli inizializzatori di telemetria e impostare parametri per alcuni di essi.
@@ -30,7 +31,7 @@ Non esiste un file equivalente per controllare l'[SDK in una pagina Web][client]
 Questo documento illustra le sezioni visibili nel file di configurazione, il modo in cui esse controllano i componenti SDK, e quali pacchetti NuGet caricano questi componenti.
 
 > [!NOTE]
-> I file di istruzioni applicationInsights.config e .xml non si applicano a .NET Core SDK. Per le modifiche a un'applicazione .NET Core, viene in genere usato il file appsettings.json. Un esempio è disponibile nella [documentazione relativa a Snapshot Debugger.](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)
+> I file di istruzioni applicationInsights.config e .xml non si applicano a .NET Core SDK. Per le modifiche a un'applicazione .NET Core, viene in genere usato il file appsettings.json. Un esempio è disponibile nella [documentazione relativa a Snapshot Debugger.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)
 
 ## <a name="telemetry-modules-aspnet"></a>Moduli di telemetria (ASP.NET)
 Ogni modulo di telemetria raccoglie un tipo specifico di dati e utilizza l’API principale per inviare i dati. I moduli sono installati da diversi pacchetti NuGet che aggiungono anche le linee necessarie al file .config.
@@ -294,7 +295,7 @@ Questo provider viene aggiunto al file config quando si installa [Microsoft.Appl
 
 Questa classe ha una proprietà `ProfileQueryEndpoint` facoltativa.
 L'impostazione predefinita è `https://dc.services.visualstudio.com/api/profiles/{0}/appId`.
-Se è necessario configurare un proxy per questa configurazione, è consigliabile inoltrare i dati all'indirizzo di base e includere "/api/profiles/{0}/appId". Si noti che "{0}" viene sostituito in fase di esecuzione per ogni richiesta con la chiave di strumentazione.
+Se è necessario configurare un proxy per questa configurazione, è consigliabile inoltrare i dati all'indirizzo di base e includere "/api/profiles/{0}/appId". '{0}' viene sostituito in fase di esecuzione per ogni richiesta con la chiave di strumentazione.
 
 #### <a name="example-configuration-via-applicationinsightsconfig"></a>Configurazione di esempio tramite ApplicationInsights.config:
 ```xml

@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 04/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 23e39f20f5b3faa4f6cfba57508d1649e2bbdaa3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ecbadd45f964e4d4d36dcf67cf85cd878f012150
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140258"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Esercitazione: Integrazione di Azure Active Directory con NetSuite
 
@@ -183,7 +184,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     c. Fare clic su **New Role**.
 
-    d. Digitare un nome per il nuovo ruolo in **Name** e selezionare la casella di controllo **Single Sign-On Only** (Solo Single Sign-On).
+    d. Digitare un **nome** per il nuovo ruolo.
       
       ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-new-role.png)
 
@@ -193,7 +194,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
       
        ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-sso.png)
 
-    g. Selezionare **Set Up SAM Single Sign-on** (Configura Single Sign-on SAM), quindi fare clic su **Aggiungi**.
+    g. Selezionare **Set Up SAML Single Sign-on** (Configura Single Sign-on SAML), quindi fare clic su **Aggiungi**.
 
     h. Fare clic su **Save**.
 
@@ -215,10 +216,6 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     m. Fare clic su **Save**.
     
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
-> 
-
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
