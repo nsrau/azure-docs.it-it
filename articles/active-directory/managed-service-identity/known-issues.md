@@ -8,27 +8,25 @@ manager: mtillman
 editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
+ms.component: msi
 ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: a50854b2e12db9a202d769f9e5feebee8e5f9395
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 552f9e7cae4d7f46ea1548cfe7d9482bff79e5bc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33930987"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Domande frequenti e problemi noti di Identità del servizio gestito (MSI) per Azure Active Directory
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>Domande frequenti (FAQ)
-
-### <a name="is-there-a-private-preview-program-available-for-upcoming-msi-features-and-integrations"></a>È disponibile un programma di anteprima privata per le integrazioni e le funzionalità future di Identità del servizio gestito (MSI)?
-
-Sì. Se si vuole sottoporre la propria candidatura per la registrazione al programma di anteprima privata, [vedere la pagina di iscrizione](https://aka.ms/azuremsiprivatepreview).
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>Identità del servizio gestito funziona con Servizi cloud di Azure?
 
@@ -53,7 +51,7 @@ Quando si usa MSI con le macchine virtuali, è consigliabile usare l'endpoint IM
 
 L'estensione della macchina virtuale MSI è ancora disponibile per l'uso, ma per il futuro verrà usato per impostazione predefinita l'endpoint IMDS. Il piano di deprecazione per l'estensione della macchina virtuale MSI avrà presto inizio. 
 
-Per altre informazioni sul Servizio metadati dell'istanza di Azure, vedere la [documentazione di IMDS](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+Per altre informazioni sul Servizio metadati dell'istanza di Azure, vedere la [documentazione di IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Quali sono le distribuzioni di Linux supportate?
 
@@ -91,7 +89,7 @@ Se l'identità del servizio gestito è abilitata in una macchina virtuale, viene
 
 L'estensione della macchina virtuale dell'identità del servizio gestito non supporta attualmente la possibilità di esportare lo schema in un modello di gruppo di risorse. Di conseguenza, il modello generato non include i parametri di configurazione per abilitare l'identità del servizio gestito per la risorsa. È possibile aggiungere manualmente queste sezioni seguendo gli esempi in [Configurare un'Identità del servizio gestito della macchina virtuale tramite un modello](qs-configure-template-windows-vm.md).
 
-Quando è disponibile per l'estensione della macchina virtuale dell'identità del servizio gestito, la funzionalità di esportazione dello schema sarà elencata in [Esportazione di gruppi di risorse contenenti estensioni macchina virtuale](../../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions).
+Quando è disponibile per l'estensione della macchina virtuale dell'identità del servizio gestito, la funzionalità di esportazione dello schema sarà elencata in [Esportazione di gruppi di risorse contenenti estensioni macchina virtuale](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Il pannello di configurazione non viene visualizzato nel portale di Azure
 
@@ -122,3 +120,16 @@ Dopo aver avviato la macchina virtuale, il tag può essere rimosso tramite il se
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
+
+## <a name="known-issues-with-user-assigned-identities"></a>Problemi noti relativi alle identità assegnate dall'utente
+
+- Le assegnazioni di identità assegnate dall'utente sono disponibili solo per la macchina virtuale e per set di scalabilità di macchine virtuali. IMPORTANTE: le assegnazioni di identità assegnate dall'utente verranno modificate nei prossimi mesi.
+- Le identità assegnate dall'utente duplicate nella stessa VM o set di scalabilità di macchine virtuali causerà errori nella VM o nel set di scalabilità di macchine virtuali. Ciò include le identità aggiunte con maiuscole/minuscole diverse. Ad esempio, MyUserAssignedIdentity e myuserassignedidentity. 
+- Il provisioning dell'estensione VM in una VM potrebbe non riuscire a causa degli errori di ricerca DNS. Riavviare la macchina virtuale e riprovare. 
+- L'aggiunta di un'identità assegnata dall'utente non esistente potrebbe causare errori nella VM. 
+- Non è supportata la creazione di un'identità assegnata dall'utente con caratteri speciali (ad esempio, il carattere di sottolineatura).
+- I nomi delle identità assegnate dall'utente sono limitati a 24 caratteri per uno scenario end-to-end. Non sarà possibile assegnare identità assegnate dall'utente con nomi più lunghi di 24 caratteri.  
+- Quando si aggiunge una seconda identità assegnata dall'utente, clientID potrebbe non riuscire a richiedere i token per l'estensione VM. Come piano di mitigazione, riavviare l'estensione della macchina virtuale per l'identità del servizio gestito con i due comandi bash seguenti:
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
+- Quando una macchina virtuale ha un'identità assegnata dall'utente ma non un'identità assegnata dal sistema, l'interfaccia utente del portale visualizzerà l'identità del servizio gestita come disabilitata. Per abilitare l'identità assegnata dal sistema, usare un modello di Azure Resource Manager, un'interfaccia della riga di comando di Azure o un SDK.

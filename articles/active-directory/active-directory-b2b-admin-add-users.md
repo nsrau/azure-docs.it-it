@@ -2,29 +2,29 @@
 title: Aggiungere utenti di Collaborazione B2B nel portale di Azure - Azure Active Directory | Microsoft Docs
 description: Questo articolo illustra in che modo un amministratore può aggiungere utenti guest alla propria directory da un'organizzazione partner usando la collaborazione B2B di Azure Active Directory (Azure AD).
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/11/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 04/02/2018
-ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 34bd5b51089045c4cd20f29d179bb230e5e3fac2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9d0565468d953c83ca5fee864b3079fbfee9bbf1
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076766"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure
 
 Un amministratore globale o un utente a cui è assegnato uno dei ruoli della directory di amministratore con autorizzazioni limitate può usare il portale di Azure per invitare utenti di Collaborazione B2B. È possibile invitare utenti guest nella directory, in un gruppo o in un'applicazione. Dopo aver invitato un utente tramite uno di questi metodi, l'account dell'utente invitato viene aggiunto ad Azure Active Directory (Azure AD) con il tipo di utente *Guest*. L'utente guest deve quindi riscattare il proprio invito per accedere alle risorse.
+
+In seguito all'aggiunta di un utente guest alla directory, è possibile inviare all'utente guest un collegamento diretto a un'app condivisa oppure l'utente guest può selezionare l'URL di riscatto nel messaggio di posta elettronica di invito. Per informazioni sul processo di riscatto, vedere [Riscatto dell'invito di Collaborazione B2B](active-directory-b2b-redemption-experience.md).
+
+> [!IMPORTANT]
+> È necessario seguire i passaggi descritti in [Procedura: Aggiungere le informazioni sulla privacy della propria organizzazione in Azure Active Directory](https://aka.ms/adprivacystatement) per aggiungere l'URL dell'informativa sulla privacy della propria organizzazione. Come parte del primo processo riscatto per il primo invito, un utente invitato deve accettare le condizioni sulla privacy per continuare. 
 
 ## <a name="add-guest-users-to-the-directory"></a>Aggiungere utenti guest alla directory
 
@@ -92,7 +92,7 @@ Per aggiungere utenti di Collaborazione B2B a un'applicazione come amministrator
  
 ## <a name="resend-invitations-to-guest-users"></a>Inviare di nuovo gli inviti agli utenti guest
 
-Se un utente guest non ha ancora riscattato il proprio invito, è possibile inviare di nuovo l'invito.
+Se un utente guest non ha ancora riscattato il proprio invito, è possibile inviare di nuovo messaggio di posta elettronica di invito.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore di Azure AD.
 2. Nel riquadro di spostamento selezionare **Azure Active Directory**.
@@ -111,6 +111,4 @@ Se un utente guest non ha ancora riscattato il proprio invito, è possibile invi
 
 - Per informazioni su come gli amministratori non Azure Active Directory possono aggiungere utenti guest B2B, vedere [Procedura di aggiunta di utenti di Collaborazione B2B da parte di information worker](active-directory-b2b-iw-add-users.md).
 - Per informazioni sul messaggio di posta elettronica di invito, vedere [Elementi del messaggio di posta elettronica di invito per la collaborazione B2B](active-directory-b2b-invitation-email.md).
-- Per informazioni sul processo di riscatto dell'invito, vedere [Riscatto dell'invito di Collaborazione B2B](active-directory-b2b-redemption-experience.md).
-
 
