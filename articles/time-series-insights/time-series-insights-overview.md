@@ -11,17 +11,18 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 01/26/2018
-ms.openlocfilehash: e31cebfd027e93096e233f2963445e4fc50a7e9d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f29fe50468aabadcf92d2ed3de3f9ec631d17f21
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941534"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Informazioni su Azure Time Series Insights
 
 Time Series Insights è una soluzione che consente di archiviare, visualizzare ed eseguire query su grandi quantità di dati relativi a serie temporali, ad esempio i dati generati dai dispositivi IoT.  Se si desidera archiviare, gestire, eseguire query o visualizzare i dati delle serie temporali nel cloud, Time Series Insights rappresenta la soluzione ideale.  
 
-![Diagramma di flusso di Time Series Insights] (media/overview/time-series-insights-flowchart.png)
+![Diagramma di flusso di Time Series Insights](media/overview/time-series-insights-flowchart.png)
 
 Time Series Insights è caratterizzato da quattro processi chiavi:
 
@@ -68,7 +69,7 @@ Iniziare a usare Time Series Insights richiede meno di 5 minuti.
 4.  I dati verranno visualizzati nel giro di pochi minuti nello strumento di esplorazione di Time Series Insights.
 
 ## <a name="time-series-insights-explorer"></a>Strumento di esplorazione di Time Series Insights
-In questo diagramma è illustrato un esempio di dati di Time Series Insights visualizzati tramite lo strumento di esplorazione: ![Time Series Insights explorer] (media/time-series-insights-explorer/explorer4.png)
+Questo diagramma illustra un esempio di dati di Time Series Insights visualizzati tramite lo strumento di esplorazione: ![strumento di esplorazione di Time Series Insights](media/time-series-insights-explorer/explorer4.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
  - [Esplorare i dati tramite lo strumento di esplorazione di Time Series Insights in un ambiente demo](./time-series-quickstart.md)

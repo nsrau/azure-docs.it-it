@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: c9dab276b39b1ceb55851e865f9166e3e9e7fee8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a5c0d529357d8ab92cf63ca4a0293753d55801d6
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779091"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui la creazione di grafici nel portale, l'accesso tramite l'API REST o l'esecuzione di query tramite PowerShell o l'interfaccia della riga di comando. Di seguito è riportato un elenco completo di tutte le metriche attualmente disponibili con la pipeline delle metriche di monitoraggio di Azure. Altre metriche potrebbero essere disponibili nel portale o tramite le API legacy. L'elenco riportato di seguito include solo le metriche disponibili tramite la pipeline delle metriche di Monitoraggio di Azure consolidata. Per cercare metriche e per accedervi, usare la [versione API 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -88,13 +89,13 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |FailedRequests|Richieste gateway non riuscite|Conteggio|Totale|Numero di errori nelle richieste gateway|Location, Hostname|
 |OtherRequests|Altre richieste del gateway|Conteggio|Totale|Numero di altre richieste del gateway|Location, Hostname|
 |Duration|Durata complessiva delle richieste del gateway|Millisecondi|Media|Durata complessiva delle richieste del gateway in millisecondi|Location, Hostname|
-|Capacity|Capacità (anteprima)|Percentuale|Massima|Metrica di utilizzo per il servizio ApiManagement|Località|
+|Capacity|Capacità (anteprima)|Percentuale|Media|Metrica di utilizzo per il servizio ApiManagement|Località|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|TotalJob|Processi totali|Conteggio|Totale|Numero totale di processi|RunbookName, Status|
+|TotalJob|Processi totali|Conteggio|Totale|Numero totale di processi|Runbook, stato|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
@@ -360,6 +361,16 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Operazioni scrittura disco/sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Il numero di IOPS scritti sul disco|Nessuna dimensione|
 |Crediti CPU rimanenti|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il burst|Nessuna dimensione|
 |Crediti CPU usati|Crediti CPU usati|Conteggio|Media|Numero totale di crediti usati dalla macchina virtuale|Nessuna dimensione|
+|Byte letti da disco/sec per disco|Byte letti da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo letti da un singolo disco durante il periodo di monitoraggio|SlotId|
+|Byte scritti su disco/sec per disco|Byte scritti su disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo scritti su un singolo disco durante il periodo di monitoraggio|SlotId|
+|Operazioni di lettura da disco/sec per disco|Operazioni di lettura da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la lettura da un singolo disco per il periodo di monitoraggio|SlotId|
+|Operazioni di scrittura su disco/sec per disco|Operazioni di scrittura su disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la scrittura su un singolo disco per il periodo di monitoraggio|SlotId|
+|Profondità coda per disco dati|Profondità coda per un disco dati (anteprima)|Conteggio|Media|Profondità coda del disco dati (o lunghezza coda)|SlotId|
+|Byte letti da disco/sec per disco del sistema operativo|Byte letti da disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo letti da un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Byte scritti su disco/sec per disco del sistema operativo|Byte scritti su disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo scritti su un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Operazioni di lettura da disco/sec per disco del sistema operativo|Operazioni di lettura da disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la lettura da un singolo disco per il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Operazioni di scrittura su disco/sec per disco del sistema operativo|Operazioni di scrittura su disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la scrittura su un singolo disco per il periodo di monitoraggio per il disco del sistema operativo|Nessuna dimensione|
+|Profondità coda per disco del sistema operativo|Profondità coda per un disco sistema operativo (anteprima)|Conteggio|Media|Profondità coda del disco del sistema operativo (o lunghezza coda)|Nessuna dimensione|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
@@ -374,6 +385,16 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Operazioni scrittura disco/sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Il numero di IOPS scritti sul disco|Nessuna dimensione|
 |Crediti CPU rimanenti|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il burst|Nessuna dimensione|
 |Crediti CPU usati|Crediti CPU usati|Conteggio|Media|Numero totale di crediti usati dalla macchina virtuale|Nessuna dimensione|
+|Byte letti da disco/sec per disco|Byte letti da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo letti da un singolo disco durante il periodo di monitoraggio|SlotId|
+|Byte scritti su disco/sec per disco|Byte scritti su disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo scritti su un singolo disco durante il periodo di monitoraggio|SlotId|
+|Operazioni di lettura da disco/sec per disco|Operazioni di lettura da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la lettura da un singolo disco per il periodo di monitoraggio|SlotId|
+|Operazioni di scrittura su disco/sec per disco|Operazioni di scrittura su disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la scrittura su un singolo disco per il periodo di monitoraggio|SlotId|
+|Profondità coda per disco dati|Profondità coda per un disco dati (anteprima)|Conteggio|Media|Profondità coda del disco dati (o lunghezza coda)|SlotId|
+|Byte letti da disco/sec per disco del sistema operativo|Byte letti da disco/sec per un disco del sistema operativo|Conteggio al secondo|Media|Totale di byte al secondo letti da un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Byte scritti su disco/sec per disco del sistema operativo|Byte scritti su disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo scritti su un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Operazioni di lettura da disco/sec per disco del sistema operativo|Operazioni di lettura da disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la lettura da un singolo disco per il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Operazioni di scrittura su disco/sec per disco del sistema operativo|Operazioni di scrittura su disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la scrittura su un singolo disco per il periodo di monitoraggio per il disco del sistema operativo|Nessuna dimensione|
+|Profondità coda per disco del sistema operativo|Profondità coda per un disco sistema operativo (anteprima)|Conteggio|Media|Profondità coda del disco del sistema operativo (o lunghezza coda)|Nessuna dimensione|
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
@@ -388,6 +409,16 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Operazioni scrittura disco/sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Il numero di IOPS scritti sul disco|Nessuna dimensione|
 |Crediti CPU rimanenti|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il burst|Nessuna dimensione|
 |Crediti CPU usati|Crediti CPU usati|Conteggio|Media|Numero totale di crediti usati dalla macchina virtuale|Nessuna dimensione|
+|Byte letti da disco/sec per disco|Byte letti da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo letti da un singolo disco durante il periodo di monitoraggio|SlotId|
+|Byte scritti su disco/sec per disco|Byte scritti su disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo scritti su un singolo disco durante il periodo di monitoraggio|SlotId|
+|Operazioni di lettura da disco/sec per disco|Operazioni di lettura da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la lettura da un singolo disco per il periodo di monitoraggio|SlotId|
+|Operazioni di scrittura su disco/sec per disco|Operazioni di scrittura su disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la scrittura su un singolo disco per il periodo di monitoraggio|SlotId|
+|Profondità coda per disco dati|Profondità coda per un disco dati (anteprima)|Conteggio|Media|Profondità coda del disco dati (o lunghezza coda)|SlotId|
+|Byte letti da disco/sec per disco del sistema operativo|Byte letti da disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo letti da un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Byte scritti su disco/sec per disco del sistema operativo|Byte scritti su disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo scritti su un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Operazioni di lettura da disco/sec per disco del sistema operativo|Operazioni di lettura da disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la lettura da un singolo disco per il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Operazioni di scrittura su disco/sec per disco del sistema operativo|Operazioni di scrittura su disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la scrittura su un singolo disco per il periodo di monitoraggio per il disco del sistema operativo|Nessuna dimensione|
+|Profondità coda per disco del sistema operativo|Profondità coda per un disco sistema operativo (anteprima)|Conteggio|Media|Profondità coda del disco del sistema operativo (o lunghezza coda)|Nessuna dimensione|
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
@@ -395,6 +426,16 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |---|---|---|---|---|---|
 |CpuUsage|Utilizzo di CPU|Conteggio|Media|Uso della CPU in tutti i core in millicore.|containerName|
 |MemoryUsage|Utilizzo della memoria|Byte|Media|Uso della memoria totale in byte.|containerName|
+
+## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
+|---|---|---|---|---|---|
+|kube_node_status_allocatable_cpu_cores|Total number of available cpu cores in a managed cluster (Numero totale di core CPU disponibili in un cluster gestito)|Conteggio|Totale|Numero totale di core CPU disponibili in un cluster gestito|Nessuna dimensione|
+|kube_node_status_allocatable_memory_bytes|Total amount of available memory in a managed cluster (Numero totale di memoria disponibile in un cluster gestito)|Byte|Totale|Numero totale di memoria disponibile in un cluster gestito|Nessuna dimensione|
+|kube_pod_status_ready|Number of pods in Ready state (Numero di pod in stato Pronto)|Conteggio|Totale|Numero di pod in stato Pronto|spazio dei nomi, pod|
+|kube_node_status_condition|Statuses for various node conditions (Stati per diverse condizioni dei nodi)|Conteggio|Totale|Stati per diverse condizioni dei nodi|condizione, stato, nodo|
+|kube_pod_status_phase|Number of pods by phase (Numero di pod per fase)|Conteggio|Totale|Numero di pod per fase|fase, spazio dei nomi, pod|
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
@@ -435,8 +476,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|FailedRuns|Esecuzioni non riuscite|Conteggio|Totale||pipelineName, activityName, windowEnd, windowStart |
-|SuccessfulRuns|Esecuzioni riuscite|Conteggio|Totale||pipelineName, activityName, windowEnd, windowStart |
+|FailedRuns|Esecuzioni non riuscite|Conteggio|Totale||pipelineName, activityName, windowEnd, windowStart|
+|SuccessfulRuns|Esecuzioni riuscite|Conteggio|Totale||pipelineName, activityName, windowEnd, windowStart|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
 
@@ -477,30 +518,32 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
 |cpu_percent|Percentuale CPU|Percentuale|Media|Percentuale CPU|Nessuna dimensione|
-|compute_limit|Limite unità di calcolo|Conteggio|Media|Limite unità di calcolo|Nessuna dimensione|
-|compute_consumption_percent|Compute Unit percentage (Percentuale unità di calcolo)|Percentuale|Media|Percentuale unità di calcolo|Nessuna dimensione|
 |memory_percent|Percentuale memoria|Percentuale|Media|Percentuale memoria|Nessuna dimensione|
 |io_consumption_percent|IO percent (Percentuale IO)|Percentuale|Media|IO percent (Percentuale IO)|Nessuna dimensione|
-|storage_percent|Percentuale archiviazione|Percentuale|Media|Percentuale archiviazione|Nessuna dimensione|
+|storage_percent|Percentuale archiviazione|Percentuale|Media|Percentuale di archiviazione|Nessuna dimensione|
 |storage_used|Uso archiviazione|Byte|Media|Uso archiviazione|Nessuna dimensione|
 |storage_limit|Limite archiviazione|Byte|Media|Limite archiviazione|Nessuna dimensione|
+|serverlog_storage_percent|Server Log storage percent (Percentuale archiviazione log server)|Percentuale|Media|Percentuale di archiviazione dei log del server|Nessuna dimensione|
+|serverlog_storage_usage|Server Log storage used (Archiviazione log server usata)|Byte|Media|Archiviazione dei log del server usata|Nessuna dimensione|
+|serverlog_storage_limit|Server Log storage limit (Limite archiviazione log server)|Byte|Media|Limite di archiviazione dei log del server|Nessuna dimensione|
 |active_connections|Total active connections (Numero totale di connessioni attive)|Conteggio|Media|Numero totale di connessioni attive|Nessuna dimensione|
-|connections_failed|Total failed connections (Numero totale di connessioni non riuscite)|Conteggio|Media|Numero totale di connessioni non riuscite|Nessuna dimensione|
+|connections_failed|Total failed connections (Numero totale di connessioni non riuscite)|Conteggio|Totale|Numero totale di connessioni non riuscite|Nessuna dimensione|
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
 |cpu_percent|Percentuale CPU|Percentuale|Media|Percentuale CPU|Nessuna dimensione|
-|compute_limit|Limite unità di calcolo|Conteggio|Media|Limite unità di calcolo|Nessuna dimensione|
-|compute_consumption_percent|Compute Unit percentage (Percentuale unità di calcolo)|Percentuale|Media|Percentuale unità di calcolo|Nessuna dimensione|
 |memory_percent|Percentuale memoria|Percentuale|Media|Percentuale memoria|Nessuna dimensione|
 |io_consumption_percent|IO percent (Percentuale IO)|Percentuale|Media|IO percent (Percentuale IO)|Nessuna dimensione|
-|storage_percent|Percentuale archiviazione|Percentuale|Media|Percentuale archiviazione|Nessuna dimensione|
+|storage_percent|Percentuale archiviazione|Percentuale|Media|Percentuale di archiviazione|Nessuna dimensione|
 |storage_used|Uso archiviazione|Byte|Media|Uso archiviazione|Nessuna dimensione|
 |storage_limit|Limite archiviazione|Byte|Media|Limite archiviazione|Nessuna dimensione|
-|active_connections|Total active connections (Numero totale di connessioni attive)|Conteggio|Media|Numero totale di connessioni attive|Nessuna dimensione|
-|connections_failed|Total failed connections (Numero totale di connessioni non riuscite)|Conteggio|Media|Numero totale di connessioni non riuscite|Nessuna dimensione|
+|serverlog_storage_percent|Server Log storage percent (Percentuale archiviazione log server)|Percentuale|Media|Percentuale di archiviazione dei log del server|Nessuna dimensione|
+|serverlog_storage_usage|Server Log storage used (Archiviazione log server usata)|Byte|Media|Archiviazione dei log del server usata|Nessuna dimensione|
+|serverlog_storage_limit|Server Log storage limit (Limite archiviazione log server)|Byte|Media|Limite di archiviazione dei log del server|Nessuna dimensione|
+|active_connections|Total active connections (Numero totale di connessioni attive)|Conteggio|Totale|Numero totale di connessioni attive|Nessuna dimensione|
+|connections_failed|Total failed connections (Numero totale di connessioni non riuscite)|Conteggio|Totale|Numero totale di connessioni non riuscite|Nessuna dimensione|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
@@ -572,76 +615,6 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |RegistrationAttempts|Tentativi di registrazione|Conteggio|Totale|Numero di tentativi di registrazione dispositivo|ProvisioningServiceName, IotHubName, Status|
 |DeviceAssignments|Dispositivi assegnati|Conteggio|Totale|Numero di dispositivi assegnati a un hub IoT|ProvisioningServiceName, IotHubName|
 |AttestationAttempts|Tentativi di attestazione|Conteggio|Totale|Numero di tentativi di attestazioni dispositivo|ProvisioningServiceName, Status, Protocol|
-
-## <a name="microsoftdeviceselasticpools"></a>Microsoft.Devices/ElasticPools
-
-|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
-|---|---|---|---|---|---|
-|elasticPool.requestedUsageRate|requested usage rate (Frequenza di utilizzo richiesta)|Percentuale|Media|requested usage rate (Frequenza di utilizzo richiesta)|Nessuna dimensione|
-
-## <a name="microsoftdeviceselasticpoolsiothubtenants"></a>Microsoft.Devices/ElasticPools/IotHubTenants
-
-|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
-|---|---|---|---|---|---|
-|tenantHub.requestedUsageRate|requested usage rate (Frequenza di utilizzo richiesta)|Percentuale|Media|requested usage rate (Frequenza di utilizzo richiesta)|Nessuna dimensione|
-|deviceDataUsage|Total devicedata usage (Utilizzo dei dati dei dispositivi totale)|Conteggio|Totale|Byte trasferiti a e da qualsiasi dispositivo connesso all'hub IoT|Nessuna dimensione|
-|d2c.telemetry.ingress.allProtocol|Tentativi di invio di messaggi di telemetria|Conteggio|Totale|Il numero di messaggi di telemetria da dispositivo a cloud che si è cercato di inviare all'hub IoT|Nessuna dimensione|
-|d2c.telemetry.ingress.success|Messaggi di telemetria inviati|Conteggio|Totale|Il numero di messaggi di telemetria da dispositivo a cloud inviati all'hub IoT|Nessuna dimensione|
-|c2d.commands.egress.complete.success|Comandi completati|Conteggio|Totale|Numero di comandi da cloud a dispositivo completati dal dispositivo|Nessuna dimensione|
-|c2d.commands.egress.abandon.success|Comandi abbandonati|Conteggio|Totale|Numero di comandi da cloud a dispositivo abbandonati dal dispositivo|Nessuna dimensione|
-|c2d.commands.egress.reject.success|Comandi rifiutati|Conteggio|Totale|Numero di comandi da cloud a dispositivo rifiutati dal dispositivo|Nessuna dimensione|
-|devices.totalDevices|Totale dispositivi|Conteggio|Totale|Il numero di dispositivi registrati nell'hub IoT|Nessuna dimensione|
-|devices.connectedDevices.allProtocol|Dispositivi connessi|Conteggio|Totale|Il numero di dispositivi connessi all'hub IoT|Nessuna dimensione|
-|d2c.telemetry.egress.success|Messaggi telemetria recapitati|Conteggio|Totale|Numero di volte in cui i messaggi sono stati scritti negli endpoint (totale)|Nessuna dimensione|
-|d2c.telemetry.egress.dropped|Messaggi rimossi|Conteggio|Totale|Numero di messaggi eliminati per mancata attività dell'endpoint di recapito|Nessuna dimensione|
-|d2c.telemetry.egress.orphaned|Messaggi orfani|Conteggio|Totale|Il numero di messaggi non corrispondenti ad alcuna route inclusa la route di fallback|Nessuna dimensione|
-|d2c.telemetry.egress.invalid|Messaggi non validi|Conteggio|Totale|Il numero dei messaggi non recapitati per incompatibilità con l'endpoint|Nessuna dimensione|
-|d2c.telemetry.egress.fallback|Messaggi corrispondenti alla condizione di fallback|Conteggio|Totale|Numero di messaggi scritti nell'endpoint di fallback|Nessuna dimensione|
-|d2c.endpoints.egress.eventHubs|Messaggi recapitati agli endpoint dell'hub eventi|Conteggio|Totale|Numero di volte in cui i messaggi sono stati scritti negli endpoint dell'hub eventi|Nessuna dimensione|
-|d2c.endpoints.latency.eventHubs|Latenza messaggi per gli endpoint di Hub eventi|Millisecondi|Media|La latenza media tra l'ingresso del messaggio nell'hub IoT e l'ingresso del messaggio in un endpoint di Hub eventi, in millisecondi|Nessuna dimensione|
-|d2c.endpoints.egress.serviceBusQueues|Messaggi recapitati agli endpoint della coda del bus di servizio|Conteggio|Totale|Numero di volte in cui i messaggi sono stati scritti negli endpoint della coda del bus di servizio|Nessuna dimensione|
-|d2c.endpoints.latency.serviceBusQueues|Latenza messaggi per gli endpoint della coda del bus di servizio|Millisecondi|Media|La latenza media tra l'ingresso del messaggio nell'hub IoT e l'ingresso del messaggio in un endpoint della coda del bus di servizio, in millisecondi|Nessuna dimensione|
-|d2c.endpoints.egress.serviceBusTopics|Messaggi recapitati agli endpoint dell'argomento del bus di servizio|Conteggio|Totale|Numero di volte in cui i messaggi sono stati scritti negli endpoint dell'argomento del bus di servizio|Nessuna dimensione|
-|d2c.endpoints.latency.serviceBusTopics|Latenza messaggi per gli endpoint dell'argomento del bus di servizio|Millisecondi|Media|La latenza media tra l'ingresso del messaggio nell'hub IoT e l'ingresso del messaggio in un endpoint dell'argomento del bus di servizio, in millisecondi|Nessuna dimensione|
-|d2c.endpoints.egress.builtIn.events|Messaggi recapitati all'endpoint predefinito (messaggi/eventi)|Conteggio|Totale|Numero di volte in cui i messaggi sono stati scritti nell'endpoint predefinito (messaggi/eventi)|Nessuna dimensione|
-|d2c.endpoints.latency.builtIn.events|Latenza dei messaggi per l'endpoint predefinito (messaggi/eventi)|Millisecondi|Media|La latenza media tra l'ingresso del messaggio nell'hub IoT e l'ingresso del messaggio nell'endpoint predefinito (messaggi/eventi), in millisecondi |Nessuna dimensione|
-|d2c.endpoints.egress.storage|Messaggi recapitati agli endpoint di archiviazione|Conteggio|Totale|Numero di volte in cui i messaggi sono stati scritti negli endpoint di archiviazione|Nessuna dimensione|
-|d2c.endpoints.latency.storage|Latenza dei messaggi per gli endpoint di archiviazione|Millisecondi|Media|Latenza media tra l'ingresso del messaggio nell'hub IoT e l'ingresso del messaggio in un endpoint di archiviazione, in millisecondi|Nessuna dimensione|
-|d2c.endpoints.egress.storage.bytes|Dati scritti nell'archivio|Byte|Totale|Quantità di dati, in byte, scritti negli endpoint di archiviazione|Nessuna dimensione|
-|d2c.endpoints.egress.storage.blobs|BLOB scritti nell'archivio|Conteggio|Totale|Numero di BLOB scritti negli endpoint di archiviazione|Nessuna dimensione|
-|d2c.twin.read.success|Letture dei dispositivi gemelli completate dai dispositivi|Conteggio|Totale|Numero di tutte le letture dei dispositivi gemelli avviate dal dispositivo completate.|Nessuna dimensione|
-|d2c.twin.read.failure|Letture dei dispositivi gemelli non riuscite per i dispositivi|Conteggio|Totale|Numero di tutte le letture dei dispositivi gemelli avviate dal dispositivo non riuscite.|Nessuna dimensione|
-|d2c.twin.read.size|Dimensioni delle risposte di letture dei dispositivi gemelli dai dispositivi|Byte|Media|Numero medio, minimo e massimo di letture dei dispositivi gemelli avviate dal dispositivo completate.|Nessuna dimensione|
-|d2c.twin.update.success|Aggiornamenti dei dispositivi gemelli completati dai dispositivi|Conteggio|Totale|Numero di tutti gli aggiornamenti dei dispositivi gemelli avviati dal dispositivo completati.|Nessuna dimensione|
-|d2c.twin.update.failure|Aggiornamenti dei dispositivi gemelli non riusciti per i dispositivi|Conteggio|Totale|Numero di tutti gli aggiornamenti dei dispositivi gemelli avviati dal dispositivo non riusciti.|Nessuna dimensione|
-|d2c.twin.update.size|Dimensioni degli aggiornamenti dei dispositivi gemelli dai dispositivi|Byte|Media|Dimensioni medie, minime e massime degli aggiornamenti dei dispositivi gemelli avviati dal dispositivo completati.|Nessuna dimensione|
-|c2d.methods.success|Chiamate a metodi diretti riuscite|Conteggio|Totale|Numero di tutte le chiamate a metodi diretti riuscite.|Nessuna dimensione|
-|c2d.methods.failure|Chiamate a metodi diretti non riuscite|Conteggio|Totale|Numero di tutte le chiamate a metodi diretti non riuscite.|Nessuna dimensione|
-|c2d.methods.requestSize|Dimensioni delle richieste di chiamate a metodi diretti|Byte|Media|Dimensioni medie, minime e massime delle richieste di chiamate a metodi diretti riuscite.|Nessuna dimensione|
-|c2d.methods.responseSize|Dimensioni delle risposte a chiamate a metodi diretti|Byte|Media|Dimensioni medie, minime e massime delle risposte a chiamate a metodi diretti riuscite.|Nessuna dimensione|
-|c2d.twin.read.success|Letture dei dispositivi gemelli completate dal back-end|Conteggio|Totale|Numero di tutte le letture dei dispositivi gemelli avviate dal back-end completate.|Nessuna dimensione|
-|c2d.twin.read.failure|Letture dei dispositivi gemelli non riuscite per il back-end|Conteggio|Totale|Numero di tutte le letture dei dispositivi gemelli avviate dal back-end non riuscite.|Nessuna dimensione|
-|c2d.twin.read.size|Dimensioni delle risposte di letture dei dispositivi gemelli dal back-end|Byte|Media|Numero medio, minimo e massimo di letture dei dispositivi gemelli avviate dal back-end completate.|Nessuna dimensione|
-|c2d.twin.update.success|Aggiornamenti dei dispositivi gemelli completati dal back-end|Conteggio|Totale|Numero di tutti gli aggiornamenti dei dispositivi gemelli avviati dal back-end completati.|Nessuna dimensione|
-|c2d.twin.update.failure|Aggiornamenti dei dispositivi gemelli non riusciti per il back-end|Conteggio|Totale|Numero di tutti gli aggiornamenti dei dispositivi gemelli avviati dal back-end non riusciti.|Nessuna dimensione|
-|c2d.twin.update.size|Dimensioni degli aggiornamenti dei dispositivi gemelli dal back-end|Byte|Media|Dimensioni medie, minime e massime degli aggiornamenti dei dispositivi gemelli avviati dal back-end completati.|Nessuna dimensione|
-|twinQueries.success|Query dei dispositivi gemelli completate|Conteggio|Totale|Numero di tutte le query dei dispositivi gemelli completate.|Nessuna dimensione|
-|twinQueries.failure|Query dei dispositivi gemelli non riuscite|Conteggio|Totale|Numero di tutte le query dei dispositivi gemelli non riuscite.|Nessuna dimensione|
-|twinQueries.resultSize|Dimensioni dei risultati delle query dei dispositivi gemelli|Byte|Media|Dimensioni medie, minime e massime dei risultati delle query dei dispositivi gemelli.|Nessuna dimensione|
-|jobs.createTwinUpdateJob.success|Creazioni di processi di aggiornamento dei dispositivi gemelli completate|Conteggio|Totale|Numero di tutte le creazioni di processi di aggiornamento dei dispositivi gemelli completate.|Nessuna dimensione|
-|jobs.createTwinUpdateJob.failure|Creazioni di processi di aggiornamento dei dispositivi gemelli non riuscite|Conteggio|Totale|Numero di tutte le creazioni di processi di aggiornamento dei dispositivi gemelli non riuscite.|Nessuna dimensione|
-|jobs.createDirectMethodJob.success|Creazioni di processi di chiamata al metodo completate|Conteggio|Totale|Numero di tutte le creazioni di processi di chiamata a metodi diretti completate.|Nessuna dimensione|
-|jobs.createDirectMethodJob.failure|Creazioni di processi di chiamata al metodo non riuscite|Conteggio|Totale|Numero di tutte le creazioni di processi di chiamata a metodi diretti non riuscite.|Nessuna dimensione|
-|jobs.listJobs.success|Chiamate per elencare i processi riuscite|Conteggio|Totale|Numero di tutte le chiamate per elencare i processi riuscite.|Nessuna dimensione|
-|jobs.listJobs.failure|Chiamate per elencare i processi non riuscite|Conteggio|Totale|Numero di tutte le chiamate per elencare i processi non riuscite.|Nessuna dimensione|
-|jobs.cancelJob.success|Annullamenti di processi riusciti|Conteggio|Totale|Numero di tutte le chiamate per annullare i processi riuscite.|Nessuna dimensione|
-|jobs.cancelJob.failure|Annullamenti di processi non riusciti|Conteggio|Totale|Numero di tutte le chiamate per annullare i processi non riuscite.|Nessuna dimensione|
-|jobs.queryJobs.success|Query sui processi riuscite|Conteggio|Totale|Numero di tutte le chiamate per eseguire query sui processi riuscite.|Nessuna dimensione|
-|jobs.queryJobs.failure|Query sui processi non riuscite|Conteggio|Totale|Numero di tutte le chiamate per eseguire query sui processi non riuscite.|Nessuna dimensione|
-|jobs.completed|Processi completati|Conteggio|Totale|Numero di tutti i processi completati.|Nessuna dimensione|
-|jobs.failed|Processi non riusciti|Conteggio|Totale|Numero di tutti i processi non riusciti.|Nessuna dimensione|
-|d2c.telemetry.ingress.sendThrottle|Number of throttling errors (Numero di errori di limitazione)|Conteggio|Totale|Numero di errori di limitazione dovuti alle limitazioni della velocità effettiva del dispositivo|Nessuna dimensione|
-|dailyMessageQuotaUsed|Total number of messages used (Numero totale di messaggi usati)|Conteggio|Media|Numero totale di messaggi usati nella data odierna. Si tratta di un valore cumulativo che viene reimpostato su zero alle 00:00 UTC ogni giorno.|Nessuna dimensione|
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
@@ -920,13 +893,6 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |incoming.all.requests|Tutte le richieste in ingresso|Conteggio|Totale|Totale richieste in ingresso per un hub di notifica|Nessuna dimensione|
 |incoming.all.failedrequests|Tutte le richieste in ingresso non riuscite|Conteggio|Totale|Totale richieste in ingresso non riuscite per un hub di notifica|Nessuna dimensione|
 
-## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
-
-|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
-|---|---|---|---|---|---|
-|QueryDuration|Durata delle query|Millisecondi|Media|Durata delle query DAX nell'ultimo intervallo|Nessuna dimensione|
-|QueryPoolJobQueueLength|Thread: lunghezza della coda processi nel pool di query|Conteggio|Media|Numero dei processi nella coda del pool dei thread di query.|Nessuna dimensione|
-
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
 (Anteprima pubblica)
 
@@ -1003,6 +969,16 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Heartbeat|Heartbeat|Conteggio|Media|Heartbeat|Computer, OSType, Version, SourceComputerId|
 |Aggiornamento|Aggiornamento|Conteggio|Media|Aggiornamento|Computer, Product, Classification, UpdateState, Optional, Approved|
 
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
+|---|---|---|---|---|---|
+|QueryDuration|Durata delle query|Millisecondi|Media|Durata delle query DAX nell'ultimo intervallo|Nessuna dimensione|
+|QueryPoolJobQueueLength|Thread: lunghezza della coda processi nel pool di query|Conteggio|Media|Numero dei processi nella coda del pool dei thread di query.|Nessuna dimensione|
+|qpu_high_utilization_metric|QPU High Utilization (Utilizzo elevato QPU)|Conteggio|Totale|Utilizzo elevato di QPU nell'ultimo minuto, 1 per utilizzo elevato, altrimenti 0|Nessuna dimensione|
+|memory_metric|Memoria|Byte|Media|Memoria. Intervallo di 0-3 GB per A1, 0-5 GB per A2, 0-10 GB per A3, 0-25 GB per A4, 0-50 GB per A5 e 0-100 GB per A6|Nessuna dimensione|
+|memory_thrashing_metric|Thrashing di memoria|Percentuale|Media|Thrashing di memoria medio.|Nessuna dimensione|
+
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
@@ -1046,6 +1022,20 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |ActiveMessages|Numero di messaggi attivi contenuti in una coda o in un argomento. (Anteprima)|Conteggio|Media|Numero di messaggi attivi contenuti in una coda o in un argomento. (Anteprima)|EntityName|
 |CPUXNS|Uso della CPU per spazio dei nomi|Percentuale|Massima|Metrica di utilizzo CPU per spazio dei nomi Premium del bus di servizio|Nessuna dimensione|
 |WSXNS|Uso delle dimensioni della memoria per spazio dei nomi|Percentuale|Massima|Metrica di utilizzo memoria per spazio dei nomi Premium del bus di servizio|Nessuna dimensione|
+
+## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
+|---|---|---|---|---|---|
+|ConnectionCount|Numero di connessioni|Conteggio|Massima|Quantità di connessioni utente.|Nessuna dimensione|
+|ConnectionCountPerSecond|Connection Count Per Second (Numero di connessioni al secondo)|Conteggio al secondo|Media|Numero medio di connessioni al secondo.|Nessuna dimensione|
+|MessageCount|Numero messaggi|Conteggio|Massima|Quantità totale di messaggi nel mese|Nessuna dimensione|
+|MessageCountPerSecond|Message Count Per Second (Numero di messaggi al secondo)|Conteggio al secondo|Media|Numero medio di messaggi|Nessuna dimensione|
+|MessageUsed|Message Used (Messaggi usati)|Percentuale|Massima|Percentuale di messaggi usati nel mese|Nessuna dimensione|
+|ConnectionUsed|Connessioni usate|Percentuale|Massima|Percentuale di connessioni usate|Nessuna dimensione|
+|UserErrors|Errori utente|Percentuale|Massima|Percentuale di errori utente|Nessuna dimensione|
+|SystemErrors|Errori di sistema|Percentuale|Massima|Percentuale di errori di sistema|Nessuna dimensione|
+|SystemLoad|Carico del sistema|Percentuale|Massima|Percentuale di carico del sistema|Nessuna dimensione|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
@@ -1182,6 +1172,30 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |DeserializationError|Errori di deserializzazione dell'input|Conteggio|Totale|Errori di deserializzazione dell'input|Nessuna dimensione|
 |EarlyInputEvents|Eventi il cui tempo applicazione è precedente all'ora di arrivo.|Conteggio|Totale|Eventi il cui tempo applicazione è precedente all'ora di arrivo.|Nessuna dimensione|
 
+## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
+|---|---|---|---|---|---|
+|IngressReceivedMessages|Ingress Received Messages (Messaggi ricevuti in ingresso)|Conteggio|Totale|Numero dei messaggi letti da tutte le origini eventi di hub eventi o hub IoT|Nessuna dimensione|
+|IngressReceivedInvalidMessages|Ingress Received Invalid Messages (Messaggi non validi ricevuti in ingresso)|Conteggio|Totale|Numero dei messaggi non validi letti da tutte le origini eventi di hub eventi o hub IoT|Nessuna dimensione|
+|IngressReceivedBytes|Ingress Received Bytes (Byte ricevuti in ingresso)|Byte|Totale|Numero di byte letti da tutte le origini eventi|Nessuna dimensione|
+|IngressStoredBytes|Ingress Stored Bytes (Byte archiviati in ingresso)|Byte|Totale|Dimensioni totali degli eventi elaborati correttamente e disponibili per le query|Nessuna dimensione|
+|IngressStoredEvents|Ingress Stored Events (Eventi archiviati in ingresso)|Conteggio|Totale|Numero degli eventi flat elaborati correttamente e disponibili per le query|Nessuna dimensione|
+|IngressReceivedMessagesTimeLag|Ingress Received Messages Time Lag (Tempo di ritardo messaggi ricevuti in ingresso)|Secondi|Massima|Differenza tra l'ora in cui il messaggio viene accodato nell'origine eventi e l'ora di elaborazione in ingresso.|Nessuna dimensione|
+|IngressReceivedMessagesCountLag|Ingress Received Messages Count Lag (Ritardo numero di messaggi ricevuti in ingresso)|Conteggio|Media|Differenza tra il numero di sequenza dell'ultimo messaggio accodato nella partizione di origine eventi e il numero di sequenza del messaggio elaborato in ingresso|Nessuna dimensione|
+
+## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/environments/eventsources
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
+|---|---|---|---|---|---|
+|IngressReceivedMessages|Ingress Received Messages (Messaggi ricevuti in ingresso)|Conteggio|Totale|Numero messaggi letti dall'origine eventi|Nessuna dimensione|
+|IngressReceivedInvalidMessages|Ingress Received Invalid Messages (Messaggi non validi ricevuti in ingresso)|Conteggio|Totale|Numero di messaggi non validi letti dall'origine eventi|Nessuna dimensione|
+|IngressReceivedBytes|Ingress Received Bytes (Byte ricevuti in ingresso)|Byte|Totale|Numero di byte letti dall'origine eventi|Nessuna dimensione|
+|IngressStoredBytes|Ingress Stored Bytes (Byte archiviati in ingresso)|Byte|Totale|Dimensioni totali degli eventi elaborati correttamente e disponibili per le query|Nessuna dimensione|
+|IngressStoredEvents|Ingress Stored Events (Eventi archiviati in ingresso)|Conteggio|Totale|Numero degli eventi flat elaborati correttamente e disponibili per le query|Nessuna dimensione|
+|IngressReceivedMessagesTimeLag|Ingress Received Messages Time Lag (Tempo di ritardo messaggi ricevuti in ingresso)|Secondi|Massima|Differenza tra l'ora in cui il messaggio viene accodato nell'origine eventi e l'ora di elaborazione in ingresso.|Nessuna dimensione|
+|IngressReceivedMessagesCountLag|Ingress Received Messages Count Lag (Ritardo numero di messaggi ricevuti in ingresso)|Conteggio|Media|Differenza tra il numero di sequenza dell'ultimo messaggio accodato nella partizione di origine eventi e il numero di sequenza del messaggio elaborato in ingresso|Nessuna dimensione|
+
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
@@ -1216,6 +1230,19 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |AppConnections|connessioni|Conteggio|Media|connessioni|Istanza|
 |Handles|Numero di handle|Conteggio|Media|Numero di handle|Istanza|
 |Threads|Thread Count|Conteggio|Media|Thread Count|Istanza|
+|IoReadBytesPerSecond|I/O - Byte in lettura al secondo|Byte al secondo|Totale|I/O - Byte in lettura al secondo|Istanza|
+|IoWriteBytesPerSecond|I/O - Byte in scrittura al secondo|Byte al secondo|Totale|I/O - Byte in scrittura al secondo|Istanza|
+|IoOtherBytesPerSecond|I/O - Altri byte al secondo|Byte al secondo|Totale|I/O - Altri byte al secondo|Istanza|
+|IoReadOperationsPerSecond|I/O - Operazioni di lettura al secondo|Byte al secondo|Totale|I/O - Operazioni di lettura al secondo|Istanza|
+|IoWriteOperationsPerSecond|I/O - Operazioni di scrittura al secondo|Byte al secondo|Totale|I/O - Operazioni di scrittura al secondo|Istanza|
+|IoOtherOperationsPerSecond|I/O - Altre operazioni al secondo|Byte al secondo|Totale|I/O - Altre operazioni al secondo|Istanza|
+|RequestsInApplicationQueue|Requests In Application Queue (Richieste nella coda dell'applicazione)|Conteggio|Media|Richieste nella coda dell'applicazione|Istanza|
+|CurrentAssemblies|Assembly attuali|Conteggio|Media|Assembly attuali|Istanza|
+|TotalAppDomains|Totale domini app|Conteggio|Media|Totale di domini app|Istanza|
+|TotalAppDomainsUnloaded|Totale domini app scaricati|Conteggio|Media|Totale di domini app scaricati|Istanza|
+|Gen0Collections|Gen 0 Garbage Collections (Garbage Collection di generazione 0)|Conteggio|Totale|Garbage Collection di generazione 0|Istanza|
+|Gen1Collections|Gen 1 Garbage Collections (Garbage Collection di generazione 1)|Conteggio|Totale|Garbage Collection di generazione 1|Istanza|
+|Gen2Collections|Gen 2 Garbage Collections (Garbage Collection di generazione 2)|Conteggio|Totale|Garbage Collection di generazione 2|Istanza|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funzioni)
 
@@ -1228,6 +1255,19 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |AverageMemoryWorkingSet|Working set della memoria medio|Byte|Media|Working set della memoria medio|Istanza|
 |FunctionExecutionUnits|Unità di esecuzione della funzione|Conteggio|Totale|Unità di esecuzione della funzione|Istanza|
 |FunctionExecutionCount|Conteggio delle esecuzioni della funzione|Conteggio|Totale|Conteggio delle esecuzioni della funzione|Istanza|
+|IoReadBytesPerSecond|I/O - Byte in lettura al secondo|Byte al secondo|Totale|I/O - Byte in lettura al secondo|Istanza|
+|IoWriteBytesPerSecond|I/O - Byte in scrittura al secondo|Byte al secondo|Totale|I/O - Byte in scrittura al secondo|Istanza|
+|IoOtherBytesPerSecond|I/O - Altri byte al secondo|Byte al secondo|Totale|I/O - Altri byte al secondo|Istanza|
+|IoReadOperationsPerSecond|I/O - Operazioni di lettura al secondo|Byte al secondo|Totale|I/O - Operazioni di lettura al secondo|Istanza|
+|IoWriteOperationsPerSecond|I/O - Operazioni di scrittura al secondo|Byte al secondo|Totale|I/O - Operazioni di scrittura al secondo|Istanza|
+|IoOtherOperationsPerSecond|I/O - Altre operazioni al secondo|Byte al secondo|Totale|I/O - Altre operazioni al secondo|Istanza|
+|RequestsInApplicationQueue|Requests In Application Queue (Richieste nella coda dell'applicazione)|Conteggio|Media|Richieste nella coda dell'applicazione|Istanza|
+|CurrentAssemblies|Assembly attuali|Conteggio|Media|Assembly attuali|Istanza|
+|TotalAppDomains|Totale domini app|Conteggio|Media|Totale di domini app|Istanza|
+|TotalAppDomainsUnloaded|Totale domini app scaricati|Conteggio|Media|Totale di domini app scaricati|Istanza|
+|Gen0Collections|Gen 0 Garbage Collections (Garbage Collection di generazione 0)|Conteggio|Totale|Garbage Collection di generazione 0|Istanza|
+|Gen1Collections|Gen 1 Garbage Collections (Garbage Collection di generazione 1)|Conteggio|Totale|Garbage Collection di generazione 1|Istanza|
+|Gen2Collections|Gen 2 Garbage Collections (Garbage Collection di generazione 2)|Conteggio|Totale|Garbage Collection di generazione 2|Istanza|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
@@ -1254,6 +1294,19 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |AppConnections|connessioni|Conteggio|Media|connessioni|Istanza|
 |Handles|Numero di handle|Conteggio|Media|Numero di handle|Istanza|
 |Threads|Thread Count|Conteggio|Media|Thread Count|Istanza|
+|IoReadBytesPerSecond|I/O - Byte in lettura al secondo|Byte al secondo|Totale|I/O - Byte in lettura al secondo|Istanza|
+|IoWriteBytesPerSecond|I/O - Byte in scrittura al secondo|Byte al secondo|Totale|I/O - Byte in scrittura al secondo|Istanza|
+|IoOtherBytesPerSecond|I/O - Altri byte al secondo|Byte al secondo|Totale|I/O - Altri byte al secondo|Istanza|
+|IoReadOperationsPerSecond|I/O - Operazioni di lettura al secondo|Byte al secondo|Totale|I/O - Operazioni di lettura al secondo|Istanza|
+|IoWriteOperationsPerSecond|I/O - Operazioni di scrittura al secondo|Byte al secondo|Totale|I/O - Operazioni di scrittura al secondo|Istanza|
+|IoOtherOperationsPerSecond|I/O - Altre operazioni al secondo|Byte al secondo|Totale|I/O - Altre operazioni al secondo|Istanza|
+|RequestsInApplicationQueue|Requests In Application Queue (Richieste nella coda dell'applicazione)|Conteggio|Media|Richieste nella coda dell'applicazione|Istanza|
+|CurrentAssemblies|Assembly attuali|Conteggio|Media|Assembly attuali|Istanza|
+|TotalAppDomains|Totale domini app|Conteggio|Media|Totale di domini app|Istanza|
+|TotalAppDomainsUnloaded|Totale domini app scaricati|Conteggio|Media|Totale di domini app scaricati|Istanza|
+|Gen0Collections|Gen 0 Garbage Collections (Garbage Collection di generazione 0)|Conteggio|Totale|Garbage Collection di generazione 0|Istanza|
+|Gen1Collections|Gen 1 Garbage Collections (Garbage Collection di generazione 1)|Conteggio|Totale|Garbage Collection di generazione 1|Istanza|
+|Gen2Collections|Gen 2 Garbage Collections (Garbage Collection di generazione 2)|Conteggio|Totale|Garbage Collection di generazione 2|Istanza|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 

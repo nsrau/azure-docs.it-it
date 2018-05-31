@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: fcd9ff8b726b5dc3e0d447bc384dbcc7cc1a4e88
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2fbf7bd736a59cbcd6231fa8325a084f54927467
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261456"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Bilanciamento del carico in più configurazioni IP tramite il portale di Azure
 
@@ -42,7 +43,7 @@ In questo scenario viene usata la configurazione seguente:
 - Azure Load Balancer viene usato per esporre due indirizzi IP front-end, uno per ogni sito Web. Gli indirizzi front-end vengono usati per distribuire il traffico verso la rispettiva configurazione IP per ciascun sito Web.
 - Lo stesso numero di porta viene usato per gli indirizzi IP front-end e gli indirizzi IP del pool back-end.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Questo scenario di esempio presuppone che sia disponibile un gruppo di risorse, denominato **contosofabrikam**, con la configurazione seguente:
 
@@ -120,7 +121,7 @@ Per ognuno dei siti Web (contoso.com e fabrikam.com) configurare il pool di indi
 
 4. Selezionare il servizio di bilanciamento del carico (**mylb**) in cui si vuole aggiungere il pool di indirizzi IP front-end.
 
-5. In **Impostazioni** selezionare **Pool front-end**. Nella parte superiore del riquadro successivo selezionare **Aggiungi**.
+5. In **Impostazioni** selezionare **Configurazione IP front-end**. Nella parte superiore del riquadro successivo selezionare **Aggiungi**.
 
 6. Digitare un nome per l'indirizzo IP front-end, ad esempio **contosofe** o **fabrikamfe**.
 
@@ -128,7 +129,7 @@ Per ognuno dei siti Web (contoso.com e fabrikam.com) configurare il pool di indi
 
 8. Creare il secondo indirizzo IP front-end ripetendo la procedura dal <a href="#step3-3">passaggio 3</a> al <a href="#step3-7">passaggio 7</a> in questa sezione.
 
-Dopo la configurazione del pool front-end, gli indirizzi IP vengono visualizzati nelle impostazioni **Pool di indirizzi IP front-end** del servizio di bilanciamento del carico. 
+Dopo la configurazione del pool front-end, gli indirizzi IP vengono visualizzati nelle impostazioni **Configurazione IP front-end** del servizio di bilanciamento del carico. 
     
 ### <a name="step-4-configure-the-back-end-pool"></a>Passaggio 4: Configurare il pool back-end
 
@@ -172,7 +173,7 @@ Configurare un probe di integrità per il servizio di bilanciamento del carico:
 
 Per ognuno dei siti Web (contoso.com e fabrikam.com) configurare le regole di bilanciamento del carico:
     
-1. <a name="step6-1"></a>In **Impostazioni** selezionare **Probe integrità**. Nella parte superiore del riquadro successivo selezionare **Aggiungi**. 
+1. <a name="step6-1"></a>In **Impostazioni** selezionare **Regole di bilanciamento del carico**. Nella parte superiore del riquadro successivo selezionare **Aggiungi**. 
 
 2. In **Nome** digitare un nome per la regola di bilanciamento del carico, ad esempio **HTTPc** per contoso.com o **HTTPf** per fabrikam.com.
 

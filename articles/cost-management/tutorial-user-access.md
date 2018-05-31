@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: c1be4d649bf4b69a9f749003b5c66142006b78e0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3ceed8b88b9c81954c967d3d7ddd964c532867ab
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301608"
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Esercitazione: Assegnare l'accesso ai dati di gestione costi
 
@@ -27,7 +28,8 @@ Al momento della registrazione dell'account o del contratto di Azure, in Cloudyn
 > [!div class="checklist"]
 > * Creare un utente con accesso amministrativo
 > * Creare un utente con accesso utente
-> * Creare entità
+> * Creare e gestire le entità
+
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -56,11 +58,11 @@ Gli utenti tipici che richiedono l'accesso a dati di gestione dei costi come das
 
 Per guardare un video di esercitazione sull'aggiunta di utenti, vedere [Aggiungere utenti in Gestione costi di Azure](https://youtu.be/Nzn7GLahx30).
 
-## <a name="create-entities"></a>Creare entità
+## <a name="create-and-manage-entities"></a>Creare e gestire le entità
 
-Quando si definisce la gerarchia delle entità di costi, una procedura consigliata consiste nell'identificare la struttura dell'organizzazione.
+Quando si definisce la gerarchia delle entità di costi, una procedura consigliata consiste nell'identificare la struttura dell'organizzazione. Le entità consentono di segmentare la spesa per singoli account o sottoscrizioni. Per creare gruppi logici per gestire e tenere traccia della spesa, è necessario creare delle entità di costo. Mentre si compila la struttura ad albero, prendere in considerazione la modalità preferibile o necessaria per visualizzare i relativi costi isolati per business unit, centri di costo, ambienti e reparti vendite. L'albero delle entità in Cloudyn è flessibile data l'ereditarietà delle entità.
 
-Mentre si compila la struttura ad albero, prendere in considerazione la modalità preferibile o necessaria per visualizzare i relativi costi isolati per business unit, centri di costo, ambienti e reparti vendite. L'albero delle entità in Cloudyn è flessibile data l'ereditarietà delle entità. Le singole sottoscrizioni per gli account cloud sono collegate a entità specifiche. Le entità sono quindi multi-tenant. Tramite le entità, è possibile assegnare a utenti specifici l'accesso al solo segmento dell'azienda pertinente. In questo modo i dati vengono mantenuti isolati, anche attraverso aree di grandi dimensioni di un'azienda, come le società affiliate. L'isolamento dei dati semplifica anche la governance.  
+Le singole sottoscrizioni per gli account cloud sono collegate a entità specifiche. È possibile associare un'entità a una sottoscrizione o a un account del provider del servizio cloud. Le entità sono quindi multi-tenant. Tramite le entità, è possibile assegnare a utenti specifici l'accesso al solo segmento dell'azienda pertinente. In questo modo i dati vengono mantenuti isolati, anche attraverso aree di grandi dimensioni di un'azienda, come le società affiliate. L'isolamento dei dati semplifica anche la governance.  
 
 Al momento della registrazione del contratto o dell'account di Azure con Cloudyn, i dati di risorse di Azure, inclusi l'uso, le prestazioni, la fatturazione e i dati di tag delle sottoscrizioni sono stati copiati nel proprio account Cloudyn. Tuttavia, la struttura ad albero delle entità deve essere creata manualmente. Se non si è eseguito la registrazione in Azure Resource Manager, sul portale di Cloudyn saranno disponibili solo i dati di fatturazione e alcuni report di asset.
 
@@ -74,6 +76,23 @@ Accanto a **Entità**, fare clic su **Aggiungi entità**. Immettere le informazi
 
 Al termine, **salvare** l'entità.
 
+### <a name="entity-access-levels"></a>Livelli di accesso alle entità
+
+I livelli di accesso alle entità insieme all'accesso dell'utente consentono di definire il tipo di azioni disponibili nel portale di Cloudyn.
+
+- **Enterprise**: consente di creare e gestire le entità di costo figlio.
+- **Enterprise + Cost Allocation** (Enterprise + Allocazione costi): consente di creare e gestire le entità di costo figlio inclusa l'allocazione dei costi per gli account consolidati.
+- **Enterprise, Cost based on parent cost allocation** (Enterprise, Costo basato su allocazione costi padre): consente di creare e gestire le entità di costo figlio. I costi per l'account sono basati sul modello di allocazione costi dell'elemento padre.
+- **Custom Dashboards only** (Solo dashboard personalizzati): consente all'utente di visualizzare solo dashboard personalizzati predefiniti.
+- **Dashboard only** (Solo dashboard): consente all'utente di visualizzare solo i dashboard.
+
+### <a name="create-a-cost-entity-hierarchy"></a>Creare una gerarchia di entità di costo
+
+Per creare una gerarchia di entità di costo, è necessario disporre di un account con accesso Enterprise + Cost Allocation (Enterprise + Allocazione costi).
+
+Nel portale di Cloudyn fare clic sul simbolo a forma di ingranaggio in alto a destra e selezionare **Cloud Accounts** (Account cloud). L'albero **Entità** viene visualizzato nel riquadro sinistro. Se necessario, espandere l'albero delle entità in modo che sia possibile visualizzare l'entità che si vuole associare a un account.  Gli account del provider di servizi cloud vengono visualizzati nelle schede nel riquadro di destra. Selezionare una scheda e quindi fare clic su un account o una sottoscrizione, trascinarlo sull'entità e quindi rilasciarlo. Nel riquadro **Spostamento** un messaggio informa che l'account è stato spostato. Fare clic su **OK**.
+
+È anche possibile associare più account a un'entità. Selezionare gli account e quindi fare clic su **Sposta**. Nel riquadro Move Accounts (Sposta account), selezionare l'entità in cui si intende spostare l'account e quindi fare clic su **Salva**. Nel riquadro Move Accounts (Sposta account) viene chiesto di confermare lo spostamento degli account. Fare clic su **Sì** e quindi su **OK**.
 
 Per guardare un video di esercitazione sulla creazione di una gerarchia di entità costo, vedere [Creare una gerarchia di entità costo in Gestione costi di Azure](https://youtu.be/dAd9G7u0FmU).
 
@@ -86,7 +105,8 @@ Questa esercitazione illustra come:
 > [!div class="checklist"]
 > * Creare un utente con accesso amministrativo
 > * Creare un utente con accesso utente
-> * Creare entità
+> * Creare e gestire le entità
+
 
 Se non è già stato abilitato l'accesso all'API di Azure Resource Manager per gli account, vedere l'articolo seguente.
 

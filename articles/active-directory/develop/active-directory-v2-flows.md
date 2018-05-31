@@ -1,25 +1,28 @@
 ---
-title: Tipi di app per l'endpoint v2.0 di Azure Active Directory | Documentazione Microsoft
+title: Tipi di app per l'endpoint v2.0 di Azure Active Directory | Microsoft Docs
 description: Tipi di app e scenari supportati dall'endpoint v2.0 di Azure Active Directory.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
-ms.author: dastrock
+ms.date: 04/17/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b0344c1da626a8b4679a632db239fc9ded9d5ce6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 134199c879f6793cb4ed0a88cf0593786341f6d8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157686"
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Tipi di app per l'endpoint v2.0 di Azure Active Directory
 L'endpoint v2.0 di Azure Active Directory supporta l'autenticazione di un'ampia gamma di architetture di app moderne, basate sui protocolli standard del settore [OAuth 2.0 o OpenID Connect](active-directory-v2-protocols.md). Questo articolo descrive brevemente i tipi di app che è possibile compilare usando Azure AD v2.0, indipendentemente dal linguaggio o dalla piattaforma preferita. Le informazioni contenute in questo articolo consentono di comprendere gli scenari generali prima di [iniziare a usare il codice](active-directory-appmodel-v2-overview.md#getting-started).
@@ -95,7 +98,7 @@ Un'API Web può ricevere token di accesso da tutti i tipi di app, tra cui app pe
 
 Per informazioni su come proteggere un'API Web con i token di accesso OAuth2, vedere gli esempi di codice dell'API Web nella sezione [introduttiva](active-directory-appmodel-v2-overview.md#getting-started).
 
-In molti casi, le API Web devono anche effettuare richieste in uscita ad altre API Web downstream protette da Azure Active Directory.  A questo scopo, le API Web possono ricorrere al flusso **Per conto di** di Azure AD, che consente all'API Web di scambiare un token di accesso in ingresso con un altro token di accesso da usare in richieste in uscita.  Il flusso Per conto di dell'endpoint 2.0 è descritto nel [dettaglio qui](active-directory-v2-protocols-oauth-on-behalf-of.md).
+In molti casi, le API Web devono anche effettuare richieste in uscita ad altre API Web downstream protette da Azure Active Directory. A questo scopo, le API Web possono ricorrere al flusso **Per conto di** di Azure AD, che consente all'API Web di scambiare un token di accesso in ingresso con un altro token di accesso da usare in richieste in uscita. Il flusso Per conto di dell'endpoint 2.0 è descritto nel [dettaglio qui](active-directory-v2-protocols-oauth-on-behalf-of.md).
 
 ## <a name="mobile-and-native-apps"></a>App per dispositivi mobili e native
 Le app installate in un dispositivo, ad esempio app desktop e per dispositivi mobili, devono spesso accedere a servizi back-end o ad API Web che archiviano i dati ed eseguono funzioni per conto dell'utente. Queste app possono aggiungere accesso e autorizzazioni ai servizi back-end tramite il [flusso del codice di autorizzazione OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
@@ -120,4 +123,4 @@ In questo flusso, l'app interagisce direttamente con l'endpoint `/token` per ott
 
 ![Flusso di autenticazione dell'app daemon](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
-Per compilare un'app daemon, vedere la documentazione sulle credenziali client nella sezione [Introduzione](active-directory-appmodel-v2-overview.md#getting-started) oppure provare un'[app di esempio .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+Per compilare un'app daemon, vedere la [documentazione sulle credenziali client](active-directory-v2-protocols-oauth-client-creds.md) oppure provare un'[app .NET di esempio](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

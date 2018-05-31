@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 16478d0223f59abb239d39fa27453e41b6980727
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777553"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Monitoraggio di applicazioni e risorse di Azure
 
@@ -60,7 +61,7 @@ Il monitoraggio di base offre il monitoraggio essenziale delle diverse risorse d
 
 Sono disponibili metriche che forniscono statistiche sulle prestazioni per diverse risorse, nonché per il sistema operativo all'interno di una macchina virtuale. È possibile visualizzare questi dati con una delle utilità di esplorazione disponibili nel portale di Azure e creare avvisi basati su queste metriche. Monitoraggio di Azure fornisce la più veloce pipeline di metriche (da 5 minuti a 1 minuto), che è necessario usare per gestire notifiche e avvisi con particolari requisiti di tempo.
 
-È possibile anche inviare queste metriche ad Azure Log Analytics per identificare le tendenze e ottenere un'analisi dettagliata o creare regole di avviso aggiuntive per ricevere notifiche proattive sui problemi critici al termine dell'analisi.  
+È possibile anche inviare metriche e log ad Azure Log Analytics per identificare le tendenze e ottenere un'analisi dettagliata o creare regole di avviso aggiuntive per ricevere notifiche proattive sui problemi critici al termine dell'analisi.  
 
 > [!NOTE]
 > L'invio delle metriche multidimensionali a Log Analytics tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione.

@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/15/2018
+ms.date: 05/04/2018
 ms.author: jroth
-ms.openlocfilehash: 33b7c82f08f63199cd128055bc497f61cb30fc4a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d2bcabf845a2178abbebe8f2998d58b462e37c78
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072318"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Come effettuare il provisioning di una macchina virtuale Windows di SQL Server nel portale di Azure
 
@@ -114,7 +115,7 @@ Nel passaggio **Dimensioni** scegliere le dimensioni della macchina virtuale nel
 
 ![Opzioni per le dimensioni di VM di SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
-Per i carichi di lavoro di produzione, vedere le dimensioni e la configurazione di VM consigliate in [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md). Se le dimensioni di VM necessarie non sono elencate, fare clic sul pulsante **Visualizza tutto**.
+Per i carichi di lavoro di produzione, vedere le dimensioni e la configurazione di VM consigliate in [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
 
 > [!NOTE]
 > Per altre informazioni sulle dimensioni di macchine virtuali, vedere [Dimensioni delle macchine virtuali](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -130,7 +131,14 @@ Nella finestra **Impostazioni** configurare l'archiviazione di Azure, la rete e 
    > [!NOTE]
    > Per SQL Server è consigliabile usare Managed Disks. Managed Disks gestisce automaticamente le risorse di archiviazione. Inoltre, quando le macchine virtuali con Managed Disks sono nello stesso set di disponibilità, Azure distribuisce le risorse di archiviazione in modo da garantire la ridondanza appropriata. Per altre informazioni, vedere [Azure Managed Disks Overview]Panoramica di Azure Managed Disks)[../managed-disks-overview.md). Per informazioni dettagliate sull'uso di Managed Disks in un set di disponibilità, vedere [Usare Managed Disks per le macchine virtuali nel set di disponibilità](../manage-availability.md).
 
-* In **Rete**è possibile accettare i valori popolati automaticamente. È anche possibile fare clic sulle singole funzionalità per configurare manualmente la **Rete virtuale**, la **Subnet**, l'**Indirizzo IP pubblico** e il **Gruppo di sicurezza di rete**. Ai fini di questa procedura dettagliata, è possibile mantenere i valori predefiniti.
+* In **Rete**, selezionare qualsiasi porta in ingresso nell'elenco **Seleziona porte in ingresso pubbliche**. Ad esempio, se si desidera il desktop remoto nella macchina virtuale, selezionare la porta **RDP (3389)**.
+
+   ![Porte in ingresso](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
+
+   > [!NOTE]
+   > È possibile selezionare la porta **MS SQL (1433)** per accedere a SQL Server in modalità remota. Tuttavia, questo non è necessario qui, perché questa opzione è disponibile anche nel passaggio **Impostazioni di SQL Server**. Se si seleziona la porta 1433 in questo passaggio, verrà aperta indipendentemente dalle selezioni nel passaggio **Impostazioni di SQL Server**.
+
+   È possibile apportare altre modifiche alle impostazioni di rete o mantenere i valori predefiniti.
 
 * Azure abilita l'opzione **Monitoraggio** per impostazione predefinita con lo stesso account di archiviazione designato per la VM. Queste impostazioni possono essere modificate qui, se necessario.
 

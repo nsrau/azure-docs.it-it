@@ -13,13 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/11/2018
+ms.date: 5/9/2018
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 9dfd600a0e3271afff0dd7ce634c78bf87ab314f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d16991d15d76caa496b2923c8d0210b6ccb10a9a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939199"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Domande sul servizio Backup di Azure
 Questo articolo risponde alle domande comuni sui componenti di Backup di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. Per porre domande su Backup di Azure, fare clic su **Commenti** a destra. I commenti vengono visualizzati alla fine di questo articolo. Per inserire commenti, è necessario un account Livefyre. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -67,12 +68,19 @@ Sì.
 ### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>È possibile registrare un server Data Protection Manager in più insiemi di credenziali? <br/>
 di serie Un server di Backup di Microsoft Azure o un server Data Protection Manager può essere registrato in un solo insieme di credenziali.
 
-### <a name="which-version-of-system-center-data-protection-manager-is-supported-br"></a>Quale versione di System Center Data Protection Manager è supportata? <br/>
-È consigliabile installare l'agente di Backup di Azure [più recente](http://aka.ms/azurebackup_agent) nell'ultimo aggiornamento cumulativo di System Center Data Protection Manager (DPM). Ad agosto 2016, il più recente è l'aggiornamento cumulativo 11.
+### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>Quale versione di System Center Data Protection Manager è supportata?
 
-### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-system-center-dpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>È stato installato l'agente di Backup di Azure per proteggere i file e le cartelle. È ora possibile installare System Center DPM per usare l'agente di Backup di Azure per proteggere i carichi di lavoro di applicazioni/VM locali in Azure? <br/>
-Per usare Azure Backup con System Center Data Protection Manager (DPM), installare DPM prima di installare Azure Backup Agent. L'installazione dei componenti di Backup di Azure in questo ordine assicura che l'agente di Backup di Azure funziona correttamente con DPM. L'installazione di Azure Backup Agent prima di installare DPM non è consigliabile o supportata.
+È consigliabile installare l'agente di Backup di Azure [più recente](http://aka.ms/azurebackup_agent) nell'ultimo aggiornamento cumulativo di System Center Data Protection Manager (DPM). 
+- Per System Center DPM 2012 R2 [Aggiornamento cumulativo 14](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager) è l'ultimo aggiornamento.
+- Per System Center DPM 2016 [Aggiornamento cumulativo 2](https://support.microsoft.com/en-us/help/3209593) è l'ultimo aggiornamento.
 
+### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>È stato installato l'agente di Backup di Azure per proteggere i file e le cartelle. È possibile installare System Center DPM per proteggere i carichi di lavoro di applicazioni/VM locali in Azure?
+
+Sì. Tuttavia, per usare Azure Backup con System Center Data Protection Manager (DPM), installare DPM prima di installare Azure Backup Agent. L'installazione dei componenti di Backup di Azure in questo ordine assicura che l'agente di Backup di Azure funziona correttamente con DPM. L'installazione di Azure Backup Agent prima di installare DPM non è consigliabile o supportata.
+
+### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>È possibile usare DPM per eseguire il backup delle App in Azure Stack?
+
+di serie Sebbene sia possibile usare Backup di Azure per proteggere Azure Stack, Backup di Azure attualmente non supporta l'utilizzo di DPM per eseguire il backup delle app in Azure Stack.
 
 ## <a name="how-azure-backup-works"></a>Funzionamento di Backup di Azure
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Se si annulla un processo di backup una volta avviato, i dati di backup trasferiti vengono eliminati? <br/>

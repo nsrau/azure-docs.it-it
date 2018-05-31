@@ -1,45 +1,44 @@
 ---
-title: Creare criteri a livello di codice e visualizzare i dati di conformità con Criteri di Azure | Microsoft Docs
+title: Creare criteri a livello di codice e visualizzare i dati di conformità con Criteri di Azure
 description: Questo articolo illustra la creazione a livello di codice e la gestione dei criteri per Criteri di Azure.
 services: azure-policy
 keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/28/2018
+ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-policy
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: bd0dbb1b6b44b34fc86b8c73fa586b1b4cf880f3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5737c33fc4c139e3b0a5535d371ef7cc1d11b9e6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937007"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Creare criteri a livello di codice e visualizzare i dati di conformità
 
-Questo articolo illustra la creazione a livello di codice e la gestione dei criteri. Illustra anche come visualizzare gli stati di conformità delle risorse e i criteri. Le definizioni dei criteri applicano regole e azioni diverse in relazione alle risorse. L'imposizione consente di assicurare che le risorse rimangano conformi con gli standard aziendali e i contratti di servizio.
+Questo articolo illustra la creazione a livello di codice e la gestione dei criteri. Illustra anche come visualizzare gli stati di conformità delle risorse e i criteri. Le definizioni dei criteri applicano regole ed effetti diversi in relazione alle risorse. L'imposizione consente di assicurare che le risorse rimangano conformi con gli standard aziendali e i contratti di servizio.
 
 ## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare, verificare che i prerequisiti seguenti siano soddisfatti:
 
 1. Se non è già stato fatto, installare [ARMClient](https://github.com/projectkudu/ARMClient). È uno strumento che invia richieste HTTP alle API basate su Azure Resource Manager.
-2. Aggiornare il modulo AzureRM di PowerShell all'ultima versione. Per altre informazioni sulla versione più recente, vedere Azure PowerShell https://github.com/Azure/azure-powershell/releases.
+2. Aggiornare il modulo AzureRM di PowerShell all'ultima versione. Per altre informazioni sulla versione più recente, vedere [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 3. Per garantire che la sottoscrizione funzioni con il provider di risorse, registrare il provider di risorse Policy Insights usando Azure PowerShell. Per registrare un provider di risorse, è necessaria l'autorizzazione per eseguire l'operazione /register/action per il provider di risorse. Questa operazione è inclusa nei ruoli Collaboratore e Proprietario. Eseguire il comando seguente per registrare il provider di risorse:
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
+  Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
   Per altre informazioni sulla registrazione e la visualizzazione di provider di risorse, vedere [Provider e tipi di risorse](../azure-resource-manager/resource-manager-supported-services.md).
-4. Installare l'interfaccia della riga di comando di Azure, se non è già installata. È possibile ottenere la versione più recente in [Installare l'interfaccia della riga di comando di Azure 2.0 in Windows](/azure/install-azure-cli-windows?view=azure-cli-latest).
+4. Installare l'interfaccia della riga di comando di Azure, se non è già installata. È possibile ottenere la versione più recente in [Installare l'interfaccia della riga di comando di Azure 2.0 in Windows](/cli/azure/install-azure-cli-windows).
 
 ## <a name="create-and-assign-a-policy-definition"></a>Creare e assegnare una definizione di criteri
 
 Il primo passo per una migliore visibilità delle risorse consiste nel creare e assegnare i criteri oltre le risorse. Il passaggio successivo illustra come creare e assegnare un criterio a livello di codice. Il criterio di esempio controlla gli account di archiviazione aperti a tutte le reti pubbliche usando PowerShell, l'interfaccia della riga di comando di Azure e le richieste HTTP.
-
-I comandi seguenti creano le definizioni dei criteri per il livello Standard. Il livello Standard offre funzionalità di gestione, valutazione della conformità e correzione su vasta scala. Per altre informazioni sui piani tariffari, vedere [Prezzi di Criteri di Azure](https://azure.microsoft.com/pricing/details/azure-policy).
 
 ### <a name="create-and-assign-a-policy-definition-with-powershell"></a>Creare e assegnare una definizione di criteri con PowerShell
 
@@ -68,7 +67,7 @@ I comandi seguenti creano le definizioni dei criteri per il livello Standard. Il
 2. Eseguire il comando seguente per creare una definizione di criteri usando il file AuditStorageAccounts.json.
 
   ```azurepowershell-interactive
-  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy AuditStorageAccounts.json
+  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
   ```
 
   Il comando crea una definizione di criteri denominata _Audit Storage Accounts Open to Public Networks_. Per altre informazioni sui parametri aggiuntivi che è possibile usare, vedere [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
@@ -76,10 +75,8 @@ I comandi seguenti creano le definizioni dei criteri per il livello Standard. Il
 
   ```azurepowershell-interactive
   $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
-
   $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
-
-  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId –Sku @{Name='A1';Tier='Standard'}
+  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
   ```
 
   Sostituire _ContosoRG_ con il nome del gruppo di risorse previsto.
@@ -140,10 +137,6 @@ Usare la procedura seguente per creare un'assegnazione dei criteri e assegnare l
           "parameters": {},
           "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks",
           "scope": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
-      },
-      "sku": {
-          "name": "A1",
-          "tier": "Standard"
       }
   }
   ```
@@ -192,7 +185,7 @@ az policy definition create --name 'audit-storage-accounts-open-to-public-networ
 3. Usare questo comando per creare un'assegnazione di criteri. Sostituire le informazioni di esempio incluse nei simboli &lt;&gt; con i valori desiderati.
 
   ```azurecli-interactive
-  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>' --sku 'standard'
+  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
   ```
 
 È possibile ottenere l'ID definizione dei criteri usando PowerShell con il comando seguente:
@@ -211,38 +204,37 @@ Per altre informazioni su come gestire i criteri di risorse con l'interfaccia de
 
 ## <a name="identify-non-compliant-resources"></a>Identificare le risorse non conformi
 
-In un'assegnazione una risorsa non è conforme se non segue i criteri o le regole delle iniziative. La tabella seguente illustra il funzionamento delle diverse azioni dei criteri in base alla valutazione della condizione per lo stato di conformità risultante:
+In un'assegnazione una risorsa non è conforme se non segue i criteri o le regole delle iniziative. La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in base alla valutazione della condizione per lo stato di conformità risultante:
 
-| **Stato della risorsa** | **Azione** | **Valutazione dei criteri** | **Stato di conformità** |
+| Stato della risorsa | Effetto | Valutazione dei criteri | Stato di conformità |
 | --- | --- | --- | --- |
 | Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True  | Non conforme |
 | Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Conforme |
 | Nuovo | Audit, AuditIfNotExist\* | True  | Non conforme |
 | Nuovo | Audit, AuditIfNotExist\* | False | Conforme |
 
-\* Per le azioni Append, DeployIfNotExist e AuditIfNotExist l'istruzione IF deve essere TRUE. Per non essere conformi, è anche necessario che la condizione di esistenza per le azioni sia FALSE. Se è TRUE, la condizione IF attiva la valutazione della condizione di esistenza per le risorse correlate.
+\* Gli effetti Append, DeployIfNotExist e AuditIfNotExist richiedono che l'istruzione IF sia TRUE. Richiedono inoltre che la condizione di esistenza sia FALSE per lo stato non conforme. Se è TRUE, la condizione IF attiva la valutazione della condizione di esistenza per le risorse correlate.
 
 Per comprendere meglio come le risorse vengano contrassegnate come non conformi, verrà usato l'esempio di assegnazione dei criteri creato sopra.
 
 Ad esempio, si supponga di avere un gruppo di risorse, ContosoRG, con alcuni account di archiviazione (evidenziati in rosso) esposti su reti pubbliche.
 
-![Account di archiviazione esposti su reti pubbliche](./media/policy-insights/resource-group01.png)
+![Account di archiviazione esposti su reti pubbliche](media/policy-insights/resource-group01.png)
 
 In questo esempio, è necessario essere ben consapevoli dei rischi di sicurezza. Dopo avere creato un'assegnazione dei criteri, questa viene valutata per tutti gli account di archiviazione nel gruppo di risorse ContosoRG. Controlla i tre account di archiviazione non conformi e di conseguenza ne modifica quindi gli stati impostandoli come **non conformi**.
 
-![Account di archiviazione non conformi controllati](./media/policy-insights/resource-group03.png)
+![Account di archiviazione non conformi controllati](media/policy-insights/resource-group03.png)
 
 Usare la procedura seguente per identificare le risorse di un gruppo di risorse non conformi all'assegnazione di criteri creata. Nell'esempio le risorse sono gli account di archiviazione nel gruppo di risorse ContosoRG.
 
 1. Ottenere l'ID dell'assegnazione dei criteri eseguendo i comandi seguenti:
 
   ```azurepowershell-interactive
-  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object {$_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks'}
-
+  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks' }
   $policyAssignment.PolicyAssignmentId
   ```
 
-  Per altre informazioni sull'acquisizione dell'ID di un'assegnazione di criteri, vedere [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
+  Per altre informazioni sull'ID dell'assegnazione dei criteri, vedere [Get-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
 
 2. Eseguire questo comando per copiare gli ID delle risorse non conformi in un file JSON:
 
@@ -302,16 +294,6 @@ I risultati saranno simili all'esempio seguente:
 ```
 
 Come per gli stati dei criteri, è possibile visualizzare gli eventi dei criteri solo con le richieste HTTP. Per altre informazioni sull'esecuzione di query sugli eventi dei criteri, vedere l'articolo di riferimento [Policy Events](/rest/api/policy-insights/policyevents) (Eventi dei criteri).
-
-## <a name="change-a-policy-assignments-pricing-tier"></a>Modificare il piano tariffario di un'assegnazione dei criteri
-
-È possibile usare il cmdlet di PowerShell *Set-AzureRmPolicyAssignment* per aggiornare il piano tariffario a Standard o Gratuito per un'assegnazione dei criteri esistente. Ad esempio: 
-
-```azurepowershell-interactive
-Set-AzureRmPolicyAssignment -Id '/subscriptions/<subscriptionId/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/<policyAssignmentID>' -Sku @{Name='A1';Tier='Standard'}
-```
-
-Per altre informazioni sul cmdlet, vedere [Set-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Set-AzureRmPolicyAssignment).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,9 +1,9 @@
 ---
-title: Importare ed esportare un file di zona del dominio in DNS di Azure usando l'interfaccia della riga di comando di Azure 1.0 | Microsoft Docs
-description: Informazioni su come importare ed esportare un file di zona DNS in DNS di Azure usando l'interfaccia della riga di comando di Azure 1.0
+title: Importare ed esportare un file di zona del dominio in DNS di Azure usando l'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
+description: Informazioni su come importare ed esportare un file di zona DNS in DNS di Azure usando l'interfaccia della riga di comando di Azure 2.0
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.assetid: f5797782-3005-4663-a488-ac0089809010
 ms.service: dns
@@ -11,17 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
-ms.author: gwallace
-ms.openlocfilehash: d6d3fa7aa0e8b2462b3a6b4b66d3d87ab5535314
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/30/2018
+ms.author: kumud
+ms.openlocfilehash: 3aee4e20b43d946101e692f0dca76b07e04dbb7a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069378"
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-10"></a>Importare ed esportare un file di zona DNS usando l'interfaccia della riga di comando di Azure 1.0 
+# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-20"></a>Importare ed esportare un file di zona DNS usando l'interfaccia della riga di comando di Azure 2.0 
 
-Questo articolo spiega come importare ed esportare file di zona DNS per Azure DNS usando l'interfaccia della riga di comando di Azure 1.0.
+Questo articolo spiega come importare ed esportare file di zona DNS per DNS di Azure usando l'interfaccia della riga di comando di Azure 2.0.
 
 ## <a name="introduction-to-dns-zone-migration"></a>Introduzione alla migrazione di zone DNS
 
@@ -29,11 +30,8 @@ Un file di zona DNS è un file di testo che contiene i dettagli di tutti i recor
 
 DNS di Azure supporta l'importazione e l'esportazione di file di zona tramite l'interfaccia della riga di comando di Azure. L'importazione di file di zona **non** è attualmente supportata tramite Azure PowerShell o il portale di Azure.
 
-L'interfaccia della riga di comando di Azure 1.0 è uno strumento a riga di comando multipiattaforma usato per la gestione di servizi di Azure. È disponibile per le piattaforme Windows, Mac e Linux nella [pagina di download di Azure](https://azure.microsoft.com/downloads/). Il supporto multipiattaforma è importante per importare ed esportare i file di zona, perché il software server più conosciuto, [BIND](https://www.isc.org/downloads/bind/), viene generalmente eseguito in Linux.
+L'interfaccia della riga di comando di Azure 2.0 è uno strumento a riga di comando multipiattaforma usato per la gestione di servizi di Azure. È disponibile per le piattaforme Windows, Mac e Linux nella [pagina di download di Azure](https://azure.microsoft.com/downloads/). Il supporto multipiattaforma è importante per importare ed esportare i file di zona, perché il software server più conosciuto, [BIND](https://www.isc.org/downloads/bind/), viene generalmente eseguito in Linux.
 
-> [!NOTE]
-> Esistono attualmente due versioni dell'interfaccia della riga di comando di Azure. CLI1.0 è basata su Node.js e ha comandi che iniziano con "azure".
-> CLI2.0 è basata su Python e ha comandi che iniziano con "az". Nonostante l'importazione dei file di zona sia supportata in entrambe le versioni, è consigliabile usare i comandi CLI1.0, come descritto in questa pagina.
 
 ## <a name="obtain-your-existing-dns-zone-file"></a>Recupero del file di zona DNS esistente
 
@@ -58,11 +56,10 @@ L'importazione di un file di zona crea una nuova zona in DNS di Azure se non ne 
 ### <a name="merge-behavior"></a>Unione
 
 * Per impostazione predefinita, i set di record nuovi ed esistenti vengono uniti. I record identici all'interno di un set di record unito vengono deduplicati.
-* In alternativa, se si specifica l'opzione `--force`, il processo di importazione sostituisce i set di record esistenti con quelli nuovi. I set di record esistenti che non hanno un set di record corrispondente nel file di zona importato non devono essere rimossi.
-* Quando i set di record sono uniti, viene usato il valore di durata (TTL) dei set di record preesistenti. Se si usa `--force`, viene applicato il valore TTL del nuovo set di record.
-* I parametri di origine di autorità (SOA), tranne `host`, vengono sempre rilevati dal file di zona importato, indipendentemente dall'uso di `--force`. Analogamente, per il set di record del server di nomi al vertice della zona viene sempre applicato il valore TTL dal file di zona importato.
-* Un record CNAME importato non sostituisce un record CNAME esistente con lo stesso nome, a meno che non sia stato specificato il parametro `--force`.
-* Quando si verifica un conflitto tra un record CNAME e a un altro record con lo stesso nome, ma di tipo diverso, indipendentemente dal fatto che sia nuovo o esistente viene mantenuto il record esistente. È indipendente dall'uso di `--force`.
+* Quando i set di record sono uniti, viene usato il valore di durata (TTL) dei set di record preesistenti.
+* I parametri di origine di autorità (SOA), tranne `host`, vengono sempre rilevati dal file di zona importato. Analogamente, per il set di record del server di nomi al vertice della zona viene sempre applicato il valore TTL dal file di zona importato.
+* Un record CNAME importato non sostituisce un record CNAME esistente con lo stesso nome.  
+* Quando si verifica un conflitto tra un record CNAME e a un altro record con lo stesso nome, ma di tipo diverso, indipendentemente dal fatto che sia nuovo o esistente viene mantenuto il record esistente. 
 
 ### <a name="additional-information-about-importing"></a>Altre informazioni sull'importazione
 
@@ -81,7 +78,7 @@ Le note seguenti forniscono altri dettagli tecnici sul processo di importazione 
 Il formato del comando dell'interfaccia della riga di comando di Azure per importare una zona DNS è:
 
 ```azurecli
-azure network dns zone import [options] <resource group> <zone name> <zone file name>
+az network dns zone import -g <resource group> -n <zone name> -f <zone file name>
 ```
 
 Valori:
@@ -90,48 +87,23 @@ Valori:
 * `<zone name>` è il nome della zona.
 * `<zone file name>` è il nome/percorso del file di zona da importare.
 
-Se una zona con questo nome non esiste nel gruppo di risorse, viene creata. Se la zona esiste già, i set di record importati vengono uniti con quelli esistenti. Per sovrascrivere i set di record esistenti, usare l'opzione `--force` .
+Se una zona con questo nome non esiste nel gruppo di risorse, viene creata. Se la zona esiste già, i set di record importati vengono uniti con quelli esistenti. 
 
-Per verificare il formato di un file di zona senza eseguirne effettivamente l'importazione, usare l'opzione `--parse-only` .
 
 ### <a name="step-1-import-a-zone-file"></a>Passaggio 1. Importare un file di zona
 
 Per importare un file di zona per la zona **contoso.com**:
 
-1. Accedere alla sottoscrizione di Azure usando l'interfaccia della riga di comando di Azure 1.0.
+1. È necessario creare un gruppo di risorse di Gestione risorse, se non ne è già disponibile uno.
 
     ```azurecli
-    azure login
+    az group create --group myresourcegroup -l westeurope
     ```
 
-2. Selezionare la sottoscrizione in cui si vuole creare la nuova zona DNS.
+2. Per importare la zona **contoso.com** dal file **contoso.com.txt** in una nuova zona DNS nel gruppo di risorse **myresourcegroup**, eseguire il comando `az network dns zone import`.<BR>Questo comando carica il file di zona e lo analizza. Il comando esegue una serie di comandi nel servizio DNS di Azure per creare la zona e tutti i set di record nella zona. Il comando visualizza l'avanzamento nella finestra della console insieme agli errori o agli avvisi. Poiché i set di record vengono creati in serie, l'importazione di un file di zona di grandi dimensioni può richiedere alcuni minuti.
 
     ```azurecli
-    azure account set <subscription name>
-    ```
-
-3. DNS di Azure è un servizio solo di Gestione risorse di Azure, quindi nell'interfaccia della riga di comando di Azure deve essere impostata la modalità Gestione risorse.
-
-    ```azurecli
-    azure config mode arm
-    ```
-
-4. Prima di usare il servizio DNS di Azure, è necessario registrare la sottoscrizione per l'uso del provider di risorse Microsoft.Network. Questa operazione viene eseguita una sola volta per ogni sottoscrizione.
-
-    ```azurecli
-    azure provider register Microsoft.Network
-    ```
-
-5. È anche necessario creare un gruppo di risorse di Resource Manager, se non ne è già disponibile uno.
-
-    ```azurecli
-    azure group create myresourcegroup westeurope
-    ```
-
-6. Per importare la zona **contoso.com** dal file **contoso.com.txt** in una nuova zona DNS nel gruppo di risorse **myresourcegroup**, eseguire il comando `azure network dns zone import`.<BR>Questo comando carica il file di zona e lo analizza. Il comando esegue una serie di comandi nel servizio DNS di Azure per creare la zona e tutti i set di record nella zona. Il comando visualizza l'avanzamento nella finestra della console insieme agli errori o agli avvisi. Poiché i set di record vengono creati in serie, l'importazione di un file di zona di grandi dimensioni può richiedere alcuni minuti.
-
-    ```azurecli
-    azure network dns zone import myresourcegroup contoso.com contoso.com.txt
+    az network dns zone import -g myresourcegroup -n contoso.com -f contoso.com.txt
     ```
 
 ### <a name="step-2-verify-the-zone"></a>Passaggio 2. Verificare la zona
@@ -141,29 +113,48 @@ Per verificare la zona DNS dopo aver importato il file, è possibile usare uno d
 * È possibile elencare i record usando il seguente comando dell'interfaccia della riga di comando di Azure:
 
     ```azurecli
-    azure network dns record-set list myresourcegroup contoso.com
+    az network dns record-set list -g myresourcegroup -z contoso.com
     ```
 
 * È possibile elencare i record usando il cmdlet PowerShell `Get-AzureRmDnsRecordSet`.
 * Per verificare la risoluzione dei nomi per i record, è possibile usare `nslookup` . Poiché la zona non è ancora stata delegata, è necessario specificare esplicitamente i server dei nomi DNS di Azure corretti. Il seguente esempio mostra come recuperare i nomi dei server dei nomi assegnati alla zona. Illustra anche come eseguire una query sul record "www" con `nslookup`.
 
-        C:\>azure network dns record-set show myresourcegroup contoso.com @ NS
-        info:Executing command network dns record-set show
-        + Looking up the DNS Record Set "@" of type "NS"
-        data:Id: /subscriptions/.../resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
-        data:Name: @
-        data:Type: Microsoft.Network/dnszones/NS
-        data:Location: global
-        data:TTL : 3600
-        data:NS records
-        data:Name server domain name : ns1-01.azure-dns.com
-        data:Name server domain name : ns2-01.azure-dns.net
-        data:Name server domain name : ns3-01.azure-dns.org
-        data:Name server domain name : ns4-01.azure-dns.info
-        data:
-        info:network dns record-set show command OK
+    ```azurecli
+    az network dns record-set ns list -g myresourcegroup -z  --output json 
+    ```
 
-        C:\> nslookup www.contoso.com ns1-01.azure-dns.com
+    ```json
+    [
+      {
+       .......
+       "name": "@",
+        "nsRecords": [
+          {
+            "additionalProperties": {},
+            "nsdname": "ns1-03.azure-dns.com."
+          },
+          {
+            "additionalProperties": {},
+            "nsdname": "ns2-03.azure-dns.net."
+          },
+          {
+            "additionalProperties": {},
+            "nsdname": "ns3-03.azure-dns.org."
+          },
+          {
+            "additionalProperties": {},
+            "nsdname": "ns4-03.azure-dns.info."
+          }
+        ],
+        "resourceGroup": "myresourcegroup",
+        "ttl": 86400,
+        "type": "Microsoft.Network/dnszones/NS"
+      }
+    ]
+    ```
+
+    ```cmd
+    nslookup www.contoso.com ns1-03.azure-dns.com
 
         Server: ns1-01.azure-dns.com
         Address:  40.90.4.1
@@ -171,6 +162,7 @@ Per verificare la zona DNS dopo aver importato il file, è possibile usare uno d
         Name:www.contoso.com
         Addresses:  134.170.185.46
         134.170.188.221
+    ```
 
 ### <a name="step-3-update-dns-delegation"></a>Passaggio 3. Aggiornare la delega DNS
 
@@ -181,7 +173,7 @@ Dopo aver verificato che la zona è stata importata correttamente, è necessario
 Il formato del comando dell'interfaccia della riga di comando di Azure per importare una zona DNS è:
 
 ```azurecli
-azure network dns zone export [options] <resource group> <zone name> <zone file name>
+az network dns zone export -g <resource group> -n <zone name> -f <zone file name>
 ```
 
 Valori:
@@ -194,26 +186,8 @@ Come per l'importazione di una zona, è necessario prima di tutto accedere, sceg
 
 ### <a name="to-export-a-zone-file"></a>Per esportare un file di zona:
 
-1. Accedere alla sottoscrizione di Azure con l'interfaccia della riga di comando di Azure.
+Per esportare la zona **contoso.com** di DNS di Azure esistente nel gruppo di risorse **myresourcegroup** nel file **contoso.com.txt** nella cartella corrente, eseguire `azure network dns zone export`. Questo comando chiama il servizio DNS di Azure per enumerare i set di record nella zona ed esportare i risultati in un file di zona compatibile con BIND.
 
-    ```azurecli
-    azure login
     ```
-
-2. Selezionare la sottoscrizione in cui creare la zona DNS.
-
-    ```azurecli
-    azure account set <subscription name>
-    ```
-
-3. DNS di Azure è un servizio solo di Gestione risorse di Azure. L'interfaccia della riga di comando di Azure deve essere impostata sulla modalità Gestione risorse.
-
-    ```azurecli
-    azure config mode arm
-    ```
-
-4. Per esportare la zona **contoso.com** di DNS di Azure esistente nel gruppo di risorse **myresourcegroup** nel file **contoso.com.txt** nella cartella corrente, eseguire `azure network dns zone export`. Questo comando chiama il servizio DNS di Azure per enumerare i set di record nella zona ed esportare i risultati in un file di zona compatibile con BIND.
-
-    ```azurecli
-    azure network dns zone export myresourcegroup contoso.com contoso.com.txt
+    az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
     ```

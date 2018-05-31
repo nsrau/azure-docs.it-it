@@ -1,28 +1,23 @@
 ---
 title: Integrazione di Gateway Desktop remoto con Azure MFA tramite l'estensione NPS | Microsoft Docs
-description: Questo articolo illustra come integrare l'infrastruttura Gateway Desktop remoto con Azure MFA usando l'estensione NPS (Network Policy Server, Server dei criteri di rete) per Microsoft Azure.
-services: active-directory
-keywords: Azure MFA, integrare Gateway Desktop remoto, Azure Active Directory, estensione NPS (Network Policy Server)
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
+description: Integrare l'infrastruttura Gateway Desktop remoto con Azure MFA usando l'estensione NPS (Network Policy Server, Server dei criteri di rete) per Microsoft Azure
+services: multi-factor-authentication
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 0c050ee237650be7d43be2454a2bc3c07f096b8c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fbca491e845ad96ecafc6afb5f40d46b99c047bf
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33932099"
 ---
-#  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrare l'infrastruttura Gateway Desktop remoto con Azure MFA usando l'estensione NPS (Network Policy Server, Server dei criteri di rete) e Azure AD
+# <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrare l'infrastruttura Gateway Desktop remoto con Azure MFA usando l'estensione NPS (Network Policy Server, Server dei criteri di rete) e Azure AD
 
 Questo articolo contiene i dettagli relativi all'integrazione dell'infrastruttura Gateway Desktop remoto con Azure Multi-Factor Authentication (MFA) usando l'estensione NPS (Network Policy Server, Server dei criteri di rete) per Microsoft Azure. 
 
@@ -150,8 +145,8 @@ Per usare certificati personali è necessario associare la chiave pubblica del c
 Per usare lo script, specificare l'estensione con le credenziali amministrative di Azure AD e l'ID tenant di Azure AD copiato in precedenza. Eseguire lo script in ogni server NPS in cui è stata installata l'estensione NPS. Eseguire quindi le operazioni seguenti:
 
 1. Aprire un prompt di Windows PowerShell come amministratore.
-2. Al prompt di PowerShell digitare **cd 'c:\Programmi\Microsoft\AzureMfa\Config'** e premere **INVIO**.
-3. Digitare _.\AzureMfsNpsExtnConfigSetup.ps1_ e premere **INVIO**. Lo script verifica se il modulo di PowerShell per Azure Active Directory è installato. Se non è installato, lo installa.
+2. Al prompt di PowerShell digitare `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’` e premere **INVIO**.
+3. Digitare `.\AzureMfsNpsExtnConfigSetup.ps1` e premere **INVIO**. Lo script verifica se il modulo di PowerShell per Azure Active Directory è installato. Se non è installato, lo installa.
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   
