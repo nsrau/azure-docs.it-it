@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: af6e15a86107aeb74a20c3e78a8f91f07d6d377a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 01d880a668140b5a7ffcff8947ccc6083bca7ea0
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168650"
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302740"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Domande frequenti su Gestione costi di Azure
 
@@ -149,4 +149,4 @@ di serie Gli agenti non vengono usati. I dati di metrica della macchina virtuale
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>I report di Cloudyn mostrano più di un tenant di Active Directory per ogni report?
 
-Sì. È possibile [creare un'entità di account cloud corrispondente](tutorial-user-access.md#create-entities) per ogni tenant di Active Directory di cui si dispone. È quindi possibile visualizzare tutti i dati del tenant di Azure AD e altri provider di piattaforma cloud inclusi Amazon Web Services e Google Cloud Platform.
+Sì. È possibile [creare un'entità di account cloud corrispondente](tutorial-user-access.md#create-and-manage-entities) per ogni tenant di Active Directory di cui si dispone. È quindi possibile visualizzare tutti i dati del tenant di Azure AD e altri provider di piattaforma cloud inclusi Amazon Web Services e Google Cloud Platform.

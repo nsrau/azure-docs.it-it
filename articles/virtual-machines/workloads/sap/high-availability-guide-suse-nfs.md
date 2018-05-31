@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: sedusch
-ms.openlocfilehash: b1a7b962d07b64aaa662aab937feed1782851a7b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 53bc4a6f4ecca8ffe3575a038b86192a8663c35c
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261484"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -129,12 +130,11 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
 1. Creare un set di disponibilità  
    Impostare il numero massimo di domini di aggiornamento
 1. Creare la macchina virtuale 1   
-   Usare almeno SLES4SAP 12 SP1, in questo esempio l'immagine BYOS SLES4SAP 12 SP1 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
-   SLES For SAP Applications 12 SP1 (BYOS)  
+   Usare almeno SLES4SAP 12 SP3, in questo esempio viene usata l'immagine SLES4SAP 12 SP3 BYOS SLES For SAP Applications 12 SP3 (BYOS)  
    Selezionare il set di disponibilità creato in precedenza  
 1. Creare la macchina virtuale 2   
-   Usare almeno SLES4SAP 12 SP1, in questo esempio l'immagine BYOS SLES4SAP 12 SP1 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
-   SLES For SAP Applications 12 SP1 (BYOS)  
+   Usare almeno SLES4SAP 12 SP3, in questo esempio viene usata l'immagine BYOS SLES4SAP 12 SP3  
+   SLES For SAP Applications 12 SP3 (BYOS)  
    Selezionare il set di disponibilità creato in precedenza  
 1. Aggiungere un disco dati per ogni sistema SAP a entrambe le macchine virtuali.
 1. Creare un servizio di bilanciamento del carico (interno)  

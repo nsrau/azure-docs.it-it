@@ -1,6 +1,6 @@
 ---
-title: Panoramica delle zone di disponibilità di Azure | Microsoft Docs
-description: Questo articolo presenta informazioni generali su come usare le zone di disponibilità per creare applicazioni resilienti e a disponibilità elevata in Azure
+title: Informazioni sulle zone di disponibilità di Azure | Microsoft Docs
+description: Per creare applicazioni resilienti e a disponibilità elevata in Azure, le zone di disponibilità offrono posizioni fisicamente separate che è possibile usare per eseguire le risorse.
 services: ''
 documentationcenter: ''
 author: iainfoulds
@@ -16,13 +16,14 @@ ms.workload: na
 ms.date: 03/21/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: a4133779538e412a19a11de678b1527fb8023a87
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9eb7105b2d1a95eb8ccfa96ea0bc5188aab1b4aa
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164722"
 ---
-# <a name="overview-of-availability-zones-in-azure"></a>Panoramica delle zone di disponibilità in Azure
+# <a name="what-are-availability-zones-in-azure"></a>Informazioni sulle zone di disponibilità di Azure
 Le zone di disponibilità offrono una soluzione a disponibilità elevata che consente di proteggere le applicazioni e i dati da eventuali guasti del data center. Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati da eventuali guasti del data center. I servizi con ridondanza della zona replicano le applicazioni e i dati tra aree di disponibilità per garantire la protezione da singoli punti di errore. Con le zone di disponibilità, Azure offre un contratto di servizio con tempo di attività delle VM del 99,99% tra i migliori del settore. La versione completa del [contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) descrive la disponibilità garantita di Azure nel suo complesso.
 
 È possibile configurare la disponibilità elevata nell'architettura delle applicazioni includendo le risorse di calcolo, archiviazione, rete e dati all'interno di una zona e replicandole in altre zone. I servizi di Azure che supportano le zone di disponibilità rientrano in due categorie:
@@ -34,7 +35,7 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
  
 ![Visualizzazione concettuale di una zona che diventa indisponibile in un'area](./media/az-overview/az-graphic-two.png)
 
-## <a name="regions-that-support-availability-zones"></a>Aree che supportano le zone di disponibilità
+## <a name="regions-that-support-availability-zones"></a>Aree che supportano la funzionalità Zone di disponibilità
 
 - Stati Uniti centrali
 - Francia centrale
@@ -43,14 +44,14 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 - Asia sud-orientale (anteprima)
 
 
-## <a name="services-that-support-availability-zones"></a>Servizi che supportano le zone di disponibilità
-I servizi che supportano le zone di disponibilità sono i seguenti:
+## <a name="services-that-support-availability-zones"></a>Servizi che supportano la funzionalità Zone di disponibilità
+I servizi che supportano la funzionalità Zone di disponibilità sono i seguenti:
 
 - Macchine virtuali Linux
 - Macchine virtuali Windows
 - Set di scalabilità di macchine virtuali
 - Managed Disks
-- Bilanciamento del carico
+- Load Balancer
 - Indirizzo IP pubblico
 - Archiviazione con ridondanza della zona
 - Database SQL

@@ -1,24 +1,25 @@
 ---
 title: Prezzi e fatturazione - App per la logica di Azure | Microsoft Docs
 description: Informazioni sui prezzi e sulla fatturazione per App per la logica di Azure
-author: kevinlam1
-manager: anneta
-editor: 
 services: logic-apps
-documentationcenter: 
+author: kevinlam1
+manager: cfowler
+editor: ''
+documentationcenter: ''
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 11/11/2017
-ms.author: LADocs; klam
-ms.openlocfilehash: 096fdd5a6604ed8cecc931da2169194b777664d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 05/11/2018
+ms.author: klam
+ms.openlocfilehash: 3f01ac12bb3987d564f8d9f70706ae6aabd0a0ee
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166285"
 ---
 # <a name="logic-apps-pricing-model"></a>Modello di determinazione prezzi delle app per la logica
 
@@ -57,7 +58,7 @@ Le azioni eseguite all'interno di cicli vengono conteggiate per ogni iterazione 
 
 ## <a name="integration-account-usage"></a>Utilizzo dell'account di integrazione
 
-L'utilizzo a consumo include un [account di integrazione](logic-apps-enterprise-integration-create-integration-account.md) in cui è possibile esplorare, sviluppare e testare gratuitamente le funzionalità [B2B/EDI](logic-apps-enterprise-integration-b2b.md) e di [elaborazione XML](logic-apps-enterprise-integration-xml.md) di App per la logica. In ogni area è possibile configurare un solo account di integrazione, in cui è possibile archiviare fino a 10 contratti e 25 mappe. Non sono invece previsti limiti in merito al numero di partner, schemi e certificati che è possibile caricare.
+L'utilizzo a consumo include un [account di integrazione](logic-apps-enterprise-integration-create-integration-account.md) in cui è possibile esplorare, sviluppare e testare gratuitamente le funzionalità [B2B/EDI](logic-apps-enterprise-integration-b2b.md) e di [elaborazione XML](logic-apps-enterprise-integration-xml.md) di App per la logica. È possibile avere un account di integrazione per area e archiviare un [numero specifico di artefatti](../logic-apps/logic-apps-limits-and-config.md), ad esempio partner commerciali e contratti EDI, mappe, schemi, assembly, certificati e configurazioni batch.
 
 App per la logica offre anche account di integrazione di base e standard con il contratto di servizio di App per la logica standard. Gli account di integrazione di base vengono usati, in genere, quando si vuole usare solo la gestione dei messaggi o se un piccolo partner commerciale intrattiene una relazione commerciale con un'entità più grande. Gli account di integrazione standard supportano invece relazioni B2B più complesse e aumentano il numero di entità che è possibile gestire. Per altre informazioni, vedere la pagina relativa ai [prezzi di Azure](https://azure.microsoft.com/pricing/details/logic-apps).
 

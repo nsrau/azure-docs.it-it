@@ -11,44 +11,30 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b6c2e2b685855455550612abb58ada6a694bbdff
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011527"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Attività Lookup in Azure Data Factory
-È possibile usare l'attività Lookup per la lettura o la ricerca di un record, un nome di tabella o un valore da qualsiasi origine esterna. Questo output può essere referenziato ulteriormente dalle attività successive. 
 
-L'attività Lookup risulta utile quando si vuole recuperare in modo dinamico un elenco di file/record/tabelle da un file di configurazione o un'origine dati. L'output dall'attività può essere usato anche da altre attività per eseguire l'elaborazione specifica solo di tali elementi.
+L'attività di ricerca può essere usata per recuperare un set di dati da qualsiasi origine dati supportata da file di definizione dell'applicazione (AFD).  Può essere usata nel seguente scenario:
+- Determinare in modo dinamico gli oggetti (file, tabelle e così via) su cui operare in un'attività successiva, anziché impostare come hardcoded il nome dell'oggetto
+
+L'attività di ricerca può leggere e restituire il contenuto di un file di configurazione, di una tabella di configurazione o il risultato dell'esecuzione di una query o di una stored procedure.  L'output dall'attività di ricerca può essere usato in un'attività di trasformazione o di copia successive se è un valore singleton, o in un'attività ForEach se è una matrice di attributi.
 
 > [!NOTE]
 > Questo articolo è applicabile alla versione 2 di Azure Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-introduction.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Per l'attività Lookup sono attualmente supportate le origini dati seguenti:
+Per l'attività di ricerca attualmente sono supportate le origini dati seguenti. Il numero massimo di righe restituite dall'attività di ricerca è **5000** con una dimensione massima di **2 MB**. E la durata massima per l'attività di ricerca prima del timeout è attualmente un'ora.
 
-- Amazon Redshift
-- Archivio BLOB di Azure
-- Azure Cosmos DB
-- Archivio Azure Data Lake
-- Archiviazione file di Azure
-- Database SQL di Azure
-- Azure SQL Data Warehouse
-- Archiviazione tabelle di Azure
-- Dynamics 365
-- Dynamics CRM
-- File system
-- PostgreSQL
-- Salesforce
-- Salesforce Service Cloud
-- SFTP
-- SQL Server
-
-Il numero massimo di righe restituite dall'attività Lookup è **5.000** con una dimensione massima di **10 MB**.
+[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
 ## <a name="syntax"></a>Sintassi
 
@@ -71,16 +57,17 @@ Il numero massimo di righe restituite dall'attività Lookup è **5.000** con una
 ```
 
 ## <a name="type-properties"></a>Proprietà del tipo
-Nome | Descrizione | Tipo | Obbligatorio?
+NOME | DESCRIZIONE | type | Obbligatorio?
 ---- | ----------- | ---- | --------
 dataset | Fornisce il riferimento al set di dati per la ricerca. Per i dettagli, vedere la sezione "Proprietà del set di dati" nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
-source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Visualizzare i dettagli della sezione "Proprietà dell'attività di copia" nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
-firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | boolean | No. Il valore predefinito è `true`.
+una sezione source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Visualizzare i dettagli della sezione "Proprietà dell'attività di copia" nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
+firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | boolean | di serie Il valore predefinito è `true`.
 
-Tenere presente quanto segue:
+**Tenere presente quanto segue:**
 
 1. La colonna Source con tipo ByteArray non è supportata.
 2. Structure non è supportato nella definizione del set di dati. In particolare per i file in formato testo, è possibile usare la riga di intestazione per specificare il nome della colonna.
+3. Se l'origine di ricerca è un file JSON, l'impostazione `jsonPathDefinition` per rieseguire il data shaping dell'oggetto JSON non è supportata. Verranno recuperati gli interi oggetti.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Usare il risultato dell'attività Lookup in un'attività successiva
 

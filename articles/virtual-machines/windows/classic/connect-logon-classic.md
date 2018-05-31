@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: bcbebc216dbd63acfb33cf72ba774d088149a3a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 87ecc65d2d4802ae826f3260b66b26e0bbe414e6
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012360"
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Accedere a una macchina virtuale di Windows tramite il portale di Azure
 Nel portale di Azure, si utilizza il pulsante **Connetti** per avviare una sessione di Desktop remoto e accedere a una macchina virtuale Windows.
@@ -42,20 +43,22 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 
     ![Virtual-machine-locations](./media/connect-logon/azureportaldashboard.png)
 
-3. Fare clic su **Connetti** sulla barra dei comandi sopra il dashboard della macchina virtuale.
-
-    ![Icona di connessione per la macchina virtuale](./media/connect-logon/virtualmachine_dashboard_connect.png)
-
-<!-- Don't know if this still applies
-     I think we can zap this.
-> [!TIP]
-> If the **Connect** button isn't available, see the troubleshooting tips at the end of this article.
->
->
--->
-
-## <a name="log-on-to-the-virtual-machine"></a>Accesso alla macchina virtuale
-[!INCLUDE [virtual-machines-log-on-win-server](../../../../includes/virtual-machines-log-on-win-server.md)]
+1. Fare clic sul pulsante **Connetti** nella pagina delle proprietà della macchina virtuale. 
+2. Nella pagina **Connetti a macchina virtuale** selezionare le opzioni appropriate e fare clic su **Scarica file RDP**.
+2. Aprire il file RDP scaricato e fare clic su **Connetti** quando richiesto. 
+2. Verrà visualizzato un avviso che indica che l'autore del file con estensione `.rdp` è sconosciuto. Si tratta di una situazione normale. Nella finestra di Desktop remoto, fare clic su **Connetti** per continuare.
+   
+    ![Screenshot di un avviso relativo a un autore sconosciuto.](./media/connect-logon/rdp-warn.png)
+3. Nella finestra **Sicurezza di Windows** selezionare **Altre opzioni** e quindi **Usa un altro account**. Digitare le credenziali di un account della macchina virtuale e quindi fare clic su **OK**.
+   
+     **Account locale** : corrisponde in genere al nome utente e alla password dell'account locale specificati al momento della creazione della macchina virtuale. In questo caso, il dominio è il nome della macchina virtuale e viene immesso come *nomevm*&#92;*nomeutente*.  
+   
+    **VM aggiunta a un dominio**: se la VM appartiene a un dominio, immettere il nome utente con formato *Dominio*&amp;#92;*Nomeutente*. L'account deve anche appartenere al gruppo degli amministratori o deve possedere privilegi di accesso remoto alla VM.
+   
+    **Controller di dominio** : se la macchina virtuale è un controller di dominio, digitare nome utente e password di un account amministratore di dominio per tale dominio.
+4. Fare clic su **Sì** per verificare l'identità della macchina virtuale e terminare la procedura di accesso.
+   
+   ![Screenshot che visualizza un messaggio sulla verifica dell'identità della VM.](./media/connect-logon/cert-warning.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Se il pulsante **Connetti** non è attivo o si verificano altri problemi di connessione per il Desktop remoto, provare a reimpostare la configurazione. Fare clic su **Ripristina accesso remoto** dal dashboard della macchina virtuale.
