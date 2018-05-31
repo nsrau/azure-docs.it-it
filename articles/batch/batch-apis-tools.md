@@ -6,13 +6,14 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: get-started-article
-ms.date: 02/26/2018
+ms.date: 05/15/2018
 ms.author: danlep
-ms.openlocfilehash: 0d3720d33de2237b0d8cce2ae56bcc7ccf6acc43
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4a47c7355e8dfea97f7dee6787da87444a7642c3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359323"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Panoramica delle API e degli strumenti di Batch
 
@@ -26,11 +27,10 @@ L'elaborazione dei carichi di lavoro paralleli con Azure Batch è in genere eseg
 > 
 
 ## <a name="azure-accounts-for-batch-development"></a>Account Azure per lo sviluppo Batch
-Quando si sviluppano soluzioni Batch, è necessario usare gli account seguenti in Microsoft Azure.
+Quando si sviluppano soluzioni Batch, è necessario usare gli account seguenti nella sottoscrizione di Azure:
 
-* **Account e sottoscrizione di Azure**: se non si ha già una sottoscrizione di Azure, è possibile attivare i [vantaggi della sottoscrizione di Visual Studio][msdn_benefits] oppure registrarsi per ottenere un [account Azure gratuito][free_account]. Quando si crea un account, viene creata una sottoscrizione predefinita.
-* **Account Batch**: le risorse di Azure Batch, inclusi pool, nodi di calcolo, processi e attività, sono associate a un account Azure Batch. Quando l'applicazione effettua una richiesta sul servizio Batch, autentica la richiesta usando il nome dell'account Azure Batch, l'URL dell'account e una chiave di accesso o un token di Azure Active Directory. È possibile [creare un account Batch](batch-account-create-portal.md) nel portale di Azure oppure a livello di codice.
-* **Account di archiviazione**: Batch include il supporto predefinito per l'uso di file in [Archiviazione di Azure][azure_storage]. Quasi tutti gli scenari di Batch usano l'archivio BLOB di Azure per lo staging dei programmi eseguiti e dei dati elaborati dalle attività e per l'archiviazione dei dati di output generati. Per creare un account di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md).
+* **Account Batch**: le risorse di Azure Batch, inclusi pool, nodi di calcolo, processi e attività, sono associate a un account Azure [Batch](batch-api-basics.md#account). Quando l'applicazione effettua una richiesta sul servizio Batch, autentica la richiesta usando il nome dell'account Azure Batch, l'URL dell'account e una chiave di accesso o un token di Azure Active Directory. È possibile [creare un account Batch](batch-account-create-portal.md) nel portale di Azure oppure a livello di codice.
+* **Account di archiviazione**: Batch include il supporto predefinito per l'uso di file in [Archiviazione di Azure][azure_storage]. Quasi tutti gli scenari di Batch usano l'archivio BLOB di Azure per lo staging dei programmi eseguiti e dei dati elaborati dalle attività e per l'archiviazione dei dati di output generati. Per le opzioni dell'account di archiviazione in Batch, vedere [Panoramica delle funzionalità di Batch](batch-api-basics.md#azure-storage-account).
 
 ## <a name="batch-service-apis"></a>API di servizio Batch
 

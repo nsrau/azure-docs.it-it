@@ -11,11 +11,12 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: v-shysun
-ms.openlocfilehash: 440f3bf41cd2dcedf964e7476323d7b3a1527624
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 710d517621cb9d4d9d2e9bf29e4facf7d75ab481
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187828"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoraggio e ottimizzazione delle prestazioni
 
@@ -49,8 +50,8 @@ Database SQL di Azure consente di individuare le opportunità per migliorare e o
 
 ## <a name="improving-database-performance-with-more-resources"></a>Miglioramento delle prestazioni del database con più risorse
 
-Se alla fine non esistono elementi eseguibili che possono migliorare le prestazioni del database, è possibile modificare la quantità di risorse disponibili nel database SQL di Azure. È possibile assegnare più risorse modificando il [livello di servizio](sql-database-service-tiers.md) di un database autonomo o aumentare il numero di eDTU di un pool elastico in qualsiasi momento.
-1. Per i database autonomi, è possibile [modificare i livelli di servizio](sql-database-service-tiers.md) su richiesta per migliorare le prestazioni del database.
+Se alla fine non esistono elementi eseguibili che possono migliorare le prestazioni del database, è possibile modificare la quantità di risorse disponibili nel database SQL di Azure. È possibile assegnare più risorse modificando il [livello di servizio DTU](sql-database-service-tiers-dtu.md) di un database autonomo o aumentare il numero di eDTU di un pool elastico in qualsiasi momento. In alternativa, se si usa il [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md) è possibile modificare il livello di servizio o aumentare le risorse allocate al database. 
+1. Per i database autonomi, è possibile [modificare i livelli di servizio](sql-database-service-tiers-dtu.md) o le [risorse di calcolo](sql-database-service-tiers-vcore.md) su richiesta per migliorare le prestazioni del database.
 2. Per più database, è consigliabile usare [pool elastici](sql-database-elastic-pool-guidance.md) per la scalabilità automatica delle risorse.
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>Ottimizzare ed eseguire il refactoring del codice del database o dell'applicazione

@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 21d21c945b622c1695d8856c4baff02c098218cf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 741b76935b5a6d9b2a6869ef57caa0ac0dc6351a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159078"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Riferimento alle impostazioni di roaming di Windows 10
 Di seguito è riportato un elenco completo di tutte le impostazioni di cui verrà effettuato il roaming o il backup in Windows 10. 
@@ -47,11 +48,15 @@ I gruppi di impostazioni seguenti permettono agli utenti finali di abilitare o d
 * Accessibilità: Assistente vocale, tastiera su schermo, lente di ingrandimento. 
 * Altre impostazioni di Windows: vedere la sezione Dettagli relativi alle impostazioni di Windows.
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 La sincronizzazione del gruppo di impostazioni del browser Microsoft Edge (Preferiti, Elenco di lettura) può essere abilitata o disabilitata dagli utenti finali tramite la relativa opzione del menu Impostazioni del browser Microsoft Edge.
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-edge.png)
+
+Per Windows 10 versione 1803 o successiva, la sincronizzazione dei gruppi di impostazioni di Internet Explorer (preferiti, URL digitati) può essere abilitata o disabilitata dagli utenti finali tramite l'opzione del menu Impostazioni di Internet Explorer. 
+
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Dettagli relativi alle impostazioni di Windows
 Nella tabella seguente, la voce Altre nella colonna Gruppo di impostazioni fa riferimento alle impostazioni che possono essere disabilitate da Impostazioni > Account > Sincronizza le impostazioni > Altre impostazioni di Windows. 
@@ -86,21 +91,21 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Personalizzazione del desktop**: impostazioni della barra delle applicazioni (posizione, Nascondi automaticamente e così via) |sync |X |Tema |
 | **Personalizzazione del desktop**: layout della schermata Start |X |backup | |
 | **Dispositivi**: stampanti condivise a cui è stata eseguita la connessione |X |X |Altre |
-| **Browser Microsoft Edge**: Elenco di lettura |sync |sync |Interne |
-| **Browser Microsoft Edge**: Preferiti |sync |sync |Interne |
-| **Browser Microsoft Edge**: siti principali <sup> [[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Microsoft Edge**: URL digitati <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Microsoft Edge**: impostazioni barra Preferiti <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Microsoft Edge**: mostra pulsante Home <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Microsoft Edge**: blocca popup <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Microsoft Edge**: richiedi l'operazione da eseguire con ogni download <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Microsoft Edge**: offri la possibilità di salvare le password <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Microsoft Edge**: invia richieste Do Not Track <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Microsoft Edge**: salva i dati immessi nei moduli <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Microsoft Edge**: mostra suggerimenti per la ricerca e i siti durante la digitazione <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Microsoft Edge**: preferenze cookie <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Microsoft Edge**: consenti ai siti di archiviare le licenze per i contenuti multimediali protetti nel dispositivo <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Microsoft Edge**: impostazione utilità per la lettura dello schermo <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: Elenco di lettura |sync |sync |Interne |
+| **Browser Edge**: Preferiti |sync |sync |Interne |
+| **Browser Edge**: siti principali <sup> [[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: URL digitati <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: impostazioni barra Preferiti <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: mostra pulsante Home <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: blocca popup <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: richiedi l'operazione da eseguire con ogni download <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: offri la possibilità di salvare le password <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: invia richieste Do Not Track <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: salva i dati immessi nei moduli <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: mostra suggerimenti per la ricerca e i siti durante la digitazione <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: preferenze cookie <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: consenti ai siti di archiviare le licenze per i contenuti multimediali protetti nel dispositivo <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: impostazione utilità per la lettura dello schermo <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Contrasto elevato**: abilitazione/disabilitazione |sync |X |Accessibilità |
 | **Contrasto elevato**: impostazioni del tema |sync |X |Accessibilità |
 | **Internet Explorer**: schede aperte (URL e titolo) |sync |sync |Internet Explorer |

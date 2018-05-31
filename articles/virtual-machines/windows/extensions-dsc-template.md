@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 03/22/2018
 ms.author: migreene
-ms.openlocfilehash: 095b0cba8f7d22920203e5e3c4bcd83666188023
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0a39cabeb35450e98cc7d7d64645642959aacde0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194989"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Estensione Desired State Configuration (DSC) con modelli di Azure Resource Manager
 
@@ -33,7 +34,7 @@ Questo articolo descrive il modello di Azure Resource Manager per il [gestore de
 
 Il frammento seguente illustra la sezione del modello relativa alle **risorse**.
 L'estensione DSC eredita le proprietà di estensione predefinite.
-Per altre informazioni, vedere [VirtualMachineExtension class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.) (Classe VirtualMachineExtension).
+Per altre informazioni, vedere [VirtualMachineExtension class](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.) (Classe VirtualMachineExtension).
 
 ```json
 {
@@ -83,7 +84,7 @@ Il nodo di un set di scalabilità di macchine virtuali ha una sezione **properti
 In **extensions** aggiungere i dettagli per l'estensione DSC.
 
 L'estensione DSC eredita le proprietà di estensione predefinite.
-Per altre informazioni, vedere [VirtualMachineScaleSetExtension class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet) (Classe VirtualMachineScaleSetExtension).
+Per altre informazioni, vedere [VirtualMachineScaleSetExtension class](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet) (Classe VirtualMachineScaleSetExtension).
 
 ```json
 "extensionProfile": {
@@ -197,7 +198,7 @@ Per un elenco degli argomenti disponibili per lo script di configurazione predef
 
 ## <a name="default-configuration-script"></a>Script di configurazione predefinito
 
-Per altre informazioni sui valori seguenti, vedere [Configurazione di Gestione configurazione locale - Impostazioni di base](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings).
+Per altre informazioni sui valori seguenti, vedere [Configurazione di Gestione configurazione locale - Impostazioni di base](https://docs.microsoft.com/powershell/dsc/metaconfig#basic-settings).
 È possibile usare lo script di configurazione predefinito dell'estensione DSC per configurare solo le proprietà di Gestione configurazione locale elencate nella tabella seguente.
 
 | Nome proprietà | type | DESCRIZIONE |

@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f697b95074e0fc9dbb3e8c7800e69f8ece9e0b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b924ea1df926518ba1d86909f8e6a78deabd5468
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Esercitazione: Integrazione di Azure Active Directory con QPrism
 
@@ -37,7 +38,7 @@ Per altre dettagli sull'integrazione di app SaaS con Azure AD, vedere [Informazi
 Per configurare l'integrazione di Azure AD con QPrism, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD
-- Sottoscrizione abilitata per l'accesso Single-Sign On a QPrism
+- Sottoscrizione abilitata per l'accesso Single Sign-On a QPrism
 
 A questo scopo, seguire queste indicazioni:
 
@@ -110,34 +111,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di QPrism](mailto:qsupport-ce@quatrro.com). 
 
-4. Per generare l'**URL dei metadati**, seguire questa procedura:
+4. Nella sezione **Certificato di firma SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
 
-    a. Selezionare **Registrazioni per l'app**.
-    
-    ![Configurare le registrazioni per l'app per Single Sign-On](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appregistrations.png)
-   
-    b. Selezionare **Endpoint** per aprire la finestra di dialogo **Endpoint**.  
-    
-    ![Configurare l'endpoint per l'accesso Single Sign-On](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpointicon.png)
-
-    c. Selezionare il pulsante Copia per copiare l'URL del **DOCUMENTO METADATI FEDERAZIONE** e incollarlo nel Blocco note.
-    
-    ![Configurare l'endpoint per l'accesso Single Sign-On](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpoint.png)
-     
-    d. Passare ora alla pagina delle proprietà di **QPrism** e copiare l'**ID applicazione** usando **Copia**. Incollarlo quindi nel Blocco note.
- 
-    ![Configurare l'ID applicazione per l'accesso Single Sign-On](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appid.png)
-
-    e. Generare l'**URL dei metadati** usando il modello seguente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 
+     ![Collegamento di download del certificato](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_certificate.png)
 
 5. Selezionare **Salva**.
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-qprism-tutorial/tutorial_general_400.png)
     
-6. Per configurare l'accesso Single Sign-On sul lato **QPrism**, inviare l'**URL dei metadati** al [team di supporto di QPrism](mailto:qsupport-ce@quatrro.com), che garantisce che la connessione Single Sign-On SAML sia impostata correttamente su entrambi i lati.
-
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile nel [portale di Azure](https://portal.azure.com) durante la configurazione dell'app. Dopo aver aggiunto l'app dalla sezione **Active Directory** > **Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+6. Per configurare l'accesso Single Sign-On sul lato **QPrism**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di QPrism](mailto:qsupport-ce@quatrro.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 

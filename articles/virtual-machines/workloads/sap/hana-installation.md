@@ -1,5 +1,5 @@
 ---
-title: Installare SAP HANA su SAP HANA in Azure (istanze di grandi dimensioni) | Documentazione Microsoft
+title: Installare SAP HANA su SAP HANA in Azure (istanze di grandi dimensioni) | Microsoft Docs
 description: Come installare SAP HANA in SAP HANA in Azure (istanza di grandi dimensioni).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,18 +14,19 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ef85c098058c97e5ec6d758fcf1dab5b1a87786
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 768d9c31cdf019bf73a9d3b3a239c537c72725f6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778597"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Come installare e configurare SAP HANA (istanze di grandi dimensioni) in Azure
 
 Di seguito sono disponibili alcune definizioni importanti, che è necessario conoscere prima di leggere questa guida. In [Panoramica e architettura di SAP HANA (istanze Large) in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) vengono illustrate le due classi diverse di istanze Large di Hana con:
 
 - S72, S72m, S144, S144m, S192 e S192m, definiti SKU di "Classe di tipo I".
-- S384, S384m, S384xm, S576, S768 e S960, definiti SKU di "Classe di tipo II".
+- La "classe di tipo II" include gli SKU S384, S384m, S384xm, S576m, S768m e S960m.
 
 L'identificatore di classe verrà usato in tutta la documentazione relativa alle istanze Large di HANA, per fare riferimento a diverse funzionalità e requisiti in base agli SKU di istanze Large di HANA.
 

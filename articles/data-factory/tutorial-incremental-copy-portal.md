@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406491"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Caricare i dati in modo incrementale da un database SQL di Azure a un archivio BLOB di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da una tabella di un database SQL di Azure a un archivio BLOB di Azure. 
@@ -302,7 +303,7 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
 24. Selezionare l'attività **Stored procedure** nella finestra di progettazione della pipeline e modificarne il nome in **StoredProceduretoWriteWatermarkActivity**. 
 
     ![Attività stored procedure: nome](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
-25. Passare alla scheda **Account SQL** e selezionare *AzureSqlDatabaseLinkedService* per **Servizio collegato**. 
+25. Passare alla scheda **Account SQL** e selezionare *AzureSqlDatabaseLinkedService*\* per **Servizio collegato**. 
 
     ![Attività stored procedure: account SQL](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Passare alla scheda **Stored procedure** e seguire questa procedura: 

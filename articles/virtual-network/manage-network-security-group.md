@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 0e9a66cc52c25bf4d38fd27050a92196227a698c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894247"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Creare, modificare o eliminare un gruppo di sicurezza di rete
 
@@ -34,6 +35,8 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 - Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo di Azure PowerShell 5.4.1 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
 - Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.28 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
 
+L'account con cui si accede o con cui ci si collega ad Azure deve essere assegnato al ruolo [collaboratore di rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nelle [Autorizzazioni](#permissions).
+
 ## <a name="work-with-network-security-groups"></a>Usare i gruppi di sicurezza di rete
 
 È possibile creare un gruppo, [visualizzare tutti i gruppi di sicurezza di rete](#view-all-network-security-groups), [visualizzare i dettagli di un gruppo](#view-details-of-a-network-security-group), [modificare](#change-a-network-security-group) ed [eliminare](#delete-a-network-security-group) un gruppo di sicurezza di rete. È anche possibile [associare o annullare l'associazione](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) di un gruppo di sicurezza di rete da un'interfaccia di rete o da una subnet.
@@ -44,7 +47,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 
 1. Nell'angolo superiore sinistro del portale selezionare **+ Crea una risorsa**.
 2. Selezionare **Rete** e quindi selezionare **Gruppo di sicurezza di rete**.
-3. Immettere un **Nome** per il gruppo di sicurezza di rete, selezionare **Sottoscrizione**, creare un nuovo **Gruppo di risorse** o selezionare un gruppo di risorse esistente, selezionare una **Località** e quindi scegliere **Crea**. 
+3. Immettere un **Nome** per il gruppo di sicurezza di rete, selezionare **Sottoscrizione**, creare un nuovo **Gruppo di risorse** o selezionare un gruppo di risorse esistente, selezionare una **Località** e quindi scegliere **Crea**.
 
 **Comandi**
 
@@ -67,7 +70,7 @@ Nella casella di ricerca nella parte superiore del portale immettere *Gruppi di 
 3. Per altre informazioni sulle impostazioni comuni di Azure elencate, vedere gli articoli seguenti:
     *   [Log attività](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [Controllo di accesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
-    *   [Tag](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
+    *   [Tag](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Blocchi](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Script di automazione](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
@@ -211,7 +214,7 @@ Se da una parte è possibile modificare alcune impostazioni come i tag e le auto
 
 ### <a name="delete-an-application-security-group"></a>Eliminare un gruppo di sicurezza delle applicazioni
 
-Non è possibile eliminare un gruppo di sicurezza delle applicazioni se contiene interfacce di rete. È necessario rimuovere tutte le interfacce di rete dal gruppo di sicurezza delle applicazioni modificando le impostazioni delle interfacce di rete o eliminando le interfacce di rete stesse. Per maggiori dettagli, vedere [Aggiungere o rimuovere un'interfaccia di rete da gruppi di sicurezza delle applicazioni](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) oppure [Eliminare un'interfaccia di rete](virtual-network-network-interface.md#delete-a-network-interface).
+Non è possibile eliminare un gruppo di sicurezza delle applicazioni se contiene interfacce di rete. Rimuovere tutte le interfacce di rete dal gruppo di sicurezza delle applicazioni modificando le impostazioni delle interfacce di rete o eliminando le interfacce di rete stesse. Per maggiori dettagli, vedere [Aggiungere o rimuovere un'interfaccia di rete da gruppi di sicurezza delle applicazioni](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) oppure [Eliminare un'interfaccia di rete](virtual-network-network-interface.md#delete-a-network-interface).
 
 **Comandi**
 
@@ -222,16 +225,31 @@ Non è possibile eliminare un gruppo di sicurezza delle applicazioni se contiene
 
 Per eseguire attività in gruppi di sicurezza di rete, regole di sicurezza e gruppi di sicurezza delle applicazioni, l'account deve essere assegnato al ruolo [Collaboratore Rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un ruolo [personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le autorizzazioni appropriate elencate nella tabella seguente:
 
-|Operazione                                                       |   Nome operazione                               |
-|--------------------------------------------------------------  |   -------------------------------------------  |
-|Microsoft.Network/ruleTables/read                              |   Ottenere un gruppo di sicurezza di rete                              |
-|Microsoft.Network/ruleTables/write                             |   Creare o aggiornare un gruppo di sicurezza di rete                 |
-|Microsoft.Network/ruleTables/delete                            |   Eliminare un gruppo di sicurezza di rete                           |
-|Microsoft.Network/ruleTables/join/action                       |   Partecipare a un gruppo di sicurezza di rete                             |
-|Microsoft.Network/ruleTables/rules/read                       |   Ottenere una regola                                    |
-|Microsoft.Network/ruleTables/rules/write                      |   Creare o aggiornare una regola                       |
-|Microsoft.Network/ruleTables/rules/delete                     |   Eliminare una regola                                 |
-|Microsoft.Network/networkInterfaces/effectiveruleTable/action  |   Ottenere un gruppo di sicurezza di rete valido per l'interfaccia di rete  | 
-|Microsoft.Network/networkWatchers/nextHop/action                |   Ottenere l'hop successivo da una macchina virtuale                  |
+### <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 
-L'operazione *Partecipare a gruppo di sicurezza di rete* è necessaria per associare un gruppo di sicurezza di rete a una subnet.
+| Azione                                                        |   NOME                                                                |
+|-------------------------------------------------------------- |   -------------------------------------------                         |
+| Microsoft.Network/ruleTables/read                             |   Ottenere un gruppo di sicurezza di rete                                          |
+| Microsoft.Network/ruleTables/write                            |   Creare o aggiornare un gruppo di sicurezza di rete                             |
+| Microsoft.Network/ruleTables/delete                           |   Eliminare un gruppo di sicurezza di rete                                       |
+| Microsoft.Network/ruleTables/join/action                      |   Assegnare un gruppo di sicurezza di rete a una subnet o un'interfaccia di rete |
+| Microsoft.Network/ruleTables/rules/read                       |   Ottenere una regola                                                            |
+| Microsoft.Network/ruleTables/rules/write                      |   Creare o aggiornare una regola                                               |
+| Microsoft.Network/ruleTables/rules/delete                     |   Eliminare una regola                                                         |
+| Microsoft.Network/networkInterfaces/effectiveruleTable/action |   Ottenere un gruppo di sicurezza di rete valido per l'interfaccia di rete              |
+| Microsoft.Network/networkWatchers/nextHop/action              |   Ottenere l'hop successivo da una macchina virtuale                                         |
+
+### <a name="application-security-groups"></a>Gruppi di sicurezza delle applicazioni
+
+| Azione                                                                     | NOME                                                     |
+| --------------------------------------------------------------             | -------------------------------------------              |
+| Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Aggiungere una configurazione IP a gruppi di sicurezza dell'applicazione|
+| Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Aggiungere una regola di sicurezza a un gruppo di sicurezza dell'applicazione    |
+| Microsoft.Network/applicationSecurityGroups/read                           | Ottenere un gruppo di sicurezza dell'applicazione                        |
+| Microsoft.Network/applicationSecurityGroups/write                          | Creare o aggiornare un gruppo di sicurezza delle applicazioni           |
+| Microsoft.Network/applicationSecurityGroups/delete                         | Eliminare un gruppo di sicurezza delle applicazioni                     |
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Creare un gruppo di sicurezza di rete o dell'applicazione usando gli script di esempio di [PowerShell](powershell-samples.md) o dell'[interfaccia della riga di comando di Azure](cli-samples.md) oppure i [modelli di Azure Resource Manager](template-samples.md)
+- Creare e applicare i [criteri di Azure](policy-samples.md) per le reti virtuali

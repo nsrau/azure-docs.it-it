@@ -12,21 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 480c1984219a5e2fb79e8eb81ed87710c79611e4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a62d7a36eeb84b06baa4f2968d48f4a7afcaa05d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140083"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durata dei token configurabili in Azure Active Directory (anteprima pubblica)
 È possibile specificare la durata di un token rilasciato da Azure Active Directory (Azure AD). La durata dei token può essere impostata per tutte le app di un'organizzazione, per un'applicazione multi-tenant (più organizzazioni) o per un'entità servizio specifica in un'organizzazione.
 
 > [!IMPORTANT]
-> Questo metodo di controllo della durata dei token verrà deprecato.  Mentre rimarrà disponibile fino a quando non sarà pronta la funzionalità di sostituzione, dopo che sarà stato deprecato i criteri per la durata dei token creati usando questo metodo cesseranno di funzionare. 
+> In seguito ai commenti dei clienti durante l'anteprima, stiamo pianificando di sostituire questa funzionalità con una nuova funzione di Accesso condizionale di Azure Active Directory.  Al completamento della nuova funzione, questa funzionalità verrà infine deprecata dopo un periodo di notifica.  Se si usano i criteri di durata dei Token configurabili, prepararsi a passare alla nuova funzione di Accesso condizionale quando sarà disponibile. 
 >
 >
 
@@ -108,6 +109,8 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 Per altre informazioni sulla relazione tra oggetti applicazione e oggetti entità servizio, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](active-directory-application-objects.md).
 
 La validità di un token viene valutata quando questo viene usato. Vengono applicati i criteri con la priorità più alta per l'applicazione a cui si accede.
+
+Tutti gli intervalli di tempo usati qui sono formattati in base all'oggetto[TimeSpan](https://msdn.microsoft.com/library/system.timespan) C# - D.HH:MM:SS.  Quindi 80 giorni e 30 minuti sarebbe `80.00:30:00`.  La D iniziale può essere eliminata se è zero, pertanto 90 minuti sarebbe `00:90:00`.  
 
 > [!NOTE]
 > Di seguito è riportato uno scenario di esempio.

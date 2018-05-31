@@ -2,23 +2,24 @@
 title: Usare cloud-init per aggiornare e installare i pacchetti in una macchina virtuale Linux in Azure | Microsoft Docs
 description: Come usare cloud-init per aggiornare e installare i pacchetti in una macchina virtuale Linux durante la creazione con l'interfaccia della riga di comando di Azure 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 04/20/2018
 ms.author: rclaus
-ms.openlocfilehash: e45bec2a71f94c66ce3044fb81bd2d7cefdf53a5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8d5835b5d1b0c2f77bdf5e1a2b808478b8f4de22
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32186155"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Usare cloud-init per aggiornare e installare i pacchetti in una macchina virtuale Linux in Azure
 Questo articolo descrive come usare [cloud-init](https://cloudinit.readthedocs.io) per aggiornare i pacchetti in una macchina virtuale o in un set di scalabilità di macchine virtuali Linux in fase di provisioning in Azure. Questi script cloud-init vengono eseguiti al primo avvio dopo il provisioning delle risorse da parte di Azure. Per altre informazioni sul funzionamento di cloud-init in modo nativo in Azure e sulle distribuzioni Linux supportate, vedere la [panoramica di cloud-init](using-cloud-init.md)
@@ -58,23 +59,22 @@ Stabilire una connessione SSH all'indirizzo IP pubblico della VM visualizzata ne
 ssh <publicIpAddress>
 ```
 
-Eseguire lo strumento di gestione pacchetti e cercare gli aggiornamenti. L'esempio seguente usa `apt-get` in una VM Ubuntu:
+Eseguire lo strumento di gestione pacchetti e cercare gli aggiornamenti.
 
 ```bash
-sudo apt-get upgrade
+sudo yum update
 ```
 
-Poiché cloud-init ha cercato e installato gli aggiornamenti all'avvio, non devono essere presenti aggiornamenti da applicare, come illustrato nell'output di esempio seguente:
+Poiché cloud-init ha cercato e installato gli aggiornamenti all'avvio, non dovrebbero essere presenti altri aggiornamenti da applicare.  Vengono visualizzati il processo di aggiornamento, il numero di pacchetti modificati e l'installazione di `httpd` eseguendo `yum history`. Esaminare l'output simile a quello riportato di seguito.
 
 ```bash
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-Calculating upgrade... Done
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Loaded plugins: fastestmirror, langpacks
+ID     | Command line             | Date and time    | Action(s)      | Altered
+-------------------------------------------------------------------------------
+     3 | -t -y install httpd      | 2018-04-20 22:42 | Install        |    5
+     2 | -t -y upgrade            | 2018-04-20 22:38 | I, U           |   65
+     1 |                          | 2017-12-12 20:32 | Install        |  522
 ```
-
-È inoltre possibile verificare l'installazione di `httpd` eseguendo `yum history` ed esaminare l'output che fa riferimento a `httpd`. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altri esempi cloud-init di modifiche di configurazione, vedere i documenti seguenti:

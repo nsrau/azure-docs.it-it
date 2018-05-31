@@ -1,5 +1,5 @@
 ---
-title: 'Codici di errore SQL: errore di connessione del database | Documentazione Microsoft'
+title: 'Codici di errore SQL: errore di connessione del database | Microsoft Docs'
 description: 'Informazioni sui codici di errore SQL per le applicazioni client del database SQL, ad esempio errori di connessione comuni del database, problemi di copia del database ed errori generali. '
 keywords: codice di errore sql, accesso sql, errore di connessione del database, codici di errore sql
 services: sql-database
@@ -10,11 +10,12 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5a20f8cb2946db0ff5fafc4c307f56629b635825
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: bf94e99d84b7f5b727b185209ba0288096b30607
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195329"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database
 
@@ -50,7 +51,7 @@ I seguenti errori sono temporanei e devono essere ripetuti nella logica dell'app
 | ---:| ---:|:--- |
 | 4060 |16 |Impossibile aprire il database "%.&#x2a;ls" richiesto dall'account di accesso. Accesso non riuscito. |
 | 40197 |17 |Il servizio ha rilevato un errore durante l'elaborazione della richiesta. Riprova più tardi. Codice di errore %d.<br/><br/>Questo errore viene visualizzato quando il servizio non è disponibile a causa di aggiornamenti software o hardware, guasti hardware o altri problemi di failover. Nel codice di errore (%d) incorporato nel messaggio di errore 40197 sono contenute ulteriori informazioni sul tipo di errore o failover che si è verificato. Alcuni esempi dei codici di errore incorporati nel messaggio di errore 40197 sono 40020, 40143, 40166 e 40540.<br/><br/>Con la riconnessione al server di database SQL verrà effettuata la connessione automatica a una copia integra del database. L'applicazione deve rilevare l'errore 40197, registrare il codice di errore incorporato (%d) nel messaggio per la risoluzione dei problemi e tentare la riconnessione al database SQL finché le risorse non saranno disponibili e la connessione non sarà stata ristabilita. |
-| 40501 |20 |Il servizio è attualmente occupato. Ripetere la richiesta dopo 10 secondi. ID evento imprevisto: %ls. Codice: %d.<br/><br/>Per altre informazioni, vedere:<br/>• [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers.md). |
+| 40501 |20 |Il servizio è attualmente occupato. Ripetere la richiesta dopo 10 secondi. ID evento imprevisto: %ls. Codice: %d.<br/><br/>Per altre informazioni, vedere:<br/>• [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers-dtu.md). |
 | 40613 |17 |Il database '%.&#x2a;ls' nel server '%.&#x2a;ls' non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento. Se il problema persiste, contattare il supporto tecnico indicando l'ID di traccia della sessione di '%.&#x2a;ls'. |
 | 49918 |16 |Impossibile elaborare una richiesta. Risorse insufficienti per elaborare la richiesta.<br/><br/>Il servizio è attualmente occupato. Si prega di ripetere la richiesta più tardi. |
 | 49919 |16 |Il processo non può creare o aggiornare la richiesta. Troppe operazioni di creazione o aggiornamento in corso per "%ld" della sottoscrizione.<br/><br/>Il servizio è occupato nell'elaborazione di più creazioni o aggiornamenti delle richieste per sottoscrizione o server. Le richieste al momento sono bloccate per l'ottimizzazione delle risorse. Eseguire la query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) per le operazioni in sospeso. Attendere che le richieste di creazione o aggiornamento in sospeso siano complete o cancellare una delle richieste in sospeso e ripetere la richiesta in un secondo momento. |
@@ -86,12 +87,12 @@ I seguenti errori sono causati dall'uso eccessivo delle risorse durante l'utiliz
 
 Argomenti correlati:
 
-* Informazioni più dettagliate sono disponibili qui: [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers.md).
+* Informazioni più dettagliate sono disponibili qui: [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers-dtu.md).
 
 | Codice di errore | Gravità | DESCRIZIONE |
 | ---:| ---:|:--- |
-| 10928 |20 |ID risorsa: %d. Il limite di %s per il database è %d ed è stato raggiunto. Per altre informazioni, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>Per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers.md). |
-| 10929 |20 |ID risorsa: %d. La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per altre informazioni, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). In caso contrario, riprovare più tardi.<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>Per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers.md). |
+| 10928 |20 |ID risorsa: %d. Il limite di %s per il database è %d ed è stato raggiunto. Per altre informazioni, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>Per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |ID risorsa: %d. La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per altre informazioni, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). In caso contrario, riprovare più tardi.<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>Per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |Il database ha raggiunto la quota delle dimensioni. Partizionare o eliminare dati, eliminare indici o consultare la documentazione per le possibili soluzioni. |
 | 40549 |16 |La sessione è stata terminata a causa di una transazione a esecuzione prolungata. Provare ad abbreviare la transazione. |
 | 40550 |16 |La sessione è stata terminata perché sono stati acquisiti troppi blocchi. Provare a leggere o modificare meno righe in una singola transazione. |
@@ -111,7 +112,7 @@ Di seguito sono elencati gli errori riguardanti la creazione e l'uso di pool ela
 | 40858 |EX_USER |Il pool elastico '%ls' esiste già nel server: '%ls' |nome del pool elastico, nome del server |Il pool elastico specificato esiste già nel server logico specificato. |Fornire un nuovo nome pool elastico. |
 | 40859 |EX_USER |Il pool elastico non supporta il livello di servizio '%ls'. |livello di servizio del pool elastico |Il livello di servizio specificato non è supportato per il provisioning del pool elastico. |Fornire l'edizione corretta oppure lasciare vuoto il livello di servizio per utilizzare il livello di servizio predefinito. |
 | 40860 |EX_USER |La combinazione di pool elastico '%ls' e di obiettivo di servizio '%ls' non è valida. |nome pool elastico; nome obiettivo del livello di servizio |Il pool elastico e l’obiettivo del servizio possono essere specificati insieme solo se l’obiettivo di servizio viene specificato come 'ElasticPool'. |Specificare la combinazione corretta di pool elastico e obiettivo di servizio. |
-| 40861 |EX_USER |L'edizione del database "%.*ls" non può essere diversa dal livello di servizio del pool elastico, ovvero "%.*ls". |edizione del database, livello di servizio del pool elastico |L'edizione del database è diversa dal livello di servizio del pool elastico. |Non specificare un'edizione di database diversa dal livello di servizio del pool elastico.  Si noti che non è necessario specificare l'edizione del database. |
+| 40861 |EX_USER |L'edizione del database "%.*ls" non può essere diversa dal livello di servizio del pool elastico, ovvero "%.* ls". |edizione del database, livello di servizio del pool elastico |L'edizione del database è diversa dal livello di servizio del pool elastico. |Non specificare un'edizione di database diversa dal livello di servizio del pool elastico.  Si noti che non è necessario specificare l'edizione del database. |
 | 40862 |EX_USER |Il nome del pool elastico deve essere specificato se viene specificato l'obiettivo di servizio del pool elastico. |Nessuna |L’obiettivo di servizio del pool elastico non identifica in modo univoco un pool elastico. |Specificare il nome del pool elastico se si usa l'obiettivo di servizio del pool elastico. |
 | 40864 |EX_USER |Le DTU per il pool elastico devono essere almeno (%d) DTU per il livello di servizio '%.*ls'. |DTU per il pool elastico; livello di servizio del pool elastico. |Tentativo di impostare le DTU per il pool elastico al di sotto del limite minimo. |Riprovare a impostare le DTU per il pool elastico almeno al limite minimo. |
 | 40865 |EX_USER |Le DTU per il pool elastico non possono superare (%d) DTU per il livello di servizio '%.*ls'. |DTU per il pool elastico; livello di servizio del pool elastico. |Tentativo di impostare le DTU per il pool elastico al di sopra del limite massimo. |Riprovare a impostare le DTU per il pool elastico non oltre il limite massimo. |
@@ -173,11 +174,11 @@ I seguenti errori non rientrano nelle categorie precedenti.
 | 40607 |16 |Gli account di accesso Windows non sono supportati in questa versione di SQL Server. |
 | 40611 |16 |È possibile definire un massimo di 128 regole firewall per i server. |
 | 40614 |16 |L'indirizzo IP iniziale della regola firewall non può superare l'indirizzo IP finale. |
-| 40615 |16 |Impossibile aprire il server '{0}' richiesto dall'account di accesso. Non è consentito l'accesso del client con indirizzo IP '{1}' al server.<br /><br />Per consentire l'accesso, usare il portale del database SQL o eseguire sp\_set\_firewall\_rule nel database master per creare una regola del firewall per l'indirizzo IP o l'intervallo di indirizzi. Affinché la modifica diventi effettiva potrebbero essere necessari fino a cinque minuti. |
+| 40615 |16 |Impossibile aprire il server "{0}" richiesto dall'account di accesso. Non è consentito l'accesso del client con indirizzo IP "{1}" al server.<br /><br />Per consentire l'accesso, usare il portale del database SQL o eseguire sp\_set\_firewall\_rule nel database master per creare una regola del firewall per l'indirizzo IP o l'intervallo di indirizzi. Affinché la modifica diventi effettiva potrebbero essere necessari fino a cinque minuti. |
 | 40617 |16 |Il nome della regola firewall che inizia con (nome della regola) è troppo lungo. La lunghezza massima è 128. |
 | 40618 |16 |Il nome della regola firewall non può essere vuoto. |
 | 40620 |16 |Accesso non riuscito per l’utente "%.&#x2a;ls". Modifica della password non riuscita La modifica della password durante l'accesso non è supportata in questa versione di SQL Server. |
-| 40627 |20 |Operazione in corso nel server '{0}' e nel database '{1}'. Attendere alcuni minuti prima di riprovare. |
+| 40627 |20 |Operazione in corso nel server "{0}" e nel database "{1}". Attendere alcuni minuti prima di riprovare. |
 | 40630 |16 |Convalida della password non riuscita. La password non soddisfa i criteri perché è troppo corta. |
 | 40631 |16 |La password specificata è troppo lunga. La password non deve contenere più di 128 caratteri. |
 | 40632 |16 |Convalida della password non riuscita. La password non soddisfa i criteri in quanto non è sufficientemente complessa. |
@@ -205,5 +206,6 @@ I seguenti errori non rientrano nelle categorie precedenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sulle [funzionalità di database SQL di Azure](sql-database-features.md).
-* Altre informazioni sui [livelli di servizio](sql-database-service-tiers.md).
+* Altre informazioni sul [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md).
+* Altre informazioni sul [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md).
 

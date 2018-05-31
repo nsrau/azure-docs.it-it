@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 73baef03f7b240e7bb33f3d5f827b1fc72c985f2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 128a6bffe4e604eb4e02a10f13d561a336fc8c61
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34354419"
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrare le directory locali con Azure Active Directory
 Azure AD Connect integra le directory locali con Azure Active Directory. Consente quindi di fornire agli utenti un'identità comune per le applicazioni di Office 365, Azure e SaaS integrate con Azure AD. Questo argomento fornisce una guida dettagliata sulle procedure di pianificazione, distribuzione e funzionamento. Include una raccolta di collegamenti agli argomenti correlati a questa area.
@@ -146,7 +147,7 @@ Azure AD Connect offre numerose funzionalità che semplificano la federazione co
 
 AD FS può essere configurato per supportare [più domini](active-directory-aadconnect-multiple-domains.md). Ad esempio, possono essere presenti più domini principali da usare per la federazione.
 
-Se il server AD FS non è stato configurato per l'aggiornamento automatico dei certificati da Azure AD o se si usa una soluzione non AD FS, si riceverà una notifica quando è necessario [aggiornare i certificati](active-directory-aadconnect-o365-certs.md).
+Se il server AD FS non è stato configurato per aggiornare automaticamente i certificati da Azure AD o se si utilizza una soluzione non AD FS, si riceve una notifica quando occorre [aggiornare i certificati](active-directory-aadconnect-o365-certs.md).
 
 ### <a name="next-steps-to-configure-federation-features"></a>Configurare le funzionalità di federazione - Passaggi successivi
 |Argomento |Collegamento|  

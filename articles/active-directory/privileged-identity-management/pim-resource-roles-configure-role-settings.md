@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management per le risorse di Azure - Configurare le impostazioni dei ruoli | Microsoft Docs
+title: Configurare le impostazioni dei ruoli per le risorse di Azure mediante Privileged Identity Management | Microsoft Docs
 description: Descrive come configurare le impostazioni dei ruoli per PIM.
 services: active-directory
 documentationcenter: ''
@@ -13,16 +13,17 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 0fe986d8cdace301fde4045b16d299ba8395457d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 05546be87aec3ec2f44b876a97eeab2121383d61
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32148812"
 ---
-# <a name="privileged-identity-management---resource-roles---configure"></a>Privileged Identity Management - Ruoli delle risorse - Configurazione
+# <a name="configure-role-settings-by-using-for-azure-resources-by-using-privileged-identity-management"></a>Configurare le impostazioni dei ruoli per le risorse di Azure mediante Privileged Identity Management 
 
-La configurazione delle impostazioni dei ruoli consente di definire le impostazioni predefinite applicate alle assegnazioni nell'ambiente PIM. Per definire queste impostazioni per la risorsa specifica, selezionare la scheda Impostazioni dei ruoli dal menu di spostamento a sinistra oppure il pulsante Impostazioni dei ruoli dalla barra delle azioni in qualsiasi ruolo per visualizzare le opzioni correnti.
+Per configurare le impostazioni dei ruoli, occorre definire le impostazioni predefinite applicate alle assegnazioni nell'ambiente Privileged Identity Management (PIM). Per definire queste impostazioni per la propria risorsa, selezionare la scheda **Impostazioni dei ruoli** nel riquadro sinistro. È anche possibile scegliere il pulsante Impostazioni dei ruoli sulla barra delle azioni (in qualsiasi ruolo) per visualizzare le opzioni correnti.
 
 
 ## <a name="select-a-role"></a>Selezionare un ruolo
-Selezionare il ruolo a cui si vuole apportare una modifica. Selezionare quindi Modifica per apportare modifiche alle impostazioni esistenti.
+Selezionare il ruolo a cui si vuole apportare una modifica. Selezionare quindi **Modifica** per apportare modifiche alle impostazioni esistenti.

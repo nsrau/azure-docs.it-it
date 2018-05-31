@@ -1,11 +1,11 @@
 ---
-title: "Architettura di sicurezza su più livelli con ambienti del servizio app"
-description: "Implementazione di un'architettura di sicurezza su più livelli con ambienti del servizio app."
+title: Architettura di sicurezza su più livelli con ambienti del servizio app
+description: Implementazione di un'architettura di sicurezza su più livelli con ambienti del servizio app.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
-ms.openlocfilehash: 6c1f62b5e10a625911feea17ae6835e027709790
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 29c928c7d81eb3a2532f735be9132b49db5da373
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356206"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementazione di un'architettura di sicurezza su più livelli con ambienti del servizio app
 ## <a name="overview"></a>Panoramica
@@ -32,14 +33,14 @@ Il diagramma seguente mostra un'architettura di esempio con un elemento WebAPI b
 
 I segni più verdi indicano che il gruppo di sicurezza di rete nella subnet contenente "apiase" consente le chiamate in ingresso dalle app Web upstream, oltre che le chiamate da se stesso.  Lo stesso gruppo di sicurezza di rete, tuttavia, nega esplicitamente l'accesso al traffico in ingresso generale da Internet. 
 
-Il resto di questo argomento illustra in dettaglio la procedura necessaria per configurare il gruppo di sicurezza di rete nella subnet contenente "apiase".
+Il resto di questo articolo illustra in dettaglio la procedura necessaria per configurare il gruppo di sicurezza di rete nella subnet contenente "apiase."
 
 ## <a name="determining-the-network-behavior"></a>Determinazione del comportamento della rete
 Per conoscere le regole per la sicurezza della rete necessarie, si deve determinare a quali client di rete sarà consentito raggiungere l'ambiente del servizio app contenente l'app per le API e quali client verranno bloccati.
 
 Poiché i [gruppi di sicurezza di rete][NetworkSecurityGroups] vengono applicati alle subnet e gli ambienti del servizio app vengono distribuiti nelle subnet, le regole contenute in un gruppo di sicurezza di rete si applicano a **tutte** le app in esecuzione in un ambiente del servizio app.  Usando l'architettura di esempio di questo articolo, una volta applicato un gruppo di sicurezza di rete alla subnet contenente "apiase", tutte le app in esecuzione nell'ambiente del servizio app "apiase" verranno protette dallo stesso set di regole di sicurezza. 
 
-* **Determinare l'indirizzo IP in uscita dei chiamanti upstream:** quali sono gli indirizzi IP dei chiamanti upstream?  Sarà necessario consentire esplicitamente a questi indirizzi l'accesso nel gruppo di sicurezza di rete.  Poiché le chiamate tra gli ambienti del servizio app sono considerate chiamate "Internet", all'indirizzo IP in uscita assegnato a ciascuno dei tre ambienti del servizio app upstream deve essere consentito l'accesso nel gruppo di sicurezza di rete per la subnet "apiase".   Per altri dettagli su come determinare l'indirizzo IP in uscita per le app in esecuzione in un ambiente del servizio app, vedere l'articolo [Panoramica dell'architettura di rete][NetworkArchitecture].
+* **Determinare l'indirizzo IP in uscita dei chiamanti upstream:** quali sono gli indirizzi IP dei chiamanti upstream?  Sarà necessario consentire esplicitamente a questi indirizzi l'accesso nel gruppo di sicurezza di rete.  Poiché le chiamate tra gli ambienti del servizio app sono considerate chiamate "Internet", all'indirizzo IP in uscita assegnato a ciascuno dei tre ambienti del servizio app upstream deve essere consentito l'accesso nel gruppo di sicurezza di rete per la subnet "apiase".   Per altre informazioni su come determinare l'indirizzo IP in uscita per le app in esecuzione in un ambiente del servizio app, vedere l'articolo [Panoramica dell'architettura di rete][NetworkArchitecture].
 * **L'app per le API back-end dovrà chiamare se stessa?**  Un aspetto delicato e a volte trascurato è lo scenario in cui l'applicazione back-end deve chiamare se stessa.  Se un'applicazione API back-end in un ambiente del servizio app deve chiamare se stessa, anche questa chiamata viene considerata una chiamata "Internet".  Nell'architettura di esempio è necessario consentire l'accesso anche dall'indirizzo IP in uscita dell'ambiente del servizio app "apiase".
 
 ## <a name="setting-up-the-network-security-group"></a>Configurazione del gruppo di sicurezza di rete
@@ -76,13 +77,13 @@ Infine concedere l'accesso all'indirizzo IP in uscita dell'ambiente del servizio
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP apiase" -Type Inbound -Priority 800 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS apiase" -Type Inbound -Priority 900 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Non è necessario configurare nessuna altra regola di sicurezza di rete perché ogni gruppo di sicurezza di rete ha un set di regole predefinite che bloccano l'accesso in ingresso da Internet per impostazione predefinita.
+Non sono necessarie altre regole di sicurezza di rete perché ogni gruppo di sicurezza di rete ha un set di regole predefinite che bloccano l'accesso in ingresso da Internet per impostazione predefinita.
 
 L'elenco completo di regole nel gruppo di sicurezza di rete è mostrato di seguito.  Si noti che l'ultima regola, che è evidenziata, impedisce l'accesso in ingresso a tutti i chiamanti a cui non è stato esplicitamente concesso.
 
 ![Configurazione del gruppo di sicurezza di rete][NSGConfiguration] 
 
-Il passaggio finale consiste nell'applicare il gruppo di sicurezza di rete alla subnet contenente l'ambiente del servizio app "apiase".  
+Il passaggio finale consiste nell'applicare il gruppo di sicurezza di rete alla subnet contenente l'ambiente del servizio app "apiase".
 
      #Apply the NSG to the backend API subnet
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'yourvnetnamehere' -SubnetName 'API-ASE-Subnet'
@@ -90,7 +91,7 @@ Il passaggio finale consiste nell'applicare il gruppo di sicurezza di rete alla 
 Con il gruppo di sicurezza di rete applicato alla subnet, solo ai tre ambienti del servizio app upstream e all'ambiente del servizio app contenente il back-end dell'API è consentito chiamare l'ambiente "apiase".
 
 ## <a name="additional-links-and-information"></a>Informazioni e collegamenti aggiuntivi
-Informazioni sui [gruppi di sicurezza di rete](../../virtual-network/virtual-networks-nsg.md). 
+Informazioni sui [gruppi di sicurezza di rete](../../virtual-network/security-overview.md).
 
 Informazioni sugli [indirizzi IP in uscita][NetworkArchitecture] e sugli ambienti del servizio app.
 

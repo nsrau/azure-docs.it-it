@@ -14,18 +14,19 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43debeb710e5ab5112f9f0a85a76761cde3051a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 51089ffa05168d2309bd2a96ec44b2ce0fed75f9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778291"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastruttura e connettività a SAP HANA (istanze di grandi dimensioni) in Azure 
 
 Alcune definizioni prima di leggere questa guida. In [Panoramica e architettura di SAP HANA (istanze Large) in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) vengono illustrate le due classi diverse di istanze Large di Hana con:
 
 - S72, S72m, S144, S144m, S192 e S192m, definiti SKU di "Classe di tipo I".
-- S384, S384m, S384xm, S576, S768 e S960, definiti SKU di "Classe di tipo II".
+- La "classe di tipo II" include gli SKU S384, S384m, S384xm, S576m, S768m e S960m.
 
 In tutta la documentazione relativa alle istanze Large di HANA verranno usati identificatori di classe per fare riferimento a diverse funzionalità e requisiti in base agli SKU di istanze Large di HANA.
 
@@ -213,7 +214,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 In questo esempio è stato usato lo SKU del gateway HighPerformance. Le opzioni disponibili sono HighPerformance o UltraPerformance e sono gli unici SKU del gateway supportati per SAP HANA in Azure (istanze Large).
 
 > [!IMPORTANT]
-> Per le istanze Large di HANA con i tipi di SKU S384, S384m, S384xm, S576, S768 e S960 (SKU di Classe di tipo II), è obbligatorio usare lo SKU del gateway UltraPerformance.
+> Per le istanze Large di HANA con i tipi di SKU S384, S384m, S384xm, S576m, S768m e S960m (SKU di Classe di tipo II), è obbligatorio usare lo SKU del gateway UltraPerformance.
 
 ### <a name="linking-vnets"></a>Collegamento delle reti virtuali
 
