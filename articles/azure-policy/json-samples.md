@@ -1,5 +1,5 @@
 ---
-title: Esempi di modelli di criteri | Microsoft Docs
+title: Modello di criteri di esempio
 description: Esempi JSON per Criteri di Azure
 services: azure-policy
 documentationcenter: ''
@@ -16,11 +16,12 @@ ms.workload: ''
 ms.date: 01/17/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 0956f42812307f88e37ef12078a86eb85f407ce6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 458ce4fb77f501d5feba4cf732fe3ce9a49f9c21
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937199"
 ---
 # <a name="templates-for-azure-policy"></a>Modelli per Criteri di Azure
 
@@ -78,7 +79,10 @@ La tabella seguente include i collegamenti ai modelli json per Criteri di Azure.
 | [Località consentite](scripts/allowed-locs.md) | Richiede che tutte le risorse vengano distribuite nelle località approvate. Si specifica una matrice di località approvate.  |
 | [Tipi di risorse consentiti](scripts/allowed-res-types.md) | Garantisce che solo i tipi di risorse approvati vengano distribuiti. Si specifica una matrice di tipi di risorse consentiti.  |
 | [SKU degli account di archiviazione consentiti](scripts/allowed-stor-acct-skus.md) | Richiede che gli account di archiviazione usino uno SKU approvato. Si specifica una matrice di SKU approvati. |
-| [Apply tag and its default value](scripts/apply-tag-def-val.md) (Applicare il tag e il valore predefinito) | Aggiunge un nome e un valore di tag specificati, se non è stato fornito il tag. Si specificano il nome del tag e il valore da applicare.  |
+| [Apply tag and its default value](scripts/apply-tag-def-val.md) (Applicare il tag e il valore predefinito) | Aggiunge un nome e un valore di tag specificati, se non è stato fornito il tag. Si specificano il nome e il valore del tag da applicare.  |
+| [Controllare la crittografia del database SQL](scripts/sql-database-encryption-audit.md) | Controlla se Transparent Data Encryption del database SQL non è abilitato. |
+| [Controllare l'impostazione di controllo di SQL Server](scripts/sql-server-audit.md) | Controlla SQL Server se sono attivate le impostazioni di controllo di SQL Server. |
+| [Applicare la crittografia di Data Lake Store](scripts/enforce-datalakestore-encryption.md) | Nega qualsiasi account Data Lake Store per cui non sia abilitata la crittografia. |
 | [Imporre un tag e il relativo valore](scripts/enforce-tag-val.md) | Richiede un nome e un valore di tag specificati. Si specificano il nome del tag e il valore da applicare.  |
 | [Tipi di risorse non consentiti](scripts/not-allowed-res-type.md) | Impedisce la distribuzione dei tipi di risorse specificati. Si specifica una matrice dei tipi di risorse da bloccare.  |
 | [Richiedere SQL Server versione 12.0](scripts/req-sql-12.md) | Richiede ai server SQL di usare la versione 12.0.  |
