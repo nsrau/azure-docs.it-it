@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: b924ea1df926518ba1d86909f8e6a78deabd5468
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ffd7c828087162f83812da445b0eeb71545b59db
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140049"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34348985"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Esercitazione: Integrazione di Azure Active Directory con QPrism
 
@@ -31,7 +31,7 @@ L'integrazione di QPrism con Azure AD offre i vantaggi seguenti:
 - È possibile abilitare gli utenti per l'accesso automatico a QPrism (Single Sign-On) con gli account Azure AD personali.
 - È possibile gestire gli account da una posizione centrale: il portale di Azure.
 
-Per altre dettagli sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Per altre dettagli sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -197,7 +197,7 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 
 
 
