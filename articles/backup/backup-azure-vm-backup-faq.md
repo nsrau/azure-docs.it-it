@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: e0337a7ce1392d78eba9791095f5d7a9c7d4afdd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 785ba078669886cf16041752bd7af5a957899d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33205772"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Domande sul servizio Backup delle macchine virtuali di Azure
 Questo articolo contiene risposte a domande comuni che consentiranno di comprendere rapidamente i componenti del servizio Backup delle macchine virtuali di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -54,6 +55,9 @@ Sì. È possibile annullare il processo di backup se è in fase di "Creazione de
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>È stato abilitato il blocco del gruppo di risorse sulle VM con Managed Disks di cui è stato eseguito il backup. I backup continueranno a funzionare?
 Se l'utente blocca il gruppo di risorse, il servizio di backup non è in grado di eliminare i punti di ripristino precedenti. Per questo motivo i nuovi backup non vengono eseguiti, in quanto esiste un limite massimo 18 punti di ripristino imposto dal back-end. Se i backup hanno esito negativo con un errore interno dopo il blocco del gruppo di risorse, seguire questa [procedura per rimuovere la raccolta di punti di ripristino](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+
+### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>Criteri di Backup accetta legale salvataggio Time(DST) in considerazione?
+di serie Tenere presente che data e ora nel computer locale vengono visualizzati nel fuso orario locale e con la differenza dell'ora legale corrente. Il timeout configurato per i backup pianificati può quindi essere diverso dall'ora locale per via dell'ora legale.
 
 ## <a name="restore"></a>Restore
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Come scegliere tra il ripristino dei dischi e il ripristino completo della macchina virtuale?

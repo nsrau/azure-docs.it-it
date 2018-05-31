@@ -10,11 +10,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: d6b8ddaa0eaf560352bc0aa0127b33f32ee4574a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9f72ce802f5a2a07ad310968152ab359b4a6c31b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32778173"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Usare gli endpoint del servizio Rete virtuale e le regole per il database SQL di Azure
 
@@ -207,7 +208,7 @@ L'errore di connessione 40914 è correlato alle *regole della rete virtuale*, co
 
 #### <a name="error-40615"></a>Errore 40615
 
-*Testo del messaggio:* Impossibile aprire il server '{0}' richiesto dall'accesso. Non è consentito l'accesso del client con indirizzo IP '{1}' al server.
+*Testo del messaggio:* Impossibile aprire il server '{0}' richiesto dall'accesso. Non è consentito l'accesso del client con indirizzo IP "{1}" al server.
 
 *Descrizione dell'errore:* il client sta tentando di connettersi da un indirizzo IP che non è autorizzato a connettersi al server di database SQL di Azure. Il firewall del server non ha alcuna regola degli indirizzi IP che consente a un client di comunicare dall'indirizzo IP specifico al database SQL.
 
@@ -334,7 +335,7 @@ La funzionalità delle regole della rete virtuale per il database SQL di Azure �
 
 [vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
 
-[vpn-gateway-indexmd-608y]: ../vpn-gateway/index.md
+[vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
 
 

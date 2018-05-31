@@ -2,25 +2,20 @@
 title: Gruppi dinamici e Collaborazione B2B di Azure Active Directory | Microsoft Docs
 description: Mostra come usare i gruppi dinamici di Azure AD con la funzionalità di collaborazione B2B di Azure Active Directory
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 12/14/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: d96fefb859cba5db65382801fb1ac143df12b647
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 751502c2be84e9454c507f09a47b609d003ce2c5
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33927852"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Gruppi dinamici e Collaborazione B2B di Azure Active Directory
 
@@ -47,12 +42,7 @@ Un gruppo può avere questo aspetto:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere gli altri articoli su Azure AD B2B Collaboration.
-
-* [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Proprietà dell'utente di Collaborazione B2B](active-directory-b2b-user-properties.md)
-* [Aggiunta di un utente di Collaborazione B2B a un ruolo](active-directory-b2b-add-guest-to-role.md)
-* [Delegare gli inviti a Collaborazione B2B](active-directory-b2b-delegate-invitations.md)
-* [Codici ed esempi di PowerShell per Collaborazione B2B](active-directory-b2b-code-samples.md)
-* [Configurare app SaaS per Collaborazione B2B](active-directory-b2b-configure-saas-apps.md)
+- [Proprietà dell'utente di Collaborazione B2B](active-directory-b2b-user-properties.md)
+- [Aggiunta di un utente di Collaborazione B2B a un ruolo](active-directory-b2b-add-guest-to-role.md)
+- [Accesso condizionale per gli utenti di Collaborazione B2B](active-directory-b2b-mfa-instructions.md)
 

@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: e38b7db2699cd3e4cf76d4a8e8fc558b133dd35b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8271c4c88245e98fd3709c7279904d36ad009682
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770724"
 ---
 # <a name="access-controls-in-azure-active-directory-conditional-access"></a>Controlli di accesso nell'accesso condizionale di Azure Active Directory 
 
@@ -75,13 +76,13 @@ L'uso dell'autenticazione a più fattori assicura la protezione delle risorse ne
 
 ### <a name="compliant-device"></a>Dispositivo conforme
 
-È possibile configurare criteri di accesso condizionale in base al dispositivo. Lo scopo di un criterio di accesso condizionale basato sul dispositivo è di concedere l'accesso alle risorse configurate solo da dispositivi considerati attendibili. Richiedere un dispositivo conforme è una delle opzioni disponibili per definire un dispositivo attendibile. Se questa opzione è selezionata, i criteri di accesso condizionale consentono l'accesso tramite dispositivi aggiunti ad Azure Active Directory e contrassegnati come conformi dalla soluzione MDM.
+È possibile configurare criteri di accesso condizionale in base al dispositivo. Lo scopo di un criterio di accesso condizionale basato sul dispositivo è di concedere l'accesso alle risorse configurate solo da [dispositivi gestiti](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Richiedere un dispositivo conforme è una delle opzioni disponibili per definire un dispositivo gestito. Se questa opzione è selezionata, i criteri di accesso condizionale consentono l'accesso tramite dispositivi [registrati](device-management-introduction.md) ad Azure Active Directory e contrassegnati come conformi dalla soluzione MDM.
 
 Per altre informazioni, vedere [Configurare i criteri di accesso condizionale basato su dispositivo di Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
-### <a name="domain-joined-device"></a>Dispositivo aggiunto a un dominio
+### <a name="hybrid-azure-ad-joined-device"></a>Dispositivo aggiunto all'identità ibrida di Azure AD
 
-Richiedere un dispositivo aggiunto a un dominio è un'altra opzione disponibile per configurare criteri di accesso condizionale basato su dispositivo. Questo requisito si riferisce a tablet aziendali, laptop e desktop di Windows aggiunti ad Active Directory locale. Se questa opzione è selezionata, i criteri di accesso condizionale consentono l'accesso tramite dispositivi aggiunti ad Active Directory locale e ad Azure Active Directory in uso.  
+Richiedere un dispositivo aggiunto all'identità ibrida di Azure AD è un'altra opzione disponibile per configurare criteri di accesso condizionale basato su dispositivo. Questo requisito si riferisce a tablet aziendali, laptop e desktop di Windows aggiunti ad Active Directory locale. Se questa opzione è selezionata, i criteri di accesso condizionale consentono l'accesso tramite dispositivi aggiunti ad Active Directory locale e ad Azure Active Directory in uso.  
 
 Per altre informazioni, vedere [Configurare i criteri di accesso condizionale basato su dispositivo di Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
