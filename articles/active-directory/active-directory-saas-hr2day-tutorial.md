@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: fae6a376d4a53a23e22e585c63d97f22ca76c66d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b6f839ace5d80d41b242992feba8dea546b51c2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34340873"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Esercitazione: Integrazione di Azure Active Directory con HR2day by Merces
 
@@ -29,7 +30,7 @@ L'integrazione di HR2day by Merces con Azure AD offre i vantaggi seguenti:
 - È possibile abilitare gli utenti per l'accesso automatico a HR2day by Merces con gli account Azure AD personali.
 - Gli account possono essere gestiti da una posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -136,7 +137,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
       | Nome attributo    |   Valore attributo |  
     | ------------------- | -------------------- |    
-    | ATTR_LOGINCLAIM | join([mail],"102938475Z","\@\" |
+    | ATTR_LOGINCLAIM | join([mail],"102938475Z","@" |
     
       a. Per aprire la finestra di dialogo **Aggiungi attributo**, selezionare **Aggiungi attributo**.
 
@@ -167,7 +168,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 9. Per configurare SSO per l'applicazione, contattare il [team di supporto clienti di HR2day by Merces](mailTo:servicedesk@merces.nl). Allegare il file del **certificato (Base64)** scaricato al messaggio di posta elettronica. Specificare anche **URL di disconnessione**, **ID di entità SAML** e **URL del servizio Single Sign-On SAML** per consentirne la configurazione per l'integrazione SSO.
 
     > [!NOTE]
-    >Segnalare al team Merces che questa integrazione richiede che l'ID entità sia impostato in base al modello **https://hr2day.force.com/NOMEISTANZA**.
+    >Segnalare al team Merces che questa integrazione richiede che l'ID entità sia impostato in base al modello **https://hr2day.force.com/INSTANCENAME**.
 
     > [!TIP]
     >Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory** > **Applicazioni aziendali**, selezionare la scheda **Single Sign-On**. Accedere quindi alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -250,7 +251,7 @@ Quando si fa clic sul riquadro HR2day by Merces nel pannello di accesso, si dovr
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Elenco di esercitazioni sull'integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 
 
 
