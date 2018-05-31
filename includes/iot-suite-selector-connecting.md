@@ -1,11 +1,28 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 500e335d0b2eddc56cdfb9828236bc4676d9b6aa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371168"
+---
 > [!div class="op_single_selector"]
-> * [C su Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
-> * [C su Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
-> * [Node.js (generico)](../articles/iot-suite/iot-suite-connecting-devices-node.md)
-> * [Node.js su Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-node.md)
-> * [C su Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-c.md)
+> * [C su Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
+> * [C su Linux](../articles/iot-accelerators/iot-accelerators-connecting-devices-linux.md)
+> * [Node.js (generico)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
+> * [Node.js su Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
+> * [C su Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 
-In questa esercitazione viene implementato un dispositivo **Chiller** che invia i dati di telemetria seguenti alla soluzione di [monitoraggio remoto](../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md) preconfigurata:
+In questa esercitazione viene implementato un dispositivo **Chiller** che invia i dati di telemetria seguenti all'acceleratore di soluzioni di [monitoraggio remoto](../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md):
 
 * Temperatura
 * Pressione
@@ -23,11 +40,11 @@ Per completare l'esercitazione, è necessario un account Azure attivo. Se non si
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-Prima di scrivere il codice per il dispositivo, distribuire la soluzione preconfigurata di monitoraggio remoto e aggiungere un nuovo dispositivo fisico alla soluzione.
+Prima di scrivere il codice per il dispositivo, distribuire l'acceleratore di soluzioni di monitoraggio remoto e aggiungere un nuovo dispositivo fisico alla soluzione.
 
-### <a name="deploy-your-remote-monitoring-preconfigured-solution"></a>Distribuire la soluzione preconfigurata per il monitoraggio remoto
+### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto
 
-Il dispositivo **Chiller** creato in questa esercitazione invia dati a un'istanza della soluzione preconfigurata per il [monitoraggio remoto](../articles/iot-suite/iot-suite-remote-monitoring-explore.md). Se nel proprio account Azure non è già stato effettuato il provisioning della soluzione preconfigurata per il monitoraggio remoto, vedere [Distribuire la soluzione preconfigurata di monitoraggio remoto](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
+Il dispositivo **Chiller** creato in questa esercitazione invia dati a un'istanza dell'acceleratore di soluzioni di [monitoraggio remoto](../articles/iot-suite/iot-suite-remote-monitoring-explore.md). Se nel proprio account Azure non è già stato effettuato il provisioning dell'acceleratore di soluzioni di monitoraggio remoto, vedere [Distribuire l'acceleratore di soluzioni di monitoraggio remoto](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
 Al termine del processo di distribuzione della soluzione di monitoraggio remoto, fare clic su **Avvia** per aprire il dashboard della soluzione nel browser.
 
@@ -38,7 +55,7 @@ Al termine del processo di distribuzione della soluzione di monitoraggio remoto,
 > [!NOTE]
 > Se è già stato aggiunto un dispositivo nella soluzione, è possibile saltare questo passaggio. Per il passaggio successivo sarà però necessaria la stringa di connessione del dispositivo. È possibile recuperare la stringa di connessione di un dispositivo dal [portale di Azure](https://portal.azure.com) oppure usando lo strumento [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) dell'interfaccia della riga di comando.
 
-Per connettere un dispositivo alla soluzione preconfigurata, è necessario che identifichi se stesso nell'hub IoT mediante delle credenziali valide. Quando si aggiunge il dispositivo alla soluzione, si ha la possibilità di salvare la stringa di connessione del dispositivo che contiene queste credenziali. Le istruzioni per includere la stringa di connessione del dispositivo nell'applicazione client sono illustrate più avanti in questa esercitazione.
+Per connettere un dispositivo all'acceleratore di soluzioni, è necessario che identifichi se stesso nell'hub IoT mediante delle credenziali valide. Quando si aggiunge il dispositivo alla soluzione, si ha la possibilità di salvare la stringa di connessione del dispositivo che contiene queste credenziali. Le istruzioni per includere la stringa di connessione del dispositivo nell'applicazione client sono illustrate più avanti in questa esercitazione.
 
 Per aggiungere un dispositivo alla soluzione per il monitoraggio remoto, completare i passaggi seguenti nella pagina **Dispositivi** della soluzione:
 
@@ -54,9 +71,9 @@ Per aggiungere un dispositivo alla soluzione per il monitoraggio remoto, complet
 
     ![Recuperare le credenziali](media/iot-suite-selector-connecting/credentials.png)
 
-A questo punto è stato aggiunto un dispositivo fisico alla soluzione preconfigurata di monitoraggio remoto e ne è stata annotata la stringa di connessione. Nelle sezioni seguenti si implementerà l'applicazione client che usa la stringa di connessione del dispositivo per connettersi alla soluzione.
+A questo punto è stato aggiunto un dispositivo fisico all'acceleratore di soluzioni di monitoraggio remoto e ne è stata annotata la stringa di connessione. Nelle sezioni seguenti si implementerà l'applicazione client che usa la stringa di connessione del dispositivo per connettersi alla soluzione.
 
-L'applicazione client implementa il modello di dispositivo **Chiller** predefinito. Un modello di dispositivo per la soluzione preconfigurata specifica le informazioni seguenti per il dispositivo:
+L'applicazione client implementa il modello di dispositivo **Chiller** predefinito. Un modello di dispositivo per l'acceleratore di soluzioni specifica le informazioni seguenti per il dispositivo:
 
 * Le proprietà che il dispositivo segnala alla soluzione. Ad esempio, un dispositivo **Chiller** segnala informazioni su firmware e posizione.
 * Tipi di dati di telemetria che il dispositivo invia alla soluzione. Ad esempio, un dispositivo **Chiller** invia valori di temperatura, umidità e pressione.

@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 168301bbd0e7a59330ee6c87d1821db3fca39f67
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770622"
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Condizioni nell'accesso condizionale di Azure Active Directory 
 
@@ -38,24 +39,32 @@ La combinazione delle condizioni con i controlli di accesso rappresenta un crite
 
 ![Controllo](./media/active-directory-conditional-access-conditions/61.png)
 
-Questo articolo offre una panoramica delle condizioni e di come vengono usate in un criterio di accesso condizionale. 
 
+Le condizioni che non sono state configurate nei criteri di accesso condizionali non vengono applicate. Alcune condizioni sono [obbligatorie](active-directory-conditional-access-best-practices.md#whats-required-to-make-a-policy-work) per applicare criteri di accesso condizionali in un ambiente. 
+
+Questo articolo offre una panoramica delle condizioni e di come vengono usate in un criterio di accesso condizionale. 
 
 ## <a name="users-and-groups"></a>Utenti e gruppi
 
 La condizione di utenti e gruppi è obbligatoria in un criterio di accesso condizionale. Nei criteri è possibile selezionare **Tutti gli utenti** o selezionare utenti e gruppi specifici.
 
-![Controllo](./media/active-directory-conditional-access-conditions/02.png)
+![Controllo](./media/active-directory-conditional-access-conditions/111.png)
 
 Quando si seleziona:
 
-- **Tutti gli utenti**, il criterio viene applicato a tutti gli utenti nella directory, inclusi gli utenti guest.
+- **Tutti gli utenti** consente di applicare i criteri a tutti gli utenti nella directory, inclusi gli utenti guest.
 
-- **Seleziona utenti e gruppi**, è possibile scegliere come destinazione insiemi di utenti specifici. Ad esempio, è possibile selezionare un gruppo contenente tutti i membri del reparto Risorse umane, quando è selezionata un'app per le risorse umane come app cloud. 
+- **Selezionare Utenti e gruppi** consente di impostare le opzioni seguenti:
 
-- Un gruppo può essere un gruppo di qualsiasi tipo in Azure AD, inclusi gruppi di sicurezza e distribuzione dinamici o assegnati.
+    - **Tutti gli utenti guest** consente di destinare i criteri agli utenti guest B2B. Questa condizione corrisponde a qualsiasi account utente con l'attributo *userType* impostato su *guest*. È possibile usare questa impostazione nei casi in cui è necessario applicare dei criteri non appena l'account viene creato in un flusso di invito in Azure AD.
 
-È anche possibile escludere utenti o gruppi specifici da un criterio. Un caso d'uso comune è rappresentato dagli account del servizio nel caso in cui il criterio applichi l'autenticazione a più fattori. 
+    - **Ruoli della directory** consente di destinare dei criteri in base alle assegnazioni di ruolo dell'utente. Questa condizione supporta i ruoli della directory, ad esempio *Amministratore globale* oppure *Amministratore password*.
+
+    - **Utenti e gruppi** consente di scegliere come destinazione insiemi di utenti specifici. Ad esempio, è possibile selezionare un gruppo contenente tutti i membri del reparto Risorse umane, quando è selezionata un'app per le risorse umane come app cloud.
+
+Un gruppo può essere un gruppo di qualsiasi tipo in Azure AD, inclusi gruppi di sicurezza e distribuzione dinamici o assegnati
+
+È anche possibile escludere utenti o gruppi specifici da un criterio. Un caso d'uso comune è rappresentato dagli account del servizio nel caso in cui il criterio applichi l'autenticazione a più fattori (MFA). 
 
 La definizione di insiemi di utenti specifici come destinazione è utile per la distribuzione di un nuovo criterio. In un nuovo criterio è necessario definire come destinazione solo l'insieme iniziale di utenti per convalidare il comportamento del criterio. 
 
@@ -104,7 +113,18 @@ Le piattaforme del dispositivo sono caratterizzate dal sistema operativo in esec
 Per un elenco completo delle piattaforme del dispositivo supportate, vedere [Condizione per le piattaforme del dispositivo](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
-Un caso d'uso comune per questa condizione è un criterio che limita l'accesso alle app cloud per i [dispositivi attendibili](active-directory-conditional-access-policy-connected-applications.md#trusted-devices). Per altri scenari, tra cui la condizione della piattaforma del dispositivo, vedere [Accesso condizionale basato su app di Azure Active Directory](active-directory-conditional-access-mam.md).
+Un caso d'uso comune per questa condizione sono criteri che limitano l'accesso alle app cloud per i [dispositivi gestiti](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Per altri scenari, tra cui la condizione della piattaforma del dispositivo, vedere [Accesso condizionale basato su app di Azure Active Directory](active-directory-conditional-access-mam.md).
+
+
+
+## <a name="device-state"></a>Stato del dispositivo
+
+La condizione dello stato del dispositivo consente all'aggiunta all'identità ibrida di Azure AD e ai dispositivi contrassegnati come conformi di essere esclusi dai criteri di accesso condizionali. È utile quando i criteri devono essere applicati solo al dispositivo non gestito per fornire ulteriore sicurezza della sessione. Ad esempio, applicare il controllo di sessione di Microsoft Cloud App Security solo quando un dispositivo non è gestito. 
+
+
+![Condizioni](./media/active-directory-conditional-access-conditions/112.png)
+
+Se si desidera bloccare l'accesso ai dispositivi non gestiti, è necessario implementare [l'accesso condizionale basato sul dispositivo](active-directory-conditional-access-policy-connected-applications.md).
 
 
 ## <a name="locations"></a>Località

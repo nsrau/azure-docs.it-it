@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 5933448b40a590b39df5ae4cf07fd858bebcd28f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 602f4c9b7108c0116e83e302bd73838e0902a7f0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157722"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Approfondimenti sulla reimpostazione della password self-service in Azure AD
 
@@ -49,7 +50,7 @@ Leggere i passaggi seguenti per informazioni sulla logica alla base della pagina
        * Se la verifica utente non è configurata, l'utente verrà invitato a contattare l'amministratore per reimpostare la password.
      * Se i criteri prevedono due test di verifica, viene verificato se per l'utente sono definiti i dati appropriati per almeno due dei test abilitati dai criteri dell'amministratore.
        * Se la verifica utente non è configurata, l'utente verrà invitato a contattare l'amministratore per reimpostare la password.
-   * Verifica se la gestione della password dell'utente viene eseguita in locale, con federazione o con sincronizzazione degli hash delle password.
+   * Verifica se la gestione della password dell'utente viene eseguita in locale, con federazione, autenticazione pass-through o con sincronizzazione degli hash delle password.
      * Se il writeback è stato distribuito e la password dell'utente è gestita in locale, l'utente può continuare con il processo di autenticazione e di reimpostazione della password.
      * Se il writeback non è stato distribuito e la password dell'utente viene gestita in locale, all'utente viene richiesto di contattare l'amministratore per reimpostare la password.
 4. Se viene stabilito che l'utente è in grado di reimpostare la password, viene avviata la procedura di reimpostazione tramite procedura guidata.
@@ -224,8 +225,8 @@ Questa pagina fornisce uno stato rapido del client di writeback locale. In base 
 
 Questo controllo determina se il writeback delle password è abilitato per la directory corrente. Se il writeback è attivato, indica lo stato del servizio writeback locale. Ciò risulta utile se si intende disabilitare temporaneamente il writeback delle password senza dover riconfigurare Azure AD Connect.
 
-* Se l'opzione è impostata su **Sì**, il servizio writeback viene abilitato e gli utenti federati e con sincronizzazione degli hash delle password possono reimpostare le password.
-* Se l'opzione è impostata su **No**, il servizio writeback è disabilitato e gli utenti federati e con sincronizzazione degli hash delle password non possono reimpostare le password.
+* Se l'opzione è impostata su **Sì**, il servizio writeback viene abilitato e gli utenti federati, con autenticazione pass-through e con sincronizzazione degli hash delle password possono reimpostare le password.
+* Se l'opzione è impostata su **No**, il servizio writeback viene disabilitato e gli utenti federati, con autenticazione pass-through e con sincronizzazione degli hash delle password non possono reimpostare le password.
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Allow users to unlock accounts without resetting their password
 

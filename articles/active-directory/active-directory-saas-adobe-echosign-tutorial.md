@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: f68701cc345ee1bb04cde265ac4e2d6a402da557
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 71aa0af2b3b47c1d9960e72aa36c2d5aae80f140
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140377"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Esercitazione: Integrazione di Azure Active Directory con Adobe Sign
 
@@ -129,40 +130,31 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
 
-
 7. In un'altra finestra del Web browser accedere al sito aziendale di Adobe Sign come amministratore.
 
-8. Nel menu in alto fare clic su **Account** e quindi nel riquadro di spostamento a sinistra fare clic su **SAML Settings** (Impostazioni SAML) in **Account Settings** (Impostazioni account).
+8. Scegliere **Account Settings** (Impostazioni account) dal menu SAML e quindi fare clic su **SAML Settings**.
    
-   ![Account](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "Account")
+    ![Account](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "Account")
 
-9. Nella sezione relativa alle impostazioni SAML, seguire questa procedura:
+9. Nella sezione **SAML Settings** (Impostazioni SAML), seguire questa procedura:
+  
+    ![Impostazioni SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "Impostazioni SAML")
    
-   ![Impostazioni SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "Impostazioni SAML")
+    a. Per **SAML Mode** (Modalità SAML), selezionare **SAML Mandatory** (SAML obbligatorio).
    
-   a. Per **SAML Mode** (Modalità SAML), selezionare **SAML Mandatory** (SAML obbligatorio).
+    b. Selezionare **Allow Adobe sign Account Administrators to log in using their  Adobe Sign Credentials** (Consenti agli amministratori account di Adobe Sign di accedere con le credenziali di Adobe Sign).
    
-   b. Selezionare **Allow EchoSign Account Administrators to log in using their EchoSign Credentials**.
-   
-   c. In **User Creation** (Creazione utente), selezionare **Automatically add users authenticated through SAML** (Aggiungi automaticamente gli utenti autenticati tramite SAML).
+    c. In **User Creation** (Creazione utente), selezionare **Automatically add users authenticated through SAML** (Aggiungi automaticamente gli utenti autenticati tramite SAML).
 
-10. Continuare e seguire questa procedura:
-
-       ![Impostazioni SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789522.png "Impostazioni SAML")
-
-    a. Incollare il valore **SAML Entity ID** (ID entità SAML) copiato dal portale di Azure nella casella di testo **IdP Entity ID** (ID entità IdP).
+    d. Incollare il valore di **SAML Entity ID** (ID entità SAML) copiato dal portale di Azure nella casella di testo **Entity ID/Issuer URL** (ID entità/URL autorità di certificazione).
     
-    b. Incollare **SAML Single Sign-On Service URL** (URL servizio Single Sign-On SAML) copiato dal portale di Azure nella casella di testo **IdP Login URL** (ID accesso IdP).
+    e. Incollare **SAML Single Sign-On Service URL** (URL servizio Single Sign-On SAML) copiato dal portale di Azure nella casella di testo **Login URL/SSO Endpoint** (URL di accesso/Endpoint SSO).
    
-    c. Incollare l'**URL di disconnessione** copiato dal portale di Azure nella casella di testo **IdP Logout URL** (ID disconnessione IdP).
+    f. Incollare **Sign-Out URL** (URL di disconnessione) copiato dal portale di Azure nella casella di testo **Logout URL/SLO Endpoint** (URL di disconnessione/Endpoint SLO).
 
-    d. Aprire **Certificate(Base64)** scaricato nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **IdP Certificate** (Certificato IdP)
+    g. Aprire **Certificate(Base64)** scaricato nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **IdP Certificate** (Certificato IdP)
 
-    e. Fare clic su **Salva modifiche**.
-
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
-> 
+    h. Fare clic su **Salva modifiche**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
@@ -208,15 +200,15 @@ Per consentire agli utenti di Azure AD di accedere a Adobe Sign, è necessario e
 
 2. Nel menu in alto fare clic su **Account** e quindi nel riquadro di spostamento a sinistra fare clic su **Users & Groups** (Utenti e gruppi) e su **Create a new user** (Crea nuovo utente).
    
-   ![Account](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "Account")
+    ![Account](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "Account")
    
 3. Nella sezione **Create New User** seguire questa procedura:
    
-   ![Crea utente](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "Crea utente")
+    ![Crea utente](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "Crea utente")
    
-   a. Digitare l'**indirizzo di posta elettronica**, il **nome** e il **cognome** di un account utente AAD valido di cui si vuole eseguire il provisioning.
+    a. Digitare l'**indirizzo di posta elettronica**, il **nome** e il **cognome** di un account utente AAD valido di cui si vuole eseguire il provisioning.
    
-   b. Fare clic su **Create User**.
+    b. Fare clic su **Create User**.
 
 >[!NOTE]
 >Il titolare dell'account di Azure Active Directory riceverà un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo. 

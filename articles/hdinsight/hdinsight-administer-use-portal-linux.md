@@ -12,13 +12,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: ea5b19abed0b9d2a2b8131f2be3be14e94e17405
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361972"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Hadoop in HDInsight tramite il portale di Azure
 
@@ -125,7 +126,7 @@ Se viene visualizzato l'errore NoRegisteredProviderFound o l'errore MissingSubsc
    * **Origine dati predefinita**: file system predefinito del cluster.
    * **Worker nodes size** (Dimensioni nodi del ruolo di lavoro): dimensioni della macchina virtuale selezionata dei nodi di lavoro.
    * **Dimensioni nodo head**: dimensioni della macchina virtuale selezionata dei nodi head.
-   * **Rete virtuale**: nome della rete virtuale e della subnet in cui viene distribuito il cluster, se ne è stato selezionato uno al momento della distribuzione.
+   * **Rete virtuale**: nome della rete virtuale in cui viene distribuito il cluster, se ne è stato selezionato uno al momento della distribuzione.
 
 ## <a name="delete-clusters"></a>Eliminare cluster
 L'eliminazione di un cluster non determina l'eliminazione dell'account di archiviazione predefinito né di eventuali account di archiviazione collegati. È possibile ricreare il cluster usando gli stessi account di archiviazione e gli stessi metastore. È consigliabile usare un nuovo contenitore BLOB predefinito quando si ricrea il cluster.

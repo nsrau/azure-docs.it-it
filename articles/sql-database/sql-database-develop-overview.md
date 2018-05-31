@@ -1,5 +1,5 @@
 ---
-title: Panoramica dello sviluppo di applicazioni del database SQL | Documentazione Microsoft
+title: Panoramica dello sviluppo di applicazioni del database SQL |Microsoft Docs
 description: Informazioni sulle librerie di connettività disponibili e procedure consigliate per applicazioni che si connettono al Database SQL.
 services: sql-database
 author: stevestein
@@ -10,11 +10,12 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: dc78a43fb99428eac921dd0cfffe5547f523a133
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 37f143ce9dabdc2d0eaf6c60dd551c682a141c17
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187675"
 ---
 # <a name="sql-database-application-development-overview"></a>Panoramica dello sviluppo di applicazioni del database SQL
 Questo articolo esamina le considerazioni di base di cui uno sviluppatore deve tenere conto quando scrive il codice per collegarsi al database SQL di Azure.
@@ -34,7 +35,7 @@ Sono disponibili esempi di codice per svariati linguaggi di programmazione e pia
 ## <a name="resource-limitations"></a>Limiti delle risorse
 Il database SQL di Azure gestisce le risorse disponibili per un database usando due meccanismi diversi: la governance delle risorse e l'imposizione di limiti.
 
-* Altre informazioni: [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers.md).
+* Altre informazioni: [Limiti del modello delle risorse basate su DTU del database SQL di Azure](sql-database-dtu-resource-limits.md) e [Azure SQL Database vCore-based resource model limits (preview)](sql-database-vcore-resource-limits.md) (Limiti del modello delle risorse basato su vCore del database SQL di Azure (anteprima)).
 
 ## <a name="security"></a>Sicurezza
 Il database SQL di Azure fornisce risorse per limitare l'accesso, proteggere i dati e monitorare le attività in un database SQL.

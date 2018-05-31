@@ -10,11 +10,12 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: eeb6b74fb7dfbf25e27963dd7a2f7f431feebcc8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 85a0157751a1c26fb7f37152d7c12f56b1c423d1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193285"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Informazioni su Istanza gestita (anteprima)
 
@@ -67,9 +68,9 @@ La tabella seguente mostra diverse proprietà, accessibili tramite Transact SQL,
 
 ![Single Sign-On](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model"></a>Modello di acquisto in base ai vCore
+## <a name="vcore-based-purchasing-model-preview"></a>Modello di acquisto basato su vCore (anteprima)
 
-Il modello di acquisto in base ai vCore offre flessibilità, controllo e trasparenza, consentendo di convertire con facilità i requisiti dei carichi di lavoro locali per il cloud. Questo modello consente di ridimensionare le risorse di calcolo, memoria e archiviazione in base alle esigenze dei carichi di lavoro. Il modello in base ai vCore dà anche diritto a un risparmio fino al 30% sul [Vantaggio Azure Hybrid Use per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+Il modello di acquisto basato su vCore (anteprima) offre flessibilità, controllo e trasparenza, consentendo di convertire con facilità i requisiti dei carichi di lavoro locali per il cloud. Questo modello consente di ridimensionare le risorse di calcolo, memoria e archiviazione in base ai requisiti dei carichi di lavoro. Il modello in base ai vCore dà anche diritto a un risparmio fino al 30% sul [Vantaggio Azure Hybrid Use per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 La memoria centrale virtuale rappresenta la CPU logica offerta con la possibilità di scegliere tra generazioni di hardware diverse.
 - Le CPU logiche Generazione 4 si basano su processori Intel E5-2673 v3 (Haswell) a 2,4 GHz.
@@ -102,7 +103,7 @@ Il diagramma seguente illustra i nodi di calcolo attivo e ridondanti in questo l
 
 Di seguito sono indicate le funzionalità principali del livello di servizio Utilizzo generico:
 
-|Funzionalità | Descrizione|
+|Funzionalità | DESCRIZIONE|
 |---|---|
 | Numero di vCore* | 8, 16, 24 (Generazione 4)<br>8, 16, 24, 32, 40 (Generazione 5)|
 | Versione/build di SQL Server | SQL Server (versione più recente disponibile) |
@@ -186,7 +187,7 @@ Il Servizio Migrazione del database di Azure è un servizio completamente gestit
 L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione di BLOB di Azure. I backup archiviati in BLOB di archiviazione di Azure possono essere ripristinati direttamente in Istanza gestita. Per ripristinare un database SQL esistente in un'istanza gestita, è possibile:
 
 - Usare [Servizio Migrazione del database](/sql/dma/dma-overview). Per un'esercitazione, vedere [Eseguire la migrazione di SQL Server all'istanza gestita di database SQL di Azure](../dms/tutorial-sql-server-to-managed-instance.md) per ripristinare il database da un file di backup.
-- Usare il [comando T-SQL RESTORE](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql). 
+- Usare il [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
   - Per un'esercitazione su come ripristinare il file di backup di database Wide World Importers - Standard, vedere [Restore a backup file to a Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md) (Ripristinare un file di backup in un'istanza gestita). Questa esercitazione illustra come caricare un file di backup in una risorsa di archiviazione BLOB di Azure e proteggerlo usando una chiave di firma di accesso condiviso.
   - Per informazioni sul ripristino dall'URL, vedere [Ripristino nativo da URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
 - [Importare da un file BACPAC](sql-database-import.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: accesso Single Sign-On facile - Conformità a RGPD | Microsoft Docs'
+title: Privacy dell'utente e accesso Single Sign-On facile di Azure AD | Microsoft Docs
 description: Questo articolo riguarda l'accesso Single Sign-On facile di Azure Active Directory (Azure AD) e la conformità al Regolamento generale sulla protezione dei dati (RGPD).
 services: active-directory
 keywords: che cos'è Azure AD Connect, RGPD, componenti richiesti per Azure AD, SSO, Single Sign-On
@@ -12,27 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: 0c7ed376accb1eed01106358491e925d3b8126c5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149528"
 ---
-# <a name="azure-ad-seamless-single-sign-on-gdpr-compliance"></a>Accesso Single Sign-On facile di Azure AD: conformità al Regolamento generale sulla protezione dei dati (RGPD)
+# <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacy dell'utente e accesso Single Sign-On facile di Azure AD
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>Panoramica
 
-A maggio 2018 entrerà in vigore una legge sulla privacy europea, il [Regolamento generale sulla protezione dei dati (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm). Il GDPR impone nuove regole per le aziende, gli enti pubblici, le organizzazioni no profit e altre organizzazioni che offrono beni e servizi a persone nell'Unione europea o che raccolgono e analizzano dati collegati a persone residenti nell'Unione europea. Il GDPR si applica indipendentemente da dove si trovano tali aziende, enti e organizzazioni. 
-
-Sono oggi disponibili prodotti e servizi Microsoft che aiutano a soddisfare i requisiti del GDPR. Per altri dettagli sull'Informativa sulla privacy Microsoft, consultare il [Trust Center](https://www.microsoft.com/trustcenter).
 
 L'accesso Single Sign-On facile di Azure AD crea il tipo di log seguente che può contenere informazioni personali degli utenti finali:
 
 - File di log di traccia di Azure AD Connect.
 
-La conformità al Regolamento generale sulla protezione dei dati (RGPD) per l'accesso Single Sign-On facile può essere ottenuta in due modi:
+La conformità alla privacy dell'utente per l'accesso Single Sign-On facile può essere ottenuta in due modi:
 
 1.  Qualora richiesto, estrarre i dati per un utente e rimuovere i dati di tale utente dalle installazioni.
 2.  Verificare che nessun dato venga conservato per più di 48 ore.
@@ -65,6 +65,6 @@ Per altre informazioni sui requisiti RGPD per Azure AD Connect correlati, vedere
 Se è abilitata la registrazione di controllo, questo prodotto può generare log di sicurezza per i controller di dominio. Per altre informazioni sulla configurazione dei criteri di controllo, leggere questo [articolo](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Passaggi successivi
-
+* [Consultare l'Informativa sulla privacy Microsoft nel Trust Center](https://www.microsoft.com/trustcenter)
 - [**Risoluzione dei problemi**](active-directory-aadconnect-troubleshoot-sso.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): per l'invio di richieste di nuove funzionalità.

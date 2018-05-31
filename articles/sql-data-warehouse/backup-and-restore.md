@@ -10,11 +10,12 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 535c16da137b114704aa9a2e97576ced5e9eba44
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a4f24aad95f13315eaeac790c9006ca00f61af69
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187600"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Backup e ripristino in Azure SQL Data Warehouse
 Informazioni su come eseguire il backup e il ripristino in Azure SQL Data Warehouse. Usare i backup del data warehouse per ripristinare il data warehouse a un punto di ripristino nell'area primaria. Usare i backup con ridondanza geografica per ripristinare in un'area geografica diversa. 
@@ -55,9 +56,9 @@ Quando si elimina un data warehouse, SQL Data Warehouse Crea uno snapshot finale
 > 
 
 ## <a name="geo-backups"></a>Backup geografici
-SQL Data Warehouse esegue un backup geografico una volta al giorno su un [data center abbinato](../best-practices-availability-paired-regions.md). L'obiettivo del punto di ripristino per un ripristino geografico è di 24 ore. È possibile ripristinare il backup geografico sul server nell'area geografica abbinata. Un backup geografico assicura la possibilità di ripristinare un data warehouse nel caso in cui non si possa accedere agli snapshot nell'area primaria.
+SQL Data Warehouse esegue un backup geografico una volta al giorno su un [data center abbinato](../best-practices-availability-paired-regions.md). L'obiettivo del punto di ripristino per un ripristino geografico è di 24 ore. È possibile ripristinare il backup geografico in un server in qualsiasi altra area in cui sia supportato SQL Data Warehouse. Un backup geografico assicura la possibilità di ripristinare un data warehouse nel caso in cui non si possa accedere agli snapshot nell'area primaria.
 
-I backup geografici sono attivi per impostazione predefinita. Se il data warehouse è ottimizzato per l'elasticità, è possibile [disattivarli](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) se si vuole. Non è possibile disattivare esplicitamente i backup geografici con il livello di prestazioni ottimizzato per il calcolo.
+I backup geografici sono attivi per impostazione predefinita. Se il data warehouse è di prima generazione, è possibile [scegliere di disattivarli](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy). Non è possibile scegliere di disattivare i backup geografici di seconda generazione, in quanto la protezione dei dati è una garanzia integrata.
 
 ## <a name="backup-costs"></a>Costi di backup
 Si noterà che la fattura di Azure include una voce per Archiviazione Premium di Azure e una voce per l'archiviazione con ridondanza geografica. Il costo di Archiviazione Premium è il costo totale per l'archiviazione dei dati nell'area primaria, che include gli snapshot.  L'addebito per la ridondanza geografica copre il costo per l'archiviazione dei backup geografici.  

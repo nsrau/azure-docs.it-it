@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect - Autenticazione pass-through - Conformità a RGPD | Microsoft Docs
+title: Privacy dell'utente e autenticazione pass-through di Azure Active Directory | Microsoft Docs
 description: Questo articolo riguarda l'autenticazione pass-through di Azure Active Directory (Azure AD) e la conformità al Regolamento generale sulla protezione dei dati (RGPD).
 services: active-directory
 keywords: Autenticazione pass-through di Azure AD Connect, RGPD, componenti necessari per Azure AD, SSO, Single Sign-On
@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/28/2018
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 21874c961163e3efba45c2ee8557c03135987f95
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 910eb5bdd1b9d4a2a27a27c89812584bb068bec0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150624"
 ---
-# <a name="azure-active-directory-pass-through-authentication-gdpr-compliance"></a>Autenticazione pass-through di Azure Active Directory: conformità al Regolamento generale sulla protezione dei dati (RGPD)
+# <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacy dell'utente e autenticazione pass-through di Azure Active Directory
+
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>Panoramica
-
-A maggio 2018 entrerà in vigore una legge sulla privacy europea, il [Regolamento generale sulla protezione dei dati (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm). Il GDPR impone nuove regole per le aziende, gli enti pubblici, le organizzazioni no profit e altre organizzazioni che offrono beni e servizi a persone nell'Unione europea o che raccolgono e analizzano dati collegati a persone residenti nell'Unione europea. Il GDPR si applica indipendentemente da dove si trovano tali aziende, enti e organizzazioni. 
-
-Sono oggi disponibili prodotti e servizi Microsoft che aiutano a soddisfare i requisiti del GDPR. Per altri dettagli sull'Informativa sulla privacy Microsoft, consultare il [Trust Center](https://www.microsoft.com/trustcenter).
 
 L'autenticazione pass-through di Azure AD crea i seguenti tipi di log, che possono contenere informazioni personali degli utenti finali:
 
@@ -35,7 +35,7 @@ L'autenticazione pass-through di Azure AD crea i seguenti tipi di log, che posso
 - File di log di traccia dell'agente di autenticazione.
 - File di log di eventi di Windows.
 
-La conformità al Regolamento generale sulla protezione dei dati (RGPD) per l'autenticazione pass-through può essere ottenuta in due modi:
+La conformità alla privacy dell'utente per l'autenticazione pass-through può essere ottenuta in due modi:
 
 1.  Qualora richiesto, estrarre i dati per un utente e rimuovere i dati di tale utente dalle installazioni.
 2.  Verificare che nessun dato venga conservato per più di 48 ore.
@@ -104,4 +104,5 @@ Per pianificare l'esecuzione di questo script ogni 48 ore, seguire questa proced
 Se è abilitata la registrazione di controllo, questo prodotto può generare log di sicurezza per i controller di dominio. Per altre informazioni sulla configurazione dei criteri di controllo, leggere questo [articolo](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Passaggi successivi
+* [Consultare l'Informativa sulla privacy Microsoft nel Trust Center](https://www.microsoft.com/trustcenter)
 - [**Risoluzione dei problemi**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.

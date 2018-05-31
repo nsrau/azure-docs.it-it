@@ -6,14 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 05/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5d4c2b3bc55b94b08287a06125e15ac61013834a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362040"
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Distribuire Analisi di flusso di Azure come modulo IoT Edge: anteprima
 
@@ -57,7 +58,7 @@ Per specificare un endpoint da usare come output nel processo di Analisi di flus
 
 1. Nel portale di Azure passare a **Crea una risorsa**, immettere **account di archiviazione** nella casella di ricerca e quindi selezionare **Account di archiviazione - BLOB, file, tabella e coda**.
 
-2. Nel riquadro **Crea account di archiviazione** immettere un nome per l'account di archiviazione, selezionare la stessa posizione in cui è archiviato l'hub IoT e quindi selezionare **Crea**. Prendere nota del nome per usarlo in seguito.
+2. Nel riquadro **Crea account di archiviazione** immettere un nome per l'account di archiviazione, selezionare la stessa posizione in cui è archiviato l'hub IoT, selezionare lo stesso gruppo di risorse di hub IoT e quindi selezionare **Crea**. Prendere nota del nome per usarlo in seguito.
 
     ![Creare un account di archiviazione][1]
 
@@ -84,32 +85,25 @@ Per specificare un endpoint da usare come output nel processo di Analisi di flus
 
 3. Selezionare **Create**.
 
-4. Nel processo creato, in **Topologia processo** selezionare **Input** e fare clic su **Aggiungi**.
-
-5. Nel riquadro **Nuovo input** eseguire queste operazioni:
-
-    a. Nella casella **Alias di input** immettere **temperatura**.
-    
-    b. Nella casella **Tipo di origine** selezionare **Flusso dati**.
-    
-    c. Nei campi rimanenti usare i valori predefiniti.
+4. Nel processo creato, in **Topologia processo**, aprire **Input**.
 
    ![Input di Analisi di flusso di Azure](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-6. Selezionare **Create**.
+5. Selezionare **Aggiungi input del flusso**, quindi selezionare **Hub Edge**.
 
-7. In **Topologia processo** selezionare **Output** e fare clic su **Aggiungi**.
+5. Nel riquadro **Nuovo input** inserire la **temperatura** come alias di input. 
 
-8. Nel riquadro **Nuovo output** eseguire queste operazioni:
+6. Selezionare **Salva**.
 
-    a. Nella casella **Alias di output** digitare **avviso**.
-    
-    b. Nei campi rimanenti usare i valori predefiniti. 
-    
-    c. Selezionare **Create**.
+7. In **Topologia processo** aprire **Output**.
 
    ![Output di Analisi di flusso di Azure](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
+8. Selezionare **Aggiungi**, quindi selezionare **Hub Edge**.
+
+8. Nel riquadro **Nuovo output** inserire **avviso** come alias di output. 
+
+9. Selezionare **Create**.
 
 9. In **Topologia processo** selezionare **Query** e quindi sostituire il testo predefinito con la query seguente:
 

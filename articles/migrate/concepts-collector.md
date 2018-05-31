@@ -4,14 +4,15 @@ description: Offre una panoramica dell'appliance Agente di raccolta e illustra c
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 05/03/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99f34bce942626cd931c9270192766cc76105f5b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777832"
 ---
 # <a name="collector-appliance"></a>Appliance Agente di raccolta
 
@@ -89,7 +90,7 @@ Agente di raccolta deve essere sincronizzato con il server di riferimento ora In
 
 Il servizio Agente di raccolta di Azure Migrate deve essere in esecuzione nel computer. Questo servizio viene avviato automaticamente all'avvio del computer. Se il servizio *Agente di raccolta di Azure Migrate* non è in esecuzione, è possibile avviarlo tramite il pannello di controllo. Il servizio Agente di raccolta è responsabile della connessione al server vCenter, della raccolta dei metadati e dei dati sulle prestazioni delle macchine virtuali e dell'invio al servizio.
 
-### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5 
+### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5
 
 Il modulo PowerShell VMware PowerCLI deve essere installato perché Agente di raccolta possa comunicare con il server vCenter ed eseguire query relative ai dettagli e ai dati sulle prestazioni delle macchine virtuali. Il modulo PowerShell viene scaricato e installato automaticamente come parte del controllo dei prerequisiti. Per il download automatico è necessaria la presenza di alcuni URL nell'elenco elementi consentiti. In caso contrario occorre fornire accesso inserendoli nell'elenco elementi consentiti oppure installare manualmente il modulo.
 
@@ -103,7 +104,7 @@ Installare il modulo manualmente seguendo questa procedura:
 
 Agente di raccolta deve connettersi al server vCenter ed essere in grado di eseguire query per le macchine virtuali, i relativi metadati e i relativi contatori delle prestazioni. Questi dati vengono usati dal progetto per calcolare una valutazione.
 
-1. Per eseguire la connessione al server vCenter è possibile usare un account di sola lettura con le autorizzazioni indicate nella tabella seguente per eseguire l'individuazione. 
+1. Per eseguire la connessione al server vCenter è possibile usare un account di sola lettura con le autorizzazioni indicate nella tabella seguente per eseguire l'individuazione.
 
     |Attività  |Ruolo/account richiesto  |Autorizzazioni  |
     |---------|---------|---------|
@@ -118,13 +119,13 @@ Agente di raccolta deve connettersi al server vCenter ed essere in grado di eseg
 > Sono ufficialmente supportati solo i server VMware vCenter versioni 5.5, 6.0 e 6.5.
 
 > [!IMPORTANT]
-> È consigliabile impostare il livello comune più alto (livello 3) per le statistiche in modo che tutti i contatori vengano raccolti correttamente. Se vCenter è impostato su un livello inferiore, è possibile che solo alcuni contatori vengano raccolti completamente, mentre i restanti vengono impostati su 0. La valutazione potrebbe di conseguenza generare dati incompleti. 
+> È consigliabile impostare il livello comune più alto (livello 3) per le statistiche in modo che tutti i contatori vengano raccolti correttamente. Se vCenter è impostato su un livello inferiore, è possibile che solo alcuni contatori vengano raccolti completamente, mentre i restanti vengono impostati su 0. La valutazione potrebbe di conseguenza generare dati incompleti.
 
 ### <a name="selecting-the-scope-for-discovery"></a>Selezione dell'ambito di individuazione
 
 Dopo la connessione a vCenter, è possibile selezionare un ambito di individuazione. Selezionando un ambito vengono individuate tutte le macchine virtuali nel percorso dell'inventario vCenter specificato.
 
-1. L'ambito può essere un data center, una cartella o un host ESXi. 
+1. L'ambito può essere un data center, una cartella o un host ESXi.
 2. È possibile selezionare solo un ambito alla volta. Per selezionare più macchine virtuali, è possibile completare un'individuazione e riavviare il processo di individuazione con un nuovo ambito.
 3. È possibile selezionare solo un ambito con *meno di 1500 macchine virtuali*.
 
@@ -141,14 +142,15 @@ Una volta avviata l'individuazione, le macchine virtuali vCenter vengono individ
 
 ### <a name="what-data-is-collected"></a>Quali dati vengono raccolti?
 
-Il processo di raccolta individua i metadati statici seguenti relativi alle macchine virtuali selezionate. 
+Il processo di raccolta individua i metadati statici seguenti relativi alle macchine virtuali selezionate.
 
 1. Nome visualizzato della macchina virtuale (in vCenter)
 2. Percorso dell'inventario della macchina virtuale (host/cartella in vCenter)
 3. Indirizzo IP
 4. Indirizzo MAC
+5. Sistema operativo
 5. Numero di core, dischi, schede di interfaccia di rete
-6. RAM, dimensioni dei dischi
+6. Dimensione della memoria, dimensioni dei dischi
 7. Contatori delle prestazioni per macchina virtuale, disco e rete, come indicato nella tabella di seguito.
 
 La tabella seguente contiene un elenco dei contatori delle prestazioni raccolti e un elenco dei risultati della valutazione che saranno compromessi se un determinato contatore non viene raccolto.
@@ -190,7 +192,7 @@ In base al numero di macchine virtuali nell'ambito selezionato, sono necessari f
 2. Per garantire la sicurezza dell'hotfix scaricato, aprire il prompt dei comandi come amministratore ed eseguire il comando seguente per generare l'hash del file ZIP. L'hash generato deve corrispondere con all'hash indicato nella versione specifica:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    
+
     (esempio d'uso C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
 3. Copiare il file ZIP nella macchina virtuale dell'agente di raccolta di Azure Migrate (Agente di raccolta di Azure Migrate).
 4. Fare clic con il pulsante destro del mouse sul file ZIP e selezionare Estrai tutto.

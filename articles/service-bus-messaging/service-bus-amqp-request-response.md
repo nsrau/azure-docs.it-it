@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: d72a4de8591898a55e4225ace154fd5ed53e6f91
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 847fe0c08d442388cfa506042272bb358058cb4c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194701"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 nel bus di servizio di Microsoft Azure: operazioni basate su richiesta/risposta
 
@@ -69,7 +70,8 @@ role: RECEIVER,
 ### <a name="transfer-a-request-message"></a>Trasferire un messaggio di richiesta  
 
 Trasferisce un messaggio di richiesta.  
-  
+È possibile aggiungere facoltativamente uno stato di transazione per le operazioni che supportano la transazione.
+
 ```  
 requestLink.sendTransfer(  
         Message(  
@@ -79,8 +81,12 @@ requestLink.sendTransfer(
                 },  
                 application-properties: {  
                         "operation" -> "<operation>",  
-                },  
-        )  
+                }
+        ),
+        [Optional] State = transactional-state: {
+                txn-id: <txn-id>
+        }
+)
 ```  
   
 ### <a name="receive-a-response-message"></a>Ricevere un messaggio di risposta  
@@ -195,7 +201,7 @@ Il mapping che rappresenta un messaggio deve contenere le voci seguenti:
   
 ### <a name="schedule-message"></a>Pianificazione del messaggio  
 
-Pianifica i messaggi.  
+Pianifica i messaggi. Questa operazione supporta la transazione.
   
 #### <a name="request"></a>Richiesta  
 
@@ -217,8 +223,9 @@ Il mapping che rappresenta un messaggio deve contenere le voci seguenti:
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
 |message-id|stringa|Sì|`amqpMessage.Properties.MessageId` in formato stringa|  
-|session-id|stringa|Sì|`amqpMessage.Properties.GroupId as string`|  
-|partition-key|stringa|Sì|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|  
+|session-id|stringa|No |`amqpMessage.Properties.GroupId as string`|  
+|partition-key|stringa|No |`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
+|tramite chiave di partizione|stringa|No |`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
 |Message|matrice di byte|Sì|Messaggio con codifica in transito AMQP 1.0.|  
   
 #### <a name="response"></a>Risposta  
@@ -537,6 +544,85 @@ Il messaggio di risposta deve includere le proprietà di applicazione seguenti:
 |statusCode|int|Sì|Codice di risposta HTTP [RFC2616]<br /><br /> 200 (OK) in caso di esito positivo, altro valore in caso di esito negativo|  
 |statusDescription|stringa|No |Descrizione dello stato.|  
   
+### <a name="get-rules"></a>Regole Get
+
+#### <a name="request"></a>Richiesta
+
+Il messaggio di richiesta deve includere le proprietà di applicazione seguenti:
+
+|Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
+|---------|----------------|--------------|--------------------|  
+|operation|stringa|Sì|`com.microsoft:enumerate-rules`|  
+|`com.microsoft:server-timeout`|uint|No |Timeout del server per l'operazione, in millisecondi.|  
+
+Il corpo del messaggio di richiesta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  
+  
+|Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
+|---------|----------------|--------------|--------------------|  
+|top|int|Sì|Il numero di regole da recuperare nella pagina.|  
+|skip|int|Sì|Il numero di regole da ignorare. Definisce l'indice iniziale (+ 1) nell'elenco di regole. | 
+
+#### <a name="response"></a>Risposta
+
+Il messaggio di risposta include le proprietà seguenti:
+
+|Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
+|---------|----------------|--------------|--------------------|  
+|statusCode|int|Sì|Codice di risposta HTTP [RFC2616]<br /><br /> 200 (OK) in caso di esito positivo, altro valore in caso di esito negativo|  
+|regole| matrice di mapping|Sì|Matrice di regole. Ogni regola è rappresentata da una mappa.|
+
+Ogni voce della mappa nella matrice include le proprietà seguenti:
+
+|Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
+|---------|----------------|--------------|--------------------|  
+|rule-description|matrice di oggetti descritti|Sì|`com.microsoft:rule-description:list` con codice descritto AMQP 0x0000013700000004| 
+
+`com.microsoft.rule-description:list` è una matrice di oggetti descritti. La matrice include quanto segue:
+
+|Indice|Tipo di valore|Obbligatoria|Contenuti del valore|  
+|---------|----------------|--------------|--------------------|  
+| 0 | matrice di oggetti descritti | Sì | `filter` come specificato di seguito. |
+| 1 | matrice di oggetto descritto | Sì | `ruleAction` come specificato di seguito. |
+| 2 | stringa | Sì | nome della regola. |
+
+`filter` può essere di uno dei tipi seguenti:
+
+| Nome descrittore | Codice descrittore | Valore |
+| --- | --- | ---|
+| `com.microsoft:sql-filter:list` | 0x000001370000006 | Filtro SQL |
+| `com.microsoft:correlation-filter:list` | 0x000001370000009 | Filtro di correlazione |
+| `com.microsoft:true-filter:list` | 0x000001370000007 | Filtro true che rappresenta 1 = 1 |
+| `com.microsoft:false-filter:list` | 0x000001370000008 | Filtro false che rappresenta 1 = 0 |
+
+`com.microsoft:sql-filter:list` è una matrice descritta che include:
+
+|Indice|Tipo di valore|Obbligatoria|Contenuti del valore|  
+|---------|----------------|--------------|--------------------|  
+| 0 | stringa | Sì | Espressione filtro SQL |
+
+`com.microsoft:correlation-filter:list` è una matrice descritta che include:
+
+|Indice (se presente)|Tipo di valore|Contenuti del valore|  
+|---------|----------------|--------------|--------------------|  
+| 0 | stringa | ID correlazione |
+| 1 | stringa | ID del messaggio |
+| 2 | stringa | A |
+| 3 | stringa | Rispondi a |
+| 4 | stringa | Etichetta |
+| 5 | stringa | ID sessione |
+| 6 | stringa | ID sessione risposta|
+| 7 | stringa | Content Type |
+| 8 | Mappa | Mappa delle proprietà definite dall'applicazione |
+
+`ruleAction` può essere di uno dei tipi seguenti:
+
+| Nome descrittore | Codice descrittore | Valore |
+| --- | --- | ---|
+| `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Operazione regola vuota: nessuna operazione regola presente |
+| `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | Operazione regola SQL |
+
+`com.microsoft:sql-rule-action:list` è una matrice di oggetti descritti la cui prima voce è una stringa che contiene l'espressione dell'operazione regola SQL.
+
 ## <a name="deferred-message-operations"></a>Operazioni sui messaggi rinviati  
   
 ### <a name="receive-by-sequence-number"></a>Ricezione in base al numero di sequenza  
@@ -583,7 +669,7 @@ Il mapping che rappresenta un messaggio deve contenere le voci seguenti:
   
 ### <a name="update-disposition-status"></a>Aggiornamento dello stato di ricezione  
 
-Aggiorna lo stato di ricezione dei messaggi rinviati.  
+Aggiorna lo stato di ricezione dei messaggi rinviati. Questa operazione supporta le transazioni.
   
 #### <a name="request"></a>Richiesta  
 

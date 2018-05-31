@@ -13,16 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2018
+ms.date: 05/18/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6f184ac0b2af3a66affecd1a3a9c247a96e616f8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bfd4738797a98fda85053e689e539b93fb6d1b74
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364319"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Esercitazione: Ridimensionare automaticamente un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure 2.0
+
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
@@ -35,31 +37,22 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.29 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
-
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.32 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
-Per semplificare la creazione delle regole di scalabilità automatica, definire alcuni parametri per ID sottoscrizione, gruppo di risorse, nome del set di scalabilità e località:
-
-```azurecli-interactive
-sub=$(az account show --query id -o tsv)
-resourcegroup_name="myResourceGroup"
-scaleset_name="myScaleSet"
-location_name="eastus"
-```
 
 Creare un gruppo di risorse con [az group create](/cli/azure/group#create), come illustrato di seguito:
 
 ```azurecli-interactive
-az group create --name $resourcegroup_name --location $location_name
+az group create --name myResourceGroup --location eastus
 ```
 
 Si può ora creare un set di scalabilità di macchine virtuali con il comando [az vmss create](/cli/azure/vmss#create). L'esempio seguente crea un set di scalabilità con numero di istanze pari a *2* e genera le chiavi SSH, se non sono presenti:
 
 ```azurecli-interactive
 az vmss create \
-  --resource-group $resourcegroup_name \
-  --name $scaleset_name \
+  --resource-group myResourceGroup \
+  --name myScaleSet \
   --image UbuntuLTS \
   --upgrade-policy-mode automatic \
   --instance-count 2 \
@@ -67,177 +60,59 @@ az vmss create \
   --generate-ssh-keys
 ```
 
-
 ## <a name="define-an-autoscale-profile"></a>Definire un profilo di scalabilità automatica
-Le regole di scalabilità automatica vengono distribuite in formato JSON (JavaScript Object Notation) con l'interfaccia della riga di comando di Azure 2.0. Verrà ora esaminata ogni parte di questo profilo di scalabilità automatica, quindi si creerà un esempio completo.
 
-L'inizio del profilo di scalabilità automatica definisce la capacità predefinita, minima e massima del set di scalabilità. L'esempio seguente imposta la capacità predefinita e minima di *2* istanze di macchine virtuali e la capacità massima di *10*:
-
-```json
-{
-  "name": "autoscale rules",
-  "capacity": {
-    "minimum": "2",
-    "maximum": "10",
-    "default": "2"
-  }
-}
-```
-
-
-## <a name="create-a-rule-to-autoscale-out"></a>Creare una regola per aumentare automaticamente il numero di istanze
-Se aumenta la richiesta da parte dell'applicazione, aumenta il carico sulle istanze di macchine virtuali nel set di scalabilità. Se il carico aumenta in modo coerente e non momentaneamente, è possibile configurare regole di scalabilità automatica per aumentare il numero di istanze di macchine virtuali nel set di scalabilità. Quando sono state create le istanze di macchine virtuali e sono state distribuite le applicazioni, il set di scalabilità inizia a distribuire loro il traffico tramite il bilanciamento del carico. È possibile controllare le metriche da monitorare, ad esempio per la CPU o il disco, il tempo per cui il carico dell'applicazione deve soddisfare una determinata soglia e il numero di istanze di macchine virtuali da aggiungere al set di scalabilità.
-
-Verrà ora creata una regola che aumenta il numero di istanze di VM in un set di scalabilità quando il carico medio della CPU è superiore al 70% per un periodo di 5 minuti. Quando la regola viene attivata, il numero di istanze di VM viene incrementato di tre.
-
-Per questa regola vengono usati i parametri seguenti:
-
-| Parametro         | Spiegazione                                                                                                         | Valore           |
-|-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
-| *metricName*      | La metrica delle prestazioni da monitorare e a cui applicare azioni dei set di scalabilità.                                                   | CPU percentuale  |
-| *timeGrain*       | La frequenza con cui le metriche vengono raccolte per l'analisi.                                                                   | 1 minuto        |
-| *timeAggregation* | Definisce la modalità di aggregazione delle metriche raccolte per l'analisi.                                                | Media         |
-| *timeWindow*      | Il tempo monitorato prima che vengano confrontati i valori delle metriche e delle soglie.                                   | 5 minuti       |
-| *operator*        | Operatore usato per confrontare i dati della metrica rispetto alla soglia.                                                     | Maggiore di    |
-| *threshold*       | Il valore che determina l'attivazione di un'azione da parte della regola di scalabilità automatica.                                                      | 70%             |
-| *direction*       | Definisce se il numero di istanze nel set di scalabilità verrà aumentato o ridotto quando si applica la regola.                                              | Aumento        |
-| *type*            | Indica che il numero di istanze di VM dovrà essere modificato di un valore specifico.                                    | ChangeCount    |
-| *value*           | Numero di istanze di VM previsto come aumento o riduzione quando viene applicata la regola.                                             | 3               |
-| *cooldown*        | Il tempo di attesa prima che la regola venga applicata nuovamente in modo che le azioni di scalabilità automatica diventino effettive. | 5 minuti       |
-
-L'esempio seguente definisce la regola per aumentare il numero di istanze di macchine virtuali. *metricResourceUri* usa le variabili definite precedentemente per l'ID sottoscrizione, il nome del gruppo di risorse e il nome del set di scalabilità:
-
-```json
-{
-  "metricTrigger": {
-    "metricName": "Percentage CPU",
-    "metricNamespace": "",
-    "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'",
-    "metricResourceLocation": "'$location_name'",
-    "timeGrain": "PT1M",
-    "statistic": "Average",
-    "timeWindow": "PT5M",
-    "timeAggregation": "Average",
-    "operator": "GreaterThan",
-    "threshold": 70
-  },
-  "scaleAction": {
-    "direction": "Increase",
-    "type": "ChangeCount",
-    "value": "3",
-    "cooldown": "PT5M"
-  }
-}
-```
-
-
-## <a name="create-a-rule-to-autoscale-in"></a>Creare una regola per ridurre automaticamente il numero di istanze
-Nelle ore serali o nel fine settimana è possibile che la richiesta delle applicazioni si riduca. Se il carico diminuisce in modo coerente nel tempo, è possibile configurare regole di scalabilità automatica per diminuire il numero di istanze di macchine virtuali nel set di scalabilità. Questa azione riduce i costi di esecuzione del set di scalabilità poiché si esegue solo il numero di istanze necessarie per soddisfare la richiesta corrente.
-
-Creare un'altra regola che riduca il numero di istanze di VM in un set di scalabilità quando il carico medio della CPU scende quindi al di sotto del 30% per un periodo di 5 minuti. L'esempio seguente definisce la regola per ridurre il numero di istanze di VM di uno. *metricResourceUri* usa le variabili definite precedentemente per l'ID sottoscrizione, il nome del gruppo di risorse e il nome del set di scalabilità:
-
-```json
-{
-  "metricTrigger": {
-    "metricName": "Percentage CPU",
-    "metricNamespace": "",
-    "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'",
-    "metricResourceLocation": "'$location_name'",
-    "timeGrain": "PT1M",
-    "statistic": "Average",
-    "timeWindow": "PT5M",
-    "timeAggregation": "Average",
-    "operator": "LessThan",
-    "threshold": 30
-  },
-  "scaleAction": {
-    "direction": "Decrease",
-    "type": "ChangeCount",
-    "value": "1",
-    "cooldown": "PT5M"
-  }
-}
-```
-
-
-## <a name="apply-autoscale-rules-to-a-scale-set"></a>Applicare le regole di scalabilità automatica a un set di scalabilità
-Il passaggio finale consiste nell'applicare il profilo e le regole di scalabilità automatica al set di scalabilità. Il numero di istanze nel set di scalabilità potrà quindi essere ridotto o aumentato automaticamente in base alle esigenze delle applicazioni. Applicare il profilo di scalabilità automatica con [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create) come indicato di seguito. Il codice JSON completo seguente usa il profilo e le regole descritte nelle sezioni precedenti:
+Per abilitare la scalabilità automatica su un set di scalabilità, è innanzitutto necessario definire un profilo di scalabilità automatica. Questo profilo definisce la capacità predefinita, minima e massima del set di scalabilità. Questi limiti consentono di controllare i costi poiché le istanze di macchine virtuali non vengono create di continuo. Permettono anche di trovare un equilibrio appropriato tra prestazioni e numero minimo di istanze che rimangono in un evento di scala. Creare un profilo di scalabilità automatica con [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). L'esempio seguente imposta la capacità predefinita e minima di *2* istanze di macchine virtuali e la capacità massima di *10*:
 
 ```azurecli-interactive
-az monitor autoscale-settings create \
-    --resource-group $resourcegroup_name \
-    --name autoscale \
-    --parameters '{"autoscale_setting_resource_name": "autoscale",
-      "enabled": true,
-      "location": "'$location_name'",
-      "notifications": [],
-      "profiles": [
-        {
-          "name": "autoscale by percentage based on CPU usage",
-          "capacity": {
-            "minimum": "2",
-            "maximum": "10",
-            "default": "2"
-          },
-          "rules": [
-            {
-              "metricTrigger": {
-                "metricName": "Percentage CPU",
-                "metricNamespace": "",
-                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'",
-                "metricResourceLocation": "'$location_name'",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT5M",
-                "timeAggregation": "Average",
-                "operator": "GreaterThan",
-                "threshold": 70
-              },
-              "scaleAction": {
-                "direction": "Increase",
-                "type": "ChangeCount",
-                "value": "3",
-                "cooldown": "PT5M"
-              }
-            },
-            {
-              "metricTrigger": {
-                "metricName": "Percentage CPU",
-                "metricNamespace": "",
-                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'",
-                "metricResourceLocation": "'$location_name'",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT5M",
-                "timeAggregation": "Average",
-                "operator": "LessThan",
-                "threshold": 30
-              },
-              "scaleAction": {
-                "direction": "Decrease",
-                "type": "ChangeCount",
-                "value": "1",
-                "cooldown": "PT5M"
-              }
-            }
-          ]
-        }
-      ],
-      "tags": {},
-      "target_resource_uri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'"
-    }'
+az monitor autoscale create \
+  --resource-group myResourceGroup \
+  --resource myScaleSet \
+  --resource-type Microsoft.Compute/virtualMachineScaleSets \
+  --name autoscale \
+  --min-count 2 \
+  --max-count 10 \
+  --count 2
 ```
 
+## <a name="create-a-rule-to-autoscale-out"></a>Creare una regola per aumentare automaticamente il numero di istanze
+
+Se aumenta la richiesta da parte dell'applicazione, aumenta il carico sulle istanze di macchine virtuali nel set di scalabilità. Se il carico aumenta in modo coerente e non momentaneamente, è possibile configurare regole di scalabilità automatica per aumentare il numero di istanze di macchine virtuali nel set di scalabilità. Quando sono state create le istanze di macchine virtuali e sono state distribuite le applicazioni, il set di scalabilità inizia a distribuire loro il traffico tramite il bilanciamento del carico. È possibile controllare le metriche da monitorare, ad esempio per la CPU o il disco, il tempo per cui il carico dell'applicazione deve soddisfare una determinata soglia e il numero di istanze di macchine virtuali da aggiungere al set di scalabilità.
+
+È possibile creare una regola con [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create) che aumenti il numero di istanze di macchine virtuali in un set di scalabilità quando il carico medio della CPU è superiore al 70% per un periodo di 5 minuti. Quando la regola viene attivata, il numero di istanze di VM viene incrementato di tre.
+
+```azurecli-interactive
+az monitor autoscale rule create \
+  --resource-group myResourceGroup \
+  --autoscale-name autoscale \
+  --condition "Percentage CPU > 70 avg 5m" \
+  --scale out 3
+```
+
+## <a name="create-a-rule-to-autoscale-in"></a>Creare una regola per ridurre automaticamente il numero di istanze
+
+Nelle ore serali o nel fine settimana è possibile che la richiesta delle applicazioni si riduca. Se il carico diminuisce in modo coerente nel tempo, è possibile configurare regole di scalabilità automatica per diminuire il numero di istanze di macchine virtuali nel set di scalabilità. Questa azione riduce i costi di esecuzione del set di scalabilità poiché si esegue solo il numero di istanze necessarie per soddisfare la richiesta corrente.
+
+Creare quindi un'altra regola con [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create) che riduca il numero di istanze di macchine virtuali in un set di scalabilità quando il carico medio della CPU è inferiore al 30% per un periodo di 5 minuti. L'esempio seguente definisce la regola per ridurre il numero di istanze di VM di uno:
+
+```azurecli-interactive
+az monitor autoscale rule create \
+  --resource-group myResourceGroup \
+  --autoscale-name autoscale \
+  --condition "Percentage CPU < 30 avg 5m" \
+  --scale in 1
+```
 
 ## <a name="generate-cpu-load-on-scale-set"></a>Generare carico della CPU nel set di scalabilità
+
 Per testare le regole di scalabilità automatica, generare una certa quantità di carico della CPU nelle istanze di VM del set di scalabilità. Questo carico della CPU simulato causa l'aumento del numero di istanze di VM in base alla scalabilità automatica. Quando il carico della CPU simulato viene successivamente ridotto, le regole di scalabilità automatica determinano la riduzione del numero di istanze di VM.
 
 Per prima cosa, visualizzare l'elenco con l'indirizzo e le porte per la connessione alle istanze di VM di un set di scalabilità con [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
-  --resource-group $resourcegroup_name \
-  --name $scaleset_name
+  --resource-group myResourceGroup \
+  --name myScaleSet
 ```
 
 L'output di esempio seguente mostra il nome dell'istanza, l'indirizzo IP pubblico del servizio di bilanciamento del carico e il numero di porta a cui le regole NAT (Network Address Translation) inoltrano il traffico:
@@ -299,12 +174,13 @@ exit
 ```
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Monitorare le regole di scalabilità automatica attive
-Per monitorare il numero di istanze di VM nel set di scalabilità, usare **watch**. Le regole di scalabilità automatica impiegano 5 minuti ad avviare il processo di aumento del numero di istanze in risposta al carico della CPU generato da **stress** in ognuna delle istanze di VM:
+
+Per monitorare il numero di istanze di VM nel set di scalabilità, usare **watch**. Le regole di scalabilità automatica impiegano 5 minuti ad avviare il processo di aumento del numero di istanze in risposta al carico della CPU generato da **stress** in ognuna delle istanze di macchine virtuali:
 
 ```azurecli-interactive
 watch az vmss list-instances \
-  --resource-group $resourcegroup_name \
-  --name $scaleset_name \
+  --resource-group myResourceGroup \
+  --name myScaleSet \
   --output table
 ```
 
@@ -315,31 +191,31 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
 
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
 ------------  --------------------  ----------  ------------  -------------------  ---------------  ------------------------------------
-           1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUP  4f92f350-2b68-464f-8a01-e5e590557955
-           2  True                  eastus      myScaleSet_2  Succeeded            MYRESOURCEGROUP  d734cd3d-fb38-4302-817c-cfe35655d48e
-           4  True                  eastus      myScaleSet_4  Creating             MYRESOURCEGROUP  061b4c90-0d73-49fc-a066-19eab0b3d95c
-           5  True                  eastus      myScaleSet_5  Creating             MYRESOURCEGROUP  4beff8b9-4e65-40cb-9652-43899309da27
-           6  True                  eastus      myScaleSet_6  Creating             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
+           1  True                  eastus      myScaleSet_1  Succeeded            myResourceGroup  4f92f350-2b68-464f-8a01-e5e590557955
+           2  True                  eastus      myScaleSet_2  Succeeded            myResourceGroup  d734cd3d-fb38-4302-817c-cfe35655d48e
+           4  True                  eastus      myScaleSet_4  Creating             myResourceGroup  061b4c90-0d73-49fc-a066-19eab0b3d95c
+           5  True                  eastus      myScaleSet_5  Creating             myResourceGroup  4beff8b9-4e65-40cb-9652-43899309da27
+           6  True                  eastus      myScaleSet_6  Creating             myResourceGroup  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
 All'arresto di **stress** nelle istanze di VM iniziali, il carico medio della CPU torna alla normalità. Dopo altri 5 minuti, le regole di scalabilità automatica riducono quindi il numero di istanze di VM. Le azioni di riduzione del numero di istanze rimuovono per prime le istanze di VM con gli ID più elevati. Quando un set di scalabilità usa i set di disponibilità o le zone di disponibilità, le azioni di scalabilità vengono distribuite in modo uniforme tra le istanze di macchina virtuale. L'output di esempio seguente mostra l'eliminazione di un'istanza di VM con la riduzione automatica del numero di istanze nel set di scalabilità:
 
 ```bash
-           6  True                  eastus      myScaleSet_6  Deleting             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
+           6  True                  eastus      myScaleSet_6  Deleting             myResourceGroup  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
 Uscire da *watch* con `Ctrl-c`. La riduzione del numero di istanze nel set di scalabilità continua ogni 5 minuti con la rimozione di un'istanza di VM fino al raggiungimento del numero minimo di due istanze.
 
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
+
 Per rimuovere il set di scalabilità e le risorse aggiuntive, eliminare il gruppo di risorse e tutte le relative risorse con [az group delete](/cli/azure/group#az_group_delete). Il parametro `--no-wait` restituisce il controllo al prompt senza attendere il completamento dell'operazione. Il parametro `--yes` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo.
 
 ```azurecli-interactive
-az group delete --name $resourcegroup_name --yes --no-wait
+az group delete --name myResourceGroup --yes --no-wait
 ```
 
-
 ## <a name="next-steps"></a>Passaggi successivi
+
 In questa esercitazione si è appreso come ridurre o aumentare automaticamente il numero di istanze in un set di scalabilità con l'interfaccia della riga di comando di Azure 2.0:
 
 > [!div class="checklist"]

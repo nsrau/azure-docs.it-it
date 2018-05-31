@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: fa6a994f30c301fd6c7b431467aebc9d3489c6bc
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5a0574af04c118d466544d533561eb01639edfc6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158993"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: account e autorizzazioni
 L'installazione guidata di Azure AD Connect offre due percorsi diversi:
@@ -58,7 +59,7 @@ L' [account](#active-directory-account) creato per la lettura e la scrittura in 
 
 | Autorizzazione | Usato per |
 | --- | --- |
-| <li>Replica modifiche directory</li><li>Replica modifiche directory - Tutto |Sincronizzazione delle password |
+| <li>Replica modifiche directory</li><li>Replica modifiche directory - Tutto |Sincronizzazione dell'hash delle password |
 | Lettura/scrittura di tutte le proprietà - Utente |Importazione ed Exchange ibrido |
 | Lettura/scrittura di tutte le proprietà - iNetOrgPerson |Importazione ed Exchange ibrido |
 | Lettura/scrittura di tutte le proprietà - Gruppo |Importazione ed Exchange ibrido |
@@ -87,7 +88,7 @@ Le autorizzazioni necessarie dipendono dalle funzionalità facoltative abilitate
 | Funzionalità | Autorizzazioni |
 | --- | --- |
 | Funzionalità msDS-ConsistencyGuid |Autorizzazioni di scrittura per l'attributo msDS-ConsistencyGuid documentato in [Concetti di progettazione - Uso di msDS-ConsistencyGuid come sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
-| Sincronizzazione delle password |<li>Replica modifiche directory</li>  <li>Replica modifiche directory - Tutto |
+| Sincronizzazione dell'hash delle password |<li>Replica modifiche directory</li>  <li>Replica modifiche directory - Tutto |
 | Distribuzione ibrida di Exchange |Autorizzazioni di scrittura per gli attributi documentati in [Writeback della distribuzione ibrida Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) per utenti, gruppi e contatti. |
 | Cartelle pubbliche della posta di Exchange |Autorizzazioni di lettura per gli attributi documentati in [Cartelle pubbliche della posta di Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) per le cartelle pubbliche. | 
 | writeback delle password |Autorizzazioni di scrittura per gli attributi documentati in [Introduzione alla gestione delle password](../authentication/howto-sspr-writeback.md) per gli utenti. |
