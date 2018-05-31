@@ -1,5 +1,5 @@
 ---
-title: Panoramica di Monitoraggio di Azure | Documentazione Microsoft
+title: Panoramica di Monitoraggio di Azure | Microsoft Docs
 description: Monitoraggio di Azure raccoglie dati statistici da usare in avvisi, webhook, scalabilità automatica e automazione. L'articolo elenca anche altre opzioni di monitoraggio di Microsoft.
 author: rboucher
 manager: carmonm
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 1ba2f2be8db424bddfccdf374704ec7be5691feb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 9a9166e93d24f6402d849b1bee3bcf470685c814
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312169"
 ---
 # <a name="overview-of-azure-monitor"></a>Panoramica di Monitoraggio di Azure
 Questo articolo fornisce una panoramica del servizio Monitoraggio di Azure in Microsoft Azure. Illustra il funzionamento di Monitoraggio di Azure e fornisce collegamenti a informazioni aggiuntive su come usare Monitoraggio di Azure.  Per un'introduzione video, vedere i collegamenti della sezione Passaggi successivi alla fine dell'articolo. 
@@ -108,7 +109,7 @@ Tra gli esempi sono inclusi:
 
 ### <a name="store-and-archive"></a>Archiviare
 Alcuni dati di monitoraggio sono già archiviati e disponibili in Monitoraggio di Azure per un periodo di tempo specificato. 
-- Le metriche vengono archiviate per 30 giorni. 
+- Le metriche vengono archiviate per 90 giorni. 
 - Le voci di log attività vengono archiviate per 90 giorni. 
 - I log di diagnostica non vengono archiviati. 
 

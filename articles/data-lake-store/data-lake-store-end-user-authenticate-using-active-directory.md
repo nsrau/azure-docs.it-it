@@ -1,8 +1,8 @@
 ---
-title: 'Autenticazione dell''utente finale: Data Lake Store con Azure Active Directory | Documentazione Microsoft'
+title: "Autenticazione dell'utente finale: Data Lake Store con Azure Active Directory | Microsoft Docs"
 description: Informazioni su come ottenere l'autenticazione dell'utente finale con Data Lake Store tramite Azure Active Directory
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: dca040fba78d6501bc835fdac402e69149d493b5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 39ee32ec8b1d005aac12cb88262d7e2f37898721
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33938580"
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticazione dell'utente finale con Data Lake Store tramite Azure Active Directory
 > [!div class="op_single_selector"]
@@ -83,7 +84,7 @@ Mentre si seguono le istruzioni nel collegamento, assicurarsi di selezionare **N
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Passaggio 2: Ottenere l'ID applicazione e l'URI di reindirizzamento
 
-Vedere [Ottenere l'ID applicazione](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) per recuperare l'ID applicazione, detto anche ID client nel portale di Azure classico, dell'applicazione nativa di Azure AD.
+Per recuperare l'ID applicazione, vedere [Ottenere l'ID applicazione](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 Per recuperare l'URI di reindirizzamento, attenersi alla procedura seguente.
 

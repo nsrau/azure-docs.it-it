@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management - Flusso di lavoro di approvazione per i ruoli delle risorse di Azure| Microsoft Docs
+title: Flusso di lavoro di approvazione per i ruoli delle risorse di Azure in Privileged Identity Management | Microsoft Docs
 description: Descrive il processo del flusso di lavoro di approvazione per le risorse di Azure.
 services: active-directory
 documentationcenter: ''
@@ -13,54 +13,59 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: c02d595d75b2d63558896054c185102ebb23cc9e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 7781c858a5c0e4db8593df0cf77b868b6fd23622
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151094"
 ---
-# <a name="privileged-identity-management---resource-roles---approve"></a>Privileged Identity Management - Ruoli delle risorse - Approvazione
+# <a name="approval-workflow-for-azure-resource-roles-in-privileged-identity-management"></a>Flusso di lavoro di approvazione per i ruoli delle risorse di Azure in Privileged Identity Management
 
-Con il flusso di lavoro di approvazione in PIM per i ruoli delle risorse di Azure, gli amministratori possono proteggere ulteriormente o limitare l'accesso alle risorse critiche richiedendo l'approvazione per attivare le assegnazioni di ruolo. Il concetto di gerarchia delle risorse è specifico dei ruoli delle risorse di Azure. Questa gerarchia consente l'ereditarietà delle assegnazioni di ruolo da un oggetto risorsa padre verso il basso per tutte le risorse figlio subordinate all'interno del contenitore padre. 
+Con il flusso di lavoro di approvazione in Privileged Identity Management (PIM) per i ruoli delle risorse di Azure, gli amministratori possono proteggere ulteriormente o limitare l'accesso alle risorse critiche, ovvero possono richiedere l'approvazione per attivare le assegnazioni di ruolo. 
 
-Si supponga, ad esempio, che Luca, un amministratore delle risorse, usi PIM per assegnare Alice come membro idoneo al ruolo Proprietario della sottoscrizione di Contoso. Con questa assegnazione Alice diventa anche un proprietario idoneo di tutti i contenitori di gruppi di risorse all'interno della sottoscrizione di Contoso e di tutte le risorse (ad esempio, le macchine virtuali) contenute all'interno di ogni gruppo di risorse, della sottoscrizione. Si supponga che nella sottoscrizione di Contoso esistano tre gruppi di risorse: Test Fabrikam, Sviluppo Fabrikam e Prod Fabrikam. Ognuno di questi gruppi di risorse contiene una singola macchina virtuale.
+Il concetto di gerarchia delle risorse è specifico dei ruoli delle risorse di Azure. Questa gerarchia consente l'ereditarietà delle assegnazioni di ruolo da un oggetto risorsa padre verso il basso per tutte le risorse figlio all'interno del contenitore padre. 
 
-Le impostazioni di PIM vengono configurate per ogni ruolo di una risorsa e, diversamente dalle assegnazioni, queste impostazioni non vengono ereditate e si applicano esclusivamente al ruolo della risorsa. [Altre informazioni sulle assegnazioni idonee e la visibilità delle risorse.](pim-resource-roles-eligible-visibility.md)
+Si supponga, ad esempio, che Luca, un amministratore delle risorse, usi PIM per assegnare Alice come membro idoneo al ruolo Proprietario della sottoscrizione di Contoso. Con questa assegnazione, Alice è una proprietaria idonea di tutti i contenitori di gruppi di risorse all'interno della sottoscrizione di Contoso. Alice è anche una proprietaria idonea di tutte le risorse (ad esempio, le macchine virtuali) all'interno di ogni gruppo di risorse della sottoscrizione. 
 
-Riprendendo l'esempio precedente, Luca usa PIM per richiedere che tutti i membri del ruolo Proprietario della sottoscrizione di Contoso richiedano l'approvazione per l'attivazione. Per proteggere le risorse contenute nel gruppo di risorse Prod Fabrikam, Luca richiede l'approvazione per i membri del ruolo Proprietario anche per questa risorsa. L'approvazione per l'attivazione non è richiesta per i ruoli Proprietario nei gruppi Test Fabrikam e Sviluppo Fabrikam.
+Si supponga che nella sottoscrizione di Contoso esistano tre gruppi di risorse: Test Fabrikam, Sviluppo Fabrikam e Prod Fabrikam. Ognuno di questi gruppi di risorse contiene una singola macchina virtuale.
 
-Quando Alice richiede l'attivazione del ruolo Proprietario per la sottoscrizione di Contoso, un responsabile approvazione deve approvare o rifiutare la richiesta prima che lei diventi attiva nel ruolo. Inoltre, se Alice decide di [limitare l'ambito dell'attivazione](pim-resource-roles-activate-your-roles.md#just-enough-administration) al gruppo di risorse Prod Fabrikam, un responsabile approvazione deve approvare o rifiutare anche questa richiesta. Tuttavia, se Alice decide di estendere l'ambito dell'attivazione anche a uno o entrambi i gruppi di risorse Test Fabrikam o Sviluppo Fabrikam, l'approvazione non sarà necessaria.
+Le impostazioni PIM vengono configurate per ogni ruolo di una risorsa. Diversamente dalle assegnazioni, queste impostazioni non vengono ereditate e si applicano esclusivamente al ruolo della risorsa. [Altre informazioni sulle assegnazioni idonee e la visibilità delle risorse](pim-resource-roles-eligible-visibility.md).
 
-Il flusso di lavoro di approvazione potrebbe non essere necessario per tutti i membri di un ruolo. Si consideri uno scenario in cui l'organizzazione assume diversi collaboratori a tempo determinato che contribuiscano allo sviluppo di un'applicazione che verrà eseguita in una sottoscrizione di Azure. L'amministratore delle risorse vuole che i dipendenti siano idonei all'accesso senza approvazione, ma che per i collaboratori a tempo determinato sia richiesta l'approvazione. Per configurare il flusso di lavoro di approvazione solo per i collaboratori a tempo determinato, è possibile creare un ruolo personalizzato con le stesse autorizzazioni del ruolo assegnato ai dipendenti e richiedere l'approvazione per attivare il ruolo personalizzato. [Altre informazioni sui ruoli personalizzati](pim-resource-roles-custom-role-policy.md).
+Continuando con l'esempio precedente: Luca usa PIM per richiedere che tutti i membri del ruolo Proprietario della sottoscrizione di Contoso richiedano l'approvazione per l'attivazione. Per poter proteggere le risorse nel gruppo di risorse Prod Fabrikam, Luca richiede anche l'approvazione per i membri del ruolo Proprietario per questa risorsa. L'approvazione per l'attivazione non è richiesta per i ruoli Proprietario nei gruppi Test Fabrikam e Sviluppo Fabrikam.
 
-Seguire questa procedura per configurare il flusso di lavoro di approvazione e specificare gli utenti che possono approvare o rifiutare le richieste.
+Quando Alice richiede l'attivazione del ruolo Proprietario per la sottoscrizione di Contoso, un responsabile approvazione deve approvare o rifiutare la richiesta prima che lei diventi attiva nel ruolo. Se Alice decide di [limitare l'ambito dell'attivazione](pim-resource-roles-activate-your-roles.md#apply-just-enough-administration-practices) al gruppo di risorse Prod Fabrikam, un responsabile approvazione deve approvare o rifiutare anche questa richiesta, ma, se Alice decide di estendere l'ambito dell'attivazione anche a uno o entrambi i gruppi di risorse Test Fabrikam o Sviluppo Fabrikam, l'approvazione non è necessaria.
+
+Il flusso di lavoro di approvazione potrebbe non essere necessario per tutti i membri di un ruolo. Si consideri uno scenario in cui l'organizzazione assume diversi collaboratori a tempo determinato che contribuiscano allo sviluppo di un'applicazione che verrà eseguita in una sottoscrizione di Azure. L'amministratore delle risorse vuole che i dipendenti siano idonei all'accesso senza approvazione, ma che per i collaboratori a tempo determinato sia richiesta l'approvazione. Per configurare il flusso di lavoro di approvazione solo per i collaboratori a tempo determinato, è possibile creare un ruolo personalizzato con le stesse autorizzazioni del ruolo assegnato ai dipendenti. È possibile richiedere l'approvazione per attivare il ruolo personalizzato. [Altre informazioni sui ruoli personalizzati](pim-resource-roles-custom-role-policy.md).
+
+Per configurare il flusso di lavoro di approvazione e specificare gli utenti che possono approvare o rifiutare le richieste, usare le procedure seguenti.
 
 ## <a name="require-approval-to-activate"></a>Richiedere l'approvazione per l'attivazione
 
-Passare a PIM nel portale di Azure e selezionare una risorsa nell'elenco.
+1. Passare a PIM nel portale di Azure e selezionare una risorsa nell'elenco.
 
-![](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+   ![Riquadro "Risorse di Azure" con una risorsa selezionata](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
 
-Dal menu di spostamento a sinistra selezionare **Impostazioni dei ruoli**.
+2. Selezionare **Impostazioni dei ruoli** nel riquadro sinistro.
 
-Cercare e selezionare un ruolo, quindi fare clic su **Modifica** per modificare le impostazioni.
+3. Cercare e selezionare un ruolo e quindi selezionare **Modifica** per modificare le impostazioni.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_view_settings.png)
+   ![Pulsante "Modifica" per il ruolo Operatore](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_view_settings.png)
 
-Nella sezione Attivazione selezionare la casella di controllo **Richiedi l'approvazione per l'attivazione**.
+4. Nella sezione **Attivazione** selezionare la casella di controllo **Richiedi l'approvazione per l'attivazione**.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_settings_require_approval_checkbox.png)
+   ![Sezione "Attivazione" delle impostazioni dei ruoli](media/azure-pim-resource-rbac/aadpim_rbac_settings_require_approval_checkbox.png)
 
 ## <a name="specify-approvers"></a>Specificare i responsabili approvazione
 
-Fare clic su **Seleziona responsabili approvazione** per aprire la schermata di selezione.
+Fare clic su **Seleziona responsabili approvazione** per aprire il riquadro **Selezionare un utente o un gruppo**.
 
 >[!NOTE]
 >È necessario selezionare almeno un utente o gruppo per aggiornare l'impostazione. Non esistono responsabili approvazione predefiniti.
 
 Gli amministratori delle risorse possono aggiungere qualsiasi combinazione di utenti e gruppi all'elenco dei responsabili approvazione. 
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_select_approvers.png)
+![Riquadro "Selezionare un utente o gruppo" con un utente selezionato](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_select_approvers.png)
 
 ## <a name="request-approval-to-activate"></a>Richiedere l'approvazione per l'attivazione
 
@@ -68,21 +73,25 @@ La richiesta di approvazione non ha alcun impatto sulla procedura che deve segui
 
 Se un membro richiede l'attivazione di un ruolo per cui è richiesta l'approvazione e il ruolo non è più necessario, il membro può annullare la richiesta in PIM.
 
-Per annullare, passare a PIM e selezionare "Richieste personali". Individuare la richiesta e fare clic su "Annulla".
+Per annullare, passare a PIM e selezionare **Richieste personali**. Individuare la richiesta e selezionare **Annulla**.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_role_approval_request_pending.png)
+![Riquadro "Richieste personali"](media/azure-pim-resource-rbac/aadpim_rbac_role_approval_request_pending.png)
 
 ## <a name="approve-or-deny-a-request"></a>Approvare o rifiutare una richiesta
 
-Per approvare o rifiutare una richiesta, è necessario essere un membro dell'elenco dei responsabili approvazione. In PIM selezionare "Approva richieste" dalla scheda nel menu di spostamento a sinistra e individuare la richiesta.
+Per approvare o rifiutare una richiesta, è necessario essere un membro dell'elenco dei responsabili approvazione. 
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_approve_requests_list.png)
+1. In PIM selezionare **Approva richieste** dalla scheda nel menu a sinistra e individuare la richiesta.
 
-Selezionare la richiesta, fornire una giustificazione per la decisione e selezionare Approva o Rifiuta, risolvendo così la richiesta.
+   ![Riquadro "Approva richieste"](media/azure-pim-resource-rbac/aadpim_rbac_approve_requests_list.png)
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_approve_request_approved.png)
+2. Selezionare la richiesta, fornire una giustificazione per la decisione e selezionare **Approva** o **Rifiuta**. La richiesta viene quindi risolta.
+
+   ![Richiesta selezionata con informazioni dettagliate](media/azure-pim-resource-rbac/aadpim_rbac_approve_request_approved.png)
 
 ## <a name="workflow-notifications"></a>Notifiche del flusso di lavoro
+
+Ecco alcuni aspetti delle notifiche del flusso di lavoro:
 
 - Tutti i membri dell'elenco di responsabili approvazione ricevono una notifica tramite posta elettronica quando una richiesta per un ruolo è in attesa di revisione. Le notifiche tramite posta elettronica includono un collegamento diretto alla richiesta, dove il responsabile approvazione può approvare o rifiutare.
 - Le richieste vengono risolte dal primo membro dell'elenco che approva o rifiuta. 
@@ -90,7 +99,7 @@ Selezionare la richiesta, fornire una giustificazione per la decisione e selezio
 - Gli amministratori delle risorse ricevono notifica quando un membro approvato diventa attivo nel ruolo. 
 
 >[!Note]
->Nel caso un amministratore delle risorse ritenga che il membro approvato non deve essere attivo, può rimuovere l'assegnazione di ruolo attivo in PIM. Anche se gli amministratori delle risorse non ricevono notifica delle richieste in sospeso a meno che non siano membri dell'elenco di responsabili approvazione, essi possono visualizzare e annullare le richieste in sospeso di tutti gli utenti visualizzandole in PIM. 
+>Un amministratore delle risorse che ritiene che un membro approvato non deve essere attivo può rimuovere l'assegnazione di ruolo attivo in PIM. Anche se gli amministratori delle risorse non ricevono notifica delle richieste in sospeso a meno che non siano membri dell'elenco di responsabili approvazione, essi possono visualizzare e annullare le richieste in sospeso di tutti gli utenti visualizzandole in PIM. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

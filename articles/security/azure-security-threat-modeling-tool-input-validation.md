@@ -1,5 +1,5 @@
 ---
-title: 'Convalida dell''input: Microsoft Threat Modeling Tool - Azure | Microsoft Docs'
+title: "Convalida dell'input: Microsoft Threat Modeling Tool - Azure | Microsoft Docs"
 description: Procedure di mitigazione delle minacce esposte in Threat Modeling Tool
 services: security
 documentationcenter: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: c416ae23565870223abc3f2db1ac460e8bea77f6
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d26d869748283718375e35ae4183eef0e51a96ed
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778580"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Infrastruttura di sicurezza: convalida dell'input - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -31,7 +32,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a id="disable-xslt"></a>Disabilitare gli script XSLT per tutte le trasformazioni con fogli di stile non attendibili
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -63,7 +64,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 
 ## <a id="out-sniffing"></a>Verificare che ogni pagina che potrebbe includere contenuti controllabili dall'utente rifiuti esplicitamente l'analisi MIME automatica
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -205,7 +206,7 @@ Si noti che in MSXML6, la proprietà ProhibitDTD è impostata su true (in modo d
 
 ## <a id="controls-users"></a>Verificare la presenza dei controlli appropriati quando si accettano file dagli utenti
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -321,7 +322,7 @@ Per informazioni dettagliate sull'ultimo punto relativo alla convalida della fir
 
 ## <a id="typesafe"></a>Verificare che nell'applicazione Web vengano usati parametri indipendenti dai tipi per l'accesso ai dati
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -340,7 +341,7 @@ using System.Data.SqlClient;
 using (SqlConnection connection = new SqlConnection(connectionString))
 { 
 DataSet userDataset = new DataSet(); 
-SqlDataAdapter myCommand = new SqlDataAdapter(LoginStoredProcedure", connection); 
+SqlDataAdapter myCommand = new SqlDataAdapter("LoginStoredProcedure", connection); 
 myCommand.SelectCommand.CommandType = CommandType.StoredProcedure; 
 myCommand.SelectCommand.Parameters.Add("@au_id", SqlDbType.VarChar, 11); 
 myCommand.SelectCommand.Parameters["@au_id"].Value = SSN.Text; 
@@ -358,7 +359,7 @@ Nell'esempio di codice precedente, la lunghezza del valore di input non può ess
 | **Tecnologie applicabili** | MVC 5, MVC 6 |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
 | **Riferimenti**              | [Attributi dei metadati](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.metadatatypeattribute), [Public Key Security Vulnerability And Mitigation](https://github.com/blog/1068-public-key-security-vulnerability-and-mitigation) (Vulnerabilità della sicurezza delle chiavi pubbliche e mitigazione), [Guida completa all'assegnazione di massa in ASP.NET MVC](http://odetocode.com/Blogs/scott/archive/2012/03/11/complete-guide-to-mass-assignment-in-asp-net-mvc.aspx), [Introduzione a Entity Framework con MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost) |
-| **Passaggi** | <ul><li>**Quando è consigliabile controllare eventuali vulnerabilità all'overposting?** Le vulnerabilità all'overposting si possono verificare ovunque si associno classi modello dall'input utente. I framework come MVC possono rappresentare i dati utente in classi .NET personalizzate, tra cui Plain Old CLR Object (POCO). MVC popola automaticamente queste classi modello con i dati della richiesta, offrendo una pratica rappresentazione per la gestione dell'input utente. Quando queste classi includono proprietà che non devono essere impostate dall'utente, l'applicazione può essere vulnerabile ad attacchi di overposting, che consentono all'utente un controllo sui dati non previsto dall'applicazione. Così come l'associazione di modelli MVC, le tecnologie di accesso a database come i mapper relazionali/a oggetti come Entity Framework spesso supportano anche l'uso di oggetti POCO per rappresentare i dati dei database. Queste classi del modello di dati consentono di gestire i dati dei database con la stessa praticità offerta da MVC per la gestione dell'input utente. Dato che MVC e il database supportano modelli simili, come gli oggetti POCO, le stesse classi sembrano facilmente riusabili per entrambi gli scopi. Questa procedura non riesce a mantenere la separazione dei compiti e offre un'area comune in cui proprietà non previste vengono esposte all'associazione di modelli, consentendo attacchi di overposting.</li><li>**Perché non è consigliabile usare classi modello del database non filtrate come parametri per le azioni MVC?** Perché l'associazione di modelli MVC associa tutti gli elementi nella classe. Un utente malintenzionato può inviare una richiesta HTTP includendo anche dati non mostrati nella visualizzazione e questi verranno associati da MVC perché l'azione indica che la classe del database è la forma di dati da accettare come input utente.</li><li>**Perché è necessario prestare attenzione alla forma usata per l'associazione di modelli?** L'uso dell'associazione di modelli ASP.NET MVC con modelli eccessivamente estesi espone un'applicazione ad attacchi di overposting. L'overposting potrebbe consentire a utenti malintenzionati di modificare dati dell'applicazione non previsti dallo sviluppatore, ad esempio sostituendo il prezzo di un articolo o i privilegi di sicurezza di un account. Le applicazioni devono usare modelli di associazione specifici dell'azione (o specifici elenchi di filtri delle proprietà consentite) per fornire un contratto esplicito per l'input non attendibile da consentire tramite l'associazione di modelli.</li><li>**La presenza di modelli di associazione separati è solo una duplicazione del codice?** No, è una separazione dei compiti. Se si riusano i modelli del database nei metodi delle azioni, qualsiasi proprietà o proprietà secondaria nella classe potrà essere impostata dall'utente in una richiesta HTTP. Se ciò non corrisponde al comportamento desiderato per MVC, è necessario usare un elenco di filtri o una forma di classe separata per indicare a MVC quali dati possono invece provenire dall'input utente.</li><li>**Se si usano modelli di associazione separati per l'input utente, è necessario duplicare tutti gli attributi di annotazione dei dati?** Non necessariamente. È possibile usare MetadataTypeAttribute nella classe modello del database per il collegamento ai metadati in una classe di associazione di modelli. Si noti soltanto che il tipo a cui fa riferimento MetadataTypeAttribute deve essere un subset del tipo di riferimento (può avere meno proprietà, ma non di più).</li><li>**Lo spostamento di dati tra i modelli dell'input utente e i modelli del database è un'attività tediosa. È possibile copiare semplicemente tutte le proprietà con la reflection?** Sì. Le uniche proprietà incluse nei modelli di associazione sono quelle che sono state accertate come sicure per l'input utente. Non esistono motivi di sicurezza che impediscono di usare la reflection per copiare tutte le proprietà comuni tra i due modelli.</li><li>**Come funziona [Bind(Exclude ="â€¦")]? È possibile usare questo attributo anziché modelli di associazione separati?** Questo approccio non è consigliabile. Usando [Bind(Exclude ="â€¦")], qualsiasi nuova proprietà è associabile per impostazione predefinita. Quando viene aggiunta una nuova proprietà, è necessario ricordare un passaggio aggiuntivo per garantire la sicurezza e non si ottiene una progettazione sicura per impostazione predefinita. Dipendere dal fatto che lo sviluppatore controlli questo elenco ogni volta che viene aggiunta una proprietà è rischioso.</li><li>**[Bind(Include ="â€¦")] è utile per le operazioni di modifica?** No. [Bind(Include ="â€¦")] è adatto solo per operazioni di tipo INSERT, ossia per l'aggiunta di nuovi dati. Per operazioni di tipo UPDATE, ossia per la revisione dei dati esistenti, usare un altro approccio, come l'uso di modelli di associazione separati o il passaggio di un elenco esplicito delle proprietà consentite a UpdateModel o TryUpdateModel. Con l'aggiunta di un attributo [Bind(Include ="â€¦")] in un'operazione di modifica, MVC creerà un'istanza dell'oggetto e imposterà solo le proprietà elencate, mantenendo i valori predefiniti per tutte le altre. Quando i dati vengono resi persistenti, sostituirà interamente l'entità esistente, reimpostando i valori predefiniti per tutte le proprietà omesse. Ad esempio, se la proprietà IsAdmin è stata omessa in un attributo [Bind(Include ="â€¦")] per un'operazione di modifica, qualsiasi utente il cui nome è stato modificato tramite tale azione verrà reimpostato su IsAdmin = false. Qualsiasi utente modificato perderà così lo stato di amministratore. Se si vuole impedire l'aggiornamento di determinate proprietà, usare uno degli altri approcci descritti sopra. Si noti che alcune versioni degli strumenti MVC generano classi controller con [Bind(Include ="â€¦")] nelle azioni di modifica e prevedono che la rimozione di una proprietà dall'elenco impedisca attacchi di overposting. Come descritto sopra, tuttavia, questo approccio non funziona come previsto e reimposta invece i dati nelle proprietà omesse sui valori predefiniti.</li><li>**Per le operazioni di creazione, esistono controindicazioni all'uso di [Bind(Include ="â€¦")] anziché di modelli di associazione separati?** Sì. Per prima cosa, questo approccio non funziona per gli scenari di modifica e richiede quindi la gestione di due approcci separati per la mitigazione di tutte le vulnerabilità all'overposting. In secondo luogo, i modelli di associazione separati impongono la separazione dei compiti tra la forma usata per l'input utente e la forma usata per la persistenza, una funzionalità non offerta da [Bind(Include ="â€¦")]. In terzo luogo, [Bind(Include ="â€¦")] può gestire solo le proprietà di livello superiore e non è quindi possibile consentire solo parti di proprietà secondarie (come "Details.Name") nell'attributo. Infine e forse soprattutto, l'uso di [Bind(Include ="â€¦")] comporta un passaggio aggiuntivo da ricordare ogni volta che la classe viene usata per l'associazione di modelli. Se un nuovo metodo di azione esegue l'associazione diretta alla classe dati senza includere un attributo [Bind(Include ="â€¦")], può essere vulnerabile ad attacchi di overposting. Di conseguenza, l'approccio [Bind(Include ="â€¦")] è un po' meno sicuro per impostazione predefinita. Se si usa [Bind(Include ="â€¦")], ricordare di specificarlo ogni volta che le classi dati vengono incluse come parametri di metodi di azione.</li><li>**Per le operazioni di creazione, l'inserimento dell'attributo [Bind(Include ="â€¦")] nella classe modello evita di dover ricordare di inserire l'attributo in ogni metodo di azione?** Questo approccio funziona in alcuni casi. L'uso di [Bind(Include ="â€¦")] nel tipo di modello (anziché nei parametri di azione che usano la classe) evita di dover ricordare di includere l'attributo [Bind(Include ="â€¦")] in ogni metodo di azione. Usando l'attributo direttamente nella classe, si crea di fatto una superficie di attacco separata di tale classe ai fini dell'associazione di modelli. Questo approccio, tuttavia, supporta una sola forma di associazione di modelli per classe modello. Se un metodo di azione deve consentire l'associazione di modelli di un campo (come ad esempio un'azione riservata all'amministratore che aggiorna i ruoli utente) mentre le altre azioni devono impedire l'associazione di modelli di tale campo, questo approccio non funziona. Ogni classe può avere una sola forma di associazione di modelli. Se azioni diverse richiedono forme di associazione di modelli diverse, devono rappresentare queste forme separate usando classi di associazione di modelli separate oppure attributi [Bind(Include ="â€¦")] separati nei metodi di azione.</li><li>**Che cosa sono i modelli di associazione? Sono uguali ai modelli di visualizzazione?** Si tratta di due concetti correlati. Il termine modello di associazione indica una classe modello usata in un'azione come elenco di parametri, ossia la forma passata dall'associazione di modelli MVC al metodo di azione. Il termine modello di visualizzazione indica una classe modello passata da un metodo di azione a una visualizzazione. L'uso di un modello specifico per la visualizzazione è un approccio comune per passare dati da un metodo di azione a una visualizzazione. Questa forma è spesso adatta anche per l'associazione di modelli e il termine modello di visualizzazione può essere adottato per fare riferimento allo stesso modello usato in entrambe le posizioni. Per la precisione, questa procedura riguarda specificamente i modelli di associazione e si concentra sulla forma passata all'azione, rilevante ai fini dell'assegnazione di massa.</li></ul>| 
+| **Passaggi** | <ul><li>**Quando è consigliabile controllare eventuali vulnerabilità all'overposting?** Le vulnerabilità all'overposting si possono verificare ovunque si associno classi modello dall'input utente. I framework come MVC possono rappresentare i dati utente in classi .NET personalizzate, tra cui Plain Old CLR Object (POCO). MVC popola automaticamente queste classi modello con i dati della richiesta, offrendo una pratica rappresentazione per la gestione dell'input utente. Quando queste classi includono proprietà che non devono essere impostate dall'utente, l'applicazione può essere vulnerabile ad attacchi di overposting, che consentono all'utente un controllo sui dati non previsto dall'applicazione. Così come l'associazione di modelli MVC, le tecnologie di accesso a database come i mapper relazionali/a oggetti come Entity Framework spesso supportano anche l'uso di oggetti POCO per rappresentare i dati dei database. Queste classi del modello di dati consentono di gestire i dati dei database con la stessa praticità offerta da MVC per la gestione dell'input utente. Dato che MVC e il database supportano modelli simili, come gli oggetti POCO, le stesse classi sembrano facilmente riusabili per entrambi gli scopi. Questa procedura non riesce a mantenere la separazione dei compiti e offre un'area comune in cui proprietà non previste vengono esposte all'associazione di modelli, consentendo attacchi di overposting.</li><li>**Perché non è consigliabile usare classi modello del database non filtrate come parametri per le azioni MVC?** Perché l'associazione di modelli MVC associa tutti gli elementi nella classe. Un utente malintenzionato può inviare una richiesta HTTP includendo anche dati non mostrati nella visualizzazione e questi verranno associati da MVC perché l'azione indica che la classe del database è la forma di dati da accettare come input utente.</li><li>**Perché è necessario prestare attenzione alla forma usata per l'associazione di modelli?** L'uso dell'associazione di modelli ASP.NET MVC con modelli eccessivamente estesi espone un'applicazione ad attacchi di overposting. L'overposting potrebbe consentire a utenti malintenzionati di modificare dati dell'applicazione non previsti dallo sviluppatore, ad esempio sostituendo il prezzo di un articolo o i privilegi di sicurezza di un account. Le applicazioni devono usare modelli di associazione specifici dell'azione (o specifici elenchi di filtri delle proprietà consentite) per fornire un contratto esplicito per l'input non attendibile da consentire tramite l'associazione di modelli.</li><li>**La presenza di modelli di associazione separati è solo una duplicazione del codice?** No, è una separazione dei compiti. Se si riusano i modelli del database nei metodi delle azioni, qualsiasi proprietà o proprietà secondaria nella classe potrà essere impostata dall'utente in una richiesta HTTP. Se ciò non corrisponde al comportamento desiderato per MVC, è necessario usare un elenco di filtri o una forma di classe separata per indicare a MVC quali dati possono invece provenire dall'input utente.</li><li>**Se si usano modelli di associazione separati per l'input utente, è necessario duplicare tutti gli attributi di annotazione dei dati?** Non necessariamente. È possibile usare MetadataTypeAttribute nella classe modello del database per il collegamento ai metadati in una classe di associazione di modelli. Si noti soltanto che il tipo a cui fa riferimento MetadataTypeAttribute deve essere un subset del tipo di riferimento (può avere meno proprietà, ma non di più).</li><li>**Lo spostamento di dati tra i modelli dell'input utente e i modelli del database è un'attività tediosa. È possibile copiare semplicemente tutte le proprietà con la reflection?** Sì. Le uniche proprietà incluse nei modelli di associazione sono quelle che sono state accertate come sicure per l'input utente. Non esistono motivi di sicurezza che impediscono di usare la reflection per copiare tutte le proprietà comuni tra i due modelli.</li><li>**Come funziona [Bind(Exclude ="â€¦")]? È possibile usare questo attributo anziché modelli di associazione separati?** Questo approccio non è consigliabile. Usando [Bind(Exclude ="â€¦")], qualsiasi nuova proprietà è associabile per impostazione predefinita. Quando viene aggiunta una nuova proprietà, è necessario ricordare un passaggio aggiuntivo per garantire la sicurezza e non si ottiene una progettazione sicura per impostazione predefinita. Dipendere dal fatto che lo sviluppatore controlli questo elenco ogni volta che viene aggiunta una proprietà è rischioso.</li><li>**[Bind(Include ="â€¦")] è utile per le operazioni di modifica?** No. [Bind(Include ="â€¦")] è adatto solo per operazioni di tipo INSERT, ossia per l'aggiunta di nuovi dati. Per operazioni di tipo UPDATE, ossia per la revisione dei dati esistenti, usare un altro approccio, come l'uso di modelli di associazione separati o il passaggio di un elenco esplicito delle proprietà consentite a UpdateModel o TryUpdateModel. Con l'aggiunta di un attributo [Bind(Include ="â€¦")] in un'operazione di modifica, MVC creerà un'istanza dell'oggetto e imposterà solo le proprietà elencate, mantenendo i valori predefiniti per tutte le altre. Quando i dati vengono resi persistenti, sostituirà interamente l'entità esistente, reimpostando i valori predefiniti per tutte le proprietà omesse. Ad esempio, se la proprietà IsAdmin è stata omessa in un attributo [Bind(Include ="â€¦")] per un'operazione di modifica, qualsiasi utente il cui nome è stato modificato tramite tale azione verrà reimpostato su IsAdmin = false. Qualsiasi utente modificato perderà così lo stato di amministratore. Se si vuole impedire l'aggiornamento di determinate proprietà, usare uno degli altri approcci descritti sopra. Si noti che alcune versioni degli strumenti MVC generano classi controller con [Bind(Include ="â€¦")] nelle azioni di modifica e prevedono che la rimozione di una proprietà dall'elenco impedisca attacchi di overposting. Come descritto sopra, tuttavia, questo approccio non funziona come previsto e reimposta invece i dati nelle proprietà omesse sui valori predefiniti.</li><li>**Per le operazioni di creazione, esistono controindicazioni all'uso di [Bind(Include ="â€¦")] anziché di modelli di associazione separati?** Sì. Per prima cosa, questo approccio non funziona per gli scenari di modifica e richiede quindi la gestione di due approcci separati per la mitigazione di tutte le vulnerabilità all'overposting. In secondo luogo, i modelli di associazione separati impongono la separazione dei compiti tra la forma usata per l'input utente e la forma usata per la persistenza, una funzionalità non offerta da [Bind(Include ="â€¦")]. In terzo luogo, [Bind(Include ="â€¦")] può gestire solo le proprietà di livello superiore e non è quindi possibile consentire solo parti di proprietà secondarie (come "Details.Name") nell'attributo. Infine e forse soprattutto, l'uso di [Bind(Include ="â€¦")] comporta un passaggio aggiuntivo da ricordare ogni volta che la classe viene usata per l'associazione di modelli. Se un nuovo metodo di azione esegue l'associazione diretta alla classe dati senza includere un attributo [Bind(Include ="â€¦")], può essere vulnerabile ad attacchi di overposting. Di conseguenza, l'approccio [Bind(Include ="â€¦")] è un po' meno sicuro per impostazione predefinita. Se si usa [Bind(Include ="â€¦")], ricordare di specificarlo ogni volta che le classi dati vengono incluse come parametri di metodi di azione.</li><li>**Per le operazioni di creazione, l'inserimento dell'attributo [Bind(Include ="â€¦")] nella classe modello evita di dover ricordare di inserire l'attributo in ogni metodo di azione?** Questo approccio funziona in alcuni casi. L'uso di [Bind(Include ="â€¦")] nel tipo di modello (anziché nei parametri di azione che usano la classe) evita di dover ricordare di includere l'attributo [Bind(Include ="â€¦")] in ogni metodo di azione. Usando l'attributo direttamente nella classe, si crea di fatto una superficie di attacco separata di tale classe ai fini dell'associazione di modelli. Questo approccio, tuttavia, supporta una sola forma di associazione di modelli per classe modello. Se un metodo di azione deve consentire l'associazione di modelli di un campo (come ad esempio un'azione riservata all'amministratore che aggiorna i ruoli utente) mentre le altre azioni devono impedire l'associazione di modelli di tale campo, questo approccio non funziona. Ogni classe può avere una sola forma di associazione di modelli. Se azioni diverse richiedono forme di associazione di modelli diverse, devono rappresentare queste forme separate usando classi di associazione di modelli separate oppure attributi [Bind(Include ="â€¦")] separati nei metodi di azione.</li><li>**Che cosa sono i modelli di associazione? Sono uguali ai modelli di visualizzazione?** Si tratta di due concetti correlati. Il termine modello di associazione indica una classe di modello usata nell'elenco di parametri di un'azione, ossia la forma passata dall'associazione di modelli MVC al metodo di azione. Il termine modello di visualizzazione indica una classe modello passata da un metodo di azione a una visualizzazione. L'uso di un modello specifico per la visualizzazione è un approccio comune per passare dati da un metodo di azione a una visualizzazione. Questa forma è spesso adatta anche per l'associazione di modelli e il termine modello di visualizzazione può essere adottato per fare riferimento allo stesso modello usato in entrambe le posizioni. Per la precisione, questa procedura riguarda specificamente i modelli di associazione e si concentra sulla forma passata all'azione, rilevante ai fini dell'assegnazione di massa.</li></ul>| 
 
 ## <a id="rendering"></a>Codificare l'output Web non attendibile prima del rendering
 
@@ -387,7 +388,7 @@ Nell'esempio di codice precedente, la lunghezza del valore di input non può ess
 
 ## <a id="typemodel"></a>Eseguire la convalida dell'input e applicare filtri a tutte le proprietà del modello di tipo stringa
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -409,7 +410,7 @@ Nell'esempio di codice precedente, la lunghezza del valore di input non può ess
 
 ## <a id="inbuilt-encode"></a>Non assegnare elementi DOM a sink senza codifica incorporata
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -431,7 +432,7 @@ Non usare `innerHtml`. Usare invece `innerText`. Analogamente, usare `$("#elm").
 
 ## <a id="redirect-safe"></a>Convalidare come chiusi o sicuri tutti i reindirizzamenti nell'applicazione
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -471,7 +472,7 @@ La configurazione seguente, ad esempio, genera un'eccezione RegexMatchTimeoutExc
 
 ## <a id="html-razor"></a>Evitare di usare Html.Raw nelle visualizzazioni Razor
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -613,7 +614,7 @@ namespace MyApi.Controllers
 
 ## <a id="string-api"></a>Implementare la convalida dell'input in tutti i parametri di tipo stringa accettati dai metodi di API Web
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase SDL**               | Compilare |  
@@ -624,7 +625,7 @@ namespace MyApi.Controllers
 
 ## <a id="typesafe-api"></a>Verificare che nell'API Web vengano usati parametri indipendenti dai tipi per l'accesso ai dati
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase SDL**               | Compilare |  
@@ -643,7 +644,7 @@ using System.Data.SqlClient;
 using (SqlConnection connection = new SqlConnection(connectionString))
 { 
 DataSet userDataset = new DataSet(); 
-SqlDataAdapter myCommand = new SqlDataAdapter(LoginStoredProcedure", connection); 
+SqlDataAdapter myCommand = new SqlDataAdapter("LoginStoredProcedure", connection); 
 myCommand.SelectCommand.CommandType = CommandType.StoredProcedure; 
 myCommand.SelectCommand.Parameters.Add("@au_id", SqlDbType.VarChar, 11); 
 myCommand.SelectCommand.Parameters["@au_id"].Value = SSN.Text; 
@@ -665,7 +666,7 @@ Nell'esempio di codice precedente, la lunghezza del valore di input non può ess
 
 ## <a id="schema-binding"></a>WCF: convalida dell'input tramite l'associazione allo schema
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  
@@ -676,7 +677,7 @@ Nell'esempio di codice precedente, la lunghezza del valore di input non può ess
 
 ## <a id="parameters"></a>WCF: convalida dell'input tramite controlli parametro
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  

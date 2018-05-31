@@ -2,25 +2,20 @@
 title: Domande frequenti su Collaborazione B2B di Azure Active Directory | Microsoft Docs
 description: Ottenere risposte alle domande frequenti su Collaborazione B2B di Azure Active Directory.
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/11/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 03/06/2018
-ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 2f039361bce9615e8b8b9aa62dc152db504a6dc1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 77dc239385261c9544b00cf2cf2e450136dce0ae
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076574"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Domande frequenti su Collaborazione B2B di Azure Active Directory
 
@@ -37,9 +32,6 @@ Sì. Per altre informazioni sull'uso della funzionalità di caricamento dei file
 
 ### <a name="how-can-i-customize-my-invitation-emails"></a>Come è possibile personalizzare i messaggi di posta elettronica di invito?
 È possibile personalizzare quasi tutti gli elementi del processo del mittente dell'invito usando le [API di invito B2B](active-directory-b2b-api.md).
-
-### <a name="can-an-invited-external-user-leave-the-organization-after-being-invited"></a>L'utente invitato esterno può lasciare l'organizzazione dopo essere stato invitato?
-L'amministratore dell'organizzazione che emette l'invito può eliminare un utente guest di Collaborazione B2B dalla propria directory, ma l'utente guest non può lasciare autonomamente la directory di tale organizzazione. 
 
 ### <a name="can-guest-users-reset-their-multi-factor-authentication-method"></a>Gli utenti guest possono reimpostare il metodo di autenticazione a più fattori?
 Sì. Gli utenti guest possono reimpostare il metodo di autenticazione a più fattori nello stesso modo in cui lo fanno gli utenti normali.
@@ -105,9 +97,7 @@ Microsoft ascolta sempre commenti e suggerimenti su come migliorare la Collabora
 Invitiamo anche l'utente a inviarci le proprie idee e a votare le funzionalità future nelle [Idee per Collaborazione B2B](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>È possibile inviare un invito che viene riscattato automaticamente, in modo che l'utente possa "iniziare subito"? Oppure l'utente deve sempre fare clic sull'URL di riscatto?
-Gli inviti inviati da un utente dell'organizzazione che emette l'invito che è anche membro dell'organizzazione partner non devono essere riscattati dall'utente B2B.
-
-È consigliabile invitare un utente dell'organizzazione partner a unirsi all'organizzazione che emette l'invito. [Aggiungere l'utente al ruolo mittente dell'invito guest nell'organizzazione delle risorse](active-directory-b2b-add-guest-to-role.md). Questo utente può invitare altri utenti nell'organizzazione partner usando l'interfaccia utente di accesso, script di PowerShell o API. Per gli utenti di Collaborazione B2B di tale organizzazione non è quindi necessario riscattare gli inviti.
+Il mittente dell'invito può invitare altri utenti nell'organizzazione partner tramite l'interfaccia utente, script di PowerShell o API. Quindi, il mittente dell'invito può inviare all'utente guest un collegamento diretto a un'app condivisa. Nella maggior parte dei casi, non è più necessario aprire l'invito tramite posta elettronica e fare clic su un URL di riscatto. Per altre informazioni, vedere [Riscatto dell'invito di Collaborazione B2B di Azure Active Directory](active-directory-b2b-redemption-experience.md).
 
 ### <a name="how-does-b2b-collaboration-work-when-the-invited-partner-is-using-federation-to-add-their-own-on-premises-authentication"></a>Come funziona Collaborazione B2B quando il partner invitato usa la federazione per aggiungere la propria autenticazione locale?
 Se il partner ha un tenant di Azure AD federato all'infrastruttura di autenticazione locale,viene automaticamente applicato l'accesso Single Sign-On (SSO) locale. Se il partner non ha un tenant di Azure AD, viene creato un account Azure AD per i nuovi utenti. 
@@ -129,16 +119,5 @@ Per informazioni su quali licenze sono necessarie all'organizzazione per poter u
 
 ### <a name="next-steps"></a>Passaggi successivi
 
-Vedere gli altri articoli su Azure AD B2B Collaboration.
+- [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 
-* [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Procedura di aggiunta di utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](active-directory-b2b-admin-add-users.md)
-* [Procedura per aggiungere utenti di Collaborazione B2B da parte di Information Worker](active-directory-b2b-iw-add-users.md)
-* [Elementi del messaggio di posta elettronica di invito per la Collaborazione B2B](active-directory-b2b-invitation-email.md)
-* [Riscatto dell'invito di Collaborazione B2B](active-directory-b2b-redemption-experience.md)
-* [Licenze per la Collaborazione B2B di Azure AD](active-directory-b2b-licensing.md)
-* [Risoluzione dei problemi di Collaborazione B2B di Azure AD](active-directory-b2b-troubleshooting.md)
-* [API e personalizzazione per Collaborazione B2B di Azure AD](active-directory-b2b-api.md)
-* [Autenticazione a più fattori per utenti di Collaborazione B2B](active-directory-b2b-mfa-instructions.md)
-* [Aggiungere gli utenti per la Collaborazione B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
-* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)

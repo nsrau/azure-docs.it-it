@@ -5,20 +5,21 @@ services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/08/2017
+ms.date: 04/09/2018
 ms.author: andret
-ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00fef27529dd1d69c13ceaf22e16d2b7cd47801f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32156462"
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
@@ -280,7 +281,7 @@ Viene visualizzata anche una tabella contenente tutte le attestazioni utente inc
 ### <a name="test-accessing-a-method-that-has-an-authorize-attribute-optional"></a>Testare l'accesso a un metodo con attributo *[Authorize]* (facoltativo)
 In questo passaggio si testerà l'accesso al controller di attestazioni come utente anonimo:<br/>
 Selezionare il collegamento per la disconnessione dell'utente e completare il processo di disconnessione.<br/>
-Nel browser digitare http://localhost:{port}/claims per accedere al controller protetto con l'attributo `[Authorize]`
+Nel browser digitare http://localhost:{port}/claims per accedere al controller protetto con l'attributo `[Authorize]`.
 
 #### <a name="expected-results"></a>Risultati previsti
 Verrà visualizzata la richiesta di eseguire l'autenticazione per accedere alla visualizzazione.

@@ -11,14 +11,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5548ced4f81cf52d6aec4ce5ab2a3262eb347bd3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6c0e9c96840995c7d5a067e60264c66ce987af93
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360088"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -114,6 +115,7 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Application Insights
 * Automazione
 * Azure Cosmos DB
+* Servizio di inoltro di Azure
 * Batch
 * Bing Mappe
 * RETE CDN
@@ -130,6 +132,7 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Hub IoT
 * Key Vault
 * Bilanciamenti del carico: vedere [Limitazioni del servizio di bilanciamento del carico](#lb-limitations)
+* Log Analytics
 * App per la logica
 * Machine Learning: i servizi Web di Machine Learning Studio possono essere spostati in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non in un'altra sottoscrizione. Altre risorse di Machine Learning possono essere spostate da una sottoscrizione all'altra.
 * Servizi multimediali
@@ -137,7 +140,7 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Hub di notifica
 * Operational Insights
 * Operations Management
-* Power BI
+* Power BI - sia Power BI Embedded che Raccolta di aree di lavoro di Power BI
 * Indirizzo IP pubblico: vedere [Limitazioni dell'indirizzo IP pubblico](#pip-limitations)
 * Cache Redis
 * Utilità di pianificazione
@@ -148,12 +151,13 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Archiviazione
 * Archiviazione (classica): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Analisi di flusso: i processi di analisi di flusso non possono essere spostati durante l'esecuzione.
-* Server di database SQL: il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database, inclusi il database SQL di Azure e i database di Azure SQL Data Warehouse. 
+* Server di database SQL: il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database. Questo comportamento si applica al database SQL di Azure e ai database di Azure SQL Data Warehouse. 
 * Gestione traffico
 * Macchine virtuali: non è possibile spostare macchine virtuali con dischi gestiti. Vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
 * Macchine virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Set di scalabilità di macchine virtuali: vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
 * Reti virtuali, vedere [Limitazioni delle reti virtuali](#virtual-networks-limitations)
+* Visual Studio Team Services - account di Visual Studio Team Services con gli acquisti di estensione non Microsoft deve [annullare degli acquisti](https://go.microsoft.com/fwlink/?linkid=871160) prima che possa spostare l'account per le sottoscrizioni.
 * Gateway VPN
 
 ## <a name="services-that-cannot-be-moved"></a>Servizi che non possono essere spostati
@@ -164,12 +168,14 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 * Servizio ibrido per l'integrità di AD
 * Gateway applicazione
 * Database di Azure per MySQL
+* Database di Azure per PostgreSQL
+* Azure Migrate
 * Servizi BizTalk
 * Certificati: i certificati del servizio app possono essere spostati, ma i certificati caricati presentano alcune [limitazioni](#app-service-limitations).
-* Kubernetes Service
 * DevTest Labs: lo spostamento in un nuovo gruppo di risorse nella stessa sottoscrizione è abilitato, ma lo spostamento tra sottoscrizioni diverse non lo è.
 * Dynamics LCS
 * Express Route
+* Kubernetes Service
 * Bilanciamenti del carico: vedere [Limitazioni del servizio di bilanciamento del carico](#lb-limitations)
 * Applicazioni gestite
 * Dischi gestiti: vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
@@ -189,6 +195,11 @@ I dischi gestiti non supportano lo spostamento. A causa di questa restrizione, n
 * Snapshot creati da dischi gestiti
 * Set di disponibilità con macchine virtuali con dischi gestiti
 
+Anche se non è possibile spostare un disco gestito, è possibile creare una copia e quindi creare una nuova macchina virtuale dal disco gestito esistente. Per altre informazioni, vedere:
+
+* Copiare dischi gestiti nella stessa sottoscrizione o in una sottoscrizione diversa con [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) o con l'[interfaccia della riga di comando di Azure](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md)
+* Creare una macchina virtuale usando un disco del sistema operativo gestito esistente con [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) o con l'[interfaccia della riga di comando di Azure](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md).
+
 Non è possibile spostare da un gruppo di risorse o una sottoscrizione a un'altra macchine virtuali create a partire da risorse Marketplace con piani assegnati. Sottoporre a deprovisioning le macchine virtuali nella sottoscrizione in cui si trovano e distribuirle di nuovo nella nuova sottoscrizione.
 
 Le macchine virtuali con certificato archiviato in Key Vault possono essere spostate in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non da una sottoscrizione a un'altra.
@@ -200,6 +211,8 @@ Quando si esegue lo spostamento di una rete virtuale, è necessario spostare anc
 Per spostare una rete virtuale con peering, è prima necessario disabilitare il peering. Dopo la disabilitazione del peering è possibile spostare la rete virtuale. Riabilitare il peering della rete virtuale dopo lo spostamento.
 
 Non è possibile spostare una rete virtuale in un'altra sottoscrizione se la rete virtuale contiene una subnet con collegamenti di navigazione delle risorse. Se ad esempio una risorsa Cache Redis è distribuita in una subnet, tale subnet ha un collegamento di navigazione della risorsa.
+
+Non è possibile spostare una rete virtuale in un'altra sottoscrizione se la rete virtuale contiene un server DNS personalizzato. Per spostare la rete virtuale, impostarla sul server DNS predefinito (fornito da Azure). Dopo lo spostamento, riconfigurare il server DNS personalizzato.
 
 ## <a name="app-service-limitations"></a>Limitazioni del servizio app
 

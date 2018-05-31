@@ -1,14 +1,14 @@
 ---
 title: Creare un pacchetto e distribuire un'applicazione contenitore di Service Fabric | Microsoft Docs
-description: "In questa esercitazione si apprenderà come generare una definizione di applicazione di Azure Service Fabric usando Yeoman e creare il pacchetto dell'applicazione."
+description: In questa esercitazione si apprenderà come generare una definizione di applicazione di Azure Service Fabric usando Yeoman e creare il pacchetto dell'applicazione.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, contenitori, microservizi, Service Fabric, Azure
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fc589b79cf91dcbe24e6d99da44aeee883b58e5f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365384"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Esercitazione: Creare un pacchetto e distribuire contenitori come un'applicazione di Service Fabric
 
@@ -45,7 +46,8 @@ Service Fabric offre gli strumenti di scaffolding per la creazione di applicazio
 1. Installare nodejs e NPM nel computer. Si noti che gli utenti Mac OSX dovranno usare la gestione pacchetti Homebrew
 
     ```bash
-    sudo apt-get install npm && sudo apt install nodejs-legacy
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+    sudo apt-get install -y nodejs 
     ```
 2. Installare il generatore di modelli Yeoman nel computer da NPM 
 
@@ -247,11 +249,11 @@ Usare lo script di installazione fornito nella directory **TestContainer** per c
 ./install.sh
 ```
 
-Aprire un browser e passare a Service Fabric Explorer all'indirizzo http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer. Espandere il nodo delle applicazioni, nel quale sarà presente una voce per il tipo di applicazione e un'altra per l'istanza.
+Aprire un Web browser e passare a Service Fabric Explorer in http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer. Espandere il nodo delle applicazioni, nel quale sarà presente una voce per il tipo di applicazione e un'altra per l'istanza.
 
 ![Service Fabric Explorer][sfx]
 
-Per connettersi all'applicazione in esecuzione, aprire un Web browser e passare all'URL del cluster, ad esempio, http://lin0823ryf2he.cloudapp.azure.com:80. Viene visualizzata l'applicazione di voto nell'interfaccia utente Web.
+Per connettersi all'applicazione in esecuzione, aprire un Web browser e passare all'URL del cluster, ad esempio http://lin0823ryf2he.cloudapp.azure.com:80. Viene visualizzata l'applicazione di voto nell'interfaccia utente Web.
 
 ![votingapp][votingapp]
 

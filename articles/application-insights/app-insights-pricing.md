@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2c06c2220d3a3ed0a27b4f0febb4de95b2137ddc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 22c8616c1585e3f728a03a794c527cb34fc0c4eb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771399"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gestire volumi di dati e prezzi in Application Insights
 
@@ -40,11 +41,8 @@ Per i prezzi correnti nella valuta e nell'area locali, consultare [Prezzi di App
 
 Il piano Basic è il piano tariffario predefinito quando viene creata una nuova risorsa di Application Insight. Il piano Basic è ottimale per tutti i clienti ad eccezione di quelli che dispongono di una sottoscrizione Operations Management Suite.
 
-* Nel piano Basic vengono applicati addebiti in base al volume dei dati, il quale viene determinato dal numero di byte dei dati di telemetria ricevuti da Application Insights. 
-    
-    Il volume de dati viene misurato in base alle dimensioni del pacchetto di dati JSON non compresso inviato dall'applicazione ad Application Insights.
-
-    Per i [dati tabulari importati in Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), il volume dei dati viene misurato in base alle dimensioni non compresse dei file inviati ad Application Insights.
+* Nel piano Basic vengono applicati addebiti in base al volume dei dati, il quale viene determinato dal numero di byte dei dati di telemetria ricevuti da Application Insights. Il volume de dati viene misurato in base alle dimensioni del pacchetto di dati JSON non compresso inviato dall'applicazione ad Application Insights. Per i [dati tabulari importati in Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), il volume dei dati viene misurato in base alle dimensioni non compresse dei file inviati ad Application Insights.
+* Gli addebiti per il volume dei dati dell'applicazione vengono ora segnalati in un nuovo contatore di fatturazione denominato **Inserimento di dati** a partire da aprile 2018. Si tratta di nuovo contatore viene condiviso tra le tecnologie di monitoraggio, ad esempio Applications Insights e Log Analytics e attualmente chiamato **Servizi app** (a breve verrà modificato in **Log Analytics**). 
 * I dati [Live Metrics Stream](app-insights-live-stream.md) non vengono conteggiati ai fini della determinazione del prezzo.
 * Dal mese di aprile 2018 il piano Basic include l'opzione di [esportazione continua](app-insights-export-telemetry.md) e il [connettore di Log Analytics di Azure](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) senza costi aggiuntivi.
 

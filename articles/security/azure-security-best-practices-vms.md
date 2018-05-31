@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 409ed4618b8ddf022cfc3457851cf434ba810b94
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e0c823982bb799e324dc6fb0fb811fd9ace37878
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364404"
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Procedure consigliate per la sicurezza delle VM di Azure
 
@@ -55,7 +56,7 @@ Quando si abilitano i criteri di Resource Manager e controllo degli accessi in b
 
 - [Collaboratore Macchina virtuale](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): può gestire le VM, ma non la rete virtuale o l'account di archiviazione a cui sono connesse.
 - [Collaboratore Macchina virtuale classica](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): può gestire le VM create usando il modello di distribuzione classico ma non la rete virtuale o l'account di archiviazione a cui le VM sono connesse.
-- [Gestore sicurezza](../role-based-access-control/built-in-roles.md#security-manager): può gestire i componenti di sicurezza, i criteri di sicurezza e le VM.
+- [Amministratore della sicurezza](../role-based-access-control/built-in-roles.md#security-admin): può gestire componenti e criteri di sicurezza.
 - [Utente DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user): può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestare le VM.
 
 Non condividere account e password tra gli amministratori e non riutilizzare le password per più account utente o servizi, in particolare quelle dei social media o di altre attività non amministrative. Si consiglia di usare i modelli di [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) per configurare in sicurezza le VM. Usando questo approccio è possibile rafforzare le opzioni di distribuzione e applicare le impostazioni di sicurezza per la distribuzione.
@@ -68,7 +69,7 @@ Se la VM esegue applicazioni critiche che richiedono un'elevata disponibilità, 
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) richiede inoltre che le VM con carico bilanciato appartengano allo stesso set di disponibilità. Se per queste VM è necessario eseguire l'accesso da Internet, si dovrà configurare un [servizio di bilanciamento del carico con connessione Internet](../load-balancer/load-balancer-internet-overview.md).
 
-Quando le VM sono esposte a Internet, è importante [controllare il flusso del traffico di rete con gruppi di sicurezza di rete (NSG)](../virtual-network/virtual-networks-nsg.md). Poiché i gruppi di sicurezza di rete possono essere applicati alle subnet, è possibile ridurre al minimo il numero di gruppi di sicurezza di rete raggruppando le risorse per subnet e poi applicando i gruppi di sicurezza di rete alle subnet. Lo scopo è quello di creare un livello di isolamento della rete, che si può ottenere configurando correttamente le capacità di [sicurezza di rete](../best-practices-network-security.md) in Azure.
+Quando le VM sono esposte a Internet, è importante [controllare il flusso del traffico di rete con gruppi di sicurezza di rete (NSG)](../virtual-network/security-overview.md). Poiché i gruppi di sicurezza di rete possono essere applicati alle subnet, è possibile ridurre al minimo il numero di gruppi di sicurezza di rete raggruppando le risorse per subnet e poi applicando i gruppi di sicurezza di rete alle subnet. Lo scopo è quello di creare un livello di isolamento della rete, che si può ottenere configurando correttamente le capacità di [sicurezza di rete](../best-practices-network-security.md) in Azure.
 
 È inoltre possibile usare la funzionalità di accesso alle VM just in time dal Centro sicurezza di Azure per controllare chi può accedere da remoto a una VM specifica e per quanto tempo.
 

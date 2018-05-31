@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 111217e9335b16659c93da88731e0b7ce6d5fecd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ffa60e24b93caaaefcab70c99fa2c76065d97233
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187709"
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Architettura della replica da Azure ad Azure
 
@@ -46,7 +47,7 @@ Quando si abilita la replica delle macchine virtuali di Azure, nell'area di dest
 
 **Risorsa** | **Dettagli**
 --- | ---
-**Gruppo di risorse di destinazione** | Gruppo di risorse a cui appartengono le VM replicate dopo il failover.
+**Gruppo di risorse di destinazione** | Gruppo di risorse a cui appartengono le VM replicate dopo il failover. Il percorso di questo gruppo di risorse può essere in qualsiasi area di Azure, ad eccezione di quella in cui sono ospitate le macchine virtuali di origine.
 **Rete virtuale di destinazione** | Rete virtuale in cui si trovano le VM replicate dopo il failover. Un mapping di rete viene creato tra le reti virtuali di origine e di destinazione e viceversa.
 **Account di archiviazione della cache** | Prima che le modifiche apportate alle macchine virtuali di origine vengano replicate in un account di archiviazione di destinazione, vengono registrate e inviate all'account di archiviazione della cache nella posizione di origine. Questo passaggio assicura un impatto minimo sulle applicazioni di produzione in esecuzione nella macchina virtuale.
 **Account di archiviazione di destinazione (se la VM di origine non usa dischi gestiti)**  | Account di archiviazione nel percorso di destinazione in cui vengono replicati i dati.
