@@ -4,7 +4,7 @@ description: Informazioni sull'uso dei dati di registrazione per ottenere inform
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 130bb7f20c030433741a9b9ecebe740fb44f5f81
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2b8b5095fceaa369ae8b7a426ca04685c2d86109
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057932"
 ---
 # <a name="azure-logging-and-auditing"></a>Registrazione e controllo di Azure
 ## <a name="introduction"></a>Introduzione
@@ -70,7 +71,7 @@ La tabella seguente elenca i più importanti tipi di log disponibili in Azure.
 |[Log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Gli eventi del piano di controllo sulle risorse di Azure Resource Manager|   Offrono informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione.| API REST e [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Log di diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|dati frequenti sul funzionamento delle risorse di Azure Resource Manager nella sottoscrizione| Offrono informazioni approfondite sulle operazioni eseguite dalla risorsa stessa| Monitoraggio di Azure, [Stream](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[Creazione di report in AAD](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Log e report|Attività di accesso dell'utente e informazioni sulle attività di sistema riguardo alla gestione di utenti e gruppi|[API Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[Macchine virtuali e servizi cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Log eventi di Windows e Syslog Linux|    Acquisisce i dati di sistema e i dati di registrazione nelle macchine virtuali e li trasferisce all'account di archiviazione desiderato.|   Windows tramite [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (archiviazione di diagnostica di Windows Azure) e Linux in Monitoraggio di Azure|
+|[Macchine virtuali e servizi cloud](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-collect-azurevm)|Log eventi di Windows e Syslog Linux| Acquisisce i dati di sistema e i dati di registrazione nelle macchine virtuali e li trasferisce all'account di archiviazione desiderato.|   Windows tramite [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (archiviazione di diagnostica di Windows Azure) e Linux in Monitoraggio di Azure|
 |[Analisi archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Esegue la registrazione di archiviazione e offre i dati delle metriche per un account di archiviazione.|Offre informazioni approfondite per tenere traccia delle richieste, analizzare le tendenze d'uso e diagnosticare i problemi relativi al proprio account di archiviazione.|    API REST o [libreria client](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Log dei flussi del gruppo di sicurezza di rete (NSG)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|Formato JSON e mostra i flussi in ingresso e in uscita in base a ciascuna regola|Visualizzare le informazioni sul traffico IP in entrata e in uscita tramite un gruppo di sicurezza di rete|[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Log, eccezioni e diagnostica personalizzata|    Servizio APM di gestione delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme.| API REST, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
@@ -121,16 +122,16 @@ I log di diagnostica di Azure offrono più opzioni di configurazione, vale a dir
 
 | Service | Schema e documenti | Tipo di risorsa | Categoria |
 | ------- | ------------- | ------------- | -------- |
-|Bilanciamento del carico| [Analisi dei log per il servizio di bilanciamento del carico di Azure (anteprima)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent|
+|Load Balancer| [Analisi dei log per il servizio di bilanciamento del carico di Azure (anteprima)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent|
 |||Microsoft.Network/loadBalancers| LoadBalancerProbeHealthStatus
 |Gruppi di sicurezza di rete|[Analisi dei log per i gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|
 |||Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|
 |Gateway applicazione|[Registrazione diagnostica per il gateway applicazione](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|
 |||Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|
 |||Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|
-|Insieme di credenziali di chiave|[Registrazione dell'insieme di credenziali delle chiavi di Azure](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
+|Key Vault|[Registrazione dell'insieme di credenziali delle chiavi di Azure](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
 |Ricerca di Azure|[Abilitazione e uso di Analisi del traffico di ricerca](https://docs.microsoft.com/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
-|Archivio Data Lake|[Accesso ai log di diagnostica per Archivio Data Lake di Azure](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts|Audit|
+|Data Lake Store|[Accesso ai log di diagnostica per Archivio Data Lake di Azure](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts|Audit|
 |Data Lake Analytics|[Accesso ai log di diagnostica per Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|Audit|
 |||Microsoft.DataLakeAnalytics/accounts|Requests|
 |||Microsoft.DataLakeStore/accounts|Requests|
@@ -141,7 +142,7 @@ I log di diagnostica di Azure offrono più opzioni di configurazione, vale a dir
 |||Microsoft.Automation/automationAccounts|JobStreams|
 |Hub eventi|[Log di diagnostica di Hub eventi in Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
 |||Microsoft.EventHub/namespaces|OperationalLogs|
-|Analisi dei flussi|[Log di diagnostica dei processi](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|Esecuzione|
+|Analisi di flusso|[Log di diagnostica dei processi](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|Esecuzione|
 |||Microsoft.StreamAnalytics/streamingjobs|Creazione|
 |Bus di servizio|[Log di diagnostica del bus di servizio di Azure](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
 
@@ -364,7 +365,7 @@ Esistono quattro diversi modi per [raccogliere log e metriche per i servizi di A
 |Data Lake Store|   Microsoft.DataLakeStore/<br>account|   Diagnostica|||
 |Spazio dei nomi dell'hub eventi|   Microsoft.EventHub/<br>spazi dei nomi|  Diagnostica|    Diagnostica||
 |Hub IoT|  Microsoft.Devices/<br>Hub IoT||     Diagnostica||
-|Insieme di credenziali di chiave| Microsoft.KeyVault/<br>insiemi di credenziali|  Diagnostica  || [KeyVault Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
+|Key Vault| Microsoft.KeyVault/<br>insiemi di credenziali|  Diagnostica  || [KeyVault Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
 |Servizi di bilanciamento del carico|    Microsoft.Network/<br>loadBalancers|    Diagnostica|||
 |App per la logica|    Microsoft.Logic/<br>flussi di lavoro|  Diagnostica|    Diagnostica||
 ||Microsoft.Logic/<br>integrationAccounts||||

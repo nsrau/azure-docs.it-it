@@ -1,8 +1,8 @@
 ---
-title: 'Esercitazione: DevOps con il portale di Azure | Documentazione Microsoft'
+title: 'Esercitazione: DevOps con il portale di Azure | Microsoft Docs'
 description: Informazioni sui diversi flussi di lavoro di DevOps nel portale di Azure.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
 editor: mlearned
@@ -11,14 +11,15 @@ ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: d2c059fe415b743e4b2265d6dda492878307be93
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 7fb3de72e28b19f9ca30968b267bf985ae384275
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164840"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Esercitazione: DevOps con il portale di Azure
 La piattaforma Azure include diversi flussi di lavoro flessibili di DevOps. Questa esercitazione illustra come sfruttare le funzionalità del portale di Azure per sviluppare, testare, distribuire, risolvere i problemi, monitorare e gestire le applicazioni in esecuzione. L'esercitazione si incentra sugli argomenti seguenti:
@@ -31,7 +32,7 @@ La piattaforma Azure include diversi flussi di lavoro flessibili di DevOps. Ques
 ## <a name="creating-a-web-app-and-enabling-continuous-deployment"></a>Creazione di un'app Web e abilitazione della distribuzione continua
 Creare un'app Web con il [servizio app di Azure](https://azure.microsoft.com/services/app-service/), che verrà usato nel resto di questa esercitazione. All'inizio si abiliterà la distribuzione continua dal repository di codice sorgente all'ambiente di Azure in esecuzione.
 
-1. Accedere al portale di Azure.
+1. Accedere al portale di Azure
 2. Scegliere **Servizi app** &gt; **icona di aggiunta** e immettere un nome, scegliere una sottoscrizione e creare un nuovo gruppo di risorse che funga come contenitore per il servizio.
    
    I gruppi di risorse consentono di gestire diversi aspetti della soluzione, ad esempio, fatturazione, distribuzioni e monitoraggio, come un unico gruppo tramite [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).

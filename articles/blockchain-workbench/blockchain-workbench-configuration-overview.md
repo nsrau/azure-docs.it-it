@@ -5,16 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 3/20/2018
+ms.date: 5/16/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 6318b6aafda972242239ce91abb0f67a15721e1e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 178c2c1d4f727241338d6d933cd5eecbbffe65bb
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303815"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Informazioni di riferimento sulla configurazione di Azure Blockchain Workbench
 
@@ -114,7 +115,6 @@ Definisce i parametri di input per un'istanza di un flusso di lavoro.
     }
   ]
 }
-
 ```
 
 ## <a name="functions"></a>Funzioni
@@ -241,7 +241,7 @@ Azioni disponibili per lo stato successivo. Uno o più ruoli utente possono eseg
 | Campo | DESCRIZIONE | Obbligatoria |
 |-------|-------------|:--------:|
 | AllowedRoles | Elenco di ruoli applicazione consentiti per avviare la transizione. Tutti gli utenti del ruolo specificato possono essere in grado di eseguire l'azione. | No  |
-| AllowedInstanceRoles | Elenco di ruoli utente che fanno parte o che sono specificati nel contratto intelligente cui è consentito avviare la transizione. I ruoli di istanza vengono definiti in **proprietà** all'interno dei flussi di lavoro. Questi utenti rappresentano un utente che fa parte o è specificato nel contratto intelligente, invece di tutti gli utenti di un tipo di ruolo. | No  |
+| AllowedInstanceRoles | Elenco di ruoli utente che fanno parte o che sono specificati nel contratto intelligente cui è consentito avviare la transizione. I ruoli di istanza vengono definiti in **proprietà** all'interno dei flussi di lavoro. AllowedInstanceRoles rappresenta un utente che fa parte di un'istanza di un contratto intelligente. AllowedInstanceRoles consente di limitare l'adozione di un'azione a un ruolo utente in un'istanza del contratto.  Ad esempio, è possibile consentire solo all'utente che ha creato il contratto (InstanceOwner) di terminarlo anziché a tutti gli utenti nel tipo di ruolo (Owner), se il ruolo è stato specificato in AllowedRoles. | No  |
 | DisplayName | Nome visualizzato descrittivo della transizione. | Sì |
 | DESCRIZIONE | Descrizione della transizione. | No  |
 | Funzione | Nome della funzione per avviare la transizione. | Sì |
@@ -337,152 +337,575 @@ Gli identificatori rappresentano una raccolta di informazioni usate per descrive
 
 ## <a name="configuration-file-example"></a>File di configurazione di esempio
 
-L'esempio seguente definisce un'applicazione di richiesta-risposta di base in cui un richiedente invia una richiesta e un risponditore invia una risposta alla richiesta.
+Il trasferimento di cespiti è uno scenario di contratto intelligente per l'acquisto e la vendita di cespiti di valore elevato, che richiedono un responsabile controllo e un responsabile valutazione. I venditori possono elencare i loro cespiti creando un'istanza di un contratto intelligente di trasferimento cespiti. Gli acquirenti possono presentare offerte eseguendo un'azione nel contratto intelligente e altre parti possono eseguire azioni per controllare o valutare il cespite. Dopo che il cespite è stato contrassegnato come controllato e valutato, l'acquirente e il venditore confermeranno di nuovo la vendita prima che il contratto sia impostato come completato. In ogni passaggio del processo tutti i partecipanti hanno la visibilità sullo stato del contratto mentre viene aggiornato. 
+
+Per altre informazioni, inclusi i file di codice, vedere l'[esempio di trasferimento cespiti per Azure Blockchain Workbench](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer)
+
+Il file di configurazione seguente è relativo all'esempio di trasferimento cespiti:
 
 ``` json
 {
-  "ApplicationName": "HelloBlockchain",
-  "DisplayName": "Hello, Blockchain!",
-  "Description": "A simple application to send request and get response",
+  "ApplicationName": "AssetTransfer",
+  "DisplayName": "Asset Transfer",
+  "Description": "Allows transfer of assets between a buyer and a seller, with appraisal/inspection functionality",
   "ApplicationRoles": [
     {
-      "Name": "Requestor",
-      "Description": "A person sending a request."
+      "Name": "Appraiser",
+      "Description": "User that signs off on the asset price"
     },
     {
-      "Name": "Responder",
-      "Description": "A person responding to a request"
+      "Name": "Buyer",
+      "Description": "User that places an offer on an asset"
+    },
+    {
+      "Name": "Inspector",
+      "Description": "User that inspects the asset and signs off on inspection"
+    },
+    {
+      "Name": "Owner",
+      "Description": "User that signs off on the asset price"
     }
   ],
   "Workflows": [
     {
-      "Name": "RequestResponse",
-      "DisplayName": "Request Response",
-      "Description": "A simple workflow to send a request and receive a response.",
-      "Initiators": [ "Requestor" ],
-      "StartState": "Request",
+      "Name": "AssetTransfer",
+      "DisplayName": "Asset Transfer",
+      "Description": "Handles the business logic for the asset transfer scenario",
+      "Initiators": [ "Owner" ],
+      "StartState":  "Active",
       "Properties": [
         {
           "Name": "State",
           "DisplayName": "State",
-          "Description": "Holds the state of the contract.",
+          "Description": "Holds the state of the contract",
           "Type": {
             "Name": "state"
           }
         },
         {
-          "Name": "Requestor",
-          "DisplayName": "Requestor",
-          "Description": "A person sending a request.",
-          "Type": {
-            "Name": "Requestor"
-          }
-        },
-        {
-          "Name": "Responder",
-          "DisplayName": "Responder",
-          "Description": "A person sending a response.",
-          "Type": {
-            "Name": "Responder"
-          }
-        },
-        {
-          "Name": "RequestMessage",
-          "DisplayName": "Request Message",
-          "Description": "A request message.",
+          "Name": "Description",
+          "DisplayName": "Description",
+          "Description": "Describes the asset being sold",
           "Type": {
             "Name": "string"
           }
         },
         {
-          "Name": "ResponseMessage",
-          "DisplayName": "Response Message",
-          "Description": "A response message.",
+          "Name": "AskingPrice",
+          "DisplayName": "Asking Price",
+          "Description": "The asking price for the asset",
           "Type": {
-            "Name": "string"
+            "Name": "money"
+          }
+        },
+        {
+          "Name": "OfferPrice",
+          "DisplayName": "Offer Price",
+          "Description": "The price being offered for the asset",
+          "Type": {
+            "Name": "money"
+          }
+        },
+        {
+          "Name": "InstanceAppraiser",
+          "DisplayName": "Instance Appraiser",
+          "Description": "The user that appraises the asset",
+          "Type": {
+            "Name": "Appraiser"
+          }
+        },
+        {
+          "Name": "InstanceBuyer",
+          "DisplayName": "Instance Buyer",
+          "Description": "The user that places an offer for this asset",
+          "Type": {
+            "Name": "Buyer"
+          }
+        },
+        {
+          "Name": "InstanceInspector",
+          "DisplayName": "Instance Inspector",
+          "Description": "The user that inspects this asset",
+          "Type": {
+            "Name": "Inspector"
+          }
+        },
+        {
+          "Name": "InstanceOwner",
+          "DisplayName": "Instance Owner",
+          "Description": "The seller of this particular asset",
+          "Type": {
+            "Name": "Owner"
           }
         }
       ],
       "Constructor": {
         "Parameters": [
           {
-            "Name": "message",
-            "Description": "...",
-            "DisplayName": "Request Message",
+            "Name": "description",
+            "Description": "The description of this asset",
+            "DisplayName": "Description",
             "Type": {
               "Name": "string"
+            }
+          },
+          {
+            "Name": "price",
+            "Description": "The price of this asset",
+            "DisplayName": "Price",
+            "Type": {
+              "Name": "money"
             }
           }
         ]
       },
       "Functions": [
         {
-          "Name": "SendRequest",
-          "DisplayName": "Request",
-          "Description": "...",
+          "Name": "Modify",
+          "DisplayName": "Modify",
+          "Description": "Modify the description/price attributes of this asset transfer instance",
           "Parameters": [
             {
-              "Name": "requestMessage",
-              "Description": "...",
-              "DisplayName": "Request Message",
+              "Name": "description",
+              "Description": "The new description of the asset",
+              "DisplayName": "Description",
               "Type": {
                 "Name": "string"
+              }
+            },
+            {
+              "Name": "price",
+              "Description": "The new price of the asset",
+              "DisplayName": "Price",
+              "Type": {
+                "Name": "money"
               }
             }
           ]
         },
         {
-          "Name": "SendResponse",
-          "DisplayName": "Response",
-          "Description": "...",
+          "Name": "Terminate",
+          "DisplayName": "Terminate",
+          "Description": "Used to cancel this particular instance of asset transfer",
+          "Parameters": []
+        },
+        {
+          "Name": "MakeOffer",
+          "DisplayName": "Make Offer",
+          "Description": "Place an offer for this asset",
           "Parameters": [
             {
-              "Name": "responseMessage",
-              "Description": "...",
-              "DisplayName": "Response Message",
+              "Name": "inspector",
+              "Description": "Specify a user to inspect this asset",
+              "DisplayName": "Inspector",
               "Type": {
-                "Name": "string"
+                "Name": "Inspector"
+              }
+            },
+            {
+              "Name": "appraiser",
+              "Description": "Specify a user to appraise this asset",
+              "DisplayName": "Appraiser",
+              "Type": {
+                "Name": "Appraiser"
+              }
+            },
+            {
+              "Name": "offerPrice",
+              "Description": "Specify your offer price for this asset",
+              "DisplayName": "Offer Price",
+              "Type": {
+                "Name": "money"
               }
             }
           ]
+        },
+        {
+          "Name": "Reject",
+          "DisplayName": "Reject",
+          "Description": "Reject the user's offer",
+          "Parameters": []
+        },
+        {
+          "Name": "AcceptOffer",
+          "DisplayName": "Accept Offer",
+          "Description": "Accept the user's offer",
+          "Parameters": []
+        },
+        {
+          "Name": "RescindOffer",
+          "DisplayName": "Rescind Offer",
+          "Description": "Rescind your placed offer",
+          "Parameters": []
+        },
+        {
+          "Name": "ModifyOffer",
+          "DisplayName": "Modify Offer",
+          "Description": "Modify the price of your placed offer",
+          "Parameters": [
+            {
+              "Name": "offerPrice",
+              "DisplayName": "Price",
+              "Type": {
+                "Name": "money"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Accept",
+          "DisplayName": "Accept",
+          "Description": "Accept the inspection/appraisal results",
+          "Parameters": []
+        },
+        {
+          "Name": "MarkInspected",
+          "DisplayName": "Mark Inspected",
+          "Description": "Mark the asset as inspected",
+          "Parameters": []
+        },
+        {
+          "Name": "MarkAppraised",
+          "DisplayName": "Mark Appraised",
+          "Description": "Mark the asset as appraised",
+          "Parameters": []
         }
       ],
       "States": [
         {
-          "Name": "Request",
-          "DisplayName": "Request",
-          "Description": "...",
-          "PercentComplete": 50,
-          "Value": 0,
-          "Style": "Success",
-          "Transitions": [
-            {
-              "AllowedRoles": ["Responder"],
-              "AllowedInstanceRoles": [],
-              "Description": "...",
-              "Function": "SendResponse",
-              "NextStates": [ "Respond" ],
-              "DisplayName": "Send Response"
-            }
-          ]
-        },
-        {
-          "Name": "Respond",
-          "DisplayName": "Respond",
-          "Description": "...",
-          "PercentComplete": 90,
-          "Value": 1,
+          "Name": "Active",
+          "DisplayName": "Active",
+          "Description": "The initial state of the asset transfer workflow",
+          "PercentComplete": 20,
           "Style": "Success",
           "Transitions": [
             {
               "AllowedRoles": [],
-              "AllowedInstanceRoles": ["Requestor"],
-              "Description": "...",
-              "Function": "SendRequest",
-              "NextStates": [ "Request" ],
-              "DisplayName": "Send Request"
+              "AllowedInstanceRoles": [ "InstanceOwner" ],
+              "Description": "Cancels this instance of asset transfer",
+              "Function": "Terminate",
+              "NextStates": [ "Terminated" ],
+              "DisplayName": "Terminate Offer"
+            },
+            {
+              "AllowedRoles": [ "Buyer" ],
+              "AllowedInstanceRoles": [],
+              "Description": "Make an offer for this asset",
+              "Function": "MakeOffer",
+              "NextStates": [ "OfferPlaced" ],
+              "DisplayName": "Make Offer"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceOwner" ],
+              "Description": "Modify attributes of this asset transfer instance",
+              "Function": "Modify",
+              "NextStates": [ "Active" ],
+              "DisplayName": "Modify"
             }
           ]
+        },
+        {
+          "Name": "OfferPlaced",
+          "DisplayName": "Offer Placed",
+          "Description": "Offer has been placed for the asset",
+          "PercentComplete": 30,
+          "Style": "Success",
+          "Transitions": [
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceOwner" ],
+              "Description": "Accept the proposed offer for the asset",
+              "Function": "AcceptOffer",
+              "NextStates": [ "PendingInspection" ],
+              "DisplayName": "Accept Offer"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceOwner" ],
+              "Description": "Reject the proposed offer for the asset",
+              "Function": "Reject",
+              "NextStates": [ "Active" ],
+              "DisplayName": "Reject"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceOwner" ],
+              "Description": "Cancel this instance of asset transfer",
+              "Function": "Terminate",
+              "NextStates": [ "Terminated" ],
+              "DisplayName": "Terminate"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceBuyer" ],
+              "Description": "Rescind the offer you previously placed for this asset",
+              "Function": "RescindOffer",
+              "NextStates": [ "Active" ],
+              "DisplayName": "Rescind Offer"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceBuyer" ],
+              "Description": "Modify the price that you specified for your offer",
+              "Function": "ModifyOffer",
+              "NextStates": [ "OfferPlaced" ],
+              "DisplayName": "Modify Offer"
+            }
+          ]
+        },
+        {
+          "Name": "PendingInspection",
+          "DisplayName": "Pending Inspection",
+          "Description": "Asset is pending inspection",
+          "PercentComplete": 40,
+          "Style": "Success",
+          "Transitions": [
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceOwner" ],
+              "Description": "Reject the offer",
+              "Function": "Reject",
+              "NextStates": [ "Active" ],
+              "DisplayName": "Reject"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceOwner" ],
+              "Description": "Cancel the offer",
+              "Function": "Terminate",
+              "NextStates": [ "Terminated" ],
+              "DisplayName": "Terminate"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceBuyer" ],
+              "Description": "Rescind the offer you placed for this asset",
+              "Function": "RescindOffer",
+              "NextStates": [ "Active" ],
+              "DisplayName": "Rescind Offer"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceInspector" ],
+              "Description": "Mark this asset as inspected",
+              "Function": "MarkInspected",
+              "NextStates": [ "Inspected" ],
+              "DisplayName": "Mark Inspected"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceAppraiser" ],
+              "Description": "Mark this asset as appraised",
+              "Function": "MarkAppraised",
+              "NextStates": [ "Appraised" ],
+              "DisplayName": "Mark Appraised"
+            }
+          ]
+        },
+        {
+          "Name": "Inspected",
+          "DisplayName": "Inspected",
+          "PercentComplete": 45,
+          "Style": "Success",
+          "Transitions": [
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceOwner" ],
+              "Description": "Reject the offer",
+              "Function": "Reject",
+              "NextStates": [ "Active" ],
+              "DisplayName": "Reject"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceOwner" ],
+              "Description": "Cancel the offer",
+              "Function": "Terminate",
+              "NextStates": [ "Terminated" ],
+              "DisplayName": "Terminate"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceBuyer" ],
+              "Description": "Rescind the offer you placed for this asset",
+              "Function": "RescindOffer",
+              "NextStates": [ "Active" ],
+              "DisplayName": "Rescind Offer"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceAppraiser" ],
+              "Description": "Mark this asset as appraised",
+              "Function": "MarkAppraised",
+              "NextStates": [ "NotionalAcceptance" ],
+              "DisplayName": "Mark Appraised"
+            }
+          ]
+        },
+        {
+          "Name": "Appraised",
+          "DisplayName": "Appraised",
+          "Description": "Asset has been appraised, now awaiting inspection",
+          "PercentComplete": 45,
+          "Style": "Success",
+          "Transitions": [
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceOwner" ],
+              "Description": "Reject the offer",
+              "Function": "Reject",
+              "NextStates": [ "Active" ],
+              "DisplayName": "Reject"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceOwner" ],
+              "Description": "Cancel the offer",
+              "Function": "Terminate",
+              "NextStates": [ "Terminated" ],
+              "DisplayName": "Terminate"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceBuyer" ],
+              "Description": "Rescind the offer you placed for this asset",
+              "Function": "RescindOffer",
+              "NextStates": [ "Active" ],
+              "DisplayName": "Rescind Offer"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceInspector" ],
+              "Description": "Mark the asset as inspected",
+              "Function": "MarkInspected",
+              "NextStates": [ "NotionalAcceptance" ],
+              "DisplayName": "Mark Inspected"
+            }
+          ]
+        },
+        {
+          "Name": "NotionalAcceptance",
+          "DisplayName": "Notional Acceptance",
+          "Description": "Asset has been inspected and appraised, awaiting final sign-off from buyer and seller",
+          "PercentComplete": 50,
+          "Style": "Success",
+          "Transitions": [
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceOwner" ],
+              "Description": "Sign-off on inspection and appraisal",
+              "Function": "Accept",
+              "NextStates": [ "SellerAccepted" ],
+              "DisplayName": "SellerAccept"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceOwner" ],
+              "Description": "Reject the proposed offer for the asset",
+              "Function": "Reject",
+              "NextStates": [ "Active" ],
+              "DisplayName": "Reject"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceOwner" ],
+              "Description": "Cancel this instance of asset transfer",
+              "Function": "Terminate",
+              "NextStates": [ "Terminated" ],
+              "DisplayName": "Terminate"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceBuyer" ],
+              "Description": "Sign-off on inspection and appraisal",
+              "Function": "Accept",
+              "NextStates": [ "BuyerAccepted" ],
+              "DisplayName": "BuyerAccept"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceBuyer" ],
+              "Description": "Rescind the offer you placed for this asset",
+              "Function": "RescindOffer",
+              "NextStates": [ "Active" ],
+              "DisplayName": "Rescind Offer"
+            }
+          ]
+        },
+        {
+          "Name": "BuyerAccepted",
+          "DisplayName": "Buyer Accepted",
+          "Description": "Buyer has signed-off on inspection and appraisal",
+          "PercentComplete": 75,
+          "Style": "Success",
+          "Transitions": [
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceOwner" ],
+              "Description": "Sign-off on inspection and appraisal",
+              "Function": "Accept",
+              "NextStates": [ "SellerAccepted" ],
+              "DisplayName": "Accept"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceOwner" ],
+              "Description": "Reject the proposed offer for the asset",
+              "Function": "Reject",
+              "NextStates": [ "Active" ],
+              "DisplayName": "Reject"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceOwner" ],
+              "Description": "Cancel this instance of asset transfer",
+              "Function": "Terminate",
+              "NextStates": [ "Terminated" ],
+              "DisplayName": "Terminate"
+            }
+          ]
+        },
+        {
+          "Name": "SellerAccepted",
+          "DisplayName": "Seller Accepted",
+          "Description": "Seller has signed-off on inspection and appraisal",
+          "PercentComplete": 75,
+          "Style": "Success",
+          "Transitions": [
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceBuyer" ],
+              "Description": "Sign-off on inspection and appraisal",
+              "Function": "Accept",
+              "NextStates": [ "Accepted" ],
+              "DisplayName": "Accept"
+            },
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": [ "InstanceBuyer" ],
+              "Description": "Rescind the offer you placed for this asset",
+              "Function": "RescindOffer",
+              "NextStates": [ "Active" ],
+              "DisplayName": "Rescind Offer"
+            }
+          ]
+        },
+        {
+          "Name": "Accepted",
+          "DisplayName": "Accepted",
+          "Description": "Asset transfer process is complete",
+          "PercentComplete": 100,
+          "Style": "Success",
+          "Transitions": []
+        },
+        {
+          "Name": "Terminated",
+          "DisplayName": "Terminated",
+          "Description": "Asset transfer has been cancelled",
+          "PercentComplete": 100,
+          "Style": "Failure",
+          "Transitions": []
         }
       ]
     }
@@ -492,5 +915,5 @@ L'esempio seguente definisce un'applicazione di richiesta-risposta di base in cu
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Distribuire Azure Blockchain Workbench](blockchain-workbench-deploy.md)
+> [Riferimenti all'API REST di Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)
 

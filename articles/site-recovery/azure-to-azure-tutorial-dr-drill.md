@@ -1,21 +1,22 @@
 ---
-title: Eseguire un'analisi del ripristino di emergenza per macchine virtuali di Azure in un'area di Azure secondaria con Azure Site Recovery (anteprima)
+title: Eseguire un'analisi del ripristino di emergenza per le macchine virtuali di Azure in un'area di Azure secondaria con Azure Site Recovery
 description: Informazioni su come eseguire un'analisi del ripristino di emergenza per macchine virtuali di Azure in un'area di Azure secondaria usando il servizio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/07/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 66ad4f782917d41a0fd1fbbe5ce50de0dda4589e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fb1c41e6fe254fbcbee8cb91a177777ed4e37fbb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208975"
 ---
-# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>Eseguire un'analisi del ripristino di emergenza per macchine virtuali di Azure in un'area di Azure secondaria (anteprima)
+# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Eseguire un'analisi del ripristino di emergenza per l macchine virtuali di Azure in un'area di Azure secondaria
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) contribuisce a realizzare la strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo disponibili e operative le app aziendali durante interruzioni pianificate e non pianificate. Site Recovery gestisce e coordina il ripristino di emergenza di computer locali e macchine virtuali di Azure, incluse le operazioni di replica, failover e failback.
 
@@ -24,6 +25,8 @@ Questa esercitazione illustra come eseguire un'analisi del ripristino di emergen
 > [!div class="checklist"]
 > * Verificare i prerequisiti
 > * Eseguire un failover di test per una singola macchina virtuale
+
+La replica da Azure ad Azure è attualmente in anteprima.
 
 ## <a name="prerequisites"></a>prerequisiti
 

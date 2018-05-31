@@ -1,8 +1,8 @@
 ---
 title: Eventi di rischio di Azure Active Directory | Documentazione Microsoft
-description: Questo argomento presenta una panoramica dettagliata degli eventi di rischio.
+description: Questo articolo presenta una panoramica dettagliata degli eventi di rischio.
 services: active-directory
-keywords: "Azure Active Directory Identity Protection, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
+keywords: Azure Active Directory Identity Protection, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
 author: MarkusVi
 manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 05/14/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: e883caa63bde26e13234dde949ce4517b328e3a5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195319"
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventi di rischio di Azure Active Directory
 
@@ -39,12 +40,13 @@ Azure Active Directory rileva attualmente sei tipi di eventi di rischio:
 Le informazioni ottenute per un evento di rischio rilevato sono associate alla sottoscrizione di Azure AD in corso. Con l'edizione Azure AD Premium P2, si ottengono le informazioni più dettagliate su tutti i rilevamenti sottostanti. Con l'edizione Azure AD Premium P1, i rilevamenti non previsti dalla licenza in uso vengono visualizzati come evento di rischio di tipo **Rilevato accesso con rischi aggiuntivi**.
 
 
-In questo argomento viene fatta una panoramica dettagliata della definizione di eventi di rischio e di come è possibile usarli per proteggere le identità di Azure AD.
+Questo articolo offre una panoramica dettagliata della definizione di eventi di rischio e di come è possibile usarli per proteggere le identità di Azure AD.
 
 
 ## <a name="risk-event-types"></a>Tipi di evento di rischio
 
-La proprietà dei tipi di evento di rischio è un identificatore dell'azione sospetta per cui è stato creato un record di evento.  
+La proprietà dei tipi di evento di rischio è un identificatore dell'azione sospetta per cui è stato creato un record di evento.
+
 Gli investimenti continui di Microsoft nel processo di rilevamento garantiscono:
 
 - Miglioramenti nell'accuratezza del rilevamento degli eventi di rischio esistenti 
@@ -76,6 +78,8 @@ L'algoritmo ignora i "falsi positivi" evidenti che contribuiscono alle condizion
 
 Questo tipo di evento di rischio prende in considerazione le posizioni di accesso precedenti, come l'indirizzo IP, la latitudine, la longitudine e l'ASN, per determinare posizioni nuove o non note. Il sistema archivia le informazioni sulle posizioni usate in precedenza da un utente e le considera posizioni "note". L'evento di rischio viene attivato quando viene eseguito l'accesso da una posizione non inclusa nell'elenco delle posizioni note. Il sistema ha un periodo di apprendimento iniziale di 30 giorni, durante i quali le nuove posizioni non vengono contrassegnate come posizioni non note. Il sistema ignora anche gli accessi da dispositivi noti e le posizioni geograficamente vicine a una posizione nota. 
 
+Identity Protection individua gli accessi da posizioni non note anche per i protocolli di autenticazione/legacy di base. Poiché questi protocolli non hanno le moderne funzionalità comuni, ad esempio l'ID client, non sono presenti dati di telemetria sufficienti a ridurre i falsi positivi. Per ridurre il numero degli eventi di rischio rilevati, è consigliabile passare alla nuova autenticazione.   
+
 ### <a name="sign-ins-from-infected-devices"></a>Accessi da dispositivi infetti
 
 Questo tipo di evento rischio identifica accessi da dispositivi infettati da malware, che comunicano attivamente con un server bot. Viene determinato mettendo in relazione gli indirizzi IP del dispositivo dell'utente con gli indirizzi IP che sono stati in contatto con un server bot. 
@@ -86,8 +90,7 @@ Questo tipo di evento di rischio identifica gli indirizzi IP da cui si è verifi
 
 ## <a name="detection-type"></a>Tipo di rilevamento
 
-La proprietà del tipo di rilevamento è un indicatore (Tempo reale oppure Offline) dell'intervallo di tempo del rilevamento di un evento di rischio.  
-La maggior parte degli eventi di rischio attualmente viene rilevata offline in un'operazione di post-elaborazione dopo che l'evento di rischio si è verificato.
+La proprietà del tipo di rilevamento è un indicatore (Tempo reale oppure Offline) dell'intervallo di tempo del rilevamento di un evento di rischio. La maggior parte degli eventi di rischio attualmente viene rilevata offline in un'operazione di post-elaborazione dopo che l'evento di rischio si è verificato.
 
 La tabella seguente elenca il periodo di tempo necessario per visualizzare un tipo di rilevamento in un report correlato:
 
@@ -113,8 +116,7 @@ Per i tipi di evento di rischio che Azure Active Directory rileva, i tipi di ril
 
 La proprietà del livello di rischio di un evento di rischio è un indicatore (Alto, Medio o Basso) della gravità e dell'affidabilità di un evento di rischio. Questa proprietà consente di classificare in ordine di priorità le azioni da eseguire. 
 
-La gravità dell'evento di rischio rappresenta il grado di probabilità che l'identità sia compromessa.  
-Il livello di affidabilità è un indicatore della possibile presenza di falsi positivi. 
+La gravità dell'evento di rischio rappresenta il grado di probabilità che l'identità sia compromessa. Il livello di affidabilità è un indicatore della possibile presenza di falsi positivi. 
 
 Ad esempio, 
 
@@ -132,8 +134,7 @@ Gli eventi di rischio correlati a credenziali perse è classificata come **Alta*
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Accessi da indirizzi IP anonimi
 
-Il livello di rischio per questo tipo di evento di rischio è **Medio** perché un IP anonimo non è di per sé un'indicazione sicura di una compromissione dell'account.  
-È consigliabile contattare immediatamente l'utente per verificare se sta usando indirizzi IP anonimi.
+Il livello di rischio per questo tipo di evento di rischio è **Medio** perché un IP anonimo non è di per sé un'indicazione sicura di una compromissione dell'account. È consigliabile contattare immediatamente l'utente per verificare se sta usando indirizzi IP anonimi.
 
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Trasferimento impossibile a posizioni atipiche
@@ -184,5 +185,5 @@ Esistono due posizioni in cui è possibile esaminare gli eventi di rischio segna
  - **Azure AD Identity Protection:** gli eventi di rischio fanno parte anche delle capacità di segnalazione di [Azure AD Identity Protection](active-directory-identityprotection.md).
     
 
-Sebbene il rilevamento di eventi di rischio rappresenti un aspetto importante per la protezione delle identità, è anche possibile risolverli manualmente o implementare risposte automatiche mediante la configurazione di criteri di accesso condizionale. Per altre informazioni, consultare l'articolo su [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+Sebbene il rilevamento di eventi di rischio rappresenti un aspetto importante per la protezione delle identità, è anche possibile risolverli manualmente o implementare risposte automatiche mediante la configurazione di criteri di accesso condizionale. Per altre informazioni, vedere [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
  

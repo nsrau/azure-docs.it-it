@@ -7,13 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 05/10/2018
 ms.author: heidist
-ms.openlocfilehash: 59b6efd8459f675bc44891d7b04251260fdd38e9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b964f5c127d627ede6d3ff671ac695e1b33e4558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203393"
 ---
 # <a name="service-limits-in-azure-search"></a>Limiti dei servizi in Ricerca di Azure
 I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti dipendono dal [piano tariffario scelto per Ricerca di Azure](search-create-service-portal.md): **Gratuito**, **Basic** o **Standard**.
@@ -44,10 +45,13 @@ I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, doc
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
 | Numero massimo di indici |3 |5 o 15 |50 |200 |200 |1000 per partizione o 3000 per servizio |
 | Numero massimo di campi per indice |1000 |100 |1000 |1000 |1000 |1000 |
-| Numero massimo di profili di punteggio per indice |100 |100 |100 |100 |100 |100 |
+| Numero massimo di [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggesters) per indice |1 |1 |1 |1 |1 |1 |
+| Numero massimo di [profili di punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per indice |100 |100 |100 |100 |100 |100 |
 | Numero massimo di funzioni per profilo |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> Per i servizi Basic creati dopo la fine del 2017 il limite di indici, origini dati e indicizzatori è stato aumentato a 15. I servizi creati in precedenza hanno un limite di 5. Il livello Basic è l'unico SKU con un limite inferiore a 100 campi per indice.
+
+<a name="document-limits"></a>
 
 ## <a name="document-limits"></a>Limiti per i documenti 
 
@@ -87,12 +91,13 @@ Per limitare la dimensione del documento, è necessario escludere dalla richiest
 
 ## <a name="indexer-limits"></a>Limiti dell'indicizzatore
 
-Per i servizi Basic creati dopo la fine del 2017 il limite di indici, origini dati e indicizzatori è stato aumentato a 15.
+Per i servizi Basic creati dopo la fine del 2017 il limite di indici, origini dati, set di competenze e indicizzatori è stato aumentato a 15.
 
 | Risorsa | Gratuito&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Numero massimo di indicizzatori |3 |5 o 15|50 |200 |200 |N/D |
 | Numero massimo di origini dati |3 |5 o 15 |50 |200 |200 |N/D |
+| Numero massimo di set di competenze <sup>4</sup> |3 |5 o 15 |50 |200 |200 |N/D |
 | Carico di indicizzazione massimo per chiamata |10.000 documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |N/D |
 | Tempo massimo di esecuzione | 1-3 minuti |24 ore |24 ore |24 ore |24 ore |N/D  |
 | Indicizzatore BLOB: dimensioni massime per un BLOB, MB |16 |16 |128 |256 |256 |N/D  |
@@ -103,6 +108,8 @@ Per i servizi Basic creati dopo la fine del 2017 il limite di indici, origini da
 <sup>2</sup> Per i servizi Basic creati dopo la fine del 2017 il limite di indici, origini dati e indicizzatori è stato aumentato a 15. I servizi creati in precedenza hanno un limite di 5.
 
 <sup>3</sup> I servizi del livello S3 HD non includono il supporto per l'indicizzatore.
+
+<sup>4</sup> Numero massimo di 30 competenze per set di competenze.
 
 ## <a name="queries-per-second-qps"></a>Query al secondo
 

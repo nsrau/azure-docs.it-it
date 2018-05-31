@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.openlocfilehash: 83c3a893fe18f2de2acc4fdbc9b048c92cc71d15
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1820ab1e2295e6e0c7795c9d014d001d294bb337
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069613"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problemi di accesso al sito Web del pannello di accesso
 
@@ -62,7 +63,7 @@ Per l'accesso Single Sign-On basato su password il browser dell'utente finale pu
 
 -   Internet Explorer 8, 9, 10, 11 su Windows 7 o versioni successive
 
--   Microsoft Edge su Windows 10 Anniversary Edition o versioni successive 
+-   Edge su Windows 10 Anniversary Edition o versioni successive 
 
 -   Chrome in Windows 7 o versione successiva e MacOS X o versione successiva
 
@@ -289,4 +290,4 @@ Aprire un ticket di supporto con le informazioni seguenti, se disponibili:
 -   Tracce Fiddler
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Fornire l'accesso Single Sign-On alle app con il proxy di applicazione](active-directory-application-proxy-sso-using-kcd.md)
+[Fornire l'accesso Single Sign-On alle app con il proxy di applicazione](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

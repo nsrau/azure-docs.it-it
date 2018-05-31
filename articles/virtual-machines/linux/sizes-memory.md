@@ -1,5 +1,5 @@
 ---
-title: Dimensioni delle macchine virtuali Linux in Azure - Memoria | Documentazione Microsoft
+title: Dimensioni delle macchine virtuali Linux in Azure - Memoria | Microsoft Docs
 description: Elenca le diverse dimensioni ottimizzate per la memoria per le macchine virtuali Linux disponibili in Azure. Elenca informazioni sul numero di vCPU, dei dischi dati e delle schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per le dimensioni di queste serie.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -7,6 +7,7 @@ author: jonbeck7
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
+keywords: Isolamento di VM,VM isolata,isolamento,isolata
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: cdcb0e6bdc8d3e91fd31ee1d448a7ff070139002
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 760426ab6255c6e42383cc19f523b2dbfc55d404
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33943679"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per la memoria
 

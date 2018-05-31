@@ -3,20 +3,21 @@ title: Snapshot Debugger di Azure Application Insights per app .NET | Microsoft 
 description: Gli snapshot di debug vengono raccolti automaticamente quando vengono generate eccezioni nelle app di produzione .NET
 services: application-insights
 documentationcenter: ''
-author: pharring
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
-ms.author: mbullwin
-ms.openlocfilehash: 0ba58f1384d7c93af30f9b175a5a154811c9a1e0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.date: 05/08/2018
+ms.author: mbullwin; pharring
+ms.openlocfilehash: 66339e5f5d2cc7447df0f8faf70d2d9fd45db738
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34159136"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
 
@@ -55,7 +56,7 @@ Sono supportati i seguenti ambienti:
         <!-- DeveloperMode is a property on the active TelemetryChannel. -->
         <IsEnabledInDeveloperMode>false</IsEnabledInDeveloperMode>
         <!-- How many times we need to see an exception before we ask for snapshots. -->
-        <ThresholdForSnapshotting>5</ThresholdForSnapshotting>
+        <ThresholdForSnapshotting>1</ThresholdForSnapshotting>
         <!-- The maximum number of examples we create for a single problem. -->
         <MaximumSnapshotsRequired>3</MaximumSnapshotsRequired>
         <!-- The maximum number of problems that we can be tracking at any time. -->
@@ -63,7 +64,7 @@ Sono supportati i seguenti ambienti:
         <!-- How often we reconnect to the stamp. The default value is 15 minutes.-->
         <ReconnectInterval>00:15:00</ReconnectInterval>
         <!-- How often to reset problem counters. -->
-        <ProblemCounterResetInterval>24:00:00</ProblemCounterResetInterval>
+        <ProblemCounterResetInterval>1.00:00:00</ProblemCounterResetInterval>
         <!-- The maximum number of snapshots allowed in ten minutes.The default value is 1. -->
         <SnapshotsPerTenMinutesLimit>1</SnapshotsPerTenMinutesLimit>
         <!-- The maximum number of snapshots allowed per day. -->
@@ -146,12 +147,12 @@ Sono supportati i seguenti ambienti:
        "InstrumentationKey": "<your instrumentation key>"
      },
      "SnapshotCollectorConfiguration": {
-       "IsEnabledInDeveloperMode": true,
-       "ThresholdForSnapshotting": 5,
+       "IsEnabledInDeveloperMode": false,
+       "ThresholdForSnapshotting": 1,
        "MaximumSnapshotsRequired": 3,
        "MaximumCollectionPlanSize": 50,
        "ReconnectInterval": "00:15:00",
-       "ProblemCounterResetInterval":"24:00:00",
+       "ProblemCounterResetInterval":"1.00:00:00",
        "SnapshotsPerTenMinutesLimit": 1,
        "SnapshotsPerDayLimit": 30,
        "SnapshotInLowPriorityThread": true,
@@ -193,11 +194,12 @@ Gli snapshot possono essere ispezionati dai proprietari della sottoscrizione di 
 
 Per concedere l'autorizzazione, assegnare il ruolo `Application Insights Snapshot Debugger` agli utenti che ispezioneranno gli snapshot. Questo ruolo può essere assegnato a singoli utenti o gruppi dai proprietari della sottoscrizione per la risorsa di Application Insights di destinazione oppure per il gruppo di risorse o la sottoscrizione di tale risorsa.
 
-1. Aprire il pannello Controllo di accesso (IAM).
-1. Fare clic sul pulsante +Aggiungi.
-1. Selezionare Debugger di snapshot di Application Insights nell'elenco a discesa Ruoli.
+1. Passare alla risorsa di Application Insights nel portale di Azure.
+1. Fare clic su **Controllo di accesso (IAM)**.
+1. Fare clic sul pulsante **+Aggiungi**.
+1. Selezionare **Snapshot Debugger di Azure Application Insights** nell'elenco a discesa **Ruoli**.
 1. Cercare e immettere un nome per l'utente da aggiungere.
-1. Fare clic sul pulsante Salva per aggiungere l'utente al ruolo.
+1. Fare clic sul pulsante **Salva** per aggiungere l'utente al ruolo.
 
 
 > [!IMPORTANT]
@@ -213,7 +215,7 @@ Nella vista Debug Snapshot (Snapshot di debug) vengono visualizzati uno stack di
 
 ![Visualizzare uno snapshot di debug nel portale](./media/app-insights-snapshot-debugger/open-snapshot-portal.png)
 
-Gli snapshot potrebbero contenere informazioni riservate e per impostazione predefinita non sono visibili. Per visualizzare gli snapshot, è necessario che all'utente sia stato assegnato il ruolo `Application Insights Snapshot Debugger`.
+Gli snapshot possono contenere informazioni riservate e per impostazione predefinita non sono visibili. Per visualizzare gli snapshot, è necessario che all'utente sia stato assegnato il ruolo `Application Insights Snapshot Debugger`.
 
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Snapshot di debug con Visual Studio 2017 Enterprise
 1. Fare clic sul pulsante **Download Snapshot** (Scarica snapshot) per scaricare un file `.diagsession` che può essere aperto con Visual Studio 2017 Enterprise.
@@ -224,11 +226,26 @@ Gli snapshot potrebbero contenere informazioni riservate e per impostazione pred
 
     ![Visualizzare lo snapshot di debug in Visual Studio](./media/app-insights-snapshot-debugger/open-snapshot-visualstudio.png)
 
-Lo snapshot scaricato contiene tutti file di simboli trovati nel server applicazioni Web. Questi file di simboli sono necessari per associare i dati degli snapshot al codice sorgente. Per le app del servizio app, assicurarsi di abilitare la distribuzione dei simboli al momento della pubblicazione delle app Web.
+Lo snapshot scaricato contiene tutti i file di simboli trovati nel server applicazioni Web. Questi file di simboli sono necessari per associare i dati degli snapshot al codice sorgente. Per le app del servizio app, assicurarsi di abilitare la distribuzione dei simboli al momento della pubblicazione delle app Web.
 
 ## <a name="how-snapshots-work"></a>Funzionamento degli snapshot
 
-All'avvio dell'applicazione viene creato un processo di caricamento degli snapshot separato che monitora le richieste di snapshot nell'applicazione. Quando viene richiesto uno snapshot, viene creata una copia shadow del processo in esecuzione in circa 10-20 millisecondi. Il processo shadow viene quindi analizzato e viene creato uno snapshot mentre il processo principale rimane in esecuzione e continua a gestire il traffico verso gli utenti. Lo snapshot viene quindi caricato in Application Insights insieme agli eventuali file di simboli pertinenti (con estensione pdb) che sono necessari per visualizzare lo snapshot.
+L'agente di raccolta snapshot viene implementato come un [processore di Application Insights Telemetry](app-insights-configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). Quando l'applicazione viene eseguita, il processore di telemetria dell'agente di raccolta snapshot viene aggiunto alla pipeline di telemetria dell'applicazione.
+Ogni volta che l'applicazione chiama [TrackException](app-insights-asp-net-exceptions.md#exceptions), l'agente di raccolta snapshot consente di calcolare un ID problema dal tipo di eccezione generata e dal metodo generante.
+Ogni volta che l'applicazione chiama TrackException, un contatore viene incrementato con l'ID problema appropriato. Quando il contatore raggiunge il valore `ThresholdForSnapshotting`, l'ID problema viene aggiunto a un piano di raccolta.
+
+L'agente di raccolta snapshot monitora anche le eccezioni quando vengono generate sottoscrivendo l'evento [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception). Quando viene generato l'evento, l'ID problema dell'eccezione viene calcolato e confrontato con gli ID problema inclusi nel piano di raccolta.
+Se esiste una corrispondenza, viene creato uno snapshot del processo in esecuzione. Allo snapshot viene assegnato un identificatore univoco e l'eccezione viene contrassegnata con tale identificatore. Dopo che è stato restituito il gestore FirstChanceException, l'eccezione generata viene elaborata come di consueto. Infine, l'eccezione raggiunge nuovamente il metodo TrackException in cui viene segnalata ad Application Insights, insieme all'identificatore dello snapshot.
+
+L'esecuzione del processo principale continua e rende disponibile il traffico agli utenti con un'interruzione minima. Nel frattempo, lo snapshot viene trasferito al processo di caricamento degli snapshot. Tale processo crea un minidump e lo carica in Application Insights insieme agli eventuali file di simboli pertinenti (con estensione pdb).
+
+> [!TIP]
+> - Uno snapshot del processo è un clone sospeso del processo in esecuzione.
+> - Per la creazione dello snapshot sono necessari da 10 a 20 millisecondi circa.
+> - Il valore predefinito di `ThresholdForSnapshotting` è 1, ovvero il valore minimo. Pertanto, l'app deve attivare la stessa eccezione **due volte** prima che venga creato uno snapshot.
+> - Impostare `IsEnabledInDeveloperMode` su true se si vuole generare gli snapshot durante il debug in Visual Studio.
+> - La frequenza di creazione dello snapshot è limitata dall'impostazione `SnapshotsPerTenMinutesLimit`. Per impostazione predefinita, il limite è uno snapshot ogni dieci minuti.
+> - Non è possibile caricare più di 50 snapshot al giorno.
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
@@ -242,29 +259,49 @@ Per poter decodificare le variabili e offrire un'esperienza di debug in Visual S
 Per Calcolo di Azure e altri tipi di calcoli, verificare che i file di simboli si trovino nella stessa cartella della DLL dell'applicazione principale (generalmente `wwwroot/bin`) o che siano disponibili nel percorso corrente.
 
 ### <a name="optimized-builds"></a>Compilazioni ottimizzate
-In alcuni casi le variabili locali non possono essere visualizzate nelle build di versione a causa delle ottimizzazioni applicate durante il processo di compilazione.
+In alcuni casi, le variabili locali non possono essere visualizzate nelle build di versione a causa delle ottimizzazioni applicate dal compilatore JIT.
+Tuttavia, in Servizi app di Azure, l'agente di raccolta snapshot può deottimizzare generando metodi che fanno parte del relativo piano di raccolta.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+> [!TIP]
+> Installare l'estensione del sito Application Insights nel servizio app per ottenere supporto per la deottimizzazione.
 
-Questi suggerimenti consentono di risolvere i problemi relativi al debugger di snapshot.
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Questi suggerimenti consentono di risolvere i problemi relativi al Snapshot Debugger.
+
+### <a name="use-the-snapshot-health-check"></a>Usare il controllo integrità dello snapshot
+Alcuni problemi comuni riguardano la mancata visualizzazione di Apri snapshot di debug. Ad esempio, se si usa un agente di raccolta snapshot obsoleto, se si raggiunge il limite giornaliero di caricamento o se il caricamento dello snapshot richiede molto tempo. Per la risoluzione di problemi comuni, usare il controllo integrità dello snapshot.
+
+Nel riquadro dell'eccezione è presente un collegamento di visualizzazione traccia end-to-end che consente di visualizzare il controllo integrità dello snapshot.
+
+![Immettere il controllo integrità dello snapshot](./media/app-insights-snapshot-debugger/enter-snapshot-health-check.png)
+
+L'interfaccia interattiva, simile a una chat, esegue la ricerca di problemi comuni e guida l'utente nella risoluzione.
+
+![Controllo integrità](./media/app-insights-snapshot-debugger/healthcheck.png)
+
+Se il problema non viene risolto, fare riferimento ai passaggi manuali di risoluzione dei problemi seguenti.
 
 ### <a name="verify-the-instrumentation-key"></a>Verificare la chiave di strumentazione
 
-Verificare di usare la chiave di strumentazione corretta nell'applicazione pubblicata. Application Insights in genere legge la chiave di strumentazione dal file ApplicationInsights.config. Verificare che il valore sia lo stesso della chiave di strumentazione per la risorsa di Application Insights visualizzata nel portale.
+Verificare di usare la chiave di strumentazione corretta nell'applicazione pubblicata. In genere, la chiave di strumentazione viene letta dal file ApplicationInsights.config. Verificare che il valore sia lo stesso della chiave di strumentazione per la risorsa di Application Insights visualizzata nel portale.
+
+### <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Eseguire l'aggiornamento alla versione più recente del pacchetto NuGet
+
+Usare Gestione pacchetti NuGet di Visual Studio per assicurarsi di usare la versione più recente di Microsoft.ApplicationInsights.SnapshotCollector. Le note sulla versione sono disponibili all'indirizzo https://github.com/Microsoft/ApplicationInsights-Home/issues/167
 
 ### <a name="check-the-uploader-logs"></a>Controllare i log dell'utilità di caricamento
 
-Dopo la creazione di uno snapshot, un file di minidump (DMP) viene creato sul disco. Un processo di caricamento separato prende il file di minidump e lo carica, con i file PDB associati, nella risorsa di archiviazione Debugger di snapshot di Application Insights. Il minidump, dopo essere stato correttamente caricato, viene eliminato dal disco. I file di log per il processo di caricamento vengono conservati sul disco. In un ambiente del servizio app questi log si trovano in `D:\Home\LogFiles`. Usare il sito di gestione di Kudu per il servizio app per trovare questi file di log.
+Dopo la creazione di uno snapshot, un file di minidump (DMP) viene creato sul disco. Un processo di caricamento separato crea il file di minidump e lo carica, con i file PDB associati, nella risorsa di archiviazione Snapshot Debugger di Application Insights. Il minidump, dopo essere stato correttamente caricato, viene eliminato dal disco. I file di log per il processo di caricamento vengono conservati sul disco. In un ambiente del servizio app questi log si trovano in `D:\Home\LogFiles`. Usare il sito di gestione di Kudu per il servizio app per trovare questi file di log.
 
 1. Aprire l'applicazione del servizio app nel portale di Azure.
-
-2. Selezionare il pannello **Strumenti avanzati** o cercare **Kudu**.
+2. Fare clic su **Strumenti avanzati** o cercare **Kudu**.
 3. Fare clic su **Vai**.
 4. Nell'elenco a discesa **Console di debug** selezionare **CMD**.
 5. Fare clic su **LogFiles**.
 
 Verrà visualizzato almeno un file con il nome che inizia con `Uploader_` o `SnapshotUploader_` e l'estensione `.log`. Fare clic sull'icona appropriata per scaricare i file di log o aprirli in un browser.
-Il nome del file include un suffisso univoco che identifica l'istanza di Servizio app. Se l'istanza del servizio app è ospitata in più di un computer, è presente un file di log separato per ogni computer. Quando l'utilità di caricamento rileva un nuovo file di minidump file, il file viene registrato nel file di log. Ecco un esempio di snapshot e caricamento corretti:
+Il nome del file include un suffisso univoco che identifica l'istanza di Servizio app. Se l'istanza del servizio app è ospitata in più di un computer, è presente un file di log separato per ogni computer. Quando l'utilità di caricamento rileva un nuovo file di minidump, quest'ultimo viene registrato nel file di log. Ecco un esempio di snapshot e caricamento corretti:
 
 ```
 SnapshotUploader.exe Information: 0 : Received Fork request ID 139e411a23934dc0b9ea08a626db16c5 from process 6368 (Low pri)
@@ -366,10 +403,10 @@ Seguire questi passaggi per configurare il ruolo del servizio cloud con una riso
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Usare la ricerca di Application Insights per trovare le eccezioni con gli snapshot
 
-Quando viene creato uno snapshot, l'eccezione generata viene contrassegnata con un ID snapshot. Quando i dati di telemetria dell'eccezione vengono segnalati ad Application Insights, tale ID snapshot viene incluso come proprietà personalizzata. Usando il pannello Ricerca in Application Insights, è possibile trovare tutti i dati di telemetria con la proprietà personalizzata `ai.snapshot.id`.
+Quando viene creato uno snapshot, l'eccezione generata viene contrassegnata con un ID snapshot. Tale ID snapshot viene incluso come proprietà personalizzata, quando i dati di telemetria dell'eccezione vengono segnalati ad Application Insights. Usando **Cerca** in Application Insights, è possibile trovare tutti i dati di telemetria con la proprietà personalizzata `ai.snapshot.id`.
 
 1. Passare alla risorsa di Application Insights nel portale di Azure.
-2. Fare clic su **Search**(Cerca).
+2. Fare clic su **Cerca**.
 3. Digitare `ai.snapshot.id` nella casella di testo di ricerca e premere INVIO.
 
 ![Cercare i dati di telemetria con i ID snapshot nel portale](./media/app-insights-snapshot-debugger/search-snapshot-portal.png)
@@ -383,6 +420,10 @@ Per cercare uno specifico ID snapshot dei log di caricamento, digitare tale ID n
 2. Usando il timestamp del log di caricamento, modificare il filtro Intervallo di tempo della ricerca per coprire tale intervallo di tempo.
 
 Se ancora non vengono visualizzate eccezioni con tale ID snapshot, significa che i dati di telemetria dell'eccezione non sono stati segnalati ad Application Insights. Questa situazione si può verificare se l'applicazione ha subito un arresto anomalo del sistema dopo avere acquisito lo snapshot, ma prima di segnalare i dati di telemetria dell'eccezione. In questo caso, controllare i log del servizio app in `Diagnose and solve problems` per accertare se si sono verificati riavvi non previsti o eccezioni non gestite.
+
+### <a name="edit-network-proxy-or-firewall-rules"></a>Modificare le regole proxy o firewall di rete
+
+Se l'applicazione si connette a Internet tramite un proxy o un firewall, può essere necessario modificare le regole per consentire all'applicazione di comunicare con il servizio Snapshot Debugger. Ecco un [elenco di porte e indirizzi IP usati da Snapshot Debugger](app-insights-ip-addresses.md#snapshot-debugger).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

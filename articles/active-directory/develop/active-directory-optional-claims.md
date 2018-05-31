@@ -2,23 +2,26 @@
 title: Informazioni su come fornire attestazioni facoltative per l'applicazione Azure AD | Microsoft Docs
 description: Una guida per l'aggiunta di attestazioni personalizzate o aggiuntive ai token SAML 2.0 e JSON Web (JWT) rilasciati da Azure Active Directory.
 documentationcenter: na
-author: hpsin
+author: CelesteDG
 services: active-directory
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/15/2018
-ms.author: hirsin
+ms.date: 04/24/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f9cc4f900428e1337fc9b9d428879d6527c60017
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c4670a7e957970acea54ff69d56edcd45092c8fe
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157232"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Attestazioni facoltative in Azure AD (anteprima)
 
@@ -65,7 +68,9 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 | `fwd`                      | Indirizzo IP.  Aggiunge l'indirizzo IPv4 originale del client richiedente (quando si trova in una rete virtuale).                                                                                                       | Token JSON Web        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | Paese dell'utente.                                                                                                                                                                                  | Token JSON Web        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | Paese del tenant della risorsa.                                                                                                                                                                       | Token JSON Web        |           |                                                                                                                                                                                                                                                                                         |
+| `acct`    | Stato dell'account degli utenti nel tenant.  Se l'utente è membro del tenant, il valore è `0`.  Se si tratta di un utente guest, il valore è `1`.  | JWT, SAML | | |
 | `upn`                      | Attestazione UserPrincipalName.  Benché questa attestazione sia inclusa automaticamente, è possibile specificarla come attestazione facoltativa per collegare proprietà aggiuntive in modo da modificarne il comportamento nel caso dell'utente guest. | JWT, SAML  |           | Proprietà aggiuntive: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+
 ### <a name="v20-optional-claims"></a>Attestazioni facoltative v2.0
 Queste attestazioni sono sempre incluse nei token v1.0, ma vengono rimosse dai token v2.0 a meno che non sia richiesto.  Queste attestazioni sono applicabili solo per i token JWT (token ID e token di accesso).  
 

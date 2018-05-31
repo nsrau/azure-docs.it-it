@@ -14,22 +14,23 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ceeec6991aaac64211301313c1bb8dc5f5faa1c0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e3342f3057917202d81359a27accf47ba288b128
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34077624"
 ---
-# <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Panoramica e architettura di SAP HANA in Azure (istanze Large)
+# <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Panoramica e architettura di SAP HANA (istanze Large) in Azure
 
 ## <a name="what-is-sap-hana-on-azure-large-instances"></a>SAP HANA in Azure (istanze Large)
 
-SAP HANA in Azure (istanze Large) è una soluzione esclusiva per Azure. Oltre a rendere disponibili macchine virtuali (VM) per distribuire ed eseguire SAP HANA, Azure offre la possibilità di eseguire e distribuire SAP HANA su server bare metal dedicati per i clienti. La soluzione SAP HANA in Azure (istanze Large) si basa su hardware bare metal host/server non condiviso che viene assegnato ai clienti. L'hardware del server è incorporato in moduli più grandi contenenti l'infrastruttura di calcolo/server, di rete e di archiviazione. L'intera infrastruttura è dotata di certificazione HANA TDI (HANA Tailored Data Center Integration). SAP HANA in Azure (istanze Large) offre diversi SKU o dimensioni per i server, da unità con 72 CPU e 768 GB di memoria a unità con 960 CPU e 20 TB di memoria.
+SAP HANA in Azure (istanze Large) è una soluzione esclusiva per Azure. Oltre a rendere disponibili macchine virtuali (VM) per distribuire ed eseguire SAP HANA, Azure offre la possibilità di eseguire e distribuire SAP HANA su server bare metal dedicati per i clienti. La soluzione SAP HANA in Azure (istanze Large) si basa su hardware bare metal host/server non condiviso che viene assegnato ai clienti. L'hardware del server è incorporato in stamp più grandi contenenti l'infrastruttura di calcolo/server, di rete e di archiviazione. L'intera infrastruttura è dotata di certificazione HANA TDI (HANA Tailored Data Center Integration). SAP HANA in Azure (istanze Large) offre diversi SKU o dimensioni per i server, da unità con 72 CPU e 768 GB di memoria a unità con 960 CPU e 20 TB di memoria.
 
 L'isolamento dei clienti nel modulo dell'infrastruttura viene realizzato in base a tenant, nel modo seguente:
 
 - **Rete**: isolamento dei clienti nello stack dell'infrastruttura tramite rete virtuali per ogni tenant assegnato al cliente. Un tenant viene assegnato a un singolo cliente. Un cliente può avere più tenant. L'isolamento dei tenant basato su rete impedisce le comunicazioni di rete tra i tenant a livello del modulo dell'infrastruttura, anche se i tenant appartengono allo stesso cliente.
-- **Componenti di archiviazione**: isolamento tramite macchine virtuali di archiviazione a cui sono assegnati volumi di archiviazione. I volumi di archiviazione possono essere assegnati a una sola macchina virtuale di archiviazione. Una macchina virtuale di archiviazione viene assegnata in modo esclusivo a un solo tenant nello stack dell'infrastruttura con certificazione SAP HANA TDI. I volumi di archiviazione assegnati a una macchina virtuale di archiviazione sono pertanto accessibili solo in uno specifico tenant correlato e non sono visibili tra i diversi tenant distribuiti.
+- **Componenti di archiviazione**: isolamento tramite macchine virtuali di archiviazione a cui sono assegnati volumi di archiviazione. I volumi di archiviazione possono essere assegnati a una sola macchina virtuale di archiviazione. Una macchina virtuale di archiviazione viene assegnata esclusivamente a un solo tenant nello stack dell'infrastruttura con certificazione SAP HANA TDI. I volumi di archiviazione assegnati a una macchina virtuale di archiviazione sono pertanto accessibili solo in uno specifico tenant correlato e non sono visibili tra i diversi tenant distribuiti.
 - **Server o host**: un'unità server o host non viene condivisa tra clienti o tenant. Un server o un host distribuito a un cliente è un'unità di calcolo bare metal atomica assegnata a un solo tenant. *Non* vengono usati partizionamenti hardware o software con i quali un cliente potrebbe trovarsi a condividere un host o un server con un altro cliente. I volumi di archiviazione assegnati alla macchina virtuale di archiviazione del tenant specifico vengono montati in tale server. A un tenant può essere assegnata in modo esclusivo una o più unità server di SKU diversi.
 - In un modulo dell'infrastruttura SAP HANA in Azure (istanze Large) più tenant diversi vengono distribuiti e isolati l'uno dall'altro in base a concetti definiti a livello di rete, archiviazione e calcolo. 
 
@@ -39,7 +40,7 @@ Queste unità server bare metal sono supportate solo per l'esecuzione di SAP HAN
 Questo è uno dei documenti dedicati a SAP HANA in Azure (istanze Large) che presenta l'architettura di base, le responsabilità, i servizi offerti e, a livello generale, le funzionalità della soluzione. Per la maggior parte delle altre aree, ad esempio rete e connettività, sono disponibili altri quattro documenti di approfondimento. La documentazione di SAP HANA in Azure (istanze Large) non tratta gli aspetti relativi all'installazione di SAP NetWeaver o alle distribuzioni di SAP NetWeaver nelle VM. SAP NetWeaver in Azure viene trattato in una documentazione separata disponibile nello stesso contenitore di documenti Azure. 
 
 
-I vari documenti della guida relativa alle istanze Large di HANA trattano le aree seguenti:
+I vari documenti della guida per HANA (istanza di grandi dimensioni) trattano le aree seguenti:
 
 - [Panoramica e architettura di SAP HANA in Azure (istanze Large)](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Infrastruttura e connettività a SAP HANA (istanze Large) in Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -65,10 +66,10 @@ Nella guida all'architettura e alla distribuzione vengono comunemente usati alcu
 - **Cross-premise**: indica uno scenario in cui le VM vengono distribuite a una sottoscrizione di Azure con connettività da sito a sito, multisito o Azure ExpressRoute tra i data center locali e Azure. Nella documentazione comune su Azure, questi tipi di distribuzioni vengono definiti anche scenari cross-premise. La connessione consente di estendere i domini locali, l'istanza locale di Azure Active Directory/OpenLDAP e il DNS locale in Azure. Il panorama applicativo locale viene esteso agli asset di Azure delle sottoscrizioni di Azure. Con questa estensione, le VM possono far parte del dominio locale. 
 
    Gli utenti del dominio locale possono accedere ai server ed eseguire servizi in queste VM, ad esempio i servizi DBMS. La comunicazione e la risoluzione dei nomi tra le VM distribuite in locale e quelle distribuite in Azure sono possibili. Questo è lo scenario tipico in cui viene distribuita la maggior parte degli asset SAP. Per altre informazioni, vedere [Pianificazione e progettazione per il gateway VPN](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [Creare una connessione da sito a sito nel portale di Azure](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-- **Tenant**: un cliente distribuito nel modulo per istanze Large di HANA viene isolato in un *tenant*. Un tenant è isolato a livello di rete, archiviazione e calcolo dagli altri tenant. Le unità di archiviazione e calcolo assegnate ai diversi tenant non possono vedersi o comunicare tra loro a livello del modulo per istanze Large di HANA. Un cliente può scegliere di avere distribuzioni in tenant diversi. Neppure in questo caso i tenant possono comunicare tra loro a livello del modulo per istanze Large di HANA.
+- **Tenant**: un cliente distribuito nel modulo per istanze Large di HANA viene isolato in un *tenant*. Un tenant è isolato a livello di rete, archiviazione e calcolo dagli altri tenant, Le unità di archiviazione e calcolo assegnate ai diversi tenant non possono vedersi o comunicare tra loro a livello del modulo per istanze Large di HANA. Un cliente può scegliere di avere distribuzioni in tenant diversi. Neppure in questo caso i tenant possono comunicare tra di essi a livello di stamp di istanze Large di HANA.
 - **Categoria SKU**: per le istanze Large di HANA sono disponibili le due categorie di SKU seguenti:
     - **Classe di tipo I**: S72, S72m, S144, S144m, S192 e S192m
-    - **Classe di tipo II**: S384, S384m, S384xm, S576, S768 e S960
+    - **Classe di tipo II**: S384, S384m, S384xm, S576m, S768m e S960m
 
 
 In merito alla distribuzione di un carico di lavoro SAP nel cloud è disponibile un'ampia gamma di risorse aggiuntive. Se si pianifica una distribuzione di SAP HANA in Azure è necessario essere utenti esperti e conoscere i principi dell'infrastruttura IaaS di Azure e la distribuzione dei carichi di lavoro SAP in tale infrastruttura. Prima di continuare, vedere [Uso di soluzioni SAP nelle macchine virtuali di Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per altre informazioni. 
@@ -87,13 +88,13 @@ Rispetto all'esecuzione di SAP HANA nelle VM, questa soluzione presenta un vanta
 
 - Il livello applicazione SAP e le applicazioni non SAP vengono eseguiti nelle VM ospitate nei consueti moduli hardware di Azure.
 - L'infrastruttura, le distribuzioni di applicazioni e i data center locali dei clienti sono connessi alla piattaforma cloud tramite ExpressRoute (scelta consigliata) o una rete privata virtuale (VPN). Anche Active Directory e DNS vengono estesi in Azure.
-- L'istanza del database SAP HANA per il carico di lavoro HANA viene eseguita su SAP HANA in Azure (istanze Large). Il modulo per istanze Large è connesso alla rete di Azure. In questo modo, il software in esecuzione nelle VM può interagire con l'istanza di HANA in esecuzione in istanze Large di HANA.
+- L'istanza del database SAP HANA per il carico di lavoro HANA viene eseguita su SAP HANA in Azure (istanze di grandi dimensioni). Il modulo per istanze Large è connesso alla rete di Azure. In questo modo, il software in esecuzione nelle VM può interagire con l'istanza di HANA in esecuzione in istanze Large di HANA.
 - L'hardware di SAP HANA in Azure (istanze Large) è dedicato e viene fornito in un'infrastruttura IaaS in cui è preinstallato SUSE Linux Enterprise Server o Red Hat Enterprise Linux. Come nel caso delle macchine virtuali, gli aggiornamenti e la manutenzione del sistema operativo sono responsabilità del cliente.
 - L'installazione di HANA o di eventuali componenti aggiuntivi necessari per l'esecuzione di SAP HANA nelle unità di istanze Large di HANA è responsabilità del cliente, così come tutte le operazioni e le attività di amministrazione di SAP HANA in Azure.
-- Oltre alle soluzioni qui descritte, è possibile installare altri componenti nella sottoscrizione di Azure che si connette a SAP HANA in Azure (istanze Large). Ad esempio, i componenti che consentono la comunicazione o la connessione diretta con il database SAP HANA, come jump server, server RDP, SAP HANA Studio, SAP Data Services per gli scenari SAP BI o soluzioni di monitoraggio di rete.
+- Oltre alle soluzioni qui descritte, è possibile installare altri componenti nella sottoscrizione di Azure che si connette a SAP HANA in Azure (istanze di grandi dimensioni). Ad esempio, i componenti che consentono la comunicazione o la connessione diretta con il database SAP HANA, come jump server, server RDP, SAP HANA Studio, SAP Data Services per gli scenari SAP BI o soluzioni di monitoraggio di rete.
 - Come in Azure, le istanze Large di HANA offrono il supporto di funzionalità per la disponibilità elevata e il ripristino di emergenza.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 In generale, nella soluzione SAP HANA in Azure (istanze Large) il livello applicazione SAP si trova nelle VM. Il livello database si trova nell'hardware configurato per SAP TDI, a sua volta collocato in un modulo per istanze Large nella stessa area di Azure connessa a IaaS di Azure.
 
@@ -102,7 +103,7 @@ In generale, nella soluzione SAP HANA in Azure (istanze Large) il livello applic
 
 L'architettura complessiva di SAP HANA in Azure (istanze Large) offre una configurazione hardware con certificazione SAP TDI che consiste in un server non virtualizzato, bare metal e a elevate prestazioni per il database SAP HANA. Offre inoltre la capacità e la flessibilità di Azure per ridimensionare le risorse per il livello applicazione SAP in base alle esigenze.
 
-![Panoramica dell'architettura di SAP HANA in Azure (istanze Large)](./media/hana-overview-architecture/image1-architecture.png)
+![Panoramica dell'architettura di SAP HANA in Azure (istanze di grandi dimensioni)](./media/hana-overview-architecture/image1-architecture.png)
 
 L'architettura illustrata è suddivisa in tre sezioni.
 
@@ -119,13 +120,13 @@ L'architettura illustrata è suddivisa in tre sezioni.
 
 - **Sezione sinistra**: mostra l'hardware con certificazione SAP HANA TDI nel modulo per istanze Large in Azure. Le unità di istanze Large di HANA sono connesse alle reti virtuali della sottoscrizione con la stessa tecnologia usata per la connettività dall'ambiente locale ad Azure.
 
-Il modulo per istanze Large in Azure include i componenti seguenti:
+Il modulo per istanze di grandi dimensioni di Azure include i componenti seguenti:
 
 - **Calcolo**: server basati su processori Intel Xeon E7-8890v3 o Intel Xeon E7-8890v4 che garantiscono la capacità di calcolo necessaria e sono certificati per SAP HANA.
 - **Rete**: un'infrastruttura di rete unificata ad alta velocità che collega i componenti di calcolo, archiviazione e LAN.
 - **Archiviazione**: un'infrastruttura di archiviazione a cui si accede tramite un'infrastruttura di rete unificata. La capacità di archiviazione fornita dipende dalla specifica configurazione di SAP HANA in Azure (istanze Large) distribuita. Maggiore capacità di archiviazione è disponibile a un costo mensile aggiuntivo.
 
-Nell'infrastruttura multi-tenant del modulo per istanze Large i clienti vengono distribuiti come tenant isolati. Al momento della distribuzione del tenant si specifica una sottoscrizione di Azure nell'ambito della propria iscrizione ad Azure. Questa è la sottoscrizione a cui vengono fatturati i costi delle istanze Large di HANA. I tenant hanno una relazione 1:1 con la sottoscrizione di Azure. Per una rete, è possibile accedere a un'unità di istanze Large di HANA distribuita in un singolo tenant all'interno di un'area di Azure da diverse reti virtuali appartenenti a diverse sottoscrizioni di Azure. Tali sottoscrizioni devono appartenere alla stessa iscrizione ad Azure. 
+Nell'infrastruttura multi-tenant del modulo per istanze di grandi dimensioni i clienti vengono distribuiti come tenant isolati. Al momento della distribuzione del tenant si specifica una sottoscrizione di Azure nell'ambito della propria iscrizione ad Azure. Questa è la sottoscrizione a cui vengono fatturati i costi delle istanze Large di HANA. Questi tenant hanno una relazione 1:1 con la sottoscrizione di Azure. Per una rete, è possibile accedere a un'unità di istanze Large di HANA distribuita in un singolo tenant all'interno di un'area di Azure da diverse reti virtuali appartenenti a diverse sottoscrizioni di Azure. Tali sottoscrizioni devono appartenere alla stessa iscrizione ad Azure. 
 
 Analogamente alle VM, SAP HANA in Azure (istanze Large) è disponibile in più aree di Azure. Per offrire funzionalità di ripristino di emergenza, è possibile fornire il consenso esplicito. I diversi moduli per istanze Large in un'area geopolitica sono collegati tra loro. Ad esempio, i moduli per istanze Large di HANA in Stati Uniti occidentali e Stati Uniti orientali sono connessi tramite un collegamento di rete dedicato ai fini della replica per il ripristino di emergenza. 
 
@@ -144,9 +145,9 @@ A partire da luglio 2017, SAP HANA in Azure (istanze Large) è disponibile in di
 |---| SAP HANA in Azure S192m<br /> – 4 x processore Intel® Xeon® E7-8890 v4<br /> 96 core CPU e 192 thread CPU  |  4 TB |  16 TB | Disponibile |
 |---| SAP HANA in Azure S384m<br /> – 8 x processore Intel® Xeon® E7-8890 v4<br /> 192 core CPU e 384 thread CPU |  6 TB |  18 TB | Disponibile |
 |---| SAP HANA in Azure S384xm<br /> – 8 x processore Intel® Xeon® E7-8890 v4<br /> 192 core CPU e 384 thread CPU |  8 TB |  22 TB |  Disponibile |
-|---| SAP HANA in Azure S576<br /> – 12 x processore Intel® Xeon® E7-8890 v4<br /> 288 core CPU e 576 thread CPU |  12 TB |  28 TB | Disponibile |
-|---| SAP HANA in Azure S768<br /> – 16 x processore Intel® Xeon® E7-8890 v4<br /> 384 core CPU e 768 thread CPU |  16 TB |  36 TB | Disponibile |
-|---| SAP HANA in Azure S960<br /> – 20 x processore Intel® Xeon® E7-8890 v4<br /> 480 core CPU e 960 thread CPU |  20 TB |  46 TB | Disponibile |
+|---| SAP HANA in Azure S576m<br /> – 12 x processore Intel® Xeon® E7-8890 v4<br /> 288 core CPU e 576 thread CPU |  12 TB |  28 TB | Disponibile |
+|---| SAP HANA in Azure S768m<br /> – 16 x processore Intel® Xeon® E7-8890 v4<br /> 384 core CPU e 768 thread CPU |  16 TB |  36 TB | Disponibile |
+|---| SAP HANA in Azure S960m<br /> – 20 x processore Intel® Xeon® E7-8890 v4<br /> 480 core CPU e 960 thread CPU |  20 TB |  46 TB | Disponibile |
 
 - Core CPU: somma di core CPU senza hyperthreading nella somma dei processori dell'unità server.
 - Thread CPU: somma di thread di calcolo forniti da core CPU con hyperthreading nella somma dei processori dell'unità server. Per impostazione predefinita, tutte le unità sono configurate per l'uso di Hyper-Threading Technology.
@@ -157,7 +158,7 @@ Le configurazioni specifiche scelte dipendono dal carico di lavoro, dalle risors
 La base hardware per tutte le offerte è dotata di certificazione SAP HANA TDI. Gli SKU sono suddivisi in due diverse classi di hardware:
 
 - La "classe di tipo I" include gli SKU S72, S72m, S144, S144m, S192 e S192m.
-- La "classe di tipo II" include gli SKU S384, S384m, S384xm, S576, S768 e S960.
+- La "classe di tipo II" include gli SKU S384, S384m, S384xm, S576m, S768m e S960m.
 
 Un intero modulo per istanze Large di HANA non viene allocato esclusivamente per l'uso di un singolo cliente. Ciò vale anche per i rack delle risorse di calcolo e archiviazione connesse tramite un'infrastruttura di rete distribuita in Azure. Analogamente ad Azure, l'infrastruttura di istanze Large di HANA distribuisce diversi &quot;tenant&quot; dei clienti, isolati l'uno dall'altro, nei tre livelli seguenti:
 
@@ -171,9 +172,9 @@ A un tenant distribuito nel modulo per istanze Large viene assegnata una sola so
 
 Vi sono differenze significative tra l'esecuzione di SAP HANA nelle istanze Large di HANA e quella nelle VM distribuite in Azure:
 
-- Non esiste alcun livello di virtualizzazione per SAP HANA in Azure (istanze Large). Si ottengono le prestazioni dell'hardware bare metal sottostante.
-- A differenza di Azure, il server di SAP HANA in Azure (istanze Large) è dedicato a un cliente specifico. Un'unità server, o host, non può essere in alcun modo partizionata a livello di hardware o software. Di conseguenza, un'unità di istanze Large di HANA viene usata come se fosse assegnata per intero a un tenant e con il tenant assegnato al singolo cliente. Un riavvio o un arresto del server non comporta automaticamente la distribuzione del sistema operativo e di SAP HANA in un altro server. Per gli SKU della classe di tipo I, l'unica eccezione è data dal caso in cui vengono riscontrati problemi in un server ed è necessario eseguire la ridistribuzione in un altro server.
-- A differenza di Azure, in cui i tipi di processore host vengono selezionati per il rapporto prezzo/prestazioni ottimale, per SAP HANA in Azure (istanze Large) vengono scelti i tipi di processore con le prestazioni più elevate della linea di processori Intel E7v3 ed E7v4.
+- Non esiste alcun livello di virtualizzazione per SAP HANA in Azure (istanze di grandi dimensioni). Si ottengono le prestazioni dell'hardware bare metal sottostante.
+- A differenza di Azure, il server di SAP HANA in Azure (istanze di grandi dimensioni) è dedicato a un cliente specifico. Un'unità server, o host, non può essere in alcun modo partizionata a livello di hardware o software. Di conseguenza, un'unità di istanze Large di HANA viene usata come se fosse assegnata per intero a un tenant e con il tenant assegnato al singolo cliente. Un riavvio o un arresto del server non comporta automaticamente la distribuzione del sistema operativo e di SAP HANA in un altro server. Per gli SKU della classe di tipo I, l'unica eccezione è data dal caso in cui vengono riscontrati problemi in un server ed è necessario eseguire la ridistribuzione in un altro server.
+- A differenza di Azure, in cui i tipi di processore host vengono selezionati per il miglior rapporto prezzo/prestazioni, per SAP HANA in Azure (istanze Large) vengono scelti i tipi di processore con le prestazioni più elevate della linea di processori Intel E7v3 ed E7v4.
 
 
 ### <a name="run-multiple-sap-hana-instances-on-one-hana-large-instance-unit"></a>Eseguire più istanze di SAP HANA in un'unità di istanze Large di HANA
@@ -197,12 +198,12 @@ Esistono anche altre varianti.
 
 ### <a name="use-sap-hana-data-tiering-and-extension-nodes"></a>Usare nodi di estensione e suddivisione in livelli dei dati di SAP HANA
 SAP supporta un modello di suddivisione in livelli dei dati per SAP BW di diverse versioni di SAP NetWeaver e SAP BW/4HANA. Per altre informazioni sul modello di suddivisione in livelli dei dati, vedere il documento di SAP [SAP BW/4HANA and SAP BW on HANA with SAP HANA extension nodes](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#) (SAP BW/4HANA e SAP BW su HANA con nodi di estensione di SAP HANA).
-Con le istanze Large di HANA è possibile usare la configurazione option-1 dei nodi di estensione di SAP HANA, come descritto in dettaglio nei documenti delle domande frequenti e del blog di SAP. Le configurazioni option-2 possono essere impostate con gli SKU delle istanze Large di HANA seguenti: S72m, S192, S192m, S384 e S384m. 
+Con le istanze Large di HANA è possibile usare la configurazione option-1 dei nodi di estensione di SAP HANA, come descritto in dettaglio nei documenti delle domande frequenti e del blog di SAP. Le configurazioni option-2 possono essere impostate con le SKU delle istanze Large di HANA seguenti: S72m, S192, S192m, S384 e S384m. 
 
 Quando si esamina la documentazione, il vantaggio può non essere immediatamente visibile. Se tuttavia si leggono le linee guida del dimensionamento di SAP, il vantaggio offerto dai nodi di estensione option-1 e option-2 di SAP HANA è evidente. Ecco alcuni esempi:
 
-- Le linee guida del dimensionamento di SAP HANA richiedono in genere il doppio del volume di dati per la memoria. Quando si esegue l'istanza di SAP HANA con hot data, solo il 50% o una percentuale inferiore della memoria è occupata dai dati. In teoria, il resto della memoria viene trattenuto per il funzionamento di SAP HANA.
-- Questo significa che in un'unità S192 di istanze Large di HANA con 2 TB di memoria che esegue un database SAP BW, il volume di dati è di 1 TB.
+- Le linee guida del dimensionamento di SAP HANA richiedono in genere il doppio del volume di dati per la memoria. Quando si esegue l'istanza di SAP HANA con hot data, solo il 50% o una percentuale inferiore della memoria è occupata dai dati. Idealmente, il resto della memoria viene mantenuto per il funzionamento di SAP HANA.
+- Questo significa che in un'unità S192 di istanza Large di HANA con 2 TB di memoria che esegue un database SAP BW, il volume di dati è di 1 TB.
 - Se si usa un nodo di estensione di SAP HANA aggiuntivo di tipo option-1, anche uno SKU S192 di istanze Large di HANA, si ottiene una capacità aggiuntiva di 2 TB per il volume di dati. Nella configurazione option-2 si ottengono 4 TB aggiuntivi per il volume di warm data. Rispetto al nodo di tipo hot, nel nodo di estensione di tipo warm può essere usata la capacità di memoria completa per l'archiviazione dei dati per la configurazione option-1. Una capacità doppia di memoria può essere usata per il volume di dati nella configurazione del nodo di estensione option-2 di SAP HANA.
 - Si ottengono quindi una capacità di 3 TB per i dati, con un rapporto hot/warm di 1:2, nella configurazione del nodo di estensione option-1 e una capacità di 5 TB per i dati, con un rapporto hot/warm di 1:4, nella configurazione del nodo di estensione option-2.
 
@@ -211,9 +212,9 @@ Maggiore sarà il volume di dati rispetto alla memoria, più alte saranno le pro
 
 ## <a name="operations-model-and-responsibilities"></a>Responsabilità e modello operativo
 
-Il servizio fornito con SAP HANA in Azure (istanze Large) è allineato ai servizi IaaS di Azure. Il cliente ottiene un'istanza Large di HANA con un sistema operativo installato ottimizzato per SAP HANA. Come per le VM IaaS di Azure, quasi tutte le attività di protezione avanzata del sistema operativo, installazione di software aggiuntivo, installazione di HANA, funzionamento e aggiornamento del sistema operativo e di HANA sono responsabilità del cliente. Microsoft non impone al cliente aggiornamenti del sistema operativo o di HANA.
+Il servizio fornito con SAP HANA in Azure (istanze di grandi dimensioni) è allineato ai servizi IaaS di Azure. Il cliente ottiene un'istanza Large di HANA con un sistema operativo installato ottimizzato per SAP HANA. Come per le VM IaaS di Azure, quasi tutte le attività di protezione avanzata del sistema operativo, installazione di software aggiuntivo, installazione di HANA, funzionamento e aggiornamento del sistema operativo e di HANA sono responsabilità del cliente. Microsoft non impone al cliente aggiornamenti del sistema operativo o di HANA.
 
-![Responsabilità di SAP HANA in Azure (istanze Large)](./media/hana-overview-architecture/image2-responsibilities.png)
+![Responsabilità di SAP HANA in Azure (istanze di grandi dimensioni)](./media/hana-overview-architecture/image2-responsibilities.png)
 
 Come illustrato nel diagramma, SAP HANA in Azure (istanze Large) è un'offerta IaaS multi-tenant. La ripartizione di gran parte delle responsabilità è al limite tra sistema operativo e infrastruttura. Microsoft si occupa di tutti gli aspetti del servizio al di sotto della linea relativa al sistema operativo. Il cliente è responsabile degli aspetti al di sopra di tale linea, incluso il sistema operativo. È quindi possibile continuare a usare i metodi adottati più di recente nel sistema locale per la conformità, la sicurezza, la gestione delle applicazioni, le operazioni di base e la gestione del sistema operativo. I sistemi vengono visualizzati come facenti parte della propria rete.
 
@@ -225,7 +226,7 @@ L'elenco seguente fornisce informazioni dettagliate su ogni livello e indica le 
 
 **Archiviazione**: lo spazio di archiviazione partizionato virtualizzato per tutti i volumi necessari per i server di SAP HANA e per gli snapshot. 
 
-**Server**: i server fisici dedicati per l'esecuzione dei database di SAP HANA assegnati ai tenant. I server di SKU della classe di tipo I sono indipendenti dall'hardware. La configurazione di questi tipi di server viene raccolta e mantenuta in profili che possono essere spostati da un hardware fisico a un altro. Queste operazioni (manuali) di spostamento di un profilo sono in parte paragonabili ad attività di correzione dei servizi di Azure. I server di SKU della classe di tipo II non offrono tale funzionalità.
+**Server**: i server fisici dedicati per l'esecuzione dei database di SAP HANA assegnati ai tenant. I server di SKU Classe di tipo I sono indipendenti dall'hardware. La configurazione di questi tipi di server viene raccolta e mantenuta in profili che possono essere spostati da un hardware fisico a un altro. Queste operazioni (manuali) di spostamento di un profilo sono in parte paragonabili ad attività di correzione dei servizi di Azure. I server di SKU della classe di tipo II non offrono tale funzionalità.
 
 **SDDC**: il software usato per gestire i data center come entità definite da software. Consente a Microsoft di creare pool delle risorse ai fini della scalabilità, della disponibilità e delle prestazioni.
 
@@ -254,7 +255,7 @@ L'infrastruttura sottostante delle istanze Large di HANA fornisce funzionalità 
 
 **Archivio**: può essere preferibile archiviare copie dei dati usando i metodi preferiti negli account di archiviazione. L'archiviazione comporta gestione, conformità, costi e operazioni. Il cliente è responsabile della generazione di copie di archivio e backup in Azure e della relativa archiviazione in base ai criteri di conformità.
 
-Vedere [Contratto di Servizio per SAP HANA in Azure (istanze Large)](https://azure.microsoft.com/support/legal/sla/sap-hana-large/v1_0/).
+Vedere [Contratto di Servizio per SAP HANA in istanze di grandi dimensioni di Azure](https://azure.microsoft.com/support/legal/sla/sap-hana-large/v1_0/).
 
 ## <a name="sizing"></a>Ridimensionamento
 
@@ -276,7 +277,7 @@ Questo elenco include i requisiti per l'esecuzione di SAP HANA in Azure (istanze
 
 **Microsoft Azure**
 
-- Una sottoscrizione di Azure che può essere collegata a SAP HANA in Azure (istanze Large).
+- Una sottoscrizione di Azure che può essere collegata a SAP HANA in Azure (istanze di grandi dimensioni).
 - Contratto di supporto tecnico Premier Microsoft. Per informazioni specifiche sull'esecuzione di SAP in Azure, vedere [SAP Support Note #2015553 - SAP on Microsoft Azure: Support prerequisites](https://launchpad.support.sap.com/#/notes/2015553) (Nota di supporto SAP 2015553 - SAP in Microsoft Azure: prerequisiti di supporto). Se si usano unità di istanze Large di HANA con 384 e più CPU, è necessario anche estendere il contratto di supporto tecnico Premier in modo da includere Azure Rapid Response.
 - Conoscenza degli SKU delle istanze Large di HANA necessari dopo l'esecuzione di un esercizio di ridimensionamento con SAP.
 
@@ -303,6 +304,8 @@ Questo elenco include i requisiti per l'esecuzione di SAP HANA in Azure (istanze
    - Per Red Hat Linux, è necessario avere livelli di sottoscrizione corretti che includano supporto e aggiornamenti di servizio per i sistemi operativi delle istanze Large di HANA. Red Hat consiglia di ottenere una sottoscrizione Red Hat Enterprise Linux per [soluzioni di SAP] (https://access.redhat.com/solutions/3082481). 
 
 Per la matrice di supporto delle diverse versioni di SAP HANA con le varie versioni di Linux, vedere la [nota SAP 2235581](https://launchpad.support.sap.com/#/notes/2235581).
+
+Per la matrice di compatibilità del sistema operativo e le versioni del firmware/ driver HLI, fare riferimento a [OS Upgrade for HLI](os-upgrade-hana-large-instance.md) (Aggiornamento del sistema operativo per HLI).
 
 
 **Database**
@@ -335,7 +338,7 @@ Nelle unità di istanze Large di HANA della classe di tipo I è disponibile un v
 
 Per l'allocazione dello spazio di archiviazione, vedere la tabella seguente, che elenca la capacità approssimativa dei diversi volumi disponibili nelle diverse unità di istanze Large di HANA.
 
-| SKU delle istanze Large di HANA | hana/data | hana/log | hana/shared | hana/log/backup |
+| SKU delle istanze Large di HANA | hana/data | hana/log | hana/shared | HANA/log/backup |
 | --- | --- | --- | --- | --- |
 | S72 | 1280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3328 GB | 768 GB |1280 GB | 768 GB |
@@ -344,16 +347,16 @@ Per l'allocazione dello spazio di archiviazione, vedere la tabella seguente, che
 | S384 | 11.520 GB | 1536 GB | 1792 GB | 1536 GB |
 | S384m | 12.000 GB | 2050 GB | 2050 GB | 2040 GB |
 | S384xm | 16.000 GB | 2050 GB | 2050 GB | 2040 GB |
-| S576 | 20.000 GB | 3100 GB | 2050 GB | 3100 GB |
-| S768 | 28.000 GB | 3100 GB | 2050 GB | 3100 GB |
-| S960 | 36.000 GB | 4100 GB | 2050 GB | 4100 GB |
+| S576m | 20.000 GB | 3100 GB | 2050 GB | 3100 GB |
+| S768m | 28.000 GB | 3100 GB | 2050 GB | 3100 GB |
+| S960m | 36.000 GB | 4100 GB | 2050 GB | 4100 GB |
 
 
 I volumi distribuiti effettivi possono variare in base alla distribuzione e allo strumento usato per visualizzare le dimensioni dei volumi.
 
 In caso di suddivisione di uno SKU delle istanze Large di HANA, ecco alcuni esempi delle possibili dimensioni delle partizioni:
 
-| Partizione di memoria in GB | hana/data | hana/log | hana/shared | hana/log/backup |
+| Partizione di memoria in GB | hana/data | hana/log | hana/shared | HANA/log/backup |
 | --- | --- | --- | --- | --- |
 | 256 | 400 GB | 160 GB | 304 GB | 160 GB |
 | 512 | 768 GB | 384 GB | 512 GB | 384 GB |
@@ -376,7 +379,7 @@ Con gli SKU della classe di tipo I, il volume in cui è archiviato il LUN di avv
 
 ## <a name="networking"></a>Rete
 
-L'architettura dei servizi di rete di Azure è un componente fondamentale per la corretta distribuzione di applicazioni SAP in istanze Large di HANA. In genere, le distribuzioni di SAP HANA in Azure (istanze Large) dispongono di un panorama applicativo di SAP più ampio con varie soluzioni SAP e varie dimensioni di database, utilizzo delle risorse della CPU e utilizzo della memoria. È probabile che non tutti i sistemi SAP siano basati su SAP HANA e che il panorama applicativo SAP sia un ibrido con i componenti seguenti:
+L'architettura dei servizi di rete di Azure è un componente fondamentale per la corretta distribuzione di applicazioni SAP in istanze Large di HANA. In genere, le distribuzioni di SAP HANA in Azure (istanze di grandi dimensioni) dispongono di un panorama applicativo di SAP più ampio con varie soluzioni SAP e varie dimensioni di database, utilizzo delle risorse della CPU e utilizzo della memoria. È probabile che non tutti i sistemi SAP siano basati su SAP HANA e che il panorama applicativo SAP sia un ibrido con i componenti seguenti:
 
 - Sistemi SAP distribuiti in locale. A causa delle dimensioni, attualmente questi sistemi non possono essere ospitati in Azure. Un esempio può essere un sistema SAP ERP di produzione che viene eseguito su SQL Server (come database) e richiede risorse di memoria o CPU superiori a quelle che possono essere disponibili nelle VM.
 - Sistemi SAP basati su SAP HANA distribuiti in locale.
@@ -457,7 +460,7 @@ Questo sistema è un esempio semplice di un sistema SAP singolo. Il livello appl
 Se vengono distribuiti più sistemi SAP o sistemi SAP di grandi dimensioni per connettersi a SAP HANA in Azure (istanze Large), la velocità effettiva del gateway di rete virtuale potrebbe diventare un collo di bottiglia. In tal caso, dividere i livelli applicazione in più reti virtuali. È anche possibile creare una rete virtuale speciale che si connette alle istanze Large di HANA in casi come questi:
 
 - Esecuzione di backup direttamente da istanze Large di HANA a una VM in Azure che ospita le condivisioni NFS.
-- Copia di backup di grandi dimensioni o di altri file dalle unità di istanze Large di HANA su spazio del disco gestito in Azure.
+- Copia di backup di grandi dimensioni o di altri file dalle unità di istanze di grandi dimensioni HANA su spazio del disco gestito in Azure.
 
 Usare una rete virtuale separata per ospitare le VM che gestiscono l'archiviazione. In questo modo è possibile evitare gli effetti del trasferimento di dati o file di grandi dimensioni dalle istanze Large di HANA ad Azure sul gateway di rete virtuale usato dalle VM che eseguono il livello applicazione SAP. 
 
@@ -466,7 +469,7 @@ Per un'architettura di rete più scalabile:
 - Utilizzare più reti virtuali per un livello applicazione SAP singolo e di dimensioni maggiori.
 - Distribuire una rete virtuale separata per ogni sistema SAP distribuito anziché combinare questi sistemi SAP in subnet separate nella stessa rete virtuale.
 
- Un'architettura di rete più scalabile per SAP HANA in Azure (istanze Large):
+ Un'architettura di rete più scalabile per SAP HANA in Azure (istanze di grandi dimensioni):
 
 ![Distribuire il livello applicazione SAP su più reti virtuali](./media/hana-overview-architecture/image4-networking-architecture.png)
 

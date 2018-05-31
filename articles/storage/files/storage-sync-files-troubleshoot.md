@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010925"
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Risolvere i problemi di Sincronizzazione File di Azure (anteprima)
 È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -34,6 +35,14 @@ L'obiettivo di questo articolo è aiutare l'utente a individuare e risolvere i p
 Se si esegue un'operazione di spostamento delle risorse da una sottoscrizione a un'altra sottoscrizione, verrà impedito lo spostamento delle risorse di sincronizzazione dei file (servizio di sincronizzazione archiviazione). 
 
 ## <a name="agent-installation-and-server-registration"></a>Installazione dell'agente e registrazione del server
+### <a name="during-server-registration-get-the-error-the-term-find-azurermresource-is-not-recognized-as-the-name"></a>Durante la registrazione del server, viene visualizzato l'errore "Il termine "find-AzureRMResource" non è riconosciuto come nome..."
+Il problema è che il cmdlet find-AzureRMResource è stato modificato in AzureRM v6.  La prossima versione dell'agente di sincronizzazione verrà corretta per supportare AzureRM v6.  Fino ad allora, è disponibile una soluzione alternativa a questo problema:
+1. Arrestare il file ServerRegistration.exe corrente tramite taskmgr
+2. Aprire il prompt dei comandi PowerShell come amministratore
+3. PS C:\> Uninstall-Module AzureRM
+4. PS C:\> install-module -name AzureRM -RequiredVersion 5.7.0
+5. Avviare C:\Programmi\Azure\StorageSyncAgent\ServerRegistration.exe.
+
 <a id="agent-installation-failures"></a>**Risolvere gli errori di installazione dell'agente**  
 Se l'installazione dell'agente Sincronizzazione file di Azure ha esito negativo, eseguire il comando seguente per abilitare la registrazione durante l'installazione dell'agente:
 

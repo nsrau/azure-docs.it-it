@@ -1,13 +1,14 @@
 ---
 layout: HubPage
-hide_bc: ''
+hide_bc: true
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
-ms.openlocfilehash: 5084e6f9ab8d73e2c8ffefc95a376bc85222320c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c7f46f9b22bd3696b7d281815687cca2b90b22b3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070057"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -136,6 +137,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="ico48Link">
                                                     <a href="/go/azure/">
+                                                        <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt=""/>
                                                         <span>Go</span>
                                                     </a>
                                                 </div>
@@ -167,7 +169,7 @@ ms.lasthandoff: 03/09/2018
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
-                                                <h4>AI e servizi cognitivi</h4>
+                                                <h4>AI e Servizi cognitivi</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">API Visione artificiale</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/face/">API Viso</a></li>
@@ -186,7 +188,7 @@ ms.lasthandoff: 03/09/2018
                                                 <div class="ico48Link">
                                                     <a href="/cli/azure">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
-                                                        <span>Interfaccia della riga<br />di comando di Azure</span>
+                                                        <span>Azure<br />di comando di Azure</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
@@ -327,7 +329,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
-                                                <p>Data factory</p>
+                                                <p>Data Factory</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -342,7 +344,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/container-registry/">
                                                 <img src="media/index/container-registry.svg" alt="" />
-                                                <p>Registro di sistema del contenitore di Azure</p>
+                                                <p>Registro contenitori di Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -399,7 +401,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
-                                                <p>Data factory</p>
+                                                <p>Data Factory</p>
                                             </a>
                                         </li>
                                         <li>
@@ -449,13 +451,13 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/load-balancer/">
                                                 <img src="media/index/LoadBalancer.svg" alt="" />
-                                                <p>Bilanciamento del carico</p>
+                                                <p>Load Balancer</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/application-gateway/">
                                                 <img src="media/index/ApplicationGateway.svg" alt="" />
-                                                <p>gateway applicazione</p>
+                                                <p>Gateway applicazione</p>
                                             </a>
                                         </li>
                                         <li>
@@ -479,7 +481,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                         <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
-                                                <p>servizio Gestione traffico</p>
+                                                <p>Gestione traffico</p>
                                             </a>
                                         </li>
                                         <li>
@@ -596,13 +598,13 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/cognitive-services/Custom-Vision-Service/home">
                                                 <img src="media/index/cs-custom-vision.svg" alt="" />
-                                                <p>Servizio visione personalizzata</p>
+                                                <p>Servizio visione artificiale personalizzato</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/entitylinking/home">
                                                 <img src="media/index/API_Know_EntityLink.svg" alt="" />
-                                                <p>Collegamento di entità</p>
+                                                <p>Collegamento delle entità</p>
                                             </a>
                                         </li>
                                         <li>
@@ -638,7 +640,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/cognitive-services/speaker-recognition/home">
                                                 <img src="media/index/API_Spc_SpeakerRecognition.svg" alt="" />
-                                                <p>Riconoscimento voce</p>
+                                                <p>Riconoscimento del parlante</p>
                                             </a>
                                         </li>
                                         <li>
@@ -687,7 +689,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Archivio Data Lake</p>
+                                                <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
@@ -726,7 +728,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Analisi dei flussi</p>
+                                                <p>Analisi di flusso</p>
                                             </a>
                                         </li>
                                         <li>
@@ -744,13 +746,13 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Archivio Data Lake</p>
+                                                <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
-                                                <p>Data factory</p>
+                                                <p>Data Factory</p>
                                             </a>
                                         </li>
                                         <li>
@@ -840,7 +842,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Analisi dei flussi</p>
+                                                <p>Analisi di flusso</p>
                                             </a>
                                         </li>
                                         <li>
@@ -926,7 +928,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>Insieme di credenziali di chiave</p>
+                                                <p>Key Vault</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1025,7 +1027,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
-                                                <p>Gestione risorse di Azure</p>
+                                                <p>Azure Resource Manager</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1260,7 +1262,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Bilanciamento del carico</h3>
+                                                    <h3>Load Balancer</h3>
                                                     <p>Garantire livelli elevati di disponibilità e prestazioni di rete per le applicazioni</p>
                                                 </div>
                                             </div>
@@ -1279,7 +1281,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>gateway applicazione</h3>
+                                                    <h3>Gateway applicazione</h3>
                                                     <p>Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico HTTP e controllo della distribuzione incorporati</p>
                                                 </div>
                                             </div>
@@ -1355,7 +1357,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>servizio Gestione traffico</h3>
+                                                    <h3>Gestione traffico</h3>
                                                     <p>Instradare il traffico in ingresso per livelli elevati di prestazioni e disponibilità</p>
                                                 </div>
                                             </div>
@@ -1436,7 +1438,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Archivio Data Lake</h3>
+                                                    <h3>Data Lake Store</h3>
                                                     <p>Repository con iperscalabilità per i carichi di lavoro di analisi dei Big Data</p>
                                                 </div>
                                             </div>
@@ -1712,7 +1714,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Registro di sistema del contenitore di Azure</h3>
+                                                    <h3>Registro contenitori di Azure</h3>
                                                     <p>Archiviare e gestire le immagini dei contenitori in tutti i tipi di distribuzione di Azure</p>
                                                 </div>
                                             </div>
@@ -1926,7 +1928,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data factory</h3>
+                                                    <h3>Data Factory</h3>
                                                     <p>Orchestrazione e gestione della trasformazione e dello spostamento dei dati</p>
                                                 </div>
                                             </div>
@@ -2026,7 +2028,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Servizio visione personalizzata</h3>
+                                                    <h3>Servizio visione artificiale personalizzato</h3>
                                                     <p>Servizio Web personalizzabile che impara a riconoscere contenuti specifici nelle immagini</p>
                                                 </div>
                                             </div>
@@ -2045,7 +2047,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Indicizzatore video</h3>
+                                                    <h3>Video Indexer</h3>
                                                     <p>Cercare, modificare, analizzare e imparare dai video</p>
                                                 </div>
                                             </div>
@@ -2145,7 +2147,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Analisi dei flussi</h3>
+                                                    <h3>Analisi di flusso</h3>
                                                     <p>Elaborazione dei flussi di dati in tempo reale da milioni di dispositivi IoT</p>
                                                 </div>
                                             </div>
@@ -2202,7 +2204,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Archivio Data Lake</h3>
+                                                    <h3>Data Lake Store</h3>
                                                     <p>Repository con iperscalabilità per i carichi di lavoro di analisi dei Big Data</p>
                                                 </div>
                                             </div>
@@ -2221,7 +2223,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data factory</h3>
+                                                    <h3>Data Factory</h3>
                                                     <p>Orchestrazione e gestione della trasformazione e dello spostamento dei dati</p>
                                                 </div>
                                             </div>
@@ -2278,7 +2280,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Servizio bot di Azure</h3>
+                                                    <h3>Servizio Azure Bot</h3>
                                                     <p>Servizio bot intelligente, senza server, con scalabilità su richiesta</p>
                                                 </div>
                                             </div>
@@ -2378,7 +2380,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Analisi dei flussi</h3>
+                                                    <h3>Analisi di flusso</h3>
                                                     <p>Elaborazione dei flussi di dati in tempo reale da milioni di dispositivi IoT</p>
                                                 </div>
                                             </div>
@@ -2554,7 +2556,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data factory</h3>
+                                                    <h3>Data Factory</h3>
                                                     <p>Orchestrazione e gestione della trasformazione e dello spostamento dei dati</p>
                                                 </div>
                                             </div>
@@ -2616,7 +2618,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Insieme di credenziali di chiave</h3>
+                                                    <h3>Key Vault</h3>
                                                     <p>Informazioni su come gestire segreti e chiavi crittografiche</p>
                                                 </div>
                                             </div>
@@ -3025,7 +3027,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Gestione risorse di Azure</h3>
+                                                    <h3>Azure Resource Manager</h3>
                                                     <p>Distribuire e gestire le risorse di Azure</p>
                                                 </div>
                                             </div>
@@ -3254,6 +3256,7 @@ ms.lasthandoff: 03/09/2018
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
