@@ -1,9 +1,9 @@
 ---
-title: Creare un avviso di metrica con un modello di Resource Manager | Microsoft Docs
-description: Informazioni su come usare un modello di Resource Manager per creare un avviso metrica per ricevere notifiche tramite posta elettronica o webhook.
+title: Creare un avviso per metriche classiche in Azure con un modello di Resource Manager | Microsoft Docs
+description: Informazioni su come usare un modello di Resource Manager per creare un avviso per metriche classiche in modo da ricevere notifiche tramite posta elettronica o webhook.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 41d62044-6bc5-4674-b277-45b919f58efe
@@ -12,16 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/21/2017
+ms.date: 4/27/2018
 ms.author: johnkem
-ms.openlocfilehash: ac12605636d21fd0b5c89512c454ef2d899ef6dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c83eeaf6c26aca3acdd43a767aa11357fa502544
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32177300"
 ---
-# <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso metrica con un modello di Resource Manager
+# <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Creare un avviso di metrica classico con un modello di Resource Manager
 Questo articolo mostra come usare un [modello di Resource Manager di Azure](../azure-resource-manager/resource-group-authoring-templates.md) per configurare gli avvisi sulle metriche in Azure. Consente di configurare automaticamente gli avvisi relativi alle risorse al momento della loro creazione, per assicurarsi che tutte le risorse siano correttamente monitorate.
+
+> [!NOTE]
+> 
+> Questo articolo descrive la creazione di **avvisi per metriche classiche**tramite modelli di Resource Manager. Se si vuole creare [avvisi per metriche più nuove](monitoring-near-real-time-metric-alerts.md) tramite i modelli, [questo articolo](monitoring-create-metric-alerts-with-templates.md) offre tutti i dettagli.
+>
+
 
 I passaggi di base sono i seguenti:
 
@@ -30,7 +37,7 @@ I passaggi di base sono i seguenti:
 
 Di seguito viene descritto come creare un modello di Resource Manager prima per un avviso, quindi per un avviso durante la creazione di un'altra risorsa.
 
-## <a name="resource-manager-template-for-a-metric-alert"></a>Modello di Resource Manager per un avviso metrica
+## <a name="resource-manager-template-for-a-classic-metric-alert"></a>Modello di Resource Manager per un avviso per metriche classiche
 Per creare un avviso usando un modello di Resource Manager, creare una risorsa di tipo `Microsoft.Insights/alertRules` e completare tutte le proprietà correlate. Di seguito è riportato un modello che crea una regola di avviso.
 
 ```json
@@ -180,7 +187,7 @@ Per creare un avviso usando un modello di Resource Manager, creare una risorsa d
 
 Una spiegazione dello schema e delle proprietà per una regola di avviso [è disponibile qui](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
-## <a name="resource-manager-template-for-a-resource-with-an-alert"></a>Modello di Resource Manager per una risorsa con un avviso
+## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Modello di Resource Manager per una risorsa con un avviso per metriche classiche
 In genere, un avviso in un modello di Resource Manager è più utile quando si crea un avviso durante la creazione di una risorsa. Ad esempio, si deve verificare che la regola "CPU > 80%" venga impostata ogni volta che si distribuisce una macchina virtuale. A tale scopo, aggiungere la regola di avviso come risorsa nell'array della risorsa per il modello della VM e aggiungere una dipendenza usando la proprietà `dependsOn` all'ID risorsa della VM. L'esempio seguente crea una VM Windows e aggiunge un avviso che informa gli amministratori della sottoscrizione quando l'utilizzo della CPU supera l'80%.
 
 ```json

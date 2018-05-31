@@ -3,7 +3,7 @@ title: Crittografia dei dati inattivi di Microsoft Azure | Microsoft Docs
 description: Questo articolo fornisce una panoramica della crittografia dei dati inattivi di Microsoft Azure, con una descrizione delle funzionalità e considerazioni generali.
 services: security
 documentationcenter: na
-author: YuriDio
+author: barclayn
 manager: mbaldwin
 editor: TomSh
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 54dc97c0d20f90d3b57b715fb21714a11e5a1525
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312577"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi di Azure
 Sono disponibili diversi strumenti in Microsoft Azure per proteggere i dati in base alle esigenze di sicurezza e conformità dell'azienda. Questo documento è incentrato su:
@@ -236,10 +237,10 @@ Tutti i clienti che usano le funzionalità IaaS (Infrastructure as a Service) di
 
 #### <a name="azure-storage"></a>Archiviazione di Azure
 
-L'archiviazione BLOB e file di Azure supporta la crittografia dei dati inattivi per gli scenari di crittografia lato server, nonché i dati dei clienti crittografati (crittografia lato client).
+Tutti i servizi di Archiviazione di Azure (archiviazione BLOB, archiviazione code, archiviazione tabelle e File di Azure) supportano la crittografia lato server da inattivi, con alcuni servizi che supportano le chiavi gestite dal cliente e la crittografia lato client.  
 
-- Lato server: i clienti che usano l'archiviazione BLOB di Azure possono abilitare la crittografia dei dati inattivi in ogni account della risorsa di archiviazione di Azure. Dopo l'abilitazione, la crittografia lato server viene eseguita in modo trasparente per l'applicazione. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/azure/storage/storage-service-encryption).
-- Lato client: la crittografia lato client dei BLOB di Azure è supportata. Quando usano la crittografia lato client, i clienti crittografano i dati e li caricano come un BLOB crittografato. La gestione delle chiavi viene eseguita dal cliente. Per altre informazioni, vedere [Crittografia lato client e insieme di credenziali delle chiavi di Azure per Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
+- Lato server: tutti i servizi di archiviazione di Azure abilitano la crittografia lato server per impostazione predefinita con chiavi gestite dal servizio, in modo trasparente all'applicazione. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/azure/storage/storage-service-encryption). Archiviazione BLOB di Azure e File di Azure supportano anche chiavi gestite dal cliente in Azure Key Vault. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys).
+- Lato client: BLOB di Azure, tabelle e code di Azure supportano la crittografia lato client. Quando usano la crittografia lato client, i clienti crittografano i dati e li caricano come un BLOB crittografato. La gestione delle chiavi viene eseguita dal cliente. Per altre informazioni, vedere [Crittografia lato client e Azure Key Vault per Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
 #### <a name="sql-azure"></a>SQL Azure
@@ -257,10 +258,10 @@ La crittografia lato client dei dati di SQL Azure è supportata tramite la funzi
 | **Archiviazione e database**            |                |                     |                              |                              |        |
 | Disco (IaaS)                      |                | -                   | Sì                          | Sì*                         | -      |
 | SQL Server (IaaS)                |                | Sì                 | Sì                          | Sì                          | Sì    |
-| SQL Azure (PaaS)                 |                | Sì                 | Preview                      | -                            | Sì    |
-| Archiviazione di Azure (BLOB di blocchi/pagine) |                | Sì                 | Preview                      | -                            | Sì    |
-| Archiviazione di Azure (file)            |                | Sì                 | -                            | -                            | -      |
-| Archiviazione di Azure (tabelle, code)   |                | -                   | -                            | -                            | Sì    |
+| SQL Azure (PaaS)                 |                | Sì                 | Sì                          | -                            | Sì    |
+| Archiviazione di Azure (BLOB di blocchi/pagine) |                | Sì                 | Sì                          | -                            | Sì    |
+| Archiviazione di Azure (file)            |                | Sì                 | Sì                          | -                            | -      |
+| Archiviazione di Azure (tabelle, code)   |                | Sì                 | -                            | -                            | Sì    |
 | Cosmos DB (Document DB)          |                | Sì                 | -                            | -                            | -      |
 | StorSimple                       |                | Sì                 | -                            | -                            | Sì    |
 | Backup                           |                | -                   | -                            | -                            | Sì    |
@@ -275,7 +276,7 @@ La crittografia lato client dei dati di SQL Azure è supportata tramite la funzi
 | Power BI                         |                | Sì                 | -                            | -                            | -      |
 | **Servizi IoT**                     |                |                     |                              |                              |        |
 | Hub IoT                          |                | -                   | -                            | -                            | Sì    |
-| Bus di servizio                      |                | Sì (livello Premium)              | -                            | -                            | Sì    |
+| Bus di servizio                      |                | Sì              | -                            | -                            | Sì    |
 | Hub eventi                       |                | Sì             | -                            | -                            | -      |
 
 

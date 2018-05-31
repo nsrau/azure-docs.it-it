@@ -6,24 +6,27 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 05/02/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3d73cae0975bea0332c2d266d2745773b373b7d8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33762371"
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Connessioni dell'account LinkedIn per app e servizi Microsoft
 Questo articolo spiega come gestire le connessioni dell'account LinkedIn per il tenant nell'interfaccia di amministrazione di Azure Active Directory (Azure AD). 
 
 > [!IMPORTANT]
 > La funzionalità delle connessioni dell'account LinkedIn è attualmente in corso di distribuzione nei tenant di Azure AD. Quando viene distribuita nel tenant, questa funzionalità è abilitata per impostazione predefinita. Non è disponibile per i clienti del settore pubblico degli Stati Uniti e le organizzazioni con cassette postali di Exchange Online ospitate in Australia, Canada, Cina, Francia, Germania, India, Corea del Sud, Regno Unito, Giappone e Sudafrica. Il supporto per queste località delle cassette postali sarà presto disponibile.  Per una visualizzazione aggiornata delle informazioni di implementazione, vedere la pagina [Roadmap di Office 365](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc).
+
+## <a name="benefit-to-users"></a>Vantaggi per gli utenti
+Dopo che gli utenti connettono il proprio account LinkedIn, le informazioni di LinkedIn vengono usate per mostrare informazioni e funzionalità personalizzate in diversi servizi o app di Microsoft. Gli utenti possono visualizzare informazioni dettagliate sui propri colleghi nella scheda del profilo Microsoft, anche se si tratta di persone esterne all'organizzazione. Nel tempo, anche l'esperienza LinkedIn diventerà più personalizzata e pertinente al proprio lavoro. Ad esempio, LinkedIn può suggerire nuove connessioni in base ai collaboratori degli utenti o alle informazioni dettagliate di Surface sulle persone presenti nel calendario in tale giorno.
 
 ## <a name="how-linkedin-account-connections-appear-to-the-user"></a>Modalità di visualizzazione delle connessioni dell'account LinkedIn per l'utente
 Le connessioni dell'account LinkedIn consentono agli utenti di visualizzare le informazioni del profilo LinkedIn disponibili pubblicamente all'interno di alcune delle app Microsoft. Gli utenti nel tenant possono scegliere di connettere il proprio account LinkedIn e l'account Microsoft aziendale o dell'istituto di istruzione per visualizzare altre informazioni del profilo LinkedIn. Per altri dettagli, vedere [LinkedIn information and features in Microsoft apps and services](https://go.microsoft.com/fwlink/?linkid=850740) (Informazioni e funzionalità di LinkedIn nelle app e nei servizi Microsoft).

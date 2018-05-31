@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate per la sicurezza per MFA | Microsoft Docs
-description: Questo documento illustra le procedure consigliate per l'uso di Azure MFA con account Azure
+title: Linee guida sulla sicurezza per MFA | Microsoft Docs
+description: Questo documento include le linee guida relative all'uso di Azure MFA con account Azure
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
@@ -15,19 +15,20 @@ ms.date: 06/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 0fd90c4e59fa64c24ecfa6d7d8f23e025210e078
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 50e6cd3c067e09ebf9ace442894d5d066141e0b6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32152299"
 ---
-# <a name="security-best-practices-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Procedure consigliate sulla sicurezza per usare Azure Multi-Factor Authentication con account Azure AD
+# <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Linee guida sulla sicurezza per l'uso di Azure Multi-Factor Authentication con account Azure AD
 
 La scelta preferita per migliorare il processo di autenticazione nella maggior parte delle organizzazioni è la verifica in due passaggi. Azure Multi-Factor Authentication (MFA) consente alle aziende di soddisfare i requisiti di sicurezza e conformità, offrendo un'esperienza di accesso semplice per gli utenti. Questo articolo illustra alcuni consigli che è consigliabile considerare quando si pianifica l'adozione di Azure MFA.
 
 ## <a name="deploy-azure-mfa-in-the-cloud"></a>Distribuire Azure MFA nel cloud
 
-Esistono due modi per abilitare Azure MFA per tutti gli utenti.
+È possibile [abilitare Azure MFA per tutti gli utenti](howto-mfa-getstarted.md) usando due metodi diversi.
 
 * Acquistare licenze per ogni utente (Azure MFA, Azure AD Premium o Enterprise Mobility + Security)
 * Creare un provider di Multi-Factor Authentication scegliendo di pagare in base al numero di utenti o di autenticazioni
@@ -46,12 +47,12 @@ Quando si configura l'autenticazione Multi-Factor Authentication, tenere in cons
 ### <a name="multi-factor-auth-provider"></a>Provider di Multi-Factor Authentication
 ![Provider di Multi-Factor Authentication](./media/multi-factor-authentication-security-best-practices/authprovider.png)
 
-Se non si dispone di licenze che includono Azure MFA, è possibile creare un provider di autenticazione MFA. 
+In assenza di licenze che includono Azure MFA, è possibile [creare un provider di autenticazione MFA](concept-mfa-authprovider.md).
 
 Quando si crea il provider di autenticazione, è necessario selezionare una directory e considerare quanto segue:
 
-* Non è necessaria una directory di Azure AD per creare un provider Multi-Factor Authentication, ma con una è possibile ottenere più funzionalità. Le seguenti funzionalità vengono abilitate associando il provider di Multi-Factor Authentication a una directory di Azure AD:  
-  * Estendere la verifica in due passaggi a tutti gli utenti  
+* Non è necessaria una directory di Azure AD per creare un provider Multi-Factor Authentication, ma con una è possibile ottenere più funzionalità. Le seguenti funzionalità vengono abilitate associando il provider di Multi-Factor Authentication a una directory di Azure AD:
+  * Estendere la verifica in due passaggi a tutti gli utenti
   * Offrire funzionalità aggiuntive agli amministratori globali, ad esempio il portale di gestione, messaggi di saluto personalizzati e report.
 * Se si esegue la sincronizzazione dell'ambiente Active Directory locale con una directory di Azure AD, sono necessarie le funzionalità DirSync o AAD Sync. Se si usa una directory di Azure AD non sincronizzata con un'istanza locale di Active Directory, non sono necessarie le funzionalità DirSync o AAD Sync.
 * Scegliere il modello di consumo più adatto alle esigenze aziendali. Dopo aver selezionato il modello non sarà possibile modificarlo. I due modelli sono:
@@ -65,7 +66,7 @@ Poiché la maggior parte degli utenti è abituata a usare le password solo per l
 * La [funzionalità per gli indirizzi IP attendibili](howto-mfa-mfasettings.md#trusted-ips) in Azure MFA può essere considerata come un modo per ridurre al minimo la verifica in due passaggi. Questa funzionalità consente agli amministratori di un tenant gestito o federato di ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet locale dell'azienda. Le funzionalità sono disponibili per i tenant di Azure AD che dispongono di licenze Azure AD Premium, Enterprise Mobility Suite o Azure Multi-Factor Authentication.
 
 ## <a name="best-practices-for-an-on-premises-deployment"></a>Procedure consigliate per una distribuzione locale
-Se la società ha deciso di sfruttare la propria infrastruttura per abilitare MFA, è necessario distribuire un server Azure Multi-Factor Authentication locale. I componenti del server MFA sono illustrati nel diagramma seguente:
+Se la società decide di sfruttare la propria infrastruttura per abilitare MFA, è necessario [distribuire un server Microsoft Azure Multi-Factor Authentication in locale](howto-mfaserver-deploy.md). I componenti del server MFA sono illustrati nel diagramma seguente:
 
 ![Componenti predefiniti di un server MFA: console, motore di sincronizzazione, portale di gestione, servizio cloud](./media/multi-factor-authentication-security-best-practices/server.png) \*Non installato per impostazione predefinita \**Installato ma non abilitato per impostazione predefinita
 
@@ -112,4 +113,3 @@ Anche se questo articolo evidenzia alcune procedure consigliate per Azure MFA, s
 * [Report in Azure Multi-Factor Authentication](howto-mfa-reporting.md)
 * [L'esperienza di registrazione della verifica in due passaggi](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
 * [Domande frequenti su Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
-

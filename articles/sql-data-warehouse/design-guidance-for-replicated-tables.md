@@ -7,21 +7,18 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: b1d60cc0a83c95c5e33fbaae6083572af3e183ad
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1cc796061056ff017e3d778ebb2e50e13d55a4c1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32189565"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Linee guida di progettazione per l'uso di tabelle replicate in Azure SQL Data Warehouse
 Questo articolo offre alcuni consigli per la progettazione di tabelle replicate nello schema Azure SQL Data Warehouse. Usare questi consigli per migliorare le prestazioni delle query riducendo lo spostamento dei dati e la complessità delle query stesse.
-
-> [!NOTE]
-> La funzionalità delle tabelle replicate è attualmente disponibile in anteprima pubblica. Alcuni comportamenti sono soggetti a modifiche.
-> 
 
 ## <a name="prerequisites"></a>prerequisiti
 Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati in SQL Data Warehouse.  Per altre informazioni, vedere l'articolo relativo all'[architettura](massively-parallel-processing-mpp-architecture.md). 
@@ -44,20 +41,13 @@ Le tabelle replicate sono più adatte per piccole tabelle delle dimensioni in un
 Provare a usare una tabella replicata nei casi seguenti:
 
 - La dimensione della tabella su disco è inferiore a 2 GB, indipendentemente dal numero di righe. Per individuare la dimensione di una tabella, usare il comando [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql): `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
-- La tabella viene usata in join che richiederebbero altrimenti lo spostamento dei dati. Ad esempio, un join in tabelle con distribuzione hash richiede lo spostamento dei dati quando le colonne di join non si trovano nella stessa colonna di distribuzione. Se una delle tabelle con distribuzione hash ha dimensioni ridotte, provare una tabella replicata. Un join in una tabella round robin richiede lo spostamento dei dati. È consigliabile usare tabelle replicate invece di tabelle round robin nella maggior parte dei casi. 
-
-
-Provare a convertire una tabella distribuita esistente in una tabella replicata nei casi seguenti:
-
-- I piani di query usano operazioni di spostamento dei dati che trasmettono i dati a tutti i nodi di calcolo. L'operazione BroadcastMoveOperation è costosa e rallenta le prestazioni delle query. Per visualizzare le operazioni di spostamento dei dati nei piani di query, usare [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).
+- La tabella viene usata in join che richiederebbero altrimenti lo spostamento dei dati. Quando si crea un join di tabelle non distribuite nella stessa colonna, ad esempio una tabella con distribuzione hash in una tabella round robin, è necessario lo spostamento dei dati per completare la query.  Se una delle tabelle ha dimensioni ridotte, provare una tabella replicata. È consigliabile usare tabelle replicate invece di tabelle round robin nella maggior parte dei casi. Per visualizzare le operazioni di spostamento dei dati nei piani di query, usare [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).  L'operazione tipica di spostamento di dati che può essere eliminata usando una tabella replicata è BroadcastMoveOperation.  
  
 Le tabelle replicate possono essere causa di prestazioni delle query non ottimali nei casi seguenti:
 
 - La tabella prevede frequenti operazioni di inserimento, aggiornamento ed eliminazione. Queste operazioni di Data Manipulation Language (DML) richiedono una ricompilazione della tabella replicata. La ricompilazione causa spesso un rallentamento delle prestazioni.
 - Il data warehouse viene ridimensionato spesso. Il ridimensionamento di un data warehouse comporta la modifica del numero dei nodi di calcolo, che richiede una ricompilazione.
-- La tabella include un numero elevato di colonne, ma le operazioni sui dati accedono in genere solo a una quantità ridotta di colonne. In questo scenario, invece di replicare l'intera tabella, può essere più efficace eseguire una distribuzione hash della tabella e quindi creare un indice per le colonne cui si accede di frequente. Quando una query richiede lo spostamento dei dati, SQL Data Warehouse sposta solo i dati presenti nelle colonne richieste. 
-
-
+- La tabella include un numero elevato di colonne, ma le operazioni sui dati accedono in genere solo a una quantità ridotta di colonne. In questo scenario, invece di replicare l'intera tabella, può essere più efficace eseguire una distribuzione della tabella e quindi creare un indice per le colonne cui si accede di frequente. Quando una query richiede lo spostamento dei dati, SQL Data Warehouse sposta solo i dati per le colonne richieste. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Usare tabelle replicate con predicati di query semplici
 Prima di scegliere di distribuire o replicare una tabella, considerare i tipi di query che si prevede di eseguire sulla tabella. Se possibile:
@@ -67,7 +57,7 @@ Prima di scegliere di distribuire o replicare una tabella, considerare i tipi di
 
 Le query che richiedono un uso intensivo della CPU hanno prestazioni migliori quando il lavoro viene distribuito tra tutti i nodi di calcolo. Ad esempio, le query che eseguono calcoli in ogni riga di una tabella hanno prestazioni migliori nelle tabelle distribuite che non nelle tabelle replicate. Poiché una tabella replicata viene completamente archiviata in ogni nodo di calcolo, una query che richiede un uso intensivo di CPU su una tabella replicata viene eseguita sull'intera tabella in ogni nodo di calcolo. Il calcolo aggiuntivo può rallentare le prestazioni delle query.
 
-Questa query, ad esempio, ha un predicato complesso.  Viene eseguita più rapidamente quando il fornitore è una tabella distribuita invece di una tabella replicata. In questo esempio il fornitore può avere una distribuzione hash o una distribuzione round robin.
+Questa query, ad esempio, ha un predicato complesso.  Viene eseguita più rapidamente quando il fornitore è una tabella distribuita invece di una tabella replicata. In questo esempio il fornitore può avere una distribuzione round robin.
 
 ```sql
 
@@ -132,7 +122,7 @@ WHERE d.FiscalYear = 2004
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Considerazioni sulle prestazioni per la modifica di tabelle replicate
-SQL Data Warehouse implementa una tabella replicata mantenendo una versione master della tabella. Il servizio copia la versione master in un database di distribuzione in ogni nodo di calcolo. Quando viene apportata una modifica, SQL Data Warehouse aggiorna prima la tabella master. Richiede quindi una ricompilazione delle tabelle in ogni nodo di calcolo. Una ricompilazione di una tabella replicata include la copia della tabella in ogni nodo di calcolo e quindi la ricompilazione degli indici.
+SQL Data Warehouse implementa una tabella replicata mantenendo una versione master della tabella. Il servizio copia la versione master in un database di distribuzione in ogni nodo di calcolo. Quando viene apportata una modifica, SQL Data Warehouse aggiorna prima la tabella master. Esegue quindi la ricompilazione delle tabelle in ogni nodo di calcolo. La ricompilazione di una tabella replicata include la copia della tabella in ogni nodo di calcolo e quindi la compilazione degli indici.  Ad esempio una tabella replicata su DW400 ha 5 copie di dati.  Una copia master e una copia completa in ogni nodo di calcolo.  Tutti i dati vengono archiviati nei database di distribuzione. SQL Data Warehouse usa questo modello per supportare istruzioni di modifica dei dati più veloci e operazioni di scalabilità flessibili. 
 
 Le compilazioni sono necessarie dopo le operazioni seguenti:
 - Vengono caricati o modificati dati
@@ -143,7 +133,7 @@ Le ricompilazioni non sono necessarie dopo le operazioni seguenti:
 - Operazione di sospensione
 - Operazione di ripresa
 
-La ricompilazione non viene eseguita immediatamente dopo la modifica dei dati. Al contrario, la ricompilazione viene attivata la prima volta che una query esegue una selezione dalla tabella.  Nell'istruzione di selezione iniziale dalla tabella sono inclusi i passaggi per ricompilare la tabella replicata.  Poiché la ricompilazione viene eseguita all'interno della query, l'impatto dell'istruzione di selezione iniziale può essere significativo, a seconda delle dimensioni della tabella.  Se sono interessate più tabelle replicate che richiedono una ricompilazione, ogni copia viene ricompilata in serie come passaggi all'interno dell'istruzione.  Per mantenere la coerenza dei dati durante la ricompilazione della tabella replicata, viene applicato un blocco esclusivo alla tabella.  Il blocco impedisce qualsiasi accesso alla tabella durante la ricompilazione. 
+La ricompilazione non viene eseguita immediatamente dopo la modifica dei dati. Al contrario, la ricompilazione viene attivata la prima volta che una query esegue una selezione dalla tabella.  La query che ha attivato la ricompilazione esegue la lettura immediatamente dalla versione master della tabella, mentre i dati vengono copiati in modo asincrono in ogni nodo di calcolo. Fino al completamento della copia dei dati, le query successive continueranno a usare la versione master della tabella.  Se viene eseguita un'attività in base alla tabella replicata che forza un'altra ricompilazione, la copia dei dati viene invalidata e l'istruzione SELECT successiva attiverà di nuovo la copia dei dati. 
 
 ### <a name="use-indexes-conservatively"></a>Usare gli indici con moderazione
 Alle tabelle replicate si applicano le procedure di indicizzazione standard. SQL Data Warehouse ricompila ogni indice di tabella replicata come parte della ricompilazione. Usare gli indici solo quando le prestazioni sono più importanti del costo della ricompilazione degli indici.  
@@ -172,7 +162,7 @@ Ad esempio, questo modello di carico carica dati da quattro origini, ma richiama
 
 
 ### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>Ricompilare una tabella replicata dopo un caricamento in batch
-Per garantire tempi di esecuzione di query coerenti, è consigliabile forzare un aggiornamento delle tabelle replicate dopo un caricamento in batch. In caso contrario, la prima query deve attendere l'aggiornamento delle tabelle, che include la ricompilazione degli indici. A seconda delle dimensioni e del numero di tabelle replicate interessate, l'impatto sulle prestazioni può essere significativo.  
+Per garantire tempi di esecuzione di query coerenti, prendere in considerazione di forzare la compilazione delle tabelle replicate dopo un caricamento in batch. In caso contrario, la prima query continuerà a usare lo spostamento dei dati per completare la query. 
 
 Questa query usa la DMV [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) per elencare le tabelle replicate che sono state modificate, ma non ricompilate.
 
@@ -187,7 +177,7 @@ SELECT [ReplicatedTable] = t.[name]
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
  
-Per forzare una ricompilazione, eseguire l'istruzione seguente in ogni tabella nell'output precedente. 
+Per attivare una ricompilazione, eseguire l'istruzione seguente in ogni tabella nell'output precedente. 
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]

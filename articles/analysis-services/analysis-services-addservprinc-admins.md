@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9c6417e069bbed38b1f6e9317636a10834ce7197
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f1cc563cc13a9102dbdac7bd505b4dd844ff8247
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149264"
 ---
-# <a name="add-a-service-principle-to-the-server-administrator-role"></a>Aggiungere un'entità servizio al ruolo di amministratore del server 
+# <a name="add-a-service-principal-to-the-server-administrator-role"></a>Aggiungere un'entità servizio al ruolo di amministratore del server 
 
  Per automatizzare le attività di PowerShell, un'entità servizio deve avere privilegi di **amministratore del server** nel server Analysis Services gestito. Questo articolo descrive come aggiungere un'entità servizio al ruolo di amministratore del server in un server Azure Analysis Services.
 
@@ -27,7 +28,7 @@ Prima di completare questa attività, è necessario aver creato un'entità servi
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 Per completare questa attività, è necessario avere autorizzazioni di [amministratore del server](analysis-services-server-admins.md) nel server Azure Analysis Services. 
 
-## <a name="add-service-principle-to-server-administrators-role"></a>Aggiungere un'entità servizio al ruolo di amministratore del server
+## <a name="add-service-principal-to-server-administrators-role"></a>Aggiungere un'entità servizio al ruolo di amministratore del server
 
 1. In SSMS connettersi al server Azure Analysis Services.
 2. In **Proprietà server** > **Sicurezza** fare clic su **Aggiungi**.

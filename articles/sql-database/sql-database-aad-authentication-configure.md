@@ -1,5 +1,5 @@
 ---
-title: Configurare Azure Active Directory Authentication Library - SQL | Documentazione Microsoft
+title: Configurare Azure Active Directory Authentication Library - SQL | Microsoft Docs
 description: Informazioni su come eseguire la connessione al database SQL, a Istanza gestita e a SQL Data Warehouse con l'autenticazione di Azure Active Directory, dopo aver configurato Azure AD.
 services: sql-database
 author: GithubMirek
@@ -9,11 +9,12 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 1f5f4a4ece116503c8ddb5eaa4998b5b1a407bb1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5451046eb2bfc611db863d18cee93a248e651f88
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194250"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL, con Istanza gestita oppure con SQL Data Warehouse
 
@@ -50,7 +51,7 @@ Quando si usa Azure Active Directory con la replica geografica, l'amministratore
 
 Per poter completare attività quali l'autenticazione degli utenti tramite l'appartenenza al gruppo di sicurezza o la creazione di nuovi utenti, l'istanza gestita deve disporre di autorizzazioni per la lettura di Azure AD. È quindi necessario concedere tali autorizzazioni all'istanza gestita. Per eseguire questa operazione sono disponibili due metodi. È possibile usare il portale e PowerShell. I passaggi seguenti illustrano entrambi i metodi.
 
-1. Nell'angolo in alto a destra del portale di Azure fare clic sulla connessione per visualizzare un elenco a discesa delle possibili directory di Active Directory. 
+1. Nell'angolo in alto a destra del portale di Azure scegliere la connessione per visualizzare un elenco a discesa delle possibili directory di Active Directory. 
 2. Scegliere la directory corretta come directory predefinita di Azure AD. 
 
    Questo passaggio collega la sottoscrizione associata ad Active Directory con Istanza gestita, verificando che venga usata la stessa sottoscrizione per Azure AD e per l'istanza gestita.
@@ -58,7 +59,7 @@ Per poter completare attività quali l'autenticazione degli utenti tramite l'app
 
    ![aad](./media/sql-database-aad-authentication/aad.png)
 
-4.  Fare clic sul banner nella parte superiore della pagina Amministratore di Active Directory. Se si è connessi come amministratore globale/aziendale in Azure AD, è possibile eseguire questa operazione dal portale di Azure o tramite PowerShell.
+4.  Selezionare il banner nella parte superiore della pagina Amministratore di Active Directory. Se si è connessi come amministratore globale/aziendale in Azure AD, è possibile eseguire questa operazione dal portale di Azure o tramite PowerShell.
 
     ![concessione di autorizzazioni-portale](./media/sql-database-aad-authentication/grant-permissions.png)
 
@@ -70,17 +71,17 @@ Per poter completare attività quali l'autenticazione degli utenti tramite l'app
 
     ![esito positivo](./media/sql-database-aad-authentication/success.png)
 
-6.  È ora possibile scegliere l'amministratore di Azure AD per l'istanza gestita. Nella pagina Amministratore di Active Directory fare clic sul comando **Imposta amministratore**.
+6.  È ora possibile scegliere l'amministratore di Azure AD per l'istanza gestita. Nella pagina Amministratore di Active Directory selezionare il comando **Imposta amministratore**.
 
     ![set-admin](./media/sql-database-aad-authentication/set-admin.png)
 
-7. Nella pagina Aggiungi amministratore cercare un utente, selezionare l'utente o il gruppo da impostare come amministratore e quindi fare clic su **Seleziona**. 
+7. Nella pagina Aggiungi amministratore cercare un utente, selezionare l'utente o il gruppo da impostare come amministratore e quindi scegliere **Seleziona**. 
 
    La pagina Amministratore di Active Directory mostra tutti i membri e i gruppi di Active Directory. Gli utenti e i gruppi non disponibili (in grigio) non possono essere selezionati, perché non sono supportati come amministratori di Azure AD. Vedere l'elenco degli amministratori supportati in [Funzionalità e limitazioni di Azure AD](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Il controllo degli accessi in base al ruolo (RBAC) si applica solo al portale di Azure e non viene propagato a SQL Server.
 
     ![add-admin](./media/sql-database-aad-authentication/add-admin.png)
 
-8. Nella parte superiore della pagina Amministratore di Active Directory fare clic su **Salva**.
+8. Nella parte superiore della pagina Amministratore di Active Directory scegliere **Salva**.
 
     ![Salva](./media/sql-database-aad-authentication/save.png)
 
@@ -90,7 +91,7 @@ Per poter completare attività quali l'autenticazione degli utenti tramite l'app
 > Quando si configura l'amministratore di Azure AD il nuovo nome dell'amministratore, utente o gruppo, non può essere già presente nel database master virtuale come un utente dell'autenticazione del server SQL. Se il nome è già presente, l'impostazione dell'amministratore di Azure AD avrà esito negativo. Verrà quindi eseguito il rollback del processo di creazione segnalando che il nome di amministratore specificato esiste già. Poiché tale utente dell'autenticazione del server SQL non è parte di Azure AD, qualsiasi tentativo di connettersi al server mediante l'autenticazione di Azure AD ha esito negativo.
 
 > [!TIP]
-> Per rimuovere un amministratore in un secondo momento, nella parte superiore della pagina Amministratore di Active Directory fare clic su **Rimuovi amministratore** e quindi su **Salva**.
+> Per rimuovere un amministratore in un secondo momento, nella parte superiore della pagina Amministratore di Active Directory scegliere **Rimuovi amministratore** e quindi **Salva**.
  
 ## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server"></a>Effettuare il provisioning di un amministratore di Azure Active Directory per il server di database SQL di Azure
 
@@ -100,17 +101,24 @@ Per poter completare attività quali l'autenticazione degli utenti tramite l'app
 Le due procedure seguenti illustrano come eseguire il provisioning di un amministratore di Azure Active Directory per il server SQL Azure usando il portale di Azure e PowerShell.
 
 ### <a name="azure-portal"></a>Portale di Azure
-1. Nell'angolo in alto a destra del [portale di Azure](https://portal.azure.com/)fare clic sulla connessione per visualizzare un elenco a discesa delle possibili directory di Active Directory. Scegliere la directory corretta come directory predefinita di Azure AD. Questo passaggio collega la directory di Active Directory associata alla sottoscrizione con il server SQL di Azure, assicurando che la stessa sottoscrizione venga usata per Azure AD e per SQL Server. Il server SQL di Azure può ospitare il database SQL di Azure o Azure SQL Data Warehouse.   
+1. Nell'angolo in alto a destra del [portale di Azure](https://portal.azure.com/) scegliere la connessione per visualizzare un elenco a discesa delle possibili directory di Active Directory. Scegliere la directory corretta come directory predefinita di Azure AD. Questo passaggio collega la directory di Active Directory associata alla sottoscrizione con il server SQL di Azure, assicurando che la stessa sottoscrizione venga usata per Azure AD e per SQL Server. Il server SQL di Azure può ospitare il database SQL di Azure o Azure SQL Data Warehouse.   
     ![choose-ad][8]   
     
-2. Nel banner a sinistra selezionare **SQL Server**, selezionare l'istanza di **SQL Server** e quindi nella pagina **SQL Server** fare clic su **Amministratore di Active Directory**.   
-3. Nella pagina **Amministratore di Active Directory** fare clic su **Imposta amministratore**.   
+2. Nel banner a sinistra selezionare **All services** (Tutti i servizi) e il tipo di filtro in **SQL server**. Selezionare **SQL server**. 
+
+    ![sqlservers.png](media/sql-database-aad-authentication/sqlservers.png)    
+
+    >[!NOTE]
+    > In questa pagina, prima di selezionare **SQL Server** è possibile selezionare la **stella** accanto al nome per *aggiungere ai preferiti* la categoria e aggiungere **SQL Server**alla barra di navigazione sinistra. 
+
+1. Nella pagina **SQL Server**, selezionare **Amministratore di Active Directory**.   
+2. Nella pagina **Amministratore di Active Directory** selezionare **Imposta amministratore**.   
     ![Selezionare Active Directory](./media/sql-database-aad-authentication/select-active-directory.png)  
     
-4. Nella pagina **Aggiungi amministratore** cercare un utente, selezionare l'utente o il gruppo da impostare come amministratore e quindi fare clic su **Seleziona**. La pagina Amministratore di Active Directory mostra tutti i membri e i gruppi di Active Directory. Gli utenti e i gruppi non disponibili (in grigio) non possono essere selezionati, perché non sono supportati come amministratori di Azure AD. Per l'elenco degli amministratori supportati, vedere la sezione **Funzionalità e limitazioni di Azure AD** in [Usare l'autenticazione di Azure Active Directory per l'autenticazione di un database SQL o di SQL Data Warehouse](sql-database-aad-authentication.md). Il controllo di accesso basata sui ruoli (RBAC) si applica solo al portale e non viene propagato a SQL Server.   
+4. Nella pagina **Aggiungi amministratore** cercare un utente, selezionare l'utente o il gruppo da impostare come amministratore e quindi scegliere **Seleziona**. La pagina Amministratore di Active Directory mostra tutti i membri e i gruppi di Active Directory. Gli utenti e i gruppi non disponibili (in grigio) non possono essere selezionati, perché non sono supportati come amministratori di Azure AD. Per l'elenco degli amministratori supportati, vedere la sezione **Funzionalità e limitazioni di Azure AD** in [Usare l'autenticazione di Azure Active Directory per l'autenticazione di un database SQL o di SQL Data Warehouse](sql-database-aad-authentication.md). Il controllo di accesso basata sui ruoli (RBAC) si applica solo al portale e non viene propagato a SQL Server.   
     ![Selezionare l'amministratore](./media/sql-database-aad-authentication/select-admin.png)  
     
-5. Nella parte superiore della pagina **Amministratore di Active Directory** fare clic su **Salva**.   
+5. Nella parte superiore della pagina **Amministratore di Active Directory** scegliere **SALVA**.   
     ![Salvare l'impostazione dell'amministratore](./media/sql-database-aad-authentication/save-admin.png)   
 
 Il processo di modifica dell'amministratore può richiedere alcuni minuti. Il nuovo amministratore è quindi visualizzato nella casella **Amministratore di Active Directory** .
@@ -120,7 +128,7 @@ Il processo di modifica dell'amministratore può richiedere alcuni minuti. Il nu
    > 
 
 
-Per rimuovere un amministratore in un secondo momento, nella parte superiore della pagina **Amministratore di Active Directory** fare clic su **Rimuovi amministratore** e quindi su **Salva**.
+Per rimuovere un amministratore in un secondo momento, nella parte superiore della pagina **Amministratore di Active Directory** scegliere **Rimuovi amministratore** e quindi **Salva**.
 
 ### <a name="powershell"></a>PowerShell
 Per eseguire i cmdlet di PowerShell, è necessario che Azure PowerShell sia installato e in esecuzione. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
@@ -273,7 +281,7 @@ Usare questo metodo se si è connessi a Windows con le credenziali di Azure Acti
 1. Avviare Management Studio o Data Tools e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) e selezionare **Active Directory - Integrata** nella casella **Autenticazione**. La password non è necessaria e non può essere immessa, perché per la connessione vengono presentate le credenziali esistenti.   
 
     ![Selezionare Autenticazione integrata di Active Directory][11]
-2. Fare clic sul pulsante **Opzioni**, quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui si desidera connettersi nella casella **Connetti al database**. L'opzione **ID tenant o nome di dominio AD** è supportata solo per le opzioni di connessione **Universale con supporto MFA**. Negli altri casi non è disponibile.  
+2. Scegliere il pulsante **Opzioni**, quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui si desidera connettersi nella casella **Connect to database** (Connetti al database). L'opzione **ID tenant o nome di dominio AD** è supportata solo per le opzioni di connessione **Universale con supporto MFA**. Negli altri casi non è disponibile.  
 
     ![Selezionare il nome del database][13]
 
@@ -289,7 +297,7 @@ Un utente nativo è un utente creato in modo esplicito in Azure AD e autenticato
 3. Nella casella **Password** digitare la password utente dell'account Azure Active Directory o dell'account di dominio federato.
 
     ![Selezionare Autenticazione della password di Active Directory][12]
-4. Fare clic sul pulsante **Opzioni**, quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui si desidera connettersi nella casella **Connetti al database**. Vedere il grafico nell'opzione precedente.
+4. Scegliere il pulsante **Opzioni**, quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui si desidera connettersi nella casella **Connect to database** (Connetti al database). Vedere il grafico nell'opzione precedente.
 
 ## <a name="using-an-azure-ad-identity-to-connect-from-a-client-application"></a>Utilizzo di un'identità di Azure Active Directory per connettersi da un'applicazione client
 

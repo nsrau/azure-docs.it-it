@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2018
+ms.date: 05/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 22eee6c2253e6b1ff92de0cebf4fea451a0a8fe5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e293f085eb6c4c90b26ac6035d50d74f5cdd7269
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366889"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)
 
@@ -33,7 +34,7 @@ L'accesso Just-in-Time alle macchine virtuali può essere usato per bloccare il 
 
 Gli attacchi di forza bruta generalmente prendono di mira le porte di gestione per tentare di ottenere l'accesso a una macchina virtuale. Se l'attacco ha esito positivo, un utente malintenzionato può assumere il controllo della macchina virtuale e penetrare nell'ambiente.
 
-Un modo per ridurre l'esposizione agli attacchi di forza bruta consiste nel limitare la quantità di tempo per cui la porta è aperta. Non è necessario lasciare aperte le porte di gestione in qualsiasi momento. Devono essere aperte solo durante la connessione alla macchina virtuale, ad esempio per eseguire attività di gestione o manutenzione. Quando la funzionalità Just-In-Time è abilitata, Centro sicurezza usa le regole del [gruppo di sicurezza di rete ](../virtual-network/virtual-networks-nsg.md) (NSG), che limitano l'accesso alle porte di gestione per impedire che possano essere attaccate da utenti malintenzionati.
+Un modo per ridurre l'esposizione agli attacchi di forza bruta consiste nel limitare la quantità di tempo per cui la porta è aperta. Non è necessario lasciare aperte le porte di gestione in qualsiasi momento. Devono essere aperte solo durante la connessione alla macchina virtuale, ad esempio per eseguire attività di gestione o manutenzione. Quando la funzionalità JIT è abilitata, Centro sicurezza usa le regole del [gruppo di sicurezza di rete](../virtual-network/security-overview.md#security-rules) (NSG), che limitano l'accesso alle porte di gestione per impedire che possano essere attaccate da utenti malintenzionati.
 
 ![Scenario Just-in-Time][1]
 
@@ -41,7 +42,7 @@ Un modo per ridurre l'esposizione agli attacchi di forza bruta consiste nel limi
 
 Quando è abilitata la funzionalità Just-in-Time, Centro sicurezza protegge il traffico in ingresso alle macchine virtuali di Azure creando una regola NSG. Selezionare le porte nella macchina virtuale per cui proteggere il traffico in ingresso. Queste porte sono controllate dalla soluzione Just-in-Time.
 
-Quando un utente richiede l'accesso a una macchina virtuale, il Centro sicurezza controlla che abbuia le autorizzazioni di [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md) che forniscono l'accesso in scrittura alla VM. Se l'utente dispone delle autorizzazioni di scrittura, la richiesta viene approvata e Centro sicurezza configura automaticamente i gruppi di sicurezza di rete per consentire il traffico in entrata alle porte di gestione per il periodo di tempo specificato. Al termine di questo periodo, Centro sicurezza ripristina gli stati precedenti dei gruppi di sicurezza di rete.
+Quando un utente richiede l'accesso a una macchina virtuale, il Centro sicurezza controlla che abbuia le autorizzazioni di [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md) che forniscono l'accesso in scrittura alla VM. Se l'utente dispone delle autorizzazioni di scrittura, la richiesta viene approvata e Centro sicurezza configura automaticamente i gruppi di sicurezza di rete per consentire il traffico in entrata alle porte selezionate per il periodo di tempo specificato. Al termine di questo periodo, Centro sicurezza ripristina gli stati precedenti dei gruppi di sicurezza di rete.
 
 > [!NOTE]
 > L'accesso Just-in-Time alle macchine virtuali in Centro sicurezza attualmente supporta solo le macchine virtuali distribuite tramite Azure Resource Manager. Per altre informazioni sui modelli di distribuzione classica e con Azure Resource Manager, vedere [Distribuzione Azure Resource Manager o classica](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -119,6 +120,16 @@ Per richiedere l'accesso a una macchina virtuale:
 
 4. In **Richiedi accesso** è possibile configurare, per ogni macchina virtuale, le porte da aprire, l'indirizzo IP di origine per cui la porta viene aperta e l'intervallo di tempo per l'apertura della porta. È possibile richiedere l'accesso solo alle porte configurate nei criteri Just-In-Time. Ogni porta ha un tempo massimo consentito, derivato dai criteri Just-In-Time.
 5. Selezionare **Open ports** (Apri porte).
+
+> [!NOTE]
+> Quando un utente richiede l'accesso a una macchina virtuale, il Centro sicurezza controlla che abbuia le autorizzazioni di [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md) che forniscono l'accesso in scrittura alla VM. Se dispone delle autorizzazioni di scrittura, la richiesta viene approvata.azioni di scrittura, la richiesta viene approvata.
+>
+>
+
+> [!NOTE]
+> Se un utente che richiede l'accesso si trova dietro un proxy, l'opzione "Indirizzo IP personale" potrebbe non funzionare. Potrebbe essere necessario definire l'intervallo completo dell'organizzazione.
+>
+>
 
 ## <a name="editing-a-just-in-time-access-policy"></a>Modifica dei criteri di accesso Just-In-Time
 

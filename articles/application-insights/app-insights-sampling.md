@@ -1,5 +1,5 @@
 ---
-title: Campionamento della telemetria in Azure Application Insights | Documentazione Microsoft
+title: Campionamento della telemetria in Azure Application Insights | Microsoft Docs
 description: Come tenere sotto controllo il volume della telemetria.
 services: application-insights
 documentationcenter: windows
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: d0614e2eae0f60068e69b7a4687fc62fbe082c64
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8f0c6e6567e82f885bb5cd0c6b6af797b393969c
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32309607"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -38,7 +39,8 @@ Il campionamento riduce i costi del traffico e dei dati e consente di evitare la
 ## <a name="types-of-sampling"></a>Tipi di campionamento
 Esistono tre diversi metodi di campionamento:
 
-* **Campionamento adattivo** , che regola automaticamente il volume dei dati di telemetria inviati dall'SDK nell'app ASP.NET. A partire dalla versione 2.0.0-beta3 dell'SDK questo è il metodo di campionamento predefinito. Il campionamento adattativo è attualmente disponibile solo per la telemetria lato server di ASP.NET. 
+* **Campionamento adattivo** , che regola automaticamente il volume dei dati di telemetria inviati dall'SDK nell'app ASP.NET. A partire dalla versione 2.0.0-beta3 dell'SDK questo è il metodo di campionamento predefinito. Il campionamento adattativo è attualmente disponibile solo per la telemetria lato server di ASP.NET. Per applicazioni Asp.NET Core destinate all'intero framework, è disponibile il campionamento adattivo dalla versione 1.0.0 di Microsoft.ApplicationInsights.AspNetCore SDK. Per applicazioni Asp.NET Core destinate a NetCore, è disponibile il campionamento adattivo dalla versione 2.2.0-beta1 di Microsoft.ApplicationInsights.AspNetCore SDK.
+
 * **Campionamento a frequenza fissa**, che riduce il volume dei dati di telemetria inviati sia dal server ASP.NET o Java che dai browser degli utenti. È necessario impostare la frequenza. Il client e il server sincronizzeranno il rispettivo campionamento in modo che nella ricerca sia possibile spostarsi tra le visualizzazioni pagina e le richieste correlate.
 * **Campionamento per inserimento** funziona nel portale di Azure. Rimuove alcuni dati di telemetria provenienti dall'app, a una velocità di campionamento impostata. Non riduce il traffico di telemetria inviato dall'app, ma consente all'utente di rispettare la quota mensile. Il principale vantaggio del campionamento per inserimento consiste nella possibilità di impostare la velocità di campionamento senza ridistribuire l'app, oltre al fatto di funzionare in modo uniforme per tutti i server e i client. 
 
@@ -335,7 +337,7 @@ Funzionalità di campionamento a frequenza fissa dell'SDK per ASP.NET a partire 
 
 L'algoritmo di campionamento decide quali elementi di telemetria eliminare e quali mantenere, sia che venga eseguito nell'SDK o nel servizio Application Insights. La decisione sul campionamento si basa su alcune regole che hanno lo scopo di lasciare intatti tutti i punti dati correlati, mantenendo in Application Insights un'esperienza di diagnostica sfruttabile e affidabile anche con un set di dati ridotto. Se, ad esempio, per una richiesta non riuscita l'app invia elementi di telemetria aggiuntivi (come eccezioni e tracce registrate da questa richiesta), il campionamento non dividerà la richiesta e il resto della telemetria, ma conserverà o rimuoverà gli elementi tutti insieme. Di conseguenza, quando si osservano i dettagli della richiesta in Application Insights, è sempre possibile visualizzare la richiesta con gli elementi di telemetria associati. 
 
-Per le applicazioni che definiscono "user" (la maggior parte delle normali applicazioni Web), la decisione sul campionamento si basa sull'hash dell'ID utente, vale a dire che tutta la telemetria associata a un particolare utente viene conservata o rimossa. Per i tipi di applicazioni che non definiscono gli utenti (ad esempio, i servizi Web), la decisione sul campionamento si basa sull'ID operazione della richiesta. Infine, per gli elementi della telemetria per cui non è impostato né l'ID utente né l'ID operazione (ad esempio, gli elementi della telemetria segnalati da thread asincroni senza contesto http), il campionamento si limita ad acquisire una percentuale degli elementi della telemetria di ogni tipo. 
+La decisione di campionamento è basata sull'ID operazione della richiesta, il che significa che tutti gli elementi di telemetria che appartengono a una particolare operazione vengono mantenuti o eliminati. Per gli elementi della telemetria per cui non è impostato l'ID operazione (ad esempio, gli elementi della telemetria segnalati da thread asincroni senza contesto http), il campionamento si limita ad acquisire una percentuale degli elementi della telemetria di ogni tipo. Prima della versione 2.5.0-beta2 di .NET SDK e della versione 2.2.0-beta3 di ASP.NET Core SDK, la decisione di campionamento era basata su hash dell'ID utente per le applicazioni che definiscono "utente" (vale a dire, le applicazioni web più comuni). Per i tipi di applicazioni che non definivano gli utenti (ad esempio, i servizi Web), la decisione sul campionamento era basta sull'ID operazione della richiesta.
 
 Quando la telemetria viene ripresentata all'utente, il servizio Application Insights modifica le metriche in base alla stessa percentuale di campionamento usata in fase di raccolta, per compensare i punti dati mancanti. Quindi, quando osservano la telemetria in Application Insights, gli utenti visualizzano approssimazioni statisticamente corrette molto vicine ai numeri reali.
 

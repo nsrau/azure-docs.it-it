@@ -2,10 +2,10 @@
 title: Introduzione alla gestione dei dispositivi in Azure Active Directory | Microsoft Docs
 description: Informazioni su come la gestione dei dispositivi consente di ottenere il controllo sui dispositivi che accedono alle risorse nell'ambiente.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: faea960d2b6207aab5a2f5df8dc65fddc9ba5b54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33202134"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introduzione alla gestione dei dispositivi in Azure Active Directory
 
@@ -73,7 +74,7 @@ L'obiettivo dei dispositivi aggiunti ad Azure AD è di semplificare:
 
 
 Per raggiungere questi obiettivi, è possibile fornire agli utenti un'esperienza self-service per porre i dispositivi di proprietà dell'azienda sotto il controllo di Azure AD.  
-L'**aggiunta ad Azure AD** è destinata alle organizzazioni basate prima di tutto o esclusivamente sul cloud. Si tratta in genere piccole e medie imprese che non hanno un'infrastruttura Active Directory di Windows Server locale. 
+L'**aggiunta ad Azure AD** è destinata alle organizzazioni che desiderano essere basate prima di tutto o esclusivamente sul cloud. Non vi è alcuna restrizione sulle dimensioni o sul tipo di organizzazioni che possono distribuire l'aggiunta ad Azure AD. L'aggiunta ad Azure AD funziona correttamente anche in un ambiente ibrido e può consentire l'accesso alle app e alle risorse locali.
 
 L'implementazione di dispositivi aggiunti ad Azure AD offre i vantaggi seguenti:
 
@@ -81,11 +82,14 @@ L'implementazione di dispositivi aggiunti ad Azure AD offre i vantaggi seguenti:
 
 - **Roaming conforme ai criteri dell'organizzazione** per le impostazioni utente tra dispositivi aggiunti. Non è necessario che gli utenti connettano un account Microsoft (ad esempio, Hotmail) per visualizzare le impostazioni tra dispositivi.
 
-- **Accesso a Windows Store per le aziende** tramite l'account AD. Gli utenti possono scegliere da un inventario di applicazioni preselezionate dall'organizzazione.
+- **Accesso a Windows Store per le aziende** tramite l'account Azure AD. Gli utenti possono scegliere da un inventario di applicazioni preselezionate dall'organizzazione.
 
 - Supporto di **Windows Hello** per un accesso sicuro e agevole alle risorse aziendali.
 
 - **Limitazione dell'accesso** alle app solo dai dispositivi che soddisfano i criteri di conformità.
+
+- **L'accesso ottimizzato alle risorse locali** quando il dispositivo dispone della visibilità per il controller di dominio locale.
+
 
 Anche se l'aggiunta ad Azure AD è destinata soprattutto alle organizzazioni prive di un'infrastruttura Active Directory di Windows Server locale, è ovviamente possibile usarla anche in scenari in cui:
 

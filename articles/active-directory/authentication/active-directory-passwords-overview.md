@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD: panoramica per la reimpostazione password self-service | Documentazione Microsoft'
+title: 'Azure AD: panoramica per la reimpostazione password self-service | Microsoft Docs'
 description: Utilità della reimpostazione della password self-service di Azure AD per l'organizzazione
 services: active-directory
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e084db41cd199a9609e3edaf8b427a85ab2366b4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 6c722bd3fae7f6ed7450e0259f9dff0ee465d158
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201148"
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Reimpostazione self-service delle password di Azure AD per i professionisti IT
 
@@ -32,6 +33,8 @@ Con la reimpostazione self-service della password di Azure Active Directory (Azu
    * Invio di un messaggio di posta elettronica a un account di posta elettronica secondario convalidato.
    * Risposte alle domande di sicurezza.
 * **Sblocco self-service dell'account**: l'utente non riesce ad accedere con la sua password ed è stato bloccato. L'utente desidera sbloccare l'account senza l'intervento dell'amministratore tramite i suoi metodi di autenticazione.
+
+> [!VIDEO https://www.youtube.com/embed/hc97Yx5PJiM]
 
 ## <a name="why-choose-azure-ad-sspr"></a>Perché scegliere la reimpostazione self-service della password di Azure AD
 
@@ -50,7 +53,7 @@ La reimpostazione self-service della password di Azure AD è disponibile in tre 
 
 * **Azure AD Free**: gli amministratori di reti solo cloud possono reimpostare le loro password personali.
 * **Azure AD Basic** o una **sottoscrizione di Office365 a pagamento**: gli utenti di reti solo cloud possono reimpostare le loro password personali.
-* **Azure AD Premium**: qualsiasi utente o amministratore, inclusi gli utenti di reti solo cloud, federati o sincronizzati tramite password, può reimpostare la sua password personale. Le password locali richiedono che sia abilitato il writeback delle password.
+* **Azure AD Premium**: qualsiasi utente o amministratore, inclusi gli utenti di reti solo cloud, federati, sincronizzati con hash delle password o autenticazione pass-through, può reimpostare la sua password personale. Le password locali richiedono che sia abilitato il writeback delle password.
 
 ## <a name="azure-ad-pricing-sla-updates-and-roadmap"></a>Prezzi, contratto di servizio, aggiornamenti e guida di orientamento di Azure AD
 
