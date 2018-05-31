@@ -1,30 +1,34 @@
 ---
-title: "Riferimento API del report sull'attività di accesso di Azure Active Directory | Microsoft Docs"
-description: "Riferimento API del report sull'attività di accesso di Azure Active Directory"
+title: Riferimento API del report sull'attività di accesso di Azure Active Directory | Microsoft Docs
+description: Riferimento API del report sull'attività di accesso di Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 859459bbce6b81e2e855201d5c310233d88d0393
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 3831146caad4fe922e482ce782d5d41fb70338f4
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155797"
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Riferimento API del report sull'attività di accesso di Azure Active Directory
-Questo argomento fa parte di una raccolta di argomenti sull'API di creazione report di Azure Active Directory.  
-La creazione di report di Azure Active Directory fornisce un'API che consente di accedere ai dati del report sull'attività di accesso tramite codice o strumenti correlati.
-L'obiettivo di questo argomento è fornire informazioni di riferimento sull' **API del report sull'attività di accesso**.
+
+> [!TIP] 
+> Esplorare la nuova API Microsoft Graph per la [creazione di report](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), che sostituirà infine questa API. 
+
+Questo articolo fa parte di una raccolta di articoli sull'API di creazione report di Azure Active Directory (Azure AD). La creazione di report di Azure Active Directory fornisce un'API che consente di accedere ai dati di controllo tramite codice o strumenti correlati.
+L'obiettivo di questo articolo è fornire informazioni di riferimento sull'**API di controllo**.
 
 Vedere:
 
@@ -49,11 +53,11 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 ## <a name="prerequisites"></a>prerequisiti
 Per accedere a questo report tramite l'API di creazione report, è necessario:
 
-* Disporre di [Azure Active Directory Premium, edizione P1 o P2](active-directory-editions.md)
+* Disporre di [Azure Active Directory Premium, edizione P1 o P2](active-directory-whatis.md)
 * Aver completato i [prerequisiti di accesso all'API di creazione report di Azure AD](active-directory-reporting-api-prerequisites.md). 
 
 ## <a name="accessing-the-api"></a>Accesso all'API
-È possibile accedere a questa API tramite [Graph Explorer](https://graphexplorer2.cloudapp.net) o a livello di codice, ad esempio usando PowerShell. Al fine di consentire a Per PowerShell di interpretare correttamente la sintassi del filtro OData usata nelle chiamate REST di Graph di AAD, è necessario fare uso dell'apice inverso, ovvero l'accento grave, per eseguire l'"escape" del carattere $. L'apice inverso viene usato come [carattere di escape di PowerShell](https://technet.microsoft.com/library/hh847755.aspx)e consente a PowerShell di eseguire un'interpretazione letterale del carattere $, che evita la confusione con il nome di una variabile di PowerShell (ad esempio: $filter).
+È possibile accedere a questa API tramite [Graph Explorer](https://graphexplorer2.cloudapp.net) o a livello di codice, ad esempio usando PowerShell. Usare l'apice inverso, ovvero l'accento grave, per eseguire l'"escape" del carattere $ al fine di consentire a PowerShell di interpretare la sintassi del filtro OData usata nelle chiamate REST di Graph di AAD. L'apice inverso viene usato come [carattere di escape di PowerShell](https://technet.microsoft.com/library/hh847755.aspx)e consente a PowerShell di eseguire un'interpretazione letterale del carattere $, che evita la confusione con il nome di una variabile di PowerShell (ad esempio: $filter).
 
 Questo argomento si concentra su Graph Explorer. Per un esempio di PowerShell, vedere questo [script di PowerShell](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script).
 
@@ -64,10 +68,9 @@ Questo argomento si concentra su Graph Explorer. Per un esempio di PowerShell, v
 
 
 
-A causa del volume di dati, questa API presenta un limite di un milione di record restituiti. 
+A causa del volume di dati, questa API presenta un limite di 1.000.000 di record restituiti. 
 
-Questa chiamata restituisce i dati in batch. Ogni batch contiene un massimo di 1000 record.  
-Per ottenere il batch successivo di record, usare il link Avanti. Ottenere le informazioni sullo [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) dal primo set di record restituiti. Il token skip si trova alla fine del set di risultati.  
+Questa chiamata restituisce i dati in batch. Ogni batch contiene un massimo di 1000 record. Per ottenere il batch successivo di record, usare il link Avanti. Ottenere le informazioni sullo [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) dal primo set di record restituiti. Il token skip si trova alla fine del set di risultati.  
 
     https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&%24skiptoken=-1339686058
 
@@ -76,7 +79,7 @@ Per ottenere il batch successivo di record, usare il link Avanti. Ottenere le in
 È possibile restringere il numero di record restituiti da una chiamata API usando un filtro.  
 Per i dati relativi all'API di accesso sono supportati i filtri seguenti:
 
-* **$top=\<numero di record da restituire\>**: per limitare il numero di record restituiti. Si tratta di un'operazione impegnativa. Non è consigliabile usare questo filtro se si desidera restituire migliaia di oggetti.  
+* **$top=\<numero di record da restituire\>**: per limitare il numero di record restituiti. Si tratta di un'operazione impegnativa. Non usare questo filtro se si desidera restituire migliaia di oggetti.  
 * **$filter=\<istruzione per il filtro\>**: per specificare il tipo di record da restituire, sulla base dei campi filtro supportati
 
 ## <a name="supported-filter-fields-and-operators"></a>Operatori e campi dei filtri supportati
@@ -94,7 +97,7 @@ Per specificare il tipo di record da restituire, è possibile compilare un'istru
 > 
 > 
 
-Per restringere l'ambito dei dati restituiti, è possibile creare combinazioni dei filtri supportati e dei campi dei filtri. Ad esempio, l'istruzione seguente restituisce i primi 10 record tra il 1° luglio 2016 e il 6 luglio 2016:
+Per restringere l'ambito dei dati restituiti, è possibile creare combinazioni dei filtri supportati e dei campi dei filtri. Ad esempio, l'istruzione seguente restituisce i 10 record principali tra il 1° luglio 2016 e il 6 luglio 2016:
 
     https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta&$top=10&$filter=signinDateTime+ge+2016-07-01T17:05:21Z+and+signinDateTime+le+2016-07-07T00:00:00Z
 

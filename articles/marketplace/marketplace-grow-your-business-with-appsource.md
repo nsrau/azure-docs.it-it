@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: f0d9739dda608b7c49ff9a8fbd93d08b301c0b9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0af34a725849acf6fbb6523f03e90a85ce5ba719
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940367"
 ---
 # <a name="grow-your-business-with-appsource"></a>Favorire lo sviluppo della propria azienda con AppSource
 Azure Marketplace e AppSource sono entrambi un punto di partenza fondamentale per avviare attività di commercializzazione in collaborazione con Microsoft e rafforzare la crescita della propria azienda. Grazie a soluzioni per offerte promozionali di lancio, generazione della domanda e attività di vendita e marketing in collaborazione, un'offerta sul marketplace può costituire il nucleo centrale del proprio motore di espansione aziendale nel cloud. Non sono previste tariffe per la partecipazione. I clienti Microsoft visitano i marketplace Microsoft nel cloud ogni giorno per trovare le app e i servizi più adatti a favorire lo sviluppo della propria azienda. L'obiettivo è quello di consentire alle organizzazioni di conoscere i servizi e le soluzioni offerti da Microsoft e dal suo ecosistema di partner. 
@@ -88,7 +89,7 @@ Le tabelle seguenti illustrano in dettaglio ogni passaggio da seguire per creare
 **Dettagli della vetrina - Elementi di marketing**
 | Impostazioni della vetrina       | Procedure consigliate          | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Logo dell'offerta (formato PNG, 58x48)**    | Il logo deve essere progettato e ottimizzato per un supporto digitale.<br>Caricare il logo in formato PNG per la pagina di ricerca dell'offerta. |
+| **Logo dell'offerta (formato PNG, 48x48)**    | Il logo deve essere progettato e ottimizzato per un supporto digitale.<br>Caricare il logo in formato PNG per la pagina di ricerca dell'offerta. |
 | **Logo dell'offerta (formato PNG 216x216)**     | Il logo deve essere progettato e ottimizzato per un supporto digitale. <br>Caricare il logo in formato PNG per la pagina dell'inserzione con i dettagli dell'app. |
 | **Altre informazioni**   | Nella sezione "Altre informazioni" includere risorse di supporto per le vendite e il marketing, ad esempio white paper, brochure, elenchi di controllo, presentazioni PowerPoint e così via. Tutti i file devono essere in formato PDF. L'obiettivo non è vendere, ma informare i clienti potenziali. <br>Nella pagina di destinazione dell'app inserire i collegamenti a tutti i documenti e aggiungere parametri agli URL per tenere traccia dei visitatori e dell'uso delle versioni di valutazione. |
 | **Video**       | Caricare almeno un video. È possibile aggiungere al massimo quattro video. Il video pubblicato dovrebbe comunicare il valore dell'offerta. Il protagonista deve essere il cliente potenziale e non la società che presenta l'offerta. Il video deve dare risposte riguardo alle sfide e agli obiettivi fondamentali del principale decision maker. <br>Lunghezza consigliata: da 60 a 90 secondi. Includere parole chiave nel nome dei video.<br>Valutare l'opportunità di aggiungere altri video, ad esempio per illustrare procedure, fornire una guida introduttiva o presentare la testimonianza di un cliente. |
@@ -98,7 +99,7 @@ Le tabelle seguenti illustrano in dettaglio ogni passaggio da seguire per creare
 
 Quando in AppSource viene pubblicata l'inserzione dell'offerta, l'utente ottiene il diritto di visualizzare il badge "Available on AppSource" sul proprio sito Web. 
 
-    ![AppSource badge](./media/marketplace-appsource/appsourcebadge.png)
+ ![Badge AppSource](./media/marketplace-appsource/appsourcebadge.png)
     
 Aggiungendo questo badge al sito, è possibile promuovere la propria offerta in AppSource e collegare i clienti potenziali direttamente alla pagina dell'inserzione. Il badge di AppSource è disponibile in tre dimensioni. È possibile scaricare il badge e le istruzioni su come usarlo in [Promote your app's availability on Microsoft AppSource](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource) (Promuovere la disponibilità dell'app in Microsoft AppSource).
 
