@@ -15,15 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: d6a4701c0318edf8292c777615196a2170a68750
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 065ac8b2e9cb48408c7922a1937e541521ccd8cf
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895596"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creare, modificare o eliminare una tabella di route
 
-Azure effettua il routing automatico del traffico tra subnet di Azure, reti virtuali e reti locali. Per modificare il routing predefinito di Azure è necessario creare una tabella di route. Se non si ha familiarità con il routing di Azure, è consigliabile leggere l'articolo [Panoramica del routing](virtual-networks-udr-overview.md) e completare l'esercitazione [Instradare il traffico di rete con una tabella di route](tutorial-create-route-table-portal.md) prima di completare le attività presenti in questo articolo.
+Azure effettua il routing automatico del traffico tra subnet di Azure, reti virtuali e reti locali. Per modificare il routing predefinito di Azure è necessario creare una tabella di route. Se non si ha familiarità con il routing nelle reti virtuali, è possibile ottenere altre informazioni nella [panoramica del routing](virtual-networks-udr-overview.md) oppure completando un'[esercitazione](tutorial-create-route-table-portal.md).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -31,8 +32,10 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 
 - Se non si ha un account Azure, registrarsi per ottenere un [account per la versione di prova gratuita](https://azure.microsoft.com/free).
 - Se si usa il portale, aprire https://portal.azure.com e accedere con l'account Azure.
-- Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo di Azure PowerShell 5.2.0 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
-- Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questa esercitazione richiede l'interfaccia della riga di comando di Azure versione 2.0.26 o successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
+- Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo Azure PowerShell 5.7.0 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
+- Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.31 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
+
+L'account con cui si accede o con cui ci si collega ad Azure deve essere assegnato al ruolo [Collaboratore Rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nelle [Autorizzazioni](#permissions).
 
 ## <a name="create-a-route-table"></a>Creare una tabella di route
 
@@ -59,11 +62,11 @@ Nella casella di ricerca nella parte superiore del portale immettere *tabelle di
 ## <a name="view-details-of-a-route-table"></a>Visualizzare i dettagli di una tabella di route
 
 1. Nella casella di ricerca nella parte superiore del portale immettere *tabelle di route*. Selezionare **Tabelle di route** quando viene visualizzato nei risultati della ricerca.
-2. Selezionare nell'elenco la tabella di route di cui si vuole visualizzare i dettagli. In **IMPOSTAZIONI** è possibile visualizzare le **Route** presenti nella tabella di route e le **Subnet** a cui è associata la tabella di route.
+2. Selezionare nell'elenco la tabella di route di cui si vuole visualizzare i dettagli. In **IMPOSTAZIONI** è possibile visualizzare le **Route** presenti nella tabella di route e le **Subnet** a cui essa è associata.
 3. Per altre informazioni sulle impostazioni comuni di Azure, vedere le informazioni seguenti:
     *   [Log attività](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [Controllo di accesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
-    *   [Tag](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
+    *   [Tag](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Blocchi](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Script di automazione](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
@@ -137,7 +140,7 @@ Se una tabella di route è associata a una subnet, non può essere eliminata. [A
 6. Immettere il valore **Prefisso indirizzo**, sotto forma di notazione CIDR, a cui si vuole indirizzare il traffico. Il prefisso non può essere duplicato in più di una route all'interno della tabella di route, ma può essere contenuto in un altro prefisso. Se, ad esempio, è stato definito 10.0.0.0/16 come prefisso di una route, è possibile definire un'altra route con il prefisso di indirizzo 10.0.0.0/24. Azure seleziona una route per il traffico in base all'algoritmo LPM (Longest Prefix Match). Per altre informazioni su come vengono selezionate le route in Azure, vedere [Panoramica del routing](virtual-networks-udr-overview.md#how-azure-selects-a-route).
 7. Selezionare una voce per **Tipo hop successivo**. Per una descrizione dettagliata di tutti i tipi di hop successivi, vedere [Panoramica del routing](virtual-networks-udr-overview.md).
 8. Immettere un indirizzo IP per **Indirizzo hop successivo**. Se per *Indirizzo hop successivo* è stata selezionata la voce **Appliance virtuale**, è possibile immettere solo un indirizzo.
-9. Selezionare **OK**. 
+9. Selezionare **OK**.
 
 **Comandi**
 
@@ -226,21 +229,24 @@ Le route valide per ogni interfaccia di rete associata a una macchina virtuale s
 
 - Interfaccia della riga di comando di Azure: [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_show_next_hop)
 - PowerShell: [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) 
- 
+
 ## <a name="permissions"></a>Autorizzazioni
 
-Per eseguire attività nelle route e nelle tabelle di route, l'account deve essere assegnato al ruolo [Collaboratore Rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un ruolo [personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le autorizzazioni appropriate elencate nella tabella seguente:
+Per eseguire attività nelle route e nelle tabelle di route, l'account deve essere assegnato al ruolo [Collaboratore Rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un ruolo [personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nella tabella seguente:
 
-|Operazione                                                       |   Nome operazione                               |
-|--------------------------------------------------------------  |   -------------------------------------------  |
-|Microsoft.Network/routeTables/read                              |   Ottenere una tabella di route                              |
-|Microsoft.Network/routeTables/write                             |   Creare o aggiornare una tabella di route                 |
-|Microsoft.Network/routeTables/delete                            |   Eliminare una tabella di route                           |
-|Microsoft.Network/routeTables/join/action                       |   Aggiungere una tabella di route                             |
-|Microsoft.Network/routeTables/routes/read                       |   Ottenere una route                                    |
-|Microsoft.Network/routeTables/routes/write                      |   Creare o aggiornare una route                       |
-|Microsoft.Network/routeTables/routes/delete                     |   Eliminare una route                                 |
-|Microsoft.Network/networkInterfaces/effectiveRouteTable/action  |   Ottenere una tabella di route valida per l'interfaccia di rete  | 
-|Microsoft.Network/networkWatchers/nextHop/action                |   Ottenere l'hop successivo da una macchina virtuale                  |
+| Azione                                                          |   NOME                                                  |
+|--------------------------------------------------------------   |   -------------------------------------------           |
+| Microsoft.Network/routeTables/read                              |   Leggere una tabella di route                                    |
+| Microsoft.Network/routeTables/write                             |   Creare o aggiornare una tabella di route                        |
+| Microsoft.Network/routeTables/delete                            |   Eliminare una tabella route                                  |
+| Microsoft.Network/routeTables/join/action                       |   Associare una route a una subnet                   |
+| Microsoft.Network/routeTables/routes/read                       |   Leggere una route                                          |
+| Microsoft.Network/routeTables/routes/write                      |   Creare o aggiornare una route                              |
+| Microsoft.Network/routeTables/routes/delete                     |   Eliminare una route                                        |
+| Microsoft.Network/networkInterfaces/effectiveRouteTable/action  |   Ottenere la tabella di route valida per un'interfaccia di rete |
+| Microsoft.Network/networkWatchers/nextHop/action                |   Ottenere l'hop successivo da una macchina virtuale                           |
 
-Per associare una tabella di route a una subnet è necessario *aggiungere una tabella di route*.
+## <a name="next-steps"></a>Passaggi successivi
+
+- Creare una tabella di route usando gli script di esempio di [PowerShell](powershell-samples.md) o dell'[interfaccia della riga di comando di Azure](cli-samples.md) oppure i [modelli di Azure Resource Manager](template-samples.md)
+- Creare e applicare i [criteri di Azure](policy-samples.md) per le reti virtuali

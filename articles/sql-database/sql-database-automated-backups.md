@@ -11,17 +11,18 @@ ms.workload: Active
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ab1793621950fd57d3f0be545772d85b32f5d7b8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 37bbbf8ea5a5d8439b300d0740e4f1a048e98e91
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32189069"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Informazioni sui backup automatici del database SQL
 
-Il database SQL crea automaticamente i backup del database e usa l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) di Azure per fornire una ridondanza geografica. Questi backup vengono creati automaticamente e senza costi aggiuntivi. Non è necessario intervenire manualmente per eseguire i backup. I backup dei database sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale. Se si desidera mantenere i backup in un contenitore di archiviazione è possibile configurare un criterio di conservazione dei backup a lungo termine. Per altre informazioni, vedere [Conservazione a lungo termine](sql-database-long-term-retention.md).
+Il database SQL crea automaticamente i backup del database e usa l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) di Azure per fornire una ridondanza geografica. Questi backup vengono creati automaticamente e senza costi aggiuntivi. Non è necessario intervenire manualmente per eseguire i backup. I backup dei database sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale. Se si desidera mantenere i backup in un contenitore di archiviazione è possibile configurare un criterio di conservazione dei backup a lungo termine. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
 
-## <a name="what-is-a-sql-database-backup"></a>Che cos'è un backup del database SQL?
+## <a name="what-is-a-sql-database-backup"></a>Informazioni sul backup del database SQL
 
 Il database SQL usa la tecnologia di SQL Server per creare backup [completi](https://msdn.microsoft.com/library/ms186289.aspx), [differenziali](https://msdn.microsoft.com/library/ms175526.aspx) e del [log delle transazioni](https://msdn.microsoft.com/library/ms191429.aspx) ai fini del ripristino temporizzato. I backup del log delle transazioni vengono eseguiti in genere ogni 5-10 minuti e tale frequenza è determinata dal livello di prestazioni e dalla quantità delle attività del database. I backup del log delle transazioni, con backup completi e differenziali, consentono di ripristinare un database a un punto specifico nel tempo nello stesso server che ospita il database. Quando si ripristina un database, il servizio individua i backup completi, differenziali e del log delle transazioni da ripristinare.
 
@@ -44,12 +45,15 @@ I backup di database completi vengono eseguiti settimanalmente, i backup differe
 La replica geografica della risorsa di archiviazione di backup viene eseguita in base alla pianificazione della replica di Archiviazione di Azure.
 
 ## <a name="how-long-do-you-keep-my-backups"></a>Quanto tempo vengono conservati i backup?
-Ogni backup del database SQL ha un periodo di conservazione che si basa sul [livello di servizio](sql-database-service-tiers.md) del database. Il periodo di conservazione per un database nel:
+Ogni backup del database SQL ha un periodo di conservazione basato sul livello di servizio e distingue tra il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) e il [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md). 
 
 
-* livello di servizio Basic è di 7 giorni.
+### <a name="database-retention-for-dtu-based-purchasing-model"></a>Conservazione del database pe il modello di acquisto basato su DTU
+Il periodo di conservazione per un database nel modello di acquisto basato su DTU varia in base al livello di servizio. Il periodo di conservazione per un database per:
+
+* Il livello di servizio Base è 7 giorni.
 * livello di servizio Standard è di 35 giorni.
-* livello di servizio Premium è di 35 giorni.
+* livello di servizio premium è di 35 giorni.
 * Il livello Utilizzo generico è configurabile con un massimo di 35 giorni (7 giorni per impostazione predefinita)*
 * Il livello Business Critical è configurabile con un massimo di 35 giorni (7 giorni per impostazione predefinita)*
 
@@ -63,11 +67,17 @@ Se si elimina un database, il database SQL mantiene i backup come farebbe con un
 
 > [!IMPORTANT]
 > Se si elimina SQL Server di Azure che ospita i database SQL, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli. Non è possibile ripristinare un server eliminato.
-> 
+
+### <a name="database-retention-for-the-vcore-based-purchasing-model-preview"></a>Conservazione del database per il modello di acquisto basato su vCore (anteprima)
+
+Le risorse di archiviazione per i backup di database vengono allocate per supportare le funzionalità di ripristino temporizzato e di conservazione a lungo termine del database SQL. Queste risorse vengono allocate separatamente per ogni database e fatturate come due costi distinti. 
+
+- **Ripristino temporizzato**: i singoli backup di database vengono copiati automaticamente in risorse di archiviazione con ridondanza geografica e accesso in lettura (RA-GRS, Read-Access Geographically Redundant Storage). Le dimensioni di archiviazione aumentano dinamicamente con la creazione di nuovi backup.  Le risorse di archiviazione vengono usate da backup completi settimanali, backup differenziali giornalieri e backup del log delle transazioni copiati ogni 5 minuti. L'utilizzo delle risorse di archiviazione dipende dalla frequenza con cui vengono apportate modifiche al database e dal periodo di conservazione. È possibile configurare un periodo di conservazione separato per ogni database compreso tra 7 e 35 giorni. Una quantità minima di risorse di archiviazione, equivalente al 100% della dimensione dei dati, viene fornita senza costi aggiuntivi. Per la maggior parte dei database, questa quantità è sufficiente per un periodo di archiviazione dei backup di 7 giorni. Per altre informazioni vedere l'articolo relativo al [Ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore)
+- **Conservazione a lungo termine**: il database SQL offre la possibilità di configurare la conservazione a lungo termine dei backup completi fino a 10 anni. Se i criteri di conservazione a lungo termine sono abilitati, questi backup vengono archiviati automaticamente in risorse di archiviazione RA-GRS, ma è possibile controllare la frequenza con cui vengono copiati. A secondo dei vari requisiti di conformità, è possibile selezionare periodi di conservazione diversi per i backup settimanali, mensili e/o annuali. Questa configurazione definirà la quantità di risorse di archiviazione usate per i backup con conservazione a lungo termine. È possibile usare lo strumento di calcolo dei prezzi per la conservazione a lungo termine per stimare il costo di questo tipo di archiviazione. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>Come estendere il periodo di conservazione dei backup?
 
-Se l'applicazione richiede che i backup siano disponibili per un periodo di tempo più lungo rispetto al periodo massimo di conservazione dei backup per il ripristino temporizzato, è possibile configurare criteri di conservazione dei backup a lungo termine per singoli database. Ciò consente di estendere il periodo di conservazione predefinito dal periodo massimo di 35 giorni fino a 10 anni. Per altre informazioni, vedere [Conservazione a lungo termine](sql-database-long-term-retention.md).
+Se l'applicazione richiede che i backup siano disponibili per un periodo di tempo più lungo rispetto al periodo massimo di conservazione dei backup per il ripristino temporizzato, è possibile configurare criteri di conservazione dei backup a lungo termine per singoli database. Ciò consente di estendere il periodo di conservazione predefinito dal periodo massimo di 35 giorni fino a 10 anni. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
 
 Dopo che i criteri di conservazione a lungo termine sono stati aggiunti a un database tramite l'API o il portale di Azure, i backup settimanali completi del database vengono copiati automaticamente in un contenitore di archiviazione separato con ridondanza geografica e accesso in lettura per la conservazione a lungo termine. Se il database è crittografato con TDE, i backup vengono crittografati automaticamente quando i dati sono inattivi. Il database SQL eliminerà automaticamente i backup scaduti in base ai relativi timestamp e ai criteri di conservazione a lungo termine. Dopo aver configurato i criteri, non è necessario gestire la pianificazione dei backup o eseguire operazioni di pulitura dei file meno recenti. Per visualizzare, ripristinare o eliminare questi backup è possibile usare il portale di Azure o PowerShell.
 

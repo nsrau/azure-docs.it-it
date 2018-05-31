@@ -1,55 +1,54 @@
 ---
-title: Aggiornamento all'API REST di Ricerca di Azure versione 2016-09-01 | Documentazione Microsoft
-description: Aggiornamento all'API REST di Ricerca di Azure versione 2016-09-01
+title: Aggiornamento all'ultima versione dell'API REST di Ricerca di Azure| Microsoft Docs
+description: Aggiornamento all'ultima versione dell'API REST di Ricerca di Azure
 author: brjohnstmsft
 manager: jlembicz
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 10/27/2016
+ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: ea901462677d42d90007a2130825bd3b382407f2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3848f317fd6d760961756f132edf9cbcb5f431ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32181971"
 ---
-# <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Aggiornamento all'API REST di Ricerca di Azure versione 2016-09-01
-Se si usa la versione 2015-02-28 o 2015-02-28-Preview dell'[API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx), questo articolo consente di aggiornare l'applicazione alla prima versione disponibile a livello generale dell'API, la versione 2016-09-01.
+# <a name="upgrading-to-the-latest-azure-search-service-rest-api-version"></a>Aggiornamento all'ultima versione dell'API REST di Ricerca di Azure
+Se si usa una versione precedente dell'[API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/), questo articolo fornisce informazioni utili per aggiornare l'applicazione alla più recente versione disponibile a livello generale dell'API, la versione 2017-11-11.
 
-La versione 2016-09-01 dell'API REST include alcune modifiche rispetto alle versioni precedenti. Le versioni sono abbastanza compatibili tra loro, pertanto la modifica del codice richiede un impegno minimo, a seconda della versione in uso prima. Per istruzioni su come modificare il codice per usare la nuova versione dell'API, vedere [Steps to upgrade](#UpgradeSteps) (Passaggi per eseguire l'aggiornamento).
+La versione 2017-11-11 dell'API REST include alcune modifiche rispetto alle versioni precedenti. Le versioni sono abbastanza compatibili tra loro, pertanto la modifica del codice richiede un impegno minimo, a seconda della versione in uso prima. Per istruzioni su come modificare il codice per usare la nuova versione dell'API, vedere [Steps to upgrade](#UpgradeSteps) (Passaggi per eseguire l'aggiornamento).
 
 > [!NOTE]
 > L'istanza del servizio Ricerca di Azure supporta diverse versioni di API REST, inclusa quella più recente. È possibile continuare a usare una versione anche se non è la più recente, ma si consiglia di migrare il codice per usare la versione più recente.
 
 <a name="WhatsNew"></a>
 
-## <a name="whats-new-in-version-2016-09-01"></a>Novità della versione 2016-09-01
-La versione 2016-09-01 è la seconda disponibile a livello generale dell'API REST di Ricerca di Azure. Le nuove funzionalità in questa versione dell'API includono:
+## <a name="whats-new-in-version-2017-11-11"></a>Novità della versione 2017-11-11
+La versione 2017-11-11 è la più recente disponibile a livello generale dell'API REST di Ricerca di Azure. Le nuove funzionalità in questa versione dell'API includono:
 
-* Gli [analizzatori personalizzati](https://aka.ms/customanalyzers), che consentono di controllare il processo di conversione del testo in token indicizzabili e ricercabili.
-* Gli indicizzatori [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md) e [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md), che consentono di importare facilmente dati da Archiviazione di Azure in Ricerca di Azure in base a una pianificazione o su richiesta.
-* [Mapping dei campi](search-indexer-field-mappings.md), che consentono di personalizzare la modalità di importazione dei dati da parte degli indicizzatori in Ricerca di Azure.
-* ETag, che consentono di aggiornare le definizioni di indici, indicizzatori e origini dati in modo indipendente dalla concorrenza. 
+* [Sinonimi](search-synonyms.md). La nuova funzionalità Sinonimi consente di definire termini equivalenti e di espandere l'ambito della query.
+* [Supporto per l'indicizzazione efficiente dei BLOB di testo](https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#IndexingPlainText). La nuova modalità di analisi `text` per gli indicizzatori BLOB di Azure migliora notevolmente le prestazioni dell'indicizzazione.
+* [API delle statistiche del servizio](https://aka.ms/azure-search-stats). Questa nuova API consente di visualizzare l'utilizzo corrente e i limiti delle risorse in Ricerca di Azure.
 
 <a name="UpgradeSteps"></a>
 
 ## <a name="steps-to-upgrade"></a>Passaggi per eseguire l'aggiornamento
-Se esegue l'aggiornamento dalla versione 2015-02-28, probabilmente non è necessario apportare modifiche al codice, oltre alla modifica del numero di versione. Le uniche situazioni in cui può essere necessario modificare il codice si verificano quando:
+Se si esegue l'aggiornamento da una versione con disponibilità generale, la 2015-02-28 o la 2016-09-01, probabilmente non è necessario apportare modifiche al codice oltre alla modifica del numero di versione. Le uniche situazioni in cui può essere necessario modificare il codice si verificano quando:
 
 * Il codice ha esito negativo quando vengono restituite proprietà sconosciute in una risposta API. Per impostazione predefinita, l'applicazione deve ignorare le proprietà che non riconosce.
-* Il codice rende persistenti le richieste API e tenta di inviarle nuovamente alla nuova versione dell'API. Ad esempio, questa situazione può verificarsi se l'applicazione mantiene i token di continuazione restituiti dall'API di ricerca. Per altre informazioni, cercare `@search.nextPageParameters` nel [riferimento all'API di ricerca](https://msdn.microsoft.com/library/azure/dn798927.aspx#Anchor_1).
+* Il codice rende persistenti le richieste API e tenta di inviarle nuovamente alla nuova versione dell'API. Ad esempio, questa situazione può verificarsi se l'applicazione mantiene i token di continuazione restituiti dall'API di ricerca. Per altre informazioni, cercare `@search.nextPageParameters` nel [riferimento all'API di ricerca](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
-Se una delle situazioni seguenti si applica al caso dell'utente, può essere necessario modificare il codice in modo appropriato. In caso contrario, non sono necessarie modifiche a meno che non si voglia iniziare a usre le [nuove funzionalità](#WhatsNew) della versione 2016-09-01.
+Se una delle situazioni seguenti si applica al caso dell'utente, può essere necessario modificare il codice in modo appropriato. In caso contrario, non sono necessarie modifiche a meno che non si voglia iniziare a usare le [nuove funzionalità](#WhatsNew) della versione 2017-11-11.
 
-Se si esegue l'aggiornamento dalla versione 2015-02-28-Preview, si applica la situazione precedente, ma è necessario essere consapevoli che alcune funzionalità di anteprima non sono disponibili nella versione 2016-09-01:
+Se si esegue l'aggiornamento da una versione in anteprima dell'API, si applica la situazione precedente, ma è necessario essere consapevoli che alcune funzionalità di anteprima non sono disponibili nella versione 2017-11-11:
 
 * Supporto per gli indicizzatori di Archiviazione BLOB di Azure per i file e i BLOB con estensione csv contenenti matrici JSON.
-* Sinonimi
 * Query "Altri elementi simili"
 
-Se il codice usa queste funzionalità, non sarà possibile eseguire l'aggiornamento alla versione 2016-09-01 senza rimuovere l'utilizzo di tali funzionalità.
+Se il codice usa queste funzionalità, non sarà possibile eseguire l'aggiornamento alla versione 2017-11-11 senza rimuovere l'utilizzo di tali funzionalità.
 
 > [!IMPORTANT]
 > Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
@@ -57,7 +56,7 @@ Se il codice usa queste funzionalità, non sarà possibile eseguire l'aggiorname
 > 
 
 ## <a name="conclusion"></a>Conclusioni
-Per altre informazioni sull'uso dell'API REST di Ricerca di Azure, vedere il [riferimento all'API](https://msdn.microsoft.com/library/azure/dn798935.aspx) su MSDN aggiornato di recente.
+Per altre informazioni sull'uso dell'API REST di Ricerca di Azure, vedere il [riferimento all'API](https://docs.microsoft.com/rest/api/searchservice/) su MSDN aggiornato di recente.
 
 I commenti degli utenti su Ricerca di Azure sono molto apprezzati. In caso di problemi, è possibile richiedere assistenza nel [forum MSDN su Ricerca di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) o in [StackOverflow](http://stackoverflow.com/). Se si pongono domande su Ricerca di Azure in StackOverflow, assicurarsi di contrassegnarle con `azure-search`.
 

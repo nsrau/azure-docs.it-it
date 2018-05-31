@@ -1,11 +1,11 @@
 ---
 title: Limitare l'accesso tramite endpoint con connessione Internet in Centro sicurezza di Azure | Documentazione Microsoft
-description: Questo documento illustra come implementare la raccomandazione **Restrict access through Internet facing endpoint** (Limita accesso tramite endpoint con connessione Internet) del Centro sicurezza di Azure.
+description: In questo documento viene illustrato come implementare l'indicazione del Centro sicurezza di Azure **Limita l'accesso tramite un endpoint con connessione Internet**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 727d88c9-163b-4ea0-a4ce-3be43686599f
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
-ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92906d31f4db21f37094f192dadd080e28cc6e8e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363054"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Limitare l'accesso tramite endpoint con connessione Internet in Centro sicurezza di Azure
 Il Centro sicurezza di Azure consiglia di limitare l'accesso tramite endpoint con connessione Internet se uno dei gruppi di sicurezza di rete contiene una o più regole in ingresso che consentono l'accesso da "qualsiasi" indirizzo IP di origine. L'accesso su "qualsiasi" origine potrebbe abilitare utenti malintenzionati ad accedere alle risorse. Il Centro sicurezza consiglierà di modificare queste regole in ingresso per limitare l'accesso agli indirizzi IP di origine che necessitano effettivamente dell'accesso.
@@ -44,18 +45,18 @@ Questa raccomandazione viene generata per qualsiasi porta Web con "any" come ori
 
    ![Regole di sicurezza in ingresso][4]
 
-   Si noti che è possibile anche selezionare **Regole predefinite** per visualizzare il set di regole predefinite contenute in tutti i gruppi di sicurezza di rete. Le regole predefinite non possono essere eliminate, ma poiché hanno la priorità più bassa, è possibile eseguirne l'override con le regole create dall'utente. Altre informazioni sulle [regole predefinite](../virtual-network/virtual-networks-nsg.md#default-rules).
+   Si noti che è possibile anche selezionare **Regole predefinite** per visualizzare il set di regole predefinite contenute in tutti i gruppi di sicurezza di rete. Le regole predefinite non possono essere eliminate, ma poiché hanno la priorità più bassa, è possibile eseguirne l'override con le regole create dall'utente. Altre informazioni sulle [regole predefinite](../virtual-network/security-overview.md#default-security-rules).
 
    ![Regole predefinite][5]
-5. Nel pannello **AllowWeb** (Consenti Web) modificare le proprietà della regola in ingresso in modo che **Origine** sia un indirizzo IP o un blocco di indirizzi IP. Per altre informazioni sulle proprietà della regola in ingresso, vedere [Regole NSG](../virtual-network/virtual-networks-nsg.md#nsg-rules).
+5. Nel pannello **AllowWeb** (Consenti Web) modificare le proprietà della regola in ingresso in modo che **Origine** sia un indirizzo IP o un blocco di indirizzi IP. Per altre informazioni sulle proprietà della regola in ingresso, vedere [Regole NSG](../virtual-network/security-overview.md#security-rules).
 
    ![Modificare la regola in ingresso][6]
 
 ## <a name="see-also"></a>Vedere anche 
 Questo articolo illustra come implementare la raccomandazione "Restrict access through Internet facing endpoint" (Limita accesso tramite endpoint con connessione Internet) del Centro sicurezza. Per altre informazioni sull'abilitazione dei gruppi di sicurezza di rete e delle regole, vedere gli articoli seguenti:
 
-* [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
-* [Come gestire gruppi di sicurezza di rete tramite il portale di Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Che cos'è un gruppo di sicurezza di rete](../virtual-network/security-overview.md)
+* [Gestire un gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md)
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 

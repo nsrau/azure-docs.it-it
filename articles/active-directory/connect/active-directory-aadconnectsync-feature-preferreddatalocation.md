@@ -1,32 +1,28 @@
 ---
 title: 'Servizio di sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per Multi-Geo Capabilities in Office 365 | Microsoft Docs'
-description: "Descrive come posizionare le risorse utente di Office 365 in prossimità dell'utente con il servizio di sincronizzazione Azure Active Directory Connect."
+description: Descrive come posizionare le risorse utente di Office 365 in prossimità dell'utente con il servizio di sincronizzazione Azure Active Directory Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 04/16/2018
 ms.author: billmath
-ms.openlocfilehash: a5ebd61539af7116b8f92cdf9404cd2b5cdea193
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0020ed42baaa32fbc5ae2d62b37558e491842d67
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157408"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Servizio di sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per le risorse di Office 365
 Questo argomento illustra in dettaglio come configurare l'attributo relativo al percorso dati preferito nel servizio di sincronizzazione Azure Active Directory (Azure AD) Connect. Quando qualcuno usa Multi-Geo Capabilities in Office 365, si usa questo attributo per definire la posizione geografica dei dati di Office 365 dell'utente. I termini *area* e *area geografica* vengono usati in modo intercambiabile.
-
-> [!IMPORTANT]
-> Multi-Geo Capabilities è attualmente in fase di anteprima. Se si desidera partecipare al programma di anteprima, contattare il proprio rappresentante Microsoft.
->
->
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>Abilitare la sincronizzazione del percorso dati preferito
 Per impostazione predefinita, le risorse di Office 365 per gli utenti si trovano nella stessa area geografica del tenant di Azure AD. Ad esempio, se il tenant si trova in America del Nord, anche le cassette postali di Exchange degli utenti si trovano in America del Nord. In un'organizzazione multinazionale questo aspetto può creare problemi.
@@ -34,7 +30,7 @@ Per impostazione predefinita, le risorse di Office 365 per gli utenti si trovano
 Impostando l'attributo **preferredDataLocation** è possibile definire l'area geografica dell'utente. È possibile avere le risorse di Office 365 dell'utente, ad esempio la cassetta postale e OneDrive, nella stessa area geografica dell'utente e continuare ad avere un tenant per l'intera organizzazione.
 
 > [!IMPORTANT]
-> Per essere idonei per la funzionalità Multi-Geo Capabilities, è necessario disporre di almeno 5,000 postazioni nella sottoscrizione di Office 365.
+> Multi-Geo Capabilities è attualmente disponibile per i clienti con un minimo di 5.000 sottoscrizioni di servizi di Office 365. Per informazioni dettagliate, contattare il rappresentante Microsoft.
 >
 >
 
@@ -50,12 +46,12 @@ Le aree geografiche di Office 365 disponibili per Multi-Geo Capabilities sono:
 | Unione Europea | EUR |
 | India | IND |
 | Giappone | JPN |
-| Corea del Sud | KOR |
+| Corea | KOR |
 | Regno Unito | GBR |
 | Stati Uniti | NAM |
 
 * Se un'area geografica non è elencata nella tabella, ad esempio l'America del Sud, significa che non è possibile usarla per Multi-Geo Capabilities.
-* Le aree geografiche India e Corea del Sud sono disponibili solo per i clienti con indirizzi di fatturazione e licenze acquistate in tali aree.
+* L'area geografica India è disponibile solo per i clienti con indirizzi di fatturazione e licenze acquistate in tale area.
 * Non tutti i carichi di lavoro di Office 365 supportano l'impostazione di un'area geografica per l'utente.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Supporto di Azure AD Connect per la sincronizzazione

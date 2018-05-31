@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 51b040e1dfaba8fff8136e8947edf716919f53b0
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 54e830f2ead2887c941d81a97ed619ae5cb1c750
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33202559"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Esercitazione: Integrazione di Azure Active Directory con TrackVia
 
@@ -126,11 +127,22 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 6. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-trackvia-tutorial/tutorial_general_400.png)
-    
-7. Per configurare l'accesso Single Sign-On sul lato **TrackVia**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di TrackVia](mailto:support@trackvia.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+7. Nella sezione **Configurazione di TrackVia** fare clic su **Configura TrackVia** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML** dalla **sezione di riferimento rapido.**
+
+    ![Configurazione di TrackVia](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_configure.png)
+    
+8. In un'altra finestra del browser, accedere al sito aziendale di TrackVia come amministratore.
+
+9. Fare clic sulle impostazioni dell'**Account personale** di Trackvia e quindi selezionare la scheda **Single Sign-On**, procedere come segue:
+
+    ![Configurazione di TrackVia](./media/active-directory-saas-trackvia-tutorial/configure1.png)
+
+    a. Nella casella di testo **Identity Provider Entity ID** (ID entità provider di identità) incollare il valore dell'**ID di entità SAML** copiato dal portale di Azure.
+
+    b. Selezione **Scegli file** per caricare il file di metadati scaricato dal portale di Azure.
+
+    c. Fare clic su **Save**
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -212,8 +224,6 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_01.png
@@ -227,4 +237,3 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_203.png
-

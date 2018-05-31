@@ -10,11 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: a83a9f9332d81e02a83efc019ad56027316301ab
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 94791e4dc3d3c841dde4685d34d4e3fdaf7d9af7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32185961"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unità Data Warehouse (DWU) e DWU a elevato utilizzo di calcolo (cDWU)
 Raccomandazioni per la scelta del numero ideale di unità Data Warehouse (DWU, DWU a elevato utilizzo di calcolo) per ottimizzare prezzo e prestazioni e per come modificarne il numero. 
@@ -36,19 +37,19 @@ L'aumento delle DWU:
 - Aumenta il numero massimo di query simultanee e slot di concorrenza.
 
 ## <a name="service-level-objective"></a>Obiettivo del livello di servizio
-L'obiettivo del livello di servizio (SLO) è l'impostazione di scalabilità che determina il livello di costi e prestazioni del data warehouse. I livelli di servizio per la scalabilità del livello di prestazioni ottimizzato per il calcolo sono misurati in unità di calcolo data warehouse (DWU a elevato utilizzo di calcolo), ad esempio DW2000c. I livelli di servizio ottimizzati per l'elasticità sono misurati in DWU, ad esempio DW2000. 
+L'obiettivo del livello di servizio (SLO) è l'impostazione di scalabilità che determina il livello di costi e prestazioni del data warehouse. I livelli di servizio per la seconda generazione sono misurati in unità di calcolo data warehouse (DWU a elevato utilizzo di calcolo), ad esempio DW2000c. I livelli di servizio di prima generazione sono misurati in DWU, ad esempio DW2000. 
 
 In T-SQL l'impostazione di SERVICE_OBJECTIVE determina il livello di servizio e il livello di prestazioni per data warehouse.
 
 ```sql
---Optimized for Elasticity
+--Gen1
 CREATE DATABASE myElasticSQLDW
 WITH
 (    SERVICE_OBJECTIVE = 'DW1000'
 )
 ;
 
---Optimized for Compute
+--Gen2
 CREATE DATABASE myComputeSQLDW
 WITH
 (    SERVICE_OBJECTIVE = 'DW1000c'
@@ -60,12 +61,12 @@ WITH
 
 Ogni livello di prestazioni usa un'unità di misura leggermente diversa per le unità Data Warehouse. Questa differenza si rispecchia nella fattura, dato che l'unità di scala ha una corrispondenza diretta nella fatturazione.
 
-- Il livello di prestazioni ottimizzato per l'elasticità viene misurato in unità Data Warehouse (DWU).
-- Il livello di prestazioni ottimizzato per il calcolo viene misurato in DWU a elevato utilizzo di calcolo (cDWU). 
+- I data warehouse di prima generazione sono misurati in unità data warehouse (DWU a elevato utilizzo di calcolo).
+- I data warehouse di seconda generazione sono misurati in unità di calcolo data warehouse (DWU a elevato utilizzo di calcolo). 
 
-Sia le unità DWU che le unità cDWU supportano l'aumento o la riduzione delle risorse di calcolo, oltre alla sospensione delle operazioni di calcolo quando non è necessario usare il data warehouse. Queste operazioni sono tutte su richiesta. Il livello di prestazioni ottimizzato per il calcolo usa anche una cache basata su disco locale nei nodi di calcolo per migliorare le prestazioni. Quando si ridimensiona o si sospende il sistema, la cache viene invalidata ed è quindi necessario un periodo di aggiornamento della cache prima di ottenere prestazioni ottimali.  
+Sia le unità DWU che le unità cDWU supportano l'aumento o la riduzione delle risorse di calcolo, oltre alla sospensione delle operazioni di calcolo quando non è necessario usare il data warehouse. Queste operazioni sono tutte su richiesta. La seconda generazione usa anche una cache basata su disco locale nei nodi di calcolo per migliorare le prestazioni. Quando si ridimensiona o si sospende il sistema, la cache viene invalidata ed è quindi necessario un periodo di aggiornamento della cache prima di ottenere prestazioni ottimali.  
 
-Con l'aumentare delle unità Data Warehouse si aumentano in modo lineare le risorse di calcolo. Il livello di prestazioni ottimizzato per il calcolo offre le migliori prestazioni per le query e la massima scalabilità, ma con un prezzo di ingresso maggiore. Questo livello è progettato per le aziende con una richiesta costante di prestazioni elevate. Questi sistemi usano al massimo la cache. 
+Con l'aumentare delle unità Data Warehouse si aumentano in modo lineare le risorse di calcolo. La seconda generazione offre le migliori prestazioni per le query e la massima scalabilità, ma con un prezzo di ingresso maggiore. Questo livello è progettato per le aziende con una richiesta costante di prestazioni elevate. Questi sistemi usano al massimo la cache. 
 
 ### <a name="capacity-limits"></a>Limiti di capacità
 Ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota di [unità di transazione di database (DTU)](../sql-database/sql-database-what-is-a-dtu.md) che consente un numero specifico di unità di data warehouse. Per altre informazioni, vedere i [limiti della capacità di gestione del carico di lavoro](sql-data-warehouse-service-capacity-limits.md#workload-management).
@@ -76,10 +77,9 @@ Il numero ideale di unità Data Warehouse dipende molto dal carico di lavoro e d
 
 Procedure per individuare l'impostazione DWU ottimale per il carico di lavoro:
 
-1. Durante lo sviluppo, iniziare selezionando un numero di unità DWU inferiore usando il livello di prestazioni ottimizzato per l'elasticità.  Dato che l'esigenza prioritaria in questa fase è la convalida funzionale, il livello di prestazioni Ottimizzato per l'elasticità è un'opzione ragionevole. Un buon punto di partenza è DW200. 
+1. Iniziare selezionando un'unità data warehouse più piccola. 
 2. Monitorare le prestazioni dell'applicazione durante il caricamento dei dati di test nel sistema, osservando il numero di DWU selezionato in relazione alle prestazioni rilevate.
-3. Identificare eventuali requisiti aggiuntivi per i periodici periodi di punta delle attività. Se il carico di lavoro mostra picchi e valli significativi nelle attività ed esiste un buon motivo per modificare il livello di risorse frequentemente, privilegiare il livello di prestazioni Ottimizzato per l'elasticità.
-4. Se sono necessarie più di 1000 DWU, preferire il livello Ottimizzato per il calcolo perché offre le prestazioni migliori.
+3. Identificare eventuali requisiti aggiuntivi per i periodici periodi di punta delle attività. Se il carico di lavoro mostra picchi e valli significativi nelle attività ed esiste un buon motivo per modificare il livello di risorse frequentemente.
 
 SQL Data Warehouse è un sistema con scalabilità orizzontale che supporta il provisioning di enormi quantità di dati adattabili alle esigenze di calcolo e query. Per verificare le effettive capacità nell'ottica della scalabilità, in particolare per le maggiori quantità di DWU, è consigliabile ridimensionare il set di dati durante gli interventi di scalabilità per assicurarsi che siano disponibili dati sufficienti per le CPU. Per i test di scalabilità è consigliabile usare almeno 1 TB.
 

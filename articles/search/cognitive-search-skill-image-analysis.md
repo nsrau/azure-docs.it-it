@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: f4b0758ed6f1a0d11aeb1061cac34f1e9084ef53
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 271f3231078b8842b040509ccf0406ed2415e5ec
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786880"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363945"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Competenza cognitiva di Analisi delle immagini
 
@@ -40,9 +40,9 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Input     | DESCRIZIONE |
-|--------------------|-------------|
-| URL | Localizzatore univoco per l'immagine. Potrebbe essere un URL Web o la posizione dell'archivio BLOB.|
+| Nome input      | DESCRIZIONE                                          |
+|---------------|------------------------------------------------------|
+| immagine         | Tipo complesso. Attualmente funziona solo con il campo "/document/normalized_images", prodotto dall'indicizzatore di BLOB di Azure quando ```imageAction``` è impostato su ```generateNormalizedImages```. Per altre informazioni, vedere [esempio](#sample-output).|
 
 
 
@@ -63,8 +63,8 @@ I parametri fanno distinzione tra maiuscole e minuscole.
     "defaultLanguageCode": "en",
     "inputs": [
         {
-            "name": "url",
-            "source": "/document/metadata_storage_path"
+            "name": "image",
+            "source": "/document/normalized_images/*"
         }
     ],
     "outputs": [
@@ -249,3 +249,4 @@ Nei seguenti casi di errore, non viene estratto nessun elemento.
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
++ [Create indexer (REST)](ref-create-indexer.md) (Creare un indicizzatore - REST)

@@ -1,5 +1,5 @@
 ---
-title: Connettore Spark con database SQL di Azure e SQL Server | Documentazione Microsoft
+title: Connettore Spark con database SQL di Azure e SQL Server | Microsoft Docs
 description: Informazioni su come usare il connettore Spark per Database SQL di Azure e SQL Server
 services: sql-database
 author: allenwux
@@ -7,13 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: ''
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: xiwu
-ms.openlocfilehash: 46849d551b6996caaf020caec1ab8104d5388c8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 393af463c4145e1d865c14f2ace7d5123ab12cfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187386"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Consente di accelerare il processo di big data analytics in tempo reale con connettore Spark per database SQL di Azure e SQL Server
 
@@ -38,6 +39,10 @@ Il flusso di dati è il seguente:
 1. Il nodo principale Spark si connette a SQL Server o al database SQL di Azure e carica i dati da una tabella specifica o utilizzando una query SQL specifica
 2. Il nodo principale Spark distribuisce i dati ai nodi di lavoro per la trasformazione. 
 3. Il nodo di lavoro si connette a SQL Server o al database SQL di Azure e scrive i dati sul database. L'utente può scegliere se utilizzare l'inserimento riga per riga o l'inserimento in blocco.
+
+Il diagramma seguente illustra il flusso di dati.
+
+   ![architettura](./media/sql-database-spark-connector/architecture.png)
 
 ### <a name="build-the-spark-to-sql-db-connector"></a>Creare il connettore Spark per il database SQL
 Attualmente il progetto del connettore usa Maven. Per creare il connettore senza le dipendenze, è possibile eseguire:
@@ -153,7 +158,7 @@ collection.show()
 #### <a name="setup-requirement"></a>Requisiti di installazione
 Se si utilizza la modalità di autenticazione basata su token di accesso, è necessario scaricare [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) e le relative dipendenze e includerli nel percorso di compilazione Java.
 
-Vedere [Utilizzare l’autenticazione di Azure Active Directory per l'autenticazione con il database SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) per informazioni su come ottenere token di accesso per il database SQL di Azure.
+Vedere [Utilizzare l’autenticazione di Azure Active Directory per l'autenticazione con il database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) per informazioni su come ottenere token di accesso per il database SQL di Azure.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
@@ -211,5 +216,5 @@ Se ancora non lo si è fatto, scaricare il connettore Spark per il database Azur
 -   [Esempi di notebook Azure Databricks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Script di esempio (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-È possibile anche esaminare la [guida ad Apache Spark SQL, DataFrame e set di dati](http://spark.apache.org/docs/latest/sql-programming-guide.html) e la [documentazione Azure Databricks](https://docs.microsoft.com/en-us/azure/azure-databricks/).
+È possibile anche esaminare la [guida ad Apache Spark SQL, DataFrame e set di dati](http://spark.apache.org/docs/latest/sql-programming-guide.html) e la [documentazione Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
 

@@ -1,3 +1,20 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 23abf13aca84bde3a9e4a82722051689cc177a2b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371270"
+---
 Ci sono varie ragioni alla base dell'impossibilità di avviare o di connettersi a un'applicazione in esecuzione su una macchina virtuale (VM) di Azure. I motivi includono un'applicazione non in esecuzione o in attesa sulle porte previste, la porta di ascolto bloccata o regole di rete che non consentono la trasmissione corretta del traffico all'applicazione. In questo articolo viene descritto un approccio metodico per rilevare e correggere il problema.
 
 Se si sono verificati problemi durante la connessione alla VM tramite RDP o SSH, consultare prima uno dei seguenti articoli:
@@ -99,7 +116,7 @@ Se non è possibile accedere all'applicazione, verificare le seguenti impostazio
   
   * Verificare che la configurazione della regola NAT in ingresso consenta il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
   * Verificare che i gruppi di sicurezza di rete consentano il traffico della richiesta in ingresso e della risposta in uscita.
-  * Per altre informazioni, vedere [Che cos'è un gruppo di sicurezza di rete](../articles/virtual-network/virtual-networks-nsg.md)
+  * Per altre informazioni, vedere [Informazioni sui gruppi di sicurezza di rete](../articles/virtual-network/security-overview.md)
 
 Se la macchina virtuale o un endpoint è un membro di un set con carico bilanciato:
 

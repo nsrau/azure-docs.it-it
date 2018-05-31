@@ -1,6 +1,6 @@
 ---
-title: Aggiornamento allo stack di backup di macchine virtuali V2 | Microsoft Docs
-description: Processo di aggiornamento e domande frequenti per lo stack di backup di macchine virtuali V2
+title: Eseguire l'aggiornamento al modello di distribuzione Azure Resource Manager per lo stack di backup di macchine virtuali di Azure | Microsoft Docs
+description: Processo di aggiornamento e domande frequenti per lo stack di backup di macchine virtuali e il modello di distribuzione Resource Manager
 services: backup, virtual-machines
 documentationcenter: ''
 author: trinadhk
@@ -13,84 +13,83 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/08/2018
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 7e092dc1448a45277e01b1a8c6d2bc0e2a8a22a3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1e5515486afac5a6d84a35bca33f55ae98e287d3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33764860"
 ---
-# <a name="upgrade-to-vm-backup-stack-v2"></a>Eseguire l'aggiornamento allo stack di backup di macchine virtuali V2
-L'aggiornamento allo stack di backup di macchine virtuali (VM) V2 offre i miglioramenti delle funzionalità seguenti:
-* Possibilità di visualizzare lo snapshot acquisito durante il processo di backup come disponibile per il ripristino senza attendere il completamento del trasferimento dei dati.
-Ridurrà l'attesa per la copia dello snapshot nell'insieme di credenziali prima di attivare il ripristino. Eliminerà anche la necessità di spazio di archiviazione aggiuntivo per il backup di VM Premium, tranne che per il primo backup.  
+# <a name="upgrade-to-the-azure-resource-manager-deployment-model-for-azure-vm-backup-stack"></a>Eseguire l'aggiornamento al modello di distribuzione Azure Resource Manager per lo stack di backup di macchine virtuali di Azure
+Il modello di distribuzione Resource Manager per l'aggiornamento allo stack di backup di macchine virtuali offre i seguenti miglioramenti delle funzionalità:
+* Possibilità di visualizzare lo snapshot acquisito durante il processo di backup che è disponibile per il ripristino senza attendere il completamento del trasferimento dei dati. Riduce il tempo di attesa per la copia degli snapshot nell'insieme di credenziali prima di attivare il ripristino. Elimina anche la necessità di spazio di archiviazione aggiuntivo per il backup di macchine virtuali Premium, tranne che per il primo backup.  
 
-* Riduzione dei tempi di backup e ripristino conservando gli snapshot in locale per 7 giorni. 
+* Riduzione dei tempi di backup e ripristino conservando gli snapshot in locale per sette giorni.
 
-* Supporto per dischi con dimensioni fino a 4 TB.  
+* Supporto per dischi con dimensioni fino a 4 TB.
 
-* Possibilità di usare gli account di archiviazione originali (anche quando i dischi della VM sono distribuiti negli account di archiviazione) quando si esegue un ripristino di una VM non gestita. In questo modo le operazioni di ripristino saranno più veloci per un'ampia gamma di configurazioni di macchina virtuale. 
+* Possibilità di usare gli account di archiviazione originali quando si esegue il ripristino di una macchina virtuale non gestita. Questa possibilità vale anche quando i dischi della macchina virtuale sono distribuiti negli account di archiviazione. In questo modo le operazioni di ripristino sono più veloci per un'ampia gamma di configurazioni di macchina virtuale.
     > [!NOTE] 
-    > Non è lo stesso che eseguire l'override della macchina virtuale originale. 
-    > 
+    > Non è come eseguire l'override della macchina virtuale originale. 
     >
 
-## <a name="what-is-changing-in-the-new-stack"></a>Modifiche nel nuovo stack
+## <a name="whats-changing-in-the-new-stack"></a>Modifiche nel nuovo stack
 Il processo di backup è attualmente costituito da due fasi:
-1.  Acquisizione di uno snapshot della VM. 
+1.  Acquisizione di uno snapshot della macchina virtuale. 
 2.  Trasferimento dello snapshot della macchina virtuale all'insieme di credenziali di Backup di Azure. 
 
-Un punto di ripristino si considera creato solo dopo che sono state eseguite le fasi 1 e 2. Nell'ambito del nuovo stack viene creato un punto di ripristino non appena lo snapshot viene completato. È anche possibile eseguire il ripristino da questo punto usando lo stesso flusso di ripristino. È possibile identificare questo punto di ripristino nel portale di Azure usando lo "snapshot" come tipo di punto di ripristino. Dopo che lo snapshot è stato trasferito all'insieme di credenziali, il tipo di punto di ripristino diventa "Snapshot e insieme di credenziali". 
+Un punto di ripristino si considera creato solo dopo che sono state eseguite le fasi 1 e 2. Nell'ambito del nuovo stack viene creato un punto di ripristino non appena lo snapshot viene completato. È anche possibile eseguire il ripristino da questo punto usando lo stesso flusso di ripristino. È possibile identificare questo punto di ripristino nel portale di Azure usando lo "snapshot" come tipo di punto di ripristino. Dopo che lo snapshot è stato trasferito all'insieme di credenziali, il tipo di punto di ripristino diventa "snapshot e insieme di credenziali". 
 
-![Processo di backup nello stack di backup di macchine virtuali V2](./media/backup-azure-vms/instant-rp-flow.jpg) 
+![Processo di backup in uno stack di backup di macchine virtuali, modello di distribuzione Resource Manager: archiviazione e insieme di credenziali](./media/backup-azure-vms/instant-rp-flow.jpg) 
 
-Per impostazione predefinita, gli snapshot verranno conservati per sette giorni. In questo modo è possibile completare più rapidamente il ripristino dagli snapshot riducendo il tempo necessario per copiare i dati dall'insieme di credenziali all'account di archiviazione del cliente. 
+Per impostazione predefinita, gli snapshot vengono conservati per sette giorni. Questa funzionalità consente di completare più rapidamente il ripristino da questi snapshot. Riduce il tempo necessario per copiare i dati dall'insieme di credenziali all'account di archiviazione del cliente. 
 
 ## <a name="considerations-before-upgrade"></a>Considerazioni prima dell'aggiornamento
-* Poiché questo è un aggiornamento unidirezionale dello stack di backup di macchine virtuali, tutti i backup futuri verranno inseriti in questo flusso. Poiché **viene abilitato a livello di sottoscrizione, tutte le VM verranno inserite in questo flusso**. Tutte le aggiunte di nuove funzionalità si baseranno sullo stesso stack. Nelle versioni future sarà possibile avere il controllo a livello di criteri. 
-* Per le VM con dischi Premium, durante il primo backup, verificare che nell'account di archiviazione sia disponibile uno spazio di archiviazione equivalente alle dimensioni della VM fino al termine del primo backup. 
-* Poiché gli snapshot vengono archiviati in locale per supportare la creazione del punto di ripristino e anche per velocizzare il ripristino, si osserveranno costi di archiviazione corrispondenti agli snapshot durante il periodo di sette giorni.
-* Gli snapshot incrementali vengono archiviati come BLOB di pagine. A tutti i clienti che usano dischi non gestiti verranno addebitati gli snapshot per 7 giorni archiviati nell'account di archiviazione locale del cliente. In base al modello di determinazione dei prezzi corrente, non sono previsti costi per i clienti dei dischi gestiti.
-* Se si esegue un ripristino da un punto di ripristino di uno snapshot per una VM Premium, si noterà che viene usata una posizione di archiviazione temporanea mentre la VM viene creata durante il ripristino. 
-* In caso di account di archiviazione Premium, gli snapshot usati per il ripristino istantaneo occuperanno 10 TB allocati nell'account di archiviazione Premium.
+* Poiché l'aggiornamento dello stack di backup di macchine virtuali è unidirezionale, tutti i backup vengono inseriti in questo flusso. Dato che viene abilitato a livello di sottoscrizione, tutte le macchine virtuali vengono inserite in questo flusso. Tutte le aggiunte di nuove funzionalità si basano sullo stesso stack. Nelle versioni future sarà possibile avere il controllo a livello di criteri.
 
-## <a name="how-to-upgrade"></a>Come eseguire l'aggiornamento
+* Gli snapshot vengono archiviati in locale per supportare la creazione del punto di ripristino e anche per velocizzare il ripristino. Pertanto si osserveranno costi di archiviazione corrispondenti agli snapshot durante il periodo di sette giorni.
+
+* Gli snapshot incrementali vengono archiviati come BLOB di pagine. A tutti i clienti che usano dischi non gestiti verranno addebitati gli snapshot per sette giorni archiviati nell'account di archiviazione locale del cliente. In base al modello tariffario corrente, non sono previsti costi per i clienti dei dischi gestiti.
+
+* Se si esegue un ripristino da un punto di ripristino di uno snapshot per una macchina virtuale Premium, si noterà che viene usata una posizione di archiviazione temporanea mentre la macchina virtuale viene creata durante il ripristino.
+
+* Per gli account di archiviazione Premium, gli snapshot usati per il ripristino istantaneo occupano 10 TB di spazio allocato.
+
+## <a name="upgrade"></a>Aggiornamento
 ### <a name="the-azure-portal"></a>Portale di Azure
-Se si usa il portale di Azure, nel dashboard dell'insieme di credenziali verrà visualizzata una notifica relativa al supporto di dischi di grandi dimensioni e ai miglioramenti della velocità di backup e ripristino.
+Se si usa il portale di Azure, viene visualizzata una notifica nel dashboard dell'insieme di credenziali. Questa notifica si riferisce al supporto di dischi di grandi dimensioni e ai miglioramenti della velocità di backup e ripristino.
 
-![Processo di backup nello stack di backup di macchine virtuali V2](./media/backup-azure-vms/instant-rp-banner.png) 
+![Processo di backup in uno stack di backup di macchine virtuali, modello di distribuzione Resource Manager: notifica relativa al supporto](./media/backup-azure-vms/instant-rp-banner.png) 
 
 Per aprire una schermata per l'aggiornamento al nuovo stack, selezionare il banner. 
 
-![Processo di backup nello stack di backup di macchine virtuali V2](./media/backup-azure-vms/instant-rp.png) 
+![Processo di backup in uno stack di backup di macchine virtuali, modello di distribuzione Resource Manager: aggiornamento](./media/backup-azure-vms/instant-rp.png) 
 
 ### <a name="powershell"></a>PowerShell
 Eseguire i cmdlet seguenti da un terminale di PowerShell con privilegi elevati:
-1.  Accedere all'account Azure. 
+1.  Accedere all'account Azure: 
 
-```
-PS C:> Connect-AzureRmAccount
-```
+    ```
+    PS C:> Connect-AzureRmAccount
+    ```
 
 2.  Selezionare la sottoscrizione che si vuole registrare per l'anteprima:
 
-```
-PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-```
+    ```
+    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    ```
 
 3.  Registrare la sottoscrizione per l'anteprima privata:
 
-```
-PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
-```
+    ```
+    PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
+    ```
 
-## <a name="verify-whether-the-upgrade-is-complete"></a>Verificare se l'aggiornamento è stato completato
+## <a name="verify-that-the-upgrade-is-finished"></a>Verificare se l'aggiornamento è stato completato
 Da un terminale di PowerShell con privilegi elevati eseguire il cmdlet seguente:
 
 ```
 Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
 ```
 
-Se viene visualizzato Registered, la sottoscrizione è aggiornata allo stack di backup di macchine virtuali V2. 
-
-
-
+Se viene visualizzato "Registered" (Registrato), la sottoscrizione è aggiornata allo stack di backup di macchine virtuali del modello di distribuzione Resource Manager.

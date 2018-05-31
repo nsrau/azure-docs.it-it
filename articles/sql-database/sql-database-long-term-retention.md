@@ -7,14 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/17/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 51f00984a8f0d750bdb478ae4bc8093adad8108e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ce78201e3f87b9687ced181f90d352d73aa29431
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366063"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Archiviare i backup del database SQL di Azure per un massimo di 10 anni
 
@@ -54,8 +55,13 @@ W=12 settimane (84 giorni), M=12 mesi (365 giorni), Y=10 anni (3650 giorni), Wee
 
 
  
-Se fosse necessario modificare i criteri sopra riportati e impostare W=0 (nessun backup settimanale), la cadenza delle copie di backup cambierebbe, come illustrato dalle date evidenziate nella tabella precedente. La quantità di archiviazione necessaria per conservare questi backup si ridurrebbe di conseguenza. Nota: le copie per la conservazione a lungo termine vengono create dal servizio di archiviazione di Azure in modo che il processo di copia non abbia alcun impatto sulle prestazioni del database esistente.
-Per ripristinare un database dalla risorsa di archiviazione per la conservazione a lungo termine, selezionare un backup specifico in base al relativo timestamp.   Il database può essere ripristinato in qualsiasi server esistente all'interno della stessa sottoscrizione del database originale. 
+Se fosse necessario modificare i criteri sopra riportati e impostare W=0 (nessun backup settimanale), la cadenza delle copie di backup cambierebbe, come illustrato dalle date evidenziate nella tabella precedente. La quantità di archiviazione necessaria per conservare questi backup si ridurrebbe di conseguenza. 
+
+> [!NOTE]
+1. Le copie per la conservazione a lungo termine vengono create dal servizio di archiviazione di Azure in modo che il processo di copia non abbia alcun impatto sulle prestazioni del database esistente.
+2. Il criterio si applica ai backup futuri. ad esempio Se il criterio WeekOfYear specificato è nel passato quando il viene configurato, il primo backup per la conservazione a lungo termine verrà creato l'anno successivo. 
+3. Per ripristinare un database dalla risorsa di archiviazione per la conservazione a lungo termine, selezionare un backup specifico in base al relativo timestamp.   Il database può essere ripristinato in qualsiasi server esistente all'interno della stessa sottoscrizione del database originale. 
+> 
 
 ## <a name="configure-long-term-backup-retention"></a>Configurare la conservazione del backup a lungo termine
 

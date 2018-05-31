@@ -2,7 +2,7 @@
 title: 'Azure Active Directory B2C: aggiungere un provider di Azure AD usando i criteri personalizzati | Microsoft Docs'
 description: Informazioni sui criteri personalizzati di Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: parakhj
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: f34326bcb8a7cbf5b5cf75e8f18f2843abc0b3ab
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40943c135746925929daf7ebae4714ef70eeda51
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140224"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: accedere usando account di Azure AD
 
@@ -46,12 +47,12 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
 > Nelle istruzioni seguenti vengono usati "contoso.com" per il tenant di Azure AD dell'organizzazione e "fabrikamb2c.onmicrosoft.com" come tenant di Azure AD B2C.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Nella barra in alto selezionare il proprio account. Nell'elenco **Directory** scegliere il tenant di Azure AD dell'organizzazione in cui si desidera registrare l'applicazione (contoso.com).
-1. Fare clic su **Altri servizi** nel riquadro a sinistra e cercare "Registrazioni per l'app".
-1. Selezionare **Registrazione nuova applicazione**.
-1. Immettere un nome per l'applicazione, ad esempio `Azure AD B2C App`.
-1. Selezionare **App Web/API** per il tipo di applicazione.
-1. Per **URL accesso** immettere l'URL seguente, dove `yourtenant` viene sostituito dal nome del tenant di Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
+2. Nella barra in alto selezionare il proprio account. Nell'elenco **Directory** scegliere il tenant di Azure AD dell'organizzazione in cui si desidera registrare l'applicazione (contoso.com).
+3. Fare clic su **Altri servizi** nel riquadro a sinistra e cercare "Registrazioni per l'app".
+4. Selezionare **Registrazione nuova applicazione**.
+5. Immettere un nome per l'applicazione, ad esempio `Azure AD B2C App`.
+6. Selezionare **App Web/API** per il tipo di applicazione.
+7. Per **URL accesso** immettere l'URL seguente, dove `yourtenant` viene sostituito dal nome del tenant di Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >Il valore di "yourtenant" deve essere in formato minuscolo in **URL accesso**.
@@ -60,10 +61,10 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
-1. Salvare l'ID applicazione.
-1. Selezionare l'applicazione appena creata.
-1. Nel pannello **Impostazioni** selezionare **Chiavi**.
-1. Creare una nuova chiave e salvarla. Questa chiave sarà necessaria nei passaggi della prossima sezione.
+8. Salvare l'ID applicazione.
+9. Selezionare l'applicazione appena creata.
+10. Nel pannello **Impostazioni** selezionare **Chiavi**.
+11. Immettere la descrizione della chiave, selezionare una durata e quindi fare clic su **Salva**. Viene visualizzato il valore della chiave. Copiarlo perché sarà necessario nei passaggi della prossima sezione.
 
 ## <a name="add-the-azure-ad-key-to-azure-ad-b2c"></a>Aggiungere la chiave di Azure AD in Azure AD B2C
 

@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 74ef8ae45215badf2b5a83cc2d82c3db1eef8980
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d1862c5ed83033eb8de74459f26260864c646dfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153127"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Aggiornamento asincrono con l'API REST
 È possibile eseguire operazioni di aggiornamento asincrono dei dati sui modelli tabulari di Azure Analysis Services usando qualsiasi linguaggio di programmazione che supporta le chiamate REST. È inclusa la sincronizzazione delle repliche di sola lettura per la scalabilità orizzontale delle query. 
@@ -198,7 +199,7 @@ Ecco un esempio di codice C# adatto per iniziare, [RestApiSample su GitHub](http
 1.  Clonare o scaricare il repository. Aprire la soluzione RestApiSample.
 2.  Trovare la riga **client.BaseAddress = …** e inserire l'[URL di base](#base-url).
 
-L'esempio di codice può usare l'accesso interattivo, nome utente/password o l'[entità servizio](#service-principle).
+L'esempio di codice può usare l'accesso interattivo, nome utente/password o l'[entità servizio](#service-principal).
 
 #### <a name="interactive-login-or-usernamepassword"></a>Accesso interattivo o nome utente/password
 
@@ -235,7 +236,7 @@ Questo tipo di autenticazione richiede di creare un'applicazione Azure con asseg
 
 #### <a name="service-principal"></a>Entità servizio
 
-Vedere [Creare un'entità servizio - Portale di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) e [Aggiungere un'entità servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md) per altre informazioni su come configurare un'entità servizio e assegnare le autorizzazioni necessarie in Azure AS. Dopo aver completato i passaggi, eseguire i passaggi aggiuntivi seguenti:
+Vedere [Creare un'entità servizio - Portale di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) e [Aggiungere un'entità servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md) per altre informazioni su come configurare un'entità servizio e assegnare le autorizzazioni necessarie in Azure Analysis Services. Dopo aver completato i passaggi, eseguire i passaggi aggiuntivi seguenti:
 
 1.  Nell'esempio di codice trovare **string authority = …** e sostituire **common** con l'ID tenant dell'organizzazione.
 2.  Aggiungere o rimuovere il commento in modo che la classe ClientCredential venga usata per creare un'istanza dell'oggetto cred. Assicurarsi che l'accesso ai valori \<App ID> e \<App Key> sia eseguito in modo sicuro o usare l'autenticazione basata su certificato per le entità servizio.

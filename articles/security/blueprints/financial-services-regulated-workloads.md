@@ -3,7 +3,7 @@ title: Azure Security and Compliance Blueprint - Carichi di lavoro regolamentati
 description: Azure Security and Compliance Blueprint - Carichi di lavoro regolamentati per il settore dei servizi finanziari FFIEC
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 17794288-9074-44b5-acc8-1dacceb3f56c
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
-ms.openlocfilehash: 497c5a987753cbbe577c1d042d6bf61be9d905ab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: f1339af22132d19f14ea8ebb72fe0e6bd45b7fad
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895555"
 ---
 # <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Azure Security and Compliance Blueprint - Carichi di lavoro regolamentati per il settore dei servizi finanziari FFIEC
 
@@ -42,7 +43,7 @@ L'architettura include i seguenti componenti e usa le funzionalità di implemen
 - **Modelli di distribuzione**. In questa distribuzione vengono usati [modelli di Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) per distribuire automaticamente i componenti dell'architettura in Microsoft Azure specificando i parametri di configurazione durante l'installazione.
 - **Script di distribuzione automatizzata**. Questi script agevolano la distribuzione della soluzione end-to-end. Gli script sono costituiti da:
     - Uno script di installazione dei moduli e degli [amministratori globali](/azure/active-directory/active-directory-assign-admin-roles-azure-portal), usato per installare i moduli PowerShell e verificare che questi ultimi e i ruoli di amministratore globale siano configurati correttamente. 
-    - Uno script PowerShell di installazione viene usato per distribuire la soluzione end-to-end, fornita tramite un file con estensione zip e un file con estensione bacpac contenenti un'applicazione Web demo precompilata con il contenuto del [database SQL di esempio](https://github.com/Microsoft/azure-sql-security-sample) . Il codice sorgente per questa soluzione è disponibile per la revisione in [Payment Processing Blueprint code repository][code-repo](Repository del codice del progetto per l'elaborazione dei pagamenti). 
+    - Uno script PowerShell di installazione viene usato per distribuire la soluzione end-to-end, fornita tramite un file con estensione zip e un file con estensione bacpac contenenti un'applicazione Web demo precompilata con il contenuto del [database SQL di esempio](https://github.com/Microsoft/azure-sql-security-sample) . Il codice sorgente per questa soluzione è disponibile per la revisione nel [repository del codice del progetto per l'elaborazione dei pagamenti][repository del codice]. 
 
 ## <a name="architectural-diagram"></a>Diagramma dell'architettura
 
@@ -305,7 +306,7 @@ La distribuzione predefinita ha lo scopo di offrire una serie di consigli di bas
 
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
-I componenti per la distribuzione di questa soluzione sono disponibili nel [repository del codice del progetto][code-repo]. La distribuzione dell'architettura di base richiede diversi passaggi, che vengono eseguiti tramite Microsoft PowerShell versione 5. Per connettersi al sito Web, è necessario specificare un nome di dominio personalizzato (ad esempio, contoso.com). Per specificarlo, usare l'opzione `-customHostName` nel passaggio 2. Per altre informazioni, vedere [Acquistare un nome di dominio personalizzato per app Web di Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Un nome di dominio personalizzato non è necessario per distribuire ed eseguire la soluzione, ma senza di esso non è possibile connettersi al sito Web a scopi dimostrativi.
+I componenti per la distribuzione di questa soluzione sono disponibili nel [repository del codice del progetto][repository del codice]. La distribuzione dell'architettura di base richiede diversi passaggi, che vengono eseguiti tramite Microsoft PowerShell versione 5. Per connettersi al sito Web, è necessario specificare un nome di dominio personalizzato (ad esempio, contoso.com). Per specificarlo, usare l'opzione `-customHostName` nel passaggio 2. Per altre informazioni, vedere [Acquistare un nome di dominio personalizzato per app Web di Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Un nome di dominio personalizzato non è necessario per distribuire ed eseguire la soluzione, ma senza di esso non è possibile connettersi al sito Web a scopi dimostrativi.
 
 Gli script aggiungono utenti del dominio al tenant di Azure AD specificati. Microsoft consiglia di creare un nuovo tenant di Azure AD da usare per l'esecuzione di test.
 
@@ -388,8 +389,3 @@ I clienti sono tenuti a conservare una copia della [matrice di riepilogo delle r
 - I nomi dei clienti, i record delle transazioni e i dati correlati presenti in questa pagina sono tutti fittizi, creati in funzione di questa architettura di base e forniti solo a scopo illustrativo. Nessuna associazione o riferimento reale è intenzionale e non ne deve esserne desunto alcuno.  
 - Questa soluzione è stata sviluppata congiuntamente da Microsoft e Avyan Consulting ed è disponibile con la [licenza MIT](https://opensource.org/licenses/MIT).
 
-### <a name="document-authors"></a>Autori del documento
-
-* *Frank Simorjay (Microsoft)*  
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Repository del codice"

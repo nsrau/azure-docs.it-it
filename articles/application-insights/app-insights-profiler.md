@@ -1,8 +1,8 @@
 ---
 title: Profilare le app Web attive in Azure con Application Insights Profiler | Microsoft Docs
-description: Identificare il percorso critico nel codice del server Web con un profiler con footprint ridotto.
+description: Identificare il percorso ricorrente nel codice del server web con un profiler con footprint ridotto.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: c65ef9141898369b8fcadd4c52972b767aca7cfe
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 34824401ec8d21949c5c5036a11197a09e240bd7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936726"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profilare le app Web di Azure attive con Application Insights
 
-*Questo strumento di Azure Application Insights è disponibile a livello generale per la funzionalità App Web del servizio app di Azure e in anteprima per le risorse di calcolo di Azure.*
+*Questa funzionalità di Azure Application Insights è disponibile a livello generale per la funzionalità App Web di Servizio app di Azure e in anteprima per le risorse di calcolo di Azure. Sono disponibili informazioni sull'[uso locale di Profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).*
 
 Questo articolo illustra il tempo impiegato in ogni metodo dell'applicazione Web attiva quando si usa [Application Insights](app-insights-overview.md). Lo strumento Application Insights Profiler visualizza i profili dettagliati delle richieste attive che sono state soddisfatte dall'app ed evidenzia il *percorso critico* che impiega più tempo. Le richieste con diversi tempi di risposta vengono profilate in base a un campionamento. Adottando varie tecniche, è possibile ridurre al minimo il sovraccarico associato all'applicazione.
 
@@ -53,7 +54,7 @@ Per poter interagire con Profiler, le applicazioni ASP.NET Core richiedono l'ins
 
 5. Se necessario, seguire le istruzioni per installare l'agente Profiler. Se nessuna app Web è stata ancora configurata con Application Insights, selezionare **Aggiungi app collegate**.
 
-   ![Opzioni del riquadro di configurazione][linked app services]
+   ![Opzioni del riquadro Configura][linked app services]
 
 A differenza delle app Web ospitate in base ai piani di App Web, le applicazioni ospitate nelle risorse di calcolo di Azure (ad esempio, Macchine virtuali di Azure, set di scalabilità di macchine virtuali, Azure Service Fabric o Servizi cloud di Azure) non sono gestite direttamente da Azure. In questo caso non sono disponibili app Web a cui collegarsi. Anziché eseguire il collegamento a un'app, selezionare il pulsante **Abilita profiler**.
 
@@ -63,7 +64,7 @@ Per altre informazioni, vedere la [versione di anteprima di Profiler per le riso
 
 ## <a name="view-profiler-data"></a>Visualizzare i dati del profiler
 
-Verificare che l'applicazione riceva traffico. Se si sta eseguendo un esperimento, è possibile generare le richieste da indirizzare all'app Web usando il [test delle prestazioni di Application Insights](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Se Profiler è stato appena abilitato, è possibile eseguire per circa 15 minuti un breve test di carico, che genererà le analisi del profiler. Se invece Profiler è stato abilitato già da qualche tempo, tenere presente che viene eseguito in modo casuale due volte all'ora e che ogni esecuzione dura due minuti. È consigliabile eseguire prima il test di carico per un'ora per ottenere analisi di esempio del profiler.
+Verificare che l'applicazione riceva traffico. Se si sta eseguendo un esperimento, è possibile generare le richieste da indirizzare all'app Web usando il [test delle prestazioni di Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Se Profiler è stato appena abilitato, è possibile eseguire per circa 15 minuti un breve test di carico, che genererà le analisi del profiler. Se invece Profiler è stato abilitato già da qualche tempo, tenere presente che viene eseguito in modo casuale due volte all'ora e che ogni esecuzione dura due minuti. È consigliabile eseguire prima il test di carico per un'ora per ottenere tracce di esempio del profiler.
 
 Dopo che l'applicazione ha iniziato a ricevere traffico, passare al riquadro **Prestazioni**, selezionare **Take Actions** (Esegui azioni) per visualizzare le analisi del profiler e quindi fare clic sul pulsante **Analisi Profiler**.
 
@@ -71,18 +72,18 @@ Dopo che l'applicazione ha iniziato a ricevere traffico, passare al riquadro **P
 
 Selezionare un esempio per visualizzare i dettagli a livello di codice del tempo impiegato per l'esecuzione della richiesta.
 
-![Finestra di esplorazione delle analisi di Application Insights][trace-explorer]
+![Explorer di analisi Application Insights][trace-explorer]
 
 La finestra di esplorazione delle analisi visualizza le informazioni seguenti:
 
 * **Mostra percorso critico**: apre il nodo foglia di dimensioni maggiori o almeno un elemento simile. Nella maggior parte dei casi questo nodo è adiacente a un collo di bottiglia delle prestazioni.
 * **Etichetta**: nome della funzione o dell'evento. La struttura mostra una combinazione di codice e di eventi che si sono verificati, ad esempio eventi SQL e HTTP. L'evento principale rappresenta la durata complessiva della richiesta.
-* **Tempo trascorso**: intervallo di tempo tra l'inizio e la fine dell'operazione.
+* **Tempo trascorso**: l'intervallo di tempo tra l'inizio e la fine dell'operazione.
 * **Quando**: tempo in cui la funzione o l'evento è stato eseguito in relazione ad altre funzioni.
 
-## <a name="how-to-read-performance-data"></a>Come leggere i dati sulle prestazioni
+## <a name="how-to-read-performance-data"></a>Procedura: leggere i dati sulle prestazioni
 
-Il profiler di servizi Microsoft usa una combinazione della strumentazione e dei metodi di campionamento per analizzare le prestazioni dell'applicazione. Quando la raccolta dettagliata è in corso, il profiler di servizi campiona il puntatore all'istruzione di ogni CPU di computer ogni millisecondo. Ogni esempio acquisisce lo stack di chiamate completo del thread attualmente in esecuzione. Fornisce informazioni dettagliate sull'attività del thread a livello sia generale che specifico di astrazione. Il profiler di servizi raccoglie anche altri eventi per tenere traccia della causalità e della correlazione delle attività, ad esempio gli eventi di commutazione di contesto, Task Parallel Library (TPL) e del pool di thread.
+Il profiler del servizio Microsoft usa una combinazione della strumentazione e dei metodi di campionamento per analizzare le prestazioni dell'applicazione. Quando la raccolta dettagliata è in corso, il profiler di servizi campiona il puntatore all'istruzione di ogni CPU di computer ogni millisecondo. Ogni esempio acquisisce lo stack di chiamate completo del thread attualmente in esecuzione. Fornisce informazioni dettagliate sull'attività del thread a livello sia generale che specifico di astrazione. Il profiler del servizio raccoglie anche altri eventi per tenere traccia della causalità e della correlazione delle attività, ad esempio gli eventi di commutazione di contesto, Task Parallel Library (TPL) e del pool di thread.
 
 Lo stack di chiamate riportato nella visualizzazione della sequenza temporale è il risultato del campionamento e della strumentazione. Poiché ogni esempio acquisisce lo stack di chiamate completo del thread, include il codice di Microsoft .NET Framework e di eventuali altri framework a cui si fa riferimento.
 
@@ -132,7 +133,7 @@ Il periodo di conservazione dati predefinito è di cinque giorni. La quantità m
 
 Non sono previsti costi per l'uso del servizio Profiler, ma è necessario che l'app Web sia ospitata almeno al livello Basic di App Web.
 
-## <a name="overhead-and-sampling-algorithm"></a>Sovraccarico e algoritmo di campionamento
+## <a name="overhead-and-sampling-algorithm"></a>Overhead e algoritmo di campionamento
 
 Profiler viene eseguito in modo casuale per due minuti ogni ora in ogni macchina virtuale che ospita l'applicazione con Profiler abilitato per acquisire le analisi. Quando è in esecuzione, Profiler comporta un sovraccarico della CPU del server compreso tra il 5% e il 15%.
 
@@ -211,7 +212,7 @@ Questi parametri eliminano la cartella usata da Application Insights Profiler e 
 
 ## <a name="manual-installation"></a>Installazione manuale
 
-Quando si configura Profiler, vengono apportati alcuni aggiornamenti alle impostazioni dell'app Web. È possibile applicare gli aggiornamenti manualmente, se l'ambiente lo richiede. Ad esempio nel caso in cui l'applicazione sia in esecuzione in un ambiente di App Web per PowerApps.
+Quando si configura Profiler, vengono apportati alcuni aggiornamenti alle impostazioni dell'app Web. È possibile applicare gli aggiornamenti manualmente, se l'ambiente lo richiede Ad esempio nel caso in cui l'applicazione sia in esecuzione in un ambiente di App Web per PowerApps.
 
 1. Nel riquadro **Web App Control** (Controllo app Web) aprire **Impostazioni**.
 2. Impostare la **versione di .NET Framework** su **v4.6**.
@@ -221,7 +222,7 @@ Quando si configura Profiler, vengono apportati alcuni aggiornamenti alle impost
 6. Selezionare **Vai** per aprire il sito Web Kudu.
 7. Nel sito Web Kudu selezionare **Site extensions** (Estensioni del sito).
 8. Installare **Application Insights** dalla raccolta delle app Web di Azure.
-9. Riavviare l'app Web.
+9. Riavviare l'app Web .
 
 ## <a id="profileondemand"></a> Attivare Profiler manualmente
 Durante lo sviluppo di Profiler è stata aggiunta un'interfaccia della riga di comando per testare Profiler sui servizi app. Usando questa interfaccia, gli utenti possono anche personalizzare la modalità di avvio di Profiler. A livello generale, Profiler usa il sistema Kudu di App Web per gestire la profilatura in background. Quando si installa l'estensione Application Insights, viene creato un processo Web continuo che ospita Profiler. Questa stessa tecnologia viene usata per creare un nuovo processo Web che può essere personalizzato in base alle esigenze.
@@ -250,7 +251,7 @@ Per ottenere i file binari necessari, eseguire queste operazioni:
 4. A sinistra della cartella fare clic sull'icona **Download**.  
    Verrà scaricato il file *ApplicationInsightsProfiler2.zip*. È consigliabile creare una directory vuota in cui spostare questo archivio con estensione zip.
 
-### <a name="setting-up-the-web-job-archive"></a>Configurazione di un archivio per processi Web
+### <a name="setting-up-the-web-job-archive"></a>Configurazione di un archivio di processi Web
 Quando si aggiunge un nuovo processo Web nel sito Web di Azure, sostanzialmente si crea un archivio con estensione zip che contiene un file *run.cmd*. Il file *run.cmd* indica le operazioni da svolgere durante l'esecuzione del processo Web.
 
 1.  Creare una nuova cartella, ad esempio *RunProfiler2Minutes*.
@@ -277,7 +278,7 @@ In questa sezione si aggiunge un nuovo processo Web nel sito. L'esempio seguente
 
 1.  Passare al dashboard **Processi Web**.
 2.  Sulla barra degli strumenti fare clic su **Aggiungi**.
-3.  Assegnare un nome al processo Web.  
+3.  Assegnare al processo Web un nome.  
     Per maggiore chiarezza, può essere utile usare lo stesso nome dell'archivio ed estenderlo per diverse versioni del file *run.cmd*.
 4.  Nell'area **Caricamento file** del modulo selezionare l'icona **Apri file** e quindi cercare il file con estensione zip creato nella sezione precedente.
 
@@ -311,7 +312,7 @@ Questo metodo è relativamente semplice, ma è opportuno considerare gli aspetti
 
 * Processi Web di App Web è un'ottima funzionalità. Quando esegue il processo Web, verifica che il processo abbia le stesse variabili di ambiente e le stesse impostazioni di app previste per il sito Web. Non è quindi necessario passare la chiave di strumentazione a Profiler tramite la riga di comando. Profiler dovrebbe selezionare automaticamente la chiave di strumentazione dall'ambiente. Se tuttavia si vuole eseguire Profiler nella casella di sviluppo o in un computer all'esterno di App Web, è necessario specificare una chiave di strumentazione. È possibile eseguire questa operazione passando un argomento, `--ikey <instrumentation-key>`. Questo valore deve corrispondere alla chiave di strumentazione usata dall'applicazione. Nell'output del log di Profiler è indicata la chiave di strumentazione iniziale di Profiler ed è specificato se sono state rilevate attività da tale chiave di strumentazione durante la profilatura.
 
-* I processi Web con attivazione manuale possono essere attivati tramite webhook. È possibile ottenere questo URL facendo clic con il pulsante destro del mouse sul processo Web nel dashboard e visualizzando le proprietà. In alternativa, è possibile selezionare **Proprietà** sulla barra degli strumenti dopo aver selezionato il processo Web nella tabella. Questo approccio offre infinite possibilità, dall'attivazione di Profiler dalla pipeline di integrazione continua/recapito continuo (come VSTS) all'uso di un servizio come Microsoft Flow (https://flow.microsoft.com/it-it/). In ultima analisi, la scelta dipende dal livello di complessità desiderato per il file *run.cmd* (che può essere anche un file *run.ps1*), ma la flessibilità è garantita.
+* I processi Web con attivazione manuale possono essere attivati tramite webhook. È possibile ottenere questo URL facendo clic con il pulsante destro del mouse sul processo Web nel dashboard e visualizzando le proprietà. In alternativa, è possibile selezionare **Proprietà** sulla barra degli strumenti dopo aver selezionato il processo Web nella tabella. Questo approccio offre infinite possibilità, dall'attivazione di Profiler dalla pipeline di integrazione continua/recapito continuo (come VSTS) all'uso di un servizio come Microsoft Flow (https://flow.microsoft.com/en-us/)). In ultima analisi, la scelta dipende dal livello di complessità desiderato per il file *run.cmd* (che può essere anche un file *run.ps1*), ma la flessibilità è garantita.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

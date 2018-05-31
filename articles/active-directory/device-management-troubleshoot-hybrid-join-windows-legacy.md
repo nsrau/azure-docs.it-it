@@ -11,18 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0d21a8848222c4b09723e22d2d51ec43b2154553
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2fd3d2cb403e3889c5faa538a49fa129496ae6e8
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770741"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory 
 
-Questo argomento è applicabile solo ai seguenti dispositivi: 
+Questo articolo è applicabile solo ai dispositivi seguenti: 
 
 - Windows 7 
 - Windows 8.1 
@@ -33,7 +34,7 @@ Questo argomento è applicabile solo ai seguenti dispositivi:
 
 Per Windows 10 o Windows Server 2016, vedere [Risoluzione dei problemi relativi a dispositivi Windows 10 e Windows Server 2016 aggiunti all'identità ibrida di Azure Active Directory](device-management-troubleshoot-hybrid-join-windows-current.md).
 
-Questo argomento presuppone che siano stati [configurati dispositivi aggiunti all'identità ibrida di Azure Active Directory](device-management-hybrid-azuread-joined-devices-setup.md) per supportare gli scenari seguenti:
+Questo articolo presuppone che siano stati [configurati dispositivi aggiunti all'identità ibrida di Azure Active Directory](device-management-hybrid-azuread-joined-devices-setup.md) per supportare gli scenari seguenti:
 
 - Accesso condizionale basato su dispositivo
 
@@ -45,7 +46,7 @@ Questo argomento presuppone che siano stati [configurati dispositivi aggiunti al
 
 
 
-Questo argomento fornisce indicazioni sulla risoluzione di potenziali problemi.  
+Questo articolo fornisce indicazioni sulla risoluzione di potenziali problemi.  
 
 **Informazioni utili:** 
 
@@ -53,15 +54,17 @@ Questo argomento fornisce indicazioni sulla risoluzione di potenziali problemi.
 
 - La registrazione/aggiunta iniziale dei dispositivi è configurata in modo da eseguire un tentativo di accesso o blocco/sblocco. Potrebbero esserci 5 minuti di ritardo causati da un'attività dell'utilità di pianificazione. 
 
-- Una reinstallazione del sistema operativo o l'annullamento e la ripetizione manuale della registrazione potrebbe creare una nuova registrazione in Azure AD e causare la presenza di più voci nella scheda Info UTENTE nel portale di Azure. 
+- Una reinstallazione del sistema operativo o la ripetizione manuale della registrazione potrebbero creare una nuova registrazione in Azure AD e causare la presenza di più voci nella scheda Info UTENTE nel portale di Azure. 
 
 ## <a name="step-1-retrieve-the-registration-status"></a>Passaggio 1: Recuperare lo stato della registrazione 
 
 **Per verificare lo stato della registrazione**  
 
-1. Aprire il prompt dei comandi come amministratore 
+1. Accedere con l'account utente che ha eseguito l'aggiunta all'identità ibrida di Azure AD.
 
-2. Digitare `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`.
+2. Aprire il prompt dei comandi come amministratore 
+
+3. Digitare `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`.
 
 Questo comando consente di visualizzare una finestra di dialogo che fornisce altri dettagli relativi allo stato delle aggiunte.
 
@@ -84,16 +87,11 @@ Se l'aggiunta all'identità ibrida di Azure AD non è stata completata correttam
     
     Questo problema può verificarsi per diversi motivi:
     
-    1. Se l'utente che ha eseguito l'accesso non è un utente di dominio, ad esempio è un utente locale. L'aggiunta all'identità ibrida di Azure AD su dispositivi di livello inferiore è supportata solo per utenti di dominio.
+    - L'utente che ha eseguito l'accesso non è un utente di dominio, ad esempio è un utente locale. L'aggiunta all'identità ibrida di Azure AD su dispositivi di livello inferiore è supportata solo per utenti di dominio.
     
-    2. Se, per un qualsiasi motivo, Autoworkplace.exe non è in grado di eseguire automaticamente l'autenticazione con Azure Active Directory o AD FS. Tra i possibili motivi sono inclusi eventuali problemi di connettività di rete in uscita verso gli URL di Azure AD (verificare i prerequisiti) oppure il caso in cui l'autenticazione a più fattori è stata abilitata/configurata per l'utente, ma WIAORMUTLIAUTHN non è configurato nel server federativo (verificare i passaggi di configurazione). È anche possibile che la pagina di individuazione dell'area di autenticazione principale sia in attesa dell'interazione dell'utente, impedendo ad Autoworkplace.exe di ottenere automaticamente un token.
+    - Autoworkplace.exe non è in grado di eseguire automaticamente l'autenticazione con Azure AD o AD FS. Ciò potrebbe essere dovuto a problemi di connettività di rete in uscita agli URL di Azure AD (controllare i prerequisiti). È possibile inoltre che l'autenticazione a più fattori (MFA) sia abilitata/configurata per l'utente e WIAORMUTLIAUTHN non sia configurato sul server federativo (controllare i passaggi di configurazione). È anche possibile che la pagina di individuazione dell'area di autenticazione principale sia in attesa dell'interazione dell'utente, impedendo ad **autoworkplace.exe** di ottenere automaticamente un token.
     
-    3. Se l'organizzazione usa Accesso Single Sign-On facile di Azure AD, l'URL seguente non è presente nelle impostazioni della Intranet in Internet Explorer nel dispositivo:
-    
-       - https://autologon.microsoftazuread-sso.com
-
-    
-       ed è necessario abilitare l'impostazione "Consenti aggiornamenti alla barra di stato tramite script" per l'area Intranet.
+    - L'organizzazione usa il Single Sign-On di Azure AD, `https://autologon.microsoftazuread-sso.com` o `https://aadg.windows.net.nsatc.net` non sono presenti nelle impostazioni Intranet di IE del dispositivo e l'opzione **Consenti aggiornamenti alla barra di stato tramite script** non è abilitata per l'area Intranet.
 
 - È stata raggiunta una quota
 
@@ -103,11 +101,11 @@ Se l'aggiunta all'identità ibrida di Azure AD non è stata completata correttam
 
     ![Aggiunta all'area di lavoro per Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/05.png)
 
-È inoltre possibile trovare le informazioni sullo stato nel registro eventi in **Registri applicazioni e servizi\Microsoft-Workplace Join**.
+È inoltre possibile trovare le informazioni sullo stato nel registro eventi in **Registri applicazioni e servizi\Microsoft-Workplace Join**
   
 **Le cause più comuni di un'aggiunta all'identità ibrida di Azure AD non riuscita sono:** 
 
-- Il computer non è presente nella rete interna dell'organizzazione o c'è una VPN senza connessione su un controller di dominio locale AD.
+- Il computer non è connesso alla rete interna dell'organizzazione, né a una VPN con connessione al controller di dominio AD locale.
 
 - Si è connessi al computer con un account computer locale. 
 
@@ -115,7 +113,7 @@ Se l'aggiunta all'identità ibrida di Azure AD non è stata completata correttam
 
   - Il server federativo è stato configurato per supportare **WIAORMULTIAUTHN**. 
 
-  - Non è presente alcun oggetto Punto di connessione del servizio che punti al nome di dominio verificato in Azure AD nella foresta AD a cui appartiene il computer.
+  - Nella foresta del computer non è presente alcun oggetto Punto di connessione del servizio che punti al nome di dominio verificato in Azure AD 
 
   - Un utente ha raggiunto il limite di dispositivi. 
 

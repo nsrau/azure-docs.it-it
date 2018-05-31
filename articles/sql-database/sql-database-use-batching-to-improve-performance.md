@@ -9,11 +9,12 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3367ecc48ee8da7aaf657b5278acb19df5a96e75
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d534e138af7a22b32fbf64e2200016091beac62f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194972"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL
 Le operazioni di invio in batch al database SQL di Azure migliorano in modo significativo le prestazioni e la scalabilità delle applicazioni. Per comprendere i vantaggi, la prima parte di questo articolo descrive alcuni risultati dei test di esempio che confrontano le richieste sequenziali e in batch inviate a un database SQL. Il resto dell'articolo illustra le tecniche, gli scenari e le considerazioni che facilitano l'uso corretto dell'invio in batch nelle applicazioni Azure.
@@ -32,9 +33,9 @@ Uno dei vantaggi che derivano dall'uso del database SQL consiste nel non dover g
 La prima parte del documento esamina le diverse tecniche di invio in batch per le applicazioni .NET che usano il database SQL. Le ultime due sezioni illustrano invece le linee guida e gli scenari di invio in batch.
 
 ## <a name="batching-strategies"></a>Strategie di invio in batch
-### <a name="note-about-timing-results-in-this-topic"></a>Nota sui risultati della tempistica in questo argomento
+### <a name="note-about-timing-results-in-this-article"></a>Nota sui risultati della tempistica in questo articolo
 > [!NOTE]
-> I risultati non sono benchmark ma servono per indicare le **prestazioni relative**. Le tempistiche si basano su una media di almeno 10 esecuzioni del test. Le operazioni sono inserimenti in una tabella vuota. Questi test sono stati misurati con un database antecedente a V12 e non corrispondono necessariamente alla velocità effettiva che si potrebbe ottenere in un database V12 usando i nuovi [livelli di servizio](sql-database-service-tiers.md). Il vantaggio relativo della tecnica di invio in batch dovrebbe essere simile.
+> I risultati non sono benchmark ma servono per indicare le **prestazioni relative**. Le tempistiche si basano su una media di almeno 10 esecuzioni del test. Le operazioni sono inserimenti in una tabella vuota. Questi test sono stati misurati con un database antecedente a V12 e non corrispondono necessariamente alla velocità effettiva che si potrebbe ottenere in un database V12 usando i nuovi [livelli di servizio DTU](sql-database-service-tiers-dtu.md) o [livelli di servizio vCore](sql-database-service-tiers-vcore.md). Il vantaggio relativo della tecnica di invio in batch dovrebbe essere simile.
 > 
 > 
 
@@ -209,7 +210,7 @@ La copia bulk di SQL è un altro modo per inserire una grande quantità di dati 
         }
     }
 
-In alcuni casi la copia bulk è preferibile rispetto ai parametri con valori di tabella. Vedere la tabella di confronto dei parametri con valori di tabella rispetto alle operazioni BULK INSERT nell'argomento [Parametri con valori di tabella (motore di database)](https://msdn.microsoft.com/library/bb510489.aspx).
+In alcuni casi la copia bulk è preferibile rispetto ai parametri con valori di tabella. Vedere la tabella di confronto dei parametri con valori di tabella rispetto alle operazioni BULK INSERT nell'articolo [Parametri con valori di tabella (motore di database)](https://msdn.microsoft.com/library/bb510489.aspx).
 
 I risultati dei test ad hoc seguenti mostrano le prestazioni, in millisecondi, dell'invio in batch con **SqlBulkCopy** .
 
@@ -592,7 +593,7 @@ Successivamente, creare una stored procedure oppure scrivere codice che usi l'is
 Per altre informazioni, vedere la documentazione e gli esempi relativi all'istruzione MERGE. Anche se la stessa operazione può essere eseguita in una chiamata di stored procedure in più passaggi con le operazioni INSERT e UPDATE, l'istruzione MERGE è più efficiente. Il codice del database può anche creare chiamate Transact-SQL che usano l'istruzione MERGE direttamente senza richiedere due chiamate di database per INSERT e UPDATE.
 
 ## <a name="recommendation-summary"></a>Riepilogo delle indicazioni
-L'elenco seguente fornisce un riepilogo delle indicazioni relative all'invio in batch descritte in questo argomento:
+L'elenco seguente fornisce un riepilogo delle indicazioni relative all'invio in batch descritte in questo articolo:
 
 * Usare il buffering e l'invio in batch per migliorare le prestazioni e la scalabilità delle applicazioni di database SQL.
 * Esaminare i compromessi tra invio in batch/buffering e resilienza. In caso di errore in un ruolo, il rischio di perdere un batch non elaborato di dati aziendali critici potrebbe vanificare il vantaggio in termini di prestazioni che deriva dall'invio in batch.
