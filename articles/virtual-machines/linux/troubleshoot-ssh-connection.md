@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 77effb7892e6d59087d07109958f4682886f12db
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e5d9fb76f66ffb98addab24e9e8bf8b82a82af7a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365679"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Risoluzione dei problemi di connessione SSH a una macchina virtuale Linux di Azure che ha esito negativo, genera errori o è stata rifiutata.
 Sono vari i motivi per cui possono verificarsi errori Secure Shell (SSH), la connessione SSH non riesce o viene rifiutata durante il tentativo di connessione a una macchina virtuale Linux. Questo articolo consente di individuare i problemi e correggerli. È possibile usare il portale di Azure, l'interfaccia della riga di comando Azure o l'estensione dell'accesso alle VM per Linux per risolvere i problemi di connessione.
@@ -34,7 +35,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, tentare la rico
 
 1. Reimpostare la configurazione SSH.
 2. Reimpostare le credenziali per l'utente.
-3. Verificare che le regole del [gruppo di sicurezza di rete](../../virtual-network/virtual-networks-nsg.md) consentano il traffico SSH.
+3. Verificare che le regole del [gruppo di sicurezza di rete](../../virtual-network/security-overview.md) consentano il traffico SSH.
    * Verificare l'esistenza di una regola del gruppo di sicurezza di rete che consente il traffico SSH (per impostazione predefinita, la porta TCP 22).
    * Non è possibile usare il reindirizzamento o mapping delle porte senza usare Azure Load Balancer.
 4. Controllare l'[integrità delle risorse della VM](../../resource-health/resource-health-overview.md). 

@@ -8,41 +8,43 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 05/07/2018
+ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: 8c9f772c9d3908e450961239797f6ce2bd4982e4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 128bf85fae71b44b0deebb3974d4a9b317e6a380
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885877"
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32310826"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Eseguire le applicazioni del contenitore in Azure Batch
 
-Azure Batch consente di eseguire e ridimensionare numerosi processi di batch computing in Azure. Fino ad ora, le attività di Batch sono state eseguite direttamente sulle macchine virtuali in un pool di Batch, ma ora è possibile configurare un pool di Batch che esegua le attività in contenitori Docker. Questo articolo illustra come usare .NET SDK di Batch per creare un pool di nodi di calcolo che supporti l'esecuzione di attività del contenitore e come eseguire le attività del contenitore nel pool.
+Azure Batch consente di eseguire e ridimensionare tantissimi processi di batch computing in Azure. Fino ad ora, le attività di Batch sono state eseguite direttamente sulle macchine virtuali in un pool di Batch, ma ora è possibile configurare un pool di Batch che esegua le attività in contenitori Docker.
 
-L'uso dei contenitori consente di eseguire le attività Batch in modo semplice senza dover gestire un ambiente e le dipendenze per eseguire le applicazioni. I contenitori distribuiscono le applicazioni come unità leggere, portatili e autosufficienti che possono essere eseguite in un'ampia gamma di ambienti. Ad esempio, è possibile compilare e testare in locale un contenitore, quindi caricare l'immagine del contenitore in un registro di Azure o altrove. Il modello di distribuzione del contenitore assicura che l'ambiente di runtime dell'applicazione venga sempre installato e configurato correttamente, indipendentemente dalla posizione in cui si ospita l'applicazione. Le attività basate sul contenitore in Batch traggono vantaggio anche dalle funzionalità di attività non del contenitore, inclusi i pacchetti dell'applicazione e la gestione dei file di risorse e di output. 
+L'uso dei contenitori consente di eseguire le attività Batch in modo semplice senza dover gestire le dipendenze e i pacchetti di applicazioni. I contenitori distribuiscono le applicazioni come unità leggere, portatili e autosufficienti che possono essere eseguite in un'ampia gamma di ambienti. Ad esempio, è possibile compilare e testare in locale un contenitore, quindi caricare l'immagine del contenitore in un registro di Azure o altrove. Il modello di distribuzione del contenitore assicura che l'ambiente di runtime dell'applicazione venga sempre installato e configurato correttamente, indipendentemente dalla posizione in cui si ospita l'applicazione. Questa esercitazione illustra come usare .NET SDK di Batch per creare un pool di nodi di calcolo che supporti l'esecuzione di attività del contenitore e come eseguire le attività del contenitore nel pool.
 
 Questo articolo presuppone che l'utente abbia familiarità con il concetto di contenitore Docker e con la creazione di un pool di Batch e di un processo tramite .NET SDK. I frammenti di codice sono concepiti per essere usati in un'applicazione client simile all'[esempio DotNetTutorial](batch-dotnet-get-started.md) e sono esempi di codice necessari per supportare le applicazioni del contenitore in Batch.
 
 
 ## <a name="prerequisites"></a>prerequisiti
 
-* **Versioni di SDK**: gli SDK di Batch supportano le immagini del contenitore nelle versioni seguenti:
+* Versioni di SDK: gli SDK di Batch supportano le immagini del contenitore nelle versioni seguenti:
     * API REST di Batch, versione: 2017-09-01.6.0
     * .NET SDK di Batch, versione 8.0.0
     * Python SDK di Batch, versione 4.0
     * Java SDK di Batch, versione 3.0
     * Node.js SDK di Batch, versione 3.0
 
-* **Account**: nell'abbonamento di Azure è necessario creare un account Batch e, facoltativamente, un account di Archiviazione di Azure.
+* Account: nell'account di Azure è necessario creare un account Batch e, facoltativamente, un account di archiviazione di Azure.
 
-* **Un'immagine VM supportata**I contenitori sono supportati solo in pool creati con la configurazione macchina virtuale di immagini dettagliate nella sezione seguente, "Immagini di macchine virtuali supportate". Se si specifica un'immagine personalizzata, l'applicazione deve usare l'[autenticazione di Azure Active Directory](batch-aad-auth.md) (Azure AD) per eseguire carichi di lavoro basati sul contenitore. 
+* Un'immagine di macchina virtuale supportata. I contenitori sono supportati solo in pool creati con la configurazione macchina virtuale di immagini dettagliate nella sezione seguente, "Immagini di macchine virtuali supportate".
+
+* Se si specifica un'immagine personalizzata, l'applicazione deve usare l'autenticazione di Azure Active Directory per eseguire carichi di lavoro basati sul contenitore. Se si usa un'immagine di Azure Marketplace, non è necessaria l'autenticazione di Azure AD, l'autenticazione della chiave condivisa sarà sufficiente. Il supporto di Azure Batch per Azure AD è documentato in [Autenticare le soluzioni del servizio Batch con Active Directory](batch-aad-auth.md).
 
 
 ## <a name="supported-virtual-machine-images"></a>Immagini di macchine virtuali supportate
 
-Per creare un pool di nodi di calcolo della macchina virtuale per i carichi di lavoro del contenitore è necessario usare un'immagine di Windows o Linux supportata.
+Per creare un pool di nodi di calcolo della macchina virtuale è necessario specificare un'immagine di Windows o Linux.
 
 ### <a name="windows-images"></a>Immagini di Windows
 
@@ -52,11 +54,11 @@ Per carichi di lavoro del contenitore Windows, Batch attualmente supporta le imm
 
 Per i carichi di lavoro del contenitore Linux, Batch supporta attualmente solo immagini personalizzate create dalle macchine virtuali che eseguono Docker nelle distribuzioni Linux seguenti: Ubuntu 16.04 LTS o CentOS 7.3. Se si sceglie di inserire l'immagine personalizzata di Linux, vedere le istruzioni in [Usare un'immagine personalizzata gestita per creare un pool di macchine virtuali](batch-custom-images.md).
 
-Per il supporto Docker, installare [Docker Community Edition (CE)](https://www.docker.com/community-edition) (Community Edition di Docker) o [Docker Enterprise Edition (EE)](https://www.docker.com/enterprise-edition) (Enterprise Edition di Docker).
+È possibile usare [Docker Community Edition](https://www.docker.com/community-edition) (Community Edition di Docker) o [Docker Enterprise Edition](https://www.docker.com/enterprise-edition) (Enterprise Edition di Docker).
 
 Se si desidera sfruttare le prestazioni della GPU delle dimensioni della macchina virtuale di Azure NC o NV, è necessario installare i driver NVIDIA nell'immagine. È anche necessario installare ed eseguire Docker Engine Utility per le GPU NVIDIA, [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker).
 
-Per accedere alla rete RDMA di Azure, usare dimensioni delle macchine virtuali supporto per RDMA come: A8, A9, H16r, H16mr, o NC24r. I driver RDMA necessari sono installati nelle immagini CentOS 7.3 HPC e Ubuntu 16.04 LTS di Azure Marketplace. Potrebbe essere necessaria una configurazione aggiuntiva per eseguire carichi di lavoro MPI. Vedere [Usare istanze con supporto per RDMA o abilitate per GPU in pool di Batch](batch-pool-compute-intensive-sizes.md).
+Per accedere alla rete RDMA di Azure, usare macchine virtuali delle dimensioni seguenti: A8, A9, H16r, H16mr o NC24r. I driver RDMA necessari sono installati nelle immagini CentOS 7.3 HPC e Ubuntu 16.04 LTS di Azure Marketplace. Potrebbe essere necessaria una configurazione aggiuntiva per eseguire carichi di lavoro MPI. Vedere [Usare istanze con supporto per RDMA o abilitate per GPU in pool di Batch](batch-pool-compute-intensive-sizes.md).
 
 
 ## <a name="limitations"></a>Limitazioni
@@ -68,9 +70,9 @@ Per accedere alla rete RDMA di Azure, usare dimensioni delle macchine virtuali s
 
 Se si usa un'immagine di macchina virtuale personalizzata per creare il pool di Batch, l'applicazione client deve autenticarsi con l'autenticazione integrata di Azure Active Directory, l'autenticazione con la chiave condivisa non funziona. Prima di eseguire l'applicazione, assicurarsi di registrarla in Azure AD per stabilirne un'identità e specificarne le autorizzazioni per le altre applicazioni.
 
-In aggiunta, quando si usa un'immagine di macchina virtuale personalizzata, è necessario concedere il controllo di accesso IAM all'applicazione affinché acceda all'immagine di macchina virtuale. Nel portale di Azure fare clic su **Tutte le risorse**, selezionare l'immagine del contenitore e nella sezione **Controllo di accesso (IAM)** della pagina dell'immagine fare clic su **Aggiungi**. Nella pagina **Aggiungi autorizzazioni** specificare un **ruolo** in **Assign access to** (Assegna accesso a), selezionare **Azure AD user, group, or application** (Applicazione, gruppo o utente di Azure AD) quindi in **Seleziona** immettere il nome dell'applicazione.
+In aggiunta, quando si usa un'immagine di macchina virtuale personalizzata, è necessario concedere il controllo di accesso IAM all'applicazione affinché acceda all'immagine di macchina virtuale. Nel portale di Azure aprire **Tutte le risorse**, selezionare l'immagine del contenitore e nella sezione **Controllo di accesso (IAM)** del pannello dell'immagine fare clic su **Aggiungi**. Nel pannello **Aggiungi autorizzazioni** specificare un **ruolo** in **Assegna accesso a**, selezionare **Applicazione, gruppo o utente di Azure AD** quindi in **Seleziona** immettere il nome dell'applicazione.
 
-Nell'applicazione in uso, passare un token di autenticazione di Azure AD quando si crea il client Batch. Se si sta sviluppando con SDK .NET di Batch, usare [BatchClient.Open](/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_), come descritto in [Autenticare le soluzioni del servizio Batch con Active Directory](batch-aad-auth.md).
+Nell'applicazione, passare un token di autenticazione di Azure AD quando si crea il client Batch tramite [BatchClient.Open](/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_), come descritto in [Autenticare le soluzioni di gestione Batch con Active Directory](batch-aad-auth.md).
 
 
 ## <a name="reference-a-vm-image-for-pool-creation"></a>Fare riferimento a un'immagine della macchina virtuale per la creazione del pool
@@ -84,7 +86,7 @@ Nel codice dell'applicazione, inserire un riferimento all'immagine della macchin
   ImageReference imageReference = new ImageReference("/subscriptions/<subscription-ID>/resourceGroups/<resource-group>/providers/Microsoft.Compute/images/<imageName>");
   ```
 
-    Per ottenere questo ID di immagine dal portale di Azure, aprire **Tutte le risorse**, selezionare l'immagine personalizzata e nella sezione **Panoramica** della pagina dell'immagine, copiare il percorso in **ID della risorsa**.
+    Per ottenere questo ID di immagine dal portale di Azure, aprire **Tutte le risorse**, selezionare l'immagine personalizzata e nella sezione **Panoramica** del pannello dell'immagine, copiare il percorso in **ID della risorsa**.
 
 * Se si usa un'immagine di [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based), specificare un gruppo di parametri che descrivono l'immagine: il server di pubblicazione, il tipo di offerta, la SKU e la versione dell'immagine, come indicato in [Elenco di immagini di macchine virtuali](batch-linux-nodes.md#list-of-virtual-machine-images):
 
@@ -101,18 +103,20 @@ Nel codice dell'applicazione, inserire un riferimento all'immagine della macchin
 
 ## <a name="container-configuration-for-batch-pool"></a>Configurazione del contenitore per il pool di Batch
 
-Per abilitare un pool Batch a eseguire carichi di lavoro del contenitore, è necessario specificare le impostazioni di [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) nell'oggetto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) del pool.
+Un pool di Batch è una raccolta di nodi di calcolo in cui Batch esegue le attività in un processo. Quando si crea il pool, si specifica la configurazione della macchina virtuale per i nodi di calcolo. L'oggetto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) contiene un riferimento all'oggetto [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration). Per abilitare i carichi di lavoro del contenitore nel pool, specificare le impostazioni `ContainerConfiguration`. La configurazione della macchina virtuale è anche il momento in cui si specifica il riferimento all'immagine e l'ID SKU dell'agente del nodo dell'immagine, come illustrato negli esempi seguenti.
 
-È possibile creare un pool abilitato per il contenitore con o senza le immagini del contenitore prelette, come illustrato negli esempi seguenti. Il processo di pull, o di prelettura, consente di pre-caricare le immagini del contenitore dall'Hub Docker o da un altro registro del contenitore in Internet. Il vantaggio della prelettura delle immagini del contenitore è che quando le attività iniziano l'esecuzione non devono attendere che l'immagine contenitore venga scaricata. La configurazione del contenitore esegue il pull delle immagini del contenitore nelle macchine virtuali quando viene creato il pool. Le attività eseguite nel pool potranno quindi fare riferimento all'elenco delle immagini del contenitore e alle opzioni di esecuzione del contenitore.
+Esistono diverse opzioni per la creazione del pool. È possibile creare un pool con o senza immagini del contenitore prelette. 
+
+Il processo di pull, o di prelettura, consente di pre-caricare le immagini del contenitore dall'Hub Docker o da un altro registro del contenitore in Internet. Il vantaggio della prelettura delle immagini del contenitore è che quando le attività iniziano l'esecuzione non devono attendere che l'immagine contenitore venga scaricata. La configurazione del contenitore esegue il pull delle immagini del contenitore nelle macchine virtuali quando viene creato il pool. Le attività eseguite nel pool potranno quindi fare riferimento all'elenco delle immagini del contenitore e alle opzioni di esecuzione del contenitore.
 
 
 
 ### <a name="pool-without-prefetched-container-images"></a>Pool senza immagini del contenitore prelette
 
-Per configurare un pool abilitato per il contenitore senza immagini del contenitore prelette, definire gli oggetti `ContainerConfiguration` e `VirtualMachineConfiguration` come illustrato nell'esempio seguente. Questo e gli esempi seguenti presuppongono che si usi un'immagine Ubuntu 16.04 LTS personalizzata con il motore Docker installato.
+Per configurare il pool senza immagini del contenitore prelette, definire gli oggetti `ContainerConfiguration` e `VirtualMachineConfiguration` come illustrato nell'esempio seguente. Questo e gli esempi seguenti presuppongono che si usi un'immagine Ubuntu 16.04 LTS personalizzata con il motore Docker installato.
 
 ```csharp
-// Specify container configuration. This is required even though there are no prefetched images.
+// Specify container configuration
 ContainerConfiguration containerConfig = new ContainerConfiguration();
 
 // VM configuration
@@ -135,7 +139,7 @@ pool.Commit();
 
 ### <a name="prefetch-images-for-container-configuration"></a>Prelettura delle immagini per la configurazione del contenitore
 
-Per eseguire la prelettura delle immagini del contenitore nel pool, aggiungere l'elenco di immagini del contenitore, `containerImageNames`, a `ContainerConfiguration` e assegnare un nome all'elenco immagini. L'esempio seguente presuppone che si usi un'immagine personalizzata di Ubuntu 16.04 LTS e che si esegua una prelettura di un'immagine TensorFlow dall'[Hub Docker](https://hub.docker.com). Questo esempio include un'attività di avvio che viene eseguita nell'host della VM sui nodi del pool. È possibile eseguire un'attività di avvio nell'host, ad esempio, per montare un file server accessibile dai contenitori.
+Per eseguire la prelettura delle immagini del contenitore nel pool, aggiungere l'elenco di immagini del contenitore, `containerImageNames`, a `ContainerConfiguration` e assegnare un nome all'elenco immagini. L'esempio seguente presuppone che si usi un'immagine personalizzata di Ubuntu 16.04 LTS e che si esegua una prelettura di un'immagine TensorFlow dall'[Hub Docker](https://hub.docker.com). Questo esempio include un'attività di avvio che viene eseguita nell'host della VM sui nodi del pool. È possibile eseguire questa operazione, ad esempio, per montare un file server accessibile dai contenitori.
 
 ```csharp
 // Specify container configuration, prefetching Docker images
@@ -200,9 +204,9 @@ pool.Commit();
 
 ## <a name="container-settings-for-the-task"></a>Impostazioni del contenitore per l'attività
 
-Per eseguire le attività dei contenitori sui nodi di calcolo, è necessario specificare le impostazioni specifiche per il contenitore, ad esempio le opzioni di immagini di esecuzione di attività, le immagini da usare e il registro.
+Quando si configurano le attività da eseguire sui nodi di calcolo, è necessario specificare le impostazioni specifiche per il contenitore, ad esempio le opzioni di immagini di esecuzione dell'attività, le immagini da usare e il registro.
 
-Usare la proprietà `ContainerSettings` delle classi di attività per configurare le impostazioni specifiche del contenitore. Queste impostazioni vengono definite dalla classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings).
+Usare la proprietà ContainerSettings delle classi di attività per configurare le impostazioni specifiche del contenitore. Queste impostazioni vengono definite dalla classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings).
 
 Se si eseguono attività sulle immagini del contenitore, l'[attività cloud](/dotnet/api/microsoft.azure.batch.cloudtask) e l'[attività di gestione dei processi](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) richiedono le impostazioni del contenitore. Tuttavia, l'[attività di avvio](/dotnet/api/microsoft.azure.batch.starttask), l'[attività di preparazione del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) e l'[attività di rilascio del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) non richiedono le impostazioni dei contenitori, vale a dire che possono essere eseguite in un contesto del contenitore o direttamente nel nodo.
 
@@ -211,7 +215,7 @@ Quando si configurano le impostazioni del contenitore, tutte le directory elenca
 L'esempio di codice [Prelettura delle immagini per la configurazione del contenitore](#prefetch-images-for-container-configuration) ha illustrato come specificare una configurazione del contenitore per un'attività di avvio. L'esempio di codice seguente illustra come specificare la configurazione del contenitore per un'attività cloud:
 
 ```csharp
-// Simple container task command
+// Simple task command
 
 string cmdLine = "<my-command-line>";
 
