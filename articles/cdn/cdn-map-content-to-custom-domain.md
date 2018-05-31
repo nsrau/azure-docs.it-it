@@ -4,21 +4,22 @@ description: In questa esercitazione si esegue il mapping del contenuto dell'end
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/06/2018
+ms.date: 05/15/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f57cfe19fd2eee0952a20fabcaa0d73ca96894ef
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d20dca9a1248cfb2915ebbc456fba80aadcf81f5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196505"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Esercitazione: Aggiungere un dominio personalizzato all'endpoint della rete CDN di Azure
 Questa esercitazione illustra come aggiungere un dominio personalizzato a un endpoint della rete CDN di Azure. Quando si usa un endpoint della rete CDN per distribuire il contenuto, è necessario un dominio personalizzato se si vuole che il nome di dominio sia visibile nell'URL della rete CDN. Avere un nome di dominio visibile può essere pratico per i clienti e utile a scopo di personalizzazione. 
@@ -112,19 +113,28 @@ Dopo avere registrato il dominio personalizzato, è possibile aggiungerlo all'en
     
 2. Nella pagina **Profilo CDN** selezionare l'endpoint della rete CDN da associare al dominio personalizzato.
 
-    Viene aperta la pagina **Endpoint**.
+   Viene aperta la pagina **Endpoint**.
     
 3. Selezionare **Dominio personalizzato**. 
 
    ![Pulsante Dominio personalizzato della rete CDN](./media/cdn-map-content-to-custom-domain/cdn-custom-domain-button.png)
 
-4. In **Nome host personalizzato** immettere il dominio personalizzato, compreso il sottodominio. Ad esempio, www.contoso.com o cdn.contoso.com. Non usare il nome del sottodominio cdnverify.
+   Viene aperta la pagina **Aggiungi dominio personalizzato**.
+
+4. Per **Nome host dell'endpoint**, il nome host dell'endpoint da usare come dominio di destinazione del record CNAME è precompilato e derivato dall'URL dell'endpoint della rete CDN:  *&lt;nome host dell'endpoint&gt;*.azureedge.net. Non può essere modificato.
+
+5. Per **Nome host personalizzato**, immettere il dominio personalizzato, incluso il sottodominio, da usare come dominio di origine del record CNAME. Ad esempio, www.contoso.com o cdn.contoso.com. Non usare il nome del sottodominio cdnverify.
 
    ![Finestra di dialogo del dominio personalizzato della rete CDN](./media/cdn-map-content-to-custom-domain/cdn-add-custom-domain.png)
 
-5. Selezionare **Aggiungi**.
+6. Selezionare **Aggiungi**.
 
-   Azure verifica l'esistenza del record CNAME per il nome di dominio personalizzato immesso. Se il record CNAME è corretto, il dominio personalizzato viene convalidato. La propagazione del record CNAME nei server dei nomi può richiedere tempo. Se il dominio non viene convalidato immediatamente, verificare la correttezza del record CNAME, attendere alcuni minuti e riprovare. Per gli endpoint della **rete CDN di Azure fornita da Verizon** possono essere necessari fino a 90 minuti perché le modifiche al dominio personalizzato vengano propagate a tutti nodi perimetrali della rete CDN.  
+   Azure verifica l'esistenza del record CNAME per il nome di dominio personalizzato immesso. Se il record CNAME è corretto, il dominio personalizzato verrà convalidato. 
+
+   La propagazione delle impostazioni del nuovo dominio personalizzato a tutti i nodi perimetrali della rete CDN può richiedere tempo: 
+    - La propagazione dei profili della **rete CDN Standard di Azure con tecnologia Microsoft** viene in genere completata in 10 minuti. 
+    - La propagazione dei profili di **rete CDN Standard di Azure con tecnologia Akamai** viene in genere completata entro un minuto. 
+    - La propagazione dei profili della **rete CDN Standard di Azure con tecnologia Verizon** e della **rete CDN Premium di Azure con tecnologia Verizon** viene in genere completata entro 90 minuti.   
 
 
 ## <a name="verify-the-custom-domain"></a>Verificare il dominio personalizzato
@@ -133,7 +143,7 @@ Dopo aver completato la registrazione del dominio personalizzato, verificare che
  
 1. Assicurarsi di disporre di contenuto pubblico memorizzato nella cache nell'endpoint. Ad esempio, se l'endpoint della rete CDN è associato a un account di archiviazione, la rete CDN di Azure memorizzerà il contenuto in un contenitore pubblico della cache. Per testare il dominio personalizzato, verificare che il contenitore sia impostato per poter consentire l'accesso pubblico e che contenga almeno un file.
 
-2. Nel browser passare all'indirizzo del file usando il dominio personalizzato. Se il dominio personalizzato è cdn.contoso.com, ad esempio, l'URL del file memorizzato nella cache sarà simile al seguente: http:\//cdn.contoso.com/my-public-container/my-file.jpg.
+2. Nel browser passare all'indirizzo del file usando il dominio personalizzato. Se il dominio personalizzato è cdn.contoso.com, ad esempio, l'URL del file memorizzato nella cache sarà simile al seguente: http:\//cdn.contoso.com/my-public-container/my-file.jpg. Verificare che il risultato sia lo stesso di quando si accede all'endpoint della rete CDN direttamente in  *&lt;nome host dell'endpoint&gt;*.azureedge.net.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Eseguire il mapping del dominio personalizzato permanente
