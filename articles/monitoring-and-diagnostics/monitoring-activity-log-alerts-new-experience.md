@@ -1,6 +1,6 @@
 ---
-title: Creare gli avvisi del log attività e gestirli con la nuova esperienza di Avvisi (anteprima) in Monitoraggio di Azure | Microsoft Docs
-description: Questo articolo fornisce informazioni su come creare gli avvisi del log attività dalla scheda Avvisi (anteprima) in Monitoraggio di Azure. Questo articolo illustra in dettaglio la nuova esperienza utente per questa funzionalità.
+title: Creare gli avvisi del log attività e gestirli con la nuova esperienza di avvisi in Monitoraggio di Azure | Microsoft Docs
+description: Questo articolo offre informazioni su come creare gli avvisi del log attività dalla scheda Avvisi in Monitoraggio di Azure
 author: JYOTHIRMAISURI
 manager: vvithal
 editor: ''
@@ -15,17 +15,18 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: ''
-ms.openlocfilehash: 740edfd158d56fcb224cf93d1720a2330779bfd6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 070acc6fb6f6f744474edeef0e914dda9d24c558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202821"
 ---
-# <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Creare gli avvisi del log attività con la nuova esperienza Avvisi (anteprima)
+# <a name="create-activity-log-alerts-using-the-new-alerts-experience"></a>Creare gli avvisi del log attività con la nuova esperienza di avvisi
 
 Gli avvisi del log attività vengono attivati quando si verifica un nuovo evento del log attività che corrisponde alle condizioni specificate nell'avviso.
 
-Si tratta di avvisi per le risorse di Azure e possono essere creati usando un modello di Azure Resource Manager. Possono essere create, aggiornate o eliminate anche nel portale di Azure. In questo articolo vengono presentati i concetti alla base degli avvisi del log attività. Questo articolo illustra come usare il portale di Azure per configurare un avviso sugli eventi del log attività tramite la nuova esperienza in [Avvisi di Azure (anteprima)](monitoring-overview-unified-alerts.md).
+Si tratta di avvisi per le risorse di Azure e possono essere creati usando un modello di Azure Resource Manager. Possono essere create, aggiornate o eliminate anche nel portale di Azure. In questo articolo vengono presentati i concetti alla base degli avvisi del log attività. Questo articolo illustra come usare il portale di Azure per configurare un avviso sugli eventi del log attività tramite la nuova esperienza in [Avvisi di Azure](monitoring-overview-unified-alerts.md).
 
 In genere si creano avvisi del log attività per ricevere una notifica quando si verificano modifiche specifiche nelle risorse presenti nella sottoscrizione di Azure. Questi avvisi sono spesso limitati a risorse o gruppi di risorse specifici. Ad esempio è possibile ricevere una notifica quando una macchina virtuale nel gruppo di risorse di esempio **myProductionResourceGroup** viene eliminata oppure quando nuovi ruoli vengono assegnati a un utente nella sottoscrizione.
 
@@ -46,11 +47,11 @@ Per altre informazioni sui gruppi di azione, vedere [Creare e gestire gruppi di 
 Per altre informazioni sulle notifiche sull'integrità del servizio, vedere [Ricevere gli avvisi del log attività per le notifiche sull'integrità del servizio](monitoring-activity-log-alerts-on-service-notifications.md).
 
 
-## <a name="whats-new-in-alerts-preview-for-activity-logs"></a>Novità dell'anteprima di Avvisi per i log di attività.
+## <a name="whats-new-in-alerts-for-activity-logs"></a>Novità negli avvisi per i log attività
 
-[Avvisi di Azure (anteprima)](monitoring-overview-unified-alerts.md) offre ora una migliore esperienza utente per gli avvisi del log attività. Con l'[esperienza utente migliorata per gli avvisi](monitoring-overview-unified-alerts.md), è ora possibile:
+In [Avvisi di Azure](monitoring-overview-unified-alerts.md) è stata migliorata l'esperienza utente per gli avvisi del log attività. Con l'[esperienza utente migliorata per gli avvisi](monitoring-overview-unified-alerts.md), è ora possibile:
 
-- [Creare](#create-an-alert-rule-for-an-activity-log) e [gestire](#view-and-manage-activity-log-alert-rules) le regole degli avvisi del log attività, da **Monitoraggio** > **Avvisi (anteprima)**. Altre informazioni sui [log attività](monitoring-overview-activity-logs.md).
+- [Creare](#create-an-alert-rule-for-an-activity-log) e [gestire](#view-and-manage-activity-log-alert-rules) le regole degli avvisi del log attività dal pannello **Monitoraggio** > **Avvisi**. Altre informazioni sui [log attività](monitoring-overview-activity-logs.md).
 
 - **Nuove opzioni per la destinazione degli avvisi**: durante la creazione di una nuova regola di avviso del log attività, è ora possibile selezionare una risorsa, un gruppo di risorse o una sottoscrizione di destinazione.
 
@@ -68,8 +69,8 @@ Per altre informazioni sulle notifiche sull'integrità del servizio, vedere [Ric
 
 Utilizzare la procedura seguente:
 
-1. Nel portale di Azure selezionare **Monitoraggio** > **Avvisi (anteprima).**
-2. Fare clic su **Nuova regola di avviso** in cima alla finestra **Avvisi (anteprima)**.
+1. Nel portale di Azure selezionare **Monitoraggio** > **Avvisi**
+2. Fare clic su **Nuova regola di avviso** in alto alla finestra **Avvisi**.
 
      ![nuova regola di avviso](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule.png)
 
@@ -130,7 +131,7 @@ Utilizzare la procedura seguente:
 
 ## <a name="view-and-manage-activity-log-alert-rules"></a>Visualizzare e gestire le regole di avviso del log attività
 
-1. Nel portale di Azure fare clic su **Monitoraggio** > **Avvisi (anteprima)** e quindi su **Gestisci le regole** nella parte superiore sinistra della finestra.
+1. Nel portale di Azure fare clic su **Monitoraggio** > **Avvisi**, quindi su **Gestisci le regole** nella parte superiore sinistra della finestra.
 
     ![ gestione delle regole di avviso](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
 

@@ -2,28 +2,29 @@
 title: Informazioni sull'applicazione dello sconto per le istanze di macchina virtuale riservate di Azure | Microsoft Docs
 description: Informazioni su come viene applicato lo sconto per le istanze di macchine virtuali riservate di Azure alle VM in esecuzione.
 services: billing
-documentationcenter: 
-author: vikramdesai01
-manager: vikdesai
-editor: 
+documentationcenter: ''
+author: yashesvi
+manager: yashar
+editor: ''
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
-ms.author: vikdesai
-ms.openlocfilehash: 2a3854077c7c8bdb20804c6b3e77500659c3c484
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: yashar
+ms.openlocfilehash: ddf6e6a869fb2961db6b626878f9433fdc00a55f
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34056653"
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Informazioni su come viene applicato lo sconto relativo alle istanze di macchine virtuali riservate
 Dopo avere acquistato un'istanza di macchina virtuale riservata, lo sconto relativo alla prenotazione viene automaticamente applicato alle macchine virtuali corrispondenti agli attributi e alla quantità della prenotazione. Una prenotazione copre i costi di infrastruttura delle macchine virtuali. La tabella seguente illustra i costi della macchina virtuale dopo l'acquisto di una prenotazione. In tutti i casi, vengono addebitate le normali tariffe di archiviazione e di rete.
 
 | Tipo di macchina virtuale  | Costi con la prenotazione |    
-|-----------------------|--------------------------------------------| 
+|-----------------------|--------------------------------------------|
 |VM Linux senza software aggiuntivo | La prenotazione copre i costi di infrastruttura delle VM.|
 |VM Linux con costi relativi a software (ad esempio, Red Hat) | La prenotazione copre i costi di infrastruttura. Viene addebitato il software aggiuntivo.|
 |VM Windows senza software aggiuntivo |La prenotazione copre i costi di infrastruttura. Viene addebitato il software Windows.|
@@ -43,7 +44,7 @@ Dopo avere acquistato un'istanza di macchina virtuale riservata, lo sconto relat
 Per informazioni sull'applicazione delle prenotazioni nei report sull'utilizzo per la fatturazione, vedere [Informazioni sull'utilizzo di istanze di macchine virtuali riservate](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Applicazione dello sconto relativo alla prenotazione a VM Windows
-Quando si eseguono istanze di VM Windows, viene applicata la prenotazione per coprire i costi di infrastruttura. L'applicazione della prenotazione ai costi di infrastruttura per le VM Windows è uguale a quella per le VM non Windows. Il software Windows viene addebitato separatamente per ogni singola vCPU. Vedere [Costi del software Windows con le prenotazioni](https://go.microsoft.com/fwlink/?linkid=862756). È possibile coprire i costi di licenza di Windows con [Vantaggio Azure Hybrid per Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+Quando si eseguono istanze di VM Windows, viene applicata la prenotazione per coprire i costi di infrastruttura. L'applicazione della prenotazione ai costi di infrastruttura per le VM Windows è uguale a quella per le VM non Windows. Il software Windows viene addebitato separatamente per ogni singola vCPU. Vedere [Costi del software Windows con le prenotazioni](https://go.microsoft.com/fwlink/?linkid=862756). È possibile coprire i costi di licenza di Windows con [Vantaggio Azure Hybrid per Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle istanze di macchine virtuali riservate, vedere gli articoli seguenti.
@@ -53,7 +54,9 @@ Per altre informazioni sulle istanze di macchine virtuali riservate, vedere gli 
 - [Risparmiare sui costi delle macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](billing-save-compute-costs-reservations.md)
 - [Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
 - [Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Informazioni sull'utilizzo di istanze riservate per sottoscrizioni CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 - [Costi del software Windows non inclusi nelle istanze riservate](billing-reserved-instance-windows-software-costs.md)
+
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 

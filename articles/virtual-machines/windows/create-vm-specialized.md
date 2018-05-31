@@ -2,10 +2,10 @@
 title: Creare una macchina virtuale Windows da un disco rigido virtuale specializzato in Azure | Microsoft Docs
 description: Creare una nuova macchina virtuale Windows collegando un disco gestito specializzato come disco del sistema operativo usando il modello di distribuzione Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
@@ -13,13 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/09/2018
 ms.author: cynthn
-ms.openlocfilehash: 578d31aef5ddeafbd806d0bae4231c135968f78a
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: be7933b038fb5a648249e9b0c73415bff778930b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012785"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-using-powershell"></a>Creare una macchina virtuale Windows da un disco specializzato tramite PowerShell
 
@@ -40,7 +41,7 @@ Questo argomento illustra come usare i dischi gestiti. Se è presente una distri
 Se si usa PowerShell, verificare di avere la versione più recente del modulo di PowerShell AzureRM.Compute. 
 
 ```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM -RequiredVersion 6.0.0
 ```
 Per altre informazioni, vedere [Controllo delle versioni di Azure PowerShell](/powershell/azure/overview).
 
@@ -137,7 +138,7 @@ L'esecuzione del comando potrebbe richiedere del tempo, a seconda della connessi
 
 ### <a name="create-a-managed-disk-from-the-vhd"></a>Creare un disco gestito dal disco rigido virtuale
 
-Creare un disco gestito dal disco rigido virtuale specializzato nell'account di archiviazione usando [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). Questo esempio usa **myOSDisk1** come nome del disco, inserisce il disco nella risorsa di archiviazione *StandardLRS* e usa *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* come URI per il disco rigido virtuale di origine.
+Creare un disco gestito dal disco rigido virtuale specializzato nell'account di archiviazione usando [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). Questo esempio usa **myOSDisk1** per il nome del disco, inserisce il disco nella risorsa di archiviazione *Standard_LRS* e usa  *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* come URI per il disco rigido virtuale di origine.
 
 Creare un nuovo gruppo di risorse per la nuova VM.
 
@@ -153,7 +154,7 @@ Creare il nuovo disco del sistema operativo dal disco rigido virtuale caricato.
 $sourceUri = (https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig -AccountType StandardLRS  `
+    (New-AzureRmDiskConfig -AccountType Standard_LRS  `
     -Location $location -CreateOption Import `
     -SourceUri $sourceUri) `
     -ResourceGroupName $destinationResourceGroup
@@ -337,7 +338,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 Aggiungere il disco del sistema operativo alla configurazione usando [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk). In questo esempio le dimensioni del disco vengono impostate su *128 GB* e viene collegato il disco gestito come disco del sistema operativo *Windows*.
  
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
+$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
     -DiskSizeInGB 128 -CreateOption Attach -Windows
 ```
 
@@ -367,5 +368,5 @@ $vmList.Name
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per accedere alla nuova macchina virtuale, passare alla VM nel [portale](https://portal.azure.com), fare clic su **Connetti**e aprire il file RDP di Desktop remoto. Usare le credenziali dell'account della macchina virtuale originale per accedere alla nuova macchina virtuale. Per altre informazioni, vedere [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](connect-logon.md).
+Accedere alla nuova macchina virtuale. Per altre informazioni, vedere [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](connect-logon.md).
 

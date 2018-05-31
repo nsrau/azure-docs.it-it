@@ -1,5 +1,5 @@
 ---
-title: Replica dei dati in Archiviazione di Azure | Documentazione Microsoft
+title: Replica dei dati in Archiviazione di Azure | Microsoft Docs
 description: I dati nell'account di archiviazione di Microsoft Azure vengono replicati per durabilità e disponibilità elevata. Le opzioni di replica includono archiviazione con ridondanza locale (LRS), archiviazione con ridondanza della zona (ZRS), archiviazione con ridondanza geografica (GRS) e archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
 services: storage
 author: tamram
@@ -8,11 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 2b105cd05ace9be6ad24d092f2b12c7ad092188e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6c2c6979d56eb19ff2ba4fb647c7c51e52e51ac6
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076215"
 ---
 # <a name="azure-storage-replication"></a>Replica di Archiviazione di Azure
 
@@ -31,14 +32,14 @@ Quando si crea un account di archiviazione, è possibile selezionare una delle o
 
 La tabella seguente presenta una rapida panoramica dell'ambito di durabilità e disponibilità che ogni strategia di replica è in grado di offrire per un determinato tipo di evento (o un evento di impatto simile).
 
-| Scenario | Archiviazione con ridondanza locale | ZRS | Archiviazione con ridondanza geografica | RA-GRS |
-|:--- |:--- |:--- |:--- |:--- |
-| Mancata disponibilità di un nodo in un data center |Sì |Sì |Sì |Sì
-| Mancata disponibilità di un intero data center (di zona o non di zona) |No  |Sì |Sì |Sì |
-| Interruzione a livello di area |No  |No  |Sì |Sì |
-| Accesso in lettura ai dati (in un'area remota con replica geografica) in caso di mancata disponibilità a livello di area |No  |No  |No  |Sì |
-| Replica progettata per fornire una durabilità di ___ per gli oggetti nel corso di un determinato anno |Almeno 99,999999999% (11 9)|Almeno 99,9999999999% (12 9)|Almeno 99,99999999999999% (16 9)|Almeno 99,99999999999999% (16 9)|
-| Replica disponibile nei tipi di account di archiviazione ___ |GPv1, GPv2, BLOB |GPv2 |GPv1, GPv2, BLOB |GPv1, GPv2, BLOB
+| Scenario                                                                                                 | Archiviazione con ridondanza locale                             | ZRS                              | Archiviazione con ridondanza geografica                                  | RA-GRS                               |
+| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
+| Mancata disponibilità di un nodo in un data center                                                                 | Sì                             | Sì                              | Sì                                  | Sì                                  |
+| Mancata disponibilità di un intero data center (di zona o non di zona)                                           | No                               | Sì                              | Sì                                  | Sì                                  |
+| Interruzione a livello di area                                                                                     | No                               | No                                | Sì                                  | Sì                                  |
+| Accesso in lettura ai dati (in un'area remota con replica geografica) in caso di mancata disponibilità a livello di area | No                               | No                                | No                                    | Sì                                  |
+| Replica progettata per fornire una durabilità di ___ per gli oggetti nel corso di un determinato anno                                          | Almeno 99,999999999% (11 9) | Almeno 99,9999999999% (12 9) | Almeno 99,99999999999999% (16 9) | Almeno 99,99999999999999% (16 9) |
+| Tipi di account di archiviazione supportati                                                                   | GPv1, GPv2, BLOB                | GPv2                             | GPv1, GPv2, BLOB                     | GPv1, GPv2, BLOB                     |
 
 Per informazioni sui prezzi delle varie opzioni di ridondanza, vedere [Panoramica dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -49,7 +50,7 @@ Per informazioni sui prezzi delle varie opzioni di ridondanza, vedere [Panoramic
 È possibile modificare la strategia di replica dell'account di archiviazione tramite il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o una delle numerose [librerie client di Azure](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). La modifica del tipo di replica dell'account di archiviazione non comporta un tempo di inattività.
 
    > [!NOTE]
-   > Attualmente non è possibile usare il portale o l'API per convertire l'account in archiviazione ZRS. Microsoft prevede tuttavia di fornire il supporto per la migrazione all'archiviazione ZRS dall'archiviazione LRS, GRS e RA-GRS dopo che ZRS sarà disponibile a livello generale. Per informazioni dettagliate, vedere [Archiviazione con ridondanza della zona (ZRS)](storage-redundancy-zrs.md).
+   > Attualmente non è possibile usare il portale o l'API per convertire l'account in archiviazione ZRS. Per convertire la replica dell'account in ZRS, vedere [Archiviazione con ridondanza della zona (ZRS).](storage-redundancy-zrs.md) per maggiori dettagli.
     
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>Vengono addebitati costi per la modifica della strategia di replica dell'account personale?
 Dipende dal percorso di conversione. Dall'offerta di ridondanza più economica alla più costosa, sono disponibili le strategie di replica LRS, ZRS, GRS e RA-GRS. Se ad esempio si passa *da* LRS a un'altra strategia di replica, vengono addebitati costi aggiuntivi perché si esegue la conversione a un livello di ridondanza più sofisticato. Il passaggio *a* GRS o RA-GRS comporta un addebito per la larghezza di banda in uscita poiché i dati (nell'area primaria) vengono replicati nell'area secondaria remota. Questo addebito viene applicato una sola volta, durante la fase di configurazione iniziale. Dopo la copia dei dati non sono previsti altri costi di conversione. Verranno addebitati solo i costi per la replica di nuovi dati o di aggiornamenti ai dati esistenti. Per informazioni dettagliate sui costi addebitati per la larghezza di banda, vedere la [pagina dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).

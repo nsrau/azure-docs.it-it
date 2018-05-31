@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/24/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8de067ece55e13d32af6822e114cb9dab000bdff
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0460d595bc70ec09d492221485749ece32ec07df
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209709"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Eseguire la migrazione di VM di Azure a un'altra area
 
@@ -102,7 +103,7 @@ Il nuovo insieme di credenziali viene aggiunto al **Dashboard**, nella sezione *
 ## <a name="select-the-source"></a>Selezionare l'origine
 
 1. In Insiemi di credenziali dei servizi di ripristino fare clic su **ContosoVMVault** > **+Replica**.
-2. In **Origine** selezionare **Azure - ANTEPRIMA**.
+2. In **Source** (Origine) selezionare **Azure**.
 3. In **Percorso di origine** selezionare l'area di Azure di origine in cui le VM sono attualmente in esecuzione.
 4. Selezionare il modello di distribuzione Resource Manager. Selezionare quindi il **gruppo di risorse di origine**.
 5. Fare clic su **OK** per salvare le impostazioni.
@@ -115,7 +116,7 @@ Site Recovery recupera un elenco delle macchine virtuali associate alla sottoscr
 
 1. Nel portale di Azure fare clic su **Macchine virtuali**.
 2. Selezionare la macchina virtuale di cui si vuole eseguire la migrazione. Fare quindi clic su **OK**.
-3. In **Impostazioni** fare clic su **Ripristino di emergenza (anteprima)**.
+3. In **Impostazioni** fare clic su **Ripristino di emergenza**.
 4. In **Configure disaster recovery** (Configura ripristino di emergenza)  >  **Area di destinazione** selezionare l'area di destinazione in cui si vuole eseguire la replica.
 5. Per questa esercitazione accettare le altre impostazioni predefinite.
 6. Fare clic su **Abilitazione della replica**. Verrà avviato un processo per abilitare la replica per la macchina virtuale.

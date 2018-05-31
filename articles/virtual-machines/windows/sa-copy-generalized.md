@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3737ea08e593ae1018489633e23e80e1099296ae
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b416acd9a2a3b03502b7eca11eade9dbd56f3afe
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072050"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Come creare un'immagine di macchina virtuale non gestita da una macchina virtuale di Azure
 
@@ -78,6 +79,11 @@ Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da 
     ```
 
 ## <a name="deallocate-the-vm-and-set-the-state-to-generalized"></a>Deallocare la VM e impostare lo stato generalizzato
+
+> [!IMPORTANT] 
+> Non è possibile aggiungere, modificare o rimuovere tag da una VM contrassegnata come generalizzata. Accertarsi di aggiungere un tag alla VM prima di contrassegnarla come generalizzata.
+> 
+
 1. Deallocare le risorse della VM.
    
     ```powershell

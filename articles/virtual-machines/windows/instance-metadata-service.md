@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: b3ecddbfdc37bc58294dff41b62e0505b90ca940
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a40971e373a6e2fe6324e06816112e2025506ba8
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057979"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
@@ -36,7 +37,7 @@ Il servizio è disponibile a livello generale nelle aree di Azure. Le versioni A
 
 Regioni                                        | Disponibilità                                 | Versioni supportate
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | Disponibile a livello generale   | 2017-04-02, 2017-08-01, 2017-12-01
+[Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | Disponibile a livello generale   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibile a livello generale | 2017-04-02, 2017-08-01
 [Azure per la Cina](https://www.azure.cn/)                                                           | Disponibile a livello generale | 2017-04-02, 2017-08-01
 [Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibile a livello generale | 2017-04-02, 2017-08-01
@@ -307,6 +308,7 @@ subnet/prefix | Prefisso della subnet, ad esempio 24 | 2017-04-02
 ipv6/ipAddress | Indirizzo IPv6 locale della macchina virtuale | 2017-04-02 
 macAddress | Indirizzo mac della macchina virtuale | 2017-04-02 
 scheduledevents | Vedere [Eventi pianificati](scheduled-events.md) | 2017-08-01
+identity | Identità del servizio gestita (anteprima). Vedere [Acquisire un token di accesso](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01
 
 ## <a name="example-scenarios-for-usage"></a>Scenari di utilizzo di esempio  
 
@@ -392,6 +394,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
+Puppet | https://github.com/keirans/azuremetadata
     
 
 ## <a name="faq"></a>Domande frequenti

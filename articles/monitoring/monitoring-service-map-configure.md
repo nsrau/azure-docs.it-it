@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 5fa5c6708f3b0b0319bd669be7f9c897f095b6e4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: aa85f06355ad5afc8e67ff4bace3b0ed471dc703
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204193"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurare Mapping dei servizi in Azure
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che offrono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -322,6 +323,7 @@ Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipe
 | 7,2 | 3.10.0-327 |
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
+| 7.5 | 3.10.0-862 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 | Versione del sistema operativo | Versione del kernel |

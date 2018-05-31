@@ -7,19 +7,20 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: 9b4fbb34686a12f992b344ac61420c9ba99ee405
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0168849c01add3f714b139c7984e3def74f40a5b
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071764"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>Panoramica del supporto multi-tenant per la replica VMware in Azure con CSP
 
-[Azure Site Recovery](site-recovery-overview.md) supporta ambienti multi-tenant per sottoscrizioni tenant. Supporta anche la multi-tenancy per le sottoscrizioni tenant create e gestite tramite il programma Microsoft Cloud Solution Provider (CSP). 
+[Azure Site Recovery](site-recovery-overview.md) supporta ambienti multi-tenant per sottoscrizioni tenant. Supporta anche la multi-tenancy per le sottoscrizioni tenant create e gestite tramite il programma Microsoft Cloud Solution Provider (CSP).
 
-Questo articolo offre una panoramica dell'implementazione e della gestione della replica VMware multi-tenant in Azure. 
+Questo articolo offre una panoramica dell'implementazione e della gestione della replica VMware multi-tenant in Azure.
 
 ## <a name="multi-tenant-environments"></a>Ambienti multi-tenant
 
@@ -33,7 +34,7 @@ Esistono tre modelli multi-tenant principali:
 
 ## <a name="shared-hosting-services-provider-hsp"></a>Provider di servizi di hosting condiviso
 
- Gli altri due scenari sono subset dello scenario di hosting condiviso e si basano sugli stessi principi. Le differenze vengono descritte alla fine delle indicazioni sull'hosting condiviso.
+Gli altri due scenari sono subset dello scenario di hosting condiviso e si basano sugli stessi principi. Le differenze vengono descritte alla fine delle indicazioni sull'hosting condiviso.
 
 Il requisito di base in uno scenario multi-tenant è che i tenant devono essere isolati. Un tenant non deve poter vedere ciò che viene ospitato in un altro tenant. In un ambiente gestito dal partner, questo requisito non è importante come in un ambiente self-service, dove invece può essere fondamentale. Questo articolo presuppone che sia necessario isolare i tenant.
 
@@ -63,7 +64,7 @@ Ogni server di configurazione nello scenario multi-tenant usa due account:
 
 ## <a name="vcenter-account-requirements"></a>Requisiti dell'account vCenter
 
-È necessario configurare il server di configurazione con un account a cui sia assegnato un ruolo apposito. 
+Configurare il server di configurazione con un account a cui sia assegnato un ruolo apposito.
 
 - L'assegnazione del ruolo deve essere applicata all'account di accesso a vCenter per ogni oggetto vCenter e non deve essere propagata agli oggetti figlio. Questa configurazione garantisce l'isolamento dei tenant, perché la propagazione dell'accesso può determinare l'accesso accidentale ad altri oggetti.
 
@@ -108,22 +109,36 @@ Per limitare le operazioni di ripristino di emergenza fino al solo failover (val
 - Invece di assegnare il ruolo *Azure_Site_Recovery* all'account di accesso a vCenter, assegnare solo il ruolo *Read-Only*. Questo set di autorizzazioni consente il failover e la replica delle macchine virtuali e non consente il failback.
 - Tutte le altre fasi del processo precedente restano invariate. Ogni autorizzazione continua a essere assegnata solo a livello di oggetto e non viene propagata agli oggetti figlio per assicurare l'isolamento del tenant e limitare il rilevamento di macchine virtuali.
 
+### <a name="deploy-resources-to-the-tenant-subscription"></a>Distribuire le risorse nella sottoscrizione del tenant
+
+1. Nel portale di Azure creare un gruppo di risorse e distribuire un insieme di credenziali di Servizi di ripristino seguendo la procedura consueta.
+2. Scaricare la chiave di registrazione dell'insieme di credenziali,
+3. Registrare il server di configurazione per il tenant usando la chiave di registrazione dell'insieme di credenziali.
+4. Immettere le credenziali per i due account di accesso, ovvero l'account di accesso al server vCenter e l'account di accesso alla macchina virtuale.
+
+    ![Gestire gli account del server di configurazione](./media/vmware-azure-multi-tenant-overview/config-server-account-display.png)
+
+### <a name="register-servers-in-the-vault"></a>Registrare i server nell'insieme di credenziali
+
+1. Passare al portale di Azure e nell'insieme di credenziali creato in precedenza registrare il server vCenter nel server di configurazione usando l'account vCenter creato.
+2. Completare il processo di preparazione dell'infrastruttura per Site Recovery seguendo la procedura consueta.
+3. Le macchine virtuali sono ora pronte per essere replicate. Verificare che in **Replica** > **Seleziona macchine virtuali** siano visualizzate solo le VM del tenant.
 
 ## <a name="dedicated-hosting-solution"></a>Soluzione di hosting dedicato
 
-Come illustrato nel diagramma seguente, la differenza in termini di architettura in una soluzione di hosting dedicato è che l'infrastruttura di ogni tenant viene configurata solo per quel tenant. Poiché i tenant sono isolati tramite vCenter separati, il provider di hosting deve comunque seguire la procedura CSP descritta per l'hosting condiviso, senza tuttavia preoccuparsi dell'isolamento del tenant. La configurazione CSP resta invariata.
+Come illustrato nel diagramma seguente, la differenza in termini di architettura in una soluzione di hosting dedicato è che l'infrastruttura di ogni tenant viene configurata solo per quel tenant.
 
 ![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
 **Scenario di hosting dedicato con più vCenter**
 
 ## <a name="managed-service-solution"></a>Soluzione di servizi gestiti
 
-Come illustrato nel diagramma seguente, la differenza in termini di architettura in una soluzione di servizi gestiti è che l'infrastruttura di ogni tenant è separata anche fisicamente dall'infrastruttura degli altri tenant. Questo scenario si verifica in genere quando il tenant è proprietario dell'infrastruttura e vuole che un provider di soluzioni gestisca il ripristino di emergenza. Anche in questo caso, essendo i tenant isolati fisicamente tramite infrastrutture diverse, il partner deve seguire la procedura CSP descritta per l'hosting condiviso, senza tuttavia preoccuparsi dell'isolamento del tenant. Il provisioning CSP resta invariato.
+Come illustrato nel diagramma seguente, la differenza in termini di architettura in una soluzione di servizi gestiti è che l'infrastruttura di ogni tenant è separata anche fisicamente dall'infrastruttura degli altri tenant. Questo scenario si verifica in genere quando il tenant è proprietario dell'infrastruttura e vuole che un provider di soluzioni gestisca il ripristino di emergenza.
 
 ![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png)  
 **Scenario di servizi gestiti con più vCenter**
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni](site-recovery-role-based-linked-access-control.md) sul controllo degli accessi in base al ruolo in Site Recovery.
-Informazioni su come [configurare il ripristino di emergenza di macchine virtuali VMware in Azure](vmware-azure-tutorial.md)
-[Configurare il ripristino di emergenza per macchine virtuali VMWare con multi-tenancy con CSP](vmware-azure-multi-tenant-csp-disaster-recovery.md)
+- [Altre informazioni](site-recovery-role-based-linked-access-control.md) sul controllo degli accessi in base al ruolo in Site Recovery.
+- Informazioni su come [configurare il ripristino di emergenza di macchine virtuali VMware in Azure](vmware-azure-tutorial.md).
+- Informazioni sul [multi-tenancy con CSP per VM VMWare](vmware-azure-multi-tenant-csp-disaster-recovery.md).

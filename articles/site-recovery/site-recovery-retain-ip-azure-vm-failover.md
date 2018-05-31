@@ -12,13 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: 8e128e057e45f6966067ebaaf039d9b14349d926
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9a9c18bfe9073e5af94c7bd8f0fbb91651387731
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071665"
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Mantenimento degli indirizzi IP per il failover delle macchine virtuali di Azure
 
@@ -34,20 +35,20 @@ Considerato il requisito del mantenimento degli indirizzi IP (ad esempio per i b
 
 Di seguito è riportato l'aspetto dell'architettura di rete prima del failover:
 - Le macchine virtuali dell'applicazione sono ospitate nell'area Asia orientale di Azure, utilizzando una rete virtuale di Azure con spazio indirizzi 10.1.0.0/16. Questa rete virtuale è denominata **Rete virtuale di origine**.
-- I carichi di lavoro dell'applicazione sono suddivisi tra tre subnet (10.1.0.0/24, 10.1.1.0/24, 10.1.2.0/24), denominate rispettivamente **Subnet 1**, **Subnet 2** e **3 Subnet**.
+- I carichi di lavoro dell'applicazione sono suddivisi tra tre subnet (10.1.1.0/24, 10.1.2.0/24, 10.1.3.0/24), denominate rispettivamente **Subnet 1**, **Subnet 2** e **Subnet 3**.
 - L'area Asia sud-orientale di Azure è l'area di destinazione e dispone di una rete virtuale di ripristino che simula la configurazione della subnet e lo spazio indirizzi nell'origine. Questa rete virtuale è denominata **Rete virtuale di ripristino**.
-- I nodi di replica, come quelli necessari per Always On, controller di dominio e così via, sono inseriti in una rete virtuale con spazio indirizzi 20.1.0.0/16 all'interno della Subnet 4 con indirizzo 20.1.0.0/24. La rete virtuale è denominata **Rete virtuale di Azure** e si trova nell'area Asia sud-orientale di Azure.
+- I nodi di replica, come quelli necessari per Always On, controller di dominio e così via, sono inseriti in una rete virtuale con spazio indirizzi 10.2.0.0/16 all'interno della Subnet 4 con indirizzo 10.2.4.0/24. La rete virtuale è denominata **Rete virtuale di Azure** e si trova nell'area Asia sud-orientale di Azure.
 - La **Rete virtuale di origine** e la **Rete virtuale di Azure** sono connesse tramite connettività VPN da sito a sito.
 - La **Rete virtuale di ripristino** non è connessa ad alcun'altra rete virtuale.
 - L'**Azienda A** assegna/verifica l'indirizzo IP di destinazione per gli elementi replicati. In questo esempio l'indirizzo IP di destinazione è lo stesso dell'indirizzo IP di origine per ogni macchina virtuale.
 
-![Connettività da Azure ad Azure prima del failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover.png)
+![Connettività da Azure ad Azure prima del failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover2.png)
 
 ### <a name="full-region-failover"></a>Failover completo dell'area
 
 In caso di interruzione a livello di area, l'**Azienda A** è in grado di ripristinare l'intera distribuzione rapidamente e facilmente usando i potenti [piani di ripristino](site-recovery-create-recovery-plans.md) di Azure Site Recovery. Avendo già impostato l'indirizzo IP di destinazione per ogni macchina virtuale prima del failover, l'**Azienda A** può orchestrare il failover e automatizzare l'attivazione della connessione tra la Rete virtuale di ripristino e la Rete virtuale di Azure, come illustrato nel diagramma seguente.
 
-![Failover completo dell'area per la connettività da Azure ad Azure](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover.png)
+![Failover completo dell'area per la connettività da Azure ad Azure](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
 A seconda dei requisiti dell'applicazione, le connessioni tra le due reti virtuali nell'area di destinazione possono essere stabilite prima, durante (come passaggio intermedio) o dopo il failover. Usare i [piani di ripristino](site-recovery-create-recovery-plans.md) per aggiungere script e definire l'ordine di failover.
 
@@ -62,23 +63,23 @@ Un modo migliore per soddisfare i requisiti di failover dell'applicazione a live
 Per progettare le singole applicazioni per garantire la resilienza, è consigliabile ospitare un'applicazione nella propria rete virtuale dedicata e stabilire la connettività tra queste reti virtuali in base alle esigenze. In questo modo si garantisce il failover dell'applicazione isolato mantenendo gli indirizzi IP privati originali.
 
 La configurazione pre-failover appare quindi come segue:
-- Le macchine virtuali dell'applicazione sono ospitate nell'area Asia orientale di Azure, utilizzando una rete virtuale di Azure con spazio indirizzi 10.1.0.0/16 per la prima applicazione e 15.1.0.0/16 per la seconda applicazione. Le reti virtuali sono denominate **Rete virtuale 1 di origine** e **Rete virtuale 2 di origine**, rispettivamente per la prima e la seconda applicazione.
+- Le macchine virtuali dell'applicazione sono ospitate nell'area Asia orientale di Azure, usando una rete virtuale di Azure con spazio indirizzi 10.1.0.0/16 per la prima applicazione e 10.2.0.0/16 per la seconda applicazione. Le reti virtuali sono denominate **Rete virtuale 1 di origine** e **Rete virtuale 2 di origine**, rispettivamente per la prima e la seconda applicazione.
 - Ogni rete virtuale viene ulteriormente suddivisa in due reti virtuali.
 - L'area Asia sud-orientale di Azure è l'area di destinazione e dispone delle reti virtuali di ripristino Rete virtuale 1 di ripristino e Rete virtuale 2 di ripristino.
-- I nodi di replica, come quelli necessari per Always On, controller di dominio e così via, sono inseriti in una rete virtuale con spazio indirizzi 20.1.0.0/16 all'interno della **Subnet 4** con indirizzo 20.1.0.0/24. La rete virtuale è denominata rete virtuale di Azure e si trova nell'area Asia sud-orientale di Azure.
+- I nodi di replica, come quelli necessari per Always On, controller di dominio e così via, sono inseriti in una rete virtuale con spazio indirizzi 10.3.0.0/16 all'interno della **Subnet 4** con indirizzo 10.3.4.0/24. La rete virtuale è denominata rete virtuale di Azure e si trova nell'area Asia sud-orientale di Azure.
 - La **Rete virtuale 1 di origine** e la **Rete virtuale di Azure** sono connesse tramite connettività VPN da sito a sito. Analogamente, la **Rete virtuale 2 di origine** e la **Rete virtuale di Azure** sono connesse tramite connettività VPN da sito a sito.
 - Anche la **Rete virtuale 1 di origine** e la **Rete virtuale 2 di origine** sono connesse tramite VPN S2S in questo esempio. Poiché le due reti virtuali si trovano nella stessa area, può essere usato anche Peering reti virtuali al posto della connettività VPN S2S.
 - La **Rete virtuale 1 di ripristino** e la **Rete virtuale 2 di ripristino** non sono connesse ad alcun'altra rete virtuale.
 - Per ridurre l'obiettivo del tempo di ripristino (RTO), i gateway VPN sono configurati sulla **Rete virtuale 1 di ripristino** e sulla **Rete virtuale 2 di ripristino** prima del failover.
 
-![Applicazione isolata prima del failover con connettività da Azure ad Azure](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover.png)
+![Applicazione isolata prima del failover con connettività da Azure ad Azure](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover2.png)
 
 In caso di una situazione di emergenza che interessa solo un'applicazione (in questo esempio ospitata nella Rete virtuale 2 di origine), l'Azienda A può ripristinare l'applicazione interessata come illustrato di seguito:
 - Le connessioni VPN tra la **Rete virtuale 1 di origine** e la **Rete virtuale 2 di origine**, così come tra la **Rete virtuale 2 di origine** e la **Rete virtuale di Azure** vengono disconnesse.
 - Vengono stabilite le connessioni VPN tra la **Rete virtuale 1 di origine** e la **Rete virtuale 2 di ripristino**, così come tra la **Rete virtuale 2 di ripristino** e la **Rete virtuale di Azure**.
 - Viene effettuato il failover delle macchine virtuali dalla **Rete virtuale 2 di origine** alla **Rete virtuale 2 di ripristino**.
 
-![Applicazione isolata dopo il failover con connettività da Azure ad Azure](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover.png)
+![Applicazione isolata dopo il failover con connettività da Azure ad Azure](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover2.png)
 
 L'esempio precedente di failover isolato può essere esteso in modo da includere altre applicazioni e connessioni di rete. Si consiglia, per quanto possibile, di seguire un modello di connessione analogo per il failover dall'origine alla destinazione.
 
@@ -92,13 +93,13 @@ Per il secondo scenario, viene presa in considerazione l'**Azienda B** che ha un
 
 Di seguito è riportato l'aspetto dell'architettura di rete prima del failover:
 - Le macchine virtuali dell'applicazione sono ospitate nell'area Asia orientale di Azure, utilizzando una rete virtuale di Azure con spazio indirizzi 10.1.0.0/16. Questa rete virtuale è denominata **Rete virtuale di origine**.
-- I carichi di lavoro dell'applicazione sono suddivisi tra tre subnet (10.1.0.0/24, 10.1.1.0/24, 10.1.2.0/24), denominate rispettivamente **Subnet 1**, **Subnet 2** e **3 Subnet**.
+- I carichi di lavoro dell'applicazione sono suddivisi tra tre subnet (10.1.1.0/24, 10.1.2.0/24, 10.1.3.0/24), denominate rispettivamente **Subnet 1**, **Subnet 2** e **Subnet 3**.
 - L'area Asia sud-orientale di Azure è l'area di destinazione e dispone di una rete virtuale di ripristino che simula la configurazione della subnet e lo spazio indirizzi nell'origine. Questa rete virtuale è denominata **Rete virtuale di ripristino**.
 - Le macchine virtuali nell'area Asia orientale di Azure sono connesse al data center locale tramite ExpressRoute o una connessione VPN da sito a sito.
 - Per ridurre l'obiettivo del tempo di ripristino (RTO), l'Azienda B effettua il provisioning dei gateway nella Rete virtuale di ripristino nell'area Asia sud-orientale di Azure prima del failover.
 - L'**Azienda B** assegna/verifica l'indirizzo IP di destinazione per gli elementi replicati. Per questo esempio, l'indirizzo IP di destinazione è lo stesso dell'indirizzo IP di origine per ogni macchina virtuale.
 
-![Connettività da locale ad Azure prima del failover](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover.png)
+![Connettività da locale ad Azure prima del failover](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover2.png)
 
 ### <a name="full-region-failover"></a>Failover completo dell'area
 
@@ -106,7 +107,7 @@ In caso di interruzione a livello di area, l'**Azienda B** è in grado di ripris
 
 La connessione originale tra l'area Asia orientale di Azure e il data center locale dovrebbe essere disconnessa prima di stabilire la connessione tra l'area Asia sud-orientale di Azure e il data center locale. Anche il routing locale viene riconfigurato in modo da puntare ai gateway e all'area di destinazione dopo il failover.
 
-![Connettività da locale ad Azure dopo il failover](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover.png)
+![Connettività da locale ad Azure dopo il failover](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover2.png)
 
 ### <a name="subnet-failover"></a>Failover sulla subnet
 

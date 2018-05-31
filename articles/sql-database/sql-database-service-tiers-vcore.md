@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 05/09/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 9abe7743906064d182453fea403ff94a097c3558
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1424ae2d9ffe7308fe85b7eb8ed6b0062d59ce31
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212382"
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057928"
 ---
 # <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>Modello di acquisto basato su vCore per il database SQL di Azure (anteprima)
 
@@ -27,7 +27,7 @@ Il [database SQL di Azure](sql-database-technical-overview.md) offre due modelli
 |**Modello di acquisto**|**Descrizione**|**Ideale per**|
 |---|---|---|
 |Modello basato su DTU|Questo modello è basato su una misura combinata di risorse di calcolo, archiviazione e I/O. I livelli di prestazioni per i database singoli sono espressi in unità di transazione di database (DTU), quelli per i pool elastici sono espressi in unità di transazione di database elastico (eDTU). Per altre informazioni su DTU ed eDTU, vedere [Unità di transazione di database (DTU) e unità di transazione di database elastico (eDTU)](sql-database-what-is-a-dtu.md).|Ideale per i clienti che desiderano opzioni di risorse semplici e preconfigurate.| 
-|Modello basato su vCore|Questo modello consente di ridimensionare in modo indipendente le risorse di calcolo e archiviazione: fino a 80 vCore, 4 TB di archiviazione dati e 200.000 operazioni di I/O al secondo. Offre inoltre la possibilità di usare il Vantaggio Azure Hybrid per SQL Server per ottenere un risparmio sui costi.|Ideale per i clienti che danno valore alla trasparenza, al controllo e alla flessibilità.|
+|Modello basato su vCore|Questo modello consente di ridimensionare in modo indipendente le risorse di calcolo e archiviazione. Offre inoltre la possibilità di usare il Vantaggio Azure Hybrid per SQL Server per ottenere un risparmio sui costi.|Ideale per i clienti che danno valore alla trasparenza, al controllo e alla flessibilità.|
 ||||  
 
 ![modello di prezzi](./media/sql-database-service-tiers/pricing-model.png)
@@ -49,7 +49,7 @@ Nel modello di acquisto basato su vCore (anteprima) i clienti pagano per le riso
 \*\* Durante l'anteprima è possibile usufruire gratuitamente di 7 giorni di backup e operazioni di I/O.
 
 > [!IMPORTANT]
-> I costi delle risorse di calcolo, I/O e archiviazione di dati e log vengono addebitati per database singolo o pool elastico. Il costo delle risorse di archiviazione per i backup viene addebitato per ogni database. Per informazioni dettagliate sull'addebito dei costi di Istanza gestita, vedere la sezione relativa all'[istanza gestita di database SQL di Azure](sql-database-managed-instance.md).
+> I costi delle risorse di calcolo, I/O e archiviazione di dati e log vengono addebitati per database singolo o pool elastico. Il costo delle risorse di archiviazione per i backup viene addebitato per ogni database. Per informazioni dettagliate sull'addebito dei costi di Istanza gestita, vedere [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md).
 
 > [!IMPORTANT]
 > Limitazioni di area: 
@@ -66,10 +66,10 @@ La tabella seguente consente di comprendere le differenze tra questi due livelli
 ||**Utilizzo generico**|**Business Critical**|
 |---|---|---|
 |Ideale per|La maggior parte dei carichi di lavoro aziendali. Offre opzioni di calcolo e archiviazione scalabili e bilanciate a prezzi convenienti.|Applicazioni aziendali con requisiti di I/O elevati. Offre massima resilienza agli errori tramite diverse repliche isolate.|
-|Calcolo|Da 1 a 80 vCore, di generazione 4 e 5 |Da 1 a 80 vCore, di generazione 4 e 5|
+|Calcolo|Da 1 a 16 vCore|Da 1 a 16 vCore|
 |Memoria|7 GB per core |7 GB per core |
-|Archiviazione|Archiviazione remota Premium, da 5 GB a 4 TB|Archiviazione SSD locale, da 5 GB - 4 TB|
-|Velocità effettiva di I/O (approssimativa)|500 operazioni di I/O al secondo per vCore fino a un massimo di 7000|5000 operazioni di I/O al secondo per core fino a un massimo di 200.000|
+|Archiviazione|Archiviazione remota Premium, da 5 GB a 4 TB|Archiviazione SSD locale, da 5 GB a 1 TB|
+|Velocità effettiva di I/O (approssimativa)|500 operazioni di I/O al secondo per vCore fino a un massimo di 7500|5000 operazioni di I/O al secondo per core|
 |Disponibilità|1 replica, senza scalabilità in lettura|3 repliche, 1 replica per [scalabilità in lettura](sql-database-read-scale-out.md), disponibilità elevata con ridondanza della zona|
 |Backup|RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita)|RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita)*|
 |In memoria|N/D|Supportato|

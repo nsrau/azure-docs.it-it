@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: b81f3719f8781cf6cdb724108f4dd730f3380c86
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d0307b26741a6bbbf29626e670467cdd72697646
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33943582"
 ---
 # <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>Eseguire manualmente la migrazione di una macchina virtuale classica a una nuova macchina virtuale con disco gestito ARM dal disco rigido virtuale 
 
@@ -92,6 +93,8 @@ Preparare l'applicazione per il tempo di inattività. Per eseguire una migrazion
 
 Preparare l'applicazione per il tempo di inattività. Per eseguire una migrazione senza problemi, è necessario arrestare ogni elaborazione nel sistema corrente. Solo a quel punto lo stato sarà coerente e sarà possibile eseguire la migrazione alla nuova piattaforma. La durata del tempo di inattività dipende dalla quantità di dati nei dischi di cui eseguire la migrazione.
 
+Questa parte richiede il modulo Azure PowerShell 6.0.0 o versioni successive. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). È anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
+
 
 1.  Innanzitutto, impostare i parametri comuni:
 
@@ -121,11 +124,11 @@ Preparare l'applicazione per il tempo di inattività. Per eseguire una migrazion
 
 2.  Creare un disco del sistema operativo gestito usando il disco rigido virtuale dalla macchina virtuale classica.
 
-    Assicurarsi che siano stati specificati l'URI completo del disco rigido virtuale del sistema operativo per il parametro $osVhdUri. Per **-AccountType**, immettere **PremiumLRS** o **StandardLRS** in base al tipo di dischi (Premium o Standard) verso cui si sta eseguendo la migrazione.
+    Assicurarsi che siano stati specificati l'URI completo del disco rigido virtuale del sistema operativo per il parametro $osVhdUri. Per **-AccountType**, immettere **Premium_LRS** o **Standard_LRS** in base al tipo di dischi (Premium o Standard) a cui si sta eseguendo la migrazione.
 
     ```powershell
     $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk (New-AzureRmDiskConfig '
-    -AccountType PremiumLRS -Location $location -CreateOption Import -SourceUri $osVhdUri) '
+    -AccountType Premium_LRS -Location $location -CreateOption Import -SourceUri $osVhdUri) '
     -ResourceGroupName $resourceGroupName
     ```
 
@@ -134,14 +137,14 @@ Preparare l'applicazione per il tempo di inattività. Per eseguire una migrazion
     ```powershell
     $VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
     $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $osDisk.Id '
-    -StorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
+    -StorageAccountType Premium_LRS -DiskSizeInGB 128 -CreateOption Attach -Windows
     ```
 
 4.  Creare un disco di dati gestiti dal file del disco rigido virtuale dei dati e aggiungerlo alla nuova macchina virtuale.
 
     ```powershell
     $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig '
-    -AccountType PremiumLRS -Location $location -CreationDataCreateOption Import '
+    -AccountType Premium_LRS -Location $location -CreationDataCreateOption Import '
     -SourceUri $dataVhdUri ) -ResourceGroupName $resourceGroupName
     
     $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName '

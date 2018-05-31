@@ -3,9 +3,9 @@ title: Applicazione Node.js con Socket.io | Azure
 description: Informazioni su come usare socket.io in un'applicazione node.js ospitata in Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: cshoe
-ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.author: adegeo
+ms.openlocfilehash: 0139c42334b53364aee8cfd29cfa771d47e2ccc8
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011316"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Creare un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure
 
@@ -61,7 +62,7 @@ Per questo progetto, verrà usato l'esempio di chat dell' [archivio GitHub Socke
 
 1. Creare una copia locale dell'archivio usando il pulsante **Clone** . È inoltre possibile usare il pulsante **ZIP** per scaricare il progetto.
    
-   ![Finestra del browser con https://github.com/LearnBoost/socket.io/tree/master/examples/chat e l'icona per il download di ZIP evidenziata][chat-example-view]
+   ![Una finestra del browser che visualizza https://github.com/LearnBoost/socket.io/tree/master/examples/chat, con l'icona di download del file ZIP evidenziata][chat-example-view]
 2. Spostarsi nella struttura di directory del repository locale fino alla directory **examples\\chat**. Copiare il contenuto di questa directory nella directory **C:\\node\\chatapp\\WorkerRole1** creata in precedenza.
    
    ![Esplora risorse con il contenuto della directory examples\\chat estratto dall'archivio][chat-contents]

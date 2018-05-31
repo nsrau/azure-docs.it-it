@@ -2,10 +2,10 @@
 title: Problema nella configurazione dell'accesso Single Sign-On federato per un'applicazione nella raccolta di Azure AD | Microsoft Docs
 description: Informazioni sui problemi comuni che si possono incontrare durante la configurazione dell'accesso Single Sign-On federato per applicazioni SAML incluse nella raccolta delle applicazioni di Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 86ddb91ae16da797e32c6e1a8a8b2cd8fca989a8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 581b3c4ff7cc7b25f238602560f30280efa34edd
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34053310"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema nella configurazione dell'accesso Single Sign-On federato per un'applicazione nella raccolta di Azure AD
 
@@ -61,7 +62,7 @@ Per conoscere i modelli preconfigurati per l'applicazione:
 
 10. Esistono tre modi per conoscere i modelli supportati per l'applicazione:
 
-   * Nella casella di testo è presente il modello supportato come segnaposto, *esempio:* <https://contoso.com>.
+   * Nella casella di testo è presente il criterio supportato come segnaposto,  *ad esempio:* <https://contoso.com>.
 
    * Se il modello non è supportato, viene visualizzato un punto esclamativo rosso quando si tenta di immettere il valore nella casella di testo. Se si posiziona il mouse sul punto esclamativo rosso, vengono visualizzati i modelli supportati.
 
@@ -71,7 +72,7 @@ Se i valori non corrispondono ai modelli preconfigurati in Azure AD. È possibil
 
 -   Chiedere al fornitore dell'applicazione valori che corrispondono al modello preconfigurato in Azure AD
 
--   Contattare, in alternativa, il team di Azure AD all'indirizzo <aadapprequest@microsoft.com> o lasciare un commento nell'esercitazione per richiedere l'aggiornamento dei modelli supportati per l'applicazione
+-   Contattare, in alternativa, il team di Azure AD all'indirizzo <aadapprequest@microsoft.com> o lasciare un commento nell'esercitazione per richiedere l'aggiornamento dei criteri supportati per l'applicazione
 
 ## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Dove impostare il formato di EntityID (identificatore utente)
 
@@ -108,4 +109,4 @@ Azure AD non fornisce URL per ottenere i metadati. I metadati possono essere rec
 Per informazioni su come personalizzare le attestazioni degli attributi SAML inviate all'applicazione, vedere [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) (Mapping di attestazioni in Azure Active Directory).
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Gestione di applicazioni con Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Gestione di applicazioni con Azure Active Directory](manage-apps/what-is-application-management.md)

@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 285b8d0acc8a6cbe1a6441a4aabf372de204309e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 02c380c78fa773b56a3c8b666e890836a3d8e54b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942059"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Installare e usare Log Analytics con un'app SaaS multi-tenant del database SQL
 
@@ -65,8 +66,8 @@ Gli script e il codice sorgente dell'applicazione del database multi-tenant SaaS
 
 Log Analytics è un servizio separato che deve essere configurato. Dati di log, dati di telemetria e metriche vengono raccolti da Log Analytics in un'area di lavoro del servizio stesso. Come per altre risorse in Azure, è necessario creare un'area di lavoro di Log Analytics. L'area di lavoro non deve essere necessariamente creata nello stesso gruppo di risorse delle applicazioni da monitorare, anche se spesso questa è la scelta più sensata. Per l'app Wingtip Tickets, usare un unico gruppo di risorse per garantire che l'area di lavoro venga eliminata con l'applicazione.
 
-1. In PowerShell ISE aprire *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\**Demo-LogAnalytics.ps1***.
-2. Premere F5 per eseguire lo script.
+1. In PowerShell ISE aprire *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*.
+2. Per eseguire lo script, premere F5.
 
 È ora possibile aprire Log Analytics nel portale di Azure o nel portale di Operations Management Suite. Per raccogliere i dati di telemetria e visualizzarli nell'area di lavoro di Log Analytics è necessario qualche minuto. Maggiore il tempo concesso al sistema per la raccolta di dati di diagnostica, più interessante sarà l'esperienza. 
 

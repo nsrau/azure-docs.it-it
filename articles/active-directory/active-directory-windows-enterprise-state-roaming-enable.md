@@ -13,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 05/14/2018
 ms.author: markvi
-ms.openlocfilehash: 3a8714ddbda10d8e1b4a8de35711101f4c8a0106
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dba749b6d85898e6438ce1160b9bf6eaff6f4ac9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257972"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Abilitare Enterprise State Roaming in Azure Active Directory
 Enterprise State Roaming è disponibile per qualsiasi organizzazione con una licenza Azure AD Premium o Enterprise Mobility + Security (EMS). Per altre informazioni su come ottenere una sottoscrizione di Azure AD, vedere la [pagina del prodotto Azure AD](https://azure.microsoft.com/services/active-directory) .
 
-Quando si abilita il servizio Enterprise State Roaming, all'organizzazione viene concessa automaticamente una licenza gratuita e a uso limitato di Azure Rights Management. Questa sottoscrizione gratuita è limitata a crittografia e decrittografia delle impostazioni aziendali e dei dati delle applicazioni sincronizzati da Enterprise State Roaming. È necessario avere una [sottoscrizione a pagamento](https://azure.microsoft.com/pricing/details/active-directory/) per usare le funzionalità complete di Azure Rights Management.
+Quando si abilita il servizio Enterprise State Roaming, all'organizzazione viene concessa automaticamente una licenza gratuita e a uso limitato per la protezione Azure Rights Management da Azure Information Protection. Questa sottoscrizione gratuita è limitata a crittografia e decrittografia delle impostazioni aziendali e dei dati delle applicazioni sincronizzati da Enterprise State Roaming. È necessario avere una [sottoscrizione a pagamento](https://azure.microsoft.com/pricing/details/information-protection/) per usare le funzionalità complete del servizio Azure Rights Management.
 
 ## <a name="to-enable-enterprise-state-roaming"></a>Per abilitare Enterprise State Roaming
 
@@ -39,7 +40,7 @@ Quando si abilita il servizio Enterprise State Roaming, all'organizzazione viene
 Per consentire a un dispositivo Windows 10 di usare il servizio Enterprise State Roaming, è necessario che il dispositivo effettui l'autenticazione con un'identità di Azure AD. Per i dispositivi aggiunti ad Azure AD, l'identità di accesso principale dell'utente è l'identità di Azure AD, quindi non sono necessarie operazioni aggiuntive di configurazione. Per i dispositivi che usano Active Directory in locale, l'amministratore IT deve [connettere i dispositivi aggiunti a un dominio ad Azure AD in ambiente Windows 10](active-directory-azureadjoin-devices-group-policy.md).
 
 ## <a name="data-storage"></a>Archiviazione dei dati
-I dati del servizio Enterprise State Roaming sono ospitati in una o più [aree di Azure](https://azure.microsoft.com/regions/) ottimali per il valore relativo al paese/all'area geografica impostati nell'istanza di Azure Active Directory. I dati del servizio Enterprise State Roaming vengono partizionati in base alle tre principali aree geografiche: America del Nord, EMEA e Asia Pacifico. I dati del servizio Enterprise State Roaming per il tenant si trovano in locale con l'area geografica e non vengono replicati tra le aree.  Ad esempio:
+I dati del servizio Enterprise State Roaming sono ospitati in una o più [aree di Azure](https://azure.microsoft.com/regions/) ottimali per il valore relativo al paese/all'area geografica impostati nell'istanza di Azure Active Directory. I dati del servizio Enterprise State Roaming vengono partizionati in base alle tre principali aree geografiche: America del Nord, EMEA e Asia Pacifico. I dati del servizio Enterprise State Roaming per il tenant si trovano in locale con l'area geografica e non vengono replicati tra le aree.  Ad esempio: 
 Valore di paese/area geografica | dati ospitati in
 ---------------------|-------------------------
 Un paese dell'area EMEA, ad esempio "Francia" o "Zambia" | una delle aree di Azure in Europa 

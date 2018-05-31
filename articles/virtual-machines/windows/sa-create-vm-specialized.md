@@ -1,5 +1,5 @@
 ---
-title: Creare una macchina virtuale da un disco specializzato in Azure | Documentazione Microsoft
+title: Creare una macchina virtuale da un disco specializzato in Azure | Microsoft Docs
 description: Creare una nuova macchina virtuale collegando un disco non gestito specializzato nel modello di distribuzione Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: ffa36967eb987f5e1b66f007ae60a63e640a609a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: da1fa2b182888e623f8df734c9119e208433e2bd
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012710"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Creare una VM da un disco rigido virtuale specializzato in un account di archiviazione
 
@@ -320,5 +321,5 @@ $vmList.Name
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per accedere alla nuova macchina virtuale, passare alla VM nel [portale](https://portal.azure.com), fare clic su **Connetti**e aprire il file RDP di Desktop remoto. Usare le credenziali dell'account della macchina virtuale originale per accedere alla nuova macchina virtuale. Per altre informazioni, vedere [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](connect-logon.md).
+Accedere alla nuova macchina virtuale. Per altre informazioni, vedere [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](connect-logon.md).
 

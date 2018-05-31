@@ -1,5 +1,5 @@
 ---
-title: Gestione traffico di Azure - Domande frequenti | Documentazione Microsoft
+title: Gestione traffico di Azure - Domande frequenti | Microsoft Docs
 description: Questo articolo risponde ad alcune domande frequenti su Gestione traffico
 services: traffic-manager
 documentationcenter: ''
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/18/2018
+ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 18a0ca32f51e6c1be01e59c3899bc2e625868cad
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942357"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -29,6 +30,10 @@ ms.lasthandoff: 04/16/2018
 Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestione traffico funziona a livello di DNS. Invia le risposte DNS per indirizzare i client all'endpoint di servizio appropriato. I client si connettono quindi all'endpoint di servizio in modo diretto, senza passare per Gestione traffico.
 
 Gestione traffico non prevede quindi un endpoint o indirizzo IP per la connessione dei client. Se si intende avere un indirizzo IP statico per un servizio, è necessario configurarlo nel servizio, non in Gestione traffico.
+
+### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Quali tipi di traffico è possibile indirizzare tramite Gestione traffico?
+Come spiegato in [Funzionamento di Gestione traffico](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), un endpoint di Gestione traffico può essere qualsiasi servizio con connessione Internet all'interno o all'esterno di Azure. Di conseguenza, Gestione traffico può indirizzare il traffico che ha origine da Internet pubblico a un set di endpoint anch'esso con connessione Internet. In caso di endpoint presenti all'interno di una rete privata (ad esempio, una versione interna del [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) o di utenti che inviano richieste DNS da tali reti interne, Gestione traffico non può essere usato per tale traffico.
+
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Gestione traffico supporta sessioni "permanenti"?
 

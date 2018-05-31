@@ -9,12 +9,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 754b0bdea4ccb93de16fda4eea5e012e0630daea
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e2c288af881fa925c1680efdb0f86deec60b7510
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939028"
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302679"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
 
@@ -32,6 +32,7 @@ Figura 1: coppie di aree di Azure
 |:--- |:--- |:--- |
 | Asia |Asia orientale |Asia sudorientale |
 | Australia |Australia orientale |Australia sudorientale |
+| Australia |Australia centrale |Australia centrale (2) |
 | Brasile |Brasile meridionale (2) |Stati Uniti centro-meridionali |
 | Canada |Canada centrale |Canada orientale |
 | Cina |Cina settentrionale |Cina orientale|
@@ -40,7 +41,7 @@ Figura 1: coppie di aree di Azure
 | India |India centrale |India meridionale |
 | India |India occidentale (1) |India meridionale |
 | Giappone |Giappone orientale |Giappone occidentale |
-| Corea |Corea centrale |Corea meridionale |
+| Corea del Sud |Corea del Sud centrale |Corea del Sud meridionale |
 | America del Nord |Stati Uniti orientali |Stati Uniti occidentali |
 | America del Nord |Stati Uniti orientali 2 |Stati Uniti centrali |
 | America del Nord |Stati Uniti centro-settentrionali |Stati Uniti centro-meridionali |

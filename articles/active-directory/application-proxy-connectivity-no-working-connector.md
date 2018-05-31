@@ -2,10 +2,10 @@
 title: Nessun gruppo di connettori funzionante trovato per un'applicazione Proxy di applicazione | Microsoft Docs
 description: Risoluzione dei problemi riscontrati quando non esiste alcun connettore funzionante in un gruppo di connettori per l'applicazione con Proxy di applicazione di Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 7aad43be4dc411215a4b54c21a16c4cbb949c7ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 679b8654ad926ddb80747ad4c93064946c9bc82b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155423"
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Nessun gruppo di connettori funzionante trovato per un'applicazione Proxy di applicazione
 
@@ -38,11 +39,11 @@ Se nella propria applicazione non è presente alcun connettore funzionante in un
 
     -   Spostare un connettore attivo nel gruppo
 
-Per sapere quale di questi è il problema riscontrato, aprire il menu "Proxy di applicazione" nell'applicazione, quindi cercare il messaggio di avviso del gruppo di connettori. Specifica che il gruppo deve contenere almeno un connettore (se il gruppo non ne contiene alcuno) o che non vi sono connettori attivi (anche se sono inclusi probabilmente connettori inattivi).
+Per sapere qual è il problema riscontrato, aprire il menu "Proxy di applicazione" nell'applicazione, quindi cercare il messaggio di avviso del gruppo di connettori. Se nel gruppo non sono presenti connettori, il messaggio di avviso specifica che il gruppo necessita di almeno un connettore. Se non si dispone di alcun connettore attivo, il messaggio di avviso lo segnala. È normale avere connettori inattivi. 
 
    ![Selezione del gruppo di connettori nel portale di Azure](./media/application-proxy-connectivity-no-working-connector/no-active-connector.png)
 
-Per informazioni dettagliate su ognuna di queste opzioni, vedere la sezione corrispondente riportata di seguito. Ognuno di questi passaggi presuppone che si inizi dalla pagina di gestione del connettore. Se si sta analizzando il messaggio di errore sopra riportato, è possibile passare a questa pagina facendo clic sul messaggio di avviso. In alternativa, passare a **Azure Active Directory**, fare clic su **Applicazioni aziendali** e quindi su **Proxy di applicazione.**
+Per informazioni dettagliate su ognuna di queste opzioni, vedere la sezione corrispondente riportata di seguito. Le istruzioni presuppongono che si inizi dalla pagina di gestione del connettore. Se si sta analizzando il messaggio di errore sopra riportato, è possibile passare a questa pagina facendo clic sul messaggio di avviso. È anche possibile visualizzare la pagina passando ad **Azure Active Directory**, facendo clic su **Applicazioni aziendali** e quindi su **Proxy di applicazione.**
 
    ![Gestione del gruppo di connettori nel portale di Azure](./media/application-proxy-connectivity-no-working-connector/app-proxy.png)
 
@@ -50,7 +51,7 @@ Per informazioni dettagliate su ognuna di queste opzioni, vedere la sezione corr
 
 Per scaricare un nuovo connettore, usare il pulsante "Scaricare il connettore" nella parte superiore della pagina.
 
-Si noti che il connettore deve essere installato su un computer che abbia una linea di visuale diretta all'applicazione back-end e si trova in genere sullo stesso server dell'applicazione. Dopo essere stato scaricato, il connettore viene visualizzato in questo menu. Fare clic sul connettore e usare l'elenco a discesa "Gruppo di connettori" per assicurarsi che appartenga al gruppo corretto. Salvare la modifica.
+Installare il connettore in un computer che comunica direttamente con l'applicazione back-end. Normalmente il connettore è installato nello stesso server dell'applicazione. Dopo essere stato scaricato, il connettore viene visualizzato in questo menu. Fare clic sul connettore e usare l'elenco a discesa "Gruppo di connettori" per assicurarsi che appartenga al gruppo corretto. Salvare la modifica.
 
    ![Scaricare il connettore dal portale di Azure](./media/application-proxy-connectivity-no-working-connector/download-connector.png)
    
@@ -65,6 +66,6 @@ Se il gruppo include solo connettori inattivi, sono probabilmente in un computer
 Vedere il documento di risoluzione dei problemi relativi alle porte per informazioni dettagliate sull'analisi di questo problema.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-understand-connectors.md)
+[Comprendere i connettori del proxy applicazione di Azure AD](manage-apps/application-proxy-connectors.md)
 
 
