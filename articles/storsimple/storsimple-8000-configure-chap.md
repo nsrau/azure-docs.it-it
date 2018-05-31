@@ -1,24 +1,25 @@
 ---
-title: Configurare CHAP per il dispositivo StorSimple serie 8000 | Documentazione Microsoft
+title: Configurare CHAP per il dispositivo StorSimple serie 8000 | Microsoft Docs
 description: Viene descritto come configurare Challenge Handshake Authentication Protocol su un dispositivo StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: TBD
-ms.date: 07/03/2017
+ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 61e0877187759d76b6f7efcef0a5ed8bec8500fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1a558769ffaa52ed2e996a2b537a5ea409101bd
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012659"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Configurare CHAP per il dispositivo StorSimple
 
@@ -77,8 +78,8 @@ Nell’autenticazione unidirezionale, la destinazione autentica l'iniziatore. Qu
 4. Nella finestra di dialogo **Impostazioni avanzate** :
    
    1. Selezionare la casella di controllo **Attiva accesso CHAP** .
-   2. Nel campo **Nome** , inserire il nome utente specificato per l'iniziatore CHAP nel portale classico.
-   3. Nel campo **Segreto destinazione** , inserire la password specificata per l'iniziatore CHAP nel portale classico.
+   2. Nel campo **Nome** inserire il nome utente specificato per l'iniziatore CHAP nel portale di Azure.
+   3. Nel campo **Segreto destinazione** inserire la password specificata per l'iniziatore CHAP nel portale di Azure.
    4. Fare clic su **OK**.
       
        ![Impostazioni avanzate - Generale](./media/storsimple-configure-chap/IC740946.png)
@@ -131,8 +132,8 @@ Nell'autenticazione bidirezionale la destinazione autentica l'iniziatore e poi l
 8. Nella finestra di dialogo **Proprietà avanzate** :
    
    1. Selezionare la casella di controllo **Attiva accesso CHAP** .
-   2. Nel campo **Nome** , inserire il nome utente specificato per l'iniziatore CHAP nel portale classico.
-   3. Nel campo **Segreto destinazione** , inserire la password specificata per l'iniziatore CHAP nel portale classico.
+   2. Nel campo **Nome** inserire il nome utente specificato per l'iniziatore CHAP nel portale di Azure.
+   3. Nel campo **Segreto destinazione** inserire la password specificata per l'iniziatore CHAP nel portale di Azure.
    4. Selezionare la casella di controllo **Esegui autenticazione reciproca** .
       
        ![Impostazioni avanzate - Autenticazione reciproca](./media/storsimple-configure-chap/IC740950.png)

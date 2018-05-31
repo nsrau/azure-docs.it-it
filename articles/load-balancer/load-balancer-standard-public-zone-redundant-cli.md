@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 29dcfaad840b5498dd859082ce11655a4f1fe8af
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e469311609909e3453015702fca7d015a4e72398
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34273967"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Bilanciare il carico delle macchine virtuali in tutte le zone di disponibilità tramite l'interfaccia della riga di comando di Azure
 
@@ -112,7 +113,7 @@ az network lb rule create \
 ## <a name="configure-virtual-network"></a>Configurare la rete virtuale
 Prima di distribuire alcune macchine virtuali e testare il servizio di bilanciamento del carico, creare le risorse di rete virtuale di supporto.
 
-### <a name="create-a-virtual-network"></a>Creare una rete virtuale
+### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
 Creare una rete virtuale denominata *myVnet* con una subnet denominata *mySubnet* nel gruppo myResourceGroup con il comando [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create).
 
@@ -218,17 +219,19 @@ runcmd:
 ### <a name="create-the-zonal-virtual-machines"></a>Creare le macchine virtuali di zona
 Creare le macchine virtuali con [az vm create](/cli/azure/vm#az_vm_create) nelle zone 1, 2 e 3. L'esempio seguente crea una macchina virtuale in ciascuna zona e genera le chiavi SSH, se non sono già presenti:
 
-Creare le macchine virtuali nella zona 1
+Creare una macchina virtuale in ogni area (zona 1, 2 e 3) in *westeurope*.
 
 ```azurecli-interactive
- az vm create \
---resource-group myResourceGroupSLB \
---name myVM$i \
---nics myNic$i \
---image UbuntuLTS \
---generate-ssh-keys \
---zone $i \
---custom-data cloud-init.txt
+for i in `seq 1 3`; do
+  az vm create \
+    --resource-group myResourceGroupSLB \
+    --name myVM$i \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --zone $i \
+    --custom-data cloud-init.txt
+done
 ```
 ## <a name="test-the-load-balancer"></a>Testare il servizio di bilanciamento del carico
 

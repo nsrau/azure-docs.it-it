@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ffa60e24b93caaaefcab70c99fa2c76065d97233
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6ade346305ee6f18fb41b93bc8a1dc8543fcdb7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187709"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209502"
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Architettura della replica da Azure ad Azure
 
