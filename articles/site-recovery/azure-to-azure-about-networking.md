@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 05/16/2018
 ms.author: sujayt
-ms.openlocfilehash: e3acedf4135166f5239b95eb21eb5dfd66d6100f
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 55eed1afa9d9dbf2c16643cf9186a7e6dafa847e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312628"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211022"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informazioni sulle reti per la replica da Azure ad Azure
 
@@ -32,7 +32,7 @@ Il diagramma seguente illustra un ambiente di Azure tipico per applicazioni in e
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
-Se si usa Azure ExpressRoute o una connessione VPN da una rete locale ad Azure, l'ambiente è simile al seguente:
+Se si usa Azure ExpressRoute o una connessione VPN da una rete locale ad Azure, l'ambiente è il seguente:
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
@@ -97,8 +97,8 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    Regno Unito meridionale | 51.140.43.158 | 51.140.189.52
    Regno Unito meridionale 2 | 13.87.37.4| 13.87.34.139
    Regno Unito settentrionale | 51.142.209.167 | 13.87.102.68
-   Corea centrale | 52.231.28.253 | 52.231.32.85
-   Corea meridionale | 52.231.298.185 | 52.231.200.144
+   Corea del Sud centrale | 52.231.28.253 | 52.231.32.85
+   Corea del Sud meridionale | 52.231.298.185 | 52.231.200.144
    Francia centrale | 52.143.138.106 | 52.143.136.55
    Francia meridionale | 52.136.139.227 |52.136.136.62
 

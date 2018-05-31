@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: 54ae18b9a802fe078d307f4d36400adf806b233f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9945ad30cc7d8882d8b99f6b4278f2063ab4b7f7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193764"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Risolvere i problemi di sincronizzazione degli oggetti con la sincronizzazione di Azure AD Connect
 Questo documento include la procedura per la risoluzione dei problemi relativi alla sincronizzazione degli oggetti tramite l'attività di risoluzione dei problemi.
@@ -34,6 +35,7 @@ Per eseguire l'attività di risoluzione dei problemi nella procedura guidata, se
 4.  Passare alla pagina Attività aggiuntive, selezionare Risoluzione dei problemi e fare clic su Avanti.
 5.  Nella pagina Risoluzione dei problemi fare clic su Avvia per avviare il menu per la risoluzione dei problemi in PowerShell.
 6.  Dal menu principale scegliere l'opzione per la risoluzione dei problemi della sincronizzazione degli oggetti.
+![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>Parametri di input per la risoluzione dei problemi
 I parametri di input seguenti sono necessari per l'attività di risoluzione dei problemi:
@@ -47,6 +49,8 @@ L'attività di risoluzione dei problemi effettua i controlli seguenti:
 1.  Individuare la mancata corrispondenza del nome dell'entità utente in caso di sincronizzazione dell'oggetto con Azure Active Directory
 2.  Verificare se l'oggetto viene escluso a causa dei filtri di dominio
 3.  Verificare se l'oggetto viene escluso a causa dei filtri dell'unità organizzativa
+4.  Verificare se la sincronizzazione degli oggetti è bloccata a causa di una cassetta postale collegata
+5. Verificare se l'oggetto è un gruppo di distribuzione dinamica che non dovrebbe essere sincronizzato
 
 La parte restante di questa sezione descrive i risultati specifici restituiti dall'attività. In ogni caso l'attività fornisce un'analisi seguita dalle azioni consigliate per risolvere il problema.
 
@@ -76,9 +80,19 @@ L'oggetto non è compreso nell'ambito a causa della mancata configurazione del d
 L'oggetto non è compreso nell'ambito perché nel dominio non sono presenti alcuni profili di esecuzione o passaggi di esecuzione. Nell'esempio seguente l'oggetto non è compreso nell'ambito di sincronizzazione, perché il dominio a cui appartiene non include i passaggi di esecuzione per il profilo di esecuzione dell'importazione completa.
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch6.png)
 
-### <a name="object-is-filtered-due-to-ou-filtering"></a>L'oggetto viene escluso a causa dei filtri dell'unità organizzativa
-L'oggetto non è compreso nell'ambito di sincronizzazione a causa della configurazione dei filtri dell'unità organizzativa. Nell'esempio seguente l'oggetto appartiene a OU=NoSync,DC=bvtadwbackdc,DC=com.  Questa unità organizzativa non è inclusa nell'ambito di sincronizzazione.
-![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+## <a name="object-is-filtered-due-to-ou-filtering"></a>L'oggetto viene escluso a causa dei filtri dell'unità organizzativa
+L'oggetto non è compreso nell'ambito di sincronizzazione a causa della configurazione dei filtri dell'unità organizzativa. Nell'esempio seguente l'oggetto appartiene a OU=NoSync,DC=bvtadwbackdc,DC=com.  Questa unità organizzativa non è inclusa nell'ambito di sincronizzazione.</br>
+
+![Unità organizzativa](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+
+## <a name="linked-mailbox-issue"></a>Problema relativo alla cassetta postale collegata
+Una cassetta postale collegata deve essere associata a un account master esterno che si trova in un'altra foresta account attendibile. Se tale account master esterno non è presente, Azure AD Connect non sincronizzerà l'account utente che corrisponde alla cassetta postale collegata nella foresta Exchange con il tentant Azure AD tenant.</br>
+![Cassetta postale collegata](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch12.png)
+
+## <a name="dynamic-distribution-group-issue"></a>Problema relativo al gruppo di distribuzione dinamico
+A causa di varie differenze l'Active Directory locale e Azure Active Directory, Azure AD Connect non sincronizza i gruppi di distribuzione dinamici con il tenant di Azure AD.
+
+![Gruppo di distribuzione dinamico](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch13.png)
 
 ## <a name="html-report"></a>Report HTML
 Oltre ad analizzare l'oggetto, l'attività di risoluzione dei problemi genera anche un report HTML che include tutte le informazioni note sull'oggetto. Il report HTML può essere condiviso con il team del supporto tecnico per operazioni di risoluzione dei problemi aggiuntive, se necessario.

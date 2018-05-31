@@ -12,20 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 7b83b9de08d024b91ca7008a4f0bf970e8d00688
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c44546ffe65a0849b485fb0d2dd169e4216ae80a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261369"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visualizzare i dati di analisi per le metriche di tutte le risorse app Web di Azure
 
 ![Simbolo di app Web](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
 
 > [!NOTE]
-> La soluzione Analisi app Web di Azure è stata deprecata.  I clienti che hanno già installato la soluzione possono continuare a usarla, ma Analisi app Web di Azure non potrà essere aggiunto alle nuove aree di lavoro.
+> La soluzione Analisi app Web di Azure è stata deprecata.  I clienti che hanno già installato la soluzione possono continuare a usarla, ma Analisi app Web di Azure non potrà essere aggiunto alle nuove aree di lavoro.  Per monitorare l'applicazione Web è consigliabile usare [Application Insights](../application-insights/app-insights-overview.md). 
 
 La soluzione Analisi app Web di Azure (anteprima) fornisce informazioni dettagliate su [App Web di Azure](../app-service/app-service-web-overview.md), raccogliendo metriche diverse in tutte le risorse app Web di Azure. Con questa soluzione, è possibile analizzare e cercare i dati relativi alle metriche delle risorse app Web.
 

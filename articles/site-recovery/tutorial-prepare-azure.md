@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 852c854de9feb9bcc98fc89aa9340b93f2c4e8d3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 95d6673acaf3cbac2098ac7ae30114696f477045
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212790"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparare le risorse di Azure per la replica dei computer locali
 
@@ -47,7 +48,7 @@ Per completare queste attività, è necessario che all'account sia assegnato il 
 Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure. Le macchine virtuali di Azure vengono create dall'archiviazione quando si esegue il failover da locale ad Azure.
 
 1. Nel menu [Portale di Azure](https://portal.azure.com) selezionare **Nuovo** > **Risorsa di archiviazione** > **Account di archiviazione**.
-2. In **Crea account di archiviazione** immettere un nome per l'account. Per queste esercitazioni usare il nome **contosovmsacct1910171607**. Il nome deve essere univoco in Azure, avere una lunghezza compresa tra 3 e 24 caratteri e contenere solo numeri e lettere minuscole.
+2. In **Crea account di archiviazione** immettere un nome per l'account. Per queste esercitazioni viene usato **contosovmsacct1910171607**. Il nome selezionato deve essere univoco in Azure, avere una lunghezza compresa tra 3 e 24 caratteri e contenere solo numeri e lettere minuscole.
 3. In **Modello di distribuzione** selezionare **Resource Manager**.
 4. In **Tipologia account** selezionare **Utilizzo generico**. In **Prestazioni** selezionare **Standard**. Non selezionare l'archivio BLOB.
 5. In **Replica** selezionare l'opzione predefinita **Archiviazione con ridondanza geografica e accesso in lettura** per la ridondanza dell'archiviazione.
@@ -62,7 +63,7 @@ Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure
 ## <a name="create-a-vault"></a>Creare un insieme di credenziali
 
 1. Nel portale di Azure selezionare **Crea una risorsa** > **Monitoraggio e gestione** > **Backup e Site Recovery**.
-2. In **Nome**immettere un nome descrittivo per identificare l'insieme di credenziali. Per questa esercitazione usare **ContosoVMVault**.
+2. In **Nome**immettere un nome descrittivo per identificare l'insieme di credenziali. Per questo set di esercitazioni viene usato **ContosoVMVault**.
 3. In **Gruppo di risorse** selezionare il gruppo di risorse esistente denominato **contosoRG**.
 4. In **Località** specificare l'area di Azure **Europa Occidentale** che viene usata in questo set di esercitazioni.
 5. Per accedere rapidamente all'insieme di credenziali dal dashboard, selezionare **Aggiungi al dashboard** > **Crea**.

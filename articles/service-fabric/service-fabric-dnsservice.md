@@ -9,30 +9,42 @@ editor: vturecek
 ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/27/2017
 ms.author: msfussell
-ms.openlocfilehash: 9871bc5aa4e74ab0faef401d67c4e9558eb5e14b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 656aed1f1fbd3294c4318520058ace480fd2219c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204995"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Servizio DNS in Azure Service Fabric
-Il servizio DNS è un servizio di sistema facoltativo che è possibile abilitare nel cluster per individuare altri servizi usando il protocollo DNS.
+Il servizio DNS è un servizio di sistema facoltativo che è possibile abilitare nel cluster per individuare altri servizi usando il protocollo DNS. 
 
 Molti servizi, in particolare quelli in contenitori, possono avere un nome di URL esistente. La possibilità di risolverli usando il protocollo DNS standard, invece del protocollo di servizio Naming, è preferibile, in particolare negli scenari di applicazioni "lift-and-shift". Il servizio DNS consente di eseguire il mapping di nomi DNS a nomi di servizi e di conseguenza di risolvere gli indirizzi IP degli endpoint. 
 
-Il servizio DNS esegue il mapping dei nomi DNS ai nomi di servizi, che vengono quindi risolti dal servizio Naming per restituire l'endpoint di servizio. Il nome DNS per il servizio viene fornito al momento della creazione. 
+Il servizio DNS esegue il mapping dei nomi DNS ai nomi di servizi, che vengono quindi risolti dal servizio Naming per restituire l'endpoint di servizio. Il nome DNS per il servizio viene fornito al momento della creazione.
 
-![Endpoint del servizio][0]
+![Endpoint del servizio](./media/service-fabric-dnsservice/dns.png)
+
+Le porte dinamiche non sono supportate dal servizio DNS. Per risolvere i servizi esposti su porte dinamiche, usare il [servizio proxy inverso](./service-fabric-reverseproxy.md).
 
 ## <a name="enabling-the-dns-service"></a>Abilitazione del servizio DNS
-È innanzitutto necessario abilitare il servizio DNS nel cluster. Ottenere il modello per il cluster che si vuole distribuire. È possibile usare i [modelli di esempio](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) o creare un modello di Resource Manager. Per abilitare il servizio DNS, seguire questa procedura:
+Quando si crea un cluster tramite il portale, il servizio DNS è abilitato per impostazione predefinita nella casella di controllo **Includi servizio DNS** nel menu **Configurazione cluster**:
 
-1. Verificare che `apiversion` sia impostato su `2017-07-01-preview` per la risorsa `Microsoft.ServiceFabric/clusters` e, se non lo è, aggiornarlo come illustrato nel frammento seguente:
+![Abilitazione del servizio DNS tramite il portale][2]
+
+Se non si usa il portale per creare il cluster o se si sta aggiornando un cluster esistente, è necessario abilitare il servizio DNS in un modello:
+
+- Per distribuire un nuovo cluster è possibile usare i [modelli di esempio](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) oppure creare un proprio modello di Gestione risorse. 
+- Per aggiornare un cluster esistente, è possibile passare al gruppo di risorse del cluster nel portale e fare clic su **Script di automazione** per lavorare con un modello che rispecchia lo stato corrente del cluster e delle altre risorse del gruppo. Per maggiori informazioni, vedere [Esportare il modello da un gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group).
+
+Quando si dispone di un modello, è possibile abilitare il servizio DNS seguendo questa procedura:
+
+1. Verificare che `apiversion` sia impostato su `2017-07-01-preview` o versione successiva per la risorsa `Microsoft.ServiceFabric/clusters` e, se non lo è, aggiornarlo come illustrato nel frammento seguente:
 
     ```json
     {
@@ -55,15 +67,13 @@ Il servizio DNS esegue il mapping dei nomi DNS ai nomi di servizi, che vengono q
         ],
     ```
 
-3. Dopo avere aggiornato il modello di cluster con le modifiche precedenti, applicarle e consentire il completamento dell'aggiornamento. Dopo aver completato l'aggiornamento, viene avviata l'esecuzione nel cluster del servizio di sistema DNS, denominato `fabric:/System/DnsService`, sotto la sezione dei servizi di sistema in Service Fabric Explorer. 
-
-In alternativa, è possibile abilitare il servizio DNS tramite il portale durante la creazione del cluster. Il servizio DNS può essere abilitato selezionando la casella per `Include DNS service` nel menu `Cluster configuration`, come illustrato nello screenshot seguente:
-
-![Abilitazione del servizio DNS tramite il portale][2]
+3. Dopo avere aggiornato il modello di cluster con le modifiche precedenti, applicarle e consentire il completamento dell'aggiornamento. Al termine dell'aggiornamento, il servizio di sistema DNS viene avviato nel cluster. Il nome del servizio è `fabric:/System/DnsService`, e sarà possibile trovarlo nella sezione **Sistema** del servizio in Service Fabric Explorer. 
 
 
 ## <a name="setting-the-dns-name-for-your-service"></a>Impostazione del nome DNS del servizio
-Quando il servizio DNS è in esecuzione nel cluster, è possibile impostare un nome DNS per i servizi in modo dichiarativo per i servizi predefiniti in `ApplicationManifest.xml` oppure tramite i comandi di PowerShell.
+Quando il servizio DNS è in esecuzione nel cluster, è possibile impostare un nome DNS per i servizi scegliendo tra il modo dichiarativo, per i servizi predefiniti in `ApplicationManifest.xml`, oppure tramite i comandi di PowerShell.
+
+Il nome DNS per il servizio può essere risolto in tutto il cluster. È consigliabile utilizzare uno schema di denominazione `<ServiceDnsName>.<AppInstanceName>`, ad esempio `service1.application1`. Tale pratica assicura l'univocità del nome DNS in tutto il cluster. Se un'applicazione viene distribuita usando Docker Compose, i nomi DNS vengono automaticamente assegnati ai servizi utilizzando questo schema di denominazione.
 
 ### <a name="setting-the-dns-name-for-a-default-service-in-the-applicationmanifestxml"></a>Impostazione del nome DNS per un servizio predefinito nel file ApplicationManifest.xml
 Aprire il progetto in Visual Studio, o nell'editor preferito, quindi aprire il file `ApplicationManifest.xml`. Passare alla sezione relativa ai servizi predefiniti e per ciascuno di esso aggiungere l'attributo `ServiceDnsName`. Nell'esempio seguente viene mostrato come impostare il nome DNS del servizio su `service1.application1`
@@ -94,7 +104,7 @@ Dopo aver distribuito l'applicazione, l'istanza del servizio in Service Fabric E
 ```
 
 ## <a name="using-dns-in-your-services"></a>Uso del protocollo DNS nei servizi
-Se si distribuisce più di un servizio, è possibile trovare gli endpoint di altri servizi con cui comunicare usando un nome DNS. Il servizio DNS è valido solo per i servizi senza stato perché il protocollo DNS non può comunicare con i servizi con stato. Per i servizi con stato, è possibile usare il proxy inverso predefinito in modo che le chiamate HTTP siano dirette a una particolare partizione del servizio.
+Se si distribuisce più di un servizio, è possibile trovare gli endpoint di altri servizi con cui comunicare usando un nome DNS. Il servizio DNS è valido solo per i servizi senza stato perché il protocollo DNS non può comunicare con i servizi con stato. Per i servizi con stato, è possibile usare il [servizio proxy inverso](./service-fabric-reverseproxy.md) predefinito in modo che le chiamate HTTP siano dirette a una particolare partizione del servizio. Le porte dinamiche non sono supportate dal servizio DNS. Per risolvere i servizi su porte dinamiche, è possibile usare il proxy inverso.
 
 Il codice seguente illustra come chiamare un altro servizio. Si tratta semplicemente di una normale chiamata HTTP in cui si specificano la porta ed eventuali percorsi facoltativi come parte dell'URL.
 
