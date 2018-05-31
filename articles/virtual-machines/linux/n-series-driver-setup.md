@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/03/2018
+ms.date: 04/27/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f6b91f09b6c38c5461638b953f3a0df921fc7c30
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 20bcb822ff39b9587a479fd6cc43b7daa9b83627
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190680"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installare i driver GPU NVIDIA in VM serie N che eseguono Linux
 
@@ -321,7 +322,7 @@ Per individuare il BusID decimale, eseguire
 echo $((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
 ```
  
-Il BusID può cambiare quando una macchina virtuale viene riallocata o riavviata. Pertanto, è consigliabile usare uno script per aggiornare il BusID nella configurazione di X11 quando una macchina virtuale viene riavviata. Ad esempio: 
+Il BusID può cambiare quando una macchina virtuale viene riallocata o riavviata. Pertanto, è consigliabile creare uno script per aggiornare il BusID nella configurazione di X11 quando una macchina virtuale viene riavviata. Ad esempio, creare uno script denominato `busidupdate.sh` (o un altro nome) con il contenuto seguente:
 
 ```bash 
 #!/bin/bash
@@ -330,7 +331,7 @@ BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 |
 if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
 ```
 
-Questo file può essere richiamato come radice all'avvio mediante la creazione di una voce in `/etc/rc.d/rc3.d`.
+Creare una voce per lo script di aggiornamento in `/etc/rc.d/rc3.d` in modo che venga richiamato come radice all'avvio.
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 

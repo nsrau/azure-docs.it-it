@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 72c3968b59fda10d81af553cbf2324a2683c596b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e86353703d4eb8ee9acc251d62cf77d139d18ddb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365747"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creare, modificare o eliminare un'interfaccia di rete
 
 Informazioni su come creare, modificare le impostazioni ed eliminare un'interfaccia di rete. Un'interfaccia di rete consente a una macchina virtuale di Azure di comunicare con Internet, Azure e le risorse locali. Quando si crea una macchina virtuale tramite il portale di Azure, il portale crea automaticamente un'interfaccia di rete con le impostazioni predefinite. È invece possibile scegliere di creare interfacce di rete con impostazioni personalizzate e aggiungere una o più interfacce di rete a una macchina virtuale durante il processo di creazione. È anche possibile modificare le impostazioni predefinite di un'interfaccia di rete esistente. Questo articolo spiega come creare un'interfaccia di rete con impostazioni personalizzate, modificare le impostazioni esistenti, ad esempio l'assegnazione del filtro di rete (gruppi di sicurezza di rete), l'assegnazione di subnet, le impostazioni di server DNS e l'inoltro IP, ed eliminare le interfaccia di rete.
 
 Se è necessario aggiungere, modificare o rimuovere indirizzi IP per un'interfaccia di rete, vedere [Gestire gli indirizzi IP](virtual-network-network-interface-addresses.md). Se è necessario aggiungere o rimuovere interfacce di rete nelle macchine virtuali, vedere [Aggiungere o rimuovere interfacce di rete](virtual-network-network-interface-vm.md).
-
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -37,7 +37,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 - Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo di Azure PowerShell 5.4.1 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
 - Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.28 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
 
-All'account con cui si accede ad Azure devono essere assegnate almeno le autorizzazioni per il ruolo Collaboratore Rete per la sottoscrizione. Per altre informazioni sull'assegnazione di ruoli e autorizzazioni agli account, vedere [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
+L'account con cui si accede o con cui ci si collega ad Azure deve essere assegnato al ruolo [collaboratore di rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nelle [Autorizzazioni](#permissions).
 
 ## <a name="create-a-network-interface"></a>Creare un'interfaccia di rete
 
@@ -53,7 +53,7 @@ Quando si crea una macchina virtuale tramite il portale di Azure, il portale cre
     |Rete virtuale|Sì|Selezionare la rete virtuale per l'interfaccia di rete. È possibile assegnare solo un'interfaccia di rete a una rete virtuale presente nella stessa sottoscrizione e località dell'interfaccia di rete. Dopo aver creato un'interfaccia di rete, non è possibile modificare la rete virtuale a cui viene assegnata. La macchina virtuale che viene aggiunta all'interfaccia di rete deve esistere anche nella stessa località e sottoscrizione dell'interfaccia di rete.|
     |Subnet|Sì|Selezionare una subnet all'interno della rete virtuale selezionata. È possibile modificare la subnet a cui l'interfaccia di rete è assegnata dopo la creazione.|
     |Assegnazione di indirizzi IP privati|Sì| In questa impostazione, si è scelto il metodo di assegnazione dell'indirizzo IPv4. Scegliere uno dei seguenti metodi di assegnazione: **Dinamico:** quando si seleziona questa opzione, Azure assegna automaticamente l'indirizzo disponibile successivo dallo spazio di indirizzi della subnet selezionata. **Statico**: quando si seleziona questa opzione, è necessario assegnare manualmente un indirizzo IP disponibile dallo spazio di indirizzi della subnet selezionata. Gli indirizzi statici e dinamici non cambiano fino a quando non vengono modificati o non si elimina l'interfaccia di rete. È possibile modificare il metodo di assegnazione dopo aver creato la l'interfaccia di rete. Il server DHCP di Azure assegna questo indirizzo all'interfaccia di rete all'interno del sistema operativo della macchina virtuale.|
-    |Gruppo di sicurezza di rete|No | Lasciare impostato su **Nessuno**, selezionare un [gruppo di sicurezza di rete](virtual-networks-nsg.md) esistente o [creare un gruppo di sicurezza di rete](virtual-networks-create-nsg-arm-pportal.md). I gruppi di sicurezza di rete consentono di filtrare il traffico di rete in ingresso e in uscita da un'interfaccia. È possibile applicare uno o nessun gruppo di sicurezza di rete a un'interfaccia di rete. È inoltre possibile applicare uno o nessun gruppo di sicurezza di rete alla subnet a cui è assegnata l'interfaccia di rete. Quando un gruppo di sicurezza di rete viene applicato a un'interfaccia di rete e alla subnet a cui l'interfaccia di rete è assegnata, potrebbero verificarsi risultati imprevisti. Per risolvere i problemi dei gruppi di sicurezza di rete applicati alle interfacce di rete e alle subnet, vedere [Risolvere i problemi relativi ai gruppi di sicurezza di rete](virtual-network-nsg-troubleshoot-portal.md#nsg).|
+    |Gruppo di sicurezza di rete|No | Lasciare impostato su **Nessuno**, selezionare un [gruppo di sicurezza di rete](security-overview.md) esistente o [creare un gruppo di sicurezza di rete](tutorial-filter-network-traffic.md). I gruppi di sicurezza di rete consentono di filtrare il traffico di rete in ingresso e in uscita da un'interfaccia. È possibile applicare uno o nessun gruppo di sicurezza di rete a un'interfaccia di rete. È inoltre possibile applicare uno o nessun gruppo di sicurezza di rete alla subnet a cui è assegnata l'interfaccia di rete. Quando un gruppo di sicurezza di rete viene applicato a un'interfaccia di rete e alla subnet a cui l'interfaccia di rete è assegnata, potrebbero verificarsi risultati imprevisti. Per risolvere i problemi dei gruppi di sicurezza di rete applicati alle interfacce di rete e alle subnet, vedere [Risolvere i problemi relativi ai gruppi di sicurezza di rete](virtual-network-nsg-troubleshoot-portal.md#nsg).|
     |Sottoscrizione|Sì|Selezionare una delle [sottoscrizioni](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) di Azure. La macchina virtuale a cui viene collegata un'interfaccia di rete e la rete virtuale a cui viene connessa devono esistere nella stessa sottoscrizione.|
     |Indirizzo IP privato (IPv6)|No | Se si seleziona questa casella di controllo, viene assegnato un indirizzo IPv6 all'interfaccia di rete, oltre all'indirizzo IPv4 assegnato all'interfaccia di rete. Vedere la sezione [IPv6](#IPv6) di questo articolo per informazioni importanti sull'uso di IPv6 con le interfacce di rete. Non è possibile selezionare un metodo di assegnazione di un indirizzo IPv6. Se si sceglie di assegnare un indirizzo IPv6, questo viene assegnato con il metodo dinamico.
     |Nome IPv6 (viene visualizzata solo quando è selezionata la casella di controllo **Indirizzo IP privato (IPv6)**) |Sì, se la casella di controllo **Indirizzo IP privato (IPv6)** è selezionata.| Questo nome viene assegnato a una configurazione IP secondaria per l'interfaccia di rete. Per altre informazioni sulle configurazioni IP, vedere [Visualizzare le impostazioni dell'interfaccia di rete](#view-network-interface-settings).|
@@ -88,7 +88,7 @@ Il portale non offre la possibilità di assegnare l'interfaccia di rete ai grupp
     - **Proprietà**: visualizza le impostazioni chiave relative all'interfaccia di rete, incluso il suo indirizzo MAC (vuoto se l'interfaccia di rete è collegata a una macchina virtuale) e la sottoscrizione in cui si trova.
     - **Regole di sicurezza effettive:** le regole di sicurezza sono elencate se l'interfaccia di rete è collegata a una macchina virtuale in esecuzione e un gruppo di sicurezza di rete è associato all'interfaccia, alla subnet cui l'interfaccia è assegnata o a entrambe. Per ulteriori informazioni sul contenuto, vedere [Visualizzare regole di sicurezza valide](#view-effective-security-rules). Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza di rete](security-overview.md).
     - **Route valide:** le route vengono elencate se l'interfaccia di rete è collegata a una macchina virtuale in esecuzione. Le route sono una combinazione di route predefinite di Azure, route definite dall'utente e route BGP esistenti per la subnet a cui è assegnata l'interfaccia di rete. Per ulteriori informazioni sul contenuto, vedere [Visualizzare route valide](#view-effective-routes). Per altre informazioni sulle route predefinite di Azure e le route definite dall'utente, vedere [Panoramica delle route](virtual-networks-udr-overview.md).
-    - **Impostazioni comuni di Azure Resource Manager:** per altre informazioni sulle impostazioni comuni di Azure Resource Manager, vedere [Log attività](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [Controllo di accesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [Tag](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags), [Blocchi](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Script di automazione](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
+    - **Impostazioni comuni di Azure Resource Manager:** per altre informazioni sulle impostazioni comuni di Azure Resource Manager, vedere [Log attività](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [Controllo di accesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [Tag](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Blocchi](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Script di automazione](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
 
 <a name="view-settings-commands"></a>**Comandi**
 
@@ -204,7 +204,7 @@ Quando si elimina un'interfaccia di rete vengono rilasciati tutti gli indirizzi 
 
 ## <a name="resolve-connectivity-issues"></a>Risolvere i problemi di connettività
 
-Se non si riesce a comunicare da o verso una macchina virtuale, il problema potrebbe essere causato dalle route o dalle regole di sicurezza del gruppo di sicurezza di rete valide per un'interfaccia di rete. Sono disponibili le opzioni seguenti per risolvere il problema:
+Se non si riesce a comunicare da o verso una macchina virtuale, il problema potrebbe essere causato dalle regole di sicurezza del gruppo di sicurezza di rete o dalle route valide per un'interfaccia di rete. Sono disponibili le opzioni seguenti per risolvere il problema:
 
 ### <a name="view-effective-security-rules"></a>Visualizzare le regole di sicurezza valide
 
@@ -240,11 +240,30 @@ La funzione hop successiva di Azure Network Watcher consente inoltre di determin
 - Interfaccia della riga di comando di Azure: [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table)
 - PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable)
 
-## <a name="next-steps"></a>Passaggi successivi
-Per creare una macchina virtuale con più interfacce di rete o indirizzi IP, vedere gli articoli seguenti:
+## <a name="permissions"></a>Autorizzazioni
 
-|Attività|Strumento|
-|---|---|
-|Creare una macchina virtuale con più NIC|[Interfaccia della riga di comando](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|Creare una macchina virtuale con una singola scheda di interfaccia di rete e più indirizzi IPv4|[Interfaccia della riga di comando](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
-|Creare una macchina virtuale con una singola scheda di interfaccia di rete con un indirizzo IPv6 privato (dietro un Azure Load Balancer)|[Interfaccia della riga di comando](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Modello di Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+Per eseguire attività nelle interfacce di rete, l'account deve essere assegnato al ruolo [Collaboratore Rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un ruolo [personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le autorizzazioni appropriate elencate nella tabella seguente:
+
+| Azione                                                                     | NOME                                                      |
+| ---------                                                                  | -------------                                             |
+| Microsoft.Network/networkInterfaces/read                                   | Ottenere l'interfaccia di rete                                     |
+| Microsoft.Network/networkInterfaces/write                                  | Creare o aggiornare un'interfaccia di rete                        |
+| Microsoft.Network/networkInterfaces/join/action                            | Collegare un'interfaccia di rete a una macchina virtuale           |
+| Microsoft.Network/networkInterfaces/delete                                 | Eliminare un'interfaccia di rete                                  |
+| Microsoft.Network/networkInterfaces/joinViaPrivateIp/action                | Aggiungere una risorsa a un'interfaccia di rete tramite un'associazione di servizio     |
+| Microsoft.Network/networkInterfaces/effectiveRouteTable/action             | Ottenere una tabella di route valida per l'interfaccia di rete               |
+| Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action  | Ottenere gruppi di sicurezza validi per l'interfaccia di rete           |
+| Microsoft.Network/networkInterfaces/loadBalancers/read                     | Ottenere i servizi di bilanciamento del carico dell'interfaccia di rete                      |
+| Microsoft.Network/networkInterfaces/serviceAssociations/read               | Ottenere un'associazione di servizio                                   |
+| Microsoft.Network/networkInterfaces/serviceAssociations/write              | Creare o aggiornare un'associazione di servizio                    |
+| Microsoft.Network/networkInterfaces/serviceAssociations/delete             | Eliminare un'associazione di servizio                                |
+| Microsoft.Network/networkInterfaces/serviceAssociations/validate/action    | Convalidare un'associazione di servizio                              |
+| Microsoft.Network/networkInterfaces/ipconfigurations/read                  | Ottiene la configurazione IP dell’interfaccia di rete                    |
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Creare una macchina virtuale con più schede di interfaccia di rete usando l'[interfaccia della riga di comando di Azure](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Creare una VM con una singola scheda di interfaccia di rete e più indirizzi IPv4 usando l'[interfaccia della riga di comando di Azure](virtual-network-multiple-ip-addresses-cli.md) o [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+- Creare una VM con una singola scheda di interfaccia di rete con un indirizzo IPv6 privato (protetta da Azure Load Balancer) usando l'[interfaccia della riga di comando di Azure](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o il [modello di Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+- Creare un'interfaccia di rete usando gli script di esempio di [PowerShell](powershell-samples.md) o dell'[interfaccia della riga di comando di Azure](cli-samples.md) oppure i [modelli di Azure Resource Manager](template-samples.md)
+- Creare e applicare i [criteri di Azure](policy-samples.md) per le reti virtuali

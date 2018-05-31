@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: jroth
-ms.openlocfilehash: b91638b6b76675711150323bee4aa9ad9d9a73d1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: bba9f62a78dea4db1d88f877029796739b023e46
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365203"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considerazioni relative alla sicurezza per SQL Server in Macchine virtuali di Azure
 
@@ -46,7 +47,7 @@ Quando si crea una macchina virtuale di SQL Server con un'immagine della raccolt
 
 Per ottimizzare la sicurezza, scegliere l'opzione più restrittiva per lo scenario in uso. Se ad esempio si esegue un'applicazione che accede a SQL Server nella stessa VM, **Locale** è la scelta più sicura. Se si esegue un'applicazione Azure che richiede l'accesso a SQL Server, l'opzione **Privata** consente di proteggere la comunicazione a SQL Server solo all'interno della [rete virtuale di Azure](../../../virtual-network/virtual-networks-overview.md) specificata. Se è richiesto l'accesso **Pubblico** (Internet) alla VM di SQL Server, assicurarsi di seguire le altre procedure consigliate in questo argomento per ridurre la superficie di attacco.
 
-Le opzioni selezionate nel portale usano le regole di sicurezza in ingresso nel [Gruppo di sicurezza di rete](../../../virtual-network/virtual-networks-nsg.md) (NSG) di VM per consentire o negare il traffico di rete alla macchina virtuale. È possibile modificare o creare nuove regole NSG in ingresso per consentire il traffico verso la porta SQL Server (porta predefinita 1433). È anche possibile specificare indirizzi IP specifici che sono autorizzati a comunicare tramite questa porta.
+Le opzioni selezionate nel portale usano le regole di sicurezza in ingresso nel [gruppo di sicurezza di rete](../../../virtual-network/security-overview.md) (NSG) di VM per consentire o negare il traffico di rete alla macchina virtuale. È possibile modificare o creare nuove regole NSG in ingresso per consentire il traffico verso la porta SQL Server (porta predefinita 1433). È anche possibile specificare indirizzi IP specifici che sono autorizzati a comunicare tramite questa porta.
 
 ![Regole dei gruppi di sicurezza di rete](./media/virtual-machines-windows-sql-security/sql-vm-network-security-group-rules.png)
 

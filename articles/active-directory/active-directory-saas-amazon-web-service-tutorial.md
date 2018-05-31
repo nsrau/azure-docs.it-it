@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 3f553b9ea3629a38ab9dea0e93b16c62aebe301f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1cf57d76e87fcc0b6628ac194f4d5c389bf684d4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34352583"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Esercitazione: Integrazione di Azure Active Directory con Amazon Web Service (AWS)
 
@@ -30,7 +31,7 @@ L'integrazione di Amazon Web Service (AWS) con Azure AD offre i vantaggi seguent
 - È possibile abilitare gli utenti per l'accesso automatico ad Amazon Web Services (AWS) (Single Sign-On) con i propri account Azure AD.
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -70,7 +71,7 @@ Per configurare l'integrazione di Amazon Web Service (AWS) in Azure AD, è neces
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca digitare **Amazon Web Services (AWS)**selezionare **Amazon Web Services (AWS)** nel riquadro dei risultati quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Amazon Web Services (AWS)** selezionare **Amazon Web Services (AWS)** nel riquadro dei risultati quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Amazon Web Services (AWS) nell'elenco dei risultati](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
 
@@ -190,7 +191,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
   
     d. Fare clic su **Next: Permissions** (Avanti: Autorizzazioni).
 
-16. Nella finestra di dialogo **Attach Permissions Policies** (Collega i criteri di autorizzazione) fare clic su **Next: Review** (Avanti: Riepilogo).  
+16. Nella finestra di dialogo **Attach Permissions Policies** (Collega i criteri di autorizzazione) non è necessario associare alcun criterio. Fare clic su **Next: Review** (Avanti: Riepilogo).  
     
     ![Configurare criteri dell'accesso Single Sign-On][33]
 
@@ -414,7 +415,7 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 
 
 

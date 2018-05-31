@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 2796280d4c8d5d2b11424cba866500aee38414ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f3ab54ced6376d675b9ab79aa395a95ea1c905b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34346922"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Esercitazione: Integrazione di Azure Active Directory con RealtimeBoard
 
@@ -30,7 +31,7 @@ L'integrazione di RealtimeBoard con Azure AD offre i vantaggi seguenti:
 - È possibile abilitare gli utenti per l'accesso automatico a RealtimeBoard (Single Sign-On) con gli account Azure AD personali.
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -124,7 +125,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-realtimeboard-tutorial/tutorial_general_400.png)
 
-7. Per configurare l'accesso Single Sign-On sul lato **RealtimeBoard**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di RealtimeBoard](mailto:support@realtimeboard.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+7. Per configurare l'accesso Single Sign-On sul lato **RealtimeBoard**, seguire le [istruzioni di RealtimeBoard](https://help.realtimeboard.com/support/solutions/articles/11000023465-saml-based-single-sign-on-) e usare i dati del **file XML dei metadati** scaricato.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -208,7 +209,7 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 
 
 

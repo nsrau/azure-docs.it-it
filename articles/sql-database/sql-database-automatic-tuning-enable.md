@@ -2,18 +2,19 @@
 title: Abilitare l'ottimizzazione automatica per il database SQL di Azure | Microsoft Docs
 description: È possibile abilitare facilmente l'ottimizzazione automatica nel database SQL di Azure.
 services: sql-database
-author: veljko-msft
-manager: drasumic
+author: danimir
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: vvasic
-ms.openlocfilehash: f29a7c883450cbc0f1f2b5a230a6c6e081222906
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: e4c3a2c1f21bf14bfc75f20dd18cefca68fd2067
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364472"
 ---
 # <a name="enable-automatic-tuning"></a>Abilitare l'ottimizzazione automatica
 
@@ -22,14 +23,14 @@ Il database SQL di Azure è un servizio dati gestito automaticamente che esegue 
 ## <a name="enable-automatic-tuning-on-server"></a>Abilitare l'ottimizzazione automatica nel server
 A livello di server è possibile scegliere di ereditare o meno la configurazione dell'ottimizzazione automatica da "Impostazioni predefinite di Azure". Le impostazioni predefinite di Azure sono FORCE_LAST_GOOD_PLAN (abilitato), CREATE_INDEX (abilitato) e DROP_INDEX (disabilitato).
 
-## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurare notifiche tramite posta elettronica per l'ottimizzazione automatica
-
-Vedere [Notifiche tramite posta elettronica per l'ottimizzazione automatica](sql-database-automatic-tuning-email-notifications.md)
-
 ### <a name="azure-portal"></a>Portale di Azure
-Per abilitare l'ottimizzazione automatica nel server di database SQL di Azure, passare al server nel portale di Azure e quindi selezionare **Ottimizzazione automatica** nel menu. Selezionare le opzioni di ottimizzazione automatica che si vuole abilitare e selezionare **Applica**:
+Per abilitare l'ottimizzazione automatica nel **server** di database SQL di Azure, passare al server nel portale di Azure e quindi selezionare **Ottimizzazione automatica** nel menu. Selezionare le opzioni di ottimizzazione automatica che si vuole abilitare e selezionare **Applica**.
 
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
+
+> [!NOTE]
+> Si noti che l'opzione **DROP_INDEX** al momento non è compatibile con applicazioni che usano i cambi di partizione e gli hint di indice e non deve essere attivata in questi casi.
+>
 
 Le opzioni di ottimizzazione automatica nel server vengono applicate a tutti i database nel server. Per impostazione predefinita, tutti i database ereditano la configurazione dal relativo server padre, ma è possibile modificare questa impostazione e specificarla singolarmente per ogni database.
 
@@ -46,11 +47,13 @@ Il database SQL di Azure consente di specificare singolarmente la configurazione
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Per abilitare l'ottimizzazione automatica per un singolo database, passare al database nel portale di Azure e quindi selezionare **Ottimizzazione automatica**. È possibile configurare un singolo database in modo che erediti le impostazioni dal server selezionando l'opzione oppure è possibile specificare la configurazione per un database singolarmente.
+Per abilitare l'ottimizzazione automatica per un **singolo database**, passare al database nel portale di Azure e quindi selezionare **Ottimizzazione automatica**. È possibile configurare un singolo database in modo che erediti le impostazioni dal server selezionando l'opzione oppure è possibile specificare la configurazione per un database singolarmente.
 
 ![Database](./media/sql-database-automatic-tuning-enable/database.png)
 
 Dopo aver selezionato la configurazione appropriata, fare clic su **Applica**.
+
+Si noti che l'opzione DROP_INDEX al momento non è compatibile con applicazioni che usano i cambi di partizione e gli hint di indice e non deve essere attivata in questi casi.
 
 ### <a name="rest-api"></a>API REST
 [Fare clic qui per altre informazioni su come abilitare l'ottimizzazione automatica su un singolo database tramite l'API REST](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning)
@@ -75,6 +78,10 @@ Impostare l'opzione di ottimizzazione specifica su ON per eseguire l'override di
 
 ## <a name="disabled-by-the-system"></a>Disabilitazione da parte del sistema
 L'ottimizzazione automatica esegue il monitoraggio di tutte le azioni eseguite a livello di database e in alcuni casi potrebbe non funzionare correttamente nel database. In questo caso, l'opzione di ottimizzazione viene disabilitata dal sistema. Nella maggior parte dei casi ciò accade perché Query Store non è abilitato o è in stato di sola lettura in un database specifico.
+
+## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurare notifiche tramite posta elettronica per l'ottimizzazione automatica
+
+Vedere [Notifiche tramite posta elettronica per l'ottimizzazione automatica](sql-database-automatic-tuning-email-notifications.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Leggere l'[articolo sull'ottimizzazione automatica](sql-database-automatic-tuning.md) per altre informazioni sull'ottimizzazione automatica e sull'utilità di questa funzione per il miglioramento delle prestazioni.

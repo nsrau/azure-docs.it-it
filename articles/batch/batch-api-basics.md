@@ -15,11 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3423103de774faaf9e7884626a9a1a102e351b68
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: add8e184db102d48275bd8d3faa42def63918c19
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360490"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
 
@@ -82,7 +83,7 @@ Batch supporta le [opzioni dell'account](../storage/common/storage-account-optio
 
 * Account per utilizzo generico v2 
 * Account per utilizzo generico v1
-* Account di archiviazione BLOB
+* Gli account di archiviazione BLOB (attualmente supportati per i pool nella configurazione macchina virtuale)
 
 È possibile associare un account di archiviazione all'account Batch quando si crea un account Batch o in seguito. Prendere in considerazione i requisiti relativi a costi e prestazioni durante la scelta di un account di archiviazione. Ad esempio, le opzioni dell'account di archiviazione per utilizzo generico v2 e BLOB supportano [limiti di capacità e scalabilità](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) superiori rispetto all'utilizzo generico v1. Contattare il supporto tecnico di Azure per richiedere un incremento del limite di archiviazione. Queste opzioni dell'account possono migliorare le prestazioni delle soluzioni Batch che contengono un numero elevato di attività parallele che leggono da o scrivono nell'account di archiviazione.
 

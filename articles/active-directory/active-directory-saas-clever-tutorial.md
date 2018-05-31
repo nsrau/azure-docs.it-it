@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 6531e6c8c97bfadac898c4aa4943855dcd32bdfe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d151aba43a6795c5a691077fe6729fc9853012bf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34341485"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Esercitazione: Integrazione di Azure Active Directory con Clever
 
@@ -30,7 +31,7 @@ L'integrazione di Clever con Azure AD offre i vantaggi seguenti:
 - È possibile abilitare gli utenti per l'accesso automatico a Clever (Single Sign-On) con gli account Azure AD personali.
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -110,10 +111,10 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://clever.com/in/<companyname>`
 
-    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://clever.com/<companyname>`
+    b. Nella casella di testo **Identificatore** digitare l'URL: `https://clever.com/oauth/saml/metadata.xml`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Clever](https://clever.com/about/contact/).
+    > Poiché questo non è un valore reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Clever](https://clever.com/about/contact/).
 
 4. Nella sezione **Certificato di firma SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
     
@@ -129,7 +130,8 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     | Nome attributo  | Valore attributo |
     | --------------- | -------------------- |
-    | clever.student.credentials.district\_username  | user.userprincipalname |
+    | clever.teacher.credentials.district_username|user.userprincipalname|
+    | clever.student.credentials.district_username| user.userprincipalname |
     | Firstname  | user.givenname |
     | Lastname  | user.surname |
 
@@ -157,19 +159,22 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Instant Login](./media/active-directory-saas-clever-tutorial/ic798984.png "Instant Login")
 
+    > [!NOTE]
+    > Prima di poter testare l'accesso Single Sign-On, è necessario contattare il [team di supporto Clever Client](https://clever.com/about/contact/) per abilitare SSO di Office 365 nel back-end.
+
 10. Nella pagina **Instant Login** seguire questa procedura:
-      
+    
       ![Instant Login](./media/active-directory-saas-clever-tutorial/ic798985.png "Instant Login")
-      
+    
       a. Digitare un valore in **URL di accesso**.
-      
+    
       >[!NOTE]
       >Per **Login URL** usare un valore personalizzato. Per ottenere questo valore, contattare il [team di supporto clienti di Clever](https://clever.com/about/contact/).
-      
+    
       b. Per **Identity System** (Sistema di identità) scegliere **ADFS**.
 
       c. Nella casella di testo **Metadata URL** (URL dei metadati) incollare il valore dell'**URL dei metadati di federazione dell'app** copiato dal portale di Azure.
-      
+    
       d. Fare clic su **Save**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
@@ -253,7 +258,7 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2017
+ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 8473c262f98e77708f01d17419e935979a533307
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0e860c1f1db77026e775191c76350333aa66dc7f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34345878"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Esercitazione: Integrazione di Azure Active Directory con Citrix ShareFile
 
@@ -30,7 +31,7 @@ L'integrazione di Citrix ShareFile con Azure AD offre i vantaggi seguenti:
 - È possibile abilitare gli utenti per l'accesso automatico a Citrix ShareFile (Single Sign-On) con i propri account Azure AD.
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -108,14 +109,33 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Citrix ShareFile](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_url.png)
     
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<tenant-name>.sharefile.com/saml/login`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<tenant-name>.sharefile.com/saml/login`
 
-    > [!NOTE] 
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Citrix ShareFile](https://www.citrix.co.in/products/sharefile/support.html). 
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il criterio seguente:
+
+    | |
+    |---|
+    | `https://<tenant-name>.sharefile.com`|
+    | `https://<tenant-name>.sharefile.com/saml/info`|
+    | `https://<tenant-name>.sharefile1.com/saml/info`|
+    | `https://<tenant-name>.sharefile1.eu/saml/info`|
+    | `https://<tenant-name>.sharefile.eu/saml/info`|
+    | |
+    
+    c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente:
+    | |
+    |---|
+    | `https://<tenant-name>.sharefile.com/saml/acs`|
+    | `https://<tenant-name>.sharefile.eu/saml/<URL path>`|
+    | `https://<tenant-name>.sharefile.com/saml/<URL path>`|
+    | |
+
+    > [!NOTE]
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team del supporto clienti di Citrix ShareFile](https://www.citrix.co.in/products/sharefile/support.html).
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
-    ![Collegamento di download del certificato](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_certificate.png) 
+    ![Collegamento di download del certificato](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_certificate.png)
 
 5. Fare clic sul pulsante **Salva** .
 
@@ -123,7 +143,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 6. Nel **Citrix ShareFile Configuration** (Configurazione di Citrix ShareFile) fare clic su **Configure Citrix ShareFile** (Configura Citrix ShareFile) per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
 
-    ![Configurazione di Citrix ShareFile](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_configure.png) 
+    ![Configurazione di Citrix ShareFile](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_configure.png)
 
 7. In un'altra finestra del Web browser accedere al sito aziendale di **Citrix ShareFile** come amministratore.
 
@@ -148,10 +168,6 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     e. Nella casella di testo **Logout URL** (URL di disconnessione) incollare il valore dell'**URL di disconnessione** copiato dal portale di Azure.
 
 11. Fare clic su **Save** nel portale di gestione di Citrix ShareFile.
-
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -252,9 +268,7 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
-
-
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -269,4 +283,3 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_203.png
-

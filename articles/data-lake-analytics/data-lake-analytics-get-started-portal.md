@@ -1,24 +1,21 @@
 ---
-title: Introduzione ad Azure Data Lake Analytics con il portale di Azure | Documentazione Microsoft
-description: 'Informazioni su come usare il portale di Azure per creare un account Data Lake Analytics, creare un processo di Data Lake Analytics con U-SQL e inviare il processo. '
+title: Introduzione a Data Lake Analytics di Azure con il portale di Azure
+description: Informazioni su come usare il portale di Azure per creare un account Data Lake Analytics, creare un processo di Data Lake Analytics con U-SQL e inviare il processo.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
+ms.author: saveenr
 manager: kfile
-editor: cgronlun
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.service: data-lake-analytics
-ms.devlang: na
 ms.topic: hero-article
-ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
-ms.author: saveenr
-ms.openlocfilehash: 34967a9853f907c61494e72229d75af1c625ea8f
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 63fc4272dc4b26e9eb4846118bc57cd6aa5bf361
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358286"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Introduzione ad Azure Data Lake Analytics con il portale di Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -64,11 +61,11 @@ OUTPUT @a
 
 ## <a name="submit-a-u-sql-job"></a>Inviare un processo U-SQL
 
-1. Dall'account Data Lake Analytics fare clic su **Nuovo processo**.
-2. Incollare il testo dello script U-SQL illustrato in precedenza. 
-3. Fare clic su **Invia processo**.   
-4. Attendere finché lo stato del processo non viene modificato in **Riuscito**.
-5. Fare clic sulla scheda **Output** e quindi su `data.csv`. 
+1. Dall'account Data Lake Analytics selezionare **Nuovo processo**.
+2. Incollare il testo dello script U-SQL precedente. Assegnare un nome al processo. 
+3. Selezionare il pulsante **Invia** per avviare il processo.   
+4. Monitorare lo **stato** del processo e attendere che lo stato del processo diventi **Completato**.
+5. Selezionare la scheda **Dati**, quindi la scheda **Output**. Selezionare il file di output denominato `data.csv` e visualizzare i dati di output.
 
 ## <a name="see-also"></a>Vedere anche 
 

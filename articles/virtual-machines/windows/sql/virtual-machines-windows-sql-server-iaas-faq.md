@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/20/2018
 ms.author: v-shysun
-ms.openlocfilehash: 42a82a59d0cf786e80b93f124cbe04007b2a4704
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e0254cd16c27597c3d52aed19b4c4ece49bac765
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366393"
 ---
-# <a name="frequently-asked-questions-for-sql-server-on-windows-azure-virtual-machines"></a>Domande frequenti su SQL Server in macchine virtuali di Microsoft Azure
+# <a name="frequently-asked-questions-for-sql-server-running-on-windows-azure-virtual-machines"></a>Domande frequenti su SQL Server in esecuzione macchine virtuali Windows di Microsoft Azure
 
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
@@ -74,7 +75,7 @@ Questo articolo offre risposte ad alcune delle domande più comuni sull'esecuzio
 
 1. **È possibile modificare una VM per l'uso di una licenza di SQL Server, se è stata creata da una delle immagini della raccolta con pagamento in base al consumo?**
 
-   di serie Non è possibile passare dalla licenza con costo al secondo all'uso della propria licenza. Creare una nuova macchina virtuale di Azure usando una delle [immagini BYOL](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) e quindi migrare i database nel nuovo server utilizzando le [tecniche di migrazione dei dati](virtual-machines-windows-migrate-sql.md) standard.
+   di serie Non è possibile sostituire una licenza con costo al secondo con una propria licenza. Creare una nuova macchina virtuale di Azure usando una delle [immagini BYOL](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) e quindi migrare i database nel nuovo server utilizzando le [tecniche di migrazione dei dati](virtual-machines-windows-migrate-sql.md) standard.
 
 1. **È necessario pagare la licenza di SQL Server in una VM di Azure se viene utilizzata solo per standby/failover?**
 
@@ -97,7 +98,7 @@ Questo articolo offre risposte ad alcune delle domande più comuni sull'esecuzio
 
 1. **È possibile rimuovere completamente SQL Server da una VM di SQL?**
 
-   Sì, ma continueranno a essere applicati addebiti per la VM di SQL, come descritto in [Guida ai prezzi per le VM di SQL Server in Azure](virtual-machines-windows-sql-server-pricing-guidance.md). Se SQL Server non è più necessario, è possibile distribuire una nuova macchina virtuale ed eseguire la migrazione di dati e applicazioni alla nuova macchina virtuale. Sarà quindi possibile rimuovere la macchina virtuale di SQL Server.
+   Sì, ma continueranno a essere addebitati i costi per la VM di SQL, come descritto in [Guida ai prezzi per le VM di SQL Server in Azure](virtual-machines-windows-sql-server-pricing-guidance.md). Se SQL Server non è più necessario, è possibile distribuire una nuova macchina virtuale ed eseguire la migrazione di dati e applicazioni alla nuova macchina virtuale. Sarà quindi possibile rimuovere la macchina virtuale di SQL Server.
    
 ## <a name="updating-and-patching"></a>Aggiornamento e applicazione di patch
 

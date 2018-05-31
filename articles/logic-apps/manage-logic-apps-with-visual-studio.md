@@ -15,11 +15,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: db847d5fa3d5f5b2b2f0293f1756226870a8b47e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7914bce6ca71b1b3f00c69fb6f33154f0f52dc7a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362196"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gestire le app per la logica con Visual Studio
 
@@ -41,12 +42,12 @@ Benché sia possibile creare, modificare, gestire e distribuire app per la logic
 
   * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 o versioni successive)</a> e <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
 
-  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Strumenti App per la logica di Azure per Visual Studio 2017</a> o per la <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">versione di Visual Studio 2015</a> 
+  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Strumenti App per la logica di Azure per Visual Studio 2017</a> o la <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">versione per Visual Studio 2015</a> 
   
     È anche possibile scaricare e installare Strumenti App per la logica di Azure direttamente da Visual Studio Marketplace o <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">installare questa estensione da Visual Studio</a>. 
-    Assicurarsi di riavviare Visual Studio dopo avere completato l'installazione.
+    Assicurarsi di riavviare Visual Studio al termine dell'installazione.
 
-* Accesso al Web mentre viene usata la finestra di progettazione integrata di App per la logica
+* Accesso al Web mentre si usa la finestra integrata Progettazione app per la logica
 
   La finestra di progettazione richiede una connessione Internet per creare le risorse in Azure e leggere le proprietà e i dati dai connettori nell'app per la logica. 
   Ad esempio, se si usa il connettore di Dynamics CRM Online, la finestra di progettazione verifica le proprietà predefinite e personalizzate disponibili nell'istanza di CRM.
@@ -78,13 +79,13 @@ In Visual Studio è possibile aprire le app per la logica precedentemente create
 
 1. Aprire Cloud Explorer e trovare l'app per la logica. 
 
-2. Dal menu di scelta rapida dell'app per la logica selezionare **Apri con Editor app per la logica**.
+2. Dal menu di scelta rapida dell'app per la logica selezionare **Open with Logic App Editor** (Apri con Editor app per la logica).
 
    Questo esempio mostra le app per la logica in base al tipo di risorsa, pertanto le app per la logica verranno visualizzate nella sezione **App per la logica**.
 
   ![Aprire l'app per la logica distribuita dal portale di Azure](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   Dopo che l'app per la logica viene aperta in Progettazione app per la logica, nella parte inferiore della finestra di progettazione è possibile scegliere **Visualizzazione Codice** in modo da esaminare la struttura di definizione dell'app per la logica sottostante. 
+   Dopo che l'app per la logica viene aperta in Progettazione app per la logica, nella parte inferiore della finestra di progettazione è possibile scegliere **visualizzazione Codice** in modo da esaminare la struttura di definizione dell'app per la logica sottostante. 
    Se non si vuole creare un modello di distribuzione per l'app per la logica, scoprire come [scaricare un modello di Azure Resource Manager](#download-logic-app) per tale app per la logica. Altre informazioni sui [modelli di Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment).
 
 <a name="download-logic-app"></a>
@@ -95,7 +96,7 @@ In Visual Studio è possibile aprire le app per la logica precedentemente create
 
 1. In Visual Studio aprire Cloud Explorer e quindi individuare e selezionare l'app per la logica che si vuole scaricare da Azure.
 
-2. Dal menu di scelta rapida di tale app selezionare **Apri con Editor app per la logica**.
+2. Dal menu di scelta rapida dell'app selezionare **Open with Logic App Editor** (Apri con Editor app per la logica).
 
    Si apre Progettazione app per la logica che mostra l'app per la logica. 
    Per esaminare la definizione e la struttura sottostanti dell'app per la logica, nella parte inferiore della finestra di progettazione scegliere **Visualizzazione Codice**. 

@@ -2,7 +2,7 @@
 title: 'Esercitazione: Configurare Slack per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Slack.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: b0bbc310edddcc461633e57340950a0f4050f66a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 897121e0dcaaf417430b892c501a243303ae9b6e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34344348"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Esercitazione: Configurare Slack per il provisioning utenti automatico
 
@@ -55,7 +56,7 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 
 Questa sezione illustra la connessione di Azure AD all'API per il provisioning degli account utente di Slack e la configurazione del servizio di provisioning per la creazione, l'aggiornamento e la disabilitazione degli account utente assegnati in Slack in base all'assegnazione di utenti e gruppi in Azure AD.
 
-**Suggerimento:** si può anche scegliere di abilitare l'accesso Single Sign-On basato su SAML per Slack, seguendo le istruzioni disponibili nel portale di Azure [https://portal.azure.com]. L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari.
+**Suggerimento:** si può anche scegliere di abilitare l'accesso Single Sign-On basato su SAML per Slack, seguendo le istruzioni disponibili nel (portale di Azure)[https://portal.azure.com]. L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari.
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Per configurare il provisioning automatico degli account utente in Slack con Azure AD:
@@ -115,4 +116,4 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Gestione del provisioning degli account utente per app aziendali](active-directory-enterprise-apps-manage-provisioning.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)
