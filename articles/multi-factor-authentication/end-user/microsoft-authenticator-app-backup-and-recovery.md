@@ -14,11 +14,12 @@ ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
 ms.custom: end-user
-ms.openlocfilehash: 8fa9a24b5b402ebebb69bc69f7cda47092436642
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e25ccdad5285bfaa96f538aca415746942523d85
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896266"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Eseguire il backup e il ripristino delle credenziali dell'account con l'app Microsoft Authenticator
 **Si applica a:**
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/28/2018
 L'app Microsoft Authenticator esegue il backup delle credenziali dell'account e delle impostazioni delle app correlate, ad esempio l'ordine degli account, nel cloud. Al termine del backup, è anche possibile usare l'app per ripristinare le informazioni in un nuovo dispositivo, evitando potenzialmente di rimanere bloccati senza accesso al dispositivo o di dover ricreare gli account.
 
 >[!IMPORTANT]
-> Sono necessari un account Microsoft personale e un account iCloud per ogni posizione di archiviazione di backup. All'interno di tale posizione di archiviazione, è però possibile eseguire il backup di vari account. Ad esempio, è possibile avere un account personale, un account dell'istituto di istruzione e un account di terze parti come Facebook, Google e così via.<br><br>Vengono archiviate solo le credenziali dell'account, che includono il nome utente e il codice di verifica dell'account a 8 cifre richiesto per dimostrare la propria identità per l'app Microsoft Authenticator. Non vengono archiviate altre informazioni associate agli account, inclusi messaggi di posta elettronica o file. Gli account non vengono inoltre associati o condivisi in alcun modo o con qualsiasi altro prodotto o servizio. Infine, l'amministratore IT non otterrà alcuna informazione riguardo a questi account.
+> Sono necessari un account Microsoft personale e un account iCloud per ogni posizione di archiviazione di backup. All'interno di tale posizione di archiviazione, è però possibile eseguire il backup di vari account. Ad esempio, è possibile avere un account personale, un account dell'istituto di istruzione e un account di terze parti come Facebook, Google e così via.<br><br>Vengono archiviate solo le credenziali degli account personali e di terze parti, che includono il nome utente e il codice di verifica dell'account richiesto per dimostrare la propria identità. Non vengono archiviate altre informazioni associate agli account, inclusi messaggi di posta elettronica o file. Gli account non vengono inoltre associati o condivisi in alcun modo o con qualsiasi altro prodotto o servizio. Infine, l'amministratore IT non otterrà alcuna informazione riguardo a questi account.
 
 ## <a name="back-up-your-account-credentials"></a>Eseguire il backup delle credenziali dell'account
 Prima di poter eseguire il backup delle proprie credenziali, è necessario avare:

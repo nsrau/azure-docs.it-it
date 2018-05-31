@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: ce65b9b532ca6f594334f3eb0194d700aca1c735
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 424186a0acfe17cd7cb96f3ba7f8201e8b2b38ec
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200349"
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: criteri predefiniti
 
@@ -81,6 +82,10 @@ Questo criterio consente di gestire le esperienze di iscrizione e accesso dei co
 ## <a name="create-a-password-reset-policy"></a>Creare i criteri di reimpostazione delle password
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
+
+## <a name="preview-policies"></a>Criteri di anteprima
+
+Al momento del rilascio di nuove funzionalità, alcune di queste potrebbero non essere disponibili nei criteri esistenti.  Contiamo di sostituire le versioni precedenti con la versione più recente dello stesso tipo, dopo l'inserimento di tali criteri nel GA.  I criteri esistenti non cambieranno e per sfruttare queste nuove funzionalità sarà necessario creare nuovi criteri.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

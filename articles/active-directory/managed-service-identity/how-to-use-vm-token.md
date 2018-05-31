@@ -7,22 +7,27 @@ author: daveba
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 541055eeae5e2c0eaff2fb88d8e83fdc43ba08b0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2f24eaa65781eb56b641ed179536867ee514f668
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165452"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Come usare un'identità del servizio gestito di una macchina virtuale di Azure per l'acquisizione di token 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
-Questo articolo fornisce vari esempi di codice e script per l'acquisizione di token, oltre a indicazioni su argomenti importanti come la gestione degli errori HTTP e di scadenza dei token. È consigliabile usare l'identità del servizio gestito con l'endpoint del servizio metadati dell'istanza dato che l'endpoint dell'estensione della macchina virtuale verrà deprecato.
+
+Identità del servizio gestito offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
+
+Questo articolo fornisce vari esempi di codice e script per l'acquisizione di token, oltre a indicazioni su argomenti importanti come la gestione degli errori HTTP e di scadenza dei token. 
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -32,14 +37,14 @@ Se si prevede di usare gli esempi di Azure PowerShell presenti in questo articol
 
 
 > [!IMPORTANT]
-> - Tutti gli esempi di codice e script in questo articolo presuppongono che il client sia in esecuzione in una macchina virtuale abilitata per l'identità del servizio gestito. Usare la funzionalità di connessione alla macchina virtuale nel portale di Azure per connettersi in remoto alla macchina virtuale. Per informazioni dettagliate sull'abilitazione dell'identità del servizio gestito in una macchina virtuale, vedere [Configurare un'Identità del servizio gestito della macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md) o una delle varianti dell'articolo (per PowerShell, interfaccia della riga di comando, un modello o una versione di Azure SDK). 
+> - Tutti gli esempi di codice e script in questo articolo presuppongono che il client sia in esecuzione in una macchina virtuale abilitata per l'identità del servizio gestita. Usare la funzionalità di connessione alla macchina virtuale nel portale di Azure per connettersi in remoto alla macchina virtuale. Per informazioni dettagliate sull'abilitazione dell'identità del servizio gestito in una macchina virtuale, vedere [Configurare un'Identità del servizio gestito della macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md) o una delle varianti dell'articolo (per PowerShell, interfaccia della riga di comando, un modello o una versione di Azure SDK). 
 
 > [!IMPORTANT]
-> - Il limite di sicurezza di un'identità gestita è la risorsa. Il codice e gli script in esecuzione in una macchina virtuale abilitata per l'identità del servizio gestito possono richiedere e recuperare i token. 
+> - Il limite di sicurezza di un'identità del servizio gestita è la risorsa su cui viene usata. Tutti i codici / gli script in esecuzione su una macchina virtuale possono richiedere e recuperare token per qualsiasi identità del servizio gestita disponibile su di essa. 
 
 ## <a name="overview"></a>Panoramica
 
-Un'applicazione client può richiedere un [token di accesso solo app](../develop/active-directory-dev-glossary.md#access-token) dell'identità del servizio gestito per accedere a una determinata risorsa. Il token è [basato sull'entità servizio dell'identità del servizio gestito](overview.md#how-does-it-work). Non è quindi necessario la registrazione del client per ottenere un token di accesso nell'ambito della propria entità servizio. Il token è adatto per l'uso come token di connessione nelle [chiamate da servizio a servizio che richiedono le credenziali client](../develop/active-directory-protocols-oauth-service-to-service.md).
+Un'applicazione client può richiedere un [token di accesso solo app](../develop/active-directory-dev-glossary.md#access-token) dell'identità del servizio gestita per accedere a una determinata risorsa. Il token è [basato sull'entità servizio dell'identità del servizio gestito](overview.md#how-does-it-work). Non è quindi necessario la registrazione del client per ottenere un token di accesso nell'ambito della propria entità servizio. Il token è adatto per l'uso come token di connessione nelle [chiamate da servizio a servizio che richiedono le credenziali client](../develop/active-directory-protocols-oauth-service-to-service.md).
 
 |  |  |
 | -------------- | -------------------- |
@@ -48,7 +53,7 @@ Un'applicazione client può richiedere un [token di accesso solo app](../develop
 | [Ottenere un token tramite Go](#get-a-token-using-go) | Esempio d'uso dell'endpoint REST dell'identità del servizio gestito da un client Go |
 | [Ottenere un token tramite Azure PowerShell](#get-a-token-using-azure-powershell) | Esempio d'uso dell'endpoint REST dell'identità del servizio gestito da un client PowerShell |
 | [Ottenere un token tramite CURL](#get-a-token-using-curl) | Esempio d'uso dell'endpoint REST dell'identità del servizio gestito da un client Bash/CURL |
-| [Gestione della scadenza di token](#handling-token-expiration) | Indicazioni per la gestione di token di accesso scaduti |
+| [Gestione della memorizzazione nella cache dei token](#handling-token-caching) | Indicazioni per la gestione di token di accesso scaduti |
 | [Gestione degli errori](#error-handling) | Indicazioni per la gestione di errori HTTP restituiti dall'endpoint del token dell'identità del servizio gestito |
 | [ID di risorsa per servizi di Azure](#resource-ids-for-azure-services) | Come ottenere ID di risorsa per i servizi di Azure supportati |
 
@@ -56,10 +61,10 @@ Un'applicazione client può richiedere un [token di accesso solo app](../develop
 
 L'interfaccia di base per l'acquisizione di un token di accesso è basata su REST, in modo che sia accessibile da qualsiasi applicazione client in esecuzione sulla macchina virtuale che può effettuare chiamate HTTP REST. Si tratta quindi di un meccanismo molto simile al modello di programmazione di Azure AD, tranne per il fatto che il client usa un endpoint nella macchina virtuale (e non un endpoint di Azure AD).
 
-Richiesta di esempio che usa l'endpoint del servizio metadati dell'istanza (IMDS) per l'identità del servizio gestito *(consigliato)*:
+Richiesta di esempio che usa l'endpoint del servizio metadati dell'istanza (IMDS) *(consigliato)*:
 
 ```
-GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1 Metadata: true
+GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
 ```
 
 | Elemento | DESCRIZIONE |
@@ -70,7 +75,7 @@ GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01
 | `resource` | Parametro della stringa di query, che indica l'URI ID app della risorsa di destinazione. Viene visualizzato anche nell'attestazione `aud` (audience, destinatari) del token emesso. In questo esempio viene richiesto un token per accedere ad Azure Resource Manager, con l'URI di ID app https://management.azure.com/. |
 | `Metadata` | Campo di intestazione della richiesta HTTP, richiesto dall'identità del servizio gestito come mitigazione contro attacchi SSRF (Server Side Request Forgery). Questo valore deve essere impostato su "true", usando tutte lettere minuscole.
 
-Richiesta di esempio che usa l'endpoint dell'estensione della macchina virtuale per l'identità del servizio gestito *(da deprecare)*:
+Richiesta di esempio che usa l'endpoint dell'estensione della macchina virtuale per l'identità del servizio gestita *(da deprecare)*:
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -264,23 +269,25 @@ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sy
 echo The MSI access token is $access_token
 ```
 
-## <a name="token-expiration"></a>Scadenza del token 
+## <a name="token-caching"></a>Memorizzazione nella cache dei token
 
-Se si memorizza il token nel codice, è consigliabile essere preparati a gestire gli scenari in cui la risorsa indica che il token è scaduto. 
+Mentre il sottosistema dell'identità del servizio gestita usato (servizio metadati dell'istanza / estensione della macchina virtuale per l'identità del servizio gestita) memorizza i token nella cache, si consiglia inoltre di implementare la memorizzazione nella cache del token nel codice. Di conseguenza è necessario prepararsi per gli scenari in cui la risorsa indica che il token è scaduto. 
 
-Nota: dato che il sottosistema del servizio metadati dell'istanza dell'identità del servizio gestito memorizza i token nella cache, le chiamate in transito ad Azure AD restituiscono un risultato solo se:
-- si verifica un mancato riscontro nella cache a causa dell'assenza di token nella cache
-- il token è scaduto
+Le chiamate in transito ad Azure AD vengono generate solo quando:
+- si verifica un mancato riscontro nella cache a causa dell'assenza di token nella cache del sottosistema dell'identità del servizio gestita
+- il token memorizzato nella cache è scaduto
 
 ## <a name="error-handling"></a>Gestione degli errori
 
-L'endpoint dell'identità del servizio gestito segnala gli errori tramite il campo del codice di stato dell'intestazione dei messaggi di risposta HTTP, come errori di tipo 4xx o 5xx:
+L'endpoint dell'identità del servizio gestita segnala gli errori tramite il campo del codice di stato dell'intestazione dei messaggi di risposta HTTP, come errori di tipo 4xx o 5xx:
 
 | Codice di stato | Motivo dell'errore | Come gestirlo |
 | ----------- | ------------ | ------------- |
+| 404 - Non trovato. | L'endpoint IMDS è in fase di aggiornamento. | Riprovare con il backoff esponenziale. Seguire le indicazioni riportate di seguito. |
 | 429 - Numero eccessivo di richieste. |  È stato raggiunto il limite del servizio metadati dell'istanza. | Riprovare con il backoff esponenziale. Seguire le indicazioni riportate di seguito. |
 | Errore 4xx nella richiesta. | Uno o più dei parametri della richiesta non sono corretti. | Non riprovare.  Esaminare i dettagli dell'errore per maggiori informazioni.  Errori 4xx in fase di progettazione.|
 | Errore temporaneo 5xx dal servizio. | Il sottosistema dell'identità del servizio gestito o Azure Active Directory ha restituito un errore temporaneo. | È consigliabile attendere almeno 1 secondo prima di riprovare.  Se si riprova troppo presto o troppo spesso, è possibile che il servizio metadati dell'istanza e/o Azure AD restituiscano un errore di limite di velocità (429).|
+| timeout | L'endpoint IMDS è in fase di aggiornamento. | Riprovare con il backoff esponenziale. Seguire le indicazioni riportate di seguito. |
 
 Se si verifica un errore, il corpo della risposta HTTP corrispondente contiene dati JSON con i dettagli dell'errore:
 
@@ -303,11 +310,11 @@ Questa sezione illustra le possibili risposte di errore. Uno stato di tipo "200 
 |           | access_denied | Il proprietario della risorsa o il server di autorizzazione ha rifiutato la richiesta. |  |
 |           | unsupported_response_type | Il server di autorizzazione non supporta l'acquisizione di un token di accesso con questo metodo. |  |
 |           | invalid_scope | L'ambito richiesto non è valido, è sconosciuto o ha un formato non valido. |  |
-| 500 - Errore interno del server | unknown | Impossibile recuperare il token da Active Directory. Per informazioni dettagliate, vedere i log in *\<percorso del file\>* | Verificare che l'identità del servizio gestito sia stata abilitata nella macchina virtuale. Vedere [Configurare un'identità del servizio gestito della macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md) per informazioni sulla configurazione della macchina virtuale.<br><br>Verificare anche che l'URI della richiesta HTTP GET sia formattato correttamente, in particolare l'URI della risorsa specificato nella stringa di query. Vedere Richiesta di esempio nella [sezione REST precedente](#rest) per un esempio oppure vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](overview.md#azure-services-that-support-azure-ad-authentication) per un elenco di servizi con i relativi ID di risorsa.
+| 500 - Errore interno del server | unknown | Impossibile recuperare il token da Active Directory. Per informazioni dettagliate, vedere i log in *\<percorso del file\>* | Verificare che l'identità del servizio gestito sia stata abilitata nella macchina virtuale. Vedere [Configurare un'identità del servizio gestito della macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md) per informazioni sulla configurazione della macchina virtuale.<br><br>Verificare anche che l'URI della richiesta HTTP GET sia formattato correttamente, in particolare l'URI della risorsa specificato nella stringa di query. Vedere Richiesta di esempio nella [sezione REST precedente](#rest) per un esempio oppure vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](services-support-msi.md) per un elenco di servizi con i relativi ID di risorsa.
 
-## <a name="throttling-guidance"></a>Linee guida sulla limitazione 
+## <a name="retry-guidance"></a>Materiale sussidiario sulla ripetizione di tentativi 
 
-I limiti delle richieste si applicano al numero di chiamate effettuate all'endpoint IMDS MSI. Al superamento della soglia di limitazione delle richieste, l'endpoint IMDS MSI limiterà eventuali ulteriori richieste mentre la limitazione è attiva. Durante questo intervallo l'endpoint IMDS MSI restituirà il codice di stato HTTP 429 indicante un numero eccessivo di richieste e si verificherà un errore delle richieste. 
+I limiti delle richieste si applicano al numero di chiamate effettuate all'endpoint IMDS. Al superamento della soglia di limitazione delle richieste, l'endpoint IMDS limiterà eventuali altre richieste mentre la limitazione è attiva. Durante questo intervallo l'endpoint IMDS restituirà il codice di stato HTTP 429 ("Numero eccessivo di richieste") e si verificherà un errore delle richieste. 
 
 Per eseguire nuovi tentativi è consigliabile seguire la strategia seguente: 
 
@@ -317,7 +324,7 @@ Per eseguire nuovi tentativi è consigliabile seguire la strategia seguente:
 
 ## <a name="resource-ids-for-azure-services"></a>ID di risorsa per i servizi di Azure
 
-Per un elenco di risorse che supportano Azure AD e che sono state testate con l'identità del servizio gestito e i relativi ID di risorsa, vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](overview.md#azure-services-that-support-azure-ad-authentication).
+Per un elenco di risorse che supportano Azure AD e che sono state testate con l'identità del servizio gestito e i relativi ID di risorsa, vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](services-support-msi.md).
 
 
 ## <a name="related-content"></a>Contenuti correlati

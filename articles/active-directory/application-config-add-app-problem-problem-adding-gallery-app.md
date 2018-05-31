@@ -2,10 +2,10 @@
 title: Errore durante l'aggiunta di un'applicazione della raccolta di Azure AD| Microsoft Docs
 description: Informazioni sui problemi frequenti che si riscontrano quando si aggiungono applicazioni della raccolta di Azure AD e sulle azioni da eseguire per risolverli
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 79713cd343e1b876cd7a1b6653bbe00b43272a55
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5cb43976c17bfd46d1f16f0bdaff1c164bdc0fb6
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34053760"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Errore durante l'aggiunta di un'applicazione della raccolta di Azure AD
 
@@ -54,9 +55,7 @@ Vedere anche l'articolo [Azure AD Applications Document Library](https://docs.mi
     >
     >
 
-3.  Viene aperto il pannello **Dettagli notifica**.
-
-4.  Usare queste informazioni per ottenere più dettagli sul problema.
+4.  Usare le informazioni in **Dettagli notifica**per ottenere maggiori dettagli sul problema.
 
 5.  In caso sia ancora necessaria assistenza sul problema, è possibile condividere queste informazioni con un tecnico di supporto o con il gruppo del prodotto.
 
@@ -68,7 +67,7 @@ Vedere anche l'articolo [Azure AD Applications Document Library](https://docs.mi
 
 ## <a name="notification-details-explained"></a>Spiegazione dei dettagli della notifica
 
-La sezione seguente illustra in dettaglio il significato degli elementi della notifica e offre esempi per ognuno di essi.
+Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
 ### <a name="essential-notification-items"></a>Elementi essenziali della notifica
 
@@ -80,11 +79,11 @@ La sezione seguente illustra in dettaglio il significato degli elementi della no
 
     -   Esempio: **L'URL interno immesso è già usato da un'altra applicazione**
 
--   **ID notifica**: l'ID univoco della notifica
+-   **ID notifica**: ID univoco della notifica
 
     -   Esempio: **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **ID richiesta client**: l'ID specifico della richiesta creato dal browser
+-   **ID richiesta client**: ID specifico della richiesta creato dal browser
 
     -   Esempio: **302fd775-3329-4670-a9f3-bea37004f0bc**
 
@@ -100,11 +99,11 @@ La sezione seguente illustra in dettaglio il significato degli elementi della no
 
     -   Esempio: **tperkins@f128.info**
 
--   **ID tenant**: l'ID univoco del tenant di cui è membro l'utente che ha eseguito l'operazione
+-   **ID tenant**: ID univoco del tenant di cui è membro l'utente che ha eseguito l'operazione
 
     -   Esempio: **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **ID oggetto utente**: l'ID univoco dell'utente che ha eseguito l'operazione
+-   **ID oggetto utente**: ID univoco dell'utente che ha eseguito l'operazione
 
     -   Esempio: **17f84be4-51f8-483a-b533-383791227a99**
 
@@ -118,7 +117,7 @@ La sezione seguente illustra in dettaglio il significato degli elementi della no
 
     -   Esempio: **Operazione non riuscita**
 
--   **ID oggetto**: **(può essere vuoto)** l'ID dell'oggetto su cui è stata eseguita l'operazione
+-   **ID oggetto**: **(può essere vuoto)** ID dell'oggetto su cui è stata eseguita l'operazione
 
     -   Esempio: **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
@@ -126,9 +125,10 @@ La sezione seguente illustra in dettaglio il significato degli elementi della no
 
     -   Esempio: **L'URL interno "http://bing.com/" non è valido perché è già in uso**
 
--   **Copia errore**: fare clic sull'**icona Copia** a destra della casella di testo **Copia errore** per copiare tutti i dettagli della notifica da condividere con un tecnico di supporto o del gruppo di prodotti
+-   **Copia errore**: fare clic sull'**icona Copia** a destra della casella di testo **Copia errore** per copiare tutti i dettagli della notifica da condividere con un tecnico del supporto o del gruppo di 
+-   prodotti
 
     -   Esempio```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Gestione di applicazioni con Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Gestione di applicazioni con Azure Active Directory](manage-apps/what-is-application-management.md)

@@ -2,22 +2,20 @@
 title: Collaborazione B2B per organizzazioni ibride - Azure Active Directory | Microsoft Docs
 description: Concedere ai partner l'accesso alle risorse locali e cloud con Collaborazione B2B di Azure AD.
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 04/26/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-ms.service: active-directory
-ms.topic: article
-ms.workload: identity
-ms.date: 04/20/2018
-ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 0ccf3eb381f42849b48f3d149942be13380b3670
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 943ccadbc87cd8d2345078405e2a27930634668e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33928097"
 ---
 # <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>Collaborazione B2B di Azure Active Directory per organizzazioni ibride
 
@@ -31,8 +29,8 @@ Se l'organizzazione usa Collaborazione B2B di Azure AD per invitare gli utenti g
 
 Anche per le app che usano l'autenticazione integrata di Windows con la delega vincolata Kerberos si usa il proxy di Azure AD per l'autenticazione. Affinché l'autorizzazione funzioni, è tuttavia necessario un oggetto utente nell'istanza locale di Windows Server Active Directory. Ci sono due modi per creare oggetti utente locali che rappresentano gli utenti guest B2B.
 
-- È possibile usare Microsoft Identity Manager (MIM) 2016 SP1 e l'agente di gestione MIM per Microsoft Graph. Questa opzione richiede una sottoscrizione di Azure AD Premium 1.
-- È possibile usare uno script di PowerShell. Questa soluzione non richiede MIM o AD Premium.
+- È possibile usare Microsoft Identity Manager (MIM) 2016 SP1 e l'agente di gestione MIM per Microsoft Graph.
+- È possibile usare uno script di PowerShell. Questa soluzione non richiede MIM.
 
 Per informazioni dettagliate su come implementare queste soluzioni, vedere [Concedere agli utenti B2B in Azure AD l'accesso alle applicazioni locali](active-directory-b2b-hybrid-cloud-to-on-premises.md).
 
@@ -40,7 +38,7 @@ Per informazioni dettagliate su come implementare queste soluzioni, vedere [Conc
 
 Prima di Azure AD, le organizzazioni con sistemi di identità locali gestivano gli account partner nella propria directory locale. In un'organizzazione di questo tipo, è necessario assicurarsi che i partner continuino ad avere accesso quando si spostano le app e altre risorse nel cloud. Idealmente, questi utenti devono poter usare lo stesso set di credenziali per accedere alle risorse sia locali che cloud. 
 
-È ora possibile usare Azure AD Connect per sincronizzare questi account locali nel cloud come "utenti guest", in cui gli account si comportano come utenti di Azure AD B2B. Questa soluzione funziona anche se si ha un sistema di identità locale che consente ai partner di usare i propri indirizzi di posta elettronica esterni come nome di accesso.
+È ora possibile usare Azure AD Connect per sincronizzare questi account locali nel cloud come "utenti guest", in cui gli account si comportano come utenti di Azure AD B2B.
 
 Per proteggere i dati aziendali, è possibile controllare l'accesso alle risorse appropriate e configurare criteri di autorizzazione che trattano questi utenti guest in modo diverso dai propri dipendenti.
 
@@ -49,5 +47,6 @@ Per informazioni dettagliate sull'implementazione, vedere [Concedere agli accoun
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Concedere agli utenti B2B in Azure AD l'accesso alle applicazioni locali](active-directory-b2b-hybrid-cloud-to-on-premises.md)
-- [Concedere agli account partner gestiti in locale l'accesso alle risorse cloud usando Collaborazione B2B di Azure AD](active-directory-b2b-hybrid-on-premises-to-cloud.md).
+- [Concedere agli account partner gestiti in locale l'accesso alle risorse cloud usando Collaborazione B2B di Azure AD](active-directory-b2b-hybrid-on-premises-to-cloud.md)
+
 

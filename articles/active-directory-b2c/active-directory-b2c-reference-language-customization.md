@@ -11,17 +11,14 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 3d0f1f2ffd02873df2e2e7eab9894d9c3421b0f7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 097033b78e3e4f640e7bf4008fd970c53315d5d7
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200553"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalizzazione della lingua in Azure AD B2C
-
->[!NOTE]
->Questa funzionalità è disponibile in anteprima pubblica.
->
 
 La personalizzazione della lingua in Azure Active Directory B2C (Azure AD B2C) consente ai criteri di modificare la lingua del percorso utente in base alle esigenze dei clienti.  Microsoft fornisce le traduzioni per [36 lingue](#supported-languages), ma è anche possibile inserire le proprie traduzioni per qualsiasi lingua. Anche se l'esperienza è disponibile per una sola lingua, è possibile personalizzare qualsiasi testo nelle pagine.  
 
@@ -49,7 +46,7 @@ Quando si abilita la personalizzazione della lingua nei criteri, è possibile co
 5. Leggere le informazioni nella finestra di dialogo e selezionare **Sì**.
 
 ## <a name="select-which-languages-in-your-user-journey-are-enabled"></a>Selezionare le lingue abilitate per il percorso utente 
-Abilitare un elenco delle lingue consentite in cui tradurre il percorso utente quando non viene specificato il parametro `ui_locales`.
+Abilitare un set di lingue per il percorso utente da convertire quando richiesto dal browser senza il parametro `ui_locales`.
 1. Assicurarsi che la personalizzazione della lingua sia abilitata nei criteri in base alle istruzioni precedenti.
 2. Nella pagina **Modifica criterio** selezionare **Personalizzazione della lingua**.
 3. Selezionare una lingua che si vuole supportare.
@@ -102,7 +99,7 @@ Sostituire `<ExtensionAttribute>` con il nome dell'attributo utente personalizza
 Sostituire `<ExtensionAttributeValue>` con la nuova stringa da visualizzare.
 
 ### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>Fornire un elenco di valori usando LocalizedCollections
-Se si vuole specificare un elenco preimpostato di valori per le risposte, è necessario creare un attributo `LocalizedCollections`.  `LocalizedCollections` è una matrice di coppie `Name`-`Value`. Per aggiungere `LocalizedCollections`, usare il formato seguente:
+Se si vuole specificare un elenco preimpostato di valori per le risposte, è necessario creare un attributo `LocalizedCollections`.  `LocalizedCollections` è una matrice di coppie `Name`-`Value`. L'ordine degli elementi sarà l'ordine in che cui vengono visualizzati.  Per aggiungere `LocalizedCollections`, usare il formato seguente:
 
 ```JSON
 {
@@ -153,9 +150,9 @@ https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.h
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
-## <a name="add-custom-locales"></a>Aggiungere impostazioni locali personalizzate
+## <a name="add-custom-languages"></a>Aggiungere lingue personalizzate
 
-È anche possibile aggiungere lingue per cui attualmente Microsoft non fornisce traduzioni. Sarà necessario fornire le traduzioni per tutte le stringhe contenute nei criteri.
+È anche possibile aggiungere per cui attualmente Microsoft non fornisce traduzioni. Sarà necessario fornire le traduzioni per tutte le stringhe contenute nei criteri.  I codici della lingua e delle impostazioni internazionali sono limitati a quelli nello standard ISO 639-1. 
 
 1. Nella pagina **Modifica criterio** selezionare **Personalizzazione della lingua**.
 2. Selezionare **Aggiungi lingua personalizzata** nella parte superiore della pagina.
@@ -165,6 +162,10 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 6. Selezionare **Abilita** e i criteri potranno ora visualizzare la lingua per gli utenti.
 7. Salvare la lingua.
 
+>[!IMPORTANT]
+>È necessario abilitare le lingue personalizzate o caricare gli override per la lingua prima di poterla salvare.
+>
+
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
 ### <a name="page-ui-customization-labels-as-overrides"></a>Etichette di personalizzazione dell'interfaccia utente della pagina come sostituzioni
@@ -172,7 +173,7 @@ Quando si abilita la personalizzazione della lingua, le modifiche precedenti app
 ### <a name="up-to-date-translations"></a>Traduzioni aggiornate
 Microsoft si impegna a fornire le traduzioni più aggiornate. Continuerà a migliorare le traduzioni e a garantirne la conformità. Verranno identificati i bug e le modifiche alla terminologia globale e verranno eseguiti aggiornamenti compatibili con il percorso utente.
 ### <a name="support-for-right-to-left-languages"></a>Supporto per lingue da destra a sinistra
-Microsoft non fornisce attualmente supporto per le lingue da destra a sinistra. Se si ha bisogno di questa funzionalità, votarla in [Commenti e suggerimenti su Azure](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
+Microsoft non fornisce attualmente supporto per le lingue da destra a sinistra. A questo scopo, è possibile usare impostazioni locali personalizzate e modificare la modalità di visualizzazione delle stringhe tramite CSS.  Se si ha bisogno di questa funzionalità, votarla in [Commenti e suggerimenti su Azure](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### <a name="social-identity-provider-translations"></a>Traduzioni per provider di identità basati su social network
 Microsoft fornisce il parametro OIDC `ui_locales` per gli account di accesso ai social network, che però non viene riconosciuto da alcuni provider di identità basati su social network, tra cui Facebook e Google. 
 ### <a name="browser-behavior"></a>Comportamento dei browser

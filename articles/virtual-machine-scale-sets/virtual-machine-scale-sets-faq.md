@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: c161b8fb70f20ef7d82834e6c61daff759726b93
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2b0f463c009d13440f6d3eb2bbbe2315ba7b13f2
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895324"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -450,9 +451,9 @@ Se la definizione dell'estensione nel modello di set di scalabilità di macchine
 
 Il ripristino del servizio di una VM esistente viene considerato un riavvio e le estensioni non vengono eseguite di nuovo. Se viene ricreata l'immagine, tale operazione è simile alla sostituzione dell'unità del sistema operativo con l'immagine di origine. Vengono eseguite eventuali specializzazioni dal modello più recente, ad esempio le estensioni.
  
-### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-azure-ad-domain"></a>Come si aggiunge un set di scalabilità di macchine virtuali a un dominio di Azure AD?
+### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>Come si aggiunge un set di scalabilità di macchine virtuali a un dominio di Active Directory?
 
-Per aggiungere un set di scalabilità di macchine virtuali a un dominio di Azure Active Directory (Azure AD), è possibile definire un'estensione. 
+Per aggiungere un set di scalabilità di macchine virtuali a un dominio di Active Directory (AD), è possibile definire un'estensione. 
 
 Per definire un'estensione, usare la proprietà JsonADDomainExtension:
 

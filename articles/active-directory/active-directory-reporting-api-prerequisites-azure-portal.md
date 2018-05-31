@@ -2,47 +2,55 @@
 title: Prerequisiti di accesso all'API di creazione report di Azure AD | Microsoft Docs
 description: Informazioni sui prerequisiti di accesso all'API di creazione report di Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 05/07/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1f4d79b59d44bc1c151391290e79026051fe1df
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ab05907f1f23c3856b41a941c1b95992ed5a79a4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33929983"
 ---
-# <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Prerequisiti di accesso all'API di creazione report di Azure AD
+# <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Prerequisiti di accesso all'API di creazione report di Azure AD
 
-Le [API di creazione report di Azure AD](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) forniscono l'accesso ai dati dal codice tramite un set di API basate su REST. È possibile chiamare le API da numerosi linguaggi di programmazione e strumenti.
+Le [API di creazione report di Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) forniscono l'accesso ai dati dal codice tramite un set di API basate su REST. È possibile chiamare le API da numerosi linguaggi di programmazione e strumenti.
 
-L'API di creazione report usa l'autenticazione [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) per autorizzare l'accesso alle API Web. 
+L'API di creazione report usa l'autenticazione [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) per autorizzare l'accesso alle API Web.
+
+Per preparare l'accesso all'API di creazione report, è necessario:
+
+1. Assegnare ruoli
+2. Registrare un'applicazione
+3. Concedere le autorizzazioni
+4. Ottenere le impostazioni di configurazione
+
+
+
+## <a name="assign-roles"></a>Assegnare ruoli
 
 Per accedere ai dati di creazione dei report tramite l'API, è necessario disporre di uno dei seguenti ruoli assegnati:
 
 - Ruolo con autorizzazioni di lettura per la sicurezza
+
 - Amministrazione della protezione
+
 - Amministratore globale
 
 
-Per preparare l'accesso all'API di creazione report, è necessario:
 
-1. Registrare un'applicazione 
-2. Concedere le autorizzazioni 
-3. Ottenere le impostazioni di configurazione 
 
-Per domande, problemi o suggerimenti, [inviare un ticket di supporto](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
-
-## <a name="register-an-azure-active-directory-application"></a>Registrare un'applicazione Azure Active Directory
+## <a name="register-an-application"></a>Registrare un'applicazione
 
 È necessario registrare un'app, anche se si accede all'API di creazione dei report tramite uno script. Questo consente di avere un **ID applicazione** necessario per una chiamata di autorizzazione e consente al codice di ricevere i token.
 
@@ -59,15 +67,15 @@ Per configurare la directory per l'accesso all'API di creazione report di Azure 
    
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. Nel pannello **Azure Active Directory** fare clic su **Registrazioni per l'app**.
+2. Nella pagina **Azure Active Directory** fare clic su **Registrazioni per l'app**.
 
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/02.png) 
 
-3. Nel pannello **Registrazioni per l'app** nella barra degli strumenti nella parte superiore fare clic su **Registrazione nuova applicazione**.
+3. Nella pagina **Registrazioni per l'app**, nella barra degli strumenti nella parte superiore, fare clic su **Registrazione nuova applicazione**.
 
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/03.png)
 
-4. Nel pannello **Crea** seguire questa procedura:
+4. Nella pagina **Crea** seguire la procedura seguente:
 
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/04.png)
 
@@ -82,28 +90,37 @@ Per configurare la directory per l'accesso all'API di creazione report di Azure 
 
 ## <a name="grant-permissions"></a>Concedere le autorizzazioni 
 
-L'obiettivo di questo passaggio è concedere le autorizzazioni **Legge i dati della directory** dell'applicazione all'API di **Windows Azure Active Directory**.
+A seconda delle API a cui si desidera accedere, è necessario concedere all'app le autorizzazioni seguenti:  
 
-![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/16.png)
+| API | Autorizzazione |
+| --- | --- |
+| Microsoft Azure Active Directory | Leggi i dati della directory |
+| Microsoft Graph | Leggere tutti i dati dei log di controllo |
+
+
+![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/36.png)
+
+
+Nella sezione seguente viene elencata la procedura per entrambe le API. Se non si desidera accedere a una delle API, è possibile ignorare le procedure relative.
  
 
-**Per concedere l'autorizzazione dell'applicazione per l'uso dell'API:**
+**Per concedere l'autorizzazione dell'applicazione per l'uso delle API:**
 
-1. Nel pannello **Registrazioni per l'app** dell'elenco delle app fare clic su **Reporting API application** (Creazione di report per l'applicazione dell'API).
+1. Nella pagina **Registrazioni per l'app** nell'elenco delle app fare clic su **Reporting API application** (Creazione di report per l'applicazione dell'API).
 
-2. Nel pannello **Reporting API application** (Creazione di report per l'applicazione dell'API) fare clic su **Impostazioni** nella barra degli strumenti nella parte superiore. 
+2. Nella pagina **Reporting API application** (Creazione di report per l'applicazione dell'API) fare clic su **Impostazioni** nella barra degli strumenti nella parte superiore. 
 
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/05.png)
 
-3. Nel pannello delle **Impostazioni** fare clic su **Autorizzazioni necessarie**. 
+3. Nella pagina **Impostazioni** fare clic su **Autorizzazioni necessarie**. 
 
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/06.png)
 
-4. Nel pannello **Autorizzazioni necessarie** fare clic su Windows **Azure Active Directory** nell'elenco delle **API**. 
+4. Nella pagina **Autorizzazioni necessarie** fare clic su Windows **Azure Active Directory** nell'elenco delle **API**. 
 
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/07.png)
 
-5. Nel pannello **Abilita accesso** selezionare **Legge i dati della directory**. 
+5. Nella pagina **Abilita l'accesso**, selezionare **Lettura dati directory** e deselezionare **Accedi e leggi il profilo di un altro utente**. 
 
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/08.png)
 
@@ -111,17 +128,37 @@ L'obiettivo di questo passaggio è concedere le autorizzazioni **Legge i dati de
 
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/15.png)
 
-7. Fare clic su **Concedi autorizzazioni** e quindi su **Sì**.
+7. Nella pagina **Autorizzazioni necessarie** fare clic su **Aggiungi** sulla barra degli strumenti in alto.
+
+    ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/32.png)
+
+8. Nella pagina **Aggiungi accesso all'API** fare clic su **Selezionare un'API**.
+
+    ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/31.png)
+
+9. Nella pagina **Selezionare un'API** fare clic su **Microsoft Graph** e quindi fare clic su **Seleziona**.
+
+    ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/33.png)
+
+10. Nella pagina **Abilita l'accesso**, selezionare **Leggere tutti i dati del log di controllo**, quindi fare clic su **Seleziona**.  
+
+    ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/34.png)
+
+
+11. Nella pagina **Aggiungi accesso all'API** fare clic su **Fatto**.  
+
+12. Nella pagina **Autorizzazioni necessarie**, sulla barra degli strumenti in alto. fare clic su **Concedi autorizzazioni** e quindi su **Sì**.
 
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/17.png)
 
 
 ## <a name="gather-configuration-settings"></a>Ottenere le impostazioni di configurazione 
+
 Questa sezione illustra come ottenere le impostazioni seguenti dalla directory:
 
-* Nome di dominio
-* ID client
-* Segreto client
+- Nome di dominio
+- ID client
+- Segreto client
 
 Questi valori sono necessari quando si configurano le chiamate all'API di creazione report. 
 
@@ -133,7 +170,7 @@ Questi valori sono necessari quando si configurano le chiamate all'API di creazi
    
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. Nel pannello **Azure Active Directory** fare clic su **Nomi di dominio personalizzati**.
+2. Nella pagina **Azure Active Directory** fare clic su **Nomi di dominio personalizzati**.
 
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
@@ -148,9 +185,9 @@ Questi valori sono necessari quando si configurano le chiamate all'API di creazi
    
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. Nel pannello **Registrazioni per l'app** dell'elenco delle app fare clic su **Reporting API application** (Creazione di report per l'applicazione dell'API).
+2. Nella pagina **Registrazioni per l'app** nell'elenco delle app fare clic su **Reporting API application** (Creazione di report per l'applicazione dell'API).
 
-3. Nel pannello **Reporting API application** (Creazione di report per l'applicazione dell'API) fare clic su **Fare clic per copiare** nell'**ID applicazione**.
+3. Nella pagina **Reporting API application** (Creazione di report per l'applicazione dell'API) fare clic su **Fare clic per copiare** nell'**ID applicazione**.
 
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/11.png) 
 
@@ -165,19 +202,19 @@ Per ottenere il segreto client dell'applicazione, è necessario creare una nuova
    
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. Nel pannello **Registrazioni per l'app** dell'elenco delle app fare clic su **Reporting API application** (Creazione di report per l'applicazione dell'API).
+2. Nella pagina **Registrazioni per l'app** nell'elenco delle app fare clic su **Reporting API application** (Creazione di report per l'applicazione dell'API).
 
 
-3. Nel pannello **Reporting API application** (Creazione di report per l'applicazione dell'API) fare clic su **Impostazioni** nella barra degli strumenti nella parte superiore. 
+3. Nella pagina **Reporting API application** (Creazione di report per l'applicazione dell'API) fare clic su **Impostazioni** nella barra degli strumenti nella parte superiore. 
 
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/05.png)
 
-4. Nel pannello **Impostazioni**fare clic su **Chiavi**  nella sezione **APIR Access** (Accesso APIR). 
+4. Nella pagina **Impostazioni**fare clic su **Chiavi**  nella sezione **APIR Access** (Accesso APIR). 
 
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/12.png)
 
 
-5. Nel pannello **Chiavi** seguire questa procedura:
+5. Nel pagina **Chiavi** seguire questa procedura:
 
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/14.png)
 
@@ -191,6 +228,10 @@ Per ottenere il segreto client dell'applicazione, è necessario creare una nuova
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Si desidera accedere ai dati dall'API di creazione report di Azure AD mediante il codice? Vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
-* Per altre informazioni sulla creazione di report di Azure Active Directory, vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).  
+
+- [Ottenere dati con l'API di creazione report di Azure Active Directory con certificati](active-directory-reporting-api-with-certificates.md).
+
+- [Ottenere una prima impressione delle API di creazione report](active-directory-reporting-api-getting-started-azure-portal.md#explore)
+
+- [Creare una soluzione personalizzata](active-directory-reporting-api-getting-started-azure-portal.md#customize)
 

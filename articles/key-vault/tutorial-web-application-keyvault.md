@@ -1,5 +1,5 @@
 ---
-title: Configurare un'applicazione Web di Azure per la lettura di un segreto da un insieme di credenziali delle chiavi | Microsoft Docs
+title: Esercitazione sulla configurazione di un'applicazione Web di Azure per la lettura di un segreto da un insieme di credenziali delle chiavi | Microsoft Docs
 description: Esercitazione Configurare un'applicazione ASP.Net Core per la lettura di un segreto da un insieme di credenziali delle chiavi
 services: key-vault
 documentationcenter: ''
@@ -8,19 +8,20 @@ manager: mbaldwin
 ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
-ms.topic: article
-ms.date: 04/16/2018
+ms.topic: tutorial
+ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: b4e317a82b93513c6161d9da0c55883e99580cbb
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 146ea04081a4adebe4a6e9249bb1fe34ba76e3a4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305175"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Esercitazione: Configurare un'applicazione Web di Azure per la lettura di un segreto da un insieme di credenziali delle chiavi
 
-In questa esercitazione vengono presentati i passaggi necessari per ottenere un'applicazione Web di Azure per leggere le informazioni da Key Vault usando le identità del servizio gestito. Si apprenderà come:
+In questa esercitazione vengono presentati i passaggi necessari per ottenere un'applicazione Web di Azure per leggere le informazioni dall'insieme di credenziali delle chiavi usando le identità del servizio gestito. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un insieme di credenziali delle chiavi.
@@ -48,24 +49,22 @@ Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
 ```azurecli
-az group create --name ContosoResourceGroup --location eastus
+# To list locations: az account list-locations --output table
+az group create --name "ContosoResourceGroup" --location "East US"
 ```
 
 In tutta l'esercitazione viene usato il gruppo di risorse appena creato.
 
 ## <a name="create-an-azure-key-vault"></a>Creare un Azure Key Vault
 
-Verrà di seguito creato un insieme di credenziali delle chiavi nel gruppo di risorse creato nel passaggio precedente. È necessario fornire alcune informazioni:
-
->[!NOTE]
-> Anche se "ContosoKeyVault" viene usato come nome per l'insieme di credenziali delle chiavi in tutta l'esercitazione, è necessario usare un nome univoco.
+Verrà di seguito creato un insieme di credenziali delle chiavi nel gruppo di risorse creato nel passaggio precedente. Anche se in tutta l'esercitazione viene usato "ContosoKeyVault" come nome per l'insieme di credenziali delle chiavi, è necessario usare un nome univoco. Specificare le informazioni seguenti:
 
 * Nome dell'insieme di credenziali **ContosoKeyVault**.
 * Nome del gruppo di risorse **ContosoResourceGroup**.
 * Località **Stati Uniti orientali**.
 
 ```azurecli
-az keyvault create --name '<YourKeyVaultName>' --resource-group ContosoResourceGroup --location eastus
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East US"
 ```
 
 L'output di questo comando mostra le proprietà dell'insieme di credenziali delle chiavi appena creato. Prendere nota delle due proprietà elencate di seguito:
@@ -80,21 +79,21 @@ A questo punto, l'account Azure è l'unico autorizzato a eseguire qualsiasi oper
 
 ## <a name="add-a-secret-to-key-vault"></a>Aggiungere un segreto all'insieme di credenziali delle chiavi
 
-Di seguito verrà aggiunto un segreto per illustrare il funzionamento di questa operazione. Si potrebbe archiviare una stringa di connessione SQL o qualsiasi altra informazione che è necessario conservare in modo sicuro, rendendola però disponibile per l'applicazione. In questa esercitazione, la password sarà **AppSecret** e archivierà il valore **MySecret**.
+Verrà aggiunto un segreto per illustrare il funzionamento di questa operazione. Si potrebbe archiviare una stringa di connessione SQL o qualsiasi altra informazione che è necessario conservare in modo sicuro, rendendola però disponibile per l'applicazione. In questa esercitazione la password sarà denominata **AppSecret** e archivierà il valore **MySecret**.
 
 Digitare i comandi seguenti per creare un segreto nell'insieme di credenziali delle chiavi chiamato **AppSecret** che archivierà il valore **MySecret**:
 
 ```azurecli
-az keyvault secret set --vault-name '<YourKeyVaultName>' --name 'AppSecret' --value 'MySecret'
+az keyvault secret set --vault-name "ContosoKeyVault" --name "AppSecret" --value "MySecret"
 ```
 
 Per visualizzare il valore contenuto nel segreto come testo normale:
 
 ```azurecli
-az keyvault secret show --name 'AppSecret' --vault-name '<YourKeyVaultName>'
+az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 ```
 
-Questo comando mostra le informazioni del segreto, incluso l'URI. Dopo aver completato questi passaggi sarà disponibili un URI per un segreto in insieme di credenziali delle chiavi di Azure. Prendere nota di queste informazioni. Saranno necessarie in un passaggio successivo.
+Questo comando mostra le informazioni del segreto, incluso l'URI. Dopo aver completato questi passaggi sarà disponibili un URI per un segreto in Azure Key Vault. Prendere nota di queste informazioni. Saranno necessarie in un passaggio successivo.
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
@@ -212,9 +211,9 @@ Per l'applicazione Web devono essere installati due pacchetti NuGet. Per install
 ## <a name="publish-the-web-application-to-azure"></a>Pubblicare l'applicazione Web in Azure
 
 1. Sopra l'editor selezionare **WebKeyVault**.
-2. Selezionare **Pubblica**.
-3. Selezionare di nuovo **Pubblica**.
-4. Selezionare **Crea**.
+2. Selezionare **Publish** (Pubblica), quindi **Start** (Inizia).
+3. Creare un nuovo **servizio app** e selezionare **Publish**.
+4. Selezionare **Create**.
 
 >[!IMPORTANT]
 > Verrà visualizzata una finestra del browser con un messaggio di errore 502.5 - Errore del processo. Si tratta di un comportamento previsto. Sarà necessario concedere i diritti di identità di applicazione per leggere i segreti dall'insieme di credenziali delle chiavi.
@@ -227,11 +226,11 @@ Azure Key Vault consente di archiviare in modo sicuro le credenziali e altre chi
 2. Eseguire il comando assign-identity per creare l'identità per l'applicazione:
 
 ```azurecli
-az webapp assign-identity --name WebKeyVault --resource-group ContosoResourcegroup
+az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResourcegroup"
 ```
 
 >[!NOTE]
->Ciò equivale a passare al portale e impostare **Identità del servizio gestito** su **Attivato** nelle proprietà dell'applicazione Web.
+>Questo comando equivale a passare al portale e impostare **Identità del servizio gestito** su **Attivato** nelle proprietà dell'applicazione Web.
 
 ## <a name="grant-rights-to-the-application-identity"></a>Concedere i diritti all'identità di applicazione
 
@@ -243,14 +242,14 @@ Usando il portale di Azure passare ai criteri di accesso dell'insieme di credenz
 4. Selezionare **Selezionare un'entità** e aggiungere l'identità di applicazione. Avrà lo stesso nome dell'applicazione.
 5. Scegliere **OK**.
 
-L'account in Azure e l'identità di applicazione hanno ora i diritti per la lettura delle informazioni dall'insieme di credenziali delle chiavi. Se si aggiorna la pagina dovrebbe essere visualizzata la pagina di destinazione del sito. Se si seleziona **About** viene visualizzato il valore archiviato nell'insieme di credenziali delle chiavi.
+L'account in Azure e l'identità di applicazione hanno ora i diritti per la lettura delle informazioni dall'insieme di credenziali delle chiavi. Quando si aggiorna la pagina dovrebbe essere visualizzata la pagina di destinazione del sito. Se si seleziona **Informazioni**, viene visualizzato il valore archiviato nell'insieme di credenziali delle chiavi.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Per eliminare un gruppo di risorse e tutte le relative risorse, usare il comando **az group delete**.
 
   ```azurecli
-  az group delete -n ContosoResourceGroup
+  az group delete -n "ContosoResourceGroup"
   ```
 
 ## <a name="next-steps"></a>Passaggi successivi

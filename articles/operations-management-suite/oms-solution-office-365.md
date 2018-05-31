@@ -1,35 +1,36 @@
 ---
-title: Soluzione Office 365 in Operations Management Suite (OMS) | Microsoft Docs
-description: In questo articolo vengono fornite informazioni dettagliate sulla configurazione e l'uso della soluzione Office 365 in OMS.  Include una descrizione dettagliata dei record di Office 365 creati in Log Analytics.
+title: Soluzione Gestione di Office 365 in Azure | Microsoft Docs
+description: In questo articolo vengono fornite informazioni dettagliate sulla configurazione e l'uso della soluzione Office 365 in Azure.  Include una descrizione dettagliata dei record di Office 365 creati in Log Analytics.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 711071eaff7ab5e5199793663aa3cbb36a1e8d8a
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 8797e08ad942687b7d2defd765f4fe3f9765812f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777849"
 ---
-# <a name="office-365-solution-in-operations-management-suite-oms"></a>Soluzione Office 365 in Operations Management Suite (OMS)
+# <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
 
 ![Logo di Office 365](media/oms-solution-office-365/icon.png)
 
-La soluzione Office 365 per Operations Management Suite (OMS) consente di monitorare l'ambiente Office 365 in Log Analytics.  
+La soluzione Gestione di Office 365 consente di monitorare l'ambiente Office 365 in Log Analytics.
 
 - Monitoraggio delle attività degli utenti negli account di Office 365 per analizzare i modelli di utilizzo nonché identificare le tendenze di comportamento. Ad esempio, è possibile estrarre scenari di uso specifici, ad esempio i file condivisi all'esterno dell'organizzazione o i siti di SharePoint più diffusi.
 - Monitoraggio delle attività dell'amministratore per tenere traccia delle modifiche alla configurazione o le operazioni con privilegi elevati.
 - Rilevamento e analisi del comportamento utente indesiderato, che può essere personalizzato per esigenze organizzative.
 - Dimostrazione di conformità e controllo. Ad esempio, è possibile monitorare le operazioni di accesso nei file riservati, favorendo così il processo di conformità e controllo.
-- Risoluzione dei problemi operativi usando la ricerca di OMS per i dati di attività di Office 365 dell'organizzazione.
+- Risoluzione dei problemi operativi usando le [ricerche log](../log-analytics/log-analytics-log-search.md) per i dati di attività di Office 365 dell'organizzazione.
 
 ## <a name="prerequisites"></a>prerequisiti
 Prima di installare e configurare la soluzione, è richiesto quanto segue.
@@ -47,7 +48,7 @@ Questa soluzione non installa alcun Management Pack nei gruppi di gestione conne
 ## <a name="configuration"></a>Configurazione
 Dopo aver [aggiunto la soluzione Office 365 alla sottoscrizione](../log-analytics/log-analytics-add-solutions.md), è necessario connetterla alla sottoscrizione di Office 365.
 
-1. Aggiungere la soluzione Alert Management all'area di lavoro di OMS usando la procedura descritta in [Aggiungere soluzioni](../log-analytics/log-analytics-add-solutions.md).
+1. Aggiungere la soluzione Gestione avvisi all'area di lavoro di Log Analytics usando la procedura descritta in [Aggiungere soluzioni](../log-analytics/log-analytics-add-solutions.md).
 2. Passare a **Impostazioni** nel portale OMS.
 3. In **Origini connesse**selezionare **Office 365**.
 4. Fare clic su **Connetti Office 365**.<br>![Connetti Office 365](media/oms-solution-office-365/configure.png)
@@ -63,7 +64,7 @@ La soluzione Office 365 non recupera i dati dagli [agenti OMS](../log-analytics/
 Office 365 invia una [notifica webhook](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) con dati dettagliati per Log Analytics ogni volta che viene creato un record.
 
 ## <a name="using-the-solution"></a>Uso della soluzione
-Quando si aggiunge la soluzione Office 365 all'area di lavoro di OMS, il riquadro **Office 365** verrà aggiunto alla dashboard OMS. Il riquadro visualizza un conteggio e la rappresentazione grafica del numero di computer nell'ambiente con la relativa conformità degli aggiornamenti.<br><br>
+Quando si aggiunge la soluzione Office 365 all'area di lavoro di Log Analytics, il riquadro **Office 365** verrà aggiunto al dashboard. Il riquadro visualizza un conteggio e la rappresentazione grafica del numero di computer nell'ambiente con la relativa conformità degli aggiornamenti.<br><br>
 ![Riquadro di riepilogo di Office 365](media/oms-solution-office-365/tile.png)  
 
 Fare clic sul riquadro **Office 365** per aprire la dashboard di **Office 365**.
@@ -294,9 +295,9 @@ Se la soluzione Office 365 non raccoglie i dati come previsto, controllare lo st
 
 | Status | DESCRIZIONE |
 |:--|:--|
-| Attivo | La sottoscrizione di Office 365 è attiva e il carico di lavoro è connesso correttamente all'area di lavoro di OMS. |
-| In sospeso | La sottoscrizione di Office 365 è attiva ma il carico di lavoro non è ancora connesso correttamente all'area di lavoro di OMS. La prima volta che si connette la sottoscrizione di Office 365, tutti i carichi di lavoro passeranno in questo stato fino a quando non sono connessi correttamente. Attendere 24 ore perché tutti i carichi di lavoro passino allo stato Attivo. |
-| Inactive | La sottoscrizione di Office 365 è in stato inattivo. Controllare la pagina di amministrazione di Office 365 per i dettagli. Dopo aver attivato la sottoscrizione di Office 365, scollegarla dall'area di lavoro di OMS e collegarla nuovamente per avviare la ricezione dei dati. |
+| Attivo | La sottoscrizione di Office 365 è attiva e il carico di lavoro è connesso correttamente all'area di lavoro di Log Analytics. |
+| In sospeso | La sottoscrizione di Office 365 è attiva ma il carico di lavoro non è ancora connesso correttamente all'area di lavoro di Log Analytics. La prima volta che si connette la sottoscrizione di Office 365, tutti i carichi di lavoro passeranno in questo stato fino a quando non sono connessi correttamente. Attendere 24 ore perché tutti i carichi di lavoro passino allo stato Attivo. |
+| Inactive | La sottoscrizione di Office 365 è in stato inattivo. Controllare la pagina di amministrazione di Office 365 per i dettagli. Dopo aver attivato la sottoscrizione di Office 365, scollegarla dall'area di lavoro di Log Analytics e collegarla nuovamente per avviare la ricezione dei dati. |
 
 
 

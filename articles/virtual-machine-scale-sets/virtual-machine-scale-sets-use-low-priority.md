@@ -13,13 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: f25e4d1e3906a610e7c60e348f872a78d7db8fd3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5c0726ea0da288d5306e28b101e4d3b59605b443
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894907"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Macchine virtuali con priorità bassa nei set di scalabilità (anteprima)
 
@@ -27,24 +28,28 @@ L'uso di macchine virtuali con priorità bassa nei set di scalabilità consente 
 
 La quantità di capacità inutilizzata disponibile dipende dalle dimensioni, dall'area, dal momento della giornata e da altri fattori. Quando si distribuiscono macchine virtuali con priorità bassa in set di scalabilità, Azure le alloca se c'è capacità disponibile, ma non esiste alcun contratto di servizio per queste macchine virtuali. Un set di scalabilità con priorità bassa viene distribuito in un singolo dominio di errore e non offre alcuna garanzia di disponibilità elevata.
 
-> [!NOTE]
-> I set di scalabilità con priorità bassa sono in versione di anteprima e sono pronti per scenari di sviluppo e test. 
-
 ## <a name="eviction-policy"></a>Criteri di rimozione
 
-Quando le macchine virtuali del set di scalabilità con priorità bassa vengono rimosse, passano allo stato di arresto (deallocazione) per impostazione predefinita. Con questi criteri di rimozione è possibile ridistribuire istanze rimosse, ma non c'è alcuna garanzia di successo dell'allocazione. Le macchine virtuali arrestate verranno incluse nel conteggio per la quota delle istanze del set di scalabilità e verranno addebitati i costi dei dischi sottostanti. 
+Quando si creano set di scalabilità con priorità bassa, è possibile impostare i criteri di rimozione su *Deallocare* (impostazione predefinita) o *Eliminare*. 
 
-Se si vuole che le macchine virtuali del set di scalabilità con priorità bassa vengano eliminate dopo essere state rimosse, è possibile impostare i criteri di rimozione per l'eliminazione nel [modello di Azure Resource Manager](#use-azure-resource-manager-templates). Con i criteri di rimozione impostati per l'eliminazione è quindi possibile creare nuove macchine virtuali aumentando il valore della proprietà del numero di istanze di set di scalabilità. Le macchine virtuali rimosse vengono eliminate insieme ai relativi dischi sottostanti, quindi non verrà addebitato alcun costo per l'archiviazione. Si può anche usare la funzionalità di ridimensionamento automatico dei set di scalabilità per cercare di compensare automaticamente le macchine virtuali rimosse, tuttavia non esiste alcuna garanzia di successo dell'allocazione. È consigliabile usare la funzionalità di ridimensionamento automatico sui set di scalabilità con priorità bassa solo quando si impostano i criteri di rimozione per l'eliminazione, per evitare l'addebitamento dei costi dei dischi e il raggiungimento dei limiti di quota. 
+Il criterio *Deallocare* cambia le macchine virtuali rimosse portandole allo stato deallocato arrestato, consentendo di ridistribuire le istanze rimosse. Tuttavia, non è garantito che l'allocazione avrà esito positivo. Le macchine virtuali deallocate verranno incluse nel conteggio per la quota delle istanze del set di scalabilità e verranno addebitati i costi dei dischi sottostanti. 
+
+Se si desidera che le macchine virtuali del set di scalabilità con priorità bassa vengano eliminate dopo essere state rimosse, è possibile impostare i criteri di rimozione su *elimina*. Con i criteri di rimozione impostati per l'eliminazione è quindi possibile creare nuove macchine virtuali aumentando il valore della proprietà del numero di istanze di set di scalabilità. Le macchine virtuali rimosse vengono eliminate insieme ai relativi dischi sottostanti, quindi non verrà addebitato alcun costo per l'archiviazione. Si può anche usare la funzionalità di ridimensionamento automatico dei set di scalabilità per cercare di compensare automaticamente le macchine virtuali rimosse, tuttavia non esiste alcuna garanzia di successo dell'allocazione. È consigliabile usare la funzionalità di ridimensionamento automatico sui set di scalabilità con priorità bassa solo quando si impostano i criteri di rimozione per l'eliminazione, per evitare l'addebitamento dei costi dei dischi e il raggiungimento dei limiti di quota. 
 
 > [!NOTE]
-> Durante il periodo di anteprima sarà possibile impostare i criteri di rimozione tramite i [modelli di Azure Resource Manager](#use-azure-resource-manager-templates). 
+> Durante la fase di anteprima sarà possibile impostare i criteri di rimozione tramite il [portale di Azure](#use-the-azure-portal) e i [modelli di Azure Resource Manager](#use-azure-resource-manager-templates). 
 
 ## <a name="deploying-low-priority-vms-on-scale-sets"></a>Distribuzione di macchine virtuali con priorità bassa nei set di scalabilità
 
 Per distribuire macchine virtuali con priorità bassa nei set di scalabilità, è possibile impostare il nuovo flag *Priority* su *Low*. Per tutte le macchine virtuali nel set di scalabilità verrà impostata la priorità bassa. Per creare un set di scalabilità con macchine virtuali con priorità bassa, usare uno dei metodi seguenti:
+- [Portale di Azure](#use-the-azure-portal)
 - [Interfaccia della riga di comando di Azure 2.0](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Modelli di Gestione risorse di Azure](#use-azure-resource-manager-templates)
+
+## <a name="use-the-azure-portal"></a>Usare il portale di Azure
+
+La procedura per creare un set di scalabilità che usi macchine virtuali con priorità bassa è identica a quella descritta in dettaglio nell'[articolo introduttivo](quick-create-portal.md). Quando si distribuisce un set di scalabilità, è possibile scegliere di impostare il flag con priorità bassa e il criterio di eliminazione: ![Creare un set di scalabilità con le macchine virtuali con priorità bassa](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
 
 ## <a name="use-the-azure-cli-20"></a>Usare l'interfaccia della riga di comando di Azure 2.0
 
@@ -77,7 +82,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 ## <a name="use-azure-resource-manager-templates"></a>Usare i modelli di Azure Resource Manager
 
-La procedura per creare un set di scalabilità che usa macchine virtuali con priorità bassa è identica a quella descritta in dettaglio nell'articolo introduttivo per [Linux](quick-create-template-linux.md) o [Windows](quick-create-template-windows.md). Aggiungere la proprietà "priority" al tipo di risorsa *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* nel modello e specificare *Low* come valore. Usare l'API versione *2017-10-30-preview* o successiva. 
+La procedura per creare un set di scalabilità che usa macchine virtuali con priorità bassa è identica a quella descritta in dettaglio nell'articolo introduttivo per [Linux](quick-create-template-linux.md) o [Windows](quick-create-template-windows.md). Aggiungere la proprietà "priority" al tipo di risorsa *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* nel modello e specificare *Low* come valore. Usare l'API versione *2018-03-01* o successiva. 
 
 Per impostare i criteri di rimozione per l'eliminazione, aggiungere il parametro "evictionPolicy" e impostarlo su *delete*.
 
@@ -88,7 +93,7 @@ L'esempio seguente crea un set di scalabilità con priorità bassa di Linux deno
   "type": "Microsoft.Compute/virtualMachineScaleSets",
   "name": "myScaleSet",
   "location": "East US 2",
-  "apiVersion": "2017-12-01",
+  "apiVersion": "2018-03-01",
   "sku": {
     "name": "Standard_DS2_v2",
     "capacity": "2"
@@ -121,6 +126,23 @@ L'esempio seguente crea un set di scalabilità con priorità bassa di Linux deno
   }
 }
 ```
+## <a name="faq"></a>Domande frequenti
+
+### <a name="can-i-convert-existing-scale-sets-to-low-priority-scale-sets"></a>È possibile convertire i set di scalabilità esistenti in set di scalabilità con priorità bassa?
+No, l'impostazione del flag con priorità bassa è supportata solo in fase di creazione.
+
+### <a name="can-i-create-a-scale-set-with-both-regular-vms-and-low-priority-vms"></a>È possibile creare un set di scalabilità sia con macchine virtuali regolari sia con macchine virtuali con priorità bassa?
+No, un set di scalabilità non supporta più di un tipo di priorità.
+
+### <a name="how-is-quota-managed-for-low-priority-vms"></a>Come viene gestita la quota per le macchine virtuali con priorità bassa?
+Le macchine virtuali con priorità bassa e le macchine virtuali regolari condividono lo stesso pool di quota. 
+
+### <a name="can-i-use-autoscale-with-low-priority-scale-sets"></a>Si può usare la scalabilità automatica con i set di scalabilità con priorità bassa?
+Sì, è possibile impostare le regole di scalabilità automatica nel set di scalabilità con priorità bassa. Se le macchine virtuali vengono rimosse, la scalabilità automatica può provare a creare nuove macchine virtuali con priorità bassa. Tuttavia, tenere presente che questa capacità potrebbe non funzionare. 
+
+### <a name="does-autoscale-work-with-both-eviction-policies-deallocate-and-delete"></a>La scalabilità automatica funziona con entrambi i criteri di rimozione (deallocare ed eliminare)?
+È consigliabile impostare i criteri di rimozione da eliminare quando si usa la scalabilità automatica. Questo avviene perché le istanze appena deallocate sono incluse nel calcolo delle capacità nel set di scalabilità. Quando si usa la scalabilità automatica, probabilmente verrà raggiunto rapidamente il numero di istanze di destinazione a causa delle istanze deallocate e rimosse. 
+
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver creato un set di scalabilità con macchine virtuali con priorità bassa, provare a distribuire il [modello di scalabilità automatica usando la priorità bassa](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
 
